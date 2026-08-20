@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thermo-fisher-scientific",
-  "assembledAt": "2026-08-20T10:05:49.164Z",
+  "assembledAt": "2026-08-20T21:44:05.484Z",
   "jobs": [
     {
       "id": "thermo-fisher-scientific-bb57b4d1cc27",
@@ -33,7 +33,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01350882/project-support-associate-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:45.879Z",
+      "crawledAt": "2026-08-20T21:44:02.326Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -51,14 +51,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-support-associate-distribution-thermo-fisher-scientific-ch"
+        "project-support-associate-distribution-thermo-fisher-scientific-ch",
+        "supporto-per-il-progetto-associate-distribuzione-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-support-associate-distribution-thermo-fisher-scientific-ch"
+          "project-support-associate-distribution-thermo-fisher-scientific-ch",
+          "supporto-per-il-progetto-associate-distribuzione-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:30.500Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -103,7 +106,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01349188/senior-scientist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:45.082Z",
+      "crawledAt": "2026-08-20T21:44:00.488Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -180,7 +183,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344620/associate-project-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:43.456Z",
+      "crawledAt": "2026-08-20T21:43:58.871Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -201,14 +204,16 @@
         "associate-project-manager-thermo-fisher-scientific-ch",
         "operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "operator-thermo-fisher-scientific-ch",
-        "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+        "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "responsabile-del-progetto-associato-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-project-manager-thermo-fisher-scientific-ch",
           "operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
           "operator-thermo-fisher-scientific-ch",
-          "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+          "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "responsabile-del-progetto-associato-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "de": [
           "associate-project-manager-thermo-fisher-scientific-ch",
@@ -264,7 +269,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01363403/senior-demand-and-supply-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:42.382Z",
+      "crawledAt": "2026-08-20T21:43:57.222Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -327,7 +332,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01357758/senior-technical-sales-specialist-single-use-technologies",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:41.525Z",
+      "crawledAt": "2026-08-20T21:43:55.541Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -344,14 +349,18 @@
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Reinach-Switzerland/Senior-Technical-Sales-Specialist--Single-Use-Technologies_R-01357758/apply",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-technical-sales-specialist-single-use-technologies-thermo-fisher-scientific-ch",
+        "senior-technical-sales-specialista-single-use-technologies-thermo-fisher-scientific-schweiz-ag-reinach"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technical-sales-specialist-single-use-technologies-thermo-fisher-scientific-ch"
+          "senior-technical-sales-specialist-single-use-technologies-thermo-fisher-scientific-ch",
+          "senior-technical-sales-specialista-single-use-technologies-thermo-fisher-scientific-schweiz-ag-reinach"
         ]
       },
-      "previousSlugs": [
-        "senior-technical-sales-specialist-single-use-technologies-thermo-fisher-scientific-ch"
-      ],
+      "firstSeenAt": "2026-08-18T21:49:13.436Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -363,8 +372,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-18T21:49:13.436Z"
+      }
     },
     {
       "id": "thermo-fisher-scientific-96fc97359f60",
@@ -397,7 +405,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01361137/supervisor-field-service-em",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:39.860Z",
+      "crawledAt": "2026-08-20T21:43:53.879Z",
       "addressLocality": "Reinach",
       "postalCode": "9999",
       "addressRegion": "BL",
@@ -415,11 +423,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "supervisor-field-service-em-thermo-fisher-scientific-ch"
+        "supervisor-field-service-em-thermo-fisher-scientific-ch",
+        "supervisore-field-service-em-thermo-fisher-scientific-schweiz-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supervisor-field-service-em-thermo-fisher-scientific-ch"
+          "supervisor-field-service-em-thermo-fisher-scientific-ch",
+          "supervisore-field-service-em-thermo-fisher-scientific-schweiz-ag-reinach"
         ],
         "de": [
           "supervisor-field-service-em-thermo-fisher-scientific-ch"
@@ -473,7 +483,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01360772/sr-qa-it-csv-compliance-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:38.694Z",
+      "crawledAt": "2026-08-20T21:43:52.291Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -491,11 +501,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sr-qa-it-csv-compliance-specialist-thermo-fisher-scientific-ch"
+        "sr-qa-it-csv-compliance-specialist-thermo-fisher-scientific-ch",
+        "sr-qa-it-csv-compliance-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sr-qa-it-csv-compliance-specialist-thermo-fisher-scientific-ch"
+          "sr-qa-it-csv-compliance-specialist-thermo-fisher-scientific-ch",
+          "sr-qa-it-csv-compliance-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "de": [
           "sr-qa-it-csv-compliance-specialist-thermo-fisher-scientific-ch"
@@ -549,7 +561,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01359187/senior-ehs-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:37.609Z",
+      "crawledAt": "2026-08-20T21:43:50.848Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -567,11 +579,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-ehs-specialist-thermo-fisher-scientific-ch"
+        "senior-ehs-specialist-thermo-fisher-scientific-ch",
+        "senior-ehs-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ehs-specialist-thermo-fisher-scientific-ch"
+          "senior-ehs-specialist-thermo-fisher-scientific-ch",
+          "senior-ehs-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "de": [
           "senior-ehs-specialist-thermo-fisher-scientific-ch"
@@ -609,7 +623,7 @@
       "title": "Goods Receipt Specialist",
       "titleByLocale": {
         "it": "Goods Receipt Specialista",
-        "en": "Good Receipt Specialist",
+        "en": "Goods Receipt Specialist",
         "de": "Goods Receipt Spezialist",
         "fr": "Goods Receipt Spécialiste"
       },
@@ -625,7 +639,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358126/goods-receipt-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:05:36.815Z",
+      "crawledAt": "2026-08-20T21:43:49.271Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -643,17 +657,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "goods-receipt-specialist-thermo-fisher-scientific-ch"
+        "goods-receipt-specialist-thermo-fisher-scientific-ch",
+        "goods-receipt-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "goods-receipt-specialist-thermo-fisher-scientific-ch"
+          "goods-receipt-specialist-thermo-fisher-scientific-ch",
+          "goods-receipt-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "goods-receipt-specialist-thermo-fisher-scientific-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -668,12 +685,88 @@
       }
     },
     {
+      "id": "thermo-fisher-scientific-38961a7efddf",
+      "slug": "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland",
+      "slugByLocale": {
+        "it": "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland",
+        "en": "account-manager-thermo-fisher-scientific-ch",
+        "de": "account-manager-thermo-fisher-scientific-ch",
+        "fr": "gestionnaire-de-compte-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
+      },
+      "company": "Thermo Fisher Scientific (Schweiz) AG",
+      "companyKey": "thermo-fisher-scientific",
+      "companyDomain": "thermofisher.com",
+      "title": "Account Manager",
+      "titleByLocale": {
+        "it": "Gestione account",
+        "en": "Account Manager",
+        "de": "Account Manager",
+        "fr": "Gestionnaire de compte"
+      },
+      "description": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nAs part of the Thermo Fisher Scientific team, you’ll discover meaningful work that makes a positive impact on a global scale. Join our colleagues in bringing our Mission to life every single day to enable our customers to make the world healthier, cleaner and safer. We provide our global teams with the resources needed to achieve individual career goals while helping to take science a step beyond by developing solutions for some of the world’s toughest challenges, like protecting the environment, making sure our food is safe or helping find cures for cancer.\n\nFrom sample to knowledge to results, the Chromatography and Mass Spectrometry business develops and manufactures leading-edge chromatography and mass spectrometry instruments, consumables, and software solutions for customers working in the analytical sciences (routine testing markets) and scientific research. Our complete workflow solutions enable productivity and efficiency for customers performing food and beverage testing and manufacturing, environmental and industrial testing, biopharma QA/QC, toxicology, and anti-doping. For scientific research customers, our products support a range of focus areas, including proteomics, metabolomics, drug discovery, and clinical research.\n\n**Location:** Switzerland / remote\n\n**Discover Impactful Work** As an **Account Manager** at Thermo Fisher Scientific, you'll support sales growth and customer success for our advanced analytical and scientific instruments. Working in scientific instrument solutions, you'll help customers make informed decisions in research, quality control, and process improvement. You'll develop and expand customer relationships while representing our comprehensive portfolio of instruments, consumables, and services across diverse markets including pharmaceutical, environmental, industrial, food safety, healthcare, and academic research.\n\n**A Day in the Life:** Develop and grow customer relationships by understanding scientific, technical, and business requirements and providing consultative solutions across our portfolio of analytical instruments, consumables, and services. Build and execute strategic sales plans, identify new opportunities, deliver compelling presentations, negotiate effectively, and collaborate with internal teams to drive customer success and achieve sales objectives.\n\n## What to expect:\n\n- Develop and execute strategic sales plans to achieve growth objectives.\n- Build, maintain, and expand relationships with new and existing customers.\n- Understand customer laboratory workflows, applications, and business needs.\n- Provide consultative guidance on analytical instrumentation, consumables, and services.\n- Identify and develop sales opportunities across pharmaceutical, environmental, industrial, food safety, healthcare, and academic research markets.\n- Deliver technical and commercial presentations to customers and stakeholders.\n- Manage negotiations and support customers throughout the sales process.\n- Maintain accurate opportunity and customer information using CRM systems such as Salesforce.\n- Collaborate effectively with internal commercial, technical, and service teams.\n- Travel up to 70% to support customers and business development activities.\n\n## Keys to Success:\n\n## Education\n\n- Master's degree plus 5 years of sales experience in analytical instrument markets or equivalent laboratory experience.\n- Preferred fields of study include Chemistry, Biology, Life Sciences, or a related scientific field.\n\n## Experience\n\n- Sales experience within analytical instrument markets or equivalent laboratory experience.\n- Experience developing and executing strategic sales plans.\n- Experience using consultative selling and negotiation approaches.\n- Experience building and maintaining strong customer and internal stakeholder relationships.\n- Experience working effectively in collaborative environments.\n\n## Knowledge, Skills, Abilities\n\nFluency in German and English is required; French language skills are beneficial.Strong technical knowledge of analytical instrumentation and applications.Understanding of laboratory workflows and customer requirements across key market segments.Effective consultative selling and negotiation skills.Strong presentation, communication, and interpersonal skills.Project management and organizational abilities.Proficiency with CRM systems such as Salesforce and the Microsoft Office suite.Ability to develop trusted relationships with customers and internal stakeholders.Valid driver's license and ability to travel up to 70%.\n\n## Competencies\n\n- Customer focus\n- Commercial acumen\n- Consultative selling\n- Relationship building\n- Communication and influencing\n- Strategic planning\n- Collaboration\n- Results orientation\n- Integrity\n- Intensity\n- Innovation\n- Involvement\n\n**Benefits:** We offer competitive remuneration, annual incentive plan bonus, healthcare, and a range of employee benefits. Thermo Fisher Scientific offers employment with an innovative, forward-thinking organization, and outstanding career and development prospects. We offer an exciting company culture that stands for integrity, intensity, involvement, and innovation!\n\nOur Mission is to enable our customers to make the world healthier, cleaner and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 100,000+ colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\n#StartYourStory at Thermo Fisher Scientific, where diverse experiences, backgrounds and perspectives are valued.\n\n**Apply today**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion,",
+      "descriptionByLocale": {
+        "it": "## Programma di lavoro\n\nStandard (Mon-Fri)\n\n## Condizioni ambientali\n\nUfficio\n\n## Descrizione del lavoro\n\nCome parte del team Thermo Fisher Scientific, scoprirete un lavoro significativo che fa un impatto positivo su scala globale. Unisciti ai nostri colleghi nel portare la nostra missione in vita ogni giorno per consentire ai nostri clienti di rendere il mondo più sano, più pulito e sicuro. Forniamo ai nostri team globali le risorse necessarie per raggiungere i singoli obiettivi di carriera, aiutando a superare la scienza, sviluppando soluzioni per alcune delle sfide più difficili del mondo, come proteggere l’ambiente, assicurarsi che il nostro cibo sia sicuro o aiutando a trovare cure per il cancro.\n\nDal campione alla conoscenza ai risultati, l'azienda Chromatography and Mass Spectrometry sviluppa e produce strumenti di cromatografia e spettrometria di massa, materiali di consumo e soluzioni software per i clienti che lavorano nelle scienze analitiche (mercati di test di routine) e nella ricerca scientifica. Le nostre soluzioni complete di flusso di lavoro consentono la produttività e l'efficienza per i clienti che eseguono test e produzione di alimenti e bevande, test ambientali e industriali, biofarmaci QA/QC, tossicologia e anti-doping. Per i clienti di ricerca scientifica, i nostri prodotti supportano una gamma di aree di focus, tra cui proteomics, metabolomics, scoperta della droga e ricerca clinica.\n\nPosizione: Svizzera / telecomando\n\nScopri il lavoro d'impatto Come Account Manager presso Thermo Fisher Scientific, supporterai la crescita delle vendite e il successo del cliente per i nostri avanzati strumenti analitici e scientifici. Lavorando in soluzioni di strumenti scientifici, aiuterai i clienti a prendere decisioni informate nella ricerca, nel controllo della qualità e nel miglioramento dei processi. Potrai sviluppare e ampliare le relazioni con i clienti, rappresentando il nostro portafoglio completo di strumenti, materiali di consumo e servizi in diversi mercati, tra cui farmaceutico, ambientale, industriale, sicurezza alimentare, sanità e ricerca accademica.\n\nA Day in the Life: Sviluppare e far crescere i rapporti con i clienti comprendendo i requisiti scientifici, tecnici e aziendali e fornendo soluzioni consultive nel nostro portafoglio di strumenti analitici, materiali di consumo e servizi. Costruire ed eseguire piani di vendita strategici, identificare nuove opportunità, fornire presentazioni convincenti, negoziare in modo efficace e collaborare con i team interni per guidare il successo del cliente e raggiungere gli obiettivi di vendita.\n\n## Cosa aspettarsi:\n\n- Sviluppare ed eseguire piani strategici di vendita per raggiungere gli obiettivi di crescita.\n- Costruire, mantenere e espandere le relazioni con i clienti nuovi e esistenti.\n- Comprendere i flussi di lavoro del laboratorio del cliente, le applicazioni e le esigenze aziendali.\n- Fornire indicazioni consultive su strumentazione analitica, materiali di consumo e servizi.\n- Identificare e sviluppare opportunità di vendita nei mercati della ricerca farmaceutica, ambientale, industriale, alimentare, sanitaria e accademica.\n- Consegnare presentazioni tecniche e commerciali a clienti e stakeholder.\n- Gestire i negoziati e supportare i clienti durante il processo di vendita.\n- Mantenere l'opportunità accurata e le informazioni del cliente utilizzando sistemi CRM come Salesforce.\n- Collabora efficacemente con i team commerciali, tecnici e di assistenza interni.\n- Viaggiate fino al 70% per supportare clienti e attività di sviluppo aziendale.\n\n## Le chiavi di successo:\n\n## Istruzione\n\n- Laurea magistrale più 5 anni di esperienza di vendita nei mercati di strumenti analitici o esperienza di laboratorio equivalente.\n- I campi di studio preferiti includono Chimica, Biologia, Scienze della Vita, o un campo scientifico correlato.\n\n## Esperienza\n\n- Esperienza di vendita nei mercati di strumenti analitici o esperienza di laboratorio equivalente.\n- Sperimenta lo sviluppo e l'esecuzione di piani strategici di vendita.\n- Esperienza utilizzando approcci consultivi di vendita e negoziazione.\n- Sperimentare la costruzione e mantenere forti relazioni con i clienti e gli stakeholder interni.\n- Esperienza di lavoro efficace in ambienti collaborativi.\n\n## Conoscenza, abilità, abilità\n\nÈ necessaria la fluidità in tedesco e in inglese; le competenze linguistiche francesi sono vantaggiose. Forte conoscenza tecnica della strumentazione analitica e delle applicazioni. Comprensione dei flussi di lavoro di laboratorio e dei requisiti dei clienti nei segmenti di mercato chiave. Efficace capacità consultive di vendita e di negoziazione. Forte presentazione, comunicazione e competenze interpersonali. Gestione del progetto e capacità organizzative. La competenza con sistemi CRM come Salesforce e la suite Microsoft Office. Capacità di sviluppare relazioni di fiducia con i clienti e gli stakeholder interni. Valida patente di guida e capacità di viaggiare fino al 70%.\n\n## Competenze\n\n- Obiettivo del cliente\n- Acume commerciale\n- Vendite consultive\n- Costruzione di relazioni\n- Comunicazione e influenza\n- Pianificazione strategica\n- Collaborazione\n- Risultati dell'orientamento\n- Integrità\n- Intensità\n- Innovazione\n- Coinvolgimento\n\n# Benefici. # Offriamo remunerazione competitiva, bonus annuale di incentivazione, assistenza sanitaria e una serie di benefici per i dipendenti. Thermo Fisher Scientific offre un'occupazione con un'organizzazione innovativa e intenzionale, e prospettive di carriera e sviluppo eccezionali. Offriamo un'emozionante cultura aziendale che è sinonimo di integrità, intensità, coinvolgimento e innovazione!\n\nLa nostra missione è quella di consentire ai nostri clienti di rendere il mondo più sano, più pulito e sicuro. Guarda come i nostri colleghi spiegano 5 motivi per lavorare con noi. In qualità di team di 100.000 colleghi, condividiamo un insieme comune di valori - Integrità, Intensità, Innovazione e Coinvolgimento - lavorando insieme per accelerare la ricerca, risolvere complesse sfide scientifiche, guidare l'innovazione tecnologica e sostenere i pazienti bisognosi.\n\n#StartYourStory at Thermo Fisher Scientific, dove vengono valutate esperienze, sfondi e prospettive diverse.\n\n# Apply today # [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific è un EEO/Affirmative Action Employer e non discrimina sulla base di razza, colore, religione,",
+        "en": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nAs part of the Thermo Fisher Scientific team, you’ll discover meaningful work that makes a positive impact on a global scale. Join our colleagues in bringing our Mission to life every single day to enable our customers to make the world healthier, cleaner and safer. We provide our global teams with the resources needed to achieve individual career goals while helping to take science a step beyond by developing solutions for some of the world’s toughest challenges, like protecting the environment, making sure our food is safe or helping find cures for cancer.\n\nFrom sample to knowledge to results, the Chromatography and Mass Spectrometry business develops and manufactures leading-edge chromatography and mass spectrometry instruments, consumables, and software solutions for customers working in the analytical sciences (routine testing markets) and scientific research. Our complete workflow solutions enable productivity and efficiency for customers performing food and beverage testing and manufacturing, environmental and industrial testing, biopharma QA/QC, toxicology, and anti-doping. For scientific research customers, our products support a range of focus areas, including proteomics, metabolomics, drug discovery, and clinical research.\n\n**Location:** Switzerland / remote\n\n**Discover Impactful Work** As an **Account Manager** at Thermo Fisher Scientific, you'll support sales growth and customer success for our advanced analytical and scientific instruments. Working in scientific instrument solutions, you'll help customers make informed decisions in research, quality control, and process improvement. You'll develop and expand customer relationships while representing our comprehensive portfolio of instruments, consumables, and services across diverse markets including pharmaceutical, environmental, industrial, food safety, healthcare, and academic research.\n\n**A Day in the Life:** Develop and grow customer relationships by understanding scientific, technical, and business requirements and providing consultative solutions across our portfolio of analytical instruments, consumables, and services. Build and execute strategic sales plans, identify new opportunities, deliver compelling presentations, negotiate effectively, and collaborate with internal teams to drive customer success and achieve sales objectives.\n\n## What to expect:\n\n- Develop and execute strategic sales plans to achieve growth objectives.\n- Build, maintain, and expand relationships with new and existing customers.\n- Understand customer laboratory workflows, applications, and business needs.\n- Provide consultative guidance on analytical instrumentation, consumables, and services.\n- Identify and develop sales opportunities across pharmaceutical, environmental, industrial, food safety, healthcare, and academic research markets.\n- Deliver technical and commercial presentations to customers and stakeholders.\n- Manage negotiations and support customers throughout the sales process.\n- Maintain accurate opportunity and customer information using CRM systems such as Salesforce.\n- Collaborate effectively with internal commercial, technical, and service teams.\n- Travel up to 70% to support customers and business development activities.\n\n## Keys to Success:\n\n## Education\n\n- Master's degree plus 5 years of sales experience in analytical instrument markets or equivalent laboratory experience.\n- Preferred fields of study include Chemistry, Biology, Life Sciences, or a related scientific field.\n\n## Experience\n\n- Sales experience within analytical instrument markets or equivalent laboratory experience.\n- Experience developing and executing strategic sales plans.\n- Experience using consultative selling and negotiation approaches.\n- Experience building and maintaining strong customer and internal stakeholder relationships.\n- Experience working effectively in collaborative environments.\n\n## Knowledge, Skills, Abilities\n\nFluency in German and English is required; French language skills are beneficial.Strong technical knowledge of analytical instrumentation and applications.Understanding of laboratory workflows and customer requirements across key market segments.Effective consultative selling and negotiation skills.Strong presentation, communication, and interpersonal skills.Project management and organizational abilities.Proficiency with CRM systems such as Salesforce and the Microsoft Office suite.Ability to develop trusted relationships with customers and internal stakeholders.Valid driver's license and ability to travel up to 70%.\n\n## Competencies\n\n- Customer focus\n- Commercial acumen\n- Consultative selling\n- Relationship building\n- Communication and influencing\n- Strategic planning\n- Collaboration\n- Results orientation\n- Integrity\n- Intensity\n- Innovation\n- Involvement\n\n**Benefits:** We offer competitive remuneration, annual incentive plan bonus, healthcare, and a range of employee benefits. Thermo Fisher Scientific offers employment with an innovative, forward-thinking organization, and outstanding career and development prospects. We offer an exciting company culture that stands for integrity, intensity, involvement, and innovation!\n\nOur Mission is to enable our customers to make the world healthier, cleaner and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 100,000+ colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\n#StartYourStory at Thermo Fisher Scientific, where diverse experiences, backgrounds and perspectives are valued.\n\n**Apply today**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion,",
+        "de": "## Arbeitsplan\n\nStandard (Mon-Fri)\n\n## Umweltbedingungen\n\nBüro\n\n## Stellenbeschreibung\n\nAls Teil des Teams von Thermo Fisher Scientific entdecken Sie sinnvolle Arbeiten, die sich weltweit positiv auswirken. Gemeinsam mit unseren Kollegen erwecken wir unsere Mission jeden Tag zum Leben, damit unsere Kunden die Welt gesünder, sauberer und sicherer machen können. Wir stellen unseren globalen Teams die Ressourcen zur Verfügung, die sie benötigen, um individuelle Karriereziele zu erreichen, und helfen gleichzeitig, die Wissenschaft einen Schritt weiter zu bringen, indem wir Lösungen für einige der schwierigsten Herausforderungen der Welt entwickeln, wie den Schutz der Umwelt, die Gewährleistung der Sicherheit unserer Lebensmittel oder die Suche nach Heilmitteln für Krebs.\n\nVon der Probe über das Wissen bis hin zu den Ergebnissen entwickelt und produziert das Chromatographie- und Massenspektrometrie-Geschäft Spitzeninstrumente, Verbrauchsmaterialien und Softwarelösungen für Kunden, die in den analytischen Wissenschaften (routinemäßige Testmärkte) und in der wissenschaftlichen Forschung arbeiten. Unsere kompletten Workflow-Lösungen ermöglichen Produktivität und Effizienz für Kunden, die Lebensmittel- und Getränketests und -herstellung, Umwelt- und Industrietests, Biopharma QA / QC, Toxikologie und Anti-Doping durchführen. Für Kunden der wissenschaftlichen Forschung unterstützen unsere Produkte eine Reihe von Schwerpunktbereichen, darunter Proteomik, Metabolomik, Wirkstoffforschung und klinische Forschung.\n\n**Standort:** Schweiz / Remote\n\n**Entdecken Sie wirkungsvolle Arbeit ** Als **Account Manager** bei Thermo Fisher Scientific unterstützen Sie Umsatzwachstum und Kundenerfolg für unsere fortschrittlichen analytischen und wissenschaftlichen Instrumente. Mit wissenschaftlichen Instrumentenlösungen helfen Sie Ihren Kunden, fundierte Entscheidungen in den Bereichen Forschung, Qualitätskontrolle und Prozessverbesserung zu treffen. Sie entwickeln und erweitern Kundenbeziehungen, während Sie unser umfassendes Portfolio an Instrumenten, Verbrauchsmaterialien und Dienstleistungen in verschiedenen Märkten vertreten, darunter Pharmazie, Umwelt, Industrie, Lebensmittelsicherheit, Gesundheitswesen und akademische Forschung.\n\n**Ein Tag im Leben: ** Entwickeln und erweitern Sie Kundenbeziehungen, indem Sie wissenschaftliche, technische und geschäftliche Anforderungen verstehen und beratende Lösungen für unser Portfolio an Analyseinstrumenten, Verbrauchsmaterialien und Dienstleistungen anbieten. Erstellen und implementieren Sie strategische Verkaufspläne, identifizieren Sie neue Möglichkeiten, liefern Sie überzeugende Präsentationen, verhandeln Sie effektiv und arbeiten Sie mit internen Teams zusammen, um den Kundenerfolg zu steigern und Verkaufsziele zu erreichen.\n\n## Was zu erwarten ist:\n\n- Entwicklung und Umsetzung strategischer Verkaufspläne zur Erreichung der Wachstumsziele.\n- Aufbauen, pflegen und erweitern Sie Beziehungen zu neuen und bestehenden Kunden.\n- Verstehen Sie die Workflows, Anwendungen und Geschäftsanforderungen von Kundenlabors.\n- Beratung bei analytischen Instrumenten, Verbrauchsmaterialien und Dienstleistungen.\n- Identifizieren und entwickeln Sie Absatzmöglichkeiten in den Bereichen Pharma, Umwelt, Industrie, Lebensmittelsicherheit, Gesundheitswesen und akademische Forschung.\n- Liefern Sie technische und kommerzielle Präsentationen für Kunden und Stakeholder.\n- Verwalten Sie Verhandlungen und unterstützen Sie Kunden während des gesamten Verkaufsprozesses.\n- Pflegen Sie genaue Gelegenheits- und Kundeninformationen mit CRM-Systemen wie Salesforce.\n- Arbeiten Sie effektiv mit internen kaufmännischen, technischen und Serviceteams zusammen.\n- Reisen Sie bis zu 70%, um Kunden und Geschäftsentwicklungsaktivitäten zu unterstützen.\n\n## Schlüssel zum Erfolg:\n\n## Bildung\n\n- Master-Abschluss plus 5 Jahre Verkaufserfahrung in analytischen Instrumentenmärkten oder gleichwertige Laborerfahrung.\n- Bevorzugte Studienfächer sind Chemie, Biologie, Life Sciences oder ein verwandtes wissenschaftliches Gebiet.\n\n## Erfahrung\n\n- Verkaufserfahrung auf den Märkten für Analysegeräte oder gleichwertige Laborerfahrung.\n- Erleben Sie die Entwicklung und Durchführung strategischer Verkaufspläne.\n- Erfahrung mit beratenden Verkaufs- und Verhandlungsansätzen.\n- Erleben Sie den Aufbau und die Pflege starker Kunden- und interner Stakeholder-Beziehungen.\n- Erleben Sie effektives Arbeiten in kollaborativen Umgebungen.\n\n## Wissen, Fähigkeiten, Fähigkeiten\n\nSprachkenntnisse in Deutsch und Englisch sind erforderlich; Französischkenntnisse sind von Vorteil. Starkes technisches Wissen über analytische Instrumente und Anwendungen. Verständnis von Labor-Workflows und Kundenanforderungen in wichtigen Marktsegmenten. Effektives beratendes Verkaufs- und Verhandlungsgeschick. Starke Präsentation, Kommunikation und zwischenmenschliche Fähigkeiten. Projektmanagement und organisatorische Fähigkeiten. Kenntnisse in CRM-Systemen wie Salesforce und der Microsoft Office Suite. Fähigkeit, vertrauensvolle Beziehungen zu Kunden und internen Stakeholdern aufzubauen. Gültiger Führerschein und Reisefähigkeit bis zu 70%.\n\n## Kompetenzen\n\n- Kundenfokus\n- Handelsüblicher Scharfsinn\n- Beratungsverkauf\n- Aufbau von Beziehungen\n- Kommunikation und Beeinflussung\n- Strategische Planung\n- Zusammenarbeit\n- Ergebnisorientierung\n- Integrität\n- Intensität\n- Innovation\n- Beteiligung\n\n**Vorteile:** Wir bieten eine wettbewerbsfähige Vergütung, einen jährlichen Incentive-Plan-Bonus, eine Gesundheitsversorgung und eine Reihe von Arbeitnehmerleistungen. Thermo Fisher Scientific bietet eine Beschäftigung mit einer innovativen, zukunftsweisenden Organisation und hervorragenden Karriere- und Entwicklungsperspektiven. Wir bieten eine spannende Unternehmenskultur, die für Integrität, Intensität, Engagement und Innovation steht!\n\nUnsere Mission ist es, unseren Kunden zu ermöglichen, die Welt gesünder, sauberer und sicherer zu machen. Sehen Sie, wie unsere Kollegen 5 Gründe erklären, mit uns zu arbeiten. Als ein Team von mehr als 100.000 Kollegen teilen wir eine Reihe gemeinsamer Werte - Integrität, Intensität, Innovation und Beteiligung - und arbeiten zusammen, um die Forschung zu beschleunigen, komplexe wissenschaftliche Herausforderungen zu lösen, technologische Innovationen voranzutreiben und bedürftige Patienten zu unterstützen.\n\n#StartYourStory bei Thermo Fisher Scientific, wo verschiedene Erfahrungen, Hintergründe und Perspektiven geschätzt werden.\n\n** Heute bewerben**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific ist ein EEO / Affirmative Action Arbeitgeber und diskriminiert nicht auf der Grundlage von Rasse, Hautfarbe, Religion,",
+        "fr": "## Calendrier des travaux\n\nNorme (Mon-Fri)\n\n## Conditions environnementales\n\nBureau\n\n## Description de l'emploi\n\nDans le cadre de l'équipe Thermo Fisher Scientific, vous découvrirez un travail significatif qui a un impact positif à l'échelle mondiale. Rejoignez nos collègues pour donner vie à notre mission tous les jours afin de permettre à nos clients de rendre le monde plus sain, plus propre et plus sûr. Nous fournissons à nos équipes mondiales les ressources nécessaires pour atteindre des objectifs de carrière individuels tout en aidant à faire avancer la science en développant des solutions pour certains des défis les plus difficiles du monde, comme protéger l'environnement, s'assurer que nos aliments sont sûrs ou aider à trouver des remèdes pour le cancer.\n\nDe l'échantillon à la connaissance aux résultats, l'entreprise de chromatographie et de spectrométrie de masse développe et fabrique des instruments de chromatographie et de spectrométrie de masse de pointe, des consommables et des solutions logicielles pour les clients travaillant dans les sciences analytiques (marchés d'essais courants) et la recherche scientifique. Nos solutions complètes de workflow permettent la productivité et l'efficacité pour les clients qui effectuent des essais et des fabrications d'aliments et de boissons, des essais environnementaux et industriels, de l'AQ/QC biopharmaceutique, de la toxicologie et de l'antidopage. Pour les clients de la recherche scientifique, nos produits soutiennent une gamme de domaines d'intérêt, y compris la protéomique, la métabolomique, la découverte de médicaments et la recherche clinique.\n\nEmplacement : Suisse / télécommande\n\nDécouvrez le travail utile En tant que responsable du compte chez Thermo Fisher Scientific, vous soutiendrez la croissance des ventes et le succès client pour nos instruments analytiques et scientifiques avancés. Travaillant dans des solutions d'instruments scientifiques, vous aiderez les clients à prendre des décisions éclairées en matière de recherche, de contrôle de la qualité et d'amélioration des processus. Vous développerez et élargirez les relations avec la clientèle tout en représentant notre vaste portefeuille d'instruments, de consommables et de services sur divers marchés, y compris les produits pharmaceutiques, environnementaux, industriels, la sécurité alimentaire, les soins de santé et la recherche universitaire.\n\nUne journée dans la vie : Développer et développer les relations client en comprenant les exigences scientifiques, techniques et commerciales et en fournissant des solutions consultatives dans notre portefeuille d'instruments d'analyse, de consommables et de services. Élaborer et exécuter des plans stratégiques de vente, identifier de nouvelles possibilités, présenter des présentations convaincantes, négocier efficacement et collaborer avec des équipes internes pour stimuler le succès client et atteindre les objectifs de vente.\n\n## À quoi s'attendre :\n\n- Élaborer et exécuter des plans stratégiques de vente pour atteindre les objectifs de croissance.\n- Établir, entretenir et développer des relations avec des clients nouveaux et existants.\n- Comprendre les flux de travail, les applications et les besoins des laboratoires clients.\n- Fournir des conseils consultatifs sur les instruments d'analyse, les consommables et les services.\n- Identifier et développer les possibilités de vente sur les marchés de la recherche pharmaceutique, environnementale, industrielle, de la sécurité alimentaire, des soins de santé et universitaire.\n- Fournir des présentations techniques et commerciales aux clients et aux intervenants.\n- Gérer les négociations et soutenir les clients tout au long du processus de vente.\n- Maintenez des informations précises sur les opportunités et les clients en utilisant des systèmes CRM tels que Salesforce.\n- Collaborer efficacement avec les équipes internes de commerce, technique et de service.\n- Voyage jusqu'à 70% pour soutenir les clients et les activités de développement d'entreprise.\n\n## Les clés du succès :\n\n## Éducation\n\n- Maîtrise et 5 ans d'expérience commerciale dans les marchés des instruments d'analyse ou expérience équivalente en laboratoire.\n- Les domaines d'études préférés comprennent la chimie, la biologie, les sciences de la vie ou un domaine scientifique connexe.\n\n## Expérience\n\n- Expérience de vente sur les marchés des instruments d'analyse ou expérience équivalente en laboratoire.\n- Expérience de l'élaboration et de l'exécution de plans stratégiques de vente.\n- Expérience en matière de vente et de négociation.\n- Expérimentez l'établissement et le maintien de solides relations avec les clients et les intervenants internes.\n- Expérience de travail efficace dans les environnements de collaboration.\n\n## Connaissances, compétences, capacités\n\nLa maîtrise de l'allemand et de l'anglais est requise; les compétences en français sont bénéfiques. Forte connaissance technique de l'instrumentation analytique et des applications. Compréhension des flux de travail en laboratoire et des besoins des clients sur les principaux segments du marché. Compétences efficaces en matière de vente et de négociation. Forte présentation, communication et aptitudes interpersonnelles. Gestion de projet et capacités organisationnelles. Compétence avec les systèmes CRM tels que Salesforce et la suite Microsoft Office. Capacité d'établir des relations de confiance avec les clients et les intervenants internes. Permis de conduire valide et capacité de voyager jusqu'à 70%.\n\n## Compétences\n\n- Orientation client\n- Œuvre commerciale\n- Vente consultative\n- Renforcement des relations\n- Communication et influence\n- Planification stratégique\n- Collaboration\n- Orientation des résultats\n- Intégrité\n- Intensité\n- Innovation\n- Participation\n\nAvantages: Nous offrons une rémunération compétitive, une prime annuelle de régime incitatif, des soins de santé et une gamme d'avantages sociaux. Thermo Fisher Scientific offre un emploi avec une organisation innovante et tournée vers l'avenir, et des perspectives de carrière et de développement exceptionnelles. Nous offrons une culture d'entreprise passionnante qui représente l'intégrité, l'intensité, la participation et l'innovation!\n\nNotre mission est de permettre à nos clients de rendre le monde plus sain, plus propre et plus sûr. Regardez comme nos collègues expliquent 5 raisons de travailler avec nous. En tant qu'équipe de plus de 100 000 collègues, nous partageons un ensemble commun de valeurs - intégrité, intensité, innovation et participation - qui travaillent ensemble pour accélérer la recherche, résoudre des défis scientifiques complexes, stimuler l'innovation technologique et aider les patients dans le besoin.\n\n#StartYourStory chez Thermo Fisher Scientific, où les expériences, les antécédents et les perspectives sont appréciés.\n\nAppliquer aujourd'hui! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific est un employeur d'EEO/Affirmative Action et ne fait aucune discrimination fondée sur la race, la couleur, la religion,"
+      },
+      "location": "Reinach, Switzerland",
+      "canton": "BL",
+      "url": "https://jobs.thermofisher.com/global/en/job/R-01363067/account-manager",
+      "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-20T21:43:47.675Z",
+      "addressLocality": "Reinach",
+      "postalCode": "CH-4153",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Life Sciences — Pharma Manufacturing & Quality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17T00:00:00.000+0000",
+      "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Reinach-Switzerland/Account-Manager_R-01363067/apply",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "account-manager-thermo-fisher-scientific-ch",
+        "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-thermo-fisher-scientific-ch",
+          "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
+        ],
+        "fr": [
+          "account-manager-thermo-fisher-scientific-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:37:30.040Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "thermo-fisher-scientific-e44422d2e22c",
       "slug": "materiale-maniglia-ii-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
       "slugByLocale": {
-        "de": "material-handler-ii-thermo-fisher-scientific-ch",
         "it": "materiale-maniglia-ii-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "material-handler-ii-thermo-fisher-scientific-ch",
+        "de": "material-handler-ii-thermo-fisher-scientific-ch",
         "fr": "materiau-handler-ii-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -681,24 +774,24 @@
       "companyDomain": "thermofisher.com",
       "title": "Material Handler II",
       "titleByLocale": {
-        "de": "Material Handler II",
         "it": "Materiale Maniglia II",
         "en": "Material Handler II",
+        "de": "Material Handler II",
         "fr": "Matériau handler II"
       },
       "description": "## Work Schedule\n\n7 1/2 hr shift\n\n## Environmental Conditions\n\nWarehouse\n\n## Job Description\n\n## Zusammenfassung der Funktion:\n\nSelbstständige Bearbeitung standardisierter und komplexerer Versandprozesse und Unterstützung des Teams im Tagesgeschäft. Die Tätigkeit umfasst die physische und systemseitige Kommissionierung, Verpackung, Versandvorbereitung sowie die Übergabe der Sendungen an Logistikdienstleister falls erforderlich. Dabei werden alle internen Arbeitsanweisungen (SOPs), Qualitätsanforderungen sowie nationale und internationale Transportvorschriften eingehalten. Der Material Handler unterstützt einen sicheren und termingerechten Versand von Ambient-, Kühl- und Tiefkühlsendungen weltweit.**lhre Hauptaufgaben:**Bearbeitung und selbständige Priorisierung der täglichen standardisierte VersandauftrageKommissionieren und Verpacken von komplexen klinischen PrüfmaterialienBearbeitung unterschiedlicher Versandarten/temperaturgeführter SendungenSelbständige Erstellung der VersanddokumentationUnterstützung neuer MitarbeiterDokumentation gemäß GMP/GDPErste Fehleranalyse und Unterstützung bei CAPAs und DeviationsEinhaltung aller SOPSSicherstellung der GDP ComplianceOrdnung und Sauberkeit (SS)Mitarbeit bei LEAN-, PPI- und Kontinuierliche ProzessverbesserungReinigung und Ordnung des Arbeitsbereiches gemäß 5S-Prinzipien**\n• Ihr Profil:**Abgeschlossene Berufsausbildung im Bereich Logistik, Lager, Produktion oder vergleichbare QualifikationBerufserfahrung im Bereich Lagerlogistik, Versand oder Supply Chain, vorzugsweise in einem GMP-/GDP-regulierten UmfeldErfahrung im Umgang mit Warehouse Management Systemen (WMS) und MS OfficeGute Deutschkenntnisse in Wort und Schrift. Englisch ist von Vorteil.Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise.Hohes Verantwortungsbewusstsein sowie Verständnis fi.ir GMP-, GDP- und Qualitätsanforderungen.Teamfähigkeit, Flexibilität und BelastbarkeitFähigkeit, Prioritäten zu setzen und Termine zuverlässig einzuhalten.Bereitschaft zur kontinuierlichen Weiterbildung (z. B. IATA, GDP, Gefahrgut).",
       "descriptionByLocale": {
+        "it": "## Programma di lavoro\n\n7 1/2 ora\n\n## Condizioni ambientali\n\nMagazzino\n\n## Descrizione del lavoro\n\n## Sintesi della funzione:\n\nLavorazione indipendente di processi di spedizione standardizzati e più complessi e supporto del team nel business quotidiano. L'attività comprende la raccolta, l'imballaggio, la preparazione della spedizione e la consegna di spedizioni a fornitori di servizi logistici, se necessario. Tutte le istruzioni di lavoro interne (SOP), i requisiti di qualità e le normative nazionali e internazionali di trasporto sono rispettati. Supporta la spedizione sicura e tempestiva di spedizioni ambientali, refrigerate e congelate in tutto il mondo. Le vostre attività principali:Procedimento e priorità indipendente della raccolta di ordini di spedizione standardizzati giornalieri e imballaggio di materiali di prova clinici complessiProcedimento di diversi tipi di spedizione / spedizioni controllate dalla temperatura Creazione indipendente della documentazione di spedizioneSupporto nuova documentazione dei dipendenti secondo l'analisi e il supporto degli errori GMP/GDPFirst in CAPAs e DeviationsCompliance con tutta la produzione SOPSSic dell'ordine di conformità del PIL e pulizia (SS)Cooperazione in LEAN, PPI e miglioramento continuo del processoLa gestione e l'ordinazione dell'area di lavoro secondo i principi 5S\n• Il suo profilo:La formazione professionale completa nel settore della logistica, del magazzino, della produzione o delle qualifiche comparabili Esperienza professionale nel campo della logistica del magazzino, della spedizione o della supply chain, preferibilmente in un'esperienza di ambiente GMP/GDP-regolated nel trattare con i sistemi di gestione del magazzino (WMS) e MS OfficeGood tedesco competenze in parola e scrittura. L'inglese è un vantaggio. Strutturato, attento e di qualità-cosciente modo di lavorare. Alto senso di responsabilità, oltre a comprendere i requisiti di Fi.ir GMP, PIL e qualità. Capacità di squadra, flessibilità e resilienza, definizione delle priorità e delle scadenze di incontro in modo affidabile. Prontezza per la formazione continua (ad esempio IATA, PIL, merci pericolose).",
+        "en": "## Work Schedule\n\n7 1/2 hr shift\n\n## Environmental Conditions\n\nWarehouse\n\n## Job description\n\n## Summary of function:\n\nIndependent processing of standardized and more complex shipping processes and support of the team in day-to-day business. The activity includes physical and system-side picking, packaging, shipping preparation and delivery of shipments to logistics service providers where necessary. All internal work instructions (SOPs), quality requirements and national and international transport regulations are adhered to. Material Handler supports secure and timely shipment of ambient, refrigerated and frozen shipments worldwide. Your main tasks:Processing and independent prioritization of the daily standardized shipping order picking and packaging of complex clinical test materialsProcessing of different shipping types/temperature-controlled shipmentsIndependent creation of the shipping documentationSupport new employee documentation according to GMP/GDPFirst error analysis and support in CAPAs and DeviationsCompliance with all SOPSSic production of the GDP compliance order and cleanliness (SS)Cooperation in LEAN, PPI and continuous process improvementCleaning and ordering of the work area according to 5S principles\n• Your profile:Completed vocational training in the field of logistics, warehouse, production or comparable qualificationsProfessional experience in the field of warehouse logistics, shipping or supply chain, preferably in a GMP/GDP-regulated environment experience in dealing with warehouse management systems (WMS) and MS OfficeGood German skills in word and writing. English is an advantage.Structured, careful and quality-conscious way of working.High sense of responsibility as well as understanding fi.ir GMP, GDP and quality requirements.Team ability, flexibility and resilience, setting priorities and meeting deadlines reliably. Readiness for continuous training (e.g. IATA, GDP, dangerous goods).",
         "de": "## Work Schedule\n\n7 1/2 hr shift\n\n## Environmental Conditions\n\nWarehouse\n\n## Job Description\n\n## Zusammenfassung der Funktion:\n\nSelbstständige Bearbeitung standardisierter und komplexerer Versandprozesse und Unterstützung des Teams im Tagesgeschäft. Die Tätigkeit umfasst die physische und systemseitige Kommissionierung, Verpackung, Versandvorbereitung sowie die Übergabe der Sendungen an Logistikdienstleister falls erforderlich. Dabei werden alle internen Arbeitsanweisungen (SOPs), Qualitätsanforderungen sowie nationale und internationale Transportvorschriften eingehalten. Der Material Handler unterstützt einen sicheren und termingerechten Versand von Ambient-, Kühl- und Tiefkühlsendungen weltweit.**lhre Hauptaufgaben:**Bearbeitung und selbständige Priorisierung der täglichen standardisierte VersandauftrageKommissionieren und Verpacken von komplexen klinischen PrüfmaterialienBearbeitung unterschiedlicher Versandarten/temperaturgeführter SendungenSelbständige Erstellung der VersanddokumentationUnterstützung neuer MitarbeiterDokumentation gemäß GMP/GDPErste Fehleranalyse und Unterstützung bei CAPAs und DeviationsEinhaltung aller SOPSSicherstellung der GDP ComplianceOrdnung und Sauberkeit (SS)Mitarbeit bei LEAN-, PPI- und Kontinuierliche ProzessverbesserungReinigung und Ordnung des Arbeitsbereiches gemäß 5S-Prinzipien**\n• Ihr Profil:**Abgeschlossene Berufsausbildung im Bereich Logistik, Lager, Produktion oder vergleichbare QualifikationBerufserfahrung im Bereich Lagerlogistik, Versand oder Supply Chain, vorzugsweise in einem GMP-/GDP-regulierten UmfeldErfahrung im Umgang mit Warehouse Management Systemen (WMS) und MS OfficeGute Deutschkenntnisse in Wort und Schrift. Englisch ist von Vorteil.Strukturierte, sorgfältige und qualitätsbewusste Arbeitsweise.Hohes Verantwortungsbewusstsein sowie Verständnis fi.ir GMP-, GDP- und Qualitätsanforderungen.Teamfähigkeit, Flexibilität und BelastbarkeitFähigkeit, Prioritäten zu setzen und Termine zuverlässig einzuhalten.Bereitschaft zur kontinuierlichen Weiterbildung (z. B. IATA, GDP, Gefahrgut).",
-        "it": "## Programma di lavoro\n\n7 1/2 ora\n\n## Condizioni ambientali\n\nMagazzino\n\n## Descrizione del lavoro\n\n## Sintesi della funzione:\n\nLavorazione indipendente di processi di spedizione standardizzati e più complessi e supporto del team nel business quotidiano. L'attività comprende la raccolta, l'imballaggio, la preparazione della spedizione e la consegna di spedizioni a fornitori di servizi logistici, se necessario. Tutte le istruzioni di lavoro interne (SOP), i requisiti di qualità e le normative nazionali e internazionali di trasporto sono rispettati. Supporta la spedizione sicura e tempestiva di spedizioni ambientali, refrigerate e congelate in tutto il mondo. **Le vostre attività principali:**Procedimento e priorità indipendente della raccolta di ordini di spedizione standardizzati giornalieri e imballaggio di materiali di prova clinici complessiProcedimento di diversi tipi di spedizione / spedizioni controllate dalla temperatura Creazione indipendente della documentazione di spedizioneSupporto nuova documentazione dei dipendenti secondo l'analisi e il supporto degli errori GMP/GDPFirst in CAPAs e DeviationsCompliance con tutta la produzione SOPSSic dell'ordine di conformità del PIL e pulizia (SS)Cooperazione in LEAN, PPI e miglioramento continuo del processoLa gestione e l'ordinazione dell'area di lavoro secondo i principi 5S\n• Il suo profilo:**La formazione professionale completa nel settore della logistica, del magazzino, della produzione o delle qualifiche comparabili Esperienza professionale nel campo della logistica del magazzino, della spedizione o della supply chain, preferibilmente in un'esperienza di ambiente GMP/GDP-regolated nel trattare con i sistemi di gestione del magazzino (WMS) e MS OfficeGood tedesco competenze in parola e scrittura. L'inglese è un vantaggio. Strutturato, attento e di qualità-cosciente modo di lavorare. Alto senso di responsabilità, oltre a comprendere i requisiti di Fi.ir GMP, PIL e qualità. Capacità di squadra, flessibilità e resilienza, definizione delle priorità e delle scadenze di incontro in modo affidabile. Prontezza per la formazione continua (ad esempio IATA, PIL, merci pericolose).",
-        "en": "## Work Schedule\n\n7 1/2 hr shift\n\n## Environmental Conditions\n\nWarehouse\n\n## Job description\n\n## Summary of function:\n\nIndependent processing of standardized and more complex shipping processes and support of the team in day-to-day business. The activity includes physical and system-side picking, packaging, shipping preparation and delivery of shipments to logistics service providers where necessary. All internal work instructions (SOPs), quality requirements and national and international transport regulations are adhered to. Material Handler supports secure and timely shipment of ambient, refrigerated and frozen shipments worldwide. **Your main tasks:**Processing and independent prioritization of the daily standardized shipping order picking and packaging of complex clinical test materialsProcessing of different shipping types/temperature-controlled shipmentsIndependent creation of the shipping documentationSupport new employee documentation according to GMP/GDPFirst error analysis and support in CAPAs and DeviationsCompliance with all SOPSSic production of the GDP compliance order and cleanliness (SS)Cooperation in LEAN, PPI and continuous process improvementCleaning and ordering of the work area according to 5S principles\n• Your profile:**Completed vocational training in the field of logistics, warehouse, production or comparable qualificationsProfessional experience in the field of warehouse logistics, shipping or supply chain, preferably in a GMP/GDP-regulated environment experience in dealing with warehouse management systems (WMS) and MS OfficeGood German skills in word and writing. English is an advantage.Structured, careful and quality-conscious way of working.High sense of responsibility as well as understanding fi.ir GMP, GDP and quality requirements.Team ability, flexibility and resilience, setting priorities and meeting deadlines reliably. Readiness for continuous training (e.g. IATA, GDP, dangerous goods).",
-        "fr": "## Calendrier des travaux\n\n7 heures 1/2\n\n## Conditions environnementales\n\nEntrepôt\n\n## Description de l'emploi\n\n## Résumé de la fonction:\n\nTraitement indépendant des processus d'expédition normalisés et plus complexes et soutien de l'équipe dans les activités quotidiennes. L'activité comprend la cueillette physique et systémique, l'emballage, la préparation de l'expédition et la livraison des expéditions aux fournisseurs de services logistiques au besoin. Toutes les instructions de travail internes, les exigences de qualité et les règlements nationaux et internationaux en matière de transport sont respectés. Material Handler prend en charge l'expédition sécuritaire et rapide des expéditions ambiantes, réfrigérées et congelées dans le monde entier. **Vos tâches principales :**Processus et hiérarchisation indépendante de la cueillette quotidienne normalisée des commandes d'expédition et de l'emballage de matériaux d'essai cliniques complexesProcessus de différents types d'expédition/expéditions contrôlées par la température Création indépendante de la documentation d'expéditionAppuyez la documentation des nouveaux employés selon GMP/GPDPremière analyse d'erreurs et support dans les CAPA et les déviationsCompliance avec toute la production SOPSSic de l'ordre de conformité et de propreté du PIB (SS)Coopération en LEAN, PPI et amélioration continue du processusNettoyage et commande de la zone de travail selon les principes 5S\n• Votre profil:**Formation professionnelle complète dans le domaine de la logistique, de l'entrepôt, de la production ou des qualifications comparables Expérience professionnelle dans le domaine de la logistique des entrepôts, du transport maritime ou de la chaîne d'approvisionnement, de préférence dans le cadre d'une expérience environnementale réglementée par les BPF et le PIB dans le traitement des systèmes de gestion des entrepôts (WMS) et de MS OfficeGood allemand compétences en paroles et en écriture. L'anglais est un avantage. Mode de travail structuré, prudent et soucieux de la qualité. Un haut sens des responsabilités ainsi que la compréhension des BPF, du PIB et des exigences de qualité. Capacité d'équipe, flexibilité et résilience, établissement des priorités et respect des délais de manière fiable. Préparation à la formation continue (par exemple IATA, PIB, marchandises dangereuses)."
+        "fr": "## Calendrier des travaux\n\n7 heures 1/2\n\n## Conditions environnementales\n\nEntrepôt\n\n## Description de l'emploi\n\n## Résumé de la fonction:\n\nTraitement indépendant des processus d'expédition normalisés et plus complexes et soutien de l'équipe dans les activités quotidiennes. L'activité comprend la cueillette physique et systémique, l'emballage, la préparation de l'expédition et la livraison des expéditions aux fournisseurs de services logistiques au besoin. Toutes les instructions de travail internes, les exigences de qualité et les règlements nationaux et internationaux en matière de transport sont respectés. Material Handler prend en charge l'expédition sécuritaire et rapide des expéditions ambiantes, réfrigérées et congelées dans le monde entier. Vos tâches principales :Processus et hiérarchisation indépendante de la cueillette quotidienne normalisée des commandes d'expédition et de l'emballage de matériaux d'essai cliniques complexesProcessus de différents types d'expédition/expéditions contrôlées par la température Création indépendante de la documentation d'expéditionAppuyez la documentation des nouveaux employés selon GMP/GPDPremière analyse d'erreurs et support dans les CAPA et les déviationsCompliance avec toute la production SOPSSic de l'ordre de conformité et de propreté du PIB (SS)Coopération en LEAN, PPI et amélioration continue du processusNettoyage et commande de la zone de travail selon les principes 5S\n• Votre profil:Formation professionnelle complète dans le domaine de la logistique, de l'entrepôt, de la production ou des qualifications comparables Expérience professionnelle dans le domaine de la logistique des entrepôts, du transport maritime ou de la chaîne d'approvisionnement, de préférence dans le cadre d'une expérience environnementale réglementée par les BPF et le PIB dans le traitement des systèmes de gestion des entrepôts (WMS) et de MS OfficeGood allemand compétences en paroles et en écriture. L'anglais est un avantage. Mode de travail structuré, prudent et soucieux de la qualité. Un haut sens des responsabilités ainsi que la compréhension des BPF, du PIB et des exigences de qualité. Capacité d'équipe, flexibilité et résilience, établissement des priorités et respect des délais de manière fiable. Préparation à la formation continue (par exemple IATA, PIB, marchandises dangereuses)."
       },
       "location": "Allschwil, Switzerland",
       "canton": "BL",
       "url": "https://jobs.thermofisher.com/global/en/job/R-01365003/material-handler-ii",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:05:35.812Z",
+      "crawledAt": "2026-08-20T21:43:46.016Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -714,21 +807,22 @@
       "postedDate": "2026-08-13T00:00:00.000+0000",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Material-Handler-II_R-01365003/apply",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "material-handler-ii-thermo-fisher-scientific-ch"
+        "material-handler-ii-thermo-fisher-scientific-ch",
+        "materiale-maniglia-ii-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "material-handler-ii-thermo-fisher-scientific-ch"
+          "material-handler-ii-thermo-fisher-scientific-ch",
+          "materiale-maniglia-ii-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "fr": [
           "material-handler-ii-thermo-fisher-scientific-ch"
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T10:05:35.812Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -740,8 +834,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-20T10:05:35.812Z"
+      }
     },
     {
       "id": "thermo-fisher-scientific-36dd8771801a",
@@ -774,7 +867,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351342/metrology-supervisor",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:34.460Z",
+      "crawledAt": "2026-08-20T21:43:44.324Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -801,7 +894,8 @@
         "process-and-cleaning-validation-lead-msat-thermo-fisher-scientific-ch",
         "prozess-und-reinigung-validation-lead-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
         "plomb-de-validation-du-procede-et-du-nettoyage-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
-        "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau"
+        "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau",
+        "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -814,7 +908,8 @@
           "process-and-cleaning-validation-lead-msat-thermo-fisher-scientific-ch",
           "prozess-und-reinigung-validation-lead-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
           "plomb-de-validation-du-procede-et-du-nettoyage-msat-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
-          "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau"
+          "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau",
+          "metrology-supervisore-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
         ],
         "en": [
           "manager-process-automation-thermo-fisher-scientific-ch"
@@ -873,7 +968,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344213/project-support-associate-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:32.592Z",
+      "crawledAt": "2026-08-20T21:43:42.684Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -891,11 +986,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch"
+        "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch",
+        "supporto-del-progetto-associate-distribuzione-dei-servizi-client-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch"
+          "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch",
+          "supporto-del-progetto-associate-distribuzione-dei-servizi-client-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "project-support-associate-client-services-distribution-thermo-fisher-scientific-ch"
@@ -947,7 +1044,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344518/mbp-manufacturing-specialist-fixed-term",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:31.112Z",
+      "crawledAt": "2026-08-20T21:43:40.940Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -965,11 +1062,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch"
+        "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch",
+        "mbp-manufacturing-specialista-fixed-term-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch"
+          "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch",
+          "mbp-manufacturing-specialista-fixed-term-thermo-fisher-scientific-schweiz-ag-lengnau"
         ],
         "de": [
           "mbp-manufacturing-specialist-fixed-term-thermo-fisher-scientific-ch"
@@ -1023,7 +1122,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344621/senior-project-manager-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:29.459Z",
+      "crawledAt": "2026-08-20T21:43:39.246Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1041,17 +1140,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch"
+        "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch",
+        "senior-project-manager-distribuzione-dei-servizi-client-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch"
+          "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch",
+          "senior-project-manager-distribuzione-dei-servizi-client-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "de": [
           "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:12.435Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1067,9 +1169,9 @@
     },
     {
       "id": "thermo-fisher-scientific-5f95146b7cb2",
-      "slug": "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+      "slug": "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
-        "it": "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "it": "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
         "en": "operator-secondary-thermo-fisher-scientific-ch",
         "de": "operator-secondary-thermo-fisher-scientific-ch",
         "fr": "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
@@ -1079,7 +1181,7 @@
       "companyDomain": "thermofisher.com",
       "title": "Operator Secondary",
       "titleByLocale": {
-        "it": "Operatore Secondario",
+        "it": "Operator Secondary",
         "en": "Operator Secondary",
         "de": "Operator Secondary",
         "fr": "Opérateur Secondary"
@@ -1096,7 +1198,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01362429/operator-secondary",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:05:28.014Z",
+      "crawledAt": "2026-08-20T21:43:37.568Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1115,11 +1217,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operator-secondary-thermo-fisher-scientific-ch",
+        "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operator-secondary-thermo-fisher-scientific-ch",
+          "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
           "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
@@ -1137,80 +1241,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "thermo-fisher-scientific-38961a7efddf",
-      "slug": "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland",
-      "slugByLocale": {
-        "it": "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland",
-        "en": "account-manager-thermo-fisher-scientific-ch",
-        "de": "account-manager-thermo-fisher-scientific-ch",
-        "fr": "gestionnaire-de-compte-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
-      },
-      "company": "Thermo Fisher Scientific (Schweiz) AG",
-      "companyKey": "thermo-fisher-scientific",
-      "companyDomain": "thermofisher.com",
-      "title": "Account Manager",
-      "titleByLocale": {
-        "it": "Gestione account",
-        "en": "Account Manager",
-        "de": "Account Manager",
-        "fr": "Gestionnaire de compte"
-      },
-      "description": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nAs part of the Thermo Fisher Scientific team, you’ll discover meaningful work that makes a positive impact on a global scale. Join our colleagues in bringing our Mission to life every single day to enable our customers to make the world healthier, cleaner and safer. We provide our global teams with the resources needed to achieve individual career goals while helping to take science a step beyond by developing solutions for some of the world’s toughest challenges, like protecting the environment, making sure our food is safe or helping find cures for cancer.\n\nFrom sample to knowledge to results, the Chromatography and Mass Spectrometry business develops and manufactures leading-edge chromatography and mass spectrometry instruments, consumables, and software solutions for customers working in the analytical sciences (routine testing markets) and scientific research. Our complete workflow solutions enable productivity and efficiency for customers performing food and beverage testing and manufacturing, environmental and industrial testing, biopharma QA/QC, toxicology, and anti-doping. For scientific research customers, our products support a range of focus areas, including proteomics, metabolomics, drug discovery, and clinical research.\n\n**Location:** Switzerland / remote\n\n**Discover Impactful Work** As an **Account Manager** at Thermo Fisher Scientific, you'll support sales growth and customer success for our advanced analytical and scientific instruments. Working in scientific instrument solutions, you'll help customers make informed decisions in research, quality control, and process improvement. You'll develop and expand customer relationships while representing our comprehensive portfolio of instruments, consumables, and services across diverse markets including pharmaceutical, environmental, industrial, food safety, healthcare, and academic research.\n\n**A Day in the Life:** Develop and grow customer relationships by understanding scientific, technical, and business requirements and providing consultative solutions across our portfolio of analytical instruments, consumables, and services. Build and execute strategic sales plans, identify new opportunities, deliver compelling presentations, negotiate effectively, and collaborate with internal teams to drive customer success and achieve sales objectives.\n\n## What to expect:\n\n- Develop and execute strategic sales plans to achieve growth objectives.\n- Build, maintain, and expand relationships with new and existing customers.\n- Understand customer laboratory workflows, applications, and business needs.\n- Provide consultative guidance on analytical instrumentation, consumables, and services.\n- Identify and develop sales opportunities across pharmaceutical, environmental, industrial, food safety, healthcare, and academic research markets.\n- Deliver technical and commercial presentations to customers and stakeholders.\n- Manage negotiations and support customers throughout the sales process.\n- Maintain accurate opportunity and customer information using CRM systems such as Salesforce.\n- Collaborate effectively with internal commercial, technical, and service teams.\n- Travel up to 70% to support customers and business development activities.\n\n## Keys to Success:\n\n## Education\n\n- Master's degree plus 5 years of sales experience in analytical instrument markets or equivalent laboratory experience.\n- Preferred fields of study include Chemistry, Biology, Life Sciences, or a related scientific field.\n\n## Experience\n\n- Sales experience within analytical instrument markets or equivalent laboratory experience.\n- Experience developing and executing strategic sales plans.\n- Experience using consultative selling and negotiation approaches.\n- Experience building and maintaining strong customer and internal stakeholder relationships.\n- Experience working effectively in collaborative environments.\n\n## Knowledge, Skills, Abilities\n\nFluency in German and English is required; French language skills are beneficial.Strong technical knowledge of analytical instrumentation and applications.Understanding of laboratory workflows and customer requirements across key market segments.Effective consultative selling and negotiation skills.Strong presentation, communication, and interpersonal skills.Project management and organizational abilities.Proficiency with CRM systems such as Salesforce and the Microsoft Office suite.Ability to develop trusted relationships with customers and internal stakeholders.Valid driver's license and ability to travel up to 70%.\n\n## Competencies\n\n- Customer focus\n- Commercial acumen\n- Consultative selling\n- Relationship building\n- Communication and influencing\n- Strategic planning\n- Collaboration\n- Results orientation\n- Integrity\n- Intensity\n- Innovation\n- Involvement\n\n**Benefits:** We offer competitive remuneration, annual incentive plan bonus, healthcare, and a range of employee benefits. Thermo Fisher Scientific offers employment with an innovative, forward-thinking organization, and outstanding career and development prospects. We offer an exciting company culture that stands for integrity, intensity, involvement, and innovation!\n\nOur Mission is to enable our customers to make the world healthier, cleaner and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 100,000+ colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\n#StartYourStory at Thermo Fisher Scientific, where diverse experiences, backgrounds and perspectives are valued.\n\n**Apply today**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion,",
-      "descriptionByLocale": {
-        "it": "## Programma di lavoro\n\nStandard (Mon-Fri)\n\n## Condizioni ambientali\n\nUfficio\n\n## Descrizione del lavoro\n\nCome parte del team Thermo Fisher Scientific, scoprirete un lavoro significativo che fa un impatto positivo su scala globale. Unisciti ai nostri colleghi nel portare la nostra missione in vita ogni giorno per consentire ai nostri clienti di rendere il mondo più sano, più pulito e sicuro. Forniamo ai nostri team globali le risorse necessarie per raggiungere i singoli obiettivi di carriera, aiutando a superare la scienza, sviluppando soluzioni per alcune delle sfide più difficili del mondo, come proteggere l’ambiente, assicurarsi che il nostro cibo sia sicuro o aiutando a trovare cure per il cancro.\n\nDal campione alla conoscenza ai risultati, l'azienda Chromatography and Mass Spectrometry sviluppa e produce strumenti di cromatografia e spettrometria di massa, materiali di consumo e soluzioni software per i clienti che lavorano nelle scienze analitiche (mercati di test di routine) e nella ricerca scientifica. Le nostre soluzioni complete di flusso di lavoro consentono la produttività e l'efficienza per i clienti che eseguono test e produzione di alimenti e bevande, test ambientali e industriali, biofarmaci QA/QC, tossicologia e anti-doping. Per i clienti di ricerca scientifica, i nostri prodotti supportano una gamma di aree di focus, tra cui proteomics, metabolomics, scoperta della droga e ricerca clinica.\n\nPosizione: Svizzera / telecomando\n\nScopri il lavoro d'impatto Come Account Manager presso Thermo Fisher Scientific, supporterai la crescita delle vendite e il successo del cliente per i nostri avanzati strumenti analitici e scientifici. Lavorando in soluzioni di strumenti scientifici, aiuterai i clienti a prendere decisioni informate nella ricerca, nel controllo della qualità e nel miglioramento dei processi. Potrai sviluppare e ampliare le relazioni con i clienti, rappresentando il nostro portafoglio completo di strumenti, materiali di consumo e servizi in diversi mercati, tra cui farmaceutico, ambientale, industriale, sicurezza alimentare, sanità e ricerca accademica.\n\nA Day in the Life: Sviluppare e far crescere i rapporti con i clienti comprendendo i requisiti scientifici, tecnici e aziendali e fornendo soluzioni consultive nel nostro portafoglio di strumenti analitici, materiali di consumo e servizi. Costruire ed eseguire piani di vendita strategici, identificare nuove opportunità, fornire presentazioni convincenti, negoziare in modo efficace e collaborare con i team interni per guidare il successo del cliente e raggiungere gli obiettivi di vendita.\n\n## Cosa aspettarsi:\n\n- Sviluppare ed eseguire piani strategici di vendita per raggiungere gli obiettivi di crescita.\n- Costruire, mantenere e espandere le relazioni con i clienti nuovi e esistenti.\n- Comprendere i flussi di lavoro del laboratorio del cliente, le applicazioni e le esigenze aziendali.\n- Fornire indicazioni consultive su strumentazione analitica, materiali di consumo e servizi.\n- Identificare e sviluppare opportunità di vendita nei mercati della ricerca farmaceutica, ambientale, industriale, alimentare, sanitaria e accademica.\n- Consegnare presentazioni tecniche e commerciali a clienti e stakeholder.\n- Gestire i negoziati e supportare i clienti durante il processo di vendita.\n- Mantenere l'opportunità accurata e le informazioni del cliente utilizzando sistemi CRM come Salesforce.\n- Collabora efficacemente con i team commerciali, tecnici e di assistenza interni.\n- Viaggiate fino al 70% per supportare clienti e attività di sviluppo aziendale.\n\n## Le chiavi di successo:\n\n## Istruzione\n\n- Laurea magistrale più 5 anni di esperienza di vendita nei mercati di strumenti analitici o esperienza di laboratorio equivalente.\n- I campi di studio preferiti includono Chimica, Biologia, Scienze della Vita, o un campo scientifico correlato.\n\n## Esperienza\n\n- Esperienza di vendita nei mercati di strumenti analitici o esperienza di laboratorio equivalente.\n- Sperimenta lo sviluppo e l'esecuzione di piani strategici di vendita.\n- Esperienza utilizzando approcci consultivi di vendita e negoziazione.\n- Sperimentare la costruzione e mantenere forti relazioni con i clienti e gli stakeholder interni.\n- Esperienza di lavoro efficace in ambienti collaborativi.\n\n## Conoscenza, abilità, abilità\n\nÈ necessaria la fluidità in tedesco e in inglese; le competenze linguistiche francesi sono vantaggiose. Forte conoscenza tecnica della strumentazione analitica e delle applicazioni. Comprensione dei flussi di lavoro di laboratorio e dei requisiti dei clienti nei segmenti di mercato chiave. Efficace capacità consultive di vendita e di negoziazione. Forte presentazione, comunicazione e competenze interpersonali. Gestione del progetto e capacità organizzative. La competenza con sistemi CRM come Salesforce e la suite Microsoft Office. Capacità di sviluppare relazioni di fiducia con i clienti e gli stakeholder interni. Valida patente di guida e capacità di viaggiare fino al 70%.\n\n## Competenze\n\n- Obiettivo del cliente\n- Acume commerciale\n- Vendite consultive\n- Costruzione di relazioni\n- Comunicazione e influenza\n- Pianificazione strategica\n- Collaborazione\n- Risultati dell'orientamento\n- Integrità\n- Intensità\n- Innovazione\n- Coinvolgimento\n\n# Benefici. # Offriamo remunerazione competitiva, bonus annuale di incentivazione, assistenza sanitaria e una serie di benefici per i dipendenti. Thermo Fisher Scientific offre un'occupazione con un'organizzazione innovativa e intenzionale, e prospettive di carriera e sviluppo eccezionali. Offriamo un'emozionante cultura aziendale che è sinonimo di integrità, intensità, coinvolgimento e innovazione!\n\nLa nostra missione è quella di consentire ai nostri clienti di rendere il mondo più sano, più pulito e sicuro. Guarda come i nostri colleghi spiegano 5 motivi per lavorare con noi. In qualità di team di 100.000 colleghi, condividiamo un insieme comune di valori - Integrità, Intensità, Innovazione e Coinvolgimento - lavorando insieme per accelerare la ricerca, risolvere complesse sfide scientifiche, guidare l'innovazione tecnologica e sostenere i pazienti bisognosi.\n\n#StartYourStory at Thermo Fisher Scientific, dove vengono valutate esperienze, sfondi e prospettive diverse.\n\n# Apply today # [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific è un EEO/Affirmative Action Employer e non discrimina sulla base di razza, colore, religione,",
-        "en": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nAs part of the Thermo Fisher Scientific team, you’ll discover meaningful work that makes a positive impact on a global scale. Join our colleagues in bringing our Mission to life every single day to enable our customers to make the world healthier, cleaner and safer. We provide our global teams with the resources needed to achieve individual career goals while helping to take science a step beyond by developing solutions for some of the world’s toughest challenges, like protecting the environment, making sure our food is safe or helping find cures for cancer.\n\nFrom sample to knowledge to results, the Chromatography and Mass Spectrometry business develops and manufactures leading-edge chromatography and mass spectrometry instruments, consumables, and software solutions for customers working in the analytical sciences (routine testing markets) and scientific research. Our complete workflow solutions enable productivity and efficiency for customers performing food and beverage testing and manufacturing, environmental and industrial testing, biopharma QA/QC, toxicology, and anti-doping. For scientific research customers, our products support a range of focus areas, including proteomics, metabolomics, drug discovery, and clinical research.\n\n**Location:** Switzerland / remote\n\n**Discover Impactful Work** As an **Account Manager** at Thermo Fisher Scientific, you'll support sales growth and customer success for our advanced analytical and scientific instruments. Working in scientific instrument solutions, you'll help customers make informed decisions in research, quality control, and process improvement. You'll develop and expand customer relationships while representing our comprehensive portfolio of instruments, consumables, and services across diverse markets including pharmaceutical, environmental, industrial, food safety, healthcare, and academic research.\n\n**A Day in the Life:** Develop and grow customer relationships by understanding scientific, technical, and business requirements and providing consultative solutions across our portfolio of analytical instruments, consumables, and services. Build and execute strategic sales plans, identify new opportunities, deliver compelling presentations, negotiate effectively, and collaborate with internal teams to drive customer success and achieve sales objectives.\n\n## What to expect:\n\n- Develop and execute strategic sales plans to achieve growth objectives.\n- Build, maintain, and expand relationships with new and existing customers.\n- Understand customer laboratory workflows, applications, and business needs.\n- Provide consultative guidance on analytical instrumentation, consumables, and services.\n- Identify and develop sales opportunities across pharmaceutical, environmental, industrial, food safety, healthcare, and academic research markets.\n- Deliver technical and commercial presentations to customers and stakeholders.\n- Manage negotiations and support customers throughout the sales process.\n- Maintain accurate opportunity and customer information using CRM systems such as Salesforce.\n- Collaborate effectively with internal commercial, technical, and service teams.\n- Travel up to 70% to support customers and business development activities.\n\n## Keys to Success:\n\n## Education\n\n- Master's degree plus 5 years of sales experience in analytical instrument markets or equivalent laboratory experience.\n- Preferred fields of study include Chemistry, Biology, Life Sciences, or a related scientific field.\n\n## Experience\n\n- Sales experience within analytical instrument markets or equivalent laboratory experience.\n- Experience developing and executing strategic sales plans.\n- Experience using consultative selling and negotiation approaches.\n- Experience building and maintaining strong customer and internal stakeholder relationships.\n- Experience working effectively in collaborative environments.\n\n## Knowledge, Skills, Abilities\n\nFluency in German and English is required; French language skills are beneficial.Strong technical knowledge of analytical instrumentation and applications.Understanding of laboratory workflows and customer requirements across key market segments.Effective consultative selling and negotiation skills.Strong presentation, communication, and interpersonal skills.Project management and organizational abilities.Proficiency with CRM systems such as Salesforce and the Microsoft Office suite.Ability to develop trusted relationships with customers and internal stakeholders.Valid driver's license and ability to travel up to 70%.\n\n## Competencies\n\n- Customer focus\n- Commercial acumen\n- Consultative selling\n- Relationship building\n- Communication and influencing\n- Strategic planning\n- Collaboration\n- Results orientation\n- Integrity\n- Intensity\n- Innovation\n- Involvement\n\n**Benefits:** We offer competitive remuneration, annual incentive plan bonus, healthcare, and a range of employee benefits. Thermo Fisher Scientific offers employment with an innovative, forward-thinking organization, and outstanding career and development prospects. We offer an exciting company culture that stands for integrity, intensity, involvement, and innovation!\n\nOur Mission is to enable our customers to make the world healthier, cleaner and safer. Watch as our colleagues explain 5 reasons to work with us. As one team of 100,000+ colleagues, we share a common set of values - Integrity, Intensity, Innovation and Involvement - working together to accelerate research, solve complex scientific challenges, drive technological innovation and support patients in need.\n\n#StartYourStory at Thermo Fisher Scientific, where diverse experiences, backgrounds and perspectives are valued.\n\n**Apply today**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion,",
-        "de": "## Arbeitsplan\n\nStandard (Mon-Fri)\n\n## Umweltbedingungen\n\nBüro\n\n## Stellenbeschreibung\n\nAls Teil des Teams von Thermo Fisher Scientific entdecken Sie sinnvolle Arbeiten, die sich weltweit positiv auswirken. Gemeinsam mit unseren Kollegen erwecken wir unsere Mission jeden Tag zum Leben, damit unsere Kunden die Welt gesünder, sauberer und sicherer machen können. Wir stellen unseren globalen Teams die Ressourcen zur Verfügung, die sie benötigen, um individuelle Karriereziele zu erreichen, und helfen gleichzeitig, die Wissenschaft einen Schritt weiter zu bringen, indem wir Lösungen für einige der schwierigsten Herausforderungen der Welt entwickeln, wie den Schutz der Umwelt, die Gewährleistung der Sicherheit unserer Lebensmittel oder die Suche nach Heilmitteln für Krebs.\n\nVon der Probe über das Wissen bis hin zu den Ergebnissen entwickelt und produziert das Chromatographie- und Massenspektrometrie-Geschäft Spitzeninstrumente, Verbrauchsmaterialien und Softwarelösungen für Kunden, die in den analytischen Wissenschaften (routinemäßige Testmärkte) und in der wissenschaftlichen Forschung arbeiten. Unsere kompletten Workflow-Lösungen ermöglichen Produktivität und Effizienz für Kunden, die Lebensmittel- und Getränketests und -herstellung, Umwelt- und Industrietests, Biopharma QA / QC, Toxikologie und Anti-Doping durchführen. Für Kunden der wissenschaftlichen Forschung unterstützen unsere Produkte eine Reihe von Schwerpunktbereichen, darunter Proteomik, Metabolomik, Wirkstoffforschung und klinische Forschung.\n\n**Standort:** Schweiz / Remote\n\n**Entdecken Sie wirkungsvolle Arbeit ** Als **Account Manager** bei Thermo Fisher Scientific unterstützen Sie Umsatzwachstum und Kundenerfolg für unsere fortschrittlichen analytischen und wissenschaftlichen Instrumente. Mit wissenschaftlichen Instrumentenlösungen helfen Sie Ihren Kunden, fundierte Entscheidungen in den Bereichen Forschung, Qualitätskontrolle und Prozessverbesserung zu treffen. Sie entwickeln und erweitern Kundenbeziehungen, während Sie unser umfassendes Portfolio an Instrumenten, Verbrauchsmaterialien und Dienstleistungen in verschiedenen Märkten vertreten, darunter Pharmazie, Umwelt, Industrie, Lebensmittelsicherheit, Gesundheitswesen und akademische Forschung.\n\n**Ein Tag im Leben: ** Entwickeln und erweitern Sie Kundenbeziehungen, indem Sie wissenschaftliche, technische und geschäftliche Anforderungen verstehen und beratende Lösungen für unser Portfolio an Analyseinstrumenten, Verbrauchsmaterialien und Dienstleistungen anbieten. Erstellen und implementieren Sie strategische Verkaufspläne, identifizieren Sie neue Möglichkeiten, liefern Sie überzeugende Präsentationen, verhandeln Sie effektiv und arbeiten Sie mit internen Teams zusammen, um den Kundenerfolg zu steigern und Verkaufsziele zu erreichen.\n\n## Was zu erwarten ist:\n\n- Entwicklung und Umsetzung strategischer Verkaufspläne zur Erreichung der Wachstumsziele.\n- Aufbauen, pflegen und erweitern Sie Beziehungen zu neuen und bestehenden Kunden.\n- Verstehen Sie die Workflows, Anwendungen und Geschäftsanforderungen von Kundenlabors.\n- Beratung bei analytischen Instrumenten, Verbrauchsmaterialien und Dienstleistungen.\n- Identifizieren und entwickeln Sie Absatzmöglichkeiten in den Bereichen Pharma, Umwelt, Industrie, Lebensmittelsicherheit, Gesundheitswesen und akademische Forschung.\n- Liefern Sie technische und kommerzielle Präsentationen für Kunden und Stakeholder.\n- Verwalten Sie Verhandlungen und unterstützen Sie Kunden während des gesamten Verkaufsprozesses.\n- Pflegen Sie genaue Gelegenheits- und Kundeninformationen mit CRM-Systemen wie Salesforce.\n- Arbeiten Sie effektiv mit internen kaufmännischen, technischen und Serviceteams zusammen.\n- Reisen Sie bis zu 70%, um Kunden und Geschäftsentwicklungsaktivitäten zu unterstützen.\n\n## Schlüssel zum Erfolg:\n\n## Bildung\n\n- Master-Abschluss plus 5 Jahre Verkaufserfahrung in analytischen Instrumentenmärkten oder gleichwertige Laborerfahrung.\n- Bevorzugte Studienfächer sind Chemie, Biologie, Life Sciences oder ein verwandtes wissenschaftliches Gebiet.\n\n## Erfahrung\n\n- Verkaufserfahrung auf den Märkten für Analysegeräte oder gleichwertige Laborerfahrung.\n- Erleben Sie die Entwicklung und Durchführung strategischer Verkaufspläne.\n- Erfahrung mit beratenden Verkaufs- und Verhandlungsansätzen.\n- Erleben Sie den Aufbau und die Pflege starker Kunden- und interner Stakeholder-Beziehungen.\n- Erleben Sie effektives Arbeiten in kollaborativen Umgebungen.\n\n## Wissen, Fähigkeiten, Fähigkeiten\n\nSprachkenntnisse in Deutsch und Englisch sind erforderlich; Französischkenntnisse sind von Vorteil. Starkes technisches Wissen über analytische Instrumente und Anwendungen. Verständnis von Labor-Workflows und Kundenanforderungen in wichtigen Marktsegmenten. Effektives beratendes Verkaufs- und Verhandlungsgeschick. Starke Präsentation, Kommunikation und zwischenmenschliche Fähigkeiten. Projektmanagement und organisatorische Fähigkeiten. Kenntnisse in CRM-Systemen wie Salesforce und der Microsoft Office Suite. Fähigkeit, vertrauensvolle Beziehungen zu Kunden und internen Stakeholdern aufzubauen. Gültiger Führerschein und Reisefähigkeit bis zu 70%.\n\n## Kompetenzen\n\n- Kundenfokus\n- Handelsüblicher Scharfsinn\n- Beratungsverkauf\n- Aufbau von Beziehungen\n- Kommunikation und Beeinflussung\n- Strategische Planung\n- Zusammenarbeit\n- Ergebnisorientierung\n- Integrität\n- Intensität\n- Innovation\n- Beteiligung\n\n**Vorteile:** Wir bieten eine wettbewerbsfähige Vergütung, einen jährlichen Incentive-Plan-Bonus, eine Gesundheitsversorgung und eine Reihe von Arbeitnehmerleistungen. Thermo Fisher Scientific bietet eine Beschäftigung mit einer innovativen, zukunftsweisenden Organisation und hervorragenden Karriere- und Entwicklungsperspektiven. Wir bieten eine spannende Unternehmenskultur, die für Integrität, Intensität, Engagement und Innovation steht!\n\nUnsere Mission ist es, unseren Kunden zu ermöglichen, die Welt gesünder, sauberer und sicherer zu machen. Sehen Sie, wie unsere Kollegen 5 Gründe erklären, mit uns zu arbeiten. Als ein Team von mehr als 100.000 Kollegen teilen wir eine Reihe gemeinsamer Werte - Integrität, Intensität, Innovation und Beteiligung - und arbeiten zusammen, um die Forschung zu beschleunigen, komplexe wissenschaftliche Herausforderungen zu lösen, technologische Innovationen voranzutreiben und bedürftige Patienten zu unterstützen.\n\n#StartYourStory bei Thermo Fisher Scientific, wo verschiedene Erfahrungen, Hintergründe und Perspektiven geschätzt werden.\n\n** Heute bewerben**! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific ist ein EEO / Affirmative Action Arbeitgeber und diskriminiert nicht auf der Grundlage von Rasse, Hautfarbe, Religion,",
-        "fr": "## Calendrier des travaux\n\nNorme (Mon-Fri)\n\n## Conditions environnementales\n\nBureau\n\n## Description de l'emploi\n\nDans le cadre de l'équipe Thermo Fisher Scientific, vous découvrirez un travail significatif qui a un impact positif à l'échelle mondiale. Rejoignez nos collègues pour donner vie à notre mission tous les jours afin de permettre à nos clients de rendre le monde plus sain, plus propre et plus sûr. Nous fournissons à nos équipes mondiales les ressources nécessaires pour atteindre des objectifs de carrière individuels tout en aidant à faire avancer la science en développant des solutions pour certains des défis les plus difficiles du monde, comme protéger l'environnement, s'assurer que nos aliments sont sûrs ou aider à trouver des remèdes pour le cancer.\n\nDe l'échantillon à la connaissance aux résultats, l'entreprise de chromatographie et de spectrométrie de masse développe et fabrique des instruments de chromatographie et de spectrométrie de masse de pointe, des consommables et des solutions logicielles pour les clients travaillant dans les sciences analytiques (marchés d'essais courants) et la recherche scientifique. Nos solutions complètes de workflow permettent la productivité et l'efficacité pour les clients qui effectuent des essais et des fabrications d'aliments et de boissons, des essais environnementaux et industriels, de l'AQ/QC biopharmaceutique, de la toxicologie et de l'antidopage. Pour les clients de la recherche scientifique, nos produits soutiennent une gamme de domaines d'intérêt, y compris la protéomique, la métabolomique, la découverte de médicaments et la recherche clinique.\n\nEmplacement : Suisse / télécommande\n\nDécouvrez le travail utile En tant que responsable du compte chez Thermo Fisher Scientific, vous soutiendrez la croissance des ventes et le succès client pour nos instruments analytiques et scientifiques avancés. Travaillant dans des solutions d'instruments scientifiques, vous aiderez les clients à prendre des décisions éclairées en matière de recherche, de contrôle de la qualité et d'amélioration des processus. Vous développerez et élargirez les relations avec la clientèle tout en représentant notre vaste portefeuille d'instruments, de consommables et de services sur divers marchés, y compris les produits pharmaceutiques, environnementaux, industriels, la sécurité alimentaire, les soins de santé et la recherche universitaire.\n\nUne journée dans la vie : Développer et développer les relations client en comprenant les exigences scientifiques, techniques et commerciales et en fournissant des solutions consultatives dans notre portefeuille d'instruments d'analyse, de consommables et de services. Élaborer et exécuter des plans stratégiques de vente, identifier de nouvelles possibilités, présenter des présentations convaincantes, négocier efficacement et collaborer avec des équipes internes pour stimuler le succès client et atteindre les objectifs de vente.\n\n## À quoi s'attendre :\n\n- Élaborer et exécuter des plans stratégiques de vente pour atteindre les objectifs de croissance.\n- Établir, entretenir et développer des relations avec des clients nouveaux et existants.\n- Comprendre les flux de travail, les applications et les besoins des laboratoires clients.\n- Fournir des conseils consultatifs sur les instruments d'analyse, les consommables et les services.\n- Identifier et développer les possibilités de vente sur les marchés de la recherche pharmaceutique, environnementale, industrielle, de la sécurité alimentaire, des soins de santé et universitaire.\n- Fournir des présentations techniques et commerciales aux clients et aux intervenants.\n- Gérer les négociations et soutenir les clients tout au long du processus de vente.\n- Maintenez des informations précises sur les opportunités et les clients en utilisant des systèmes CRM tels que Salesforce.\n- Collaborer efficacement avec les équipes internes de commerce, technique et de service.\n- Voyage jusqu'à 70% pour soutenir les clients et les activités de développement d'entreprise.\n\n## Les clés du succès :\n\n## Éducation\n\n- Maîtrise et 5 ans d'expérience commerciale dans les marchés des instruments d'analyse ou expérience équivalente en laboratoire.\n- Les domaines d'études préférés comprennent la chimie, la biologie, les sciences de la vie ou un domaine scientifique connexe.\n\n## Expérience\n\n- Expérience de vente sur les marchés des instruments d'analyse ou expérience équivalente en laboratoire.\n- Expérience de l'élaboration et de l'exécution de plans stratégiques de vente.\n- Expérience en matière de vente et de négociation.\n- Expérimentez l'établissement et le maintien de solides relations avec les clients et les intervenants internes.\n- Expérience de travail efficace dans les environnements de collaboration.\n\n## Connaissances, compétences, capacités\n\nLa maîtrise de l'allemand et de l'anglais est requise; les compétences en français sont bénéfiques. Forte connaissance technique de l'instrumentation analytique et des applications. Compréhension des flux de travail en laboratoire et des besoins des clients sur les principaux segments du marché. Compétences efficaces en matière de vente et de négociation. Forte présentation, communication et aptitudes interpersonnelles. Gestion de projet et capacités organisationnelles. Compétence avec les systèmes CRM tels que Salesforce et la suite Microsoft Office. Capacité d'établir des relations de confiance avec les clients et les intervenants internes. Permis de conduire valide et capacité de voyager jusqu'à 70%.\n\n## Compétences\n\n- Orientation client\n- Œuvre commerciale\n- Vente consultative\n- Renforcement des relations\n- Communication et influence\n- Planification stratégique\n- Collaboration\n- Orientation des résultats\n- Intégrité\n- Intensité\n- Innovation\n- Participation\n\nAvantages: Nous offrons une rémunération compétitive, une prime annuelle de régime incitatif, des soins de santé et une gamme d'avantages sociaux. Thermo Fisher Scientific offre un emploi avec une organisation innovante et tournée vers l'avenir, et des perspectives de carrière et de développement exceptionnelles. Nous offrons une culture d'entreprise passionnante qui représente l'intégrité, l'intensité, la participation et l'innovation!\n\nNotre mission est de permettre à nos clients de rendre le monde plus sain, plus propre et plus sûr. Regardez comme nos collègues expliquent 5 raisons de travailler avec nous. En tant qu'équipe de plus de 100 000 collègues, nous partageons un ensemble commun de valeurs - intégrité, intensité, innovation et participation - qui travaillent ensemble pour accélérer la recherche, résoudre des défis scientifiques complexes, stimuler l'innovation technologique et aider les patients dans le besoin.\n\n#StartYourStory chez Thermo Fisher Scientific, où les expériences, les antécédents et les perspectives sont appréciés.\n\nAppliquer aujourd'hui! [http://jobs.thermofisher.com](http://jobs.thermofisher.com/)\n\nThermo Fisher Scientific est un employeur d'EEO/Affirmative Action et ne fait aucune discrimination fondée sur la race, la couleur, la religion,"
-      },
-      "location": "Reinach, Switzerland",
-      "canton": "BL",
-      "url": "https://jobs.thermofisher.com/global/en/job/R-01363067/account-manager",
-      "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:26.464Z",
-      "addressLocality": "Reinach",
-      "postalCode": "CH-4153",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Life Sciences — Pharma Manufacturing & Quality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17T00:00:00.000+0000",
-      "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Reinach-Switzerland/Account-Manager_R-01363067/apply",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "account-manager-thermo-fisher-scientific-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "account-manager-thermo-fisher-scientific-ch"
-        ],
-        "fr": [
-          "account-manager-thermo-fisher-scientific-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:37:30.040Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
           "unitText": "YEAR"
         }
       }
@@ -1246,7 +1276,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01364123/manufacturing-support-and-planner",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:25.062Z",
+      "crawledAt": "2026-08-20T21:43:35.987Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1264,11 +1294,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-support-and-planner-thermo-fisher-scientific-ch"
+        "manufacturing-support-and-planner-thermo-fisher-scientific-ch",
+        "supporto-e-planner-di-produzione-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-support-and-planner-thermo-fisher-scientific-ch"
+          "manufacturing-support-and-planner-thermo-fisher-scientific-ch",
+          "supporto-e-planner-di-produzione-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
         ],
         "de": [
           "manufacturing-support-and-planner-thermo-fisher-scientific-ch"
@@ -1278,6 +1310,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:51:02.348Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1322,7 +1355,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01364122/sr-manufacturing-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:23.407Z",
+      "crawledAt": "2026-08-20T21:43:34.382Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1345,7 +1378,8 @@
         "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland",
         "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne",
         "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne",
-        "sr-manufacturing-engineer-thermo-fisher-scientific-ch"
+        "sr-manufacturing-engineer-thermo-fisher-scientific-ch",
+        "sr-manufacturing-ingegnere-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1354,7 +1388,8 @@
           "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland",
           "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne",
           "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne",
-          "sr-manufacturing-engineer-thermo-fisher-scientific-ch"
+          "sr-manufacturing-engineer-thermo-fisher-scientific-ch",
+          "sr-manufacturing-ingegnere-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
         ],
         "en": [
           "r-d-engineer-thermo-fisher-scientific-ch"
@@ -1413,7 +1448,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01361470/project-manager-engineering",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:21.712Z",
+      "crawledAt": "2026-08-20T21:43:32.721Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1431,14 +1466,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-engineering-thermo-fisher-scientific-ch"
+        "project-manager-engineering-thermo-fisher-scientific-ch",
+        "project-manager-ingegneria-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-engineering-thermo-fisher-scientific-ch"
+          "project-manager-engineering-thermo-fisher-scientific-ch",
+          "project-manager-ingegneria-thermo-fisher-scientific-schweiz-ag-allschwil"
         ]
       },
       "firstSeenAt": "2026-07-27T12:38:40.880Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1483,7 +1521,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358785/sr-account-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:20.202Z",
+      "crawledAt": "2026-08-20T21:43:31.108Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -1546,7 +1584,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01361329/laboratory-clinical-account-manager-immunodiagnostics",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:05:18.694Z",
+      "crawledAt": "2026-08-20T21:43:29.418Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -1564,11 +1602,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laboratory-clinical-account-manager-immunodiagnostics-thermo-fisher-scientific-ch"
+        "laboratory-clinical-account-manager-immunodiagnostics-thermo-fisher-scientific-ch",
+        "immunodiagnostics-del-direttore-del-conto-clinico-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-clinical-account-manager-immunodiagnostics-thermo-fisher-scientific-ch"
+          "laboratory-clinical-account-manager-immunodiagnostics-thermo-fisher-scientific-ch",
+          "immunodiagnostics-del-direttore-del-conto-clinico-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
         ],
         "de": [
           "laboratory-clinical-account-manager-immunodiagnostics-thermo-fisher-scientific-ch"
@@ -1620,7 +1660,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356730/senior-scientist-electronic-laboratory-systems",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:17.660Z",
+      "crawledAt": "2026-08-20T21:43:27.721Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1638,11 +1678,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch"
+        "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch",
+        "sistemi-di-laboratorio-elettronici-degli-scienziati-senior-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch"
+          "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch",
+          "sistemi-di-laboratorio-elettronici-degli-scienziati-senior-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
         ],
         "de": [
           "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch"
@@ -1652,6 +1694,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:20.775Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1696,7 +1739,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01357104/comparator-sourcing-procurement-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:16.415Z",
+      "crawledAt": "2026-08-20T21:43:26.050Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1718,7 +1761,8 @@
         "procurement-specialista-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil",
         "procurement-specialist-12-month-ftc-thermo-fisher-scientific-ch",
         "procurement-spezialist-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "procurement-specialiste-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil"
+        "procurement-specialiste-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "comparator-sourcing-procurement-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1726,7 +1770,8 @@
           "procurement-specialista-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil",
           "procurement-specialist-12-month-ftc-thermo-fisher-scientific-ch",
           "procurement-spezialist-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil",
-          "procurement-specialiste-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil"
+          "procurement-specialiste-12-month-ftc-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "comparator-sourcing-procurement-specialista-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "en": [
           "procurement-specialist-12-month-ftc-thermo-fisher-scientific-ch"
@@ -1785,7 +1830,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356104/demand-and-supply-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:15.456Z",
+      "crawledAt": "2026-08-20T21:43:24.337Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1803,17 +1848,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "demand-and-supply-manager-thermo-fisher-scientific-ch"
+        "demand-and-supply-manager-thermo-fisher-scientific-ch",
+        "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "demand-and-supply-manager-thermo-fisher-scientific-ch"
+          "demand-and-supply-manager-thermo-fisher-scientific-ch",
+          "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "fr": [
           "demand-and-supply-manager-thermo-fisher-scientific-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:15.282Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1828,12 +1876,77 @@
       }
     },
     {
-      "id": "thermo-fisher-scientific-deb766dbfd59",
-      "slug": "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+      "id": "thermo-fisher-scientific-a08270c29485",
+      "slug": "senior-scientist-bio-chemical-quality-control-thermo-fisher-scientific-ch",
       "slugByLocale": {
-        "de": "operator-primary-thermo-fisher-scientific-ch",
-        "it": "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "en": "senior-scientist-bio-chemical-quality-control-thermo-fisher-scientific-ch",
+        "it": "senior-scientist-bio-chemical-quality-control-thermo-fisher-scientific-ch",
+        "de": "senior-scientist-bio-chemical-quality-control-thermo-fisher-scientific-ch",
+        "fr": "senior-scientist-bio-chemical-quality-control-thermo-fisher-scientific-ch"
+      },
+      "company": "Thermo Fisher Scientific (Schweiz) AG",
+      "companyKey": "thermo-fisher-scientific",
+      "companyDomain": "thermofisher.com",
+      "title": "Senior Scientist Bio-/Chemical Quality Control",
+      "titleByLocale": {
+        "en": "Senior Scientist Bio-/Chemical Quality Control",
+        "it": "Senior Scientist Bio-/Chemical Quality Control",
+        "de": "Senior Scientist Bio-/Chemical Qualität Control",
+        "fr": "Senior Scientist Bio-/Chemical Qualité Control"
+      },
+      "description": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nJoin our Quality Control team at Thermo Fisher Scientific where you'll make meaningful contributions to our mission of enabling customers to make the world healthier, cleaner and safer. As a Senior Scientist, you will support the establishment and operational readiness of the Bio-/Chemical Quality Control (BCQC) unit at the Thermo Fisher Scientific Lengnau site in accordance with project timelines. Key responsibilities include contributing to the transfer, verification, and validation of analytical methods, as well as the qualification of laboratory equipment required for testing activities. The role also actively supports GMP inspection readiness by ensuring compliance with applicable Quality Systems, procedures, and documentation requirements. In addition, it contributes to overall QC operational readiness through the management and coordination of internal and external projects, resource allocation, and the planning and prioritization of daily team activities. This role offers excellent opportunities for professional growth while working alongside colleagues who share your commitment to science and quality.\n\n## Position Summary:\n\nThe Senior Scientist Bio-/Chemical Quality Control (BCQC) plays a key role in establishing, implementing, and maintaining compliant QC processes and analytical methods for the testing of finished products, in-process controls, intermediates, raw materials, utilities, and cleaning samples.\n\nThe position combines scientific expertise, GMP compliance, and project leadership. The Senior Scientist is responsible for coordinating analytical activities, supporting the implementation and lifecycle management of methods and equipment, leading local and global QC projects, and ensuring that activities are completed in accordance with defined quality requirements and timelines.\n\nThe role works closely with QC management, internal stakeholders, project teams, external partners, suppliers, contract laboratories, and other functions to ensure operational excellence and continuous improvement within BCQC.\n\n## Responsibilities:\n\n## Processes and Analytical Methods Implementation\n\nThe Senior Scientist coordinates activities required to establish and maintain QC processes and analytical methods within the assigned area of expertise. Key responsibilities include:\n\n- Authoring and revising Standard Operating Procedures (SOPs), Work Instructions (WIs), and other controlled documents in compliance with GMP requirements and established timelines.\n- Acting as Subject Matter Expert (SME) for the review and approval of analytical methods, plans, protocols, reports, and other technical documentation.\n- Coordinating the procurement, qualification, calibration, maintenance, and lifecycle management of analytical and laboratory infrastructure equipment.\n- Supporting the procurement, preparation, manufacturing, qualification, and verification of test, reference, and control materials.\n- Coordinating and executing the development, transfer, verification, qualification, and validation of analytical procedures according to applicable regulatory requirements and project timelines.\n- Reviewing analytical raw data, equipment qualification and maintenance records, and other relevant BCQC documentation to ensure accuracy, completeness, data integrity, and GMP compliance.\n- Ensuring that analytical processes and methods are appropriately implemented and maintained to support reliable and compliant routine QC operations.\n\n## Project Leadership\n\nThe Senior Scientist represents BCQC in cross-functional projects, working groups, and local and global initiatives and ensures that project requirements, resources, workload, timelines, and deliverables are clearly defined.\n\nKey responsibilities include:\n\n- Leading the implementation of local and global projects within QC and ensuring effective planning and execution of assigned activities.\n- Translating project requirements into clear, data-driven workload and resource plans.\n- Coordinating allocated resources in collaboration with QC management and other QC functions to ensure that timelines and project objectives are achieved.\n- Driving collaboration within project teams and ensuring alignment with company strategy, priorities, and core values.\n- Facilitating effective and timely communication within project teams and across relevant stakeholders.\n- Leading and supporting structured problem-solving activities when issues arise in connection with assigned projects or tasks.\n- Monitoring project progress, risks, milestones, deliverables, and KPIs and escalating potential delays or issues when appropriate.\n- Promoting accountability by communicating expectations, ensuring transparency of relevant information, and proactively addressing or escalating conflicts and challenges.\n- Supporting continuous improvement initiatives aimed at strengthening QC compliance, efficiency, quality, and overall performance.\n- Establishing and maintaining effective relationships with external partners, including suppliers, contract laboratories, service providers, and universities.\n\n## QC Execution and Compliance\n\nThe Senior Scientist supports the compliant and timely execution of routine and non-routine QC activities and ensures appropriate documentation of analytical work. Responsibilities include:\n\n- Ensuring that raw data, analytical results, reports, logbooks, and other relevant records are accurately documented, reviewed, and retained in accordance with applicable procedures and data integrity requirements.\n- Supporting the investigation and resolution of analytical and quality-related issues, including requests associated with biochemical and chemical testing.\n- Ensuring that deviations and laboratory investigations are initiated, investigated, documented, and completed in a timely and compliant manner.\n- Providing scientific and technical expertise to support investigations, root cause analysis, and the definition of appropriate corrective and preventive actions, where applicable.\n- Supporting responses to internal stakeholders, customers, sponsors, auditors, and Health Authority requests related to the assigned area of responsibility.\n- Keeping the Head of BCQC appropriately informed regarding ongoing activities, project status, risks, and significant issues.\n- Ensuring effective and transparent communication of relevant information to sponsors, stakeholders, project teams, and QC colleagues.\n\n## Team Support and Development\n\nThe Senior Scientist contributes to the development of a strong, collaborative, and compliant QC organization by:\n\n- Providing scientific and technical guidance to QC colleagues.\n- Mentoring and supporting team members in GMP, Quality Control principles, analytical methods, and laboratory best practices.\n- Supporting the planning and coordination of team activities and resources according to operational and project priorities.\n- Contributing to recruitment activities and the onboarding and development of new team members.\n- Promoting a culture of quality, accountability, collaboration, continuous improvement, and GMP compliance.\n\n## Requirements:\n\n- Degree (Master or higher) in biochemical / chemical/ pharmaceutical/ molecular sciences or similar\n- Lower educational background could be accepted, as applicable, in case of former experience in the pharmaceutical industry\n- Preferred Fields of Study: Chemistry, Biochemistry, Biology, Molecular Biology or related scientific field\n- Min 2 years experience in GMP regulated industry\n- 3-5 years lab experience\n- Additional certifications in Quality Control/GMP practices beneficial\n- Strong knowledge of GMP regulations and quality systems requirements\n- Proficiency in analytical techniques including HPLC, GC, MS, spectrophotometry\n- Experience with biochemical testing methods\n- Strong documentation skills and proficiency with laboratory information management systems\n- Knowledge of relevant regulatory standards (ISO, FDA, USP, EP)\n- Excellent attention to detail and ability to follow written/verbal procedures accurately\n- Strong organizational and time management skills\n- Ability to work both independently and collaboratively in a team environment\n- Proficiency in Microsoft Office applications\n- Clear written and verbal communication skills in English\n- Experience with laboratory automation systems preferred",
+      "descriptionByLocale": {
+        "en": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nJoin our Quality Control team at Thermo Fisher Scientific where you'll make meaningful contributions to our mission of enabling customers to make the world healthier, cleaner and safer. As a Senior Scientist, you will support the establishment and operational readiness of the Bio-/Chemical Quality Control (BCQC) unit at the Thermo Fisher Scientific Lengnau site in accordance with project timelines. Key responsibilities include contributing to the transfer, verification, and validation of analytical methods, as well as the qualification of laboratory equipment required for testing activities. The role also actively supports GMP inspection readiness by ensuring compliance with applicable Quality Systems, procedures, and documentation requirements. In addition, it contributes to overall QC operational readiness through the management and coordination of internal and external projects, resource allocation, and the planning and prioritization of daily team activities. This role offers excellent opportunities for professional growth while working alongside colleagues who share your commitment to science and quality.\n\n## Position Summary:\n\nThe Senior Scientist Bio-/Chemical Quality Control (BCQC) plays a key role in establishing, implementing, and maintaining compliant QC processes and analytical methods for the testing of finished products, in-process controls, intermediates, raw materials, utilities, and cleaning samples.\n\nThe position combines scientific expertise, GMP compliance, and project leadership. The Senior Scientist is responsible for coordinating analytical activities, supporting the implementation and lifecycle management of methods and equipment, leading local and global QC projects, and ensuring that activities are completed in accordance with defined quality requirements and timelines.\n\nThe role works closely with QC management, internal stakeholders, project teams, external partners, suppliers, contract laboratories, and other functions to ensure operational excellence and continuous improvement within BCQC.\n\n## Responsibilities:\n\n## Processes and Analytical Methods Implementation\n\nThe Senior Scientist coordinates activities required to establish and maintain QC processes and analytical methods within the assigned area of expertise. Key responsibilities include:\n\n- Authoring and revising Standard Operating Procedures (SOPs), Work Instructions (WIs), and other controlled documents in compliance with GMP requirements and established timelines.\n- Acting as Subject Matter Expert (SME) for the review and approval of analytical methods, plans, protocols, reports, and other technical documentation.\n- Coordinating the procurement, qualification, calibration, maintenance, and lifecycle management of analytical and laboratory infrastructure equipment.\n- Supporting the procurement, preparation, manufacturing, qualification, and verification of test, reference, and control materials.\n- Coordinating and executing the development, transfer, verification, qualification, and validation of analytical procedures according to applicable regulatory requirements and project timelines.\n- Reviewing analytical raw data, equipment qualification and maintenance records, and other relevant BCQC documentation to ensure accuracy, completeness, data integrity, and GMP compliance.\n- Ensuring that analytical processes and methods are appropriately implemented and maintained to support reliable and compliant routine QC operations.\n\n## Project Leadership\n\nThe Senior Scientist represents BCQC in cross-functional projects, working groups, and local and global initiatives and ensures that project requirements, resources, workload, timelines, and deliverables are clearly defined.\n\nKey responsibilities include:\n\n- Leading the implementation of local and global projects within QC and ensuring effective planning and execution of assigned activities.\n- Translating project requirements into clear, data-driven workload and resource plans.\n- Coordinating allocated resources in collaboration with QC management and other QC functions to ensure that timelines and project objectives are achieved.\n- Driving collaboration within project teams and ensuring alignment with company strategy, priorities, and core values.\n- Facilitating effective and timely communication within project teams and across relevant stakeholders.\n- Leading and supporting structured problem-solving activities when issues arise in connection with assigned projects or tasks.\n- Monitoring project progress, risks, milestones, deliverables, and KPIs and escalating potential delays or issues when appropriate.\n- Promoting accountability by communicating expectations, ensuring transparency of relevant information, and proactively addressing or escalating conflicts and challenges.\n- Supporting continuous improvement initiatives aimed at strengthening QC compliance, efficiency, quality, and overall performance.\n- Establishing and maintaining effective relationships with external partners, including suppliers, contract laboratories, service providers, and universities.\n\n## QC Execution and Compliance\n\nThe Senior Scientist supports the compliant and timely execution of routine and non-routine QC activities and ensures appropriate documentation of analytical work. Responsibilities include:\n\n- Ensuring that raw data, analytical results, reports, logbooks, and other relevant records are accurately documented, reviewed, and retained in accordance with applicable procedures and data integrity requirements.\n- Supporting the investigation and resolution of analytical and quality-related issues, including requests associated with biochemical and chemical testing.\n- Ensuring that deviations and laboratory investigations are initiated, investigated, documented, and completed in a timely and compliant manner.\n- Providing scientific and technical expertise to support investigations, root cause analysis, and the definition of appropriate corrective and preventive actions, where applicable.\n- Supporting responses to internal stakeholders, customers, sponsors, auditors, and Health Authority requests related to the assigned area of responsibility.\n- Keeping the Head of BCQC appropriately informed regarding ongoing activities, project status, risks, and significant issues.\n- Ensuring effective and transparent communication of relevant information to sponsors, stakeholders, project teams, and QC colleagues.\n\n## Team Support and Development\n\nThe Senior Scientist contributes to the development of a strong, collaborative, and compliant QC organization by:\n\n- Providing scientific and technical guidance to QC colleagues.\n- Mentoring and supporting team members in GMP, Quality Control principles, analytical methods, and laboratory best practices.\n- Supporting the planning and coordination of team activities and resources according to operational and project priorities.\n- Contributing to recruitment activities and the onboarding and development of new team members.\n- Promoting a culture of quality, accountability, collaboration, continuous improvement, and GMP compliance.\n\n## Requirements:\n\n- Degree (Master or higher) in biochemical / chemical/ pharmaceutical/ molecular sciences or similar\n- Lower educational background could be accepted, as applicable, in case of former experience in the pharmaceutical industry\n- Preferred Fields of Study: Chemistry, Biochemistry, Biology, Molecular Biology or related scientific field\n- Min 2 years experience in GMP regulated industry\n- 3-5 years lab experience\n- Additional certifications in Quality Control/GMP practices beneficial\n- Strong knowledge of GMP regulations and quality systems requirements\n- Proficiency in analytical techniques including HPLC, GC, MS, spectrophotometry\n- Experience with biochemical testing methods\n- Strong documentation skills and proficiency with laboratory information management systems\n- Knowledge of relevant regulatory standards (ISO, FDA, USP, EP)\n- Excellent attention to detail and ability to follow written/verbal procedures accurately\n- Strong organizational and time management skills\n- Ability to work both independently and collaboratively in a team environment\n- Proficiency in Microsoft Office applications\n- Clear written and verbal communication skills in English\n- Experience with laboratory automation systems preferred",
+        "it": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nJoin our Quality Control team at Thermo Fisher Scientific where you'll make meaningful contributions to our mission of enabling customers to make the world healthier, cleaner and safer. As a Senior Scientist, you will support the establishment and operational readiness of the Bio-/Chemical Quality Control (BCQC) unit at the Thermo Fisher Scientific Lengnau site in accordance with project timelines. Key responsibilities include contributing to the transfer, verification, and validation of analytical methods, as well as the qualification of laboratory equipment required for testing activities. The role also actively supports GMP inspection readiness by ensuring compliance with applicable Quality Systems, procedures, and documentation requirements. In addition, it contributes to overall QC operational readiness through the management and coordination of internal and external projects, resource allocation, and the planning and prioritization of daily team activities. This role offers excellent opportunities for professional growth while working alongside colleagues who share your commitment to science and quality.\n\n## Position Summary:\n\nThe Senior Scientist Bio-/Chemical Quality Control (BCQC) plays a key role in establishing, implementing, and maintaining compliant QC processes and analytical methods for the testing of finished products, in-process controls, intermediates, raw materials, utilities, and cleaning samples.\n\nThe position combines scientific expertise, GMP compliance, and project leadership. The Senior Scientist is responsible for coordinating analytical activities, supporting the implementation and lifecycle management of methods and equipment, leading local and global QC projects, and ensuring that activities are completed in accordance with defined quality requirements and timelines.\n\nThe role works closely with QC management, internal stakeholders, project teams, external partners, suppliers, contract laboratories, and other functions to ensure operational excellence and continuous improvement within BCQC.\n\n## Responsibilities:\n\n## Processes and Analytical Methods Implementation\n\nThe Senior Scientist coordinates activities required to establish and maintain QC processes and analytical methods within the assigned area of expertise. Key responsibilities include:\n\n- Authoring and revising Standard Operating Procedures (SOPs), Work Instructions (WIs), and other controlled documents in compliance with GMP requirements and established timelines.\n- Acting as Subject Matter Expert (SME) for the review and approval of analytical methods, plans, protocols, reports, and other technical documentation.\n- Coordinating the procurement, qualification, calibration, maintenance, and lifecycle management of analytical and laboratory infrastructure equipment.\n- Supporting the procurement, preparation, manufacturing, qualification, and verification of test, reference, and control materials.\n- Coordinating and executing the development, transfer, verification, qualification, and validation of analytical procedures according to applicable regulatory requirements and project timelines.\n- Reviewing analytical raw data, equipment qualification and maintenance records, and other relevant BCQC documentation to ensure accuracy, completeness, data integrity, and GMP compliance.\n- Ensuring that analytical processes and methods are appropriately implemented and maintained to support reliable and compliant routine QC operations.\n\n## Project Leadership\n\nThe Senior Scientist represents BCQC in cross-functional projects, working groups, and local and global initiatives and ensures that project requirements, resources, workload, timelines, and deliverables are clearly defined.\n\nKey responsibilities include:\n\n- Leading the implementation of local and global projects within QC and ensuring effective planning and execution of assigned activities.\n- Translating project requirements into clear, data-driven workload and resource plans.\n- Coordinating allocated resources in collaboration with QC management and other QC functions to ensure that timelines and project objectives are achieved.\n- Driving collaboration within project teams and ensuring alignment with company strategy, priorities, and core values.\n- Facilitating effective and timely communication within project teams and across relevant stakeholders.\n- Leading and supporting structured problem-solving activities when issues arise in connection with assigned projects or tasks.\n- Monitoring project progress, risks, milestones, deliverables, and KPIs and escalating potential delays or issues when appropriate.\n- Promoting accountability by communicating expectations, ensuring transparency of relevant information, and proactively addressing or escalating conflicts and challenges.\n- Supporting continuous improvement initiatives aimed at strengthening QC compliance, efficiency, quality, and overall performance.\n- Establishing and maintaining effective relationships with external partners, including suppliers, contract laboratories, service providers, and universities.\n\n## QC Execution and Compliance\n\nThe Senior Scientist supports the compliant and timely execution of routine and non-routine QC activities and ensures appropriate documentation of analytical work. Responsibilities include:\n\n- Ensuring that raw data, analytical results, reports, logbooks, and other relevant records are accurately documented, reviewed, and retained in accordance with applicable procedures and data integrity requirements.\n- Supporting the investigation and resolution of analytical and quality-related issues, including requests associated with biochemical and chemical testing.\n- Ensuring that deviations and laboratory investigations are initiated, investigated, documented, and completed in a timely and compliant manner.\n- Providing scientific and technical expertise to support investigations, root cause analysis, and the definition of appropriate corrective and preventive actions, where applicable.\n- Supporting responses to internal stakeholders, customers, sponsors, auditors, and Health Authority requests related to the assigned area of responsibility.\n- Keeping the Head of BCQC appropriately informed regarding ongoing activities, project status, risks, and significant issues.\n- Ensuring effective and transparent communication of relevant information to sponsors, stakeholders, project teams, and QC colleagues.\n\n## Team Support and Development\n\nThe Senior Scientist contributes to the development of a strong, collaborative, and compliant QC organization by:\n\n- Providing scientific and technical guidance to QC colleagues.\n- Mentoring and supporting team members in GMP, Quality Control principles, analytical methods, and laboratory best practices.\n- Supporting the planning and coordination of team activities and resources according to operational and project priorities.\n- Contributing to recruitment activities and the onboarding and development of new team members.\n- Promoting a culture of quality, accountability, collaboration, continuous improvement, and GMP compliance.\n\n## Requirements:\n\n- Degree (Master or higher) in biochemical / chemical/ pharmaceutical/ molecular sciences or similar\n- Lower educational background could be accepted, as applicable, in case of former experience in the pharmaceutical industry\n- Preferred Fields of Study: Chemistry, Biochemistry, Biology, Molecular Biology or related scientific field\n- Min 2 years experience in GMP regulated industry\n- 3-5 years lab experience\n- Additional certifications in Quality Control/GMP practices beneficial\n- Strong knowledge of GMP regulations and quality systems requirements\n- Proficiency in analytical techniques including HPLC, GC, MS, spectrophotometry\n- Experience with biochemical testing methods\n- Strong documentation skills and proficiency with laboratory information management systems\n- Knowledge of relevant regulatory standards (ISO, FDA, USP, EP)\n- Excellent attention to detail and ability to follow written/verbal procedures accurately\n- Strong organizational and time management skills\n- Ability to work both independently and collaboratively in a team environment\n- Proficiency in Microsoft Office applications\n- Clear written and verbal communication skills in English\n- Experience with laboratory automation systems preferred",
+        "de": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nJoin our Quality Control team at Thermo Fisher Scientific where you'll make meaningful contributions to our mission of enabling customers to make the world healthier, cleaner and safer. As a Senior Scientist, you will support the establishment and operational readiness of the Bio-/Chemical Quality Control (BCQC) unit at the Thermo Fisher Scientific Lengnau site in accordance with project timelines. Key responsibilities include contributing to the transfer, verification, and validation of analytical methods, as well as the qualification of laboratory equipment required for testing activities. The role also actively supports GMP inspection readiness by ensuring compliance with applicable Quality Systems, procedures, and documentation requirements. In addition, it contributes to overall QC operational readiness through the management and coordination of internal and external projects, resource allocation, and the planning and prioritization of daily team activities. This role offers excellent opportunities for professional growth while working alongside colleagues who share your commitment to science and quality.\n\n## Position Summary:\n\nThe Senior Scientist Bio-/Chemical Quality Control (BCQC) plays a key role in establishing, implementing, and maintaining compliant QC processes and analytical methods for the testing of finished products, in-process controls, intermediates, raw materials, utilities, and cleaning samples.\n\nThe position combines scientific expertise, GMP compliance, and project leadership. The Senior Scientist is responsible for coordinating analytical activities, supporting the implementation and lifecycle management of methods and equipment, leading local and global QC projects, and ensuring that activities are completed in accordance with defined quality requirements and timelines.\n\nThe role works closely with QC management, internal stakeholders, project teams, external partners, suppliers, contract laboratories, and other functions to ensure operational excellence and continuous improvement within BCQC.\n\n## Responsibilities:\n\n## Processes and Analytical Methods Implementation\n\nThe Senior Scientist coordinates activities required to establish and maintain QC processes and analytical methods within the assigned area of expertise. Key responsibilities include:\n\n- Authoring and revising Standard Operating Procedures (SOPs), Work Instructions (WIs), and other controlled documents in compliance with GMP requirements and established timelines.\n- Acting as Subject Matter Expert (SME) for the review and approval of analytical methods, plans, protocols, reports, and other technical documentation.\n- Coordinating the procurement, qualification, calibration, maintenance, and lifecycle management of analytical and laboratory infrastructure equipment.\n- Supporting the procurement, preparation, manufacturing, qualification, and verification of test, reference, and control materials.\n- Coordinating and executing the development, transfer, verification, qualification, and validation of analytical procedures according to applicable regulatory requirements and project timelines.\n- Reviewing analytical raw data, equipment qualification and maintenance records, and other relevant BCQC documentation to ensure accuracy, completeness, data integrity, and GMP compliance.\n- Ensuring that analytical processes and methods are appropriately implemented and maintained to support reliable and compliant routine QC operations.\n\n## Project Leadership\n\nThe Senior Scientist represents BCQC in cross-functional projects, working groups, and local and global initiatives and ensures that project requirements, resources, workload, timelines, and deliverables are clearly defined.\n\nKey responsibilities include:\n\n- Leading the implementation of local and global projects within QC and ensuring effective planning and execution of assigned activities.\n- Translating project requirements into clear, data-driven workload and resource plans.\n- Coordinating allocated resources in collaboration with QC management and other QC functions to ensure that timelines and project objectives are achieved.\n- Driving collaboration within project teams and ensuring alignment with company strategy, priorities, and core values.\n- Facilitating effective and timely communication within project teams and across relevant stakeholders.\n- Leading and supporting structured problem-solving activities when issues arise in connection with assigned projects or tasks.\n- Monitoring project progress, risks, milestones, deliverables, and KPIs and escalating potential delays or issues when appropriate.\n- Promoting accountability by communicating expectations, ensuring transparency of relevant information, and proactively addressing or escalating conflicts and challenges.\n- Supporting continuous improvement initiatives aimed at strengthening QC compliance, efficiency, quality, and overall performance.\n- Establishing and maintaining effective relationships with external partners, including suppliers, contract laboratories, service providers, and universities.\n\n## QC Execution and Compliance\n\nThe Senior Scientist supports the compliant and timely execution of routine and non-routine QC activities and ensures appropriate documentation of analytical work. Responsibilities include:\n\n- Ensuring that raw data, analytical results, reports, logbooks, and other relevant records are accurately documented, reviewed, and retained in accordance with applicable procedures and data integrity requirements.\n- Supporting the investigation and resolution of analytical and quality-related issues, including requests associated with biochemical and chemical testing.\n- Ensuring that deviations and laboratory investigations are initiated, investigated, documented, and completed in a timely and compliant manner.\n- Providing scientific and technical expertise to support investigations, root cause analysis, and the definition of appropriate corrective and preventive actions, where applicable.\n- Supporting responses to internal stakeholders, customers, sponsors, auditors, and Health Authority requests related to the assigned area of responsibility.\n- Keeping the Head of BCQC appropriately informed regarding ongoing activities, project status, risks, and significant issues.\n- Ensuring effective and transparent communication of relevant information to sponsors, stakeholders, project teams, and QC colleagues.\n\n## Team Support and Development\n\nThe Senior Scientist contributes to the development of a strong, collaborative, and compliant QC organization by:\n\n- Providing scientific and technical guidance to QC colleagues.\n- Mentoring and supporting team members in GMP, Quality Control principles, analytical methods, and laboratory best practices.\n- Supporting the planning and coordination of team activities and resources according to operational and project priorities.\n- Contributing to recruitment activities and the onboarding and development of new team members.\n- Promoting a culture of quality, accountability, collaboration, continuous improvement, and GMP compliance.\n\n## Requirements:\n\n- Degree (Master or higher) in biochemical / chemical/ pharmaceutical/ molecular sciences or similar\n- Lower educational background could be accepted, as applicable, in case of former experience in the pharmaceutical industry\n- Preferred Fields of Study: Chemistry, Biochemistry, Biology, Molecular Biology or related scientific field\n- Min 2 years experience in GMP regulated industry\n- 3-5 years lab experience\n- Additional certifications in Quality Control/GMP practices beneficial\n- Strong knowledge of GMP regulations and quality systems requirements\n- Proficiency in analytical techniques including HPLC, GC, MS, spectrophotometry\n- Experience with biochemical testing methods\n- Strong documentation skills and proficiency with laboratory information management systems\n- Knowledge of relevant regulatory standards (ISO, FDA, USP, EP)\n- Excellent attention to detail and ability to follow written/verbal procedures accurately\n- Strong organizational and time management skills\n- Ability to work both independently and collaboratively in a team environment\n- Proficiency in Microsoft Office applications\n- Clear written and verbal communication skills in English\n- Experience with laboratory automation systems preferred",
+        "fr": "## Work Schedule\n\nStandard (Mon-Fri)\n\n## Environmental Conditions\n\nOffice\n\n## Job Description\n\nJoin our Quality Control team at Thermo Fisher Scientific where you'll make meaningful contributions to our mission of enabling customers to make the world healthier, cleaner and safer. As a Senior Scientist, you will support the establishment and operational readiness of the Bio-/Chemical Quality Control (BCQC) unit at the Thermo Fisher Scientific Lengnau site in accordance with project timelines. Key responsibilities include contributing to the transfer, verification, and validation of analytical methods, as well as the qualification of laboratory equipment required for testing activities. The role also actively supports GMP inspection readiness by ensuring compliance with applicable Quality Systems, procedures, and documentation requirements. In addition, it contributes to overall QC operational readiness through the management and coordination of internal and external projects, resource allocation, and the planning and prioritization of daily team activities. This role offers excellent opportunities for professional growth while working alongside colleagues who share your commitment to science and quality.\n\n## Position Summary:\n\nThe Senior Scientist Bio-/Chemical Quality Control (BCQC) plays a key role in establishing, implementing, and maintaining compliant QC processes and analytical methods for the testing of finished products, in-process controls, intermediates, raw materials, utilities, and cleaning samples.\n\nThe position combines scientific expertise, GMP compliance, and project leadership. The Senior Scientist is responsible for coordinating analytical activities, supporting the implementation and lifecycle management of methods and equipment, leading local and global QC projects, and ensuring that activities are completed in accordance with defined quality requirements and timelines.\n\nThe role works closely with QC management, internal stakeholders, project teams, external partners, suppliers, contract laboratories, and other functions to ensure operational excellence and continuous improvement within BCQC.\n\n## Responsibilities:\n\n## Processes and Analytical Methods Implementation\n\nThe Senior Scientist coordinates activities required to establish and maintain QC processes and analytical methods within the assigned area of expertise. Key responsibilities include:\n\n- Authoring and revising Standard Operating Procedures (SOPs), Work Instructions (WIs), and other controlled documents in compliance with GMP requirements and established timelines.\n- Acting as Subject Matter Expert (SME) for the review and approval of analytical methods, plans, protocols, reports, and other technical documentation.\n- Coordinating the procurement, qualification, calibration, maintenance, and lifecycle management of analytical and laboratory infrastructure equipment.\n- Supporting the procurement, preparation, manufacturing, qualification, and verification of test, reference, and control materials.\n- Coordinating and executing the development, transfer, verification, qualification, and validation of analytical procedures according to applicable regulatory requirements and project timelines.\n- Reviewing analytical raw data, equipment qualification and maintenance records, and other relevant BCQC documentation to ensure accuracy, completeness, data integrity, and GMP compliance.\n- Ensuring that analytical processes and methods are appropriately implemented and maintained to support reliable and compliant routine QC operations.\n\n## Project Leadership\n\nThe Senior Scientist represents BCQC in cross-functional projects, working groups, and local and global initiatives and ensures that project requirements, resources, workload, timelines, and deliverables are clearly defined.\n\nKey responsibilities include:\n\n- Leading the implementation of local and global projects within QC and ensuring effective planning and execution of assigned activities.\n- Translating project requirements into clear, data-driven workload and resource plans.\n- Coordinating allocated resources in collaboration with QC management and other QC functions to ensure that timelines and project objectives are achieved.\n- Driving collaboration within project teams and ensuring alignment with company strategy, priorities, and core values.\n- Facilitating effective and timely communication within project teams and across relevant stakeholders.\n- Leading and supporting structured problem-solving activities when issues arise in connection with assigned projects or tasks.\n- Monitoring project progress, risks, milestones, deliverables, and KPIs and escalating potential delays or issues when appropriate.\n- Promoting accountability by communicating expectations, ensuring transparency of relevant information, and proactively addressing or escalating conflicts and challenges.\n- Supporting continuous improvement initiatives aimed at strengthening QC compliance, efficiency, quality, and overall performance.\n- Establishing and maintaining effective relationships with external partners, including suppliers, contract laboratories, service providers, and universities.\n\n## QC Execution and Compliance\n\nThe Senior Scientist supports the compliant and timely execution of routine and non-routine QC activities and ensures appropriate documentation of analytical work. Responsibilities include:\n\n- Ensuring that raw data, analytical results, reports, logbooks, and other relevant records are accurately documented, reviewed, and retained in accordance with applicable procedures and data integrity requirements.\n- Supporting the investigation and resolution of analytical and quality-related issues, including requests associated with biochemical and chemical testing.\n- Ensuring that deviations and laboratory investigations are initiated, investigated, documented, and completed in a timely and compliant manner.\n- Providing scientific and technical expertise to support investigations, root cause analysis, and the definition of appropriate corrective and preventive actions, where applicable.\n- Supporting responses to internal stakeholders, customers, sponsors, auditors, and Health Authority requests related to the assigned area of responsibility.\n- Keeping the Head of BCQC appropriately informed regarding ongoing activities, project status, risks, and significant issues.\n- Ensuring effective and transparent communication of relevant information to sponsors, stakeholders, project teams, and QC colleagues.\n\n## Team Support and Development\n\nThe Senior Scientist contributes to the development of a strong, collaborative, and compliant QC organization by:\n\n- Providing scientific and technical guidance to QC colleagues.\n- Mentoring and supporting team members in GMP, Quality Control principles, analytical methods, and laboratory best practices.\n- Supporting the planning and coordination of team activities and resources according to operational and project priorities.\n- Contributing to recruitment activities and the onboarding and development of new team members.\n- Promoting a culture of quality, accountability, collaboration, continuous improvement, and GMP compliance.\n\n## Requirements:\n\n- Degree (Master or higher) in biochemical / chemical/ pharmaceutical/ molecular sciences or similar\n- Lower educational background could be accepted, as applicable, in case of former experience in the pharmaceutical industry\n- Preferred Fields of Study: Chemistry, Biochemistry, Biology, Molecular Biology or related scientific field\n- Min 2 years experience in GMP regulated industry\n- 3-5 years lab experience\n- Additional certifications in Quality Control/GMP practices beneficial\n- Strong knowledge of GMP regulations and quality systems requirements\n- Proficiency in analytical techniques including HPLC, GC, MS, spectrophotometry\n- Experience with biochemical testing methods\n- Strong documentation skills and proficiency with laboratory information management systems\n- Knowledge of relevant regulatory standards (ISO, FDA, USP, EP)\n- Excellent attention to detail and ability to follow written/verbal procedures accurately\n- Strong organizational and time management skills\n- Ability to work both independently and collaboratively in a team environment\n- Proficiency in Microsoft Office applications\n- Clear written and verbal communication skills in English\n- Experience with laboratory automation systems preferred"
+      },
+      "location": "Lengnau, Switzerland",
+      "canton": "BE",
+      "url": "https://jobs.thermofisher.com/global/en/job/R-01364276/senior-scientist-bio-chemical-quality-control",
+      "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-20T21:43:23.610Z",
+      "addressLocality": "Lengnau",
+      "postalCode": "2543",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Life Sciences — Pharma Manufacturing & Quality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20T00:00:00.000+0000",
+      "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Lengnau-Switzerland/Senior-Scientist-Bio--Chemical-Quality-Control_R-01364276/apply",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T21:43:23.610Z"
+    },
+    {
+      "id": "thermo-fisher-scientific-deb766dbfd59",
+      "slug": "operator-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
+      "slugByLocale": {
+        "it": "operator-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
         "en": "operator-primary-thermo-fisher-scientific-ch",
+        "de": "operator-primary-thermo-fisher-scientific-ch",
         "fr": "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -1841,16 +1954,16 @@
       "companyDomain": "thermofisher.com",
       "title": "Operator Primary",
       "titleByLocale": {
-        "de": "Operator Primary",
-        "it": "Primario dell'operatore",
+        "it": "Operator Primary",
         "en": "Operator Primary",
+        "de": "Operator Primary",
         "fr": "Opérateur Primary"
       },
       "description": "## Work Schedule\n\nOther\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards, Cleanroom: no hair products, jewelry, makeup, nail polish, perfume, exposed piercings, facial hair etc... allowed\n\n## Job Description\n\nAls Teil des Teams von Thermo Fisher Scientific leisten Sie eine sinnvolle Arbeit, die weltweit einen positiven Unterschied macht. Gemeinsam mit unseren Kolleginnen und Kollegen tragen Sie jeden Tag dazu bei, unsere Mission zu verwirklichen und unseren Kunden zu ermöglichen, die Welt gesünder, sauberer und sicherer zu machen. Wir unterstützen unsere globalen Teams mit den notwendigen Ressourcen, um individuelle Karriereziele zu erreichen und gleichzeitig die Wissenschaft voranzubringen – mit Lösungen für einige der grössten Herausforderungen unserer Zeit.\n\n## Operator\n\nIn dieser Position arbeiten Sie im Bereich der Herstellung und Verpackung klinischer Prüfmuster. Sie unterstützen einen effizienten, termingerechten und GMP-konformen Produktionsablauf und leisten damit einen wichtigen Beitrag zur zuverlässigen Bereitstellung unserer Produkte.\n\n## Wie werden Sie einen Unterschied machen?\n\nSie sind verantwortlich für die GMP-gerechte Vorbereitung, Durchführung und den Abschluss von Herstellungs- und Verpackungsaufträgen inklusive der erforderlichen Inprozess-Kontrollen (IPCs). Durch sorgfältiges Arbeiten, eine lückenlose Dokumentation und die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsvorgaben tragen Sie unmittelbar zur Qualität unserer Herstellungsprozesse bei.\n\n## Ein typischer Arbeitstag\n\n- Effiziente, termingerechte und GMP-konforme Vorbereitung, Durchführung und Abschluss von Herstellungs- und Verpackungsaufträgen inklusive Durchführung von Inprozess-Kontrollen (IPCs)\n- Effiziente und GMP-konforme Reinigung von Ausrüstungs- und Maschinenteilen sowie Produktionsräumen\n- GMP-gerechte und vollständige Dokumentation der durchgeführten Arbeiten\n- Einhaltung der spezifischen Vorschriften bei der Herstellung und Verpackung klinischer Prüfmuster, insbesondere der GMP-Regeln, Hygiene- und Sicherheitsvorschriften sowie der relevanten Standardarbeitsanweisungen (SOPs) und Auftragsinstruktionen\n- Aktive, zeitnahe und angemessene Kommunikation von Arbeitsfortschritten, Abweichungen und Schwierigkeiten an Kolleginnen und Kollegen sowie Vorgesetzte\n- Aktive Mitarbeit bei der Identifizierung und Kommunikation von Problemen, Ineffizienzen und Verbesserungspotenzialen sowie Unterstützung bei der Umsetzung geeigneter Lösungen\n\n## Ausbildung\n\nEine abgeschlossene Berufslehre bzw. Berufsausbildung in einem für die Position relevanten Bereich ist von Vorteil.\n\n## Erfahrung\n\n- Erfahrung in der Pharma- oder Lebensmittelindustrie von Vorteil\n- Erfahrung oder Ausbildung im GMP-Umfeld von Vorteil\n- Erfahrung in einem Produktions-, Herstellungs- oder vergleichbaren regulierten Arbeitsumfeld von Vorteil\n\n## Kenntnisse, Fähigkeiten und Kompetenzen\n\n- Gute Deutschkenntnisse in Wort und Schrift\n- Fähigkeit zur klaren und angemessenen Kommunikation mit Kolleginnen und Kollegen sowie Vorgesetzten\n- Fähigkeit, vorgegebene Termine und Zeitvorgaben zuverlässig einzuhalten\n- Selbstständige, sorgfältige und verantwortungsbewusste Arbeitsweise, auch unter Zeitdruck\n- Fähigkeit und Bereitschaft zur Zusammenarbeit in einem multikulturellen Arbeitsumfeld\n- Gute Team- und Kommunikationsfähigkeit\n- IT-Anwenderkenntnisse, insbesondere Microsoft Office, von Vorteil\n- Bereitschaft und Flexibilität zur Schichtarbeit\n- Ausgeprägtes Qualitäts- und Verantwortungsbewusstsein sowie konsequente Einhaltung von GMP-, Hygiene- und Sicherheitsvorschriften\n\n## Arbeitsumgebung\n\nDie Tätigkeit findet überwiegend in einem regulierten Produktionsumfeld statt und umfasst praktische Arbeiten an Produktionsanlagen und Ausrüstungsteilen sowie Reinigungsarbeiten. Die Position erfordert die Bereitschaft zur Arbeit im Schichtbetrieb sowie zur konsequenten Einhaltung der jeweils geltenden Hygiene-, Sicherheits-, Bekleidungs- und GMP-Vorschriften.\n\n## Was wir bieten\n\nBei Thermo Fisher Scientific erwartet Sie eine abwechslungsreiche Tätigkeit in einem internationalen Arbeitsumfeld, in dem Qualität, Zusammenarbeit und kontinuierliche Verbesserung einen hohen Stellenwert haben. Sie erhalten die Möglichkeit, sich fachlich und persönlich weiterzuentwickeln und gemeinsam mit unseren Teams einen Beitrag zu unserer Mission zu leisten.\n\n## Vergütung\n\n- Wettbewerbsfähige Vergütung\n- Leistungsbezogener Bonus, sofern für die Position vorgesehen\n- Jährliche leistungsbezogene Gehaltsüberprüfung\n\n## Attraktive Zusatzleistungen\n\n- Umfangreiche Sozial- und Versicherungsleistungen\n- Mitarbeitenden-Empfehlungsbonus\n- Möglichkeiten zur beruflichen und persönlichen Weiterentwicklung\n- Vielfältige interne Karriere- und Entwicklungsmöglichkeiten",
       "descriptionByLocale": {
-        "de": "## Work Schedule\n\nOther\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards, Cleanroom: no hair products, jewelry, makeup, nail polish, perfume, exposed piercings, facial hair etc... allowed\n\n## Job Description\n\nAls Teil des Teams von Thermo Fisher Scientific leisten Sie eine sinnvolle Arbeit, die weltweit einen positiven Unterschied macht. Gemeinsam mit unseren Kolleginnen und Kollegen tragen Sie jeden Tag dazu bei, unsere Mission zu verwirklichen und unseren Kunden zu ermöglichen, die Welt gesünder, sauberer und sicherer zu machen. Wir unterstützen unsere globalen Teams mit den notwendigen Ressourcen, um individuelle Karriereziele zu erreichen und gleichzeitig die Wissenschaft voranzubringen – mit Lösungen für einige der grössten Herausforderungen unserer Zeit.\n\n## Operator\n\nIn dieser Position arbeiten Sie im Bereich der Herstellung und Verpackung klinischer Prüfmuster. Sie unterstützen einen effizienten, termingerechten und GMP-konformen Produktionsablauf und leisten damit einen wichtigen Beitrag zur zuverlässigen Bereitstellung unserer Produkte.\n\n## Wie werden Sie einen Unterschied machen?\n\nSie sind verantwortlich für die GMP-gerechte Vorbereitung, Durchführung und den Abschluss von Herstellungs- und Verpackungsaufträgen inklusive der erforderlichen Inprozess-Kontrollen (IPCs). Durch sorgfältiges Arbeiten, eine lückenlose Dokumentation und die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsvorgaben tragen Sie unmittelbar zur Qualität unserer Herstellungsprozesse bei.\n\n## Ein typischer Arbeitstag\n\n- Effiziente, termingerechte und GMP-konforme Vorbereitung, Durchführung und Abschluss von Herstellungs- und Verpackungsaufträgen inklusive Durchführung von Inprozess-Kontrollen (IPCs)\n- Effiziente und GMP-konforme Reinigung von Ausrüstungs- und Maschinenteilen sowie Produktionsräumen\n- GMP-gerechte und vollständige Dokumentation der durchgeführten Arbeiten\n- Einhaltung der spezifischen Vorschriften bei der Herstellung und Verpackung klinischer Prüfmuster, insbesondere der GMP-Regeln, Hygiene- und Sicherheitsvorschriften sowie der relevanten Standardarbeitsanweisungen (SOPs) und Auftragsinstruktionen\n- Aktive, zeitnahe und angemessene Kommunikation von Arbeitsfortschritten, Abweichungen und Schwierigkeiten an Kolleginnen und Kollegen sowie Vorgesetzte\n- Aktive Mitarbeit bei der Identifizierung und Kommunikation von Problemen, Ineffizienzen und Verbesserungspotenzialen sowie Unterstützung bei der Umsetzung geeigneter Lösungen\n\n## Ausbildung\n\nEine abgeschlossene Berufslehre bzw. Berufsausbildung in einem für die Position relevanten Bereich ist von Vorteil.\n\n## Erfahrung\n\n- Erfahrung in der Pharma- oder Lebensmittelindustrie von Vorteil\n- Erfahrung oder Ausbildung im GMP-Umfeld von Vorteil\n- Erfahrung in einem Produktions-, Herstellungs- oder vergleichbaren regulierten Arbeitsumfeld von Vorteil\n\n## Kenntnisse, Fähigkeiten und Kompetenzen\n\n- Gute Deutschkenntnisse in Wort und Schrift\n- Fähigkeit zur klaren und angemessenen Kommunikation mit Kolleginnen und Kollegen sowie Vorgesetzten\n- Fähigkeit, vorgegebene Termine und Zeitvorgaben zuverlässig einzuhalten\n- Selbstständige, sorgfältige und verantwortungsbewusste Arbeitsweise, auch unter Zeitdruck\n- Fähigkeit und Bereitschaft zur Zusammenarbeit in einem multikulturellen Arbeitsumfeld\n- Gute Team- und Kommunikationsfähigkeit\n- IT-Anwenderkenntnisse, insbesondere Microsoft Office, von Vorteil\n- Bereitschaft und Flexibilität zur Schichtarbeit\n- Ausgeprägtes Qualitäts- und Verantwortungsbewusstsein sowie konsequente Einhaltung von GMP-, Hygiene- und Sicherheitsvorschriften\n\n## Arbeitsumgebung\n\nDie Tätigkeit findet überwiegend in einem regulierten Produktionsumfeld statt und umfasst praktische Arbeiten an Produktionsanlagen und Ausrüstungsteilen sowie Reinigungsarbeiten. Die Position erfordert die Bereitschaft zur Arbeit im Schichtbetrieb sowie zur konsequenten Einhaltung der jeweils geltenden Hygiene-, Sicherheits-, Bekleidungs- und GMP-Vorschriften.\n\n## Was wir bieten\n\nBei Thermo Fisher Scientific erwartet Sie eine abwechslungsreiche Tätigkeit in einem internationalen Arbeitsumfeld, in dem Qualität, Zusammenarbeit und kontinuierliche Verbesserung einen hohen Stellenwert haben. Sie erhalten die Möglichkeit, sich fachlich und persönlich weiterzuentwickeln und gemeinsam mit unseren Teams einen Beitrag zu unserer Mission zu leisten.\n\n## Vergütung\n\n- Wettbewerbsfähige Vergütung\n- Leistungsbezogener Bonus, sofern für die Position vorgesehen\n- Jährliche leistungsbezogene Gehaltsüberprüfung\n\n## Attraktive Zusatzleistungen\n\n- Umfangreiche Sozial- und Versicherungsleistungen\n- Mitarbeitenden-Empfehlungsbonus\n- Möglichkeiten zur beruflichen und persönlichen Weiterentwicklung\n- Vielfältige interne Karriere- und Entwicklungsmöglichkeiten",
         "it": "Stiamo cercando un operatore primario che lavora nella produzione e nell'imballaggio di studi clinici. Supportano un processo produttivo efficiente e conforme a GMP e contribuiscono alla qualità dei nostri processi produttivi. Applicare ora e fare la differenza!",
         "en": "We are looking for an operator primary who works in the production and packaging of clinical trials. They support an efficient and GMP-compliant production process and contribute to the quality of our production processes. Apply now and make a difference!",
+        "de": "## Work Schedule\n\nOther\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards, Cleanroom: no hair products, jewelry, makeup, nail polish, perfume, exposed piercings, facial hair etc... allowed\n\n## Job Description\n\nAls Teil des Teams von Thermo Fisher Scientific leisten Sie eine sinnvolle Arbeit, die weltweit einen positiven Unterschied macht. Gemeinsam mit unseren Kolleginnen und Kollegen tragen Sie jeden Tag dazu bei, unsere Mission zu verwirklichen und unseren Kunden zu ermöglichen, die Welt gesünder, sauberer und sicherer zu machen. Wir unterstützen unsere globalen Teams mit den notwendigen Ressourcen, um individuelle Karriereziele zu erreichen und gleichzeitig die Wissenschaft voranzubringen – mit Lösungen für einige der grössten Herausforderungen unserer Zeit.\n\n## Operator\n\nIn dieser Position arbeiten Sie im Bereich der Herstellung und Verpackung klinischer Prüfmuster. Sie unterstützen einen effizienten, termingerechten und GMP-konformen Produktionsablauf und leisten damit einen wichtigen Beitrag zur zuverlässigen Bereitstellung unserer Produkte.\n\n## Wie werden Sie einen Unterschied machen?\n\nSie sind verantwortlich für die GMP-gerechte Vorbereitung, Durchführung und den Abschluss von Herstellungs- und Verpackungsaufträgen inklusive der erforderlichen Inprozess-Kontrollen (IPCs). Durch sorgfältiges Arbeiten, eine lückenlose Dokumentation und die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsvorgaben tragen Sie unmittelbar zur Qualität unserer Herstellungsprozesse bei.\n\n## Ein typischer Arbeitstag\n\n- Effiziente, termingerechte und GMP-konforme Vorbereitung, Durchführung und Abschluss von Herstellungs- und Verpackungsaufträgen inklusive Durchführung von Inprozess-Kontrollen (IPCs)\n- Effiziente und GMP-konforme Reinigung von Ausrüstungs- und Maschinenteilen sowie Produktionsräumen\n- GMP-gerechte und vollständige Dokumentation der durchgeführten Arbeiten\n- Einhaltung der spezifischen Vorschriften bei der Herstellung und Verpackung klinischer Prüfmuster, insbesondere der GMP-Regeln, Hygiene- und Sicherheitsvorschriften sowie der relevanten Standardarbeitsanweisungen (SOPs) und Auftragsinstruktionen\n- Aktive, zeitnahe und angemessene Kommunikation von Arbeitsfortschritten, Abweichungen und Schwierigkeiten an Kolleginnen und Kollegen sowie Vorgesetzte\n- Aktive Mitarbeit bei der Identifizierung und Kommunikation von Problemen, Ineffizienzen und Verbesserungspotenzialen sowie Unterstützung bei der Umsetzung geeigneter Lösungen\n\n## Ausbildung\n\nEine abgeschlossene Berufslehre bzw. Berufsausbildung in einem für die Position relevanten Bereich ist von Vorteil.\n\n## Erfahrung\n\n- Erfahrung in der Pharma- oder Lebensmittelindustrie von Vorteil\n- Erfahrung oder Ausbildung im GMP-Umfeld von Vorteil\n- Erfahrung in einem Produktions-, Herstellungs- oder vergleichbaren regulierten Arbeitsumfeld von Vorteil\n\n## Kenntnisse, Fähigkeiten und Kompetenzen\n\n- Gute Deutschkenntnisse in Wort und Schrift\n- Fähigkeit zur klaren und angemessenen Kommunikation mit Kolleginnen und Kollegen sowie Vorgesetzten\n- Fähigkeit, vorgegebene Termine und Zeitvorgaben zuverlässig einzuhalten\n- Selbstständige, sorgfältige und verantwortungsbewusste Arbeitsweise, auch unter Zeitdruck\n- Fähigkeit und Bereitschaft zur Zusammenarbeit in einem multikulturellen Arbeitsumfeld\n- Gute Team- und Kommunikationsfähigkeit\n- IT-Anwenderkenntnisse, insbesondere Microsoft Office, von Vorteil\n- Bereitschaft und Flexibilität zur Schichtarbeit\n- Ausgeprägtes Qualitäts- und Verantwortungsbewusstsein sowie konsequente Einhaltung von GMP-, Hygiene- und Sicherheitsvorschriften\n\n## Arbeitsumgebung\n\nDie Tätigkeit findet überwiegend in einem regulierten Produktionsumfeld statt und umfasst praktische Arbeiten an Produktionsanlagen und Ausrüstungsteilen sowie Reinigungsarbeiten. Die Position erfordert die Bereitschaft zur Arbeit im Schichtbetrieb sowie zur konsequenten Einhaltung der jeweils geltenden Hygiene-, Sicherheits-, Bekleidungs- und GMP-Vorschriften.\n\n## Was wir bieten\n\nBei Thermo Fisher Scientific erwartet Sie eine abwechslungsreiche Tätigkeit in einem internationalen Arbeitsumfeld, in dem Qualität, Zusammenarbeit und kontinuierliche Verbesserung einen hohen Stellenwert haben. Sie erhalten die Möglichkeit, sich fachlich und persönlich weiterzuentwickeln und gemeinsam mit unseren Teams einen Beitrag zu unserer Mission zu leisten.\n\n## Vergütung\n\n- Wettbewerbsfähige Vergütung\n- Leistungsbezogener Bonus, sofern für die Position vorgesehen\n- Jährliche leistungsbezogene Gehaltsüberprüfung\n\n## Attraktive Zusatzleistungen\n\n- Umfangreiche Sozial- und Versicherungsleistungen\n- Mitarbeitenden-Empfehlungsbonus\n- Möglichkeiten zur beruflichen und persönlichen Weiterentwicklung\n- Vielfältige interne Karriere- und Entwicklungsmöglichkeiten",
         "fr": "Nous recherchons un opérateur primaire qui travaille dans la production et l'emballage des essais cliniques. Ils soutiennent un processus de production efficace et conforme aux BPF et contribuent à la qualité de nos processus de production. Appliquer maintenant et faire une différence!"
       },
       "location": "Allschwil, Switzerland",
@@ -1858,7 +1971,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01364198/operator-primary",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:05:12.988Z",
+      "crawledAt": "2026-08-20T21:43:22.221Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1875,7 +1988,23 @@
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Operator-Primary_R-01364198/apply",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operator-primary-thermo-fisher-scientific-ch",
+        "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operator-primary-thermo-fisher-scientific-ch",
+          "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+        ],
+        "fr": [
+          "operator-primary-thermo-fisher-scientific-ch",
+          "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T10:05:00.775Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1887,21 +2016,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-19T10:05:00.775Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operator-primary-thermo-fisher-scientific-ch"
-        ],
-        "fr": [
-          "operator-primary-thermo-fisher-scientific-ch",
-          "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil"
-        ]
-      },
-      "previousSlugs": [
-        "operator-primary-thermo-fisher-scientific-ch",
-        "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil"
-      ]
+      }
     },
     {
       "id": "thermo-fisher-scientific-61641d496eab",
@@ -1934,7 +2049,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356713/senior-process-automation-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:12.028Z",
+      "crawledAt": "2026-08-20T21:43:20.544Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1953,11 +2068,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-process-automation-engineer-thermo-fisher-scientific-ch",
-        "clean-utilities-und-package-units-prozessautomatisierung-thermo-fisher-scientific-schweiz-ag-lengnau"
+        "clean-utilities-und-package-units-prozessautomatisierung-thermo-fisher-scientific-schweiz-ag-lengnau",
+        "clean-utilities-and-package-units-process-automation-thermo-fisher-scientific-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-process-automation-engineer-thermo-fisher-scientific-ch"
+          "senior-process-automation-engineer-thermo-fisher-scientific-ch",
+          "clean-utilities-and-package-units-process-automation-thermo-fisher-scientific-ch"
         ],
         "de": [
           "clean-utilities-und-package-units-prozessautomatisierung-thermo-fisher-scientific-schweiz-ag-lengnau"
@@ -2008,7 +2125,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01355076/team-leader-in-process-inspection-operations-production-quality",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:10.982Z",
+      "crawledAt": "2026-08-20T21:43:19.747Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2029,13 +2146,15 @@
         "team-leader-ipi-quality-operations-thermo-fisher-scientific-ch",
         "capo-squadra-ipi-quality-operations-thermo-fisher-scientific-schweiz-ag-allschwil",
         "eam-leader-in-process-inspection-operations-production-quality-thermo-fisher-scientific-ch",
-        "team-leader-in-process-inspection-operations-production-quality-thermo-fisher-scientific"
+        "team-leader-in-process-inspection-operations-production-quality-thermo-fisher-scientific",
+        "capo-squadra-ipi-quality-operations-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-leader-ipi-quality-operations-thermo-fisher-scientific-ch",
           "eam-leader-in-process-inspection-operations-production-quality-thermo-fisher-scientific-ch",
-          "team-leader-in-process-inspection-operations-production-quality-thermo-fisher-scientific"
+          "team-leader-in-process-inspection-operations-production-quality-thermo-fisher-scientific",
+          "capo-squadra-ipi-quality-operations-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "en": [
           "team-leader-ipi-quality-operations-thermo-fisher-scientific-ch",
@@ -2049,6 +2168,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:07.457Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2093,7 +2213,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01360831/capex-project-manager-facility-management",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:10.179Z",
+      "crawledAt": "2026-08-20T21:43:19.071Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2111,11 +2231,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "capex-project-manager-facility-management-thermo-fisher-scientific-ch"
+        "capex-project-manager-facility-management-thermo-fisher-scientific-ch",
+        "capex-project-manager-gestione-delle-strutture-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capex-project-manager-facility-management-thermo-fisher-scientific-ch"
+          "capex-project-manager-facility-management-thermo-fisher-scientific-ch",
+          "capex-project-manager-gestione-delle-strutture-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "de": [
           "capex-project-manager-facility-management-thermo-fisher-scientific-ch"
@@ -2125,6 +2247,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:02:06.244Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2169,7 +2292,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358176/usp-manufacturing-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:09.020Z",
+      "crawledAt": "2026-08-20T21:43:18.279Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -2190,14 +2313,16 @@
         "usp-manufacturing-specialist-thermo-fisher-scientific-ch",
         "professionale-per-la-produzione-di-usp-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
         "usp-manufacturing-professional-thermo-fisher-scientific-ch",
-        "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
+        "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+        "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "usp-manufacturing-specialist-thermo-fisher-scientific-ch",
           "professionale-per-la-produzione-di-usp-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
           "usp-manufacturing-professional-thermo-fisher-scientific-ch",
-          "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
+          "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
         ],
         "de": [
           "usp-manufacturing-specialist-thermo-fisher-scientific-ch",
@@ -2209,6 +2334,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:09.408Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2253,7 +2379,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356120/project-support-associate-document-writer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:05:08.106Z",
+      "crawledAt": "2026-08-20T21:43:16.573Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2271,11 +2397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-support-associate-document-writer-thermo-fisher-scientific-ch"
+        "project-support-associate-document-writer-thermo-fisher-scientific-ch",
+        "project-support-associate-scrittore-di-documenti-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-support-associate-document-writer-thermo-fisher-scientific-ch"
+          "project-support-associate-document-writer-thermo-fisher-scientific-ch",
+          "project-support-associate-scrittore-di-documenti-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "de": [
           "project-support-associate-document-writer-thermo-fisher-scientific-ch"
@@ -2285,6 +2413,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:06.565Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2392,7 +2521,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
