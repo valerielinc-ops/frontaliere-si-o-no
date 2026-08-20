@@ -10242,6 +10242,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Vivre à Lurago Marinone et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Analyse complète pour ceux qui choisissent de vivre à Lurago Marinone et d\'être frontalier au Tessin entre liaisons, fiscalité et coûts.',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'Vue sur le lac de Lugano au Tessin',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'LAA frontalière 2026 : procédure accident pratique',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'LAA pour les frontaliers : couverture des accidents, taux de 0,7 à 1,5 %, procédure de plainte et simulations pratiques. Liste de contrôle complète et différences avec la maladie professionnelle.',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Documents d\'assurance accidents du travail LAINF et procédure de déclaration pour frontaliers Tessin',
 };
 
 export default blogMetaFr;

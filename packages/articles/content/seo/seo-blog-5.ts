@@ -71558,6 +71558,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lainf-2026-frontaliere-simulazione-pratica': {
+    title: 'LAINF frontaliere 2026: procedura infortunio pratica',
+    description: 'LAINF per frontalieri: copertura infortuni, aliquote 0.7-1.5%, procedura denuncia e simulazioni pratiche. Checklist completa e differenze con malattia',
+    keywords: 'frontalieri, ticino, svizzera, italia, lainf, procedura, infortunio, pratica',
+    ogTitle: 'LAINF frontaliere 2026: procedura infortunio pratica',
+    ogDescription: 'LAINF per frontalieri: copertura infortuni, aliquote 0.7-1.5%, procedura denuncia e simulazioni pratiche. Checklist completa e differenze con malattia professionale.',
+    canonicalPath: '/articoli-frontaliere/lainf-2026-frontaliere-simulazione-pratica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAINF frontaliere 2026: procedura infortunio pratica",
+      "description": "LAINF per frontalieri: copertura infortuni, aliquote 0.7-1.5%, procedura denuncia e simulazioni pratiche. Checklist completa e differenze con malattia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lainf-2026-frontaliere-simulazione-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di assicurazione infortuni LAINF e procedure di denuncia per frontalieri Ticino"
+      },
+      "datePublished": "2026-08-20T11:31:32+00:00",
+      "dateModified": "2026-08-20T11:31:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lainf-2026-frontaliere-simulazione-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -30666,6 +30666,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lainf-2026-frontaliere-simulazione-pratica',
+ category: 'pratico',
+ date: '2026-08-20T11:31:32.032Z',
+ image: '/images/blog/lainf-2026-frontaliere-simulazione-pratica.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

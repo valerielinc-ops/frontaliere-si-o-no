@@ -10241,6 +10241,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Vivere a Lurago Marinone e lavorare in Ticino da frontaliere',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Analisi completa per chi sceglie di vivere a Lurago Marinone e fare il frontaliere in Ticino tra collegamenti, fiscalità e costi.',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'Panorama del Canton Ticino con vista sul lago',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'LAINF frontaliere 2026: procedura infortunio pratica',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'LAINF per frontalieri: copertura infortuni, aliquote 0.7-1.5%, procedura denuncia e simulazioni pratiche. Checklist completa e differenze con malattia professionale.',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Documenti di assicurazione infortuni LAINF e procedure di denuncia per frontalieri Ticino',
 };
 
 export default blogMetaIt;
