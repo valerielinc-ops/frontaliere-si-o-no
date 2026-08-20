@@ -3487,6 +3487,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Swiss health system LAMal in the Canton of Vaud',
     'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Complete guide to the Swiss health system in the Canton of Vaud: LAMal obligation, choice of the sick fund, deductibles and cantonal subsidies.',
     'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Healthcare system and LAMal in Canton Vaud',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Transport Basel Countryside: subscriptions, zones and fares',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Monthly and annual subscriptions, fare zones, half-price and GA for commuters and students in Basel Countryside.',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Swiss regional train station platform with red SBB train, Canton Baselland countryside and hills visible.',
 };
 
 export default blogMetaChEn;

@@ -3487,6 +3487,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Schweizerisches Gesundheitssystem KVG im Kanton Waadt',
     'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Vollständiger Leitfaden zum Schweizer Gesundheitssystem im Kanton Waadt: KVG-Pflicht, Krankenkassenwahl, Franchisen und Kantonsbeiträge.',
     'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Gesundheitssystem und LAMal im Kanton Waadt',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Transporte Basel-Landschaft: Abonnements, Zonen und Tarife',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Monats- und Jahresabonnements, Tarifzonen, Halbtax und GA für Pendler und Studenten in Basel-Landschaft.',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Schweizer Regionalbahnhof mit rotem SBB-Zug, Landschaft des Kantons Basel-Landschaft im Hintergrund.',
 };
 
 export default blogMetaChDe;

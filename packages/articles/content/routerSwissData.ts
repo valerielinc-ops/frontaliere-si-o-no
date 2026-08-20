@@ -1188,6 +1188,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-sanitario-svizzero-lamal-2026-canton-zurigo': { it: 'sistema-sanitario-svizzero-lamal-2026-canton-zurigo', en: 'swiss-healthcare-system-lamal-2026-canton-zurigo', de: 'schweizer-gesundheitswesen-lamal-2026-kanton-zurich', fr: 'systeme-de-soins-de-sante-suisse-lamal-2026-canton-de-zurich' },
  'naturalizzazione-canton-basilea-campagna': { it: 'naturalizzazione-canton-basilea-campagna', en: 'naturalization-canton-basilea-campagna', de: 'naturalisierung-kanton-basilea-campagna', fr: 'naturalisation-canton-basilea-campagna' },
  'sistema-sanitario-lamal-2026-vaud': { it: 'sistema-sanitario-lamal-2026-vaud', en: 'switzerland-healthcare-lamal-vaud', de: 'schweizer-gesundheitssystem-lamal-vaud', fr: 'systeme-sante-suisse-lamal-vaud' },
+ 'trasporti-basilea-campagna-abbonamenti': { it: 'trasporti-basilea-campagna-abbonamenti', en: 'transport-baselland-subscriptions-zones', de: 'verkehr-baselland-abos-zonen', fr: 'transports-bale-campagne-abonnements' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

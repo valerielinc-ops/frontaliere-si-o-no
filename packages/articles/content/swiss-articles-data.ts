@@ -10459,6 +10459,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'trasporti-basilea-campagna-abbonamenti',
+    category: 'pratico',
+    date: '2026-08-20T02:48:51.897Z',
+    image: '/images/blog/trasporti-basilea-campagna-abbonamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
