@@ -53,10 +53,18 @@ function extractCampaignId(eventData) {
  const headers = eventData.message?.headers || {};
  if (headers['x-campaign-id']) return headers['x-campaign-id'];
 
- // Check Mailgun tags
+ // The custom variable the cascade now stamps (`v:campaign_id`). It is the only
+ // channel that preserves the tag NAME: `o:tag` sends bare values, so the
+ // prefix scan below could never match what this sender actually emits, and
+ // every Mailgun event fell through to the message id (measured 2026-08-20).
+ const vars = eventData['user-variables'] || eventData.user_variables || {};
+ if (vars && typeof vars === 'object' && vars.campaign_id) return String(vars.campaign_id);
+
+ // Legacy `campaign:<id>` tag form — kept so events sent before the custom
+ // variable existed still resolve when they arrive late.
  const tags = eventData.tags || [];
  for (const tag of tags) {
- if (tag.startsWith('campaign:')) return tag.slice(9);
+ if (typeof tag === 'string' && tag.startsWith('campaign:')) return tag.slice(9);
  }
 
  // Fallback: use message-id

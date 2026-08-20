@@ -1,0 +1,232 @@
+name: Email Engagement Weekly
+
+# Open rate e click rate per provider e per email_type, una volta a settimana,
+# piu i tre contatori che dicono se quei tassi sono affidabili.
+#
+# Perche esiste (audit del 2026-08-20). I tassi erano sbagliati in due modi che
+# nessun controllo del repo avrebbe segnalato:
+#
+#   - 7.876 messaggi in 20 giorni avevano l'engagement SCARTATO dal webhook
+#     Maileroo, perche solo due sender scrivevano il record di lookup che quel
+#     provider richiede. `welcome` leggeva 0,00% via Maileroo e 46,43% via
+#     Mailgun nella stessa finestra;
+#   - 7.945 messaggi finivano sotto un message-id grezzo invece del loro
+#     campaign_id, quindi non erano divisibili per tipo.
+#
+# Entrambi sono corretti alla fonte (functions/src/lib/mailerooRef.js). Questo
+# workflow e lo strumento che li tiene corretti: `unmeasurable`, `unattributed`
+# e `provider_missing` devono stare a ~0, e una loro risalita E la regressione —
+# visibile PRIMA che qualcuno legga un tasso calcolato su un denominatore rotto.
+#
+# Il report e in sola lettura sui dati di produzione; l'unica scrittura e lo
+# snapshot settimanale sotto newsletter_subscribers/_meta_/engagement_snapshots,
+# che e anche la baseline del confronto. Niente file di storia nel repo, quindi
+# nessun commit su main e nessun gate data-refresh da soddisfare.
+
+on:
+  schedule:
+    # Lunedi 03:40 UTC. Slot distinto da send-hour-impact-report.yml (02:20) per
+    # non contendere la stessa finestra di dispatch; per un report read-only la
+    # puntualita non e portante.
+    - cron: '40 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Finestra in giorni'
+        required: false
+        default: '7'
+        type: string
+      dry_run:
+        description: 'Non scrivere lo snapshot e non aprire issue'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write   # per aprire/commentare la issue canonica sulla regressione
+
+concurrency:
+  group: email-engagement-weekly
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Run engagement report
+        env:
+          REPORT_DAYS: ${{ inputs.days || '7' }}
+          # In dry-run lo snapshot non viene scritto, cosi una prova manuale non
+          # sposta la baseline che il confronto della settimana dopo usera.
+          SNAPSHOT_FLAG: ${{ inputs.dry_run && '--no-snapshot' || '' }}
+        run: |
+          set -o pipefail
+          node scripts/report-email-engagement.mjs \
+            --days "$REPORT_DAYS" \
+            --out /tmp/email-engagement.json \
+            $SNAPSHOT_FLAG | tee /tmp/email-engagement.txt | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: email-engagement-report
+          path: |
+            /tmp/email-engagement.txt
+            /tmp/email-engagement.json
+          if-no-files-found: ignore
+
+      - name: Ensure label exists
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "email-engagement" --color "0E8A16" \
+            --description "email-engagement-weekly: tassi di apertura/click e integrita della misura" --force 2>/dev/null || true
+
+      # Titolo STABILE (ISSUES.md: dedup a MONTE). Niente data ne numeri nel
+      # titolo: la condizione e sempre la stessa — "i tassi o la misura sono
+      # peggiorati" — e il helper appende ogni run come commento sulla issue
+      # canonica, cosi l'andamento si legge come un thread invece di generare
+      # una issue nuova ogni lunedi che nessuno chiude mai.
+      - name: Open issue on regression
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ ! -f /tmp/email-engagement.json ]; then
+            echo "Nessun JSON prodotto, salto."
+            exit 0
+          fi
+
+          COUNT=$(node -e "const j=require('/tmp/email-engagement.json');console.log(j.regressions.length)")
+          if [ "$COUNT" = "0" ]; then
+            echo "✅ Nessuna regressione: nessuna issue da aprire."
+            exit 0
+          fi
+
+          # Le regressioni di integrita sono per costruzione piu gravi di un calo
+          # di tasso: significano che i numeri stessi non sono piu leggibili.
+          HAS_INTEGRITY=$(node -e "const j=require('/tmp/email-engagement.json');console.log(j.regressions.some(r=>r.kind==='integrity')?'1':'0')")
+          PRIORITY=3
+          [ "$HAS_INTEGRITY" = "1" ] && PRIORITY=2
+
+          BODY=$(node -e '
+            const j = require("/tmp/email-engagement.json");
+            const s = j.snapshot, t = s.totals;
+            const pct = (n, d) => d > 0 ? (100 * n / d).toFixed(2) + "%" : "n/a";
+            const lines = [];
+            lines.push("## Cosa e peggiorato");
+            lines.push("");
+            for (const r of j.regressions) lines.push(`- **[${r.kind}] ${r.metric}** — ${r.detail}`);
+            lines.push("");
+            lines.push("## Finestra misurata");
+            lines.push("");
+            lines.push(`- Finestra: ${s.window_days} giorni, da \`${s.since}\``);
+            lines.push(`- Baseline di confronto: \`${j.previous_at || "nessuna"}\``);
+            lines.push(`- Invii ${t.sent} · aperture ${t.opened} (${pct(t.opened, t.sent)}) · click ${t.clicked} (${pct(t.clicked, t.sent)})`);
+            lines.push("");
+            lines.push("## Integrita della misura (attesi ~0)");
+            lines.push("");
+            lines.push(`- engagement scartato dal webhook: **${s.integrity.unmeasurable}**`);
+            lines.push(`- attribuzione di campagna persa: **${s.integrity.unattributed}**`);
+            lines.push(`- eventi senza campo provider: **${s.integrity.providerMissing}** su ${s.integrity.scanned}`);
+            lines.push("");
+            lines.push("## Per email_type");
+            lines.push("");
+            lines.push("| email_type | invii | open% | click% |");
+            lines.push("|---|---:|---:|---:|");
+            for (const [k, c] of Object.entries(s.byType).sort((a,b)=>b[1].sent-a[1].sent)) {
+              lines.push(`| ${k} | ${c.sent} | ${pct(c.opened, c.sent)} | ${pct(c.clicked, c.sent)} |`);
+            }
+            lines.push("");
+            lines.push("## Per provider");
+            lines.push("");
+            lines.push("| provider | invii | open% | click% |");
+            lines.push("|---|---:|---:|---:|");
+            for (const [k, c] of Object.entries(s.byProvider).sort((a,b)=>b[1].sent-a[1].sent)) {
+              lines.push(`| ${k} | ${c.sent} | ${pct(c.opened, c.sent)} | ${pct(c.clicked, c.sent)} |`);
+            }
+            lines.push("");
+            lines.push("> Il confronto fra provider sui job alert non misura i provider: `send-job-alerts.mjs` ordina i destinatari per tier di engagement e la cascata consuma le quote in ordine fisso, quindi i provider a quota piccola ricevono per costruzione i destinatari piu attivi. Solo `newsletter_weekly`, che non e ordinata cosi, regge il confronto.");
+            lines.push("");
+            lines.push("### Dove guardare per prima cosa");
+            lines.push("");
+            lines.push("- `unmeasurable` risalito → un sender invia via Maileroo senza scrivere `maileroo_refs`: vedi `functions/src/lib/mailerooRef.js` e il guard in `tests/maileroo-ref.test.ts`.");
+            lines.push("- `unattributed` risalito → il `campaign_id` non arriva piu nei tag: vedi `extractCampaignId` in `functions/src/newsletterMailerooWebhookCore.js`.");
+            lines.push("- Solo un tasso giu, integrita a zero → e engagement vero, non strumentazione.");
+            console.log(lines.join("\n"));
+          ')
+
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Email engagement: tassi o integrita della misura peggiorati" \
+            --description "$BODY" \
+            --priority "$PRIORITY" \
+            --label email-engagement \
+            --workflow "${{ github.workflow }}"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
