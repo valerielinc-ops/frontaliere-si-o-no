@@ -1183,6 +1183,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-basilea-citta-conversione': { it: 'patente-guida-basilea-citta-conversione', en: 'driving-license-basel-stadt-conversion', de: 'fuehrerschein-basel-stadt-umwandlung', fr: 'permis-conduire-bale-ville-conversion' },
  'assegni-familiari-basilea-campagna': { it: 'assegni-familiari-basilea-campagna', en: 'family-allowances-basel-landschaft', de: 'familienverguetung-basel-landschaft', fr: 'allocations-familiales-bale-campagne' },
  'apprendistato-formazione-basilea-campagna': { it: 'apprendistato-formazione-basilea-campagna', en: 'apprenticeship-vocational-training-basel-landschaft', de: 'lehrlingsausbildung-berufsbildung-basel-landschaft', fr: 'apprentissage-formation-professionnelle-bale-campagne' },
+ 'affitti-basilea-campagna-canoni-diritto-locazione': { it: 'affitti-basilea-campagna-canoni-diritto-locazione', en: 'rental-basel-landschaft-canon-rental-law', de: 'miete-basel-landschaft-miete-mietrecht', fr: 'location-bale-campagne-loyer-droit-bail' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

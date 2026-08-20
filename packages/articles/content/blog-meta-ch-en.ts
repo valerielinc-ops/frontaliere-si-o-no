@@ -3472,6 +3472,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-basilea-campagna.title': 'Apprenticeship in Switzerland: contracts, salary and maturity',
     'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Internship contracts, remuneration, compulsory contributions and professional maturity: an apprenticeship guide in the Swiss training system.',
     'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Young apprentice working in vocational training workshop during hands-on professional education',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Rentals Basel Countryside: fees and rental rights',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Swiss Federal Regulation on Security Deposit, Cancellation, Rent Dispute and Conciliation Authority in Residential Lease in Basel Countryside.',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Residential building with apartment rental units in Basel-Landschaft',
 };
 
 export default blogMetaChEn;

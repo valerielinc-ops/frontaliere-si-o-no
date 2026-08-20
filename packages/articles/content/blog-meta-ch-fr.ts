@@ -3472,6 +3472,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-basilea-campagna.title': 'Apprentissage en Suisse : contrats, rémunération et maturité',
     'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Contrats de stage, rémunération, cotisations obligatoires et maturité professionnelle : guide de l\'apprentissage dans le système suisse de formation.',
     'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Jeune apprenti en formation professionnelle dans un atelier de travail pratique en Suisse',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Location Bâle-Campagne : loyers et droit de location',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Règlement fédéral suisse sur le dépôt de garantie, la résiliation, la contestation de la redevance et l\'autorité de conciliation dans la location résidentielle à Bâle-Campagne.',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Immeuble résidentiel avec appartements locatifs à Bâle-Campagne',
 };
 
 export default blogMetaChFr;

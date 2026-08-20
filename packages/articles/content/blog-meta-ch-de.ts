@@ -3472,6 +3472,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-basilea-campagna.title': 'Lehre in der Schweiz: Verträge, Vergütung und Maturität',
     'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Lehrverträge, Entgelt, Pflichtbeiträge und Berufsmaturität: Leitfaden zur Lehre im schweizerischen Bildungssystem.',
     'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Junger Lehrling bei der praktischen Ausbildung in einer Schweizer Berufsschule',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Vermietungen Basel-Landschaft: Mieten und Mietrecht',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Schweizerisches Bundesreglement über Mietkaution, Kündigung, Gebührenbeanstandung und Schlichtungsbehörde bei der Wohnvermietung in Basel-Landschaft.',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Wohngebäude mit Mietwohnungen in Basel-Landschaft',
 };
 
 export default blogMetaChDe;
