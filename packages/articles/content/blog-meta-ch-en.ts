@@ -3574,6 +3574,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Switzerland-China: Optimised trade agreement',
     'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Negotiations concluded: 99.8% of Swiss exports to China will have customs exemption. Signature expected in 2026.',
     'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Swiss federal building in Bern with international flags, representing Swiss commercial diplomacy with China',
+    'blog.article.dimora-b-svizzera-guida-pratica.title': 'Residence permit B: how to apply and renew it',
+    'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Residence permit B in Switzerland: essential requirements, documentation, competent authorities (SEM), renewal times and procedures. Guide for non-EU foreigners.',
+    'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Cantonal migration office where residence permits for foreigners are requested in Switzerland',
 };
 
 export default blogMetaChEn;

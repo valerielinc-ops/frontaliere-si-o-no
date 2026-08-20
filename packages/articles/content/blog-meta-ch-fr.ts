@@ -3574,6 +3574,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Suisse-Chine : accord commercial optimisé',
     'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Négociations conclues : 99,8 % des exportations suisses vers la Chine bénéficieront d\'une exonération douanière. Signature prévue en 2026.',
     'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Bâtiment fédéral suisse à Berne avec drapeaux internationaux, symbole de la diplomatie commerciale avec la Chine',
+    'blog.article.dimora-b-svizzera-guida-pratica.title': 'Permis de séjour B : comment le demander et le renouveler',
+    'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Permis de séjour B en Suisse : exigences essentielles, documentation, autorités compétentes (SEM), délais et procédures de renouvellement. Guide pour les étrangers non-UE.',
+    'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Bureau de migration cantonal où sont demandés les permis de séjour pour étrangers en Suisse',
 };
 
 export default blogMetaChFr;

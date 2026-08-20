@@ -3574,6 +3574,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Schweiz-China: Optimiertes Handelsabkommen',
     'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Nach Abschluss der Verhandlungen werden 99,8% der Schweizer Exporte nach China zollfrei sein. Die Unterzeichnung ist für 2026 geplant.',
     'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Schweizer Bundesgebäude in Bern mit internationalen Flaggen, Symbol der Handelsdiplomatie mit China',
+    'blog.article.dimora-b-svizzera-guida-pratica.title': 'Aufenthaltsbewilligung B: Beantragung und Verlängerung',
+    'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Aufenthaltsbewilligung B in der Schweiz: Grundlegende Anforderungen, Unterlagen, zuständige Behörden (sem), Fristen und Verfahren für die Erneuerung. Leitfaden für Nicht-EU-Ausländer.',
+    'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Kantonales Migrationsamt, wo Aufenthaltserlaubnisse für Ausländer in der Schweiz beantragt werden',
 };
 
 export default blogMetaChDe;
