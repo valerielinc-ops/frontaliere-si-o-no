@@ -10,7 +10,6 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://team.lidl.ch/de/jobs/182-verkaeufer-verkaeuferin-m-w-d-20-60-zwingen-737127",
     "https://team.lidl.ch/de/jobs/abpacker-m-w-d-40-60-bern-696045",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-baden-702654",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-brugg-702655",
@@ -45,6 +44,7 @@
     "https://team.lidl.ch/de/jobs/ch_verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-niederlenz-716732",
     "https://team.lidl.ch/de/jobs/fachexperte-technisches-facility-management-m-w-d-80-100-weinfelden-724995",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-kt.schwyz-march-oberer-zuerichsee-m-w-d-80-100-einsiedeln-697843",
+    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-1-solothurn-738030",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-chur-704426",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-einsiedeln-672999",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-sarnen-666226",
@@ -55,6 +55,7 @@
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-zuerich-678486",
     "https://team.lidl.ch/de/jobs/it-service-support-mitarbeiter-in-m-w-d-80-100-weinfelden-701870",
     "https://team.lidl.ch/de/jobs/junior-manager-controlling-m-w-d-80-100-weinfelden-721952",
+    "https://team.lidl.ch/de/jobs/junior-manager-nachhaltigkeit-m-w-d-80-100-weinfelden-738302",
     "https://team.lidl.ch/de/jobs/kassierer-kassiererin-m-w-d-40-60-bern-704778",
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-non-food-m-w-d-40-80-derendingen-690593",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-30-bern-689912",
@@ -62,8 +63,6 @@
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-flueelen-696623",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-visp-732786",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-30-winterthur-722347",
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-aegerten-728130",
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-bern-682222",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-adliswil-693703",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-baar-706644",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-luzern-731733",
@@ -104,6 +103,8 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-oberglatt-727517",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-rapperswil-jona-727543",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-roemerswil-727534",
+    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-roemerswil-727561",
+    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schaffhausen-727504",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schaffhausen-727558",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schlieren-727533",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schluein-736989",
@@ -114,6 +115,7 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-zwingen-727530",
     "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-biodiversitaet-kreislaufwirtschaft-80-100-m-w-d-weinfelden-733498",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-matten-bei-interlaken-727194",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-sarnen-681605",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
@@ -122,7 +124,6 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-rothrist-712369",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-altendorf-723270",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-zuerich-701463",
-    "https://team.lidl.ch/de/jobs/mitarbeiter-self-checkout-und-verkauf-20-40-kriens-732914",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-administration-kosten-m-w-d-60-80-weinfelden-719464",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-qualitaetssicherung-nachhaltigkeit-m-w-d-80-100-weinfelden-730812",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-recruiting-m-w-d-80-100-weinfelden-725294",
@@ -133,6 +134,7 @@
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-100-zuerich-735754",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-1-brig-733924",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-1-muri-ag-695104",
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-aarau-ag-737962",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-affoltern-am-albis-712361",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-amriswil-716870",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-baden-702620",
@@ -161,6 +163,7 @@
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-wettingen-702615",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-zuerich-701239",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-zuerich-712451",
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-zuerich-738113",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-zug-712359",
     "https://team.lidl.ch/de/jobs/team-lead-fuhrparkmanager-autoflotte-m-w-d-80-100-weinfelden-721959",
     "https://team.lidl.ch/de/jobs/vekaeufer-verkaeuferin-mit-schichtverantwortung-60-80-haegendorf-728817",
@@ -183,6 +186,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-pfaeffikon-zh-726329",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-romanshorn-716866",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-wetzikon-697094",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-wilen-b.-wil-737966",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-doettingen-702640",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-baar-700476",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-bachenbuelach-714402",
@@ -190,13 +194,13 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-duebendorf-701472",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-gretzenbach-708079",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-luzern-728425",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-reinach-ag-677046",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-seewen-685901",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-wallisellen-711246",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-714401",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-729861",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-738116",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zug-698180",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-30-40-bern-677610",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-action-non-food-willisau-721722",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-bern-732703",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-bern-737365",
@@ -204,6 +208,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-oensingen-734320",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-ostermundigen-694207",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-rothrist-689818",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-spiez-736184",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-uster-726334",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-zuerich-735544",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-80-kehrsatz-727582",
@@ -236,6 +241,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-cham-700475",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-ebikon-711234",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-kehrsatz-737347",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-707612",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-707618",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-728436",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-romanshorn-716857",
@@ -279,7 +285,6 @@
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471",
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-suppleant-e-h-f-d-80-100-sierre-656566",
-    "https://team.lidl.ch/fr/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-20-40-martigny-727833",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-40-neuchatel-722077",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-payerne-726953",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-etoy-731866",
@@ -288,7 +293,6 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-695473",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-oron-731612",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-vernier-731860",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-bulle-695660",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-724853",
@@ -304,7 +308,7 @@
     "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-lugano-715078"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-19T21:34:29.973Z",
+  "updatedAt": "2026-08-20T21:32:08.611Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -316,6 +320,15 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schaffhausen-727558": {
+      "location": "Schaffhausen",
+      "addressLocality": "Schaffhausen",
+      "canton": "SH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schaffhausen-727504": {
       "location": "Schaffhausen",
       "addressLocality": "Schaffhausen",
       "canton": "SH",
@@ -468,6 +481,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/de/jobs/junior-manager-nachhaltigkeit-m-w-d-80-100-weinfelden-738302": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-arbon-716865": {
       "location": "Arbon",
       "addressLocality": "Arbon",
@@ -526,6 +548,15 @@
       "location": "Winterthur",
       "addressLocality": "Winterthur",
       "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-wilen-b.-wil-737966": {
+      "location": "Wilen b. Wil",
+      "addressLocality": "Wilen b. Wil",
+      "canton": "SG",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
@@ -1053,6 +1084,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-zuerich-738113": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-zuerich-735751": {
       "location": "Zürich",
       "addressLocality": "Zürich",
@@ -1088,6 +1128,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-738116": {
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-niederlenz-700505": {
       "location": "Niederlenz",
@@ -1135,6 +1184,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-aarau-ag-727559": {
+      "location": "Aarau (AG)",
+      "addressLocality": "Aarau (AG)",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-aarau-ag-737962": {
       "location": "Aarau (AG)",
       "addressLocality": "Aarau (AG)",
       "canton": "AG",
@@ -1223,15 +1281,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/182-verkaeufer-verkaeuferin-m-w-d-20-60-zwingen-737127": {
-      "location": "Zwingen",
-      "addressLocality": "Zwingen",
-      "canton": "BL",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-rueschlikon-683005": {
       "location": "Rüschlikon",
@@ -1467,15 +1516,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-reinach-ag-677046": {
-      "location": "Reinach (AG)",
-      "addressLocality": "Reinach (AG)",
-      "canton": "BL",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-reinach-ag-731144": {
       "location": "Reinach (AG)",
       "addressLocality": "Reinach (AG)",
@@ -1486,6 +1526,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-solothurn-629947": {
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "canton": "SO",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-1-solothurn-738030": {
       "location": "Solothurn",
       "addressLocality": "Solothurn",
       "canton": "SO",
@@ -1639,6 +1688,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-roemerswil-727534": {
+      "location": "Römerswil",
+      "addressLocality": "Römerswil",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-roemerswil-727561": {
       "location": "Römerswil",
       "addressLocality": "Römerswil",
       "canton": "LU",
@@ -1854,6 +1912,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-707612": {
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-728436": {
       "location": "Luzern",
       "addressLocality": "Luzern",
@@ -1971,27 +2038,9 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/mitarbeiter-self-checkout-und-verkauf-20-40-kriens-732914": {
-      "location": "Kriens",
-      "addressLocality": "Kriens",
-      "canton": "LU",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-biel-bienne-728471": {
       "location": "Biel/Bienne",
       "addressLocality": "Biel/Bienne",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-aegerten-728130": {
-      "location": "Aegerten",
-      "addressLocality": "Aegerten",
       "canton": "BE",
       "country": "CH",
       "company": "Lidl Svizzera",
@@ -2223,24 +2272,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-30-40-bern-677610": {
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-40-60-bern-682222": {
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-bern-677603": {
       "location": "Bern",
       "addressLocality": "Bern",
@@ -2285,6 +2316,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-bern-704655": {
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-bern-737365": {
       "location": "Bern",
@@ -2583,6 +2623,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-spiez-736184": {
+      "location": "Spiez",
+      "addressLocality": "Spiez",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-yverdon-les-bains-725860": {
       "location": "Yverdon-les-Bains",
       "addressLocality": "Yverdon-les-Bains",
@@ -2808,6 +2857,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
+      "location": "Sierre",
+      "addressLocality": "Sierre",
+      "canton": "VS",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-suppleant-e-h-f-d-80-100-sierre-656566": {
       "location": "Sierre",
       "addressLocality": "Sierre",
@@ -2915,24 +2973,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/fr/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-20-40-martigny-727833": {
-      "location": "Martigny",
-      "addressLocality": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-vernier-731860": {
-      "location": "Vernier",
-      "addressLocality": "Vernier",
-      "canton": "GE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     }
   }
 }
