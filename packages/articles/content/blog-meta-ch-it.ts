@@ -3505,6 +3505,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Sondaggio neutralità: Ticino al 52% e Svizzera al 36%',
     'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'In vista del voto del 27 settembre sull\'iniziativa sulla neutralità, il sondaggio Tamedia rivela una forte divergenza tra il Ticino e il resto della nazione.',
     'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Documenti di voto e urna elettorale in Svizzera per il voto sulla neutralità',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Assenze del personale in aumento nelle PMI svizzere: lo studio AXA',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Le assenze per motivi psicologici colpiscono il 35% delle PMI svizzere. I dati dello studio AXA sulla gestione del personale e i costi per le aziende.',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'Studio AXA sulle assenze del personale e salute mentale nelle PMI svizzere',
 };
 
 export default blogMetaChIt;

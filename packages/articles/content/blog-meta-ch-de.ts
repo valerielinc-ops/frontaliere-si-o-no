@@ -3505,6 +3505,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Neutralitätserhebung: Tessin 52% und Schweiz 36%',
     'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'Im Vorfeld der Abstimmung vom 27. September über die Neutralitätsinitiative zeigt die Tamedia-Umfrage eine starke Divergenz zwischen dem Tessin und dem Rest des Landes.',
     'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Abstimmungsunterlagen und Urne in der Schweiz zur Neutralitätsinitiative',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Zunehmende Personalabsenzen in Schweizer KMU: Die AXA-Studie',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Psychisch bedingte Absenzen betreffen 35% der Schweizer KMU. Die Daten der AXA-Studie zum Personalmanagement und den Kosten für Unternehmen.',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'AXA-Studie zu Personalabwesenheiten und psychischer Gesundheit',
 };
 
 export default blogMetaChDe;
