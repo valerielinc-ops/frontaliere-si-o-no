@@ -3610,6 +3610,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.title': 'AVS e prestazioni complementari Sciaffusa',
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.excerpt': 'La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.imageAlt': 'Panorama del paesaggio svizzero con vista sulle montagne alpine della Svizzera settentrionale',
+    'blog.article.imposta-successione-donazione-sciaffusa.title': 'Imposta successione e donazione Sciaffusa: aliquote',
+    'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Scopri aliquote, esenzioni per coniuge e discendenti, procedure e termini per l\'imposta di successione nel canton Sciaffusa. Guida completa per eredi.',
+    'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'Un consulente esamina documenti di successione in un ufficio svizzero del canton Sciaffusa',
 };
 
 export default blogMetaChIt;

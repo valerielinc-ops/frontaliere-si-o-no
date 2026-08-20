@@ -3610,6 +3610,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.title': 'AVS and complementary services Schaffhausen',
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.excerpt': 'The cantonal compensation fund manages the calculation of the AVS annuity and access to supplementary benefits in the Canton of Schaffhausen, guaranteeing the minimum living wage.',
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.imageAlt': 'Swiss Alpine landscape panorama from the northern mountains of Switzerland',
+    'blog.article.imposta-successione-donazione-sciaffusa.title': 'Tax succession and donation Schaffhausen: rates',
+    'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Discover rates, exemptions for spouses and descendants, procedures and terms for inheritance tax in the canton of Schaffhausen. Complete guide for heirs.',
+    'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'A tax consultant reviews inheritance succession documents in a Swiss cantonal office',
 };
 
 export default blogMetaChEn;

@@ -10828,6 +10828,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'imposta-successione-donazione-sciaffusa',
+    category: 'fiscale',
+    date: '2026-08-20T22:44:06.580Z',
+    image: '/images/blog/imposta-successione-donazione-sciaffusa.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
