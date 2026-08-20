@@ -66,8 +66,10 @@ const FETCH_TIMEOUT_MS = 20000;
 const POLITE_DELAY_MS = 600;
 // Politeness delay between per-event flyer-image mirror fetches (a distinct
 // host, biglietteria.ch, from the tio.ch day pages above) — short since
-// mirrorEventImage is idempotent (skips the network call when the file is
-// already on disk from a previous run), so a steady-state re-crawl only pays
+// mirrorEventImage is idempotent (skips the network call for any id already
+// in data/events-image-manifest.json — since #6163 the mirrored bytes are on
+// the CDN, not in git, so the committed manifest is what carries the
+// "already mirrored" fact across runs), so a steady-state re-crawl only pays
 // this for genuinely new events.
 const IMAGE_MIRROR_DELAY_MS = 150;
 // Politeness delay between per-event detail-page fetches (price extraction —
