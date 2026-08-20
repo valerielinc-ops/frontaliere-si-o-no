@@ -1,58 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-08-20T10:02:03.757Z",
-  "total": 6,
+  "generatedAt": "2026-08-20T21:47:52.765Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 12966,
-  "avgDurationMs": 12966,
+  "updatedCount": 2,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 11198,
+  "avgDurationMs": 11198,
   "durationHistory": [
-    12966
+    11198
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Technical Drawer &amp; Tooling Warehouse Specialist",
-      "slug": "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/8207408-technical-drawer-tooling-warehouse-specialist",
-      "applyUrl": "https://careers.mkspamp.com/jobs/8207408-technical-drawer-tooling-warehouse-specialist",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "general",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-08-11",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "mks-pamp-c3c85646a586",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-12T22:07:24.592Z",
-      "needsRetranslation": true,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "title": "Precious Metal Control Manager",
       "slug": "precious-metal-control-manager-mks-pamp-castel-san-pietro",
@@ -81,19 +42,19 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
     {
-      "title": "Tecnico di laboratorio",
-      "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/8151426-tecnico-di-laboratorio",
-      "applyUrl": "https://careers.mkspamp.com/jobs/8151426-tecnico-di-laboratorio",
+      "title": "Technical Drawer &amp; Tooling Warehouse Specialist",
+      "slug": "technical-drawer-amp-tooling-warehouse-specialist-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/8207408-technical-drawer-tooling-warehouse-specialist",
+      "applyUrl": "https://careers.mkspamp.com/jobs/8207408-technical-drawer-tooling-warehouse-specialist",
       "company": "MKS PAMP",
       "companyKey": "mks-pamp",
       "companyDomain": "mkspamp.com",
@@ -107,23 +68,25 @@
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-30",
+      "postedDate": "2026-08-11",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "id": "mks-pamp-3395fd98e7ed",
+      "id": "mks-pamp-c3c85646a586",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-11T22:04:16.279Z",
-      "_qualityScore": 87,
+      "firstSeenAt": "2026-08-12T22:07:24.592Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
       "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
@@ -159,6 +122,43 @@
         "richness": 18,
         "translation": 25,
         "completeness": 22
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "title": "Tecnico di laboratorio",
+      "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/8151426-tecnico-di-laboratorio",
+      "applyUrl": "https://careers.mkspamp.com/jobs/8151426-tecnico-di-laboratorio",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-30",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "mks-pamp-3395fd98e7ed",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-11T22:04:16.279Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
