@@ -409,9 +409,14 @@ jobs:
           # checkout dell'albero li materializza comunque uno per uno: su
           # ~2.6GB di working tree questo job ha impiegato fino a 296s (run
           # 30354558798). I guard leggono solo sorgente (scripts/**,
-          # build-plugins/**, components/**), quindi le due sottodirectory di
-          # immagini binarie più grosse — events 790MB e blog 361MB — non
-          # servono a nessuno dei quattro. `public/images/brands` resta.
+          # build-plugins/**, components/**), quindi la sottodirectory di
+          # immagini binarie più grossa — blog, 361MB — non serve a nessuno dei
+          # quattro. `public/images/brands` resta.
+          # `!/public/images/events` è rimasta come no-op deliberato dopo #6163:
+          # quei 5'568 file (4'108MB) non sono più tracciati — sono serviti da
+          # cdn.frontaliereticino.ch — quindi la riga oggi non esclude nulla. La
+          # si tiene perché il crawler ricrea la cartella a ogni run e un
+          # checkout futuro non deve tornare a materializzarla per sbaglio.
           sparse-checkout: |
             /*
             !/public/images/events
