@@ -5,8 +5,9 @@
  * comuni geo-linking, per-canton URL base paths, and the no-hotlink image
  * mirror. See scripts/lib/events-utils.mjs.
  */
-import { describe, it, expect, vi, afterEach } from 'vitest';
-import { existsSync, readFileSync, rmSync } from 'node:fs';
+import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 import {
   EVENT_SOURCES,
@@ -20,6 +21,7 @@ import {
   haversineKm,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  resetEventImageManifestCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
 } from '../scripts/lib/events-utils.mjs';
@@ -196,9 +198,28 @@ describe('resolveItalianFrontierComuni', () => {
 
 describe('mirrorEventImage', () => {
   const testImagesDir = path.join(process.cwd(), 'public', 'images', 'events');
+  // data/events-image-manifest.json is TRACKED (5'568 entries, 294KB) and
+  // mirrorEventImage writes to it on every successful download. Without this
+  // redirection each run of this suite would commit `test-mirror-fixture` into
+  // the real index — and, worse, a test that exercises the fail-closed path
+  // would do so against the production file. EVENTS_IMAGE_MANIFEST_PATH is the
+  // seam events-utils.mjs exposes for exactly this.
+  let manifestDir: string;
+  let manifestFile: string;
+
+  beforeEach(() => {
+    manifestDir = mkdtempSync(path.join(tmpdir(), 'events-image-manifest-'));
+    manifestFile = path.join(manifestDir, 'events-image-manifest.json');
+    writeFileSync(manifestFile, '{}\n');
+    process.env.EVENTS_IMAGE_MANIFEST_PATH = manifestFile;
+    resetEventImageManifestCache();
+  });
 
   afterEach(() => {
     vi.unstubAllGlobals();
+    delete process.env.EVENTS_IMAGE_MANIFEST_PATH;
+    resetEventImageManifestCache();
+    rmSync(manifestDir, { recursive: true, force: true });
     // Clean up any file this test wrote so repeated runs stay idempotent and
     // don't leak fixture images into the tracked public/ directory.
     for (const ext of ['jpg', 'webp']) {
@@ -296,6 +317,80 @@ describe('mirrorEventImage', () => {
   it('returns null when fetch throws', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network down')));
     expect(await mirrorEventImage('https://example.com/x.jpg', 'test:mirror-fixture')).toBeNull();
+  });
+
+  // ── The committed manifest (#6163) ───────────────────────────────────────
+  //
+  // The 5'568 mirrored images used to be committed, and the dedup probe was
+  // existsSync over the four candidate extensions. Now the bytes live on the
+  // CDN and a fresh crawl checkout has an EMPTY public/images/events, so that
+  // probe answers "never seen it" for every image ever mirrored. Without the
+  // manifest the crawler would re-download the whole back catalogue nightly
+  // and re-create the directory this issue deleted — these three tests pin the
+  // three states that keeps working.
+
+  it('dedups from the manifest alone, with no file on disk and no fetch', async () => {
+    writeFileSync(manifestFile, `${JSON.stringify({ 'test-mirror-fixture': 'webp' })}\n`);
+    resetEventImageManifestCache();
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    // The precondition that makes this test mean anything: the bytes are on
+    // the CDN, not here.
+    expect(existsSync(path.join(testImagesDir, 'test-mirror-fixture.webp'))).toBe(false);
+
+    expect(await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture')).toBe(
+      '/images/events/test-mirror-fixture.webp',
+    );
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('records a newly mirrored image into the manifest, sorted', async () => {
+    writeFileSync(manifestFile, `${JSON.stringify({ 'zzz-existing': 'png' })}\n`);
+    resetEventImageManifestCache();
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        headers: { get: () => 'image/jpeg' },
+        arrayBuffer: async () => new Uint8Array([1, 2, 3, 4]).buffer,
+      }),
+    );
+
+    expect(await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture')).toBe(
+      '/images/events/test-mirror-fixture.jpg',
+    );
+
+    const written = JSON.parse(readFileSync(manifestFile, 'utf8'));
+    expect(written['test-mirror-fixture']).toBe('jpg');
+    // Pre-existing entries survive, and the file stays key-sorted — it is a
+    // 294KB tracked file rewritten on every crawl, so a stable order is what
+    // keeps the daily diff to the lines that actually changed.
+    expect(written['zzz-existing']).toBe('png');
+    expect(Object.keys(written)).toEqual([...Object.keys(written)].sort());
+  });
+
+  it('refuses to rewrite an unreadable manifest, falling back to the on-disk probe', async () => {
+    // Fail-closed: the alternative is treating a transient read error as "the
+    // index is empty" and committing a 2-entry file over 5'568 real ones.
+    writeFileSync(manifestFile, 'not json at all');
+    resetEventImageManifestCache();
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        headers: { get: () => 'image/jpeg' },
+        arrayBuffer: async () => new Uint8Array([1, 2, 3, 4]).buffer,
+      }),
+    );
+
+    // The download still happens — the run must not stop because an index is
+    // corrupt — and the on-disk probe still dedups within this run.
+    expect(await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture')).toBe(
+      '/images/events/test-mirror-fixture.jpg',
+    );
+    expect(existsSync(path.join(testImagesDir, 'test-mirror-fixture.jpg'))).toBe(true);
+    expect(readFileSync(manifestFile, 'utf8')).toBe('not json at all');
   });
 });
 

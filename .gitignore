@@ -142,3 +142,23 @@ data/employer-outreach/report.json
 data/employer-outreach/drafts/
 data/employer-outreach/send-log.json
 data/employer-outreach/inbound-replies.jsonl
+
+# Mirrored event source images (#6163). NOT committed: the 5'568 files were
+# 4'108 MB — 59% of the tracked tree — while every one of them is already
+# served from cdn.frontaliereticino.ch, which is where the site actually reads
+# them (services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES; the origin
+# 301-redirects /images/events/* there). The copy in git was pure staging for a
+# CDN push that no longer needs it: crawl-events.yml uploads what it mirrors,
+# in the same run that writes it, and data/events-image-manifest.json is the
+# committed <stableId> -> <ext> index that keeps the crawler from re-downloading
+# what it already has.
+#
+# `/*` + a negation, not a plain `public/images/events/`: git cannot re-include
+# anything under an excluded DIRECTORY, so the catalog/ exception below would be
+# silently dead with the simpler pattern. catalog/ is the per-category fallback
+# SVG set written by build-plugins/eventsSeoPagesPlugin.ts writeCatalogImages()
+# — build output, not mirrored material, and today it is emitted straight into
+# dist/. The exception exists so that if it ever also lands in public/ it is
+# still committable rather than swallowed by this rule.
+public/images/events/*
+!public/images/events/catalog/
