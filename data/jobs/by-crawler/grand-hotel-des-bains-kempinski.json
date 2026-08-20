@@ -2383,7 +2383,7 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-11T10:06:52.440Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "fr": [
           "receptionniste-spa-en-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
@@ -2391,7 +2391,8 @@
       },
       "previousSlugs": [
         "receptionniste-spa-en-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager, Paid Media",

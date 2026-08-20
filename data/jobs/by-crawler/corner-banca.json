@@ -122,7 +122,7 @@
       "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
       "titleByLocale": {
         "it": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
-        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 10",
         "de": "Risikomanager - Asset Liability Management (ALM) und Liquiditätsrisiko - Ref. 1086",
         "fr": "Gestionnaire des risques - Gestion des passifs en matière d'actifs (GAP) et risque de liquidité - réf. 1086"
       },
@@ -215,7 +215,9 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -404,7 +406,7 @@
       "title": "Legal Collection case Manager  - ref. 1095",
       "titleByLocale": {
         "it": "Legal Collection case Manager - ref. 1095",
-        "en": "Legal Collection case Manager  - ref. 1095",
+        "en": "Legal Collection case Manager - ref. 1095",
         "de": "Legal Collection case Manager - ref. 1095",
         "fr": "Legal Collection case Manager - ref. 1095"
       },
