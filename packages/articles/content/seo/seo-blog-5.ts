@@ -71753,6 +71753,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vignone-trasferimento-frontaliere': {
+    title: 'Vivere a Vignone, lavorare in Ticino: guida pratica',
+    description: 'Permesso G, fiscalità vantaggiosa, costi inferiori: scopri come trasferirsi a Vignone e lavorare in Ticino da frontaliere con il Nuovo Accordo 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, vignone, lavorare, pratica',
+    ogTitle: 'Vivere a Vignone, lavorare in Ticino: guida pratica',
+    ogDescription: 'Trasferisci a Vignone come frontaliere Ticino: scopri Permesso G, fiscalità, LAMal, AVS, LPP, credito imposta 730, nuova esenzione €7.500. Checklist pratica e procedure 2024.',
+    canonicalPath: '/articoli-frontaliere/vignone-trasferimento-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Vignone, lavorare in Ticino: guida pratica",
+      "description": "Permesso G, fiscalità vantaggiosa, costi inferiori: scopri come trasferirsi a Vignone e lavorare in Ticino da frontaliere con il Nuovo Accordo 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vignone-trasferimento-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta della valle e dei collegamenti Ticino, zona di confine ideale per frontalieri che vivono a Vignone"
+      },
+      "datePublished": "2026-08-20T13:52:56+00:00",
+      "dateModified": "2026-08-20T13:52:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vignone-trasferimento-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

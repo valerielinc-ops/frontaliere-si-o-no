@@ -10257,6 +10257,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-gavirate-lavorare-ticino.title': 'Vivre à Gavirate et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-gavirate-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui vivent à Gavirate et travaillent dans le canton du Tessin : liens, régimes fiscaux, impôt à la source, permis et règles de sécurité sociale.',
     'blog.article.vivere-gavirate-lavorare-ticino.imageAlt': 'Paysage de Gavirate près du lac',
+    'blog.article.vignone-trasferimento-frontaliere.title': 'Vivre à Vignone, travailler au Tessin : guide pratique',
+    'blog.article.vignone-trasferimento-frontaliere.excerpt': 'Emplacement frontalier, permis G, fiscalité avantageuse et coûts réduits : voici comment vivre à Vignone et travailler au Tessin en tant que frontalier.',
+    'blog.article.vignone-trasferimento-frontaliere.imageAlt': 'Vue de la vallée et des connexions frontalières du Tessin, zone idéale pour travailleurs frontaliers à Vignone',
 };
 
 export default blogMetaFr;

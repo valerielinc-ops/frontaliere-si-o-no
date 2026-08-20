@@ -3562,6 +3562,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.posta-utile-in-salita.title': 'Posta, utile in salita nonostante il calo delle lettere',
     'blog.article.posta-utile-in-salita.excerpt': 'La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, passando da 74 a 139 milioni di franchi.',
     'blog.article.posta-utile-in-salita.imageAlt': 'Una vista di Lugano con un aumento degli utili della Posta Svizzera nel primo semestre del 2026',
+    'blog.article.gas-svizzera-inverno-opzione.title': 'Gas, nuova opzione per l\'inverno in Svizzera',
+    'blog.article.gas-svizzera-inverno-opzione.excerpt': 'La Confederazione attiva l\'opzione ITA.SWAPtion.26 per accedere al gasdotto Francia-Italia. Costo 2-3 franchi per famiglie. Disponibile da ottobre 2026.',
+    'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Paesaggio alpino invernale svizzero con infrastrutture energetiche nella valle',
 };
 
 export default blogMetaChIt;

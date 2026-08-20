@@ -46196,6 +46196,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gas-svizzera-inverno-opzione': {
+    title: 'Gas, nuova opzione per l\'inverno in Svizzera | Frontaliere Ticino',
+    description: 'La Confederazione attiva opzione gas Francia-Italia per l\'inverno. Costo 2-3 franchi per famiglie. Disponibile da ottobre 2026 al 31 marzo 2027. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, opzione, inverno, confederazione',
+    ogTitle: 'Svizzera: nuova opzione gas per l\'inverno',
+    ogDescription: 'La Confederazione rafforza la sicurezza energetica invernale attivando l\'opzione ITA.SWAPtion.26. Scopri come accedere al gasdotto Francia-Italia e quanto costerà alle famiglie (2-3 franchi). Misura precauzionale dal 1° ottobre 2026 al 31 marzo 2027.',
+    canonicalPath: '/articoli-svizzera/gas-svizzera-inverno-opzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gas, nuova opzione per l'inverno in Svizzera",
+      "description": "La Confederazione attiva opzione gas Francia-Italia per l'inverno. Costo 2-3 franchi per famiglie. Disponibile da ottobre 2026 al 31 marzo 2027. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gas-svizzera-inverno-opzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino invernale svizzero con infrastrutture energetiche nella valle"
+      },
+      "datePublished": "2026-08-20T13:58:26+00:00",
+      "dateModified": "2026-08-20T13:58:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/gas-svizzera-inverno-opzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

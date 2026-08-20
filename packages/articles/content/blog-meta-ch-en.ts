@@ -3562,6 +3562,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.posta-utile-in-salita.title': 'Mail, useful uphill despite the drop in letters',
     'blog.article.posta-utile-in-salita.excerpt': 'Swiss Post recorded an increase in profits in the first half of 2026, from CHF 74 million to CHF 139 million.',
     'blog.article.posta-utile-in-salita.imageAlt': 'A view of Lugano with a rise in Posta Svizzera profits in the first half of 2026',
+    'blog.article.gas-svizzera-inverno-opzione.title': 'Gas, a new option for winter in Switzerland',
+    'blog.article.gas-svizzera-inverno-opzione.excerpt': 'The Confederation activates the ITA.SWAPtion.26 option to access the France-Italy gas pipeline. Cost 2-3 francs per family. Available from October 2026.',
+    'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Swiss alpine winter landscape with energy distribution infrastructure in the valley',
 };
 
 export default blogMetaChEn;
