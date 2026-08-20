@@ -531,6 +531,20 @@ describe('resolvePreflight — il lockstep tetto↔swap e\' meccanico, non un co
     expect(resolvePreflight(18432, LOCAL, tmpMeminfo(meminfoSwap(15988, 12288))).verdict).toBe('ok');
   });
 
+  it('ciSignal riporta il segnale grezzo CI/GITHUB_ACTIONS in OGNI ramo, non solo nel fail lockstep — item 3 di #6174: la regola 2 e\' silente quando isCi risulta false, questo e\' il punto che la rende osservabile in ogni build log reale', () => {
+    expect(resolvePreflight(18432, CI, '/nope/meminfo').ciSignal).toBe('CI=true GITHUB_ACTIONS=unset isCi=true');
+    expect(resolvePreflight(14336, CI, tmpMeminfo(meminfoSwap(15988, 4096))).ciSignal).toBe(
+      'CI=true GITHUB_ACTIONS=unset isCi=true',
+    );
+    expect(resolvePreflight(14336, LOCAL, tmpMeminfo(meminfoSwap(65536, 0))).ciSignal).toBe(
+      'CI=unset GITHUB_ACTIONS=unset isCi=false',
+    );
+    const githubActionsOnly = { GITHUB_ACTIONS: 'true' } as NodeJS.ProcessEnv;
+    expect(resolvePreflight(14336, githubActionsOnly, tmpMeminfo(meminfoSwap(15988, 12288))).ciSignal).toBe(
+      'CI=unset GITHUB_ACTIONS=true isCi=true',
+    );
+  });
+
   it('le costanti stanno nell\'ordine che il preflight assume', () => {
     // RAISED_WALL fra il vecchio tetto e quello nuovo; MIN_SWAP fra il
     // default del runner e default+swapfile; overhead positivo.
