@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   campaignIdFromTags,
+  tagValue,
   recordMailerooRef,
   makeMailerooRefOnSent,
 } from '../functions/src/lib/mailerooRef.js';
@@ -223,5 +224,31 @@ describe('the scripts/ wrapper attaches the ref writer for every scripts sender'
     // It must be attached to the exported override, not merely imported.
     const override = src.slice(src.indexOf('export async function sendEmailCascade'));
     expect(override).toMatch(/onSent:\s*makeMailerooRefOnSent/);
+  });
+});
+
+/**
+ * `tagValue` was extracted once a SECOND reader needed the same rule
+ * (isJobAlertEvent reads the `type` tag). Both had got the array shape wrong in
+ * the same way, and two copies is how the second stayed broken after the first
+ * was fixed.
+ */
+describe('tagValue — one shape rule for every named tag', () => {
+  it('reads a named tag from the array shape', () => {
+    expect(tagValue([{ name: 'type', value: 'job-alert' }], 'type')).toBe('job-alert');
+  });
+  it('reads a named tag from the object shape', () => {
+    expect(tagValue({ type: 'job-alert-retry' }, 'type')).toBe('job-alert-retry');
+  });
+  it('returns empty for a tag that is not there, in either shape', () => {
+    expect(tagValue([{ name: 'locale', value: 'it' }], 'type')).toBe('');
+    expect(tagValue({ locale: 'it' }, 'type')).toBe('');
+    expect(tagValue(undefined, 'type')).toBe('');
+    expect(tagValue([{ name: 'type', value: 'x' }], '')).toBe('');
+  });
+  it('does not confuse one tag name for another', () => {
+    const tags = [{ name: 'campaign_id', value: 'weekly_2026-08-17' }, { name: 'type', value: 'lifecycle' }];
+    expect(tagValue(tags, 'type')).toBe('lifecycle');
+    expect(campaignIdFromTags(tags)).toBe('weekly_2026-08-17');
   });
 });
