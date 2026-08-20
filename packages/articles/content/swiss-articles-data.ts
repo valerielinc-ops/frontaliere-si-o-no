@@ -10504,6 +10504,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sondaggio-neutralita-ticinese-voto',
+    category: 'novita',
+    date: '2026-08-20T04:46:46.729Z',
+    image: '/images/blog/sondaggio-neutralita-ticinese-voto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

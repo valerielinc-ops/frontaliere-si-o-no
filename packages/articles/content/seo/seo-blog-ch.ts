@@ -45416,6 +45416,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sondaggio-neutralita-ticinese-voto': {
+    title: 'Sondaggio neutralità: Ticino al 52% e Svizzera al 36%',
+    description: 'Scopri i dati del sondaggio Tamedia sull\'iniziativa sulla neutralità del 27 settembre. Il Ticino approva al 52% contro il 36% nazionale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sondaggio, neutralità, vista, voto',
+    ogTitle: 'Iniziativa sulla neutralità: il Ticino al 52% nei sondaggi Tamedia',
+    ogDescription: 'In vista del voto del 27 settembre, il sondaggio Tamedia sull\'iniziativa sulla neutralità mostra una netta divergenza tra il Ticino al cinquantadue percento e la media nazionale al trentasei percento.',
+    canonicalPath: '/articoli-svizzera/sondaggio-neutralita-ticinese-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sondaggio neutralità: Ticino al 52% e Svizzera al 36%",
+      "description": "Scopri i dati del sondaggio Tamedia sull'iniziativa sulla neutralità del 27 settembre. Il Ticino approva al 52% contro il 36% nazionale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sondaggio-neutralita-ticinese-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di voto e urna elettorale in Svizzera per il voto sulla neutralità"
+      },
+      "datePublished": "2026-08-20T04:46:46+00:00",
+      "dateModified": "2026-08-20T04:46:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sondaggio-neutralita-ticinese-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

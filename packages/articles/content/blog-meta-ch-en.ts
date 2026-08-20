@@ -3502,6 +3502,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Cantonal taxes Schaffhausen: rates and deductions',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Practical guide to the cantonal and municipal tax system in the Canton of Schaffhausen. Rates, allowable deductions, reporting deadlines and access to the online portal of the tax administration.',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Modern cantonal tax office building in a Swiss administrative town, professional daylight setting.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Neutrality survey: Ticino at 52% and Switzerland at 36%',
+    'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'Ahead of the September 27 vote on the neutrality initiative, the Tamedia survey reveals a strong divergence between Ticino and the rest of the nation.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Voting documents and ballot box in Switzerland for the neutrality vote',
 };
 
 export default blogMetaChEn;
