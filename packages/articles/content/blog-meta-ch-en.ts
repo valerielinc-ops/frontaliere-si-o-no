@@ -3478,6 +3478,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival in Lenk: the new rules',
     'blog.article.antara-tantra-festival-lenk.excerpt': 'The Tantra Festival Switzerland changes its name to Antara Tantra Festival, introducing strict consent rules and safety manuals to Lenk.',
     'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival in Lenk, Bern canton',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Healthcare in Switzerland: LAMal, deductibles and reimbursements',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'The Swiss healthcare system is based on the mandatory LAMal health insurance for residents. Awards vary by canton and region. The canton of Zurich offers adult deductibles from CHF 300 to CHF 2500.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Image of a Swiss doctor',
 };
 
 export default blogMetaChEn;

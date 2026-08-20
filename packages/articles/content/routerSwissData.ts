@@ -1185,6 +1185,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-basilea-campagna': { it: 'apprendistato-formazione-basilea-campagna', en: 'apprenticeship-vocational-training-basel-landschaft', de: 'lehrlingsausbildung-berufsbildung-basel-landschaft', fr: 'apprentissage-formation-professionnelle-bale-campagne' },
  'affitti-basilea-campagna-canoni-diritto-locazione': { it: 'affitti-basilea-campagna-canoni-diritto-locazione', en: 'rental-basel-landschaft-canon-rental-law', de: 'miete-basel-landschaft-miete-mietrecht', fr: 'location-bale-campagne-loyer-droit-bail' },
  'antara-tantra-festival-lenk': { it: 'antara-tantra-festival-lenk', en: 'antara-tantra-festival-in-lenk-the-new-rules', de: 'antara-tantra-festival-in-lenk-die-neuen-regeln', fr: 'antara-tantra-festival-a-lenk-les-nouvelles-regles' },
+ 'sistema-sanitario-svizzero-lamal-2026-canton-zurigo': { it: 'sistema-sanitario-svizzero-lamal-2026-canton-zurigo', en: 'swiss-healthcare-system-lamal-2026-canton-zurigo', de: 'schweizer-gesundheitswesen-lamal-2026-kanton-zurich', fr: 'systeme-de-soins-de-sante-suisse-lamal-2026-canton-de-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

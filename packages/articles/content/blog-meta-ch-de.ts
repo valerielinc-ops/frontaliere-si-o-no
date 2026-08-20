@@ -3478,6 +3478,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival in Lenk: die neuen Regeln',
     'blog.article.antara-tantra-festival-lenk.excerpt': 'Das Tantra Festival Switzerland ändert seinen Namen in Antara Tantra Festival und führt strenge Zustimmungsregeln und Sicherheitshandbücher in Lenk ein.',
     'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival in Lenk im Kanton Bern',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Gesundheit in der Schweiz: KVG, Franchisen und Rückerstattungen',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'Das schweizerische Gesundheitssystem basiert auf der obligatorischen KVG-Krankenversicherung für Ansässige. Die Prämien variieren je nach Kanton und Region. Der Kanton Zürich bietet Erwachsenen-Franchisen von CHF 300 bis CHF 2500 an.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Bild eines Schweizer Arztes',
 };
 
 export default blogMetaChDe;
