@@ -10251,6 +10251,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-svizzera-dati.title': 'Travailleurs frontaliers en Suisse échange automatique de données',
     'blog.article.frontaliere-svizzera-dati.excerpt': 'Le Conseil fédéral suisse a activé la base légale pour le flux d\'information réciproque avec l\'Italie et la France.',
     'blog.article.frontaliere-svizzera-dati.imageAlt': 'Frontalier en Suisse',
+    'blog.article.castiglione-olona-frontaliere-ticino.title': 'Frontières châssis OLONA : guide DE travail Tessin',
+    'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona : choix stratégique pour les frontaliers du Tessin. Permis G, impôt à la source, AVS, LAMal, restaurations 2024.',
+    'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Frontalier à la douane de Chiasso, vue sur le lac Lugano et les montagnes du Tessin.',
 };
 
 export default blogMetaFr;

@@ -10249,6 +10249,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-svizzera-dati.title': 'Border workers in Switzerland automatic data exchange',
     'blog.article.frontaliere-svizzera-dati.excerpt': 'The Swiss Federal Council has activated the legal basis for reciprocal information flow with Italy and France.',
     'blog.article.frontaliere-svizzera-dati.imageAlt': 'Frontalier in Ticino',
+    'blog.article.castiglione-olona-frontaliere-ticino.title': 'Frontalieri Castiglione Olona: Ticino work guide',
+    'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona: a strategic choice for border crossers from Ticino. Permit G, tax at source, AVS, LAMal, refunds 2024.',
+    'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Commuter at the Chiasso border crossing with view of Lake Lugano and Ticino mountains.',
 };
 
 export default blogMetaEn;

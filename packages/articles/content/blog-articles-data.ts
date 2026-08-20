@@ -30693,6 +30693,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'castiglione-olona-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-20T12:52:03.816Z',
+ image: '/images/blog/castiglione-olona-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
