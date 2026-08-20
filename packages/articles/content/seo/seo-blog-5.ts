@@ -71441,6 +71441,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-giorno-single-ticino-2026': {
+    title: 'Primo giorno in Ticino: checklist per frontalieri single',
+    description: 'Documenti, permesso G, imposta alla fonte, LAMal, AVS/LPP: guida operativa completa per il primo giorno di lavoro come frontaliere single in Ticino 2024-2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, giorno, checklist, single',
+    ogTitle: 'Primo giorno in Ticino: checklist documenti frontalieri single',
+    ogDescription: 'Tutto ciò che serve il primo giorno di lavoro in Ticino come frontaliere single: permesso G, contratto, dati bancari, LAMal, AVS/LPP. Guida pratica step-by-step per il 2024-2026 con scadenze e procedure.',
+    canonicalPath: '/articoli-frontaliere/primo-giorno-single-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo giorno in Ticino: checklist per frontalieri single",
+      "description": "Documenti, permesso G, imposta alla fonte, LAMal, AVS/LPP: guida operativa completa per il primo giorno di lavoro come frontaliere single in Ticino 2024-2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/primo-giorno-single-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al primo giorno di lavoro in Ticino: firma del contratto e documenti amministrativi in ufficio."
+      },
+      "datePublished": "2026-08-20T09:36:01+00:00",
+      "dateModified": "2026-08-20T09:36:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-giorno-single-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cermenate-lavorare-ticino-frontaliere': {
+    title: 'Cermenate: vivere in Italia, lavorare in Ticino',
+    description: 'Frontaliere da Cermenate al Ticino: Permesso G, fiscalità, ristorni, AVS, LAMal. Guida pratica e procedure operative. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cermenate, vivere, lavorare, permesso',
+    ogTitle: 'Vivere a Cermenate, lavorare in Ticino: la guida',
+    ogDescription: 'Scopri come vivere a Cermenate e lavorare in Ticino da frontaliere: Permesso G, fiscalità svizzera, ristorni, contributi AVS, diritto opzione LAMal, procedure trasferimento e checklists operative.',
+    canonicalPath: '/articoli-frontaliere/vivere-cermenate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cermenate: vivere in Italia, lavorare in Ticino",
+      "description": "Frontaliere da Cermenate al Ticino: Permesso G, fiscalità, ristorni, AVS, LAMal. Guida pratica e procedure operative. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cermenate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con il lago al tramonto e le Alpi, rappresentando la destinazione lavorativa del frontaliere che vive a Cermenate"
+      },
+      "datePublished": "2026-08-20T10:20:13+00:00",
+      "dateModified": "2026-08-20T10:20:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cermenate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

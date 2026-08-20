@@ -10230,6 +10230,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.novita-frontalieri-legge-217-2025.title': 'Grenzgänger Tessin: Neuheiten 2026 zu Telearbeit und Rückkehr',
     'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Gesetz 217/2025 ratifiziert das IT-CH-Protokoll: 45-Tage-Toleranz für die tägliche Rückkehr, Telearbeit bis zu 25%, Erläuterungen zum Arbeitgeberstandort.',
     'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Morgenverkehr an der Schweiz-Grenze mit wartenden Fahrzeugen und Alpenlandschaft',
+    'blog.article.primo-giorno-single-ticino-2026.title': 'Erster Tag im Tessin: Checkliste für alleinerziehende Grenzgänger',
+    'blog.article.primo-giorno-single-ticino-2026.excerpt': 'Wesentliche Unterlagen, Bewilligung G, Quellensteuer, KVG, AHV/BVG: Einsatzleitfaden für den ersten Arbeitstag als alleinstehender Grenzgänger im Tessin 2024-2026.',
+    'blog.article.primo-giorno-single-ticino-2026.imageAlt': 'Grenzgänger am ersten Arbeitstag im Tessin: Vertragsunterzeichnung und administrative Unterlagen im Büro.',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.title': 'Cermenate: Leben in Italien, Arbeiten im Tessin',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger von Cermenate ins Tessin: G-Bewilligung, Steuern, Rückerstattungen, AHV, KVG. Praktische Anleitung und Verfahren.',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Lugano mit dem See bei Sonnenuntergang und den Alpen, das Ziel des Frontaliers aus Cermenate',
 };
 
 export default blogMetaDe;

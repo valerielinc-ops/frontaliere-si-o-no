@@ -30639,6 +30639,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'primo-giorno-single-ticino-2026',
+ category: 'pratico',
+ date: '2026-08-20T09:36:01.581Z',
+ image: '/images/blog/primo-giorno-single-ticino-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-cermenate-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-20T10:20:13.480Z',
+ image: '/images/blog/vivere-cermenate-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

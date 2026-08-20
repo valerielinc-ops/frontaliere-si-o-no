@@ -10231,6 +10231,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.novita-frontalieri-legge-217-2025.title': 'Frontalieri Ticino: 2026 news on teleworking and return',
     'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Law 217/2025 ratifies Protocol IT-CH: tolerance 45 days daily return, teleworking up to 25%, clarifications on the employer\'s location.',
     'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Morning traffic at the Swiss-Italian border crossing with queuing vehicles and Alpine landscape',
+    'blog.article.primo-giorno-single-ticino-2026.title': 'First day in Ticino: checklist for single border workers',
+    'blog.article.primo-giorno-single-ticino-2026.excerpt': 'Essential documents, G permit, source tax, LAMal, AVS/LPP: operational guide for the first day of work as a single border worker in Ticino in 2024-2026.',
+    'blog.article.primo-giorno-single-ticino-2026.imageAlt': 'Cross-border worker on first day at work in Ticino: contract signing and administrative documents in office.',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.title': 'Cermenate: living in Italy, working in Ticino',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.excerpt': 'Border crossing from Cermenate to Ticino: G Permit, taxation, refreshments, AVS, LAMal. Practical guide and procedures.',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.imageAlt': 'View of Lugano with the lake at sunset and the Alps, representing the workplace destination for the commuter living in Cermenate',
 };
 
 export default blogMetaEn;

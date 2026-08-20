@@ -1205,6 +1205,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lombard-odier-patrimoni-record': { it: 'lombard-odier-patrimoni-record', en: 'lombard-odier-assets-record', de: 'lombard-odier-vermogen-rekord', fr: 'lombard-odier-patrimoines-record' },
  'invecchiamento-popolazione-svizzera-2025': { it: 'invecchiamento-popolazione-svizzera-2025', en: 'aging-population-switzerland-2025', de: 'bevolkerungsalterung-schweiz-2025', fr: 'vieillissement-population-suisse-2025' },
  'statent-2024-occupazione-svizzera': { it: 'statent-2024-occupazione-svizzera', en: 'statent-2024-switzerland-employment', de: 'statent-2024-beschaeftigung-schweiz', fr: 'statent-2024-emploi-suisse' },
+ 'pmi-svizzere-assenze-lavoro': { it: 'pmi-svizzere-assenze-lavoro', en: 'swiss-smes-absences-work-costs', de: 'kmu-absenzten-arbeitsmarkt-studie', fr: 'pme-absences-travail-suisse' },
+ 'benzina-due-franchi-agosto-2026': { it: 'benzina-due-franchi-agosto-2026', en: 'fuel-prices-two-francs-august-2026', de: 'benzinpreis-zwei-franken-august-2026', fr: 'essence-deux-francs-aout-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
