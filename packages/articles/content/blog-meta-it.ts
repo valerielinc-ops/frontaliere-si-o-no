@@ -10220,6 +10220,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-frontaliere.title': 'Pensione frontaliere 2026: AVS e INPS',
     'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'Coordinamento AVS-INPS dal 2024: totalizzazione contributi, imposta alla fonte e ristorni. Franchigia €10mila per nuovi frontalieri.',
     'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Vista del Lago di Lugano con le montagne ticinesi, simbolo della regione frontaliera Ticino-Italia.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Pensione frontaliere 2026: coordinamento AVS-INPS',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Franchigia €10\'000 per nuovi frontalieri, €7\'500 per vecchi. Totalizzazione AVS/INPS e piano previdenziale con figli nel 2026.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Vista del Lago di Lugano dal lato svizzero con monti e villaggi italiani sullo sfondo',
 };
 
 export default blogMetaIt;

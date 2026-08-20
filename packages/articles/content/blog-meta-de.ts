@@ -10218,6 +10218,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-frontaliere.title': 'Grenzgängerrente 2026: AHV und NISF',
     'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'Koordination AHV-INPS ab 2024: Zusammenrechnung von Beiträgen, Quellensteuer und Rückerstattungen. 10.000 € Franchise für neue Grenzgänger.',
     'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Der Luganersee mit Tessiner Bergen, Symbol der Grenzregion Tessin-Italien.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Grenzgängerrente 2026: AHV-INPS-Koordination',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Selbstbehalt € 10\'000 für neue Grenzgänger, € 7\'500 für alte Grenzgänger. Summe AHV/NISF und Vorsorgeplan mit Kindern im Jahr 2026.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Panoramablick auf den Luganer See von der Schweiz mit italienischen Grenzgemeinden',
 };
 
 export default blogMetaDe;
