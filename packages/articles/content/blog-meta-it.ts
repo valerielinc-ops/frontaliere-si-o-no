@@ -10191,6 +10191,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasporti-ticino-abbonamenti.title': 'Trasporti pubblici Ticino: guida agli abbonamenti',
     'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Rete Arcobaleno e abbonamenti: come il frontaliere ottimizza pendolarismo e budget con app e biglietti digitali per lavoro in Ticino.',
     'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Treno regionale alla stazione di Lugano, frontalieri in attesa di salire a bordo durante l\'ora di punta mattutina',
+    'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano: concerti gratuiti per frontalieri',
+    'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Scopri come organizzare una serata a Blues to Bop Lugano da frontaliere. Guida pratica su trasporti, valichi, parcheggio e costi della trasferta.',
+    'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Vista della piazza di Lugano con palco per concerti e lago sullo sfondo',
 };
 
 export default blogMetaIt;

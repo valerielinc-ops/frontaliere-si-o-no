@@ -10189,6 +10189,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasporti-ticino-abbonamenti.title': 'Öffentlicher Verkehr Tessin: Abo-Leitfaden',
     'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Regenbogennetz und Abos: Wie der Grenzgänger das Pendeln und Budget mit Apps und digitalen Tickets für die Arbeit im Tessin optimiert.',
     'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Regionalzug im Bahnhof Lugano, Grenzgänger beim Einsteigen während der morgendlichen Stoßzeit',
+    'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano: Kostenlose Konzerte für Grenzgänger',
+    'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger einen Abend im Blues to Bop Lugano organisieren können. Praktischer Leitfaden zu Transport, Pässen, Parken und Reisekosten.',
+    'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Lugano Seeufer-Platz mit Konzertbühne und Bergblick',
 };
 
 export default blogMetaDe;
