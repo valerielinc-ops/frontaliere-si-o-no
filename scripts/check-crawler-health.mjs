@@ -695,6 +695,20 @@ const EMPTY_OK_CRAWLERS = new Set([
   // dic-sa/elettra-1938/saint-gobain-weber-isover; re-arms automatically when
   // Cham Swiss Properties republishes a vacancy.
   'cham-swiss-properties',
+  // Clinique romande de réadaptation (CRR Suva, Sion VS, #6156): verified
+  // live 2026-08-20 — https://www.crr-suva.ch/clinique-readaptation/carriere-797.html
+  // returns HTTP 200 with the `class="listElement"` markup the parser
+  // targets unchanged (9 `listElement` anchors still present site-wide).
+  // The dedicated "Postes vacants" list (`#offreemploilikenewsListCtn`)
+  // currently contains a single entry, "Candidature spontanée"
+  // (`candidature-spontanee-802.html`) — the generic spontaneous-application
+  // card the parser already excludes via `EXCLUDED_SLUG_PATTERNS`, with no
+  // DD.MM.YYYY "online since" date. No real dated posting is present, so
+  // `parseListing()` correctly returns 0 rows; this is not a selector
+  // break. `lastNonZeroJobs: 2` is physiological for this small rehab
+  // clinic's HR team. Parser is healthy; re-arms automatically when CRR
+  // Suva republishes an opening.
+  'crr-suva-sion',
 ]);
 
 /** Read JSON file, return null on any error. */
