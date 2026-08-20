@@ -10513,6 +10513,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'studio-axa-assenze-psicologiche-pmi',
+    category: 'pratico',
+    date: '2026-08-20T05:08:56.782Z',
+    image: '/images/blog/studio-axa-assenze-psicologiche-pmi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

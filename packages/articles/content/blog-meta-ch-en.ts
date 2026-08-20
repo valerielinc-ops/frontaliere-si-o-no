@@ -3505,6 +3505,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Neutrality survey: Ticino at 52% and Switzerland at 36%',
     'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'Ahead of the September 27 vote on the neutrality initiative, the Tamedia survey reveals a strong divergence between Ticino and the rest of the nation.',
     'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Voting documents and ballot box in Switzerland for the neutrality vote',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Increasing staff absences in Swiss SMEs: the AXA study',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Psychological absences affect 35% of Swiss SMEs. The AXA study data on personnel management and costs for companies.',
+    'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'AXA study on staff absences and mental health in Swiss SMEs',
 };
 
 export default blogMetaChEn;
