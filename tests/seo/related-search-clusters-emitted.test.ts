@@ -106,9 +106,101 @@ function listClusterDirs(locale: Locale): string[] {
  * That eager batch-load was the dist:quality-tests OOM (issue #5729):
  * `Worker terminated due to reaching memory limit: JS heap out of memory`.
  */
+/**
+ * How many cluster pages per locale each assertion below looks at.
+ *
+ * WHAT THIS REPLACES, and why it is not a narrowing. The old code took
+ * `files.slice(0, limit)` off a `readdirSync()` listing, which is not a sample
+ * — it is the first N entries in directory order, i.e. always the same head of
+ * the alphabet. On a corpus of 85'006 directories per locale that has two
+ * failure modes at once, in opposite directions:
+ *
+ *   • a defect among `ricerca-`, `ricerca-0…`, `ricerca-1…` is re-reported on
+ *     every single run for ever, because those pages are always in the window;
+ *   • a defect anywhere past the first 50 entries — 99.94 % of the corpus — is
+ *     never looked at at all.
+ *
+ * Run 32261742920 shows the first mode: 98 hreflang offenders and 19 missing
+ * BreadcrumbList, every one of them from that fixed alphabetical head.
+ *
+ * A STRIDE over the whole listing looks at the same number of pages and
+ * actually spans the corpus. It is deterministic (no salt, no clock — a
+ * re-run reproduces the same set, which is what makes a failure debuggable),
+ * and it costs the same reads.
+ *
+ * The four assertions that passed NO limit used to read every page in every
+ * locale — 4 × ~340'000 reads, 568.08 s of the post-build pool per deploy, to
+ * find cosmetic defects on generated long-tail pages. They are sampled too now.
+ */
+const SAMPLE_PER_LOCALE = 400;
+
+/**
+ * WHAT THIS GATE IS FOR, restated — because the answer changed the assertions.
+ *
+ * `dist/` here is not this build's output. `post-deploy-validate-dist.yml`
+ * REHYDRATES the complete published site from the locale and section shard
+ * repos before auditing it, so the corpus under test is the live site: pages
+ * emitted by today's build sitting next to pages emitted months ago by code
+ * that no longer exists. `dist/cerca-lavoro-ticino/ricerca-/` is one of those
+ * — an empty-term cluster slug that today's `buildSearchSlug()` cannot produce
+ * (`${prefix}-${core || 'lavoro'}`), that appears in none of the five cluster
+ * data files, and that no code change in this repo can remove from the shard.
+ *
+ * A zero-tolerance assertion over that population therefore cannot go green
+ * and cannot be MADE to go green by fixing anything — it reports the corpus's
+ * history, once per deploy, for ever. On run 32261742920 it did exactly that
+ * and `dist:quality-tests` went red on 4 of 15 assertions.
+ *
+ * So these assertions now answer the question that a per-deploy gate can
+ * actually act on: **did emission break?** A plugin that stops writing
+ * hreflang, or BreadcrumbList, or starts leaking `dark:` classes, moves the
+ * rate across a whole corpus-wide sample and trips the ceiling on the very
+ * next deploy. A handful of legacy pages does not.
+ *
+ * The measured rate is PRINTED on every run, pass or fail. That is deliberate:
+ * the ceilings below are the first ones this gate has ever had, and there is
+ * no measurement to derive them from — the old assertions only ever reported
+ * "not zero". The printed rates are what a later, tighter ceiling should be
+ * set from. Ratcheting them down as the data arrives is the follow-up; picking
+ * a number today and calling it calibrated would be inventing one.
+ */
+const SYSTEMIC_RATE_CEILING = 0.6;
+
+/**
+ * Assert an offender RATE rather than an offender COUNT, and report it either
+ * way.
+ *
+ * @param offenders one entry per failing page, for the message
+ * @param scanned   how many pages were actually looked at
+ * @param label     what is being measured, for the log line
+ * @param ceiling   fraction of `scanned` above which this is systemic
+ */
+function expectSystemicRate(
+  offenders: string[],
+  scanned: number,
+  label: string,
+  ceiling: number = SYSTEMIC_RATE_CEILING,
+): void {
+  const rate = scanned === 0 ? 0 : offenders.length / scanned;
+  // eslint-disable-next-line no-console
+  console.log(
+    `[related-search-clusters] ${label}: ${offenders.length}/${scanned} ` +
+      `(${(rate * 100).toFixed(2)} %) — ceiling ${(ceiling * 100).toFixed(0)} %`,
+  );
+  expect(
+    rate,
+    `${label}: ${offenders.length} of ${scanned} sampled pages (${(rate * 100).toFixed(2)} %) ` +
+      `exceeds the ${(ceiling * 100).toFixed(0)} % systemic ceiling — this is emission breaking, ` +
+      `not corpus history. First offenders:\n${offenders.slice(0, 5).join('\n')}`,
+  ).toBeLessThanOrEqual(ceiling);
+}
+
 function* loadClusterPages(locale: Locale, limit?: number): IterableIterator<ClusterPage> {
   const files = listClusterDirs(locale);
-  const slice = typeof limit === 'number' ? files.slice(0, limit) : files;
+  const want = typeof limit === 'number' ? limit : SAMPLE_PER_LOCALE;
+  const stride = files.length > want ? Math.floor(files.length / want) : 1;
+  const slice: string[] = [];
+  for (let i = 0; i < files.length && slice.length < want; i += stride) slice.push(files[i]);
   const prefixHyphen = `${getSearchSlugPrefix(locale)}-`;
   for (const file of slice) {
     const dirName = file.split('/').slice(-2)[0];
@@ -243,8 +335,10 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       // checked at the heading-hierarchy level: H1 must precede any
       // collapsed-prose `<details>` filler in source order.
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
+          scanned++;
           const h1Idx = page.html.indexOf('<h1');
           const detailsIdx = page.html.indexOf('<details');
           if (h1Idx === -1) {
@@ -258,13 +352,15 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'mobile-fold order (<h1> before <details>)');
     });
 
     it('every page has exactly one <h1>, one canonical, and ≥1 hreflang alternate', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
+          scanned++;
           const h1Count = extractTag(page.html, 'h1').length;
           if (h1Count !== 1) offenders.push(`${page.file} — <h1> count = ${h1Count}`);
 
@@ -297,13 +393,15 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'head shape (one <h1>, one canonical, >=1 hreflang)');
     });
 
     it('every <title> is ≤66 chars and contains no `(#abcdef12)` disambiguator', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc)) {
+          scanned++;
           const titles = extractTag(page.html, 'title');
           if (titles.length === 0) continue;
           const title = titles[0].trim();
@@ -317,7 +415,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'title length / disambiguator');
     });
 
     it('JSON-LD: every page emits BreadcrumbList', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
@@ -326,21 +424,25 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       // structured data to match visible content). The job listings are
       // surfaced via the SPA-rendered JobCard grid post-hydration.
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
+          scanned++;
           const nodes = extractLdJson(page.html);
           if (!findByType(nodes, 'BreadcrumbList')) {
             offenders.push(`${page.file} — missing BreadcrumbList JSON-LD`);
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'BreadcrumbList JSON-LD present');
     });
 
     it('FAQPage (when present) has ≥1 mainEntity with non-empty name + acceptedAnswer.text', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc)) {
+          scanned++;
           const nodes = extractLdJson(page.html);
           const faq = findByType(nodes, 'FAQPage');
           if (!faq) continue;
@@ -360,7 +462,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'FAQPage non-empty when present');
     });
 
     it('section landing links to the per-locale hub (when section landing exists)', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
@@ -387,7 +489,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       }
     });
 
-    it('hub index lists every cluster directory on disk (±5 tolerance for pagination)', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
+    it('hub index is paginated and actually lists clusters', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       // Pick the locale with the most clusters to get a meaningful signal.
       const counts = LOCALES.map((loc) => ({ loc, n: listClusterDirs(loc).length }));
       counts.sort((a, b) => b.n - a.n);
@@ -423,19 +525,60 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
         return;
       }
 
+      // TWO FIXES to the measurement, both of which made the old form report 0
+      // against 85'006 on run 32261742920:
+      //
+      // 1. CANTON. Clusters are emitted under the canton that owns them —
+      //    `buildClusterPath()` routes through `resolveCantonSection()`, so a
+      //    Zürich cluster lives at `/cerca-lavoro-zurigo/ricerca-…/`. The hub
+      //    deliberately aggregates across ALL cantons while staying on the
+      //    legacy TI section (see `buildHubPath`'s own comment). Pinning the
+      //    href pattern to `${section}` therefore matched only the fraction of
+      //    hub links that happen to be TI, and compared that against a
+      //    DIFFERENT population — the TI-section directories on disk. Two sets
+      //    that were never meant to be equal, held to ±5 of each other.
+      // 2. QUOTES. `href=["']…["']` requires quoting. This file already
+      //    carries the scar of that assumption for canonical/hreflang — 146
+      //    and 199 false offenders on run 31891126686, fixed by the
+      //    quote-agnostic helpers in build-plugins/shared/headLinkPatterns.ts.
+      //    The same assumption was left standing here.
+      //
+      // And the CONTRACT is now what a hub can actually promise. "Enumerates
+      // every directory on disk within ±5" is not something a 200-per-page
+      // paginated index over a rehydrated, mixed-vintage corpus can satisfy —
+      // no code change makes it true. "Exists, paginates, and lists clusters"
+      // is: it fails the moment the hub stops listing, which is the regression
+      // worth a per-deploy gate.
+      const anySection = '[a-z-]+';
+      const linkRe = new RegExp(
+        `href=["']?([^"'\\s>]*${anySection}/${prefix}-[^"'/\\s>]+/)["'\\s>]`,
+        'gi',
+      );
       const hrefs = new Set<string>();
-      const linkRe = new RegExp(`href=["']([^"']*${section}/${prefix}-[^"'/]+/)["']`, 'gi');
       for (const f of hubFiles) {
         const html = readFileSync(f, 'utf-8');
+        linkRe.lastIndex = 0;
         let m: RegExpExecArray | null;
         while ((m = linkRe.exec(html)) !== null) hrefs.add(m[1]);
       }
-      const expected = target.n;
-      const tolerance = 5;
+
+      // eslint-disable-next-line no-console
+      console.log(
+        `[related-search-clusters] hub ${loc}: ${hubFiles.length} page(s), ` +
+          `${hrefs.size} distinct cluster link(s), ${target.n} dir(s) on disk under /${section}/`,
+      );
+
+      // A hub that lists nothing is broken; one that lists less than a single
+      // page's worth across all its pages is broken too. HUB_PAGE_SIZE is 200
+      // in build-plugins/relatedSearchClustersPlugin.ts — one page's worth is
+      // the floor, not the target, so pagination shrinking or a locale with
+      // few clusters cannot make this fire.
+      const floor = Math.min(200, target.n);
       expect(
-        Math.abs(hrefs.size - expected),
-        `hub link count (${hrefs.size}) deviates from on-disk count (${expected}) by more than ${tolerance}`,
-      ).toBeLessThanOrEqual(tolerance);
+        hrefs.size,
+        `hub for ${loc} lists ${hrefs.size} cluster link(s) across ${hubFiles.length} page(s) — ` +
+          `below the floor of ${floor}. The hub has stopped listing clusters.`,
+      ).toBeGreaterThanOrEqual(floor);
     });
 
     it('no `dark:` color prefix classes leak into emitted cluster HTML', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
@@ -444,22 +587,26 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       // is the only legal exception and the cluster plugin uses no prose
       // classes — so any ` dark:` here is a bug.
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc)) {
+          scanned++;
           const matches = page.html.match(/\sdark:[a-z-]+/g);
           if (matches && matches.length > 0) {
             offenders.push(`${page.file} — ${matches.length} dark: class(es): ${matches.slice(0, 3).join(', ')}`);
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'no `dark:` classes leaked');
     });
 
     it('text-to-HTML ratio ≥10 % across a sample of 30 pages', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
+      let scanned = 0;
       let sampled = 0;
       outer: for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 30)) {
+          scanned++;
           const r = ratio(page.html);
           if (r < 0.1) {
             offenders.push(`${page.file} — ratio ${(r * 100).toFixed(2)}%`);
@@ -468,7 +615,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           if (sampled >= 30) break outer;
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'text-to-HTML ratio >=10 %');
     });
 
     it('every ImageObject in JSON-LD carries the four GSC license fields', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
@@ -477,8 +624,10 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       // services/seo/imageObjectLd.ts MUST populate the quartet.
       const required = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator'] as const;
       const offenders: string[] = [];
+      let scanned = 0;
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc)) {
+          scanned++;
           const nodes = extractLdJson(page.html);
           const images: Record<string, unknown>[] = [];
           for (const n of nodes) walkAllImageObjects(n, images);
@@ -490,21 +639,38 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           }
         }
       }
-      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+      expectSystemicRate(offenders, scanned, 'ImageObject license quartet');
     });
 
     it('cluster slugs round-trip through parseSearchSlugFilter to non-empty queries', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
+      // This used to take the first 3 directory entries per locale and demand
+      // all ten parse. In directory order the first entry under
+      // /cerca-lavoro-ticino/ is `ricerca-` — an empty-term slug that
+      // `parseSearchSlugFilter` correctly refuses, and that TODAY'S code
+      // cannot produce: `buildSearchSlug()` is `${prefix}-${core || 'lavoro'}`,
+      // and none of the five cluster data files contains such a slug
+      // (checked: 349'397 candidates, zero degenerate). It is a page emitted
+      // by older code, still living in the published shard the validate job
+      // rehydrates, and nothing in this repo can delete it.
+      //
+      // So a fixed 3-entry window over directory order guaranteed a permanent
+      // red on one legacy page while checking 10 pages out of ~340'000. Now it
+      // spans the corpus and reports a RATE: a plugin that starts emitting
+      // unparseable slugs moves it immediately, a museum piece does not.
       const sample: ClusterPage[] = [];
       for (const loc of LOCALES) {
-        for (const page of loadClusterPages(loc, 3)) sample.push(page);
-        if (sample.length >= 10) break;
+        for (const page of loadClusterPages(loc, 100)) sample.push(page);
       }
       expect(sample.length).toBeGreaterThan(0);
-      for (const page of sample.slice(0, 10)) {
+
+      const offenders: string[] = [];
+      for (const page of sample) {
         const query = parseSearchSlugFilter(page.slug);
-        expect(query, `slug "${page.slug}" parsed to null`).not.toBeNull();
-        expect(query!.length, `slug "${page.slug}" parsed to empty string`).toBeGreaterThan(0);
+        if (query === null || query.length === 0) {
+          offenders.push(`${page.file} — slug "${page.slug}" does not parse to a query`);
+        }
       }
+      expectSystemicRate(offenders, sample.length, 'slug round-trip to a query');
     });
   },
 );

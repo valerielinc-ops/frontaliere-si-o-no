@@ -12,7 +12,12 @@
 
 import fs from 'fs';
 import path from 'path';
-import { getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
+import {
+  isThinBridgePage,
+  isPreviousSlugBridgePage,
+  isLegitLegacyAliasCanonicalization,
+  isLegitJobCanonicalConsolidation,
+} from './lib/canonicalExemptions.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -66,62 +71,13 @@ function extractCanonical(content) {
   return match ? match[1] : null;
 }
 
-// Check if content is a thin bridge page (old-style redirect)
-function isBridgePage(content) {
-  return content.includes('Versione canonica disponibile');
-}
-
-// Check if content is a full-content previousSlug bridge page.
-// These intentionally have canonical → current slug (not self-referencing)
-// because they serve identical content at the old URL while consolidating
-// search signals to the canonical slug. This is correct SEO behavior.
-function isPreviousSlugBridgePage(content) {
-  return content.includes('__BRIDGE_TARGET_SLUG__');
-}
-
-// Legacy English-content alias pages at the root. These carry English body
-// copy but legitimately canonicalize to their /en/ cluster counterparts to
-// consolidate PageRank onto the canonical EN slug (see staticPagesPlugin.ts).
-// The mapping is exhaustive; any future alias must be added here.
-const LEGACY_ALIAS_CANONICALS = new Map([
-  ['/about/', '/en/about-us/'],
-  ['/about', '/en/about-us/'],
-  ['/contact/', '/en/contact-us/'],
-  ['/contact', '/en/contact-us/'],
-  ['/privacy-policy/', '/en/privacy/'],
-  ['/privacy-policy', '/en/privacy/'],
-]);
-
-function isLegitLegacyAliasCanonicalization(url, canonical) {
-  const urlPath = url.replace(BASE_URL, '');
-  const canonPath = canonical.replace(BASE_URL, '');
-  const expected = LEGACY_ALIAS_CANONICALS.get(urlPath);
-  if (!expected) return false;
-  return canonPath === expected;
-}
-
-// Check if a canonical mismatch is legitimate job-section consolidation.
-// Job pages under any canton's job-board section (e.g. /cerca-lavoro-ticino/,
-// /cerca-lavoro-vaud/, /en/find-jobs-geneva/) legitimately point canonical to
-// other job pages in the SAME section for: previousSlugs bridges,
-// locale-variant legacy redirects, and dedup suffix changes.
-// The one BAD case (canonical → listing page without sub-path) is excluded.
-function isLegitJobCanonicalConsolidation(url, canonical) {
-  const urlPath = url.replace(BASE_URL, '');
-  const canonPath = canonical.replace(BASE_URL, '');
-
-  // Both must be in the same job section
-  const urlSection = getJobBoardSectionPrefix(urlPath);
-  const canonSection = getJobBoardSectionPrefix(canonPath);
-  if (!urlSection || !canonSection || urlSection !== canonSection) return false;
-
-  // Canonical pointing to the listing page root (no sub-path) is a BUG, not consolidation
-  const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
-  if (!canonSubPath) return false;
-
-  // Canonical points to a specific job page within the section — legitimate consolidation
-  return true;
-}
+// Thin "Versione canonica" stub, full-content previousSlug bridge, legacy root
+// alias and same-section job consolidation all live in ONE place now:
+// scripts/lib/canonicalExemptions.mjs. They used to be defined here and
+// re-implemented in validate-sitemap-pages.mjs, while the third gate over the
+// same corpus (audit-sitemap-canonicals.mjs) had none of them — which is how
+// the same page could be a PASS here and a hard FAIL there in one run.
+const isBridgePage = isThinBridgePage;
 
 // Main validation
 const sitemapUrls = extractSitemapUrls();

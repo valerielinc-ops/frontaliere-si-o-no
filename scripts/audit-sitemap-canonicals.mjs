@@ -13,6 +13,14 @@
  *   - mismatch         : <link rel="canonical"> URL ≠ sitemap <loc>
  *   - missing-canonical: HTML exists but has no <link rel="canonical">
  *
+ * "mismatch" excludes the non-self canonicals the build emits ON PURPOSE —
+ * previousSlug bridges, legacy root aliases, same-section job consolidation.
+ * The ruleset is shared with validate-canonical.mjs and
+ * validate-sitemap-pages.mjs via scripts/lib/canonicalExemptions.mjs; see that
+ * file for why it exists and which red run it removes. The BAD shapes stay
+ * hard fails: canonical → section listing root, canonical → a different
+ * section, canonical → an unrelated page, and any missing canonical.
+ *
  * Reported as WARN only (does NOT fail the gate):
  *   - missing-html     : sitemap <loc> has no corresponding HTML in dist/
  * That is a separate stale-sitemap concern; the authoritative gate is
@@ -38,6 +46,7 @@ import { readHeadOrAllSync } from './lib/readHead.mjs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { classifyCanonicalMismatch } from './lib/canonicalExemptions.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -233,6 +242,8 @@ async function main() {
 
   /** @type {{category: 'mismatch'|'missing-html'|'missing-canonical', sitemap: string, loc: string, canonical: string|null}[]} */
   const offenders = [];
+  /** @type {Record<string, number>} Legitimate non-self canonicals, by reason. */
+  const exempt = Object.create(null);
   let okCount = 0;
   let totalChecked = 0;
 
@@ -274,6 +285,21 @@ async function main() {
         continue;
       }
       if (normalizeUrl(canonical) !== normalizeUrl(loc)) {
+        // A non-self canonical is not automatically a defect. Slug renames
+        // keep the old URL serving full content while consolidating signals
+        // onto the new slug — the build emits those deliberately, and
+        // validate-canonical has always PASSED them. This gate used to have
+        // "no bridge logic at all" (its own header, and
+        // validate-sitemap-pages.mjs's comparison table, both said so), so
+        // every such rename produced a hard red here while the sibling gate
+        // reported the same page as correct in the same log. Shared ruleset,
+        // one definition: scripts/lib/canonicalExemptions.mjs.
+        const exemption = classifyCanonicalMismatch({ url: loc, canonical, html });
+        if (exemption) {
+          exempt[exemption] = (exempt[exemption] ?? 0) + 1;
+          okCount++;
+          continue;
+        }
         offenders.push({ category: 'mismatch', sitemap, loc, canonical });
         continue;
       }
@@ -288,9 +314,18 @@ async function main() {
   };
   for (const o of offenders) counts[o.category]++;
 
+  // Print the exemptions rather than folding them silently into OK: an
+  // exemption that starts firing thousands of times is itself a signal, and a
+  // silent skip is how a gate stops covering anything without anyone noticing.
+  const exemptPairs = Object.entries(exempt).sort((a, b) => b[1] - a[1]);
+  const exemptTotal = exemptPairs.reduce((n, [, v]) => n + v, 0);
+
   process.stdout.write(
     `audit-sitemap-canonicals: scanned ${sitemapFiles.length} sitemap file(s), checked ${totalChecked} URL(s)\n` +
-      `OK: ${okCount}, mismatches: ${counts.mismatch}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n`
+      `OK: ${okCount}, mismatches: ${counts.mismatch}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n` +
+      (exemptTotal > 0
+        ? `legitimate non-self canonicals: ${exemptTotal} (${exemptPairs.map(([k, v]) => `${k}=${v}`).join(', ')})\n`
+        : '')
   );
 
   // Hard fails: mismatch + missing-canonical (the Semrush "non-canonical URL"
@@ -332,7 +367,7 @@ async function main() {
       threshold: { metric: 'count', value: 0, comparator: '<=' },
       offenders: _structuredOffenders,
       byFeature: _byFeatureForReport,
-      extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length },
+      extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length, exempt: { ...exempt } },
     });
     process.exit(0);
   }
@@ -369,7 +404,7 @@ async function main() {
     threshold: { metric: 'count', value: 0, comparator: '<=' },
     offenders: _structuredOffenders,
     byFeature: _byFeatureForReport,
-    extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length },
+    extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length, exempt: { ...exempt } },
   });
   process.exit(1);
 }
