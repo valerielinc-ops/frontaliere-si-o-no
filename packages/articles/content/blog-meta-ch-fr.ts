@@ -3496,6 +3496,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-impresa-basilea-campagna.title': 'Ouvrir une activité à Bâle-Campagne : registre et coûts',
     'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Guide pour ouvrir une entreprise à Bâle-Campagne : choix de la forme juridique, inscription au registre du commerce, capital minimum et obligations d\'assurance.',
     'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Ouverture d\'une entreprise dans le canton de Bâle-Campagne',
+    'blog.article.canton-basilea-campagna-settori.title': 'Marché du travail Bâle-Campagne : salaires et secteurs',
+    'blog.article.canton-basilea-campagna-settori.excerpt': 'Guide pratique sur les salaires, les horaires, les droits et la prévoyance sur le marché du travail suisse. Découvrez les cotisations AVS, LPP, la fiscalité cantonale et comment évaluer une offre.',
+    'blog.article.canton-basilea-campagna-settori.imageAlt': 'Bureau moderne suisse avec des professionnels discutant de contrats de travail et de salaires',
 };
 
 export default blogMetaChFr;

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 03:27:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 04:03:27 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,68 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Labour market Basel Countryside: wages and sectors</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/canton-basel-landschaft-sectors/</link>
+      <description><![CDATA[Practical guide to wages, hours, rights and social security in the Swiss labour market. Discover AVS contributions, LPP, cantonal taxation and how to evaluate an offer.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Maximum working hours 45 hours/week (industry, offices, sales) or 50 hours in other sectors
+- Absent federal minimum wage; some cantons provide for this through laws or collective agreements
+- AVS/AI contributions: 5.3% employee, 10.6% total (with employer)
+- Federal entitlements: 4 weeks vacation, 14 weeks maternity, 2 weeks paternity
+
+## Key facts
+- **What**: Structure of the Swiss labour market, wages, entitlements and social security
+- When: Rules in force in 2026 for the entire Swiss territory
+- Where: Canton Basel-Country (northwestern Switzerland), subject to federal regulations and cantonal rules
+- Who: Employees (Swiss citizens and foreigners with work permits)
+- Rights: Minimum holiday 4 weeks, maternity 14 weeks at 80%, paternity 2 weeks
+
+The Swiss labour market is based on uniform federal protection and cantonal integrations that allow the cantons to define some specific standards. In the canton of Basel-Country, as in the other cantons, the federal regulatory framework (working hours, holiday rights, unemployment protection) coexists with cantonal rules on taxation, supplementary pension and minimum wage where provided.
+
+### Working hours and basic rights
+
+Switzerland sets a maximum time of 45 hours per week for industry, offices and sales, while in other sectors (agriculture, construction) the maximum is 50 hours. These federal limits apply uniformly throughout the territory.
+### Taxation and social contributions on salary
+
+Each Swiss salary is withheld for three main categories of contributions and taxes:
+
+1. ** Compulsory social contributions ** (federal): AVS (old-age pension) and AI (disability) together represent 5.3% borne by the employee; the employer pays an additional 5.3% (total 10.6%). The same item includes the IPG (Compensation for loss of earnings, which covers maternity and paternity). Unemployment insurance (AD/AC): 1.1% up to an annual ceiling.
+
+2. Accident insurance (LAINF/LAA): from 0.7% to 1.5% depending on the sector, often paid in full by the employer.
+
+3. LPP — Occupational pension (second pillar): at least 7% of the coordinated salary from 25 to 34 years, up to 18% from 55 years. The LPP is mandatory in Switzerland starting from CHF 21'330 of annual salary (indexed data every year). An important exception: freelancers and freelancers do not have a federal LPP obligation, but can join voluntarily.
+
+4. Direct federal, cantonal and municipal tax: An employee in Switzerland pays three levels of income tax. The federal tax uses uniform progressive rates throughout Switzerland. Each canton sets its own rates and tables (Basel Country has its own tables). The municipality applies a multiplier to the cantonal tax base, creating variability at the local level as well. The combination of these three levels determines the overall effective tax rate.
+
+###
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Practical Procedure: How to Evaluate a Job Offer and Verify Rights
+
+When you receive a job offer in Switzerland, check these elements:
+
+**1. Working Hours**: Verify the declared working hours in the contract (usually 45 hours/week for industry, offices, sales, or 50 hours for other sectors). If your sector has a specific CCL, the working hours may be lower (e.g., 42-43 hours). Always ask for a copy of the applicable CCL for your role.
+
+2. Gross Salary: Clearly ask if the proposed amount is gross or already net. In Switzerland, the salary indicated in a job offer is always gross. The net amount you will receive will be reduced for AVS/AI contributions (5.3%), unemployment (1.1%), LPP (7-18% depending on age and coordinated salary), federal, cantonal, and communal taxes, and LAMal (separate payment).
+
+3. Sickness Fund: Ask if the company has agreements with specific funds or if there is a free choice. Remember that you must conclude the LAMal within 3 months of hiring; the 2026 premiums for Basilea Campagna must be requested directly from the funds (the company does not pay them, unless there are additional company agreements).
+
+4. Old-Age Provision (LPP): If the salary exceeds CHF 21,330 per year, LPP is mandatory. The company has a collective LPP fund; you will receive a fund regulation and a forecast of the accumulated capital at the age of retirement. Read the essential points: contribution rates by age range, guaranteed interest rates, management fees.
+
+5. Termination: The contract must specify the probation period (if any) and the terms of termination thereafter. Federal law: 1 month in the first year, 2 months from the second to the ninth year, 3 months from the tenth year onwards. Some CCLs allow 1 month always.
+
+6. Holidays and Leave: Minimum 4 weeks by federal law. Some CCLs guarantee 5 or 6 weeks. Ask if they are scheduled or at your discretion.
+
+### Useful Tools for Calculating Net Salary
+
+Calculate your net salary using the [Federal Salary Calculator](nav:calculator). It allows you to enter your gross annual salary, canton, age, and family situation, and you will receive an accurate estimate of contributions and total tax. It is a free tool available on the federal website (SECO). The Swiss labor market offers strong federal protections (limited working hours, guaranteed holidays, mandatory old-age provision), but requires understanding the complexity of the 3-level tax system (federal, cantonal, and communal). Read the contract carefully, request LPP fund documents, and use online calculators to help you evaluate an offer in an informed and aware manner.]]></content:encoded>
+      <pubDate>Thu, 20 Aug 2026 04:03:27 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/canton-basilea-campagna-settori</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/canton-basilea-campagna-settori.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in Basel Countryside: registration and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/starting-business-basel-landschaft/</link>
@@ -2704,52 +2766,6 @@ Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swis
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/italia-rimpatrio-asilo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/italia-rimpatrio-asilo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Asylum in Switzerland: transfer to Italy resumed</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/switzerland-asylum-seekers-transfer-italy/</link>
-      <description><![CDATA[After almost four years of blockade, Switzerland is once again transferring Italian asylum seekers to Italy thanks to the new European pact.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- End of the four-year stop on transfers to Italy
-- First single flights planned since the end of August by SEM
-- Rome welcomes for now only those who entered after June 12, 2026
-- A total of 3,784 asylum seekers involved in the blockade
-
-## Key facts
-- **What**: Restart of transfers of asylum seekers to Italy
-- When: Since the end of August with reservations already started
-- Where: Swiss Confederation and Italy
-- Who: Secretariat of State for Migration and the Italian Government
-- Amount: 3'784 total asylum seekers waiting since 2022
-
-The State Secretariat for Migration has confirmed that Switzerland will once again transfer asylum seekers who arrived in the Confederation through the Italian peninsula to Italy. This decision comes after a period of blockade lasting about four years, during which the government led by Giorgia Meloni had refused the return of people under Italian jurisdiction according to the Dublin rules. The breakthrough was made possible thanks to the new European Pact on Migration, which unlocked cooperation mechanisms between the various Member States.
-
-## # Flight reservations and first departures
-The spokeswoman for the State Secretariat for Migration, Magdalena Baker, confirmed to SRF News that the first flight bookings had been made. The first individual transfers by plane are scheduled to start at the end of August. The situation had remained
-### The new European rules and the position of Rome
-The new package of European migration agreements has changed the transfer scenario. At the moment, the orientation manifested by Rome provides for the readmission only of persons who entered after the entry into force of the new regulatory package, set at 12 June 2026. This time limitation excludes in principle, for the moment, the previous cases, although in recent days a similar transfer attempted by Germany to Italy has failed due to the rigid position adopted by the competent Italian authorities.
-
-### Analysis of the numbers and percentages involved
-Official statistics compiled by the State Secretariat for Migration outline a complex framework for handling pending applications. Since the end of 2022, Italy should have readmitted a total of 3'784 asylum seekers present on Swiss territory. However, during these years of waiting and bureaucratic stalemate, almost half of these people have in the meantime obtained a form of official protection directly in Switzerland, acquiring the right to remain in the Confederation. For more than 1,300 people, the administrative procedure is still in progress at the competent offices.
-
-### Future operational scenarios
-Considering the total number of 3,784 files accumulated since 2022, the percentage of people immediately transferable to Italy stands at a maximum of 17%, equal to
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-### Operating Procedures and Recent Case Management
-The resumption of transfer flights requires careful logistical and administrative planning by the Secretary of State for Migration. Because new processes must be rigorously tested on current cases, federal offices are proceeding with caution in organizing individual removals. The agreement reached at European level makes it possible to unblock a stalemate that has lasted for years, offering new management tools for the Cantons and for the federal authorities involved in the implementation of the Dublin agreements.
-
-### Monitoring deadlines and dossiers
-The federal offices continue to examine the individual files to distinguish those who fall within the criteria of the new legislation from those who have already started or successfully completed the protection process in Swiss territory. To check the status of administrative procedures and check for updates to federal practice management regulations, you can refer to the institutional tools available online.
-
-For detailed information on the procedures and to calculate the economic and administrative impact of the new federal provisions, please consult the official calculator.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/cronaca/1944506/italia-svizzera-asilo-richiedenti-governo)*]]></content:encoded>
-      <pubDate>Tue, 18 Aug 2026 09:44:15 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/svizzera-trasferimento-richiedenti-asilo-italia</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/svizzera-trasferimento-richiedenti-asilo-italia.webp" medium="image"/>
     </item>
   </channel>
 </rss>

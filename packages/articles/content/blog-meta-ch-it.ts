@@ -3496,6 +3496,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-impresa-basilea-campagna.title': 'Aprire un\'attivita a Basilea Campagna: registro e costi',
     'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Guida per aprire un\'attivita a Basilea Campagna: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo e obblighi assicurativi.',
     'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Apertura attivita economica e commerciale nel Cantone di Basilea Campagna',
+    'blog.article.canton-basilea-campagna-settori.title': 'Mercato del lavoro Basilea Campagna: salari e settori',
+    'blog.article.canton-basilea-campagna-settori.excerpt': 'Guida pratica a salari, orari, diritti e previdenza nel mercato del lavoro svizzero. Scopri contributi AVS, LPP, tassazione cantonale e come valutare un\'offerta.',
+    'blog.article.canton-basilea-campagna-settori.imageAlt': 'Ufficio moderno svizzero con professionisti che discutono di contratti di lavoro e salari',
 };
 
 export default blogMetaChIt;

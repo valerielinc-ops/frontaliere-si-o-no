@@ -3496,6 +3496,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-impresa-basilea-campagna.title': 'Geschäft in Basel-Landschaft eröffnen: Register und Kosten',
     'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Leitfaden zur Gründung eines Unternehmens in Basel-Landschaft: Wahl der Rechtsform, Handelsregistereintrag, Mindestkapital und Versicherungspflichten.',
     'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Gewerbeanmeldung im Kanton Basel-Landschaft',
+    'blog.article.canton-basilea-campagna-settori.title': 'Arbeitsmarkt Basel-Landschaft: Löhne und Branchen',
+    'blog.article.canton-basilea-campagna-settori.excerpt': 'Praktischer Leitfaden zu Löhnen, Arbeitszeiten, Ansprüchen und Vorsorge auf dem Schweizer Arbeitsmarkt. Entdecken Sie AHV-Beiträge, BVG, kantonale Besteuerung und wie Sie ein Angebot bewerten.',
+    'blog.article.canton-basilea-campagna-settori.imageAlt': 'Modernes Schweizer Büro mit Fachleuten, die Arbeitsverträge und Gehälter besprechen',
 };
 
 export default blogMetaChDe;
