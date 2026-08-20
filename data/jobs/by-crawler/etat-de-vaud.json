@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-08-19T21:37:25.328Z",
+  "assembledAt": "2026-08-20T10:09:07.635Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5591",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:22.244Z",
+      "crawledAt": "2026-08-20T10:09:05.076Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:21.767Z",
+      "crawledAt": "2026-08-20T10:09:04.631Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -161,167 +161,6 @@
       }
     },
     {
-      "id": "etat-de-vaud-5529",
-      "slug": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-      "slugByLocale": {
-        "it": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "architectural-project-leader-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "architektonischer-projektleiter-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "fr": "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Chef·fe de projet architecte",
-      "titleByLocale": {
-        "it": "Chef·fe de projet architecte",
-        "en": "Architectural Project Leader",
-        "de": "Architektonischer Projektleiter",
-        "fr": "Chef·fe de projet architecte"
-      },
-      "description": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "La Direzione di Architettura ed Edifici (DAB) è responsabile della progettazione, programmazione, sviluppo, costruzione e manutenzione di tutti gli edifici di Vaud State. In un ambiente arricchente e dinamico, nella vostra capacità di project manager dell'architetto che rappresenta il maestro del lavoro, contribuite alla realizzazione di progetti entusiasmanti ed emblematici nel cantone di Vaud.\n\n• Coordinare e monitorare i progressi dei progetti secondo gli orientamenti della Direzione Generale per gli Edifici e i Beni e/o del Consiglio di Stato\n• Organizzare, gestire e portare i progetti a terzi garantendo qualità, costi e tempistiche\n• Progettazione e programmazione del mandato di piombo e gestione delle operazioni costruttive\n• Condurre progetti in stretta collaborazione con i servizi utente\n• condurre studi preliminari, gestire agenti e riunioni di presidenza\n• Rappresenta la Direzione Architettura ed Edifici con partner, terze parti, dipartimenti Vaud State e gruppi di lavoro. Per ulteriori informazioni, è possibile consultare le specifiche qui riportate o contattare il Sig. Claudio Iglesias, Direttore di Architettura e Edificio al 021 316 73 21.\n\n• Titolare di un EPF o HES Master in Architettura, Ingegneria o titolo equivalente\n• Esperienza professionale di almeno 10 anni nella gestione del progetto\n• Conoscenza eccellente nella gestione del progetto, economia e pianificazione territoriale\n• Conoscenza delle procedure di appalti pubblici\n• Buone competenze editoriali, ottima capacità organizzativa e progettuale\n• Autonomia, dinamismo, capacità di sviluppare scambi positivi all'interno di reti di stakeholder e specialisti, senso di responsabilità ed etica del servizio pubblico.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
-        "en": "The Directorate of Architecture and Buildings (DAB) is responsible for the planning, programming, development, construction and maintenance of all buildings in Vaud State. In an enriching and dynamic environment, in your capacity as architect project manager representing the master of the work, you contribute to the realization of exciting and emblematic projects in the canton of Vaud.\n\n• Coordinate and monitor the progress of projects according to the guidelines of the Directorate General for Buildings and Heritage and/or the Council of State\n• Organize, manage and lead projects mandated to third parties by ensuring quality, cost and timeliness\n• Lead mandate planning and programming and manage constructive operations\n• Conduct projects in close collaboration with user services\n• Conduct preliminary studies, manage agents and chair meetings\n• Represent the Architecture and Buildings Directorate with partners, third parties, Vaud State departments and working groups. For more information, you can consult the specifications here or contact Mr Claudio Iglesias, Director of Architecture and Building at 021 316 73 21.\n\n• Holder of an EPF or HES Master in Architecture, Engineering, or equivalent title\n• Professional experience of at least 10 years in project management\n• Excellent knowledge in project management, economics and spatial planning\n• Knowledge of public procurement procedures\n• Good editorial skills, excellent organizational and planning capacity\n• Autonomy, dynamism, ability to develop positive exchanges within networks of stakeholders and specialists, sense of responsibility and ethics of the public service.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Die Direktion für Architektur und Gebäude (DAB) ist für die Planung, Programmierung, Entwicklung, Bau und Instandhaltung aller Gebäude im Waadtstaat zuständig. In einem bereichernden und dynamischen Umfeld tragen Sie als Architektenprojektmanager, der den Meister des Werkes vertritt, zur Realisierung spannender und emblematischer Projekte im Kanton Waadt bei.\n\n• Koordinierung und Überwachung des Fortschritts von Projekten gemäß den Richtlinien der Generaldirektion für Gebäude und Kulturerbe und / oder des Staatsrates\n• Organisieren, verwalten und leiten Sie Projekte, die an Dritte vergeben werden, indem Sie Qualität, Kosten und Aktualität sicherstellen\n• Leitung der Mandatsplanung und -programmierung und Verwaltung konstruktiver Operationen\n• Durchführung von Projekten in enger Zusammenarbeit mit den Benutzerdiensten\n• Führen Sie Vorstudien durch, leiten Sie Agenten und Vorsitzende\n• Vertretung der Direktion Architektur und Gebäude mit Partnern, Dritten, Waadtstaatsabteilungen und Arbeitsgruppen. Für weitere Informationen können Sie die Spezifikationen hier einsehen oder sich an Herrn Claudio Iglesias, Direktor für Architektur und Bau unter 021 316 73 21 wenden.\n\n• Inhaber eines EPF oder HES Master in Architektur, Ingenieurwesen oder gleichwertiger Titel\n• Berufserfahrung von mindestens 10 Jahren im Projektmanagement\n• Ausgezeichnete Kenntnisse in Projektmanagement, Wirtschaft und Raumplanung\n• Kenntnis der Verfahren zur Vergabe öffentlicher Aufträge\n• Gute redaktionelle Fähigkeiten, ausgezeichnete Organisations- und Planungskapazitäten\n• Autonomie, Dynamik, Fähigkeit, einen positiven Austausch innerhalb von Netzwerken von Interessengruppen und Spezialisten zu entwickeln, Verantwortungsbewusstsein und Ethik des öffentlichen Dienstes.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
-        "fr": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:21.297Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1000",
-      "streetAddress": "Place du Château 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
-        "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "responsabile-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
-          "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "responsabile-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-        ],
-        "en": [
-          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "etat-de-vaud-5652",
-      "slug": "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale",
-      "slugByLocale": {
-        "it": "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale",
-        "en": "paediatric-doctor-from-the-health-promotion-and-school-prevention-unit-etat-de-vaud-administration-cantonale-vaudoise",
-        "de": "kinderarzt-aus-der-abteilung-gesundheitsforderung-und-schulpravention-etat-de-vaud-administration-cantonale-vaudoise",
-        "fr": "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Médecin pédiatre référent·e de l’Unité de Promotion de la Santé et Prévention en milieu Scolaire",
-      "titleByLocale": {
-        "it": "Medico pediatrico dell'unità di promozione della salute e prevenzione della scuola",
-        "en": "Paediatric doctor from the Health Promotion and School Prevention Unit",
-        "de": "Kinderarzt aus der Abteilung Gesundheitsförderung und Schulprävention",
-        "fr": "Médecin pédiatre référent·e de l’Unité de Promotion de la Santé et Prévention en milieu Scolaire"
-      },
-      "description": "En votre qualité de pédiatre référent·e au sein de la Direction générale de la santé, rattachée au Pôle politiques sectorielles et programmes de santé (PPPS), vous contribuez au bon fonctionnement de la filière médicale de l’Unité de promotion de la santé et de la prévention en milieu scolaire (UPSPS), à garantir la qualité des prestations médicales des médecins scolaires, ainsi qu’à la mise en œuvre de la stratégie de promotion de la santé et de prévention auprès des enfants et des jeunes, notamment pour la santé scolaire.\n\n• Participer à la coordination de la filière des médecins scolaires\n• Contribuer à la gestion des situations sanitaires, individuelles ou collectives, en milieu scolaire\n• Soutenir les médecins dans leurs activités et les conseiller en cas de situations complexes\n• Répondre, en l’absence d’un·e médecin scolaire, aux demandes des infirmier·ère·s scolaires et des directions d’établissement (enseignement obligatoire, postobligatoire et pédagogie spécialisée)\n• Rédiger des documents cadres nécessaires au bon fonctionnement de la filière médicale, assurer le respect des processus de travail et mener des actions d’optimisation afin de garantir l’efficience de la filière\n• Définir les objectifs opérationnels et les priorités de la filière, ainsi que les directives à l’intention des intervenant·e·s en collaboration avec le∙la médecin responsable des médecins scolaires et le Pôle PPPS\n• Contribuer en coordination avec le·la responsable de la filière des infirmier·ère·s scolaires, le∙la médecin responsable des médecins scolaires et le PPPS à la mise en œuvre de la stratégie de Promotion de la santé et prévention auprès des enfants et des jeunes (PSPEJ)\n• Être force de proposition pour améliorer et développer les prestations ainsi que le fonctionnement de l’Unité de promotion de la santé et de prévention en milieu scolaire (PSPS)\n• Contribuer à la définition de l’approche de santé communautaire et servir de référent·e pour répondre aux questions médicales des membres de l’Unité PSPS et des directions des établissements scolaires\n• Contribuer au développement de la filière médico-infirmière, notamment en participant à la réflexion sur leurs activités Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Mme Cristina Firorini Bernasconi, médecin responsable de la santé en milieu scolaire, par courriel à cristina.fiorini-bernasconi@vd.ch.\n\n• Diplôme fédéral de médecin ou titre jugé équivalent, idéalement complété par un MAS en santé publique\n• Titre de spécialiste FMH en pédiatrie\n• Expérience professionnelle en pédiatrie de minimum 5 ans\n• Expérience pratique du suivi médical d’enfants et/ou d’adolescents et de leur famille de 3 ans minimum\n• Connaissance du système de santé et scolaire du canton de Vaud\n• Capacité à travailler en interdisciplinarité\n• Bonnes connaissances du développement et de la psychologie de l’enfant et/ou de l’adolescent, ainsi que des troubles du neurodéveloppement\n• Bonnes capacités d’analyse et de synthèse\n• Esprit de décision et détermination, sens des responsabilités et éthique du service public\n• Bonne écoute et communication, esprit d’entraide et de collaboration\n• Capacité d’adaptation et flexibilité Rémunération : Médecin associé·e selon le règlement d’application sur la rémunération des médecins cadres du CHUV. Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation ainsi que vos certificats de travail et diplômes.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "In qualità di arbitro pediatra all'interno della Direzione Generale della Salute, allegata ai Programmi di Politica e Sanità del Settore (PPPS), contribuisce al corretto funzionamento del sistema medico dell'Unità di Sanità e Prevenzione della Scuola (UPS), al fine di garantire la qualità dei servizi medici forniti dai medici scolastici, nonché all'attuazione della strategia di promozione e prevenzione della salute per i bambini e i giovani, in particolare per la salute scolastica.\n\n• Per partecipare al coordinamento del sistema medico scolastico\n• Contribuire alla gestione delle situazioni sanitarie individuali o collettive nelle scuole\n• Sostenere i medici nelle loro attività e consigliarli su situazioni complesse\n• In assenza di un medico scolastico, rispondere alle richieste di infermieri scolastici e amministratori scolastici (pedagogia obbligatoria, postobbligatoria e specializzata)\n• Progetti di documenti quadro necessari per il corretto funzionamento del settore medico, garantire il rispetto dei processi di lavoro e realizzare misure di ottimizzazione per garantire l'efficienza del settore\n• Definire gli obiettivi operativi e le priorità del settore, nonché le linee guida per gli stakeholder in collaborazione con il medico responsabile dei medici scolastici e del PPPS Centre\n• Per contribuire, in coordinamento con il capo del settore infermiere scolastico, il medico responsabile per i medici scolastici e il PPPS, all'attuazione della strategia di promozione e prevenzione della salute per i bambini e la gioventù (PSPEJ)\n• Essere una forza per le proposte per migliorare e sviluppare i benefici e il funzionamento dell'unità di promozione e prevenzione della salute scolastica (PSPS)\n• Contribuire alla definizione dell'approccio sanitario comunitario e servire come riferimento alle questioni mediche dei membri dell'unità PSPS e delle direzioni scolastiche\n• Contribuire allo sviluppo del settore medico-nursery, in particolare partecipando alla riflessione sulle loro attività Per ulteriori informazioni, consultare i Termini di riferimento cliccando qui o contattare Cristina Firorini Bernasconi, medico sanitario della scuola, via email a cristina.fiorini-bernasconi@vd.ch.\n\n• Grado federale o equivalente, idealmente completato da un MAS in salute pubblica\n• Titolo di specialista FMH in pediatria\n• Esperienza professionale in pediatria di minimo 5 anni\n• Esperienza pratica del follow-up medico dei bambini e/o degli adolescenti e delle loro famiglie almeno 3 anni\n• Conoscenza della salute e del sistema scolastico del cantone di Vaud\n• Capacità di lavorare in interdisciplinarità\n• Buona conoscenza dello sviluppo e della psicologia del bambino e/o dell'adolescente, nonché dei disturbi neurologici\n• Buone capacità analitiche e di sintesi\n• Decisioni e determinazione, responsabilità ed etica del servizio pubblico\n• Buon ascolto e comunicazione, auto-aiuto e collaborazione\n• Adabilità e flessibilità Remunerazione: Medico associato in conformità con i Regolamenti di Compensazione Ufficiale Medico Executive CHUV. Per avere tutte le informazioni necessarie per analizzare il tuo file, saremmo grati se ci invii, oltre al tuo CV, una lettera di copertura e i tuoi certificati di lavoro e diplomi.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
-        "en": "As a referent paediatrician within the Directorate-General for Health, attached to the Sector Policy and Health Programmes (PPPS), you contribute to the proper functioning of the medical system of the School Health and Prevention Unit (UPSPS), to ensuring the quality of medical services provided by school doctors, and to the implementation of the health promotion and prevention strategy for children and young people, particularly for school health.\n\n• To participate in the coordination of the school doctor system\n• Contribute to the management of individual or collective health situations in schools\n• Supporting physicians in their activities and advising them on complex situations\n• In the absence of a school doctor, respond to requests from school nurses and school administrators (compulsory, post-compulsory and specialized pedagogy)\n• Draft framework documents necessary for the proper functioning of the medical sector, ensure respect for the working processes and carry out optimisation measures to ensure the efficiency of the sector\n• Defining the operational objectives and priorities of the sector, as well as guidelines for stakeholders in collaboration with the doctor responsible for school doctors and the PPPS Centre\n• To contribute, in coordination with the head of the school nurse sector, the doctor responsible for school doctors and the PPPS, to the implementation of the Health Promotion and Prevention Strategy for Children and Youth (PSPEJ)\n• To be a force for proposals to improve and develop the benefits and the functioning of the School Health Promotion and Prevention Unit (PSPS)\n• Contribute to the definition of the community health approach and serve as a reference to the medical questions of members of the PSPS Unit and school directorates\n• Contribute to the development of the medico-nursery sector, in particular by participating in the reflection on their activities For further information, please consult the Terms of Reference by clicking here or contact Cristina Firorini Bernasconi, school health doctor, by email at cristina.fiorini-bernasconi@vd.ch.\n\n• Federal degree of doctor or equivalent, ideally supplemented by a MAS in public health\n• Title of FMH specialist in paediatrics\n• Professional experience in paediatrics of minimum 5 years\n• Practical experience of medical follow-up of children and/or adolescents and their families at least 3 years of age\n• Knowledge of the health and school system of the canton of Vaud\n• Ability to work in interdisciplinarity\n• Good knowledge of child and/or adolescent development and psychology, as well as neurodevelopmental disorders\n• Good analytical and synthesis capabilities\n• Decision-making and determination, responsibility and ethics of the public service\n• Good listening and communication, self-help and collaboration\n• Adaptability and flexibility Remuneration: Associated physician in accordance with the CHUV Executive Medical Officer Compensation Regulations. In order to have all the necessary information to analyse your file, we would be grateful if you would send us, in addition to your CV, a cover letter and your work certificates and diplomas.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Als Referentin für Kinderarzneimittel in der Generaldirektion Gesundheit, die den Sektorpolitik- und Gesundheitsprogrammen (PPPS) angehört, leisten Sie einen Beitrag zum ordnungsgemäßen Funktionieren des medizinischen Systems der Abteilung für Gesundheit und Prävention in Schulen (UPSPS), zur Gewährleistung der Qualität der von Schulärzten erbrachten medizinischen Leistungen und zur Umsetzung der Gesundheitsförderungs- und Präventionsstrategie für Kinder und Jugendliche, insbesondere für die schulische Gesundheit.\n\n• Teilnahme an der Koordination des Schularztsystems\n• Beitrag zum Management individueller oder kollektiver Gesundheitssituationen in Schulen\n• Unterstützung von Ärzten in ihrer Tätigkeit und Beratung in komplexen Situationen\n• Beantworten Sie in Abwesenheit eines Schularztes Anfragen von Schulkrankenschwestern und Schulverwaltern (obligatorische, postobligatorische und spezialisierte Pädagogik)\n• Entwurf von Rahmendokumenten, die für das ordnungsgemäße Funktionieren des medizinischen Sektors erforderlich sind, Gewährleistung der Einhaltung der Arbeitsprozesse und Durchführung von Optimierungsmaßnahmen zur Gewährleistung der Effizienz des Sektors\n• Festlegung der operativen Ziele und Prioritäten des Sektors sowie Leitlinien für Interessengruppen in Zusammenarbeit mit dem für Schulärzte zuständigen Arzt und dem PPPS-Zentrum\n• Beitrag zur Umsetzung der Strategie zur Gesundheitsförderung und -prävention für Kinder und Jugendliche in Abstimmung mit dem Leiter des Schulkrankenhauses, dem für Schulärzte zuständigen Arzt und der ÖPP\n• Eine Kraft für Vorschläge zur Verbesserung und Entwicklung der Vorteile und der Funktionsweise der School Health Promotion and Prevention Unit (PSPS) zu sein\n• Beitrag zur Definition des gemeinschaftlichen Gesundheitsansatzes und als Hinweis auf die medizinischen Fragen der Mitglieder des PSPS-Referats und der Schuldirektionen\n• Beitrag zur Entwicklung des Mediziner-Kindergarten-Sektors, insbesondere durch Teilnahme an der Reflexion über ihre Aktivitäten Für weitere Informationen konsultieren Sie bitte die Terms of Reference, indem Sie hier klicken oder kontaktieren Sie Cristina Firorini Bernasconi, Schulgesundheitsärztin, per E-Mail an cristina.fiorini-bernasconi@vd.ch.\n\n• Bundesarzt oder gleichwertig, idealerweise ergänzt durch einen MAS in der öffentlichen Gesundheit\n• Bezeichnung des FMH-Spezialisten für Pädiatrie\n• Berufserfahrung in der Kinderheilkunde von mindestens 5 Jahren\n• Praktische Erfahrung in der medizinischen Betreuung von Kindern und/oder Jugendlichen und deren Familien im Alter von mindestens 3 Jahren\n• Kenntnisse des Gesundheits- und Schulsystems des Kantons Waadt\n• Fähigkeit, in Interdisziplinarität zu arbeiten\n• Gute Kenntnisse der kindlichen und/oder jugendlichen Entwicklung und Psychologie sowie neurodevelopmental Störungen\n• Gute analytische und Synthesefähigkeiten\n• Entscheidungsfindung und Entschlossenheit, Verantwortlichkeit und Ethik des öffentlichen Dienstes\n• Gutes Zuhören und Kommunikation, Selbsthilfe und Zusammenarbeit\n• Anpassungsfähigkeit und Flexibilität Vergütung: Assoziierter Arzt gemäß den CHUV Executive Medical Officer Compensation Regulations. Um alle notwendigen Informationen zur Analyse Ihrer Akte zu haben, würden wir uns freuen, wenn Sie uns zusätzlich zu Ihrem Lebenslauf ein Anschreiben und Ihre Arbeitszertifikate und Diplome zusenden würden.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
-        "fr": "En votre qualité de pédiatre référent·e au sein de la Direction générale de la santé, rattachée au Pôle politiques sectorielles et programmes de santé (PPPS), vous contribuez au bon fonctionnement de la filière médicale de l’Unité de promotion de la santé et de la prévention en milieu scolaire (UPSPS), à garantir la qualité des prestations médicales des médecins scolaires, ainsi qu’à la mise en œuvre de la stratégie de promotion de la santé et de prévention auprès des enfants et des jeunes, notamment pour la santé scolaire.\n\n• Participer à la coordination de la filière des médecins scolaires\n• Contribuer à la gestion des situations sanitaires, individuelles ou collectives, en milieu scolaire\n• Soutenir les médecins dans leurs activités et les conseiller en cas de situations complexes\n• Répondre, en l’absence d’un·e médecin scolaire, aux demandes des infirmier·ère·s scolaires et des directions d’établissement (enseignement obligatoire, postobligatoire et pédagogie spécialisée)\n• Rédiger des documents cadres nécessaires au bon fonctionnement de la filière médicale, assurer le respect des processus de travail et mener des actions d’optimisation afin de garantir l’efficience de la filière\n• Définir les objectifs opérationnels et les priorités de la filière, ainsi que les directives à l’intention des intervenant·e·s en collaboration avec le∙la médecin responsable des médecins scolaires et le Pôle PPPS\n• Contribuer en coordination avec le·la responsable de la filière des infirmier·ère·s scolaires, le∙la médecin responsable des médecins scolaires et le PPPS à la mise en œuvre de la stratégie de Promotion de la santé et prévention auprès des enfants et des jeunes (PSPEJ)\n• Être force de proposition pour améliorer et développer les prestations ainsi que le fonctionnement de l’Unité de promotion de la santé et de prévention en milieu scolaire (PSPS)\n• Contribuer à la définition de l’approche de santé communautaire et servir de référent·e pour répondre aux questions médicales des membres de l’Unité PSPS et des directions des établissements scolaires\n• Contribuer au développement de la filière médico-infirmière, notamment en participant à la réflexion sur leurs activités Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Mme Cristina Firorini Bernasconi, médecin responsable de la santé en milieu scolaire, par courriel à cristina.fiorini-bernasconi@vd.ch.\n\n• Diplôme fédéral de médecin ou titre jugé équivalent, idéalement complété par un MAS en santé publique\n• Titre de spécialiste FMH en pédiatrie\n• Expérience professionnelle en pédiatrie de minimum 5 ans\n• Expérience pratique du suivi médical d’enfants et/ou d’adolescents et de leur famille de 3 ans minimum\n• Connaissance du système de santé et scolaire du canton de Vaud\n• Capacité à travailler en interdisciplinarité\n• Bonnes connaissances du développement et de la psychologie de l’enfant et/ou de l’adolescent, ainsi que des troubles du neurodéveloppement\n• Bonnes capacités d’analyse et de synthèse\n• Esprit de décision et détermination, sens des responsabilités et éthique du service public\n• Bonne écoute et communication, esprit d’entraide et de collaboration\n• Capacité d’adaptation et flexibilité Rémunération : Médecin associé·e selon le règlement d’application sur la rémunération des médecins cadres du CHUV. Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation ainsi que vos certificats de travail et diplômes.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5652",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:20.803Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1000",
-      "streetAddress": "Place du Château 1",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5652",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu",
-        "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu",
-          "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale"
-        ],
-        "en": [
-          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
-        ],
-        "de": [
-          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "etat-de-vaud-5676",
       "slug": "infermiere-cantonali-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
@@ -352,7 +191,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5676",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:20.336Z",
+      "crawledAt": "2026-08-20T10:09:04.193Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -432,7 +271,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5677",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:19.870Z",
+      "crawledAt": "2026-08-20T10:09:03.744Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -514,7 +353,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5686",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:19.404Z",
+      "crawledAt": "2026-08-20T10:09:03.308Z",
       "addressLocality": "Ollon VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -593,7 +432,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5687",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:18.938Z",
+      "crawledAt": "2026-08-20T10:09:02.870Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -673,7 +512,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5661",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:18.465Z",
+      "crawledAt": "2026-08-20T10:09:02.435Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -757,7 +596,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:17.999Z",
+      "crawledAt": "2026-08-20T10:09:01.996Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -831,7 +670,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5705",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:17.524Z",
+      "crawledAt": "2026-08-20T10:09:01.556Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -911,7 +750,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5706",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:17.059Z",
+      "crawledAt": "2026-08-20T10:09:01.113Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -996,7 +835,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5704",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:16.599Z",
+      "crawledAt": "2026-08-20T10:09:00.665Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1075,7 +914,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5701",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:16.116Z",
+      "crawledAt": "2026-08-20T10:09:00.226Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1159,7 +998,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5689",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:15.656Z",
+      "crawledAt": "2026-08-20T10:08:59.786Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1239,7 +1078,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5647",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:15.178Z",
+      "crawledAt": "2026-08-20T10:08:59.346Z",
       "addressLocality": "Lausanne 25",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1318,7 +1157,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5720",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:14.685Z",
+      "crawledAt": "2026-08-20T10:08:58.910Z",
       "addressLocality": "St-Sulpice VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1397,7 +1236,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5715",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:14.222Z",
+      "crawledAt": "2026-08-20T10:08:58.463Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1477,7 +1316,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5702",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:13.748Z",
+      "crawledAt": "2026-08-20T10:08:58.015Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1560,7 +1399,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5693",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:13.264Z",
+      "crawledAt": "2026-08-20T10:08:57.580Z",
       "addressLocality": "Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1641,7 +1480,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5688",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:12.751Z",
+      "crawledAt": "2026-08-20T10:08:57.121Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1720,7 +1559,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5678",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:12.280Z",
+      "crawledAt": "2026-08-20T10:08:56.683Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1803,7 +1642,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5658",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:11.810Z",
+      "crawledAt": "2026-08-20T10:08:56.241Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1882,7 +1721,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5657",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:11.341Z",
+      "crawledAt": "2026-08-20T10:08:55.790Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1962,7 +1801,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5651",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:10.858Z",
+      "crawledAt": "2026-08-20T10:08:55.331Z",
       "addressLocality": "Oppens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2041,7 +1880,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5644",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:10.381Z",
+      "crawledAt": "2026-08-20T10:08:54.884Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2120,7 +1959,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5645",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:09.912Z",
+      "crawledAt": "2026-08-20T10:08:53.926Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2199,7 +2038,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5632",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:09.440Z",
+      "crawledAt": "2026-08-20T10:08:53.460Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2280,7 +2119,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5628",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:08.970Z",
+      "crawledAt": "2026-08-20T10:08:53.023Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2359,7 +2198,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5610",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:08.502Z",
+      "crawledAt": "2026-08-20T10:08:52.580Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2439,7 +2278,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5724",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:08.027Z",
+      "crawledAt": "2026-08-20T10:08:52.141Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2523,7 +2362,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5721",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:07.557Z",
+      "crawledAt": "2026-08-20T10:08:51.696Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2606,7 +2445,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5728",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:07.084Z",
+      "crawledAt": "2026-08-20T10:08:51.264Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2686,7 +2525,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5729",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:06.611Z",
+      "crawledAt": "2026-08-20T10:08:50.831Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2768,7 +2607,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:06.146Z",
+      "crawledAt": "2026-08-20T10:08:50.376Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2847,7 +2686,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5746",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:05.668Z",
+      "crawledAt": "2026-08-20T10:08:49.362Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2927,7 +2766,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5742",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:05.203Z",
+      "crawledAt": "2026-08-20T10:08:48.898Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3011,7 +2850,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5737",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:04.740Z",
+      "crawledAt": "2026-08-20T10:08:48.444Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3090,7 +2929,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5736",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:04.264Z",
+      "crawledAt": "2026-08-20T10:08:48.006Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3170,7 +3009,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5734",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:03.761Z",
+      "crawledAt": "2026-08-20T10:08:47.562Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3249,7 +3088,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5733",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:03.242Z",
+      "crawledAt": "2026-08-20T10:08:47.096Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3328,7 +3167,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5718",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:02.773Z",
+      "crawledAt": "2026-08-20T10:08:46.651Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3413,7 +3252,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5754",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:02.299Z",
+      "crawledAt": "2026-08-20T10:08:46.216Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3477,7 +3316,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5750",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:01.819Z",
+      "crawledAt": "2026-08-20T10:08:45.776Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3541,7 +3380,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5741",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:01.348Z",
+      "crawledAt": "2026-08-20T10:08:45.333Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3605,7 +3444,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5739",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:00.875Z",
+      "crawledAt": "2026-08-20T10:08:44.891Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3669,7 +3508,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5730",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:37:00.396Z",
+      "crawledAt": "2026-08-20T10:08:44.450Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3701,6 +3540,499 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "etat-de-vaud-5751",
+      "slug": "enseignant-e-de-francais-etat-de-vaud-orbe",
+      "slugByLocale": {
+        "fr": "enseignant-e-de-francais-etat-de-vaud-orbe",
+        "it": "enseignant-e-de-francais-etat-de-vaud-orbe",
+        "en": "enseignant-e-de-francais-etat-de-vaud-orbe",
+        "de": "enseignant-e-de-francais-etat-de-vaud-orbe"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Enseignant·e de français",
+      "titleByLocale": {
+        "fr": "Enseignant·e de français",
+        "it": "Enseignant·e de français",
+        "en": "Enseignant·e de français",
+        "de": "Enseignant·e de français"
+      },
+      "description": "En votre qualité d’enseignant·e de français au sein des Etablissements de la plaine de l’Orbe (EPO), vous dispensez un enseignement individualisé, collectif et adapté permettant aux personnes détenues d’acquérir un bon niveau de français. Vous évaluez le niveau de départ ainsi que la progression des personnes en formation en valorisant leur participation, leur implication et la qualité de leur travail. Vous organisez votre enseignement en veillant à la différenciation des pratiques pédagogiques afin de rendre la formation accessible à l’ensemble des apprenants, quelles que soient leurs capacités ou leurs parcours. Vous identifiez les éventuelles difficultés d’apprentissage et assurez la transmission des informations pertinentes aux intervenants EPO concernés afin de garantir un accompagnement adapté. Enfin, vous veillez au respect du cadre institutionnel et à l’application des mesures de sécurité en vigueur au sein de l’établissement. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Dispenser un enseignement pédagogique individualisé, collectif et adapté permettant à chacun d'acquérir les bases ou se perfectionner dans la pratique de la langue française.\n• Evaluer le niveau de base, ainsi que la progression des personnes détenues inscrites pour l'activité en valorisant la participation, l’application et le travail.\n• Organiser votre enseignement en veillant à la différenciation des pratiques pédagogiques pour rendre la formation accessible à toutes les personnes détenues participant à l'activité.\n• Identifier les éventuelles difficultés d’apprentissage et les transmettre aux intervenants EPO concernés.\n• Expliciter les attentes du cours et assurer le suivi de son enseignement.\n• Veiller à l’application des mesures de sécurité en vigueur dans l’établissement. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Nils Guignard, Responsable secteur FAST, au 024 557 24 39.\n\n• Diplôme de Français langue étrangère ou autre titre équivalent dans la discipline d’expertise.\n• Certificat FSEA – formateur d’adulte, un atout.\n• Capacité à gérer, dans un milieu fermé, des personnes en difficultés de manière individuelle et dans le cadre d'un groupe.\n• Expérience pratique de 4 ans minimum dans l’enseignement du français à un public adulte. Nos conditions d’emploi exigent que vous soyez Suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "En votre qualité d’enseignant·e de français au sein des Etablissements de la plaine de l’Orbe (EPO), vous dispensez un enseignement individualisé, collectif et adapté permettant aux personnes détenues d’acquérir un bon niveau de français. Vous évaluez le niveau de départ ainsi que la progression des personnes en formation en valorisant leur participation, leur implication et la qualité de leur travail. Vous organisez votre enseignement en veillant à la différenciation des pratiques pédagogiques afin de rendre la formation accessible à l’ensemble des apprenants, quelles que soient leurs capacités ou leurs parcours. Vous identifiez les éventuelles difficultés d’apprentissage et assurez la transmission des informations pertinentes aux intervenants EPO concernés afin de garantir un accompagnement adapté. Enfin, vous veillez au respect du cadre institutionnel et à l’application des mesures de sécurité en vigueur au sein de l’établissement. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Dispenser un enseignement pédagogique individualisé, collectif et adapté permettant à chacun d'acquérir les bases ou se perfectionner dans la pratique de la langue française.\n• Evaluer le niveau de base, ainsi que la progression des personnes détenues inscrites pour l'activité en valorisant la participation, l’application et le travail.\n• Organiser votre enseignement en veillant à la différenciation des pratiques pédagogiques pour rendre la formation accessible à toutes les personnes détenues participant à l'activité.\n• Identifier les éventuelles difficultés d’apprentissage et les transmettre aux intervenants EPO concernés.\n• Expliciter les attentes du cours et assurer le suivi de son enseignement.\n• Veiller à l’application des mesures de sécurité en vigueur dans l’établissement. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Nils Guignard, Responsable secteur FAST, au 024 557 24 39.\n\n• Diplôme de Français langue étrangère ou autre titre équivalent dans la discipline d’expertise.\n• Certificat FSEA – formateur d’adulte, un atout.\n• Capacité à gérer, dans un milieu fermé, des personnes en difficultés de manière individuelle et dans le cadre d'un groupe.\n• Expérience pratique de 4 ans minimum dans l’enseignement du français à un public adulte. Nos conditions d’emploi exigent que vous soyez Suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "En votre qualité d’enseignant·e de français au sein des Etablissements de la plaine de l’Orbe (EPO), vous dispensez un enseignement individualisé, collectif et adapté permettant aux personnes détenues d’acquérir un bon niveau de français. Vous évaluez le niveau de départ ainsi que la progression des personnes en formation en valorisant leur participation, leur implication et la qualité de leur travail. Vous organisez votre enseignement en veillant à la différenciation des pratiques pédagogiques afin de rendre la formation accessible à l’ensemble des apprenants, quelles que soient leurs capacités ou leurs parcours. Vous identifiez les éventuelles difficultés d’apprentissage et assurez la transmission des informations pertinentes aux intervenants EPO concernés afin de garantir un accompagnement adapté. Enfin, vous veillez au respect du cadre institutionnel et à l’application des mesures de sécurité en vigueur au sein de l’établissement. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Dispenser un enseignement pédagogique individualisé, collectif et adapté permettant à chacun d'acquérir les bases ou se perfectionner dans la pratique de la langue française.\n• Evaluer le niveau de base, ainsi que la progression des personnes détenues inscrites pour l'activité en valorisant la participation, l’application et le travail.\n• Organiser votre enseignement en veillant à la différenciation des pratiques pédagogiques pour rendre la formation accessible à toutes les personnes détenues participant à l'activité.\n• Identifier les éventuelles difficultés d’apprentissage et les transmettre aux intervenants EPO concernés.\n• Expliciter les attentes du cours et assurer le suivi de son enseignement.\n• Veiller à l’application des mesures de sécurité en vigueur dans l’établissement. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Nils Guignard, Responsable secteur FAST, au 024 557 24 39.\n\n• Diplôme de Français langue étrangère ou autre titre équivalent dans la discipline d’expertise.\n• Certificat FSEA – formateur d’adulte, un atout.\n• Capacité à gérer, dans un milieu fermé, des personnes en difficultés de manière individuelle et dans le cadre d'un groupe.\n• Expérience pratique de 4 ans minimum dans l’enseignement du français à un public adulte. Nos conditions d’emploi exigent que vous soyez Suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "En votre qualité d’enseignant·e de français au sein des Etablissements de la plaine de l’Orbe (EPO), vous dispensez un enseignement individualisé, collectif et adapté permettant aux personnes détenues d’acquérir un bon niveau de français. Vous évaluez le niveau de départ ainsi que la progression des personnes en formation en valorisant leur participation, leur implication et la qualité de leur travail. Vous organisez votre enseignement en veillant à la différenciation des pratiques pédagogiques afin de rendre la formation accessible à l’ensemble des apprenants, quelles que soient leurs capacités ou leurs parcours. Vous identifiez les éventuelles difficultés d’apprentissage et assurez la transmission des informations pertinentes aux intervenants EPO concernés afin de garantir un accompagnement adapté. Enfin, vous veillez au respect du cadre institutionnel et à l’application des mesures de sécurité en vigueur au sein de l’établissement. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Dispenser un enseignement pédagogique individualisé, collectif et adapté permettant à chacun d'acquérir les bases ou se perfectionner dans la pratique de la langue française.\n• Evaluer le niveau de base, ainsi que la progression des personnes détenues inscrites pour l'activité en valorisant la participation, l’application et le travail.\n• Organiser votre enseignement en veillant à la différenciation des pratiques pédagogiques pour rendre la formation accessible à toutes les personnes détenues participant à l'activité.\n• Identifier les éventuelles difficultés d’apprentissage et les transmettre aux intervenants EPO concernés.\n• Expliciter les attentes du cours et assurer le suivi de son enseignement.\n• Veiller à l’application des mesures de sécurité en vigueur dans l’établissement. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Nils Guignard, Responsable secteur FAST, au 024 557 24 39.\n\n• Diplôme de Français langue étrangère ou autre titre équivalent dans la discipline d’expertise.\n• Certificat FSEA – formateur d’adulte, un atout.\n• Capacité à gérer, dans un milieu fermé, des personnes en difficultés de manière individuelle et dans le cadre d'un groupe.\n• Expérience pratique de 4 ans minimum dans l’enseignement du français à un public adulte. Nos conditions d’emploi exigent que vous soyez Suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "En votre qualité d’enseignant·e de français au sein des Etablissements de la plaine de l’Orbe (EPO), vous dispensez un enseignement individualisé, collectif et adapté permettant aux personnes détenues d’acquérir un bon niveau de français. Vous évaluez le niveau de départ ainsi que la progression des personnes en formation en valorisant leur participation, leur implication et la qualité de leur travail. Vous organisez votre enseignement en veillant à la différenciation des pratiques pédagogiques afin de rendre la formation accessible à l’ensemble des apprenants, quelles que soient leurs capacités ou leurs parcours. Vous identifiez les éventuelles difficultés d’apprentissage et assurez la transmission des informations pertinentes aux intervenants EPO concernés afin de garantir un accompagnement adapté. Enfin, vous veillez au respect du cadre institutionnel et à l’application des mesures de sécurité en vigueur au sein de l’établissement. Vous agissez en tout temps dans le respect de nos valeurs : \"Loyauté, Solidarité, Crédibilité\".\n\n• Dispenser un enseignement pédagogique individualisé, collectif et adapté permettant à chacun d'acquérir les bases ou se perfectionner dans la pratique de la langue française.\n• Evaluer le niveau de base, ainsi que la progression des personnes détenues inscrites pour l'activité en valorisant la participation, l’application et le travail.\n• Organiser votre enseignement en veillant à la différenciation des pratiques pédagogiques pour rendre la formation accessible à toutes les personnes détenues participant à l'activité.\n• Identifier les éventuelles difficultés d’apprentissage et les transmettre aux intervenants EPO concernés.\n• Expliciter les attentes du cours et assurer le suivi de son enseignement.\n• Veiller à l’application des mesures de sécurité en vigueur dans l’établissement. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Nils Guignard, Responsable secteur FAST, au 024 557 24 39.\n\n• Diplôme de Français langue étrangère ou autre titre équivalent dans la discipline d’expertise.\n• Certificat FSEA – formateur d’adulte, un atout.\n• Capacité à gérer, dans un milieu fermé, des personnes en difficultés de manière individuelle et dans le cadre d'un groupe.\n• Expérience pratique de 4 ans minimum dans l’enseignement du français à un public adulte. Nos conditions d’emploi exigent que vous soyez Suisse·sse ou détenteur·trice d’un permis C, exempt·e d’acte de défaut de biens (un extrait de l’Office des poursuites devra être présenté en cours de processus), et votre casier judiciaire doit être vierge. Il existe un droit de consultation du casier judiciaire en application de la Loi fédérale sur le casier judiciaire par l'autorité d'engagement pour cette fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Orbe",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5751",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T10:08:44.010Z",
+      "addressLocality": "Orbe",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1350",
+      "streetAddress": "Place du Château 1",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5751",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+    },
+    {
+      "id": "etat-de-vaud-5740",
+      "slug": "secretaire-de-direction-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "secretaire-de-direction-etat-de-vaud-lausanne",
+        "it": "secretaire-de-direction-etat-de-vaud-lausanne",
+        "en": "secretaire-de-direction-etat-de-vaud-lausanne",
+        "de": "secretaire-de-direction-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Secrétaire de direction",
+      "titleByLocale": {
+        "fr": "Secrétaire de direction",
+        "it": "Secrétaire de direction",
+        "en": "Secrétaire de direction",
+        "de": "Secrétaire de direction"
+      },
+      "description": "L'Unité administrative (UADM) de la Direction générale de la cohésion sociale (DGCS) est une unité transversale chargée de soutenir dans les tâches administratives les différentes entités de la DGCS. Equipe dynamique, solidaire et à l’ambiance sereine, l’UADM est à la recherche d'un·e Secrétaire de direction .\n\n• Seconder les codirecteurs·trices de l'accompagnement et de l'hébergement (DIRHEB) dans le domaine administratif et assurer la gestion des relations internes et externes de manière optimale.\n• Assurer la préparation et le suivi de dossiers des codirecteurs·trices DIRHEB, recueillir les informations et documents nécessaires pour la prise de décision et mettre en place le classement des documents.\n• Appuyer les codirecteurs·trices DIRHEB dans l'organisation de leur direction de façon proactive et organiser le suivi des dossiers.\n• Contribuer au fonctionnement et tâches de l’Unité administrative (UADM). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Christine Andreoni, Responsable de l’Unité administrative, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un CFC d'employé·e de commerce, complété par un Brevet fédéral d'assistant·e de direction.\n• Expérience professionnelle avérée dans un poste de secrétaire de direction au sein d'une grande entreprise ou dans le secteur public ou parapublic, minimum 5 ans.\n• Parfaite maîtrise des outils bureautiques et informatiques.\n• Excellentes capacités rédactionnelles et aisance relationnelle.\n• Gestion du temps et des priorités.\n• Résistance au stress et maîtrise de soi.\n• Capacité d'analyse et de synthèse avérées.\n• Sens des responsabilités et éthique du service public.\n• Capacité d'adaptation et flexibilité.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "L'Unité administrative (UADM) de la Direction générale de la cohésion sociale (DGCS) est une unité transversale chargée de soutenir dans les tâches administratives les différentes entités de la DGCS. Equipe dynamique, solidaire et à l’ambiance sereine, l’UADM est à la recherche d'un·e Secrétaire de direction .\n\n• Seconder les codirecteurs·trices de l'accompagnement et de l'hébergement (DIRHEB) dans le domaine administratif et assurer la gestion des relations internes et externes de manière optimale.\n• Assurer la préparation et le suivi de dossiers des codirecteurs·trices DIRHEB, recueillir les informations et documents nécessaires pour la prise de décision et mettre en place le classement des documents.\n• Appuyer les codirecteurs·trices DIRHEB dans l'organisation de leur direction de façon proactive et organiser le suivi des dossiers.\n• Contribuer au fonctionnement et tâches de l’Unité administrative (UADM). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Christine Andreoni, Responsable de l’Unité administrative, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un CFC d'employé·e de commerce, complété par un Brevet fédéral d'assistant·e de direction.\n• Expérience professionnelle avérée dans un poste de secrétaire de direction au sein d'une grande entreprise ou dans le secteur public ou parapublic, minimum 5 ans.\n• Parfaite maîtrise des outils bureautiques et informatiques.\n• Excellentes capacités rédactionnelles et aisance relationnelle.\n• Gestion du temps et des priorités.\n• Résistance au stress et maîtrise de soi.\n• Capacité d'analyse et de synthèse avérées.\n• Sens des responsabilités et éthique du service public.\n• Capacité d'adaptation et flexibilité.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "L'Unité administrative (UADM) de la Direction générale de la cohésion sociale (DGCS) est une unité transversale chargée de soutenir dans les tâches administratives les différentes entités de la DGCS. Equipe dynamique, solidaire et à l’ambiance sereine, l’UADM est à la recherche d'un·e Secrétaire de direction .\n\n• Seconder les codirecteurs·trices de l'accompagnement et de l'hébergement (DIRHEB) dans le domaine administratif et assurer la gestion des relations internes et externes de manière optimale.\n• Assurer la préparation et le suivi de dossiers des codirecteurs·trices DIRHEB, recueillir les informations et documents nécessaires pour la prise de décision et mettre en place le classement des documents.\n• Appuyer les codirecteurs·trices DIRHEB dans l'organisation de leur direction de façon proactive et organiser le suivi des dossiers.\n• Contribuer au fonctionnement et tâches de l’Unité administrative (UADM). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Christine Andreoni, Responsable de l’Unité administrative, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un CFC d'employé·e de commerce, complété par un Brevet fédéral d'assistant·e de direction.\n• Expérience professionnelle avérée dans un poste de secrétaire de direction au sein d'une grande entreprise ou dans le secteur public ou parapublic, minimum 5 ans.\n• Parfaite maîtrise des outils bureautiques et informatiques.\n• Excellentes capacités rédactionnelles et aisance relationnelle.\n• Gestion du temps et des priorités.\n• Résistance au stress et maîtrise de soi.\n• Capacité d'analyse et de synthèse avérées.\n• Sens des responsabilités et éthique du service public.\n• Capacité d'adaptation et flexibilité.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "L'Unité administrative (UADM) de la Direction générale de la cohésion sociale (DGCS) est une unité transversale chargée de soutenir dans les tâches administratives les différentes entités de la DGCS. Equipe dynamique, solidaire et à l’ambiance sereine, l’UADM est à la recherche d'un·e Secrétaire de direction .\n\n• Seconder les codirecteurs·trices de l'accompagnement et de l'hébergement (DIRHEB) dans le domaine administratif et assurer la gestion des relations internes et externes de manière optimale.\n• Assurer la préparation et le suivi de dossiers des codirecteurs·trices DIRHEB, recueillir les informations et documents nécessaires pour la prise de décision et mettre en place le classement des documents.\n• Appuyer les codirecteurs·trices DIRHEB dans l'organisation de leur direction de façon proactive et organiser le suivi des dossiers.\n• Contribuer au fonctionnement et tâches de l’Unité administrative (UADM). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Christine Andreoni, Responsable de l’Unité administrative, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un CFC d'employé·e de commerce, complété par un Brevet fédéral d'assistant·e de direction.\n• Expérience professionnelle avérée dans un poste de secrétaire de direction au sein d'une grande entreprise ou dans le secteur public ou parapublic, minimum 5 ans.\n• Parfaite maîtrise des outils bureautiques et informatiques.\n• Excellentes capacités rédactionnelles et aisance relationnelle.\n• Gestion du temps et des priorités.\n• Résistance au stress et maîtrise de soi.\n• Capacité d'analyse et de synthèse avérées.\n• Sens des responsabilités et éthique du service public.\n• Capacité d'adaptation et flexibilité.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "L'Unité administrative (UADM) de la Direction générale de la cohésion sociale (DGCS) est une unité transversale chargée de soutenir dans les tâches administratives les différentes entités de la DGCS. Equipe dynamique, solidaire et à l’ambiance sereine, l’UADM est à la recherche d'un·e Secrétaire de direction .\n\n• Seconder les codirecteurs·trices de l'accompagnement et de l'hébergement (DIRHEB) dans le domaine administratif et assurer la gestion des relations internes et externes de manière optimale.\n• Assurer la préparation et le suivi de dossiers des codirecteurs·trices DIRHEB, recueillir les informations et documents nécessaires pour la prise de décision et mettre en place le classement des documents.\n• Appuyer les codirecteurs·trices DIRHEB dans l'organisation de leur direction de façon proactive et organiser le suivi des dossiers.\n• Contribuer au fonctionnement et tâches de l’Unité administrative (UADM). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Christine Andreoni, Responsable de l’Unité administrative, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un CFC d'employé·e de commerce, complété par un Brevet fédéral d'assistant·e de direction.\n• Expérience professionnelle avérée dans un poste de secrétaire de direction au sein d'une grande entreprise ou dans le secteur public ou parapublic, minimum 5 ans.\n• Parfaite maîtrise des outils bureautiques et informatiques.\n• Excellentes capacités rédactionnelles et aisance relationnelle.\n• Gestion du temps et des priorités.\n• Résistance au stress et maîtrise de soi.\n• Capacité d'analyse et de synthèse avérées.\n• Sens des responsabilités et éthique du service public.\n• Capacité d'adaptation et flexibilité.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5740",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T10:08:43.549Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5740",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+    },
+    {
+      "id": "etat-de-vaud-5743",
+      "slug": "juriste-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "juriste-etat-de-vaud-lausanne",
+        "it": "juriste-etat-de-vaud-lausanne",
+        "en": "juriste-etat-de-vaud-lausanne",
+        "de": "juriste-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Juriste",
+      "titleByLocale": {
+        "fr": "Juriste",
+        "it": "Juriste",
+        "en": "Juriste",
+        "de": "Juriste"
+      },
+      "description": "L'Unité juridique procédures de la Direction générale de la cohésion sociale (DGCS) est chargée de traiter les recours et de suivre les procédures judiciaires (administratives, pénales et civiles) en matière d'aide sociale, ainsi que de fournir l'appui juridique nécessaire aux activités de notre direction. Afin de renforcer cette entité dynamique d'une vingtaine de collaboratrices et collaborateurs, la DGCS est à la recherche d'un·e Juriste .\n\n• Examiner, instruire et statuer sur les recours déposés contre les décisions prises par les autorités d'application (AA) du Revenu d'insertion (RI), soit les Centres sociaux régionaux (CSR) et le Centre social d'intégration des réfugiés (CSIR) en matière d'aide sociale.\n• Elaborer et déposer les plaintes pénales concernant les infractions signalées en matière de RI et en suivre la procédure.\n• Gérer la suite des procédures et assurer la représentation de la DGCS devant les différentes instances administratives et pénales de manière autonome, y compris en cas de recours ou d'appels au Tribunal cantonal ou au Tribunal fédéral.\n• Requérir la constitution de gages immobiliers auprès des bénéficiaires du RI propriétaires d'un immeuble et mener la procédure en collaboration directe avec le notaire.\n• Déposer des actions alimentaires sur la base des articles 277 al.2 et 329 CC et représenter la DGCS dans le cadre de la procédure civile.\n• Elaborer des avis juridiques à l'attention des Autorités d'application et de la DGCS dans des dossiers particuliers et participer au développement du savoir collectif de l'unité. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Andréas Conus, Responsable de l'Unité juridique procédures, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un Master en droit.\n• Expérience professionnelle de minimum 3 ans au sein d'une instance judiciaire cantonale ou d'une entité administrative/associative/privée analogue.\n• Connaissance de l'Administration cantonale vaudoise (ACV) souhaitée.\n• Capacité d'analyse et de synthèse, y compris dans des cas complexes.\n• Aisance rédactionnelle et bonne expression orale.\n• Très bonne organisation et flexibilité.\n• Sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "L'Unité juridique procédures de la Direction générale de la cohésion sociale (DGCS) est chargée de traiter les recours et de suivre les procédures judiciaires (administratives, pénales et civiles) en matière d'aide sociale, ainsi que de fournir l'appui juridique nécessaire aux activités de notre direction. Afin de renforcer cette entité dynamique d'une vingtaine de collaboratrices et collaborateurs, la DGCS est à la recherche d'un·e Juriste .\n\n• Examiner, instruire et statuer sur les recours déposés contre les décisions prises par les autorités d'application (AA) du Revenu d'insertion (RI), soit les Centres sociaux régionaux (CSR) et le Centre social d'intégration des réfugiés (CSIR) en matière d'aide sociale.\n• Elaborer et déposer les plaintes pénales concernant les infractions signalées en matière de RI et en suivre la procédure.\n• Gérer la suite des procédures et assurer la représentation de la DGCS devant les différentes instances administratives et pénales de manière autonome, y compris en cas de recours ou d'appels au Tribunal cantonal ou au Tribunal fédéral.\n• Requérir la constitution de gages immobiliers auprès des bénéficiaires du RI propriétaires d'un immeuble et mener la procédure en collaboration directe avec le notaire.\n• Déposer des actions alimentaires sur la base des articles 277 al.2 et 329 CC et représenter la DGCS dans le cadre de la procédure civile.\n• Elaborer des avis juridiques à l'attention des Autorités d'application et de la DGCS dans des dossiers particuliers et participer au développement du savoir collectif de l'unité. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Andréas Conus, Responsable de l'Unité juridique procédures, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un Master en droit.\n• Expérience professionnelle de minimum 3 ans au sein d'une instance judiciaire cantonale ou d'une entité administrative/associative/privée analogue.\n• Connaissance de l'Administration cantonale vaudoise (ACV) souhaitée.\n• Capacité d'analyse et de synthèse, y compris dans des cas complexes.\n• Aisance rédactionnelle et bonne expression orale.\n• Très bonne organisation et flexibilité.\n• Sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "L'Unité juridique procédures de la Direction générale de la cohésion sociale (DGCS) est chargée de traiter les recours et de suivre les procédures judiciaires (administratives, pénales et civiles) en matière d'aide sociale, ainsi que de fournir l'appui juridique nécessaire aux activités de notre direction. Afin de renforcer cette entité dynamique d'une vingtaine de collaboratrices et collaborateurs, la DGCS est à la recherche d'un·e Juriste .\n\n• Examiner, instruire et statuer sur les recours déposés contre les décisions prises par les autorités d'application (AA) du Revenu d'insertion (RI), soit les Centres sociaux régionaux (CSR) et le Centre social d'intégration des réfugiés (CSIR) en matière d'aide sociale.\n• Elaborer et déposer les plaintes pénales concernant les infractions signalées en matière de RI et en suivre la procédure.\n• Gérer la suite des procédures et assurer la représentation de la DGCS devant les différentes instances administratives et pénales de manière autonome, y compris en cas de recours ou d'appels au Tribunal cantonal ou au Tribunal fédéral.\n• Requérir la constitution de gages immobiliers auprès des bénéficiaires du RI propriétaires d'un immeuble et mener la procédure en collaboration directe avec le notaire.\n• Déposer des actions alimentaires sur la base des articles 277 al.2 et 329 CC et représenter la DGCS dans le cadre de la procédure civile.\n• Elaborer des avis juridiques à l'attention des Autorités d'application et de la DGCS dans des dossiers particuliers et participer au développement du savoir collectif de l'unité. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Andréas Conus, Responsable de l'Unité juridique procédures, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un Master en droit.\n• Expérience professionnelle de minimum 3 ans au sein d'une instance judiciaire cantonale ou d'une entité administrative/associative/privée analogue.\n• Connaissance de l'Administration cantonale vaudoise (ACV) souhaitée.\n• Capacité d'analyse et de synthèse, y compris dans des cas complexes.\n• Aisance rédactionnelle et bonne expression orale.\n• Très bonne organisation et flexibilité.\n• Sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "L'Unité juridique procédures de la Direction générale de la cohésion sociale (DGCS) est chargée de traiter les recours et de suivre les procédures judiciaires (administratives, pénales et civiles) en matière d'aide sociale, ainsi que de fournir l'appui juridique nécessaire aux activités de notre direction. Afin de renforcer cette entité dynamique d'une vingtaine de collaboratrices et collaborateurs, la DGCS est à la recherche d'un·e Juriste .\n\n• Examiner, instruire et statuer sur les recours déposés contre les décisions prises par les autorités d'application (AA) du Revenu d'insertion (RI), soit les Centres sociaux régionaux (CSR) et le Centre social d'intégration des réfugiés (CSIR) en matière d'aide sociale.\n• Elaborer et déposer les plaintes pénales concernant les infractions signalées en matière de RI et en suivre la procédure.\n• Gérer la suite des procédures et assurer la représentation de la DGCS devant les différentes instances administratives et pénales de manière autonome, y compris en cas de recours ou d'appels au Tribunal cantonal ou au Tribunal fédéral.\n• Requérir la constitution de gages immobiliers auprès des bénéficiaires du RI propriétaires d'un immeuble et mener la procédure en collaboration directe avec le notaire.\n• Déposer des actions alimentaires sur la base des articles 277 al.2 et 329 CC et représenter la DGCS dans le cadre de la procédure civile.\n• Elaborer des avis juridiques à l'attention des Autorités d'application et de la DGCS dans des dossiers particuliers et participer au développement du savoir collectif de l'unité. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Andréas Conus, Responsable de l'Unité juridique procédures, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un Master en droit.\n• Expérience professionnelle de minimum 3 ans au sein d'une instance judiciaire cantonale ou d'une entité administrative/associative/privée analogue.\n• Connaissance de l'Administration cantonale vaudoise (ACV) souhaitée.\n• Capacité d'analyse et de synthèse, y compris dans des cas complexes.\n• Aisance rédactionnelle et bonne expression orale.\n• Très bonne organisation et flexibilité.\n• Sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "L'Unité juridique procédures de la Direction générale de la cohésion sociale (DGCS) est chargée de traiter les recours et de suivre les procédures judiciaires (administratives, pénales et civiles) en matière d'aide sociale, ainsi que de fournir l'appui juridique nécessaire aux activités de notre direction. Afin de renforcer cette entité dynamique d'une vingtaine de collaboratrices et collaborateurs, la DGCS est à la recherche d'un·e Juriste .\n\n• Examiner, instruire et statuer sur les recours déposés contre les décisions prises par les autorités d'application (AA) du Revenu d'insertion (RI), soit les Centres sociaux régionaux (CSR) et le Centre social d'intégration des réfugiés (CSIR) en matière d'aide sociale.\n• Elaborer et déposer les plaintes pénales concernant les infractions signalées en matière de RI et en suivre la procédure.\n• Gérer la suite des procédures et assurer la représentation de la DGCS devant les différentes instances administratives et pénales de manière autonome, y compris en cas de recours ou d'appels au Tribunal cantonal ou au Tribunal fédéral.\n• Requérir la constitution de gages immobiliers auprès des bénéficiaires du RI propriétaires d'un immeuble et mener la procédure en collaboration directe avec le notaire.\n• Déposer des actions alimentaires sur la base des articles 277 al.2 et 329 CC et représenter la DGCS dans le cadre de la procédure civile.\n• Elaborer des avis juridiques à l'attention des Autorités d'application et de la DGCS dans des dossiers particuliers et participer au développement du savoir collectif de l'unité. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Andréas Conus, Responsable de l'Unité juridique procédures, à l'adresse email: dgcs.recrutement@vd.ch\n\n• Titulaire d'un Master en droit.\n• Expérience professionnelle de minimum 3 ans au sein d'une instance judiciaire cantonale ou d'une entité administrative/associative/privée analogue.\n• Connaissance de l'Administration cantonale vaudoise (ACV) souhaitée.\n• Capacité d'analyse et de synthèse, y compris dans des cas complexes.\n• Aisance rédactionnelle et bonne expression orale.\n• Très bonne organisation et flexibilité.\n• Sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5743",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T10:08:43.075Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5743",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+    },
+    {
+      "id": "etat-de-vaud-5719",
+      "slug": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+        "it": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+        "en": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+        "de": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Spécialiste en gestion documentaire",
+      "titleByLocale": {
+        "fr": "Spécialiste en gestion documentaire",
+        "it": "Spécialiste en gestion documentaire",
+        "en": "Spécialiste en gestion documentaire",
+        "de": "Spécialiste en gestion documentaire"
+      },
+      "description": "Le secrétariat général est à la recherche d’un·e spécialiste en gestion documentaire. Vous pilotez la réorganisation documentaire du secrétariat général du Département en réalisant le diagnostic du disque réseau et concevez un nouveau plan de classement pour l’ensemble du service. Vous assurez la migration des contenus en conformité avec les exigences légales.\n\n• Analyse de la structure actuelle du serveur de stockage (disque réseau), incluant l’arborescence, la volumétrie, les contenus et les usages.\n• Identification des doublons, des documents obsolètes et des incohérences de classement.\n• Cartographie des groupes, des droits d’accès existants et des pratiques actuelles de gestion documentaire.\n• Recueil des besoins et des contraintes des équipes au moyen d’entretiens et d’ateliers.\n• Définition des principes directeurs du futur plan de classement, en s’appuyant sur les normes et recommandations des Archives cantonales vaudoises.\n• Conception d’un plan de classement pour l’ensemble du service et accompagnement de sa validation par le COPIL, en cohérence avec les recommandations des Archives cantonales vaudoises.\n• Accompagnement de la migration documentaire, incluant la refonte des groupes et des droits d’accès.\n• Tests, ajustements et consolidation du plan de classement sur la base des retours des utilisatrices et utilisateurs.\n• Formalisation des règles d’utilisation associées, incluant la gestion des droits d’accès par rôles.\n• Définition de la stratégie de migration des dossiers du serveur, ainsi que des modalités de contrôle qualité garantissant le maintien opérationnel du dispositif documentaire.\n• Élaboration d’un plan de migration précisant les étapes, les responsabilités et l’échéancier.\n• Accompagnement des équipes dans le tri, la préparation et la migration des contenus documentaires. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Marta Pinto, Responsable Innovation et Dossiers transverses au 021/316.55.67\n\n• Bachelor HES en information documentaire ou formation jugée équivalente.\n• CAS en gouvernance de l’information et transformation numérique souhaité.\n• Certification des systèmes de management de la qualité souhaitée.\n• Minimum 3 années d’expérience en conduite de projets de migration documentaire et de mise en place de plans de classement et de règles de conservation social.\n• Flexibilité et sens de l’organisation.\n• Excellentes capacités d’analyse et de synthèse.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Le secrétariat général est à la recherche d’un·e spécialiste en gestion documentaire. Vous pilotez la réorganisation documentaire du secrétariat général du Département en réalisant le diagnostic du disque réseau et concevez un nouveau plan de classement pour l’ensemble du service. Vous assurez la migration des contenus en conformité avec les exigences légales.\n\n• Analyse de la structure actuelle du serveur de stockage (disque réseau), incluant l’arborescence, la volumétrie, les contenus et les usages.\n• Identification des doublons, des documents obsolètes et des incohérences de classement.\n• Cartographie des groupes, des droits d’accès existants et des pratiques actuelles de gestion documentaire.\n• Recueil des besoins et des contraintes des équipes au moyen d’entretiens et d’ateliers.\n• Définition des principes directeurs du futur plan de classement, en s’appuyant sur les normes et recommandations des Archives cantonales vaudoises.\n• Conception d’un plan de classement pour l’ensemble du service et accompagnement de sa validation par le COPIL, en cohérence avec les recommandations des Archives cantonales vaudoises.\n• Accompagnement de la migration documentaire, incluant la refonte des groupes et des droits d’accès.\n• Tests, ajustements et consolidation du plan de classement sur la base des retours des utilisatrices et utilisateurs.\n• Formalisation des règles d’utilisation associées, incluant la gestion des droits d’accès par rôles.\n• Définition de la stratégie de migration des dossiers du serveur, ainsi que des modalités de contrôle qualité garantissant le maintien opérationnel du dispositif documentaire.\n• Élaboration d’un plan de migration précisant les étapes, les responsabilités et l’échéancier.\n• Accompagnement des équipes dans le tri, la préparation et la migration des contenus documentaires. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Marta Pinto, Responsable Innovation et Dossiers transverses au 021/316.55.67\n\n• Bachelor HES en information documentaire ou formation jugée équivalente.\n• CAS en gouvernance de l’information et transformation numérique souhaité.\n• Certification des systèmes de management de la qualité souhaitée.\n• Minimum 3 années d’expérience en conduite de projets de migration documentaire et de mise en place de plans de classement et de règles de conservation social.\n• Flexibilité et sens de l’organisation.\n• Excellentes capacités d’analyse et de synthèse.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Le secrétariat général est à la recherche d’un·e spécialiste en gestion documentaire. Vous pilotez la réorganisation documentaire du secrétariat général du Département en réalisant le diagnostic du disque réseau et concevez un nouveau plan de classement pour l’ensemble du service. Vous assurez la migration des contenus en conformité avec les exigences légales.\n\n• Analyse de la structure actuelle du serveur de stockage (disque réseau), incluant l’arborescence, la volumétrie, les contenus et les usages.\n• Identification des doublons, des documents obsolètes et des incohérences de classement.\n• Cartographie des groupes, des droits d’accès existants et des pratiques actuelles de gestion documentaire.\n• Recueil des besoins et des contraintes des équipes au moyen d’entretiens et d’ateliers.\n• Définition des principes directeurs du futur plan de classement, en s’appuyant sur les normes et recommandations des Archives cantonales vaudoises.\n• Conception d’un plan de classement pour l’ensemble du service et accompagnement de sa validation par le COPIL, en cohérence avec les recommandations des Archives cantonales vaudoises.\n• Accompagnement de la migration documentaire, incluant la refonte des groupes et des droits d’accès.\n• Tests, ajustements et consolidation du plan de classement sur la base des retours des utilisatrices et utilisateurs.\n• Formalisation des règles d’utilisation associées, incluant la gestion des droits d’accès par rôles.\n• Définition de la stratégie de migration des dossiers du serveur, ainsi que des modalités de contrôle qualité garantissant le maintien opérationnel du dispositif documentaire.\n• Élaboration d’un plan de migration précisant les étapes, les responsabilités et l’échéancier.\n• Accompagnement des équipes dans le tri, la préparation et la migration des contenus documentaires. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Marta Pinto, Responsable Innovation et Dossiers transverses au 021/316.55.67\n\n• Bachelor HES en information documentaire ou formation jugée équivalente.\n• CAS en gouvernance de l’information et transformation numérique souhaité.\n• Certification des systèmes de management de la qualité souhaitée.\n• Minimum 3 années d’expérience en conduite de projets de migration documentaire et de mise en place de plans de classement et de règles de conservation social.\n• Flexibilité et sens de l’organisation.\n• Excellentes capacités d’analyse et de synthèse.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Le secrétariat général est à la recherche d’un·e spécialiste en gestion documentaire. Vous pilotez la réorganisation documentaire du secrétariat général du Département en réalisant le diagnostic du disque réseau et concevez un nouveau plan de classement pour l’ensemble du service. Vous assurez la migration des contenus en conformité avec les exigences légales.\n\n• Analyse de la structure actuelle du serveur de stockage (disque réseau), incluant l’arborescence, la volumétrie, les contenus et les usages.\n• Identification des doublons, des documents obsolètes et des incohérences de classement.\n• Cartographie des groupes, des droits d’accès existants et des pratiques actuelles de gestion documentaire.\n• Recueil des besoins et des contraintes des équipes au moyen d’entretiens et d’ateliers.\n• Définition des principes directeurs du futur plan de classement, en s’appuyant sur les normes et recommandations des Archives cantonales vaudoises.\n• Conception d’un plan de classement pour l’ensemble du service et accompagnement de sa validation par le COPIL, en cohérence avec les recommandations des Archives cantonales vaudoises.\n• Accompagnement de la migration documentaire, incluant la refonte des groupes et des droits d’accès.\n• Tests, ajustements et consolidation du plan de classement sur la base des retours des utilisatrices et utilisateurs.\n• Formalisation des règles d’utilisation associées, incluant la gestion des droits d’accès par rôles.\n• Définition de la stratégie de migration des dossiers du serveur, ainsi que des modalités de contrôle qualité garantissant le maintien opérationnel du dispositif documentaire.\n• Élaboration d’un plan de migration précisant les étapes, les responsabilités et l’échéancier.\n• Accompagnement des équipes dans le tri, la préparation et la migration des contenus documentaires. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Marta Pinto, Responsable Innovation et Dossiers transverses au 021/316.55.67\n\n• Bachelor HES en information documentaire ou formation jugée équivalente.\n• CAS en gouvernance de l’information et transformation numérique souhaité.\n• Certification des systèmes de management de la qualité souhaitée.\n• Minimum 3 années d’expérience en conduite de projets de migration documentaire et de mise en place de plans de classement et de règles de conservation social.\n• Flexibilité et sens de l’organisation.\n• Excellentes capacités d’analyse et de synthèse.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Le secrétariat général est à la recherche d’un·e spécialiste en gestion documentaire. Vous pilotez la réorganisation documentaire du secrétariat général du Département en réalisant le diagnostic du disque réseau et concevez un nouveau plan de classement pour l’ensemble du service. Vous assurez la migration des contenus en conformité avec les exigences légales.\n\n• Analyse de la structure actuelle du serveur de stockage (disque réseau), incluant l’arborescence, la volumétrie, les contenus et les usages.\n• Identification des doublons, des documents obsolètes et des incohérences de classement.\n• Cartographie des groupes, des droits d’accès existants et des pratiques actuelles de gestion documentaire.\n• Recueil des besoins et des contraintes des équipes au moyen d’entretiens et d’ateliers.\n• Définition des principes directeurs du futur plan de classement, en s’appuyant sur les normes et recommandations des Archives cantonales vaudoises.\n• Conception d’un plan de classement pour l’ensemble du service et accompagnement de sa validation par le COPIL, en cohérence avec les recommandations des Archives cantonales vaudoises.\n• Accompagnement de la migration documentaire, incluant la refonte des groupes et des droits d’accès.\n• Tests, ajustements et consolidation du plan de classement sur la base des retours des utilisatrices et utilisateurs.\n• Formalisation des règles d’utilisation associées, incluant la gestion des droits d’accès par rôles.\n• Définition de la stratégie de migration des dossiers du serveur, ainsi que des modalités de contrôle qualité garantissant le maintien opérationnel du dispositif documentaire.\n• Élaboration d’un plan de migration précisant les étapes, les responsabilités et l’échéancier.\n• Accompagnement des équipes dans le tri, la préparation et la migration des contenus documentaires. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Marta Pinto, Responsable Innovation et Dossiers transverses au 021/316.55.67\n\n• Bachelor HES en information documentaire ou formation jugée équivalente.\n• CAS en gouvernance de l’information et transformation numérique souhaité.\n• Certification des systèmes de management de la qualité souhaitée.\n• Minimum 3 années d’expérience en conduite de projets de migration documentaire et de mise en place de plans de classement et de règles de conservation social.\n• Flexibilité et sens de l’organisation.\n• Excellentes capacités d’analyse et de synthèse.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5719",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T10:08:42.624Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5719",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+    },
+    {
+      "id": "etat-de-vaud-5713",
+      "slug": "fiscaliste-etat-de-vaud-lausanne",
+      "slugByLocale": {
+        "fr": "fiscaliste-etat-de-vaud-lausanne",
+        "it": "fiscaliste-etat-de-vaud-lausanne",
+        "en": "fiscaliste-etat-de-vaud-lausanne",
+        "de": "fiscaliste-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Fiscaliste",
+      "titleByLocale": {
+        "fr": "Fiscaliste",
+        "it": "Fiscaliste",
+        "en": "Fiscaliste",
+        "de": "Fiscaliste"
+      },
+      "description": "Au sein du Centre de compétence Entreprises, vous instruisez des demandes préjudicielles et vous établissez des rulings relatifs aux contribuables indépendants et aux personnes morales. Dans ce cadre, vous menez des entretiens avec des contribuables et/ou leurs mandataires. Vous collaborez également avec différents secteurs d’activité de notre service et vous établissez des directives pour les entités concernées. Finalement, en fonction des besoins, vous participez à des groupes de travail internes ou externes. Votre activité se caractérise notamment par la grande diversité des problématiques à traiter touchant à toute la fiscalité des entreprises et la possibilité d’approfondir vos connaissances à chaque nouveau dossier.\n\n• Instruire les demandes préjudicielles et établir de manière autonome les rulings relatifs aux contribuables indépendants et aux personnes morales.\n• Assurer un traitement efficient et autonome des demandes préjudicielles.\n• Assurer en tant que référent le soutien technique et juridique dans le domaine de la fiscalité directe\n• Procéder à des recherches et à des analyses juridiques fiscales afin de rendre des avis\n• Réaliser des travaux ponctuels\n\n• Brevet d'agent fiduciaire ou diplôme HEG ou master HEC ou master en droit ou diplôme d'expert fiscal ou titre jugé équivalent\n• Formation CSI – niveau 2a et 2b et comptabilité financière souhaité ou formation équivalente\n• Plusieurs années d’expérience dans le domaine fiscal, fiduciaire ou juridique\n• Excellente capacité d’analyse et de synthèse\n• Bonnes capacités rédactionnelles\n• Bonne compréhension de l’allemand\n• Aisance relationnelle, facilité d’adaptation La communication d'éventuels antécédents judiciaires est requise pour cette fonction. Rejoignez-nous et contribuez au bon fonctionnement de l’Etat dans une activité qui a du sens ! Pour de plus amples informations, le cahier des charges est disponible ici . Des questions ? Mme Carole Francey, adjointe auprès du Centre de compétence Entreprises, vous renseigne volontiers au 021 316 21 34.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Au sein du Centre de compétence Entreprises, vous instruisez des demandes préjudicielles et vous établissez des rulings relatifs aux contribuables indépendants et aux personnes morales. Dans ce cadre, vous menez des entretiens avec des contribuables et/ou leurs mandataires. Vous collaborez également avec différents secteurs d’activité de notre service et vous établissez des directives pour les entités concernées. Finalement, en fonction des besoins, vous participez à des groupes de travail internes ou externes. Votre activité se caractérise notamment par la grande diversité des problématiques à traiter touchant à toute la fiscalité des entreprises et la possibilité d’approfondir vos connaissances à chaque nouveau dossier.\n\n• Instruire les demandes préjudicielles et établir de manière autonome les rulings relatifs aux contribuables indépendants et aux personnes morales.\n• Assurer un traitement efficient et autonome des demandes préjudicielles.\n• Assurer en tant que référent le soutien technique et juridique dans le domaine de la fiscalité directe\n• Procéder à des recherches et à des analyses juridiques fiscales afin de rendre des avis\n• Réaliser des travaux ponctuels\n\n• Brevet d'agent fiduciaire ou diplôme HEG ou master HEC ou master en droit ou diplôme d'expert fiscal ou titre jugé équivalent\n• Formation CSI – niveau 2a et 2b et comptabilité financière souhaité ou formation équivalente\n• Plusieurs années d’expérience dans le domaine fiscal, fiduciaire ou juridique\n• Excellente capacité d’analyse et de synthèse\n• Bonnes capacités rédactionnelles\n• Bonne compréhension de l’allemand\n• Aisance relationnelle, facilité d’adaptation La communication d'éventuels antécédents judiciaires est requise pour cette fonction. Rejoignez-nous et contribuez au bon fonctionnement de l’Etat dans une activité qui a du sens ! Pour de plus amples informations, le cahier des charges est disponible ici . Des questions ? Mme Carole Francey, adjointe auprès du Centre de compétence Entreprises, vous renseigne volontiers au 021 316 21 34.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Au sein du Centre de compétence Entreprises, vous instruisez des demandes préjudicielles et vous établissez des rulings relatifs aux contribuables indépendants et aux personnes morales. Dans ce cadre, vous menez des entretiens avec des contribuables et/ou leurs mandataires. Vous collaborez également avec différents secteurs d’activité de notre service et vous établissez des directives pour les entités concernées. Finalement, en fonction des besoins, vous participez à des groupes de travail internes ou externes. Votre activité se caractérise notamment par la grande diversité des problématiques à traiter touchant à toute la fiscalité des entreprises et la possibilité d’approfondir vos connaissances à chaque nouveau dossier.\n\n• Instruire les demandes préjudicielles et établir de manière autonome les rulings relatifs aux contribuables indépendants et aux personnes morales.\n• Assurer un traitement efficient et autonome des demandes préjudicielles.\n• Assurer en tant que référent le soutien technique et juridique dans le domaine de la fiscalité directe\n• Procéder à des recherches et à des analyses juridiques fiscales afin de rendre des avis\n• Réaliser des travaux ponctuels\n\n• Brevet d'agent fiduciaire ou diplôme HEG ou master HEC ou master en droit ou diplôme d'expert fiscal ou titre jugé équivalent\n• Formation CSI – niveau 2a et 2b et comptabilité financière souhaité ou formation équivalente\n• Plusieurs années d’expérience dans le domaine fiscal, fiduciaire ou juridique\n• Excellente capacité d’analyse et de synthèse\n• Bonnes capacités rédactionnelles\n• Bonne compréhension de l’allemand\n• Aisance relationnelle, facilité d’adaptation La communication d'éventuels antécédents judiciaires est requise pour cette fonction. Rejoignez-nous et contribuez au bon fonctionnement de l’Etat dans une activité qui a du sens ! Pour de plus amples informations, le cahier des charges est disponible ici . Des questions ? Mme Carole Francey, adjointe auprès du Centre de compétence Entreprises, vous renseigne volontiers au 021 316 21 34.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Au sein du Centre de compétence Entreprises, vous instruisez des demandes préjudicielles et vous établissez des rulings relatifs aux contribuables indépendants et aux personnes morales. Dans ce cadre, vous menez des entretiens avec des contribuables et/ou leurs mandataires. Vous collaborez également avec différents secteurs d’activité de notre service et vous établissez des directives pour les entités concernées. Finalement, en fonction des besoins, vous participez à des groupes de travail internes ou externes. Votre activité se caractérise notamment par la grande diversité des problématiques à traiter touchant à toute la fiscalité des entreprises et la possibilité d’approfondir vos connaissances à chaque nouveau dossier.\n\n• Instruire les demandes préjudicielles et établir de manière autonome les rulings relatifs aux contribuables indépendants et aux personnes morales.\n• Assurer un traitement efficient et autonome des demandes préjudicielles.\n• Assurer en tant que référent le soutien technique et juridique dans le domaine de la fiscalité directe\n• Procéder à des recherches et à des analyses juridiques fiscales afin de rendre des avis\n• Réaliser des travaux ponctuels\n\n• Brevet d'agent fiduciaire ou diplôme HEG ou master HEC ou master en droit ou diplôme d'expert fiscal ou titre jugé équivalent\n• Formation CSI – niveau 2a et 2b et comptabilité financière souhaité ou formation équivalente\n• Plusieurs années d’expérience dans le domaine fiscal, fiduciaire ou juridique\n• Excellente capacité d’analyse et de synthèse\n• Bonnes capacités rédactionnelles\n• Bonne compréhension de l’allemand\n• Aisance relationnelle, facilité d’adaptation La communication d'éventuels antécédents judiciaires est requise pour cette fonction. Rejoignez-nous et contribuez au bon fonctionnement de l’Etat dans une activité qui a du sens ! Pour de plus amples informations, le cahier des charges est disponible ici . Des questions ? Mme Carole Francey, adjointe auprès du Centre de compétence Entreprises, vous renseigne volontiers au 021 316 21 34.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Au sein du Centre de compétence Entreprises, vous instruisez des demandes préjudicielles et vous établissez des rulings relatifs aux contribuables indépendants et aux personnes morales. Dans ce cadre, vous menez des entretiens avec des contribuables et/ou leurs mandataires. Vous collaborez également avec différents secteurs d’activité de notre service et vous établissez des directives pour les entités concernées. Finalement, en fonction des besoins, vous participez à des groupes de travail internes ou externes. Votre activité se caractérise notamment par la grande diversité des problématiques à traiter touchant à toute la fiscalité des entreprises et la possibilité d’approfondir vos connaissances à chaque nouveau dossier.\n\n• Instruire les demandes préjudicielles et établir de manière autonome les rulings relatifs aux contribuables indépendants et aux personnes morales.\n• Assurer un traitement efficient et autonome des demandes préjudicielles.\n• Assurer en tant que référent le soutien technique et juridique dans le domaine de la fiscalité directe\n• Procéder à des recherches et à des analyses juridiques fiscales afin de rendre des avis\n• Réaliser des travaux ponctuels\n\n• Brevet d'agent fiduciaire ou diplôme HEG ou master HEC ou master en droit ou diplôme d'expert fiscal ou titre jugé équivalent\n• Formation CSI – niveau 2a et 2b et comptabilité financière souhaité ou formation équivalente\n• Plusieurs années d’expérience dans le domaine fiscal, fiduciaire ou juridique\n• Excellente capacité d’analyse et de synthèse\n• Bonnes capacités rédactionnelles\n• Bonne compréhension de l’allemand\n• Aisance relationnelle, facilité d’adaptation La communication d'éventuels antécédents judiciaires est requise pour cette fonction. Rejoignez-nous et contribuez au bon fonctionnement de l’Etat dans une activité qui a du sens ! Pour de plus amples informations, le cahier des charges est disponible ici . Des questions ? Mme Carole Francey, adjointe auprès du Centre de compétence Entreprises, vous renseigne volontiers au 021 316 21 34.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T10:08:42.176Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+    },
+    {
+      "id": "etat-de-vaud-5529",
+      "slug": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slugByLocale": {
+        "it": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "architectural-project-leader-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "architektonischer-projektleiter-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "fr": "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Chef·fe de projet architecte",
+      "titleByLocale": {
+        "it": "Chef·fe de projet architecte",
+        "en": "Architectural Project Leader",
+        "de": "Architektonischer Projektleiter",
+        "fr": "Chef·fe de projet architecte"
+      },
+      "description": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "it": "La Direzione di Architettura ed Edifici (DAB) è responsabile della progettazione, programmazione, sviluppo, costruzione e manutenzione di tutti gli edifici di Vaud State. In un ambiente arricchente e dinamico, nella vostra capacità di project manager dell'architetto che rappresenta il maestro del lavoro, contribuite alla realizzazione di progetti entusiasmanti ed emblematici nel cantone di Vaud.\n\n• Coordinare e monitorare i progressi dei progetti secondo gli orientamenti della Direzione Generale per gli Edifici e i Beni e/o del Consiglio di Stato\n• Organizzare, gestire e portare i progetti a terzi garantendo qualità, costi e tempistiche\n• Progettazione e programmazione del mandato di piombo e gestione delle operazioni costruttive\n• Condurre progetti in stretta collaborazione con i servizi utente\n• condurre studi preliminari, gestire agenti e riunioni di presidenza\n• Rappresenta la Direzione Architettura ed Edifici con partner, terze parti, dipartimenti Vaud State e gruppi di lavoro. Per ulteriori informazioni, è possibile consultare le specifiche qui riportate o contattare il Sig. Claudio Iglesias, Direttore di Architettura e Edificio al 021 316 73 21.\n\n• Titolare di un EPF o HES Master in Architettura, Ingegneria o titolo equivalente\n• Esperienza professionale di almeno 10 anni nella gestione del progetto\n• Conoscenza eccellente nella gestione del progetto, economia e pianificazione territoriale\n• Conoscenza delle procedure di appalti pubblici\n• Buone competenze editoriali, ottima capacità organizzativa e progettuale\n• Autonomia, dinamismo, capacità di sviluppare scambi positivi all'interno di reti di stakeholder e specialisti, senso di responsabilità ed etica del servizio pubblico.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
+        "en": "The Directorate of Architecture and Buildings (DAB) is responsible for the planning, programming, development, construction and maintenance of all buildings in Vaud State. In an enriching and dynamic environment, in your capacity as architect project manager representing the master of the work, you contribute to the realization of exciting and emblematic projects in the canton of Vaud.\n\n• Coordinate and monitor the progress of projects according to the guidelines of the Directorate General for Buildings and Heritage and/or the Council of State\n• Organize, manage and lead projects mandated to third parties by ensuring quality, cost and timeliness\n• Lead mandate planning and programming and manage constructive operations\n• Conduct projects in close collaboration with user services\n• Conduct preliminary studies, manage agents and chair meetings\n• Represent the Architecture and Buildings Directorate with partners, third parties, Vaud State departments and working groups. For more information, you can consult the specifications here or contact Mr Claudio Iglesias, Director of Architecture and Building at 021 316 73 21.\n\n• Holder of an EPF or HES Master in Architecture, Engineering, or equivalent title\n• Professional experience of at least 10 years in project management\n• Excellent knowledge in project management, economics and spatial planning\n• Knowledge of public procurement procedures\n• Good editorial skills, excellent organizational and planning capacity\n• Autonomy, dynamism, ability to develop positive exchanges within networks of stakeholders and specialists, sense of responsibility and ethics of the public service.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
+        "de": "Die Direktion für Architektur und Gebäude (DAB) ist für die Planung, Programmierung, Entwicklung, Bau und Instandhaltung aller Gebäude im Waadtstaat zuständig. In einem bereichernden und dynamischen Umfeld tragen Sie als Architektenprojektmanager, der den Meister des Werkes vertritt, zur Realisierung spannender und emblematischer Projekte im Kanton Waadt bei.\n\n• Koordinierung und Überwachung des Fortschritts von Projekten gemäß den Richtlinien der Generaldirektion für Gebäude und Kulturerbe und / oder des Staatsrates\n• Organisieren, verwalten und leiten Sie Projekte, die an Dritte vergeben werden, indem Sie Qualität, Kosten und Aktualität sicherstellen\n• Leitung der Mandatsplanung und -programmierung und Verwaltung konstruktiver Operationen\n• Durchführung von Projekten in enger Zusammenarbeit mit den Benutzerdiensten\n• Führen Sie Vorstudien durch, leiten Sie Agenten und Vorsitzende\n• Vertretung der Direktion Architektur und Gebäude mit Partnern, Dritten, Waadtstaatsabteilungen und Arbeitsgruppen. Für weitere Informationen können Sie die Spezifikationen hier einsehen oder sich an Herrn Claudio Iglesias, Direktor für Architektur und Bau unter 021 316 73 21 wenden.\n\n• Inhaber eines EPF oder HES Master in Architektur, Ingenieurwesen oder gleichwertiger Titel\n• Berufserfahrung von mindestens 10 Jahren im Projektmanagement\n• Ausgezeichnete Kenntnisse in Projektmanagement, Wirtschaft und Raumplanung\n• Kenntnis der Verfahren zur Vergabe öffentlicher Aufträge\n• Gute redaktionelle Fähigkeiten, ausgezeichnete Organisations- und Planungskapazitäten\n• Autonomie, Dynamik, Fähigkeit, einen positiven Austausch innerhalb von Netzwerken von Interessengruppen und Spezialisten zu entwickeln, Verantwortungsbewusstsein und Ethik des öffentlichen Dienstes.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-19T21:37:21.297Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
+        "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "responsabile-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
+          "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "responsabile-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "etat-de-vaud-5652",
+      "slug": "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale",
+      "slugByLocale": {
+        "it": "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale",
+        "en": "paediatric-doctor-from-the-health-promotion-and-school-prevention-unit-etat-de-vaud-administration-cantonale-vaudoise",
+        "de": "kinderarzt-aus-der-abteilung-gesundheitsforderung-und-schulpravention-etat-de-vaud-administration-cantonale-vaudoise",
+        "fr": "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Médecin pédiatre référent·e de l’Unité de Promotion de la Santé et Prévention en milieu Scolaire",
+      "titleByLocale": {
+        "it": "Medico pediatrico dell'unità di promozione della salute e prevenzione della scuola",
+        "en": "Paediatric doctor from the Health Promotion and School Prevention Unit",
+        "de": "Kinderarzt aus der Abteilung Gesundheitsförderung und Schulprävention",
+        "fr": "Médecin pédiatre référent·e de l’Unité de Promotion de la Santé et Prévention en milieu Scolaire"
+      },
+      "description": "En votre qualité de pédiatre référent·e au sein de la Direction générale de la santé, rattachée au Pôle politiques sectorielles et programmes de santé (PPPS), vous contribuez au bon fonctionnement de la filière médicale de l’Unité de promotion de la santé et de la prévention en milieu scolaire (UPSPS), à garantir la qualité des prestations médicales des médecins scolaires, ainsi qu’à la mise en œuvre de la stratégie de promotion de la santé et de prévention auprès des enfants et des jeunes, notamment pour la santé scolaire.\n\n• Participer à la coordination de la filière des médecins scolaires\n• Contribuer à la gestion des situations sanitaires, individuelles ou collectives, en milieu scolaire\n• Soutenir les médecins dans leurs activités et les conseiller en cas de situations complexes\n• Répondre, en l’absence d’un·e médecin scolaire, aux demandes des infirmier·ère·s scolaires et des directions d’établissement (enseignement obligatoire, postobligatoire et pédagogie spécialisée)\n• Rédiger des documents cadres nécessaires au bon fonctionnement de la filière médicale, assurer le respect des processus de travail et mener des actions d’optimisation afin de garantir l’efficience de la filière\n• Définir les objectifs opérationnels et les priorités de la filière, ainsi que les directives à l’intention des intervenant·e·s en collaboration avec le∙la médecin responsable des médecins scolaires et le Pôle PPPS\n• Contribuer en coordination avec le·la responsable de la filière des infirmier·ère·s scolaires, le∙la médecin responsable des médecins scolaires et le PPPS à la mise en œuvre de la stratégie de Promotion de la santé et prévention auprès des enfants et des jeunes (PSPEJ)\n• Être force de proposition pour améliorer et développer les prestations ainsi que le fonctionnement de l’Unité de promotion de la santé et de prévention en milieu scolaire (PSPS)\n• Contribuer à la définition de l’approche de santé communautaire et servir de référent·e pour répondre aux questions médicales des membres de l’Unité PSPS et des directions des établissements scolaires\n• Contribuer au développement de la filière médico-infirmière, notamment en participant à la réflexion sur leurs activités Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Mme Cristina Firorini Bernasconi, médecin responsable de la santé en milieu scolaire, par courriel à cristina.fiorini-bernasconi@vd.ch.\n\n• Diplôme fédéral de médecin ou titre jugé équivalent, idéalement complété par un MAS en santé publique\n• Titre de spécialiste FMH en pédiatrie\n• Expérience professionnelle en pédiatrie de minimum 5 ans\n• Expérience pratique du suivi médical d’enfants et/ou d’adolescents et de leur famille de 3 ans minimum\n• Connaissance du système de santé et scolaire du canton de Vaud\n• Capacité à travailler en interdisciplinarité\n• Bonnes connaissances du développement et de la psychologie de l’enfant et/ou de l’adolescent, ainsi que des troubles du neurodéveloppement\n• Bonnes capacités d’analyse et de synthèse\n• Esprit de décision et détermination, sens des responsabilités et éthique du service public\n• Bonne écoute et communication, esprit d’entraide et de collaboration\n• Capacité d’adaptation et flexibilité Rémunération : Médecin associé·e selon le règlement d’application sur la rémunération des médecins cadres du CHUV. Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation ainsi que vos certificats de travail et diplômes.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "it": "In qualità di arbitro pediatra all'interno della Direzione Generale della Salute, allegata ai Programmi di Politica e Sanità del Settore (PPPS), contribuisce al corretto funzionamento del sistema medico dell'Unità di Sanità e Prevenzione della Scuola (UPS), al fine di garantire la qualità dei servizi medici forniti dai medici scolastici, nonché all'attuazione della strategia di promozione e prevenzione della salute per i bambini e i giovani, in particolare per la salute scolastica.\n\n• Per partecipare al coordinamento del sistema medico scolastico\n• Contribuire alla gestione delle situazioni sanitarie individuali o collettive nelle scuole\n• Sostenere i medici nelle loro attività e consigliarli su situazioni complesse\n• In assenza di un medico scolastico, rispondere alle richieste di infermieri scolastici e amministratori scolastici (pedagogia obbligatoria, postobbligatoria e specializzata)\n• Progetti di documenti quadro necessari per il corretto funzionamento del settore medico, garantire il rispetto dei processi di lavoro e realizzare misure di ottimizzazione per garantire l'efficienza del settore\n• Definire gli obiettivi operativi e le priorità del settore, nonché le linee guida per gli stakeholder in collaborazione con il medico responsabile dei medici scolastici e del PPPS Centre\n• Per contribuire, in coordinamento con il capo del settore infermiere scolastico, il medico responsabile per i medici scolastici e il PPPS, all'attuazione della strategia di promozione e prevenzione della salute per i bambini e la gioventù (PSPEJ)\n• Essere una forza per le proposte per migliorare e sviluppare i benefici e il funzionamento dell'unità di promozione e prevenzione della salute scolastica (PSPS)\n• Contribuire alla definizione dell'approccio sanitario comunitario e servire come riferimento alle questioni mediche dei membri dell'unità PSPS e delle direzioni scolastiche\n• Contribuire allo sviluppo del settore medico-nursery, in particolare partecipando alla riflessione sulle loro attività Per ulteriori informazioni, consultare i Termini di riferimento cliccando qui o contattare Cristina Firorini Bernasconi, medico sanitario della scuola, via email a cristina.fiorini-bernasconi@vd.ch.\n\n• Grado federale o equivalente, idealmente completato da un MAS in salute pubblica\n• Titolo di specialista FMH in pediatria\n• Esperienza professionale in pediatria di minimo 5 anni\n• Esperienza pratica del follow-up medico dei bambini e/o degli adolescenti e delle loro famiglie almeno 3 anni\n• Conoscenza della salute e del sistema scolastico del cantone di Vaud\n• Capacità di lavorare in interdisciplinarità\n• Buona conoscenza dello sviluppo e della psicologia del bambino e/o dell'adolescente, nonché dei disturbi neurologici\n• Buone capacità analitiche e di sintesi\n• Decisioni e determinazione, responsabilità ed etica del servizio pubblico\n• Buon ascolto e comunicazione, auto-aiuto e collaborazione\n• Adabilità e flessibilità Remunerazione: Medico associato in conformità con i Regolamenti di Compensazione Ufficiale Medico Executive CHUV. Per avere tutte le informazioni necessarie per analizzare il tuo file, saremmo grati se ci invii, oltre al tuo CV, una lettera di copertura e i tuoi certificati di lavoro e diplomi.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
+        "en": "As a referent paediatrician within the Directorate-General for Health, attached to the Sector Policy and Health Programmes (PPPS), you contribute to the proper functioning of the medical system of the School Health and Prevention Unit (UPSPS), to ensuring the quality of medical services provided by school doctors, and to the implementation of the health promotion and prevention strategy for children and young people, particularly for school health.\n\n• To participate in the coordination of the school doctor system\n• Contribute to the management of individual or collective health situations in schools\n• Supporting physicians in their activities and advising them on complex situations\n• In the absence of a school doctor, respond to requests from school nurses and school administrators (compulsory, post-compulsory and specialized pedagogy)\n• Draft framework documents necessary for the proper functioning of the medical sector, ensure respect for the working processes and carry out optimisation measures to ensure the efficiency of the sector\n• Defining the operational objectives and priorities of the sector, as well as guidelines for stakeholders in collaboration with the doctor responsible for school doctors and the PPPS Centre\n• To contribute, in coordination with the head of the school nurse sector, the doctor responsible for school doctors and the PPPS, to the implementation of the Health Promotion and Prevention Strategy for Children and Youth (PSPEJ)\n• To be a force for proposals to improve and develop the benefits and the functioning of the School Health Promotion and Prevention Unit (PSPS)\n• Contribute to the definition of the community health approach and serve as a reference to the medical questions of members of the PSPS Unit and school directorates\n• Contribute to the development of the medico-nursery sector, in particular by participating in the reflection on their activities For further information, please consult the Terms of Reference by clicking here or contact Cristina Firorini Bernasconi, school health doctor, by email at cristina.fiorini-bernasconi@vd.ch.\n\n• Federal degree of doctor or equivalent, ideally supplemented by a MAS in public health\n• Title of FMH specialist in paediatrics\n• Professional experience in paediatrics of minimum 5 years\n• Practical experience of medical follow-up of children and/or adolescents and their families at least 3 years of age\n• Knowledge of the health and school system of the canton of Vaud\n• Ability to work in interdisciplinarity\n• Good knowledge of child and/or adolescent development and psychology, as well as neurodevelopmental disorders\n• Good analytical and synthesis capabilities\n• Decision-making and determination, responsibility and ethics of the public service\n• Good listening and communication, self-help and collaboration\n• Adaptability and flexibility Remuneration: Associated physician in accordance with the CHUV Executive Medical Officer Compensation Regulations. In order to have all the necessary information to analyse your file, we would be grateful if you would send us, in addition to your CV, a cover letter and your work certificates and diplomas.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
+        "de": "Als Referentin für Kinderarzneimittel in der Generaldirektion Gesundheit, die den Sektorpolitik- und Gesundheitsprogrammen (PPPS) angehört, leisten Sie einen Beitrag zum ordnungsgemäßen Funktionieren des medizinischen Systems der Abteilung für Gesundheit und Prävention in Schulen (UPSPS), zur Gewährleistung der Qualität der von Schulärzten erbrachten medizinischen Leistungen und zur Umsetzung der Gesundheitsförderungs- und Präventionsstrategie für Kinder und Jugendliche, insbesondere für die schulische Gesundheit.\n\n• Teilnahme an der Koordination des Schularztsystems\n• Beitrag zum Management individueller oder kollektiver Gesundheitssituationen in Schulen\n• Unterstützung von Ärzten in ihrer Tätigkeit und Beratung in komplexen Situationen\n• Beantworten Sie in Abwesenheit eines Schularztes Anfragen von Schulkrankenschwestern und Schulverwaltern (obligatorische, postobligatorische und spezialisierte Pädagogik)\n• Entwurf von Rahmendokumenten, die für das ordnungsgemäße Funktionieren des medizinischen Sektors erforderlich sind, Gewährleistung der Einhaltung der Arbeitsprozesse und Durchführung von Optimierungsmaßnahmen zur Gewährleistung der Effizienz des Sektors\n• Festlegung der operativen Ziele und Prioritäten des Sektors sowie Leitlinien für Interessengruppen in Zusammenarbeit mit dem für Schulärzte zuständigen Arzt und dem PPPS-Zentrum\n• Beitrag zur Umsetzung der Strategie zur Gesundheitsförderung und -prävention für Kinder und Jugendliche in Abstimmung mit dem Leiter des Schulkrankenhauses, dem für Schulärzte zuständigen Arzt und der ÖPP\n• Eine Kraft für Vorschläge zur Verbesserung und Entwicklung der Vorteile und der Funktionsweise der School Health Promotion and Prevention Unit (PSPS) zu sein\n• Beitrag zur Definition des gemeinschaftlichen Gesundheitsansatzes und als Hinweis auf die medizinischen Fragen der Mitglieder des PSPS-Referats und der Schuldirektionen\n• Beitrag zur Entwicklung des Mediziner-Kindergarten-Sektors, insbesondere durch Teilnahme an der Reflexion über ihre Aktivitäten Für weitere Informationen konsultieren Sie bitte die Terms of Reference, indem Sie hier klicken oder kontaktieren Sie Cristina Firorini Bernasconi, Schulgesundheitsärztin, per E-Mail an cristina.fiorini-bernasconi@vd.ch.\n\n• Bundesarzt oder gleichwertig, idealerweise ergänzt durch einen MAS in der öffentlichen Gesundheit\n• Bezeichnung des FMH-Spezialisten für Pädiatrie\n• Berufserfahrung in der Kinderheilkunde von mindestens 5 Jahren\n• Praktische Erfahrung in der medizinischen Betreuung von Kindern und/oder Jugendlichen und deren Familien im Alter von mindestens 3 Jahren\n• Kenntnisse des Gesundheits- und Schulsystems des Kantons Waadt\n• Fähigkeit, in Interdisziplinarität zu arbeiten\n• Gute Kenntnisse der kindlichen und/oder jugendlichen Entwicklung und Psychologie sowie neurodevelopmental Störungen\n• Gute analytische und Synthesefähigkeiten\n• Entscheidungsfindung und Entschlossenheit, Verantwortlichkeit und Ethik des öffentlichen Dienstes\n• Gutes Zuhören und Kommunikation, Selbsthilfe und Zusammenarbeit\n• Anpassungsfähigkeit und Flexibilität Vergütung: Assoziierter Arzt gemäß den CHUV Executive Medical Officer Compensation Regulations. Um alle notwendigen Informationen zur Analyse Ihrer Akte zu haben, würden wir uns freuen, wenn Sie uns zusätzlich zu Ihrem Lebenslauf ein Anschreiben und Ihre Arbeitszertifikate und Diplome zusenden würden.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "En votre qualité de pédiatre référent·e au sein de la Direction générale de la santé, rattachée au Pôle politiques sectorielles et programmes de santé (PPPS), vous contribuez au bon fonctionnement de la filière médicale de l’Unité de promotion de la santé et de la prévention en milieu scolaire (UPSPS), à garantir la qualité des prestations médicales des médecins scolaires, ainsi qu’à la mise en œuvre de la stratégie de promotion de la santé et de prévention auprès des enfants et des jeunes, notamment pour la santé scolaire.\n\n• Participer à la coordination de la filière des médecins scolaires\n• Contribuer à la gestion des situations sanitaires, individuelles ou collectives, en milieu scolaire\n• Soutenir les médecins dans leurs activités et les conseiller en cas de situations complexes\n• Répondre, en l’absence d’un·e médecin scolaire, aux demandes des infirmier·ère·s scolaires et des directions d’établissement (enseignement obligatoire, postobligatoire et pédagogie spécialisée)\n• Rédiger des documents cadres nécessaires au bon fonctionnement de la filière médicale, assurer le respect des processus de travail et mener des actions d’optimisation afin de garantir l’efficience de la filière\n• Définir les objectifs opérationnels et les priorités de la filière, ainsi que les directives à l’intention des intervenant·e·s en collaboration avec le∙la médecin responsable des médecins scolaires et le Pôle PPPS\n• Contribuer en coordination avec le·la responsable de la filière des infirmier·ère·s scolaires, le∙la médecin responsable des médecins scolaires et le PPPS à la mise en œuvre de la stratégie de Promotion de la santé et prévention auprès des enfants et des jeunes (PSPEJ)\n• Être force de proposition pour améliorer et développer les prestations ainsi que le fonctionnement de l’Unité de promotion de la santé et de prévention en milieu scolaire (PSPS)\n• Contribuer à la définition de l’approche de santé communautaire et servir de référent·e pour répondre aux questions médicales des membres de l’Unité PSPS et des directions des établissements scolaires\n• Contribuer au développement de la filière médico-infirmière, notamment en participant à la réflexion sur leurs activités Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Mme Cristina Firorini Bernasconi, médecin responsable de la santé en milieu scolaire, par courriel à cristina.fiorini-bernasconi@vd.ch.\n\n• Diplôme fédéral de médecin ou titre jugé équivalent, idéalement complété par un MAS en santé publique\n• Titre de spécialiste FMH en pédiatrie\n• Expérience professionnelle en pédiatrie de minimum 5 ans\n• Expérience pratique du suivi médical d’enfants et/ou d’adolescents et de leur famille de 3 ans minimum\n• Connaissance du système de santé et scolaire du canton de Vaud\n• Capacité à travailler en interdisciplinarité\n• Bonnes connaissances du développement et de la psychologie de l’enfant et/ou de l’adolescent, ainsi que des troubles du neurodéveloppement\n• Bonnes capacités d’analyse et de synthèse\n• Esprit de décision et détermination, sens des responsabilités et éthique du service public\n• Bonne écoute et communication, esprit d’entraide et de collaboration\n• Capacité d’adaptation et flexibilité Rémunération : Médecin associé·e selon le règlement d’application sur la rémunération des médecins cadres du CHUV. Afin de disposer de tous les éléments nécessaires à l’analyse de votre dossier, nous vous remercions de bien vouloir nous transmettre, en complément de votre CV, une lettre de motivation ainsi que vos certificats de travail et diplômes.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5652",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-19T21:37:20.803Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1000",
+      "streetAddress": "Place du Château 1",
+      "category": "Sanità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5652",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu",
+        "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu",
+          "medico-pediatrico-dell-unita-di-promozione-della-salute-e-prevenzione-della-scuola-etat-de-vaud-administration-cantonale"
+        ],
+        "en": [
+          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
+        ],
+        "de": [
+          "medecin-pediatre-referent-e-de-l-unite-de-promotion-de-la-sante-et-prevention-en-milieu"
+        ]
+      },
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
