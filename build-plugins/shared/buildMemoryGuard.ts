@@ -373,6 +373,13 @@ export function readHostAvailableMb(procMeminfoPath = '/proc/meminfo'): number |
  *
  * @returns `null` dove il file non esiste (macOS) o manca `VmRSS`. `VmSwap`
  *   assente con `VmRSS` presente (kernel molto vecchi) vale 0, non null.
+ *
+ * Verificato contro l'output reale di un runner GH Actions (#6174 item 2):
+ * il kernel separa etichetta e valore con TAB (`VmRSS:\t 100392 kB`), non
+ * spazi come nelle fixture sintetiche dei test — `\s+` nella regex copre
+ * entrambi, quindi non serve alcun fix di parsing. Il test senza path in
+ * `tests/build-memory-guard.test.ts` legge il file vero del processo a ogni
+ * run e fa da regression guard permanente contro derive future.
  */
 export function readSelfAnonMb(
   procSelfStatusPath = '/proc/self/status',
@@ -561,7 +568,12 @@ export function resolveThresholds(
   const ignoredOverrides: string[] = [];
   if (ceiling.ignored) ignoredOverrides.push('BUILD_MEM_RSS_CEILING_MB');
   if (floor.ignored) ignoredOverrides.push('BUILD_MEM_HOST_FLOOR_MB');
-  if (swapFloorArmed && swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
+  // Niente gate su swapFloorArmed qui: ceiling/host-floor sopra segnalano
+  // l'override ignorato indipendentemente da quanto la rispettiva soglia sia
+  // "attiva" — il pavimento swap deve restare simmetrico, altrimenti un
+  // override esplicito su uno swap sotto i 2 GB sparisce in silenzio invece
+  // di comparire in ignoredOverrides (follow-up #6169 item 3).
+  if (swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
   return {
     rssCeilingMb: ceiling.value,
     hostAvailFloorMb: hostReadable ? floor.value : null,

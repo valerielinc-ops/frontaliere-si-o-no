@@ -709,6 +709,12 @@ const EVENT_IMAGE_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.
 // 12-file sample spanning the size distribution, most sources are already
 // <=1600px wide and are not resized at all, yet the sample still comes down 87%.
 const EVENT_IMAGE_MAX_WIDTH = 1600;
+// Portrait sources (extreme aspect ratio) had no bound on the resulting
+// height: `resize({ width })` alone only constrains the horizontal axis, so a
+// very tall source stayed very tall after re-encoding. Same cap as the width
+// — `fit: 'inside'` only applies whichever bound is actually the binding one
+// for a given source, so ordinary landscape photos resize exactly as before.
+const EVENT_IMAGE_MAX_HEIGHT = 1600;
 const EVENT_IMAGE_WEBP_QUALITY = 82;
 const EVENT_IMAGE_WEBP_EFFORT = 6;
 
@@ -720,7 +726,9 @@ function extFromContentType(contentType) {
 }
 
 /**
- * Re-encode a downloaded event image to WebP, capped at EVENT_IMAGE_MAX_WIDTH.
+ * Re-encode a downloaded event image to WebP, capped at EVENT_IMAGE_MAX_WIDTH
+ * x EVENT_IMAGE_MAX_HEIGHT (whichever bound is binding for the source's
+ * aspect ratio).
  * Returns `{ buf, ext }` — always something storable, never throws.
  *
  * Two deliberate fallbacks to the original bytes, both of which keep the image
@@ -739,7 +747,7 @@ async function encodeEventImage(buf, contentType) {
   try {
     const sharp = (await import('sharp')).default;
     const out = await sharp(buf)
-      .resize({ width: EVENT_IMAGE_MAX_WIDTH, withoutEnlargement: true })
+      .resize({ width: EVENT_IMAGE_MAX_WIDTH, height: EVENT_IMAGE_MAX_HEIGHT, fit: 'inside', withoutEnlargement: true })
       .webp({ quality: EVENT_IMAGE_WEBP_QUALITY, effort: EVENT_IMAGE_WEBP_EFFORT })
       .toBuffer();
     if (out.length >= buf.length) return { buf, ext: originalExt };

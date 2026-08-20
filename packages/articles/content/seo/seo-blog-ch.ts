@@ -46040,6 +46040,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-preventivo-confederazione-2027': {
+    title: 'Consiglio federale adotta il preventivo 2027 | Frontaliere Ticino',
+    description: 'Il Consiglio federale adotta il 19 agosto 2026 il preventivo 2027 con PICF 2028-2030. Disponibile online. Scopri la struttura e i dettagli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, adotta, preventivo',
+    ogTitle: 'Consiglio federale adotta il preventivo 2027',
+    ogDescription: 'Il 19 agosto il Consiglio federale approva il preventivo federale 2027 con PICF 2028-2030. Scopri i dettagli su come consultare il documento online e cosa contiene per i cittadini svizzeri.',
+    canonicalPath: '/articoli-svizzera/preventivo-confederazione-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale adotta il preventivo 2027",
+      "description": "Il Consiglio federale adotta il 19 agosto 2026 il preventivo 2027 con PICF 2028-2030. Disponibile online. Scopri la struttura e i dettagli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/preventivo-confederazione-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Amministrazione federale svizzera: documenti del preventivo e pianificazione finanziaria confederale."
+      },
+      "datePublished": "2026-08-20T12:07:26+00:00",
+      "dateModified": "2026-08-20T12:07:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/preventivo-confederazione-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pianificazione-ospedaliera-ticino-2026': {
+    title: 'Pianificazione ospedaliera Ticino: dati 2019 adeguati?',
+    description: 'L\'interrogazione PLR sulla consultazione del 1° giugno 2026 solleva dubbi sulla base statistica del fabbisogno ospedaliero ticinese e l\'impatto sui costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pianificazione, ospedaliera, dati, adeguati',
+    ogTitle: 'Pianificazione ospedaliera Ticino: i dati 2019 sono adatti?',
+    ogDescription: 'Matteo Quadranti (PLR) interroga il Consiglio di Stato ticinese sulla pianificazione ospedaliera. Al centro il ricorso a dati del 2019 per stimare il fabbisogno. Cosa comporta questa scelta per i costi della LAMal?',
+    canonicalPath: '/articoli-svizzera/pianificazione-ospedaliera-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pianificazione ospedaliera Ticino: dati 2019 adeguati?",
+      "description": "L'interrogazione PLR sulla consultazione del 1° giugno 2026 solleva dubbi sulla base statistica del fabbisogno ospedaliero ticinese e l'impatto sui costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pianificazione-ospedaliera-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'ospedale dell'EOC a Bellinzona, al centro della questione sulla pianificazione ospedaliera ticinese"
+      },
+      "datePublished": "2026-08-20T12:21:44+00:00",
+      "dateModified": "2026-08-20T12:21:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pianificazione-ospedaliera-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-uss-pensionati-rendite-2027': {
+    title: 'L\'USS chiede rendite più alte per i pensionati svizzeri',
+    description: 'L\'Unione Sindacale Svizzera (USS) chiede un tasso d\'interesse minimo del 3% per il 2027 e rendite più alte per i pensionati svizzeri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiede, rendite, alte, pensionati',
+    ogTitle: 'L\'USS chiede rendite più alte per i pensionati svizzeri',
+    ogDescription: 'L\'Unione Sindacale Svizzera (USS) chiede un tasso d\'interesse minimo del 3% per il 2027 e rendite più alte per i pensionati svizzeri',
+    canonicalPath: '/articoli-svizzera/uss-pensionati-rendite-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'USS chiede rendite più alte per i pensionati svizzeri",
+      "description": "L'Unione Sindacale Svizzera (USS) chiede un tasso d'interesse minimo del 3% per il 2027 e rendite più alte per i pensionati svizzeri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uss-pensionati-rendite-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna svizzera con un passaporto in mano guarda fuori dalla finestra con un'espressione seria"
+      },
+      "datePublished": "2026-08-20T13:02:28+00:00",
+      "dateModified": "2026-08-20T13:02:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uss-pensionati-rendite-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-posta-utile-in-salita': {
+    title: 'Posta, utile in salita nonostante il calo delle lettere',
+    description: 'La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, nonostante il calo delle lettere. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, posta, utile, salita, nonostante',
+    ogTitle: 'Posta, utile in salita nonostante il calo delle lettere',
+    ogDescription: 'La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, nonostante il calo delle lettere.',
+    canonicalPath: '/articoli-svizzera/posta-utile-in-salita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Posta, utile in salita nonostante il calo delle lettere",
+      "description": "La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, nonostante il calo delle lettere. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/posta-utile-in-salita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista di Lugano con un aumento degli utili della Posta Svizzera nel primo semestre del 2026"
+      },
+      "datePublished": "2026-08-20T13:41:51+00:00",
+      "dateModified": "2026-08-20T13:41:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/posta-utile-in-salita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gas-svizzera-inverno-opzione': {
+    title: 'Gas, nuova opzione per l\'inverno in Svizzera | Frontaliere Ticino',
+    description: 'La Confederazione attiva opzione gas Francia-Italia per l\'inverno. Costo 2-3 franchi per famiglie. Disponibile da ottobre 2026 al 31 marzo 2027. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, opzione, inverno, confederazione',
+    ogTitle: 'Svizzera: nuova opzione gas per l\'inverno',
+    ogDescription: 'La Confederazione rafforza la sicurezza energetica invernale attivando l\'opzione ITA.SWAPtion.26. Scopri come accedere al gasdotto Francia-Italia e quanto costerà alle famiglie (2-3 franchi). Misura precauzionale dal 1° ottobre 2026 al 31 marzo 2027.',
+    canonicalPath: '/articoli-svizzera/gas-svizzera-inverno-opzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gas, nuova opzione per l'inverno in Svizzera",
+      "description": "La Confederazione attiva opzione gas Francia-Italia per l'inverno. Costo 2-3 franchi per famiglie. Disponibile da ottobre 2026 al 31 marzo 2027. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gas-svizzera-inverno-opzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino invernale svizzero con infrastrutture energetiche nella valle"
+      },
+      "datePublished": "2026-08-20T13:58:26+00:00",
+      "dateModified": "2026-08-20T13:58:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/gas-svizzera-inverno-opzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-viticoltura-ticino-2026-sfide': {
+    title: 'Siccità, parassiti e grandinate: ma avremo un vino d\'oro',
+    description: 'La vendemmia ticinese 2026 promette di essere tra le migliori annate, ma siccità, grandine, parassiti e Popillia japonica mettono a rischio i viticoltori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, parassiti, grandinate, avremo',
+    ogTitle: 'Vendemmia Ticino 2026: qualità ma sfide climatiche',
+    ogDescription: 'La vendemmia 2026 ticinese è tra le migliori annate degli ultimi 20 anni, ma siccità, grandine, parassiti e cambiamenti climatici mettono a rischio i viticoltori del Mendrisiotto.',
+    canonicalPath: '/articoli-svizzera/viticoltura-ticino-2026-sfide/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, parassiti e grandinate: ma avremo un vino d'oro",
+      "description": "La vendemmia ticinese 2026 promette di essere tra le migliori annate, ma siccità, grandine, parassiti e Popillia japonica mettono a rischio i viticoltori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/viticoltura-ticino-2026-sfide.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigneti ticinesi in estate sotto il sole, con le viti in primo piano e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-20T14:19:34+00:00",
+      "dateModified": "2026-08-20T14:19:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/viticoltura-ticino-2026-sfide/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-monopattini-obbligo-casco': {
+    title: 'Monopattini elettrici: obbligo casco in vista?',
+    description: 'Il Consiglio federale valuterà l\'obbligo del casco per monopattini. Incidenti raddoppiati da 342 a 790 in 4 anni; traumi cranici 3,45x superiori ai ciclisti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, monopattini, elettrici, obbligo, casco',
+    ogTitle: 'Monopattini: verso l\'obbligo del casco in Svizzera',
+    ogDescription: 'Studio internazionale conferma: rischi di traumi cranici 3,45 volte superiori rispetto ai motociclisti. Il governo federale prepara una nuova ordinanza con possibile obbligo di casco. Incidenti raddoppiati da 342 a 790 in quattro anni.',
+    canonicalPath: '/articoli-svizzera/monopattini-obbligo-casco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Monopattini elettrici: obbligo casco in vista?",
+      "description": "Il Consiglio federale valuterà l'obbligo del casco per monopattini. Incidenti raddoppiati da 342 a 790 in 4 anni; traumi cranici 3,45x superiori ai ciclisti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/monopattini-obbligo-casco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una strada urbana svizzera con piste ciclabili e monopattini in circolazione"
+      },
+      "datePublished": "2026-08-20T14:44:15+00:00",
+      "dateModified": "2026-08-20T14:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/monopattini-obbligo-casco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

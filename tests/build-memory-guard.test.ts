@@ -387,6 +387,21 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(readSelfAnonMb(tmpMeminfo('VmSwap:\t 1024 kB\n'))).toBeNull();
   });
 
+  it('readSelfAnonMb() senza path — parsea il /proc/self/status REALE del processo di test, non solo fixture sintetici (#6174)', () => {
+    // Le fixture sopra hardcodano il tab kernel-standard; questo test invece
+    // legge il file vero del processo corrente, cosi' un'eventuale deriva di
+    // formato whitespace/kernel sul runner la fa fallire qui invece che in
+    // silenzio a runtime (VmSwap assente degraderebbe muto a RSS-only).
+    const real = readSelfAnonMb();
+    if (os.platform() !== 'linux') {
+      expect(real).toBeNull();
+      return;
+    }
+    expect(real).not.toBeNull();
+    expect(real!.rssMb).toBeGreaterThan(0);
+    expect(real!.swapMb).toBeGreaterThanOrEqual(0);
+  });
+
   it('sotto i 2 GB di SwapTotal il pavimento swap resta SPENTO — sarebbe sfondato a riposo', () => {
     const t = resolveThresholds(
       {} as NodeJS.ProcessEnv,
@@ -395,6 +410,15 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(t.swapFreeFloorMb).toBeNull();
     // …ma il credito sul tetto vale comunque: e' capacita' anonima reale.
     expect(t.rssCeilingMb).toBe(Math.round((15988 + 1024) * RSS_CEILING_FRACTION));
+  });
+
+  it('un override esplicito su BUILD_MEM_SWAP_FLOOR_MB compare in ignoredOverrides anche col pavimento SPENTO (#6169 item 3)', () => {
+    const meminfo = tmpMeminfo(meminfoWithSwap(15988, SWAP_FLOOR_MIN_TOTAL_MB - 1024));
+    const t = resolveThresholds({ BUILD_MEM_SWAP_FLOOR_MB: '100' } as NodeJS.ProcessEnv, meminfo);
+    expect(t.swapFreeFloorMb).toBeNull();
+    // Simmetrico a tetto/pavimento host: un override scartato lo dice sempre,
+    // indipendentemente da quanto la soglia stessa sia "armata".
+    expect(t.ignoredOverrides).toContain('BUILD_MEM_SWAP_FLOOR_MB');
   });
 
   it('BUILD_MEM_SWAP_FLOOR_MB puo\' solo STRINGERE (alzare), come le altre env', () => {

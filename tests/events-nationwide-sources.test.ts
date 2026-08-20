@@ -300,6 +300,35 @@ describe('mirrorEventImage', () => {
     expect(meta.width).toBe(1600);
   });
 
+  it('caps the height too, for an extreme-portrait source (width stays under the cap on its own)', async () => {
+    const sharp = (await import('sharp')).default;
+    // 800x2400: portrait, well under the 1600px width cap but over the height
+    // cap — pins that resize bounds BOTH axes, not just width.
+    const raw = Buffer.alloc(800 * 2400 * 3);
+    for (let i = 0; i < raw.length; i++) raw[i] = (Math.imul(i, 2654435761) >>> 24) & 255;
+    const source = await sharp(raw, { raw: { width: 800, height: 2400, channels: 3 } })
+      .jpeg({ quality: 80 })
+      .toBuffer();
+    expect(source.byteLength).toBeLessThan(2 * 1024 * 1024);
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        headers: { get: () => 'image/jpeg' },
+        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
+      }),
+    );
+
+    const result = await mirrorEventImage('https://example.com/tall.jpg', 'test:mirror-fixture');
+    expect(result).toBe('/images/events/test-mirror-fixture.webp');
+
+    const written = readFileSync(path.join(testImagesDir, 'test-mirror-fixture.webp'));
+    const meta = await sharp(written).metadata();
+    expect(meta.height).toBe(1600);
+    expect(meta.width).toBeLessThan(800);
+  });
+
   it('returns null on a non-2xx response, a non-image content-type, or an oversized body', async () => {
     vi.stubGlobal(
       'fetch',

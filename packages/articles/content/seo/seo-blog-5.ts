@@ -71597,6 +71597,279 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensionamento-anticipato-frontalieri-errori': {
+    title: 'Pensionamento anticipato frontalieri: 5 errori comuni',
+    description: 'Anticipare pensione frontalieri Ticino-Italia: impatto AVS/LPP, doppia imposizione, Nuovo Accordo 2024. Evita 5 errori comuni con checklist operativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, errori, comuni',
+    ogTitle: 'Pensionamento anticipato frontalieri: 5 errori da evitare',
+    ogDescription: 'Pianificazione pensionamento anticipato frontalieri Ticino-Italia. Come gestire AVS, LPP, fiscalità e Nuovo Accordo Frontalieri (2024). Checklist e simulazioni online.',
+    canonicalPath: '/articoli-frontaliere/pensionamento-anticipato-frontalieri-errori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionamento anticipato frontalieri: 5 errori comuni",
+      "description": "Anticipare pensione frontalieri Ticino-Italia: impatto AVS/LPP, doppia imposizione, Nuovo Accordo 2024. Evita 5 errori comuni con checklist operativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensionamento-anticipato-frontalieri-errori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento pianificazione pensionistica con foglio di calcolo e moduli SECO su scrivania, vista su valico frontaliero Ticino-Italia"
+      },
+      "datePublished": "2026-08-20T12:00:50+00:00",
+      "dateModified": "2026-08-20T12:00:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensionamento-anticipato-frontalieri-errori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-svizzera-dati': {
+    title: 'Lavoratori frontalieri in Svizzera scambio automatico dei dati',
+    description: 'Il Consiglio federale svizzero ha attivato la base legale per il flusso informativo reciproco con l\'Italia e la Francia. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, scambio, automatico, dati',
+    ogTitle: 'Lavoratori frontalieri in Svizzera scambio automatico dei dati',
+    ogDescription: 'Il Consiglio federale svizzero ha attivato la base legale per il flusso informativo reciproco con l\'Italia e la Francia.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-svizzera-dati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoratori frontalieri in Svizzera scambio automatico dei dati",
+      "description": "Il Consiglio federale svizzero ha attivato la base legale per il flusso informativo reciproco con l'Italia e la Francia. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-svizzera-dati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoro frontaliero in Ticino"
+      },
+      "datePublished": "2026-08-20T12:14:10+00:00",
+      "dateModified": "2026-08-20T12:14:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-svizzera-dati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-castiglione-olona-frontaliere-ticino': {
+    title: 'Frontalieri castiglione olona: guida lavoro Ticino',
+    description: 'Castiglione Olona: guida pratica per frontalieri Ticino. Permesso G, imposta alla fonte, AVS, LAMal, ristorni, nuovo accordo 2024. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, castiglione, olona, lavoro, scelta',
+    ogTitle: 'Frontalieri Castiglione Olona: vivere e lavorare in Ticino',
+    ogDescription: 'Castiglione Olona per frontalieri Ticino: Permesso G, tassazione CHF, AVS/LPP/LAMal, credito d\'imposta 730, ristorni e checklist. Nuovo accordo dal 2024 protegge il reddito con esenzione €7.500–€10.000. Procedura step-by-step per trasferirsi',
+    canonicalPath: '/articoli-frontaliere/castiglione-olona-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri castiglione olona: guida lavoro Ticino",
+      "description": "Castiglione Olona: guida pratica per frontalieri Ticino. Permesso G, imposta alla fonte, AVS, LAMal, ristorni, nuovo accordo 2024. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/castiglione-olona-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolare al varco di confine Chiasso con vista sul lago Lugano e sulle montagne ticinesi."
+      },
+      "datePublished": "2026-08-20T12:52:03+00:00",
+      "dateModified": "2026-08-20T12:52:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castiglione-olona-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-gavirate-lavorare-ticino': {
+    title: 'Vivere a Gavirate e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per vivere a Gavirate e lavorare in Ticino da frontaliere: fiscalità, imposta alla fonte, nuovo accordo, LAMal e permessi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, gavirate, lavorare, pratica',
+    ogTitle: 'Vivere a Gavirate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Informazioni pratiche, fiscalità, regole sulla doppia imposizione e sanità per chi vive a Gavirate e lavora come frontaliere in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-gavirate-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Gavirate e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per vivere a Gavirate e lavorare in Ticino da frontaliere: fiscalità, imposta alla fonte, nuovo accordo, LAMal e permessi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-gavirate-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Gavirate vicino al lago"
+      },
+      "datePublished": "2026-08-20T13:10:57+00:00",
+      "dateModified": "2026-08-20T13:10:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-gavirate-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vignone-trasferimento-frontaliere': {
+    title: 'Vivere a Vignone, lavorare in Ticino: guida pratica',
+    description: 'Permesso G, fiscalità vantaggiosa, costi inferiori: scopri come trasferirsi a Vignone e lavorare in Ticino da frontaliere con il Nuovo Accordo 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, vignone, lavorare, pratica',
+    ogTitle: 'Vivere a Vignone, lavorare in Ticino: guida pratica',
+    ogDescription: 'Trasferisci a Vignone come frontaliere Ticino: scopri Permesso G, fiscalità, LAMal, AVS, LPP, credito imposta 730, nuova esenzione €7.500. Checklist pratica e procedure 2024.',
+    canonicalPath: '/articoli-frontaliere/vignone-trasferimento-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Vignone, lavorare in Ticino: guida pratica",
+      "description": "Permesso G, fiscalità vantaggiosa, costi inferiori: scopri come trasferirsi a Vignone e lavorare in Ticino da frontaliere con il Nuovo Accordo 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vignone-trasferimento-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta della valle e dei collegamenti Ticino, zona di confine ideale per frontalieri che vivono a Vignone"
+      },
+      "datePublished": "2026-08-20T13:52:56+00:00",
+      "dateModified": "2026-08-20T13:52:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vignone-trasferimento-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-carimate-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Carimate, lavorare in Ticino: vantaggi e svantaggi',
+    description: 'Con il nuovo accordo fiscale, i frontalieri potranno godere di una franchigia di €10\'000 e di un regime transitorio fino al 2033. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, carimate, lavorare, vantaggi',
+    ogTitle: 'Vivere a Carimate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Con il nuovo accordo fiscale, i frontalieri potranno godere di una franchigia di €10\'000 e di un regime transitorio fino al 2033.',
+    canonicalPath: '/articoli-frontaliere/vivere-carimate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Carimate, lavorare in Ticino: vantaggi e svantaggi",
+      "description": "Con il nuovo accordo fiscale, i frontalieri potranno godere di una franchigia di €10'000 e di un regime transitorio fino al 2033. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-carimate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Ticino che lavorano in Italia"
+      },
+      "datePublished": "2026-08-20T14:13:09+00:00",
+      "dateModified": "2026-08-20T14:13:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-carimate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-castelmarte-lavorare-ticino-frontaliere': {
+    title: 'Castelmarte frontaliere: vivere e lavorare in Ticino',
+    description: 'Scopri come vivere a Castelmarte e lavorare in Ticino: Nuovo Accordo Frontalieri, franchigia €10.000, Permesso G, tassazione e ristorni fiscali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, castelmarte, vivere, lavorare, nuovo',
+    ogTitle: 'Castelmarte frontaliere: vivere e lavorare in Ticino',
+    ogDescription: 'Guida completa per frontalieri a Castelmarte: tassazione in Svizzera, franchigia €10.000, Permesso G, ristorni fiscali quadro CE, procedura step-by-step e calcolatore stipendio.',
+    canonicalPath: '/articoli-frontaliere/castelmarte-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Castelmarte frontaliere: vivere e lavorare in Ticino",
+      "description": "Scopri come vivere a Castelmarte e lavorare in Ticino: Nuovo Accordo Frontalieri, franchigia €10.000, Permesso G, tassazione e ristorni fiscali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/castelmarte-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del comune di Castelmarte con il lago di Como sullo sfondo, case residenziali sparse sulla collina verdeggiante, zona di confine Ticino."
+      },
+      "datePublished": "2026-08-20T14:37:16+00:00",
+      "dateModified": "2026-08-20T14:37:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castelmarte-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
