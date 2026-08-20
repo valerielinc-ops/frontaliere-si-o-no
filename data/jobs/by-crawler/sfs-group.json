@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-08-20T10:08:46.247Z",
+  "assembledAt": "2026-08-20T22:10:12.573Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:43.253Z",
+      "crawledAt": "2026-08-20T22:10:09.108Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -114,7 +114,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-walzen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:43.120Z",
+      "crawledAt": "2026-08-20T22:10:08.938Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -182,7 +182,7 @@
         "it": "Team leader/ nella gestione QM/Complaint (m/f/d)",
         "en": "Team leader/in QM/Complaint management (m/f/d)",
         "de": "Teamleiter/in QM/Reklamationsmanagement (m/f/d)",
-        "fr": "Chef d'équipe/en QM/Gestion des plaintes (h/f/d)"
+        "fr": "Teamleiter/in QM/Reklamationsmanagement (m/f/d)"
       },
       "description": "Mit unserem unternehmensweiten, systematischen Qualitätsmanagement optimieren wir kontinuierlich unsere Geschäftsprozesse und schaffen nachhaltigen Mehrwert für unsere Kunden. Qualität ist für uns nicht nur ein Anspruch, sondern gelebte Praxis. Möchtest du aktiv dazu beitragen, unsere Prozess- und Produktqualität weiterzuentwickeln und Reklamationsprozesse wirkungsvoll zu gestalten? Dann werde Teil unseres Teams und übernimm eine zentrale Rolle in der Sicherstellung und kontinuierlichen Verbesserung unseres Qualitätsmanagements. Your Tasks:\n• Personelle und fachliche Führung des Teams mit 8 Mitarbeitenden\n• Gesamtverantwortung für die Organisation, Priorisierung und termingerechte Bearbeitung von internen und externen Beanstandungen\n• Analyse von Reklamationen sowie Initiierung, Steuerung und Nachverfolgung von Korrektur- und Verbesserungsmassnahmen\n• Sicherstellung der Einhaltung von Qualitätsanforderungen in Projekten und Prozessen\n• Gewährleistung der Versorgung interner und externer Kunden mit spezifikationskonformen Produkten und Dienstleistungen\n• Sicherstellung der fristgerechten und qualitätskonformen Bearbeitung von Kundenbeanstandungen Your profile:\n• Abgeschlossene technische Ausbildung, bevorzugt in den Bereichen Maschinenbau oder Produktionstechnik\n• Mehrjährige Berufserfahrung im Qualitätsmanagement, idealerweise aus der Automobilindustrie\n• Erfahrung im 8D Problemlösungsprozess und der Anwendung adäquater Methoden wie Ishikawa, 5-Why Studies usw.\n• Reisebereitschaft (ca. 10%)\n• Sehr gute Englischkenntnisse in Wort und Schrift We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
       "descriptionByLocale": {
@@ -196,7 +196,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/teamleiter-in-qm-reklamationsmanagement-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.984Z",
+      "crawledAt": "2026-08-20T22:10:08.772Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -280,7 +280,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/spécialiste-vente-interne-pour-(epi)-en-équipement-d'atelier-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:08:42.851Z",
+      "crawledAt": "2026-08-20T22:10:08.606Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "postalCode": "1000",
@@ -330,70 +330,80 @@
       }
     },
     {
-      "id": "sfs-group-7df2f3964952",
-      "slug": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+      "id": "sfs-group-a0b31a324b8e",
+      "slug": "responsabile-di-progetto-eprozesse-m-w-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
-        "en": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
-        "de": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
-        "fr": "gestionnaire-de-processus-et-de-projet-sap-m-f-d-sfs-group-heerbrugg"
+        "de": "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg",
+        "it": "responsabile-di-progetto-eprozesse-m-w-d-sfs-group-heerbrugg",
+        "en": "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg",
+        "fr": "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
       "companyDomain": "sfs.com",
-      "title": "Process & Project Manager SAP (m/f/d)",
+      "title": "Projektleiter/in eProzesse (m/f/d)",
       "titleByLocale": {
-        "it": "Process & Project Manager SAP (m/f/d)",
-        "en": "Process & Project Manager SAP (m/f/d)",
-        "de": "Process & Project Manager SAP (m/f/d)",
-        "fr": "Gestionnaire de processus et de projet SAP (m/f/d)"
+        "de": "Projektleiter/in eProzesse (m/f/d)",
+        "it": "Responsabile di progetto eProzesse (m/f/d)",
+        "en": "Project Manager eProzesse (m/f/d)",
+        "fr": "Chef de projet eProzesse (m/f/d)"
       },
-      "description": "Als Process & Project Manager SAP im Segment Fastening Systems unterstützt du die weltweite Umsetzung und Einhaltung unserer SAP-Standards und Geschäftsprozesse. Du arbeitest eng mit den lokalen Marktorganisationen, der IT sowie dem Team Process & Project Management zusammen und trägst dazu bei, SAP-Prozesse kontinuierlich zu verbessern, Anwender zu schulen und internationale Roll-out-Projekte erfolgreich umzusetzen. Your Tasks:\n• Internationale SAP Roll-outs im Segment Fastening Systems begleiten und koordinieren\n• Geschäftsprozesse gemeinsam mit IT und den Fachbereichen weiterentwickeln\n• SAP-Schulungen konzipieren, durchführen und dokumentieren\n• Anwender bei Prozess- und Systemfragen unterstützen sowie Tickets koordinieren\n• Standards und Templates weltweit sicherstellen und kontinuierlich optimieren\n• Prozessverbesserungen erkennen und aktiv vorantreiben Your profile:\n• Abgeschlossene Berufsausbildung mit Weiterbildung im kaufmännischen, technischen oder betriebswirtschaftlichen Umfeld\n• Erfahrung im Prozess- oder Projektmanagement\n• SAP-Kenntnisse, idealerweise im Order-to-Cash-Prozess\n• Erfahrung mit Confluence oder Jira von Vorteil\n• Analytische und strukturierte Denkweise\n• Hohe Eigenverantwortung sowie Freude am Wissensaustausch\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+      "description": "SFS ist ein führender Systemanbieter für Qualitätswerkzeuge, Verbindungs- und Befestigungstechnik, C-Teile und Sonderteile. Das Unternehmen beliefert den Schweizer Markt in Handel, Handwerk und Industrie sowie Konzernkunden weltweit. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen die Kunden mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Verkauf der SFS Logistik- und Prozessoptimierungssysteme in branchennahe und fremde Märkte\n• Unterstützung des Vertriebs bei der Identifikation von Potenzialen sowie der Entwicklung und dem Verkauf von Bestellmodulen und Dienstleistungen\n• Betreuung und Koordination bestehender Logistiksysteme\n• Durchführung von Prozessanalysen beim Kunden\n• Schulung und Inbetriebnahme unserer Systeme bei Kunden\n• Planung, Durchführung, Überwachung des After-Sales-Service bei Kunden mit installierten Bewirtschaftungslösungen\n• Ganzheitliche Projektleitung und enge Abstimmung mit den internen Abteilungen Your profile:\n• Technische- oder kaufmännische Grundausbildung\n• Betriebswirtschaftliche oder Prozessorientierte Zusatzausbildung (Betriebswirtschafter HF, Prozessfachmann mit eidg. FA, o.ä)\n• Erfahrung in der Projektleitung, idealerweise im Bereich Prozessoptimierung.\n• Erfahrung im industriellen Umfeld sind von Vorteil.\n• Digitale Affinität\n• Deutsch und Englisch in Wort und Schrift\n• Hohe Reisebereitschaft\n• Teamorientierte, offene und kommunikative Persönlichkeit We offer:\n• Abwechslungsreiches Aufgabengebiet und Raum für Eigenverantwortung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Zahlreiche Sportangebote und Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Eigene Pensionskasse mit Auswahlmöglichkeit verschiedener Sparpläne\n• Weitere Benefits: Benefits | Join SFS",
       "descriptionByLocale": {
-        "it": "Come Process & Project Manager SAP nel segmento Sistemi di Fissaggio, supporta l'implementazione in tutto il mondo e la conformità ai nostri standard SAP e processi aziendali. Lavori a stretto contatto con le organizzazioni del mercato locale, IT e il team Process & Project Management e contribuisci a migliorare continuamente i processi SAP, gli utenti della formazione e ad implementare con successo progetti di roll-out internazionali. I vostri compiti:\n• Accompagna e coordina i roll-out internazionali SAP nel segmento Sistemi di Fissaggio\n• Sviluppare ulteriormente i processi aziendali insieme all'IT e alle aree specializzate\n• Progettazione, realizzazione e documentare la formazione SAP\n• Supporta gli utenti con problemi di processo e di sistema e coordina i biglietti\n• Garantire standard e modelli in tutto il mondo e ottimizzarli continuamente\n• Riconoscere i miglioramenti del processo e promuovere attivamente il tuo profilo:\n• Formazione professionale completa, idealmente con ulteriore formazione nell'ambiente commerciale, tecnico o aziendale\n• Esperienza nella gestione dei processi o dei progetti\n• Conoscenze SAP, idealmente nel processo di ordine-cash\n• L'esperienza con Confluenza o Jira è utile\n• pensiero analitico e strutturato\n• Alta responsabilità personale e godimento dello scambio di conoscenze\n• Molto buone competenze in tedesco e inglese in parola e scrittura Offriamo:\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Spazio per responsabilità personale e iniziativa\n• Altri vantaggi: https://join.sfs.com/ch/en/benefits/ Abbiamo suscitato il vostro interesse?: Applicare oggi tramite la nostra homepage Offerte di lavoro Riempiamo questa posizione senza il supporto dei fornitori di servizi del personale.",
-        "en": "As Process & Project Manager SAP in the Fastening Systems segment, you support the worldwide implementation and compliance with our SAP standards and business processes. You work closely with the local market organizations, IT and the Process & Project Management team and contribute to continuously improving SAP processes, training users and successfully implementing international roll-out projects. Your Tasks:\n• Accompany and coordinate international SAP roll-outs in the Fastening Systems segment\n• Further develop business processes together with IT and the specialist areas\n• Design, implement and document SAP training\n• Support users with process and system issues and coordinate tickets\n• Ensure standards and templates worldwide and continuously optimize them\n• Recognize process improvements and actively promote your profile:\n• Completed vocational training, ideally with further training in the commercial, technical or business environment\n• Experience in process or project management\n• SAP knowledge, ideally in the order-to-cash process\n• Experience with Confluence or Jira is beneficial\n• Analytical and structured thinking\n• High personal responsibility and enjoyment of knowledge exchange\n• Very good German and English skills in word and writing We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Space for personal responsibility and initiative\n• Other benefits: https://join.sfs.com/ch/en/benefits/ Have we sparked your interest?: Apply today via our homepage Job offers | Join SFS We fill this position without the support of personnel service providers.",
-        "de": "Als Process & Project Manager SAP im Segment Fastening Systems unterstützt du die weltweite Umsetzung und Einhaltung unserer SAP-Standards und Geschäftsprozesse. Du arbeitest eng mit den lokalen Marktorganisationen, der IT sowie dem Team Process & Project Management zusammen und trägst dazu bei, SAP-Prozesse kontinuierlich zu verbessern, Anwender zu schulen und internationale Roll-out-Projekte erfolgreich umzusetzen. Your Tasks:\n• Internationale SAP Roll-outs im Segment Fastening Systems begleiten und koordinieren\n• Geschäftsprozesse gemeinsam mit IT und den Fachbereichen weiterentwickeln\n• SAP-Schulungen konzipieren, durchführen und dokumentieren\n• Anwender bei Prozess- und Systemfragen unterstützen sowie Tickets koordinieren\n• Standards und Templates weltweit sicherstellen und kontinuierlich optimieren\n• Prozessverbesserungen erkennen und aktiv vorantreiben Your profile:\n• Abgeschlossene Berufsausbildung mit Weiterbildung im kaufmännischen, technischen oder betriebswirtschaftlichen Umfeld\n• Erfahrung im Prozess- oder Projektmanagement\n• SAP-Kenntnisse, idealerweise im Order-to-Cash-Prozess\n• Erfahrung mit Confluence oder Jira von Vorteil\n• Analytische und strukturierte Denkweise\n• Hohe Eigenverantwortung sowie Freude am Wissensaustausch\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
-        "fr": "En tant que gestionnaire de processus et de projets SAP dans le segment Systèmes de fixation, vous supportez la mise en œuvre et la conformité à l'échelle mondiale avec nos normes SAP et nos processus opérationnels. Vous travaillez en étroite collaboration avec les organisations locales du marché, l'informatique et l'équipe de gestion de processus et de projets et contribuez à l'amélioration continue des processus SAP, à la formation des utilisateurs et à la mise en œuvre réussie de projets de déploiement internationaux. Vos tâches :\n• Accompagner et coordonner les déploiements internationaux SAP dans le segment Systèmes de fixation\n• Développer les processus d'affaires en collaboration avec l'informatique et les domaines spécialisés\n• Conception, mise en œuvre et documentation de la formation SAP\n• Aider les utilisateurs avec les problèmes de processus et de système et coordonner les tickets\n• Assurer des normes et des modèles dans le monde entier et les optimiser en permanence\n• Reconnaître les améliorations des processus et promouvoir activement votre profil :\n• Formation professionnelle achevée, idéalement avec une formation continue dans l'environnement commercial, technique ou commercial\n• Expérience en gestion de processus ou de projets\n• Connaissances SAP, idéalement dans le processus d'ordre à ordre\n• L'expérience avec Confluence ou Jira est bénéfique\n• La pensée analytique et structurée\n• Haute responsabilité personnelle et jouissance de l'échange de connaissances\n• Très bonnes compétences en allemand et en anglais en paroles et en écriture Nous offrons:\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Espace pour la responsabilité personnelle et l'initiative\n• Autres avantages: https://join.sfs.com/ch/fr/bénéfices/ Avons-nous suscité votre intérêt?: Postuler aujourd'hui via notre page d'accueil Offres d'emploi Nous remplissons ce poste sans le soutien des fournisseurs de services de personnel."
+        "de": "SFS ist ein führender Systemanbieter für Qualitätswerkzeuge, Verbindungs- und Befestigungstechnik, C-Teile und Sonderteile. Das Unternehmen beliefert den Schweizer Markt in Handel, Handwerk und Industrie sowie Konzernkunden weltweit. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen die Kunden mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Verkauf der SFS Logistik- und Prozessoptimierungssysteme in branchennahe und fremde Märkte\n• Unterstützung des Vertriebs bei der Identifikation von Potenzialen sowie der Entwicklung und dem Verkauf von Bestellmodulen und Dienstleistungen\n• Betreuung und Koordination bestehender Logistiksysteme\n• Durchführung von Prozessanalysen beim Kunden\n• Schulung und Inbetriebnahme unserer Systeme bei Kunden\n• Planung, Durchführung, Überwachung des After-Sales-Service bei Kunden mit installierten Bewirtschaftungslösungen\n• Ganzheitliche Projektleitung und enge Abstimmung mit den internen Abteilungen Your profile:\n• Technische- oder kaufmännische Grundausbildung\n• Betriebswirtschaftliche oder Prozessorientierte Zusatzausbildung (Betriebswirtschafter HF, Prozessfachmann mit eidg. FA, o.ä)\n• Erfahrung in der Projektleitung, idealerweise im Bereich Prozessoptimierung.\n• Erfahrung im industriellen Umfeld sind von Vorteil.\n• Digitale Affinität\n• Deutsch und Englisch in Wort und Schrift\n• Hohe Reisebereitschaft\n• Teamorientierte, offene und kommunikative Persönlichkeit We offer:\n• Abwechslungsreiches Aufgabengebiet und Raum für Eigenverantwortung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Zahlreiche Sportangebote und Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Eigene Pensionskasse mit Auswahlmöglichkeit verschiedener Sparpläne\n• Weitere Benefits: Benefits | Join SFS",
+        "it": "SFS ist ein führender Systemanbieter für Qualitätswerkzeuge, Verbindungs- und Befestigungstechnik, C-Teile und Sonderteile. Das Unternehmen beliefert den Schweizer Markt in Handel, Handwerk und Industrie sowie Konzernkunden weltweit. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen die Kunden mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Verkauf der SFS Logistik- und Prozessoptimierungssysteme in branchennahe und fremde Märkte\n• Unterstützung des Vertriebs bei der Identifikation von Potenzialen sowie der Entwicklung und dem Verkauf von Bestellmodulen und Dienstleistungen\n• Betreuung und Koordination bestehender Logistiksysteme\n• Durchführung von Prozessanalysen beim Kunden\n• Schulung und Inbetriebnahme unserer Systeme bei Kunden\n• Planung, Durchführung, Überwachung des After-Sales-Service bei Kunden mit installierten Bewirtschaftungslösungen\n• Ganzheitliche Projektleitung und enge Abstimmung mit den internen Abteilungen Your profile:\n• Technische- oder kaufmännische Grundausbildung\n• Betriebswirtschaftliche oder Prozessorientierte Zusatzausbildung (Betriebswirtschafter HF, Prozessfachmann mit eidg. FA, o.ä)\n• Erfahrung in der Projektleitung, idealerweise im Bereich Prozessoptimierung.\n• Erfahrung im industriellen Umfeld sind von Vorteil.\n• Digitale Affinität\n• Deutsch und Englisch in Wort und Schrift\n• Hohe Reisebereitschaft\n• Teamorientierte, offene und kommunikative Persönlichkeit We offer:\n• Abwechslungsreiches Aufgabengebiet und Raum für Eigenverantwortung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Zahlreiche Sportangebote und Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Eigene Pensionskasse mit Auswahlmöglichkeit verschiedener Sparpläne\n• Weitere Benefits: Benefits | Join SFS",
+        "en": "SFS ist ein führender Systemanbieter für Qualitätswerkzeuge, Verbindungs- und Befestigungstechnik, C-Teile und Sonderteile. Das Unternehmen beliefert den Schweizer Markt in Handel, Handwerk und Industrie sowie Konzernkunden weltweit. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen die Kunden mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Verkauf der SFS Logistik- und Prozessoptimierungssysteme in branchennahe und fremde Märkte\n• Unterstützung des Vertriebs bei der Identifikation von Potenzialen sowie der Entwicklung und dem Verkauf von Bestellmodulen und Dienstleistungen\n• Betreuung und Koordination bestehender Logistiksysteme\n• Durchführung von Prozessanalysen beim Kunden\n• Schulung und Inbetriebnahme unserer Systeme bei Kunden\n• Planung, Durchführung, Überwachung des After-Sales-Service bei Kunden mit installierten Bewirtschaftungslösungen\n• Ganzheitliche Projektleitung und enge Abstimmung mit den internen Abteilungen Your profile:\n• Technische- oder kaufmännische Grundausbildung\n• Betriebswirtschaftliche oder Prozessorientierte Zusatzausbildung (Betriebswirtschafter HF, Prozessfachmann mit eidg. FA, o.ä)\n• Erfahrung in der Projektleitung, idealerweise im Bereich Prozessoptimierung.\n• Erfahrung im industriellen Umfeld sind von Vorteil.\n• Digitale Affinität\n• Deutsch und Englisch in Wort und Schrift\n• Hohe Reisebereitschaft\n• Teamorientierte, offene und kommunikative Persönlichkeit We offer:\n• Abwechslungsreiches Aufgabengebiet und Raum für Eigenverantwortung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Zahlreiche Sportangebote und Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Eigene Pensionskasse mit Auswahlmöglichkeit verschiedener Sparpläne\n• Weitere Benefits: Benefits | Join SFS",
+        "fr": "SFS ist ein führender Systemanbieter für Qualitätswerkzeuge, Verbindungs- und Befestigungstechnik, C-Teile und Sonderteile. Das Unternehmen beliefert den Schweizer Markt in Handel, Handwerk und Industrie sowie Konzernkunden weltweit. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen die Kunden mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Verkauf der SFS Logistik- und Prozessoptimierungssysteme in branchennahe und fremde Märkte\n• Unterstützung des Vertriebs bei der Identifikation von Potenzialen sowie der Entwicklung und dem Verkauf von Bestellmodulen und Dienstleistungen\n• Betreuung und Koordination bestehender Logistiksysteme\n• Durchführung von Prozessanalysen beim Kunden\n• Schulung und Inbetriebnahme unserer Systeme bei Kunden\n• Planung, Durchführung, Überwachung des After-Sales-Service bei Kunden mit installierten Bewirtschaftungslösungen\n• Ganzheitliche Projektleitung und enge Abstimmung mit den internen Abteilungen Your profile:\n• Technische- oder kaufmännische Grundausbildung\n• Betriebswirtschaftliche oder Prozessorientierte Zusatzausbildung (Betriebswirtschafter HF, Prozessfachmann mit eidg. FA, o.ä)\n• Erfahrung in der Projektleitung, idealerweise im Bereich Prozessoptimierung.\n• Erfahrung im industriellen Umfeld sind von Vorteil.\n• Digitale Affinität\n• Deutsch und Englisch in Wort und Schrift\n• Hohe Reisebereitschaft\n• Teamorientierte, offene und kommunikative Persönlichkeit We offer:\n• Abwechslungsreiches Aufgabengebiet und Raum für Eigenverantwortung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Zahlreiche Sportangebote und Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Jährliche Erfolgsbeteiligung\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Eigene Pensionskasse mit Auswahlmöglichkeit verschiedener Sparpläne\n• Weitere Benefits: Benefits | Join SFS"
       },
       "location": "Heerbrugg",
       "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/process-project-manager-sap-(m-f-d).html",
+      "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-in-eprozesse-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.716Z",
+      "crawledAt": "2026-08-20T22:10:08.440Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
       "postalCode": "9435",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "IT",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2986/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2986",
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3007/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3007",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T10:33:48.396Z",
-      "salaryMin": 92000,
-      "salaryMax": 156500,
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-eprozesse-m-f-d-sfs-group-heerbrugg"
+      ],
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 156500,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T22:10:08.440Z"
     },
     {
       "id": "sfs-group-eb2408b85d2b",
@@ -426,7 +436,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-schleifen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.583Z",
+      "crawledAt": "2026-08-20T22:10:08.271Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -508,7 +518,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.450Z",
+      "crawledAt": "2026-08-20T22:10:08.103Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -560,6 +570,74 @@
       }
     },
     {
+      "id": "sfs-group-a21052f2e503",
+      "slug": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
+        "it": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
+        "en": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "pim-data-governance-manager-m-f-d-80-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "PIM & Data Governance Manager (m/f/d) 80–",
+      "titleByLocale": {
+        "de": "PIM & Data Governance Manager (m/f/d) 80–",
+        "en": "PIM & Data Governance Manager (m/f/d) 80–",
+        "it": "PIM & Data Governance Manager (m/f/d) 80–",
+        "fr": "PIM & Data Governance Manager (m/f/d) 80–"
+      },
+      "description": "Als PIM Product Owner & Data Governance Manager im Segment Fastening Systems verantwortest du den Aufbau, Betrieb und die Weiterentwicklung unserer neuen PIM-Landschaft mit Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit internationalen Marktorganisationen, Product Management, Marketing, Group IT und externen Partnern zusammen. Zudem definierst und etablierst du Data-Governance-Richtlinien, Prozesse und Verantwortlichkeiten, um eine hohe Datenqualität und nachhaltige Datenstandards sicherzustellen. Damit schaffst du die Grundlage für qualitativ hochwertige Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Globale Verantwortung für die PIM-Plattform Informatica Product 360 in der IDMC\n• Aufbau und Verankerung der PIM Data Governance für Fastening Systems\n• Definition und Weiterentwicklung von Datenstandards, Qualitätsregeln und Freigabeprozessen\n• Optimierung der Produktdatenprozesse - von Onboarding bis Publikation\n• Internationale Zusammenarbeit mit Product Management, Marketing, IT und Marktorganisationen\n• Schulungen, Support und Dokumentation für interne Stakeholder Your profile:\n• Kaufmännische/technische Ausbildung mit mehrjähriger Erfahrung in Stammdaten, Produktdaten oder Data Management oder Studium in Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder vergleichbar\n• Erfahrung in PIM oder Data Governance, Informatica Product 360 von Vorteil\n• Verständnis für Datenqualität, Datenstrukturen und digitale Prozesse\n• Strukturiert, analytisch und mit ausgeprägter Eigeninitiative\n• Kommunikationsstark und sicher im Stakeholder Management\n• Sehr gute Deutsch- und Englischkenntnisse, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+      "descriptionByLocale": {
+        "de": "Als PIM Product Owner & Data Governance Manager im Segment Fastening Systems verantwortest du den Aufbau, Betrieb und die Weiterentwicklung unserer neuen PIM-Landschaft mit Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit internationalen Marktorganisationen, Product Management, Marketing, Group IT und externen Partnern zusammen. Zudem definierst und etablierst du Data-Governance-Richtlinien, Prozesse und Verantwortlichkeiten, um eine hohe Datenqualität und nachhaltige Datenstandards sicherzustellen. Damit schaffst du die Grundlage für qualitativ hochwertige Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Globale Verantwortung für die PIM-Plattform Informatica Product 360 in der IDMC\n• Aufbau und Verankerung der PIM Data Governance für Fastening Systems\n• Definition und Weiterentwicklung von Datenstandards, Qualitätsregeln und Freigabeprozessen\n• Optimierung der Produktdatenprozesse - von Onboarding bis Publikation\n• Internationale Zusammenarbeit mit Product Management, Marketing, IT und Marktorganisationen\n• Schulungen, Support und Dokumentation für interne Stakeholder Your profile:\n• Kaufmännische/technische Ausbildung mit mehrjähriger Erfahrung in Stammdaten, Produktdaten oder Data Management oder Studium in Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder vergleichbar\n• Erfahrung in PIM oder Data Governance, Informatica Product 360 von Vorteil\n• Verständnis für Datenqualität, Datenstrukturen und digitale Prozesse\n• Strukturiert, analytisch und mit ausgeprägter Eigeninitiative\n• Kommunikationsstark und sicher im Stakeholder Management\n• Sehr gute Deutsch- und Englischkenntnisse, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+        "it": "Als PIM Product Owner & Data Governance Manager im Segment Fastening Systems verantwortest du den Aufbau, Betrieb und die Weiterentwicklung unserer neuen PIM-Landschaft mit Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit internationalen Marktorganisationen, Product Management, Marketing, Group IT und externen Partnern zusammen. Zudem definierst und etablierst du Data-Governance-Richtlinien, Prozesse und Verantwortlichkeiten, um eine hohe Datenqualität und nachhaltige Datenstandards sicherzustellen. Damit schaffst du die Grundlage für qualitativ hochwertige Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Globale Verantwortung für die PIM-Plattform Informatica Product 360 in der IDMC\n• Aufbau und Verankerung der PIM Data Governance für Fastening Systems\n• Definition und Weiterentwicklung von Datenstandards, Qualitätsregeln und Freigabeprozessen\n• Optimierung der Produktdatenprozesse - von Onboarding bis Publikation\n• Internationale Zusammenarbeit mit Product Management, Marketing, IT und Marktorganisationen\n• Schulungen, Support und Dokumentation für interne Stakeholder Your profile:\n• Kaufmännische/technische Ausbildung mit mehrjähriger Erfahrung in Stammdaten, Produktdaten oder Data Management oder Studium in Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder vergleichbar\n• Erfahrung in PIM oder Data Governance, Informatica Product 360 von Vorteil\n• Verständnis für Datenqualität, Datenstrukturen und digitale Prozesse\n• Strukturiert, analytisch und mit ausgeprägter Eigeninitiative\n• Kommunikationsstark und sicher im Stakeholder Management\n• Sehr gute Deutsch- und Englischkenntnisse, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+        "en": "Als PIM Product Owner & Data Governance Manager im Segment Fastening Systems verantwortest du den Aufbau, Betrieb und die Weiterentwicklung unserer neuen PIM-Landschaft mit Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit internationalen Marktorganisationen, Product Management, Marketing, Group IT und externen Partnern zusammen. Zudem definierst und etablierst du Data-Governance-Richtlinien, Prozesse und Verantwortlichkeiten, um eine hohe Datenqualität und nachhaltige Datenstandards sicherzustellen. Damit schaffst du die Grundlage für qualitativ hochwertige Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Globale Verantwortung für die PIM-Plattform Informatica Product 360 in der IDMC\n• Aufbau und Verankerung der PIM Data Governance für Fastening Systems\n• Definition und Weiterentwicklung von Datenstandards, Qualitätsregeln und Freigabeprozessen\n• Optimierung der Produktdatenprozesse - von Onboarding bis Publikation\n• Internationale Zusammenarbeit mit Product Management, Marketing, IT und Marktorganisationen\n• Schulungen, Support und Dokumentation für interne Stakeholder Your profile:\n• Kaufmännische/technische Ausbildung mit mehrjähriger Erfahrung in Stammdaten, Produktdaten oder Data Management oder Studium in Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder vergleichbar\n• Erfahrung in PIM oder Data Governance, Informatica Product 360 von Vorteil\n• Verständnis für Datenqualität, Datenstrukturen und digitale Prozesse\n• Strukturiert, analytisch und mit ausgeprägter Eigeninitiative\n• Kommunikationsstark und sicher im Stakeholder Management\n• Sehr gute Deutsch- und Englischkenntnisse, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+        "fr": "Als PIM Product Owner & Data Governance Manager im Segment Fastening Systems verantwortest du den Aufbau, Betrieb und die Weiterentwicklung unserer neuen PIM-Landschaft mit Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit internationalen Marktorganisationen, Product Management, Marketing, Group IT und externen Partnern zusammen. Zudem definierst und etablierst du Data-Governance-Richtlinien, Prozesse und Verantwortlichkeiten, um eine hohe Datenqualität und nachhaltige Datenstandards sicherzustellen. Damit schaffst du die Grundlage für qualitativ hochwertige Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Globale Verantwortung für die PIM-Plattform Informatica Product 360 in der IDMC\n• Aufbau und Verankerung der PIM Data Governance für Fastening Systems\n• Definition und Weiterentwicklung von Datenstandards, Qualitätsregeln und Freigabeprozessen\n• Optimierung der Produktdatenprozesse - von Onboarding bis Publikation\n• Internationale Zusammenarbeit mit Product Management, Marketing, IT und Marktorganisationen\n• Schulungen, Support und Dokumentation für interne Stakeholder Your profile:\n• Kaufmännische/technische Ausbildung mit mehrjähriger Erfahrung in Stammdaten, Produktdaten oder Data Management oder Studium in Wirtschaftsinformatik, Wirtschaftsingenieurwesen oder vergleichbar\n• Erfahrung in PIM oder Data Governance, Informatica Product 360 von Vorteil\n• Verständnis für Datenqualität, Datenstrukturen und digitale Prozesse\n• Strukturiert, analytisch und mit ausgeprägter Eigeninitiative\n• Kommunikationsstark und sicher im Stakeholder Management\n• Sehr gute Deutsch- und Englischkenntnisse, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister."
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/pim-data-governance-manager-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-20T22:10:07.935Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3006/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3006",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T22:10:07.935Z"
+    },
+    {
       "id": "sfs-group-106532f039ac",
       "slug": "tecnico-di-misura-m-f-d-sfs-group-hallau",
       "slugByLocale": {
@@ -590,7 +668,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.316Z",
+      "crawledAt": "2026-08-20T22:10:07.767Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -670,7 +748,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.183Z",
+      "crawledAt": "2026-08-20T22:10:07.598Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -707,6 +785,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -719,6 +798,74 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-d5628f00a1be",
+      "slug": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+        "it": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+        "fr": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Kaltmassivumformer/in (m/f/d)",
+      "titleByLocale": {
+        "de": "Kaltmassivumformer/in (m/f/d)",
+        "en": "Kaltmassivumformer/in (m/f/d)",
+        "it": "Kaltmassivumformer/in (m/f/d)",
+        "fr": "Kaltmassivumformer/in (m/f/d)"
+      },
+      "description": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+      "descriptionByLocale": {
+        "de": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "it": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "en": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
+        "fr": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-20T22:10:07.433Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2829/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2829",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T22:10:07.433Z"
     },
     {
       "id": "sfs-group-0f7e375a6040",
@@ -751,7 +898,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/head-of-approval-and-testing-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:42.049Z",
+      "crawledAt": "2026-08-20T22:10:07.263Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -772,6 +919,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-17T10:20:08.898Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -784,6 +932,149 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-98ca54d31023",
+      "slug": "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+      "slugByLocale": {
+        "de": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "it": "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+        "en": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "fr": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+      "titleByLocale": {
+        "de": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+        "it": "Gebietsverkaufsleiter/in–Industrie e Metall (m/f/d)",
+        "en": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+        "fr": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)"
+      },
+      "description": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+      "descriptionByLocale": {
+        "de": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "it": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "en": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/"
+      },
+      "location": "Rotkreuz",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-20T22:10:07.092Z",
+      "addressLocality": "Rotkreuz",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2985/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2985",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T22:10:07.092Z"
+    },
+    {
+      "id": "sfs-group-3c8b7b63ccab",
+      "slug": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
+        "it": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
+        "en": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Data- & Contentmanager/in (m/f/d) 80–",
+      "titleByLocale": {
+        "de": "Data- & Contentmanager/in (m/f/d) 80–",
+        "it": "Data- & Contentmanager/in (m/f/d) 80–",
+        "en": "Data- & Contentmanager/in (m/f/d) 80–",
+        "fr": "Data- & Contentmanager/in (m/f/d) 80–"
+      },
+      "description": "Als Data- & Contentmanager/in im Segment Fastening Systems unterstützt du die Pflege, Qualitätssicherung und kontinuierliche Verbesserung unserer Produktdaten im neuen PIM Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit Product Management, Marketing, und internationalen Marktorganisationen zusammen. Damit leistest du einen wichtigen Beitrag zu konsistenten, vollständigen und qualitativ hochwertigen Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Verantwortlich für die Qualität, Vollständigkeit und Konsistenz der Produktstammdaten im PIM-System\n• Data Governance Regeln aktiv sicherstellen und einhalten\n• PIM Informatica Product 360 zentrale Business-Applikation betreuen\n• Produktdatenprozesse entlang des gesamten Datenlebenszyklus steuern und unterstützen\n• Enge Zusammenarbeit mit internationalen Marktorganisationen, Produkt Management, Marketing, Group IT und externen Partnern\n• Interne Stakeholder durch Schulungen, Dokumentation und Support befähigen Your profile:\n• Abgeschlossene kaufmännische oder technische Berufsausbildung\n• Erfahrung in PIM, Master Data Management wünschenswert\n• Verständnis für Datenmodelle, Attribute, Taxonomien, Workflows und Datenqualität\n• Erfahrung mit PIM-Systemen, idealerweise Informatica Product 360 von Vorteil\n• Kommunikationsstarke und serviceorientierte Persönlichkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+      "descriptionByLocale": {
+        "de": "Als Data- & Contentmanager/in im Segment Fastening Systems unterstützt du die Pflege, Qualitätssicherung und kontinuierliche Verbesserung unserer Produktdaten im neuen PIM Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit Product Management, Marketing, und internationalen Marktorganisationen zusammen. Damit leistest du einen wichtigen Beitrag zu konsistenten, vollständigen und qualitativ hochwertigen Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Verantwortlich für die Qualität, Vollständigkeit und Konsistenz der Produktstammdaten im PIM-System\n• Data Governance Regeln aktiv sicherstellen und einhalten\n• PIM Informatica Product 360 zentrale Business-Applikation betreuen\n• Produktdatenprozesse entlang des gesamten Datenlebenszyklus steuern und unterstützen\n• Enge Zusammenarbeit mit internationalen Marktorganisationen, Produkt Management, Marketing, Group IT und externen Partnern\n• Interne Stakeholder durch Schulungen, Dokumentation und Support befähigen Your profile:\n• Abgeschlossene kaufmännische oder technische Berufsausbildung\n• Erfahrung in PIM, Master Data Management wünschenswert\n• Verständnis für Datenmodelle, Attribute, Taxonomien, Workflows und Datenqualität\n• Erfahrung mit PIM-Systemen, idealerweise Informatica Product 360 von Vorteil\n• Kommunikationsstarke und serviceorientierte Persönlichkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+        "it": "Als Data- & Contentmanager/in im Segment Fastening Systems unterstützt du die Pflege, Qualitätssicherung und kontinuierliche Verbesserung unserer Produktdaten im neuen PIM Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit Product Management, Marketing, und internationalen Marktorganisationen zusammen. Damit leistest du einen wichtigen Beitrag zu konsistenten, vollständigen und qualitativ hochwertigen Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Verantwortlich für die Qualität, Vollständigkeit und Konsistenz der Produktstammdaten im PIM-System\n• Data Governance Regeln aktiv sicherstellen und einhalten\n• PIM Informatica Product 360 zentrale Business-Applikation betreuen\n• Produktdatenprozesse entlang des gesamten Datenlebenszyklus steuern und unterstützen\n• Enge Zusammenarbeit mit internationalen Marktorganisationen, Produkt Management, Marketing, Group IT und externen Partnern\n• Interne Stakeholder durch Schulungen, Dokumentation und Support befähigen Your profile:\n• Abgeschlossene kaufmännische oder technische Berufsausbildung\n• Erfahrung in PIM, Master Data Management wünschenswert\n• Verständnis für Datenmodelle, Attribute, Taxonomien, Workflows und Datenqualität\n• Erfahrung mit PIM-Systemen, idealerweise Informatica Product 360 von Vorteil\n• Kommunikationsstarke und serviceorientierte Persönlichkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+        "en": "Als Data- & Contentmanager/in im Segment Fastening Systems unterstützt du die Pflege, Qualitätssicherung und kontinuierliche Verbesserung unserer Produktdaten im neuen PIM Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit Product Management, Marketing, und internationalen Marktorganisationen zusammen. Damit leistest du einen wichtigen Beitrag zu konsistenten, vollständigen und qualitativ hochwertigen Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Verantwortlich für die Qualität, Vollständigkeit und Konsistenz der Produktstammdaten im PIM-System\n• Data Governance Regeln aktiv sicherstellen und einhalten\n• PIM Informatica Product 360 zentrale Business-Applikation betreuen\n• Produktdatenprozesse entlang des gesamten Datenlebenszyklus steuern und unterstützen\n• Enge Zusammenarbeit mit internationalen Marktorganisationen, Produkt Management, Marketing, Group IT und externen Partnern\n• Interne Stakeholder durch Schulungen, Dokumentation und Support befähigen Your profile:\n• Abgeschlossene kaufmännische oder technische Berufsausbildung\n• Erfahrung in PIM, Master Data Management wünschenswert\n• Verständnis für Datenmodelle, Attribute, Taxonomien, Workflows und Datenqualität\n• Erfahrung mit PIM-Systemen, idealerweise Informatica Product 360 von Vorteil\n• Kommunikationsstarke und serviceorientierte Persönlichkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister.",
+        "fr": "Als Data- & Contentmanager/in im Segment Fastening Systems unterstützt du die Pflege, Qualitätssicherung und kontinuierliche Verbesserung unserer Produktdaten im neuen PIM Informatica Product 360 in der IDMC. Du bist im Fastening Systems Product Data Team verankert und arbeitest eng mit Product Management, Marketing, und internationalen Marktorganisationen zusammen. Damit leistest du einen wichtigen Beitrag zu konsistenten, vollständigen und qualitativ hochwertigen Produktdaten für unsere digitalen Kanäle. Start per sofort oder nach Vereinbarung. Your Tasks:\n• Verantwortlich für die Qualität, Vollständigkeit und Konsistenz der Produktstammdaten im PIM-System\n• Data Governance Regeln aktiv sicherstellen und einhalten\n• PIM Informatica Product 360 zentrale Business-Applikation betreuen\n• Produktdatenprozesse entlang des gesamten Datenlebenszyklus steuern und unterstützen\n• Enge Zusammenarbeit mit internationalen Marktorganisationen, Produkt Management, Marketing, Group IT und externen Partnern\n• Interne Stakeholder durch Schulungen, Dokumentation und Support befähigen Your profile:\n• Abgeschlossene kaufmännische oder technische Berufsausbildung\n• Erfahrung in PIM, Master Data Management wünschenswert\n• Verständnis für Datenmodelle, Attribute, Taxonomien, Workflows und Datenqualität\n• Erfahrung mit PIM-Systemen, idealerweise Informatica Product 360 von Vorteil\n• Kommunikationsstarke und serviceorientierte Persönlichkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Zahlreiche Vergünstigungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben Sie sich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleister."
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/data-contentmanager-in-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-20T22:10:06.926Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3003/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3003",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T22:10:06.926Z"
     },
     {
       "id": "sfs-group-8e63d8a49f76",
@@ -816,7 +1107,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:08:41.905Z",
+      "crawledAt": "2026-08-20T22:10:06.754Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -896,7 +1187,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:41.772Z",
+      "crawledAt": "2026-08-20T22:10:06.585Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -962,7 +1253,7 @@
       "title": "Automatiker/in Instandhaltung (m/f/d)",
       "titleByLocale": {
         "it": "Operatore automatico/in manutenzione (m/f/d)",
-        "en": "Automatic engineer/maintenance (m/f/d)",
+        "en": "Automatiker/in Instandhaltung (m/f/d)",
         "de": "Automatiker/in Instandhaltung (m/f/d)",
         "fr": "Opérateur automatique/en maintenance (m/f/d)"
       },
@@ -978,7 +1269,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:41.632Z",
+      "crawledAt": "2026-08-20T22:10:06.413Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1064,7 +1355,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:41.483Z",
+      "crawledAt": "2026-08-20T22:10:06.207Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1146,7 +1437,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:41.286Z",
+      "crawledAt": "2026-08-20T22:10:05.985Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1195,6 +1486,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-7df2f3964952",
+      "slug": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "it": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+        "en": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+        "de": "process-project-manager-sap-m-f-d-sfs-group-heerbrugg",
+        "fr": "gestionnaire-de-processus-et-de-projet-sap-m-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Process & Project Manager SAP (m/f/d)",
+      "titleByLocale": {
+        "it": "Process & Project Manager SAP (m/f/d)",
+        "en": "Process & Project Manager SAP (m/f/d)",
+        "de": "Process & Project Manager SAP (m/f/d)",
+        "fr": "Gestionnaire de processus et de projet SAP (m/f/d)"
+      },
+      "description": "Als Process & Project Manager SAP im Segment Fastening Systems unterstützt du die weltweite Umsetzung und Einhaltung unserer SAP-Standards und Geschäftsprozesse. Du arbeitest eng mit den lokalen Marktorganisationen, der IT sowie dem Team Process & Project Management zusammen und trägst dazu bei, SAP-Prozesse kontinuierlich zu verbessern, Anwender zu schulen und internationale Roll-out-Projekte erfolgreich umzusetzen. Your Tasks:\n• Internationale SAP Roll-outs im Segment Fastening Systems begleiten und koordinieren\n• Geschäftsprozesse gemeinsam mit IT und den Fachbereichen weiterentwickeln\n• SAP-Schulungen konzipieren, durchführen und dokumentieren\n• Anwender bei Prozess- und Systemfragen unterstützen sowie Tickets koordinieren\n• Standards und Templates weltweit sicherstellen und kontinuierlich optimieren\n• Prozessverbesserungen erkennen und aktiv vorantreiben Your profile:\n• Abgeschlossene Berufsausbildung mit Weiterbildung im kaufmännischen, technischen oder betriebswirtschaftlichen Umfeld\n• Erfahrung im Prozess- oder Projektmanagement\n• SAP-Kenntnisse, idealerweise im Order-to-Cash-Prozess\n• Erfahrung mit Confluence oder Jira von Vorteil\n• Analytische und strukturierte Denkweise\n• Hohe Eigenverantwortung sowie Freude am Wissensaustausch\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+      "descriptionByLocale": {
+        "it": "Come Process & Project Manager SAP nel segmento Sistemi di Fissaggio, supporta l'implementazione in tutto il mondo e la conformità ai nostri standard SAP e processi aziendali. Lavori a stretto contatto con le organizzazioni del mercato locale, IT e il team Process & Project Management e contribuisci a migliorare continuamente i processi SAP, gli utenti della formazione e ad implementare con successo progetti di roll-out internazionali. I vostri compiti:\n• Accompagna e coordina i roll-out internazionali SAP nel segmento Sistemi di Fissaggio\n• Sviluppare ulteriormente i processi aziendali insieme all'IT e alle aree specializzate\n• Progettazione, realizzazione e documentare la formazione SAP\n• Supporta gli utenti con problemi di processo e di sistema e coordina i biglietti\n• Garantire standard e modelli in tutto il mondo e ottimizzarli continuamente\n• Riconoscere i miglioramenti del processo e promuovere attivamente il tuo profilo:\n• Formazione professionale completa, idealmente con ulteriore formazione nell'ambiente commerciale, tecnico o aziendale\n• Esperienza nella gestione dei processi o dei progetti\n• Conoscenze SAP, idealmente nel processo di ordine-cash\n• L'esperienza con Confluenza o Jira è utile\n• pensiero analitico e strutturato\n• Alta responsabilità personale e godimento dello scambio di conoscenze\n• Molto buone competenze in tedesco e inglese in parola e scrittura Offriamo:\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Spazio per responsabilità personale e iniziativa\n• Altri vantaggi: https://join.sfs.com/ch/en/benefits/ Abbiamo suscitato il vostro interesse?: Applicare oggi tramite la nostra homepage Offerte di lavoro Riempiamo questa posizione senza il supporto dei fornitori di servizi del personale.",
+        "en": "As Process & Project Manager SAP in the Fastening Systems segment, you support the worldwide implementation and compliance with our SAP standards and business processes. You work closely with the local market organizations, IT and the Process & Project Management team and contribute to continuously improving SAP processes, training users and successfully implementing international roll-out projects. Your Tasks:\n• Accompany and coordinate international SAP roll-outs in the Fastening Systems segment\n• Further develop business processes together with IT and the specialist areas\n• Design, implement and document SAP training\n• Support users with process and system issues and coordinate tickets\n• Ensure standards and templates worldwide and continuously optimize them\n• Recognize process improvements and actively promote your profile:\n• Completed vocational training, ideally with further training in the commercial, technical or business environment\n• Experience in process or project management\n• SAP knowledge, ideally in the order-to-cash process\n• Experience with Confluence or Jira is beneficial\n• Analytical and structured thinking\n• High personal responsibility and enjoyment of knowledge exchange\n• Very good German and English skills in word and writing We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Space for personal responsibility and initiative\n• Other benefits: https://join.sfs.com/ch/en/benefits/ Have we sparked your interest?: Apply today via our homepage Job offers | Join SFS We fill this position without the support of personnel service providers.",
+        "de": "Als Process & Project Manager SAP im Segment Fastening Systems unterstützt du die weltweite Umsetzung und Einhaltung unserer SAP-Standards und Geschäftsprozesse. Du arbeitest eng mit den lokalen Marktorganisationen, der IT sowie dem Team Process & Project Management zusammen und trägst dazu bei, SAP-Prozesse kontinuierlich zu verbessern, Anwender zu schulen und internationale Roll-out-Projekte erfolgreich umzusetzen. Your Tasks:\n• Internationale SAP Roll-outs im Segment Fastening Systems begleiten und koordinieren\n• Geschäftsprozesse gemeinsam mit IT und den Fachbereichen weiterentwickeln\n• SAP-Schulungen konzipieren, durchführen und dokumentieren\n• Anwender bei Prozess- und Systemfragen unterstützen sowie Tickets koordinieren\n• Standards und Templates weltweit sicherstellen und kontinuierlich optimieren\n• Prozessverbesserungen erkennen und aktiv vorantreiben Your profile:\n• Abgeschlossene Berufsausbildung mit Weiterbildung im kaufmännischen, technischen oder betriebswirtschaftlichen Umfeld\n• Erfahrung im Prozess- oder Projektmanagement\n• SAP-Kenntnisse, idealerweise im Order-to-Cash-Prozess\n• Erfahrung mit Confluence oder Jira von Vorteil\n• Analytische und strukturierte Denkweise\n• Hohe Eigenverantwortung sowie Freude am Wissensaustausch\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+        "fr": "En tant que gestionnaire de processus et de projets SAP dans le segment Systèmes de fixation, vous supportez la mise en œuvre et la conformité à l'échelle mondiale avec nos normes SAP et nos processus opérationnels. Vous travaillez en étroite collaboration avec les organisations locales du marché, l'informatique et l'équipe de gestion de processus et de projets et contribuez à l'amélioration continue des processus SAP, à la formation des utilisateurs et à la mise en œuvre réussie de projets de déploiement internationaux. Vos tâches :\n• Accompagner et coordonner les déploiements internationaux SAP dans le segment Systèmes de fixation\n• Développer les processus d'affaires en collaboration avec l'informatique et les domaines spécialisés\n• Conception, mise en œuvre et documentation de la formation SAP\n• Aider les utilisateurs avec les problèmes de processus et de système et coordonner les tickets\n• Assurer des normes et des modèles dans le monde entier et les optimiser en permanence\n• Reconnaître les améliorations des processus et promouvoir activement votre profil :\n• Formation professionnelle achevée, idéalement avec une formation continue dans l'environnement commercial, technique ou commercial\n• Expérience en gestion de processus ou de projets\n• Connaissances SAP, idéalement dans le processus d'ordre à ordre\n• L'expérience avec Confluence ou Jira est bénéfique\n• La pensée analytique et structurée\n• Haute responsabilité personnelle et jouissance de l'échange de connaissances\n• Très bonnes compétences en allemand et en anglais en paroles et en écriture Nous offrons:\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Espace pour la responsabilité personnelle et l'initiative\n• Autres avantages: https://join.sfs.com/ch/fr/bénéfices/ Avons-nous suscité votre intérêt?: Postuler aujourd'hui via notre page d'accueil Offres d'emploi Nous remplissons ce poste sans le soutien des fournisseurs de services de personnel."
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/process-project-manager-sap-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-20T10:08:42.716Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-07",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2986/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2986",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T10:33:48.396Z",
+      "salaryMin": 92000,
+      "salaryMax": 156500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 156500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "sfs-group-11ecf5c038f8",
@@ -1260,7 +1618,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
