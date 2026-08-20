@@ -373,6 +373,13 @@ export function readHostAvailableMb(procMeminfoPath = '/proc/meminfo'): number |
  *
  * @returns `null` dove il file non esiste (macOS) o manca `VmRSS`. `VmSwap`
  *   assente con `VmRSS` presente (kernel molto vecchi) vale 0, non null.
+ *
+ * Verificato contro l'output reale di un runner GH Actions (#6174 item 2):
+ * il kernel separa etichetta e valore con TAB (`VmRSS:\t 100392 kB`), non
+ * spazi come nelle fixture sintetiche dei test — `\s+` nella regex copre
+ * entrambi, quindi non serve alcun fix di parsing. Il test senza path in
+ * `tests/build-memory-guard.test.ts` legge il file vero del processo a ogni
+ * run e fa da regression guard permanente contro derive future.
  */
 export function readSelfAnonMb(
   procSelfStatusPath = '/proc/self/status',
