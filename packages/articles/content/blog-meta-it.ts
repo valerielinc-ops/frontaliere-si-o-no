@@ -10250,6 +10250,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-svizzera-dati.title': 'Lavoratori frontalieri in Svizzera scambio automatico dei dati',
     'blog.article.frontaliere-svizzera-dati.excerpt': 'Il Consiglio federale svizzero ha attivato la base legale per il flusso informativo reciproco con l\'Italia e la Francia.',
     'blog.article.frontaliere-svizzera-dati.imageAlt': 'Lavoro frontaliero in Ticino',
+    'blog.article.castiglione-olona-frontaliere-ticino.title': 'Frontalieri castiglione olona: guida lavoro Ticino',
+    'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona: scelta strategica per frontalieri Ticino. Permesso G, imposta alla fonte, AVS, LAMal, ristorni 2024.',
+    'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Pendolare al varco di confine Chiasso con vista sul lago Lugano e sulle montagne ticinesi.',
 };
 
 export default blogMetaIt;

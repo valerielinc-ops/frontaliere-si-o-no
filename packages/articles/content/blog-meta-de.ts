@@ -10248,6 +10248,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-svizzera-dati.title': 'Grenzgänger in der Schweiz automatischer Datenaustausch',
     'blog.article.frontaliere-svizzera-dati.excerpt': 'Der Schweizerische Bundesrat hat die Rechtsgrundlage für den gegenseitigen Informationsfluss mit Italien und Frankreich geschaffen.',
     'blog.article.frontaliere-svizzera-dati.imageAlt': 'Frontalier in Tessin',
+    'blog.article.castiglione-olona-frontaliere-ticino.title': 'Grenzgänger Castiglione Olona: Arbeitsanleitung Tessin',
+    'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona: Strategische Wahl für Grenzgänger im Tessin. Bewilligung G, Quellensteuer, AHV, KVG, Rückvergütungen 2024.',
+    'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Grenzpendler am Grenzübergang Chiasso mit Blick auf den Luga­no-See und Tessiner Berge.',
 };
 
 export default blogMetaDe;
