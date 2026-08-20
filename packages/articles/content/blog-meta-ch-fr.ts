@@ -3613,6 +3613,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-sciaffusa.title': 'Impôt sur les successions et les donations Schaffhouse : taux',
     'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Découvrez les taux, les exonérations pour conjoint et descendants, les procédures et les délais pour l\'impôt sur les successions dans le canton de Schaffhouse. Guide complet pour les héritiers.',
     'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'Un conseiller fiscal examine les documents de succession dans un bureau cantonal suisse',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'Prix LAMal Appenzell Extérieur et réduction des prix',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Guide des primes LAMal dans le canton d\'Appenzell Extérieur : franchises, modèles d\'assurance disponibles, subventions cantonales et procédure de demande de réduction basée sur le revenu.',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Bureau d\'assurance-maladie cantonal suisse, personnel aide résident pour demande de réduction prime',
 };
 
 export default blogMetaChFr;

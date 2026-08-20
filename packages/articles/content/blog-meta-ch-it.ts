@@ -3613,6 +3613,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-sciaffusa.title': 'Imposta successione e donazione Sciaffusa: aliquote',
     'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Scopri aliquote, esenzioni per coniuge e discendenti, procedure e termini per l\'imposta di successione nel canton Sciaffusa. Guida completa per eredi.',
     'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'Un consulente esamina documenti di successione in un ufficio svizzero del canton Sciaffusa',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'Premi LAMal Appenzello Esterno e riduzione premi',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Guida ai premi LAMal nel Cantone di Appenzello Esterno: franchigie, modelli assicurativi disponibili, sussidi cantonali e procedura per richiedere la riduzione basata su reddito.',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Ufficio cantonale svizzero con personale che assiste residente per documentazione riduzione premi LAMal',
 };
 
 export default blogMetaChIt;
