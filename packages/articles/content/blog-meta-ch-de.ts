@@ -3502,6 +3502,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Kantonale Steuern Schaffhausen: Steuersätze und Abzüge',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Praktischer Leitfaden zum System der Kantons- und Gemeindesteuern im Kanton Schaffhausen. Steuersätze, zulässige Abzüge, Anmeldefristen und Zugang zum Online-Portal der Steuerverwaltung.',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Modernes kantonales Steuerbürogebäude in einer schweizerischen Verwaltungsstadt bei Tageslicht.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Neutralitätserhebung: Tessin 52% und Schweiz 36%',
+    'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'Im Vorfeld der Abstimmung vom 27. September über die Neutralitätsinitiative zeigt die Tamedia-Umfrage eine starke Divergenz zwischen dem Tessin und dem Rest des Landes.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Abstimmungsunterlagen und Urne in der Schweiz zur Neutralitätsinitiative',
 };
 
 export default blogMetaChDe;

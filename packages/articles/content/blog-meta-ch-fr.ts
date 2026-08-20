@@ -3502,6 +3502,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Impôts cantonaux Schaffhouse : taux et déductions',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Guide pratique du système d\'impôts cantonaux et communaux dans le canton de Schaffhouse. Taux, déductions autorisées, délais de déclaration et accès au portail en ligne de l\'administration fiscale.',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Bâtiment administratif moderne d\'un bureau fiscal cantonal suisse dans une ville représentative.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Sondage neutralité : Tessin à 52 % et Suisse à 36 %',
+    'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'En vue du vote du 27 septembre sur l\'initiative sur la neutralité, le sondage Tamedia révèle une forte divergence entre le Tessin et le reste de la nation.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Documents de vote et urne électorale en Suisse pour l\'initiative sur la neutralité',
 };
 
 export default blogMetaChFr;

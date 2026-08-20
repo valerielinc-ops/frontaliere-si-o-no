@@ -3502,6 +3502,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Imposte cantonali Sciaffusa: aliquote e deduzioni',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Guida pratica al sistema di imposte cantonali e comunali nel Canton Sciaffusa. Aliquote, deduzioni ammesse, scadenze di dichiarazione e accesso al portale online dell\'amministrazione fiscale.',
     'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Edificio amministrativo moderno di un ufficio fiscale cantonale svizzero in una cittadina rappresentativa.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.title': 'Sondaggio neutralità: Ticino al 52% e Svizzera al 36%',
+    'blog.article.sondaggio-neutralita-ticinese-voto.excerpt': 'In vista del voto del 27 settembre sull\'iniziativa sulla neutralità, il sondaggio Tamedia rivela una forte divergenza tra il Ticino e il resto della nazione.',
+    'blog.article.sondaggio-neutralita-ticinese-voto.imageAlt': 'Documenti di voto e urna elettorale in Svizzera per il voto sulla neutralità',
 };
 
 export default blogMetaChIt;
