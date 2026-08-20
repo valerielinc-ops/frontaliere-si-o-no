@@ -19,7 +19,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy } from '../scripts/ci/verify-checkout-profiles.mjs';
+import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy, importedDataOrPublicPathsIn } from '../scripts/ci/verify-checkout-profiles.mjs';
 import { BUCKETS, BASELINE_MB, TREE_MB, CROSSOVER_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(process.cwd(), '.github/workflows');
@@ -62,6 +62,21 @@ describe('profili di sparse-checkout', () => {
     const { problems } = verifyCheckoutProfiles();
     expect(problems.filter((p) => p.includes('escluderebbe il codice'))).toEqual([]);
   }, TIMEOUT);
+
+  it('estrae solo import veri verso data/public, non stringhe letterali generiche (issue #6149)', () => {
+    // `tsc` risolve gli specificatori di import sul disco, non le stringhe
+    // passate a `fs.readFileSync` a runtime: quelle le legge il codice quando
+    // gira, non il compilatore. Falso positivo reale misurato su
+    // build-plugins/*.ts prima di questo restringimento.
+    expect([...importedDataOrPublicPathsIn("import x from '../../data/foo.json';")]).toEqual(['data/foo.json']);
+    expect([...importedDataOrPublicPathsIn("const p = 'data/foo.json';")]).toEqual([]);
+    // import multi-riga (named import lunghi)
+    const multiline = "import {\n  a,\n  b,\n} from '../public/data/x.json';";
+    expect([...importedDataOrPublicPathsIn(multiline)]).toEqual(['public/data/x.json']);
+    // «from» isolato in prosa inglese dentro un commento non e' un import —
+    // falso positivo reale osservato in build-plugins/jobsSeoPagesPlugin.ts.
+    expect([...importedDataOrPublicPathsIn('// Local placeholder served from `public/images/x.svg`.')]).toEqual([]);
+  });
 
   it('lascia sempre presente la coda leggera: i bucket sono solo foglie pesanti', () => {
     // La sicurezza dell'operazione poggia su questo: cio' che e' escludibile e'
