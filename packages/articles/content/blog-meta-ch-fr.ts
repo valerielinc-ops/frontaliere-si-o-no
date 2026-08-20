@@ -3499,6 +3499,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canton-basilea-campagna-settori.title': 'Marché du travail Bâle-Campagne : salaires et secteurs',
     'blog.article.canton-basilea-campagna-settori.excerpt': 'Guide pratique sur les salaires, les horaires, les droits et la prévoyance sur le marché du travail suisse. Découvrez les cotisations AVS, LPP, la fiscalité cantonale et comment évaluer une offre.',
     'blog.article.canton-basilea-campagna-settori.imageAlt': 'Bureau moderne suisse avec des professionnels discutant de contrats de travail et de salaires',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Impôts cantonaux Schaffhouse : taux et déductions',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Guide pratique du système d\'impôts cantonaux et communaux dans le canton de Schaffhouse. Taux, déductions autorisées, délais de déclaration et accès au portail en ligne de l\'administration fiscale.',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Bâtiment administratif moderne d\'un bureau fiscal cantonal suisse dans une ville représentative.',
 };
 
 export default blogMetaChFr;

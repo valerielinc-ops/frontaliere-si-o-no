@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 04:03:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 04:30:06 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,53 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cantonal taxes Schaffhausen: rates and deductions</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/canton-schaffhausen-taxes-deductions/</link>
+      <description><![CDATA[Practical guide to the cantonal and municipal tax system in the Canton of Schaffhausen. Rates, allowable deductions, reporting deadlines and access to the online portal of the tax administration.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Cantonal taxes vary by canton; each administration has its own jurisdiction over rates
+- Three-level system: federal (AFC/ESTV), cantonal and municipal with multiplier
+- Mandatory declaration for residents above the income threshold, annual deadlines
+- Online portal of the Canton of Schaffhausen allows consultation of standards, download of forms, electronic declaration
+
+## Key facts
+- **What**: Cantonal and municipal taxes managed by the local administration of Schaffhausen
+- Where: Canton Schaffhausen and all Swiss cantons (decentralised system)
+- Who: Cantonal tax administration (local taxes); AFC/ESTV (federal taxes)
+- When: Annual declaration; deadlines communicated by the cantonal administration
+- Levels: Three (federal, cantonal, municipal)
+- Common: They apply a multiplier on the cantonal rate to determine local rates
+
+In Canton Schaffhausen, as in all Swiss cantons, the tax regime is decentralized: each cantonal administration has its own jurisdiction over rates, brackets, deductions and reporting deadlines. Unlike direct federal tax (DFI) and VAT managed by the AFC/ESTV at the central level, cantonal and municipal taxes are entirely managed by the cantonal administration of Schaffhausen. The annual [dichiarazione dei redditi](nav:tax-return) is mandatory for residents who meet certain income thresholds, and the cantonal administration's online portal provides forms, detailed instructions and information on
+### Practical Implications of the Cantonal Tax Regime
+
+In Canton Schaffhausen, as in every Swiss canton, the local tax regime has concrete implications for the calculation of the effective tax burden on residents' income and assets. Cantonal taxation combines directly with federal and municipal taxation, creating an overall tax burden that varies significantly based on the taxpayer's income level and deductions allowed by local law. Each canton has its own rules on which expenses are deductible from taxable income: some cantons allow deductions for ordinary and extraordinary medical expenses, donations to charities, voluntary social security contributions to the third pillar 3a, accident insurance premiums, and other items according to specific thresholds and limits. In the canton of Schaffhausen, the cantonal administration publishes a detailed guide on allowable deductions, which taxpayers consult on the online portal or at the cantonal counters.
+
+For those working in Switzerland, the tax at source is withheld by the employer directly on the [busta paga](nav:payslip) during the year, based on cantonal withholding tables. The final tax return then allows you to check if the withholding has been corrected or if an additional amount is due to be paid, or if the taxpayer is entitled to a refund. In the Canton of Schaffhausen, this verification takes place through the annual declaration process managed
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Procedure for Filing a Tax Declaration in the Canton of Schaffhausen
+
+The tax declaration process in the Canton of Schaffhausen involves collecting the necessary documentation: pay stubs from employers, bank statements with interest income, pension income certificates, insurance policies, medical expense receipts, donation invoices to charitable organizations, and all deductible expenses according to the applicable cantonal regulations. Subsequently, the taxpayer accesses the portal of the cantonal tax administration to download the updated tax declaration form for the relevant tax year, consult the specific instructions for completion, and note the deadline for submission.
+
+Once the form has been completed with personal data, income, and admissible deductions, it is essential to verify the strict compliance with the deadline communicated annually by the cantonal administration. If the admissibility of certain deductions is not clear from the published documentation, it is advisable to contact the cantonal office directly to obtain clarification before official submission. The declaration can be submitted via the online portal (if available), by postal mail directly to the cantonal administration, or through a tax office or consultant, depending on the options offered by the Canton of Schaffhausen. After submission, the administration formally verifies the declaration and communicates the amount due or the refund due to the taxpayer within the administrative times provided.
+
+### Common Situations in the Canton
+
+A salaried worker who receives a monthly salary already has a withholding tax applied by the employer during the year based on cantonal tables: the final declaration allows verifying if the total withholding was correct compared to the actual tax burden calculated on the entire annual income, and if the taxpayer is entitled to a refund or owes a balance. A pensioner receiving professional previdence income (second pillar) or third pillar income must declare these incomes according to cantonal regulations. A self-employed professional or sole proprietor must declare their net revenues and profits, applying all admissible deductions for professional expenses necessary for the activity.
+
+A resident parent in the Canton of Schaffhausen can benefit from specific deductions for childcare expenses, according to the limits set by cantonal law. A taxpayer owning properties in the canton must declare their rental income (net of deductible expenses for maintenance, interest, and property taxes).
+
+### Access to Data and Practical Support
+
+To estimate your overall tax burden (federal, cantonal, and communal) and understand how the tax regime of the Canton of Schaffhausen affects your personal finances, use the [tax calculator](nav:calculator). A practical tool that, by entering your income and family and patrimonial situation, helps you plan your annual declarations and predict the overall tax burden before submitting the official declaration to the cantonal administration.]]></content:encoded>
+      <pubDate>Thu, 20 Aug 2026 04:30:06 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/canton-sciaffusa-aliquote-deduzioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/canton-sciaffusa-aliquote-deduzioni.webp" medium="image"/>
+    </item>
     <item>
       <title>Labour market Basel Countryside: wages and sectors</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/canton-basel-landschaft-sectors/</link>
@@ -2721,51 +2768,6 @@ For a precise net salary calculation, use our [tax comparator](nav:calculator): 
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/asilo-statistica-luglio-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/asilo-statistica-luglio-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Asylum seekers resume transfers to Italy</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/italy-restarts-asylum-repatriations/</link>
-      <description><![CDATA[Switzerland will resume transfers of asylum seekers to Italy, after almost four years of blockade.]]></description>
-      <content:encoded><![CDATA[Switzerland will resume transfers of asylum seekers to Italy, after almost four years of blockade. Transfers will be managed gradually, as confirmed by the State Secretariat for Migration (SEM). The resumption of transfers is linked to the new European Pact on Migration and Asylum, which entered into force on 12 June.
-
-The decision was taken after a long period of negotiations between Switzerland and the European Union. SEM confirmed that the transfers will resume shortly, but did not provide an exact date. 📊
-
-The new European Pact on Migration and Asylum provides for the resumption of transfers of asylum seekers between EU Member States. Switzerland, not being a member of the EU, had to negotiate a specific agreement to join this pact. The agreement was signed on 26 June and enters into force on 12 June.
-
-The resumption of transfers is an important new development for Switzerland, which has had to deal with the crisis of asylum seekers in recent years. According to SEM data, in 2020 about 43,000 asylum seekers were registered in Switzerland, while in 2021 the number fell to about 26,000. The decrease was attributed to the crisis of asylum seekers and their greater mobility to other countries.
-
-The resumption of transfers will be managed gradually, to avoid creating reception and integration problems for asylum seekers. SEM announced that the
-The resumption of transfers of asylum seekers to Italy is linked to the new European Pact on Migration and Asylum, which provides financial support and other discounts for countries of arrival, such as Italy. Switzerland could now return only 652 people to Italy, as almost 40% of asylum seekers have obtained protection in Switzerland.
-
-According to data from the Federal Office of Legal Affairs (UJU), between 2020 and 2022, 1,454 asylum seekers were repatriated to Italy, worth 24.5 million francs. However, due to the failure to ratify the European Pact on Migration and Asylum, Switzerland was forced to suspend the transfers.
-
-With the ratification of the European Pact on Migration and Asylum, Switzerland could now return up to 652 people a year to Italy. This means that Switzerland could return to Italy about 30% of asylum seekers who have obtained protection in Switzerland. 📊
-
-The European Pact on Migration and Asylum also provides financial support for countries of arrival, such as Italy. Switzerland could contribute 20 million francs per year to support the countries of arrival. This financial support could help cover the costs related to the transfers and reception of asylum seekers.
-
-In addition, the European Pact on Migration and Asylum also provides for the creation of a fund to support countries of arrival.
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-Switzerland resumes the returns of asylum seekers who arrived after June 12, the date on which the new immigration law came into force. The spokeswoman for the Federal Department of Foreign Affairs (FDFA), Magdalena Baker, explained that the new procedures must first be tested on the basis of current cases.
-
-"The new procedures must first be tested on the basis of current cases," said spokeswoman Magdalena Baker. “The FDFA works closely with the cantons and relevant authorities to ensure that the new procedures are effective and respect human rights.”
-
-The first returns concern asylum seekers who arrived after 12 June. According to FDFA data, there are currently around 1,500 asylum seekers in Switzerland who arrived after this date. The cantons of Bern, Zurich and Geneva host the largest number of asylum seekers.
-
-The new immigration law provides that asylum seekers are required to submit their asylum application within one month of their arrival in Switzerland. If the application is not submitted within this period, the asylum seeker may be repatriated.
-
-The law also provides that asylum seekers are required to reside in the canton in which they have applied for asylum. In the event of repatriation, the asylum seeker may be taken back to the canton where he/she submitted the asylum application.
-
-The FDFA has also established a
-
-Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swiss companies hiring cross-border workers.
-
-*Source: [rsi.ch](https://www.rsi.ch/s/3995190)*]]></content:encoded>
-      <pubDate>Tue, 18 Aug 2026 09:52:42 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/italia-rimpatrio-asilo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/italia-rimpatrio-asilo.webp" medium="image"/>
     </item>
   </channel>
 </rss>
