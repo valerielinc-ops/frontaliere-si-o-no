@@ -6,7 +6,7 @@
  * mirror. See scripts/lib/events-utils.mjs.
  */
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { existsSync, rmSync } from 'node:fs';
+import { existsSync, readFileSync, rmSync } from 'node:fs';
 import path from 'node:path';
 import {
   EVENT_SOURCES,
@@ -201,10 +201,12 @@ describe('mirrorEventImage', () => {
     vi.unstubAllGlobals();
     // Clean up any file this test wrote so repeated runs stay idempotent and
     // don't leak fixture images into the tracked public/ directory.
-    try {
-      rmSync(path.join(testImagesDir, 'test-mirror-fixture.jpg'), { force: true });
-    } catch {
-      /* noop */
+    for (const ext of ['jpg', 'webp']) {
+      try {
+        rmSync(path.join(testImagesDir, `test-mirror-fixture.${ext}`), { force: true });
+      } catch {
+        /* noop */
+      }
     }
   });
 
@@ -218,6 +220,9 @@ describe('mirrorEventImage', () => {
     expect(await mirrorEventImage('https://example.com/x.jpg', '')).toBeNull();
   });
 
+  // The 4-byte body below is deliberately NOT a decodable image, so this case
+  // also pins encodeEventImage's fallback: sharp throws, and the original bytes
+  // are stored under the content-type extension rather than the image being lost.
   it('downloads and writes the image once, returning the site-relative path', async () => {
     const bytes = new Uint8Array([1, 2, 3, 4]);
     const fetchMock = vi.fn().mockResolvedValue({
@@ -236,6 +241,42 @@ describe('mirrorEventImage', () => {
     const second = await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture');
     expect(second).toBe('/images/events/test-mirror-fixture.jpg');
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('re-encodes a decodable image to webp, capped at 1600px and smaller than the source', async () => {
+    const sharp = (await import('sharp')).default;
+    // 2400px wide: above the cap, so this pins BOTH the resize and the format.
+    // Noise rather than flat colour, or the source would compress so well that
+    // the "came out smaller" assertion would prove nothing. Math.imul keeps the
+    // multiply exactly 32-bit — plain `*` here exceeds 2^53 and the tail of the
+    // buffer silently stops being noise.
+    const raw = Buffer.alloc(2400 * 800 * 3);
+    for (let i = 0; i < raw.length; i++) raw[i] = (Math.imul(i, 2654435761) >>> 24) & 255;
+    const source = await sharp(raw, { raw: { width: 2400, height: 800, channels: 3 } })
+      .jpeg({ quality: 80 })
+      .toBuffer();
+    // Keep the fixture well clear of EVENT_IMAGE_MAX_BYTES (4MB), or a future
+    // libjpeg would make mirrorEventImage return null and this test would fail
+    // for a reason that has nothing to do with what it checks.
+    expect(source.byteLength).toBeLessThan(2 * 1024 * 1024);
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        headers: { get: () => 'image/jpeg' },
+        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
+      }),
+    );
+
+    const result = await mirrorEventImage('https://example.com/big.jpg', 'test:mirror-fixture');
+    expect(result).toBe('/images/events/test-mirror-fixture.webp');
+
+    const written = readFileSync(path.join(testImagesDir, 'test-mirror-fixture.webp'));
+    expect(written.byteLength).toBeLessThan(source.byteLength);
+    const meta = await sharp(written).metadata();
+    expect(meta.format).toBe('webp');
+    expect(meta.width).toBe(1600);
   });
 
   it('returns null on a non-2xx response, a non-image content-type, or an oversized body', async () => {
