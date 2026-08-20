@@ -3544,6 +3544,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-due-franchi-agosto-2026.title': 'Benzin über 2 Franken: erste Erhöhung ab 2022',
     'blog.article.benzina-due-franchi-agosto-2026.excerpt': 'Der Preis für bleifreies Benzin 95 übersteigt erstmals seit 2022 2 Franken pro Liter. Diesel für 2,27 Franken. Die Ursachen: Konflikte im Nahen Osten und Logistikkrisen am Rhein.',
     'blog.article.benzina-due-franchi-agosto-2026.imageAlt': 'Schweizer Tankstelle in der Abenddämmerung mit Alpenblick im Hintergrund',
+    'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, Gewinnrückgang im ersten Halbjahr',
+    'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'Die Schweizer Bank schliesst das erste Halbjahr mit 103 Millionen Franken Reingewinn ab: Zinsertrag -10,6%, Kundenvermögen +3,3% auf 117,5 Milliarden',
+    'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Lugano Stadtansicht mit Bankgebäuden und See, Symbol für Schweizer Wirtschaft und Finanzsektor.',
 };
 
 export default blogMetaChDe;
