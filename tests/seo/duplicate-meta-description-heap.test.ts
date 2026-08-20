@@ -20,59 +20,89 @@
  * and `.padEnd(len)`. A wrong defence is worse than none, because it stops
  * anyone from looking again.
  *
- * So this test measures the retention rather than reading the code: it holds
- * the auditor's collected state alive and checks the heap did not grow by
- * anything like one parent document per entry.
+ * WHY A CHILD PROCESS. Measuring retention needs a deterministic collection
+ * point, and `global.gc` only exists under `--expose-gc`. vitest.config.ts
+ * runs `pool: 'threads'` with no `execArgv`, and tests.yml passes no such flag,
+ * so inside the test runner `globalThis.gc` is ALWAYS undefined — a
+ * `gc?.()` here would be a silent no-op and the assertion would rest on
+ * whatever incidental collection happened to occur. That is how a guard
+ * becomes decorative. Spawning one short-lived `node --expose-gc` gives the
+ * measurement a real collection point without imposing a flag on the whole
+ * suite; it costs well under a second.
  */
-import { describe, it, expect } from 'vitest';
-import { createAuditor } from '../../scripts/audit-duplicate-meta-description.mjs';
+import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
+
+const REPO_ROOT = resolve(__dirname, '..', '..');
+const AUDITOR = resolve(REPO_ROOT, 'scripts/audit-duplicate-meta-description.mjs');
 
 const PAGES = 3_000;
 const FILLER_BYTES = 40_000;
 
-/** One large page per call, each with its own distinct meta description. */
-function bigPage(i: number): string {
-  const filler = `<p>${'contenuto di riempimento '.repeat(FILLER_BYTES / 25)}</p>`;
-  return (
-    `<!doctype html><html lang="it"><head>` +
-    `<meta name="description" content="Descrizione unica numero ${i} — abbastanza lunga da somigliare a una meta description reale del sito, con parecchie parole di contorno per superare i cento caratteri del campione.">` +
-    `</head><body>${filler}</body></html>`
-  );
+/**
+ * Feed the auditor large pages with distinct descriptions, hold its state, and
+ * report bytes retained per entry across a forced major GC.
+ */
+const PROBE = `
+import { createAuditor } from ${JSON.stringify(AUDITOR)};
+
+const PAGES = ${PAGES};
+const FILLER_BYTES = ${FILLER_BYTES};
+
+function bigPage(i) {
+  const filler = '<p>' + 'contenuto di riempimento '.repeat(FILLER_BYTES / 25) + '</p>';
+  return '<!doctype html><html lang="it"><head>'
+    + '<meta name="description" content="Descrizione unica numero ' + i
+    + ' — abbastanza lunga da somigliare a una meta description reale del sito, con parecchie parole di contorno per superare i cento caratteri del campione.">'
+    + '</head><body>' + filler + '</body></html>';
 }
+
+const settle = () => { for (let i = 0; i < 4; i++) global.gc({ type: 'major', execution: 'sync' }); };
+
+const auditor = createAuditor();
+settle();
+const before = process.memoryUsage().heapUsed;
+for (let i = 0; i < PAGES; i++) auditor.collect('/dist/sezione/pagina-' + i + '/index.html', bigPage(i));
+settle();
+const after = process.memoryUsage().heapUsed;
+
+const result = auditor.report();
+process.stdout.write(JSON.stringify({
+  perEntry: (after - before) / PAGES,
+  passed: result.passed,
+  offendersTotal: result.offendersTotal,
+}));
+`;
 
 describe('duplicate-meta-description — the sample must not retain its page', () => {
   it(`keeps far less than one page per entry across ${PAGES} distinct descriptions`, () => {
-    const auditor = createAuditor();
+    const out = execFileSync(process.execPath, ['--expose-gc', '--input-type=module', '-e', PROBE], {
+      cwd: REPO_ROOT,
+      encoding: 'utf8',
+      maxBuffer: 1024 * 1024,
+    });
+    const { perEntry, passed, offendersTotal } = JSON.parse(out) as {
+      perEntry: number;
+      passed: boolean;
+      offendersTotal: number;
+    };
 
-    const gc = (globalThis as { gc?: () => void }).gc;
-    gc?.();
-    const before = process.memoryUsage().heapUsed;
-
-    for (let i = 0; i < PAGES; i++) {
-      auditor.collect(`/dist/sezione/pagina-${i}/index.html`, bigPage(i));
-    }
-
-    gc?.();
-    const after = process.memoryUsage().heapUsed;
-    const perEntry = (after - before) / PAGES;
-
-    // Retaining the parent costs ≥ FILLER_BYTES per entry. A flattened sample
-    // costs a few hundred bytes. The gap is ~two orders of magnitude, so this
-    // bound is far outside GC noise in either direction — it only fires if the
-    // SlicedString comes back.
+    // Retaining the parent costs >= FILLER_BYTES per entry; a flattened sample
+    // costs a few hundred bytes. Two orders of magnitude apart, so this bound
+    // fires only if the SlicedString comes back.
     expect(
       perEntry,
       `retained ${perEntry.toFixed(0)} B/entry — the 100-char sample is holding its ~${FILLER_BYTES} B page alive again`,
     ).toBeLessThan(FILLER_BYTES / 8);
 
-    // And the audit still has to WORK: keep a reference so nothing above can be
-    // optimised away, and confirm distinct descriptions produce no offenders.
-    const result = auditor.report();
-    expect(result.passed).toBe(true);
-    expect(result.offendersTotal).toBe(0);
+    // And the audit still has to WORK: distinct descriptions, no offenders.
+    expect(passed).toBe(true);
+    expect(offendersTotal).toBe(0);
   });
 
-  it('still detects duplicates, and reports the sample text intact', () => {
+  it('still detects duplicates, and reports the sample text intact', async () => {
+    const { createAuditor } = await import('../../scripts/audit-duplicate-meta-description.mjs');
     const auditor = createAuditor();
     const shared =
       'Una descrizione condivisa da troppe pagine, lunga a sufficienza da non finire nella allowlist e da essere troncata nel campione.';
