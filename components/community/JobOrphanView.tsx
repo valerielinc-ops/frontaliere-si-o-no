@@ -447,7 +447,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  )}
  {/* Title + metadata */}
  <div className="px-4 py-3 sm:px-5 sm:py-4">
- <h1 className="text-xl font-bold font-display text-heading leading-snug">
+ <h1 className="text-xl font-bold font-display text-heading leading-snug break-words [hyphens:auto]">
  {slugParts.title}
  </h1>
  {(slugParts.company || slugParts.location) && (

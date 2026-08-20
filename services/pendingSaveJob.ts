@@ -20,8 +20,18 @@ import { saveIntent, consumeIntent, peekIntent } from '@/services/pendingIntentS
 
 const KEY = 'pending_save_job';
 
+/**
+ * Where the bookmark was tapped. `detail` and `detail_gate` are the same
+ * control on the same page but two different readers — the gate one has no
+ * account yet and competes for the click with the sign-in form right under it,
+ * so folding them together would hide the gate's much lower completion rate
+ * inside the unlocked detail's rate. Same separation as
+ * `company_follow_gate` / `company_follow_button`.
+ */
+export type SaveJobSurface = 'list' | 'detail' | 'detail_gate';
+
 export type PendingSaveJobIntent =
-  | { kind: 'save_job'; entry: Omit<SavedJobEntry, 'savedAt'>; surface: 'list' | 'detail' }
+  | { kind: 'save_job'; entry: Omit<SavedJobEntry, 'savedAt'>; surface: SaveJobSurface }
   | { kind: 'show_saved_only' };
 
 export function savePendingSaveJobIntent(intent: PendingSaveJobIntent): void {
