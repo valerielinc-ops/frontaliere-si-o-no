@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-19T06:19:28.316Z",
+  "assembledAt": "2026-08-20T06:23:05.298Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -14062,43 +14062,6 @@
       "imageUrl": "/images/events/guidle-ADeNj7d.jpg"
     },
     {
-      "id": "guidle:A4MtT6C",
-      "title": "FIDELIO",
-      "titleByLocale": {
-        "it": "FIDELIO",
-        "en": "FIDELIO",
-        "de": "FIDELIO",
-        "fr": "FIDELIO"
-      },
-      "description": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
-      "descriptionByLocale": {
-        "it": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
-        "en": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
-        "de": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
-        "fr": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten."
-      },
-      "startDate": "2026-08-19",
-      "endDate": "2026-08-19",
-      "startTime": "19:30",
-      "category": "Opera",
-      "venue": "Passionsspielhaus Selzach",
-      "comune": "Selzach",
-      "canton": "SO",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/selzach/beethovens-fidelio_A4MtT6C",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Dorfstrasse 11",
-        "postalCode": "2545"
-      },
-      "geo": {
-        "lat": 47.2043639,
-        "lng": 7.4554694
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A4MtT6C.jpg"
-    },
-    {
       "id": "guidle:AL9njX3",
       "title": "FIDELIO",
       "titleByLocale": {
@@ -15697,6 +15660,1774 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AUrUDtT.jpg"
+    },
+    {
+      "id": "guidle:ACQP3A8",
+      "title": "Orgelrezital",
+      "titleByLocale": {
+        "it": "Recital per organo",
+        "en": "Organ recital",
+        "de": "Orgelaufführung",
+        "fr": "Récital d'orgue"
+      },
+      "description": "Abschlusskonzert Meisterkurs mit Zsigmond Szathmáry",
+      "descriptionByLocale": {
+        "it": "Concerto finale Master Class Zsigmond Szathmáry",
+        "en": "Final Concert Master Class Zsigmond Szathmáry",
+        "de": "Abschlusskonzert Meisterklasse Zsigmond Szathmáry",
+        "fr": "Concert de clôture du cours de maître avec Zsigmond Szathmáry"
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "startTime": "20:00",
+      "category": "Musica per piano / organo",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ernen/orgelrezital_ACQP3A8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ACQP3A8.jpg"
+    },
+    {
+      "id": "guidle:AZEtrZJ",
+      "title": "Piano à Saint-Ursanne",
+      "titleByLocale": {
+        "it": "Piano à Saint-Ursanne",
+        "en": "Plan in Saint-Ursanne",
+        "de": "Plan à Saint-Ursanne",
+        "fr": "Plan à Saint-Ursanne"
+      },
+      "description": "23. Ausgabe von ''Piano à Saint-Ursanne''.",
+      "descriptionByLocale": {
+        "it": "XXIII edizione di ''Piano à Saint-Ursanne''.",
+        "en": "23rd edition of ''Piano à Saint-Ursanne''.",
+        "de": "23. Auflage von ''Piano à Saint-Ursanne''.",
+        "fr": "23ème édition de Piano à Saint-Ursanne"
+      },
+      "startDate": "2027-07-30",
+      "endDate": "2027-08-10",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Collégiale de St-Ursanne",
+      "canton": "JU",
+      "url": "https://www.guidle.com/it/events/classical/st-ursanne/piano-a-saint-ursanne_AZEtrZJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue du 23-Juin",
+        "postalCode": "2882"
+      },
+      "geo": {
+        "lat": 47.3651836,
+        "lng": 7.1545203
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AZEtrZJ.jpg"
+    },
+    {
+      "id": "guidle:AtrVMQt",
+      "title": "Festmusik Händel",
+      "titleByLocale": {
+        "it": "Festmusik Händel",
+        "en": "Festmusik Handel",
+        "de": "Festmusik Handel",
+        "fr": "Festmusik Handel"
+      },
+      "description": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemble \"Il suono d'oro\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+      "descriptionByLocale": {
+        "it": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemble \"Il suono d'oro\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+        "en": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemble \"The Golden Sound\" und bringen festliche Musik von G. F. Handel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+        "de": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemble \"Il soono d 'oro\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+        "fr": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemble \"Le son d'or\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung."
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "20:00",
+      "category": "Musica chorale",
+      "venue": "Röm.-kath. Kirche St. Oswald",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zug/festmusik-haendel_AtrVMQt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 5",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1641328,
+        "lng": 8.5145563
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AtrVMQt.jpg"
+    },
+    {
+      "id": "guidle:AtwkKQc",
+      "title": "Festmusik Händel",
+      "titleByLocale": {
+        "it": "Festmusik Händel",
+        "en": "Festmusik Handel",
+        "de": "Festmusik Handel",
+        "fr": "Festmusik Handel"
+      },
+      "description": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemle \"Il suono d'oro\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+      "descriptionByLocale": {
+        "it": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemle \"Il suono d'oro\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+        "en": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemle \"The Golden Sound\" und bringen festliche Musik von G. F. Handel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+        "de": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemle \"Il soono d 'oro\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung.",
+        "fr": "Die Zuger-Singlüüt musizieren zusammen mit dem Streicherensemle \"Le son d'or\" und bringen festliche Musik von G. F. Händel mit Anthems und Chorälen aus Oratorien zur Aufführung."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "17:00",
+      "category": "Musica chorale",
+      "venue": "Kirche St. Martin",
+      "comune": "Baar",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/baar/festmusik-haendel_AtwkKQc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Kirchgasse 1",
+        "postalCode": "6340"
+      },
+      "geo": {
+        "lat": 47.1928303,
+        "lng": 8.5221682
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AtwkKQc.jpg"
+    },
+    {
+      "id": "guidle:AefJZtj",
+      "title": "Kammerkonzert 5",
+      "titleByLocale": {
+        "it": "Concerto da camera 5",
+        "en": "Chamber Concert 5",
+        "de": "Kammerkonzert 5",
+        "fr": "Concert de chambre"
+      },
+      "description": "Trio Basilea",
+      "descriptionByLocale": {
+        "it": "Trio Basilea",
+        "en": "Basel Trio",
+        "de": "Trio Basel",
+        "fr": "Trio Bâle"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "14:00",
+      "category": "Musica da Camera",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ernen/kammerkonzert-5_AefJZtj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AefJZtj.jpg"
+    },
+    {
+      "id": "guidle:A7fkRH7",
+      "title": "Kammerkonzert 2",
+      "titleByLocale": {
+        "it": "Concerto da camera 2",
+        "en": "Chamber concert 2",
+        "de": "Kammerkonzert 2",
+        "fr": "Concert de chambre"
+      },
+      "description": "Trio E. T. A.",
+      "descriptionByLocale": {
+        "it": "Trio E. T. A.",
+        "en": "E.T.A. Trio",
+        "de": "E.T.A. Trio",
+        "fr": "E.T.A. Trio"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "20:00",
+      "category": "Musica da Camera",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ernen/kammerkonzert-2_A7fkRH7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7fkRH7.jpg"
+    },
+    {
+      "id": "guidle:AFdUkdc",
+      "title": "Klavierrezital 3 | Haydn",
+      "titleByLocale": {
+        "it": "Recital pianistico 3 | Haydn",
+        "en": "Piano Recital 3 | Haydn",
+        "de": "Klavier Erwägungsgrund 3 | Haydn",
+        "fr": "Récital de piano 3 | Haydn"
+      },
+      "description": "Sir András Schiff",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff",
+        "en": "Sir Andr Schi",
+        "de": "Sir Andrunks Schiff",
+        "fr": "Monsieur Andras Schiff"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/classique/ernen/klavierrezital-3-haydn_AFdUkdc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AFdUkdc.jpg"
+    },
+    {
+      "id": "guidle:AuqLsBB",
+      "title": "Klavierrezital 2 | Bachs Partiten (I)",
+      "titleByLocale": {
+        "it": "Recital pianistico 2 | Partita di Bach (I)",
+        "en": "Piano Recital 2 | Bach's Partitas (I)",
+        "de": "Klavierkonzert 2 | Bachs Partiten (I)",
+        "fr": "Récital de piano 2 | Partitas de Bach (I)"
+      },
+      "description": "Sir András Schiff",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff",
+        "en": "Sir Andr Schi",
+        "de": "Sir Andrunks Schiff",
+        "fr": "Monsieur Andras Schiff"
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "startTime": "20:00",
+      "category": "Musica per piano / organo",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/classical/ernen/piano-recital-2-bachs-partitas-i_AuqLsBB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AuqLsBB.jpg"
+    },
+    {
+      "id": "guidle:AV4nXA1",
+      "title": "Klavierrezital",
+      "titleByLocale": {
+        "it": "Recital pianistico",
+        "en": "Piano Recital",
+        "de": "Programm:",
+        "fr": "Récital de piano"
+      },
+      "description": "Manoush Toth",
+      "descriptionByLocale": {
+        "it": "Manoush Toth",
+        "en": "Manoush Toth",
+        "de": "Manoush Toth",
+        "fr": "Manouche Toth"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "11:00",
+      "category": "Musica per piano / organo",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ernen/klavierrezital_AV4nXA1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AV4nXA1.jpg"
+    },
+    {
+      "id": "guidle:Ampy3vu",
+      "title": "Klavierrezital 1 | Schuberts Impromptus",
+      "titleByLocale": {
+        "it": "Recital pianistico 1 | L'improvvisazione di Schubert",
+        "en": "Piano Recital 1 | Schubert's Impromptus",
+        "de": "Klavierkonzert 1 | Schuberts Impromptus",
+        "fr": "Récital de piano 1 | Impromptus de Schubert"
+      },
+      "description": "Sir András Schiff",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff",
+        "en": "Sir Andr Schi",
+        "de": "Sir Andrunks Schiff",
+        "fr": "Monsieur Andras Schiff"
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-27",
+      "startTime": "20:00",
+      "category": "Musica per piano / organo",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/classical/ernen/piano-recital-1-schuberts-impromptus_Ampy3vu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ampy3vu.jpg"
+    },
+    {
+      "id": "guidle:AarJKKw",
+      "title": "Kammerkonzert 3",
+      "titleByLocale": {
+        "it": "Concerto da camera 3",
+        "en": "Chamber concert 3",
+        "de": "Kammerkonzert 3",
+        "fr": "Concert de chambre"
+      },
+      "description": "Achille Vocat, Violine | Martin Jollet, Klavier",
+      "descriptionByLocale": {
+        "it": "Achille Vocat, Violino | Martin Jollet, Pianoforte",
+        "en": "Achille Vocat, Violin | Martin Jollet, Piano",
+        "de": "Achille Vocat, Violine | Martin Jollet, Klavier",
+        "fr": "Achille Vocat, Violon | Martin Jollet, Piano"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "17:00",
+      "category": "Musica da Camera",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/classical/ernen/chamber-concert-3_AarJKKw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AarJKKw.jpg"
+    },
+    {
+      "id": "guidle:AUWDrM7",
+      "title": "Klavierrezital 4 | Schubert 4-händig",
+      "titleByLocale": {
+        "it": "Piano Recital 4 | Schubert per 4 mani",
+        "en": "Piano Recital 4 | Schubert for 4 hands",
+        "de": "Klavier Erwägungsgrund 4 | Schubert für 4 Hände",
+        "fr": "Récital de piano 4 | Schubert pour 4 mains"
+      },
+      "description": "Sir András Schiff | Chloe Jiyeong Mun",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff | Chloe Jiyeong Mun",
+        "en": "Sir András Schiff",
+        "de": "Sir András Schiff | Chloe Jiyeong Mun",
+        "fr": "Monsieur András Schiff"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "20:00",
+      "category": "Musica per piano / organo",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/classical/ernen/piano-recital-4-schubert-for-4-hands_AUWDrM7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AUWDrM7.jpg"
+    },
+    {
+      "id": "guidle:A5eEbdR",
+      "title": "Kammerkonzert 4",
+      "titleByLocale": {
+        "it": "Kammerkonzert 4",
+        "en": "Chamber concert 4",
+        "de": "Kammerkonzert 4",
+        "fr": "Kammerkonzert 4"
+      },
+      "description": "A-Delta Trio",
+      "descriptionByLocale": {
+        "it": "A-Delta Trio",
+        "en": "A-Delta Trio",
+        "de": "A-Delta Trio",
+        "fr": "A-Delta Trio"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "20:00",
+      "category": "Musica da Camera",
+      "venue": "Mehrzweckhalle Ernen",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ernen/kammerkonzert-4_A5eEbdR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 6",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3984502,
+        "lng": 8.1442336
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A5eEbdR.jpg"
+    },
+    {
+      "id": "guidle:AmwWDi8",
+      "title": "Kammerkonzert 1",
+      "titleByLocale": {
+        "it": "Kammerkonzert 1",
+        "en": "Chamber concert 1",
+        "de": "Kammerkonzert 1",
+        "fr": "Kammerkonzert 1"
+      },
+      "description": "Helix Trio",
+      "descriptionByLocale": {
+        "it": "Helix Trio",
+        "en": "Helix Trio",
+        "de": "Helix Trio",
+        "fr": "Helix Trio"
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-10",
+      "startTime": "20:00",
+      "category": "Musica da Camera",
+      "venue": "Tellenhaus",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/classical/ernen/chamber-concert-1_AmwWDi8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hengert 10",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3990469,
+        "lng": 8.1458848
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AmwWDi8.jpg"
+    },
+    {
+      "id": "guidle:AZ8V9m3",
+      "title": "Klavierrezital 5 | Beethoven",
+      "titleByLocale": {
+        "it": "Klavierrezital 5 | Beethoven",
+        "en": "Piano Recital 5 | Beethoven",
+        "de": "Klavierrezital 5 | Beethoven",
+        "fr": "Klavierrezital 5 | Beethoven"
+      },
+      "description": "Sir András Schiff",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff",
+        "en": "Sir András Schiff",
+        "de": "Sir András Schiff",
+        "fr": "Sir András Schiff"
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "11:00",
+      "category": "Musica classica",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/classique/ernen/klavierrezital-5-beethoven_AZ8V9m3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AZ8V9m3.jpg"
+    },
+    {
+      "id": "guidle:ABgkR1Y",
+      "title": "Klavierrezital 6 | Bachs Partiten (II)",
+      "titleByLocale": {
+        "it": "Klavierrezital 6 | Bachs Partiten (II)",
+        "en": "Piano Recital 6 | Bach's Partitas (II)",
+        "de": "Klavierrezital 6 | Bachs Partiten (II)",
+        "fr": "Klavierrezital 6 | Bachs Partiten (II)"
+      },
+      "description": "Sir András Schiff",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff",
+        "en": "Sir András Schiff",
+        "de": "Sir András Schiff",
+        "fr": "Sir András Schiff"
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "14:30",
+      "category": "Musica per piano / organo",
+      "venue": "Kirche St. Georg",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/classique/ernen/klavierrezital-6-bachs-partiten-ii_ABgkR1Y",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchweg 5",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ABgkR1Y.jpg"
+    },
+    {
+      "id": "guidle:AabxE9X",
+      "title": "Thomas Scheytt - Piano Solo - Klassiker des Blues & Boogie Woogie und eigene Kompositionen",
+      "titleByLocale": {
+        "it": "Thomas Scheytt - Piano Solo - Klassiker des Blues & Boogie Woogie und eigene Kompositionen",
+        "en": "Thomas Scheytt - Piano Solo - Klassiker des Blues & Boogie Woogie und eigene Kompositionen",
+        "de": "Thomas Scheytt - Piano Solo - Klassiker des Blues & Boogie Woogie und eigene Kompositionen",
+        "fr": "Thomas Scheytt - Piano Solo - Klassiker des Blues & Boogie Woogie und eigene Kompositionen"
+      },
+      "description": "Thomas Scheytt gilt als „einer der besten zeitgenössischen Boogie- und Blues-Pianisten.",
+      "descriptionByLocale": {
+        "it": "Thomas Scheytt gilt als „einer der besten zeitgenössischen Boogie- und Blues-Pianisten.",
+        "en": "Thomas Scheytt gilt als „einer der besten zeitgenössischen Boogie- und Blues-Pianisten.",
+        "de": "Thomas Scheytt gilt als „einer der besten zeitgenössischen Boogie- und Blues-Pianisten.",
+        "fr": "Thomas Scheytt gilt als „einer der besten zeitgenössischen Boogie- und Blues-Pianisten."
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "18:00",
+      "category": "Boogie-Woogie",
+      "venue": "Neues Schloss Tettnang",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/tettnang/thomas-scheytt-piano-solo-klassiker-des-blues-und-boogie-woogie-und-eigene-kompositionen_AabxE9X",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 17,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Montfortplatz 1",
+        "postalCode": "88069"
+      },
+      "geo": {
+        "lat": 47.6698085,
+        "lng": 9.5848953
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AabxE9X.jpg"
+    },
+    {
+      "id": "guidle:A916yTf",
+      "title": "Schlosskonzerte Brig",
+      "titleByLocale": {
+        "it": "Schlosskonzerte Brig",
+        "en": "Schlosskonzerte Brig",
+        "de": "Schlosskonzerte Brig",
+        "fr": "Schlosskonzerte Brig"
+      },
+      "description": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
+      "descriptionByLocale": {
+        "it": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
+        "en": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
+        "de": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
+        "fr": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass"
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "startTime": "18:00",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Stockalperschloss",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/brig/schlosskonzerte-brig_A916yTf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Alte Simplonstrasse 28",
+        "postalCode": "3900"
+      },
+      "geo": {
+        "lat": 46.3152887,
+        "lng": 7.9906455
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A916yTf.jpg"
+    },
+    {
+      "id": "guidle:AqKQ5Xw",
+      "title": "Toccatawil",
+      "titleByLocale": {
+        "it": "Toccatawil",
+        "en": "Toccatawil",
+        "de": "Toccatawil",
+        "fr": "Toccatawil"
+      },
+      "description": "Orgelkonzert mit dem Wiler Organistenteam in der Wallfahrtskirche Maria Dreibrunnen.",
+      "descriptionByLocale": {
+        "it": "Orgelkonzert mit dem Wiler Organistenteam in der Wallfahrtskirche Maria Dreibrunnen.",
+        "en": "Orgelkonzert mit dem Wiler Organistenteam in der Wallfahrtskirche Maria Dreibrunnen.",
+        "de": "Orgelkonzert mit dem Wiler Organistenteam in der Wallfahrtskirche Maria Dreibrunnen.",
+        "fr": "Orgelkonzert mit dem Wiler Organistenteam in der Wallfahrtskirche Maria Dreibrunnen."
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Wallfahrtskirche Maria Dreibrunnen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bronschhofen/toccatawil_AqKQ5Xw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Kapellstrasse 1",
+        "postalCode": "9552"
+      },
+      "geo": {
+        "lat": 47.4714967,
+        "lng": 9.0249648
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AqKQ5Xw.jpg"
+    },
+    {
+      "id": "guidle:AtYem6i",
+      "title": "Polyphonia Augustana",
+      "titleByLocale": {
+        "it": "Polyphonia Augustana",
+        "en": "Polyphonia Augustana",
+        "de": "Polyphonia Augustana",
+        "fr": "Polyphonia Augustana"
+      },
+      "description": "Christian Erbach im Klang Augsburgs | AUXantiqua, I Fedeli | Oktogon",
+      "descriptionByLocale": {
+        "it": "Christian Erbach im Klang Augsburgs | AUXantiqua, I Fedeli | Oktogon",
+        "en": "Christian Erbach im Klang Augsburgs | AUXantiqua, I Fedeli | Oktogon",
+        "de": "Christian Erbach im Klang Augsburgs | AUXantiqua, I Fedeli | Oktogon",
+        "fr": "Christian Erbach im Klang Augsburgs | AUXantiqua, I Fedeli | Oktogon"
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "startTime": "19:30",
+      "category": "Musica chorale",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/muri-ag/polyphonia-augustana_AtYem6i",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AtYem6i.jpg"
+    },
+    {
+      "id": "guidle:ArdrRfZ",
+      "title": "Globetrotter",
+      "titleByLocale": {
+        "it": "Globetrotter",
+        "en": "Globetrotter",
+        "de": "Globetrotter",
+        "fr": "Globetrotter"
+      },
+      "description": "Fahrende Sänger entdecken die Welt: Reiselieder aus dem Mittelalter | PER-SONAT | Kreuzgang",
+      "descriptionByLocale": {
+        "it": "Fahrende Sänger entdecken die Welt: Reiselieder aus dem Mittelalter | PER-SONAT | Kreuzgang",
+        "en": "Fahrende Sänger entdecken die Welt: Reiselieder aus dem Mittelalter | PER-SONAT | Kreuzgang",
+        "de": "Fahrende Sänger entdecken die Welt: Reiselieder aus dem Mittelalter | PER-SONAT | Kreuzgang",
+        "fr": "Fahrende Sänger entdecken die Welt: Reiselieder aus dem Mittelalter | PER-SONAT | Kreuzgang"
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "startTime": "21:00",
+      "category": "Musica chorale",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/muri-ag/globetrotter_ArdrRfZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ArdrRfZ.jpg"
+    },
+    {
+      "id": "guidle:AHbA9bd",
+      "title": "Musikalische Wanderlust",
+      "titleByLocale": {
+        "it": "Musikalische Wanderlust",
+        "en": "Musikalische Wanderlust",
+        "de": "Musikalische Wanderlust",
+        "fr": "Musikalische Wanderlust"
+      },
+      "description": "Charles Burneys Europareise auf der Suche nach Harmonie | Apollo’s Cabinet, Reto Holzgang | Festsaal",
+      "descriptionByLocale": {
+        "it": "Charles Burneys Europareise auf der Suche nach Harmonie | Apollo’s Cabinet, Reto Holzgang | Festsaal",
+        "en": "Charles Burneys Europareise auf der Suche nach Harmonie | Apollo’s Cabinet, Reto Holzgang | Festsaal",
+        "de": "Charles Burneys Europareise auf der Suche nach Harmonie | Apollo’s Cabinet, Reto Holzgang | Festsaal",
+        "fr": "Charles Burneys Europareise auf der Suche nach Harmonie | Apollo’s Cabinet, Reto Holzgang | Festsaal"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "14:00",
+      "category": "Musica chorale",
+      "venue": "Festsaal",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/muri-ag/musikalische-wanderlust_AHbA9bd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Seetalstrasse 6",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.2744175,
+        "lng": 8.3387811
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AHbA9bd.jpg"
+    },
+    {
+      "id": "guidle:ABki4e2",
+      "title": "Fumus – Rauch",
+      "titleByLocale": {
+        "it": "Fumus – Rauch",
+        "en": "Fumus – Rauch",
+        "de": "Fumus – Rauch",
+        "fr": "Fumus – Rauch"
+      },
+      "description": "Musik aus der ewigen Stadt | Concerto Romano | Oktogon",
+      "descriptionByLocale": {
+        "it": "Musik aus der ewigen Stadt | Concerto Romano | Oktogon",
+        "en": "Musik aus der ewigen Stadt | Concerto Romano | Oktogon",
+        "de": "Musik aus der ewigen Stadt | Concerto Romano | Oktogon",
+        "fr": "Musik aus der ewigen Stadt | Concerto Romano | Oktogon"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "16:00",
+      "category": "Barocco",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/fumus-rauch_ABki4e2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:AwJvhNJ",
+      "title": "Tafel-Music",
+      "titleByLocale": {
+        "it": "Tafel-Music",
+        "en": "Tafel-Music",
+        "de": "Tafel-Music",
+        "fr": "Tafel-Music"
+      },
+      "description": "Ein musikalisches Bankett | Ensemble Pícaro | Hotel CASPAR",
+      "descriptionByLocale": {
+        "it": "Ein musikalisches Bankett | Ensemble Pícaro | Hotel CASPAR",
+        "en": "Ein musikalisches Bankett | Ensemble Pícaro | Hotel CASPAR",
+        "de": "Ein musikalisches Bankett | Ensemble Pícaro | Hotel CASPAR",
+        "fr": "Ein musikalisches Bankett | Ensemble Pícaro | Hotel CASPAR"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "18:00",
+      "category": "Barocco",
+      "venue": "Drei-Häuser-Hotel Caspar",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/tafel-music_AwJvhNJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 90,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Caspar Wolf-Weg 1",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.2741122,
+        "lng": 8.3360957
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AwJvhNJ.jpg"
+    },
+    {
+      "id": "guidle:AGFFUQP",
+      "title": "Mit Zwischenstopp nach China",
+      "titleByLocale": {
+        "it": "Mit Zwischenstopp nach China",
+        "en": "Mit Zwischenstopp nach China",
+        "de": "Mit Zwischenstopp nach China",
+        "fr": "Mit Zwischenstopp nach China"
+      },
+      "description": "Ein Musik-Missionar reist um die halbe Welt | Joanna Huszcza, MUSIca ALcheMIca | Kreuzgang",
+      "descriptionByLocale": {
+        "it": "Ein Musik-Missionar reist um die halbe Welt | Joanna Huszcza, MUSIca ALcheMIca | Kreuzgang",
+        "en": "Ein Musik-Missionar reist um die halbe Welt | Joanna Huszcza, MUSIca ALcheMIca | Kreuzgang",
+        "de": "Ein Musik-Missionar reist um die halbe Welt | Joanna Huszcza, MUSIca ALcheMIca | Kreuzgang",
+        "fr": "Ein Musik-Missionar reist um die halbe Welt | Joanna Huszcza, MUSIca ALcheMIca | Kreuzgang"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "21:00",
+      "category": "Barocco",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/mit-zwischenstopp-nach-china_AGFFUQP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AGFFUQP.jpg"
+    },
+    {
+      "id": "guidle:ATEZM43",
+      "title": "«Rinaldo» a cinque",
+      "titleByLocale": {
+        "it": "«Rinaldo» a cinque",
+        "en": "«Rinaldo» a cinque",
+        "de": "«Rinaldo» a cinque",
+        "fr": "«Rinaldo» a cinque"
+      },
+      "description": "Händels Oper als Kammermusik | Brezza | Hochchor",
+      "descriptionByLocale": {
+        "it": "Händels Oper als Kammermusik | Brezza | Hochchor",
+        "en": "Händels Oper als Kammermusik | Brezza | Hochchor",
+        "de": "Händels Oper als Kammermusik | Brezza | Hochchor",
+        "fr": "Händels Oper als Kammermusik | Brezza | Hochchor"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "14:00",
+      "category": "Barocco",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/rinaldo-a-cinque_ATEZM43",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ATEZM43.jpg"
+    },
+    {
+      "id": "guidle:A2yStu2",
+      "title": "Schweizer Klangpracht",
+      "titleByLocale": {
+        "it": "Schweizer Klangpracht",
+        "en": "Schweizer Klangpracht",
+        "de": "Schweizer Klangpracht",
+        "fr": "Schweizer Klangpracht"
+      },
+      "description": "Johann Melchior Gletle zum 400. Geburtstag | Voces Suaves, Les Cornets Noirs | Oktogon",
+      "descriptionByLocale": {
+        "it": "Johann Melchior Gletle zum 400. Geburtstag | Voces Suaves, Les Cornets Noirs | Oktogon",
+        "en": "Johann Melchior Gletle zum 400. Geburtstag | Voces Suaves, Les Cornets Noirs | Oktogon",
+        "de": "Johann Melchior Gletle zum 400. Geburtstag | Voces Suaves, Les Cornets Noirs | Oktogon",
+        "fr": "Johann Melchior Gletle zum 400. Geburtstag | Voces Suaves, Les Cornets Noirs | Oktogon"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "17:00",
+      "category": "Musica da Camera",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/schweizer-klangpracht_A2yStu2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A2yStu2.jpg"
+    },
+    {
+      "id": "guidle:AMG8Db6",
+      "title": "Leontiusgottesdienst",
+      "titleByLocale": {
+        "it": "Leontiusgottesdienst",
+        "en": "Leontiusgottesdienst",
+        "de": "Leontiusgottesdienst",
+        "fr": "Leontiusgottesdienst"
+      },
+      "description": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
+      "descriptionByLocale": {
+        "it": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
+        "en": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
+        "de": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
+        "fr": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus"
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "startTime": "19:00",
+      "category": "Servizio catolica romana",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/leontiusgottesdienst_AMG8Db6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AMG8Db6.jpg"
+    },
+    {
+      "id": "guidle:AmGeuG3",
+      "title": "Vespergottesdienst",
+      "titleByLocale": {
+        "it": "Vespergottesdienst",
+        "en": "Vespergottesdienst",
+        "de": "Vespergottesdienst",
+        "fr": "Vespergottesdienst"
+      },
+      "description": "Vespermusik von Johann Melchior Gletle | Vocalino Wettingen, Kirchenchor Muri, Il Fuoco eterno",
+      "descriptionByLocale": {
+        "it": "Vespermusik von Johann Melchior Gletle | Vocalino Wettingen, Kirchenchor Muri, Il Fuoco eterno",
+        "en": "Vespermusik von Johann Melchior Gletle | Vocalino Wettingen, Kirchenchor Muri, Il Fuoco eterno",
+        "de": "Vespermusik von Johann Melchior Gletle | Vocalino Wettingen, Kirchenchor Muri, Il Fuoco eterno",
+        "fr": "Vespermusik von Johann Melchior Gletle | Vocalino Wettingen, Kirchenchor Muri, Il Fuoco eterno"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "17:00",
+      "category": "Servizio catolica romana",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/vespergottesdienst_AmGeuG3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AmGeuG3.jpg"
+    },
+    {
+      "id": "guidle:AsMBwhn",
+      "title": "Festival Muri Barock",
+      "titleByLocale": {
+        "it": "Festival Muri Barock",
+        "en": "Festival Muri Barock",
+        "de": "Festival Muri Barock",
+        "fr": "Festival Muri Barock"
+      },
+      "description": "Das Festival verwandelt die Klosterkirche in einen Treffpunkt der internationalen Alte-Musik-Szene und erfüllt Oktogon, Hochchor, Kreuzgang, Festsaal und Caspar-Wolf-Saal mit Klang und Leben.",
+      "descriptionByLocale": {
+        "it": "Das Festival verwandelt die Klosterkirche in einen Treffpunkt der internationalen Alte-Musik-Szene und erfüllt Oktogon, Hochchor, Kreuzgang, Festsaal und Caspar-Wolf-Saal mit Klang und Leben.",
+        "en": "Das Festival verwandelt die Klosterkirche in einen Treffpunkt der internationalen Alte-Musik-Szene und erfüllt Oktogon, Hochchor, Kreuzgang, Festsaal und Caspar-Wolf-Saal mit Klang und Leben.",
+        "de": "Das Festival verwandelt die Klosterkirche in einen Treffpunkt der internationalen Alte-Musik-Szene und erfüllt Oktogon, Hochchor, Kreuzgang, Festsaal und Caspar-Wolf-Saal mit Klang und Leben.",
+        "fr": "Das Festival verwandelt die Klosterkirche in einen Treffpunkt der internationalen Alte-Musik-Szene und erfüllt Oktogon, Hochchor, Kreuzgang, Festsaal und Caspar-Wolf-Saal mit Klang und Leben."
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-23",
+      "startTime": "14:00",
+      "category": "Festival / Incontro",
+      "venue": "Klosterkirche",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/festival-muri-barock_AsMBwhn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 130,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Marktstrasse 4",
+        "postalCode": "5630"
+      },
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AsMBwhn.jpg"
+    },
+    {
+      "id": "guidle:ANsYhX5",
+      "title": "Lamineur Quartett",
+      "titleByLocale": {
+        "it": "Lamineur Quartett",
+        "en": "Lamineur Quartett",
+        "de": "Lamineur Quartett",
+        "fr": "Lamineur Quartett"
+      },
+      "description": "Das Publikum erlebt die Welt des klassischen Saxophons mit der klanglichen Vielfalt und Virtuosität.",
+      "descriptionByLocale": {
+        "it": "Das Publikum erlebt die Welt des klassischen Saxophons mit der klanglichen Vielfalt und Virtuosität.",
+        "en": "Das Publikum erlebt die Welt des klassischen Saxophons mit der klanglichen Vielfalt und Virtuosität.",
+        "de": "Das Publikum erlebt die Welt des klassischen Saxophons mit der klanglichen Vielfalt und Virtuosität.",
+        "fr": "Das Publikum erlebt die Welt des klassischen Saxophons mit der klanglichen Vielfalt und Virtuosität."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "16:15",
+      "category": "Musica classica",
+      "venue": "Kloster Fischingen",
+      "comune": "Fischingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/fischingen/lamineur-quartett_ANsYhX5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hauptstrasse",
+        "postalCode": "8376"
+      },
+      "geo": {
+        "lat": 47.4174815,
+        "lng": 8.968955
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ANsYhX5.jpg"
+    },
+    {
+      "id": "guidle:AkDJwVn",
+      "title": "Orgelspaziergang",
+      "titleByLocale": {
+        "it": "Orgelspaziergang",
+        "en": "Orgelspaziergang",
+        "de": "Orgelspaziergang",
+        "fr": "Orgelspaziergang"
+      },
+      "description": "Die Teilnehmenden besuchen alle vier Orgeln in der Klosterkirche und lassen sich von den faszinierenden Klängen überraschen. Der Spaziergang beginnt beim Haupteingang der Kirche.",
+      "descriptionByLocale": {
+        "it": "Die Teilnehmenden besuchen alle vier Orgeln in der Klosterkirche und lassen sich von den faszinierenden Klängen überraschen. Der Spaziergang beginnt beim Haupteingang der Kirche.",
+        "en": "Die Teilnehmenden besuchen alle vier Orgeln in der Klosterkirche und lassen sich von den faszinierenden Klängen überraschen. Der Spaziergang beginnt beim Haupteingang der Kirche.",
+        "de": "Die Teilnehmenden besuchen alle vier Orgeln in der Klosterkirche und lassen sich von den faszinierenden Klängen überraschen. Der Spaziergang beginnt beim Haupteingang der Kirche.",
+        "fr": "Die Teilnehmenden besuchen alle vier Orgeln in der Klosterkirche und lassen sich von den faszinierenden Klängen überraschen. Der Spaziergang beginnt beim Haupteingang der Kirche."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-11-15",
+      "startTime": "14:30",
+      "category": "Musica per piano / organo",
+      "venue": "Kloster Fischingen",
+      "comune": "Fischingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/fischingen/orgelspaziergang_AkDJwVn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hauptstrasse",
+        "postalCode": "8376"
+      },
+      "geo": {
+        "lat": 47.4174815,
+        "lng": 8.968955
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AkDJwVn.jpg"
+    },
+    {
+      "id": "guidle:AdJE62T",
+      "title": "Der «Blüthner» auf Reisen",
+      "titleByLocale": {
+        "it": "Der «Blüthner» auf Reisen",
+        "en": "Der «Blüthner» auf Reisen",
+        "de": "Der «Blüthner» auf Reisen",
+        "fr": "Der «Blüthner» auf Reisen"
+      },
+      "description": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+      "descriptionByLocale": {
+        "it": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+        "en": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+        "de": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+        "fr": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat"
+      },
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-07",
+      "startTime": "13:00",
+      "category": "Musica per piano / organo",
+      "venue": "Museum Kleines Klingental",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/der-bluethner-auf-reisen_AdJE62T",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Unterer Rheinweg 26",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5620463,
+        "lng": 7.5896853
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AdJE62T.jpg"
+    },
+    {
+      "id": "guidle:AkiubeR",
+      "title": "Der «Blüthner» auf Reisen",
+      "titleByLocale": {
+        "it": "Der «Blüthner» auf Reisen",
+        "en": "Der «Blüthner» auf Reisen",
+        "de": "Der «Blüthner» auf Reisen",
+        "fr": "Der «Blüthner» auf Reisen"
+      },
+      "description": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+      "descriptionByLocale": {
+        "it": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+        "en": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+        "de": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
+        "fr": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat"
+      },
+      "startDate": "2026-09-02",
+      "endDate": "2026-09-02",
+      "startTime": "13:00",
+      "category": "Musica per piano / organo",
+      "venue": "Museum Kleines Klingental",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/der-bluethner-auf-reisen_AkiubeR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Unterer Rheinweg 26",
+        "postalCode": "4058"
+      },
+      "geo": {
+        "lat": 47.5620463,
+        "lng": 7.5896853
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AkiubeR.jpg"
+    },
+    {
+      "id": "guidle:Ahde4eZ",
+      "title": "Orgelmatinee in der Jesuitenkirche",
+      "titleByLocale": {
+        "it": "Orgelmatinee in der Jesuitenkirche",
+        "en": "Orgelmatinee in der Jesuitenkirche",
+        "de": "Orgelmatinee in der Jesuitenkirche",
+        "fr": "Orgelmatinee in der Jesuitenkirche"
+      },
+      "description": "Heinrich Scheidemann (1596-1663): Galliarda ex D WV 107 Johann Sebastian Bach (1685-1750): Präludium und Fuge d-Moll BWV 539 Christian Heinrich Rinck (1770-1846): Flötenkonzert für die Orgel op....",
+      "descriptionByLocale": {
+        "it": "Heinrich Scheidemann (1596-1663): Galliarda ex D WV 107 Johann Sebastian Bach (1685-1750): Präludium und Fuge d-Moll BWV 539 Christian Heinrich Rinck (1770-1846): Flötenkonzert für die Orgel op....",
+        "en": "Heinrich Scheidemann (1596-1663): Galliarda ex D WV 107 Johann Sebastian Bach (1685-1750): Präludium und Fuge d-Moll BWV 539 Christian Heinrich Rinck (1770-1846): Flötenkonzert für die Orgel op....",
+        "de": "Heinrich Scheidemann (1596-1663): Galliarda ex D WV 107 Johann Sebastian Bach (1685-1750): Präludium und Fuge d-Moll BWV 539 Christian Heinrich Rinck (1770-1846): Flötenkonzert für die Orgel op....",
+        "fr": "Heinrich Scheidemann (1596-1663): Galliarda ex D WV 107 Johann Sebastian Bach (1685-1750): Präludium und Fuge d-Moll BWV 539 Christian Heinrich Rinck (1770-1846): Flötenkonzert für die Orgel op...."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "11:30",
+      "category": "Musica per piano / organo",
+      "venue": "Röm.-kath. Jesuitenkirche",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/solothurn/orgelmatinee-in-der-jesuitenkirche_Ahde4eZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hauptgasse 60",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.2076967,
+        "lng": 7.5379929
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ahde4eZ.jpg"
+    },
+    {
+      "id": "guidle:AqreFty",
+      "title": "Orgelfestival - Daniel Roth, der Orgelmeister aus Paris",
+      "titleByLocale": {
+        "it": "Orgelfestival - Daniel Roth, der Orgelmeister aus Paris",
+        "en": "Orgelfestival - Daniel Roth, der Orgelmeister aus Paris",
+        "de": "Orgelfestival - Daniel Roth, der Orgelmeister aus Paris",
+        "fr": "Orgelfestival - Daniel Roth, der Orgelmeister aus Paris"
+      },
+      "description": "Orgelrezital mit dem weltbekannten Altmeister, Daniel Roth aus Paris.",
+      "descriptionByLocale": {
+        "it": "Orgelrezital mit dem weltbekannten Altmeister, Daniel Roth aus Paris.",
+        "en": "Orgelrezital mit dem weltbekannten Altmeister, Daniel Roth aus Paris.",
+        "de": "Orgelrezital mit dem weltbekannten Altmeister, Daniel Roth aus Paris.",
+        "fr": "Orgelrezital mit dem weltbekannten Altmeister, Daniel Roth aus Paris."
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "19:00",
+      "category": "Festival / Incontro",
+      "venue": "Evang.-ref. Kirche Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uster/orgelfestival-daniel-roth-der-orgelmeister-aus-paris_AqreFty",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zentralstrasse 40",
+        "postalCode": "8610"
+      },
+      "geo": {
+        "lat": 47.3465743,
+        "lng": 8.7166868
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AqreFty.jpg"
+    },
+    {
+      "id": "guidle:AGWhUgw",
+      "title": "Orgelfestival - Orgel und Vibraphon",
+      "titleByLocale": {
+        "it": "Orgelfestival - Orgel und Vibraphon",
+        "en": "Orgelfestival - Orgel und Vibraphon",
+        "de": "Orgelfestival - Orgel und Vibraphon",
+        "fr": "Orgelfestival - Orgel und Vibraphon"
+      },
+      "description": "Orgel und Vibraphon bzw. Marimbaphon, eine Kombination, die Spannung verspricht.",
+      "descriptionByLocale": {
+        "it": "Orgel und Vibraphon bzw. Marimbaphon, eine Kombination, die Spannung verspricht.",
+        "en": "Orgel und Vibraphon bzw. Marimbaphon, eine Kombination, die Spannung verspricht.",
+        "de": "Orgel und Vibraphon bzw. Marimbaphon, eine Kombination, die Spannung verspricht.",
+        "fr": "Orgel und Vibraphon bzw. Marimbaphon, eine Kombination, die Spannung verspricht."
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "19:00",
+      "category": "Festival / Incontro",
+      "venue": "Evang.-ref. Kirche Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uster/orgelfestival-orgel-und-vibraphon_AGWhUgw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zentralstrasse 40",
+        "postalCode": "8610"
+      },
+      "geo": {
+        "lat": 47.3465743,
+        "lng": 8.7166868
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AGWhUgw.jpg"
+    },
+    {
+      "id": "guidle:A7CmYPt",
+      "title": "Orgelfestival - Orgel und Hiphop",
+      "titleByLocale": {
+        "it": "Orgelfestival - Orgel und Hiphop",
+        "en": "Orgelfestival - Orgel und Hiphop",
+        "de": "Orgelfestival - Orgel und Hiphop",
+        "fr": "Orgelfestival - Orgel und Hiphop"
+      },
+      "description": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
+      "descriptionByLocale": {
+        "it": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
+        "en": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
+        "de": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
+        "fr": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno."
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "startTime": "19:00",
+      "category": "Pop generalmente",
+      "venue": "Evang.-ref. Kirche Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uster/orgelfestival-orgel-und-hiphop_A7CmYPt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zentralstrasse 40",
+        "postalCode": "8610"
+      },
+      "geo": {
+        "lat": 47.3465743,
+        "lng": 8.7166868
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7CmYPt.jpg"
+    },
+    {
+      "id": "guidle:Ae7Rmnk",
+      "title": "Orgelfestival - Filmmusik",
+      "titleByLocale": {
+        "it": "Orgelfestival - Filmmusik",
+        "en": "Orgelfestival - Filmmusik",
+        "de": "Orgelfestival - Filmmusik",
+        "fr": "Orgelfestival - Filmmusik"
+      },
+      "description": "Stefan Schättin, Orgel und das Blechbläserquintett \"Inflagranti\" mit Highlights aus verschiedenen Filmen",
+      "descriptionByLocale": {
+        "it": "Stefan Schättin, Orgel und das Blechbläserquintett \"Inflagranti\" mit Highlights aus verschiedenen Filmen",
+        "en": "Stefan Schättin, Orgel und das Blechbläserquintett \"Inflagranti\" mit Highlights aus verschiedenen Filmen",
+        "de": "Stefan Schättin, Orgel und das Blechbläserquintett \"Inflagranti\" mit Highlights aus verschiedenen Filmen",
+        "fr": "Stefan Schättin, Orgel und das Blechbläserquintett \"Inflagranti\" mit Highlights aus verschiedenen Filmen"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "19:00",
+      "category": "Festival / Incontro",
+      "venue": "Evang.-ref. Kirche Uster",
+      "comune": "Uster",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uster/orgelfestival-filmmusik_Ae7Rmnk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zentralstrasse 40",
+        "postalCode": "8610"
+      },
+      "geo": {
+        "lat": 47.3465743,
+        "lng": 8.7166868
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ae7Rmnk.jpg"
+    },
+    {
+      "id": "guidle:AW9NNSV",
+      "title": "1. Schlusskonzert",
+      "titleByLocale": {
+        "it": "1. Schlusskonzert",
+        "en": "1. Schlusskonzert",
+        "de": "1. Schlusskonzert",
+        "fr": "1. Schlusskonzert"
+      },
+      "description": "1. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+      "descriptionByLocale": {
+        "it": "1. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+        "en": "1. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+        "de": "1. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+        "fr": "1. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse."
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Evang.-ref. Kirche Uttwil",
+      "comune": "Uttwil",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uttwil/1-schlusskonzert_AW9NNSV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchweg",
+        "postalCode": "8592"
+      },
+      "geo": {
+        "lat": 47.528771,
+        "lng": 9.3689468
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AW9NNSV.jpg"
+    },
+    {
+      "id": "guidle:AQ8qeTB",
+      "title": "Eröffnungskonzert",
+      "titleByLocale": {
+        "it": "Eröffnungskonzert",
+        "en": "Eröffnungskonzert",
+        "de": "Eröffnungskonzert",
+        "fr": "Eröffnungskonzert"
+      },
+      "description": "Eröffnungskonzert der 17. Uttwiler Meisterkurse 2026.",
+      "descriptionByLocale": {
+        "it": "Eröffnungskonzert der 17. Uttwiler Meisterkurse 2026.",
+        "en": "Eröffnungskonzert der 17. Uttwiler Meisterkurse 2026.",
+        "de": "Eröffnungskonzert der 17. Uttwiler Meisterkurse 2026.",
+        "fr": "Eröffnungskonzert der 17. Uttwiler Meisterkurse 2026."
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Evang.-ref. Kirche Uttwil",
+      "comune": "Uttwil",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uttwil/eroeffnungskonzert_AQ8qeTB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchweg",
+        "postalCode": "8592"
+      },
+      "geo": {
+        "lat": 47.528771,
+        "lng": 9.3689468
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AQ8qeTB.jpg"
+    },
+    {
+      "id": "guidle:AvBbHe9",
+      "title": "2. Schlusskonzert",
+      "titleByLocale": {
+        "it": "2. Schlusskonzert",
+        "en": "2. Schlusskonzert",
+        "de": "2. Schlusskonzert",
+        "fr": "2. Schlusskonzert"
+      },
+      "description": "2. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+      "descriptionByLocale": {
+        "it": "2. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+        "en": "2. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+        "de": "2. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse.",
+        "fr": "2. Schlusskonzert zum Abschluss der 17. Uttwiler Meisterkurse."
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "11:00",
+      "category": "Musica classica",
+      "venue": "Evang.-ref. Kirche Uttwil",
+      "comune": "Uttwil",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uttwil/2-schlusskonzert_AvBbHe9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchweg",
+        "postalCode": "8592"
+      },
+      "geo": {
+        "lat": 47.528771,
+        "lng": 9.3689468
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AvBbHe9.jpg"
+    },
+    {
+      "id": "guidle:AwNd59r",
+      "title": "Boswiler Meisterkonzert V - Tabea Zimmermann",
+      "titleByLocale": {
+        "it": "Boswiler Meisterkonzert V - Tabea Zimmermann",
+        "en": "Boswil Master Concert V - Tabea Zimmermann",
+        "de": "Boswiler Meisterkonzert V - Tabea Zimmermann",
+        "fr": "Boswiler Meisterkonzert V - Tabea Zimmermann"
+      },
+      "description": "Die Bratsche im Rampenlicht: Tabea Zimmermann und Andrei Banciu entfalten romantische Klangwelten von Brahms und Clara Schumann bis Enescu – persönlich, farbenreich, intensiv.",
+      "descriptionByLocale": {
+        "it": "Die Bratsche im Rampenlicht: Tabea Zimmermann und Andrei Banciu entfalten romantische Klangwelten von Brahms und Clara Schumann bis Enescu – persönlich, farbenreich, intensiv.",
+        "en": "The viola in the spotlight: Tabea Zimmermann and Andrei Banciu unfold romantic soundscapes from Brahms and Clara Schumann to Enescu - personal, colorful, intense.",
+        "de": "Die Bratsche im Rampenlicht: Tabea Zimmermann und Andrei Banciu entfalten romantische Klangwelten von Brahms und Clara Schumann bis Enescu – persönlich, farbenreich, intensiv.",
+        "fr": "Die Bratsche im Rampenlicht: Tabea Zimmermann und Andrei Banciu entfalten romantische Klangwelten von Brahms und Clara Schumann bis Enescu – persönlich, farbenreich, intensiv."
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Künstlerhaus Boswil",
+      "comune": "Boswil",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/events/classical/boswil/boswiler-meisterkonzert-v-tabea-zimmermann_AwNd59r",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Flurstrasse 21",
+        "postalCode": "5623"
+      },
+      "geo": {
+        "lat": 47.3032173,
+        "lng": 8.3205502
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AwNd59r.jpg"
+    },
+    {
+      "id": "guidle:A4jeM3N",
+      "title": "3. Orgelsommer mit Dirk Elsemann",
+      "titleByLocale": {
+        "it": "3. Orgelsommer mit Dirk Elsemann",
+        "en": "3. Orgelsommer mit Dirk Elsemann",
+        "de": "3. Orgelsommer mit Dirk Elsemann",
+        "fr": "3. Orgelsommer mit Dirk Elsemann"
+      },
+      "description": "Jedes Konzert ist einmalig und man wird es so nie wieder zu hören bekommen. Ganz besonders bei Improvisationen und Dirk Elsemann ist einer der profiliertesten deutschen Improvisationskünstler. Seit...",
+      "descriptionByLocale": {
+        "it": "Jedes Konzert ist einmalig und man wird es so nie wieder zu hören bekommen. Ganz besonders bei Improvisationen und Dirk Elsemann ist einer der profiliertesten deutschen Improvisationskünstler. Seit...",
+        "en": "Jedes Konzert ist einmalig und man wird es so nie wieder zu hören bekommen. Ganz besonders bei Improvisationen und Dirk Elsemann ist einer der profiliertesten deutschen Improvisationskünstler. Seit...",
+        "de": "Jedes Konzert ist einmalig und man wird es so nie wieder zu hören bekommen. Ganz besonders bei Improvisationen und Dirk Elsemann ist einer der profiliertesten deutschen Improvisationskünstler. Seit...",
+        "fr": "Jedes Konzert ist einmalig und man wird es so nie wieder zu hören bekommen. Ganz besonders bei Improvisationen und Dirk Elsemann ist einer der profiliertesten deutschen Improvisationskünstler. Seit..."
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "11:00",
+      "category": "Musica per piano / organo",
+      "venue": "Kathedrale St.Gallen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/st-gallen/3-orgelsommer_A4jeM3N",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Klosterhof",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4236897,
+        "lng": 9.3773025
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4jeM3N.jpg"
+    },
+    {
+      "id": "guidle:ALTa5Wi",
+      "title": "Choralkonzert",
+      "titleByLocale": {
+        "it": "Choralkonzert",
+        "en": "Choralkonzert",
+        "de": "Choralkonzert",
+        "fr": "Choralkonzert"
+      },
+      "description": "Infos folgen",
+      "descriptionByLocale": {
+        "it": "Infos folgen",
+        "en": "Infos folgen",
+        "de": "Infos folgen",
+        "fr": "Infos folgen"
+      },
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
+      "startTime": "17:00",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Kathedrale St.Gallen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/st-gallen/choralkonzert_ALTa5Wi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Klosterhof",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4236897,
+        "lng": 9.3773025
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ALTa5Wi.jpg"
     }
   ]
 }
