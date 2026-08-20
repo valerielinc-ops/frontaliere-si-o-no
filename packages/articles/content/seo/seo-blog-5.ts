@@ -71987,6 +71987,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-caglio-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Caglio e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri: trasferirsi a Caglio lavorando in Ticino. Permesso G, fiscalità, AVS, LAMal, ristorni e procedure. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, caglio, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Caglio, lavorare in Ticino: guida frontaliere 2024',
+    ogDescription: 'Trasferirsi a Caglio per lavorare in Ticino: Permesso G, tassazione, AVS, LAMal, ristorni fiscali, procedurali e valichi. Tutto per diventare frontaliere tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vivere-caglio-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Caglio e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri: trasferirsi a Caglio lavorando in Ticino. Permesso G, fiscalità, AVS, LAMal, ristorni e procedure. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-caglio-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di confine tra Caglio (Bergamo) e il Canton Ticino svizzero con paesaggio alpino."
+      },
+      "datePublished": "2026-08-20T16:55:17+00:00",
+      "dateModified": "2026-08-20T16:55:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-caglio-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-limido-comasco-frontaliere': {
+    title: 'Vivere a Limido Comasco, lavorare in Ticino: la guida',
+    description: 'Permesso G, franchigia €7.500–€10.000, tasse 2024, AVS/LPP/LAMal, 730 italiano e procedura step-by-step: tutto quello che serve per frontaliere Italia-Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, limido, comasco, lavorare',
+    ogTitle: 'Vivere a Limido Comasco, lavorare in Ticino: la guida',
+    ogDescription: 'Permesso G, franchigia €7.500–€10.000, tasse 2024, AVS/LPP/LAMal, 730 italiano e procedura step-by-step: tutto quello che serve per frontaliere Italia-Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-limido-comasco-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Limido Comasco, lavorare in Ticino: la guida",
+      "description": "Permesso G, franchigia €7.500–€10.000, tasse 2024, AVS/LPP/LAMal, 730 italiano e procedura step-by-step: tutto quello che serve per frontaliere Italia-Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-limido-comasco-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di confine Ticino-Italia durante le ore di pendolarismo matutino"
+      },
+      "datePublished": "2026-08-20T17:23:26+00:00",
+      "dateModified": "2026-08-20T17:23:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-limido-comasco-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-formazione-oltre-20km-riqualifica': {
+    title: 'Formazione prof. frontalieri 2026: guida pratica oltre 20 km',
+    description: 'Scopri come la formazione professionale influisce sui contributi AVS e sulla tassazione frontalieri nel 2026. Guida pratica con checklist. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, prof, pratica, oltre',
+    ogTitle: 'Formazione frontalieri 2026: scenari e tassazione oltre 20 km',
+    ogDescription: 'Frontalieri in formazione professionale nel 2026: come il nuovo accordo, l\'AVS e la tassazione alla fonte influenzano la scelta dei corsi. Scenari pratici e checklist.',
+    canonicalPath: '/articoli-frontaliere/formazione-oltre-20km-riqualifica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione prof. frontalieri 2026: guida pratica oltre 20 km",
+      "description": "Scopri come la formazione professionale influisce sui contributi AVS e sulla tassazione frontalieri nel 2026. Guida pratica con checklist. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-oltre-20km-riqualifica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in corso di formazione professionale in Ticino, ambiente di apprendimento moderno con computer e materiale didattico"
+      },
+      "datePublished": "2026-08-20T18:03:07+00:00",
+      "dateModified": "2026-08-20T18:03:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-oltre-20km-riqualifica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

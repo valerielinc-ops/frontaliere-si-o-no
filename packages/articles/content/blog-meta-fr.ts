@@ -10275,6 +10275,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Vivre à Barasso et travailler au Tessin : guide frontalier',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permis G, exonération 7 500 € , impôt à la source et prévoyance AVS/LPP : tout ce dont vous avez besoin pour vivre à Barasso et travailler au Tessin à partir de 2024.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Voiture d\'un frontalier au poste de contrôle Brogeda entre Varèse et le Tessin, avec panneaux douaniers suisses',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Vivre à Caglio et travailler au Tessin en tant que frontalière',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Déménager à Caglio pour travailler au Tessin : fiscalité, permis G, AVS, LAMal, procédures. Guide complet pour les frontaliers entre l\'Italie et la Suisse.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Route frontalière entre Caglio (province de Bergame) et le canton du Tessin suisse.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Vivre à Limido Comasco, travailler au Tessin : le guide',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permis G, franchise € 7.500- € 10.000, taxes 2024, AVS/LPP/LAMal, 730 italien et procédure étape par étape : tout ce dont vous avez besoin pour frontalier Italie-Tessin.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontalier au poste frontière Tessin-Italie pendant les heures de navette du matin',
+    'blog.article.formazione-oltre-20km-riqualifica.title': 'Formation prof. frontaliers 2026 : guide pratique plus de 20 km',
+    'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Cours de recyclage pour frontaliers : analyse des implications fiscales, des cotisations AVS et des opportunités au-delà de la frontière en 2026.',
+    'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Travailleur frontalier en formation professionnelle au Tessin, environnement d\'apprentissage moderne avec ordinateurs et matériel pédagogique',
 };
 
 export default blogMetaFr;

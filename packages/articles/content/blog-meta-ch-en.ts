@@ -3580,6 +3580,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Switzerland-China: Farewell to Duties on Swiss Exports',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'Switzerland and China have concluded negotiations on the optimisation of the free trade agreement, allowing 99.8% of Swiss exports to enter the Chinese market duty-free.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Swiss market in Beijing',
+    'blog.article.monopattini-casco-sicurezza.title': 'Mandatory helmet for scooters: Federal Council plan',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'The Federal Council proposes mandatory helmet for electric scooters after the increase in accidents. Find out what\'s going to change in Switzerland.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Electric scooters parked on a Swiss urban street with a safety helmet',
+    'blog.article.apprendistato-sciaffusa-guida.title': 'Apprenticeship and training in the canton of Schaffhausen',
+    'blog.article.apprendistato-sciaffusa-guida.excerpt': 'The Swiss apprenticeship: how to find an internship, sign the contract, the progressive remuneration and the path to professional maturity (MP) and the AFC.',
+    'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprentices in practical training at a modern Swiss vocational school workshop',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Red Cross: legal action for misuse of name',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'The CRS initiates legal action against Souveraineté suisse for the improper use of its name in the neutrality campaign on the ballot on 27 September.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Legal documents and Red Cross emblem on a desk in a Swiss legal office during consultation.',
 };
 
 export default blogMetaChEn;

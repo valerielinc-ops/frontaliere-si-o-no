@@ -10738,6 +10738,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'monopattini-casco-sicurezza',
+    category: 'novita',
+    date: '2026-08-20T17:02:35.615Z',
+    image: '/images/blog/monopattini-casco-sicurezza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'apprendistato-sciaffusa-guida',
+    category: 'pratico',
+    date: '2026-08-20T17:50:42.222Z',
+    image: '/images/blog/apprendistato-sciaffusa-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'croce-rossa-azione-legale-nome',
+    category: 'novita',
+    date: '2026-08-20T18:09:47.123Z',
+    image: '/images/blog/croce-rossa-azione-legale-nome.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

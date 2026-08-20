@@ -1219,6 +1219,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-cina-accordo-libero-scambio': { it: 'svizzera-cina-accordo-libero-scambio', en: 'switzerland-china-free-trade-agreement', de: 'schweiz-china-freihandelsabkommen', fr: 'suisse-chine-accord-libre-echange' },
  'dimora-b-svizzera-guida-pratica': { it: 'dimora-b-svizzera-guida-pratica', en: 'residence-permit-b-switzerland-guide', de: 'aufenthaltserlaubnis-b-schweiz-leitfaden', fr: 'permis-sejour-b-suisse-guide' },
  'svizzera-cina-dazi-export': { it: 'svizzera-cina-dazi-export', en: 'switzerland-china-export-tariffs', de: 'schweiz-china-export-zolle', fr: 'suisse-chine-export-droits' },
+ 'monopattini-casco-sicurezza': { it: 'monopattini-casco-sicurezza', en: 'e-scooter-helmet-safety', de: 'elektroroller-helm-sicherheit', fr: 'trottinette-casque-securite' },
+ 'apprendistato-sciaffusa-guida': { it: 'apprendistato-sciaffusa-guida', en: 'apprenticeship-vocational-training-schaffhausen', de: 'berufslehre-berufsbildung-schaffhausen', fr: 'apprentissage-formation-professionnelle-schaffhouse' },
+ 'croce-rossa-azione-legale-nome': { it: 'croce-rossa-azione-legale-nome', en: 'red-cross-legal-action-name-misuse', de: 'rotes-kreuz-klage-missbrauch-name', fr: 'croix-rouge-action-legale-abus-nom' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

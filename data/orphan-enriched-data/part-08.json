@@ -8381,9 +8381,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "ausbildung-come-kaufmann-frau-cfc-wms-3-1-praktikum-ab-august-2027-merian-iselin-klinik-basel",
-        "en": "ausbildung-come-kaufmann-frau-cfc-wms-3-1-praktikum-ab-august-2027-merian-iselin-klinik-basel",
-        "de": "ausbildung-come-kaufmann-frau-cfc-wms-3-1-praktikum-ab-august-2027-merian-iselin-klinik-basel",
-        "fr": "ausbildung-come-kaufmann-frau-cfc-wms-3-1-praktikum-ab-august-2027-merian-iselin-klinik-basel"
+        "en": "training-as-a-businessman-woman-efz-wms-3-1-internship-from-2027-merian-iselin-klinik-basel",
+        "de": "ausbildung-als-kaufmann-frau-efz-wms-3-1-praktikum-ab-2027-merian-iselin-basel",
+        "fr": "formation-d-homme-d-affaires-femme-efz-stage-wms-3-1-a-partir-de-2027-merian-iselin-klinik-basel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/ausbildung-come-kaufmann-frau-cfc-wms-3-1-praktikum-ab-august-2027-merian-iselin-klinik-basel",
@@ -8397,6 +8397,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -39713,7 +39714,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug-rqvksg"
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug-rqvksg",
+        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-zug",
+        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-zug",
+        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-zug"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zugo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug",

@@ -160,11 +160,32 @@ function main() {
   for (const pr of prs) {
     hasLabel.set(pr.number, (pr.labels || []).some((l) => l.name === 'collision-risk'));
     if (!candidates.has(pr.number)) { funnelFiles.set(pr.number, new Set()); continue; }
+    // `gh pr view --json files` passa da GraphQL, che su una PR con migliaia
+    // di file cambiati risponde `{"files":null}` invece di un errore (misurato
+    // su #6175, 5.576 file): il `--jq` muore, `allowFail` torna null, e il set
+    // finisce vuoto. Vuoto qui significa «non collide con nessuno», cioe' il
+    // fail-open esatto che questo scan deve evitare — e proprio sulla PR piu'
+    // grande, quella con piu' probabilita' di collidere davvero.
+    //
+    // Il fallback REST risponde con una lista troncata (misurato: 100 file,
+    // senza header `Link`) ma mai nulla. Un elenco parziale puo' mancare una
+    // collisione, il vuoto le manca tutte: la direzione e' comunque migliore.
     let files = [];
     try {
       files = gh(['pr', 'view', String(pr.number), '--repo', REPO, '--json', 'files',
-        '--jq', '[.files[].path]'], { allowFail: true }) || [];
+        '--jq', '[.files // [] | .[].path]'], { allowFail: true }) || [];
     } catch { files = []; }
+    if (!files.length) {
+      try {
+        // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
+        // array darebbe piu' valori JSON top-level concatenati, che JSON.parse
+        // rifiuta. Quindi filtro a righe e split, che regge n pagine.
+        const raw = gh(['api', `repos/${REPO}/pulls/${pr.number}/files`, '--paginate',
+          '--jq', '.[].filename'], { json: false, allowFail: true }) || '';
+        files = raw.split('\n').map((l) => l.trim()).filter(Boolean);
+        if (files.length) console.log(`PR #${pr.number}: file list GraphQL nulla → fallback REST (${files.length} file, lista possibilmente troncata).`);
+      } catch { files = []; }
+    }
     const set = new Set(files.filter(isFunnel));
     funnelFiles.set(pr.number, set);
     if (set.size) console.log(`PR #${pr.number}: ${set.size} file funnel-critical.`);

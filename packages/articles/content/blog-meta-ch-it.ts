@@ -3580,6 +3580,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Svizzera-Cina, svolta storica: verso l\'addio ai dazi sull\'export elvetico',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'La Svizzera e la Cina hanno concluso i negoziati sull\'ottimizzazione dell\'accordo di libero scambio, permettendo al 99,8% delle esportazioni svizzere di accedere al mercato cinese in esenzione doganale.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Mercato di prodotti svizzeri a Pechino',
+    'blog.article.monopattini-casco-sicurezza.title': 'Obbligo casco monopattini: piano Consiglio federale',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'Il Consiglio federale propone l\'obbligo del casco per i monopattini elettrici dopo l\'aumento degli incidenti. Scopri cosa cambierà in Svizzera.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Monopattini elettrici parcheggiati su una strada urbana svizzera con casco di sicurezza',
+    'blog.article.apprendistato-sciaffusa-guida.title': 'Apprendistato e formazione nel canton Sciaffusa',
+    'blog.article.apprendistato-sciaffusa-guida.excerpt': 'L\'apprendistato svizzero: come trovare un tirocinio, sottoscrivere il contratto, la retribuzione progressiva e il percorso verso la maturità professionale (MP) e l\'AFC.',
+    'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprendisti in formazione pratica in un laboratorio di scuola professionale svizzera moderna',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Croce Rossa: azione legale per uso improprio del nome',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'La CRS avvia azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Documenti legali e emblema della Croce Rossa in uno studio legale svizzero durante una consultazione.',
 };
 
 export default blogMetaChIt;

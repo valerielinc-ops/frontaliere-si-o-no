@@ -10274,6 +10274,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Vivere a Barasso e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permesso G, esenzione €7.500, imposta alla fonte e previdenza AVS/LPP: tutto ciò che serve per vivere a Barasso e lavorare nel Ticino dal 2024.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Auto di un frontaliere al valico Brogeda tra Varese e Ticino, con segnaletica doganale svizzera e nebbia mattutina',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Vivere a Caglio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Trasferirsi a Caglio per lavorare in Ticino: fisco, Permesso G, AVS, LAMal, procedure. Guida completa per frontalieri tra Italia e Svizzera.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Strada di confine tra Caglio (Bergamo) e il Canton Ticino svizzero con paesaggio alpino.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Vivere a Limido Comasco, lavorare in Ticino: la guida',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permesso G, franchigia €7.500–€10.000, tasse 2024, AVS/LPP/LAMal, 730 italiano e procedura step-by-step: tutto quello che serve per frontaliere Italia-Ticino.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontaliere al valico di confine Ticino-Italia durante le ore di pendolarismo matutino',
+    'blog.article.formazione-oltre-20km-riqualifica.title': 'Formazione prof. frontalieri 2026: guida pratica oltre 20 km',
+    'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Corsi di riqualifica per frontalieri: analisi delle implicazioni fiscali, contributi AVS e opportunità oltre il confine nel 2026.',
+    'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Frontaliere in corso di formazione professionale in Ticino, ambiente di apprendimento moderno con computer e materiale didattico',
 };
 
 export default blogMetaIt;

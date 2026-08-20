@@ -46430,6 +46430,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-monopattini-casco-sicurezza': {
+    title: 'Obbligo casco monopattini: piano Consiglio federale',
+    description: 'Il Consiglio federale propone l\'obbligo del casco per i monopattini elettrici dopo l\'aumento degli incidenti. Scopri cosa cambierà in Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, obbligo, casco, monopattini, piano',
+    ogTitle: 'Obbligo casco monopattini: decisione Consiglio federale',
+    ogDescription: 'Il Consiglio federale svizzero propone l\'obbligo del casco per chi usa monopattini elettrici in risposta all\'aumento degli incidenti nelle zone pedonali. Il governo scarta immatricolazione e assicurazione.',
+    canonicalPath: '/articoli-svizzera/monopattini-casco-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Obbligo casco monopattini: piano Consiglio federale",
+      "description": "Il Consiglio federale propone l'obbligo del casco per i monopattini elettrici dopo l'aumento degli incidenti. Scopri cosa cambierà in Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/monopattini-casco-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Monopattini elettrici parcheggiati su una strada urbana svizzera con casco di sicurezza"
+      },
+      "datePublished": "2026-08-20T17:02:35+00:00",
+      "dateModified": "2026-08-20T17:02:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/monopattini-casco-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-sciaffusa-guida': {
+    title: 'Apprendistato e formazione nel canton Sciaffusa',
+    description: 'Guida completa al sistema di apprendistato svizzero: come trovare un tirocinio, il contratto di tirocinio, retribuzione, diritti e doveri, e il percorso',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, canton, sciaffusa',
+    ogTitle: 'Apprendistato e formazione nel canton Sciaffusa',
+    ogDescription: 'Scopri il sistema di apprendistato svizzero: come trovare un tirocinio, il contratto scritto, la retribuzione progressiva, i tuoi diritti e doveri, e il percorso verso l\'AFC e la maturità professionale (MP).',
+    canonicalPath: '/articoli-svizzera/apprendistato-sciaffusa-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione nel canton Sciaffusa",
+      "description": "Guida completa al sistema di apprendistato svizzero: come trovare un tirocinio, il contratto di tirocinio, retribuzione, diritti e doveri, e il percorso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-sciaffusa-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendisti in formazione pratica in un laboratorio di scuola professionale svizzera moderna"
+      },
+      "datePublished": "2026-08-20T17:50:42+00:00",
+      "dateModified": "2026-08-20T17:50:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-sciaffusa-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-croce-rossa-azione-legale-nome': {
+    title: 'Croce Rossa: azione legale per uso improprio del nome',
+    description: 'La CRS avvia azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, rossa, azione, legale',
+    ogTitle: 'Croce Rossa: azione legale per uso improprio del nome',
+    ogDescription: 'La Croce Rossa Svizzera ha avviato un\'azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità. Scopri i dettagli della disputa legale, le implicazioni per chi viola i diritti di un\'organizzazione',
+    canonicalPath: '/articoli-svizzera/croce-rossa-azione-legale-nome/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce Rossa: azione legale per uso improprio del nome",
+      "description": "La CRS avvia azione legale contro Souveraineté suisse per l'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/croce-rossa-azione-legale-nome.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti legali e emblema della Croce Rossa in uno studio legale svizzero durante una consultazione."
+      },
+      "datePublished": "2026-08-20T18:09:47+00:00",
+      "dateModified": "2026-08-20T18:09:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/croce-rossa-azione-legale-nome/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -10273,6 +10273,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Living in Barasso and working in Ticino: border guide',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permit G, exemption €7,500, tax at source and AVS/LPP pension: everything you need to live in Barasso and work in Ticino from 2024.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Commuter car at Brogeda border crossing between Varese and Ticino, with Swiss customs signage and morning mist',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Living in Caglio and working in Ticino as a border worker',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Moving to Caglio to work in Ticino: tax, G Permit, AVS, LAMal, procedures. Complete guide for border workers between Italy and Switzerland.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Border road between Caglio (Bergamo province) and Swiss Ticino canton with alpine landscape.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Living in Limido Comasco, working in Ticino: the guide',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permit G, deductible €7,500-€10,000, taxes 2024, AVS/LPP/LAMal, 730 Italian and step-by-step procedure: everything you need for Italy-Ticino border crossing.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontalier at a Swiss-Italian border crossing during morning commute hours',
+    'blog.article.formazione-oltre-20km-riqualifica.title': 'Prof. border guard training 2026: practical guide over 20 km',
+    'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Redevelopment courses for border workers: analysis of tax implications, AVS contributions and opportunities across the border in 2026.',
+    'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Frontalier engaged in professional training in Ticino, modern learning environment with computers and training materials',
 };
 
 export default blogMetaEn;

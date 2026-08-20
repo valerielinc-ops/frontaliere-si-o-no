@@ -3580,6 +3580,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Schweiz-China, historische Wende: Abschied von den Schweizer Exportzöllen',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'Die Schweiz und China haben die Verhandlungen über die Optimierung des Freihandelsabkommens abgeschlossen, so dass 99,8% der Schweizer Exporte zollfrei auf den chinesischen Markt gelangen können.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Schweizer Markt in Peking',
+    'blog.article.monopattini-casco-sicurezza.title': 'Rollerhelmpflicht: Plan Bundesrat',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'Der Bundesrat schlägt eine Helmpflicht für E-Scooter vor, nachdem die Zahl der Unfälle gestiegen ist. Finden Sie heraus, was sich in der Schweiz ändern wird.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Elektrische Tretroller auf einer Schweizer Stadtstraße mit Schutzhelm',
+    'blog.article.apprendistato-sciaffusa-guida.title': 'Lehre und Ausbildung im Kanton Schaffhausen',
+    'blog.article.apprendistato-sciaffusa-guida.excerpt': 'Die Schweizer Lehre: So finden Sie eine Lehre, unterschreiben den Vertrag, die progressive Vergütung und den Weg zur Berufsmaturität (MP) und zur ESTV.',
+    'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Lernende in der Praxisausbildung in einem modernen Schweizer Berufsschulzimmer',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Rotes Kreuz: Klage wegen Namensmissbrauch',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'Das SRK leitet rechtliche Schritte gegen Souveraineté suisse wegen der missbräuchlichen Verwendung seines Namens in der Neutralitätskampagne ein, über die am 27. September abgestimmt wird.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Rechtliche Dokumente und Rotes-Kreuz-Emblem auf einem Schreibtisch in einem Schweizer Anwaltsbüro.',
 };
 
 export default blogMetaChDe;
