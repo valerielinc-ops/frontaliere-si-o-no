@@ -72221,6 +72221,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-erba-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Erba, lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri da Erba verso Ticino: permesso G, fiscalità Italia-Svizzera, imposta alla fonte, LAMal, AVS, costi e procedure di trasferimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, erba, lavorare, location',
+    ogTitle: 'Vivere a Erba, lavorare in Ticino: guida al permesso G',
+    ogDescription: 'Erba è location strategica per frontalieri in Ticino. Scopri permesso G, fiscalità italiana e svizzera, imposta alla fonte, LAMal, AVS, contributi, ristorni e scadenze della dichiarazione dei redditi. Guida pratica con checklist e strumenti.',
+    canonicalPath: '/articoli-frontaliere/vivere-erba-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Erba, lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri da Erba verso Ticino: permesso G, fiscalità Italia-Svizzera, imposta alla fonte, LAMal, AVS, costi e procedure di trasferimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-erba-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Mendrisio e della regione frontaliera tra Como (Italia) e Ticino (Svizzera), con montagne e paesaggio alpino."
+      },
+      "datePublished": "2026-08-20T20:58:10+00:00",
+      "dateModified": "2026-08-20T20:58:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-erba-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
