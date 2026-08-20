@@ -10183,6 +10183,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Vivre à Anzano et travailler au Tessin : avantages et inconvénients',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'Les frontaliers qui résident à Anzano del Parco et travaillent au Tessin doivent tenir compte du temps de trajet, du coût de la vie et des zones recommandées.',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier qui réside à Anzano del Parco et travaille en Suisse du Sud doit prendre en compte les temps de trajet et le coût de la vie.',
+    'blog.article.bene-telelavoro-ticino.title': 'Bénéfice du télétravail, moins d\'espace et de coûts',
+    'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti et Rusconi demandent des éclaircissements au gouvernement sur le travail à distance dans l\'administration cantonale',
+    'blog.article.bene-telelavoro-ticino.imageAlt': 'Travail à distance en Suisse italienne: avantages, mais aussi changements',
 };
 
 export default blogMetaFr;

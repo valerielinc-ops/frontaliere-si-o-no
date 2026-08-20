@@ -3481,6 +3481,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Sanità in Svizzera: LAMal, franchigie e rimborsi',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'Il sistema sanitario svizzero è basato sull\'assicurazione malattia LAMal obbligatoria per residenti. I premi variano a seconda del cantone e della regione. Il canton Zurigo offre franchigie per adulti da CHF 300 a CHF 2500.',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Immagine di un medico svizzero',
+    'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Naturalizzazione nel Cantone di Basilea Campagna: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'Il processo di naturalizzazione nel Cantone di Basilea Campagna: anni richiesti, test di integrazione e di lingua, tasse da versare e durata della procedura.',
+    'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'Vista della città di Basilea Campagna, Svizzera, con enfasi sul processo di naturalizzazione.',
 };
 
 export default blogMetaChIt;
