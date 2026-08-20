@@ -13,11 +13,16 @@ import {
   DEFAULT_SWAP_FLOOR_MB,
   SWAP_FLOOR_FRACTION,
   SWAP_FLOOR_MIN_TOTAL_MB,
+  PREFLIGHT_RAISED_WALL_MB,
+  PREFLIGHT_MIN_SWAP_MB,
+  PREFLIGHT_OVERHEAD_MB,
   readHostAvailableMb,
   readHostTotalMb,
   readHostSwapMb,
+  readSelfAnonMb,
   applyTighteningOverride,
   resolveThresholds,
+  resolvePreflight,
   createGuardState,
   observeSample,
   formatBreachDiagnosis,
@@ -327,21 +332,59 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(t.swapFreeFloorMb).toBeNull();
   });
 
-  it('con lo swap di default del runner (4 GB) il tetto sale del credito pieno', () => {
+  it('con lo swap di default del runner (4 GB) il tetto sale del credito pieno — e resta RAGGIUNGIBILE dal footprint', () => {
     const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(meminfoWithSwap(15988, 4096)));
     expect(t.rssCeilingMb).toBe(Math.round((15988 + 4096) * RSS_CEILING_FRACTION)); // 16208
+    // La proprieta' che la review di #6150 ha trovato mancante: 16208 e'
+    // SOPRA la RAM fisica (15988), quindi l'RSS nudo non lo raggiunge mai —
+    // ma il footprint anonimo (RSS+VmSwap) si', perche' la capacita' e'
+    // RAM+swap. Il tetto deve stare SOTTO la capacita', o e' un ratchet morto.
+    expect(t.rssCeilingMb).toBeLessThan(15988 + 4096);
     // Il pavimento swap e' armato: 4096 ≥ 2048, e max(512, 4096×0,04=164) = 512.
     expect(t.swapFreeFloorMb).toBe(DEFAULT_SWAP_FLOOR_MB);
   });
 
-  it('il credito swap e\' CAPPATO: uno swapfile enorme non rende il ratchet vacuo', () => {
+  it('il credito swap e\' CAPPATO, e il tetto resta sotto la capacita\' anonima', () => {
     const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(meminfoWithSwap(15988, 32768)));
     expect(t.rssCeilingMb).toBe(
       Math.round((15988 + SWAP_CEILING_CREDIT_CAP_MB) * RSS_CEILING_FRACTION), // 19513
     );
+    // Raggiungibilita': sotto la capacita' vera (RAM+swap)…
+    expect(t.rssCeilingMb).toBeLessThan(15988 + 32768);
     // …mentre il pavimento segue lo swap VERO, non il credito cappato:
     // e' un pavimento di esaurimento, non un tetto di pressione.
     expect(t.swapFreeFloorMb).toBe(Math.round(32768 * SWAP_FLOOR_FRACTION)); // 1311
+  });
+
+  it('il ratchet e\' VIVO sul runner di produzione: il footprint puo\' sfondare il tetto, l\'RSS nudo no', () => {
+    // Runner reale post grow-build-swap: MemTotal 15988, SwapTotal 12288 →
+    // credito cappato 8192 → tetto 19513. Un processo con RSS 13 GB (sotto la
+    // RAM) e 7 GB evacuati in swap ha footprint 20 GB: DEVE sfondare.
+    const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(meminfoWithSwap(15988, 12288)));
+    const state = createGuardState();
+    for (let i = 0; i < 2; i += 1) {
+      expect(observeSample(state, { rssMb: 13000, selfSwapMb: 7000, hostAvailMb: 2000, swapFreeMb: 4000 }, t)).toBeNull();
+    }
+    expect(observeSample(state, { rssMb: 13000, selfSwapMb: 7000, hostAvailMb: 2000, swapFreeMb: 4000 }, t)).toBe('rss-ceiling');
+    expect(state.peakAnonMb).toBe(20000);
+    expect(state.peakRssMb).toBe(13000);
+    // …e la diagnosi nomina il footprint, non solo l'RSS.
+    const text = formatBreachDiagnosis('rss-ceiling', state, t);
+    expect(text).toContain('footprint anonimo');
+    expect(text).toContain('picco 20000 MB');
+    // Il profilo VERDE misurato (RSS 12,5 GB + ~3 GB swap = 15,5 GB) resta verde.
+    const green = createGuardState();
+    for (let i = 0; i < 10; i += 1) {
+      expect(observeSample(green, { rssMb: 12532, selfSwapMb: 3000, hostAvailMb: 1500, swapFreeMb: 9000 }, t)).toBeNull();
+    }
+  });
+
+  it('readSelfAnonMb legge VmRSS+VmSwap; VmSwap assente vale 0; file assente vale null', () => {
+    const p = tmpMeminfo('VmRSS:\t 8388608 kB\nVmSwap:\t 2097152 kB\n');
+    expect(readSelfAnonMb(p)).toEqual({ rssMb: 8192, swapMb: 2048 });
+    expect(readSelfAnonMb(tmpMeminfo('VmRSS:\t 1048576 kB\n'))).toEqual({ rssMb: 1024, swapMb: 0 });
+    expect(readSelfAnonMb('/nope/status')).toBeNull();
+    expect(readSelfAnonMb(tmpMeminfo('VmSwap:\t 1024 kB\n'))).toBeNull();
   });
 
   it('sotto i 2 GB di SwapTotal il pavimento swap resta SPENTO — sarebbe sfondato a riposo', () => {
@@ -392,6 +435,65 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(text).toContain('SwapFree');
     expect(text).toContain('minSwapFreeMb=128');
     expect(text).toContain('swapFreeFloorMb=512');
+  });
+});
+
+/**
+ * Il preflight di buildStart (review di #6150): il lockstep «tetto V8 alzato
+ * ⇔ swapfile del build attivo» era affidato a commenti in 3 workflow, e due
+ * workflow che lanciano build:ci ne erano rimasti fuori. Qui e' meccanico.
+ */
+describe('resolvePreflight — il lockstep tetto↔swap e\' meccanico, non un commento', () => {
+  function meminfoSwap(totalMb: number, swapTotalMb: number): string {
+    return [
+      `MemTotal:       ${totalMb * 1024} kB`,
+      `MemAvailable:    ${Math.round(totalMb / 2) * 1024} kB`,
+      `SwapTotal:      ${swapTotalMb * 1024} kB`,
+      `SwapFree:       ${swapTotalMb * 1024} kB`,
+    ].join('\n') + '\n';
+  }
+  const CI = { CI: 'true' } as NodeJS.ProcessEnv;
+  const LOCAL = {} as NodeJS.ProcessEnv;
+
+  it('fuori da Linux (niente /proc/meminfo) e\' spento', () => {
+    expect(resolvePreflight(18432, CI, '/nope/meminfo').verdict).toBe('ok');
+  });
+
+  it('in CI, tetto alzato + swap solo di default = FAIL nominato (la classe dei 2 workflow scoperti)', () => {
+    const r = resolvePreflight(14336, CI, tmpMeminfo(meminfoSwap(15988, 4096)));
+    expect(r.verdict).toBe('fail');
+    expect(r.reason).toContain('grow-build-swap');
+  });
+
+  it('in CI, tetto alzato + swapfile attivo = ok (il regime di deploy.yml)', () => {
+    expect(resolvePreflight(14336, CI, tmpMeminfo(meminfoSwap(15988, 12288))).verdict).toBe('ok');
+  });
+
+  it('in CI, il vecchio tetto (12288) non richiede lo swapfile — regime storico intatto', () => {
+    expect(resolvePreflight(12288, CI, tmpMeminfo(meminfoSwap(15988, 4096))).verdict).toBe('ok');
+  });
+
+  it('fuori CI la regola lockstep non vale (dev Linux con molta RAM)…', () => {
+    expect(resolvePreflight(14336, LOCAL, tmpMeminfo(meminfoSwap(65536, 0))).verdict).toBe('ok');
+  });
+
+  it('…ma la sanita\' assoluta vale OVUNQUE: un tetto che non entra nell\'host fallisce subito', () => {
+    const r = resolvePreflight(18432, LOCAL, tmpMeminfo(meminfoSwap(15988, 0)));
+    expect(r.verdict).toBe('fail');
+    expect(r.reason).toContain('capacita');
+    // 18432 + overhead entra invece in un host con 15988 RAM + 12288 swap…
+    // MA in CI resta il lockstep: qui siamo fuori CI, quindi ok.
+    expect(resolvePreflight(18432, LOCAL, tmpMeminfo(meminfoSwap(15988, 12288))).verdict).toBe('ok');
+  });
+
+  it('le costanti stanno nell\'ordine che il preflight assume', () => {
+    // RAISED_WALL fra il vecchio tetto e quello nuovo; MIN_SWAP fra il
+    // default del runner e default+swapfile; overhead positivo.
+    expect(PREFLIGHT_RAISED_WALL_MB).toBeGreaterThan(12288);
+    expect(PREFLIGHT_RAISED_WALL_MB).toBeLessThanOrEqual(14336);
+    expect(PREFLIGHT_MIN_SWAP_MB).toBeGreaterThan(4096);
+    expect(PREFLIGHT_MIN_SWAP_MB).toBeLessThanOrEqual(12288);
+    expect(PREFLIGHT_OVERHEAD_MB).toBeGreaterThan(0);
   });
 });
 

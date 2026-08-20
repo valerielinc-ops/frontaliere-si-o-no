@@ -108,10 +108,42 @@
  * vicino perche' il kernel non ha piu' dove evicere. Armato solo quando
  * SwapTotal ≥ 2 GB — su uno swap minuscolo il pavimento sarebbe
  * permanentemente sfondato gia' a riposo, cioe' un falso allarme strutturale.
+ *
+ * ─── La quantita' misurata e' il FOOTPRINT ANONIMO, non l'RSS nudo ───────
+ *
+ * La review di #6150 ha trovato il difetto della prima versione swap-aware:
+ * confrontava l'RSS (pagine RESIDENTI, per definizione ≤ MemTotal) con un
+ * tetto calcolato su MemTotal + swap — cioe' 16 208 MB gia' col solo swap di
+ * default del runner (4 GB), sopra i 15 988 MB fisici. Un tetto che l'RSS
+ * non puo' raggiungere e' un ratchet MORTO: una regressione da 12,5 a 15 GB
+ * sarebbe passata in silenzio, e la prima diagnosi sarebbe tornata a essere
+ * il kill opaco che questo modulo esiste per prevenire.
+ *
+ * Il fix e' misurare la stessa unita' del tetto: il footprint anonimo del
+ * processo, `VmRSS + VmSwap` da `/proc/self/status`. Su un host senza swap
+ * (o dove /proc non esiste) VmSwap e' 0/illeggibile e il footprint coincide
+ * con l'RSS: il regime storico e' un caso particolare del nuovo, non un
+ * ramo separato. I nomi esterni (`rssCeilingMb`, breach `rss-ceiling`,
+ * `BUILD_MEM_RSS_CEILING_MB`) restano per compatibilita' di report, issue e
+ * override — e' la quantita' campionata a essere cambiata, ed e' detto a
+ * voce nella diagnosi e nella riga di log verde.
+ *
+ * ─── Il preflight: il lockstep tetto V8 ↔ swap e' MECCANICO ──────────────
+ *
+ * `build:ci` fissa il tetto V8 (14 336 MB) in package.json; lo swapfile lo
+ * crea `scripts/ci/grow-build-swap.sh`, chiamato dai workflow. Sono due
+ * file diversi, e la review di #6150 ha trovato due workflow che lanciavano
+ * il build col tetto alzato senza lo swap — piu' il ramo fail-open dello
+ * step (niente /mnt → warning e avanti). Il preflight di `buildStart`
+ * chiude la classe: se il tetto configurato richiede lo swap e lo swap non
+ * c'e', il build fallisce in 5 secondi con un errore nominato, invece di
+ * morire host-kill 40 minuti dopo. Vale per QUALUNQUE workflow, anche uno
+ * scritto domani che non ha mai sentito nominare lo step.
  */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import v8 from 'node:v8';
 import type { Plugin } from 'vite';
 
 const MB = 1048576;
@@ -193,6 +225,28 @@ export const SWAP_FLOOR_FRACTION = 0.04;
  */
 export const SWAP_FLOOR_MIN_TOTAL_MB = 2048;
 
+/**
+ * Preflight (vedi il docblock del modulo): sopra questo tetto V8 configurato,
+ * il build su un runner CI Linux RICHIEDE lo swapfile di
+ * `scripts/ci/grow-build-swap.sh`. 13 500 sta fra il vecchio tetto (12 288,
+ * che i runner reggevano col solo swap di default) e quello nuovo (14 336).
+ */
+export const PREFLIGHT_RAISED_WALL_MB = 13500;
+
+/**
+ * SwapTotal minimo che prova che lo swapfile del build e' attivo: default
+ * del runner (4 096) + swapfile (8 192) = 12 288; 10 240 tollera un default
+ * piu' piccolo senza accettare il caso «solo default».
+ */
+export const PREFLIGHT_MIN_SWAP_MB = 10240;
+
+/**
+ * Overhead massimo plausibile del processo oltre l'old-space (code space,
+ * external, buffer, arene glibc): serve al check di sanita' assoluta
+ * «il tetto configurato non entra fisicamente nell'host».
+ */
+export const PREFLIGHT_OVERHEAD_MB = 2048;
+
 /** Intervallo di campionamento e campioni consecutivi richiesti. */
 export const DEFAULT_SAMPLE_INTERVAL_MS = 5000;
 export const DEFAULT_CONSECUTIVE_SAMPLES = 3;
@@ -235,6 +289,14 @@ export interface GuardThresholds {
 export interface MemorySample {
   /** RSS del processo di build, in MB. */
   rssMb: number;
+  /**
+   * `VmSwap` del processo in MB (pagine del processo evacuate in swap),
+   * oppure `null`/assente dove `/proc/self/status` non e' leggibile. Il
+   * tetto confronta `rssMb + selfSwapMb` — il footprint anonimo — perche'
+   * l'RSS nudo e' limitato dalla RAM fisica e non puo' mai raggiungere un
+   * tetto calcolato su RAM + swap (vedi il docblock del modulo).
+   */
+  selfSwapMb?: number | null;
   /** `MemAvailable` dell'host in MB, oppure `null` dove non e' leggibile. */
   hostAvailMb: number | null;
   /** `SwapFree` dell'host in MB, oppure `null` dove non e' leggibile. */
@@ -245,6 +307,8 @@ export type BreachKind = 'rss-ceiling' | 'host-floor' | 'swap-floor';
 
 export interface GuardState {
   peakRssMb: number;
+  /** Picco del footprint anonimo (RSS + VmSwap del processo), in MB. */
+  peakAnonMb: number;
   minHostAvailMb: number | null;
   minSwapFreeMb: number | null;
   samples: number;
@@ -257,6 +321,7 @@ export interface GuardState {
 export function createGuardState(): GuardState {
   return {
     peakRssMb: 0,
+    peakAnonMb: 0,
     minHostAvailMb: null,
     minSwapFreeMb: null,
     samples: 0,
@@ -299,6 +364,37 @@ export function readHostAvailableMb(procMeminfoPath = '/proc/meminfo'): number |
  *   come «host senza swap», non come «swap di taglia ignota»: e' cio' che
  *   tiene il tetto byte-identico a prima su quei fixture.
  */
+/**
+ * Legge `VmRSS` e `VmSwap` del PROCESSO da `/proc/self/status`, in MB.
+ *
+ * E' la meta' «processo» del footprint anonimo: `VmRSS + VmSwap` e' quanto
+ * il processo occupa fra RAM e swap, la quantita' che il tetto swap-aware
+ * deve confrontare (l'RSS nudo e' limitato dalla RAM, vedi docblock).
+ *
+ * @returns `null` dove il file non esiste (macOS) o manca `VmRSS`. `VmSwap`
+ *   assente con `VmRSS` presente (kernel molto vecchi) vale 0, non null.
+ */
+export function readSelfAnonMb(
+  procSelfStatusPath = '/proc/self/status',
+): { rssMb: number; swapMb: number } | null {
+  let raw: string;
+  try {
+    raw = fs.readFileSync(procSelfStatusPath, 'utf-8');
+  } catch {
+    return null;
+  }
+  const rss = /^VmRSS:\s+(\d+)\s+kB$/m.exec(raw);
+  if (!rss) return null;
+  const rssKb = Number.parseInt(rss[1], 10);
+  if (!Number.isFinite(rssKb)) return null;
+  const swap = /^VmSwap:\s+(\d+)\s+kB$/m.exec(raw);
+  const swapKb = swap ? Number.parseInt(swap[1], 10) : 0;
+  return {
+    rssMb: Math.round(rssKb / 1024),
+    swapMb: Number.isFinite(swapKb) ? Math.round(swapKb / 1024) : 0,
+  };
+}
+
 export function readHostSwapMb(
   procMeminfoPath = '/proc/meminfo',
 ): { totalMb: number; freeMb: number } | null {
@@ -366,6 +462,65 @@ export function applyTighteningOverride(
  *
  * @param env normalmente `process.env`; iniettabile per i test.
  */
+/**
+ * Preflight di `buildStart` (vedi il docblock del modulo). Funzione PURA
+ * come `observeSample`, per la stessa ragione: si testa con numeri
+ * sintetici, non con una build da 90 minuti.
+ *
+ * Due regole, in ordine:
+ * 1. Sanita' assoluta: `heapLimitMb + PREFLIGHT_OVERHEAD_MB` deve entrare in
+ *    `MemTotal + SwapTotal`. Se non entra, il build morira' comunque — meglio
+ *    in 5 secondi con un nome che in 40 minuti con un host-kill.
+ * 2. Lockstep CI: su un runner CI Linux, un tetto ≥ PREFLIGHT_RAISED_WALL_MB
+ *    richiede lo swapfile di grow-build-swap.sh (SwapTotal ≥
+ *    PREFLIGHT_MIN_SWAP_MB). E' il check che rende impossibile lanciare
+ *    `build:ci` col tetto alzato e lo swap dimenticato — la classe di buco
+ *    trovata dalla review di #6150 su due workflow.
+ *
+ * Fuori da Linux (`/proc/meminfo` illeggibile) il preflight e' spento: il
+ * caso e' il dev locale su macOS, dove il tetto alto esiste da sempre.
+ * La regola 2 e' inoltre limitata a `CI` per non bocciare un dev Linux con
+ * 64 GB di RAM che builda senza swap — per lui vale comunque la regola 1.
+ */
+export function resolvePreflight(
+  heapLimitMb: number,
+  env: NodeJS.ProcessEnv = process.env,
+  procMeminfoPath = '/proc/meminfo',
+): { verdict: 'ok' | 'fail'; reason: string } {
+  const raw = (() => {
+    try {
+      return fs.readFileSync(procMeminfoPath, 'utf-8');
+    } catch {
+      return null;
+    }
+  })();
+  if (raw === null) return { verdict: 'ok', reason: 'preflight spento: /proc/meminfo non leggibile (host non Linux)' };
+  const totalMb = readHostTotalMb(procMeminfoPath);
+  const swapTotalMb = readHostSwapMb(procMeminfoPath)?.totalMb ?? 0;
+  const capacityMb = totalMb + swapTotalMb;
+  if (heapLimitMb + PREFLIGHT_OVERHEAD_MB > capacityMb) {
+    return {
+      verdict: 'fail',
+      reason:
+        `il tetto V8 configurato (${heapLimitMb} MB) piu' l'overhead di processo (${PREFLIGHT_OVERHEAD_MB} MB) ` +
+        `non entra nella capacita' anonima dell'host (${totalMb} MB RAM + ${swapTotalMb} MB swap): ` +
+        `il build morirebbe comunque — abbassa --max-old-space-size o aggiungi swap (scripts/ci/grow-build-swap.sh)`,
+    };
+  }
+  const isCi = env.CI === 'true' || env.GITHUB_ACTIONS === 'true';
+  if (isCi && heapLimitMb >= PREFLIGHT_RAISED_WALL_MB && swapTotalMb < PREFLIGHT_MIN_SWAP_MB) {
+    return {
+      verdict: 'fail',
+      reason:
+        `il tetto V8 a ${heapLimitMb} MB richiede lo swapfile del build e SwapTotal e' solo ${swapTotalMb} MB ` +
+        `(soglia ${PREFLIGHT_MIN_SWAP_MB}): lo step che chiama scripts/ci/grow-build-swap.sh manca in questo workflow, ` +
+        `o e' fallito (leggi il suo ::warning nel log). Senza, questo build e' la configurazione che il 19-08 ` +
+        `ha ucciso 7 deploy su 8 (issue 6134)`,
+    };
+  }
+  return { verdict: 'ok', reason: 'preflight ok' };
+}
+
 export function resolveThresholds(
   env: NodeJS.ProcessEnv = process.env,
   procMeminfoPath = '/proc/meminfo',
@@ -433,7 +588,12 @@ export function observeSample(
   thresholds: GuardThresholds,
 ): BreachKind | null {
   state.samples += 1;
+  // Il footprint anonimo del processo: RSS + pagine del processo in swap.
+  // Senza `selfSwapMb` (host senza /proc, o fixture storici) coincide con
+  // l'RSS — il regime pre-swap e' il caso particolare, non un ramo a parte.
+  const anonMb = sample.rssMb + (sample.selfSwapMb ?? 0);
   if (sample.rssMb > state.peakRssMb) state.peakRssMb = sample.rssMb;
+  if (anonMb > state.peakAnonMb) state.peakAnonMb = anonMb;
   if (sample.hostAvailMb !== null) {
     state.minHostAvailMb =
       state.minHostAvailMb === null ? sample.hostAvailMb : Math.min(state.minHostAvailMb, sample.hostAvailMb);
@@ -443,7 +603,10 @@ export function observeSample(
       state.minSwapFreeMb === null ? sample.swapFreeMb : Math.min(state.minSwapFreeMb, sample.swapFreeMb);
   }
 
-  state.consecutiveRssOver = sample.rssMb > thresholds.rssCeilingMb ? state.consecutiveRssOver + 1 : 0;
+  // Il tetto confronta il FOOTPRINT, non l'RSS: e' l'unica delle due
+  // quantita' che puo' davvero raggiungere un tetto calcolato su RAM + swap
+  // (review di #6150 — un confronto RSS-vs-capacita' era un ratchet morto).
+  state.consecutiveRssOver = anonMb > thresholds.rssCeilingMb ? state.consecutiveRssOver + 1 : 0;
 
   if (thresholds.hostAvailFloorMb !== null && sample.hostAvailMb !== null) {
     state.consecutiveHostUnder =
@@ -496,13 +659,13 @@ export function formatBreachDiagnosis(
       ? `Causa: MemAvailable dell'host e' sceso a ${state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi.`
       : kind === 'swap-floor'
         ? `Causa: SwapFree dell'host e' sceso a ${state.minSwapFreeMb} MB, sotto il pavimento di ${thresholds.swapFreeFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi — il kernel sta finendo lo spazio di evizione.`
-        : `Causa: l'RSS del processo di build ha superato il tetto di ${thresholds.rssCeilingMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi (picco ${state.peakRssMb} MB).`;
+        : `Causa: il footprint anonimo del processo di build (RSS + VmSwap) ha superato il tetto di ${thresholds.rssCeilingMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi (picco ${state.peakAnonMb} MB, di cui ${state.peakRssMb} MB residenti).`;
   const lines = [
     `[build-mem-guard] ${FAILURE_ISSUE_TITLE}`,
     '',
     cause,
     '',
-    `peakRssMb=${state.peakRssMb} minHostAvailMb=${state.minHostAvailMb ?? 'n/d'} minSwapFreeMb=${state.minSwapFreeMb ?? 'n/d'} rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d'} samples=${state.samples}`,
+    `peakAnonMb=${state.peakAnonMb} peakRssMb=${state.peakRssMb} minHostAvailMb=${state.minHostAvailMb ?? 'n/d'} minSwapFreeMb=${state.minSwapFreeMb ?? 'n/d'} rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d'} samples=${state.samples}`,
     '',
     "Questa build e' stata fermata di proposito PRIMA che l'host la uccidesse.",
     "Un kill dell'host lascia lo step su `in_progress` senza exit code, e in quella",
@@ -534,6 +697,7 @@ export function buildMemoryGuardPlugin(): Plugin {
   const writeReport = () => {
     const report = {
       peakRssMb: state.peakRssMb,
+      peakAnonMb: state.peakAnonMb,
       minHostAvailMb: state.minHostAvailMb,
       minSwapFreeMb: state.minSwapFreeMb,
       rssCeilingMb: thresholds.rssCeilingMb,
@@ -583,6 +747,22 @@ export function buildMemoryGuardPlugin(): Plugin {
     apply: 'build',
     buildStart() {
       if (timer) return;
+      // Preflight: tetto V8 vs capacita' dell'host, e lockstep tetto↔swap in
+      // CI. Fallisce in 5 secondi con un nome, invece dell'host-kill opaco
+      // 40 minuti dopo. Scrive sullo stesso canale di diagnosi dei breach.
+      const heapLimitMb = Math.round(v8.getHeapStatistics().heap_size_limit / MB);
+      const preflight = resolvePreflight(heapLimitMb);
+      if (preflight.verdict === 'fail') {
+        const text = `[build-mem-guard] preflight fallito: ${preflight.reason}`;
+        try {
+          fs.writeFileSync(process.env.DIAG_FILE || DEFAULT_DIAG_FILE, text + '\n', 'utf-8');
+        } catch {
+          /* best-effort */
+        }
+        // eslint-disable-next-line no-console
+        console.error(text);
+        throw new Error(text);
+      }
       if (thresholds.ignoredOverrides.length > 0) {
         // eslint-disable-next-line no-console
         console.warn(
@@ -591,13 +771,15 @@ export function buildMemoryGuardPlugin(): Plugin {
       }
       // eslint-disable-next-line no-console
       console.log(
-        `[build-mem-guard] armato rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d (no /proc/meminfo)'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d (swap assente o < 2 GB)'} everyMs=${DEFAULT_SAMPLE_INTERVAL_MS} consecutive=${thresholds.consecutiveSamples}`,
+        `[build-mem-guard] armato rssCeilingMb=${thresholds.rssCeilingMb} (sul footprint RSS+VmSwap) hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d (no /proc/meminfo)'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d (swap assente o < 2 GB)'} heapLimitMb=${heapLimitMb} everyMs=${DEFAULT_SAMPLE_INTERVAL_MS} consecutive=${thresholds.consecutiveSamples}`,
       );
       timer = setInterval(() => {
+        const self = readSelfAnonMb();
         const breach = observeSample(
           state,
           {
             rssMb: Math.round(process.memoryUsage.rss() / MB),
+            selfSwapMb: self?.swapMb ?? null,
             hostAvailMb: readHostAvailableMb(),
             swapFreeMb: readHostSwapMb()?.freeMb ?? null,
           },
@@ -615,9 +797,13 @@ export function buildMemoryGuardPlugin(): Plugin {
         if (timer) clearInterval(timer);
         timer = null;
         const report = writeReport();
+        // La riga verde porta anche la dimensione che assorbe le regressioni
+        // nel regime swap-aware (footprint e swap minimo): l'RSS e' limitato
+        // dalla RAM e da solo non mostrerebbe un creep di settimane che
+        // consuma swap fino al pavimento (review di #6150, finding 7).
         // eslint-disable-next-line no-console
         console.log(
-          `[build-mem-guard] peakRssMb=${report.peakRssMb} minHostAvailMb=${report.minHostAvailMb ?? 'n/d'} rssCeilingMb=${report.rssCeilingMb} hostAvailFloorMb=${report.hostAvailFloorMb ?? 'n/d'} samples=${report.samples}`,
+          `[build-mem-guard] peakAnonMb=${report.peakAnonMb} peakRssMb=${report.peakRssMb} minHostAvailMb=${report.minHostAvailMb ?? 'n/d'} minSwapFreeMb=${report.minSwapFreeMb ?? 'n/d'} rssCeilingMb=${report.rssCeilingMb} hostAvailFloorMb=${report.hostAvailFloorMb ?? 'n/d'} swapFreeFloorMb=${report.swapFreeFloorMb ?? 'n/d'} samples=${report.samples}`,
         );
       },
     },
