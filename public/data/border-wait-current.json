@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T06:30:25.650Z",
+  "updatedAt": "2026-08-20T07:25:53.964Z",
   "perCrossing": {
     "anieres": {
       "waitTimeMinutes": 0,
@@ -207,7 +207,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-20T06:30:25.650Z"
+      "lastUpdate": "2026-08-20T07:25:53.964Z"
     },
     "campocologno-tirano": {
       "waitTimeMinutes": 0,
@@ -234,28 +234,28 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "chiasso-brogeda": {
+      "waitTimeMinutes": 0,
+      "approachMinutes": 0,
+      "totalCrossingMinutes": 0,
+      "status": "green",
+      "source": "webcam",
+      "lastUpdate": "2026-08-20T07:25:53.964Z"
+    },
+    "chiasso-centro": {
       "waitTimeMinutes": 8,
       "approachMinutes": 0,
       "totalCrossingMinutes": 8,
       "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-08-20T06:30:25.650Z"
-    },
-    "chiasso-centro": {
-      "waitTimeMinutes": 15,
-      "approachMinutes": 0,
-      "totalCrossingMinutes": 15,
-      "status": "red",
-      "source": "webcam",
-      "lastUpdate": "2026-08-20T06:30:25.650Z"
+      "lastUpdate": "2026-08-20T07:25:53.964Z"
     },
     "chiasso-strada": {
-      "waitTimeMinutes": 15,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 15,
-      "status": "red",
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-08-20T06:30:25.650Z"
+      "lastUpdate": "2026-08-20T07:25:53.964Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 1,
@@ -399,7 +399,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-20T06:30:25.650Z"
+      "lastUpdate": "2026-08-20T07:25:53.964Z"
     },
     "gailingen-am-hochrhein-dorflingen": {
       "waitTimeMinutes": 0,
@@ -983,7 +983,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-20T06:30:25.650Z"
+      "lastUpdate": "2026-08-20T07:25:53.964Z"
     },
     "sauverny": {
       "waitTimeMinutes": 0,
