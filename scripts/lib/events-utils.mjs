@@ -624,6 +624,8 @@ function extFromContentType(contentType) {
   const ct = String(contentType || '').toLowerCase();
   if (ct.includes('png')) return 'png';
   if (ct.includes('webp')) return 'webp';
+  if (ct.includes('gif')) return 'gif';
+  if (ct.includes('avif')) return 'avif';
   return 'jpg';
 }
 
