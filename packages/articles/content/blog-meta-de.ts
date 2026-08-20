@@ -10242,6 +10242,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'UVG Grenzgänger 2026: Praktisches Unfallverfahren',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'UVG für Grenzgänger: Unfalldeckung, Sätze 0.7-1.5 %, Meldeverfahren und praktische Simulationen. Umfassende Checkliste und Unterschiede zur Berufskrankheit.',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Versicherungsdokumente und Meldeverfahren für Arbeitsunfälle LAINF für Grenzgänger Tessin',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Vorzeitige Pensionierung von Grenzgängern: 5 häufige Fehler',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Die Vorverlegung der Grenzgängerrente Tessin-Italien bringt komplexe Entscheidungen über AHV, BVG und Doppelbesteuerung mit sich. Entdecken Sie die Fehler, die mit der neuen Vereinbarung 2024 zu vermeiden sind.',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Rentplanungsdokument mit Tabellenkalkulation und SECO-Formularen auf dem Schreibtisch mit Blick auf Grenzübergang Tessin-Italien',
 };
 
 export default blogMetaDe;
