@@ -3508,6 +3508,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Zunehmende Personalabsenzen in Schweizer KMU: Die AXA-Studie',
     'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Psychisch bedingte Absenzen betreffen 35% der Schweizer KMU. Die Daten der AXA-Studie zum Personalmanagement und den Kosten für Unternehmen.',
     'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'AXA-Studie zu Personalabwesenheiten und psychischer Gesundheit',
+    'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Krankenkassenprämien Kanton Schaffhausen und Reduktion',
+    'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Pflichten, Franchisen, Deckungsmodelle und Verfahren zur Beantragung des Kantonsbeitrags im Kanton Schaffhausen: Praxisleitfaden.',
+    'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Schweizer Verwaltungsschalter mit Krankenversicherungsformularen und Dokumenten für obligatorische Krankenversicherung',
 };
 
 export default blogMetaChDe;

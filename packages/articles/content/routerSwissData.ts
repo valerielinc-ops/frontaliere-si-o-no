@@ -1195,6 +1195,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'canton-sciaffusa-aliquote-deduzioni': { it: 'canton-sciaffusa-aliquote-deduzioni', en: 'canton-schaffhausen-taxes-deductions', de: 'kanton-schaffhausen-steuersaetze-abzuege', fr: 'canton-schaffhouse-impots-deductions' },
  'sondaggio-neutralita-ticinese-voto': { it: 'sondaggio-neutralita-ticinese-voto', en: 'ticino-neutrality-poll-vote', de: 'tessiner-neutralitaets-umfrage', fr: 'sondage-neutralite-tessin' },
  'studio-axa-assenze-psicologiche-pmi': { it: 'studio-axa-assenze-psicologiche-pmi', en: 'axa-study-staff-absences-mental-health-smes', de: 'axa-studie-personalabwesenheiten-psychische-gesundheit', fr: 'etude-axa-absences-personnel-sante-mentale' },
+ 'premi-assicurazione-malati-sciaffusa': { it: 'premi-assicurazione-malati-sciaffusa', en: 'health-insurance-premiums-schaffhausen', de: 'krankenversicherungspraemien-schaffhausen', fr: 'primes-assurance-maladie-schaffhouse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

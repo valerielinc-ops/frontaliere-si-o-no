@@ -3508,6 +3508,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Increasing staff absences in Swiss SMEs: the AXA study',
     'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Psychological absences affect 35% of Swiss SMEs. The AXA study data on personnel management and costs for companies.',
     'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'AXA study on staff absences and mental health in Swiss SMEs',
+    'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Health insurance premiums Canton Schaffhausen and reduction',
+    'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Obligations, deductibles, coverage models and procedure to apply for cantonal subsidy in the Canton of Schaffhausen: practical guide.',
+    'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Swiss health administration office desk with health insurance forms and documents for mandatory coverage',
 };
 
 export default blogMetaChEn;
