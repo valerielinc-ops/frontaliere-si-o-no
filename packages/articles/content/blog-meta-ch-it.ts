@@ -3508,6 +3508,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Assenze del personale in aumento nelle PMI svizzere: lo studio AXA',
     'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Le assenze per motivi psicologici colpiscono il 35% delle PMI svizzere. I dati dello studio AXA sulla gestione del personale e i costi per le aziende.',
     'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'Studio AXA sulle assenze del personale e salute mentale nelle PMI svizzere',
+    'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Premi cassa malati Canton Sciaffusa e riduzione',
+    'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Obblighi, franchigie, modelli di copertura e procedura per richiedere il sussidio cantonale nel Canton Sciaffusa: guida pratica.',
+    'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Scrivania di un ufficio amministrativo svizzero con documenti e moduli per l\'assicurazione malattia LAMal',
 };
 
 export default blogMetaChIt;

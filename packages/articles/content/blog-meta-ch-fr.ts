@@ -3508,6 +3508,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.studio-axa-assenze-psicologiche-pmi.title': 'Absence de personnel en augmentation dans les PME suisses : l\'étude AXA',
     'blog.article.studio-axa-assenze-psicologiche-pmi.excerpt': 'Les absences pour raisons psychologiques touchent 35% des PME suisses. Les données de l\'étude AXA sur la gestion du personnel et les coûts pour les entreprises.',
     'blog.article.studio-axa-assenze-psicologiche-pmi.imageAlt': 'Étude AXA sur les absences du personnel et la santé mentale',
+    'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Primes caisse-maladie Canton Schaffhouse et réduction',
+    'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Obligations, franchises, modèles de couverture et procédure de demande d\'allocation cantonale dans le canton de Schaffhouse : guide pratique.',
+    'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Bureau administratif suisse avec formulaires et documents d\'assurance maladie obligatoire',
 };
 
 export default blogMetaChFr;
