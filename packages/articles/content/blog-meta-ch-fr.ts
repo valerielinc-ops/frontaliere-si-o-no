@@ -3484,6 +3484,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Naturalisation dans le canton de Bâle-Campagne : exigences et procédure',
     'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'Le processus de naturalisation dans le canton de Bâle-Campagne : années requises, tests d\'intégration et de langue, taxes à payer et durée de la procédure.',
     'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'Vue de la ville de Basilea Campagna, Suisse, avec un accent sur le processus de naturalisation.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Système de santé suisse LAMal dans le canton de Vaud',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Guide complet du système de santé suisse dans le canton de Vaud : obligation LAMal, choix de la caisse-maladie, franchises et allocations cantonales.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Systeme de sante et LAMal dans le canton de Vaud',
 };
 
 export default blogMetaChFr;

@@ -3484,6 +3484,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Naturalizzazione nel Cantone di Basilea Campagna: requisiti e procedura',
     'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'Il processo di naturalizzazione nel Cantone di Basilea Campagna: anni richiesti, test di integrazione e di lingua, tasse da versare e durata della procedura.',
     'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'Vista della città di Basilea Campagna, Svizzera, con enfasi sul processo di naturalizzazione.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Sistema sanitario svizzero LAMal nel Canton Vaud',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Guida completa al sistema sanitario svizzero nel Canton Vaud: obbligo LAMal, scelta della cassa malati, franchigie e sussidi cantonali.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Sistema sanitario e LAMal nel Canton Vaud',
 };
 
 export default blogMetaChIt;

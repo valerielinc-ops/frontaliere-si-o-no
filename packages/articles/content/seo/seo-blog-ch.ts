@@ -45182,6 +45182,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-sanitario-lamal-2026-vaud': {
+    title: 'Sistema sanitario svizzero LAMal nel Canton Vaud',
+    description: 'Guida ufficiale al sistema sanitario svizzero e alla LAMal nel Canton Vaud: obbligo, scelta cassa malati, franchigie e sussidi cantonali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Sistema sanitario svizzero LAMal nel Canton Vaud 2026',
+    ogDescription: 'Tutto quello che c\'è da sapere sulla LAMal e sul sistema sanitario nel Canton Vaud: obblighi di residenza, scelta della cassa malati, franchigie e riduzioni dei premi.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-lamal-2026-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero LAMal nel Canton Vaud",
+      "description": "Guida ufficiale al sistema sanitario svizzero e alla LAMal nel Canton Vaud: obbligo, scelta cassa malati, franchigie e sussidi cantonali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-sanitario-lamal-2026-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sistema sanitario e LAMal nel Canton Vaud"
+      },
+      "datePublished": "2026-08-20T02:15:48+00:00",
+      "dateModified": "2026-08-20T02:15:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-lamal-2026-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

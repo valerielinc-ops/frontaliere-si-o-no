@@ -3484,6 +3484,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Einbürgerung im Kanton Basel-Landschaft: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'Der Einbürgerungsprozess im Kanton Basel-Landschaft: erforderliche Jahre, Integrations- und Sprachtests, zu entrichtende Gebühren und Dauer des Verfahrens.',
     'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'Blick auf die Stadt Basilea Campagna, Schweiz, mit Schwerpunkt auf den Prozess der Naturalisierung.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Schweizerisches Gesundheitssystem KVG im Kanton Waadt',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Vollständiger Leitfaden zum Schweizer Gesundheitssystem im Kanton Waadt: KVG-Pflicht, Krankenkassenwahl, Franchisen und Kantonsbeiträge.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Gesundheitssystem und LAMal im Kanton Waadt',
 };
 
 export default blogMetaChDe;
