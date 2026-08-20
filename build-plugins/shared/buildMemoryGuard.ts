@@ -493,7 +493,18 @@ export function resolvePreflight(
   heapLimitMb: number,
   env: NodeJS.ProcessEnv = process.env,
   procMeminfoPath = '/proc/meminfo',
-): { verdict: 'ok' | 'fail'; reason: string } {
+): { verdict: 'ok' | 'fail'; reason: string; ciSignal: string } {
+  // Segnale grezzo CI/GITHUB_ACTIONS, calcolato SEMPRE e riportato in ogni
+  // ramo di ritorno (non solo nel fail della regola 2): la regola lockstep
+  // (2) e' silente quando `isCi` risulta false — nessun breach, nessun
+  // errore, il build passa come se fosse locale. Se la propagazione
+  // env.CI/env.GITHUB_ACTIONS su uno dei 4 workflow che lanciano `build:ci`
+  // (deploy.yml, deploy-matrix-experiment.yml, post-build-matrix-test.yml,
+  // matrix-equivalence-check.yml) mai divergesse, questo e' l'unico punto
+  // che lo renderebbe visibile — il chiamante lo stampa ad ogni build reale,
+  // verde o rossa, invece di lasciare la regola 2 fail-open senza traccia.
+  const isCi = env.CI === 'true' || env.GITHUB_ACTIONS === 'true';
+  const ciSignal = `CI=${env.CI ?? 'unset'} GITHUB_ACTIONS=${env.GITHUB_ACTIONS ?? 'unset'} isCi=${isCi}`;
   const raw = (() => {
     try {
       return fs.readFileSync(procMeminfoPath, 'utf-8');
@@ -501,7 +512,9 @@ export function resolvePreflight(
       return null;
     }
   })();
-  if (raw === null) return { verdict: 'ok', reason: 'preflight spento: /proc/meminfo non leggibile (host non Linux)' };
+  if (raw === null) {
+    return { verdict: 'ok', reason: 'preflight spento: /proc/meminfo non leggibile (host non Linux)', ciSignal };
+  }
   const totalMb = readHostTotalMb(procMeminfoPath);
   const swapTotalMb = readHostSwapMb(procMeminfoPath)?.totalMb ?? 0;
   const capacityMb = totalMb + swapTotalMb;
@@ -512,9 +525,9 @@ export function resolvePreflight(
         `il tetto V8 configurato (${heapLimitMb} MB) piu' l'overhead di processo (${PREFLIGHT_OVERHEAD_MB} MB) ` +
         `non entra nella capacita' anonima dell'host (${totalMb} MB RAM + ${swapTotalMb} MB swap): ` +
         `il build morirebbe comunque — abbassa --max-old-space-size o aggiungi swap (scripts/ci/grow-build-swap.sh)`,
+      ciSignal,
     };
   }
-  const isCi = env.CI === 'true' || env.GITHUB_ACTIONS === 'true';
   if (isCi && heapLimitMb >= PREFLIGHT_RAISED_WALL_MB && swapTotalMb < PREFLIGHT_MIN_SWAP_MB) {
     return {
       verdict: 'fail',
@@ -523,9 +536,10 @@ export function resolvePreflight(
         `(soglia ${PREFLIGHT_MIN_SWAP_MB}): lo step che chiama scripts/ci/grow-build-swap.sh manca in questo workflow, ` +
         `o e' fallito (leggi il suo ::warning nel log). Senza, questo build e' la configurazione che il 19-08 ` +
         `ha ucciso 7 deploy su 8 (issue 6134)`,
+      ciSignal,
     };
   }
-  return { verdict: 'ok', reason: 'preflight ok' };
+  return { verdict: 'ok', reason: 'preflight ok', ciSignal };
 }
 
 export function resolveThresholds(
@@ -764,6 +778,12 @@ export function buildMemoryGuardPlugin(): Plugin {
       // 40 minuti dopo. Scrive sullo stesso canale di diagnosi dei breach.
       const heapLimitMb = Math.round(v8.getHeapStatistics().heap_size_limit / MB);
       const preflight = resolvePreflight(heapLimitMb);
+      // Stampato SEMPRE (ok o fail): e' la verifica end-to-end della
+      // propagazione env.CI/env.GITHUB_ACTIONS nei 4 workflow che lanciano
+      // `build:ci` — leggibile in ogni build log reale invece di restare un
+      // presupposto mai osservato (review di #6172, item 3).
+      // eslint-disable-next-line no-console
+      console.log(`[build-mem-guard] preflight ciSignal: ${preflight.ciSignal}`);
       if (preflight.verdict === 'fail') {
         const text = `[build-mem-guard] preflight fallito: ${preflight.reason}`;
         try {
