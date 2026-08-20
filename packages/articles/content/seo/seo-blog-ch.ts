@@ -46157,6 +46157,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-posta-utile-in-salita': {
+    title: 'Posta, utile in salita nonostante il calo delle lettere',
+    description: 'La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, nonostante il calo delle lettere. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, posta, utile, salita, nonostante',
+    ogTitle: 'Posta, utile in salita nonostante il calo delle lettere',
+    ogDescription: 'La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, nonostante il calo delle lettere.',
+    canonicalPath: '/articoli-svizzera/posta-utile-in-salita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Posta, utile in salita nonostante il calo delle lettere",
+      "description": "La Posta Svizzera ha registrato un aumento degli utili nel primo semestre del 2026, nonostante il calo delle lettere. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/posta-utile-in-salita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista di Lugano con un aumento degli utili della Posta Svizzera nel primo semestre del 2026"
+      },
+      "datePublished": "2026-08-20T13:41:51+00:00",
+      "dateModified": "2026-08-20T13:41:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/posta-utile-in-salita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

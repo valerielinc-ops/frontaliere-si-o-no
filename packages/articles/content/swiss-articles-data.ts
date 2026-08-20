@@ -10675,6 +10675,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'posta-utile-in-salita',
+    category: 'fiscale',
+    date: '2026-08-20T13:41:51.480Z',
+    image: '/images/blog/posta-utile-in-salita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

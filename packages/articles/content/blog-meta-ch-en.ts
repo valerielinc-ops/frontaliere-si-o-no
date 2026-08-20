@@ -3559,6 +3559,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uss-pensionati-rendite-2027.title': 'USS calls for higher pensions for Swiss pensioners',
     'blog.article.uss-pensionati-rendite-2027.excerpt': 'The Swiss Union of Trade Unions (USS) is calling for a minimum interest rate of 3% by 2027 and higher pensions for Swiss pensioners',
     'blog.article.uss-pensionati-rendite-2027.imageAlt': 'A Swiss woman with a passport in her hand looks out the window with a serious expression',
+    'blog.article.posta-utile-in-salita.title': 'Mail, useful uphill despite the drop in letters',
+    'blog.article.posta-utile-in-salita.excerpt': 'Swiss Post recorded an increase in profits in the first half of 2026, from CHF 74 million to CHF 139 million.',
+    'blog.article.posta-utile-in-salita.imageAlt': 'A view of Lugano with a rise in Posta Svizzera profits in the first half of 2026',
 };
 
 export default blogMetaChEn;
