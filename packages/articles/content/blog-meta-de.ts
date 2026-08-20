@@ -10209,6 +10209,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-dichiarazione-redditi-2026.title': 'Steuergutschrift 2026: Grenzgänger fahren über 20 km',
     'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'Ab dem 1. Januar 2024 wird die Steuergutschrift durch die Neue Grenzgängervereinbarung neu festgelegt. Hier € 7.500 (alt) und € 10.000 (neu) Selbstbehalt, Berechnung im Rahmen CE 730 und operative Checkliste.',
     'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Grenzgänger prüft Schweizer-italienische Steuerdokumente am Schreibtisch bei Goldstundenlicht',
+    'blog.article.credito-imposta-2026-oltre-20km.title': 'Steuergutschrift 2026: über 20 km, Berechnung und 730',
+    'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'So können Sie den Schweizer Abzug über die CE-Tafel im Modell 730 abrufen. Neue und alte Grenzgänger: Selbstbehalte im Vergleich, Schritt-für-Schritt-Verfahren.',
+    'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Grenzgänger arbeitet am Computer mit Steuererklärung und Finanzdokumenten, Tessiner Landschaft im Hintergrund.',
 };
 
 export default blogMetaDe;
