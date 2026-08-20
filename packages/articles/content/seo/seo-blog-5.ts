@@ -70973,6 +70973,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busta-paga-calcolata-frontalieri-20km': {
+    title: 'Busta paga 2026: come leggerla da frontaliere entro 20 km',
+    description: 'Guida completa alla busta paga svizzera 2026 per frontalieri entro 20 km: trattenute AVS/LPP, imposta alla fonte, credito d\'imposta italiano, esenzione €7.500',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, leggerla, entro',
+    ogTitle: 'Busta paga 2026: come leggerla da frontaliere entro 20 km',
+    ogDescription: 'Nuovo Accordo 2024 spiegato: trattenute svizzere (AVS 5,3%, LPP 7–18%), credito d\'imposta italiano, esenzione €7.500/€10.000. Calcola il tuo netto reale con la nostra guida operativa.',
+    canonicalPath: '/articoli-frontaliere/busta-paga-calcolata-frontalieri-20km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga 2026: come leggerla da frontaliere entro 20 km",
+      "description": "Guida completa alla busta paga svizzera 2026 per frontalieri entro 20 km: trattenute AVS/LPP, imposta alla fonte, credito d'imposta italiano, esenzione €7.500",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/busta-paga-calcolata-frontalieri-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere esamina la busta paga svizzera 2026 su tablet al confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-20T04:40:38+00:00",
+      "dateModified": "2026-08-20T04:40:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busta-paga-calcolata-frontalieri-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -30531,6 +30531,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'busta-paga-calcolata-frontalieri-20km',
+ category: 'fiscale',
+ date: '2026-08-20T04:40:38.758Z',
+ image: '/images/blog/busta-paga-calcolata-frontalieri-20km.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

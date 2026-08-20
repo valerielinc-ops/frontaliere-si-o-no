@@ -10193,6 +10193,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano: free concerts for frontier workers',
     'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Find out how to organise an evening at Blues to Bop Lugano as a border worker. Practical guide on transport, crossings, parking and travel costs.',
     'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Lugano waterfront plaza with concert stage setup overlooking Lake Lugano and mountains',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Payroll 2026: how to read it from the border within 20 km',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'New Agreement 2024: Swiss withholdings, Italian tax credit, exemption €7,500 (old) or €10,000 (new frontier workers). Calculate your actual net.',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Frontalier reviews 2026 Swiss payslip on tablet at Ticino-Italy border',
 };
 
 export default blogMetaEn;
