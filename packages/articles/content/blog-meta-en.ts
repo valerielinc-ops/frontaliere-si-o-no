@@ -10258,6 +10258,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vignone-trasferimento-frontaliere.title': 'Living in Vignone, working in Ticino: a practical guide',
     'blog.article.vignone-trasferimento-frontaliere.excerpt': 'Border location, G Permit, advantageous taxation and lower costs: here\'s how to live in Vignone and work in Ticino as a border worker.',
     'blog.article.vignone-trasferimento-frontaliere.imageAlt': 'View of the Ticino valley and border connections, ideal area for cross-border workers living in Vignone',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Living in Carimate, working in Ticino: advantages and disadvantages',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'With the new tax agreement, frontier workers will be able to enjoy an exemption of €10,000 and a transitional regime until 2033.',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino che lavorano in Italia',
 };
 
 export default blogMetaEn;
