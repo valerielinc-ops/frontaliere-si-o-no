@@ -1111,12 +1111,12 @@
     },
     {
       "id": "hilti-20155-de",
-      "slug": "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch",
+      "slug": "account-chiave-vendite-advisor-grigio-m-f-d-hilti-chur-graubunden-schweiz",
       "slugByLocale": {
         "de": "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch",
-        "it": "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch",
-        "en": "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch",
-        "fr": "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+        "it": "account-chiave-vendite-advisor-grigio-m-f-d-hilti-chur-graubunden-schweiz",
+        "en": "key-account-sales-advisor-graubunden-m-f-d-hilti-chur-graubunden-schweiz",
+        "fr": "conseiller-en-ventes-pour-compte-cle-graubunden-h-f-d-hilti-chur-graubunden-schweiz"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1171,7 +1171,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T10:09:01.457Z"
+      "firstSeenAt": "2026-08-20T10:09:01.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+        ],
+        "en": [
+          "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+        ],
+        "fr": [
+          "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+      ]
     }
   ]
 }

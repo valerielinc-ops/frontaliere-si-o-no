@@ -18981,9 +18981,9 @@
     },
     {
       "id": "sulzer-e9661abdcedd",
-      "slug": "montador-ajustador-i-sulzer-jundiai",
+      "slug": "la-mia-vita-sulzer-jundiai",
       "slugByLocale": {
-        "it": "montador-ajustador-i-sulzer-jundiai",
+        "it": "la-mia-vita-sulzer-jundiai",
         "en": "montador-ajustador-i-sulzer-ch",
         "de": "montador-ajustador-i-sulzer-ch",
         "fr": "ajusteur-de-montage-i-sulzer-jundiai"
@@ -19029,13 +19029,13 @@
       "previousSlugs": [
         "montador-ajustador-i-sulzer-ch",
         "i-miei-amici-sulzer-jundiai",
-        "la-mia-vita-sulzer-jundiai"
+        "montador-ajustador-i-sulzer-jundiai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montador-ajustador-i-sulzer-ch",
           "i-miei-amici-sulzer-jundiai",
-          "la-mia-vita-sulzer-jundiai"
+          "montador-ajustador-i-sulzer-jundiai"
         ],
         "fr": [
           "montador-ajustador-i-sulzer-ch"
@@ -25016,8 +25016,7 @@
       "firstSeenAt": "2026-08-19T10:02:28.286Z",
       "previousSlugsByLocale": {
         "it": [
-          "gl-accountant-sulzer-ch",
-          "gl-contabile-sulzer-suzhou"
+          "gl-accountant-sulzer-ch"
         ],
         "de": [
           "gl-accountant-sulzer-ch"
@@ -25028,7 +25027,6 @@
       },
       "previousSlugs": [
         "gl-accountant-sulzer-ch",
-        "gl-contabile-sulzer-suzhou",
         "gl-accountant-sulzer-suzhou"
       ],
       "salaryMin": 73500,
@@ -25468,13 +25466,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "gestione-delle-operazioni-di-produzione-sulzer-winterthur",
-          "manufacturing-manager-sulzer-ch",
-          "manufacturing-manager-sulzer-winterthur"
+          "manufacturing-manager-sulzer-ch"
         ],
         "en": [
-          "manufacturing-manager-sulzer-ch",
-          "production-operations-manager-sulzer-ch"
+          "manufacturing-manager-sulzer-ch"
         ],
         "fr": [
           "gestione-delle-operazioni-di-produzione-sulzer-winterthur"
@@ -25482,9 +25477,7 @@
       },
       "previousSlugs": [
         "gestione-delle-operazioni-di-produzione-sulzer-winterthur",
-        "manufacturing-manager-sulzer-ch",
-        "production-operations-manager-sulzer-ch",
-        "manufacturing-manager-sulzer-winterthur"
+        "manufacturing-manager-sulzer-ch"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -25503,12 +25496,12 @@
     },
     {
       "id": "sulzer-dec31f92f1cc",
-      "slug": "project-manager-sulzer-ch-2",
+      "slug": "responsabile-del-progetto-sulzer-leeds",
       "slugByLocale": {
         "en": "project-manager-sulzer-ch",
-        "it": "project-manager-sulzer-ch-2",
-        "de": "project-manager-sulzer-ch-2",
-        "fr": "project-manager-sulzer-ch-2"
+        "it": "responsabile-del-progetto-sulzer-leeds",
+        "de": "projektmanager-sulzer-leeds",
+        "fr": "gestionnaire-de-projet-sulzer-leeds"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25565,11 +25558,19 @@
       "firstSeenAt": "2026-08-20T10:26:44.128Z",
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-sulzer-ch"
+          "project-manager-sulzer-ch",
+          "project-manager-sulzer-ch-2"
+        ],
+        "de": [
+          "project-manager-sulzer-ch-2"
+        ],
+        "fr": [
+          "project-manager-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "project-manager-sulzer-ch"
+        "project-manager-sulzer-ch",
+        "project-manager-sulzer-ch-2"
       ]
     },
     {

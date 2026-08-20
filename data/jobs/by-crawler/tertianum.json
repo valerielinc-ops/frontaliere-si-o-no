@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-und-technik-80-100-tertianum-basel",
         "it": "collaboratore-trice-hauswirtschaft-e-technik-80-100-tertianum-basel",
-        "en": "mitarbeiter-in-hauswirtschaft-und-technik-80-100-tertianum-basel",
-        "fr": "mitarbeiter-in-hauswirtschaft-und-technik-80-100-tertianum-basel"
+        "en": "employees-housekeeping-and-technology-80-100-tertianum-basel",
+        "fr": "salaries-menage-et-technologie-80-100-tertianum-basel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -55,6 +55,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-und-technik-80-100-tertianum-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-und-technik-80-100-tertianum-basel"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-und-technik-80-100-tertianum-basel"
         ]
       },
@@ -14921,8 +14927,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-office-tertianum-zollikerberg",
-          "collaboratore-trice-office-tertianum-zollikerberg"
+          "mitarbeiter-in-office-tertianum-zollikerberg"
         ],
         "en": [
           "mitarbeiter-in-office-tertianum-zollikerberg"
@@ -14932,8 +14937,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-office-tertianum-zollikerberg",
-        "collaboratore-trice-office-tertianum-zollikerberg"
+        "mitarbeiter-in-office-tertianum-zollikerberg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17645,14 +17649,12 @@
           "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit"
         ],
         "en": [
-          "regional-specialist-in-property-management-security-tertianum-dubendorf",
           "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf"
         ]
       },
       "previousSlugs": [
         "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit",
         "regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-tertianum-dubendorf",
-        "regional-specialist-in-property-management-security-tertianum-dubendorf",
         "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf"
       ],
       "firstSeenAt": "2026-05-19T12:21:18.136Z",
@@ -18186,7 +18188,6 @@
           "fachfrau-mann-gesundheit-efz-tertianum-zurich",
           "fachfrau-mann-gesundheit-cfc-tertianum-zurich",
           "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-          "specialista-della-salute-efz-tertianum-zurich",
           "fachfrau-mann-gesundheit-efz-50-100-tertianum-zurich"
         ]
       },
@@ -18194,7 +18195,6 @@
         "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
         "fachfrau-mann-gesundheit-efz-tertianum-zurich",
         "fachfrau-mann-gesundheit-cfc-tertianum-zurich",
-        "specialista-della-salute-efz-tertianum-zurich",
         "fachfrau-mann-gesundheit-efz-50-100-tertianum-zurich"
       ],
       "firstSeenAt": "2026-05-19T12:22:28.731Z",

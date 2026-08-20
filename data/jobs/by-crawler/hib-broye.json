@@ -2827,12 +2827,12 @@
     },
     {
       "id": "hib-broye-7560e5b3a31f",
-      "slug": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
+      "slug": "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-        "it": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-        "en": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-        "de": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
+        "it": "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
+        "en": "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
+        "de": "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -2887,16 +2887,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:46:47.177Z"
+      "firstSeenAt": "2026-08-20T09:46:47.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
+      ]
     },
     {
       "id": "hib-broye-575fd4fa85fe",
-      "slug": "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slug": "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e",
       "slugByLocale": {
         "fr": "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
-        "it": "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
-        "de": "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
+        "it": "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e",
+        "en": "assistant-physician-in-geriatrics-from-50-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e",
+        "de": "assistenzarzt-in-geriatrie-von-50-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -2941,11 +2955,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
+          "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "en": [
+          "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac"
+        "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
+        "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

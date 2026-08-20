@@ -3711,12 +3711,12 @@
     },
     {
       "id": "novartis-48c52a04ea4a",
-      "slug": "disease-area-lead-inmunology-novartis-ch",
+      "slug": "area-malattia-piombo-inmunologia-novartis-basel-city",
       "slugByLocale": {
         "en": "disease-area-lead-inmunology-novartis-ch",
-        "it": "disease-area-lead-inmunology-novartis-ch",
-        "de": "disease-area-lead-inmunology-novartis-ch",
-        "fr": "disease-area-lead-inmunology-novartis-ch"
+        "it": "area-malattia-piombo-inmunologia-novartis-basel-city",
+        "de": "krankheitsgebiet-leitmunologie-novartis-basel-city",
+        "fr": "inmunologie-du-plomb-dans-la-region-de-la-maladie-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3770,7 +3770,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-08-20T09:51:15.879Z"
+      "firstSeenAt": "2026-08-20T09:51:15.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disease-area-lead-inmunology-novartis-ch"
+        ],
+        "de": [
+          "disease-area-lead-inmunology-novartis-ch"
+        ],
+        "fr": [
+          "disease-area-lead-inmunology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "disease-area-lead-inmunology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-1aed76671690",

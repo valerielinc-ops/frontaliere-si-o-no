@@ -3028,12 +3028,12 @@
     },
     {
       "id": "swica-314b091b1435",
-      "slug": "sachbearbeiter-leistungseinkauf-alle-swica-winterthur",
+      "slug": "persona-responsabile-dell-acquisto-di-servizi-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
-        "it": "sachbearbeiter-leistungseinkauf-alle-swica-winterthur",
-        "en": "sachbearbeiter-leistungseinkauf-alle-swica-winterthur",
+        "it": "persona-responsabile-dell-acquisto-di-servizi-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "person-in-charge-of-service-purchasing-all-swica-gesundheitsorganisation-winterthur",
         "de": "sachbearbeiter-leistungseinkauf-alle-swica-winterthur",
-        "fr": "sachbearbeiter-leistungseinkauf-alle-swica-winterthur"
+        "fr": "responsable-de-l-achat-de-services-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -3088,7 +3088,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-leistungseinkauf-alle-swica-winterthur"
+        ],
+        "en": [
+          "sachbearbeiter-leistungseinkauf-alle-swica-winterthur"
+        ],
+        "fr": [
+          "sachbearbeiter-leistungseinkauf-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-leistungseinkauf-alle-swica-winterthur"
+      ]
     }
   ]
 }

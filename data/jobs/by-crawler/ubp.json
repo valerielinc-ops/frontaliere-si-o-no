@@ -3787,13 +3787,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch",
-        "database-oriented-analista-sviluppatore-oracle-banking-sector-union-bancaire-privee-geneva-switzerland"
+        "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch",
-          "database-oriented-analista-sviluppatore-oracle-banking-sector-union-bancaire-privee-geneva-switzerland"
+          "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
         ],
         "de": [
           "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
@@ -3866,13 +3864,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "documentum-developer-consultant-ubp-ch",
-        "documentum-sviluppatore-consulente-union-bancaire-privee-geneva-switzerland"
+        "documentum-developer-consultant-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "documentum-developer-consultant-ubp-ch",
-          "documentum-sviluppatore-consulente-union-bancaire-privee-geneva-switzerland"
+          "documentum-developer-consultant-ubp-ch"
         ],
         "de": [
           "documentum-developer-consultant-ubp-ch"
@@ -4021,8 +4017,7 @@
       "firstSeenAt": "2026-08-19T09:50:28.554Z",
       "previousSlugsByLocale": {
         "it": [
-          "anonymization-developer-ubp-ch",
-          "anonymization-sviluppatore-union-bancaire-privee-geneva-switzerland"
+          "anonymization-developer-ubp-ch"
         ],
         "de": [
           "anonymization-developer-ubp-ch"
@@ -4032,8 +4027,7 @@
         ]
       },
       "previousSlugs": [
-        "anonymization-developer-ubp-ch",
-        "anonymization-sviluppatore-union-bancaire-privee-geneva-switzerland"
+        "anonymization-developer-ubp-ch"
       ],
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -4099,8 +4093,7 @@
       "firstSeenAt": "2026-08-19T09:50:28.013Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-platform-engineer-banking-sector-ubp-ch",
-          "senior-java-platform-ingegnere-banking-sector-union-bancaire-privee-geneva-switzerland"
+          "senior-java-platform-engineer-banking-sector-ubp-ch"
         ],
         "de": [
           "senior-java-platform-engineer-banking-sector-ubp-ch"
@@ -4110,8 +4103,7 @@
         ]
       },
       "previousSlugs": [
-        "senior-java-platform-engineer-banking-sector-ubp-ch",
-        "senior-java-platform-ingegnere-banking-sector-union-bancaire-privee-geneva-switzerland"
+        "senior-java-platform-engineer-banking-sector-ubp-ch"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -4128,12 +4120,12 @@
     },
     {
       "id": "ubp-0f8217cebff9",
-      "slug": "hr-intern-ubp-ch",
+      "slug": "risorse-umane-tirocinante-union-bancaire-privee-london-united-kingdom",
       "slugByLocale": {
         "en": "hr-intern-ubp-ch",
-        "it": "hr-intern-ubp-ch",
-        "de": "hr-intern-ubp-ch",
-        "fr": "hr-intern-ubp-ch"
+        "it": "risorse-umane-tirocinante-union-bancaire-privee-london-united-kingdom",
+        "de": "personalwesen-praktikant-union-bancaire-privee-london-united-kingdom",
+        "fr": "ressources-humaines-stagiaire-union-bancaire-privee-london-united-kingdom"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -4188,7 +4180,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:51:12.407Z"
+      "firstSeenAt": "2026-08-20T09:51:12.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-intern-ubp-ch"
+        ],
+        "de": [
+          "hr-intern-ubp-ch"
+        ],
+        "fr": [
+          "hr-intern-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-intern-ubp-ch"
+      ]
     }
   ]
 }

@@ -2425,8 +2425,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-stationshotellerie-ksgl-glarus",
         "it": "collaboratore-trice-in-stationshotellerie-kantonsspital-glarus-ksgl-glarus",
-        "en": "mitarbeiter-in-stationshotellerie-ksgl-glarus",
-        "fr": "mitarbeiter-in-stationshotellerie-ksgl-glarus"
+        "en": "employee-in-station-hotel-industry-kantonsspital-glarus-ksgl-glarus",
+        "fr": "employes-dans-l-industrie-hoteliere-de-gare-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -2472,6 +2472,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-stationshotellerie-ksgl-glarus"
+        ],
+        "en": [
+          "mitarbeiter-in-stationshotellerie-ksgl-glarus"
+        ],
+        "fr": [
           "mitarbeiter-in-stationshotellerie-ksgl-glarus"
         ]
       },

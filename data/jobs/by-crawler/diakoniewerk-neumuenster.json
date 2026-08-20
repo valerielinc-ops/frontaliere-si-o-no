@@ -131,7 +131,6 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-diakoniewerk-neumuenster",
-          "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
           "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-spital-zollikerberg",
           "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg"
         ],
@@ -144,7 +143,6 @@
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-diakoniewerk-neumuenster",
-        "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-spital-zollikerberg",
         "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg"
       ],
@@ -168,8 +166,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff-verantwortung-diakoniewerk",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff-verantwortung-diakoniewerk",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff-verantwortung-diakoniewerk",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff-verantwortung-diakoniewerk"
+        "en": "dipl-nursing-professional-dipl-care-specialist-spitex-with-daily-meeting-responsibility-diakoniewerk-neumunster",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-de-soins-spitex-avec-responsabilite-de-reunion-quotidienne"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Alterszentrum Hottingen",
       "companyKey": "diakoniewerk-neumuenster",
@@ -229,12 +227,12 @@
     },
     {
       "id": "diakoniewerk-neumuenster-771a1bc8030c",
-      "slug": "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "diet-chef-diet-chef-gestione-menu-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-gastronomie-neumunster-park",
       "slugByLocale": {
         "de": "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg",
-        "it": "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg",
-        "en": "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg",
-        "fr": "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg"
+        "it": "diet-chef-diet-chef-gestione-menu-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-gastronomie-neumunster-park",
+        "en": "diet-chef-diet-chef-menu-management-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-gastronomie-neumunster-park",
+        "fr": "diet-chef-diet-chef-gestion-de-menu-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-gastronomie-neumunster-park"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Gastronomie Neumünster Park",
       "companyKey": "diakoniewerk-neumuenster",
@@ -289,16 +287,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "en": [
+          "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "fr": [
+          "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "diatkoch-diatkochin-menumanagement-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-ce126357e7ea",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk",
+        "en": "dipl-radiology-specialist-radiology-specialist-hf-in-medical-engineering-training-diakoniewerk-neumunster",
+        "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-en-formation-en-genie-medical-diakoniewerk-neumunster"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -361,11 +373,16 @@
           "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk",
           "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
           "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-diakoniewerk-neumunster",
-          "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg"
+          "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg",
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
         ],
         "fr": [
           "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-diakoniewerk-neumunster",
-          "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg"
+          "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg",
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
         ]
       },
       "previousSlugs": [
@@ -374,7 +391,8 @@
         "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-diakoniewerk",
         "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
         "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-diakoniewerk-neumunster",
-        "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg"
+        "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
       ]
     },
     {
@@ -383,8 +401,8 @@
       "slugByLocale": {
         "de": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
         "it": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-s",
-        "en": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
-        "fr": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        "en": "vocational-trainer-for-dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical",
+        "fr": "formateur-professionnel-pour-dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-entretien-chirurgical"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -430,6 +448,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        ],
+        "en": [
+          "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        ],
+        "fr": [
           "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
         ]
       },
@@ -503,7 +527,6 @@
         "dipl-professionnels-des-soins-infirmiers-dipl-nephrologie-professionnelle-des-soins-infirmiers-diakoniewerk-neumunster",
         "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
         "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-diakoniewerk-neumunster-gesundheitswelt",
-        "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-diakoniewerk-neumunster-gesundheitswelt",
         "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diakoniewerk-neumunster-gesundheitswelt",
         "dipl-pflegefachfrau-dipl-pflegefachmann-pool-diakoniewerk-neumuenster-zollikerberg"
       ],
@@ -513,7 +536,6 @@
           "dipl-professionnels-des-soins-infirmiers-dipl-nephrologie-professionnelle-des-soins-infirmiers-diakoniewerk-neumunster",
           "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
           "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-diakoniewerk-neumunster-gesundheitswelt",
-          "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-diakoniewerk-neumunster-gesundheitswelt",
           "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diakoniewerk-neumunster-gesundheitswelt",
           "dipl-pflegefachfrau-dipl-pflegefachmann-pool-diakoniewerk-neumuenster-zollikerberg"
         ],
@@ -750,7 +772,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg",
-        "medicina-interna-professionale-salute-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
         "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
         "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
@@ -758,7 +779,6 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg",
-          "medicina-interna-professionale-salute-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
           "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
           "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
           "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"

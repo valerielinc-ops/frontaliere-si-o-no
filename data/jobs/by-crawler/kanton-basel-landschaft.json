@@ -4888,8 +4888,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-begabungs-und-begabtenforderung-kanton-basel-landschaft-therwil",
-          "lehrperson-begabungs-e-begabtenforderung-kantonale-verwaltung-basel-landschaft-therwil"
+          "lehrperson-begabungs-und-begabtenforderung-kanton-basel-landschaft-therwil"
         ],
         "en": [
           "lehrperson-begabungs-und-begabtenforderung-kantonale-verwaltung-basel-landschaft-therwil"
@@ -4900,7 +4899,6 @@
       },
       "previousSlugs": [
         "lehrperson-begabungs-und-begabtenforderung-kanton-basel-landschaft-therwil",
-        "lehrperson-begabungs-e-begabtenforderung-kantonale-verwaltung-basel-landschaft-therwil",
         "lehrperson-begabungs-und-begabtenforderung-kantonale-verwaltung-basel-landschaft-therwil"
       ],
       "salaryMin": 62000,
@@ -4997,8 +4995,8 @@
       "slugByLocale": {
         "de": "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch",
         "it": "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
-        "en": "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
-        "fr": "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
+        "en": "representative-instructor-for-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+        "fr": "instructeur-representant-pour-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5046,10 +5044,17 @@
       "previousSlugsByLocale": {
         "it": [
           "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch"
+        ],
+        "en": [
+          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
+        ],
+        "fr": [
+          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
         ]
       },
       "previousSlugs": [
-        "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch"
+        "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch",
+        "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

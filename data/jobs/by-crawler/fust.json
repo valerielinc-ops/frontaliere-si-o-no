@@ -227,8 +227,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-emmen-luzern",
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-emmen-luzern",
-          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-emmen-luzern-5786zv"
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-emmen-luzern"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-emmen-luzern-5786zv",
@@ -318,8 +317,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis",
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
@@ -522,7 +520,7 @@
     },
     {
       "id": "company-cv02in",
-      "slug": "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in",
+      "slug": "assistenza-natalizia-coop-genossenschaft-zug",
       "company": "Coop Genossenschaft",
       "title": "Weihnachtsaushilfe",
       "location": "Zug",
@@ -555,10 +553,10 @@
         "fr": "## Aide à Noël\n\n**Coopérative Coop** — Train, Train, Svizzera\n\n## Tâches\n- Avec attention aux détails, vous faites des paquets cadeaux.\n- Ils soutiennent l'équipe de vente dans les affaires quotidiennes.\n- Ils aident à la caisse.\n- Ils aident à gérer les biens.\n\n## Exigences\n- Avec leur apparence orientée client, ils inspirent la clientèle.\n- Vous avez une première expérience ou une formation dans le commerce de détail.\n- Très bonnes compétences allemandes vous apportent.\n- Ils font preuve de flexibilité en termes de temps de fonctionnement.\n- Travailler avec les gens et travailler en équipe vous apporte de la joie\n\n## Ce que nous offrons\n- Conditions d'emploi: conditions d'emploi attrayantes\n- Temps de travail: modèles flexibles de temps de travail\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Train"
       },
       "slugByLocale": {
-        "it": "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in",
-        "en": "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in",
+        "it": "assistenza-natalizia-coop-genossenschaft-zug",
+        "en": "christmas-assistance-coop-genossenschaft-zug",
         "de": "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in",
-        "fr": "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
+        "fr": "aide-a-noel-coop-genossenschaft-zug"
       },
       "requirementsByLocale": {
         "it": [],
@@ -571,11 +569,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-coop-genossenschaft-zug"
+          "weihnachtsaushilfe-coop-genossenschaft-zug",
+          "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
+        ],
+        "en": [
+          "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-coop-genossenschaft-zug"
+        "weihnachtsaushilfe-coop-genossenschaft-zug",
+        "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -595,7 +601,7 @@
     },
     {
       "id": "company-749kjq",
-      "slug": "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq",
+      "slug": "consulente-vendite-in-non-food-coop-genossenschaft-zug-a67657",
       "company": "Coop Genossenschaft",
       "title": "Verkaufberater: in Non Food",
       "location": "Zug",
@@ -627,20 +633,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq",
-        "en": "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq",
+        "it": "consulente-vendite-in-non-food-coop-genossenschaft-zug-a67657",
+        "en": "sales-advisor-in-non-food-coop-genossenschaft-zug-a67657",
         "de": "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq",
-        "fr": "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
+        "fr": "conseiller-commercial-en-non-alimentation-coop-genossenschaft-zug-a67657"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufberater-in-non-food-coop-genossenschaft-zug"
+          "verkaufberater-in-non-food-coop-genossenschaft-zug",
+          "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
+        ],
+        "en": [
+          "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
+        ],
+        "fr": [
+          "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
         ]
       },
       "previousSlugs": [
-        "verkaufberater-in-non-food-coop-genossenschaft-zug"
+        "verkaufberater-in-non-food-coop-genossenschaft-zug",
+        "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -881,7 +895,6 @@
           "prozessspezialist-in-werkstatt-fust-swiss-household-services-ag-oberburen-sankt-gallen",
           "prozessspezialist-in-werkstatt-fust-swiss-household-services-ag-oberburen-sankt-gallen-9y85tj",
           "prozessspezialist-in-werkstatt-fust-oberburen-sankt-gallen-9y85tj",
-          "specialista-di-processo-in-officina-fust-swiss-household-services-ag-oberburen-sankt-gallen",
           "prozessspezialist-in-werkstatt-fust-oberburen-sankt-gallen"
         ],
         "en": [
@@ -902,7 +915,6 @@
         "prozessspezialist-in-werkstatt-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "prozessspezialist-in-werkstatt-fust-swiss-household-services-ag-oberburen-sankt-gallen-9y85tj",
         "prozessspezialist-in-werkstatt-fust-oberburen-sankt-gallen-9y85tj",
-        "specialista-di-processo-in-officina-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "process-specialist-in-workshop-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "specialiste-des-processus-en-atelier-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "prozessspezialist-in-werkstatt-fust-oberburen-sankt-gallen"
@@ -1117,20 +1129,16 @@
         ],
         "en": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d",
-          "assembly-assistant-in-for-home-delivery-of-electrical-household-appliances-fust-swiss-household-services-ag-lenzburg"
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d"
         ],
         "fr": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d",
-          "assistant-d-assemblage-pour-la-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag"
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d"
         ]
       },
       "previousSlugs": [
         "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
-        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d",
-        "assembly-assistant-in-for-home-delivery-of-electrical-household-appliances-fust-swiss-household-services-ag-lenzburg",
-        "assistant-d-assemblage-pour-la-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag"
+        "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1445,18 +1453,10 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "backer-in-konditor-in-confiseur-in-coop-basel-4kyqmh",
           "backer-in-konditor-in-confiseur-in-coop-basel"
-        ],
-        "en": [
-          "backer-in-konditor-in-confiseur-in-coop-basel-4kyqmh"
-        ],
-        "fr": [
-          "backer-in-konditor-in-confiseur-in-coop-basel-4kyqmh"
         ]
       },
       "previousSlugs": [
-        "backer-in-konditor-in-confiseur-in-coop-basel-4kyqmh",
         "backer-in-konditor-in-confiseur-in-coop-basel"
       ]
     },
@@ -1518,18 +1518,10 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "backer-in-konditor-in-confiseur-in-coop-basel-zf9l37",
           "backer-in-konditor-in-confiseur-in-coop-basel-2"
-        ],
-        "en": [
-          "backer-in-konditor-in-confiseur-in-coop-basel-zf9l37"
-        ],
-        "fr": [
-          "backer-in-konditor-in-confiseur-in-coop-basel-zf9l37"
         ]
       },
       "previousSlugs": [
-        "backer-in-konditor-in-confiseur-in-coop-basel-zf9l37",
         "backer-in-konditor-in-confiseur-in-coop-basel-2"
       ]
     },
@@ -1741,27 +1733,17 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "negozio-detective-in-coop-genossenschaft-schafisheim",
-          "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
           "ladendetektiv-in-coop-schafisheim-aargau"
         ],
         "en": [
-          "shop-detective-in-coop-genossenschaft-schafisheim",
-          "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw"
         ],
         "fr": [
-          "inspecteur-coop-genossenschaft-schafisheim",
-          "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw"
         ]
       },
       "previousSlugs": [
-        "negozio-detective-in-coop-genossenschaft-schafisheim",
-        "shop-detective-in-coop-genossenschaft-schafisheim",
-        "inspecteur-coop-genossenschaft-schafisheim",
-        "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
         "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
         "ladendetektiv-in-coop-schafisheim-aargau"
       ],
@@ -6886,19 +6868,11 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-coop-genossenschaft-pratteln-basel-landschaft-1z0c27",
           "mechaniker-in-coop-genossenschaft-pratteln-basel-landschaft",
           "meccanico-coop-genossenschaft-pratteln"
-        ],
-        "en": [
-          "mechaniker-in-coop-genossenschaft-pratteln-basel-landschaft-1z0c27"
-        ],
-        "fr": [
-          "mechaniker-in-coop-genossenschaft-pratteln-basel-landschaft-1z0c27"
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-coop-genossenschaft-pratteln-basel-landschaft-1z0c27",
         "mechaniker-in-coop-genossenschaft-pratteln-basel-landschaft",
         "meccanico-coop-genossenschaft-pratteln"
       ]
@@ -6961,21 +6935,15 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-477pda",
           "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft",
           "guida-della-linea-nella-deformazione-del-cioccolato-di-produzione-coop-genossenschaft-pratteln",
           "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln"
         ],
-        "en": [
-          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-477pda"
-        ],
         "fr": [
-          "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-477pda",
           "guide-de-ligne-deformation-chocolat-en-production-coop-genossenschaft-pratteln"
         ]
       },
       "previousSlugs": [
-        "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft-477pda",
         "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft",
         "guida-della-linea-nella-deformazione-del-cioccolato-di-produzione-coop-genossenschaft-pratteln",
         "linienfuhrer-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln",
@@ -7173,10 +7141,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
-        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "it": "consulente-vendite-in-garden-jumbo-heimberg",
+        "en": "sales-advisor-in-garden-jumbo-heimberg",
         "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
-        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
+        "fr": "conseiller-commercial-a-garden-jumbo-heimberg"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7193,15 +7161,19 @@
           "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah"
         ],
         "en": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah"
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
+          "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
         ],
         "fr": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah"
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
+          "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
-        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah"
+        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
+        "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7499,7 +7471,6 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-coop-genossenschaft-mels-sankt-gallen",
-          "collaboratore-trice-gastronomie-coop-genossenschaft-mels-sankt-gallen-vxevrx",
           "mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen",
           "collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
           "mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
@@ -7518,7 +7489,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-genossenschaft-mels-sankt-gallen",
-        "collaboratore-trice-gastronomie-coop-genossenschaft-mels-sankt-gallen-vxevrx",
         "associate-gastronomie-coop-genossenschaft-mels-sankt-gallen-vxevrx",
         "mitarbeiter-in-gastronomie-coop-genossenschaft-mels-sankt-gallen-vxevrx",
         "collaborateur-trice-gastronomie-coop-genossenschaft-mels-sankt-gallen-vxevrx",
@@ -7744,7 +7714,6 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-efz-coop-genossenschaft-dietikon-zurich",
-          "elektriker-in-cfc-coop-genossenschaft-dietikon-zurich-ybnawk",
           "elektriker-in-efz-coop-dietikon-zurich"
         ],
         "en": [
@@ -7761,7 +7730,6 @@
       },
       "previousSlugs": [
         "elektriker-in-efz-coop-genossenschaft-dietikon-zurich",
-        "elektriker-in-cfc-coop-genossenschaft-dietikon-zurich-ybnawk",
         "elektriker-in-efz-coop-genossenschaft-dietikon-zurich-ybnawk",
         "elektriker-in-efz-coop-dietikon-zurich",
         "elektriker-in-efz-coop-dietikon-zurich-ybnawk"
@@ -8099,8 +8067,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-aarberg-bern",
-          "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
-          "venditore-in-food-coop-genossenschaft-aarberg-bern"
+          "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
@@ -8114,7 +8081,6 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-aarberg-bern",
         "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
-        "venditore-in-food-coop-genossenschaft-aarberg-bern",
         "seller-in-food-coop-genossenschaft-aarberg-bern",
         "vendeur-dans-la-nourriture-coop-genossenschaft-aarberg-bern"
       ],
@@ -8186,8 +8152,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden",
-          "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden-qz0m5q",
-          "venditore-in-food-coop-genossenschaft-disentis-muster-graubunden"
+          "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden-qz0m5q"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden-qz0m5q",
@@ -8201,7 +8166,6 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden",
         "verkaufer-in-food-coop-genossenschaft-disentis-muster-graubunden-qz0m5q",
-        "venditore-in-food-coop-genossenschaft-disentis-muster-graubunden",
         "seller-in-food-coop-genossenschaft-disentis-muster-graubunden",
         "vendeur-dans-la-nourriture-coop-genossenschaft-disentis-muster-graubunden"
       ],
@@ -8275,8 +8239,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern",
-          "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da",
-          "venditore-in-cassa-servizi-coop-genossenschaft-biel-bern"
+          "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da",
@@ -8290,7 +8253,6 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern",
         "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da",
-        "venditore-in-cassa-servizi-coop-genossenschaft-biel-bern",
         "seller-in-cash-registers-services-coop-genossenschaft-biel-bern",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-biel-bern"
       ],
@@ -8366,7 +8328,6 @@
           "verkaufer-in-kassen-services-coop-genossenschaft-jegenstorf-bern",
           "verkaufer-in-kassen-services-coop-genossenschaft-jegenstorf-bern-fxho2h",
           "verkaufer-in-kassen-services-coop-jegenstorf-bern-fxho2h",
-          "venditore-in-cassa-servizi-coop-genossenschaft-jegenstorf-bern",
           "verkaufer-in-kassen-services-coop-jegenstorf-bern"
         ],
         "en": [
@@ -8387,7 +8348,6 @@
         "verkaufer-in-kassen-services-coop-genossenschaft-jegenstorf-bern",
         "verkaufer-in-kassen-services-coop-genossenschaft-jegenstorf-bern-fxho2h",
         "verkaufer-in-kassen-services-coop-jegenstorf-bern-fxho2h",
-        "venditore-in-cassa-servizi-coop-genossenschaft-jegenstorf-bern",
         "seller-in-cash-registers-services-coop-genossenschaft-jegenstorf-bern",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-jegenstorf-bern",
         "verkaufer-in-kassen-services-coop-jegenstorf-bern"
@@ -8635,7 +8595,6 @@
       },
       "previousSlugs": [
         "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
-        "teammember-food-m-w-d-marche-restaurants-schweiz-ag-dietlikon-nsqorr",
         "teammember-food-m-w-d-marche-dietlikon"
       ],
       "salaryMin": 73500,
@@ -8876,7 +8835,6 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-basel-landschaft-7b8rjw",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-sissach-basel-landschaft",
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-sissach-db2717",
-          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-sissach-basel-landschaft",
           "macellaio-a-esperto-a-di-macelleria-coop-genossenschaft-sissach",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-sissach-basel-landschaft-fosjkp",
           "butcher-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-fosjkp",
@@ -8885,13 +8843,11 @@
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-basel-landschaft-7b8rjw",
           "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-sissach-db2717",
-          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-sissach-basel-landschaft",
           "butcher-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-fosjkp"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-basel-landschaft-7b8rjw",
           "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-sissach-db2717",
-          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-sissach-basel-landschaft",
           "boucher-ere-specialiste-en-boucherie-coop-genossenschaft-sissach-fosjkp"
         ],
         "de": [
@@ -8905,9 +8861,6 @@
         "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-sissach-db2717",
         "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-sissach-db2717",
         "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-sissach-db2717",
-        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-sissach-basel-landschaft",
-        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-sissach-basel-landschaft",
-        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-sissach-basel-landschaft",
         "macellaio-a-esperto-a-di-macelleria-coop-genossenschaft-sissach",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-sissach-basel-landschaft-fosjkp",
         "butcher-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-fosjkp",
@@ -8985,8 +8938,7 @@
           "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-ime2f2"
         ],
         "de": [
-          "verkaufsberater-in-kosmetik-coop-city-luzern-ime2f2",
-          "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-ime2f2"
+          "verkaufsberater-in-kosmetik-coop-city-luzern-ime2f2"
         ]
       },
       "previousSlugs": [
@@ -9977,9 +9929,7 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
+          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
@@ -9994,11 +9944,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
-        "chef-chef-h-f-d-coop-genossenschaft-oftringen",
-        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
-        "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
+        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10232,9 +10178,7 @@
         "it": [
           "kommissionierer-in-coop-genossenschaft-bern",
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
-          "kommissionierer-in-coop-bern",
-          "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
-          "addetto-a-al-picking-coop-genossenschaft-bern"
+          "kommissionierer-in-coop-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -10254,9 +10198,7 @@
         "kommissionierer-in-coop-bern",
         "order-picker-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
-        "commandeur-in-coop-genossenschaft-bern-65fc45",
-        "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
-        "addetto-a-al-picking-coop-genossenschaft-bern"
+        "commandeur-in-coop-genossenschaft-bern-65fc45"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -13410,9 +13352,7 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau",
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consulente-commerciale-in-interdiscount-wettingen-aargau",
-          "consulente-commerciale-in-interdiscount-wettingen",
-          "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-          "venditore-a-interdiscount-wettingen-aargau"
+          "consulente-commerciale-in-interdiscount-wettingen"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
@@ -13423,8 +13363,7 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consultant-en-ventes-interdiscount-wettingen-aargau",
           "consultant-en-ventes-interdiscount-wettingen",
-          "conseiller-e-de-vente-interdiscount-wettingen-aargau",
-          "consultant-en-ventes-interdiscount-wettingen-ffb287"
+          "conseiller-e-de-vente-interdiscount-wettingen-aargau"
         ]
       },
       "previousSlugs": [
@@ -13436,10 +13375,7 @@
         "consulente-commerciale-in-interdiscount-wettingen",
         "sales-consultant-in-interdiscount-wettingen",
         "consultant-en-ventes-interdiscount-wettingen",
-        "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-        "consultant-en-ventes-interdiscount-wettingen-ffb287",
-        "conseiller-e-de-vente-interdiscount-wettingen-aargau",
-        "venditore-a-interdiscount-wettingen-aargau"
+        "conseiller-e-de-vente-interdiscount-wettingen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13608,9 +13544,7 @@
           "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-          "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-          "venditore-a-coop-genossenschaft-winterthur-zurich"
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -13631,10 +13565,7 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-        "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich",
-        "venditore-a-coop-genossenschaft-winterthur-zurich"
+        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -699,8 +699,8 @@
       "slugByLocale": {
         "de": "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch",
         "it": "stellvertretende-r-responsabile-elektrische-instandhaltung-holcim-group-untervaz",
-        "en": "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch",
-        "fr": "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
+        "en": "deputy-r-head-in-electric-maintenance-holcim-group-untervaz",
+        "fr": "chef-adjoint-in-entretien-electrique-holcim-group-untervaz"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -745,6 +745,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
+        ],
+        "en": [
+          "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
+        ],
+        "fr": [
           "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
         ]
       },

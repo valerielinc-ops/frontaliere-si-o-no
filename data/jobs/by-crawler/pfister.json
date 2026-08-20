@@ -569,9 +569,9 @@
       "slug": "specialista-in-trasporti-stradali-cfc-ausbildung-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "it": "specialista-in-trasporti-stradali-cfc-ausbildung-mobel-pfister-ag-suhr",
-        "en": "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr",
+        "en": "road-transport-specialist-efz-training-mobel-pfister-ag-suhr",
         "de": "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr",
-        "fr": "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
+        "fr": "specialiste-des-transports-routiers-efz-formation-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -618,13 +618,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr",
-        "specialista-in-trasporti-stradali-cfc-ausbildung-mobel-pfister-ag-suhr"
+        "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr",
-          "specialista-in-trasporti-stradali-cfc-ausbildung-mobel-pfister-ag-suhr"
+          "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
+        ],
+        "en": [
+          "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
+        ],
+        "fr": [
+          "strassentransportfachmann-frau-efz-ausbildung-pfister-suhr"
         ]
       },
       "firstSeenAt": "2026-08-19T21:47:02.441Z",
@@ -723,12 +727,12 @@
     },
     {
       "id": "pfister-b5ecac3867fe",
-      "slug": "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
+      "slug": "cucina-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
-        "en": "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
+        "it": "cucina-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis",
+        "en": "kitchen-studio-manager-m-f-d-mobel-pfister-ag-affoltern-am-albis",
         "de": "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis",
-        "fr": "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+        "fr": "gestionnaire-de-studio-de-cuisine-h-f-d-mobel-pfister-ag-affoltern-am-albis"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -785,7 +789,21 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+        ],
+        "en": [
+          "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+        ],
+        "fr": [
+          "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenstudioleiterin-w-m-d-pfister-affoltern-am-albis"
+      ]
     },
     {
       "id": "pfister-b604542afdcf",

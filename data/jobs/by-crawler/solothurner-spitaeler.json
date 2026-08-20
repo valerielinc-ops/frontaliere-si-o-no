@@ -4898,12 +4898,10 @@
         "specialiste-des-soins-infirmiers-hf-en-psychiatrie-de-formation-raccourcit-2-3-4-ans-m-j-solothurner-spitaler-soh-soloth",
         "infirmier-infirmier-en-formation-en-psychiatrie-3-ans-raccourci-2-ans-h-f-solothurner-spitaler-ag-soh-solothurn",
         "specialiste-des-soins-infirmiers-hf-en-psychiatrie-de-formation-3-ans-raccourci-2-ans-p-m-d-solothurner-spitaler-soh-sol",
-        "infirmier-infirmier-en-formation-hf-en-psychiatrie-4-ans-homme-femme-solothurner-spitaler-ag-soh-solothurn",
-        "infermiere-infermiere-specializzato-a-in-formazione-in-psichiatria-corso-abbreviato-di-2-5-anni-uomo-donna-solothurner"
+        "infirmier-infirmier-en-formation-hf-en-psychiatrie-4-ans-homme-femme-solothurner-spitaler-ag-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-infermiere-specializzato-a-in-formazione-in-psichiatria-corso-abbreviato-di-2-5-anni-uomo-donna-solothurner",
           "assistenza-agli-anziani-hf-in-psichiatria-dell-educazione-4-anni-w-m-d-solothurner-spitaler-soh-solothurn",
           "senior-caregiver-hf-in-education-psychiatry-4-years-w-m-d-solothurner-spitaler-soh-solothurn",
           "psychiatric-nurse-trainee-m-f-d-4-years-solothurner-spitaler-soh-solothurn",
@@ -10668,8 +10666,7 @@
         "specialiste-des-soins-infirmiers-hf-en-formation-somatik-raccourcit-2-3-4-ans-m-j-solothurner-spitaler-soh-solothurn",
         "infirmier-infirmier-specialise-e-hf-en-formation-somatique-4-ans-h-f-solothurner-spitaler-ag-soh-solothurn",
         "specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-solothurn",
-        "specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-olten",
-        "pflege-specialista-specialista-in-formazione-ridotto-2-anni-u-m-d-solothurner-spitaler-soh-solothurn"
+        "specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10692,7 +10689,6 @@
           "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-anni-w-m-d-solothurner-spitaler-soh-olten",
           "nursing-specialist-hf-in-training-somatik-4-years-w-m-d-solothurner-spitaler-soh-olten",
           "nursing-student-hf-somatic-4-years-m-f-d-solothurner-spitaler-soh-olten",
-          "pflege-specialista-specialista-in-formazione-ridotto-2-anni-u-m-d-solothurner-spitaler-soh-solothurn",
           "pflegefachfrau-pflegefachmann-hf-in-ausbildung-verkurzt-2-jahre-w-m-d-soh-ch-2"
         ],
         "en": [
@@ -14530,16 +14526,13 @@
         ],
         "fr": [
           "neuropsychologue-neuropsychologue-h-f-d-solothurner-spitaler-soh-olten",
-          "neuropsychologin-neuropsychologe-m-w-d-solothurner-spitaler-soh-olten",
-          "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
+          "neuropsychologin-neuropsychologe-m-w-d-solothurner-spitaler-soh-olten"
         ]
       },
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-w-m-d-soh-ch",
         "neuropsychologue-neuropsychologue-h-f-d-solothurner-spitaler-soh-olten",
         "neuropsychologin-neuropsychologe-m-w-d-solothurner-spitaler-soh-olten",
-        "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten",
-        "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-soh-olten",
         "neuropsychologist-neuropsychologist-m-f-d-solothurner-spitaler-soh-olten"
       ],
       "salaryMin": 68500,
@@ -14809,12 +14802,12 @@
     },
     {
       "id": "solothurner-spitaeler-7dc146e88221",
-      "slug": "expertin-experte-notfallpflege-w-m-d-soh-ch",
+      "slug": "expert-expert-emergency-care-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "expertin-experte-notfallpflege-w-m-d-soh-ch",
-        "it": "expertin-experte-notfallpflege-w-m-d-soh-ch",
+        "it": "expert-expert-emergency-care-m-f-d-solothurner-spitaler-soh-solothurn",
         "en": "expertin-experte-notfallpflege-w-m-d-soh-ch",
-        "fr": "expertin-experte-notfallpflege-w-m-d-soh-ch"
+        "fr": "expert-expert-soins-d-urgence-h-f-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -14871,7 +14864,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:48:14.924Z"
+      "firstSeenAt": "2026-08-20T09:48:14.924Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-notfallpflege-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "expertin-experte-notfallpflege-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-notfallpflege-w-m-d-soh-ch"
+      ]
     }
   ]
 }

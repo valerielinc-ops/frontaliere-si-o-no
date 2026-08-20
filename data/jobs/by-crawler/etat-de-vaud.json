@@ -3511,12 +3511,12 @@
     },
     {
       "id": "etat-de-vaud-5751",
-      "slug": "enseignant-e-de-francais-etat-de-vaud-orbe",
+      "slug": "insegnante-francese-etat-de-vaud-administration-cantonale-vaudoise-orbe",
       "slugByLocale": {
         "fr": "enseignant-e-de-francais-etat-de-vaud-orbe",
-        "it": "enseignant-e-de-francais-etat-de-vaud-orbe",
-        "en": "enseignant-e-de-francais-etat-de-vaud-orbe",
-        "de": "enseignant-e-de-francais-etat-de-vaud-orbe"
+        "it": "insegnante-francese-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "en": "french-teacher-etat-de-vaud-administration-cantonale-vaudoise-orbe",
+        "de": "franzosischlehrer-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3572,16 +3572,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "enseignant-e-de-francais-etat-de-vaud-orbe"
+        ],
+        "en": [
+          "enseignant-e-de-francais-etat-de-vaud-orbe"
+        ],
+        "de": [
+          "enseignant-e-de-francais-etat-de-vaud-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "enseignant-e-de-francais-etat-de-vaud-orbe"
+      ]
     },
     {
       "id": "etat-de-vaud-5740",
-      "slug": "secretaire-de-direction-etat-de-vaud-lausanne",
+      "slug": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "it": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "en": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "de": "secretaire-de-direction-etat-de-vaud-lausanne"
+        "it": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "executive-secretary-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "exekutivsekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3637,15 +3651,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-direction-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5743",
-      "slug": "juriste-etat-de-vaud-lausanne",
+      "slug": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "juriste-etat-de-vaud-lausanne",
-        "it": "juriste-etat-de-vaud-lausanne",
-        "en": "juriste-etat-de-vaud-lausanne",
+        "it": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "juriste-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3705,21 +3733,26 @@
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-juriste-etat-de-vaud-lausanne"
+          "stagiaire-juriste-etat-de-vaud-lausanne",
+          "juriste-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "juriste-etat-de-vaud-lausanne"
         ]
       },
       "previousSlugs": [
-        "stagiaire-juriste-etat-de-vaud-lausanne"
+        "stagiaire-juriste-etat-de-vaud-lausanne",
+        "juriste-etat-de-vaud-lausanne"
       ]
     },
     {
       "id": "etat-de-vaud-5719",
-      "slug": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+      "slug": "specialista-della-gestione-dei-documenti-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
-        "it": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
-        "en": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
-        "de": "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+        "it": "specialista-della-gestione-dei-documenti-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "document-management-specialist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "spezialist-fur-dokumentenmanagement-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3775,16 +3808,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5713",
-      "slug": "fiscaliste-etat-de-vaud-lausanne",
+      "slug": "taxist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "fiscaliste-etat-de-vaud-lausanne",
-        "it": "fiscaliste-etat-de-vaud-lausanne",
+        "it": "taxist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "fiscaliste-etat-de-vaud-lausanne",
-        "de": "fiscaliste-etat-de-vaud-lausanne"
+        "de": "taxi-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3840,7 +3887,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fiscaliste-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "fiscaliste-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "fiscaliste-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5529",

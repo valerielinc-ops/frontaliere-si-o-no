@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-bd388d976317",
-      "slug": "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern",
+      "slug": "infermiere-di-laurea-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern",
-        "it": "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern",
-        "en": "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern",
-        "fr": "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
+        "it": "infermiere-di-laurea-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "graduate-nurse-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "infirmiere-diplomee-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:48:27.551Z"
+      "firstSeenAt": "2026-08-20T09:48:27.551Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
+      ]
     },
     {
       "id": "upd-3d356f7a5682",

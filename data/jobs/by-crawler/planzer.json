@@ -212,8 +212,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden",
-          "addetto-a-alla-logistica-musterzug-m-w-d-planzer-birsfelden"
+          "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
         ],
         "en": [
           "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
@@ -223,8 +222,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden",
-        "addetto-a-alla-logistica-musterzug-m-w-d-planzer-birsfelden"
+        "mitarbeiter-logistik-musterzug-m-w-d-planzer-birsfelden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -242,12 +240,12 @@
     },
     {
       "id": "planzer-dce80846888a",
-      "slug": "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach",
+      "slug": "i-creditori-del-gestore-del-caso-m-f-d-planzer-spreitenbach",
       "slugByLocale": {
         "de": "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach",
-        "it": "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach",
-        "en": "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach",
-        "fr": "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach"
+        "it": "i-creditori-del-gestore-del-caso-m-f-d-planzer-spreitenbach",
+        "en": "case-handler-creditors-m-f-d-planzer-spreitenbach",
+        "fr": "creanciers-de-cas-h-f-d-planzer-spreitenbach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -304,16 +302,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:45:37.634Z"
+      "firstSeenAt": "2026-08-20T09:45:37.634Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach"
+        ],
+        "en": [
+          "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach"
+        ],
+        "fr": [
+          "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-kreditoren-m-w-d-planzer-spreitenbach"
+      ]
     },
     {
       "id": "planzer-d2c34076aa03",
-      "slug": "paketzusteller-m-w-d-planzer-schmerikon",
+      "slug": "consegna-del-pacchetto-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-schmerikon",
-        "it": "paketzusteller-m-w-d-planzer-schmerikon",
-        "en": "paketzusteller-m-w-d-planzer-schmerikon",
-        "fr": "paketzusteller-m-w-d-planzer-schmerikon"
+        "it": "consegna-del-pacchetto-m-f-d-planzer-schmerikon",
+        "en": "package-delivery-m-f-d-planzer-schmerikon",
+        "fr": "livraison-de-colis-h-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -370,7 +382,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:45:36.798Z"
+      "firstSeenAt": "2026-08-20T09:45:36.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-5328d22ce254",
@@ -378,8 +404,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
         "it": "collaboratore-trice-umschlag-m-w-d-planzer-kallnach",
-        "en": "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
-        "fr": "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        "en": "employee-envelope-m-f-d-planzer-kallnach",
+        "fr": "l-enveloppe-des-employes-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -429,6 +455,12 @@
         "it": [
           "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
           "collaboratore-trice-umschlag-tagschicht-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
         ]
       },
       "previousSlugs": [
@@ -451,12 +483,12 @@
     },
     {
       "id": "planzer-f6309b85a61d",
-      "slug": "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten",
+      "slug": "gamma-camion-busta-serale-spedizione-m-f-d-planzer-marstetten",
       "slugByLocale": {
         "de": "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten",
-        "it": "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten",
-        "en": "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten",
-        "fr": "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
+        "it": "gamma-camion-busta-serale-spedizione-m-f-d-planzer-marstetten",
+        "en": "truck-ranger-envelope-evening-shipment-m-f-d-planzer-marstetten",
+        "fr": "ranger-camion-enveloppe-expedition-du-soir-h-f-d-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -513,16 +545,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:45:35.457Z"
+      "firstSeenAt": "2026-08-20T09:45:35.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
+        ],
+        "en": [
+          "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "lkw-rangierer-umschlag-abendverlad-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-cb481483494b",
-      "slug": "disponent-stuckgut-regional-m-w-d-planzer-bern",
+      "slug": "servizi-generali-regionale-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "it": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "en": "disponent-stuckgut-regional-m-w-d-planzer-bern",
-        "fr": "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        "it": "servizi-generali-regionale-m-f-d-planzer-bern",
+        "en": "disponent-general-goods-regional-m-f-d-planzer-bern",
+        "fr": "marchandises-generales-regionales-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -579,16 +625,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:45:34.687Z"
+      "firstSeenAt": "2026-08-20T09:45:34.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "disponent-stuckgut-regional-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-stuckgut-regional-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-13c297e81c30",
-      "slug": "disponent-m-w-d-planzer-marstetten",
+      "slug": "traduzione-m-f-d-planzer-marstetten",
       "slugByLocale": {
         "de": "disponent-m-w-d-planzer-marstetten",
-        "it": "disponent-m-w-d-planzer-marstetten",
+        "it": "traduzione-m-f-d-planzer-marstetten",
         "en": "disponent-m-w-d-planzer-marstetten",
-        "fr": "disponent-m-w-d-planzer-marstetten"
+        "fr": "detenteur-h-f-d-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -645,16 +705,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:45:33.979Z"
+      "firstSeenAt": "2026-08-20T09:45:33.979Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "disponent-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-debdc3a91caa",
-      "slug": "chauffeur-colis-cat-b-m-f-d-planzer-conthey",
+      "slug": "cat-b-m-f-d-driver-pacchetto-planzer-conthey",
       "slugByLocale": {
         "fr": "chauffeur-colis-cat-b-m-f-d-planzer-conthey",
-        "it": "chauffeur-colis-cat-b-m-f-d-planzer-conthey",
-        "en": "chauffeur-colis-cat-b-m-f-d-planzer-conthey",
-        "de": "chauffeur-colis-cat-b-m-f-d-planzer-conthey"
+        "it": "cat-b-m-f-d-driver-pacchetto-planzer-conthey",
+        "en": "cat-b-m-f-d-package-driver-planzer-conthey",
+        "de": "kat-b-pakettreiber-m-w-d-planzer-conthey"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -711,7 +782,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:45:33.126Z"
+      "firstSeenAt": "2026-08-20T09:45:33.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-colis-cat-b-m-f-d-planzer-conthey"
+        ],
+        "en": [
+          "chauffeur-colis-cat-b-m-f-d-planzer-conthey"
+        ],
+        "de": [
+          "chauffeur-colis-cat-b-m-f-d-planzer-conthey"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-colis-cat-b-m-f-d-planzer-conthey"
+      ]
     },
     {
       "id": "planzer-baadbcc38c90",

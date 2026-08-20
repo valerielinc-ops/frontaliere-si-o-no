@@ -19982,12 +19982,12 @@
     },
     {
       "id": "jumbo-5db7f2cd-206",
-      "slug": "verkaufer-in-kassen-services-jumbo-dietlikon",
+      "slug": "venditore-in-cassa-servizi-jumbo-dietlikon",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-dietlikon",
-        "it": "verkaufer-in-kassen-services-jumbo-dietlikon",
-        "en": "verkaufer-in-kassen-services-jumbo-dietlikon",
-        "fr": "verkaufer-in-kassen-services-jumbo-dietlikon"
+        "it": "venditore-in-cassa-servizi-jumbo-dietlikon",
+        "en": "seller-in-cash-registers-services-jumbo-dietlikon",
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20059,16 +20059,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T10:08:24.078Z"
+      "firstSeenAt": "2026-08-20T10:08:24.078Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-dietlikon"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-dietlikon"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-8379b7f3-ef5",
-      "slug": "marketing-assistant-controlling-planung-jumbo-dietlikon",
+      "slug": "marketing-assistant-controllo-pianificazione-jumbo-dietlikon",
       "slugByLocale": {
         "de": "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "it": "marketing-assistant-controlling-planung-jumbo-dietlikon",
+        "it": "marketing-assistant-controllo-pianificazione-jumbo-dietlikon",
         "en": "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "fr": "marketing-assistant-controlling-planung-jumbo-dietlikon"
+        "fr": "assistant-marketing-controle-planification-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20137,7 +20151,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T10:08:24.041Z"
+      "firstSeenAt": "2026-08-20T10:08:24.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-assistant-controlling-planung-jumbo-dietlikon"
+        ],
+        "fr": [
+          "marketing-assistant-controlling-planung-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-assistant-controlling-planung-jumbo-dietlikon"
+      ]
     }
   ]
 }

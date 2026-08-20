@@ -632,8 +632,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-m-w-d-empfang-ameos-einsiedeln",
         "it": "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln",
-        "en": "mitarbeiter-m-w-d-empfang-ameos-einsiedeln",
-        "fr": "mitarbeiter-m-w-d-empfang-ameos-einsiedeln"
+        "en": "employee-m-f-d-reception-ameos-schweiz-einsiedeln",
+        "fr": "reception-de-l-employe-h-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -679,6 +679,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-m-w-d-empfang-ameos-einsiedeln"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-empfang-ameos-einsiedeln"
+        ],
+        "fr": [
           "mitarbeiter-m-w-d-empfang-ameos-einsiedeln"
         ]
       },

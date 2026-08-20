@@ -9837,12 +9837,12 @@
     },
     {
       "id": "eth-zurich-54431bb382f7",
-      "slug": "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch",
+      "slug": "funzione-di-supporto-per-studenti-in-finanza-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch",
-        "en": "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch",
+        "it": "funzione-di-supporto-per-studenti-in-finanza-m-f-d-eth-zurich-zurich",
+        "en": "student-support-function-in-finance-m-f-d-eth-zurich-zurich",
         "de": "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch",
-        "fr": "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch"
+        "fr": "fonction-de-soutien-aux-etudiants-en-finance-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9894,7 +9894,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-supportfunktion-im-bereich-finanzen-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-c73199c61c0d",

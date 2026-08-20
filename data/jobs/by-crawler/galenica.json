@@ -168,7 +168,7 @@
         "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Pharma-Assistent / Pharma-Assistentin (m/f/d)",
@@ -735,7 +735,7 @@
         "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (m/f/d)",
@@ -2653,20 +2653,15 @@
       "id": "galenica-c526b16d9cd0",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ],
         "en": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
-        ],
-        "de": [
-          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj",
-        "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,

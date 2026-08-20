@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spruengli-765874e25e44",
-      "slug": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+      "slug": "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
         "de": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-        "it": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-        "en": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-        "fr": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
+        "it": "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
+        "en": "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
+        "fr": "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -73,20 +73,24 @@
           "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
           "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
           "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
-          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon"
+          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
         ],
         "en": [
-          "maintenance-technician-100-confiserie-sprungli-ag-dietikon"
+          "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
         ],
         "fr": [
-          "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon"
+          "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
         ]
       },
       "previousSlugs": [
         "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
         "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
         "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
-        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon"
+        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
       ]
     },
     {
@@ -142,20 +146,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
-        "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+        "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
         ],
         "en": [
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
         ],
         "de": [
-          "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
-          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
+          "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
         ],
         "fr": [
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
@@ -228,13 +229,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "demand-planner-process-automation-specialist-100-spruengli-zurich",
-        "demand-planner-process-automation-specialista-100-confiserie-sprungli-ag-zurich"
+        "demand-planner-process-automation-specialist-100-spruengli-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "demand-planner-process-automation-specialist-100-spruengli-zurich",
-          "demand-planner-process-automation-specialista-100-confiserie-sprungli-ag-zurich"
+          "demand-planner-process-automation-specialist-100-spruengli-zurich"
         ],
         "fr": [
           "demand-planner-process-automation-specialist-100-spruengli-zurich"
@@ -307,17 +306,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-        "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
+        "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-          "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
         ],
         "de": [
-          "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
+          "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -454,20 +450,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
-        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
-        "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
-          "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
         ],
         "en": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ],
         "de": [
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ],
         "fr": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
@@ -539,13 +532,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-        "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen"
+        "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-          "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen"
+          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
         ],
         "en": [
           "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
@@ -621,14 +612,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
-        "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-        "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+        "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
-          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-          "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
         ],
         "en": [
           "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
@@ -707,16 +696,14 @@
         "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon",
         "collaboratore-trice-in-tagesreinigung-100-confiserie-sprungli-ag-dietikon",
         "employe-en-nettoyage-quotidien-100-confiserie-sprungli-ag-dietikon",
-        "employee-in-daily-cleaning-100-confiserie-sprungli-ag-dietikon",
-        "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon"
+        "employee-in-daily-cleaning-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reinigung-30-spruengli-dietikon",
           "collaboratore-trice-in-tagesreinigung-100-confiserie-sprungli-ag-dietikon",
           "employe-en-nettoyage-quotidien-100-confiserie-sprungli-ag-dietikon",
-          "employee-in-daily-cleaning-100-confiserie-sprungli-ag-dietikon",
-          "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon"
+          "employee-in-daily-cleaning-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "mitarbeiter-in-reinigung-30-confiserie-sprungli-ag-dietikon"
@@ -796,8 +783,7 @@
         "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
         "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
         "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
+        "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -805,8 +791,7 @@
           "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
           "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
           "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-          "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-          "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
+          "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
         ],
         "en": [
           "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
@@ -886,16 +871,14 @@
         "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
         "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
         "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+        "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
           "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
           "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-          "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+          "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
@@ -992,8 +975,7 @@
         "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-60-confiserie-sprungli-ag-dietikon",
         "temporary-employees-production-until-the-end-of-december-60-confiserie-sprungli-ag-dietikon",
         "temporare-mitarbeiter-innen-produktion-bis-ende-dezember-60-spruengli-dietikon",
-        "production-des-travailleurs-temporaires-jusqu-a-fin-decembre-60-confiserie-sprungli-ag-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-sprungli-ag-dietikon"
+        "production-des-travailleurs-temporaires-jusqu-a-fin-decembre-60-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1015,8 +997,7 @@
           "mitarbeiter-in-produktion-70-fullabteilung-konditorei-spruengli-dietikon",
           "employe-en-production-70-service-de-remplissage-confiserie-confiserie-sprungli-ag-dietikon",
           "mitarbeiter-in-produktion-70-fullabteilung-konditorei-confiserie-sprungli-ag-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-60-confiserie-sprungli-ag-dietikon",
-          "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-sprungli-ag-dietikon"
+          "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-60-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "temporare-mitarbeiter-innen-produktion-bis-ende-dezember-100-spruengli-dietikon",
@@ -1113,8 +1094,7 @@
         "stv-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich",
         "directeur-de-succursale-stv-100-region-de-zurich-confiserie-sprungli-ag-zurich",
         "stv-filialleiter-in-100-raum-zug-confiserie-sprungli-ag-zug",
-        "stv-filialleiter-in-100-raum-zug-spruengli-zug",
-        "stv-filiale-manager-100-zona-di-zurigo-confiserie-sprungli-ag-zurich"
+        "stv-filialleiter-in-100-raum-zug-spruengli-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1125,8 +1105,7 @@
           "stv-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich",
           "directeur-de-succursale-stv-100-region-de-zurich-confiserie-sprungli-ag-zurich",
           "stv-filialleiter-in-100-raum-zug-confiserie-sprungli-ag-zug",
-          "stv-filialleiter-in-100-raum-zug-spruengli-zug",
-          "stv-filiale-manager-100-zona-di-zurigo-confiserie-sprungli-ag-zurich"
+          "stv-filialleiter-in-100-raum-zug-spruengli-zug"
         ],
         "en": [
           "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
@@ -1207,16 +1186,14 @@
         "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
         "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-mpcd8i",
         "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
-        "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon",
-        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
+        "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
           "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-mpcd8i",
           "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
-          "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon",
-          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
+          "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
@@ -1296,8 +1273,7 @@
         "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
         "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag",
         "production-employee-in-machine-operation-100-luxembourgerli-department-confiserie-sprungli-ag-dietikon",
-        "employe-de-production-en-machine-100-luxembourgerli-departement-confiserie-sprungli-ag-dietikon",
-        "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag-8a0cf3"
+        "employe-de-production-en-machine-100-luxembourgerli-departement-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1305,8 +1281,7 @@
           "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
           "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag",
           "production-employee-in-machine-operation-100-luxembourgerli-department-confiserie-sprungli-ag-dietikon",
-          "employe-de-production-en-machine-100-luxembourgerli-departement-confiserie-sprungli-ag-dietikon",
-          "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag-8a0cf3"
+          "employe-de-production-en-machine-100-luxembourgerli-departement-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
@@ -1399,8 +1374,7 @@
         "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
         "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
         "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
-        "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
+        "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1414,8 +1388,7 @@
           "baker-confectioner-in-the-department-of-fine-bakery-100-confiserie-sprungli-ag-dietikon",
           "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
           "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
-          "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
-          "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon"
+          "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
@@ -1499,14 +1472,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "abteilungsleiter-in-controlling-70-100-spruengli-dietikon",
-        "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon",
-        "testa-di-controllo-70-100-confiserie-sprungli-ag-dietikon"
+        "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-controlling-70-100-spruengli-dietikon",
-          "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon",
-          "testa-di-controllo-70-100-confiserie-sprungli-ag-dietikon"
+          "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
         ],
         "fr": [
           "abteilungsleiter-in-controlling-70-100-confiserie-sprungli-ag-dietikon"
@@ -1578,13 +1549,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
-        "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
+        "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon",
-          "sachbearbeiter-in-stammdaten-80-100-confiserie-sprungli-ag-dietikon"
+          "sachbearbeiter-in-stammdaten-80-100-spruengli-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1660,8 +1629,7 @@
         "home-service-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
         "mitarbeiter-in-hausdienst-100-paradeplatz-spruengli-zurich",
         "employe-de-service-a-domicile-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "personale-di-servizio-in-80-100-paradeplatz-zurigo-confiserie-sprungli-ag-zurich"
+        "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1671,8 +1639,7 @@
           "home-service-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
           "mitarbeiter-in-hausdienst-100-paradeplatz-spruengli-zurich",
           "employe-de-service-a-domicile-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "personale-di-servizio-in-80-100-paradeplatz-zurigo-confiserie-sprungli-ag-zurich"
+          "mitarbeiter-in-hausdienst-100-paradeplatz-confiserie-sprungli-ag-zurich"
         ],
         "en": [
           "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
@@ -1756,14 +1723,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
-        "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+        "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-          "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
-          "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+          "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern"
         ],
         "en": [
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
@@ -1842,14 +1807,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-        "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
-        "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug"
+        "verkaufsberater-in-100-bahnhof-zug-spruengli-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug",
-          "verkaufsberater-in-100-bahnhof-zug-spruengli-zug",
-          "consulente-commerciale-100-stazione-ferroviaria-zug-confiserie-sprungli-ag-zug"
+          "verkaufsberater-in-100-bahnhof-zug-spruengli-zug"
         ],
         "en": [
           "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
@@ -1928,14 +1891,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
-        "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+        "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
-          "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern"
         ],
         "en": [
           "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
@@ -2014,13 +1975,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
-        "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich",
-        "servicemitarbeiter-in-80-100-cafe-lounge-e-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich",
-          "servicemitarbeiter-in-80-100-cafe-lounge-e-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+          "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich"
         ],
         "en": [
           "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
@@ -2100,14 +2059,12 @@
       "previousSlugs": [
         "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
         "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
-        "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich"
+        "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
-          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
-          "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich"
+          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich"
         ],
         "en": [
           "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich"
@@ -2186,13 +2143,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-in-abteilung-confiserie-uberzug-100-spruengli-dietikon",
-        "responsabile-impianti-nel-reparto-overlay-confiserie-100-confiserie-sprungli-ag-dietikon-2576ce"
+        "anlagenfuhrer-in-abteilung-confiserie-uberzug-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-abteilung-confiserie-uberzug-100-spruengli-dietikon",
-          "responsabile-impianti-nel-reparto-overlay-confiserie-100-confiserie-sprungli-ag-dietikon-2576ce"
+          "anlagenfuhrer-in-abteilung-confiserie-uberzug-100-spruengli-dietikon"
         ],
         "en": [
           "anlagenfuhrer-in-abteilung-confiserie-uberzug-100-spruengli-dietikon"

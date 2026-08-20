@@ -10792,12 +10792,12 @@
     },
     {
       "id": "stadtspital-zuerich-f411770ca1c7",
-      "slug": "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich",
+      "slug": "personale-di-pulizia-nella-pulizia-serale-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
-        "it": "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich",
-        "en": "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich",
-        "fr": "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
+        "it": "personale-di-pulizia-nella-pulizia-serale-stadtspital-zurich-zurich",
+        "en": "cleaning-staff-in-evening-cleaning-stadtspital-zurich-zurich",
+        "fr": "personnel-de-nettoyage-en-soiree-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -10847,11 +10847,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381"
+          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
+          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381"
+        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
+        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

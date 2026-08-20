@@ -1499,11 +1499,11 @@
     },
     {
       "id": "swissquote-4f45cf13f85b",
-      "slug": "endpoint-engineer-swissquote-gland",
+      "slug": "endpoint-ingegnere-swissquote-gland",
       "slugByLocale": {
         "en": "endpoint-engineer-swissquote-gland",
-        "it": "endpoint-engineer-swissquote-gland",
-        "de": "endpoint-engineer-swissquote-gland",
+        "it": "endpoint-ingegnere-swissquote-gland",
+        "de": "endpoint-ingenieur-swissquote-gland",
         "fr": "endpoint-engineer-swissquote-gland"
       },
       "company": "Swissquote",
@@ -1561,7 +1561,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T10:25:59.646Z"
+      "firstSeenAt": "2026-08-20T10:25:59.646Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "endpoint-engineer-swissquote-gland"
+        ],
+        "de": [
+          "endpoint-engineer-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "endpoint-engineer-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-a87327c9a4fb",

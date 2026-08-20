@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "ophtalmique-d5943b26ebe2",
-      "slug": "secretaire-medical-e-ophtalmique-lausanne",
+      "slug": "medico-segretaria-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
       "slugByLocale": {
-        "it": "secretaire-medical-e-ophtalmique-lausanne",
-        "en": "secretaire-medical-e-ophtalmique-lausanne",
-        "de": "secretaire-medical-e-ophtalmique-lausanne",
+        "it": "medico-segretaria-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "en": "medical-secretary-e-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "de": "medizinische-sekretarin-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "fr": "secretaire-medical-e-ophtalmique-lausanne"
       },
       "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
@@ -56,18 +56,20 @@
         "medical-secretary-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-c8c740",
         "segretario-medico-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "medical-secretary-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "medizinische-sekretarin-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+        "secretaire-medical-e-ophtalmique-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-secretary-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-c8c740",
-          "segretario-medico-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+          "segretario-medico-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+          "secretaire-medical-e-ophtalmique-lausanne"
         ],
         "en": [
-          "medical-secretary-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+          "medical-secretary-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+          "secretaire-medical-e-ophtalmique-lausanne"
         ],
         "de": [
-          "medizinische-sekretarin-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+          "secretaire-medical-e-ophtalmique-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-19T22:10:31.964Z",
@@ -412,11 +414,11 @@
     },
     {
       "id": "ophtalmique-6a3b96f5d193",
-      "slug": "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne",
+      "slug": "ergoterapista-con-specialista-a-bassa-visione-in-orientamento-e-mobilita-hopital-ophtalmique-jules-gonin-fondation-asile",
       "slugByLocale": {
-        "it": "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne",
-        "en": "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne",
-        "de": "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne",
+        "it": "ergoterapista-con-specialista-a-bassa-visione-in-orientamento-e-mobilita-hopital-ophtalmique-jules-gonin-fondation-asile",
+        "en": "ergotherapist-with-low-vision-specialist-in-orientation-and-mobility-hopital-ophtalmique-jules-gonin-fondation-asile-des",
+        "de": "ergotherapeut-mit-low-vision-spezialist-in-orientierung-und-mobilitat-hopital-ophtalmique-jules-gonin-fondation-asile",
         "fr": "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne"
       },
       "company": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
@@ -472,7 +474,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne"
+        ],
+        "en": [
+          "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne"
+        ],
+        "de": [
+          "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-basse-vision-specialiste-en-orientation-et-mobilite-ophtalmique-lausanne"
+      ]
     },
     {
       "id": "ophtalmique-178c26f5214d",

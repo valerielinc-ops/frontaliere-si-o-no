@@ -2248,9 +2248,9 @@
     },
     {
       "id": "marriott-3bbdb9f11632",
-      "slug": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
+      "slug": "commissione-di-cucina-a-la-carte-marriott-international-zurich",
       "slugByLocale": {
-        "it": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
+        "it": "commissione-di-cucina-a-la-carte-marriott-international-zurich",
         "en": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
         "de": "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
         "fr": "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
@@ -2317,7 +2317,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-da31dc56943e",
