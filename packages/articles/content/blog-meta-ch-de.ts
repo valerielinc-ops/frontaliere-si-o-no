@@ -3475,6 +3475,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Vermietungen Basel-Landschaft: Mieten und Mietrecht',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Schweizerisches Bundesreglement über Mietkaution, Kündigung, Gebührenbeanstandung und Schlichtungsbehörde bei der Wohnvermietung in Basel-Landschaft.',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Wohngebäude mit Mietwohnungen in Basel-Landschaft',
+    'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival in Lenk: die neuen Regeln',
+    'blog.article.antara-tantra-festival-lenk.excerpt': 'Das Tantra Festival Switzerland ändert seinen Namen in Antara Tantra Festival und führt strenge Zustimmungsregeln und Sicherheitshandbücher in Lenk ein.',
+    'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival in Lenk im Kanton Bern',
 };
 
 export default blogMetaChDe;

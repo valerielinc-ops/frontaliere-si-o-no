@@ -3475,6 +3475,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Affitti Basilea Campagna: canoni e diritto di locazione',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Regolamento federale svizzero su deposito cauzionale, disdetta, contestazione canone e autorità di conciliazione nella locazione residenziale a Basilea Campagna.',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Palazzo residenziale con finestre di appartamenti in affitto a Basilea Campagna',
+    'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival a Lenk: le nuove regole',
+    'blog.article.antara-tantra-festival-lenk.excerpt': 'Il Tantra Festival Switzerland cambia nome e diventa Antara Tantra Festival, introducendo regole rigide sul consenso e manuali di sicurezza a Lenk.',
+    'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival a Lenk nel canton Berna',
 };
 
 export default blogMetaChIt;

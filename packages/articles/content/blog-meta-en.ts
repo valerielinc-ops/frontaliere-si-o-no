@@ -10172,6 +10172,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-intragna-lavorare-ticino-frontaliere.title': 'Living in Intragna, working in Ticino: border guide',
     'blog.article.vivere-intragna-lavorare-ticino-frontaliere.excerpt': 'Timing of crossings, G permit, border taxation, refreshments, cost of living: how to move from Intragna and work in Ticino.',
     'blog.article.vivere-intragna-lavorare-ticino-frontaliere.imageAlt': 'Lake Lugano separates Switzerland from Italy: the natural border between Ticino and Verbano-Cusio-Ossola where cross-border workers live',
+    'blog.article.vivere-re-lavorare-ticino-frontaliere.title': 'Living in Re and working in Ticino as a border worker',
+    'blog.article.vivere-re-lavorare-ticino-frontaliere.excerpt': 'How to face daily life as a frontier worker in Re and work in Ticino. Concrete data and procedures for border workers.',
+    'blog.article.vivere-re-lavorare-ticino-frontaliere.imageAlt': 'A frontalier in a room with a map of Re and a computer.',
 };
 
 export default blogMetaEn;

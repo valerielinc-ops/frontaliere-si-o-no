@@ -10173,6 +10173,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-intragna-lavorare-ticino-frontaliere.title': 'Vivere a Intragna, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-intragna-lavorare-ticino-frontaliere.excerpt': 'Tempi valichi, permesso G, tassazione frontalieri, ristorni, costo vita: come trasferirsi da Intragna e lavorare in Ticino.',
     'blog.article.vivere-intragna-lavorare-ticino-frontaliere.imageAlt': 'Il Lago Lugano separa la Svizzera dall\'Italia: il confine naturale tra il Ticino e il Verbano-Cusio-Ossola dove vivono i frontalieri',
+    'blog.article.vivere-re-lavorare-ticino-frontaliere.title': 'Vivere a Re e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-re-lavorare-ticino-frontaliere.excerpt': 'Come si affronta la vita quotidiana come frontaliere a Re e lavorare in Ticino. Dati concreti e procedure per i frontalieri.',
+    'blog.article.vivere-re-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere in una stanza con una cartina di Re e un computer.',
 };
 
 export default blogMetaIt;
