@@ -1,50 +1,18 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-20T10:24:51.015Z",
+  "generatedAt": "2026-08-20T21:48:06.852Z",
   "total": 28,
-  "newCount": 1,
-  "updatedCount": 27,
+  "newCount": 0,
+  "updatedCount": 28,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 44507,
-  "avgDurationMs": 44507,
+  "durationMs": 46488,
+  "avgDurationMs": 46488,
   "durationHistory": [
-    44507
+    46488
   ],
-  "newJobs": [
-    {
-      "title": "Polymechaniker",
-      "slug": "polymechaniker-agie-charmilles-biel",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-polymechaniker/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/aa16abc289eb48457a84dc2a0fa3371fecd11d8e2548952ffe422c0dfeec46c28e51db71c0cbd8239fa252ab183144695e762595b5878d06ab390f745f2616",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-20",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Service Engineer Laser",
@@ -78,6 +46,42 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Polymechaniker",
+      "slug": "polymechaniker-agie-charmilles-biel",
+      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-polymechaniker/",
+      "applyUrl": "https://tracking.jobchannel.ch/redirect/aa16abc289eb48457a84dc2a0fa3371fecd11d8e2548952ffe422c0dfeec46c28e51db71c0cbd8239fa252ab183144695e762595b5878d06ab390f745f2616",
+      "company": "AGIE Charmilles SA",
+      "companyKey": "agie-charmilles",
+      "companyDomain": "gfms.com",
+      "location": "Biel",
+      "addressLocality": "Biel",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Macchine utensili",
+      "source": "agie-charmilles-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "workload": "100%",
+      "id": "agie-charmilles-d2de77d913db",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-20T10:24:51.009Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -396,16 +400,15 @@
       "validThrough": "",
       "workload": "100%",
       "id": "agie-charmilles-0bf38cd97a8d",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:23:15.672Z",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -438,11 +441,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:23:15.672Z",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -474,11 +477,11 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:23:15.672Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -510,7 +513,6 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
