@@ -1212,6 +1212,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'preventivo-confederazione-2027': { it: 'preventivo-confederazione-2027', en: 'federal-budget-2027-council', de: 'bundesbudget-2027-rat', fr: 'budget-federal-2027-conseil' },
  'pianificazione-ospedaliera-ticino-2026': { it: 'pianificazione-ospedaliera-ticino-2026', en: 'ticino-hospital-planning-2026', de: 'tessiner-spitalplanung-2026', fr: 'planification-hospitaliere-tessin-2026' },
  'uss-pensionati-rendite-2027': { it: 'uss-pensionati-rendite-2027', en: 'uss-pensioners-benefits-2027', de: 'uss-pensionare-leistungen-2027', fr: 'uss-pensionnes-prestations-2027' },
+ 'posta-utile-in-salita': { it: 'posta-utile-in-salita', en: 'posta-profit-increase', de: 'posta-gewinnsteigerung', fr: 'augmentation-des-benefices-de-la-posta' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

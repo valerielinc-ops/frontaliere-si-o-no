@@ -3559,6 +3559,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uss-pensionati-rendite-2027.title': 'SVS fordert höhere Renten für Schweizer Rentner',
     'blog.article.uss-pensionati-rendite-2027.excerpt': 'Der Schweizerische Gewerkschaftsbund (SGB) fordert einen Mindestzinssatz von 3% für 2027 und höhere Renten für Schweizer Rentner',
     'blog.article.uss-pensionati-rendite-2027.imageAlt': 'Eine Schweizerin mit einem Pass in der Hand schaut aus dem Fenster mit einem ernsten Gesicht',
+    'blog.article.posta-utile-in-salita.title': 'Post, bergauf nützlich trotz sinkender Briefe',
+    'blog.article.posta-utile-in-salita.excerpt': 'Die Schweizerische Post verzeichnete im ersten Halbjahr 2026 eine Gewinnsteigerung von CHF 74 Mio. auf CHF 139 Mio.',
+    'blog.article.posta-utile-in-salita.imageAlt': 'Ein Blick auf Lugano mit einem Anstieg der Gewinne der Posta Svizzera im ersten Halbjahr 2026',
 };
 
 export default blogMetaChDe;

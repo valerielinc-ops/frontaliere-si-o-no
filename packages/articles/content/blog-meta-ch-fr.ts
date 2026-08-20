@@ -3559,6 +3559,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uss-pensionati-rendite-2027.title': 'L\'USS demande des rentes plus élevées pour les retraités suisses',
     'blog.article.uss-pensionati-rendite-2027.excerpt': 'L\'Union syndicale suisse (USS) demande un taux d\'intérêt minimum de 3% pour 2027 et des rentes plus élevées pour les retraités suisses',
     'blog.article.uss-pensionati-rendite-2027.imageAlt': 'Une femme suisse avec un passeport dans sa main regarde par la fenêtre avec un air sérieux',
+    'blog.article.posta-utile-in-salita.title': 'Courrier, utile en montée malgré la baisse des lettres',
+    'blog.article.posta-utile-in-salita.excerpt': 'La Poste Suisse a enregistré une hausse de ses bénéfices au premier semestre 2026, passant de 74 à 139 millions de francs.',
+    'blog.article.posta-utile-in-salita.imageAlt': 'Une vue de Lugano avec une hausse des profits de la Posta Svizzera dans la première moitié de 2026',
 };
 
 export default blogMetaChFr;
