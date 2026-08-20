@@ -3493,6 +3493,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-campagna-commercio.title': 'Ouvrir une entreprise à Bâle Campagne : guide pratique',
     'blog.article.aprire-attivita-basilea-campagna-commercio.excerpt': 'Formes juridiques, inscription au registre du commerce, taxes et prévoyance : la procédure complète pour démarrer une entreprise dans le canton de Bâle-Campagne.',
     'blog.article.aprire-attivita-basilea-campagna-commercio.imageAlt': 'Bureau de travail avec documents d\'inscription au registre commercial à Bâle',
+    'blog.article.aprire-impresa-basilea-campagna.title': 'Ouvrir une activité à Bâle-Campagne : registre et coûts',
+    'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Guide pour ouvrir une entreprise à Bâle-Campagne : choix de la forme juridique, inscription au registre du commerce, capital minimum et obligations d\'assurance.',
+    'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Ouverture d\'une entreprise dans le canton de Bâle-Campagne',
 };
 
 export default blogMetaChFr;

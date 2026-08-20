@@ -3493,6 +3493,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-campagna-commercio.title': 'Aprire un\'attività in Basilea Campagna: guida pratica',
     'blog.article.aprire-attivita-basilea-campagna-commercio.excerpt': 'Forme giuridiche, iscrizione al registro commercio, tasse e previdenza: la procedura completa per avviare un\'impresa nel cantone di Basilea Campagna.',
     'blog.article.aprire-attivita-basilea-campagna-commercio.imageAlt': 'Scrivania di lavoro con documenti di iscrizione al registro commercio e calcolatrice in uno studio a Basilea',
+    'blog.article.aprire-impresa-basilea-campagna.title': 'Aprire un\'attivita a Basilea Campagna: registro e costi',
+    'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Guida per aprire un\'attivita a Basilea Campagna: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo e obblighi assicurativi.',
+    'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Apertura attivita economica e commerciale nel Cantone di Basilea Campagna',
 };
 
 export default blogMetaChIt;
