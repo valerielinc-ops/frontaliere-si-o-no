@@ -10702,6 +10702,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'monopattini-obbligo-casco',
+    category: 'novita',
+    date: '2026-08-20T14:44:15.666Z',
+    image: '/images/blog/monopattini-obbligo-casco.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

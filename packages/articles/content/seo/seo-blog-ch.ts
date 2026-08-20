@@ -46274,6 +46274,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-monopattini-obbligo-casco': {
+    title: 'Monopattini elettrici: obbligo casco in vista?',
+    description: 'Il Consiglio federale valuterà l\'obbligo del casco per monopattini. Incidenti raddoppiati da 342 a 790 in 4 anni; traumi cranici 3,45x superiori ai ciclisti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, monopattini, elettrici, obbligo, casco',
+    ogTitle: 'Monopattini: verso l\'obbligo del casco in Svizzera',
+    ogDescription: 'Studio internazionale conferma: rischi di traumi cranici 3,45 volte superiori rispetto ai motociclisti. Il governo federale prepara una nuova ordinanza con possibile obbligo di casco. Incidenti raddoppiati da 342 a 790 in quattro anni.',
+    canonicalPath: '/articoli-svizzera/monopattini-obbligo-casco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Monopattini elettrici: obbligo casco in vista?",
+      "description": "Il Consiglio federale valuterà l'obbligo del casco per monopattini. Incidenti raddoppiati da 342 a 790 in 4 anni; traumi cranici 3,45x superiori ai ciclisti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/monopattini-obbligo-casco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una strada urbana svizzera con piste ciclabili e monopattini in circolazione"
+      },
+      "datePublished": "2026-08-20T14:44:15+00:00",
+      "dateModified": "2026-08-20T14:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/monopattini-obbligo-casco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
