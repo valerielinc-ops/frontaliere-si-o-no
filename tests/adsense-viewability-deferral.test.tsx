@@ -378,6 +378,76 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
   });
 });
 
+// Strips block and line comments from JS/TS source while tracking whether
+// we're inside a string/template literal, so a literal `/*`, `*/` or `//`
+// INSIDE a string is left alone instead of being mistaken for a comment
+// delimiter — the naive `src.replace(/\/\*[\s\S]*?\*\//g, '')
+// .replace(/^\s*\/\/.*$/gm, '')` chain this replaced had two gaps: it only
+// dropped a `//` comment when it was the entire line (missing one trailing
+// after real code on the same line — false-positive risk, CI red on
+// innocuous prose), and it could strip a literal `/* … */` sequence sitting
+// inside a string/template literal (false-negative risk, hiding real
+// violations). Also tracks regex-literal context: a `/^https?:\/\//`-style
+// literal ends in an escaped slash immediately before its closing delimiter,
+// and without regex awareness that reads as a `//` line-comment start,
+// silently dropping any real code after it on the same line (a false
+// negative — this idiom is live in `build-plugins/jobsSeoPagesPlugin.ts`).
+// Regex-vs-division is ambiguous without a real parser, so this uses the
+// same heuristic minifiers use: a bare `/` opens a regex unless the last
+// significant character can only follow a VALUE (identifier/digit/`)`/`]`),
+// in which case it's division.
+function stripCodeComments(src: string): string {
+  let out = '';
+  let quote: string | null = null;
+  let lastSignificant = '';
+  for (let i = 0; i < src.length; i += 1) {
+    const ch = src[i];
+    const next = src[i + 1];
+    if (quote) {
+      out += ch;
+      if (ch === '\\' && i + 1 < src.length) { out += next; i += 1; continue; }
+      if (ch === quote) quote = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'" || ch === '`') { quote = ch; out += ch; lastSignificant = ch; continue; }
+    if (ch === '/' && next === '*') {
+      const end = src.indexOf('*/', i + 2);
+      i = end === -1 ? src.length : end + 1;
+      continue;
+    }
+    if (ch === '/' && next === '/') {
+      const end = src.indexOf('\n', i + 2);
+      i = end === -1 ? src.length : end - 1;
+      continue;
+    }
+    if (ch === '/' && !/[\w$)\]]/.test(lastSignificant)) {
+      let j = i + 1;
+      let inClass = false;
+      let closed = false;
+      while (j < src.length) {
+        const c = src[j];
+        if (c === '\\') { j += 2; continue; }
+        if (c === '\n') break;
+        if (c === '[') { inClass = true; j += 1; continue; }
+        if (c === ']') { inClass = false; j += 1; continue; }
+        if (c === '/' && !inClass) { closed = true; break; }
+        j += 1;
+      }
+      if (closed) {
+        let end = j + 1;
+        while (end < src.length && /[a-z]/i.test(src[end])) end += 1;
+        out += src.slice(i, end);
+        lastSignificant = src[end - 1];
+        i = end - 1;
+        continue;
+      }
+    }
+    if (!/\s/.test(ch)) lastSignificant = ch;
+    out += ch;
+  }
+  return out;
+}
+
 describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => {
   it('keeps the static loader\'s one-shot slot snapshot correct by construction', async () => {
     // Review ❓1: the static loader snapshots `ins.adsbygoogle` once, when the
@@ -416,7 +486,7 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
         // an insertion, and this file is full of exactly that — stripping is
         // what lets the check look for the markup itself instead of having to
         // require `className`, which is the narrower proxy.
-        const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+        const code = stripCodeComments(src);
         // Directory boundary, not a substring: `full.includes('/build-plugins/')`
         // would also exempt a future `components/build-plugins-preview/…`.
         const isBuildPlugin = full.slice(root.length + 1).split(/[/\\]/)[0] === 'build-plugins';
