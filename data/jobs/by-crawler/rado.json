@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-08-20T09:51:28.086Z",
+  "assembledAt": "2026-08-20T21:37:41.071Z",
   "jobs": [
     {
       "id": "company-7ubi8k",
@@ -68,7 +68,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "0200 Deutsch Suche Suche Masterdata Specialist",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     }
   ]
 }
