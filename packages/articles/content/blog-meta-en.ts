@@ -10270,6 +10270,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Switzerland: a 13th also for the pension fund',
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'Switzerland will pay a thirteenth starting in December and the Swiss Trade Union Union will ask to increase second-pillar rents by 2027.',
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'A woman adjusts her glasses on the hills of Locarno',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Living in Barasso and working in Ticino: border guide',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permit G, exemption €7,500, tax at source and AVS/LPP pension: everything you need to live in Barasso and work in Ticino from 2024.',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Commuter car at Brogeda border crossing between Varese and Ticino, with Swiss customs signage and morning mist',
 };
 
 export default blogMetaEn;

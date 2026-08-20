@@ -71948,6 +71948,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-barasso-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Barasso e lavorare in Ticino: guida frontaliere',
+    description: 'Permesso G, esenzione €7.500, imposta alla fonte e previdenza AVS/LPP/LAMal per frontalieri: guida pratica per vivere a Barasso e lavorare nel Ticino dal 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, barasso, lavorare, permesso',
+    ogTitle: 'Vivere a Barasso e lavorare in Ticino: guida frontaliere 2024',
+    ogDescription: 'Nuovo Accordo Frontalieri 2024: esenzione €7.500, fiscalità, previdenza AVS/LPP, LAMal e procedura per vivere a Barasso e lavorare nel Ticino. Permesso G e step-by-step.',
+    canonicalPath: '/articoli-frontaliere/vivere-barasso-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Barasso e lavorare in Ticino: guida frontaliere",
+      "description": "Permesso G, esenzione €7.500, imposta alla fonte e previdenza AVS/LPP/LAMal per frontalieri: guida pratica per vivere a Barasso e lavorare nel Ticino dal 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-barasso-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto di un frontaliere al valico Brogeda tra Varese e Ticino, con segnaletica doganale svizzera e nebbia mattutina"
+      },
+      "datePublished": "2026-08-20T16:10:55+00:00",
+      "dateModified": "2026-08-20T16:10:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-barasso-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

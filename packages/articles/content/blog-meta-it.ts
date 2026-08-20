@@ -10271,6 +10271,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Svizzera: una 13esima anche per la cassa pensione',
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'La Svizzera erogherà una tredicesima a partire da dicembre e l\'Unione sindacale svizzera chiederà di aumentare le rendite del secondo pilastro per il 2027.',
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'Una donna si aggiusta gli occhiali sulle colline di Locarno',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Vivere a Barasso e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permesso G, esenzione €7.500, imposta alla fonte e previdenza AVS/LPP: tutto ciò che serve per vivere a Barasso e lavorare nel Ticino dal 2024.',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Auto di un frontaliere al valico Brogeda tra Varese e Ticino, con segnaletica doganale svizzera e nebbia mattutina',
 };
 
 export default blogMetaIt;

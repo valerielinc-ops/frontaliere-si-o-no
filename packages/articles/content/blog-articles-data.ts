@@ -30756,6 +30756,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'vivere-barasso-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-20T16:10:55.903Z',
+ image: '/images/blog/vivere-barasso-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
