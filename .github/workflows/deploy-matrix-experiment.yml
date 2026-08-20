@@ -158,6 +158,25 @@ jobs:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
     steps:
+      # Stesso rialzo di deploy.yml (vedi il commento la'): il tetto V8 di
+      # build:ci e' salito a 14336 MB e senza swap extra l'host non ha la
+      # capacita' di evizione per reggerlo. Va tenuto in lockstep con
+      # deploy.yml, altrimenti l'esperimento misura un runtime diverso da
+      # quello di produzione.
+      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
+        shell: bash
+        run: |
+          if [ -d /mnt ] && [ "$(df -m /mnt | awk 'NR==2{print $4}')" -gt 12288 ]; then
+            sudo fallocate -l 8G /mnt/build-swapfile
+            sudo chmod 600 /mnt/build-swapfile
+            sudo mkswap /mnt/build-swapfile
+            sudo swapon /mnt/build-swapfile
+          else
+            echo "::warning::/mnt assente o con meno di 12 GB liberi: swap extra non creato, si prosegue col solo swap di default del runner"
+          fi
+          swapon --show || true
+          free -m
+
       - name: Checkout
         uses: actions/checkout@v5
 
@@ -272,6 +291,22 @@ jobs:
       SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
     steps:
+      # Lockstep con deploy.yml e col job build-locale qui sopra: build:ci ha
+      # il tetto V8 a 14336 MB, e il monolite (4 locali in un processo) e' il
+      # profilo di memoria peggiore dei tre.
+      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
+        shell: bash
+        run: |
+          if [ -d /mnt ] && [ "$(df -m /mnt | awk 'NR==2{print $4}')" -gt 12288 ]; then
+            sudo fallocate -l 8G /mnt/build-swapfile
+            sudo chmod 600 /mnt/build-swapfile
+            sudo mkswap /mnt/build-swapfile
+            sudo swapon /mnt/build-swapfile
+          else
+            echo "::warning::/mnt assente o con meno di 12 GB liberi: swap extra non creato, si prosegue col solo swap di default del runner"
+          fi
+          swapon --show || true
+          free -m
       - name: Checkout
         uses: actions/checkout@v5
       - name: Setup Node.js

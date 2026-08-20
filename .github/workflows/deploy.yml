@@ -381,6 +381,37 @@ jobs:
           df -h /
           echo "::endgroup::"
 
+      # I build-locale muoiono con exit 134 sul muro V8 (12288 MB) mentre
+      # l'host ha ancora ~2 GB di MemAvailable e ~3 GB di SwapFree (run
+      # 32319344037, leg it, 2026-08-20). Il tetto V8 sale quindi a 14336
+      # (package.json build:ci) — ma alzarlo senza dare all'host capacita' di
+      # evizione sposterebbe solo il kill dall'heap all'host: i leg VERDI
+      # chiudono gia' a 12,3-12,5 GB di RSS su 15,99 GB totali con ~3 GB di
+      # swap usati (buildMemoryGuard.ts, run 31747139648). Con 8 GB extra su
+      # /mnt (SSD locale del runner) la capacita' anonima totale sale a
+      # ~28 GB: il grafo Vite/Rollup (~4 GB, fermo durante la fase SSG che
+      # gira DENTRO closeBundle) e le arene glibc pinnate diventano
+      # evacuabili invece che residenti obbligati. buildMemoryGuard e' stato
+      # reso swap-aware nello stesso giro, altrimenti il suo tetto RSS
+      # (12,9 GB) sarebbe diventato lui il nuovo muro.
+      # Revert-trigger: se un leg muore host-kill (step in_progress senza
+      # exit code) o il wall-time dello step Build cresce >20% con lo swap
+      # attivo, togliere questo step e il rialzo del tetto V8 insieme, e
+      # riaprire l'indagine retention (issue #6134).
+      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
+        shell: bash
+        run: |
+          if [ -d /mnt ] && [ "$(df -m /mnt | awk 'NR==2{print $4}')" -gt 12288 ]; then
+            sudo fallocate -l 8G /mnt/build-swapfile
+            sudo chmod 600 /mnt/build-swapfile
+            sudo mkswap /mnt/build-swapfile
+            sudo swapon /mnt/build-swapfile
+          else
+            echo "::warning::/mnt assente o con meno di 12 GB liberi: swap extra non creato, si prosegue col solo swap di default del runner"
+          fi
+          swapon --show || true
+          free -m
+
       - name: Checkout
         uses: actions/checkout@v5
 

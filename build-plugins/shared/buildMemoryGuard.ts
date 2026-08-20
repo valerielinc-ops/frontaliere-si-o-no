@@ -82,6 +82,32 @@
  * esperimenti locali, ma un valore che ALLENTA la soglia viene ignorato (e
  * detto a voce). Un gate che si puo' disattivare da env e' un gate vacuo: lo
  * stesso difetto che questa PR sta togliendo, con un nome diverso.
+ *
+ * ─── Il tetto RSS e' swap-aware (2026-08-20, issue #6134) ────────────────
+ *
+ * Il modello originale del tetto era «RSS oltre il 80,7% di MemTotal ⇒ kill
+ * dell'host imminente». La campagna OOM del 19-08 (7 deploy su 8 morti exit
+ * 134) ha dimostrato che il modello era incompleto: i leg morivano sul muro
+ * V8 (`--max-old-space-size`) con ~2 GB di MemAvailable e ~3 GB di SwapFree
+ * ancora liberi (run 32319344037), cioe' ben prima del kill dell'host. E i
+ * leg VERDI chiudevano gia' con ~3 GB di swap usati senza alcun danno.
+ *
+ * La distanza dal kill dell'host non e' funzione della sola RAM fisica: e'
+ * funzione della capacita' anonima totale (RAM + swap), perche' il kernel
+ * EVICE le pagine fredde — il grafo Vite/Rollup (~4 GB, fermo durante tutta
+ * la fase SSG) e le arene glibc pinnate sono esattamente quel tipo di pagina.
+ * Quindi il tetto e' `RSS_CEILING_FRACTION × (MemTotal + credito swap)`, dove
+ * il credito e' `min(SwapTotal, SWAP_CEILING_CREDIT_CAP_MB)`: il cap evita
+ * che uno swapfile patologico (100 GB) renda il tetto irraggiungibile e il
+ * ratchet vacuo. Su un host SENZA swap il comportamento e' byte-identico a
+ * prima (credito 0), ed e' cosi' che i fixture storici dei test restano
+ * validi senza riscriverli.
+ *
+ * A presidiare l'esaurimento della nuova capacita' c'e' un pavimento nuovo,
+ * `swapFreeFloorMb`: quando `SwapFree` scende sotto, il kill e' davvero
+ * vicino perche' il kernel non ha piu' dove evicere. Armato solo quando
+ * SwapTotal ≥ 2 GB — su uno swap minuscolo il pavimento sarebbe
+ * permanentemente sfondato gia' a riposo, cioe' un falso allarme strutturale.
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -141,6 +167,32 @@ export const DEFAULT_HOST_AVAIL_FLOOR_MB = 768;
  */
 export const HOST_AVAIL_FLOOR_FRACTION = 0.048;
 
+/**
+ * Quanto SwapTotal puo' al massimo ALZARE il tetto RSS, in MB. Vedi il
+ * docblock del modulo («Il tetto RSS e' swap-aware»): senza cap, uno swap
+ * enorme renderebbe il ratchet irraggiungibile. 8192 = lo swapfile extra che
+ * `deploy.yml` crea per il build; col default del runner (4 GB) piu' quello,
+ * il credito e' comunque saturato a 8 GB.
+ */
+export const SWAP_CEILING_CREDIT_CAP_MB = 8192;
+
+/**
+ * Pavimento assoluto su `SwapFree`, in MB. Sotto, il kernel sta finendo lo
+ * spazio di evizione e il kill dell'host e' questione di campioni. 512 MB
+ * lascia a Node la stessa headroom di diagnosi del pavimento host.
+ */
+export const DEFAULT_SWAP_FLOOR_MB = 512;
+
+/** Frazione di SwapTotal sotto cui `SwapFree` conta come pressione. */
+export const SWAP_FLOOR_FRACTION = 0.04;
+
+/**
+ * SwapTotal minimo perche' il pavimento swap sia armato: su uno swap sotto i
+ * 2 GB il pavimento assoluto sarebbe sfondato gia' a riposo (falso allarme
+ * permanente), quindi li' resta spento e presidiano tetto RSS + pavimento host.
+ */
+export const SWAP_FLOOR_MIN_TOTAL_MB = 2048;
+
 /** Intervallo di campionamento e campioni consecutivi richiesti. */
 export const DEFAULT_SAMPLE_INTERVAL_MS = 5000;
 export const DEFAULT_CONSECUTIVE_SAMPLES = 3;
@@ -167,10 +219,16 @@ export const DEFAULT_REPORT_FILE = '/tmp/build-memory-peak.json';
 export const FAILURE_ISSUE_TITLE = 'il picco di memoria della build risale sopra la soglia';
 
 export interface GuardThresholds {
-  /** Tetto sull'RSS del processo, in MB. */
+  /** Tetto sull'RSS del processo, in MB (swap-aware — vedi il docblock). */
   rssCeilingMb: number;
   /** Pavimento su `MemAvailable` dell'host, in MB, o `null` se non misurabile. */
   hostAvailFloorMb: number | null;
+  /**
+   * Pavimento su `SwapFree` dell'host, in MB. `null` dove lo swap non c'e',
+   * non e' leggibile, o e' troppo piccolo per un pavimento sensato
+   * ({@link SWAP_FLOOR_MIN_TOTAL_MB}).
+   */
+  swapFreeFloorMb: number | null;
   consecutiveSamples: number;
 }
 
@@ -179,16 +237,20 @@ export interface MemorySample {
   rssMb: number;
   /** `MemAvailable` dell'host in MB, oppure `null` dove non e' leggibile. */
   hostAvailMb: number | null;
+  /** `SwapFree` dell'host in MB, oppure `null` dove non e' leggibile. */
+  swapFreeMb: number | null;
 }
 
-export type BreachKind = 'rss-ceiling' | 'host-floor';
+export type BreachKind = 'rss-ceiling' | 'host-floor' | 'swap-floor';
 
 export interface GuardState {
   peakRssMb: number;
   minHostAvailMb: number | null;
+  minSwapFreeMb: number | null;
   samples: number;
   consecutiveRssOver: number;
   consecutiveHostUnder: number;
+  consecutiveSwapUnder: number;
   breach: BreachKind | null;
 }
 
@@ -196,9 +258,11 @@ export function createGuardState(): GuardState {
   return {
     peakRssMb: 0,
     minHostAvailMb: null,
+    minSwapFreeMb: null,
     samples: 0,
     consecutiveRssOver: 0,
     consecutiveHostUnder: 0,
+    consecutiveSwapUnder: 0,
     breach: null,
   };
 }
@@ -225,6 +289,32 @@ export function readHostAvailableMb(procMeminfoPath = '/proc/meminfo'): number |
   const kb = Number.parseInt(m[1], 10);
   if (!Number.isFinite(kb)) return null;
   return Math.round(kb / 1024);
+}
+
+/**
+ * Legge `SwapTotal` e `SwapFree` da `/proc/meminfo`, in MB.
+ *
+ * @returns `null` dove il file non esiste (macOS), non e' parsabile, o non ha
+ *   ENTRAMBE le righe — un fixture storico senza `SwapTotal` deve leggersi
+ *   come «host senza swap», non come «swap di taglia ignota»: e' cio' che
+ *   tiene il tetto byte-identico a prima su quei fixture.
+ */
+export function readHostSwapMb(
+  procMeminfoPath = '/proc/meminfo',
+): { totalMb: number; freeMb: number } | null {
+  let raw: string;
+  try {
+    raw = fs.readFileSync(procMeminfoPath, 'utf-8');
+  } catch {
+    return null;
+  }
+  const total = /^SwapTotal:\s+(\d+)\s+kB$/m.exec(raw);
+  const free = /^SwapFree:\s+(\d+)\s+kB$/m.exec(raw);
+  if (!total || !free) return null;
+  const totalKb = Number.parseInt(total[1], 10);
+  const freeKb = Number.parseInt(free[1], 10);
+  if (!Number.isFinite(totalKb) || !Number.isFinite(freeKb)) return null;
+  return { totalMb: Math.round(totalKb / 1024), freeMb: Math.round(freeKb / 1024) };
 }
 
 /**
@@ -281,7 +371,12 @@ export function resolveThresholds(
   procMeminfoPath = '/proc/meminfo',
 ): GuardThresholds & { ignoredOverrides: string[] } {
   const totalMb = readHostTotalMb(procMeminfoPath);
-  const ceilingDefault = Math.round(totalMb * RSS_CEILING_FRACTION);
+  // Il tetto e' swap-aware (vedi il docblock del modulo): la distanza dal
+  // kill dell'host e' funzione della capacita' anonima totale, non della sola
+  // RAM. Senza swap leggibile il credito e' 0 e il valore e' identico a prima.
+  const swap = readHostSwapMb(procMeminfoPath);
+  const swapCreditMb = Math.min(swap?.totalMb ?? 0, SWAP_CEILING_CREDIT_CAP_MB);
+  const ceilingDefault = Math.round((totalMb + swapCreditMb) * RSS_CEILING_FRACTION);
   const ceiling = applyTighteningOverride(ceilingDefault, env.BUILD_MEM_RSS_CEILING_MB, 'lower');
   // Il pavimento host ha senso solo dove `MemAvailable` esiste davvero.
   const hostReadable = readHostAvailableMb(procMeminfoPath) !== null;
@@ -297,12 +392,25 @@ export function resolveThresholds(
     env.BUILD_MEM_HOST_FLOOR_MB,
     'raise',
   );
+  // Il pavimento swap e' armato solo dove lo swap e' abbastanza grande da
+  // renderlo un segnale e non un falso allarme (SWAP_FLOOR_MIN_TOTAL_MB).
+  const swapFloorArmed = swap !== null && swap.totalMb >= SWAP_FLOOR_MIN_TOTAL_MB;
+  const swapFloorDefault = swapFloorArmed
+    ? Math.max(DEFAULT_SWAP_FLOOR_MB, Math.round(swap.totalMb * SWAP_FLOOR_FRACTION))
+    : DEFAULT_SWAP_FLOOR_MB;
+  const swapFloor = applyTighteningOverride(
+    swapFloorDefault,
+    env.BUILD_MEM_SWAP_FLOOR_MB,
+    'raise',
+  );
   const ignoredOverrides: string[] = [];
   if (ceiling.ignored) ignoredOverrides.push('BUILD_MEM_RSS_CEILING_MB');
   if (floor.ignored) ignoredOverrides.push('BUILD_MEM_HOST_FLOOR_MB');
+  if (swapFloorArmed && swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
   return {
     rssCeilingMb: ceiling.value,
     hostAvailFloorMb: hostReadable ? floor.value : null,
+    swapFreeFloorMb: swapFloorArmed ? swapFloor.value : null,
     consecutiveSamples: DEFAULT_CONSECUTIVE_SAMPLES,
     ignoredOverrides,
   };
@@ -330,6 +438,10 @@ export function observeSample(
     state.minHostAvailMb =
       state.minHostAvailMb === null ? sample.hostAvailMb : Math.min(state.minHostAvailMb, sample.hostAvailMb);
   }
+  if (sample.swapFreeMb !== null) {
+    state.minSwapFreeMb =
+      state.minSwapFreeMb === null ? sample.swapFreeMb : Math.min(state.minSwapFreeMb, sample.swapFreeMb);
+  }
 
   state.consecutiveRssOver = sample.rssMb > thresholds.rssCeilingMb ? state.consecutiveRssOver + 1 : 0;
 
@@ -340,11 +452,24 @@ export function observeSample(
     state.consecutiveHostUnder = 0;
   }
 
-  // Il pavimento host ha precedenza: quando entrambi scattano nello stesso
-  // campione e' quello che descrive la causa del kill imminente.
+  if (thresholds.swapFreeFloorMb !== null && sample.swapFreeMb !== null) {
+    state.consecutiveSwapUnder =
+      sample.swapFreeMb < thresholds.swapFreeFloorMb ? state.consecutiveSwapUnder + 1 : 0;
+  } else {
+    state.consecutiveSwapUnder = 0;
+  }
+
+  // Il pavimento host ha precedenza: quando piu' soglie scattano nello stesso
+  // campione e' quello che descrive la causa del kill imminente. Il pavimento
+  // swap viene subito dopo: senza spazio di evizione, MemAvailable e' il
+  // prossimo a collassare.
   if (state.consecutiveHostUnder >= thresholds.consecutiveSamples) {
     state.breach = 'host-floor';
     return 'host-floor';
+  }
+  if (state.consecutiveSwapUnder >= thresholds.consecutiveSamples) {
+    state.breach = 'swap-floor';
+    return 'swap-floor';
   }
   if (state.consecutiveRssOver >= thresholds.consecutiveSamples) {
     state.breach = 'rss-ceiling';
@@ -366,14 +491,18 @@ export function formatBreachDiagnosis(
   state: GuardState,
   thresholds: GuardThresholds,
 ): string {
+  const cause =
+    kind === 'host-floor'
+      ? `Causa: MemAvailable dell'host e' sceso a ${state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi.`
+      : kind === 'swap-floor'
+        ? `Causa: SwapFree dell'host e' sceso a ${state.minSwapFreeMb} MB, sotto il pavimento di ${thresholds.swapFreeFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi — il kernel sta finendo lo spazio di evizione.`
+        : `Causa: l'RSS del processo di build ha superato il tetto di ${thresholds.rssCeilingMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi (picco ${state.peakRssMb} MB).`;
   const lines = [
     `[build-mem-guard] ${FAILURE_ISSUE_TITLE}`,
     '',
-    kind === 'host-floor'
-      ? `Causa: MemAvailable dell'host e' sceso a ${state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi.`
-      : `Causa: l'RSS del processo di build ha superato il tetto di ${thresholds.rssCeilingMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi (picco ${state.peakRssMb} MB).`,
+    cause,
     '',
-    `peakRssMb=${state.peakRssMb} minHostAvailMb=${state.minHostAvailMb ?? 'n/d'} rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d'} samples=${state.samples}`,
+    `peakRssMb=${state.peakRssMb} minHostAvailMb=${state.minHostAvailMb ?? 'n/d'} minSwapFreeMb=${state.minSwapFreeMb ?? 'n/d'} rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d'} samples=${state.samples}`,
     '',
     "Questa build e' stata fermata di proposito PRIMA che l'host la uccidesse.",
     "Un kill dell'host lascia lo step su `in_progress` senza exit code, e in quella",
@@ -406,8 +535,10 @@ export function buildMemoryGuardPlugin(): Plugin {
     const report = {
       peakRssMb: state.peakRssMb,
       minHostAvailMb: state.minHostAvailMb,
+      minSwapFreeMb: state.minSwapFreeMb,
       rssCeilingMb: thresholds.rssCeilingMb,
       hostAvailFloorMb: thresholds.hostAvailFloorMb,
+      swapFreeFloorMb: thresholds.swapFreeFloorMb,
       consecutiveSamples: thresholds.consecutiveSamples,
       samples: state.samples,
       breach: state.breach,
@@ -460,12 +591,16 @@ export function buildMemoryGuardPlugin(): Plugin {
       }
       // eslint-disable-next-line no-console
       console.log(
-        `[build-mem-guard] armato rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d (no /proc/meminfo)'} everyMs=${DEFAULT_SAMPLE_INTERVAL_MS} consecutive=${thresholds.consecutiveSamples}`,
+        `[build-mem-guard] armato rssCeilingMb=${thresholds.rssCeilingMb} hostAvailFloorMb=${thresholds.hostAvailFloorMb ?? 'n/d (no /proc/meminfo)'} swapFreeFloorMb=${thresholds.swapFreeFloorMb ?? 'n/d (swap assente o < 2 GB)'} everyMs=${DEFAULT_SAMPLE_INTERVAL_MS} consecutive=${thresholds.consecutiveSamples}`,
       );
       timer = setInterval(() => {
         const breach = observeSample(
           state,
-          { rssMb: Math.round(process.memoryUsage.rss() / MB), hostAvailMb: readHostAvailableMb() },
+          {
+            rssMb: Math.round(process.memoryUsage.rss() / MB),
+            hostAvailMb: readHostAvailableMb(),
+            swapFreeMb: readHostSwapMb()?.freeMb ?? null,
+          },
           thresholds,
         );
         if (breach) fail(breach);
