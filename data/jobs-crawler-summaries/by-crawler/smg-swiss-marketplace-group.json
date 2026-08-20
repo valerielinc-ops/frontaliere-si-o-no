@@ -1,16 +1,16 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-08-19T21:36:10.217Z",
+  "generatedAt": "2026-08-20T09:52:05.654Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4947,
-  "avgDurationMs": 4947,
+  "durationMs": 4974,
+  "avgDurationMs": 4974,
   "durationHistory": [
-    4947
+    4974
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142898924-key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:36:06.377Z",
+      "crawledAt": "2026-08-20T09:52:01.717Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142145079-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T21:36:06.385Z",
+      "crawledAt": "2026-08-20T09:52:01.730Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -120,7 +120,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
