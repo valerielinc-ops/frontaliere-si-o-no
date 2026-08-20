@@ -13173,6 +13173,12 @@ ${staticAnalyticsHtml}
  // NODE_OPTIONS=--expose-gc in `build:ci` (see PR #627); guarded for local
  // dev runs without the flag.
  forceGc();
+ // Post-cleanup baseline (#6139 item 6): the checkpoint above (L13161) fires
+ // BEFORE this clear()+forceGc(), so it captures pre-cleanup memory and
+ // can't tell apart "cross-locale-expired loop was heavy" from "cleanup
+ // didn't free what we expected". This one gives the previousSlugs prescan
+ // below a known-clean starting point without losing the earlier signal.
+ logBuildMem('jobsSeoPages: after cross-locale-expired-cleanup', collector);
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
  // Serve identical full-content pages at old URLs (bookmarks, search engines).
