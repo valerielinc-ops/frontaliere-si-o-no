@@ -10195,6 +10195,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Lohnabrechnung 2026: Wie man sie als Grenzgänger innerhalb von 20 km liest',
     'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'Neues Abkommen 2024: Schweizer Einbehalte, italienische Steuergutschrift, Befreiung von € 7.500 (alt) oder € 10.000 (neue Grenzgänger). Berechnen Sie Ihren realen Nettowert.',
     'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Grenzgänger überprüft Schweizer Lohnabrechnung 2026 auf Tablet an der Grenze',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Lohnabrechnung Grenzgänger 2026: Netto und Familienabzüge',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'Neues Frontalieri-Abkommen in Kraft seit dem 1. Januar 2024: Funktionsweise der schweizerischen Lohnabrechnung, AHV/BVG-SÄTZE, Befreiung €7.500/ € 10.000 und italienische Steuergutschrift.',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Lohnabrechnung eines Grenzgängers auf Schreibtisch mit Schweizer Alpenpanorama im Fenster sichtbar',
 };
 
 export default blogMetaDe;

@@ -30540,6 +30540,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'netto-busta-paga-frontaliere-2026-famiglia',
+ category: 'fiscale',
+ date: '2026-08-20T05:00:02.330Z',
+ image: '/images/blog/netto-busta-paga-frontaliere-2026-famiglia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

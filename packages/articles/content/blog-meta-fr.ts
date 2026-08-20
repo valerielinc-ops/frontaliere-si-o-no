@@ -10198,6 +10198,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Bulletin de paie 2026 : comment le lire de frontalier dans les 20 km',
     'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'Nouvel Accord 2024 : retenues suisses, crédit d\'impôt italien, exonération 7 500 € ( anciens) ou 10 000 € ( nouveaux frontaliers). Calculez votre net réel.',
     'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Frontalier examine le bulletin de salaire suisse 2026 sur tablette à la frontière',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Bulletin de paie frontalier 2026 : net et déductions famille',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'Nouvel accord frontalier en vigueur depuis le 1er janvier 2024 : comment fonctionne la paie suisse, taux AVS/LPP, exonération €7.500/€ 10.000 et crédit d\'impôt italien.',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Document de fiche de paie suisse d\'un travailleur frontalier avec paysage alpin visible à la fenêtre du bureau',
 };
 
 export default blogMetaFr;

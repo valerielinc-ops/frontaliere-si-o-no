@@ -10197,6 +10197,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Busta paga 2026: come leggerla da frontaliere entro 20 km',
     'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'Nuovo Accordo 2024: trattenute svizzere, credito d\'imposta italiano, esenzione €7.500 (vecchi) o €10.000 (nuovi frontalieri). Calcola il tuo netto reale.',
     'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Frontaliere esamina la busta paga svizzera 2026 su tablet al confine Ticino-Italia',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Busta paga frontaliere 2026: netto e deduzioni famiglia',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'Nuovo Accordo Frontalieri vigente dal 1° gennaio 2024: come funziona la busta paga svizzera, aliquote AVS/LPP, esenzione €7.500/€10.000 e credito d\'imposta italiano.',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Documento di busta paga svizzera di un frontaliere sul tavolo di lavoro, paesaggio alpino sullo sfondo',
 };
 
 export default blogMetaIt;

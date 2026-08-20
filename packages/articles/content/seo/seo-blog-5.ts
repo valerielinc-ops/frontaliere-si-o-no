@@ -71012,6 +71012,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-netto-busta-paga-frontaliere-2026-famiglia': {
+    title: 'Busta paga frontaliere 2026: netto e deduzioni famiglia',
+    description: 'Come funziona la busta paga di un frontaliere in Svizzera nel 2026: aliquote AVS/LPP, imposta alla fonte, esenzione €7.500/€10.000 e credito d\'imposta italiano',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, netto, deduzioni',
+    ogTitle: 'Busta paga frontaliere 2026: netto e deduzioni famiglia',
+    ogDescription: 'Scopri come funziona la busta paga di un frontaliere che lavora in Svizzera: aliquote 2026, trattenute, esenzione €7.500/€10.000 e come massimizzare il netto reale con famiglia. Nuovo Accordo Frontalieri vigente dal 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/netto-busta-paga-frontaliere-2026-famiglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga frontaliere 2026: netto e deduzioni famiglia",
+      "description": "Come funziona la busta paga di un frontaliere in Svizzera nel 2026: aliquote AVS/LPP, imposta alla fonte, esenzione €7.500/€10.000 e credito d'imposta italiano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/netto-busta-paga-frontaliere-2026-famiglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento di busta paga svizzera di un frontaliere sul tavolo di lavoro, paesaggio alpino sullo sfondo"
+      },
+      "datePublished": "2026-08-20T05:00:02+00:00",
+      "dateModified": "2026-08-20T05:00:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/netto-busta-paga-frontaliere-2026-famiglia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
