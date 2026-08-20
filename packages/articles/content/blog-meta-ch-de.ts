@@ -3556,6 +3556,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Spitalplanung Tessin: Angemessene Daten 2019?',
     'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'Die FDP-Frage zur am 1. Juni 2026 begonnenen Vernehmlassung wirft Fragen zur statistischen Grundlage des Spitalbedarfs im Kanton auf.',
     'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'Modernes Spitalgebäude in der Schweiz, relevant für Tessins Spitalplanungsdebatte',
+    'blog.article.uss-pensionati-rendite-2027.title': 'SVS fordert höhere Renten für Schweizer Rentner',
+    'blog.article.uss-pensionati-rendite-2027.excerpt': 'Der Schweizerische Gewerkschaftsbund (SGB) fordert einen Mindestzinssatz von 3% für 2027 und höhere Renten für Schweizer Rentner',
+    'blog.article.uss-pensionati-rendite-2027.imageAlt': 'Eine Schweizerin mit einem Pass in der Hand schaut aus dem Fenster mit einem ernsten Gesicht',
 };
 
 export default blogMetaChDe;
