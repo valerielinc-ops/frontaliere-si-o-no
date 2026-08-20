@@ -84,11 +84,28 @@ function getRecipient(event) {
   return normalizeEmailAddress(data.to || event.to);
 }
 
+/**
+ * The twin of extractCampaignId's array-tags defect, left behind by #6195.
+ *
+ * Maileroo echoes `tags` back in two shapes, and the `!Array.isArray` guard
+ * below silently answered "not a job alert" for the array form — so a job-alert
+ * event whose tags arrived as `[{name:'type', value:'job-alert'}]` was routed
+ * to `newsletter_subscribers/{email}` instead of `job_alert_subscribers/{email}`.
+ *
+ * It has been dormant rather than harmful: this heuristic only runs when the
+ * maileroo_refs lookup did not resolve (`isJobAlert = meta ? !!meta.is_job_alert
+ * : isJobAlertEvent(event)`), and since #6195 every sender writes that lookup.
+ * It is fixed anyway because it is the same defect class in the same file, and
+ * a fallback that is wrong only when the primary path fails is the worst kind
+ * to leave standing.
+ */
 function isJobAlertEvent(event) {
-  const tags = event.tags || {};
-  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
-    return tags.type === 'job-alert' || tags.type === 'job-alert-retry';
+  const tags = event.tags;
+  const isJobAlertType = (v) => v === 'job-alert' || v === 'job-alert-retry';
+  if (Array.isArray(tags)) {
+    return tags.some((t) => t && typeof t === 'object' && t.name === 'type' && isJobAlertType(t.value));
   }
+  if (tags && typeof tags === 'object') return isJobAlertType(tags.type);
   return false;
 }
 
