@@ -104,6 +104,46 @@ export function createAuditor(opts = {}) {
   const DESCRIPTION_SAMPLE_CHARS = 100;
   let filesScanned = 0;
 
+  /**
+   * Return a string with the SAME CONTENT and no reference to whatever it was
+   * sliced out of.
+   *
+   * V8 represents `big.slice(a, b)` as a SlicedString: a pointer to the parent
+   * plus an offset. Keeping the 100-char sample therefore keeps the whole page
+   * it came from alive. This was known — the line here used to be
+   * `` sample: `${desc.slice(0, DESCRIPTION_SAMPLE_CHARS)}` `` with a comment
+   * saying "the template literal forces a flat copy". It does not. Measured on
+   * this V8, 40'000 samples taken out of ~10 KB parents:
+   *
+   *     desc.slice(0, 100)                    10'115 B/entry
+   *     `${desc.slice(0, 100)}`               10'114 B/entry   ← no-op
+   *     s.normalize() / s.repeat(1) / padEnd  ~10'100 B/entry  ← also no-ops
+   *     Buffer.from(s,'utf8').toString()         131 B/entry
+   *     s.split('').join('')                     130 B/entry
+   *
+   * A single-substitution template literal is optimised away, as are the other
+   * "obvious" flatteners; only routing the bytes outside the JS heap and back
+   * builds a fresh SeqString. Buffer is also the fastest of the working ones
+   * (120 ms vs 405 ms per 40'000 on the same measurement).
+   *
+   * What it cost: the entry count here is the DISTINCT-DESCRIPTION count, so
+   * a post-deploy run held ~1M pages resident instead of ~1M short strings.
+   * Probing all 17 registered auditors over an identical corpus put this one
+   * at 3'462 B/file against 127 B/file for the next worst and ~1 B/file for
+   * the other fifteen — 96 % of everything `audit:all` retained. That is what
+   * hit `--max-old-space-size=4096` and killed run 32261742920 with
+   * `FATAL ERROR: Ineffective mark-compacts near heap limit`, which in turn
+   * reached the failure classifier as the unclassifiable name `audit:all` and,
+   * fail-closed, sequestered `publish`.
+   *
+   * The round-trip is content-exact here: `html` was read with utf8 encoding,
+   * so it cannot contain lone surrogates for the encoder to replace.
+   *
+   * @param {string} s
+   * @returns {string}
+   */
+  const flatten = (s) => Buffer.from(s, 'utf8').toString('utf8');
+
   // 64-bit FNV-1a as 16 hex chars. Non-cryptographic is right here: the input
   // is our own build output, not adversarial, and at ~1M distinct keys the
   // 64-bit birthday collision probability is ~3e-7 — orders of magnitude below
@@ -134,13 +174,10 @@ export function createAuditor(opts = {}) {
         entry.count += 1;
         if (entry.paths.length < PATHS_PER_DESCRIPTION_CAP) entry.paths.push(path);
       } else {
-        // `.slice()` on a substring can retain the parent string in V8; the
-        // template literal forces a flat copy, so the full 300-char
-        // description is not kept alive by the 100-char sample.
         byDescription.set(key, {
           count: 1,
           paths: [path],
-          sample: `${desc.slice(0, DESCRIPTION_SAMPLE_CHARS)}`,
+          sample: flatten(desc.slice(0, DESCRIPTION_SAMPLE_CHARS)),
         });
       }
     },

@@ -155,7 +155,24 @@ function decodeEntities(s) {
 // runner.test.ts, which only asserts membership/count/`.every()` predicates).
 const WALK_CONCURRENCY = 24;
 
-export async function walkHtmlFiles(dir) {
+/**
+ * @param {string} dir
+ * @param {{ keep?: (absPath: string) => boolean, stats?: { seen: number } }} [opts]
+ *   `keep` decides which discovered `.html` paths are RETAINED — the walk still
+ *   visits every one of them, so `stats.seen` (when supplied) is the true
+ *   on-disk total. This exists because materialising the whole corpus and
+ *   filtering afterwards costs a multiple of the memory of never keeping the
+ *   rejected paths: on run 32261742920 the walk found 3'904'613 files of which
+ *   a sampled run wanted 976'903, i.e. ~2.93M path strings (~450 MB at this
+ *   tree's ~140-char paths) built only to be dropped one statement later,
+ *   inside the same 4 GB heap that then went `FATAL ERROR: Ineffective
+ *   mark-compacts near heap limit` two thirds of the way through collect.
+ *   Selection is unchanged — same predicate, same files, same results.
+ * @returns {Promise<string[]>}
+ */
+export async function walkHtmlFiles(dir, opts = undefined) {
+  const keep = typeof opts?.keep === 'function' ? opts.keep : null;
+  const stats = opts?.stats ?? null;
   const out = [];
   const queue = [dir];
   let inFlight = 0;
@@ -168,6 +185,11 @@ export async function walkHtmlFiles(dir) {
     const pump = () => {
       while (inFlight < WALK_CONCURRENCY && cursor < queue.length) {
         const cur = queue[cursor++];
+        // Drop the consumed entry's string. `queue` is a BFS frontier that is
+        // never truncated, so without this it ends the walk holding one path
+        // string per directory in the tree — ~2M of them on this corpus,
+        // alive for the whole walk purely because `cursor` moved past them.
+        queue[cursor - 1] = '';
         inFlight++;
         readdir(cur, { withFileTypes: true })
           .then((entries) => {
@@ -175,7 +197,10 @@ export async function walkHtmlFiles(dir) {
               if (e.name.startsWith('.')) continue;
               const p = join(cur, e.name);
               if (e.isDirectory()) queue.push(p);
-              else if (e.isFile() && p.endsWith('.html')) out.push(p);
+              else if (e.isFile() && p.endsWith('.html')) {
+                if (stats) stats.seen++;
+                if (!keep || keep(p)) out.push(p);
+              }
             }
           })
           .catch(() => {})
@@ -269,6 +294,8 @@ export function sampleFiles(files, distDir, rate, salt) {
  * @param {Auditor[]} opts.auditors
  * @param {boolean} [opts.verbose=true]
  * @param {boolean} [opts.writeReports=true]   — call writeAuditReport per auditor
+ * @param {number}  [opts.sampleRate=1]        — 0<rate<=1; 1 scans everything
+ * @param {number}  [opts.sampleSalt=0]        — rotates which bucket is scanned
  * @returns {Promise<{
  *   totalElapsedSec: number,
  *   walkElapsedSec: number,
@@ -295,22 +322,33 @@ export async function runAudits({ distDir, auditors, verbose = true, writeReport
     throw new Error(`runAudits: distDir not found or not a directory: ${distDir}`);
   }
 
-  const tWalk0 = performance.now();
-  const allFiles = await walkHtmlFiles(distDir);
-  const walkElapsedSec = (performance.now() - tWalk0) / 1000;
-  if (verbose) console.log(`[audit-runner] walked ${allFiles.length} HTML files in ${walkElapsedSec.toFixed(2)}s`);
-
+  // Sampling is decided BEFORE the walk and applied inside it, so the rejected
+  // ~75 % of paths are never materialised. `sampleFiles()` stays exported and
+  // unchanged — it is the same predicate, and the post-hoc form is still what
+  // the unit tests pin — but this path no longer pays for a 3.9M-entry array
+  // it immediately discards. See walkHtmlFiles' opts for the measurement.
   const rate = sampleRate > 0 && sampleRate <= 1 ? sampleRate : 1;
-  const { sampled: files, totalBuckets, activeBucket } = rate < 1
-    ? sampleFiles(allFiles, distDir, rate, sampleSalt)
-    : { sampled: allFiles, totalBuckets: 1, activeBucket: 0 };
+  const totalBuckets = rate < 1 ? Math.max(1, Math.round(1 / rate)) : 1;
+  const activeBucket = totalBuckets > 1 ? ((sampleSalt % totalBuckets) + totalBuckets) % totalBuckets : 0;
+
+  const tWalk0 = performance.now();
+  const walkStats = { seen: 0 };
+  const files = await walkHtmlFiles(distDir, {
+    stats: walkStats,
+    keep: totalBuckets > 1
+      ? (abs) => fnv1a(relative(distDir, abs)) % totalBuckets === activeBucket
+      : undefined,
+  });
+  const walkElapsedSec = (performance.now() - tWalk0) / 1000;
+  if (verbose) console.log(`[audit-runner] walked ${walkStats.seen} HTML files in ${walkElapsedSec.toFixed(2)}s`);
+
   const sampling = totalBuckets > 1
-    ? { totalBuckets, activeBucket, filesOnDisk: allFiles.length, filesScanned: files.length }
+    ? { totalBuckets, activeBucket, filesOnDisk: walkStats.seen, filesScanned: files.length }
     : null;
   if (sampling && verbose) {
     console.log(
       `[audit-runner] SAMPLED run: bucket ${activeBucket + 1}/${totalBuckets} — ` +
-      `scanning ${files.length}/${allFiles.length} files (${((files.length / allFiles.length) * 100).toFixed(1)}%). ` +
+      `scanning ${files.length}/${walkStats.seen} files (${((files.length / walkStats.seen) * 100).toFixed(1)}%). ` +
       `Full corpus coverage requires ${totalBuckets} consecutive runs (rotates via sampleSalt).`,
     );
   }
