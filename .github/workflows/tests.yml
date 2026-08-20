@@ -252,6 +252,15 @@ jobs:
       # dove il partial clone è GIÀ in uso — in pr-body-contract.yml, che ha
       # `filter: blob:none`, escludere public/images/{events,blog} ha portato il
       # Checkout da ~200s (280/141/177s su tre run) a 77s. Qui no.
+      #
+      # `git checkout` scrive l'albero con un thread solo per default (issue
+      # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
+      # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core
+      # disponibili). `actions/checkout` esegue un `git checkout` normale e
+      # rispetta la config globale, quindi basta impostarla PRIMA del passo.
+      # Rischio zero: non cambia cosa viene scaricato o scritto, solo quanti
+      # thread lo scrivono.
+      - run: git config --global checkout.workers 0
       - uses: actions/checkout@v5
 
       - uses: actions/setup-node@v5
