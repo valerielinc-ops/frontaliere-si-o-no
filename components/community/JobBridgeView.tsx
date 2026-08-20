@@ -319,7 +319,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {/* Job header */}
  {localizedTitle && (
  <div>
- <h1 className="text-xl font-bold font-display text-strong leading-snug">{localizedTitle}</h1>
+ <h1 className="text-xl font-bold font-display text-strong leading-snug break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
  {jobData?.company && (() => {
  const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
