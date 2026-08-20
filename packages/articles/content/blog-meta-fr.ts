@@ -10192,6 +10192,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasporti-ticino-abbonamenti.title': 'Transports publics Tessin : guide des abonnements',
     'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Réseau Arc-en-ciel et abonnements : comment le frontalier optimise les déplacements et le budget avec des applications et des billets numériques pour le travail au Tessin.',
     'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Train régional à la gare de Lugano, navetteurs attendant de monter à bord pendant l\'heure de pointe',
+    'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano : concerts gratuits pour les frontaliers',
+    'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Découvrez comment organiser une soirée au Blues to Bop Lugano en tant que frontalier. Guide pratique sur les transports, les cols, le stationnement et les frais de déplacement.',
+    'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Place au bord du lac de Lugano avec scène de concert',
 };
 
 export default blogMetaFr;

@@ -10190,6 +10190,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasporti-ticino-abbonamenti.title': 'Ticino public transport: a guide to subscriptions',
     'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Rainbow network and subscriptions: how the border crossing optimises commuting and budgets with apps and digital tickets for work in Ticino.',
     'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Regional train at Lugano station, commuters waiting to board during morning rush hour',
+    'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano: free concerts for frontier workers',
+    'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Find out how to organise an evening at Blues to Bop Lugano as a border worker. Practical guide on transport, crossings, parking and travel costs.',
+    'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Lugano waterfront plaza with concert stage setup overlooking Lake Lugano and mountains',
 };
 
 export default blogMetaEn;
