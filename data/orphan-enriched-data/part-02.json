@@ -47627,10 +47627,10 @@
         "fr": "product-security-ingegnere-proton-geneva"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/product-security-ingegnere-proton-geneva",
-        "en": "/en/find-jobs-vaud/product-security-ingegnere-proton-geneva",
+        "it": "/cerca-lavoro-ginevra/product-security-ingegnere-proton-geneva",
+        "en": "/en/find-jobs-geneva/product-security-ingegnere-proton-geneva",
         "de": "/de/jobs-im-waadt/product-security-ingegnere-proton-geneva",
-        "fr": "/fr/trouver-emploi-vaud/product-security-ingegnere-proton-geneva"
+        "fr": "/fr/trouver-emploi-geneve/product-security-ingegnere-proton-geneva"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50144,16 +50144,15 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "en": "senior-batch-record-reviewer-lonza-ch",
         "it": "recensione-di-registrazione-batch-senior-lonza-ch",
-        "en": "recensione-di-registrazione-batch-senior-lonza-ch",
-        "de": "recensione-di-registrazione-batch-senior-lonza-ch",
-        "fr": "recensione-di-registrazione-batch-senior-lonza-ch"
+        "fr": "evaluateur-principal-des-dossiers-de-lots-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/recensione-di-registrazione-batch-senior-lonza-ch",
-        "en": "/en/find-jobs-ticino/recensione-di-registrazione-batch-senior-lonza-ch",
-        "de": "/de/jobs-im-tessin/recensione-di-registrazione-batch-senior-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/recensione-di-registrazione-batch-senior-lonza-ch"
+        "it": "/cerca-lavoro-vallese/recensione-di-registrazione-batch-senior-lonza-ch",
+        "en": "/en/find-jobs-valais/recensione-di-registrazione-batch-senior-lonza-ch",
+        "de": "/de/jobs-im-wallis/recensione-di-registrazione-batch-senior-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/recensione-di-registrazione-batch-senior-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50161,6 +50160,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
