@@ -1,6 +1,6 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-08-19T21:36:23.434Z",
+  "assembledAt": "2026-08-20T09:52:17.242Z",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:36:21.363Z",
+      "crawledAt": "2026-08-20T09:52:14.590Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -145,7 +145,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-als-medizinische-praxisassistent-in-mpa-efz/4r3tr37rq4zfe4myjnmuw2pif2chtsgv2uelk70255t7x6cq624ibdjscckodcrj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:36:19.910Z",
+      "crawledAt": "2026-08-20T09:52:13.108Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -224,7 +224,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:36:16.992Z",
+      "crawledAt": "2026-08-20T09:52:09.668Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -354,7 +354,8 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
