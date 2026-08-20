@@ -132,6 +132,32 @@ chiusura transitiva degli import.
    cancellazioni, e l'index resta completo a 41'703 path. E' cio' che rende
    sicuri i workflow che committano.
 
+**La meta' pericolosa dello stesso bit.** Il punto 4 copre le *cancellazioni*,
+ed e' rassicurante. Il caso simmetrico non lo e', e va conosciuto prima di
+scrivere un profilo per un job che committa: se qualcosa ri-materializza e
+**modifica** un file tracciato dentro un percorso escluso, la modifica non
+arriva mai in un commit. Verificato il 2026-08-20:
+
+| comando | esito |
+|---|---|
+| `git status --porcelain` | mostra ` M <file>` — la modifica **si vede** |
+| `git add -A` | **niente in stage, nessun messaggio, exit 0** |
+| `git add <file>` | messaggio `advice.updateSparsePath`, **exit 1**, niente in stage |
+
+E' l'unico modo in cui lo sparse checkout perde lavoro **senza fare rumore**.
+Tutti gli altri modi di sbagliare un profilo sono rumorosi: un file che serve e
+non c'e' da' ENOENT a runtime, e il job muore dicendolo. Qui invece un workflow
+che fa «scrivi in `data/` → `git add -A` → `git commit`» **non fallisce**:
+committa il resto e riporta successo, mentre la modifica che gli era stata
+chiesta non e' mai esistita.
+
+Conseguenza operativa: in un job sparse non basta chiedersi cosa il job
+**legge** — se uno script **scrive** dentro una fascia esclusa, il profilo e'
+sbagliato. `scripts/ci/verify-checkout-profiles.mjs` segue gli import e quindi
+**non** copre questa classe, che passa da una scrittura. Se serve davvero
+scrivere li', esiste `git add --sparse`, ma la scelta giusta e' quasi sempre
+re-includere quel path nel profilo.
+
 **Risultato.** 112 job su 213 prendono lo sparse (gli altri restano pieni: o
 sono opachi, o stanno sopra la soglia di convenienza qui sotto); su quei 112 il
 checkout scende in media a ~430 MB, e 56 arrivano al minimo di 198 MB. Misurato in un worktree reale col profilo
