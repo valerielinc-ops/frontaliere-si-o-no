@@ -397,6 +397,15 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(t.rssCeilingMb).toBe(Math.round((15988 + 1024) * RSS_CEILING_FRACTION));
   });
 
+  it('un override esplicito su BUILD_MEM_SWAP_FLOOR_MB compare in ignoredOverrides anche col pavimento SPENTO (#6169 item 3)', () => {
+    const meminfo = tmpMeminfo(meminfoWithSwap(15988, SWAP_FLOOR_MIN_TOTAL_MB - 1024));
+    const t = resolveThresholds({ BUILD_MEM_SWAP_FLOOR_MB: '100' } as NodeJS.ProcessEnv, meminfo);
+    expect(t.swapFreeFloorMb).toBeNull();
+    // Simmetrico a tetto/pavimento host: un override scartato lo dice sempre,
+    // indipendentemente da quanto la soglia stessa sia "armata".
+    expect(t.ignoredOverrides).toContain('BUILD_MEM_SWAP_FLOOR_MB');
+  });
+
   it('BUILD_MEM_SWAP_FLOOR_MB puo\' solo STRINGERE (alzare), come le altre env', () => {
     const meminfo = tmpMeminfo(meminfoWithSwap(15988, 12288));
     const loosened = resolveThresholds({ BUILD_MEM_SWAP_FLOOR_MB: '100' } as NodeJS.ProcessEnv, meminfo);
