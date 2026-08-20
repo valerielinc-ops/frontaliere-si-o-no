@@ -10276,6 +10276,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Living in Caglio and working in Ticino as a border worker',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Moving to Caglio to work in Ticino: tax, G Permit, AVS, LAMal, procedures. Complete guide for border workers between Italy and Switzerland.',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Border road between Caglio (Bergamo province) and Swiss Ticino canton with alpine landscape.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Living in Limido Comasco, working in Ticino: the guide',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permit G, deductible €7,500-€10,000, taxes 2024, AVS/LPP/LAMal, 730 Italian and step-by-step procedure: everything you need for Italy-Ticino border crossing.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontalier at a Swiss-Italian border crossing during morning commute hours',
 };
 
 export default blogMetaEn;

@@ -10278,6 +10278,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Vivre à Caglio et travailler au Tessin en tant que frontalière',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Déménager à Caglio pour travailler au Tessin : fiscalité, permis G, AVS, LAMal, procédures. Guide complet pour les frontaliers entre l\'Italie et la Suisse.',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Route frontalière entre Caglio (province de Bergame) et le canton du Tessin suisse.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Vivre à Limido Comasco, travailler au Tessin : le guide',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permis G, franchise € 7.500- € 10.000, taxes 2024, AVS/LPP/LAMal, 730 italien et procédure étape par étape : tout ce dont vous avez besoin pour frontalier Italie-Tessin.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontalier au poste frontière Tessin-Italie pendant les heures de navette du matin',
 };
 
 export default blogMetaFr;
