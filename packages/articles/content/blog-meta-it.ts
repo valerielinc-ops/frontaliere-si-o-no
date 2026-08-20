@@ -10176,6 +10176,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-re-lavorare-ticino-frontaliere.title': 'Vivere a Re e lavorare in Ticino da frontaliere',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.excerpt': 'Come si affronta la vita quotidiana come frontaliere a Re e lavorare in Ticino. Dati concreti e procedure per i frontalieri.',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere in una stanza con una cartina di Re e un computer.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Vivere a Alserio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Impostazioni fiscali, doppia imposizione e ristorni: cosa cambia per i frontalieri che vivono in Alserio e lavorano in Ticino.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e risiede in Alserio',
 };
 
 export default blogMetaIt;
