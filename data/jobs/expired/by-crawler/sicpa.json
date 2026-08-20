@@ -1,5 +1,58 @@
 [
   {
+    "slug": "archivista-csd-6-mesi-sicpa-sa-prilly",
+    "title": "Archiviste (CDD 6 mois)",
+    "titleByLocale": {
+      "it": "Archivista (CSD 6 mesi)",
+      "en": "Archivist (CSD 6 months)",
+      "de": "Archivar (CSD 6 Monate)",
+      "fr": "Archiviste (CDD 6 mois)"
+    },
+    "company": "SICPA SA",
+    "companyKey": "sicpa",
+    "location": "Prilly",
+    "addressLocality": "Prilly",
+    "descriptionByLocale": {
+      "it": "Archivista (CDD 6 mesi) presso SICPA SA a Prilly. SICPA SA è un'azienda svizzera specializzata in tecnologie di sicurezza: inchiostri di sicurezza, soluzioni di autenticazione e protezione dei marchi, nonché programmi di integrità fiscale per governi e aziende di tutto il mondo. Con sede a Prilly, nel cantone di Vaud, l'azienda impiega più di 3000 dipendenti in più di 80 paesi. Questa posizione offre un ambiente di lavoro moderno e multiculturale, condizioni di lavoro attraenti e opportunità reali per la formazione continua e lo sviluppo di carriera.",
+      "en": "Archivist (CDD 6 months) at SICPA SA in Prilly.\n\nSICPA SA is a Swiss company specialized in security technologies: security inks, authentication and trademark protection solutions, as well as tax integrity programs for governments and businesses around the world. Based in Prilly, in the canton of Vaud, the company employs more than 3000 employees in more than 80 countries. This position offers a modern and multicultural working environment, attractive employment conditions and real opportunities for continuing training and career development.",
+      "de": "Archivar (CDD 6 Monate) bei SICPA SA in Prilly. SICPA SA ist ein Schweizer Unternehmen, das sich auf Sicherheitstechnologien spezialisiert hat: Sicherheitsfarben, Authentifizierungs- und Markenschutzlösungen sowie Steuerintegritätsprogramme für Regierungen und Unternehmen auf der ganzen Welt. Mit Sitz in Prilly, im Kanton Waadt, beschäftigt das Unternehmen mehr als 3000 Mitarbeiter in mehr als 80 Ländern. Diese Position bietet ein modernes und multikulturelles Arbeitsumfeld, attraktive Beschäftigungsbedingungen und reale Möglichkeiten zur Weiterbildung und Karriereentwicklung.",
+      "fr": "Archiviste (CDD 6 mois) chez SICPA SA à Prilly. SICPA SA est une entreprise suisse spécialisée dans les technologies de sécurité : encres de sécurité, solutions d'authentification et de protection des marques, ainsi que des programmes d'intégrité fiscale pour les gouvernements et les entreprises du monde entier. Basée à Prilly, dans le canton de Vaud, l'entreprise emploie plus de 3000 collaborateurs dans plus de 80 pays. Ce poste offre un environnement de travail moderne et multiculturel, des conditions d'emploi attractives ainsi que de réelles possibilités de formation continue et d'évolution de carrière."
+    },
+    "slugByLocale": {
+      "it": "archivista-csd-6-mesi-sicpa-sa-prilly",
+      "en": "archivist-csd-6-months-sicpa-sa-prilly",
+      "de": "archivar-csd-6-monate-sicpa-sa-prilly",
+      "fr": "archiviste-cdd-6-mois-sicpa-prilly"
+    },
+    "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
+    "expiredAt": "2026-08-20T22:11:16.572Z",
+    "previousSlugs": [
+      "archiviste-cdd-6-mois-sicpa-prilly",
+      "archivist-cdd-6-months-sicpa-sa-prilly",
+      "archivist-csd-6-months-sicpa-sa-prilly",
+      "archivista-csd-6-mesi-sicpa-sa-prilly"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "archivist-cdd-6-months-sicpa-sa-prilly",
+        "archiviste-cdd-6-mois-sicpa-prilly",
+        "archivist-csd-6-months-sicpa-sa-prilly"
+      ],
+      "it": [
+        "archiviste-cdd-6-mois-sicpa-prilly",
+        "archivista-csd-6-mesi-sicpa-sa-prilly"
+      ],
+      "de": [
+        "archiviste-cdd-6-mois-sicpa-prilly"
+      ]
+    },
+    "postalCode": "1008",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "controllore-di-affari-sicpa-sa-prilly",
     "title": "Business Controller",
     "titleByLocale": {
