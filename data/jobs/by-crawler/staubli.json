@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-learning-development-lead-staubli-pfaffikon-switzerland",
-        "leader-mondiale-dell-apprendimento-e-dello-sviluppo-staubli-pfaffikon-switzerland"
+        "global-learning-development-lead-staubli-pfaffikon-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-learning-development-lead-staubli-pfaffikon-switzerland",
-          "leader-mondiale-dell-apprendimento-e-dello-sviluppo-staubli-pfaffikon-switzerland"
+          "global-learning-development-lead-staubli-pfaffikon-switzerland"
         ],
         "fr": [
           "global-learning-development-lead-staubli-pfaffikon-switzerland"
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-product-management-power-transmission-distribution-staubli-allschwil-switzerland",
-        "responsabile-product-management-power-transmission-distribution-staubli-allschwil"
+        "head-of-product-management-power-transmission-distribution-staubli-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-product-management-power-transmission-distribution-staubli-allschwil-switzerland",
-          "responsabile-product-management-power-transmission-distribution-staubli-allschwil"
+          "head-of-product-management-power-transmission-distribution-staubli-allschwil-switzerland"
         ],
         "de": [
           "head-of-product-management-power-transmission-distribution-staubli-allschwil-switzerland"
@@ -213,13 +209,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "division-procurement-controller-staubli-allschwil-switzerland",
-        "controleur-des-achats-de-la-division-staubli-allschwil-switzerland",
-        "controllore-degli-appalti-staubli-allschwil-switzerland"
+        "controleur-des-achats-de-la-division-staubli-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "division-procurement-controller-staubli-allschwil-switzerland",
-          "controllore-degli-appalti-staubli-allschwil-switzerland"
+          "division-procurement-controller-staubli-allschwil-switzerland"
         ],
         "fr": [
           "division-procurement-controller-staubli-allschwil-switzerland",
@@ -242,12 +236,12 @@
     },
     {
       "id": "staubli-d51025d9a80b",
-      "slug": "management-assistant-80-staubli-allschwil-switzerland",
+      "slug": "assistente-di-gestione-80-staubli-allschwil-switzerland",
       "slugByLocale": {
-        "it": "management-assistant-80-staubli-allschwil-switzerland",
-        "en": "management-assistant-80-staubli-allschwil-switzerland",
         "de": "management-assistant-80-staubli-allschwil-switzerland",
-        "fr": "management-assistant-80-staubli-allschwil-switzerland"
+        "it": "assistente-di-gestione-80-staubli-allschwil-switzerland",
+        "en": "management-assistant-80-staubli-allschwil-switzerland",
+        "fr": "assistant-a-la-gestion-80-staubli-allschwil-switzerland"
       },
       "company": "Stäubli",
       "companyKey": "staubli",
@@ -302,16 +296,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-19T21:43:48.169Z"
+      "firstSeenAt": "2026-08-19T21:43:48.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "management-assistant-80-staubli-allschwil-switzerland"
+        ],
+        "fr": [
+          "management-assistant-80-staubli-allschwil-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "management-assistant-80-staubli-allschwil-switzerland"
+      ]
     },
     {
       "id": "staubli-afc36165045b",
-      "slug": "managment-assistant-80-staubli-allschwil-switzerland",
+      "slug": "assistente-di-gestione-80-staubli-allschwil-switzerland-78909d",
       "slugByLocale": {
         "de": "managment-assistant-80-staubli-allschwil-switzerland",
-        "it": "managment-assistant-80-staubli-allschwil-switzerland",
-        "en": "managment-assistant-80-staubli-allschwil-switzerland",
-        "fr": "managment-assistant-80-staubli-allschwil-switzerland"
+        "it": "assistente-di-gestione-80-staubli-allschwil-switzerland-78909d",
+        "en": "management-assistant-80-staubli-allschwil-switzerland-78909d",
+        "fr": "assistant-a-la-gestion-80-staubli-allschwil-switzerland-78909d"
       },
       "company": "Stäubli",
       "companyKey": "staubli",
@@ -369,7 +374,21 @@
         }
       },
       "firstSeenAt": "2026-08-19T09:50:28.296Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "managment-assistant-80-staubli-allschwil-switzerland"
+        ],
+        "en": [
+          "managment-assistant-80-staubli-allschwil-switzerland"
+        ],
+        "fr": [
+          "managment-assistant-80-staubli-allschwil-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "managment-assistant-80-staubli-allschwil-switzerland"
+      ]
     }
   ]
 }

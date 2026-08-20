@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "thurklinik-68b24a8cbd61",
-      "slug": "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil",
+      "slug": "all-rounder-tecnico-responsabilita-giardino-e-ambiente-80-100-thurklinik-niederuzwil",
       "slugByLocale": {
-        "it": "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil",
-        "en": "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil",
         "de": "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil",
-        "fr": "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil"
+        "it": "all-rounder-tecnico-responsabilita-giardino-e-ambiente-80-100-thurklinik-niederuzwil",
+        "en": "technical-all-rounder-responsibility-garden-environment-80-100-thurklinik-niederuzwil",
+        "fr": "technique-tout-terrain-jardin-de-responsabilite-environnement-80-100-thurklinik-niederuzwil"
       },
       "company": "Thurklinik",
       "companyKey": "thurklinik",
@@ -62,7 +62,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-19T21:36:15.498Z"
+      "firstSeenAt": "2026-08-19T21:36:15.498Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil"
+        ],
+        "en": [
+          "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil"
+        ],
+        "fr": [
+          "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-allrounder-verantwortung-garten-umgebung-80-100-thurklinik-niederuzwil"
+      ]
     },
     {
       "id": "thurklinik-01dd561b4a47",
@@ -191,13 +205,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachperson-gesundheit-efz-ab-08-2027-thurklinik-niederuzwil",
-        "apprendistato-come-fachperson-gesundheit-cfc-ab-08-2027-thurklinik-niederuzwil"
+        "lehrstelle-als-fachperson-gesundheit-efz-ab-08-2027-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachperson-gesundheit-efz-ab-08-2027-thurklinik-niederuzwil",
-          "apprendistato-come-fachperson-gesundheit-cfc-ab-08-2027-thurklinik-niederuzwil"
+          "lehrstelle-als-fachperson-gesundheit-efz-ab-08-2027-thurklinik-niederuzwil"
         ],
         "en": [
           "lehrstelle-als-fachperson-gesundheit-efz-ab-08-2027-thurklinik-niederuzwil"
@@ -269,13 +281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
-        "stoccaggio-springer-20-80-thurklinik-niederuzwil"
+        "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
-          "stoccaggio-springer-20-80-thurklinik-niederuzwil"
+          "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
         ],
         "en": [
           "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
@@ -347,13 +357,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik",
-        "home-medici-ricercati-lavoro-senza-rischi-finanziari-nel-thurklinik-thurklinik-niederuzwil"
+        "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik",
-          "home-medici-ricercati-lavoro-senza-rischi-finanziari-nel-thurklinik-thurklinik-niederuzwil"
+          "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
         ],
         "en": [
           "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
@@ -380,10 +388,10 @@
       "id": "thurklinik-f22ae684f293",
       "slug": "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik",
       "slugByLocale": {
+        "de": "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik",
         "it": "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik",
         "en": "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik",
-        "de": "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik",
-        "fr": "facility-management-allrounder-verantwortung-reinigungsmanagement-80-100-thurklinik"
+        "fr": "gestion-des-installations-allrounder-responsabilite-gestion-du-nettoyage-80-100-thurklinik-niederuzwil"
       },
       "company": "Thurklinik",
       "companyKey": "thurklinik",
@@ -488,13 +496,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharzt-arztin-gynakologie-thurklinik-niederuzwil",
-        "specialista-in-ginecologia-thurklinik-niederuzwil"
+        "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-arztin-gynakologie-thurklinik-niederuzwil",
-          "specialista-in-ginecologia-thurklinik-niederuzwil"
+          "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
         ],
         "en": [
           "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
@@ -644,13 +650,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil",
-        "dipl-professionista-hf-20-60-thurklinik-niederuzwil"
+        "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil",
-          "dipl-professionista-hf-20-60-thurklinik-niederuzwil"
+          "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil"
         ],
         "en": [
           "dipl-pflegefachperson-hf-20-60-thurklinik-niederuzwil"
@@ -812,13 +816,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "belegarzte-gynakologie-urologie-hno-orthopadie-viszeralchirurgie-und-handchirurgie",
-        "belegarzte-gynakologie-urologie-hno-orthopala-viszeralchirurgie-e-handchirurgie-anasthesie-e-schmerztherapie-thurklinik-niederuzwil"
+        "belegarzte-gynakologie-urologie-hno-orthopadie-viszeralchirurgie-und-handchirurgie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "belegarzte-gynakologie-urologie-hno-orthopadie-viszeralchirurgie-und-handchirurgie",
-          "belegarzte-gynakologie-urologie-hno-orthopala-viszeralchirurgie-e-handchirurgie-anasthesie-e-schmerztherapie-thurklinik-niederuzwil"
+          "belegarzte-gynakologie-urologie-hno-orthopadie-viszeralchirurgie-und-handchirurgie"
         ],
         "en": [
           "belegarzte-gynakologie-urologie-hno-orthopadie-viszeralchirurgie-und-handchirurgie"

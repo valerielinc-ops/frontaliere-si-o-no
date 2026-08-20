@@ -69,12 +69,12 @@
     },
     {
       "id": "upd-3d356f7a5682",
-      "slug": "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern",
+      "slug": "dipl-servizio-notturno-infermiere-icm-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern",
-        "it": "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern",
-        "en": "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern",
-        "fr": "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
+        "it": "dipl-servizio-notturno-infermiere-icm-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "dipl-night-service-nurse-icm-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-infirmiere-de-nuit-icm-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -130,16 +130,30 @@
         }
       },
       "firstSeenAt": "2026-08-19T09:53:47.014Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
+      ]
     },
     {
       "id": "upd-071d984c6923",
-      "slug": "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern",
+      "slug": "analista-biomedico-analista-biomedico-bma-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern",
-        "it": "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern",
-        "en": "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern",
-        "fr": "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
+        "it": "analista-biomedico-analista-biomedico-bma-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "biomedical-analyst-biomedical-analyst-bma-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "analyste-biomedical-analyste-biomedical-bma-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -195,7 +209,21 @@
         }
       },
       "firstSeenAt": "2026-08-19T09:53:26.810Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
+        ],
+        "en": [
+          "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
+        ],
+        "fr": [
+          "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
+      ]
     },
     {
       "id": "upd-ee8bfb28ee0d",
