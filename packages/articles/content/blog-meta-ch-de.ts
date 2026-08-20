@@ -3511,6 +3511,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Krankenkassenprämien Kanton Schaffhausen und Reduktion',
     'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Pflichten, Franchisen, Deckungsmodelle und Verfahren zur Beantragung des Kantonsbeitrags im Kanton Schaffhausen: Praxisleitfaden.',
     'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Schweizer Verwaltungsschalter mit Krankenversicherungsformularen und Dokumenten für obligatorische Krankenversicherung',
+    'blog.article.sciaffusa-permesso-dimora-b.title': 'Aufenthaltsbewilligung B Schaffhausen: Voraussetzungen und Verlängerung',
+    'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Die Bewilligung B ist eine erneuerbare Bewilligung zum Aufenthalt und Arbeiten in der Schweiz, die von sem verwaltet wird. Erfahren Sie, wie Sie es im Kanton Schaffhausen beziehen und erneuern können.',
+    'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Kantonales Migrationsamt, wo Aufenthaltsgenehmigungen bearbeitet und verlängert werden',
 };
 
 export default blogMetaChDe;

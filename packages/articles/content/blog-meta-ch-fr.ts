@@ -3511,6 +3511,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Primes caisse-maladie Canton Schaffhouse et réduction',
     'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Obligations, franchises, modèles de couverture et procédure de demande d\'allocation cantonale dans le canton de Schaffhouse : guide pratique.',
     'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Bureau administratif suisse avec formulaires et documents d\'assurance maladie obligatoire',
+    'blog.article.sciaffusa-permesso-dimora-b.title': 'Permis de séjour B Schaffhouse : exigences et renouvellement',
+    'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Le permis B est un permis renouvelable pour résider et travailler en Suisse, géré par SEM. Découvrez comment l\'obtenir et le renouveler dans le canton de Schaffhouse.',
+    'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Bureau cantonal des migrations pour le traitement et renouvellement des permis de séjour',
 };
 
 export default blogMetaChFr;

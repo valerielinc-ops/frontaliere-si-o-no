@@ -45533,6 +45533,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciaffusa-permesso-dimora-b': {
+    title: 'Permesso dimora B Sciaffusa: requisiti e rinnovo',
+    description: 'Guida completa al permesso B (dimora) per il canton Sciaffusa: requisiti di accesso, documenti necessari, durata e procedura di rinnovo del permesso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, sciaffusa, requisiti',
+    ogTitle: 'Permesso B Sciaffusa: guida completa',
+    ogDescription: 'Il permesso di dimora B è il documento necessario per risiedere e lavorare nel canton Sciaffusa. Scopri requisiti, documenti, durata e procedura di rinnovo nella nostra guida pratica step-by-step.',
+    canonicalPath: '/articoli-svizzera/sciaffusa-permesso-dimora-b/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso dimora B Sciaffusa: requisiti e rinnovo",
+      "description": "Guida completa al permesso B (dimora) per il canton Sciaffusa: requisiti di accesso, documenti necessari, durata e procedura di rinnovo del permesso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciaffusa-permesso-dimora-b.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione cantonale dove si richiedono e rinnovano i permessi di dimora B"
+      },
+      "datePublished": "2026-08-20T06:03:39+00:00",
+      "dateModified": "2026-08-20T06:03:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sciaffusa-permesso-dimora-b/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
