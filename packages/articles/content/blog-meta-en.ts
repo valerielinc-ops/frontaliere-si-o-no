@@ -10285,6 +10285,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-strada-frontalieri-cantello.title': 'Clash between Varese and Cantello: two injured',
     'blog.article.incidente-strada-frontalieri-cantello.excerpt': 'Clash between two cars on the SP3 between Cantello and Varese: three people involved, two injured in hospital and heavy delays for border workers.',
     'blog.article.incidente-strada-frontalieri-cantello.imageAlt': 'Accident on the provincial road between Varese and Cantello',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.title': 'Border workers in Ticino: transfer from Morazzone',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.excerpt': 'The new border agreement of 2024 and the benefits for border workers who move to Morazzone',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.imageAlt': 'Image of a cross-border worker in Lugano',
 };
 
 export default blogMetaEn;
