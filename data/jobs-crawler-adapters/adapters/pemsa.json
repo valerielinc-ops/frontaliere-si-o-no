@@ -11,8 +11,50 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-19T21:40:50.805Z",
+  "updatedAt": "2026-08-20T21:39:18.122Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/addetto-a-senior-alla-lucidatura-e-alla-finitura-m-f-d-2688625/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
+    "https://www.pemsa.ch/it/job/operatore-addetto-alla-rettifica-a-5-assi-h-f-d-2688622/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-afc-sanitari-e-o-riscaldamento-2688586/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2688583/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
+    "https://www.pemsa.ch/it/job/installatore-idraulico-2688580/": {
+      "location": "Torricella",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-con-esperienza-2688577/": {
+      "location": "Pambio-Noranco",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
+    "https://www.pemsa.ch/it/job/saldatore-tubista-2688574/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-08-20"
+    },
     "https://www.pemsa.ch/it/job/addetto-alla-sicurezza-m-f-2688196/": {
       "location": "Biel/Bienne",
       "canton": "BE",
@@ -253,12 +295,6 @@
       "company": "PEMSA",
       "postedDate": "2026-08-14"
     },
-    "https://www.pemsa.ch/it/job/idraulico-2687181/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-14"
-    },
     "https://www.pemsa.ch/it/job/installatore-idraulico-2687178/": {
       "location": "Massagno",
       "canton": "TI",
@@ -406,6 +442,12 @@
     "https://www.pemsa.ch/it/job/muratore-tradizionale-qualificato-2686505/": {
       "location": "Lausanne",
       "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2686489/": {
+      "location": "Lugano",
+      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-08-10"
     },
@@ -565,27 +607,9 @@
       "company": "PEMSA",
       "postedDate": "2026-08-05"
     },
-    "https://www.pemsa.ch/it/job/responsabile-di-progetto-nel-settore-elettrico-2685754/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-04"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-specializzato-in-vetri-per-autoveicoli-m-f-2685701/": {
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-04"
-    },
     "https://www.pemsa.ch/it/job/elettricista-di-montaggio-afc-m-f-d-2685688/": {
       "location": "Basel",
       "canton": "BS",
-      "company": "PEMSA",
-      "postedDate": "2026-08-04"
-    },
-    "https://www.pemsa.ch/it/job/autista-furgone-con-gru-patente-b-2685674/": {
-      "location": "Lugano",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-08-04"
     },
@@ -889,18 +913,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-27"
     },
-    "https://www.pemsa.ch/it/job/operario-addetto-alla-gru-a-torre-2684772/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/elettricista-lavori-di-integrazione-e-impianti-elettrici-2684734/": {
-      "location": "Romont FR",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
     "https://www.pemsa.ch/it/job/saldatore-tubista-2684708/": {
       "location": "Taverne",
       "canton": "TI",
@@ -990,12 +1002,6 @@
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-07"
-    },
-    "https://www.pemsa.ch/it/job/idraulico-2681713/": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-03"
     },
     "https://www.pemsa.ch/it/job/idraulico-2681710/": {
       "location": "Chiasso",

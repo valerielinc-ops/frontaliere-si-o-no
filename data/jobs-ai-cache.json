@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-20T10:26:15.636Z",
+  "savedAt": "2026-08-20T21:43:35.498Z",
   "entries": [
     {
       "key": "5aca7a1598cca8c26e25d715e9c0a3962af72310f3add1ddbfa8dc3959878677",
@@ -70394,15 +70394,6 @@
       }
     },
     {
-      "key": "46e9dc20890cfea9ffcb72c89113efb4a9e277714dcdfd89cb79c91811ea55fa",
-      "touchedAt": 1787221543695,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
-      }
-    },
-    {
       "key": "ce54d357de6fd819fa4ba977a939556db99ad61ea7d1a6aaaa72fb40059385a2",
       "touchedAt": 1784761088733,
       "value": {
@@ -70544,15 +70535,6 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "73bbb20a8475d7e7bc36466d9e867cc64890133fed94b999e4e84b784ea3446c",
-      "touchedAt": 1787221545266,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
@@ -238997,15 +238979,6 @@
       }
     },
     {
-      "key": "7c81de0a6fcbc3d075b8083cdf03d1c031e96260a211eb0bde5dda08690c10e1",
-      "touchedAt": 1787221512300,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title 'Responsable d'équipe sinistres complexes (h/f/d)', responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
-      }
-    },
-    {
       "key": "f56b48971c27a6448f681c859d77fd14fedfe60f65806d1746812ba4789d6401",
       "touchedAt": 1787089491166,
       "value": {
@@ -240128,15 +240101,6 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title (Sales Associate), responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
-      }
-    },
-    {
-      "key": "431c20d77882fab48dcfd392e5eafddf60ed3f3eb3dabbec68f71bd621138e08",
-      "touchedAt": 1787133090023,
-      "value": {
-        "isJob": false,
-        "confidence": 0.5,
-        "reason": "The page appears to be a generic career page with a focus on a specific program (Quereinstieg) rather than a detailed job description. While it does list specific job openings and requirements, the content is more promotional and educational in nature, rather than a traditional job posting."
       }
     },
     {
@@ -241463,12 +241427,30 @@
       }
     },
     {
+      "key": "7c81de0a6fcbc3d075b8083cdf03d1c031e96260a211eb0bde5dda08690c10e1",
+      "touchedAt": 1787221512300,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Responsable d'équipe sinistres complexes (h/f/d)', responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
+      }
+    },
+    {
       "key": "92f26f51b3530fe6e6de7fd34e2dc9b7173f1a9d1ecb791a3f95049161f4eedf",
       "touchedAt": 1787221540450,
       "value": {
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, required skills, and contact information. The page also provides a clear call-to-action to apply for the job, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "46e9dc20890cfea9ffcb72c89113efb4a9e277714dcdfd89cb79c91811ea55fa",
+      "touchedAt": 1787221543695,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
       }
     },
     {
@@ -241505,6 +241487,15 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "73bbb20a8475d7e7bc36466d9e867cc64890133fed94b999e4e84b784ea3446c",
+      "touchedAt": 1787221545266,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
@@ -241559,6 +241550,15 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "431c20d77882fab48dcfd392e5eafddf60ed3f3eb3dabbec68f71bd621138e08",
+      "touchedAt": 1787262087107,
+      "value": {
+        "isJob": false,
+        "confidence": 0.6,
+        "reason": "The page appears to be a generic career page with a focus on a specific program called 'Quereinstieg' rather than a concrete job detail. While it does provide information about various roles and their responsibilities, it lacks a clear job title and application context specific to a single job opening. The page seems to be more of a promotional material for the company's career opportunities rather than a detailed job description."
       }
     }
   ]
