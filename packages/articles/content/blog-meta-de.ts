@@ -10293,6 +10293,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Leben in Gras, Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba ist ein strategischer Standort für Grenzgänger, die im Tessin arbeiten. Entdecken Sie die G-Bewilligung, die italienisch-schweizerische Besteuerung, das KVG und die Verwaltungskosten.',
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Mendrisio und der Grenzregion zwischen Como und Tessin mit Bergen und alpiner Landschaft.',
+    'blog.article.eupilio-ticino-frontaliere-guida.title': 'Leben in Eupilio und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.eupilio-ticino-frontaliere-guida.excerpt': 'Eupilio 20 km von der Schweizer Grenze entfernt: Zeiten, Besteuerung, Bewilligung G, AHV/BVG und praktische Checkliste des Grenzgängertransfers.',
+    'blog.article.eupilio-ticino-frontaliere-guida.imageAlt': 'Blick auf die Tessiner Alpenlandschaft mit Tälern, Seen und Wohngebieten in der Grenzregion.',
 };
 
 export default blogMetaDe;
