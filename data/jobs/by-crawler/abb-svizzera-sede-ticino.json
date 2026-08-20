@@ -131,12 +131,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino"
+          "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino",
+          "quality-technician-80-100-abb-svizzera-sede-ticino-quartino"
         ]
       },
       "previousSlugs": [
-        "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "product-quality-engineer-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "quality-technician-80-100-abb-svizzera-sede-ticino-quartino"
       ],
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -151,9 +155,7 @@
       "postalCode": "6572",
       "addressLocality": "Quartino, Ticino",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 51500,
-      "salaryMax": 88000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-r4w4ih",
@@ -222,7 +224,6 @@
       "addressLocality": "Frauenfeld, Thurgau",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500
     },
@@ -285,7 +286,6 @@
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -356,7 +356,6 @@
       "addressLocality": "Baden-Daettwil, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -392,7 +391,7 @@
         "fr": "medecin-applique-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "titleByLocale": {
-        "it": "Applied Physicist (80 - 100%) f/m/d",
+        "it": "Medico applicato (80 - 100%) m/f/d",
         "en": "Applied Physicist (80 - 100%) f/m/d",
         "de": "Angewandter Physiker (80 - 100%) m/w/d",
         "fr": "Physicien appliqué (80 - 100%) h/f/d"
@@ -482,7 +481,6 @@
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -633,7 +631,6 @@
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500
     },
@@ -734,7 +731,7 @@
       "crawledAt": "2026-08-20T10:26:01.934Z",
       "firstSeenAt": "2026-08-11T22:25:27.416Z",
       "titleByLocale": {
-        "it": "Global Early Talent Program (GETP) – Strategy and M&A",
+        "it": "Global Early Talent Program (GETP) – Strategia e M&A",
         "en": "Global Early Talent Program (GETP) Strategy and M&A",
         "de": "Globales Frühmittelprogramm (GETP) – Strategie und M&A",
         "fr": "Programme mondial des jeunes talents (PGTE) – Stratégie et M&A"
@@ -915,7 +912,6 @@
       "addressLocality": "Quartino, Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -1145,7 +1141,7 @@
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technical Trainer - Power Electronics",
+        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
         "fr": "(80 - 100 %) Formateur technique - Électronique de puissance"
       },
       "descriptionByLocale": {
@@ -1186,7 +1182,6 @@
         "tecnico-della-qualita-80-100-abb-svizzera-sede-ticino-quartino",
         "80-100-technical-trainer-power-electronics-abb-svizzera-sede-ticino-quartino-ticino-46ubs3"
       ],
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -1350,7 +1345,6 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -1430,7 +1424,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1582,7 +1575,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -1658,7 +1650,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000
     },
@@ -1732,7 +1723,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000
     },
@@ -1878,7 +1868,6 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1952,7 +1941,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -2109,7 +2097,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2220,7 +2207,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -2294,7 +2280,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -2503,7 +2488,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2583,7 +2567,6 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
