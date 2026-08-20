@@ -10288,6 +10288,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.title': 'Border workers in Ticino: transfer from Morazzone',
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.excerpt': 'The new border agreement of 2024 and the benefits for border workers who move to Morazzone',
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.imageAlt': 'Image of a cross-border worker in Lugano',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Living in Carbonate and working in Ticino: advantages and disadvantages',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Border Ticino residents in Carbonate: new tax agreement, tax at source, double taxation, refunds, double residence, G permit, B permit, LAMal, AVS, LPP.',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri Ticino living in Carbonate, with view on Lake Lugano.',
 };
 
 export default blogMetaEn;

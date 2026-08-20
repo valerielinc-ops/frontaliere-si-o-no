@@ -10289,6 +10289,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.title': 'Frontalieri in Ticino: il trasferimento da Morazzone',
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.excerpt': 'Il nuovo accordo frontaliere del 2024 e i benefici per i frontalieri che si trasferiscono a Morazzone',
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora a Lugano',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Vivere a Carbonate e lavorare in Ticino: vantaggi e svantaggi',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Frontalieri Ticino risiedenti a Carbonate: nuovo accordo fiscale, imposta alla fonte, doppia imposizione, ristorni, doppia residenza, permesso G, permesso B, LAMal, AVS, LPP.',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri Ticino risiedenti a Carbonate, con vista sul Lago di Lugano.',
 };
 
 export default blogMetaIt;
