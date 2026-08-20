@@ -3532,6 +3532,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier: record assets in the first half of the year',
     'blog.article.lombard-odier-patrimoni-record.excerpt': 'Geneva bank reaches CHF 367 billion in total assets. Revenues +9%, net profit +25% in the first half of 2026.',
     'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Financial professionals examining asset management data in a modern Swiss banking office',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Over 65s outnumber under 20s: the Swiss demographic turnaround',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Over 65s (1.811 million) exceed the under 20s (1.804 million) in Switzerland for the first time. Population grows by 0.8%, with strong implications on AVS, LPP and sick pay.',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Aerial view of Lake Lugano surrounded by Alpine mountains and Swiss towns, peaceful alpine scenery',
 };
 
 export default blogMetaChEn;

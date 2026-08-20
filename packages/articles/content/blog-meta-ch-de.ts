@@ -3532,6 +3532,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier: Rekordvermögen im ersten Halbjahr',
     'blog.article.lombard-odier-patrimoni-record.excerpt': 'Die Genfer Bank erreicht ein Gesamtvermögen von CHF 367 Milliarden. Umsatz +9%, Nettogewinn +25% im ersten Halbjahr 2026.',
     'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Finanzfachleute untersuchen Vermögensverwaltungsdaten in einem modernen Schweizer Bankbüro',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Über 65 über 20: Die demografische Wende in der Schweiz',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Die über 65-Jährigen (1.811 Mio.) übertreffen in der Schweiz erstmals die unter 20-Jährigen (1.804 Mio.). Die Bevölkerung wächst um 0,8%, mit starken Auswirkungen auf AHV, BVG und Krankenkasse.',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Blick auf den Luganersee umgeben von Alpenbergen und Schweizer Ortschaften, ruhige Alpenlandschaft',
 };
 
 export default blogMetaChDe;

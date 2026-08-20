@@ -3532,6 +3532,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier : patrimoine record au premier semestre',
     'blog.article.lombard-odier-patrimoni-record.excerpt': 'La banque genevoise atteint CHF 367 milliards d\'actifs totaux. Chiffre d\'affaires +9 %, bénéfice net +25 % au premier semestre 2026.',
     'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Professionnels financiers examinant les données de gestion d\'actifs dans un bureau bancaire suisse moderne',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Plus de 65 ans et moins de 20 ans : le tournant démographique suisse',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Les plus de 65 ans (1,811 million) dépassent pour la première fois les moins de 20 ans (1,804 million) en Suisse. La population augmente de 0,8 %, avec de fortes implications sur l\'AVS, la LPP et la caisse-maladie.',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Vue du lac Lugano entouré des Alpes et villages suisses, paysage alpin tranquille',
 };
 
 export default blogMetaChFr;
