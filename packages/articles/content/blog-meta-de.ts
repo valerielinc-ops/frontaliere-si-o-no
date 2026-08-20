@@ -10281,6 +10281,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.formazione-oltre-20km-riqualifica.title': 'Berufsausbildung Grenzgänger 2026: Praktisches Fahren über 20 km',
     'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Umschulungskurse für Grenzgänger: Analyse der steuerlichen Auswirkungen, AHV-Beiträge und grenzüberschreitende Chancen im Jahr 2026.',
     'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Grenzgänger während beruflicher Schulung im Tessin, modernes Lernumfeld mit Computern und Schulungsmaterialien',
+    'blog.article.incidente-strada-frontalieri-cantello.title': 'Zusammenstoß zwischen Varese und Cantello: zwei Verletzte',
+    'blog.article.incidente-strada-frontalieri-cantello.excerpt': 'Zusammenstoß zwischen zwei Autos auf der SP3 zwischen Cantello und Varese: drei Beteiligte, zwei Verletzte im Krankenhaus und schwere Verzögerungen für die Grenzgänger.',
+    'blog.article.incidente-strada-frontalieri-cantello.imageAlt': 'Unfall auf der Provingialstrasse zwischen Varese und Cantello',
 };
 
 export default blogMetaDe;

@@ -10282,6 +10282,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.formazione-oltre-20km-riqualifica.title': 'Prof. border guard training 2026: practical guide over 20 km',
     'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Redevelopment courses for border workers: analysis of tax implications, AVS contributions and opportunities across the border in 2026.',
     'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Frontalier engaged in professional training in Ticino, modern learning environment with computers and training materials',
+    'blog.article.incidente-strada-frontalieri-cantello.title': 'Clash between Varese and Cantello: two injured',
+    'blog.article.incidente-strada-frontalieri-cantello.excerpt': 'Clash between two cars on the SP3 between Cantello and Varese: three people involved, two injured in hospital and heavy delays for border workers.',
+    'blog.article.incidente-strada-frontalieri-cantello.imageAlt': 'Accident on the provincial road between Varese and Cantello',
 };
 
 export default blogMetaEn;

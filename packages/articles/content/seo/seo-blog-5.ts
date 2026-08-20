@@ -72104,6 +72104,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-strada-frontalieri-cantello': {
+    title: 'Scontro tra Varese e Cantello: due feriti | Frontaliere Ticino',
+    description: 'Scontro tra auto sulla SP3 tra Cantello e Varese. Due feriti in codice giallo, rallentamenti e senso unico alternato sulla strada dei frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontro, varese, cantello, feriti',
+    ogTitle: 'Scontro sulla strada dei frontalieri tra Varese e Cantello: due feriti',
+    ogDescription: 'Incidente stradale nel pomeriggio sulla Provinciale 3 tra Cantello e Varese. Scontro tra due auto, tre persone coinvolte e due feriti trasportati in ospedale. Rallentamenti e senso unico alternato.',
+    canonicalPath: '/articoli-frontaliere/incidente-strada-frontalieri-cantello',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontro tra Varese e Cantello: due feriti",
+      "description": "Scontro tra auto sulla SP3 tra Cantello e Varese. Due feriti in codice giallo, rallentamenti e senso unico alternato sulla strada dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-strada-frontalieri-cantello.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente sulla strada provinciale tra Varese e Cantello"
+      },
+      "datePublished": "2026-08-20T18:24:33+00:00",
+      "dateModified": "2026-08-20T18:24:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-strada-frontalieri-cantello/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
