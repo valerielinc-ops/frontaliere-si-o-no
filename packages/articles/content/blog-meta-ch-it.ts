@@ -3487,6 +3487,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Sistema sanitario svizzero LAMal nel Canton Vaud',
     'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Guida completa al sistema sanitario svizzero nel Canton Vaud: obbligo LAMal, scelta della cassa malati, franchigie e sussidi cantonali.',
     'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Sistema sanitario e LAMal nel Canton Vaud',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Trasporti Basilea Campagna: abbonamenti, zone e tariffe',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Abbonamenti mensili e annuali, zone tariffarie, mezzo-prezzo e GA per pendolari e studenti in Basilea Campagna.',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Stazione ferroviaria regionale svizzera con treno rosso SBB, paesaggio collinare del canton Basilea Campagna sullo sfondo.',
 };
 
 export default blogMetaChIt;

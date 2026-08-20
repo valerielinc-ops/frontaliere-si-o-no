@@ -3487,6 +3487,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Système de santé suisse LAMal dans le canton de Vaud',
     'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Guide complet du système de santé suisse dans le canton de Vaud : obligation LAMal, choix de la caisse-maladie, franchises et allocations cantonales.',
     'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Systeme de sante et LAMal dans le canton de Vaud',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Transports Bâle-Campagne : abonnements, zones et tarifs',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Abonnements mensuels et annuels, zones tarifaires, demi-tarif et GA pour les navetteurs et les étudiants à Bâle-Campagne.',
+    'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Gare ferroviaire régionale suisse avec train SBB rouge, paysage vallonné du canton de Bâle-Campagne en arrière-plan.',
 };
 
 export default blogMetaChFr;
