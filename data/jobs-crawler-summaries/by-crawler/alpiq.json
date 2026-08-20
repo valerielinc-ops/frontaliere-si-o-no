@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-08-19T22:14:50.682Z",
+  "generatedAt": "2026-08-20T10:17:30.528Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4248,
-  "avgDurationMs": 4248,
+  "durationMs": 5814,
+  "avgDurationMs": 5814,
   "durationHistory": [
-    4248
+    5814
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:48.073Z",
+      "crawledAt": "2026-08-20T10:17:27.036Z",
       "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:48.074Z",
+      "crawledAt": "2026-08-20T10:17:27.035Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -109,7 +109,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:48.073Z",
+      "crawledAt": "2026-08-20T10:17:27.036Z",
       "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -143,7 +143,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:48.074Z",
+      "crawledAt": "2026-08-20T10:17:27.035Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -181,7 +181,7 @@
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
