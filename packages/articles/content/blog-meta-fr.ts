@@ -10290,6 +10290,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.title': 'Frontières au Tessin : le transfert de Morazzone',
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord frontalier de 2024 et les avantages pour les frontaliers qui déménagent à Morazzone',
     'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.imageAlt': 'Image d\'un travailleur frontalier à Lugano',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Vivre à Carbonate et travailler au Tessin : avantages et inconvénients',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Frontaliers du Tessin résidant à Carbonate : nouvel accord fiscal, impôt à la source, double imposition, restauration, double résidence, permis G, permis B, LAMal, AVS, LPP.',
+    'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontaliers Ticino résidents à Carbonate, avec vue sur le Lac de Lugano.',
 };
 
 export default blogMetaFr;
