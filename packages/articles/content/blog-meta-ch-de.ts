@@ -3481,6 +3481,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Gesundheit in der Schweiz: KVG, Franchisen und Rückerstattungen',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'Das schweizerische Gesundheitssystem basiert auf der obligatorischen KVG-Krankenversicherung für Ansässige. Die Prämien variieren je nach Kanton und Region. Der Kanton Zürich bietet Erwachsenen-Franchisen von CHF 300 bis CHF 2500 an.',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Bild eines Schweizer Arztes',
+    'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Einbürgerung im Kanton Basel-Landschaft: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'Der Einbürgerungsprozess im Kanton Basel-Landschaft: erforderliche Jahre, Integrations- und Sprachtests, zu entrichtende Gebühren und Dauer des Verfahrens.',
+    'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'Blick auf die Stadt Basilea Campagna, Schweiz, mit Schwerpunkt auf den Prozess der Naturalisierung.',
 };
 
 export default blogMetaChDe;

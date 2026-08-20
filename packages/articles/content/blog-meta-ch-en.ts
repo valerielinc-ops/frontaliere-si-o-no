@@ -3481,6 +3481,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Healthcare in Switzerland: LAMal, deductibles and reimbursements',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'The Swiss healthcare system is based on the mandatory LAMal health insurance for residents. Awards vary by canton and region. The canton of Zurich offers adult deductibles from CHF 300 to CHF 2500.',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Image of a Swiss doctor',
+    'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Naturalization in the Canton of Basel Countryside: requirements and procedure',
+    'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'The naturalisation process in the Canton of Basel-Country: required years, integration and language tests, fees to be paid and duration of the procedure.',
+    'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'View of the city of Basilea Campagna, Switzerland, with a focus on the naturalization process.',
 };
 
 export default blogMetaChEn;

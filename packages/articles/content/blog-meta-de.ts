@@ -10180,6 +10180,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Leben in Anzano und Arbeiten im Tessin: Vor- und Nachteile',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger, die in Anzano del Parco wohnen und im Tessin arbeiten, müssen die Reisezeiten, die Lebenshaltungskosten und die empfohlenen Gebiete berücksichtigen.',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontaliere, der in Anzano del Parco lebt und in Ticino arbeitet, muss die Reisezeiten und den Lebensstandard berücksichtigen.',
+    'blog.article.bene-telelavoro-ticino.title': '‘Gut Telearbeit, aber weniger Stellplätze, Flächen und Immobilienkosten’',
+    'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti und Rusconi fordern von der Regierung Aufklärung über die Fernarbeit in der kantonalen Verwaltung',
+    'blog.article.bene-telelavoro-ticino.imageAlt': 'Arbeitsplatz in Ticino: Vorteile, aber auch Änderungen',
 };
 
 export default blogMetaDe;

@@ -10182,6 +10182,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Vivere a Anzano e lavorare in Ticino: vantaggi e svantaggi',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'I frontalieri che risiedono a Anzano del Parco e lavorano in Ticino devono considerare i tempi di percorrenza, il costo della vita e le zone consigliate.',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che risiede a Anzano del Parco e lavora in Ticino deve considerare i tempi di percorrenza e il costo della vita.',
+    'blog.article.bene-telelavoro-ticino.title': '‘Bene il telelavoro, ma diminuire postazioni, superfici e spese immobiliari’',
+    'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti e Rusconi chiedono lumi al governo sul lavoro da remoto nell\'Amministrazione cantonale',
+    'blog.article.bene-telelavoro-ticino.imageAlt': 'Lavoro da remoto in Ticino: benefici, ma anche cambiamenti',
 };
 
 export default blogMetaIt;

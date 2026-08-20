@@ -10181,6 +10181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Living in Anzano and working in Ticino: advantages and disadvantages',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'Border workers who reside in Anzano del Parco and work in Ticino must consider the journey times, the cost of living and the recommended areas.',
     'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere living in Anzano del Parco and working in Ticino must consider the travel times and the cost of living.',
+    'blog.article.bene-telelavoro-ticino.title': 'Telecommuting is good, but reduces costs',
+    'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti and Rusconi ask the government for information on remote work in the cantonal administration',
+    'blog.article.bene-telelavoro-ticino.imageAlt': 'Remote work in Ticino: benefits, but also changes',
 };
 
 export default blogMetaEn;

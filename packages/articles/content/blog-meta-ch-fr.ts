@@ -3481,6 +3481,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Santé en Suisse : LAMal, franchises et remboursements',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'Le système de santé suisse est basé sur l\'assurance maladie LAMal obligatoire pour les résidents. Les primes varient selon le canton et la région. Le canton de Zurich propose des franchises adultes de CHF 300 à CHF 2500.',
     'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Image d\'un médecin suisse',
+    'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Naturalisation dans le canton de Bâle-Campagne : exigences et procédure',
+    'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'Le processus de naturalisation dans le canton de Bâle-Campagne : années requises, tests d\'intégration et de langue, taxes à payer et durée de la procédure.',
+    'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'Vue de la ville de Basilea Campagna, Suisse, avec un accent sur le processus de naturalisation.',
 };
 
 export default blogMetaChFr;
