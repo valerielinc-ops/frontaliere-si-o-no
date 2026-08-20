@@ -3577,6 +3577,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dimora-b-svizzera-guida-pratica.title': 'Aufenthaltsbewilligung B: Beantragung und Verlängerung',
     'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Aufenthaltsbewilligung B in der Schweiz: Grundlegende Anforderungen, Unterlagen, zuständige Behörden (sem), Fristen und Verfahren für die Erneuerung. Leitfaden für Nicht-EU-Ausländer.',
     'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Kantonales Migrationsamt, wo Aufenthaltserlaubnisse für Ausländer in der Schweiz beantragt werden',
+    'blog.article.svizzera-cina-dazi-export.title': 'Schweiz-China, historische Wende: Abschied von den Schweizer Exportzöllen',
+    'blog.article.svizzera-cina-dazi-export.excerpt': 'Die Schweiz und China haben die Verhandlungen über die Optimierung des Freihandelsabkommens abgeschlossen, so dass 99,8% der Schweizer Exporte zollfrei auf den chinesischen Markt gelangen können.',
+    'blog.article.svizzera-cina-dazi-export.imageAlt': 'Schweizer Markt in Peking',
 };
 
 export default blogMetaChDe;

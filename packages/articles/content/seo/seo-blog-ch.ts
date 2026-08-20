@@ -46391,6 +46391,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-cina-dazi-export': {
+    title: 'Svizzera-Cina, svolta storica: verso l\'addio ai dazi sull\'export elvetico',
+    description: 'La Svizzera e la Cina hanno concluso i negoziati sull\'ottimizzazione dell\'accordo di libero scambio, permettendo al 99,8% delle esportazioni svizzere',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-cina, svolta, storica, verso',
+    ogTitle: 'Svizzera-Cina, svolta storica: verso l\'addio ai dazi sull\'export elvetico',
+    ogDescription: 'La Svizzera e la Cina hanno concluso i negoziati sull\'ottimizzazione dell\'accordo di libero scambio, permettendo al 99,8% delle esportazioni svizzere di accedere al mercato cinese in esenzione doganale.',
+    canonicalPath: '/articoli-svizzera/svizzera-cina-dazi-export/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera-Cina, svolta storica: verso l'addio ai dazi sull'export elvetico",
+      "description": "La Svizzera e la Cina hanno concluso i negoziati sull'ottimizzazione dell'accordo di libero scambio, permettendo al 99,8% delle esportazioni svizzere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-cina-dazi-export.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato di prodotti svizzeri a Pechino"
+      },
+      "datePublished": "2026-08-20T16:20:14+00:00",
+      "dateModified": "2026-08-20T16:20:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-cina-dazi-export/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

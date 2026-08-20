@@ -3577,6 +3577,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dimora-b-svizzera-guida-pratica.title': 'Residence permit B: how to apply and renew it',
     'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Residence permit B in Switzerland: essential requirements, documentation, competent authorities (SEM), renewal times and procedures. Guide for non-EU foreigners.',
     'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Cantonal migration office where residence permits for foreigners are requested in Switzerland',
+    'blog.article.svizzera-cina-dazi-export.title': 'Switzerland-China: Farewell to Duties on Swiss Exports',
+    'blog.article.svizzera-cina-dazi-export.excerpt': 'Switzerland and China have concluded negotiations on the optimisation of the free trade agreement, allowing 99.8% of Swiss exports to enter the Chinese market duty-free.',
+    'blog.article.svizzera-cina-dazi-export.imageAlt': 'Swiss market in Beijing',
 };
 
 export default blogMetaChEn;

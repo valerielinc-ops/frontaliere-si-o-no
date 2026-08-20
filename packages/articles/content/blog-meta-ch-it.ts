@@ -3577,6 +3577,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dimora-b-svizzera-guida-pratica.title': 'Permesso di dimora B: come richiederlo e rinnovarlo',
     'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Permesso di dimora B in Svizzera: requisiti essenziali, documentazione, autorità competenti (SEM), tempi e procedure di rinnovo. Guida per stranieri extra-UE.',
     'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Ufficio della migrazione cantonale dove si richiedono i permessi di dimora per stranieri in Svizzera',
+    'blog.article.svizzera-cina-dazi-export.title': 'Svizzera-Cina, svolta storica: verso l\'addio ai dazi sull\'export elvetico',
+    'blog.article.svizzera-cina-dazi-export.excerpt': 'La Svizzera e la Cina hanno concluso i negoziati sull\'ottimizzazione dell\'accordo di libero scambio, permettendo al 99,8% delle esportazioni svizzere di accedere al mercato cinese in esenzione doganale.',
+    'blog.article.svizzera-cina-dazi-export.imageAlt': 'Mercato di prodotti svizzeri a Pechino',
 };
 
 export default blogMetaChIt;
