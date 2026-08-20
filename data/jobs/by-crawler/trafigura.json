@@ -1,13 +1,13 @@
 {
   "crawlerKey": "trafigura",
-  "assembledAt": "2026-08-19T10:03:17.654Z",
+  "assembledAt": "2026-08-20T09:46:12.207Z",
   "jobs": [
     {
       "id": "trafigura-674732b4e044",
       "slug": "lpg-analista-trafigura-geneva",
       "slugByLocale": {
         "it": "lpg-analista-trafigura-geneva",
-        "en": "lpg-analyst-trafigura-ch",
+        "en": "lpg-analyst-trafigura-geneva",
         "de": "lpg-analyst-trafigura-ch",
         "fr": "lpg-analyste-trafigura-geneva"
       },
@@ -34,7 +34,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:13.672Z",
+      "crawledAt": "2026-08-20T09:46:06.397Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,24 +51,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-017068",
+      "previousSlugs": [
+        "lpg-analyst-trafigura-ch",
+        "lpg-analista-trafigura-geneva",
+        "lpg-analyst-trafigura-geneva"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "lpg-analyst-trafigura-geneva",
-          "lpg-analyst-trafigura-ch"
-        ],
         "it": [
           "lpg-analyst-trafigura-ch",
           "lpg-analista-trafigura-geneva"
+        ],
+        "en": [
+          "lpg-analyst-trafigura-ch",
+          "lpg-analyst-trafigura-geneva"
         ],
         "fr": [
           "lpg-analyst-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "lpg-analyst-trafigura-ch",
-        "lpg-analyst-trafigura-geneva",
-        "lpg-analista-trafigura-geneva"
-      ],
       "firstSeenAt": "2026-07-03T23:41:01.667Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -115,7 +115,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:12.794Z",
+      "crawledAt": "2026-08-20T09:46:04.798Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:11.722Z",
+      "crawledAt": "2026-08-20T09:46:03.969Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Financial-Engineer_R-017858",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:10.939Z",
+      "crawledAt": "2026-08-20T09:46:03.137Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -357,7 +357,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Gasoline-Blending-Operator_R-018360",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:10.057Z",
+      "crawledAt": "2026-08-20T09:46:02.270Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -406,7 +406,7 @@
       "slug": "quantitative-analista-trafigura-geneva",
       "slugByLocale": {
         "it": "quantitative-analista-trafigura-geneva",
-        "en": "quantitative-analyst-trafigura-ch",
+        "en": "quantitative-analyst-trafigura-geneva",
         "de": "risikoquantenanalytiker-trafigura-geneva",
         "fr": "risk-quant-analyste-trafigura-geneva"
       },
@@ -433,7 +433,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:08.965Z",
+      "crawledAt": "2026-08-20T09:46:00.959Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -450,29 +450,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-017471",
+      "previousSlugs": [
+        "risk-quant-analyst-trafigura-ch",
+        "quantitative-analyst-trafigura-ch",
+        "risk-quant-analista-trafigura-geneva",
+        "quantitative-analista-trafigura-geneva",
+        "quantitative-analyst-trafigura-geneva"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "risk-quant-analyst-trafigura-ch",
-          "quantitative-analyst-trafigura-geneva",
-          "quantitative-analyst-trafigura-ch"
-        ],
         "it": [
           "risk-quant-analyst-trafigura-ch",
           "quantitative-analyst-trafigura-ch",
           "risk-quant-analista-trafigura-geneva",
           "quantitative-analista-trafigura-geneva"
         ],
+        "en": [
+          "risk-quant-analyst-trafigura-ch",
+          "quantitative-analyst-trafigura-ch",
+          "quantitative-analyst-trafigura-geneva"
+        ],
         "fr": [
           "risk-quant-analyst-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "risk-quant-analyst-trafigura-ch",
-        "quantitative-analyst-trafigura-ch",
-        "risk-quant-analista-trafigura-geneva",
-        "quantitative-analyst-trafigura-geneva",
-        "quantitative-analista-trafigura-geneva"
-      ],
       "firstSeenAt": "2026-07-03T23:41:00.808Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -519,7 +519,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Oil-Programme-QA-Lead_R-018546",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:08.172Z",
+      "crawledAt": "2026-08-20T09:46:00.010Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -598,7 +598,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/London-United-Kingdom/Oil-Programme-QA-Lead_R-018547",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:07.382Z",
+      "crawledAt": "2026-08-20T09:45:59.157Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
