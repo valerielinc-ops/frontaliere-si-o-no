@@ -10277,6 +10277,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Vivere a Caglio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Trasferirsi a Caglio per lavorare in Ticino: fisco, Permesso G, AVS, LAMal, procedure. Guida completa per frontalieri tra Italia e Svizzera.',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Strada di confine tra Caglio (Bergamo) e il Canton Ticino svizzero con paesaggio alpino.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Vivere a Limido Comasco, lavorare in Ticino: la guida',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permesso G, franchigia €7.500–€10.000, tasse 2024, AVS/LPP/LAMal, 730 italiano e procedura step-by-step: tutto quello che serve per frontaliere Italia-Ticino.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontaliere al valico di confine Ticino-Italia durante le ore di pendolarismo matutino',
 };
 
 export default blogMetaIt;

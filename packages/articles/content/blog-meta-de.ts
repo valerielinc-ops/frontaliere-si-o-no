@@ -10275,6 +10275,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Leben in Lab und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Umzug nach Caglio, um im Tessin zu arbeiten: Steuern, Bewilligung G, AHV, KVG, Verfahren. Vollständiger Leitfaden für Grenzgänger zwischen Italien und der Schweiz.',
     'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Grenzstrasse zwischen Caglio (Bergamo) und dem Schweizer Kanton Tessin mit Alpenlandschaft.',
+    'blog.article.vivere-limido-comasco-frontaliere.title': 'Leben in Limido Comasco, Arbeiten im Tessin: Der Guide',
+    'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Bewilligung G, Selbstbehalt € 7.500–€ 10.000, Steuern 2024, AHV/BVG/KVG, 730 Italienisch und Schritt-für-Schritt-Verfahren: alles, was Sie für Grenzgänger Italien-Tessin benötigen.',
+    'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Grenzgänger am Tessiner-italienischen Grenzübergang während der morgendlichen Pendelzeit',
 };
 
 export default blogMetaDe;
