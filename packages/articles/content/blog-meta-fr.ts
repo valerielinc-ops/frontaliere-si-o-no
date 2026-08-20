@@ -10254,6 +10254,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.castiglione-olona-frontaliere-ticino.title': 'Frontières châssis OLONA : guide DE travail Tessin',
     'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona : choix stratégique pour les frontaliers du Tessin. Permis G, impôt à la source, AVS, LAMal, restaurations 2024.',
     'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Frontalier à la douane de Chiasso, vue sur le lac Lugano et les montagnes du Tessin.',
+    'blog.article.vivere-gavirate-lavorare-ticino.title': 'Vivre à Gavirate et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-gavirate-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui vivent à Gavirate et travaillent dans le canton du Tessin : liens, régimes fiscaux, impôt à la source, permis et règles de sécurité sociale.',
+    'blog.article.vivere-gavirate-lavorare-ticino.imageAlt': 'Paysage de Gavirate près du lac',
 };
 
 export default blogMetaFr;

@@ -10251,6 +10251,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castiglione-olona-frontaliere-ticino.title': 'Grenzgänger Castiglione Olona: Arbeitsanleitung Tessin',
     'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona: Strategische Wahl für Grenzgänger im Tessin. Bewilligung G, Quellensteuer, AHV, KVG, Rückvergütungen 2024.',
     'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Grenzpendler am Grenzübergang Chiasso mit Blick auf den Luga­no-See und Tessiner Berge.',
+    'blog.article.vivere-gavirate-lavorare-ticino.title': 'Wohnen in Gavirate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-gavirate-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Gavirate leben und im Kanton Tessin arbeiten: Verbindungen, Steuersysteme, Quellensteuer, Genehmigungen und Vorsorgeregeln.',
+    'blog.article.vivere-gavirate-lavorare-ticino.imageAlt': 'Gavirate Landschaft am See',
 };
 
 export default blogMetaDe;

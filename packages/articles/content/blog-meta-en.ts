@@ -10252,6 +10252,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castiglione-olona-frontaliere-ticino.title': 'Frontalieri Castiglione Olona: Ticino work guide',
     'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona: a strategic choice for border crossers from Ticino. Permit G, tax at source, AVS, LAMal, refunds 2024.',
     'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Commuter at the Chiasso border crossing with view of Lake Lugano and Ticino mountains.',
+    'blog.article.vivere-gavirate-lavorare-ticino.title': 'Living in Gavirate and working in Ticino as a border worker',
+    'blog.article.vivere-gavirate-lavorare-ticino.excerpt': 'Practical guide for those who live in Gavirate and work in Canton Ticino: connections, tax regimes, source tax, permits and social security rules.',
+    'blog.article.vivere-gavirate-lavorare-ticino.imageAlt': 'Gavirate landscape near the lake',
 };
 
 export default blogMetaEn;

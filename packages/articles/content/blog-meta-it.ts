@@ -10253,6 +10253,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castiglione-olona-frontaliere-ticino.title': 'Frontalieri castiglione olona: guida lavoro Ticino',
     'blog.article.castiglione-olona-frontaliere-ticino.excerpt': 'Castiglione Olona: scelta strategica per frontalieri Ticino. Permesso G, imposta alla fonte, AVS, LAMal, ristorni 2024.',
     'blog.article.castiglione-olona-frontaliere-ticino.imageAlt': 'Pendolare al varco di confine Chiasso con vista sul lago Lugano e sulle montagne ticinesi.',
+    'blog.article.vivere-gavirate-lavorare-ticino.title': 'Vivere a Gavirate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-gavirate-lavorare-ticino.excerpt': 'Guida pratica per chi vive a Gavirate e lavora in Canton Ticino: collegamenti, regimi fiscali, imposta alla fonte, permessi e regole previdenziali.',
+    'blog.article.vivere-gavirate-lavorare-ticino.imageAlt': 'Panorama di Gavirate vicino al lago',
 };
 
 export default blogMetaIt;
