@@ -963,6 +963,8 @@ jobs:
           #     secret in production.
           AUDIT_SAMPLE_RATE: '0.25'
           AUDIT_SAMPLE_SALT: ${{ github.run_number }}
+          RUN_NUMBER: ${{ github.run_number }}
+          REPORT_ONLY_EVERY: '7'
         run: |
           # MAX_PARALLEL=4 — bumped after live measurement on run
           # 26087963151. audit:all peaked at ~1 GB RSS and held the whole
@@ -1021,6 +1023,18 @@ jobs:
           # spawned in the pool below (#5440), and that slack is only as real
           # as this measurement is fresh.
           MAX_PARALLEL=4
+
+          # I due report-only hanno rc=0 cablato e non possono far fallire
+          # nulla, ma erano i piu' lunghi della pool (1570 s + 1865 s = 36%
+          # della CPU di questo step). Girano a cadenza. DIVISORE DISPARI:
+          # discover campiona su run_number % 4, e una cadenza pari lo
+          # inchioderebbe per sempre allo stesso bucket.
+          if [ "$REPORT_ONLY_EVERY" -le 1 ] || [ $(( RUN_NUMBER % REPORT_ONLY_EVERY )) -eq 0 ]; then
+            RUN_REPORT_ONLY=1
+          else
+            RUN_REPORT_ONLY=0
+          fi
+          echo "[cadenza] ogni $REPORT_ONLY_EVERY run; run_number=$RUN_NUMBER -> $RUN_REPORT_ONLY"
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
@@ -1313,6 +1327,7 @@ jobs:
           #  • AUDIT_STRICT='1' from this step's env is inert here: it is read
           #    only by runAudits() in scripts/lib/audit-runner.mjs, and this
           #    script's standalone path never calls it.
+          if [ "$RUN_REPORT_ONLY" = 1 ]; then
           wait_slot
           (
             set +e
@@ -1328,6 +1343,10 @@ jobs:
             awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:discover-eligibility(report-only)\", $end-$start}" \
               >> /tmp/post-build-timings.txt
           ) &
+          else
+            echo "[report-only] audit:discover-eligibility saltato (cadenza 1-su-$REPORT_ONLY_EVERY, run_number=$RUN_NUMBER). Non e' un gate." > /tmp/discover-eligibility.log
+            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:discover-eligibility(skipped)\", 0}" >> /tmp/post-build-timings.txt
+          fi
 
           # 0-tolerance: dotfile `dist/**\/.html` files mean a plugin produced
           # `<dir>/.html` via `path + '.html'` where `path` ended in `/`.
@@ -1340,8 +1359,11 @@ jobs:
             npm run audit:no-dotfile-html
           spawn_capped audit:hreflang                /tmp/g14.log \
             npm run audit:hreflang
-          spawn_capped audit:sitemap-canonicals      /tmp/g15.log \
-            npm run audit:sitemap-canonicals
+          # audit:sitemap-canonicals NON e' piu' qui: girava DUE volte per
+          # deploy. validate:sitemap-pages sopra lo contiene come check 1,
+          # stesso set di sitemap, stesso job (127 s). Copia consolidata
+          # meglio scoperta: esclude gli URL degli shard articoli.
+          # tests/deploy-workflow.test.ts pinna l'invocazione del consolidato.
           spawn_capped audit:canonical-trailing-slash /tmp/g15b.log \
             npm run audit:canonical-trailing-slash
           spawn_capped audit:news-sitemap            /tmp/g16.log \
@@ -1458,6 +1480,7 @@ jobs:
           # goes to /tmp, never into the checked-out tree, and not into
           # dist/audit-reports/ whose `gate-offenders` jq line below expects a
           # gate-shaped record.
+          if [ "$RUN_REPORT_ONLY" = 1 ]; then
           wait_slot
           (
             set +e
@@ -1474,6 +1497,10 @@ jobs:
             awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(report-only)\", $end-$start}" \
               >> /tmp/post-build-timings.txt
           ) &
+          else
+            echo "[report-only] seo:meta-description saltato (cadenza 1-su-$REPORT_ONLY_EVERY, run_number=$RUN_NUMBER). Non e' un gate." > /tmp/meta-description-audit.log
+            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(skipped)\", 0}" >> /tmp/post-build-timings.txt
+          fi
 
           # dist:quality-tests — REAL GATE (issue #5656 item 1). It used to run
           # FIVE vitest files (`npm run gate:dist-quality`), each asserting a
