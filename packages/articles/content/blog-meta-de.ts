@@ -10165,6 +10165,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Schwangerschaft und Grenzübertritt: KVG-Leitfaden und Kontrollen',
     'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Bewilligung G: Wahlrecht zwischen KVG und MHK während der Schwangerschaft, Franchisen CHF 300–2\'500, Spitalwahl und Meldeverfahren. Alles, was Sie wissen müssen.',
     'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Schwangere Frau während Schwangerschaftsuntersuchung im Tessin Spital mit Gynäkologin',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.title': 'Stirnband in der Schwangerschaft: KVG oder MHK wählen?',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.excerpt': 'Die Wahl zwischen KVG und MHK während der Schwangerschaft ist entscheidend. Selbstbehalte, Deckungen und Verfahren: Kompletter Leitfaden für Grenzgänger mit Ausweis G.',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.imageAlt': 'Schwangere Frau mit Krankenversicherungsdokumenten mit Blick auf den Luganer See im Tessin',
 };
 
 export default blogMetaDe;

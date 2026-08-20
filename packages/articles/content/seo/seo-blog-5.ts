@@ -70622,6 +70622,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gravidanza-lamal-cmi-frontaliera': {
+    title: 'Frontaliera in gravidanza: scegliere LAMal o CMI?',
+    description: 'Guida completa per frontaliera: come scegliere tra assicurazione malattia LAMal svizzera e CMI italiana durante la gravidanza. Franchigie, coperture',
+    keywords: 'frontalieri, ticino, svizzera, italia, frontaliera, gravidanza, scegliere, lamal',
+    ogTitle: 'Frontaliera in gravidanza: scegliere LAMal o CMI?',
+    ogDescription: 'Scelta dell\'assicurazione malattia in gravidanza: come frontaliera con permesso G, conosci le differenze tra LAMal (svizzera) e CMI (italiana). Franchigie, coperture, procedure step-by-step e tempistiche. Guida pratica per chi lavora in Svizzera',
+    canonicalPath: '/articoli-frontaliere/gravidanza-lamal-cmi-frontaliera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliera in gravidanza: scegliere LAMal o CMI?",
+      "description": "Guida completa per frontaliera: come scegliere tra assicurazione malattia LAMal svizzera e CMI italiana durante la gravidanza. Franchigie, coperture",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gravidanza-lamal-cmi-frontaliera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Donna incinta con documenti assicurativi sanitari davanti al panorama di Lugano in Ticino"
+      },
+      "datePublished": "2026-08-19T23:55:32+00:00",
+      "dateModified": "2026-08-19T23:55:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gravidanza-lamal-cmi-frontaliera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;
