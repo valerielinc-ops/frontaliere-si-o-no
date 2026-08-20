@@ -3553,6 +3553,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.preventivo-confederazione-2027.title': 'Le Conseil fédéral adopte le budget 2027',
     'blog.article.preventivo-confederazione-2027.excerpt': 'Le 19 août, le Conseil fédéral approuve le budget 2027 avec le PICF 2028-2030. Document disponible en ligne sur aff.admin.ch.',
     'blog.article.preventivo-confederazione-2027.imageAlt': 'Administration fédérale suisse : documents budgétaires et planification financière de la Confédération.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Planification hospitalière Tessin : données 2019 adéquates ?',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'La question PLR sur la consultation lancée le 1er juin 2026 soulève des doutes sur la base statistique des besoins hospitaliers dans le canton.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'Bâtiment hospitalier moderne en Suisse, au cœur du débat sur la planification hospitalière du Tessin',
 };
 
 export default blogMetaChFr;

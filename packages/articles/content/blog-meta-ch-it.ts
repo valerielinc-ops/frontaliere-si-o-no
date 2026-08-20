@@ -3553,6 +3553,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.preventivo-confederazione-2027.title': 'Consiglio federale adotta il preventivo 2027',
     'blog.article.preventivo-confederazione-2027.excerpt': 'Il 19 agosto il Consiglio federale approva il preventivo 2027 con PICF 2028-2030. Documento disponibile online su aff.admin.ch.',
     'blog.article.preventivo-confederazione-2027.imageAlt': 'Amministrazione federale svizzera: documenti del preventivo e pianificazione finanziaria confederale.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Pianificazione ospedaliera Ticino: dati 2019 adeguati?',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'L\'interrogazione PLR sulla consultazione iniziata il 1° giugno 2026 solleva dubbi sulla base statistica del fabbisogno ospedaliero nel cantone.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'L\'ospedale dell\'EOC a Bellinzona, al centro della questione sulla pianificazione ospedaliera ticinese',
 };
 
 export default blogMetaChIt;

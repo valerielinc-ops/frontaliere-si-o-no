@@ -3553,6 +3553,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.preventivo-confederazione-2027.title': 'Bundesrat verabschiedet Budget 2027',
     'blog.article.preventivo-confederazione-2027.excerpt': 'Am 19. August genehmigt der Bundesrat den Voranschlag 2027 mit PICF 2028-2030. Dokument online verfügbar unter aff.admin.ch.',
     'blog.article.preventivo-confederazione-2027.imageAlt': 'Schweizer Bundesverwaltung: Haushaltsdokumente und Finanzplanung der Eidgenossenschaft.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Spitalplanung Tessin: Angemessene Daten 2019?',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'Die FDP-Frage zur am 1. Juni 2026 begonnenen Vernehmlassung wirft Fragen zur statistischen Grundlage des Spitalbedarfs im Kanton auf.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'Modernes Spitalgebäude in der Schweiz, relevant für Tessins Spitalplanungsdebatte',
 };
 
 export default blogMetaChDe;

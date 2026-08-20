@@ -1210,6 +1210,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'postfinance-utile-calo-primo-semestre': { it: 'postfinance-utile-calo-primo-semestre', en: 'postfinance-profits-decline-first-half', de: 'postfinance-gewinn-rueckgang-ersten-semester', fr: 'postfinance-baisses-benefices-premier-semestre' },
  'assicurazioni-svizzera-risultati-2025': { it: 'assicurazioni-svizzera-risultati-2025', en: 'insurance-switzerland-results-2025', de: 'versicherungen-schweiz-ergebnisse-2025', fr: 'assurances-suisse-resultats-2025' },
  'preventivo-confederazione-2027': { it: 'preventivo-confederazione-2027', en: 'federal-budget-2027-council', de: 'bundesbudget-2027-rat', fr: 'budget-federal-2027-conseil' },
+ 'pianificazione-ospedaliera-ticino-2026': { it: 'pianificazione-ospedaliera-ticino-2026', en: 'ticino-hospital-planning-2026', de: 'tessiner-spitalplanung-2026', fr: 'planification-hospitaliere-tessin-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
