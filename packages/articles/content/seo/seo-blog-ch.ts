@@ -46079,6 +46079,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pianificazione-ospedaliera-ticino-2026': {
+    title: 'Pianificazione ospedaliera Ticino: dati 2019 adeguati?',
+    description: 'L\'interrogazione PLR sulla consultazione del 1° giugno 2026 solleva dubbi sulla base statistica del fabbisogno ospedaliero ticinese e l\'impatto sui costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pianificazione, ospedaliera, dati, adeguati',
+    ogTitle: 'Pianificazione ospedaliera Ticino: i dati 2019 sono adatti?',
+    ogDescription: 'Matteo Quadranti (PLR) interroga il Consiglio di Stato ticinese sulla pianificazione ospedaliera. Al centro il ricorso a dati del 2019 per stimare il fabbisogno. Cosa comporta questa scelta per i costi della LAMal?',
+    canonicalPath: '/articoli-svizzera/pianificazione-ospedaliera-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pianificazione ospedaliera Ticino: dati 2019 adeguati?",
+      "description": "L'interrogazione PLR sulla consultazione del 1° giugno 2026 solleva dubbi sulla base statistica del fabbisogno ospedaliero ticinese e l'impatto sui costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pianificazione-ospedaliera-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'ospedale dell'EOC a Bellinzona, al centro della questione sulla pianificazione ospedaliera ticinese"
+      },
+      "datePublished": "2026-08-20T12:21:44+00:00",
+      "dateModified": "2026-08-20T12:21:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pianificazione-ospedaliera-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

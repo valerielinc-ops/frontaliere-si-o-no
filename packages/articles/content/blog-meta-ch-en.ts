@@ -3553,6 +3553,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.preventivo-confederazione-2027.title': 'Federal Council adopts 2027 budget',
     'blog.article.preventivo-confederazione-2027.excerpt': 'On August 19, the Federal Council approves the 2027 budget with PICF 2028-2030. Document available online at aff.admin.ch.',
     'blog.article.preventivo-confederazione-2027.imageAlt': 'Swiss Federal Administration: federal budget documents and confederation financial planning.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Ticino hospital planning: adequate 2019 data?',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'The PLR question on the consultation started on 1 June 2026 raises doubts about the statistical basis of hospital needs in the canton.',
+    'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'A modern Swiss hospital building, related to Ticino\'s hospital planning debate',
 };
 
 export default blogMetaChEn;
