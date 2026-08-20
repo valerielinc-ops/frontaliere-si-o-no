@@ -30585,6 +30585,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'credito-imposta-2026-single',
+ category: 'fiscale',
+ date: '2026-08-20T06:33:37.564Z',
+ image: '/images/blog/credito-imposta-2026-single.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

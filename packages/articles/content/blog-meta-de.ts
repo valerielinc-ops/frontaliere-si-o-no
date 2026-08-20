@@ -10212,6 +10212,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-imposta-2026-oltre-20km.title': 'Steuergutschrift 2026: über 20 km, Berechnung und 730',
     'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'So können Sie den Schweizer Abzug über die CE-Tafel im Modell 730 abrufen. Neue und alte Grenzgänger: Selbstbehalte im Vergleich, Schritt-für-Schritt-Verfahren.',
     'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Grenzgänger arbeitet am Computer mit Steuererklärung und Finanzdokumenten, Tessiner Landschaft im Hintergrund.',
+    'blog.article.credito-imposta-2026-single.title': 'Steuergutschrift 2026: Einzelgrenzgänger fahren',
+    'blog.article.credito-imposta-2026-single.excerpt': 'Einzelne Grenzgänger: Berechnung der Steuergutschrift 2026, Selbstbeteiligung € 7.500- € 10.000, IRPEF-Sätze, Zusammenstellung des EG-Rahmens 730 und Rückerstattungen bis Mai.',
+    'blog.article.credito-imposta-2026-single.imageAlt': 'Steuerberater überprüft Grenzgänger-Steuererklärung mit Tessiner Grenzlandschaft im Hintergrund',
 };
 
 export default blogMetaDe;

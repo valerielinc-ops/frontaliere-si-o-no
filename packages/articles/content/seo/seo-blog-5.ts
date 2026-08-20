@@ -71207,6 +71207,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-imposta-2026-single': {
+    title: 'Credito imposta 2026: guida frontaliere single',
+    description: 'Frontalieri single: credito d\'imposta 2026, franchigia €7500–€10000, IRPEF 23–43%, quadro CE 730. Guida calcolo, ristorni e scadenze maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, single, calcolare',
+    ogTitle: 'Credito imposta 2026: frontalieri single',
+    ogDescription: 'Come calcolare il credito d\'imposta nel 2026 per frontalieri single? Franchigia €7500 o €10000, aliquote IRPEF, compilazione quadro CE 730, ristorni e scadenze maggio: guida completa con scenari.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-2026-single',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito imposta 2026: guida frontaliere single",
+      "description": "Frontalieri single: credito d'imposta 2026, franchigia €7500–€10000, IRPEF 23–43%, quadro CE 730. Guida calcolo, ristorni e scadenze maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-2026-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulente fiscale rivede dichiarazione redditi frontaliere con paesaggio di confine ticinese sullo sfondo"
+      },
+      "datePublished": "2026-08-20T06:33:37+00:00",
+      "dateModified": "2026-08-20T06:33:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-2026-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

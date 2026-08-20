@@ -10214,6 +10214,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-imposta-2026-oltre-20km.title': 'Credito d\'imposta 2026: oltre 20 km, calcolo e 730',
     'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'Come recuperare la trattenuta svizzera tramite quadro CE nel modello 730. Nuovi e vecchi frontalieri: franchigie a confronto, procedura step-by-step.',
     'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Frontaliere al lavoro su un computer con modello 730 e documenti fiscali, paesaggio ticinese sullo sfondo.',
+    'blog.article.credito-imposta-2026-single.title': 'Credito imposta 2026: guida frontaliere single',
+    'blog.article.credito-imposta-2026-single.excerpt': 'Frontalieri single: come calcolare il credito d\'imposta 2026, franchigia €7.500-€10.000, aliquote IRPEF, compilazione quadro CE 730 e ristorni entro maggio.',
+    'blog.article.credito-imposta-2026-single.imageAlt': 'Consulente fiscale rivede dichiarazione redditi frontaliere con paesaggio di confine ticinese sullo sfondo',
 };
 
 export default blogMetaIt;
