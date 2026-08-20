@@ -10236,6 +10236,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.title': 'Cermenate: Leben in Italien, Arbeiten im Tessin',
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger von Cermenate ins Tessin: G-Bewilligung, Steuern, Rückerstattungen, AHV, KVG. Praktische Anleitung und Verfahren.',
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Lugano mit dem See bei Sonnenuntergang und den Alpen, das Ziel des Frontaliers aus Cermenate',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Leben in Lurago Marinone und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Komplette Analyse für diejenigen, die sich entscheiden, in Lurago Marinone zu leben und im Tessin als Grenzgänger zwischen Verbindungen, Steuern und Kosten zu arbeiten.',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee im Tessin',
 };
 
 export default blogMetaDe;

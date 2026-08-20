@@ -10237,6 +10237,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.title': 'Cermenate: living in Italy, working in Ticino',
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.excerpt': 'Border crossing from Cermenate to Ticino: G Permit, taxation, refreshments, AVS, LAMal. Practical guide and procedures.',
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.imageAlt': 'View of Lugano with the lake at sunset and the Alps, representing the workplace destination for the commuter living in Cermenate',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Living in Lurago Marinone and working in Ticino as a border worker',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Comprehensive analysis for those who choose to live in Lurago Marinone and take the border crossing in Ticino between connections, taxation and costs.',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'View of Lake Lugano in Canton Ticino',
 };
 
 export default blogMetaEn;
