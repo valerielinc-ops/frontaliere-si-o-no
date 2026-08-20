@@ -10179,6 +10179,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Vivere a Alserio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Impostazioni fiscali, doppia imposizione e ristorni: cosa cambia per i frontalieri che vivono in Alserio e lavorano in Ticino.',
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e risiede in Alserio',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Vivere a Anzano e lavorare in Ticino: vantaggi e svantaggi',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'I frontalieri che risiedono a Anzano del Parco e lavorano in Ticino devono considerare i tempi di percorrenza, il costo della vita e le zone consigliate.',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che risiede a Anzano del Parco e lavora in Ticino deve considerare i tempi di percorrenza e il costo della vita.',
 };
 
 export default blogMetaIt;

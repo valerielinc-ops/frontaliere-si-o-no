@@ -70778,6 +70778,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-anzano-parco-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Anzano e lavorare in Ticino: vantaggi e svantaggi',
+    description: 'I frontalieri che risiedono a Anzano del Parco e lavorano in Ticino devono considerare i tempi di percorrenza, il costo della vita e le zone consigliate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, anzano, lavorare, vantaggi',
+    ogTitle: 'Vivere a Anzano del Parco e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento',
+    ogDescription: 'I frontalieri che risiedono a Anzano del Parco e lavorano in Ticino devono considerare i tempi di percorrenza, il costo della vita e le zone consigliate.',
+    canonicalPath: '/articoli-frontaliere/vivere-anzano-parco-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Anzano e lavorare in Ticino: vantaggi e svantaggi",
+      "description": "I frontalieri che risiedono a Anzano del Parco e lavorano in Ticino devono considerare i tempi di percorrenza, il costo della vita e le zone consigliate.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-anzano-parco-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che risiede a Anzano del Parco e lavora in Ticino deve considerare i tempi di percorrenza e il costo della vita."
+      },
+      "datePublished": "2026-08-20T01:47:30+00:00",
+      "dateModified": "2026-08-20T01:47:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-anzano-parco-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
