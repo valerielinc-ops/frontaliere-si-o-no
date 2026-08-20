@@ -3580,6 +3580,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Svizzera-Cina, un tournant historique : dazi sull\'export',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'La Suisse et la Chine ont conclu les négociations sur l\'optimisation de l\'accord de libre-échange, permettant à 99,8 % des exportations suisses d\'accéder au marché chinois en franchise de douane.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Marché suisse à Pékin',
+    'blog.article.monopattini-casco-sicurezza.title': 'Obligation casque trottinettes : plan Conseil fédéral',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'Le Conseil fédéral propose l\'obligation du casque pour les trottinettes électriques après l\'augmentation des accidents. Découvrez ce qui va changer en Suisse.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Trottinettes électriques garées sur une rue urbaine suisse avec casque de sécurité',
 };
 
 export default blogMetaChFr;

@@ -3580,6 +3580,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Switzerland-China: Farewell to Duties on Swiss Exports',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'Switzerland and China have concluded negotiations on the optimisation of the free trade agreement, allowing 99.8% of Swiss exports to enter the Chinese market duty-free.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Swiss market in Beijing',
+    'blog.article.monopattini-casco-sicurezza.title': 'Mandatory helmet for scooters: Federal Council plan',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'The Federal Council proposes mandatory helmet for electric scooters after the increase in accidents. Find out what\'s going to change in Switzerland.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Electric scooters parked on a Swiss urban street with a safety helmet',
 };
 
 export default blogMetaChEn;

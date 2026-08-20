@@ -3580,6 +3580,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Schweiz-China, historische Wende: Abschied von den Schweizer Exportzöllen',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'Die Schweiz und China haben die Verhandlungen über die Optimierung des Freihandelsabkommens abgeschlossen, so dass 99,8% der Schweizer Exporte zollfrei auf den chinesischen Markt gelangen können.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Schweizer Markt in Peking',
+    'blog.article.monopattini-casco-sicurezza.title': 'Rollerhelmpflicht: Plan Bundesrat',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'Der Bundesrat schlägt eine Helmpflicht für E-Scooter vor, nachdem die Zahl der Unfälle gestiegen ist. Finden Sie heraus, was sich in der Schweiz ändern wird.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Elektrische Tretroller auf einer Schweizer Stadtstraße mit Schutzhelm',
 };
 
 export default blogMetaChDe;
