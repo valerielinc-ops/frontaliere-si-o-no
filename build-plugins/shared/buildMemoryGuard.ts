@@ -561,7 +561,12 @@ export function resolveThresholds(
   const ignoredOverrides: string[] = [];
   if (ceiling.ignored) ignoredOverrides.push('BUILD_MEM_RSS_CEILING_MB');
   if (floor.ignored) ignoredOverrides.push('BUILD_MEM_HOST_FLOOR_MB');
-  if (swapFloorArmed && swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
+  // Niente gate su swapFloorArmed qui: ceiling/host-floor sopra segnalano
+  // l'override ignorato indipendentemente da quanto la rispettiva soglia sia
+  // "attiva" — il pavimento swap deve restare simmetrico, altrimenti un
+  // override esplicito su uno swap sotto i 2 GB sparisce in silenzio invece
+  // di comparire in ignoredOverrides (follow-up #6169 item 3).
+  if (swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
   return {
     rssCeilingMb: ceiling.value,
     hostAvailFloorMb: hostReadable ? floor.value : null,
