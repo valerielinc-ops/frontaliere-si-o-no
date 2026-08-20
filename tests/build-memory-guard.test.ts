@@ -387,6 +387,21 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(readSelfAnonMb(tmpMeminfo('VmSwap:\t 1024 kB\n'))).toBeNull();
   });
 
+  it('readSelfAnonMb() senza path — parsea il /proc/self/status REALE del processo di test, non solo fixture sintetici (#6174)', () => {
+    // Le fixture sopra hardcodano il tab kernel-standard; questo test invece
+    // legge il file vero del processo corrente, cosi' un'eventuale deriva di
+    // formato whitespace/kernel sul runner la fa fallire qui invece che in
+    // silenzio a runtime (VmSwap assente degraderebbe muto a RSS-only).
+    const real = readSelfAnonMb();
+    if (os.platform() !== 'linux') {
+      expect(real).toBeNull();
+      return;
+    }
+    expect(real).not.toBeNull();
+    expect(real!.rssMb).toBeGreaterThan(0);
+    expect(real!.swapMb).toBeGreaterThanOrEqual(0);
+  });
+
   it('sotto i 2 GB di SwapTotal il pavimento swap resta SPENTO — sarebbe sfondato a riposo', () => {
     const t = resolveThresholds(
       {} as NodeJS.ProcessEnv,
