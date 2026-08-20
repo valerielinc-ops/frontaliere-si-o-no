@@ -10248,6 +10248,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Retraite anticipée frontalière : 5 erreurs courantes',
     'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Anticiper la pension pour frontaliers Tessin-Italie implique des choix complexes sur l\'AVS, la LPP et la double imposition. Découvrez les erreurs à éviter avec le Nouvel Accord 2024.',
     'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Document de planification de retraite avec feuille de calcul et formulaires SECO, vue sur le passage frontalier Tessin-Italie',
+    'blog.article.frontaliere-svizzera-dati.title': 'Travailleurs frontaliers en Suisse échange automatique de données',
+    'blog.article.frontaliere-svizzera-dati.excerpt': 'Le Conseil fédéral suisse a activé la base légale pour le flux d\'information réciproque avec l\'Italie et la France.',
+    'blog.article.frontaliere-svizzera-dati.imageAlt': 'Frontalier en Suisse',
 };
 
 export default blogMetaFr;

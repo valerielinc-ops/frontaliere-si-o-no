@@ -10247,6 +10247,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Pensionamento anticipato frontalieri: 5 errori comuni',
     'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Anticipare la pensione per frontalieri Ticino-Italia comporta scelte complesse su AVS, LPP e doppia imposizione. Scopri gli errori da evitare con il Nuovo Accordo 2024.',
     'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Documento pianificazione pensionistica con foglio di calcolo e moduli SECO su scrivania, vista su valico frontaliero Ticino-Italia',
+    'blog.article.frontaliere-svizzera-dati.title': 'Lavoratori frontalieri in Svizzera scambio automatico dei dati',
+    'blog.article.frontaliere-svizzera-dati.excerpt': 'Il Consiglio federale svizzero ha attivato la base legale per il flusso informativo reciproco con l\'Italia e la Francia.',
+    'blog.article.frontaliere-svizzera-dati.imageAlt': 'Lavoro frontaliero in Ticino',
 };
 
 export default blogMetaIt;
