@@ -3592,6 +3592,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Acheter maison Schaffhouse : prix, hypothèque et taxes',
     'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Guide opérationnel pour l\'achat immobilier dans le canton de Schaffhouse : fonds propres requis, viabilité du prêt, taxe sur les passages cantonaux, frais de notaire et procédure étape par étape.',
     'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Maison résidentielle moderne en paysage alpin suisse avec architecture contemporaine.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Location Schaffhouse : caution, résiliation et conciliation',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Caution max 3 mois, résiliation sur formulaire cantonal, contestation dans les 30 jours : les règles fédérales de location à Schaffhouse expliquées en détail.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Immeubles et propriétés locatives dans le canton de Schaffhouse',
 };
 
 export default blogMetaChFr;

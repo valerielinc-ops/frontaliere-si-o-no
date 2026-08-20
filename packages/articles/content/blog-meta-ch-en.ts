@@ -3592,6 +3592,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Buying a Schaffhausen Home: Prices, Mortgage and Taxes',
     'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Operational guide for the purchase of real estate in the canton of Schaffhausen: own funds required, sustainability of the mortgage, cantonal transfer tax, notary fees and step-by-step procedure.',
     'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Modern Swiss home in Alpine landscape with residential architecture.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Schaffhausen rentals: deposit, cancellation and conciliation',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Maximum security deposit 3 months, cancellation on cantonal form, dispute within 30 days: the federal rental rules in Schaffhausen explained in detail.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Residential buildings and rental properties in Schaffhausen canton',
 };
 
 export default blogMetaChEn;

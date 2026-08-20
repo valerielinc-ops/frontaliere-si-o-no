@@ -3592,6 +3592,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Comprare casa Sciaffusa: prezzi, mutuo e imposte',
     'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Guida operativa all\'acquisto immobiliare nel canton Sciaffusa: fondi propri richiesti, sostenibilità del mutuo, imposta sui trapassi cantonale, spese notarili e procedura step-by-step.',
     'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Casa moderna in paesaggio alpino svizzero con veduta sul territorio.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Affitti Sciaffusa: cauzione, disdetta e conciliazione',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Deposito cauzionale max 3 mesi, disdetta su modulo cantonale, contestazione entro 30 giorni: le norme federali di locazione a Sciaffusa spiegate in dettaglio.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Edifici residenziali e proprietà in affitto nel Canton Sciaffusa',
 };
 
 export default blogMetaChIt;

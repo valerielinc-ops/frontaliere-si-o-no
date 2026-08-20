@@ -3592,6 +3592,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Haus kaufen Schaffhausen: Preise, Hypothek und Steuern',
     'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Operativer Leitfaden zum Immobilienkauf im Kanton Schaffhausen: erforderliche Eigenmittel, Tragbarkeit des Darlehens, kantonale Stempelsteuer, Notarkosten und Schritt-für-Schritt-Verfahren.',
     'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Modernes Schweizer Wohnhaus in Alpenlandschaft mit zeitgenössischer Architektur.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Vermietungen Schaffhausen: Kaution, Kündigung und Schlichtung',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Kaution max. 3 Monate, Kündigung auf kantonalem Formular, Beanstandung innert 30 Tagen: Die eidgenössischen Mietregeln in Schaffhausen werden im Detail erläutert.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Wohngebäude und Mietobjekte im Kanton Schaffhausen',
 };
 
 export default blogMetaChDe;

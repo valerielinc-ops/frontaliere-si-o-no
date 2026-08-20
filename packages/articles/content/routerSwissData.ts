@@ -1223,6 +1223,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-sciaffusa-guida': { it: 'apprendistato-sciaffusa-guida', en: 'apprenticeship-vocational-training-schaffhausen', de: 'berufslehre-berufsbildung-schaffhausen', fr: 'apprentissage-formation-professionnelle-schaffhouse' },
  'croce-rossa-azione-legale-nome': { it: 'croce-rossa-azione-legale-nome', en: 'red-cross-legal-action-name-misuse', de: 'rotes-kreuz-klage-missbrauch-name', fr: 'croix-rouge-action-legale-abus-nom' },
  'comprare-casa-sciaffusa-mutuo': { it: 'comprare-casa-sciaffusa-mutuo', en: 'buy-home-schaffhausen-mortgage', de: 'haus-kaufen-schaffhausen-hypothek', fr: 'acheter-maison-schaffhouse-hypotheque' },
+ 'affitti-sciaffusa-cauzione-disdetta-conciliazione': { it: 'affitti-sciaffusa-cauzione-disdetta-conciliazione', en: 'rental-schaffhausen-deposit-termination-mediation', de: 'mietvertraege-schaffhausen-kaution-kuendigung-schlichtung', fr: 'locations-schaffhouse-garantie-denonciation-conciliation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
