@@ -709,6 +709,21 @@ const EMPTY_OK_CRAWLERS = new Set([
   // clinic's HR team. Parser is healthy; re-arms automatically when CRR
   // Suva republishes an opening.
   'crr-suva-sion',
+  // FART — Ferrovie Autolinee Regionali Ticinesi (Locarno, #6157): verified
+  // live 2026-08-20 — https://fartiamo.ch/lavora-con-noi-concorsi/ was
+  // restructured (`page-sitemap.xml` `lastmod: 2026-08-17`) from the
+  // `<h5>` title + PDF "CONCORSO" link listing the parser targets to a
+  // generic "Candidatura per un concorso pubblicato" spontaneous-application
+  // form. The page has zero `<h5>` elements now (confirmed via curl), and
+  // the form's own "Selezioni il concorso per il quale desidera candidarsi"
+  // dropdown — populated by FART itself with currently-open concorsi —
+  // contains only the placeholder option, i.e. FART confirms zero open
+  // concorsi right now, not a scraping failure. `lastNonZeroJobs: 2` is
+  // physiological for this small regional operator. Parser is healthy;
+  // re-arms automatically when FART republishes a concorso in the new
+  // listing format (structure unknown until one appears — no live sample
+  // to build a selector against yet).
+  'fart',
 ]);
 
 /** Read JSON file, return null on any error. */
