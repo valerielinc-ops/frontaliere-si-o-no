@@ -1697,10 +1697,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "agenturleiter-in-oberwallis-100-css-versicherung-visp",
         "it": "agenzia-manager-in-oberwallis-100-css-versicherung-visp",
-        "en": "agenzia-manager-in-oberwallis-100-css-versicherung-visp",
-        "de": "agenzia-manager-in-oberwallis-100-css-versicherung-visp",
-        "fr": "agenzia-manager-in-oberwallis-100-css-versicherung-visp"
+        "en": "agency-manager-in-oberwallis-100-css-versicherung-visp",
+        "fr": "gestionnaire-de-l-agence-a-oberwallis-100-css-versicherung-visp"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vallese/agenzia-manager-in-oberwallis-100-css-versicherung-visp",
@@ -1714,6 +1714,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -22906,7 +22907,7 @@
       "slugByLocale": {
         "it": "disponent-in-post",
         "en": "disponent-in-post",
-        "de": "disponent-in-post",
+        "de": "disponent-in-die-schweizerische-post-ostermundigen",
         "fr": "disponent-in-post"
       },
       "localePaths": {
@@ -22921,6 +22922,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -39554,27 +39556,30 @@
       "totalImpressions": 292,
       "totalClicks": 2,
       "topQuery": "offerte di lavoro locarno",
-      "title": "MANOVALE EDILE",
+      "title": "Manovale edile",
       "titleByLocale": {
-        "it": "MANOVALE EDILE",
-        "en": "MANOVA EDILE",
-        "de": "MANOVAEDILE",
-        "fr": "ÉDITION DE MANOVA"
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di manovale edile\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n• esperienza su cantiere svizzeri • capacità di lavoro in squadra • preparazione e pulizia cantiere • preparazione malta, cemento e colla • aiuto muratore • uso attrezzi cantieri • non soffrire di vertigini • disponibilità immediata • flessibile a spostamenti • automunito",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MANOVALE EDILE in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MANOVALE EDILE in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MANOVALE EDILE à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
       },
-      "company": "Pemsa",
+      "company": "PEMSA",
       "companyKey": "pemsa",
-      "location": "",
+      "location": "Locarno",
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "manovale-edile-pemsa-locarno"
+        "it": "manovale-edile-pemsa-locarno",
+        "en": "manova-edile-pemsa-locarno",
+        "de": "manovaedile-pemsa-locarno",
+        "fr": "edition-de-manova-pemsa-locarno"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/manovale-edile-pemsa-locarno",
@@ -39588,9 +39593,9 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
-        "translation-cache",
         "slug-registry",
-        "all-known-slugs"
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
