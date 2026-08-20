@@ -155,6 +155,15 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
     // geometrico e deve restare lontano dal 100%, altrimenti il breaker
     // protegge una sezione che non ha piu' tempo per il fallback.
     //
+    // Ritarato il 2026-08-20 con la quota a 1/2 (issue del corpus #518): la serie
+    // idealizzata vale 1 - (1/2)³ = 0,875, e su questa allowance il tetto
+    // CLAUDE_CLI_MAX_TIMEOUT_MS taglia la prima chiamata, quindi la
+    // simulazione misura ~84%. Il bound a 0,9 tiene entrambe e continua a
+    // respingere una quota da 0,55 in su (serie ≥ 0,909). Era 0,75, derivato
+    // dalla quota a 1/3 (serie 0,704): non e' un allentamento gratuito —
+    // cio' che serve alla cascata e' tempo ASSOLUTO, e quello e' presidiato
+    // dall'asserzione sotto, nuova, che a 1/3 non esisteva.
+    //
     // Sotto, invece, comanda il MINIMO e la tempesta puo' legittimamente
     // consumare tutta l'allowance — esattamente come faceva il vecchio fisso a
     // 120s su una sezione da 360s. Li' la garanzia che resta e' quella del
@@ -164,10 +173,21 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
     const speso = tempesta(ampia, SOGLIA());
     const frazione = speso / ampia;
     assert.ok(
-      frazione < 0.75,
+      frazione < 0.9,
       `con quota ${SHARE()} e soglia ${SOGLIA()}, su un'allowance ampia (${ampia / 1000}s) ` +
-      `una tempesta spende il ${(frazione * 100).toFixed(1)}%: sopra il 75% non resta ` +
-      'sezione utile per i modelli dopo claude-cli',
+      `una tempesta spende il ${(frazione * 100).toFixed(1)}%: a questo livello la serie ` +
+      'geometrica implica una quota >= 0,55 e non resta sezione utile per i modelli dopo claude-cli',
+    );
+    // Il fallback dominante misurato (nvidia, run 32230961988: 59 chiamate
+    // su 62) risponde in <60s: dopo una tempesta piena devono restare ALMENO
+    // due chiamate cosi', in secondi veri e non in frazione — e' questa la
+    // proprieta' che il bound frazionario approssimava.
+    const CHIAMATA_FALLBACK_MS = 60_000;
+    assert.ok(
+      ampia - speso >= 2 * CHIAMATA_FALLBACK_MS,
+      `dopo una tempesta su ${ampia / 1000}s alla cascata restano ` +
+      `${((ampia - speso) / 1000).toFixed(0)}s: meno di due chiamate del fallback ` +
+      'misurato (<60s l\'una)',
     );
   });
 

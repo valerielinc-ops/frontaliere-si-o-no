@@ -1090,20 +1090,33 @@ const CLAUDE_CLI_MAX_TIMEOUT_MS = 600_000;
 
 // Quota dell'allowance residua concessa a UNA chiamata del CLI.
 //
-// 1/3 e non 1/2: il breaker scatta a CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD (3)
-// timeout consecutivi, quindi il caso peggiore e' una serie geometrica
+// 1/2 dal 2026-08-20 (issue del corpus #518); era 1/3. La misura che ha deciso, su 6 run
+// del 19-20/08: 14 chiamate uccise dal timeout, TUTTE ancora vive e in
+// streaming al SIGKILL («fermo dopo assistant a 336821ms» su un kill a
+// 362898ms), e le 5 limitate dalla quota — 205s, 241s, 312s, 355s, 363s —
+// avevano `remaining` 616-1089s: budget in abbondanza, uccise lo stesso. A
+// 1/3 la quota copriva a malapena il range delle chiamate RIUSCITE osservate
+// (90-265s); a 1/2 quelle 5 avrebbero avuto 308-545s. La lentezza di haiku
+// e' thinking legittimo (5.000-12.600 token a chiamata, ~90 tok/s costanti,
+// vedi l'issue del corpus #517, §2), non coda — e la decisione del proprietario (2026-08-20) e'
+// che la qualita' viene prima: meglio dare tempo ad haiku che ucciderlo
+// presto e ricadere sulla cascata, che risponde in <60s ma e' il ripiego.
+// Il costo dichiarato: le run si allungano quando haiku e' lento.
 //
-//     1/3 + (2/3)(1/3) + (2/3)²(1/3) = 1 - (2/3)³ = 19/27 ≈ 0,704
-//
-// cioe' una tempesta piena lascia comunque ~30% del budget di sezione alla
-// cascata dei modelli successivi. (Questa riga diceva 0,578 e ~42%: numero
-// sbagliato, trovato dalla review del sito #6045. Verificato sulla serie
-// osservata, 1020s → 340+227+151 = 718s, cioe' 70,3%. Il test simula la
-// formula vera e misura ~73%, non la serie idealizzata.) A 1/2 la stessa
-// serie fa 1 - (1/2)³ = 0,875 e la sezione resterebbe senza tempo per il
-// fallback. Sull'allowance osservata: 1020s → 340s a chiamata (2,8x
-// l'odierno), 630s → 210s.
-const CLAUDE_CLI_ALLOWANCE_SHARE = 1 / 3;
+// Il caso peggiore, che a 1/3 era la ragione per non salire: il breaker
+// scatta a CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD (3) timeout consecutivi, e la
+// serie geometrica a 1/2 vale 1 - (1/2)³ = 0,875 contro 0,704 di 1/3. Ma il
+// consumo vero e' sotto il limite idealizzato — il tetto
+// CLAUDE_CLI_MAX_TIMEOUT_MS taglia la prima chiamata appena l'allowance
+// supera 1200s: a 1620s la tempesta spende l'84% e alla cascata restano
+// 255s, cioe' 4+ chiamate del fallback misurato (<60s l'una). Dove invece
+// morde, il regime medio (720-1020s di allowance: restano 0-75s contro
+// 120-274s di 1/3), una tempesta richiede 3 timeout consecutivi ANCHE con
+// finestre da 300-600s — un haiku rotto, non lento — e trace.salvage() ha
+// comunque recuperato 7 payload su 14 kill. La clamp finale a `remaining`
+// in _callClaudeCli resta cio' che rende impossibile per costruzione
+// sfondare il budget di sezione, qualunque valore prenda questa quota.
+const CLAUDE_CLI_ALLOWANCE_SHARE = 1 / 2;
 let _claudeCliInFlight = 0;
 const _claudeCliWaiters = [];
 
