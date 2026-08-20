@@ -12924,10 +12924,10 @@
         "it": "casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-nidvaldo/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth",
-        "en": "/en/find-jobs-nidwalden/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth",
+        "it": "/cerca-lavoro-svitto/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth",
+        "en": "/en/find-jobs-schwyz/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth",
         "de": "/de/jobs-im-schwyz/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth",
-        "fr": "/fr/trouver-emploi-nidwald/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth"
+        "fr": "/fr/trouver-emploi-schwytz/casse-servizi-per-assistenti-vendite-coop-genossenschaft-arth"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -14464,6 +14464,272 @@
       "source": [
         "gsc",
         "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "chiasso",
+      "locale": "de",
+      "path": "/de/jobs-im-tessin/chiasso/",
+      "observedPaths": {
+        "de": "/de/jobs-im-tessin/chiasso/"
+      },
+      "queries": [
+        {
+          "query": "lehrstellen chiasso",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "chiasso lavoro",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "ja",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "job chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "job contact chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs chiasso",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "topQuery": "lehrstellen chiasso",
+      "title": "chiasso",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "chiasso",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/chiasso/",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/chiasso/"
+      },
+      "queries": [
+        {
+          "query": "lavoro a chiasso",
+          "clicks": 0,
+          "impressions": 15
+        },
+        {
+          "query": "chiasso lavoro",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "jobs chiasso",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "cerco lavoro chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "chiasso ti",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job contact chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte di lavoro chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte lavoro chiasso",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "anche in questo periodo?",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "chiasso lavoro offerte",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro svizzera chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro chiasso per italiani",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "quindi devo aspettare",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "relewant chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "si",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 44,
+      "totalClicks": 0,
+      "topQuery": "lavoro a chiasso",
+      "title": "chiasso",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "chiasso",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-tessin/chiasso/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-tessin/chiasso/"
+      },
+      "queries": [
+        {
+          "query": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "job chiasso",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "title": "chiasso",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "slug-parsing"
       ]
     },
@@ -38789,10 +39055,10 @@
         "fr": "lernender-detailhandel-m-w-d-aldi-suisse-dietikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
-        "en": "/en/find-jobs-vaud/lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
+        "it": "/cerca-lavoro-lucerna/lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
+        "en": "/en/find-jobs-lucerne/lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
         "de": "/de/jobs-im-waadt/lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
-        "fr": "/fr/trouver-emploi-vaud/lernender-detailhandel-m-w-d-aldi-suisse-dietikon"
+        "fr": "/fr/trouver-emploi-lucerne/lernender-detailhandel-m-w-d-aldi-suisse-dietikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -49640,10 +49906,10 @@
         "fr": "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
-        "en": "/en/find-jobs-ticino/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
-        "de": "/de/jobs-im-tessin/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
-        "fr": "/fr/trouver-emploi-tessin/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
+        "it": "/cerca-lavoro-zurigo/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
+        "en": "/en/find-jobs-zurich/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
+        "de": "/de/jobs-in-zurich/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
+        "fr": "/fr/trouver-emploi-zurich/professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70540,6 +70806,63 @@
       ]
     },
     {
+      "slug": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens/"
+      },
+      "queries": [
+        {
+          "query": "otto's emploi vaud",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "otto's emploi vaud",
+      "title": "Vendeur parfumerie cosmetique h otto s ag echandens",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+        "en": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+        "de": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+        "fr": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+        "en": "/en/find-jobs-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+        "de": "/de/jobs-im-waadt/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
+        "fr": "/fr/trouver-emploi-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "vendeur-produits-frais-coop-genossenschaft-zurich-igj8sp",
       "locale": "en",
       "path": "/en/find-jobs-ticino/vendeur-produits-frais-coop-genossenschaft-zurich-igj8sp",
@@ -76826,63 +77149,6 @@
         "en": "/en/find-jobs-aargau/zusteller-in-pakete-post-3",
         "de": "/de/jobs-im-bern/zusteller-in-pakete-post-3",
         "fr": "/fr/trouver-emploi-argovie/zusteller-in-pakete-post-3"
-      },
-      "sourceUrl": "",
-      "googleStatus": "unknown",
-      "googleCanonical": "",
-      "lastCrawlTime": "",
-      "source": [
-        "gsc",
-        "all-known-slugs"
-      ]
-    },
-    {
-      "slug": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-      "locale": "fr",
-      "path": "/fr/trouver-emploi-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens/",
-      "observedPaths": {
-        "fr": "/fr/trouver-emploi-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens/"
-      },
-      "queries": [
-        {
-          "query": "otto's emploi vaud",
-          "clicks": 0,
-          "impressions": 1
-        }
-      ],
-      "totalImpressions": 1,
-      "totalClicks": 0,
-      "topQuery": "otto's emploi vaud",
-      "title": "Vendeur parfumerie cosmetique h otto s ag echandens",
-      "titleByLocale": {
-        "it": "",
-        "en": "",
-        "de": "",
-        "fr": ""
-      },
-      "descriptionByLocale": {
-        "it": "",
-        "en": "",
-        "de": "",
-        "fr": ""
-      },
-      "company": "",
-      "companyKey": "",
-      "location": "",
-      "sector": "",
-      "salaryMin": 0,
-      "salaryCurrency": "CHF",
-      "slugByLocale": {
-        "it": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-        "en": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-        "de": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-        "fr": "vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens"
-      },
-      "localePaths": {
-        "it": "/cerca-lavoro-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-        "en": "/en/find-jobs-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-        "de": "/de/jobs-im-waadt/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens",
-        "fr": "/fr/trouver-emploi-vaud/vendeur-parfumerie-cosmetique-h-f-otto-s-ag-echandens"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
