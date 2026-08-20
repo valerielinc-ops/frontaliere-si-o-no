@@ -10208,6 +10208,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'I numeri del giorno per i frontalieri – 20 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Bollettino frontalieri del 20 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'I numeri del 20 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.credito-dichiarazione-redditi-2026.title': 'Credito d\'imposta 2026: la guida frontalieri oltre 20 km',
+    'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri rimodula il credito d\'imposta. Ecco franchigia €7.500 (vecchi) e €10.000 (nuovi), calcolo nel quadro CE 730 e checklist operativa.',
+    'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Frontaliere esamina documenti fiscali Swiss-italiani alla scrivania durante l\'ora d\'oro',
 };
 
 export default blogMetaIt;

@@ -10206,6 +10206,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 20. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Grenzgänger-Bulletin vom 20. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'Die Zahlen vom 20. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.credito-dichiarazione-redditi-2026.title': 'Steuergutschrift 2026: Grenzgänger fahren über 20 km',
+    'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'Ab dem 1. Januar 2024 wird die Steuergutschrift durch die Neue Grenzgängervereinbarung neu festgelegt. Hier € 7.500 (alt) und € 10.000 (neu) Selbstbehalt, Berechnung im Rahmen CE 730 und operative Checkliste.',
+    'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Grenzgänger prüft Schweizer-italienische Steuerdokumente am Schreibtisch bei Goldstundenlicht',
 };
 
 export default blogMetaDe;

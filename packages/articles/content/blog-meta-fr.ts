@@ -10209,6 +10209,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'Les chiffres du jour pour les frontaliers – 20 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Bulletin du frontalier du 20 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'Les chiffres du 20 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.credito-dichiarazione-redditi-2026.title': 'Crédit d\'impôt 2026 : le guide frontalier plus de 20 km',
+    'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'À partir du 1er janvier 2024, le nouvel accord frontalier modifie le crédit d\'impôt. Voici la franchise 7 500 € ( anciens) et 10 000 € ( nouveaux), calcul dans le cadre CE 730 et checklist opérationnelle.',
+    'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Frontalier examine des documents fiscaux Suisse-Italie à son bureau en heure dorée',
 };
 
 export default blogMetaFr;
