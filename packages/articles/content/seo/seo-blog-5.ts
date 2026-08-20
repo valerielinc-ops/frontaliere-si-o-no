@@ -70660,6 +70660,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-vivere-intragna-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Intragna, lavorare in Ticino: guida frontaliere',
+    description: 'Tempi valichi, permesso G, tassazione frontalieri, ristorni, costo vita: come trasferirsi da Intragna e lavorare in Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, intragna, lavorare, tempi',
+    ogTitle: 'Vivere a Intragna, lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Scopri come trasferirsi da Intragna (Italia) e lavorare in Ticino come frontaliere: permesso G, imposta alla fonte, ristorni fiscali, assicurazioni sociali AVS-LAMal, costi trasporto e tempi valichi Brogeda-Gaggiolo.',
+    canonicalPath: '/articoli-frontaliere/vivere-intragna-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Intragna, lavorare in Ticino: guida frontaliere",
+      "description": "Tempi valichi, permesso G, tassazione frontalieri, ristorni, costo vita: come trasferirsi da Intragna e lavorare in Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-intragna-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Lago Lugano separa la Svizzera dall'Italia: il confine naturale tra il Ticino e il Verbano-Cusio-Ossola dove vivono i frontalieri"
+      },
+      "datePublished": "2026-08-20T00:21:04+00:00",
+      "dateModified": "2026-08-20T00:21:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-intragna-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

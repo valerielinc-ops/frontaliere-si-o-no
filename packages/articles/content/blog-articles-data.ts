@@ -30459,6 +30459,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'vivere-intragna-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-20T00:21:03.968Z',
+ image: '/images/blog/vivere-intragna-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

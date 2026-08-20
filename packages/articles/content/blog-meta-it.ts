@@ -10170,6 +10170,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gravidanza-lamal-cmi-frontaliera.title': 'Frontaliera in gravidanza: scegliere LAMal o CMI?',
     'blog.article.gravidanza-lamal-cmi-frontaliera.excerpt': 'La scelta tra LAMal e CMI durante la gravidanza è decisiva. Franchigie, coperture e procedura: guida completa per frontaliera con permesso G.',
     'blog.article.gravidanza-lamal-cmi-frontaliera.imageAlt': 'Donna incinta con documenti assicurativi sanitari davanti al panorama di Lugano in Ticino',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.title': 'Vivere a Intragna, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.excerpt': 'Tempi valichi, permesso G, tassazione frontalieri, ristorni, costo vita: come trasferirsi da Intragna e lavorare in Ticino.',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.imageAlt': 'Il Lago Lugano separa la Svizzera dall\'Italia: il confine naturale tra il Ticino e il Verbano-Cusio-Ossola dove vivono i frontalieri',
 };
 
 export default blogMetaIt;
