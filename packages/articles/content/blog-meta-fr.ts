@@ -10299,6 +10299,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.eupilio-ticino-frontaliere-guida.title': 'Vivre à Eupilio et travailler au Tessin : guide frontalier',
     'blog.article.eupilio-ticino-frontaliere-guida.excerpt': 'Eupilio à 20 km de la frontière suisse : temps, fiscalité, permis G, AVS/LPP et checklist pratique du transfert de frontalier.',
     'blog.article.eupilio-ticino-frontaliere-guida.imageAlt': 'Vue du paysage alpin tessinois avec vallées, lacs et zones résidentielles typiques de la région frontalière.',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.title': 'Mariano Comense : guide fiscal pour les frontaliers au Tessin',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.excerpt': 'Permis G, fiscalité 2024, AVS/LPP/LAMal et checklist pratique. Comment déménager de Mariano Comense et travailler au Tessin. Calculez votre net.',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.imageAlt': 'Vue panoramique de Lugano depuis le Monte San Salvatore, destination de travail pour frontaliers depuis Mariano Comense',
 };
 
 export default blogMetaFr;

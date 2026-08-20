@@ -3604,6 +3604,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-affitti-schiaffusa.title': 'Rental market in Schaffhausen: deposit and rental right',
     'blog.article.mercato-affitti-schiaffusa.excerpt': 'The right to rent in Schaffhausen is governed by Article 253 of the Swiss Civil Code. The deposit is held on account in the tenant\'s name.',
     'blog.article.mercato-affitti-schiaffusa.imageAlt': 'Sciaffusa, rental market, deposit, tenant rights',
+    'blog.article.affitti-sciaffusa-diritto-locazione.title': 'Schaffhausen rentals: fees, deposit and right of lease',
+    'blog.article.affitti-sciaffusa-diritto-locazione.excerpt': 'Federal rules on security deposit, cancellation and dispute of fees in the canton of Schaffhausen according to the Swiss Bond Code.',
+    'blog.article.affitti-sciaffusa-diritto-locazione.imageAlt': 'Exterior of a modern residential building in Switzerland with clear windows and clean architecture',
 };
 
 export default blogMetaChEn;

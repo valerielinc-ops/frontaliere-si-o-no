@@ -10297,6 +10297,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eupilio-ticino-frontaliere-guida.title': 'Living in Eupilio and working in Ticino: border guide',
     'blog.article.eupilio-ticino-frontaliere-guida.excerpt': 'Eupilio 20 km from the Swiss border: time, taxation, G Permit, AVS/LPP and practical checklist of the transfer from border crossing.',
     'blog.article.eupilio-ticino-frontaliere-guida.imageAlt': 'View of Ticino Alpine landscape with valleys, lakes and residential areas typical of the border zone.',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.title': 'Mariano Comense: tax guide for border workers in Ticino',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.excerpt': 'Permit G, 2024 taxation, AVS/LPP/LAMal and practical checklist. How to move to Mariano Comense and work in Ticino. Calculate your net.',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.imageAlt': 'Panoramic view of Lugano from Monte San Salvatore, work destination for cross-border workers from Mariano Comense',
 };
 
 export default blogMetaEn;
