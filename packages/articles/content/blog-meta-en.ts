@@ -10291,6 +10291,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Living in Carbonate and working in Ticino: advantages and disadvantages',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Border Ticino residents in Carbonate: new tax agreement, tax at source, double taxation, refunds, double residence, G permit, B permit, LAMal, AVS, LPP.',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri Ticino living in Carbonate, with view on Lake Lugano.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Living in Erba, working in Ticino as a border worker',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba is a strategic location for border workers working in Ticino. Discover the G permit, Italy-Swiss taxation, LAMal and management costs.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Mendrisio town and the border region between Como and Ticino, with mountains and Alpine landscape.',
 };
 
 export default blogMetaEn;

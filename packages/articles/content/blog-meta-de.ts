@@ -10290,6 +10290,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Leben in Carbonate und Arbeiten im Tessin: Vor- und Nachteile',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger Tessin mit Wohnsitz in Carbonate: neues Steuerabkommen, Quellensteuer, Doppelbesteuerung, Rückerstattungen, Doppelwohnsitz, Bewilligung G, Bewilligung B, KVG, AHV, BVG.',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri Ticino in Carbonate, mit Blick auf den Luganersee.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Leben in Gras, Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba ist ein strategischer Standort für Grenzgänger, die im Tessin arbeiten. Entdecken Sie die G-Bewilligung, die italienisch-schweizerische Besteuerung, das KVG und die Verwaltungskosten.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Mendrisio und der Grenzregion zwischen Como und Tessin mit Bergen und alpiner Landschaft.',
 };
 
 export default blogMetaDe;

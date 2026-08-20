@@ -10293,6 +10293,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Vivre à Carbonate et travailler au Tessin : avantages et inconvénients',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Frontaliers du Tessin résidant à Carbonate : nouvel accord fiscal, impôt à la source, double imposition, restauration, double résidence, permis G, permis B, LAMal, AVS, LPP.',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontaliers Ticino résidents à Carbonate, avec vue sur le Lac de Lugano.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Vivre à Erba, travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba est un emplacement stratégique pour les frontaliers qui travaillent au Tessin. Découvrez le permis G, la fiscalité italo-suisse, LAMal et les frais de gestion.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Mendrisio et de la région frontalière entre Como et le Tessin avec montagnes et paysage alpin.',
 };
 
 export default blogMetaFr;

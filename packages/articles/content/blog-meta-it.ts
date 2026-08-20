@@ -10292,6 +10292,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.title': 'Vivere a Carbonate e lavorare in Ticino: vantaggi e svantaggi',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.excerpt': 'Frontalieri Ticino risiedenti a Carbonate: nuovo accordo fiscale, imposta alla fonte, doppia imposizione, ristorni, doppia residenza, permesso G, permesso B, LAMal, AVS, LPP.',
     'blog.article.vivere-carbonate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri Ticino risiedenti a Carbonate, con vista sul Lago di Lugano.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Vivere a Erba, lavorare in Ticino da frontaliere',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba è una location strategica per frontalieri che lavorano in Ticino. Scopri il permesso G, la fiscalità italia-svizzera, LAMal e i costi di gestione.',
+    'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Veduta aerea di Mendrisio e della regione frontaliera tra Como (Italia) e Ticino (Svizzera), con montagne e paesaggio alpino.',
 };
 
 export default blogMetaIt;
