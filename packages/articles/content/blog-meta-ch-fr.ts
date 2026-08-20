@@ -3526,6 +3526,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.orologi-export-svizzera-augusto-2026.title': 'Trump n\'arrête pas l\'exportation de montres suisses : en juillet sur 10%',
     'blog.article.orologi-export-svizzera-augusto-2026.excerpt': 'Les exportations de montres suisses ont enregistré une nette hausse en juillet, confirmant que Trump n\'arrête pas les exportations de montres suisses : en juillet, elles ont grimpé de 10%. La croissance a été de 9,6 % sur une base annuelle, portant le total à 2,63 milliards de francs.',
     'blog.article.orologi-export-svizzera-augusto-2026.imageAlt': 'Croissance des exportations d\'horloges suisses',
+    'blog.article.rallentamento-crescita-demografica-2025.title': 'Ralentissement démographique en 2025 : +0,8%',
+    'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'Au 31 décembre 2025, la Suisse compte 9,127 millions d\'habitants. La croissance ralentit à 0,8 %, les personnes âgées dépassent pour la première fois les jeunes. Implications sur l\'AVS, la LPP et le bien-être.',
+    'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Vue aérienne de ville suisse avec personnes de différents âges',
 };
 
 export default blogMetaChFr;

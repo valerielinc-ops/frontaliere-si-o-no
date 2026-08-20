@@ -3526,6 +3526,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.orologi-export-svizzera-augusto-2026.title': 'Trump does not stop the export of Swiss watches: in July up 10%',
     'blog.article.orologi-export-svizzera-augusto-2026.excerpt': 'Exports of Swiss watches registered a sharp increase in July, confirming how Trump does not stop the export of Swiss watches: in July by 10%. Growth was 9.6% year-on-year, bringing the total to CHF 2.63 billion.',
     'blog.article.orologi-export-svizzera-augusto-2026.imageAlt': 'Swiss watch export growth',
+    'blog.article.rallentamento-crescita-demografica-2025.title': 'Demographic slowdown in 2025: +0.8%',
+    'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'As of December 31, 2025, Switzerland has 9.127 million inhabitants. Growth slows to 0.8%, the elderly outnumber the young for the first time. Implications on AVS, LPP and welfare.',
+    'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Aerial view of Swiss city with people of different ages representing demographic aging',
 };
 
 export default blogMetaChEn;

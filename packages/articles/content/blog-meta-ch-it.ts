@@ -3526,6 +3526,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.orologi-export-svizzera-augusto-2026.title': 'Trump non ferma l\'export di orologi svizzeri: a luglio su del 10%',
     'blog.article.orologi-export-svizzera-augusto-2026.excerpt': 'Le esportazioni di orologi svizzeri hanno registrato un netto aumento a luglio, confermando come Trump non ferma l\'export di orologi svizzeri: a luglio su del 10%. La crescita è stata del 9,6% su base annua, portando il totale a 2,63 miliardi di franchi.',
     'blog.article.orologi-export-svizzera-augusto-2026.imageAlt': 'La crescita delle esportazioni orologiere in Svizzera',
+    'blog.article.rallentamento-crescita-demografica-2025.title': 'Rallentamento demografico nel 2025: +0,8%',
+    'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'Al 31 dicembre 2025 la Svizzera conta 9,127 milioni di abitanti. La crescita rallenta all\'0,8%, gli anziani superano per la prima volta i giovani. Implicazioni su AVS, LPP e welfare.',
+    'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Veduta aerea di città svizzera con persone di diverse età, simbolo dell\'invecchiamento demografico',
 };
 
 export default blogMetaChIt;
