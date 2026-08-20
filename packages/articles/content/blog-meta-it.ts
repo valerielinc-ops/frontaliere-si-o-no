@@ -10232,6 +10232,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.novita-frontalieri-legge-217-2025.title': 'Frontalieri Ticino: novità 2026 su telelavoro e rientro',
     'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Legge 217/2025 ratifica Protocollo IT-CH: tolleranza 45 giorni rientro quotidiano, telelavoro fino al 25%, chiarimenti su sede datore lavoro.',
     'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Traffico mattutino al valico di confine Ticino-Italia con automobili in coda e paesaggio alpino',
+    'blog.article.primo-giorno-single-ticino-2026.title': 'Primo giorno in Ticino: checklist per frontalieri single',
+    'blog.article.primo-giorno-single-ticino-2026.excerpt': 'Documenti essenziali, permesso G, imposta alla fonte, LAMal, AVS/LPP: guida operativa per il primo giorno di lavoro come frontaliere single in Ticino nel 2024-2026.',
+    'blog.article.primo-giorno-single-ticino-2026.imageAlt': 'Frontaliere al primo giorno di lavoro in Ticino: firma del contratto e documenti amministrativi in ufficio.',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.title': 'Cermenate: vivere in Italia, lavorare in Ticino',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.excerpt': 'Frontaliere da Cermenate al Ticino: Permesso G, fiscalità, ristorni, AVS, LAMal. Guida pratica e procedure.',
+    'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.imageAlt': 'Vista di Lugano con il lago al tramonto e le Alpi, rappresentando la destinazione lavorativa del frontaliere che vive a Cermenate',
 };
 
 export default blogMetaIt;

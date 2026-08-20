@@ -3538,6 +3538,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.statent-2024-occupazione-svizzera.title': 'Statent 2024: 5.68 million jobs in Switzerland',
     'blog.article.statent-2024-occupazione-svizzera.excerpt': 'In 2024, Switzerland recorded 5.68 million jobs, with a growth of 0.6% compared to the previous year according to the UST.',
     'blog.article.statent-2024-occupazione-svizzera.imageAlt': 'Overview of the Swiss economic market with employment data',
+    'blog.article.pmi-svizzere-assenze-lavoro.title': 'Staff absences cost more to SMEs, AXA study',
+    'blog.article.pmi-svizzere-assenze-lavoro.excerpt': 'An AXA study reveals that 42% of Swiss SMEs have been affected by absences in the last five years. Psychic stress has been on the rise since 2023.',
+    'blog.article.pmi-svizzere-assenze-lavoro.imageAlt': 'Aerial view of modern Swiss city with business district and office buildings, active professional atmosphere',
+    'blog.article.benzina-due-franchi-agosto-2026.title': 'Petrol above 2 francs: first increase since 2022',
+    'blog.article.benzina-due-franchi-agosto-2026.excerpt': 'The price of unleaded petrol 95 exceeds 2 francs per litre for the first time since 2022. Diesel at CHF 2.27. The causes: conflicts in the Middle East and logistics crisis on the Rhine.',
+    'blog.article.benzina-due-franchi-agosto-2026.imageAlt': 'Swiss petrol station at dusk with Alpine mountains in the background',
 };
 
 export default blogMetaChEn;
