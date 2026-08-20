@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-08-20T09:56:12.677Z",
+  "assembledAt": "2026-08-20T21:34:41.962Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:56:10.195Z",
+      "crawledAt": "2026-08-20T21:34:39.614Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:56:09.646Z",
+      "crawledAt": "2026-08-20T21:34:39.058Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:56:09.057Z",
+      "crawledAt": "2026-08-20T21:34:38.422Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -325,7 +325,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
