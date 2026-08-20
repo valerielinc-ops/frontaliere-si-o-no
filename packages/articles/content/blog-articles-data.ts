@@ -30783,6 +30783,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'formazione-oltre-20km-riqualifica',
+ category: 'pratico',
+ date: '2026-08-20T18:03:06.956Z',
+ image: '/images/blog/formazione-oltre-20km-riqualifica.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
