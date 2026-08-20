@@ -10265,6 +10265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte frontaliere: vivere e lavorare in Ticino',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'Nuovo Accordo Frontalieri, tassazione, franchigia €10.000, Permesso G e ristorni fiscali: guida completa per chi risiede a Castelmarte e lavora nel Canton Ticino.',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea del comune di Castelmarte con il lago di Como sullo sfondo, case residenziali sparse sulla collina verdeggiante, zona di confine Ticino.',
+    'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno frontaliere Ticino: costi e permessi',
+    'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Vivere a Lezzeno e lavorare in Ticino da frontaliere: franchigia €10k, imposta fonte svizzera, LAMal, tempi pendolarismo e checklist trasferimento.',
+    'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Vista aerea del Ceresio al tramonto con villaggi lacustri ticinesi e strade di confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

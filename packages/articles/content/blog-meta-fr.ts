@@ -10266,6 +10266,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte frontalier : vivre et travailler au Tessin',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'Nouvel accord frontalier, fiscalité, franchise de 10 000 € , permis G et ristournes fiscales : guide complet pour ceux qui résident à Castelmarte et travaillent dans le canton du Tessin.',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Castelmarte avec le lac de Côme en arrière-plan, maisons résidentielles sur colline verte, région frontalière de la Suisse.',
+    'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno frontalier Tessin : coûts et permis',
+    'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Vivre à Lezzeno et travailler au Tessin en tant que frontalier : franchise de € 10k, impôt suisse, LAMal, temps de trajet et checklist transfert.',
+    'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Vue aérienne du lac de Lugano au coucher de soleil avec les villages de bord de lac suisse et les routes de frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;
