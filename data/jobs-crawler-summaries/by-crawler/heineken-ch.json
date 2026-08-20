@@ -1,16 +1,16 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-08-20T10:03:05.872Z",
-  "total": 16,
+  "generatedAt": "2026-08-20T21:48:56.377Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 75564,
-  "avgDurationMs": 75564,
+  "removedCount": 6,
+  "unchangedCount": 1,
+  "durationMs": 75132,
+  "avgDurationMs": 75132,
   "durationHistory": [
-    75564
+    75132
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,14 +41,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:03:03.497Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-08-20T21:48:54.169Z",
       "firstSeenAt": "2026-08-19T21:39:33.117Z",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -79,7 +78,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:56.102Z",
+      "crawledAt": "2026-08-20T21:48:46.443Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:54:07.430Z",
       "_qualityScore": 86,
@@ -117,7 +116,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=163082&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:01:59.991Z",
+      "crawledAt": "2026-08-20T21:47:50.653Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:54:58.821Z",
       "_qualityScore": 90,
@@ -155,8 +154,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:08.480Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-08-20T21:47:58.447Z",
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -193,7 +191,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:15.683Z",
+      "crawledAt": "2026-08-20T21:48:05.678Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
       "_qualityScore": 88,
@@ -231,8 +229,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:24.033Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-08-20T21:48:13.808Z",
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -269,7 +266,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:31.137Z",
+      "crawledAt": "2026-08-20T21:48:22.246Z",
       "firstSeenAt": "2026-05-13T11:12:28.078Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -306,8 +303,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:39.315Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-08-20T21:48:30.297Z",
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -344,7 +340,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:02:48.007Z",
+      "crawledAt": "2026-08-20T21:48:38.121Z",
       "firstSeenAt": "2026-05-13T11:12:58.806Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -355,12 +351,11 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "heineken-ch-c474744a1642",
       "jobReqId": null,
-      "slug": "chauffeur-c-e-heineken-ch-chur",
+      "slug": "c-c-e-heineken-switzerland-chur",
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
@@ -391,18 +386,18 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:06:38.567Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 25
       }
     },
     {
       "id": "heineken-ch-867373e9e68a",
       "jobReqId": null,
-      "slug": "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-chur",
+      "slug": "employee-guided-brewery-tours-10-su-richiesta-heineken-switzerland-chur",
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
@@ -427,24 +422,23 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T10:06:30.540Z",
-      "needsRetranslation": true,
       "salaryMin": 5800,
       "salaryMax": 8700,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:06:30.540Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "heineken-ch-2f0548bc6590",
       "jobReqId": null,
-      "slug": "logistiker-in-getrankelager-100-heineken-switzerland-chur",
+      "slug": "logisticista-magazzino-bevande-100-heineken-switzerland-chur",
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
@@ -469,24 +463,23 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T10:06:22.545Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:06:22.545Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "heineken-ch-a5598d115b62",
       "jobReqId": null,
-      "slug": "chauffeur-kat-c-e-heineken-ch-chur",
+      "slug": "chauffeur-cat-c-e-heineken-switzerland-chur",
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
@@ -511,17 +504,16 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T10:06:14.541Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:06:14.541Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -559,18 +551,18 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:06:06.566Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "heineken-ch-1fa4bd414212",
       "jobReqId": null,
-      "slug": "agent-customer-support-heineken-ch-chur",
+      "slug": "supporto-clienti-dell-agente-heineken-switzerland-chur",
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
       "companyDomain": "theheinekencompany.com",
@@ -601,14 +593,16 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:06:06.455Z",
       "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "heineken-ch-7822fc944d74",
       "jobReqId": "162220",
@@ -637,12 +631,11 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T21:38:37.619Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T11:56:39.423Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
