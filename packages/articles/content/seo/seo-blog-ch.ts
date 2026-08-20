@@ -46781,6 +46781,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-sciaffusa-cassa': {
+    title: 'AVS e prestazioni complementari Sciaffusa | Frontaliere Ticino',
+    description: 'La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, sciaffusa, cassa',
+    ogTitle: 'AVS e prestazioni complementari Sciaffusa',
+    ogDescription: 'La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-sciaffusa-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari Sciaffusa",
+      "description": "La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-sciaffusa-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del paesaggio svizzero con vista sulle montagne alpine della Svizzera settentrionale"
+      },
+      "datePublished": "2026-08-20T22:04:59+00:00",
+      "dateModified": "2026-08-20T22:04:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-sciaffusa-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
