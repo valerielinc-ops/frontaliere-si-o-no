@@ -3475,6 +3475,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Rentals Basel Countryside: fees and rental rights',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Swiss Federal Regulation on Security Deposit, Cancellation, Rent Dispute and Conciliation Authority in Residential Lease in Basel Countryside.',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Residential building with apartment rental units in Basel-Landschaft',
+    'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival in Lenk: the new rules',
+    'blog.article.antara-tantra-festival-lenk.excerpt': 'The Tantra Festival Switzerland changes its name to Antara Tantra Festival, introducing strict consent rules and safety manuals to Lenk.',
+    'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival in Lenk, Bern canton',
 };
 
 export default blogMetaChEn;

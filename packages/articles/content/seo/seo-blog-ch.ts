@@ -45065,6 +45065,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-antara-tantra-festival-lenk': {
+    title: 'Antara Tantra Festival a Lenk: le nuove regole',
+    description: 'A Lenk nel canton Berna si tiene l\'Antara Tantra Festival dal 19 al 23 agosto 2026. Introdotte nuove regole rigide sul consenso, manuali e codici QR.',
+    keywords: 'frontalieri, ticino, svizzera, italia, antara, tantra, festival, lenk',
+    ogTitle: 'Antara Tantra Festival a Lenk con nuove regole sul consenso',
+    ogDescription: 'Il festival del tantra cambia nome in Antara Tantra Festival e si tiene a Lenk dal 19 al 23 agosto 2026, introducendo manuali di sette pagine sul consenso, webinar di preparazione e un sistema di segnalazione digitale.',
+    canonicalPath: '/articoli-svizzera/antara-tantra-festival-lenk/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Antara Tantra Festival a Lenk: le nuove regole",
+      "description": "A Lenk nel canton Berna si tiene l'Antara Tantra Festival dal 19 al 23 agosto 2026. Introdotte nuove regole rigide sul consenso, manuali e codici QR.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/antara-tantra-festival-lenk.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Antara Tantra Festival a Lenk nel canton Berna"
+      },
+      "datePublished": "2026-08-20T01:23:25+00:00",
+      "dateModified": "2026-08-20T01:23:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/antara-tantra-festival-lenk/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

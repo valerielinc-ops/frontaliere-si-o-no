@@ -3475,6 +3475,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Location Bâle-Campagne : loyers et droit de location',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Règlement fédéral suisse sur le dépôt de garantie, la résiliation, la contestation de la redevance et l\'autorité de conciliation dans la location résidentielle à Bâle-Campagne.',
     'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Immeuble résidentiel avec appartements locatifs à Bâle-Campagne',
+    'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival à Lenk : les nouvelles règles',
+    'blog.article.antara-tantra-festival-lenk.excerpt': 'Le Tantra Festival Switzerland change de nom et devient Antara Tantra Festival, introduisant des règles strictes sur le consentement et les manuels de sécurité à Lenk.',
+    'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival à Lenk dans le canton de Berne',
 };
 
 export default blogMetaChFr;
