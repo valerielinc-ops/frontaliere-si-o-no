@@ -30864,6 +30864,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-buguggiate-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-20T23:16:11.832Z',
+ image: '/images/blog/vivere-buguggiate-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10306,6 +10306,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.title': 'Living in Besozzo and working in Ticino as a border worker',
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.excerpt': 'The border worker who moves to Besozzo can enjoy a quick connection with Ticino, with travel times of 20-30 minutes.',
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere who moves to Besozzo can enjoy a fast connection to Ticino, with travel times of 20-30 minutes.',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.title': 'Living in Buguggiate and working in Ticino as a border worker',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.excerpt': 'Tax settings, connections and recommended areas for border crossers living in Buguggiate and working in Ticino',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.imageAlt': 'Landscape with lake and mountains in Ticino',
 };
 
 export default blogMetaEn;
