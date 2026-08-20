@@ -1213,6 +1213,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pianificazione-ospedaliera-ticino-2026': { it: 'pianificazione-ospedaliera-ticino-2026', en: 'ticino-hospital-planning-2026', de: 'tessiner-spitalplanung-2026', fr: 'planification-hospitaliere-tessin-2026' },
  'uss-pensionati-rendite-2027': { it: 'uss-pensionati-rendite-2027', en: 'uss-pensioners-benefits-2027', de: 'uss-pensionare-leistungen-2027', fr: 'uss-pensionnes-prestations-2027' },
  'posta-utile-in-salita': { it: 'posta-utile-in-salita', en: 'posta-profit-increase', de: 'posta-gewinnsteigerung', fr: 'augmentation-des-benefices-de-la-posta' },
+ 'gas-svizzera-inverno-opzione': { it: 'gas-svizzera-inverno-opzione', en: 'switzerland-gas-winter-option', de: 'gas-schweiz-winter-option', fr: 'gaz-suisse-hiver-option' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

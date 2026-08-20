@@ -3562,6 +3562,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.posta-utile-in-salita.title': 'Post, bergauf nützlich trotz sinkender Briefe',
     'blog.article.posta-utile-in-salita.excerpt': 'Die Schweizerische Post verzeichnete im ersten Halbjahr 2026 eine Gewinnsteigerung von CHF 74 Mio. auf CHF 139 Mio.',
     'blog.article.posta-utile-in-salita.imageAlt': 'Ein Blick auf Lugano mit einem Anstieg der Gewinne der Posta Svizzera im ersten Halbjahr 2026',
+    'blog.article.gas-svizzera-inverno-opzione.title': 'Gas, neue Option für den Winter in der Schweiz',
+    'blog.article.gas-svizzera-inverno-opzione.excerpt': 'Der Bund aktiviert die Option ITA.SWAPtion.26 für den Zugang zur Pipeline Frankreich-Italien. Kosten 2-3 Franken pro Familie. Erhältlich ab Oktober 2026.',
+    'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Schweizer Berglandschaft im Winter mit Energieinfrastruktur im Tal',
 };
 
 export default blogMetaChDe;

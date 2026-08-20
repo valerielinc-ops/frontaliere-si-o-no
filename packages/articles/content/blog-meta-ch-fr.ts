@@ -3562,6 +3562,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.posta-utile-in-salita.title': 'Courrier, utile en montée malgré la baisse des lettres',
     'blog.article.posta-utile-in-salita.excerpt': 'La Poste Suisse a enregistré une hausse de ses bénéfices au premier semestre 2026, passant de 74 à 139 millions de francs.',
     'blog.article.posta-utile-in-salita.imageAlt': 'Une vue de Lugano avec une hausse des profits de la Posta Svizzera dans la première moitié de 2026',
+    'blog.article.gas-svizzera-inverno-opzione.title': 'Gaz, nouvelle option pour l\'hiver en Suisse',
+    'blog.article.gas-svizzera-inverno-opzione.excerpt': 'La Confédération active l\'option ITA.SWAPtion.26 pour accéder au gazoduc France-Italie. Coût 2-3 francs pour les familles. Disponible à partir d\'octobre 2026.',
+    'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Paysage alpin hivernal suisse avec infrastructure énergétique dans la vallée',
 };
 
 export default blogMetaChFr;

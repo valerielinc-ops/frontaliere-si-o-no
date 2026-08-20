@@ -10255,6 +10255,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gavirate-lavorare-ticino.title': 'Living in Gavirate and working in Ticino as a border worker',
     'blog.article.vivere-gavirate-lavorare-ticino.excerpt': 'Practical guide for those who live in Gavirate and work in Canton Ticino: connections, tax regimes, source tax, permits and social security rules.',
     'blog.article.vivere-gavirate-lavorare-ticino.imageAlt': 'Gavirate landscape near the lake',
+    'blog.article.vignone-trasferimento-frontaliere.title': 'Living in Vignone, working in Ticino: a practical guide',
+    'blog.article.vignone-trasferimento-frontaliere.excerpt': 'Border location, G Permit, advantageous taxation and lower costs: here\'s how to live in Vignone and work in Ticino as a border worker.',
+    'blog.article.vignone-trasferimento-frontaliere.imageAlt': 'View of the Ticino valley and border connections, ideal area for cross-border workers living in Vignone',
 };
 
 export default blogMetaEn;
