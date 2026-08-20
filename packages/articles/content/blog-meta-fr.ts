@@ -10201,6 +10201,14 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Bulletin de paie frontalier 2026 : net et déductions famille',
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'Nouvel accord frontalier en vigueur depuis le 1er janvier 2024 : comment fonctionne la paie suisse, taux AVS/LPP, exonération €7.500/€ 10.000 et crédit d\'impôt italien.',
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Document de fiche de paie suisse d\'un travailleur frontalier avec paysage alpin visible à la fenêtre du bureau',
+    'blog.article.credito-imposta-2026-calcolo-limiti.title': 'Crédit d\'impôt frontalier 2026 : guide de calcul',
+    'blog.article.credito-imposta-2026-calcolo-limiti.excerpt': 'Comment obtenir le crédit d\'impôt dans la déclaration italienne, les nouvelles franchises 2024 et le régime transitoire pour les anciens frontaliers : guide pratique.',
+    'blog.article.credito-imposta-2026-calcolo-limiti.imageAlt': 'Conseiller fiscal examinant déclaration fiscale pour travailleur frontalier région Tessin-Italie',
+    'blog.article.bollettino-frontaliere-2026-08-20.title': 'Bulletin du frontalier – 20 août 2026 : 601 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-20.excerpt': 'Les chiffres du jour, 20 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'Les chiffres du jour pour les frontaliers – 20 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Bulletin du frontalier du 20 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'Les chiffres du 20 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
