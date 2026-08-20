@@ -10801,6 +10801,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-affitti-schiaffusa',
+    category: 'fiscale',
+    date: '2026-08-20T21:06:12.099Z',
+    image: '/images/blog/mercato-affitti-schiaffusa.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

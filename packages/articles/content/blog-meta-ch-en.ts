@@ -3601,6 +3601,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-sciaffusa-cauzione-disdetta.title': 'Schaffhausen rentals: deposit deposit and rental right',
     'blog.article.affitti-sciaffusa-cauzione-disdetta.excerpt': 'In the canton of Schaffhausen, the right to rent is governed by federal law. Here\'s what you need to know about security deposit, cancellation, and rent dispute.',
     'blog.article.affitti-sciaffusa-cauzione-disdetta.imageAlt': 'Modern residential building facade with balconies in a Swiss city, urban real estate view.',
+    'blog.article.mercato-affitti-schiaffusa.title': 'Rental market in Schaffhausen: deposit and rental right',
+    'blog.article.mercato-affitti-schiaffusa.excerpt': 'The right to rent in Schaffhausen is governed by Article 253 of the Swiss Civil Code. The deposit is held on account in the tenant\'s name.',
+    'blog.article.mercato-affitti-schiaffusa.imageAlt': 'Sciaffusa, rental market, deposit, tenant rights',
 };
 
 export default blogMetaChEn;
