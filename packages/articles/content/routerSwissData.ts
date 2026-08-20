@@ -1204,6 +1204,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rallentamento-crescita-demografica-2025': { it: 'rallentamento-crescita-demografica-2025', en: 'demographic-slowdown-2025-switzerland', de: 'demografischer-rueckgang-2025-schweiz', fr: 'ralentissement-demographie-2025-suisse' },
  'lombard-odier-patrimoni-record': { it: 'lombard-odier-patrimoni-record', en: 'lombard-odier-assets-record', de: 'lombard-odier-vermogen-rekord', fr: 'lombard-odier-patrimoines-record' },
  'invecchiamento-popolazione-svizzera-2025': { it: 'invecchiamento-popolazione-svizzera-2025', en: 'aging-population-switzerland-2025', de: 'bevolkerungsalterung-schweiz-2025', fr: 'vieillissement-population-suisse-2025' },
+ 'statent-2024-occupazione-svizzera': { it: 'statent-2024-occupazione-svizzera', en: 'statent-2024-switzerland-employment', de: 'statent-2024-beschaeftigung-schweiz', fr: 'statent-2024-emploi-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

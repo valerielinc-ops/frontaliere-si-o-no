@@ -3535,6 +3535,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Over 65s outnumber under 20s: the Swiss demographic turnaround',
     'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Over 65s (1.811 million) exceed the under 20s (1.804 million) in Switzerland for the first time. Population grows by 0.8%, with strong implications on AVS, LPP and sick pay.',
     'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Aerial view of Lake Lugano surrounded by Alpine mountains and Swiss towns, peaceful alpine scenery',
+    'blog.article.statent-2024-occupazione-svizzera.title': 'Statent 2024: 5.68 million jobs in Switzerland',
+    'blog.article.statent-2024-occupazione-svizzera.excerpt': 'In 2024, Switzerland recorded 5.68 million jobs, with a growth of 0.6% compared to the previous year according to the UST.',
+    'blog.article.statent-2024-occupazione-svizzera.imageAlt': 'Overview of the Swiss economic market with employment data',
 };
 
 export default blogMetaChEn;
