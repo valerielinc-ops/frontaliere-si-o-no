@@ -10228,6 +10228,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'First day working in Ticino: essential documents',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Full border checklist: G permit, contract, LAMal, bank details and tax at source. Everything you need to know from the first day of employment.',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'First day of work in Ticino: cross-border worker reviews employment contract and essential documents at office desk',
+    'blog.article.novita-frontalieri-legge-217-2025.title': 'Frontalieri Ticino: 2026 news on teleworking and return',
+    'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Law 217/2025 ratifies Protocol IT-CH: tolerance 45 days daily return, teleworking up to 25%, clarifications on the employer\'s location.',
+    'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Morning traffic at the Swiss-Italian border crossing with queuing vehicles and Alpine landscape',
 };
 
 export default blogMetaEn;

@@ -10230,6 +10230,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'Premier jour de travail au Tessin : documents essentiels',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Liste de contrôle complète du frontalier : permis G, contrat, LAMal, coordonnées bancaires et impôt à la source. Tout ce qu\'il faut savoir dès le premier jour de prise.',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'Premier jour de travail au Tessin: travailleur frontalier examine le contrat d\'emploi et les documents essentiels au bureau',
+    'blog.article.novita-frontalieri-legge-217-2025.title': 'Frontaliers du Tessin : nouveautés 2026 sur le télétravail et le retour',
+    'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Loi 217/2025 ratifie le protocole IT-CH : tolérance 45 jours retour quotidien, télétravail jusqu\'à 25 %, clarifications sur le lieu de travail.',
+    'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Circulation matinale au poste frontière Suisse-Italie avec voitures en attente et paysage alpin',
 };
 
 export default blogMetaFr;
