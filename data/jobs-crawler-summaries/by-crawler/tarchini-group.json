@@ -1,18 +1,19 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-08-19T21:34:24.992Z",
+  "generatedAt": "2026-08-20T09:44:31.477Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5470,
-  "avgDurationMs": 5470,
+  "durationMs": 6853,
+  "avgDurationMs": 6853,
   "durationHistory": [
-    5470
+    6853
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sekretär/in - Swiss Energy Program",
       "slug": "sekretar-in-swiss-energy-program-tarchini-group-manno",
@@ -31,20 +32,24 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-19",
+      "postedDate": "2026-08-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 75,
+      "id": "tarchini-group-e3a6b98da5a8",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-19T21:34:24.989Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 18,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Technisch-kaufmännische Fachperson Projekt Swiss Energy Program",
       "slug": "technisch-kaufmannische-fachperson-projekt-swiss-energy-program-tarchini-group-manno",
@@ -63,7 +68,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-19",
+      "postedDate": "2026-08-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -98,7 +103,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-19",
+      "postedDate": "2026-08-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -135,7 +140,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-19",
+      "postedDate": "2026-08-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
