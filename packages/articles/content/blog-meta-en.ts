@@ -10196,6 +10196,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Payroll 2026: how to read it from the border within 20 km',
     'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'New Agreement 2024: Swiss withholdings, Italian tax credit, exemption €7,500 (old) or €10,000 (new frontier workers). Calculate your actual net.',
     'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Frontalier reviews 2026 Swiss payslip on tablet at Ticino-Italy border',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Border payroll 2026: net and family deductions',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'New Frontier Agreement in force from 1 January 2024: how the Swiss paycheck works, AVS/LPP rates, €7.500/ exemption €10,000 and Italian tax credit.',
+    'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Swiss payslip document of a cross-border worker on desk with Alpine landscape visible through office window',
 };
 
 export default blogMetaEn;
