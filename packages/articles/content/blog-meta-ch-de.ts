@@ -3517,6 +3517,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esportazioni-svizzera-luglio-2026.title': 'Juli 2026: Wiederbelebung der Schweizer Exporte',
     'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Die Schweizer Exporte steigen im Juli 2026 nach Monaten der Stagnation um 13,8%. Die Importe gingen um 4,5% zurück. Handelsbilanzrekord: +8,1 Mrd. CHF.',
     'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Schweizer Zollanlage mit Frachtbehältern und Logistikbetrieb bei Tageslich',
+    'blog.article.esportazioni-aumento-svizzera.title': 'Stark steigende Schweizer Exporte',
+    'blog.article.esportazioni-aumento-svizzera.excerpt': 'Die Schweizer Exporte stiegen im Juli um 13,8%, während die Importe gegenüber dem Vormonat um 4,5% zurückgingen.',
+    'blog.article.esportazioni-aumento-svizzera.imageAlt': 'Eine Szene am Luganersee mit einem Segelboot im Vordergrund.',
 };
 
 export default blogMetaChDe;

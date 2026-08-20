@@ -1198,6 +1198,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-assicurazione-malati-sciaffusa': { it: 'premi-assicurazione-malati-sciaffusa', en: 'health-insurance-premiums-schaffhausen', de: 'krankenversicherungspraemien-schaffhausen', fr: 'primes-assurance-maladie-schaffhouse' },
  'sciaffusa-permesso-dimora-b': { it: 'sciaffusa-permesso-dimora-b', en: 'schaffhausen-residence-permit-category-b', de: 'schaffhausen-aufenthaltsgenehmigung-kategorie-b', fr: 'schaffhouse-permis-de-sejour-categorie-b' },
  'esportazioni-svizzera-luglio-2026': { it: 'esportazioni-svizzera-luglio-2026', en: 'swiss-exports-july-2026-recovery', de: 'schweizer-exporte-juli-2026-erholung', fr: 'exportations-suisse-juillet-2026-reprise' },
+ 'esportazioni-aumento-svizzera': { it: 'esportazioni-aumento-svizzera', en: 'switzerland-export-growth', de: 'schweiz-export-zuwachs', fr: 'croissance-export-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

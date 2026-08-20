@@ -3517,6 +3517,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esportazioni-svizzera-luglio-2026.title': 'July 2026: resumption of Swiss exports',
     'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Swiss exports are up 13.8% in July 2026 after months of stagnation. Imports down 4.5%. Trade balance record: CHF +8.1 billion.',
     'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Swiss customs facility with freight containers and logistics operations in daylight',
+    'blog.article.esportazioni-aumento-svizzera.title': 'Swiss exports on the rise',
+    'blog.article.esportazioni-aumento-svizzera.excerpt': 'Swiss exports grew by 13.8% in July, while imports fell by 4.5% compared to the previous month.',
+    'blog.article.esportazioni-aumento-svizzera.imageAlt': 'A scenic view of Lake Lugano with a sailing boat in the foreground.',
 };
 
 export default blogMetaChEn;

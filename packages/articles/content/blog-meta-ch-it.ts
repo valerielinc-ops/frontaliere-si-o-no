@@ -3517,6 +3517,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esportazioni-svizzera-luglio-2026.title': 'Luglio 2026: ripresa esportazioni svizzere',
     'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Le esportazioni svizzere salgono del 13,8% a luglio 2026 dopo mesi di stagnazione. Importazioni in calo del 4,5%. Record della bilancia commerciale: +8,1 miliardi CHF.',
     'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Impianto doganale svizzero con containers merci e operazioni logistiche durante il giorno',
+    'blog.article.esportazioni-aumento-svizzera.title': 'Esportazioni svizzere in forte aumento',
+    'blog.article.esportazioni-aumento-svizzera.excerpt': 'Le esportazioni svizzere sono cresciute del 13,8% in luglio, mentre le importazioni hanno segnato una flessione del 4,5% rispetto al mese precedente.',
+    'blog.article.esportazioni-aumento-svizzera.imageAlt': 'Una scena del Lago di Lugano con una barca a vela in primo piano.',
 };
 
 export default blogMetaChIt;
