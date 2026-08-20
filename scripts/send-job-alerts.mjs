@@ -55,6 +55,7 @@ import {
   reactivationAfterReturnVisit,
 } from './lib/jobAlertCadence.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
@@ -1125,18 +1126,24 @@ function escHtml(s) {
 // keys that collection by lowercased/trimmed email — so normalize here to avoid
 // attributing engagement to an orphan doc for mixed-case addresses.
 // Used by both the first-send (sendBatch) and retry (processRetryQueue) paths.
+// The write itself now lives in functions/src/lib/mailerooRef.js — the single
+// writer every sender shares, so the normalization rule above cannot drift
+// between copies. This wrapper stays because the job-alert send path composes
+// it with its other post-send bookkeeping (onSentComposed) and because the
+// retry path reuses the same callback; it adds no logic of its own.
 export async function mailerooMetaOnSent(item, sendResult) {
   if (sendResult?.provider !== 'maileroo' || !sendResult?.messageId) return;
-  const email = item.recipient?.email?.toLowerCase().trim();
+  const email = item.recipient?.email;
   if (!email) return;
   try {
     const db = await getFirestoreAdmin();
-    await db.collection('newsletter_subscribers').doc('_meta_')
-      .collection('maileroo_refs').doc(String(sendResult.messageId)).set({
+    await recordMailerooRef(db, {
+      provider: sendResult.provider,
+      messageId: sendResult.messageId,
       email,
-      is_job_alert: true,
-      updated_at: new Date(),
-    }, { merge: true });
+      campaignId: 'job-alert',
+      isJobAlert: true,
+    });
   } catch (e) {
     console.warn('⚠️ Maileroo meta persist failed:', e?.message);
   }
