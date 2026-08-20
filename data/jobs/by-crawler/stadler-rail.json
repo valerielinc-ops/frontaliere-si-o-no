@@ -260,7 +260,7 @@
       "slug": "capo-team-e-ixl-fundamentals-stadler-rail-olten",
       "slugByLocale": {
         "it": "capo-team-e-ixl-fundamentals-stadler-rail-olten",
-        "en": "team-lead-e-ixl-fundamentals-stadler-rail-ch",
+        "en": "team-lead-safety-testing-safety-systems-stadler-rail-olten",
         "de": "team-lead-e-ixl-fundamentals-stadler-rail-ch",
         "fr": "chef-d-equipe-e-ixl-fundamentals-stadler-rail-olten"
       },
@@ -306,19 +306,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "team-lead-safety-testing-sicherungsanlagen-stadler-rail-ch",
-          "team-lead-e-ixl-fundamentals-stadler-rail-ch"
+          "team-lead-safety-testing-sicherungsanlagen-stadler-rail-ch"
         ],
         "it": [
           "team-lead-e-ixl-fundamentals-stadler-rail-ch",
-          "team-lead-safety-testing-sicherungsanlagen-stadler-rail-ch",
-          "capo-team-e-ixl-fundamentals-stadler-rail-olten"
+          "team-lead-safety-testing-sicherungsanlagen-stadler-rail-ch"
+        ],
+        "en": [
+          "team-lead-e-ixl-fundamentals-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
         "team-lead-e-ixl-fundamentals-stadler-rail-ch",
-        "team-lead-safety-testing-sicherungsanlagen-stadler-rail-ch",
-        "capo-team-e-ixl-fundamentals-stadler-rail-olten"
+        "team-lead-safety-testing-sicherungsanlagen-stadler-rail-ch"
       ],
       "firstSeenAt": "2026-06-25T12:13:52.564Z",
       "salaryMin": 94500,
@@ -12245,8 +12245,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-elektrovormontage-stadler-rail-ch",
         "it": "collaboratore-trice-elektrovormontage-stadler-rail-bussnang",
-        "en": "mitarbeiter-in-elektrovormontage-stadler-rail-ch",
-        "fr": "mitarbeiter-in-elektrovormontage-stadler-rail-ch"
+        "en": "associate-elektrovormontage-stadler-rail-bussnang",
+        "fr": "collaborateur-trice-elektrovormontage-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12291,6 +12291,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-elektrovormontage-stadler-rail-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-elektrovormontage-stadler-rail-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-elektrovormontage-stadler-rail-ch"
         ]
       },

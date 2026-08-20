@@ -1716,12 +1716,12 @@
     },
     {
       "id": "georg-fischer-9f2b0081e60f",
-      "slug": "reinigungskraft-m-w-d-georg-fischer-graubunden",
+      "slug": "potenza-di-pulizia-m-f-d-georg-fischer-graubunden",
       "slugByLocale": {
         "de": "reinigungskraft-m-w-d-georg-fischer-ch",
-        "it": "reinigungskraft-m-w-d-georg-fischer-graubunden",
-        "en": "reinigungskraft-m-w-d-georg-fischer-graubunden",
-        "fr": "reinigungskraft-m-w-d-georg-fischer-graubunden"
+        "it": "potenza-di-pulizia-m-f-d-georg-fischer-graubunden",
+        "en": "cleaning-power-m-f-d-georg-fischer-graubunden",
+        "fr": "puissance-de-nettoyage-h-f-d-georg-fischer-graubunden"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1766,11 +1766,19 @@
       "jobReqId": "JR10731",
       "previousSlugsByLocale": {
         "it": [
-          "reinigungskraft-m-w-d-georg-fischer-ch"
+          "reinigungskraft-m-w-d-georg-fischer-ch",
+          "reinigungskraft-m-w-d-georg-fischer-graubunden"
+        ],
+        "en": [
+          "reinigungskraft-m-w-d-georg-fischer-graubunden"
+        ],
+        "fr": [
+          "reinigungskraft-m-w-d-georg-fischer-graubunden"
         ]
       },
       "previousSlugs": [
-        "reinigungskraft-m-w-d-georg-fischer-ch"
+        "reinigungskraft-m-w-d-georg-fischer-ch",
+        "reinigungskraft-m-w-d-georg-fischer-graubunden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

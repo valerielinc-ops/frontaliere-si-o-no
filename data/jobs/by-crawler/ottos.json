@@ -1678,12 +1678,12 @@
     },
     {
       "id": "ottos-5a32d85f8456",
-      "slug": "kassierer-in-ottos-wattwil",
+      "slug": "cashier-in-otto-s-ag-wattwil",
       "slugByLocale": {
         "de": "kassierer-in-ottos-wattwil",
-        "it": "kassierer-in-ottos-wattwil",
+        "it": "cashier-in-otto-s-ag-wattwil",
         "en": "kassierer-in-ottos-wattwil",
-        "fr": "kassierer-in-ottos-wattwil"
+        "fr": "caissier-en-otto-s-ag-wattwil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1744,7 +1744,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T10:29:45.037Z"
+      "firstSeenAt": "2026-08-20T10:29:45.037Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kassierer-in-ottos-wattwil"
+        ],
+        "fr": [
+          "kassierer-in-ottos-wattwil"
+        ]
+      },
+      "previousSlugs": [
+        "kassierer-in-ottos-wattwil"
+      ]
     },
     {
       "id": "ottos-941a37a58241",

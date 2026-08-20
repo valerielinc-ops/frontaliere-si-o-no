@@ -649,10 +649,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
-        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "it": "consulente-vendite-in-garden-jumbo-heimberg",
+        "en": "sales-advisor-in-garden-jumbo-heimberg",
         "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
-        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
+        "fr": "conseiller-commercial-a-garden-jumbo-heimberg"
       },
       "addressLocality": "Heimberg",
       "sourceLang": "de",
@@ -676,7 +676,9 @@
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
         "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
-        "verkaufsberater-in-garden-jumbo-heimberg-bern"
+        "verkaufsberater-in-garden-jumbo-heimberg-bern",
+        "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -685,10 +687,12 @@
           "verkaufsberater-in-garden-jumbo-heimberg-bern"
         ],
         "en": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah"
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
+          "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
         ],
         "fr": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah"
+          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern-tlrsah",
+          "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-heimberg-bern"
         ]
       },
       "salaryMin": 68500,
@@ -2113,10 +2117,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
-        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "it": "consulente-commerciale-a-deco-jumbo-heimberg",
+        "en": "sales-consultant-in-deco-jumbo-heimberg",
         "de": "verkaufsberater-in-deco-jumbo-heimberg-bern-gxvifw",
-        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
+        "fr": "consultant-en-ventes-en-deco-jumbo-heimberg"
       },
       "addressLocality": "Heimberg",
       "sourceLang": "de",
@@ -2140,15 +2144,19 @@
           "verkaufsberater-in-deco-jumbo-heimberg-bern"
         ],
         "en": [
-          "verkaufsberater-in-deco-jumbo-heimberg-bern-gxvifw"
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-gxvifw",
+          "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
         ],
         "fr": [
-          "verkaufsberater-in-deco-jumbo-heimberg-bern-gxvifw"
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-gxvifw",
+          "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-deco-jumbo-heimberg-bern-gxvifw",
-        "verkaufsberater-in-deco-jumbo-heimberg-bern"
+        "verkaufsberater-in-deco-jumbo-heimberg-bern",
+        "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
       ]
     },
     {
@@ -2798,10 +2806,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4",
-        "en": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4",
+        "it": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
+        "en": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
         "de": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4",
-        "fr": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4"
+        "fr": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf"
       },
       "needsRetranslation": true,
       "addressLocality": "Jegenstorf",
@@ -2818,7 +2826,21 @@
         }
       },
       "salaryMin": 113000,
-      "salaryMax": 192000
+      "salaryMax": 192000,
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4"
+        ],
+        "en": [
+          "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4"
+        ],
+        "fr": [
+          "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4"
+        ]
+      },
+      "previousSlugs": [
+        "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4"
+      ]
     },
     {
       "id": "company-knav67",
@@ -3216,7 +3238,7 @@
     },
     {
       "id": "company-cv02in",
-      "slug": "weihnachtsaushilfe-coop-city-zug",
+      "slug": "assistenza-natalizia-coop-genossenschaft-zug",
       "company": "Coop Genossenschaft",
       "title": "Weihnachtsaushilfe",
       "location": "Zug",
@@ -3257,10 +3279,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in",
-        "en": "weihnachtsaushilfe-coop-city-zug-cv02in",
+        "it": "assistenza-natalizia-coop-genossenschaft-zug",
+        "en": "christmas-assistance-coop-genossenschaft-zug",
         "de": "weihnachtsaushilfe-coop-city-zug-cv02in",
-        "fr": "weihnachtsaushilfe-coop-city-zug-cv02in"
+        "fr": "aide-a-noel-coop-genossenschaft-zug"
       },
       "addressLocality": "Zug",
       "sourceLang": "de",
@@ -3284,11 +3306,13 @@
       },
       "previousSlugs": [
         "weihnachtsaushilfe-coop-genossenschaft-zug",
-        "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
+        "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in",
+        "weihnachtsaushilfe-coop-city-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-coop-genossenschaft-zug"
+          "weihnachtsaushilfe-coop-genossenschaft-zug",
+          "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
         ],
         "en": [
           "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
@@ -3303,7 +3327,7 @@
     },
     {
       "id": "company-749kjq",
-      "slug": "verkaufberater-in-non-food-coop-city-zug",
+      "slug": "consulente-vendite-in-non-food-coop-genossenschaft-zug-a67657",
       "company": "Coop Genossenschaft",
       "title": "Verkaufberater: in Non Food",
       "location": "Zug",
@@ -3335,10 +3359,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq",
-        "en": "verkaufberater-in-non-food-coop-city-zug-749kjq",
+        "it": "consulente-vendite-in-non-food-coop-genossenschaft-zug-a67657",
+        "en": "sales-advisor-in-non-food-coop-genossenschaft-zug-a67657",
         "de": "verkaufberater-in-non-food-coop-city-zug-749kjq",
-        "fr": "verkaufberater-in-non-food-coop-city-zug-749kjq"
+        "fr": "conseiller-commercial-en-non-alimentation-coop-genossenschaft-zug-a67657"
       },
       "addressLocality": "Zug",
       "sourceLang": "de",
@@ -3363,11 +3387,13 @@
       },
       "previousSlugs": [
         "verkaufberater-in-non-food-coop-genossenschaft-zug",
-        "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
+        "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq",
+        "verkaufberater-in-non-food-coop-city-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufberater-in-non-food-coop-genossenschaft-zug"
+          "verkaufberater-in-non-food-coop-genossenschaft-zug",
+          "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
         ],
         "en": [
           "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
@@ -3415,9 +3441,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "chauffeur-euse-hoflogistik-con-dispotatigkeit-umschlag-e-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb",
-        "en": "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb",
+        "en": "chauffeur-euse-hoflogistik-with-dispatch-activity-handling-and-railway-shunting-specialist-in-railcare-brig-glis",
         "de": "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb",
-        "fr": "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb"
+        "fr": "chauffeur-euse-hoflogistik-avec-l-activite-d-expedition-manutention-et-ferroviaire-specialiste-de-la-chasse-in-railcare"
       },
       "needsRetranslation": true,
       "addressLocality": "Brig-Glis",
@@ -3444,13 +3470,15 @@
           "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis"
         ],
         "en": [
-          "chauffeur-euse-hoflogistik-with-dispo-activity-handling-and-rail-shunting-specialist-in-railcare-brig-glis"
+          "chauffeur-euse-hoflogistik-with-dispo-activity-handling-and-rail-shunting-specialist-in-railcare-brig-glis",
+          "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb"
         ],
         "de": [
           "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-2rkbpf"
         ],
         "fr": [
-          "chauffeur-euse-hoflogistik-avec-activite-de-dispo-manipulation-et-rail-specialiste-de-la-shunting-in-railcare-brig-glis"
+          "chauffeur-euse-hoflogistik-avec-activite-de-dispo-manipulation-et-rail-specialiste-de-la-shunting-in-railcare-brig-glis",
+          "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb"
         ]
       },
       "previousSlugs": [
@@ -3458,7 +3486,8 @@
         "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-2rkbpf",
         "chauffeur-euse-hoflogistik-with-dispo-activity-handling-and-rail-shunting-specialist-in-railcare-brig-glis",
         "chauffeur-euse-hoflogistik-con-dispotatigkeit-umschlag-e-bahn-rangierspezialist-in-railcare-brig-glis-wallis-2rkbpf",
-        "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis"
+        "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis",
+        "chauffeur-euse-hoflogistik-mit-dispotatigkeit-umschlag-und-bahn-rangierspezialist-in-railcare-brig-glis-wallis-37j0cb"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -3469,7 +3498,7 @@
     },
     {
       "id": "company-n2r307",
-      "slug": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn",
+      "slug": "specialista-di-shunting-in-railcare-wangen-bei-olten",
       "company": "railCare",
       "title": "Rangierspezialist:in",
       "location": "Wangen bei Olten, Solothurn",
@@ -3501,10 +3530,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307",
-        "en": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307",
+        "it": "specialista-di-shunting-in-railcare-wangen-bei-olten",
+        "en": "shunting-specialist-in-railcare-wangen-bei-olten",
         "de": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307",
-        "fr": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307"
+        "fr": "specialiste-de-la-chasse-in-railcare-wangen-bei-olten"
       },
       "addressLocality": "Wangen bei Olten",
       "sourceLang": "de",
@@ -3526,7 +3555,23 @@
         "type": "adapter_seed_meta",
         "location": "Soletta",
         "canton": "SO"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307",
+          "rangierspezialist-in-railcare-wangen-bei-olten-solothurn"
+        ],
+        "en": [
+          "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307"
+        ],
+        "fr": [
+          "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307"
+        ]
+      },
+      "previousSlugs": [
+        "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-n2r307",
+        "rangierspezialist-in-railcare-wangen-bei-olten-solothurn"
+      ]
     },
     {
       "id": "company-fp1o5y",
@@ -3823,7 +3868,6 @@
         ],
         "en": [
           "food-sales-assistant-coop-genossenschaft-lotzwil-r7e16t",
-          "seller-in-food-coop-genossenschaft-lotzwil",
           "verkaufer-in-food-coop-lotzwil-bern-lw6kvo"
         ],
         "de": [
@@ -3832,7 +3876,6 @@
         ],
         "fr": [
           "vendeur-euse-en-alimentation-coop-genossenschaft-lotzwil-r7e16t",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-lotzwil",
           "verkaufer-in-food-coop-lotzwil-bern-lw6kvo"
         ]
       },

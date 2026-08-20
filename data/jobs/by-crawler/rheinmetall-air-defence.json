@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
         "it": "collaboratore-trice-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "en": "employee-administration-quality-management-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "administration-des-employes-gestion-de-la-qualite-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -57,6 +57,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
           "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },

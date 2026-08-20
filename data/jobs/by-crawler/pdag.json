@@ -5949,12 +5949,12 @@
     },
     {
       "id": "pdag-320f96cddcda",
-      "slug": "arztsekretarin-arztsekretar-pdag-baden",
+      "slug": "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-baden",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-pdag-baden",
-        "it": "arztsekretarin-arztsekretar-pdag-baden",
-        "en": "arztsekretarin-arztsekretar-pdag-baden",
-        "fr": "arztsekretarin-arztsekretar-pdag-baden"
+        "it": "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-baden",
+        "en": "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-baden",
+        "fr": "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-baden"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6010,7 +6010,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T10:09:08.253Z"
+      "firstSeenAt": "2026-08-20T10:09:08.253Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-pdag-baden"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-pdag-baden"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-pdag-baden"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-pdag-baden"
+      ]
     },
     {
       "id": "pdag-f3afff7995b9",
@@ -6018,8 +6032,8 @@
       "slugByLocale": {
         "de": "koordinator-in-weiter-und-fortbildungen-pdag-windisch",
         "it": "koordinator-in-weiter-e-fortbildungen-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "koordinator-in-weiter-und-fortbildungen-pdag-windisch",
-        "fr": "koordinator-in-weiter-und-fortbildungen-pdag-windisch"
+        "en": "coordinator-for-further-and-further-training-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "coordonnateur-de-la-formation-continue-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6066,6 +6080,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "koordinator-in-weiter-und-fortbildungen-pdag-windisch"
+        ],
+        "en": [
+          "koordinator-in-weiter-und-fortbildungen-pdag-windisch"
+        ],
+        "fr": [
           "koordinator-in-weiter-und-fortbildungen-pdag-windisch"
         ]
       },

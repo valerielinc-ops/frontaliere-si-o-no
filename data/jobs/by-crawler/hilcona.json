@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-hilcona-zell",
         "it": "mitarbeiterin-collaboratore-trice-elterntierbetrieb-60-bell-schweiz-ag-zell",
-        "en": "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-bell-schweiz-ag-zell",
-        "fr": "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-bell-schweiz-ag-zell"
+        "en": "employee-employee-parent-farm-60-bell-schweiz-ag-zell",
+        "fr": "employe-employe-exploitation-mere-60-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -50,10 +50,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-hilcona-zell"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-hilcona-zell"
+        "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-hilcona-zell",
+        "mitarbeiterin-mitarbeiter-elterntierbetrieb-60-bell-schweiz-ag-zell"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -72,12 +79,12 @@
     },
     {
       "id": "hilcona-40f8881e8431",
-      "slug": "country-procurement-lead-schweiz-hilcona-steinach",
+      "slug": "conduce-svizzera-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
         "de": "country-procurement-lead-schweiz-hilcona-steinach",
-        "it": "country-procurement-lead-schweiz-hilcona-steinach",
+        "it": "conduce-svizzera-hugli-nahrmittel-ag-steinach",
         "en": "country-procurement-lead-schweiz-hugli-nahrmittel-ag-steinach",
-        "fr": "country-procurement-lead-schweiz-hilcona-steinach"
+        "fr": "responsable-des-achats-par-pays-suisse-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",
@@ -127,16 +134,27 @@
         }
       },
       "addressRegion": "SG",
-      "firstSeenAt": "2026-08-20T10:02:56.470Z"
+      "firstSeenAt": "2026-08-20T10:02:56.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "country-procurement-lead-schweiz-hilcona-steinach"
+        ],
+        "fr": [
+          "country-procurement-lead-schweiz-hilcona-steinach"
+        ]
+      },
+      "previousSlugs": [
+        "country-procurement-lead-schweiz-hilcona-steinach"
+      ]
     },
     {
       "id": "hilcona-23b0326304f9",
-      "slug": "controlling-m-w-d-hilcona-marchtrenk",
+      "slug": "controllo-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
-        "it": "controlling-m-w-d-hilcona-marchtrenk",
+        "it": "controllo-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "en": "controlling-m-w-d-hilcona-marchtrenk",
         "de": "controlling-m-w-d-hilcona-marchtrenk",
-        "fr": "controlling-m-w-d-hilcona-marchtrenk"
+        "fr": "controle-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -185,7 +203,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "controlling-m-w-d-hilcona-marchtrenk"
+        ],
+        "fr": [
+          "controlling-m-w-d-hilcona-marchtrenk"
+        ]
+      },
+      "previousSlugs": [
+        "controlling-m-w-d-hilcona-marchtrenk"
+      ]
     },
     {
       "id": "hilcona-086961d4cfe2",
@@ -474,9 +503,9 @@
       "slug": "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-ag-schaan",
-        "en": "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan",
+        "en": "apprenticeship-as-a-food-practitioner-food-practitioner-ba-hilcona-ag-schaan",
         "de": "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan",
-        "fr": "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan"
+        "fr": "apprentissage-en-tant-que-praticien-des-aliments-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -512,13 +541,17 @@
       "crawledAt": "2026-08-20T10:02:54.379Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan",
-        "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-ag-schaan"
+        "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan",
-          "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-ag-schaan"
+          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan"
         ]
       },
       "needsRetranslation": true,
@@ -542,9 +575,9 @@
       "slug": "apprendistato-come-kauffrau-kaufmann-fz-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-kauffrau-kaufmann-fz-hilcona-ag-schaan",
-        "en": "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan",
+        "en": "apprenticeship-as-a-merchant-kaufmann-fz-hilcona-ag-schaan",
         "de": "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan"
+        "fr": "apprentissage-en-tant-que-marchand-kaufmann-fz-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -580,13 +613,17 @@
       "crawledAt": "2026-08-20T10:02:54.052Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan",
-        "apprendistato-come-kauffrau-kaufmann-fz-hilcona-ag-schaan"
+        "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan",
-          "apprendistato-come-kauffrau-kaufmann-fz-hilcona-ag-schaan"
+          "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan"
         ]
       },
       "needsRetranslation": true,
@@ -610,9 +647,9 @@
       "slug": "apprendistato-come-logistiker-logistikerin-fz-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-logistiker-logistikerin-fz-hilcona-ag-schaan",
-        "en": "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan",
+        "en": "apprenticeship-as-a-logistics-specialist-fz-hilcona-ag-schaan",
         "de": "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan",
-        "fr": "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan"
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-logistique-fz-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -648,13 +685,17 @@
       "crawledAt": "2026-08-20T10:02:53.733Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan",
-        "apprendistato-come-logistiker-logistikerin-fz-hilcona-ag-schaan"
+        "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan",
-          "apprendistato-come-logistiker-logistikerin-fz-hilcona-ag-schaan"
+          "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan"
         ]
       },
       "firstSeenAt": "2026-08-19T21:50:55.714Z",
@@ -677,9 +718,9 @@
       "slug": "apprendistato-come-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-ag-schaan",
-        "en": "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan",
+        "en": "apprenticeship-as-food-technologist-food-technologist-fz-hilcona-ag-schaan",
         "de": "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan",
-        "fr": "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan"
+        "fr": "apprentissage-en-tant-que-technologue-alimentaire-technologue-alimentaire-fz-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -715,13 +756,17 @@
       "crawledAt": "2026-08-20T10:02:53.408Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan",
-        "apprendistato-come-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-ag-schaan"
+        "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan",
-          "apprendistato-come-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-ag-schaan"
+          "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan"
         ]
       },
       "firstSeenAt": "2026-08-19T21:50:55.385Z",
@@ -744,9 +789,9 @@
       "slug": "apprendistato-come-automatiker-automatikerin-fz-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-automatiker-automatikerin-fz-hilcona-ag-schaan",
-        "en": "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan",
+        "en": "apprenticeship-as-automatic-automatician-fz-hilcona-ag-schaan",
         "de": "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan",
-        "fr": "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan"
+        "fr": "apprentissage-en-automatician-fz-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -782,13 +827,17 @@
       "crawledAt": "2026-08-20T10:02:53.044Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan",
-        "apprendistato-come-automatiker-automatikerin-fz-hilcona-ag-schaan"
+        "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan",
-          "apprendistato-come-automatiker-automatikerin-fz-hilcona-ag-schaan"
+          "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan"
         ]
       },
       "firstSeenAt": "2026-08-19T21:50:55.053Z",
@@ -811,9 +860,9 @@
       "slug": "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-ag-schaan",
-        "en": "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan",
+        "en": "apprenticeship-as-plant-manager-fz-hilcona-ag-schaan",
         "de": "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan",
-        "fr": "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan"
+        "fr": "apprentissage-en-tant-que-directeur-d-usine-fz-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -849,13 +898,17 @@
       "crawledAt": "2026-08-20T10:02:52.723Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan",
-        "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-ag-schaan"
+        "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan",
-          "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-ag-schaan"
+          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan"
         ]
       },
       "needsRetranslation": true,
@@ -952,9 +1005,9 @@
       "slug": "apprendistato-come-ict-fachmann-ict-fachfrau-fz-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "apprendistato-come-ict-fachmann-ict-fachfrau-fz-hilcona-ag-schaan",
-        "en": "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan",
+        "en": "apprenticeship-as-ict-specialist-ict-specialist-fz-hilcona-ag-schaan",
         "de": "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan",
-        "fr": "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan"
+        "fr": "apprentissage-en-tant-que-specialiste-ict-ict-specialiste-fz-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -990,13 +1043,17 @@
       "crawledAt": "2026-08-20T10:02:51.971Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan",
-        "apprendistato-come-ict-fachmann-ict-fachfrau-fz-hilcona-ag-schaan"
+        "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan",
-          "apprendistato-come-ict-fachmann-ict-fachfrau-fz-hilcona-ag-schaan"
+          "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan"
+        ],
+        "en": [
+          "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan"
+        ],
+        "fr": [
+          "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan"
         ]
       },
       "needsRetranslation": true,

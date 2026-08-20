@@ -44,7 +44,7 @@
       "slugByLocale": {
         "it": "direct-current-datacenter-system-architetto-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
         "en": "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
-        "de": "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
+        "de": "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "fr": "direct-current-datacenter-system-architecte-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6"
       },
       "requirementsByLocale": {
@@ -60,10 +60,14 @@
       "previousSlugsByLocale": {
         "it": [
           "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+        ],
+        "de": [
+          "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6"
         ]
       },
       "previousSlugs": [
-        "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+        "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

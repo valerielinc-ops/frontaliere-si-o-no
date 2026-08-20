@@ -2885,10 +2885,10 @@
       "id": "denner-248f53e8de76",
       "slug": "stv-branch-manager-in-denner-unterkulm",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-unterkulm",
-        "en": "stv-filialleiter-in-denner-unterkulm",
+        "it": "stv-branch-manager-in-migros-ticino-unterkulm",
+        "en": "stv-branch-manager-in-denner-unterkulm",
         "de": "stv-filialleiter-in-denner-unterkulm",
-        "fr": "directeur-de-succursale-stv-in-denner-unterkulm"
+        "fr": "directeur-de-succursale-stv-in-migros-ticino-unterkulm"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2963,12 +2963,17 @@
           "stv-filialleiter-in-denner"
         ],
         "fr": [
+          "stv-filialleiter-in-denner-unterkulm",
+          "directeur-de-succursale-stv-in-denner-unterkulm"
+        ],
+        "en": [
           "stv-filialleiter-in-denner-unterkulm"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-unterkulm"
+        "stv-filialleiter-in-denner-unterkulm",
+        "directeur-de-succursale-stv-in-denner-unterkulm"
       ]
     }
   ]

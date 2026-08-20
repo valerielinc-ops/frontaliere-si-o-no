@@ -1448,15 +1448,12 @@
       "previousSlugs": [
         "collaborateur-trice-cuisine-ikea-40-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "koch-kellnerin-ikea-40-ikea-aubonne",
-        "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
         "ikea-kuchenmitarbeiter-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-cuisine-ikea-40-ikea-ch",
-          "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
+          "ikea-cuisine-collaborateur-40-ikea-aubonne"
         ],
         "fr": [
           "ikea-cuisine-collaborateur-40-ikea-aubonne"
@@ -3399,8 +3396,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch",
-          "addetto-a-alle-vendite-20-bis-ende-februar-2027-ikea-pratteln-1"
+          "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch"
@@ -3412,7 +3408,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch",
-        "addetto-a-alle-vendite-20-bis-ende-februar-2027-ikea-pratteln-1",
         "collaborateur-trice-vente-20-bis-ende-februar-2027-ikea-pratteln-1"
       ],
       "salaryMin": 12400,
@@ -3503,11 +3498,11 @@
     },
     {
       "id": "ikea-0c6838589590",
-      "slug": "collaborateur-trice-de-vente-60-ikea-ch",
+      "slug": "vendite-associate-60-ikea-vernier-geneve-switzerland",
       "slugByLocale": {
         "fr": "collaborateur-trice-de-vente-60-ikea-ch",
-        "it": "collaborateur-trice-de-vente-60-ikea-ch",
-        "en": "collaborateur-trice-de-vente-60-ikea-ch",
+        "it": "vendite-associate-60-ikea-vernier-geneve-switzerland",
+        "en": "sales-associate-60-ikea-vernier-geneve-switzerland",
         "de": "collaborateur-trice-de-vente-60-ikea-ch"
       },
       "company": "IKEA",
@@ -3563,7 +3558,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T09:46:17.117Z"
+      "firstSeenAt": "2026-08-20T09:46:17.117Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-de-vente-60-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-de-vente-60-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-de-vente-60-ikea-ch"
+      ]
     },
     {
       "id": "ikea-aaefbd407eee",

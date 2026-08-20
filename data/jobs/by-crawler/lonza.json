@@ -13177,14 +13177,11 @@
       "previousSlugs": [
         "schichtteamleiter-m-w-d-produktionsbetrieb-projekt-accelerate-lonza-ch",
         "chef-d-equipe-de-quart-h-f-d-acceleration-du-projet-d-exploitation-de-production-lonza-ch",
-        "chef-d-equipe-maj-h-f-d-accelerer-le-projet-d-exploitation-de-production-lonza-ch",
-        "shift-team-leader-m-f-d-accelerazione-del-progetto-di-produzione-lonza-ch",
         "schichtteamleiter-m-w-d-produktionsbetrieb-projekt-accelerate-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtteamleiter-m-w-d-produktionsbetrieb-projekt-accelerate-lonza-ch",
-          "shift-team-leader-m-f-d-accelerazione-del-progetto-di-produzione-lonza-ch",
           "schichtteamleiter-m-w-d-produktionsbetrieb-projekt-accelerate-lonza-visp"
         ],
         "en": [
@@ -15101,12 +15098,12 @@
     },
     {
       "id": "lonza-d96d48f89655",
-      "slug": "head-of-qa-bioatrium-lonza-ch",
+      "slug": "responsabile-qa-bioatrium-lonza-ch",
       "slugByLocale": {
         "en": "head-of-qa-bioatrium-lonza-ch",
-        "it": "head-of-qa-bioatrium-lonza-ch",
-        "de": "head-of-qa-bioatrium-lonza-ch",
-        "fr": "head-of-qa-bioatrium-lonza-ch"
+        "it": "responsabile-qa-bioatrium-lonza-ch",
+        "de": "leiter-qa-bioatrium-lonza-ch",
+        "fr": "responsable-qa-bioatrium-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15161,7 +15158,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-20T09:45:30.018Z"
+      "firstSeenAt": "2026-08-20T09:45:30.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-qa-bioatrium-lonza-ch"
+        ],
+        "de": [
+          "head-of-qa-bioatrium-lonza-ch"
+        ],
+        "fr": [
+          "head-of-qa-bioatrium-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-qa-bioatrium-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3a7a11a2c294",

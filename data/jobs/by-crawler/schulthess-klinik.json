@@ -462,8 +462,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich",
         "it": "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich"
+        "en": "employee-employee-cleaning-schulthess-klinik-lengghalde-2-zurich",
+        "fr": "nettoyage-des-employes-schulthess-klinik-lengghalde-2-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -510,6 +510,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich"
         ]
       },

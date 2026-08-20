@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "scandit-067a4be54142",
-      "slug": "working-student-use-case-validation-assistant-scandit-ch",
+      "slug": "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich",
       "slugByLocale": {
         "en": "working-student-use-case-validation-assistant-scandit-ch",
-        "it": "working-student-use-case-validation-assistant-scandit-ch",
+        "it": "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich",
         "de": "working-student-use-case-validation-assistant-scandit-ch",
-        "fr": "working-student-use-case-validation-assistant-scandit-ch"
+        "fr": "etudiant-travailleur-adjoint-a-la-validation-des-cas-d-utilisation-scandit-ag-zurich"
       },
       "company": "Scandit AG",
       "companyKey": "scandit",
@@ -63,7 +63,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-20T10:01:51.446Z"
+      "firstSeenAt": "2026-08-20T10:01:51.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-use-case-validation-assistant-scandit-ch"
+        ],
+        "fr": [
+          "working-student-use-case-validation-assistant-scandit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-use-case-validation-assistant-scandit-ch"
+      ]
     },
     {
       "id": "scandit-fd9be409e48d",
@@ -175,14 +186,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-computer-vision-engineer-scandit-ch",
-        "senior-computer-vision-engineer-action-recognition-scandit-ch",
-        "senior-computer-vision-ingegnere-scandit-ag-zurich"
+        "senior-computer-vision-engineer-action-recognition-scandit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-computer-vision-engineer-scandit-ch",
-          "senior-computer-vision-engineer-action-recognition-scandit-ch",
-          "senior-computer-vision-ingegnere-scandit-ag-zurich"
+          "senior-computer-vision-engineer-action-recognition-scandit-ch"
         ],
         "de": [
           "senior-computer-vision-engineer-scandit-ch"

@@ -1717,12 +1717,12 @@
     },
     {
       "id": "nestle-1403467433",
-      "slug": "brand-segment-lead-nestle-ch",
+      "slug": "piombo-di-segmento-di-marca-nestle-la-tour-de-peilz",
       "slugByLocale": {
         "en": "brand-segment-lead-nestle-ch",
-        "it": "brand-segment-lead-nestle-ch",
+        "it": "piombo-di-segmento-di-marca-nestle-la-tour-de-peilz",
         "de": "brand-segment-lead-nestle-ch",
-        "fr": "brand-segment-lead-nestle-ch"
+        "fr": "segment-de-marque-plomb-nestle-la-tour-de-peilz"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1777,7 +1777,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-20T09:57:55.563Z"
+      "firstSeenAt": "2026-08-20T09:57:55.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-segment-lead-nestle-ch"
+        ],
+        "fr": [
+          "brand-segment-lead-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "brand-segment-lead-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1414739633",
@@ -6167,13 +6178,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "communications-manager-content-editorial-nestle-ch",
-          "responsabile-comunicazione-contenuto-editoriale-nestle-vevey-ch"
+          "communications-manager-content-editorial-nestle-ch"
         ]
       },
       "previousSlugs": [
-        "communications-manager-content-editorial-nestle-ch",
-        "responsabile-comunicazione-contenuto-editoriale-nestle-vevey-ch"
+        "communications-manager-content-editorial-nestle-ch"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,

@@ -4417,8 +4417,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
         "it": "collaboratore-trice-kapazitatsmanagement-spital-bulach",
-        "en": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-        "fr": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
+        "en": "associate-kapazitatsmanagement-spital-bulach-bulach",
+        "fr": "collaborateur-trice-kapazitatsmanagement-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4465,6 +4465,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
+        ],
+        "en": [
+          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
+        ],
+        "fr": [
           "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
         ]
       },
