@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-20T21:37:40.311Z",
+  "savedAt": "2026-08-20T21:50:47.280Z",
   "entries": [
     {
       "key": "d9006e2c2516a61a3384e24ad27ad9cf76c1bd5f021b78d3ea00d931ed4e5a1c",
@@ -241366,11 +241366,11 @@
     },
     {
       "key": "7c81de0a6fcbc3d075b8083cdf03d1c031e96260a211eb0bde5dda08690c10e1",
-      "touchedAt": 1787221512300,
+      "touchedAt": 1787262585800,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title 'Responsable d'équipe sinistres complexes (h/f/d)', responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
+        "reason": "The page contains a concrete role title 'Responsable d'équipe sinistres complexes (h/f/d)', responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
@@ -241848,6 +241848,33 @@
         "isJob": true,
         "confidence": 0.98,
         "reason": "Concrete role title (Digital Communication Project Manager M/F), detailed mission statement, comprehensive responsibilities (360 campaigns, social media management, KPI-driven campaigns, etc.), specific profile requirements (3+ years luxury sector experience, Asian platform expertise, bachelor's degree), exact job location (Biel/Bienne, Switzerland), application call-to-action present, and specific company details (OMEGA/Swatch Group)."
+      }
+    },
+    {
+      "key": "dd85f2dba7700abcd2d08a4e725835b44c98045aa7131d7d97694d2bf5d3443b",
+      "touchedAt": 1787262623058,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title ('Consultor/a Seguros Previsión Social Empresas'), detailed responsibilities and requirements, and an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "d77aa154ffa255735d05eecd4411493640e3fe97c723afe1c385b4dbcf5c308b",
+      "touchedAt": 1787262623679,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "30768ce47b933309484c995e772183399725e0b42b57edceeebb9e6c98c915a8",
+      "touchedAt": 1787262624014,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which are typical characteristics of a real single job detail page."
       }
     }
   ]

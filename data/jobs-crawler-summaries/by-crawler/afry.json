@@ -1,18 +1,79 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-08-20T10:28:07.235Z",
-  "total": 55,
-  "newCount": 0,
-  "updatedCount": 55,
-  "removedCount": 0,
+  "generatedAt": "2026-08-20T21:51:18.417Z",
+  "total": 56,
+  "newCount": 2,
+  "updatedCount": 54,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 116823,
-  "avgDurationMs": 116823,
+  "durationMs": 117419,
+  "avgDurationMs": 117419,
   "durationHistory": [
-    116823
+    117419
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Projektingenieur:in Hydraulik und Wasserkraft (80-100%) – Zürich",
+      "slug": "projektingenieur-in-hydraulik-und-wasserkraft-80-100-zurich-afry-zurich",
+      "url": "https://afry.com/en/career/available-jobs/REF15428E-projektingenieurin-hydraulik-und-wasserkraft-80-100-zurich",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000144549965-projektingenieur-in-hydraulik-und-wasserkraft-80-100-zurich?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-20",
+      "validThrough": "2026-08-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Umweltingenieur:in Wasserkraft (80-100%) - Zürich",
+      "slug": "umweltingenieur-in-wasserkraft-80-100-zurich-afry-zurich",
+      "url": "https://afry.com/en/career/available-jobs/REF15427T-umweltingenieurin-wasserkraft-80-100-zurich",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000144550779-umweltingenieur-in-wasserkraft-80-100-zurich?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-20",
+      "validThrough": "2026-08-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Capo progetto Evacuazione Acque (f/m/d) 80-100% - Bellinzona",
@@ -42,11 +103,11 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:30:48.927Z",
-      "_qualityScore": 73,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -184,6 +245,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -859,11 +921,11 @@
       "currency": "CHF",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:53:26.057Z",
-      "_qualityScore": 76,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -896,6 +958,7 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1004,11 +1067,11 @@
       "currency": "CHF",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:53:26.057Z",
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1085,6 +1148,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Projektleiter:in Tiefbau/Bahnbau 80-100% - Zürich",
+      "slug": "responsabile-di-progetto-genio-civile-bahnbau-80-100-zurich-afry-zurich",
+      "url": "https://afry.com/en/career/available-jobs/REF6761I-projektleiterin-tiefbau-bahnbau-80-100-zurich",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/743999919633174-projektleiter-in-tiefbau-bahnbau-80-100-zurich?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "validThrough": "2023-07-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "afry-e75da34ec7fb",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-07-01T21:43:04.412Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
