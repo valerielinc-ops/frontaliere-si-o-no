@@ -10238,6 +10238,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.title': 'Cermenate: vivere in Italia, lavorare in Ticino',
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.excerpt': 'Frontaliere da Cermenate al Ticino: Permesso G, fiscalità, ristorni, AVS, LAMal. Guida pratica e procedure.',
     'blog.article.vivere-cermenate-lavorare-ticino-frontaliere.imageAlt': 'Vista di Lugano con il lago al tramonto e le Alpi, rappresentando la destinazione lavorativa del frontaliere che vive a Cermenate',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Vivere a Lurago Marinone e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Analisi completa per chi sceglie di vivere a Lurago Marinone e fare il frontaliere in Ticino tra collegamenti, fiscalità e costi.',
+    'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'Panorama del Canton Ticino con vista sul lago',
 };
 
 export default blogMetaIt;
