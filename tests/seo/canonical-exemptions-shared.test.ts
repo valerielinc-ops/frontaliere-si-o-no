@@ -100,6 +100,27 @@ describe('canonical exemptions — shapes that stay hard offenders', () => {
     ).toBeNull();
   });
 
+  it('does NOT exempt canonical → a nested sub-path under the section', () => {
+    // The job-board schema is flat: job detail, sector hub and city hub all
+    // sit one segment under the section (services/router.ts `finish()`,
+    // case 'job-board'). A canonical with a SECOND segment inside the
+    // section is not a shape this build emits — must stay a hard offender,
+    // not be waved through as "job consolidation".
+    expect(
+      classifyCanonicalMismatch({
+        url: `${H}/cerca-lavoro-ticino/chef-sushi-zenbu/`,
+        canonical: `${H}/cerca-lavoro-ticino/lugano/chef-sushi-zenbu/`,
+        html: '',
+      }),
+    ).toBeNull();
+    expect(
+      isLegitJobCanonicalConsolidation(
+        `${H}/cerca-lavoro-ticino/a/`,
+        `${H}/cerca-lavoro-ticino/lugano/a/`,
+      ),
+    ).toBe(false);
+  });
+
   it('does NOT exempt an unrelated page-to-page canonical', () => {
     expect(
       classifyCanonicalMismatch({ url: `${H}/blog/a/`, canonical: `${H}/blog/b/`, html: '' }),

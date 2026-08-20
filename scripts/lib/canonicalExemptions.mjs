@@ -126,9 +126,19 @@ export function isLegitLegacyAliasCanonicalization(url, canonical) {
 /**
  * Job-board consolidation: a job page canonicalizing onto ANOTHER job page in
  * the SAME canton section — previousSlug bridges, locale-variant legacy
- * redirects, dedup suffix changes. The one BAD shape is excluded: a canonical
- * pointing at the section listing root (no sub-path) is a real defect, not
- * consolidation, and stays an offender.
+ * redirects, dedup suffix changes. Two BAD shapes are excluded, both real
+ * defects rather than consolidation:
+ *
+ *  - canonical → the section listing root (no sub-path);
+ *  - canonical → anything DEEPER than one segment under the section. Every
+ *    job-board path this site emits — job detail, sector hub, city hub — is
+ *    exactly `{section}/{one-segment-slug}/` (see the sibling `finish()`
+ *    branches for `job-board` in services/router.ts: jobSlug, sectorSlug and
+ *    citySlug are each appended directly to `jobBoardBase`, never to one
+ *    another). There is no intermediate categoria/città level a job page
+ *    nests under, so a canonical with a SECOND path segment inside the
+ *    section is not a shape this build can produce — accepting it as
+ *    "legitimate consolidation" would silently wave through a real mismatch.
  *
  * @param {string} url
  * @param {string} canonical
@@ -144,7 +154,12 @@ export function isLegitJobCanonicalConsolidation(url, canonical) {
 
   // Canonical → listing root is a BUG, not consolidation.
   const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
-  return canonSubPath.length > 0;
+  if (canonSubPath.length === 0) return false;
+
+  // Canonical → a nested sub-path (a second `/` inside the section) is not a
+  // shape the job-board schema emits — treat it as a real mismatch, not
+  // consolidation.
+  return !canonSubPath.includes('/');
 }
 
 /**
