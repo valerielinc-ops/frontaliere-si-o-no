@@ -219,6 +219,25 @@ export const DEFAULT_SWAP_FLOOR_MB = 512;
 export const SWAP_FLOOR_FRACTION = 0.04;
 
 /**
+ * Quanti campioni iniziali il pavimento swap NON conta come pressione
+ * (follow-up #6169 item 2).
+ *
+ * `grow-build-swap.sh` chiama `swapon` in uno step separato PRIMA di
+ * `npm run build:ci`: il campionatore di questo modulo legge `SwapFree` per
+ * la prima volta solo dopo l'avvio di Vite, quindi in pratica non e' mai
+ * immediatamente adiacente allo `swapon`. Ma `readHostSwapMb` non ha modo di
+ * sapere QUANDO lo swap e' stato attivato, e un lettore di `/proc/meminfo`
+ * subito dopo `swapon` in un workflow scritto diversamente potrebbe leggere
+ * un valore transitorio/stale prima che il kernel aggiorni il contatore.
+ * Un pavimento che scatta su un falso 0 a inizio build ucciderebbe una build
+ * sana. Il primo campione del pavimento swap viene quindi scartato (non
+ * conta ne' pro ne' contro), tollerando esplicitamente quel campione — la
+ * build resta comunque coperta: una vera pressione di swap persiste ben
+ * oltre un singolo campione da 5 s.
+ */
+export const SWAP_FLOOR_WARMUP_SAMPLES = 1;
+
+/**
  * SwapTotal minimo perche' il pavimento swap sia armato: su uno swap sotto i
  * 2 GB il pavimento assoluto sarebbe sfondato gia' a riposo (falso allarme
  * permanente), quindi li' resta spento e presidiano tetto RSS + pavimento host.
@@ -642,8 +661,13 @@ export function observeSample(
   }
 
   if (thresholds.swapFreeFloorMb !== null && sample.swapFreeMb !== null) {
+    // Il primo campione non conta (SWAP_FLOOR_WARMUP_SAMPLES, #6169 item 2):
+    // tollera un `SwapFree` transitorio/stale letto a ridosso di uno `swapon`
+    // recente, senza indebolire la rilevazione di una pressione vera, che per
+    // definizione persiste oltre un singolo campione.
+    const withinWarmup = state.samples <= SWAP_FLOOR_WARMUP_SAMPLES;
     state.consecutiveSwapUnder =
-      sample.swapFreeMb < thresholds.swapFreeFloorMb ? state.consecutiveSwapUnder + 1 : 0;
+      !withinWarmup && sample.swapFreeMb < thresholds.swapFreeFloorMb ? state.consecutiveSwapUnder + 1 : 0;
   } else {
     state.consecutiveSwapUnder = 0;
   }
