@@ -3589,6 +3589,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.croce-rossa-azione-legale-nome.title': 'Red Cross: legal action for misuse of name',
     'blog.article.croce-rossa-azione-legale-nome.excerpt': 'The CRS initiates legal action against Souveraineté suisse for the improper use of its name in the neutrality campaign on the ballot on 27 September.',
     'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Legal documents and Red Cross emblem on a desk in a Swiss legal office during consultation.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Buying a Schaffhausen Home: Prices, Mortgage and Taxes',
+    'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Operational guide for the purchase of real estate in the canton of Schaffhausen: own funds required, sustainability of the mortgage, cantonal transfer tax, notary fees and step-by-step procedure.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Modern Swiss home in Alpine landscape with residential architecture.',
 };
 
 export default blogMetaChEn;

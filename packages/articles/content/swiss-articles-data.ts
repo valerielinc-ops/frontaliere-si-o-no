@@ -10765,6 +10765,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-sciaffusa-mutuo',
+    category: 'pratico',
+    date: '2026-08-20T18:36:03.975Z',
+    image: '/images/blog/comprare-casa-sciaffusa-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
