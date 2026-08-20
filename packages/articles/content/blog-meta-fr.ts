@@ -10284,6 +10284,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.formazione-oltre-20km-riqualifica.title': 'Formation prof. frontaliers 2026 : guide pratique plus de 20 km',
     'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Cours de recyclage pour frontaliers : analyse des implications fiscales, des cotisations AVS et des opportunités au-delà de la frontière en 2026.',
     'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Travailleur frontalier en formation professionnelle au Tessin, environnement d\'apprentissage moderne avec ordinateurs et matériel pédagogique',
+    'blog.article.incidente-strada-frontalieri-cantello.title': 'Collision entre Varèse et Cantello : deux blessés',
+    'blog.article.incidente-strada-frontalieri-cantello.excerpt': 'Collision entre deux voitures sur la SP3 entre Cantello et Varèse : trois personnes impliquées, deux blessés à l\'hôpital et de lourds ralentissements pour les frontaliers.',
+    'blog.article.incidente-strada-frontalieri-cantello.imageAlt': 'Accident sur la route provinciale entre Varese et Cantello',
 };
 
 export default blogMetaFr;

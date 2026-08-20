@@ -30792,6 +30792,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-strada-frontalieri-cantello',
+ category: 'pratico',
+ date: '2026-08-20T18:24:33.286Z',
+ image: '/images/blog/incidente-strada-frontalieri-cantello.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
