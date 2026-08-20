@@ -10262,6 +10262,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Vivere a Carimate, lavorare in Ticino: vantaggi e svantaggi',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'Con il nuovo accordo fiscale, i frontalieri potranno godere di una franchigia di €10\'000 e di un regime transitorio fino al 2033.',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino che lavorano in Italia',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte frontaliere: vivere e lavorare in Ticino',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'Nuovo Accordo Frontalieri, tassazione, franchigia €10.000, Permesso G e ristorni fiscali: guida completa per chi risiede a Castelmarte e lavora nel Canton Ticino.',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea del comune di Castelmarte con il lago di Como sullo sfondo, case residenziali sparse sulla collina verdeggiante, zona di confine Ticino.',
 };
 
 export default blogMetaIt;
