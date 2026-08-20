@@ -3598,6 +3598,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Buy house canton Schaffhausen: prices and mortgage',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Guide to buying homes in the Canton of Schaffhausen: own funds, sustainability of the mortgage, transfer tax and notary fees.',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Traditional Swiss house with garden and mountains in northeastern Switzerland\'s canton landscape.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.title': 'Schaffhausen rentals: deposit deposit and rental right',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.excerpt': 'In the canton of Schaffhausen, the right to rent is governed by federal law. Here\'s what you need to know about security deposit, cancellation, and rent dispute.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.imageAlt': 'Modern residential building facade with balconies in a Swiss city, urban real estate view.',
 };
 
 export default blogMetaChEn;

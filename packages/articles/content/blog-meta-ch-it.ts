@@ -3598,6 +3598,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Comprare casa canton Sciaffusa: prezzi e mutuo',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Guida all\'acquisto di abitazioni nel Cantone Sciaffusa: fondi propri, sostenibilità del mutuo, imposta sui trapassi e spese notarili.',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Una tradizionale casa svizzera con giardino e montagne sullo sfondo nel cantone della Svizzera nordorientale.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.title': 'Affitti Sciaffusa: deposito cauzione e diritto di locazione',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.excerpt': 'Nel canton Sciaffusa il diritto di locazione è regolato dalla legge federale. Ecco cosa sapere su deposito cauzionale, disdetta e contestazione del canone.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.imageAlt': 'Facciata di edificio residenziale con balconi in una città svizzera, vista urbana di qualità immobiliare.',
 };
 
 export default blogMetaChIt;

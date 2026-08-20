@@ -3598,6 +3598,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Acheter maison canton Schaffhouse : prix et hypothèque',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Guide d\'achat de logements dans le canton de Schaffhouse : fonds propres, viabilité du prêt, taxe de passage et frais de notaire.',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Maison suisse traditionnelle avec jardin et montagnes en arrière-plan dans le canton de la Suisse du nord-est.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.title': 'Location Schaffhouse : caution et droit de location',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.excerpt': 'Dans le canton de Schaffhouse, le droit de location est régi par la loi fédérale. Voici ce qu\'il faut savoir sur le dépôt de garantie, la résiliation et la contestation de la redevance.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.imageAlt': 'Façade de bâtiment résidentiel moderne avec balcons dans une ville suisse, vue immobilière urbaine.',
 };
 
 export default blogMetaChFr;

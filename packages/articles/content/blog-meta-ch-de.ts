@@ -3598,6 +3598,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Haus kaufen Kanton Schaffhausen: Preise und Hypothek',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Leitfaden zum Wohnungskauf im Kanton Schaffhausen: Eigenmittel, Tragbarkeit des Darlehens, Ablösesumme und Notargebühren.',
     'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Traditionelles Schweizer Haus mit Garten und Bergen im Hintergrund des Nordostkanton.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.title': 'Vermietungen Schaffhausen: Kaution und Mietzins',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.excerpt': 'Im Kanton Schaffhausen richtet sich das Mietrecht nach dem Bundesgesetz. Hier erfahren Sie, was Sie über Kaution, Kündigung und Gebührenbeanstandung wissen müssen.',
+    'blog.article.affitti-sciaffusa-cauzione-disdetta.imageAlt': 'Moderne Wohngebäudefassade mit Balkonen in einer Schweizer Stadt, urbane Immobilienansicht.',
 };
 
 export default blogMetaChDe;
