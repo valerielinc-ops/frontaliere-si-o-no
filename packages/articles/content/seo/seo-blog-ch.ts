@@ -45728,6 +45728,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rallentamento-crescita-demografica-2025': {
+    title: 'Rallentamento demografico nel 2025: +0,8% | Frontaliere Ticino',
+    description: 'Al 31 dicembre 2025 la Svizzera conta 9,127 milioni di abitanti. Crescita +0,8%, anziani superano giovani per la prima volta. Implicazioni su AVS, LPP e sistema',
+    keywords: 'frontalieri, ticino, svizzera, italia, rallentamento, demografico, dicembre, conta',
+    ogTitle: 'Rallentamento demografico nel 2025: +0,8%',
+    ogDescription: 'Svizzera 2025: popolazione 9,127 milioni, crescita +0,8%, saldo migratorio –14,9%, anziani superano giovani. Impatto su pensioni AVS, LPP e cantoni. Dati UST definitivi.',
+    canonicalPath: '/articoli-svizzera/rallentamento-crescita-demografica-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rallentamento demografico nel 2025: +0,8%",
+      "description": "Al 31 dicembre 2025 la Svizzera conta 9,127 milioni di abitanti. Crescita +0,8%, anziani superano giovani per la prima volta. Implicazioni su AVS, LPP e sistema",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rallentamento-crescita-demografica-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di città svizzera con persone di diverse età, simbolo dell'invecchiamento demografico"
+      },
+      "datePublished": "2026-08-20T08:09:11+00:00",
+      "dateModified": "2026-08-20T08:09:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rallentamento-crescita-demografica-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
