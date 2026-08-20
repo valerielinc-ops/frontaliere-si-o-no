@@ -10268,6 +10268,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno frontaliere Ticino: costi e permessi',
     'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Vivere a Lezzeno e lavorare in Ticino da frontaliere: franchigia €10k, imposta fonte svizzera, LAMal, tempi pendolarismo e checklist trasferimento.',
     'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Vista aerea del Ceresio al tramonto con villaggi lacustri ticinesi e strade di confine tra Italia e Svizzera',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Svizzera: una 13esima anche per la cassa pensione',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'La Svizzera erogherà una tredicesima a partire da dicembre e l\'Unione sindacale svizzera chiederà di aumentare le rendite del secondo pilastro per il 2027.',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'Una donna si aggiusta gli occhiali sulle colline di Locarno',
 };
 
 export default blogMetaIt;

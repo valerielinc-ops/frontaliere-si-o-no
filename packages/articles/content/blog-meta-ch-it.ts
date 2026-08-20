@@ -3571,6 +3571,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.monopattini-obbligo-casco.title': 'Monopattini elettrici: obbligo casco in vista?',
     'blog.article.monopattini-obbligo-casco.excerpt': 'Il Consiglio federale valuterà l\'obbligo del casco per monopattini. Incidenti raddoppiati, rischi di traumi superiori ai ciclisti.',
     'blog.article.monopattini-obbligo-casco.imageAlt': 'Veduta di una strada urbana svizzera con piste ciclabili e monopattini in circolazione',
+    'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Svizzera-Cina: accordo commerciale ottimizzato',
+    'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Conclusi i negoziati: il 99,8% delle esportazioni svizzere verso la Cina avrà esenzione doganale. Firma prevista nel 2026.',
+    'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Palazzo federale di Berna con bandiere internazionali, simbolo della diplomazia commerciale svizzera verso la Cina',
 };
 
 export default blogMetaChIt;

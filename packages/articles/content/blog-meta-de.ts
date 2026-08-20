@@ -10266,6 +10266,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno frontiere Ticino: Kosten und Genehmigungen',
     'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Wohnen in Lezzeno und Arbeiten im Tessin als Grenzgänger: € 10k-Franchise, Schweizer Quellensteuer, KVG, Pendelzeiten und Transfer-Checkliste.',
     'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Luftaufnahme des Luganer Sees bei Sonnenuntergang mit Schweizer Seedörfern und Grenzstraßen zwischen Italien und der Schweiz',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Schweiz: 13. auch für die Pensionskasse',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'Die Schweiz wird ab Dezember einen Dreizehnten auszahlen und der Schweizerische Gewerkschaftsbund wird eine Erhöhung der Renten aus der zweiten Säule bis 2027 beantragen.',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'Eine Frau passt sich die Brille auf den Hügeln von Locarno an',
 };
 
 export default blogMetaDe;

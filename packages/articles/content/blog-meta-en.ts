@@ -10267,6 +10267,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno border crossing Ticino: costs and permits',
     'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Living in Lezzeno and working in Ticino as a border worker: €10k deductible, Swiss source tax, LAMal, commuting times and transfer checklist.',
     'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Aerial view of Lake Lugano at sunset with Swiss lakeside villages and border roads between Italy and Switzerland',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Switzerland: a 13th also for the pension fund',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'Switzerland will pay a thirteenth starting in December and the Swiss Trade Union Union will ask to increase second-pillar rents by 2027.',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'A woman adjusts her glasses on the hills of Locarno',
 };
 
 export default blogMetaEn;

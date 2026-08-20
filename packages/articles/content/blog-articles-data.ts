@@ -30747,6 +30747,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-una-13esima-per-la-cassa-pensione',
+ category: 'pensione',
+ date: '2026-08-20T15:39:07.294Z',
+ image: '/images/blog/svizzera-una-13esima-per-la-cassa-pensione.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -3571,6 +3571,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.monopattini-obbligo-casco.title': 'Trottinettes électriques : casque obligatoire en vue ?',
     'blog.article.monopattini-obbligo-casco.excerpt': 'Le Conseil fédéral évaluera l\'obligation du casque de trottinette. Accidents doublés, risques de traumatismes supérieurs aux cyclistes.',
     'blog.article.monopattini-obbligo-casco.imageAlt': 'Scène de rue suisse avec pistes cyclables et mobilité en trottinette électrique',
+    'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Suisse-Chine : accord commercial optimisé',
+    'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Négociations conclues : 99,8 % des exportations suisses vers la Chine bénéficieront d\'une exonération douanière. Signature prévue en 2026.',
+    'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Bâtiment fédéral suisse à Berne avec drapeaux internationaux, symbole de la diplomatie commerciale avec la Chine',
 };
 
 export default blogMetaChFr;

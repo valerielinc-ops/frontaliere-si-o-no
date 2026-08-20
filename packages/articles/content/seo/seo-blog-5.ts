@@ -71909,6 +71909,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-una-13esima-per-la-cassa-pensione': {
+    title: 'Svizzera: una 13esima anche per la cassa pensione',
+    description: 'La Svizzera erogherà una tredicesima a partire da dicembre e l\'Unione sindacale svizzera chiederà di aumentare le rendite del secondo pilastro per il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, anche, cassa, pensione',
+    ogTitle: 'Svizzera: una 13esima anche per la cassa pensione',
+    ogDescription: 'La Svizzera erogherà una tredicesima a partire da dicembre e l\'Unione sindacale svizzera chiederà di aumentare le rendite del secondo pilastro per il 2027.',
+    canonicalPath: '/articoli-frontaliere/svizzera-una-13esima-per-la-cassa-pensione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: una 13esima anche per la cassa pensione",
+      "description": "La Svizzera erogherà una tredicesima a partire da dicembre e l'Unione sindacale svizzera chiederà di aumentare le rendite del secondo pilastro per il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-una-13esima-per-la-cassa-pensione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna si aggiusta gli occhiali sulle colline di Locarno"
+      },
+      "datePublished": "2026-08-20T15:39:07+00:00",
+      "dateModified": "2026-08-20T15:39:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-una-13esima-per-la-cassa-pensione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

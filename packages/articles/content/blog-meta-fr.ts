@@ -10269,6 +10269,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno frontalier Tessin : coûts et permis',
     'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Vivre à Lezzeno et travailler au Tessin en tant que frontalier : franchise de € 10k, impôt suisse, LAMal, temps de trajet et checklist transfert.',
     'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Vue aérienne du lac de Lugano au coucher de soleil avec les villages de bord de lac suisse et les routes de frontière entre l\'Italie et la Suisse',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Suisse : une 13e également pour la caisse de pension',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'La Suisse versera une treizième à partir de décembre et l\'Union syndicale suisse demandera une augmentation des rentes du deuxième pilier d\'ici 2027.',
+    'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'Une femme s\'ajuste les lunettes sur les collines de Locarno',
 };
 
 export default blogMetaFr;
