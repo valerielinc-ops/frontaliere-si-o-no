@@ -3595,6 +3595,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Schaffhausen rentals: deposit, cancellation and conciliation',
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Maximum security deposit 3 months, cancellation on cantonal form, dispute within 30 days: the federal rental rules in Schaffhausen explained in detail.',
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Residential buildings and rental properties in Schaffhausen canton',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Buy house canton Schaffhausen: prices and mortgage',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Guide to buying homes in the Canton of Schaffhausen: own funds, sustainability of the mortgage, transfer tax and notary fees.',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Traditional Swiss house with garden and mountains in northeastern Switzerland\'s canton landscape.',
 };
 
 export default blogMetaChEn;

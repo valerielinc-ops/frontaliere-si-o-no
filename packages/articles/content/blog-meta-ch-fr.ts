@@ -3595,6 +3595,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Location Schaffhouse : caution, résiliation et conciliation',
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Caution max 3 mois, résiliation sur formulaire cantonal, contestation dans les 30 jours : les règles fédérales de location à Schaffhouse expliquées en détail.',
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Immeubles et propriétés locatives dans le canton de Schaffhouse',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Acheter maison canton Schaffhouse : prix et hypothèque',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Guide d\'achat de logements dans le canton de Schaffhouse : fonds propres, viabilité du prêt, taxe de passage et frais de notaire.',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Maison suisse traditionnelle avec jardin et montagnes en arrière-plan dans le canton de la Suisse du nord-est.',
 };
 
 export default blogMetaChFr;

@@ -3595,6 +3595,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.title': 'Vermietungen Schaffhausen: Kaution, Kündigung und Schlichtung',
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.excerpt': 'Kaution max. 3 Monate, Kündigung auf kantonalem Formular, Beanstandung innert 30 Tagen: Die eidgenössischen Mietregeln in Schaffhausen werden im Detail erläutert.',
     'blog.article.affitti-sciaffusa-cauzione-disdetta-conciliazione.imageAlt': 'Wohngebäude und Mietobjekte im Kanton Schaffhausen',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.title': 'Haus kaufen Kanton Schaffhausen: Preise und Hypothek',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.excerpt': 'Leitfaden zum Wohnungskauf im Kanton Schaffhausen: Eigenmittel, Tragbarkeit des Darlehens, Ablösesumme und Notargebühren.',
+    'blog.article.acquisire-casa-sciaffusa-mutuo-fiscale.imageAlt': 'Traditionelles Schweizer Haus mit Garten und Bergen im Hintergrund des Nordostkanton.',
 };
 
 export default blogMetaChDe;
