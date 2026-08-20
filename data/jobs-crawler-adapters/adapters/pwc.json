@@ -11,8 +11,20 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-20T09:51:10.430Z",
+  "updatedAt": "2026-08-20T21:44:24.075Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/praktikant-in-sustainable-finance-financial-services/b953b796-8f67-4401-85eb-27c80411d01f": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-20"
+    },
+    "https://jobs.pwc.ch/job-vacancies/sachbearbeiter-in-steuern-private-clients/fe5fccf1-c7a5-4f49-a8c7-a39735d423c8": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-20"
+    },
     "https://jobs.pwc.ch/job-vacancies/manager-fund-tax-reporting/0c36729e-7ccb-4a76-9c93-cea8ba7776c0": {
       "location": "Zurich",
       "canton": "ZH",
@@ -272,12 +284,6 @@
       "postedDate": "2026-06-28"
     },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-swiss-tax-consultant/28af251a-b763-4c33-b6ac-a3a1d49caf51": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-26"
-    },
-    "https://jobs.pwc.ch/job-vacancies/manager-tax-consultant/ae9bd178-3b8b-46bf-9717-5d709518a4e3": {
       "location": "Lugano",
       "canton": "TI",
       "company": "PwC Switzerland",
