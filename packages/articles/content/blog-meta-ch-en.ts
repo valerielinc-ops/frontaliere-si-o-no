@@ -3616,6 +3616,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'LAMal External Appenzello Rewards and premium reduction',
     'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Guide to LAMal premiums in the Canton of Appenzell Outer: deductibles, available insurance models, cantonal subsidies and procedure to apply for the income-based reduction.',
     'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Swiss cantonal health insurance office with staff assisting resident filing for insurance subsidy reduction',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'New nuclear plant: CHF 14 billion to CHF 43 billion',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'A report by the Swiss Academies estimates costs between CHF 14 billion and CHF 43 billion. Necessary state support for the construction of a nuclear power plant in Switzerland.',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Overhead view of Swiss nuclear power plant with cooling towers and Alpine landscape',
 };
 
 export default blogMetaChEn;

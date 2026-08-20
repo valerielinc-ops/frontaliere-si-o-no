@@ -3616,6 +3616,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'Premi LAMal Appenzello Esterno e riduzione premi',
     'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Guida ai premi LAMal nel Cantone di Appenzello Esterno: franchigie, modelli assicurativi disponibili, sussidi cantonali e procedura per richiedere la riduzione basata su reddito.',
     'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Ufficio cantonale svizzero con personale che assiste residente per documentazione riduzione premi LAMal',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'Nuovo impianto nucleare: da 14 a 43 miliardi di franchi',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Vista aerea di una centrale nucleare svizzera con torri di raffreddamento e paesaggio alpino sullo sfondo',
 };
 
 export default blogMetaChIt;
