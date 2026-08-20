@@ -45338,6 +45338,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canton-basilea-campagna-settori': {
+    title: 'Mercato del lavoro Basilea Campagna: salari e settori',
+    description: 'Guida ai salari, orari, diritti e previdenza nel mercato del lavoro svizzero. Scopri contributi AVS, LPP, tassazione cantonale e come valutare un\'offerta',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, basilea, campagna',
+    ogTitle: 'Mercato del lavoro Basilea Campagna: salari e settori',
+    ogDescription: 'Scopri come funzionano salari, orari, diritti e tassazione nel mercato del lavoro svizzero. Guida pratica ai contributi AVS/LPP, assicurazione malattia e valutazione di un\'offerta applicabile a tutti i cantoni svizzeri, incluso Basilea Campagna.',
+    canonicalPath: '/articoli-svizzera/canton-basilea-campagna-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro Basilea Campagna: salari e settori",
+      "description": "Guida ai salari, orari, diritti e previdenza nel mercato del lavoro svizzero. Scopri contributi AVS, LPP, tassazione cantonale e come valutare un'offerta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canton-basilea-campagna-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno svizzero con professionisti che discutono di contratti di lavoro e salari"
+      },
+      "datePublished": "2026-08-20T04:03:27+00:00",
+      "dateModified": "2026-08-20T04:03:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canton-basilea-campagna-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-canton-sciaffusa-aliquote-deduzioni': {
+    title: 'Imposte cantonali Sciaffusa: aliquote e deduzioni',
+    description: 'Guida pratica al sistema di imposte cantonali e comunali nel Canton Sciaffusa. Aliquote, deduzioni ammesse, scadenze di dichiarazione e accesso al portale',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, sciaffusa, aliquote',
+    ogTitle: 'Imposte cantonali Sciaffusa: aliquote e deduzioni',
+    ogDescription: 'Guida pratica al sistema di imposte cantonali e comunali nel Canton Sciaffusa. Aliquote, deduzioni ammesse, scadenze di dichiarazione e accesso al portale online dell\'amministrazione fiscale.',
+    canonicalPath: '/articoli-svizzera/canton-sciaffusa-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali Sciaffusa: aliquote e deduzioni",
+      "description": "Guida pratica al sistema di imposte cantonali e comunali nel Canton Sciaffusa. Aliquote, deduzioni ammesse, scadenze di dichiarazione e accesso al portale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canton-sciaffusa-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo moderno di un ufficio fiscale cantonale svizzero in una cittadina rappresentativa."
+      },
+      "datePublished": "2026-08-20T04:30:06+00:00",
+      "dateModified": "2026-08-20T04:30:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canton-sciaffusa-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

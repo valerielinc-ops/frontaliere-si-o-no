@@ -10486,6 +10486,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'canton-basilea-campagna-settori',
+    category: 'pratico',
+    date: '2026-08-20T04:03:27.824Z',
+    image: '/images/blog/canton-basilea-campagna-settori.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'canton-sciaffusa-aliquote-deduzioni',
+    category: 'fiscale',
+    date: '2026-08-20T04:30:06.520Z',
+    image: '/images/blog/canton-sciaffusa-aliquote-deduzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

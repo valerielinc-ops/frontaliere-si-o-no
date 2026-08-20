@@ -3496,6 +3496,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-impresa-basilea-campagna.title': 'Opening a business in Basel Countryside: registration and costs',
     'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Guide to open an activity in Basel Countryside: choice of legal form, registration in the trade register, minimum capital and insurance obligations.',
     'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Opening a business in the Canton of Basel-Landschaft',
+    'blog.article.canton-basilea-campagna-settori.title': 'Labour market Basel Countryside: wages and sectors',
+    'blog.article.canton-basilea-campagna-settori.excerpt': 'Practical guide to wages, hours, rights and social security in the Swiss labour market. Discover AVS contributions, LPP, cantonal taxation and how to evaluate an offer.',
+    'blog.article.canton-basilea-campagna-settori.imageAlt': 'Modern Swiss office with professionals discussing employment contracts and compensation',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Cantonal taxes Schaffhausen: rates and deductions',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Practical guide to the cantonal and municipal tax system in the Canton of Schaffhausen. Rates, allowable deductions, reporting deadlines and access to the online portal of the tax administration.',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Modern cantonal tax office building in a Swiss administrative town, professional daylight setting.',
 };
 
 export default blogMetaChEn;

@@ -1191,6 +1191,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'trasporti-basilea-campagna-abbonamenti': { it: 'trasporti-basilea-campagna-abbonamenti', en: 'transport-baselland-subscriptions-zones', de: 'verkehr-baselland-abos-zonen', fr: 'transports-bale-campagne-abonnements' },
  'aprire-attivita-basilea-campagna-commercio': { it: 'aprire-attivita-basilea-campagna-commercio', en: 'open-business-basel-landschaft-registration', de: 'unternehmen-gruenden-basellandschaft-handelsregister', fr: 'ouvrir-entreprise-bale-campagne-registre-commerce' },
  'aprire-impresa-basilea-campagna': { it: 'aprire-impresa-basilea-campagna', en: 'starting-business-basel-landschaft', de: 'unternehmen-gruenden-basel-landschaft', fr: 'creer-entreprise-bale-campagne' },
+ 'canton-basilea-campagna-settori': { it: 'canton-basilea-campagna-settori', en: 'canton-basel-landschaft-sectors', de: 'kanton-basel-landschaft-sektoren', fr: 'canton-bale-campagne-secteurs' },
+ 'canton-sciaffusa-aliquote-deduzioni': { it: 'canton-sciaffusa-aliquote-deduzioni', en: 'canton-schaffhausen-taxes-deductions', de: 'kanton-schaffhausen-steuersaetze-abzuege', fr: 'canton-schaffhouse-impots-deductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

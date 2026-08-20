@@ -3496,6 +3496,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-impresa-basilea-campagna.title': 'Aprire un\'attivita a Basilea Campagna: registro e costi',
     'blog.article.aprire-impresa-basilea-campagna.excerpt': 'Guida per aprire un\'attivita a Basilea Campagna: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo e obblighi assicurativi.',
     'blog.article.aprire-impresa-basilea-campagna.imageAlt': 'Apertura attivita economica e commerciale nel Cantone di Basilea Campagna',
+    'blog.article.canton-basilea-campagna-settori.title': 'Mercato del lavoro Basilea Campagna: salari e settori',
+    'blog.article.canton-basilea-campagna-settori.excerpt': 'Guida pratica a salari, orari, diritti e previdenza nel mercato del lavoro svizzero. Scopri contributi AVS, LPP, tassazione cantonale e come valutare un\'offerta.',
+    'blog.article.canton-basilea-campagna-settori.imageAlt': 'Ufficio moderno svizzero con professionisti che discutono di contratti di lavoro e salari',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Imposte cantonali Sciaffusa: aliquote e deduzioni',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Guida pratica al sistema di imposte cantonali e comunali nel Canton Sciaffusa. Aliquote, deduzioni ammesse, scadenze di dichiarazione e accesso al portale online dell\'amministrazione fiscale.',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Edificio amministrativo moderno di un ufficio fiscale cantonale svizzero in una cittadina rappresentativa.',
 };
 
 export default blogMetaChIt;
