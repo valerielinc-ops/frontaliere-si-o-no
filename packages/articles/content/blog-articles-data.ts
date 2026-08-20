@@ -30729,6 +30729,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'castelmarte-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-20T14:37:16.769Z',
+ image: '/images/blog/castelmarte-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

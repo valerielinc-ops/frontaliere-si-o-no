@@ -10260,6 +10260,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Leben in Carimate, Arbeiten im Tessin: Vor- und Nachteile',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'Mit dem neuen Steuerabkommen können Grenzgänger eine Selbstbeteiligung von € 10\'000 und eine Übergangsregelung bis 2033 in Anspruch nehmen.',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino, die in Italien arbeiten',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte frontieriere: Leben und Arbeiten im Tessin',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'Neue Frontalieri-Vereinbarung, Besteuerung, Selbstbehalt von 10.000 €, G-Bewilligung und Steuerrückerstattungen: vollständiger Leitfaden für diejenigen, die in Castelmarte wohnen und im Kanton Tessin arbeiten.',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme des Ortes Castelmarte mit Comer See im Hintergrund, Wohnhäuser auf grünem Hang, Tessiner Grenzregion.',
 };
 
 export default blogMetaDe;

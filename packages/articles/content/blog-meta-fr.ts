@@ -10263,6 +10263,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Vivre à Carimate, travailler au Tessin : avantages et inconvénients',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'Avec le nouvel accord fiscal, les frontaliers pourront bénéficier d\'une franchise de 10\'000 € et d\'un régime transitoire jusqu\'en 2033.',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontaliers en Suisse, qui travaillent en Italie',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte frontalier : vivre et travailler au Tessin',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'Nouvel accord frontalier, fiscalité, franchise de 10 000 € , permis G et ristournes fiscales : guide complet pour ceux qui résident à Castelmarte et travaillent dans le canton du Tessin.',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Castelmarte avec le lac de Côme en arrière-plan, maisons résidentielles sur colline verte, région frontalière de la Suisse.',
 };
 
 export default blogMetaFr;

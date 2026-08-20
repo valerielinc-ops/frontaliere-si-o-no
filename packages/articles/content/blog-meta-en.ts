@@ -10261,6 +10261,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Living in Carimate, working in Ticino: advantages and disadvantages',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'With the new tax agreement, frontier workers will be able to enjoy an exemption of €10,000 and a transitional regime until 2033.',
     'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino che lavorano in Italia',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte Frontier: living and working in Ticino',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'New Frontier Agreement, taxation, deductible €10,000, G Permit and tax refunds: complete guide for those residing in Castelmarte and working in the Canton of Ticino.',
+    'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Castelmarte village with Lake Como background, residential houses on green hillside, Swiss-Italian border region landscape.',
 };
 
 export default blogMetaEn;
