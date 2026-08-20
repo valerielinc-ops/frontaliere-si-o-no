@@ -41199,6 +41199,63 @@
       ]
     },
     {
+      "slug": "media",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/media/",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/media/"
+      },
+      "queries": [
+        {
+          "query": "ci sono offerte di lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "ci sono offerte di lavoro",
+      "title": "Media",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "media",
+        "en": "media",
+        "de": "media",
+        "fr": "media"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/media",
+        "en": "/en/find-jobs-ticino/media",
+        "de": "/de/jobs-im-tessin/media",
+        "fr": "/fr/trouver-emploi-tessin/media"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1",
@@ -51100,10 +51157,10 @@
         "fr": "projektleiter-m-w-axpo-group-baden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/projektleiter-m-w-axpo-group-baden",
-        "en": "/en/find-jobs-ticino/projektleiter-m-w-axpo-group-baden",
-        "de": "/de/jobs-im-tessin/projektleiter-m-w-axpo-group-baden",
-        "fr": "/fr/trouver-emploi-tessin/projektleiter-m-w-axpo-group-baden"
+        "it": "/cerca-lavoro-argovia/projektleiter-m-w-axpo-group-baden",
+        "en": "/en/find-jobs-aargau/projektleiter-m-w-axpo-group-baden",
+        "de": "/de/jobs-im-aargau/projektleiter-m-w-axpo-group-baden",
+        "fr": "/fr/trouver-emploi-argovie/projektleiter-m-w-axpo-group-baden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67166,17 +67223,17 @@
         {
           "query": "software house ticino",
           "clicks": 0,
-          "impressions": 35
+          "impressions": 36
         },
         {
           "query": "software ticino",
           "clicks": 0,
-          "impressions": 29
+          "impressions": 31
         },
         {
           "query": "web developer ticino",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 23
         },
         {
           "query": "consulente software ticino",
@@ -67224,6 +67281,16 @@
           "impressions": 4
         },
         {
+          "query": "software developer ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "sviluppatori",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "lavoro frontaliere svizzera",
           "clicks": 0,
           "impressions": 3
@@ -67235,11 +67302,6 @@
         },
         {
           "query": "posti vacanti ticino",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "software developer ticino",
           "clicks": 0,
           "impressions": 2
         },
@@ -67257,14 +67319,9 @@
           "query": "sviluppatore software",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "sviluppatori",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 227,
+      "totalImpressions": 233,
       "totalClicks": 1,
       "topQuery": "software house ticino",
       "title": "Sviluppatori",

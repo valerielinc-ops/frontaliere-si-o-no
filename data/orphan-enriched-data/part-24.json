@@ -50025,10 +50025,10 @@
         "fr": "projektleiter-m-p-axpo-group-baden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/projektleiter-m-p-axpo-group-baden",
-        "en": "/en/find-jobs-ticino/projektleiter-m-p-axpo-group-baden",
-        "de": "/de/jobs-im-tessin/projektleiter-m-p-axpo-group-baden",
-        "fr": "/fr/trouver-emploi-tessin/projektleiter-m-p-axpo-group-baden"
+        "it": "/cerca-lavoro-argovia/projektleiter-m-p-axpo-group-baden",
+        "en": "/en/find-jobs-aargau/projektleiter-m-p-axpo-group-baden",
+        "de": "/de/jobs-im-aargau/projektleiter-m-p-axpo-group-baden",
+        "fr": "/fr/trouver-emploi-argovie/projektleiter-m-p-axpo-group-baden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -62239,6 +62239,63 @@
       "source": [
         "gsc",
         "translation-cache",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "software-project-manager-m-f-d-swisslog-argovia",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/software-project-manager-m-f-d-swisslog-argovia/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/software-project-manager-m-f-d-swisslog-argovia/"
+      },
+      "queries": [
+        {
+          "query": "swisslog jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "swisslog jobs",
+      "title": "Software project manager swisslog argovia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "software-project-manager-m-f-d-swisslog-argovia",
+        "en": "software-project-manager-m-f-d-swisslog-argovia",
+        "de": "software-project-manager-m-f-d-swisslog-argovia",
+        "fr": "software-project-manager-m-f-d-swisslog-argovia"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/software-project-manager-m-f-d-swisslog-argovia",
+        "en": "/en/find-jobs-aargau/software-project-manager-m-f-d-swisslog-argovia",
+        "de": "/de/jobs-im-aargau/software-project-manager-m-f-d-swisslog-argovia",
+        "fr": "/fr/trouver-emploi-argovie/software-project-manager-m-f-d-swisslog-argovia"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs"
       ]
     },

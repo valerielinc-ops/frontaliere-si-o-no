@@ -38499,10 +38499,10 @@
         "fr": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen",
-        "en": "/en/find-jobs-zurich/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen",
+        "it": "/cerca-lavoro-friburgo/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen",
+        "en": "/en/find-jobs-fribourg/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen",
         "de": "/de/jobs-im-bern/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen",
-        "fr": "/fr/trouver-emploi-zurich/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen"
+        "fr": "/fr/trouver-emploi-fribourg/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dudingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -44698,6 +44698,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "pasticcere-pasticciere-coop-genossenschaft-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/pasticcere-pasticciere-coop-genossenschaft-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/pasticcere-pasticciere-coop-genossenschaft-bern/"
+      },
+      "queries": [
+        {
+          "query": "pasticcere svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "pasticcere svizzera",
+      "title": "Pasticcere pasticciere coop genossenschaft",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pasticcere-pasticciere-coop-genossenschaft-bern",
+        "en": "pasticcere-pasticciere-coop-genossenschaft-bern",
+        "de": "pasticcere-pasticciere-coop-genossenschaft-bern",
+        "fr": "pasticcere-pasticciere-coop-genossenschaft-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/pasticcere-pasticciere-coop-genossenschaft-bern",
+        "en": "/en/find-jobs-bern/pasticcere-pasticciere-coop-genossenschaft-bern",
+        "de": "/de/jobs-im-bern/pasticcere-pasticciere-coop-genossenschaft-bern",
+        "fr": "/fr/trouver-emploi-berne/pasticcere-pasticciere-coop-genossenschaft-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {

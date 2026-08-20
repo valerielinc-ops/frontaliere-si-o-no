@@ -10078,7 +10078,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 105
+          "impressions": 106
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10166,7 +10166,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 143,
+      "totalImpressions": 144,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -40042,6 +40042,11 @@
           "impressions": 2
         },
         {
+          "query": "lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "lavoro mendrisio part time",
           "clicks": 0,
           "impressions": 2
@@ -40058,11 +40063,6 @@
         },
         {
           "query": "lavoro a mendrisio",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "lavoro mendrisio",
           "clicks": 0,
           "impressions": 1
         },
@@ -40087,7 +40087,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 56,
+      "totalImpressions": 57,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -40186,7 +40186,7 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 22
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
@@ -40209,6 +40209,11 @@
           "impressions": 4
         },
         {
+          "query": "mendrisio lavoro",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "offerte di lavoro mendrisio svizzera",
           "clicks": 0,
           "impressions": 4
@@ -40225,11 +40230,6 @@
         },
         {
           "query": "lavoro mendrisiotto",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "mendrisio lavoro",
           "clicks": 0,
           "impressions": 3
         },
@@ -40284,7 +40284,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 98,
+      "totalImpressions": 101,
       "totalClicks": 0,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
@@ -40808,10 +40808,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen",
-        "en": "/en/find-jobs-aargau/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen",
+        "it": "/cerca-lavoro-zugo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen",
+        "en": "/en/find-jobs-zug/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen",
         "de": "/de/jobs-im-bern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen",
-        "fr": "/fr/trouver-emploi-argovie/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen"
+        "fr": "/fr/trouver-emploi-zoug/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wettingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41237,6 +41237,69 @@
         "en": "/en/find-jobs-ticino/mitarbeiter-in-kasse-kundendienst-administration-genossenschaft-migros-ostschweiz-buchs",
         "de": "/de/jobs-im-tessin/mitarbeiter-in-kasse-kundendienst-administration-genossenschaft-migros-ostschweiz-buchs",
         "fr": "/fr/trouver-emploi-tessin/mitarbeiter-in-kasse-kundendienst-administration-genossenschaft-migros-ostschweiz-buchs"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "mitarbeiter-in-vente-30-manor-ag-basel",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-bale/mitarbeiter-in-vente-30-manor-ag-basel/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/mitarbeiter-in-vente-30-manor-ag-basel/"
+      },
+      "queries": [
+        {
+          "query": "job 10%",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "manor jobs basel",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "job 10%",
+      "title": "Mitarbeiter in vente 30",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "mitarbeiter-in-vente-30-manor-ag-basel",
+        "en": "mitarbeiter-in-vente-30-manor-ag-basel",
+        "de": "mitarbeiter-in-vente-30-manor-ag-basel",
+        "fr": "mitarbeiter-in-vente-30-manor-ag-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/mitarbeiter-in-vente-30-manor-ag-basel",
+        "en": "/en/find-jobs-basel/mitarbeiter-in-vente-30-manor-ag-basel",
+        "de": "/de/jobs-im-basel/mitarbeiter-in-vente-30-manor-ag-basel",
+        "fr": "/fr/trouver-emploi-bale/mitarbeiter-in-vente-30-manor-ag-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
