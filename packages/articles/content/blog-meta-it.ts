@@ -10167,6 +10167,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Gravidanza e frontaliera: guida LAMal e controlli',
     'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Permesso G: diritto d\'opzione tra LAMal e CMI durante la gravidanza, franchigie CHF 300–2\'500, scelta dell\'ospedale e procedure di notifica. Tutto quello che serve sapere.',
     'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Donna in gravidanza durante ecografia prenatale in ospedale ticinese con ginecologa',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.title': 'Frontaliera in gravidanza: scegliere LAMal o CMI?',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.excerpt': 'La scelta tra LAMal e CMI durante la gravidanza è decisiva. Franchigie, coperture e procedura: guida completa per frontaliera con permesso G.',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.imageAlt': 'Donna incinta con documenti assicurativi sanitari davanti al panorama di Lugano in Ticino',
 };
 
 export default blogMetaIt;

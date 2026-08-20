@@ -30450,6 +30450,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gravidanza-lamal-cmi-frontaliera',
+ category: 'pratico',
+ date: '2026-08-19T23:55:32.277Z',
+ image: '/images/blog/gravidanza-lamal-cmi-frontaliera.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10166,6 +10166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Pregnancy and border control: LAMal guide and controls',
     'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Permit G: right of option between LAMal and CMI during pregnancy, CHF 300–2\'500 deductibles, hospital choice and notification procedures. Everything you need to know.',
     'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Pregnant woman having prenatal ultrasound at a Ticino hospital with gynecologist',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.title': 'Pregnant frontier: choose LAMal or CMI?',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.excerpt': 'The choice between LAMal and CMI during pregnancy is decisive. Deductibles, covers and procedure: complete guide for border with G permit.',
+    'blog.article.gravidanza-lamal-cmi-frontaliera.imageAlt': 'Pregnant woman with healthcare insurance documents overlooking Lake Lugano in Ticino',
 };
 
 export default blogMetaEn;
