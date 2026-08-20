@@ -431,9 +431,12 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(tightened.swapFreeFloorMb).toBe(1024);
   });
 
-  it('il pavimento swap scatta a 3 campioni consecutivi, e host-floor gli passa davanti', () => {
+  it('il pavimento swap scatta a 3 campioni consecutivi oltre il warmup, e host-floor gli passa davanti', () => {
     const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
     const state = createGuardState();
+    // Campione 1: scartato dal warmup (SWAP_FLOOR_WARMUP_SAMPLES, #6169 item 2)
+    // — non conta ne' qui ne' altrove nel conteggio dei 3 consecutivi.
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBeNull();
     expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBeNull();
     expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 300 }, withSwap)).toBeNull();
     expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBe('swap-floor');
@@ -457,7 +460,9 @@ describe('il tetto RSS e\' swap-aware', () => {
     // precedenza per entrambe le cause.
     const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
     const state = createGuardState();
-    for (let i = 0; i < 2; i += 1) {
+    // 3 campioni oltre il warmup (SWAP_FLOOR_WARMUP_SAMPLES, #6169 item 2):
+    // il primo dei 4 qui sotto e' scartato, ne restano 3 consecutivi validi.
+    for (let i = 0; i < 3; i += 1) {
       observeSample(state, { rssMb: 13000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap);
     }
     // rssMb=13000 > rssCeilingMb (12902): rss-ceiling sfonda.
@@ -467,6 +472,32 @@ describe('il tetto RSS e\' swap-aware', () => {
       'swap-floor',
     );
     expect(state.breach).toBe('swap-floor');
+  });
+
+  it('il primo campione sotto pavimento non conta — tollera un SwapFree stale subito dopo swapon (#6169 item 2)', () => {
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    // Campione 1: SwapFree=0, come una lettura transitoria/stale a ridosso di
+    // uno swapon recente. Scartato dal warmup: non fa scattare nulla e non
+    // conta nemmeno come "consecutivo".
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 0 }, withSwap)).toBeNull();
+    expect(state.consecutiveSwapUnder).toBe(0);
+    // Servono ancora 3 campioni REALI sotto soglia da qui in poi — il warmup
+    // non ha regalato terreno alla pressione vera, l'ha solo tenuta lontana
+    // dal falso positivo del campione 1.
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBe('swap-floor');
+  });
+
+  it('un solo campione stale a inizio build non basta a mascherare tre campioni sani successivi', () => {
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    // Il campione 1 e' scartato dal warmup anche se e' SOPRA soglia — non fa
+    // differenza per una build sana, il pavimento resta semplicemente inerte.
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 4000 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 4000 }, withSwap)).toBeNull();
+    expect(state.breach).toBeNull();
   });
 
   it('la diagnosi swap-floor nomina SwapFree, il pavimento e i numeri', () => {
