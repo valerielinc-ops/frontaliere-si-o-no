@@ -10305,6 +10305,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.title': 'Leben in Besozzo und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.excerpt': 'Der Grenzgänger, der nach Besozzo zieht, kann eine schnelle Verbindung mit dem Tessin genießen, mit Fahrzeiten von 20-30 Minuten.',
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der nach Besozzo zieht, kann einen schnellen Anschluss an das Tessin mit Reisezeiten von 20-30 Minuten genießen.',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.title': 'Wohnen in Buguggiate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.excerpt': 'Steuerliche Einstellungen, Verbindungen und empfohlene Zonen für Grenzgänger, die in Buguggiate leben und im Tessin arbeiten',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.imageAlt': 'Landschaft mit See und Bergen im Tessin',
 };
 
 export default blogMetaDe;

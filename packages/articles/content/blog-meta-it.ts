@@ -10307,6 +10307,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.title': 'Vivere a Besozzo e lavorare in Ticino da frontaliere',
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.excerpt': 'Il frontaliere che si trasferisce a Besozzo può godere di un collegamento rapido con il Ticino, con tempi di percorrenza di 20-30 minuti.',
     'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Besozzo può godere di un collegamento rapido con il Ticino, con tempi di percorrenza di 20-30 minuti.',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.title': 'Vivere a Buguggiate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.excerpt': 'Impostazioni fiscali, collegamenti e zone consigliate per i frontalieri che vivono a Buguggiate e lavorano in Ticino',
+    'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio con lago e montagne nel Ticino',
 };
 
 export default blogMetaIt;
