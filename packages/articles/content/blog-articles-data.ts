@@ -30612,6 +30612,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'inizio-lavoro-ticino-frontaliere-checklist',
+ category: 'pratico',
+ date: '2026-08-20T08:37:05.539Z',
+ image: '/images/blog/inizio-lavoro-ticino-frontaliere-checklist.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
