@@ -448,6 +448,27 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(observeSample(both, { rssMb: 11000, hostAvailMb: 400, swapFreeMb: 200 }, withSwap)).toBe('host-floor');
   });
 
+  it('quando rss-ceiling e swap-floor sfondano insieme, vince swap-floor — la precedenza non dipende da chi consuma lo swap (#6169 item 1)', () => {
+    // observeSample legge SwapFree dell'HOST: non sa (ne' gli interessa) se a
+    // consumarlo e' questo processo o un job vicino sullo stesso runner
+    // (rumore condiviso, il caso che il reviewer voleva vedere coperto oltre
+    // alla singola run osservata). La soglia guarda solo il numero globale,
+    // mai l'attribuzione, quindi lo stesso scenario sintetico dimostra la
+    // precedenza per entrambe le cause.
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    for (let i = 0; i < 2; i += 1) {
+      observeSample(state, { rssMb: 13000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap);
+    }
+    // rssMb=13000 > rssCeilingMb (12902): rss-ceiling sfonda.
+    // swapFreeMb=400 < swapFreeFloorMb (512): swap-floor sfonda.
+    // hostAvailMb resta sopra il pavimento host: solo i due sotto sono in gioco.
+    expect(observeSample(state, { rssMb: 13000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBe(
+      'swap-floor',
+    );
+    expect(state.breach).toBe('swap-floor');
+  });
+
   it('la diagnosi swap-floor nomina SwapFree, il pavimento e i numeri', () => {
     const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
     const state = createGuardState();
