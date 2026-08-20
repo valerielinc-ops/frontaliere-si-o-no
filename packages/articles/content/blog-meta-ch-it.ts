@@ -3472,6 +3472,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-basilea-campagna.title': 'Apprendistato in Svizzera: contratti, retribuzione e maturità',
     'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Contratti di tirocinio, retribuzione, contributi obbligatori e maturità professionale: guida all\'apprendistato nel sistema svizzero di formazione.',
     'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Giovane apprendista al lavoro in laboratorio durante la formazione professionale svizzera',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.title': 'Affitti Basilea Campagna: canoni e diritto di locazione',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.excerpt': 'Regolamento federale svizzero su deposito cauzionale, disdetta, contestazione canone e autorità di conciliazione nella locazione residenziale a Basilea Campagna.',
+    'blog.article.affitti-basilea-campagna-canoni-diritto-locazione.imageAlt': 'Palazzo residenziale con finestre di appartamenti in affitto a Basilea Campagna',
 };
 
 export default blogMetaChIt;
