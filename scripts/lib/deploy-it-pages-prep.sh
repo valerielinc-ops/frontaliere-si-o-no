@@ -539,11 +539,14 @@ step_push_cdn() {
     [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
   done
   # Build-time generated per-category "catalog" fallback SVGs (#3740,
-  # writeCatalogImages() in build-plugins/eventsSeoPagesPlugin.ts): unlike the
-  # mirrored real event photos above (git-tracked under public/images/events/),
-  # these 11 deterministic SVGs are emitted straight into dist/images/events/catalog/
-  # at build time and are NOT git-tracked, so the public/images/$d loop above
-  # never picks them up. Without this stage copy, offload-generated-images-cdn.mjs
+  # writeCatalogImages() in build-plugins/eventsSeoPagesPlugin.ts). These 11
+  # deterministic SVGs are emitted straight into dist/images/events/catalog/ at
+  # build time and are NOT git-tracked, so the public/images/$d loop above never
+  # picks them up. (Until #6163 this comment contrasted them with the mirrored
+  # real event photos "git-tracked under public/images/events/" — those are
+  # neither tracked nor staged by that loop any more, so the contrast no longer
+  # holds; what survives is the reason this copy exists.) Without this stage
+  # copy, offload-generated-images-cdn.mjs
   # still rewrote the HTML refs to the CDN and deleted the dist copies, leaving
   # cdn.frontaliereticino.ch/images/events/catalog/*.svg permanently 404.
   [ -d dist/images/events/catalog ] && mkdir -p "$stage/images/events" && cp -r dist/images/events/catalog "$stage/images/events/catalog"
