@@ -46508,6 +46508,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-croce-rossa-azione-legale-nome': {
+    title: 'Croce Rossa: azione legale per uso improprio del nome',
+    description: 'La CRS avvia azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, croce, rossa, azione, legale',
+    ogTitle: 'Croce Rossa: azione legale per uso improprio del nome',
+    ogDescription: 'La Croce Rossa Svizzera ha avviato un\'azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità. Scopri i dettagli della disputa legale, le implicazioni per chi viola i diritti di un\'organizzazione',
+    canonicalPath: '/articoli-svizzera/croce-rossa-azione-legale-nome/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Croce Rossa: azione legale per uso improprio del nome",
+      "description": "La CRS avvia azione legale contro Souveraineté suisse per l'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/croce-rossa-azione-legale-nome.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti legali e emblema della Croce Rossa in uno studio legale svizzero durante una consultazione."
+      },
+      "datePublished": "2026-08-20T18:09:47+00:00",
+      "dateModified": "2026-08-20T18:09:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/croce-rossa-azione-legale-nome/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

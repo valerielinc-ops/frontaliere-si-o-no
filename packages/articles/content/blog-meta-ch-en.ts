@@ -3586,6 +3586,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-sciaffusa-guida.title': 'Apprenticeship and training in the canton of Schaffhausen',
     'blog.article.apprendistato-sciaffusa-guida.excerpt': 'The Swiss apprenticeship: how to find an internship, sign the contract, the progressive remuneration and the path to professional maturity (MP) and the AFC.',
     'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprentices in practical training at a modern Swiss vocational school workshop',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Red Cross: legal action for misuse of name',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'The CRS initiates legal action against Souveraineté suisse for the improper use of its name in the neutrality campaign on the ballot on 27 September.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Legal documents and Red Cross emblem on a desk in a Swiss legal office during consultation.',
 };
 
 export default blogMetaChEn;

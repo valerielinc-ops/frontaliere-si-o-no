@@ -10756,6 +10756,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'croce-rossa-azione-legale-nome',
+    category: 'novita',
+    date: '2026-08-20T18:09:47.123Z',
+    image: '/images/blog/croce-rossa-azione-legale-nome.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

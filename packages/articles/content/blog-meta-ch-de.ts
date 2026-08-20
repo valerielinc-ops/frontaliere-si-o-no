@@ -3586,6 +3586,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-sciaffusa-guida.title': 'Lehre und Ausbildung im Kanton Schaffhausen',
     'blog.article.apprendistato-sciaffusa-guida.excerpt': 'Die Schweizer Lehre: So finden Sie eine Lehre, unterschreiben den Vertrag, die progressive Vergütung und den Weg zur Berufsmaturität (MP) und zur ESTV.',
     'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Lernende in der Praxisausbildung in einem modernen Schweizer Berufsschulzimmer',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Rotes Kreuz: Klage wegen Namensmissbrauch',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'Das SRK leitet rechtliche Schritte gegen Souveraineté suisse wegen der missbräuchlichen Verwendung seines Namens in der Neutralitätskampagne ein, über die am 27. September abgestimmt wird.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Rechtliche Dokumente und Rotes-Kreuz-Emblem auf einem Schreibtisch in einem Schweizer Anwaltsbüro.',
 };
 
 export default blogMetaChDe;
