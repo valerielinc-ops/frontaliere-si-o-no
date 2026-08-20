@@ -30837,6 +30837,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-mariano-comense-lavorare-ticino',
+ category: 'fiscale',
+ date: '2026-08-20T21:49:56.502Z',
+ image: '/images/blog/vivere-mariano-comense-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

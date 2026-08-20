@@ -3604,6 +3604,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-affitti-schiaffusa.title': 'Marché locatif à Schaffhouse : caution et droit de location',
     'blog.article.mercato-affitti-schiaffusa.excerpt': 'Le droit de location à Schaffhouse est régi par l\'article 253 du code civil suisse. La caution est liée sur un compte au nom du locataire.',
     'blog.article.mercato-affitti-schiaffusa.imageAlt': 'Schaffhouse, marché locatif, dépôt, droits des locataires',
+    'blog.article.affitti-sciaffusa-diritto-locazione.title': 'Location Schaffhouse : redevances, caution et droit de location',
+    'blog.article.affitti-sciaffusa-diritto-locazione.excerpt': 'Règles fédérales sur le dépôt de garantie, la résiliation et la contestation des redevances dans le canton de Schaffhouse selon le Code suisse des obligations.',
+    'blog.article.affitti-sciaffusa-diritto-locazione.imageAlt': 'Façade d\'un immeuble résidentiel moderne en Suisse avec fenêtres claires et architecture épurée',
 };
 
 export default blogMetaChFr;

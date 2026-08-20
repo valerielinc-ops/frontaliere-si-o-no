@@ -72299,6 +72299,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-mariano-comense-lavorare-ticino': {
+    title: 'Mariano Comense: guida fiscale per frontalieri in Ticino',
+    description: 'Permesso G, tassazione 2024, AVS/LPP/LAMal e checklist pratica. Come trasferirsi da Mariano Comense e lavorare in Ticino. Calcola il tuo netto. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mariano, comense, fiscale, permesso',
+    ogTitle: 'Mariano Comense: guida fiscale per frontalieri in Ticino',
+    ogDescription: 'Permesso G, tassazione 2024, AVS/LPP/LAMal e checklist pratica. Come trasferirsi da Mariano Comense e lavorare in Ticino. Calcola il tuo netto.',
+    canonicalPath: '/articoli-frontaliere/vivere-mariano-comense-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mariano Comense: guida fiscale per frontalieri in Ticino",
+      "description": "Permesso G, tassazione 2024, AVS/LPP/LAMal e checklist pratica. Come trasferirsi da Mariano Comense e lavorare in Ticino. Calcola il tuo netto. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-mariano-comense-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano da Monte San Salvatore, destinazione lavorativa di frontalieri da Mariano Comense"
+      },
+      "datePublished": "2026-08-20T21:49:56+00:00",
+      "dateModified": "2026-08-20T21:49:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-mariano-comense-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
