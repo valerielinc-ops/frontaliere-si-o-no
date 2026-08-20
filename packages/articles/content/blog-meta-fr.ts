@@ -10227,6 +10227,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'Premier jour au Tessin : liste de contrôle des documents frontaliers',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'Nouvel accord 2024 : permis G, LAMal, AVS, franchises fiscales. Voici ce qu\'il faut préparer pour votre premier jour en tant que frontalier.',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Travailleur frontalier le premier jour au bureau au Tessin avec contrat et documents',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'Premier jour de travail au Tessin : documents essentiels',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Liste de contrôle complète du frontalier : permis G, contrat, LAMal, coordonnées bancaires et impôt à la source. Tout ce qu\'il faut savoir dès le premier jour de prise.',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'Premier jour de travail au Tessin: travailleur frontalier examine le contrat d\'emploi et les documents essentiels au bureau',
 };
 
 export default blogMetaFr;

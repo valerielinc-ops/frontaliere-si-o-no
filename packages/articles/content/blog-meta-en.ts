@@ -10225,6 +10225,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'First day in Ticino: border document checklist',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'New Agreement 2024: G permit, LAMal, AVS, tax exemptions. Here\'s what to prepare for your first day as a frontier worker.',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Frontalier worker on first day at Ticino office holding employment contract and documents',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'First day working in Ticino: essential documents',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Full border checklist: G permit, contract, LAMal, bank details and tax at source. Everything you need to know from the first day of employment.',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'First day of work in Ticino: cross-border worker reviews employment contract and essential documents at office desk',
 };
 
 export default blogMetaEn;
