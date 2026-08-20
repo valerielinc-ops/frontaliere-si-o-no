@@ -1225,6 +1225,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-sciaffusa-mutuo': { it: 'comprare-casa-sciaffusa-mutuo', en: 'buy-home-schaffhausen-mortgage', de: 'haus-kaufen-schaffhausen-hypothek', fr: 'acheter-maison-schaffhouse-hypotheque' },
  'affitti-sciaffusa-cauzione-disdetta-conciliazione': { it: 'affitti-sciaffusa-cauzione-disdetta-conciliazione', en: 'rental-schaffhausen-deposit-termination-mediation', de: 'mietvertraege-schaffhausen-kaution-kuendigung-schlichtung', fr: 'locations-schaffhouse-garantie-denonciation-conciliation' },
  'acquisire-casa-sciaffusa-mutuo-fiscale': { it: 'acquisire-casa-sciaffusa-mutuo-fiscale', en: 'buy-house-canton-schaffhausen-mortgage-tax', de: 'haus-kaufen-kanton-schaffhausen-hypothek', fr: 'acheter-maison-canton-schaffhouse-hypotheque' },
+ 'affitti-sciaffusa-cauzione-disdetta': { it: 'affitti-sciaffusa-cauzione-disdetta', en: 'schaffhausen-rentals-security-deposit-termination', de: 'miete-schaffhausen-kaution-kuendigung', fr: 'loyers-schaffhouse-depot-resiliation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
