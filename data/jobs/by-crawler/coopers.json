@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-08-19T22:14:16.995Z",
+  "assembledAt": "2026-08-20T10:24:42.990Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:13.247Z",
+      "crawledAt": "2026-08-20T10:24:39.872Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5NSJ30",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:12.293Z",
+      "crawledAt": "2026-08-20T10:24:38.892Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W6TR28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:11.368Z",
+      "crawledAt": "2026-08-20T10:24:37.991Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -297,7 +297,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E624SG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:10.386Z",
+      "crawledAt": "2026-08-20T10:24:37.033Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -395,7 +395,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:09.470Z",
+      "crawledAt": "2026-08-20T10:24:36.031Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -508,7 +508,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:08.552Z",
+      "crawledAt": "2026-08-20T10:24:35.041Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -594,7 +594,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQP363",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:07.543Z",
+      "crawledAt": "2026-08-20T10:24:34.149Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -682,7 +682,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:06.560Z",
+      "crawledAt": "2026-08-20T10:24:33.168Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -776,7 +776,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=L3Y71M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:05.611Z",
+      "crawledAt": "2026-08-20T10:24:32.216Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -867,7 +867,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:03.670Z",
+      "crawledAt": "2026-08-20T10:24:30.374Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -947,7 +947,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E6S38Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:02.737Z",
+      "crawledAt": "2026-08-20T10:24:29.508Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1035,7 +1035,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:01.821Z",
+      "crawledAt": "2026-08-20T10:24:28.637Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1098,6 +1098,92 @@
       }
     },
     {
+      "id": "coopers-2836b2cb5815",
+      "slug": "release-train-ingegnere-m-w-d-coopers-group-ag-luzern",
+      "slugByLocale": {
+        "de": "release-train-engineer-m-w-d-coopers-luzern",
+        "it": "release-train-ingegnere-m-w-d-coopers-group-ag-luzern",
+        "fr": "release-train-ingenieur-m-w-d-coopers-group-ag-luzern",
+        "en": "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Release Train Engineer (m/w/d)",
+      "titleByLocale": {
+        "de": "Release Train Ingenieur (m/w/d)",
+        "en": "Release Train Engineer (m/w/d)",
+        "it": "Release Train Ingegnere (m/w/d)",
+        "fr": "Release Train Ingénieur (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (B4I17W)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 100%\n\nAb sofort - 12 Monate mit Option auf Verlängerung\n\nSAFe, agile, Project Management, Scrum Master\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \""
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-20T10:24:27.749Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
+      "requirements": [
+        "IT - Project Management",
+        "Luzern",
+        "Contracting",
+        "Part Time, 100%",
+        "Ab sofort - 12 Monate mit Option auf Verlängerung",
+        "SAFe, agile, Project Management, Scrum Master"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - Project Management",
+          "Luzern",
+          "Contracting",
+          "Part Time, 100%",
+          "Ab sofort - 12 Monate mit Option auf Verlängerung",
+          "SAFe, agile, Project Management, Scrum Master"
+        ]
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "release-train-engineer-m-w-d-coopers-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "release-train-engineer-m-w-d-coopers-luzern"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T10:24:27.749Z"
+    },
+    {
       "id": "coopers-99d9b464db36",
       "slug": "senior-devops-ingegnere-aws-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
@@ -1128,7 +1214,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H6Y46A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:14:00.909Z",
+      "crawledAt": "2026-08-20T10:24:26.863Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1269,7 +1355,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WN66X7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:59.857Z",
+      "crawledAt": "2026-08-20T10:24:25.985Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1357,7 +1443,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:58.840Z",
+      "crawledAt": "2026-08-20T10:24:25.124Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1452,7 +1538,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=TM58E9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:57.924Z",
+      "crawledAt": "2026-08-20T10:24:24.233Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1544,7 +1630,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:56.897Z",
+      "crawledAt": "2026-08-20T10:24:23.355Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1635,7 +1721,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:55.957Z",
+      "crawledAt": "2026-08-20T10:24:22.487Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1741,7 +1827,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M87OH7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:55.024Z",
+      "crawledAt": "2026-08-20T10:24:21.591Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1836,7 +1922,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=746TLW",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:54.095Z",
+      "crawledAt": "2026-08-20T10:24:20.708Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1948,7 +2034,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9AR78X",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:53.163Z",
+      "crawledAt": "2026-08-20T10:24:19.826Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2026,7 +2112,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OZ155L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:52.236Z",
+      "crawledAt": "2026-08-20T10:24:18.948Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2119,7 +2205,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=617PKZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:51.310Z",
+      "crawledAt": "2026-08-20T10:24:17.021Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2207,7 +2293,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:50.406Z",
+      "crawledAt": "2026-08-20T10:24:16.142Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2301,7 +2387,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WEP498",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:49.483Z",
+      "crawledAt": "2026-08-20T10:24:15.278Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2394,7 +2480,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42QOW9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:48.576Z",
+      "crawledAt": "2026-08-20T10:24:14.345Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2489,7 +2575,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:47.662Z",
+      "crawledAt": "2026-08-20T10:24:13.458Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2605,7 +2691,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=90V2CZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:46.751Z",
+      "crawledAt": "2026-08-20T10:24:12.561Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2723,7 +2809,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BG26A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:45.840Z",
+      "crawledAt": "2026-08-20T10:24:11.664Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2802,7 +2888,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P5J50Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:44.940Z",
+      "crawledAt": "2026-08-20T10:24:10.758Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2881,7 +2967,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B994FQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:44.024Z",
+      "crawledAt": "2026-08-20T10:24:09.786Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2975,7 +3061,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=010VGG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:43.119Z",
+      "crawledAt": "2026-08-20T10:24:08.822Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3103,7 +3189,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:42.200Z",
+      "crawledAt": "2026-08-20T10:24:07.928Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3195,7 +3281,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:41.276Z",
+      "crawledAt": "2026-08-20T10:24:07.039Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3275,7 +3361,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=87KGM4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:40.355Z",
+      "crawledAt": "2026-08-20T10:24:06.140Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3362,7 +3448,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F26HA4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:39.433Z",
+      "crawledAt": "2026-08-20T10:24:05.264Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3465,7 +3551,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Y9DI16",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:38.454Z",
+      "crawledAt": "2026-08-20T10:24:04.375Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3555,7 +3641,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5JT9F3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:37.525Z",
+      "crawledAt": "2026-08-20T10:24:03.484Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3614,96 +3700,6 @@
       }
     },
     {
-      "id": "coopers-6b3380fb776b",
-      "slug": "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern",
-        "en": "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
-        "de": "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
-        "fr": "senior-oracle-database-ingenieur-lead-ingenieur-m-w-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior Oracle Database Engineer / Lead Engineer (m/w/d)",
-      "titleByLocale": {
-        "it": "Senior Oracle Database Ingegnere / Lead Ingegnere (m/w/d)",
-        "en": "Senior Oracle Database Engineer / Lead Engineer (m/w/d)",
-        "de": "Senior Oracle Database Ingenieur / Lead Ingenieur (m/w/d)",
-        "fr": "Senior Oracle Database Ingénieur / Lead Ingénieur (m/w/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HLY048)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCantine\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (HLY048)\n\n•\nIT - Ingegneria del software\n\n•\n\nBerna\n\nContratti\n\nTempo parziale, 80-100 %\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nPrestazioni di lavoro\n\n•\nCantina\n\n•\nComputer aziendale\n\n•\nCoopers Care\n\n•\nTermini di primo nome\n\n•\nBuona connessione con i trasporti pubblici\n\n•\nHome Ufficio\n\n•\nSpazio di lavoro moderno\n\n•\nBilancia della vita lavorativa\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (HLY048)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100 %\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life balance\n\nSounds interesting?\n\nSimply click.",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HLY048)\n\n•\n\nIT - Software Engineering\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nJob benefits\n\nCantine\n\nCompany laptop\n\nCoopers Care\n\nFirst-name terms\n\nGood public transport connection\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (HLY048)\n\n•\nIT - Génie logiciel\n\n•\n\nBelgique\n\nContrats\n\nTemps partiel, 80-100 %\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nPrestations d'emploi\n\n•\nCantine\n\n•\nOrdinateur portable de la société\n\n•\nCoopers Care\n\n•\nTermes de prénom\n\n•\nBonne connexion aux transports publics\n\n•\nMinistère de l ' intérieur\n\n•\nEspace de travail moderne\n\n•\nÉquilibre travail-vie privée\n\nÇa semble intéressant ?\n\nCliquez simplement."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HLY048",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:36.615Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=HLY048",
-      "requirements": [
-        "IT - Software Engineering",
-        "Bern",
-        "Contracting",
-        "Part Time, 80-100%",
-        "01.09.2026 - 31.03.2027",
-        "Oracle, AWS"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Part Time, 80-100%",
-          "01.09.2026 - 31.03.2027",
-          "Oracle, AWS"
-        ]
-      },
-      "previousSlugs": [
-        "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
-        "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
-          "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern"
-        ],
-        "fr": [
-          "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:36:54.339Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "coopers-43ae475f6619",
       "slug": "ingegnere-di-qualificazione-nel-campo-della-sostanza-droga-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
@@ -3734,7 +3730,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NCQ59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:35.700Z",
+      "crawledAt": "2026-08-20T10:24:02.599Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3829,7 +3825,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PE41B6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:34.800Z",
+      "crawledAt": "2026-08-20T10:24:01.716Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3909,7 +3905,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=14PJ2J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:33.776Z",
+      "crawledAt": "2026-08-20T10:24:00.831Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3959,8 +3955,8 @@
           "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau"
         ]
       },
-      "firstSeenAt": "2026-08-17T22:06:05.062Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T22:06:05.062Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4005,7 +4001,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=L4LO45",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:32.854Z",
+      "crawledAt": "2026-08-20T10:23:59.906Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4036,8 +4032,8 @@
           "Kubernetes, AWS"
         ]
       },
-      "firstSeenAt": "2026-08-17T22:05:59.138Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T22:05:59.138Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4082,7 +4078,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PC857F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:31.844Z",
+      "crawledAt": "2026-08-20T10:23:59.010Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4120,8 +4116,8 @@
           "head-of-industry-real-estate-development-m-w-d-coopers-group-ag-basel-stadt"
         ]
       },
-      "firstSeenAt": "2026-08-17T22:05:58.120Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T22:05:58.120Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -4166,7 +4162,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Y05U9N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:30.867Z",
+      "crawledAt": "2026-08-20T10:23:58.099Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4262,7 +4258,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PHL860",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:29.865Z",
+      "crawledAt": "2026-08-20T10:23:57.233Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4323,8 +4319,8 @@
       "id": "coopers-23b5e77f4759",
       "slug": "senior-full-stack-java-angular-developer-m-f-d-coopers-waadt",
       "slugByLocale": {
-        "en": "senior-full-stack-java-angular-developer-m-f-d-coopers-waadt",
         "it": "senior-full-stack-java-angular-developer-m-f-d-coopers-waadt",
+        "en": "senior-full-stack-java-angular-developer-m-f-d-coopers-waadt",
         "de": "senior-full-stack-java-angular-developer-m-f-d-coopers-waadt",
         "fr": "senior-full-stack-java-angular-developer-m-f-d-coopers-waadt"
       },
@@ -4333,24 +4329,24 @@
       "companyDomain": "coopers.ch",
       "title": "Senior Full Stack Java / Angular Developer (m/f/d)",
       "titleByLocale": {
-        "en": "Senior Full Stack Java / Angular Developer (m/f/d)",
         "it": "Senior Full Stack Java / Angular Sviluppatore (m/f/d)",
+        "en": "Senior Full Stack Java / Angular Developer (m/f/d)",
         "de": "Senior Full Stack Java / Angular Entwickler (m/f/d)",
         "fr": "Senior Full Stack Java / Angular Développeur (m/f/d)"
       },
       "description": "positions\n\n•\n\t\t\t\t\t\tSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
       "descriptionByLocale": {
-        "en": "positions\n\n•\n\t\t\t\t\t\tSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
-        "it": "positions\n\n•\n\t\t\t\t\t\tSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
-        "de": "positions\n\n•\n\t\t\t\t\t\tSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
-        "fr": "positions\n\n•\n\t\t\t\t\t\tSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap"
+        "it": "positions\n\n•\nSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap",
+        "en": "positions\n\n•\nSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\n\nCoopers Portal\n\nCoopers Care\n\nSpecialization\n\nPlacements\n\nContracting\n\nPayrolling\n\nRefer a Friend\n\nCompanies\n\nRecruitment\n\nExecutive Search\n\nProject Recruiting\n\nRPO\n\nMSP\n\nConsulting & Solutions\n\nAbout\n\nTeam\n\nJoin us\n\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\nPrivacy policy\n\nImprint\n\nSitemap",
+        "de": "positions\n\n•\nSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap",
+        "fr": "positions\n\n•\nSenior Full Stack Java / Angular Developer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap"
       },
       "location": "Waadt",
       "canton": "VD",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2MD21V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:28.940Z",
+      "crawledAt": "2026-08-20T10:23:56.341Z",
       "addressLocality": "Waadt",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4375,7 +4371,6 @@
       "requirementsByLocale": {
         "en": [
           "IT - Software Engineering",
-          "Waadt",
           "Contracting",
           "Part Time, 80-100%",
           "21.09.2026 - 31.12.2026",
@@ -4383,6 +4378,7 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T22:13:28.940Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "baseSalary": {
@@ -4394,16 +4390,15 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-19T22:13:28.940Z"
+      }
     },
     {
       "id": "coopers-fd5a33fbff5d",
       "slug": "java-backend-engineer-rail-control-systems-m-w-d-coopers-bern",
       "slugByLocale": {
-        "de": "java-backend-engineer-rail-control-systems-m-w-d-coopers-bern",
         "it": "java-backend-engineer-rail-control-systems-m-w-d-coopers-bern",
         "en": "java-backend-engineer-rail-control-systems-m-w-d-coopers-bern",
+        "de": "java-backend-engineer-rail-control-systems-m-w-d-coopers-bern",
         "fr": "java-backend-engineer-rail-control-systems-m-w-d-coopers-bern"
       },
       "company": "Coopers Group AG",
@@ -4411,24 +4406,24 @@
       "companyDomain": "coopers.ch",
       "title": "Java Backend Engineer (Rail Control Systems) (m/w/d)",
       "titleByLocale": {
-        "de": "Java Backend Ingenieur (Rail Control Systems) (m/w/d)",
-        "en": "Java Backend Engineer (Rail Control Systems) (m/w/d)",
         "it": "Java Backend Ingegnere (Rail Control Systems) (m/w/d)",
+        "en": "Java Backend Engineer (Rail Control Systems) (m/w/d)",
+        "de": "Java Backend Ingenieur (Rail Control Systems) (m/w/d)",
         "fr": "Java Backend Ingénieur (Rail Control Systems) (m/w/d)"
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCentral location\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCentral location\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCentral location\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCentral location\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCentral location\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \""
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\nCentral location\n\n•\nGood public transport connection\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\nCentral location\n\n•\nGood public transport connection\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\n\nIT - Software Engineering\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\nCentral location\n\nGood public transport connection\n\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (DB94K7)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nJava, Spring Boot, SQL, Hibernate\n\nJob benefits\n\n•\nCentral location\n\n•\nGood public transport connection\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \""
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DB94K7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:28.025Z",
+      "crawledAt": "2026-08-20T10:23:55.460Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4453,7 +4448,6 @@
       "requirementsByLocale": {
         "de": [
           "IT - Software Engineering",
-          "Bern",
           "Contracting",
           "Part Time, 80-100%",
           "01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)",
@@ -4461,6 +4455,7 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T22:13:28.025Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4472,15 +4467,14 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-19T22:13:28.025Z"
+      }
     },
     {
       "id": "coopers-5bb21381876f",
       "slug": "business-process-expert-bpe-for-master-data-of-cmo-m-f-d-coopers-basel-stadt",
       "slugByLocale": {
-        "en": "business-process-expert-bpe-for-master-data-of-cmo-m-f-d-coopers-basel-stadt",
         "it": "business-process-expert-bpe-for-master-data-of-cmo-m-f-d-coopers-basel-stadt",
+        "en": "business-process-expert-bpe-for-master-data-of-cmo-m-f-d-coopers-basel-stadt",
         "de": "business-process-expert-bpe-for-master-data-of-cmo-m-f-d-coopers-basel-stadt",
         "fr": "business-process-expert-bpe-for-master-data-of-cmo-m-f-d-coopers-basel-stadt"
       },
@@ -4489,15 +4483,15 @@
       "companyDomain": "coopers.ch",
       "title": "Business Process Expert (BPE) for Master data of CMO (m/f/d)",
       "titleByLocale": {
-        "en": "Business Process Expert (BPE) for Master data of CMO (m/f/d)",
         "it": "Business Process Expert (BPE) for Master data of CMO (m/f/d)",
+        "en": "Business Process Expert (BPE) for Master data of CMO (m/f/d)",
         "de": "Business Process Expert (BPE) for Master data of CMO (m/f/d)",
         "fr": "Business Process Expert (BPE) for Master data of CMO (m/f/d)"
       },
       "description": "For our client, we are looking for an experienced Business Process Expert who will act as a key bridge between global process standards and local operational execution, drive process alignment and harmonization at site level, and bring strong expertise in SAP S/4HANA, master data, and end-to-end supply chain or manufacturing processes. The ideal candidate has extensive hands-on experience with SAP S/4HANA modules such as MM, PP, SD, and QM, as well as PLM tools, and will leverage deep functional knowledge, change management skills, and an innovative mindset to ensure the successful implementation, sustainment, and continuous improvement of global processes within the Basel site.\n\nStart date: asap / Latest Possible Start Date: 01.10.26\n\nEnd date: 1 year (with big option to extend)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Basel\n\nHome Office: no\n\nTeam: 9 people on the team\n\nYour Tasks:\n\nASPIRE Sustainment Accountabilities (enhancements & retrofit)\n\n• Supporting Fit-Gap Assessments.\n\n• Supporting Site Acceptance Testing (SAT) review and execution.\n\n• Participating in User Acceptance Testing (UAT).\n\n• Driving Template Sustainment by utilizing the Idea-to-Request (I2R) process, including the prioritization of site-specific requirements within the global backlog.\n\nProcess Design & Alignment\n\n• Act as a change agent to drive global process changes and alignment at the site or local level, partnering closely with Data Content Owners (DCOs) and Master Data Specialists (MDSs) to ensure master data changes are deployed timely and accurately.\n\n• Provide local and site-specific requirements from the user network into the global process design to ensure fit-for-purpose solutions.\n\n• Coordinate with other BPEs, Subject Matter Experts (SMEs), and Super Users to discuss ideas across processes and systems.\n\n• Play a critical role in process harmonization by utilizing in-depth process knowledge to align local practices with global standards.\n\n• Cross-Functional Orchestration: Facilitate the resolution of operational bottlenecks and define process enhancements that deliver measurable business value.\n\n• Governance & Adoption: Champion the implementation and rigorous adherence to global process standards and governance frameworks.\n\nSystem & Operational Support\n\n• Act as the site expert for both business processes and relevant systems (e.g., SAP S/4 HANA, OMP).\n\n• Support site-specific data analysis, analytics, reporting, and troubleshooting.\n\n• Ensure the execution of processes is robust and remains aligned with the intended global design.\n\n• Define and manage change requests (I2Rs) during the sustainment phase, acting as the primary interface for users to submit improvement ideas via ServiceNow and presenting them to the BCO network for endorsement.\n\nTraining & Change Management\n\n• Lead the revision, alignment, and retirement of local Standard Operating Procedures (SOPs).\n\n• Contribute to the creation and revision of Global Standard Processes (GSPs) and network SOPs, WI & Playbooks\n\n• Lead the onboarding and training of new team members for site-specific processes and systems.\n\n• Support site-wide information sharing and deployment activities during project transitions.\n\nYour Profile:\n\n• Functional Expertise: Must be a functional expert within their team with above-average experience in relevant business processes (Supply Chain, Technical Operations, or Contract Manufacturing).\n\n• Innovation Mindset: Demonstrates an E2E and innovative mentality with a positive, can-do attitude.\n\n• Change Leadership: Possesses the influence skills necessary to act as an effective change agent and challenge the status quo.\n\n• Technical & System Proficiency: Hands-on understanding of how master data flows across core SAP S/4HANA modules (MM, PP, QM, SD) and PLM interfaces. Familiarity with the systems required to run the process, including underlying master and transactional data.\n\n• BA/BS Degree, preferably in a technical, business or supply chain field. Masters Degree a plus\n\n• 8+ years in the pharma industry, supply chain management or in manufacturing.\n\n• APICS and/or SCOR certification, or equivalent relevant experience\n\n• Proficient knowledge and experience of SAP or ERP system\n\n• Language Skills: English is a MUST\n\nNice to have:\n\n• Hands-on experience with external manufacturing tech transfers..\n\n• Lean / Six Sigma Green Belt certification.\n\n• GMP experience, Compliance for Master Data (FDA 21 CFR Part 11 and EU Annex 11)",
       "descriptionByLocale": {
-        "en": "For our client, we are looking for an experienced Business Process Expert who will act as a key bridge between global process standards and local operational execution, drive process alignment and harmonization at site level, and bring strong expertise in SAP S/4HANA, master data, and end-to-end supply chain or manufacturing processes. The ideal candidate has extensive hands-on experience with SAP S/4HANA modules such as MM, PP, SD, and QM, as well as PLM tools, and will leverage deep functional knowledge, change management skills, and an innovative mindset to ensure the successful implementation, sustainment, and continuous improvement of global processes within the Basel site.\n\nStart date: asap / Latest Possible Start Date: 01.10.26\n\nEnd date: 1 year (with big option to extend)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Basel\n\nHome Office: no\n\nTeam: 9 people on the team\n\nYour Tasks:\n\nASPIRE Sustainment Accountabilities (enhancements & retrofit)\n\n• Supporting Fit-Gap Assessments.\n\n• Supporting Site Acceptance Testing (SAT) review and execution.\n\n• Participating in User Acceptance Testing (UAT).\n\n• Driving Template Sustainment by utilizing the Idea-to-Request (I2R) process, including the prioritization of site-specific requirements within the global backlog.\n\nProcess Design & Alignment\n\n• Act as a change agent to drive global process changes and alignment at the site or local level, partnering closely with Data Content Owners (DCOs) and Master Data Specialists (MDSs) to ensure master data changes are deployed timely and accurately.\n\n• Provide local and site-specific requirements from the user network into the global process design to ensure fit-for-purpose solutions.\n\n• Coordinate with other BPEs, Subject Matter Experts (SMEs), and Super Users to discuss ideas across processes and systems.\n\n• Play a critical role in process harmonization by utilizing in-depth process knowledge to align local practices with global standards.\n\n• Cross-Functional Orchestration: Facilitate the resolution of operational bottlenecks and define process enhancements that deliver measurable business value.\n\n• Governance & Adoption: Champion the implementation and rigorous adherence to global process standards and governance frameworks.\n\nSystem & Operational Support\n\n• Act as the site expert for both business processes and relevant systems (e.g., SAP S/4 HANA, OMP).\n\n• Support site-specific data analysis, analytics, reporting, and troubleshooting.\n\n• Ensure the execution of processes is robust and remains aligned with the intended global design.\n\n• Define and manage change requests (I2Rs) during the sustainment phase, acting as the primary interface for users to submit improvement ideas via ServiceNow and presenting them to the BCO network for endorsement.\n\nTraining & Change Management\n\n• Lead the revision, alignment, and retirement of local Standard Operating Procedures (SOPs).\n\n• Contribute to the creation and revision of Global Standard Processes (GSPs) and network SOPs, WI & Playbooks\n\n• Lead the onboarding and training of new team members for site-specific processes and systems.\n\n• Support site-wide information sharing and deployment activities during project transitions.\n\nYour Profile:\n\n• Functional Expertise: Must be a functional expert within their team with above-average experience in relevant business processes (Supply Chain, Technical Operations, or Contract Manufacturing).\n\n• Innovation Mindset: Demonstrates an E2E and innovative mentality with a positive, can-do attitude.\n\n• Change Leadership: Possesses the influence skills necessary to act as an effective change agent and challenge the status quo.\n\n• Technical & System Proficiency: Hands-on understanding of how master data flows across core SAP S/4HANA modules (MM, PP, QM, SD) and PLM interfaces. Familiarity with the systems required to run the process, including underlying master and transactional data.\n\n• BA/BS Degree, preferably in a technical, business or supply chain field. Masters Degree a plus\n\n• 8+ years in the pharma industry, supply chain management or in manufacturing.\n\n• APICS and/or SCOR certification, or equivalent relevant experience\n\n• Proficient knowledge and experience of SAP or ERP system\n\n• Language Skills: English is a MUST\n\nNice to have:\n\n• Hands-on experience with external manufacturing tech transfers..\n\n• Lean / Six Sigma Green Belt certification.\n\n• GMP experience, Compliance for Master Data (FDA 21 CFR Part 11 and EU Annex 11)",
         "it": "For our client, we are looking for an experienced Business Process Expert who will act as a key bridge between global process standards and local operational execution, drive process alignment and harmonization at site level, and bring strong expertise in SAP S/4HANA, master data, and end-to-end supply chain or manufacturing processes. The ideal candidate has extensive hands-on experience with SAP S/4HANA modules such as MM, PP, SD, and QM, as well as PLM tools, and will leverage deep functional knowledge, change management skills, and an innovative mindset to ensure the successful implementation, sustainment, and continuous improvement of global processes within the Basel site.\n\nStart date: asap / Latest Possible Start Date: 01.10.26\n\nEnd date: 1 year (with big option to extend)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Basel\n\nHome Office: no\n\nTeam: 9 people on the team\n\nYour Tasks:\n\nASPIRE Sustainment Accountabilities (enhancements & retrofit)\n\n• Supporting Fit-Gap Assessments.\n\n• Supporting Site Acceptance Testing (SAT) review and execution.\n\n• Participating in User Acceptance Testing (UAT).\n\n• Driving Template Sustainment by utilizing the Idea-to-Request (I2R) process, including the prioritization of site-specific requirements within the global backlog.\n\nProcess Design & Alignment\n\n• Act as a change agent to drive global process changes and alignment at the site or local level, partnering closely with Data Content Owners (DCOs) and Master Data Specialists (MDSs) to ensure master data changes are deployed timely and accurately.\n\n• Provide local and site-specific requirements from the user network into the global process design to ensure fit-for-purpose solutions.\n\n• Coordinate with other BPEs, Subject Matter Experts (SMEs), and Super Users to discuss ideas across processes and systems.\n\n• Play a critical role in process harmonization by utilizing in-depth process knowledge to align local practices with global standards.\n\n• Cross-Functional Orchestration: Facilitate the resolution of operational bottlenecks and define process enhancements that deliver measurable business value.\n\n• Governance & Adoption: Champion the implementation and rigorous adherence to global process standards and governance frameworks.\n\nSystem & Operational Support\n\n• Act as the site expert for both business processes and relevant systems (e.g., SAP S/4 HANA, OMP).\n\n• Support site-specific data analysis, analytics, reporting, and troubleshooting.\n\n• Ensure the execution of processes is robust and remains aligned with the intended global design.\n\n• Define and manage change requests (I2Rs) during the sustainment phase, acting as the primary interface for users to submit improvement ideas via ServiceNow and presenting them to the BCO network for endorsement.\n\nTraining & Change Management\n\n• Lead the revision, alignment, and retirement of local Standard Operating Procedures (SOPs).\n\n• Contribute to the creation and revision of Global Standard Processes (GSPs) and network SOPs, WI & Playbooks\n\n• Lead the onboarding and training of new team members for site-specific processes and systems.\n\n• Support site-wide information sharing and deployment activities during project transitions.\n\nYour Profile:\n\n• Functional Expertise: Must be a functional expert within their team with above-average experience in relevant business processes (Supply Chain, Technical Operations, or Contract Manufacturing).\n\n• Innovation Mindset: Demonstrates an E2E and innovative mentality with a positive, can-do attitude.\n\n• Change Leadership: Possesses the influence skills necessary to act as an effective change agent and challenge the status quo.\n\n• Technical & System Proficiency: Hands-on understanding of how master data flows across core SAP S/4HANA modules (MM, PP, QM, SD) and PLM interfaces. Familiarity with the systems required to run the process, including underlying master and transactional data.\n\n• BA/BS Degree, preferably in a technical, business or supply chain field. Masters Degree a plus\n\n• 8+ years in the pharma industry, supply chain management or in manufacturing.\n\n• APICS and/or SCOR certification, or equivalent relevant experience\n\n• Proficient knowledge and experience of SAP or ERP system\n\n• Language Skills: English is a MUST\n\nNice to have:\n\n• Hands-on experience with external manufacturing tech transfers..\n\n• Lean / Six Sigma Green Belt certification.\n\n• GMP experience, Compliance for Master Data (FDA 21 CFR Part 11 and EU Annex 11)",
+        "en": "For our client, we are looking for an experienced Business Process Expert who will act as a key bridge between global process standards and local operational execution, drive process alignment and harmonization at site level, and bring strong expertise in SAP S/4HANA, master data, and end-to-end supply chain or manufacturing processes. The ideal candidate has extensive hands-on experience with SAP S/4HANA modules such as MM, PP, SD, and QM, as well as PLM tools, and will leverage deep functional knowledge, change management skills, and an innovative mindset to ensure the successful implementation, sustainment, and continuous improvement of global processes within the Basel site.\n\nStart date: asap / Latest Possible Start Date: 01.10.26\n\nEnd date: 1 year (with big option to extend)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Basel\n\nHome Office: no\n\nTeam: 9 people on the team\n\nYour Tasks:\n\nASPIRE Sustainment Accountabilities (enhancements & retrofit)\n\n• Supporting Fit-Gap Assessments.\n\n• Supporting Site Acceptance Testing (SAT) review and execution.\n\n• Participating in User Acceptance Testing (UAT).\n\n• Driving Template Sustainment by utilizing the Idea-to-Request (I2R) process, including the prioritization of site-specific requirements within the global backlog.\n\nProcess Design & Alignment\n\n• Act as a change agent to drive global process changes and alignment at the site or local level, partnering closely with Data Content Owners (DCOs) and Master Data Specialists (MDSs) to ensure master data changes are deployed timely and accurately.\n\n• Provide local and site-specific requirements from the user network into the global process design to ensure fit-for-purpose solutions.\n\n• Coordinate with other BPEs, Subject Matter Experts (SMEs), and Super Users to discuss ideas across processes and systems.\n\n• Play a critical role in process harmonization by utilizing in-depth process knowledge to align local practices with global standards.\n\n• Cross-Functional Orchestration: Facilitate the resolution of operational bottlenecks and define process enhancements that deliver measurable business value.\n\n• Governance & Adoption: Champion the implementation and rigorous adherence to global process standards and governance frameworks.\n\nSystem & Operational Support\n\n• Act as the site expert for both business processes and relevant systems (e.g., SAP S/4 HANA, OMP).\n\n• Support site-specific data analysis, analytics, reporting, and troubleshooting.\n\n• Ensure the execution of processes is robust and remains aligned with the intended global design.\n\n• Define and manage change requests (I2Rs) during the sustainment phase, acting as the primary interface for users to submit improvement ideas via ServiceNow and presenting them to the BCO network for endorsement.\n\nTraining & Change Management\n\n• Lead the revision, alignment, and retirement of local Standard Operating Procedures (SOPs).\n\n• Contribute to the creation and revision of Global Standard Processes (GSPs) and network SOPs, WI & Playbooks\n\n• Lead the onboarding and training of new team members for site-specific processes and systems.\n\n• Support site-wide information sharing and deployment activities during project transitions.\n\nYour Profile:\n\n• Functional Expertise: Must be a functional expert within their team with above-average experience in relevant business processes (Supply Chain, Technical Operations, or Contract Manufacturing).\n\n• Innovation Mindset: Demonstrates an E2E and innovative mentality with a positive, can-do attitude.\n\n• Change Leadership: Possesses the influence skills necessary to act as an effective change agent and challenge the status quo.\n\n• Technical & System Proficiency: Hands-on understanding of how master data flows across core SAP S/4HANA modules (MM, PP, QM, SD) and PLM interfaces. Familiarity with the systems required to run the process, including underlying master and transactional data.\n\n• BA/BS Degree, preferably in a technical, business or supply chain field. Masters Degree a plus\n\n• 8+ years in the pharma industry, supply chain management or in manufacturing.\n\n• APICS and/or SCOR certification, or equivalent relevant experience\n\n• Proficient knowledge and experience of SAP or ERP system\n\n• Language Skills: English is a MUST\n\nNice to have:\n\n• Hands-on experience with external manufacturing tech transfers..\n\n• Lean / Six Sigma Green Belt certification.\n\n• GMP experience, Compliance for Master Data (FDA 21 CFR Part 11 and EU Annex 11)",
         "de": "For our client, we are looking for an experienced Business Process Expert who will act as a key bridge between global process standards and local operational execution, drive process alignment and harmonization at site level, and bring strong expertise in SAP S/4HANA, master data, and end-to-end supply chain or manufacturing processes. The ideal candidate has extensive hands-on experience with SAP S/4HANA modules such as MM, PP, SD, and QM, as well as PLM tools, and will leverage deep functional knowledge, change management skills, and an innovative mindset to ensure the successful implementation, sustainment, and continuous improvement of global processes within the Basel site.\n\nStart date: asap / Latest Possible Start Date: 01.10.26\n\nEnd date: 1 year (with big option to extend)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Basel\n\nHome Office: no\n\nTeam: 9 people on the team\n\nYour Tasks:\n\nASPIRE Sustainment Accountabilities (enhancements & retrofit)\n\n• Supporting Fit-Gap Assessments.\n\n• Supporting Site Acceptance Testing (SAT) review and execution.\n\n• Participating in User Acceptance Testing (UAT).\n\n• Driving Template Sustainment by utilizing the Idea-to-Request (I2R) process, including the prioritization of site-specific requirements within the global backlog.\n\nProcess Design & Alignment\n\n• Act as a change agent to drive global process changes and alignment at the site or local level, partnering closely with Data Content Owners (DCOs) and Master Data Specialists (MDSs) to ensure master data changes are deployed timely and accurately.\n\n• Provide local and site-specific requirements from the user network into the global process design to ensure fit-for-purpose solutions.\n\n• Coordinate with other BPEs, Subject Matter Experts (SMEs), and Super Users to discuss ideas across processes and systems.\n\n• Play a critical role in process harmonization by utilizing in-depth process knowledge to align local practices with global standards.\n\n• Cross-Functional Orchestration: Facilitate the resolution of operational bottlenecks and define process enhancements that deliver measurable business value.\n\n• Governance & Adoption: Champion the implementation and rigorous adherence to global process standards and governance frameworks.\n\nSystem & Operational Support\n\n• Act as the site expert for both business processes and relevant systems (e.g., SAP S/4 HANA, OMP).\n\n• Support site-specific data analysis, analytics, reporting, and troubleshooting.\n\n• Ensure the execution of processes is robust and remains aligned with the intended global design.\n\n• Define and manage change requests (I2Rs) during the sustainment phase, acting as the primary interface for users to submit improvement ideas via ServiceNow and presenting them to the BCO network for endorsement.\n\nTraining & Change Management\n\n• Lead the revision, alignment, and retirement of local Standard Operating Procedures (SOPs).\n\n• Contribute to the creation and revision of Global Standard Processes (GSPs) and network SOPs, WI & Playbooks\n\n• Lead the onboarding and training of new team members for site-specific processes and systems.\n\n• Support site-wide information sharing and deployment activities during project transitions.\n\nYour Profile:\n\n• Functional Expertise: Must be a functional expert within their team with above-average experience in relevant business processes (Supply Chain, Technical Operations, or Contract Manufacturing).\n\n• Innovation Mindset: Demonstrates an E2E and innovative mentality with a positive, can-do attitude.\n\n• Change Leadership: Possesses the influence skills necessary to act as an effective change agent and challenge the status quo.\n\n• Technical & System Proficiency: Hands-on understanding of how master data flows across core SAP S/4HANA modules (MM, PP, QM, SD) and PLM interfaces. Familiarity with the systems required to run the process, including underlying master and transactional data.\n\n• BA/BS Degree, preferably in a technical, business or supply chain field. Masters Degree a plus\n\n• 8+ years in the pharma industry, supply chain management or in manufacturing.\n\n• APICS and/or SCOR certification, or equivalent relevant experience\n\n• Proficient knowledge and experience of SAP or ERP system\n\n• Language Skills: English is a MUST\n\nNice to have:\n\n• Hands-on experience with external manufacturing tech transfers..\n\n• Lean / Six Sigma Green Belt certification.\n\n• GMP experience, Compliance for Master Data (FDA 21 CFR Part 11 and EU Annex 11)",
         "fr": "For our client, we are looking for an experienced Business Process Expert who will act as a key bridge between global process standards and local operational execution, drive process alignment and harmonization at site level, and bring strong expertise in SAP S/4HANA, master data, and end-to-end supply chain or manufacturing processes. The ideal candidate has extensive hands-on experience with SAP S/4HANA modules such as MM, PP, SD, and QM, as well as PLM tools, and will leverage deep functional knowledge, change management skills, and an innovative mindset to ensure the successful implementation, sustainment, and continuous improvement of global processes within the Basel site.\n\nStart date: asap / Latest Possible Start Date: 01.10.26\n\nEnd date: 1 year (with big option to extend)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Basel\n\nHome Office: no\n\nTeam: 9 people on the team\n\nYour Tasks:\n\nASPIRE Sustainment Accountabilities (enhancements & retrofit)\n\n• Supporting Fit-Gap Assessments.\n\n• Supporting Site Acceptance Testing (SAT) review and execution.\n\n• Participating in User Acceptance Testing (UAT).\n\n• Driving Template Sustainment by utilizing the Idea-to-Request (I2R) process, including the prioritization of site-specific requirements within the global backlog.\n\nProcess Design & Alignment\n\n• Act as a change agent to drive global process changes and alignment at the site or local level, partnering closely with Data Content Owners (DCOs) and Master Data Specialists (MDSs) to ensure master data changes are deployed timely and accurately.\n\n• Provide local and site-specific requirements from the user network into the global process design to ensure fit-for-purpose solutions.\n\n• Coordinate with other BPEs, Subject Matter Experts (SMEs), and Super Users to discuss ideas across processes and systems.\n\n• Play a critical role in process harmonization by utilizing in-depth process knowledge to align local practices with global standards.\n\n• Cross-Functional Orchestration: Facilitate the resolution of operational bottlenecks and define process enhancements that deliver measurable business value.\n\n• Governance & Adoption: Champion the implementation and rigorous adherence to global process standards and governance frameworks.\n\nSystem & Operational Support\n\n• Act as the site expert for both business processes and relevant systems (e.g., SAP S/4 HANA, OMP).\n\n• Support site-specific data analysis, analytics, reporting, and troubleshooting.\n\n• Ensure the execution of processes is robust and remains aligned with the intended global design.\n\n• Define and manage change requests (I2Rs) during the sustainment phase, acting as the primary interface for users to submit improvement ideas via ServiceNow and presenting them to the BCO network for endorsement.\n\nTraining & Change Management\n\n• Lead the revision, alignment, and retirement of local Standard Operating Procedures (SOPs).\n\n• Contribute to the creation and revision of Global Standard Processes (GSPs) and network SOPs, WI & Playbooks\n\n• Lead the onboarding and training of new team members for site-specific processes and systems.\n\n• Support site-wide information sharing and deployment activities during project transitions.\n\nYour Profile:\n\n• Functional Expertise: Must be a functional expert within their team with above-average experience in relevant business processes (Supply Chain, Technical Operations, or Contract Manufacturing).\n\n• Innovation Mindset: Demonstrates an E2E and innovative mentality with a positive, can-do attitude.\n\n• Change Leadership: Possesses the influence skills necessary to act as an effective change agent and challenge the status quo.\n\n• Technical & System Proficiency: Hands-on understanding of how master data flows across core SAP S/4HANA modules (MM, PP, QM, SD) and PLM interfaces. Familiarity with the systems required to run the process, including underlying master and transactional data.\n\n• BA/BS Degree, preferably in a technical, business or supply chain field. Masters Degree a plus\n\n• 8+ years in the pharma industry, supply chain management or in manufacturing.\n\n• APICS and/or SCOR certification, or equivalent relevant experience\n\n• Proficient knowledge and experience of SAP or ERP system\n\n• Language Skills: English is a MUST\n\nNice to have:\n\n• Hands-on experience with external manufacturing tech transfers..\n\n• Lean / Six Sigma Green Belt certification.\n\n• GMP experience, Compliance for Master Data (FDA 21 CFR Part 11 and EU Annex 11)"
       },
@@ -4506,7 +4500,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IK2D00",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:13:27.074Z",
+      "crawledAt": "2026-08-20T10:23:54.559Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4539,6 +4533,7 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T22:13:27.074Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4550,8 +4545,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-19T22:13:27.074Z"
+      }
     },
     {
       "id": "coopers-7cf2bb750cbb",
@@ -4584,7 +4578,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K3D86E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T22:13:26.071Z",
+      "crawledAt": "2026-08-20T10:23:53.669Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4618,19 +4612,21 @@
           "Refer a Friend"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-19T10:19:57.004Z",
+      "previousSlugs": [
+        "test-automation-engineer-m-w-d-coopers-bern",
+        "test-automation-ingegnere-m-w-d-coopers-group-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "test-automation-engineer-m-w-d-coopers-bern"
+          "test-automation-engineer-m-w-d-coopers-bern",
+          "test-automation-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "test-automation-engineer-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "test-automation-engineer-m-w-d-coopers-bern"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T10:19:57.004Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4645,84 +4641,69 @@
       }
     },
     {
-      "id": "coopers-1eb1df6bcf91",
-      "slug": "kaufmannische-r-collaboratore-trice-aftersales-m-w-d-coopers-group-ag-bern",
+      "id": "coopers-0732f02c2230",
+      "slug": "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
       "slugByLocale": {
-        "it": "kaufmannische-r-collaboratore-trice-aftersales-m-w-d-coopers-group-ag-bern",
-        "en": "kaufmannische-r-associate-aftersales-m-w-d-coopers-group-ag-bern",
-        "de": "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern",
-        "fr": "kaufmannische-r-collaborateur-trice-aftersales-m-w-d-coopers-group-ag-bern"
+        "de": "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "it": "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "en": "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "fr": "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Kaufmännische:r Mitarbeiter:in Aftersales (m/w/d)",
+      "title": "SharePoint Entwickler:in (On-Premises) (m/w/d)",
       "titleByLocale": {
-        "it": "Kaufmännische:r Collaboratore/trice Aftersales (m/w/d)",
-        "en": "Kaufmännische:r Associate Aftersales (m/w/d)",
-        "de": "Kaufmännische:r Mitarbeiter:in Aftersales (m/w/d)",
-        "fr": "Kaufmännische:r Collaborateur/trice Aftersales (m/w/d)"
+        "de": "SharePoint Entwickler:in (On-Premises) (m/w/d)",
+        "it": "SharePoint Entwickler:in (On-Premises) (m/w/d)",
+        "en": "SharePoint Entwickler:in (On-Premises) (m/w/d)",
+        "fr": "SharePoint Entwickler:in (On-Premises) (m/w/d)"
       },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (1JF51S)\n\n•\n\t\t\t\t\t\t\tAdministration - Finance\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.08.2026 - 30.11.2027 (Option auf Verlängerung)\n\nERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement\n\nSounds interesting?\n\nSimply click \"",
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4QDT87)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort / nach Absprache - 6 Monate ++\n\nSharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (1JF51S)\n\n•\nAmministrazione - Finanza\n\n•\n\nBerna\n\nContratti\n\nTempo pieno\n\n01.08.2026 - 30.11.2026 (opzione da estendere)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Gestione dei fornitori\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (1JF51S)\n\n•\nAdministration - Finance\n\n•\n\nBern\n\nContracting\n\nFull time\n\n01.08.2026 - 30.11.2026 (option to extend)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Supplier Management\n\nSounds interesting?\n\nSimply click.",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (1JF51S)\n\n•\n\nAdministration - Finance\n\nBern\n\nContracting\n\nFull Time\n\n01.08.2026 - 30.11.2027 (Option auf Verlängerung)\n\nERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (1JF51S)\n\n•\nAdministration - Finances\n\n•\n\nBelgique\n\nContrats\n\nTemps plein\n\n01.08.2026 - 30.11.2026 (option de prolongation)\n\nERP, SAP, SAP Hana, S/4HANA, Excel, Gestion des fournisseurs\n\nÇa semble intéressant ?\n\nCliquez simplement."
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4QDT87)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort / nach Absprache - 6 Monate ++\n\nSharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\nSounds interesting?\n\nSimply click \"",
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4QDT87)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort / nach Absprache - 6 Monate ++\n\nSharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4QDT87)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort / nach Absprache - 6 Monate ++\n\nSharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4QDT87)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull Time\n\nAb sofort / nach Absprache - 6 Monate ++\n\nSharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\nSounds interesting?\n\nSimply click \""
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1JF51S",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:58:49.874Z",
+      "crawledAt": "2026-08-20T10:23:52.776Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Ingegneria",
       "contract": "contracting",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1JF51S",
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "requirements": [
-        "Administration - Finance",
+        "IT - Software Engineering",
         "Bern",
         "Contracting",
         "Full Time",
-        "01.08.2026 - 30.11.2027 (Option auf Verlängerung)",
-        "ERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement"
+        "Ab sofort / nach Absprache - 6 Monate ++",
+        "Sharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS"
       ],
       "requirementsByLocale": {
         "de": [
-          "Administration - Finance",
+          "IT - Software Engineering",
+          "Bern",
           "Contracting",
           "Full Time",
-          "01.08.2026 - 30.11.2026 (Option auf Verlängerung)",
-          "ERP , SAP, SAP Hana, S/4HANA, Excel, Lieferantenmanagement",
-          "01.08.2026 - 30.11.2027 (Option auf Verlängerung)"
-        ]
-      },
-      "previousSlugs": [
-        "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
-        ],
-        "en": [
-          "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "kaufmannische-r-mitarbeiter-in-aftersales-m-w-d-coopers-bern"
+          "Ab sofort / nach Absprache - 6 Monate ++",
+          "Sharepoint, On-Prem, C#, .NET, ASP.net, JavaScript, HTML, CSS"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-24T22:12:30.875Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4735,7 +4716,174 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-08-20T10:23:52.776Z"
+    },
+    {
+      "id": "coopers-fa6282c95b66",
+      "slug": "verification-compliance-specialist-m-f-d-coopers-zug",
+      "slugByLocale": {
+        "en": "verification-compliance-specialist-m-f-d-coopers-zug",
+        "it": "verification-compliance-specialist-m-f-d-coopers-zug",
+        "de": "verification-compliance-specialist-m-f-d-coopers-zug",
+        "fr": "verification-compliance-specialist-m-f-d-coopers-zug"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Verification & Compliance Specialist (m/f/d)",
+      "titleByLocale": {
+        "en": "Verification & Compliance Specialist (m/f/d)",
+        "it": "Verification & Compliance Specialista (m/f/d)",
+        "de": "Verification & Compliance Spezialist (m/f/d)",
+        "fr": "Verification & Compliance Spécialiste (m/f/d)"
+      },
+      "description": "positions\n\n•\n\t\t\t\t\t\tVerification & Compliance Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+      "descriptionByLocale": {
+        "en": "positions\n\n•\n\t\t\t\t\t\tVerification & Compliance Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+        "it": "positions\n\n•\n\t\t\t\t\t\tVerification & Compliance Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+        "de": "positions\n\n•\n\t\t\t\t\t\tVerification & Compliance Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
+        "fr": "positions\n\n•\n\t\t\t\t\t\tVerification & Compliance Specialist\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap"
+      },
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=U08D7B",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-20T10:23:51.907Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=U08D7B",
+      "requirements": [
+        "Life Sciences - Quality Management",
+        "Contracting",
+        "Part Time, 100%",
+        "As soon as possible - 6 month after start date",
+        "MDR, IVD, Quality Assurance, Regulatory Affairs"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Life Sciences - Quality Management",
+          "Contracting",
+          "Part Time, 100%",
+          "As soon as possible - 6 month after start date",
+          "MDR, IVD, Quality Assurance, Regulatory Affairs"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T10:23:51.907Z"
+    },
+    {
+      "id": "coopers-6b3380fb776b",
+      "slug": "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern",
+      "slugByLocale": {
+        "it": "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern",
+        "en": "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
+        "de": "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
+        "fr": "senior-oracle-database-ingenieur-lead-ingenieur-m-w-d-coopers-group-ag-bern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Senior Oracle Database Engineer / Lead Engineer (m/w/d)",
+      "titleByLocale": {
+        "it": "Senior Oracle Database Ingegnere / Lead Ingegnere (m/w/d)",
+        "en": "Senior Oracle Database Engineer / Lead Engineer (m/w/d)",
+        "de": "Senior Oracle Database Ingenieur / Lead Ingenieur (m/w/d)",
+        "fr": "Senior Oracle Database Ingénieur / Lead Ingénieur (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HLY048)\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCantine\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (HLY048)\n\n•\nIT - Ingegneria del software\n\n•\n\nBerna\n\nContratti\n\nTempo parziale, 80-100 %\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nPrestazioni di lavoro\n\n•\nCantina\n\n•\nComputer aziendale\n\n•\nCoopers Care\n\n•\nTermini di primo nome\n\n•\nBuona connessione con i trasporti pubblici\n\n•\nHome Ufficio\n\n•\nSpazio di lavoro moderno\n\n•\nBilancia della vita lavorativa\n\nSembra interessante?\n\nBasta cliccare.",
+        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (HLY048)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100 %\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nJob benefits\n\n•\nCantine\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nFirst-name terms\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life balance\n\nSounds interesting?\n\nSimply click.",
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HLY048)\n\n•\n\nIT - Software Engineering\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nJob benefits\n\nCantine\n\nCompany laptop\n\nCoopers Care\n\nFirst-name terms\n\nGood public transport connection\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (HLY048)\n\n•\nIT - Génie logiciel\n\n•\n\nBelgique\n\nContrats\n\nTemps partiel, 80-100 %\n\n01.09.2026 - 31.03.2027\n\nOracle, AWS\n\nPrestations d'emploi\n\n•\nCantine\n\n•\nOrdinateur portable de la société\n\n•\nCoopers Care\n\n•\nTermes de prénom\n\n•\nBonne connexion aux transports publics\n\n•\nMinistère de l ' intérieur\n\n•\nEspace de travail moderne\n\n•\nÉquilibre travail-vie privée\n\nÇa semble intéressant ?\n\nCliquez simplement."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HLY048",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-19T22:13:36.615Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=HLY048",
+      "requirements": [
+        "IT - Software Engineering",
+        "Bern",
+        "Contracting",
+        "Part Time, 80-100%",
+        "01.09.2026 - 31.03.2027",
+        "Oracle, AWS"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - Software Engineering",
+          "Contracting",
+          "Part Time, 80-100%",
+          "01.09.2026 - 31.03.2027",
+          "Oracle, AWS"
+        ]
+      },
+      "previousSlugs": [
+        "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
+        "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern",
+          "senior-oracle-database-ingegnere-lead-ingegnere-m-w-d-coopers-group-ag-bern"
+        ],
+        "fr": [
+          "senior-oracle-database-engineer-lead-engineer-m-w-d-coopers-bern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:36:54.339Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
