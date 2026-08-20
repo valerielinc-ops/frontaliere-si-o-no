@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-19T22:14:50.681Z",
+  "assembledAt": "2026-08-20T10:17:30.527Z",
   "jobs": [
     {
       "id": "alpiq-2337a63af6bb",
@@ -44,7 +44,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:48.073Z",
+      "crawledAt": "2026-08-20T10:17:27.036Z",
       "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -114,7 +114,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T22:14:48.074Z",
+      "crawledAt": "2026-08-20T10:17:27.035Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -188,7 +188,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
