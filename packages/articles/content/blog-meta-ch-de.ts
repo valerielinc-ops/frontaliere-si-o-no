@@ -3529,6 +3529,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rallentamento-crescita-demografica-2025.title': 'Bevölkerungsabschwächung im Jahr 2025: +0,8%',
     'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'Zum 31. Dezember 2025 hat die Schweiz 9,127 Millionen Einwohner. Das Wachstum verlangsamt sich auf 0,8%, die Alten überholen erstmals die Jungen. Auswirkungen auf AHV, BVG und Wohlfahrt.',
     'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Luftaufnahme einer Schweizer Stadt mit Menschen verschiedener Altersgruppen',
+    'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier: Rekordvermögen im ersten Halbjahr',
+    'blog.article.lombard-odier-patrimoni-record.excerpt': 'Die Genfer Bank erreicht ein Gesamtvermögen von CHF 367 Milliarden. Umsatz +9%, Nettogewinn +25% im ersten Halbjahr 2026.',
+    'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Finanzfachleute untersuchen Vermögensverwaltungsdaten in einem modernen Schweizer Bankbüro',
 };
 
 export default blogMetaChDe;

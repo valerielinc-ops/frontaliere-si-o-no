@@ -45767,6 +45767,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombard-odier-patrimoni-record': {
+    title: 'Lombard Odier: patrimoni a record nel primo semestre',
+    description: 'Lombard Odier raggiunge patrimoni record di 367 miliardi CHF nel primo semestre 2026, con ricavi +9% e utile netto +25%. Analisi dei risultati finanziari',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombard, odier, patrimoni, record',
+    ogTitle: 'Lombard Odier raggiunge patrimoni record: 367 miliardi CHF',
+    ogDescription: 'La banca privata ginevrina chiude il primo semestre 2026 con record: patrimoni gestiti di 239 miliardi CHF (+7%), patrimoni totali di 367 miliardi CHF (+5%), ricavi +9%, utile netto +25%. Solidità patrimoniale e fiducia della clientela spiegano',
+    canonicalPath: '/articoli-svizzera/lombard-odier-patrimoni-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombard Odier: patrimoni a record nel primo semestre",
+      "description": "Lombard Odier raggiunge patrimoni record di 367 miliardi CHF nel primo semestre 2026, con ricavi +9% e utile netto +25%. Analisi dei risultati finanziari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lombard-odier-patrimoni-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti finanziari esaminano dati di gestione patrimoniale in ufficio bancario svizzero moderno"
+      },
+      "datePublished": "2026-08-20T08:53:00+00:00",
+      "dateModified": "2026-08-20T08:53:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lombard-odier-patrimoni-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

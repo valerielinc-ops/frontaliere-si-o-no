@@ -3529,6 +3529,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rallentamento-crescita-demografica-2025.title': 'Ralentissement démographique en 2025 : +0,8%',
     'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'Au 31 décembre 2025, la Suisse compte 9,127 millions d\'habitants. La croissance ralentit à 0,8 %, les personnes âgées dépassent pour la première fois les jeunes. Implications sur l\'AVS, la LPP et le bien-être.',
     'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Vue aérienne de ville suisse avec personnes de différents âges',
+    'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier : patrimoine record au premier semestre',
+    'blog.article.lombard-odier-patrimoni-record.excerpt': 'La banque genevoise atteint CHF 367 milliards d\'actifs totaux. Chiffre d\'affaires +9 %, bénéfice net +25 % au premier semestre 2026.',
+    'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Professionnels financiers examinant les données de gestion d\'actifs dans un bureau bancaire suisse moderne',
 };
 
 export default blogMetaChFr;
