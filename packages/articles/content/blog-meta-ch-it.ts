@@ -3565,6 +3565,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.gas-svizzera-inverno-opzione.title': 'Gas, nuova opzione per l\'inverno in Svizzera',
     'blog.article.gas-svizzera-inverno-opzione.excerpt': 'La Confederazione attiva l\'opzione ITA.SWAPtion.26 per accedere al gasdotto Francia-Italia. Costo 2-3 franchi per famiglie. Disponibile da ottobre 2026.',
     'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Paesaggio alpino invernale svizzero con infrastrutture energetiche nella valle',
+    'blog.article.viticoltura-ticino-2026-sfide.title': 'Siccità, parassiti e grandinate: ma avremo un vino d\'oro',
+    'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'La vendemmia 2026 promette essere tra le migliori annate, ma siccità, grandine e parassiti mettono a rischio i viticoltori ticinesi',
+    'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Vigneti ticinesi in estate sotto il sole, con le viti in primo piano e le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

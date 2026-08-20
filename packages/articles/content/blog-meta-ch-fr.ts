@@ -3565,6 +3565,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.gas-svizzera-inverno-opzione.title': 'Gaz, nouvelle option pour l\'hiver en Suisse',
     'blog.article.gas-svizzera-inverno-opzione.excerpt': 'La Confédération active l\'option ITA.SWAPtion.26 pour accéder au gazoduc France-Italie. Coût 2-3 francs pour les familles. Disponible à partir d\'octobre 2026.',
     'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Paysage alpin hivernal suisse avec infrastructure énergétique dans la vallée',
+    'blog.article.viticoltura-ticino-2026-sfide.title': 'Sécheresse, parasites et grêle : mais nous aurons un vin d\'or',
+    'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'Les vendanges 2026 promettent d\'être parmi les meilleures années, mais la sécheresse, la grêle et les parasites mettent en danger les viticulteurs tessinois',
+    'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Vignoble du Tessin en été avec les vignes éclairées par le soleil de l\'après-midi',
 };
 
 export default blogMetaChFr;
