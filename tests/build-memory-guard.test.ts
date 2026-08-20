@@ -387,6 +387,21 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(readSelfAnonMb(tmpMeminfo('VmSwap:\t 1024 kB\n'))).toBeNull();
   });
 
+  it('readSelfAnonMb() senza path — parsea il /proc/self/status REALE del processo di test, non solo fixture sintetici (#6174)', () => {
+    // Le fixture sopra hardcodano il tab kernel-standard; questo test invece
+    // legge il file vero del processo corrente, cosi' un'eventuale deriva di
+    // formato whitespace/kernel sul runner la fa fallire qui invece che in
+    // silenzio a runtime (VmSwap assente degraderebbe muto a RSS-only).
+    const real = readSelfAnonMb();
+    if (os.platform() !== 'linux') {
+      expect(real).toBeNull();
+      return;
+    }
+    expect(real).not.toBeNull();
+    expect(real!.rssMb).toBeGreaterThan(0);
+    expect(real!.swapMb).toBeGreaterThanOrEqual(0);
+  });
+
   it('sotto i 2 GB di SwapTotal il pavimento swap resta SPENTO — sarebbe sfondato a riposo', () => {
     const t = resolveThresholds(
       {} as NodeJS.ProcessEnv,
@@ -395,6 +410,15 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(t.swapFreeFloorMb).toBeNull();
     // …ma il credito sul tetto vale comunque: e' capacita' anonima reale.
     expect(t.rssCeilingMb).toBe(Math.round((15988 + 1024) * RSS_CEILING_FRACTION));
+  });
+
+  it('un override esplicito su BUILD_MEM_SWAP_FLOOR_MB compare in ignoredOverrides anche col pavimento SPENTO (#6169 item 3)', () => {
+    const meminfo = tmpMeminfo(meminfoWithSwap(15988, SWAP_FLOOR_MIN_TOTAL_MB - 1024));
+    const t = resolveThresholds({ BUILD_MEM_SWAP_FLOOR_MB: '100' } as NodeJS.ProcessEnv, meminfo);
+    expect(t.swapFreeFloorMb).toBeNull();
+    // Simmetrico a tetto/pavimento host: un override scartato lo dice sempre,
+    // indipendentemente da quanto la soglia stessa sia "armata".
+    expect(t.ignoredOverrides).toContain('BUILD_MEM_SWAP_FLOOR_MB');
   });
 
   it('BUILD_MEM_SWAP_FLOOR_MB puo\' solo STRINGERE (alzare), come le altre env', () => {
@@ -407,9 +431,12 @@ describe('il tetto RSS e\' swap-aware', () => {
     expect(tightened.swapFreeFloorMb).toBe(1024);
   });
 
-  it('il pavimento swap scatta a 3 campioni consecutivi, e host-floor gli passa davanti', () => {
+  it('il pavimento swap scatta a 3 campioni consecutivi oltre il warmup, e host-floor gli passa davanti', () => {
     const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
     const state = createGuardState();
+    // Campione 1: scartato dal warmup (SWAP_FLOOR_WARMUP_SAMPLES, #6169 item 2)
+    // — non conta ne' qui ne' altrove nel conteggio dei 3 consecutivi.
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBeNull();
     expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBeNull();
     expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 300 }, withSwap)).toBeNull();
     expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBe('swap-floor');
@@ -422,6 +449,55 @@ describe('il tetto RSS e\' swap-aware', () => {
       observeSample(both, { rssMb: 11000, hostAvailMb: 400, swapFreeMb: 200 }, withSwap);
     }
     expect(observeSample(both, { rssMb: 11000, hostAvailMb: 400, swapFreeMb: 200 }, withSwap)).toBe('host-floor');
+  });
+
+  it('quando rss-ceiling e swap-floor sfondano insieme, vince swap-floor — la precedenza non dipende da chi consuma lo swap (#6169 item 1)', () => {
+    // observeSample legge SwapFree dell'HOST: non sa (ne' gli interessa) se a
+    // consumarlo e' questo processo o un job vicino sullo stesso runner
+    // (rumore condiviso, il caso che il reviewer voleva vedere coperto oltre
+    // alla singola run osservata). La soglia guarda solo il numero globale,
+    // mai l'attribuzione, quindi lo stesso scenario sintetico dimostra la
+    // precedenza per entrambe le cause.
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    // 3 campioni oltre il warmup (SWAP_FLOOR_WARMUP_SAMPLES, #6169 item 2):
+    // il primo dei 4 qui sotto e' scartato, ne restano 3 consecutivi validi.
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 13000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap);
+    }
+    // rssMb=13000 > rssCeilingMb (12902): rss-ceiling sfonda.
+    // swapFreeMb=400 < swapFreeFloorMb (512): swap-floor sfonda.
+    // hostAvailMb resta sopra il pavimento host: solo i due sotto sono in gioco.
+    expect(observeSample(state, { rssMb: 13000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBe(
+      'swap-floor',
+    );
+    expect(state.breach).toBe('swap-floor');
+  });
+
+  it('il primo campione sotto pavimento non conta — tollera un SwapFree stale subito dopo swapon (#6169 item 2)', () => {
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    // Campione 1: SwapFree=0, come una lettura transitoria/stale a ridosso di
+    // uno swapon recente. Scartato dal warmup: non fa scattare nulla e non
+    // conta nemmeno come "consecutivo".
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 0 }, withSwap)).toBeNull();
+    expect(state.consecutiveSwapUnder).toBe(0);
+    // Servono ancora 3 campioni REALI sotto soglia da qui in poi — il warmup
+    // non ha regalato terreno alla pressione vera, l'ha solo tenuta lontana
+    // dal falso positivo del campione 1.
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBe('swap-floor');
+  });
+
+  it('un solo campione stale a inizio build non basta a mascherare tre campioni sani successivi', () => {
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    // Il campione 1 e' scartato dal warmup anche se e' SOPRA soglia — non fa
+    // differenza per una build sana, il pavimento resta semplicemente inerte.
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 4000 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 4000 }, withSwap)).toBeNull();
+    expect(state.breach).toBeNull();
   });
 
   it('la diagnosi swap-floor nomina SwapFree, il pavimento e i numeri', () => {
@@ -484,6 +560,20 @@ describe('resolvePreflight — il lockstep tetto↔swap e\' meccanico, non un co
     // 18432 + overhead entra invece in un host con 15988 RAM + 12288 swap…
     // MA in CI resta il lockstep: qui siamo fuori CI, quindi ok.
     expect(resolvePreflight(18432, LOCAL, tmpMeminfo(meminfoSwap(15988, 12288))).verdict).toBe('ok');
+  });
+
+  it('ciSignal riporta il segnale grezzo CI/GITHUB_ACTIONS in OGNI ramo, non solo nel fail lockstep — item 3 di #6174: la regola 2 e\' silente quando isCi risulta false, questo e\' il punto che la rende osservabile in ogni build log reale', () => {
+    expect(resolvePreflight(18432, CI, '/nope/meminfo').ciSignal).toBe('CI=true GITHUB_ACTIONS=unset isCi=true');
+    expect(resolvePreflight(14336, CI, tmpMeminfo(meminfoSwap(15988, 4096))).ciSignal).toBe(
+      'CI=true GITHUB_ACTIONS=unset isCi=true',
+    );
+    expect(resolvePreflight(14336, LOCAL, tmpMeminfo(meminfoSwap(65536, 0))).ciSignal).toBe(
+      'CI=unset GITHUB_ACTIONS=unset isCi=false',
+    );
+    const githubActionsOnly = { GITHUB_ACTIONS: 'true' } as NodeJS.ProcessEnv;
+    expect(resolvePreflight(14336, githubActionsOnly, tmpMeminfo(meminfoSwap(15988, 12288))).ciSignal).toBe(
+      'CI=unset GITHUB_ACTIONS=true isCi=true',
+    );
   });
 
   it('le costanti stanno nell\'ordine che il preflight assume', () => {

@@ -168,16 +168,15 @@
         "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Pharma-Assistent / Pharma-Assistentin (m/f/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "fr": "Pharma-Assistent / Pharma-Assistentin (w/m/d)"
+        "de": "Pharma-Assistent / Pharma-Assistentin (m/w/d)",
+        "fr": "Pharma-Assistant / Pharma-Assistant (h/f/d)"
       },
       "id": "galenica-b47bd8f21daf",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -736,13 +735,13 @@
         "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
+        "it": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (m/f/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
-        "de": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
-        "fr": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)"
+        "de": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (m/w/d)",
+        "fr": "Pharma-Assistant / Pharma-Assistant im Kundenservicecenter (h/f/d)"
       },
       "id": "galenica-af80e62ec451",
       "needsRetranslation": true,
@@ -867,8 +866,8 @@
       "titleByLocale": {
         "it": "Apotheker / Apothekerin per FPH-Weiterbildung (w/m)",
         "en": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)",
-        "de": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)",
-        "fr": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)"
+        "de": "Apotheker / Apothekerin für FPH-Weiterbildung (m/w)",
+        "fr": "Apotheker / Apothekerin für FPH-Weiterbildung (h/f)"
       },
       "id": "galenica-c54efb2e8379",
       "needsRetranslation": true,
@@ -1632,11 +1631,10 @@
         "it": "Assistant en pharmacie / Assistante en pharmacie (f/m/d)",
         "en": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)",
         "de": "Assistent en pharmacie / Assistante en pharmacie (f/h/d)",
-        "fr": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)"
+        "fr": "Assistant en pharmacie / Assistant en pharmacie (h/f/d)"
       },
       "id": "galenica-828541a40d03",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2072,7 +2070,7 @@
         "it": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (f/m/d)",
         "en": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (f/h/d)",
         "de": "Acheteur(se) opérationnel(le)/ordinatur(trice) achats, (m/w/d)",
-        "fr": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (f/h/d)"
+        "fr": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (h/f/d)"
       },
       "id": "galenica-120b48be1a75",
       "needsRetranslation": true,
@@ -2127,7 +2125,7 @@
       "titleByLocale": {
         "it": "Apotheker come Stellvertretung / Apothekerin come Stellvertretung (w/m/d)",
         "en": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
-        "de": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
+        "de": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (m/w/d)",
         "fr": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (h/f/d)"
       },
       "id": "galenica-ed7c5e1f5f78",
@@ -2655,20 +2653,15 @@
       "id": "galenica-c526b16d9cd0",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ],
         "en": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
-        ],
-        "de": [
-          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj",
-        "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -17752,7 +17745,7 @@
       "slugByLocale": {
         "it": "assistente-farmacista-nel-centro-servizi-clienti-d-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
-        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern-nxo0ug",
         "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-p-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
@@ -17765,10 +17758,17 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern-nxo0ug"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern-nxo0ug"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",

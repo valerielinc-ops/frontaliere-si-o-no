@@ -13178,6 +13178,18 @@ ${staticAnalyticsHtml}
  // validJobs/jobHtmlCache, mai da queste. Tenerle vive fino a fine
  // closeBundle significava attraversare le due fasi piu' pesanti rimaste con
  // l'object graph di expired-jobs.json (~65 MB su disco) ancora in pancia.
+ // Audit closure-safety (#6168): `expiredBySlug`/`orphanGscData` are read
+ // ONLY at L12289/L12333 — both identifiers appear nowhere else in this
+ // file, so no closure defined earlier (e.g. a callback queued past this
+ // point) can hold a live reference into either map. Both reads happen
+ // synchronously at the top of each per-slug/per-locale loop body, before
+ // any `await`; the extracted fields are copied into plain per-iteration
+ // consts and serialized into the HTML string handed to `_qw` → `collector
+ // .add(filePath, content)` (L909-911), which stores the already-built
+ // string, not a reference back into these maps. The soft-landing loop and
+ // the cross-locale-expired loop above both fully resolve (sequential
+ // `await collector.awaitDrainSlot(...)`, no fire-and-forget) before this
+ // cleanup block runs, so `.clear()` below can never race a pending read.
  expiredJobsData = [];
  expiredBySlug.clear();
  orphanGscData.clear();

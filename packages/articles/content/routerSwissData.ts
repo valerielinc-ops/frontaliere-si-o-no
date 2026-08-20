@@ -1209,6 +1209,17 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'benzina-due-franchi-agosto-2026': { it: 'benzina-due-franchi-agosto-2026', en: 'fuel-prices-two-francs-august-2026', de: 'benzinpreis-zwei-franken-august-2026', fr: 'essence-deux-francs-aout-2026' },
  'postfinance-utile-calo-primo-semestre': { it: 'postfinance-utile-calo-primo-semestre', en: 'postfinance-profits-decline-first-half', de: 'postfinance-gewinn-rueckgang-ersten-semester', fr: 'postfinance-baisses-benefices-premier-semestre' },
  'assicurazioni-svizzera-risultati-2025': { it: 'assicurazioni-svizzera-risultati-2025', en: 'insurance-switzerland-results-2025', de: 'versicherungen-schweiz-ergebnisse-2025', fr: 'assurances-suisse-resultats-2025' },
+ 'preventivo-confederazione-2027': { it: 'preventivo-confederazione-2027', en: 'federal-budget-2027-council', de: 'bundesbudget-2027-rat', fr: 'budget-federal-2027-conseil' },
+ 'pianificazione-ospedaliera-ticino-2026': { it: 'pianificazione-ospedaliera-ticino-2026', en: 'ticino-hospital-planning-2026', de: 'tessiner-spitalplanung-2026', fr: 'planification-hospitaliere-tessin-2026' },
+ 'uss-pensionati-rendite-2027': { it: 'uss-pensionati-rendite-2027', en: 'uss-pensioners-benefits-2027', de: 'uss-pensionare-leistungen-2027', fr: 'uss-pensionnes-prestations-2027' },
+ 'posta-utile-in-salita': { it: 'posta-utile-in-salita', en: 'posta-profit-increase', de: 'posta-gewinnsteigerung', fr: 'augmentation-des-benefices-de-la-posta' },
+ 'gas-svizzera-inverno-opzione': { it: 'gas-svizzera-inverno-opzione', en: 'switzerland-gas-winter-option', de: 'gas-schweiz-winter-option', fr: 'gaz-suisse-hiver-option' },
+ 'viticoltura-ticino-2026-sfide': { it: 'viticoltura-ticino-2026-sfide', en: 'viticulture-ticino-2026-challenges', de: 'weinbau-tessin-2026-herausforderungen', fr: 'viticulture-tessin-2026-defis' },
+ 'monopattini-obbligo-casco': { it: 'monopattini-obbligo-casco', en: 'e-scooter-helmet-mandate', de: 'e-scooter-helmflicht', fr: 'trottinette-casque-obligatoire' },
+ 'svizzera-cina-accordo-libero-scambio': { it: 'svizzera-cina-accordo-libero-scambio', en: 'switzerland-china-free-trade-agreement', de: 'schweiz-china-freihandelsabkommen', fr: 'suisse-chine-accord-libre-echange' },
+ 'dimora-b-svizzera-guida-pratica': { it: 'dimora-b-svizzera-guida-pratica', en: 'residence-permit-b-switzerland-guide', de: 'aufenthaltserlaubnis-b-schweiz-leitfaden', fr: 'permis-sejour-b-suisse-guide' },
+ 'svizzera-cina-dazi-export': { it: 'svizzera-cina-dazi-export', en: 'switzerland-china-export-tariffs', de: 'schweiz-china-export-zolle', fr: 'suisse-chine-export-droits' },
+ 'monopattini-casco-sicurezza': { it: 'monopattini-casco-sicurezza', en: 'e-scooter-helmet-safety', de: 'elektroroller-helm-sicherheit', fr: 'trottinette-casque-securite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

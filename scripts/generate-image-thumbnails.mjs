@@ -10,6 +10,11 @@ const SOURCE_DIRS = [
   path.join(ROOT, 'public', 'images', 'places'),
 ];
 const WIDTH = 480;
+// An extreme-portrait source had no bound on the resulting height: width-only
+// resize re-encoded a tall image to an oversized file for a "thumbnail".
+// `fit: 'inside'` only makes this the binding constraint for sources taller
+// than they are wide; ordinary landscape heroes resize exactly as before.
+const MAX_HEIGHT = 480;
 const WEBP_QUALITY = 68;
 const VALID_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);
 const MANIFEST_NAME = '.thumbcache.json';
@@ -153,7 +158,7 @@ async function processSourceDir(sourceDir) {
 
     await sharp(inputPath)
       .rotate()
-      .resize({ width: WIDTH, withoutEnlargement: true })
+      .resize({ width: WIDTH, height: MAX_HEIGHT, fit: 'inside', withoutEnlargement: true })
       .webp({ quality: WEBP_QUALITY })
       .toFile(outWebp);
 

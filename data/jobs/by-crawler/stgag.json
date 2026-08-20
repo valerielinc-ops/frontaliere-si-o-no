@@ -758,10 +758,10 @@
       "id": "stgag-69cbefe9802d",
       "slug": "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen",
-        "en": "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen",
-        "de": "arztsekretar-in-orthopadie-stgag-munsterlingen",
-        "fr": "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen"
+        "it": "arztsekretar-in-orthopadie-stgag-munsterlingen",
+        "en": "arztsekretar-in-orthopadie-stgag-munsterlingen",
+        "de": "arztsekretar-in-orthopadie-stgag-ch",
+        "fr": "arztsekretar-in-orthopadie-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -805,24 +805,33 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "arztsekretar-in-orthopadie-stgag-ch"
+          "arztsekretar-in-orthopadie-stgag-munsterlingen",
+          "arztsekretar-in-orthopadie-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks"
         ],
         "it": [
           "arztsekretar-in-orthopadie-stgag-ch",
-          "arztsekretar-in-orthopadie-stgag-munsterlingen"
+          "arztsekretar-in-orthopadie-stgag-munsterlingen",
+          "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "arztsekretar-in-orthopadie-stgag-ch",
-          "arztsekretar-in-orthopadie-stgag-munsterlingen"
+          "arztsekretar-in-orthopadie-stgag-munsterlingen",
+          "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "arztsekretar-in-orthopadie-stgag-ch",
-          "arztsekretar-in-orthopadie-stgag-munsterlingen"
+          "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
         "arztsekretar-in-orthopadie-stgag-ch",
-        "arztsekretar-in-orthopadie-stgag-munsterlingen"
+        "arztsekretar-in-orthopadie-stgag-munsterlingen",
+        "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen",
+        "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen",
+        "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen",
+        "arztsekretar-in-orthopadie-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks"
       ],
       "firstSeenAt": "2026-08-18T21:36:44.397Z",
       "salaryMin": 57500,
@@ -836,7 +845,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "stgag-7b5ae68b6cfa",

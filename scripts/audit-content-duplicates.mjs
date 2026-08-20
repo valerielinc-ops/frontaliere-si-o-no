@@ -21,6 +21,10 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 
 const CLUSTER_THRESHOLD = 5;
 const MAX_REPORTED = 20;
+// How many member paths of a single duplicate cluster are retained. The gate
+// turns on the cluster COUNT per locale, never on the membership list, and the
+// CLI prints `cluster.paths.length` members of at most MAX_REPORTED clusters.
+const PATHS_PER_CLUSTER_CAP = 50;
 const LOCALE_PREFIXES = ['en', 'de', 'fr'];
 
 function inferLocale(relPath) {
@@ -86,7 +90,24 @@ export { inferLocale };
 
 export function createAuditor(opts = {}) {
   const clusterThreshold = opts.clusterThreshold ?? CLUSTER_THRESHOLD;
-  const pages = [];
+  // Grouped AS WE GO: locale → hash → { n, paths }.
+  //
+  // This used to be a flat `pages[]` with one `{relPath, locale, hash,
+  // wordCount}` object PER SCANNED FILE, regrouped into exactly this shape in
+  // report(). At the ~977'000 files a sampled post-deploy run scans that is
+  // ~977'000 objects, each holding a 64-char hex digest string, alive until
+  // report() — which then built the grouping ALONGSIDE it, so both peaked
+  // together. `audit:all` died at `Ineffective mark-compacts near heap limit`
+  // on run 32261742920 with this auditor in the process.
+  //
+  // Grouping in collect() keeps one entry per DISTINCT body instead of one per
+  // file, holds each digest once instead of twice, and removes the second
+  // peak. `wordCount` is gone because nothing ever read it.
+  //
+  // The verdict is unchanged: `n` is the TRUE cluster size (paths is only the
+  // reported sample), so per-locale cluster counts and `breached` are
+  // bit-for-bit what they were.
+  const byLocale = new Map();
   const seenUrlKeys = new Set();
 
   return {
@@ -112,35 +133,42 @@ export function createAuditor(opts = {}) {
       }
 
       const locale = inferLocale(relPath);
-      pages.push({ relPath, locale, hash: sha256(bodyText), wordCount });
+      const hash = sha256(bodyText);
+      let m = byLocale.get(locale);
+      if (m === undefined) {
+        m = new Map();
+        byLocale.set(locale, m);
+      }
+      const cluster = m.get(hash);
+      if (cluster === undefined) {
+        m.set(hash, { n: 1, paths: [relPath] });
+      } else {
+        cluster.n++;
+        // A duplicate cluster is described, not enumerated: the report prints
+        // a handful and the JSON keeps a sample. Retaining all N paths of a
+        // 40'000-page cluster is memory spent on output nobody reads.
+        if (cluster.paths.length < PATHS_PER_CLUSTER_CAP) cluster.paths.push(relPath);
+      }
     },
     report() {
-      const byLocale = new Map();
-      for (const p of pages) {
-        if (!byLocale.has(p.locale)) byLocale.set(p.locale, new Map());
-        const m = byLocale.get(p.locale);
-        if (!m.has(p.hash)) m.set(p.hash, []);
-        m.get(p.hash).push(p.relPath);
-      }
-
       const totals = {};
       const duplicates = [];
       for (const [locale, m] of byLocale.entries()) {
         let dupClusters = 0;
-        for (const [hash, paths] of m.entries()) {
-          if (paths.length < 2) continue;
+        for (const [hash, cluster] of m.entries()) {
+          if (cluster.n < 2) continue;
           dupClusters++;
-          duplicates.push({ locale, hash, paths });
+          duplicates.push({ locale, hash, n: cluster.n, paths: cluster.paths });
         }
         totals[locale] = dupClusters;
       }
-      duplicates.sort((a, b) => b.paths.length - a.paths.length);
+      duplicates.sort((a, b) => b.n - a.n);
 
       const breached = Object.values(totals).some((n) => n > clusterThreshold);
       const offenders = duplicates.map((c) => ({
         path: c.paths[0],
         feature: c.locale,
-        metric: c.paths.length,
+        metric: c.n,
         ratio: null,
         hash: c.hash,
         pages: c.paths,
@@ -213,9 +241,13 @@ async function standalone() {
     const reported = duplicates.slice(0, MAX_REPORTED);
     console.log(`\n[audit-content-duplicates] Top ${reported.length} duplicate cluster(s):`);
     for (const cluster of reported) {
-      console.log(`  [${cluster.locale}] hash=${cluster.hash.slice(0, 12)}… pages=${cluster.paths.length}`);
+      // `n` is the true cluster size; `paths` is the retained sample
+      // (PATHS_PER_CLUSTER_CAP). Printing paths.length here would UNDERSTATE a
+      // large cluster the moment the cap bites — the one way this memory fix
+      // could have quietly changed what a reader sees.
+      console.log(`  [${cluster.locale}] hash=${cluster.hash.slice(0, 12)}… pages=${cluster.n}`);
       for (const p of cluster.paths.slice(0, 6)) console.log(`    - ${p}`);
-      if (cluster.paths.length > 6) console.log(`    … and ${cluster.paths.length - 6} more`);
+      if (cluster.n > 6) console.log(`    … and ${cluster.n - 6} more`);
     }
   }
 

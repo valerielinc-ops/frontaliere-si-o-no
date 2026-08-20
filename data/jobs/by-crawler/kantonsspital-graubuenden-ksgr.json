@@ -23,15 +23,24 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-20T10:13:01.320Z",
-      "slug": "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur",
+      "slug": "infermiera-nurse-specialista-oncologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur",
+        "it": "infermiera-nurse-specialista-oncologia-kantonsspital-graubunden-chur",
+        "en": "nurse-nurse-oncology-specialist-kantonsspital-graubunden-chur",
+        "fr": "infirmiere-infirmiere-specialiste-en-oncologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Pflegefachfrau / Pflegefachmann Onkologie"
+        "de": "Pflegefachfrau / Pflegefachmann Onkologie",
+        "it": "Infermiera/Nurse specialista oncologia",
+        "en": "Nurse/nurse oncology specialist",
+        "fr": "Infirmière/infirmière spécialiste en oncologie"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. Oktober 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du berätst und betreust unsere Patientinnen und Patienten während aller Phasen ihrer Erkrankungen\n\n• Du führst die Applikation antitumoraler Therapien durch und bist für die Planung sowie Umsetzung des Pflegeprozesses verantwortlich\n\n• Du beteiligst dich aktiv an der Ausbildung zukünftiger Pflegefachpersonen\n\nAnforderungen:\n• Ein in der Schweiz anerkanntes Diplom als Pflegefachfrau/Pflegefachmann HF/FH\n\n• Verantwortungsbewusstsein für die Betreuung unserer Patientinnen und Patienten und ein starkes Engagement für professionelle Pflege\n\n• Offenheit, dein Know-how weiterzugeben, Freude am Austausch von Fachwissen und den Willen, dich kontinuierlich weiterzuentwickeln\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. Oktober 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du berätst und betreust unsere Patientinnen und Patienten während aller Phasen ihrer Erkrankungen\n\n• Du führst die Applikation antitumoraler Therapien durch und bist für die Planung sowie Umsetzung des Pflegeprozesses verantwortlich\n\n• Du beteiligst dich aktiv an der Ausbildung zukünftiger Pflegefachpersonen\n\nAnforderungen:\n• Ein in der Schweiz anerkanntes Diplom als Pflegefachfrau/Pflegefachmann HF/FH\n\n• Verantwortungsbewusstsein für die Betreuung unserer Patientinnen und Patienten und ein starkes Engagement für professionelle Pflege\n\n• Offenheit, dein Know-how weiterzugeben, Freude am Austausch von Fachwissen und den Willen, dich kontinuierlich weiterzuentwickeln\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare il 1 ottobre 2026 o per accordo come\n\nCompiti:\n• Potrai consigliare e sostenere i nostri pazienti durante tutte le fasi delle loro malattie\n\n• Si effettua l'applicazione di terapie antitumorali e sono responsabili per la pianificazione e l'attuazione del processo di cura\n\n• Sei attivamente coinvolto nella formazione di futuri professionisti della cura\n\nRequisiti\n• Un diploma riconosciuto in Svizzera come specialista in allattamento HF/FH\n\n• Responsabilità per la cura dei nostri pazienti e un forte impegno per la cura professionale\n\n• Apertura, condivisione del vostro know-how, gustando lo scambio di competenze e la volontà di sviluppare continuamente\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on October 1, 2026 or by arrangement as\n\nTasks:\n• You will advise and support our patients during all phases of their illnesses\n\n• You carry out the application of antitumor therapies and are responsible for the planning and implementation of the care process\n\n• You are actively involved in the training of future care professionals\n\nRequirements\n• A diploma recognised in Switzerland as nursing specialist HF/FH\n\n• Responsibility for the care of our patients and a strong commitment to professional care\n\n• Openness, sharing your know-how, enjoying the exchange of expertise and the will to continuously develop\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer le 1er octobre 2026 ou par arrangement\n\nTâches :\n• Vous conseillerez et accompagnerez nos patients pendant toutes les phases de leur maladie.\n\n• Vous effectuez l'application de thérapies antitumorales et êtes responsable de la planification et de la mise en œuvre du processus de soins\n\n• Vous participez activement à la formation des futurs professionnels de la santé\n\nExigences\n• Diplôme reconnu en Suisse comme spécialiste des sciences infirmières HF/FH\n\n• La responsabilité des soins à nos patients et un engagement ferme envers les soins professionnels\n\n• Ouverture, partage de votre savoir-faire, échange d'expertise et volonté de se développer en permanence\n\nPouvez-vous faire quelque chose que les autres peuvent faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,12 +53,25 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-20T10:13:01.320Z"
+      "firstSeenAt": "2026-08-20T10:13:01.320Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-onkologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10155267",
@@ -72,15 +94,24 @@
       "employmentType": "50 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-20T10:13:01.320Z",
-      "slug": "medizinische-r-dokumentar-in-kantonsspital-graubunden-chur",
+      "slug": "medico-r-documentario-in-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-dokumentar-in-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-dokumentar-in-kantonsspital-graubunden-chur",
+        "it": "medico-r-documentario-in-kantonsspital-graubunden-chur",
+        "en": "medical-r-documentary-in-kantonsspital-graubunden-chur",
+        "fr": "documentaire-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Medizinische:r Dokumentar:in"
+        "de": "Medizinische:r Dokumentar:in",
+        "it": "Medico:r Documentario:in",
+        "en": "Medical:r Documentary:in",
+        "fr": "Documentaire:in"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. November 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du erfasst, beurteilst und kodierst Krebsfälle gemäss nationalen und internationalen Richtlinien (ICD-10, ICD-O-3 und TNM)\n\n• Du arbeitest an den Qualitätssicherungsmassnahmen mit\n\n• Du unterstützt bei der Datenerfassung für Forschungsprojekte\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Medizinische:r Kodierer:in, Dokumentar:in, Pflegefachperson oder eine vergleichbare medizinische Ausbildung sowie Berufserfahrung\n\n• Kenntnisse der Kodierrichtlinien; Erfahrung in der Krebsdokumentation ist von Vorteil\n\n• Italienischkenntnisse idealerweise, Englischkenntnisse von Vorteil sowie gute MS-Office-Kenntnisse\n\n• Eine strukturierte, exakte und zuverlässige Arbeitsweise mit rascher Auffassungsgabe\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. November 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du erfasst, beurteilst und kodierst Krebsfälle gemäss nationalen und internationalen Richtlinien (ICD-10, ICD-O-3 und TNM)\n\n• Du arbeitest an den Qualitätssicherungsmassnahmen mit\n\n• Du unterstützt bei der Datenerfassung für Forschungsprojekte\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Medizinische:r Kodierer:in, Dokumentar:in, Pflegefachperson oder eine vergleichbare medizinische Ausbildung sowie Berufserfahrung\n\n• Kenntnisse der Kodierrichtlinien; Erfahrung in der Krebsdokumentation ist von Vorteil\n\n• Italienischkenntnisse idealerweise, Englischkenntnisse von Vorteil sowie gute MS-Office-Kenntnisse\n\n• Eine strukturierte, exakte und zuverlässige Arbeitsweise mit rascher Auffassungsgabe\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare su 1. Novembre 2026 o per accordo\n\nCompiti:\n• Raccogli, valuta e codifica casi di cancro secondo le linee guida nazionali e internazionali (ICD-10, ICD-O-3 e TNM)\n\n• Stai lavorando sulle misure di garanzia della qualità\n\n• Supporti nella raccolta dati per progetti di ricerca\n\nRequisiti\n• Formazione medica completa:\n\n• conoscenza delle linee guida di codifica; L'esperienza nella documentazione del cancro è utile\n\n• Conoscenza dell'italiano idealmente, conoscenza dell'inglese benefico e buone competenze MS-Office\n\n• Un modo di lavorare strutturato, preciso e affidabile con una rapida comprensione\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on 1. November 2026 or by arrangement as\n\nTasks:\n• You collect, assess and code cancer cases according to national and international guidelines (ICD-10, ICD-O-3 and TNM)\n\n• You are working on the quality assurance measures\n\n• You support in data collection for research projects\n\nRequirements\n• Completed medical training:r coder:in, documentary:in, nurse or comparable medical training and professional experience\n\n• knowledge of coding guidelines; Experience in cancer documentation is beneficial\n\n• Knowledge of Italian ideally, knowledge of English beneficial as well as good MS-Office skills\n\n• A structured, accurate and reliable way of working with a quick understanding\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencez par 1. novembre 2026 ou par arrangement\n\nTâches :\n• Vous recueillez, évaluez et codez les cas de cancer selon les lignes directrices nationales et internationales (CIM-10, CIM-O-3 et TNM)\n\n• Vous travaillez sur les mesures d'assurance qualité\n\n• Vous soutenez la collecte de données pour des projets de recherche\n\nExigences\n• Formation médicale complète:r coder:in, documentaire:in, infirmière ou formation médicale comparable et expérience professionnelle\n\n• connaissance des lignes directrices de codage;\n\n• Connaissance de l'italien idéalement, connaissance de l'anglais bénéfique ainsi que de bonnes compétences MS-Office\n\n• Une façon structurée, précise et fiable de travailler avec une compréhension rapide\n\nPouvez-vous faire quelque chose que les autres peuvent faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -98,7 +129,15 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-19T22:03:52.645Z"
+      "firstSeenAt": "2026-08-19T22:03:52.645Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-dokumentar-in-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-dokumentar-in-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10151912",
@@ -3439,15 +3478,7 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-05-17T10:33:43.517Z"
     },
     {
       "id": "10020180",

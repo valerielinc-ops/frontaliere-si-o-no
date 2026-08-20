@@ -118,6 +118,20 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     //   PR in tests/article-slug-prompt-leak-guard.test.ts. This npm alias is
     //   the operator-facing form — the one that prints which slug and which
     //   pattern — not a second, weaker copy of the gate.
+    // - `audit:sitemap-canonicals` is invoked THROUGH `validate:sitemap-pages`,
+    //   which is spawn_capped in the same pool. That script is the consolidated
+    //   sitemap validator and its "check 1" IS this audit, over the same
+    //   dist/sitemap-*.xml set — see its own "Differences PRESERVED" header.
+    //   Running the standalone alias too meant re-parsing 89 sitemaps and
+    //   re-reading ~245'000 page <head>s to answer the same question twice
+    //   (127.18 s on run 32261742920, where both reported the same single
+    //   offender under two gate names). The consolidated copy is the
+    //   better-scoped of the two: it excludes URLs served by the article shard
+    //   repos, which is why the standalone reported 85 `missing-html` warnings
+    //   on pages this build does not emit. The alias stays in package.json for
+    //   `audit-dist-from-run.yml` replays and for operators.
+    //   The claim "it still runs" is not left on trust — the assertion below
+    //   this loop pins the consolidated validator's invocation.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
       'audit:title-uniqueness',
       'audit:dist-multi',
@@ -127,6 +141,7 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
       'audit:job-locations',
       'audit:slug-prompt-leaks',
       'audit:all',
+      'audit:sitemap-canonicals',
     ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {
       return /^audit:/.test(k) && !/:rebaseline$/.test(k) && !GATES_NOT_IN_DIST_PARALLEL.has(k);
@@ -138,6 +153,30 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
         `gate would never run. audit:all currently wraps: ${[...AUDIT_ALL_WRAPS].sort().join(', ')}`,
       ).toBe(true);
     }
+  });
+
+  it('the consolidated sitemap validator is invoked — it carries audit:sitemap-canonicals', () => {
+    // `audit:sitemap-canonicals` is excluded from the loop above because
+    // `validate:sitemap-pages` performs the identical check. That exclusion is
+    // only safe while the consolidated validator actually runs, and while it
+    // actually still contains the check. Without this, dropping
+    // `validate:sitemap-pages` from the pool would silently retire BOTH.
+    expect(
+      isInvokedDirectlyOrViaAuditAll('validate:sitemap-pages'),
+      'validate:sitemap-pages is no longer invoked in post-deploy-validate-dist.yml — ' +
+        'audit:sitemap-canonicals is excluded from the reachability loop on the grounds ' +
+        'that this script runs it, so both gates are now dead. Re-add one of them.',
+    ).toBe(true);
+
+    const consolidated = readFileSync(
+      resolve(ROOT, 'scripts/validate-sitemap-pages.mjs'),
+      'utf8',
+    );
+    expect(
+      consolidated.includes('audit-sitemap-canonicals'),
+      'scripts/validate-sitemap-pages.mjs no longer mentions audit-sitemap-canonicals — ' +
+        'the check it was standing in for may have been removed.',
+    ).toBe(true);
   });
 });
 

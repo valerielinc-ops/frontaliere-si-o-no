@@ -219,6 +219,25 @@ export const DEFAULT_SWAP_FLOOR_MB = 512;
 export const SWAP_FLOOR_FRACTION = 0.04;
 
 /**
+ * Quanti campioni iniziali il pavimento swap NON conta come pressione
+ * (follow-up #6169 item 2).
+ *
+ * `grow-build-swap.sh` chiama `swapon` in uno step separato PRIMA di
+ * `npm run build:ci`: il campionatore di questo modulo legge `SwapFree` per
+ * la prima volta solo dopo l'avvio di Vite, quindi in pratica non e' mai
+ * immediatamente adiacente allo `swapon`. Ma `readHostSwapMb` non ha modo di
+ * sapere QUANDO lo swap e' stato attivato, e un lettore di `/proc/meminfo`
+ * subito dopo `swapon` in un workflow scritto diversamente potrebbe leggere
+ * un valore transitorio/stale prima che il kernel aggiorni il contatore.
+ * Un pavimento che scatta su un falso 0 a inizio build ucciderebbe una build
+ * sana. Il primo campione del pavimento swap viene quindi scartato (non
+ * conta ne' pro ne' contro), tollerando esplicitamente quel campione — la
+ * build resta comunque coperta: una vera pressione di swap persiste ben
+ * oltre un singolo campione da 5 s.
+ */
+export const SWAP_FLOOR_WARMUP_SAMPLES = 1;
+
+/**
  * SwapTotal minimo perche' il pavimento swap sia armato: su uno swap sotto i
  * 2 GB il pavimento assoluto sarebbe sfondato gia' a riposo (falso allarme
  * permanente), quindi li' resta spento e presidiano tetto RSS + pavimento host.
@@ -373,6 +392,13 @@ export function readHostAvailableMb(procMeminfoPath = '/proc/meminfo'): number |
  *
  * @returns `null` dove il file non esiste (macOS) o manca `VmRSS`. `VmSwap`
  *   assente con `VmRSS` presente (kernel molto vecchi) vale 0, non null.
+ *
+ * Verificato contro l'output reale di un runner GH Actions (#6174 item 2):
+ * il kernel separa etichetta e valore con TAB (`VmRSS:\t 100392 kB`), non
+ * spazi come nelle fixture sintetiche dei test — `\s+` nella regex copre
+ * entrambi, quindi non serve alcun fix di parsing. Il test senza path in
+ * `tests/build-memory-guard.test.ts` legge il file vero del processo a ogni
+ * run e fa da regression guard permanente contro derive future.
  */
 export function readSelfAnonMb(
   procSelfStatusPath = '/proc/self/status',
@@ -486,7 +512,18 @@ export function resolvePreflight(
   heapLimitMb: number,
   env: NodeJS.ProcessEnv = process.env,
   procMeminfoPath = '/proc/meminfo',
-): { verdict: 'ok' | 'fail'; reason: string } {
+): { verdict: 'ok' | 'fail'; reason: string; ciSignal: string } {
+  // Segnale grezzo CI/GITHUB_ACTIONS, calcolato SEMPRE e riportato in ogni
+  // ramo di ritorno (non solo nel fail della regola 2): la regola lockstep
+  // (2) e' silente quando `isCi` risulta false — nessun breach, nessun
+  // errore, il build passa come se fosse locale. Se la propagazione
+  // env.CI/env.GITHUB_ACTIONS su uno dei 4 workflow che lanciano `build:ci`
+  // (deploy.yml, deploy-matrix-experiment.yml, post-build-matrix-test.yml,
+  // matrix-equivalence-check.yml) mai divergesse, questo e' l'unico punto
+  // che lo renderebbe visibile — il chiamante lo stampa ad ogni build reale,
+  // verde o rossa, invece di lasciare la regola 2 fail-open senza traccia.
+  const isCi = env.CI === 'true' || env.GITHUB_ACTIONS === 'true';
+  const ciSignal = `CI=${env.CI ?? 'unset'} GITHUB_ACTIONS=${env.GITHUB_ACTIONS ?? 'unset'} isCi=${isCi}`;
   const raw = (() => {
     try {
       return fs.readFileSync(procMeminfoPath, 'utf-8');
@@ -494,7 +531,9 @@ export function resolvePreflight(
       return null;
     }
   })();
-  if (raw === null) return { verdict: 'ok', reason: 'preflight spento: /proc/meminfo non leggibile (host non Linux)' };
+  if (raw === null) {
+    return { verdict: 'ok', reason: 'preflight spento: /proc/meminfo non leggibile (host non Linux)', ciSignal };
+  }
   const totalMb = readHostTotalMb(procMeminfoPath);
   const swapTotalMb = readHostSwapMb(procMeminfoPath)?.totalMb ?? 0;
   const capacityMb = totalMb + swapTotalMb;
@@ -505,9 +544,9 @@ export function resolvePreflight(
         `il tetto V8 configurato (${heapLimitMb} MB) piu' l'overhead di processo (${PREFLIGHT_OVERHEAD_MB} MB) ` +
         `non entra nella capacita' anonima dell'host (${totalMb} MB RAM + ${swapTotalMb} MB swap): ` +
         `il build morirebbe comunque — abbassa --max-old-space-size o aggiungi swap (scripts/ci/grow-build-swap.sh)`,
+      ciSignal,
     };
   }
-  const isCi = env.CI === 'true' || env.GITHUB_ACTIONS === 'true';
   if (isCi && heapLimitMb >= PREFLIGHT_RAISED_WALL_MB && swapTotalMb < PREFLIGHT_MIN_SWAP_MB) {
     return {
       verdict: 'fail',
@@ -516,9 +555,10 @@ export function resolvePreflight(
         `(soglia ${PREFLIGHT_MIN_SWAP_MB}): lo step che chiama scripts/ci/grow-build-swap.sh manca in questo workflow, ` +
         `o e' fallito (leggi il suo ::warning nel log). Senza, questo build e' la configurazione che il 19-08 ` +
         `ha ucciso 7 deploy su 8 (issue 6134)`,
+      ciSignal,
     };
   }
-  return { verdict: 'ok', reason: 'preflight ok' };
+  return { verdict: 'ok', reason: 'preflight ok', ciSignal };
 }
 
 export function resolveThresholds(
@@ -561,7 +601,12 @@ export function resolveThresholds(
   const ignoredOverrides: string[] = [];
   if (ceiling.ignored) ignoredOverrides.push('BUILD_MEM_RSS_CEILING_MB');
   if (floor.ignored) ignoredOverrides.push('BUILD_MEM_HOST_FLOOR_MB');
-  if (swapFloorArmed && swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
+  // Niente gate su swapFloorArmed qui: ceiling/host-floor sopra segnalano
+  // l'override ignorato indipendentemente da quanto la rispettiva soglia sia
+  // "attiva" — il pavimento swap deve restare simmetrico, altrimenti un
+  // override esplicito su uno swap sotto i 2 GB sparisce in silenzio invece
+  // di comparire in ignoredOverrides (follow-up #6169 item 3).
+  if (swapFloor.ignored) ignoredOverrides.push('BUILD_MEM_SWAP_FLOOR_MB');
   return {
     rssCeilingMb: ceiling.value,
     hostAvailFloorMb: hostReadable ? floor.value : null,
@@ -616,8 +661,13 @@ export function observeSample(
   }
 
   if (thresholds.swapFreeFloorMb !== null && sample.swapFreeMb !== null) {
+    // Il primo campione non conta (SWAP_FLOOR_WARMUP_SAMPLES, #6169 item 2):
+    // tollera un `SwapFree` transitorio/stale letto a ridosso di uno `swapon`
+    // recente, senza indebolire la rilevazione di una pressione vera, che per
+    // definizione persiste oltre un singolo campione.
+    const withinWarmup = state.samples <= SWAP_FLOOR_WARMUP_SAMPLES;
     state.consecutiveSwapUnder =
-      sample.swapFreeMb < thresholds.swapFreeFloorMb ? state.consecutiveSwapUnder + 1 : 0;
+      !withinWarmup && sample.swapFreeMb < thresholds.swapFreeFloorMb ? state.consecutiveSwapUnder + 1 : 0;
   } else {
     state.consecutiveSwapUnder = 0;
   }
@@ -752,6 +802,12 @@ export function buildMemoryGuardPlugin(): Plugin {
       // 40 minuti dopo. Scrive sullo stesso canale di diagnosi dei breach.
       const heapLimitMb = Math.round(v8.getHeapStatistics().heap_size_limit / MB);
       const preflight = resolvePreflight(heapLimitMb);
+      // Stampato SEMPRE (ok o fail): e' la verifica end-to-end della
+      // propagazione env.CI/env.GITHUB_ACTIONS nei 4 workflow che lanciano
+      // `build:ci` — leggibile in ogni build log reale invece di restare un
+      // presupposto mai osservato (review di #6172, item 3).
+      // eslint-disable-next-line no-console
+      console.log(`[build-mem-guard] preflight ciSignal: ${preflight.ciSignal}`);
       if (preflight.verdict === 'fail') {
         const text = `[build-mem-guard] preflight fallito: ${preflight.reason}`;
         try {

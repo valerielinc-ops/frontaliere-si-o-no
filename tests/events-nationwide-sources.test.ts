@@ -24,7 +24,17 @@ import {
   resetEventImageManifestCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
+  EVENT_IMAGE_MAX_BYTES,
 } from '../scripts/lib/events-utils.mjs';
+
+// Sanity-check margin for the noise fixtures below: derived from the real
+// mirrorEventImage reject cutoff (EVENT_IMAGE_MAX_BYTES) rather than a bare
+// literal, so the two stay in sync if the cutoff ever changes. Measured
+// empirically (2026-08-20, sharp 0.34.5/libvips bundled build) at quality 80
+// this pseudo-random noise source jpeg-encodes to ~1.0MB for both fixture
+// shapes below — comfortably inside this half-of-cutoff margin, not
+// borderline.
+const NOISE_FIXTURE_SANITY_BYTES = EVENT_IMAGE_MAX_BYTES / 2;
 
 describe('EVENT_SOURCES nationwide registry', () => {
   it('registers guidle and myswitzerland as canton-agnostic (canton: null)', () => {
@@ -279,7 +289,7 @@ describe('mirrorEventImage', () => {
     // Keep the fixture well clear of EVENT_IMAGE_MAX_BYTES (4MB), or a future
     // libjpeg would make mirrorEventImage return null and this test would fail
     // for a reason that has nothing to do with what it checks.
-    expect(source.byteLength).toBeLessThan(2 * 1024 * 1024);
+    expect(source.byteLength).toBeLessThan(NOISE_FIXTURE_SANITY_BYTES);
 
     vi.stubGlobal(
       'fetch',
@@ -298,6 +308,35 @@ describe('mirrorEventImage', () => {
     const meta = await sharp(written).metadata();
     expect(meta.format).toBe('webp');
     expect(meta.width).toBe(1600);
+  });
+
+  it('caps the height too, for an extreme-portrait source (width stays under the cap on its own)', async () => {
+    const sharp = (await import('sharp')).default;
+    // 800x2400: portrait, well under the 1600px width cap but over the height
+    // cap — pins that resize bounds BOTH axes, not just width.
+    const raw = Buffer.alloc(800 * 2400 * 3);
+    for (let i = 0; i < raw.length; i++) raw[i] = (Math.imul(i, 2654435761) >>> 24) & 255;
+    const source = await sharp(raw, { raw: { width: 800, height: 2400, channels: 3 } })
+      .jpeg({ quality: 80 })
+      .toBuffer();
+    expect(source.byteLength).toBeLessThan(NOISE_FIXTURE_SANITY_BYTES);
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        headers: { get: () => 'image/jpeg' },
+        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
+      }),
+    );
+
+    const result = await mirrorEventImage('https://example.com/tall.jpg', 'test:mirror-fixture');
+    expect(result).toBe('/images/events/test-mirror-fixture.webp');
+
+    const written = readFileSync(path.join(testImagesDir, 'test-mirror-fixture.webp'));
+    const meta = await sharp(written).metadata();
+    expect(meta.height).toBe(1600);
+    expect(meta.width).toBeLessThan(800);
   });
 
   it('returns null on a non-2xx response, a non-image content-type, or an oversized body', async () => {
