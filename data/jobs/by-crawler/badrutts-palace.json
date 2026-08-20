@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-08-20T10:10:30.865Z",
+  "assembledAt": "2026-08-20T21:53:50.753Z",
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "estetista-badrutt-s-palace-hotel-st-moritz",
         "en": "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
-        "fr": "estheticienne-badrutt-s-palace-hotel-st-moritz"
+        "de": "schonheits-und-massage-therapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "therapeute-de-beaute-et-de-massage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-massage-therapist-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.375Z",
+      "crawledAt": "2026-08-20T21:53:48.221Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -53,19 +53,23 @@
         "en": [
           "beauty-therapist-m-w-d-badrutts-palace-ch",
           "beauty-therapist-m-f-d-badrutts-palace-ch",
-          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch"
+          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch",
+          "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "it": [
           "beauty-therapist-m-w-d-badrutts-palace-ch",
           "beauty-therapist-m-f-d-badrutts-palace-ch",
-          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch"
+          "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch",
+          "estetista-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "schonheitstherapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
           "schonheits-und-massage-therapeut-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "therapeute-de-beaute-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "estheticienne-badrutt-s-palace-hotel-st-moritz",
           "therapeute-de-beaute-et-de-massage-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
@@ -75,10 +79,15 @@
         "beauty-amp-massage-therapist-m-f-d-badrutts-palace-ch",
         "schonheitstherapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "therapeute-de-beaute-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
+        "estheticienne-badrutt-s-palace-hotel-st-moritz",
+        "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "estetista-badrutt-s-palace-hotel-st-moritz",
         "schonheits-und-massage-therapeut-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "therapeute-de-beaute-et-de-massage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "firstSeenAt": "2026-07-01T21:48:55.226Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -124,7 +133,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3725042-reservations-supervisor-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.374Z",
+      "crawledAt": "2026-08-20T21:53:48.219Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -143,13 +152,15 @@
       "previousSlugs": [
         "reservations-agent-m-w-d-badrutts-palace-ch",
         "reservations-supervisor-m-w-d-badrutts-palace-ch",
-        "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservations-agent-m-w-d-badrutts-palace-ch",
           "reservations-supervisor-m-w-d-badrutts-palace-ch",
-          "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "reservations-agent-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "prenotazione-agente-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "reservations-agent-m-w-d-badrutts-palace-ch"
@@ -176,7 +187,7 @@
       "slugByLocale": {
         "it": "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "plumber-m-w-d-badrutts-palace-ch",
-        "de": "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "plombier-m-m-j-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -186,7 +197,7 @@
       "titleByLocale": {
         "it": "Idraulico (m/f/d)",
         "en": "Plumber (m/f/d)",
-        "de": "Klempner (m/w/d)",
+        "de": "Plumber (m/f/d)",
         "fr": "Plombier (m/f/d)"
       },
       "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>As a plumbing installer, you will be responsible for repairs and minor installations in the hotel as well as in the staff housing, ensuring smooth operations.</p></li><li><p>The inspection and maintenance of heating, ventilation, and plumbing systems falls within your area of responsibility, ensuring efficient and energy-conscious operations.</p></li><li><p>You will carry out regular inspections of guest bathrooms to ensure they consistently meet the highest standards and offer our guests a pleasant stay.</p></li><li><p>During events, you will support the technical setup and ensure that all plumbing requirements are professionally implemented.</p></li><li><p>In addition, you will participate in snow clearance and contribute to the operational fire safety team, ensuring the safety of our guests and staff.</p></li><li><p>You will take on occasional on-call duty shifts to respond quickly and reliably to emergencies as they arise.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p>For this highly varied position, you ideally bring the following:</p><ul><li><p>Completed vocational training as a heating engineer, plumbing installer, or equivalent further qualification.</p></li><li><p>Professional experience in a larger hotel operation is an advantage.</p></li><li><p>Good command of German as well as spoken Italian; English skills are an advantage.</p></li><li><p>A sense of responsibility and an independent, precise working style.</p></li><li><p>High resilience, strong team orientation, and a solution-driven mindset.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Permanent, year-round position.</p></li><li><p>5-day work week on average, with 43.5 hours.</p></li><li><p>5 weeks of vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata temporis).</p></li><li><p>Staff accommodation available upon request in one of our attractive staff houses.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>Work in an appealing environment.</p></li></ul><p></p><p>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.<br><br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
@@ -201,7 +212,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/4759144-plumber-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.372Z",
+      "crawledAt": "2026-08-20T21:53:48.218Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -230,6 +241,8 @@
         "legname-badrutt-s-palace-hotel-st-moritz",
         "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
         "plumber-badrutts-palace-ch",
+        "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
@@ -244,7 +257,8 @@
           "klempner-badrutt-s-palace-hotel-st-moritz",
           "legname-badrutt-s-palace-hotel-st-moritz",
           "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
-          "plumber-badrutts-palace-ch"
+          "plumber-badrutts-palace-ch",
+          "legname-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -252,6 +266,7 @@
         "de": [
           "fitnesstrainer-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "plumber-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
@@ -260,6 +275,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T21:48:55.223Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -305,7 +321,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.371Z",
+      "crawledAt": "2026-08-20T21:53:48.217Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -321,20 +337,10 @@
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-18T21:52:03.897Z",
+      "previousSlugs": [
+        "elektriker-m-w-d-badrutts-palace-ch",
+        "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektriker-m-w-d-badrutts-palace-ch",
@@ -347,10 +353,21 @@
           "elektriker-m-w-d-badrutts-palace-ch"
         ]
       },
-      "previousSlugs": [
-        "elektriker-m-w-d-badrutts-palace-ch",
-        "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
-      ]
+      "firstSeenAt": "2026-08-18T21:52:03.897Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "badrutts-palace-a7df20059638",
@@ -369,7 +386,7 @@
         "it": "Capopartita (m/f/d)",
         "en": "Chef de Partie (m/f/d)",
         "de": "Küchenchef (m/w/d)",
-        "fr": "Chef de Partie (h/f/d)"
+        "fr": "Chef de Partie (m/f/d)"
       },
       "description": "<p><strong>Your key responsibilities</strong></p><p>As a Chef de Partie, you will play a key role in ensuring the highest culinary standards and delivering an exceptional dining experience. Your main responsibilities will include:</p><ul><li><p>Preparing, cooking, and presenting high-quality dishes within your assigned kitchen section.</p></li><li><p>Ensuring consistent quality through the careful selection, preparation, and handling of fresh ingredients.</p></li><li><p>Supporting the development of seasonal menus and contributing creative ideas to enhance our culinary offering.</p></li><li><p>Maintaining the highest standards of food hygiene, safety, and cleanliness in accordance with HACCP regulations.</p></li><li><p>Working closely with the Executive Chef, Sous Chefs, and the wider kitchen team to ensure a smooth and efficient operation.</p></li><li><p>Assisting in the training and support of junior kitchen team members when required.</p></li><li><p>Managing your section efficiently while maintaining excellent quality, organization, and attention to detail.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed professional training as a Chef or an equivalent qualification in the culinary field.</p></li><li><p>Previous experience as a Chef de Partie, ideally in a luxury hotel or fine dining environment.</p></li><li><p>Passion for high-quality cuisine with strong attention to detail and presentation.</p></li><li><p>Excellent organizational skills and the ability to work efficiently under pressure.</p></li><li><p>Sound knowledge of HACCP guidelines and food safety standards.</p></li><li><p>Strong communication skills and the ability to work effectively as part of a team.</p></li><li><p>Good command of Italian and English.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from late November 2026 to early April 2027, with the opportunity to return for future seasons.</p></li><li><p>Average 5-day work week with 43.5 hours per week.</p></li><li><p>5 weeks of annual vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata).</p></li><li><p>Accommodation available upon request in one of our modern staff residences.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>An attractive working environment with excellent opportunities for professional growth and development.<br></p></li></ul><p>Are you passionate about culinary excellence and looking for an exciting opportunity as a Chef de Partie in a luxury hotel environment? We look forward to receiving your complete online application and to welcoming you to our team.<br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
       "descriptionByLocale": {
@@ -383,7 +400,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.369Z",
+      "crawledAt": "2026-08-20T21:53:48.215Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -404,7 +421,8 @@
         "chef-de-rang-m-w-d-badrutts-palace-ch",
         "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
         "chef-de-partie-m-f-d-badrutts-palace-ch",
-        "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -412,7 +430,8 @@
           "chef-de-rang-m-w-d-badrutts-palace-ch",
           "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
           "chef-de-partie-m-f-d-badrutts-palace-ch",
-          "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "chef-de-rang-m-w-d-badrutts-palace-ch",
@@ -423,6 +442,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:47:05.216Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -441,26 +461,26 @@
       "id": "badrutts-palace-f523738883d6",
       "slug": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "de": "reservations-manager-m-w-d-badrutts-palace-ch",
+        "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "de": "reservations-manager-m-w-d-badrutts-palace-ch",
+        "fr": "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
       "companyDomain": "badruttscareers.com",
       "title": "Assistant Reservations Manager (m/w/d)",
       "titleByLocale": {
-        "de": "Assistent Reservations Manager (m/w/d)",
-        "en": "Assistant Reservations Manager (m/f/d)",
         "it": "Assistant Reservations Manager (m/f/d)",
+        "en": "Assistant Reservations Manager (m/w/d)",
+        "de": "Assistent Reservations Manager (m/w/d)",
         "fr": "Assistant Gestionnaire des réservations (h/f/d)"
       },
       "description": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie unterstützen den Reservations Manager bei der Führung und Koordination des Reservierungsteams und tragen aktiv zu einem reibungslosen und professionellen Ablauf innerhalb der Abteilung bei.ungsabteilung.</p></li><li><p>Sie übernehmen die selbstständige Bearbeitung anspruchsvoller Individual- und Gruppenbuchungen und gewährleisten dabei jederzeit höchste Qualitäts- und Servicestandards.</p></li><li><p>In Abwesenheit des Reservations Managers übernehmen Sie die operative Verantwortung für die Abteilung und stehen dem Team als kompetente Ansprechperson zur Seite.</p></li><li><p>Sie unterstützen bei der optimalen Preis- und Verfügbarkeitssteuerung und arbeiten dabei eng mit dem Reservations Manager und dem Revenue Management zusammen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr professionelles, gewinnendes Auftreten sowie Ihre ausgezeichneten Umgangsformen entsprechen den hohen Standards der internationalen Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
       "descriptionByLocale": {
-        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie unterstützen den Reservations Manager bei der Führung und Koordination des Reservierungsteams und tragen aktiv zu einem reibungslosen und professionellen Ablauf innerhalb der Abteilung bei.ungsabteilung.</p></li><li><p>Sie übernehmen die selbstständige Bearbeitung anspruchsvoller Individual- und Gruppenbuchungen und gewährleisten dabei jederzeit höchste Qualitäts- und Servicestandards.</p></li><li><p>In Abwesenheit des Reservations Managers übernehmen Sie die operative Verantwortung für die Abteilung und stehen dem Team als kompetente Ansprechperson zur Seite.</p></li><li><p>Sie unterstützen bei der optimalen Preis- und Verfügbarkeitssteuerung und arbeiten dabei eng mit dem Reservations Manager und dem Revenue Management zusammen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr professionelles, gewinnendes Auftreten sowie Ihre ausgezeichneten Umgangsformen entsprechen den hohen Standards der internationalen Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
         "it": "Traduzione: Che cosa fate con noi Lei sostiene il Responsabile delle Prenotazioni nella gestione e nel coordinamento del team di prenotazione e contribuisce attivamente ad un processo liscio e professionale all'interno del dipartimento. Ungs Dipartimento. < > > > > > > > Si prende il controllo dell'elaborazione indipendente di prenotazioni individuali e di gruppo esigenti e garantire la massima qualità e standard di servizio in ogni momento. </p> < </li> < ip> > In assenza del Responsabile delle Prenotazioni, si assume la responsabilità operativa del dipartimento e si tratta della persona di contatto competente per il team. Sosteni il controllo ottimale dei prezzi e delle disponibilità e lavori a stretto contatto con il Responsabile Prenotazioni e la Direzione Vendite. </p> L'introduzione, la formazione e l'ulteriore sviluppo di nuovi dipendenti nel reparto prenotazioni è altrettanto una responsabilità come supporto continuo del team esistente. Insieme al tuo team, lavori continuamente sull'ottimizzazione dei processi nel dipartimento. < > > > > > > > La collaborazione efficace con i dipartimenti Front Office, Sales & Marketing e il Team Event è importante per voi al fine di raggiungere obiettivi comuni. < > > > > > > > > > > > > > Questo è ciò che portate con voi Hai diversi anni di solida esperienza professionale in ufficio anteriore e/o nel reparto prenotazioni di hotel di lusso, idealmente in una funzione senior. < > > > > > > > Il vostro aspetto fiducioso ed elegante, così come la vostra forza di comunicazione forte vi permettono di avere un'interazione professionale e convincente a tutti i livelli – sia per iscritto che per via orale. È necessaria una conoscenza negoziabile del tedesco e dell'inglese; l'italiano e le altre lingue straniere sono utili. Siete ben versi nel trattare con MS Office e hanno una conoscenza approfondita dell'utente di Protel o sistemi di prenotazione comparabili. < > > > > > > > Essi sono caratterizzati da un modo di lavoro strutturato, previsionale e orientato alla soluzione e sono abituati a assumersi la responsabilità e a guidare e sostenere team professionalmente. < > > > > > > > Il vostro aspetto professionale, vincente e le vostre buone maniere soddisfano gli elevati standard del settore alberghiero di lusso internazionale. </p> </li> < </ul> < < > < > < > > ι > > ι > > ι > > > ι > > ι > > > > > > > > > > > > > > > ι > > > > > > > < > > > > > > > > > < > > > > > > > > > > > > > < > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > < > > > > > Indennità di ammissione (pro rata temporis) Se si apprezza un lavoro interessante, impegnativo e versatile in un ambiente dinamico e si desidera unire un team ben funzionante, allora non vediamo l'ora di completare l'applicazione online. Avviso su frode di assunzione Il Badrutt Palace Hotel non richiederà mai pagamenti o informazioni finanziarie come parte del processo di reclutamento. Tutte le comunicazioni ufficiali si svolgono esclusivamente tramite indirizzi e-mail che terminano </em> Se ricevi una richiesta di pagamento o un messaggio sospetto, ti preghiamo di ignorarlo e contattarci direttamente tramite il nostro sito ufficiale. < > >",
         "en": "<p><strong>What you do with us</strong></p><ul><li><p>You support the Reservations Manager in the management and coordination of the reservation team and actively contribute to a smooth and professional process within the department.ungs department. </p></li><li><p>You take over the independent processing of demanding individual and group bookings and ensure the highest quality and service standards at all times. </p></li><li><p>In the absence of the Reservations Manager, you assume operational responsibility for the department and are the competent contact person for the team. </p></li><li><p>You support the optimal price and availability control and work closely with the Reservations Manager and the Revenue Management. </p></li><li><p>The introduction, training and further development of new employees in the reservation department is just as much a responsibility as the ongoing support of the existing team.</p></li><li><p>Together with your team, you work continuously on the optimization of the processes in the department. </p></li><li><p>The effective cooperation with the departments Front Office, Sales & Marketing and the Event Team is important to you in order to achieve common goals. </p></li></ul><p></p><p><strong>This is what you bring with you</strong></p><ul><li><p>You have several years of solid professional experience in the front office and/or in the reservation department of luxury hotels, ideally in a senior function. </p></li><li><p>Your confident and stylish appearance as well as your strong communication strength enable you to have a professional and convincing interaction at all levels – both in writing and orally. </p></li><li><p>Negotiable knowledge of German and English is required; Italian and other foreign languages are beneficial. </p></li><li><p>You are well versed in dealing with MS Office and have in-depth user knowledge of Protel or comparable reservation systems. </p></li><li><p>They are characterized by a structured, forward-looking and solution-oriented way of working and are accustomed to taking on responsibility and to leading and supporting teams professionally. </p></li><li><p>Your professional, winning appearance and your excellent manners meet the high standards of the international luxury hotel industry. </p></li></ul><p><p><strong>Our offer</strong></p><ul><li><p>Permanent year job</p></li><li><p>5 days week on average at 43.5 hours, 5 weeks holidays and 6 holidays per year</p></li><li><p>13. Salary from admission (pro rata temporis)</p></li><li><p>On request at the beginning accommodation in one of our employees</p></li><li><p>catering opportunities in the new, modern employee restaurant</p></li><li><p>Work in an attractive environment with development opportunities</p></li></ul><piv></p></div><p>If you appreciate an interesting, demanding and versatile job in a dynamic environment and would like to join a well-functioning team, then we look forward to your complete online application. </p><p><p><strong><em>Warning about recruitment fraud</em></strong></p><p><em >The Badrutt’s Palace Hotel will never request payments or financial information as part of the recruitment process. All official communication takes place exclusively via email addresses ending </em><strong><em>@</em></strong><a target=\" blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>. If you receive a payment request or a suspicious message, please ignore it and contact us directly via our official website. </em></p>",
+        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><ul><li><p>Sie unterstützen den Reservations Manager bei der Führung und Koordination des Reservierungsteams und tragen aktiv zu einem reibungslosen und professionellen Ablauf innerhalb der Abteilung bei.ungsabteilung.</p></li><li><p>Sie übernehmen die selbstständige Bearbeitung anspruchsvoller Individual- und Gruppenbuchungen und gewährleisten dabei jederzeit höchste Qualitäts- und Servicestandards.</p></li><li><p>In Abwesenheit des Reservations Managers übernehmen Sie die operative Verantwortung für die Abteilung und stehen dem Team als kompetente Ansprechperson zur Seite.</p></li><li><p>Sie unterstützen bei der optimalen Preis- und Verfügbarkeitssteuerung und arbeiten dabei eng mit dem Reservations Manager und dem Revenue Management zusammen.</p></li><li><p>Die Einführung, Schulung und Weiterentwicklung neuer Mitarbeitender in der Reservationsabteilung gehört ebenso zu Ihrem Verantwortungsbereich wie die laufende Unterstützung des bestehenden Teams.</p></li><li><p>Gemeinsam mit Ihrem Team arbeiten Sie kontinuierlich an der Optimierung der Abläufe in der Abteilung.</p></li><li><p>Die effektive Zusammenarbeit mit den Abteilungen Front Office, Sales & Marketing sowie dem Event Team liegt Ihnen am Herzen, um gemeinsame Ziele zu erreichen.</p></li></ul><p></p><p><strong>Das bringen Sie mit</strong></p><ul><li><p>Sie verfügen über mehrjährige, fundierte Berufserfahrung im Front Office und/oder in der Reservierungsabteilung von Luxushotels, idealerweise in einer leitenden Funktion.</p></li><li><p>Ihr souveränes und stilsicheres Auftreten sowie Ihre ausgeprägte Kommunikationsstärke ermöglichen Ihnen eine professionelle und überzeugende Interaktion auf allen Ebenen – schriftlich wie mündlich.</p></li><li><p>Verhandlungssichere Deutsch- und Englischkenntnisse werden vorausgesetzt; Italienisch sowie weitere Fremdsprachen sind von Vorteil.</p></li><li><p>Sie sind sehr versiert im Umgang mit MS Office und verfügen über fundierte Anwenderkenntnisse in Protel oder vergleichbaren Reservierungssystemen.</p></li><li><p>Sie zeichnen sich durch eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise aus und sind es gewohnt, Verantwortung zu übernehmen sowie Teams fachlich zu führen und zu unterstützen.</p></li><li><p>Ihr professionelles, gewinnendes Auftreten sowie Ihre ausgezeichneten Umgangsformen entsprechen den hohen Standards der internationalen Luxushotellerie.</p></li></ul><p></p><p><strong>Unser Angebot</strong></p><ul><li><p>Unbefristete Jahresstelle</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden, 5 Wochen Ferien und 6 Feiertage pro Jahr</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis)</p></li><li><p>Auf Wunsch zu Beginn Unterkunft in einem unserer Mitarbeiterhäuser</p></li><li><p>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</p></li><li><p>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</p></li></ul><div><p></p></div><p>Wenn Sie eine interessante, anspruchsvolle und vielseitige Tätigkeit in einem dynamischen Umfeld schätzen und sich einem gut eingespielten Team anschliessend möchten, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
         "fr": "<p><strong> Ce que vous faites avec nous</strong></p><ul><li><p> Vous soutenez le gestionnaire des réservations dans la gestion et la coordination de l'équipe de réservation et contribuez activement à un processus fluide et professionnel au sein du département. Le département d'enregistrement. </p></li><li><p> Vous prenez en charge le traitement indépendant des réservations individuelles et de groupe exigeantes et assurez en tout temps les normes de qualité et de service les plus élevées. </p></li><li><p>En l'absence du gestionnaire des réservations, vous assumez la responsabilité opérationnelle du ministère et êtes la personne-ressource compétente pour l'équipe. </p></li><li><p> Vous acceptez le contrôle optimal des prix et de la disponibilité et travaillez en étroite collaboration avec le gestionnaire des réservations et la gestion des recettes. </p></li><li><p> L'introduction, la formation et le perfectionnement des nouveaux employés du service des réservations sont tout autant une responsabilité que le soutien continu de l'équipe existante.</p></li><li><p> Avec votre équipe, vous travaillez en permanence à l'optimisation des processus dans le département. </p></li><li><p> La coopération efficace avec les départements Front Office, Sales & Marketing et l'Event Team est importante pour vous afin d'atteindre des objectifs communs. </p></li></ul><p></p><p><p><strong> Voici ce que vous apportez avec vous</strong></p><ul><li><p> Vous avez plusieurs années d'expérience professionnelle solide dans le front office et/ou dans le département de réservation des hôtels de luxe, idéalement dans une fonction senior. </p></li><li><p> Votre apparence confiante et élégante ainsi que votre forte force de communication vous permettent d'avoir une interaction professionnelle et convaincante à tous les niveaux – à la fois par écrit et oralement. </p></li><li><p>Une connaissance de l'allemand et de l'anglais est requise; l'italien et d'autres langues étrangères sont bénéfiques. </p></li><li><p> Vous êtes bien au fait de traiter avec MS Office et avez une connaissance utilisateur approfondie de Protel ou de systèmes de réservation comparables. </p></li><li><p> Ils se caractérisent par une façon de travailler structurée, tournée vers l'avenir et orientée vers la solution et sont habitués à assumer des responsabilités et à diriger et soutenir les équipes professionnellement. </p></li><li><p> Votre apparence professionnelle, gagnante et vos excellentes manières répondent aux normes élevées de l'industrie hôtelière de luxe internationale. </p></li></ul><p><p><strong>Notre offre</strong></p><ul><li><p>Emploi annuel permanent</p></li><li><p>5 jours par semaine en moyenne à 43,5 heures, 5 semaines de vacances et 6 jours par année</p></li><li><p>13. Salaire d'admission (pro rata temporis)</p></li><li><p>Sur demande à l'hébergement initial dans l'un de nos employés</p></li><li><p>Occasions de restauration dans le nouveau restaurant moderne pour employés</p></li><li><p><p>Travailler dans un environnement attrayant avec des possibilités de perfectionnement</p></li></ul><piv></p></p></div><p><p> Si vous appréciez un travail intéressant, exigeant et polyvalent dans un environnement dynamique et souhaitez rejoindre une équipe qui fonctionne bien, alors nous attendons avec impatience votre application complète en ligne. </p><p><p><strong><em> Avertissement concernant la fraude au recrutement</em></strong></p><p><em > L'hôtel Badrutt's Palace ne demandera jamais de paiements ou d'informations financières dans le cadre du processus de recrutement. Toute communication officielle se fait exclusivement par l'intermédiaire d'adresses électroniques se terminant par </em><strong><em>@</em></strong><une cible=\"black\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>. Si vous recevez une demande de paiement ou un message suspect, veuillez l'ignorer et nous contacter directement via notre site officiel. </em></p>"
       },
       "location": "St. Moritz",
@@ -468,7 +488,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-assistant-reservations-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.367Z",
+      "crawledAt": "2026-08-20T21:53:48.213Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -483,28 +503,30 @@
       "postedDate": "2025-12-29",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-assistant-reservations-manager-m-w-d",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-reservations-manager-m-w-d-badrutts-palace-ch",
+        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-reservations-manager-m-w-d-badrutts-palace-ch",
-          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "assistant-reservations-manager-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "assistant-reservations-manager-m-w-d-badrutts-palace-ch",
-        "gestionnaire-de-compte-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
+      "firstSeenAt": "2026-08-20T10:10:28.367Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -517,8 +539,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-20T10:10:28.367Z"
+      "addressRegion": "GR"
     },
     {
       "id": "badrutts-palace-609d64358bff",
@@ -551,7 +572,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7183932-indischer-spezialitatenkoch-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.365Z",
+      "crawledAt": "2026-08-20T21:53:48.211Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -569,12 +590,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
-        "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
-          "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -584,6 +607,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:51:29.586Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -629,7 +653,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7235883-sushi-chef-for-our-matsuhisa-restaurant-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.364Z",
+      "crawledAt": "2026-08-20T21:53:48.209Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -646,13 +670,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch"
+        "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch",
+        "sushi-chef-per-il-nostro-ristorante-matsuhisa-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch"
+          "sushi-chef-for-our-matsuhisa-restaurant-m-f-d-badrutts-palace-ch",
+          "sushi-chef-per-il-nostro-ristorante-matsuhisa-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-17T11:51:29.585Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -666,9 +693,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "addressRegion": "GR"
     },
     {
       "id": "badrutts-palace-0f3aef9db00e",
@@ -677,7 +702,7 @@
         "it": "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
         "de": "assistent-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "fr": "assistant-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -687,7 +712,7 @@
         "it": "Assistant Executive Housekeeper (m/f/d)",
         "en": "Assistant Executive Housekeeper (m/w/d)",
         "de": "Assistent Executive Housekeeper (m/w/d)",
-        "fr": "Chef de cabinet adjoint (h/f/d)"
+        "fr": "Assistant Executive Housekeeper (m/w/d)"
       },
       "description": "<p><span><strong>Your key responsibilities</strong></span></p><p><span>You will complement our Housekeeping team and be responsible for the following areas:</span></p><ul><li><p><span>In close collaboration with the Executive Housekeeper, you will lead a team of approximately 70 Room Attendants and Floor Porters.</span></p></li><li><p><span>You will actively contribute to staff scheduling and help ensure the smooth and efficient running of daily operations.</span></p></li><li><p><span>\n• Your responsibilities will include inspecting arrival, stayover and departure rooms, as well as checking VIP setups, public areas and staff accommodation.</span></p></li><li><p><span>You will organise and order the materials required for daily operations and ensure that all deliveries meet our quality standards and are complete.</span></p></li><li><p><span>Through targeted training and continuous guidance, you will support the professional development of our employees and ensure compliance with our quality and hygiene standards.</span></p></li><li><p><span>You will act as a competent point of contact for our guests, responding to questions and individual requests while ensuring attentive and personalised service.</span></p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><p><span>For this varied and rewarding position, you ideally bring the following qualifications and experience:</span></p><ul><li><p><span>You have completed professional training in the hotel industry and have gained relevant experience in a five-star hotel environment.</span></p></li><li><p><span>You have previous leadership experience and are confident in supporting the Executive Housekeeper with the management and coordination of a large team.</span></p></li><li><p><span>You have a very good command of written and spoken German, as well as good spoken English and Italian.</span></p></li><li><p><span>You are proficient in the use of standard Microsoft Office applications. Knowledge of Protel and Mirus would be an advantage.</span></p></li><li><p><span>You demonstrate a high level of initiative and commitment, combined with a strong focus on quality and guest satisfaction.</span></p></li><li><p><span>Your confident and well-groomed appearance, together with your excellent manners and interpersonal skills, complete your profile.</span></p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p><span>Fixed-term seasonal position from mid-November 2026 until the beginning of April 2027</span></p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p></p><p><span>If you appreciate an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</span></p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt’s Palace Hotel will never request payments or financial information as part of the recruitment process. All official communication is conducted exclusively through email addresses ending in </em><strong><em>@</em></strong></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><strong><em>badruttspalace.com</em></strong></span></a><span><em>.</em></span></p><p><span><em>Should you receive a payment request or any suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
       "descriptionByLocale": {
@@ -701,7 +726,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8055542-assistant-executive-housekeeper-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.362Z",
+      "crawledAt": "2026-08-20T21:53:48.207Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -720,21 +745,26 @@
       "previousSlugs": [
         "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
         "chef-de-secretariat-adjoint-m-m-j-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "assistant-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch"
+          "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch",
+          "assistant-executive-housekeeper-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "assistant-executive-housekeeper-m-w-d-badrutts-palace-ch"
         ],
         "fr": [
           "chef-de-secretariat-adjoint-m-m-j-badrutt-s-palace-hotel-st-moritz",
+          "chef-de-secretariat-adjoint-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "assistant-executive-housekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-15T11:51:40.947Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -780,7 +810,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8106841-director-of-food-beverage-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.360Z",
+      "crawledAt": "2026-08-20T21:53:48.205Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -797,11 +827,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
+        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+        "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
+          "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+          "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
@@ -856,7 +888,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.358Z",
+      "crawledAt": "2026-08-20T21:53:48.203Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -878,7 +910,8 @@
         "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
         "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -887,7 +920,8 @@
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
           "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
@@ -903,6 +937,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:22:28.662Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -948,7 +983,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.356Z",
+      "crawledAt": "2026-08-20T21:53:48.202Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -971,7 +1006,8 @@
         "assistant-responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "head-of-technical-services-m-w-d-badrutts-palace-ch",
         "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -980,7 +1016,8 @@
           "assistant-responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "head-of-technical-services-m-w-d-badrutts-palace-ch",
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -1020,7 +1057,7 @@
       "title": "Food & Beverage Coordinator (m/w/d)",
       "titleByLocale": {
         "it": "Food & Beverage Coordinatore (m/w/d)",
-        "en": "Food & Beverage Coordinator (m/f/d)",
+        "en": "Food & Beverage Coordinator (m/w/d)",
         "de": "Food & Beverage Koordinator (m/w/d)",
         "fr": "Food & Beverage Coordinateur (m/w/d)"
       },
@@ -1036,7 +1073,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8183138-food-beverage-coordinator-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.355Z",
+      "crawledAt": "2026-08-20T21:53:48.200Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1058,7 +1095,8 @@
         "food-receiver-storekeeper-m-f-d-badrutts-palace-ch",
         "food-receiver-storekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "lebensmittelempfanger-lagerhalter-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1067,7 +1105,8 @@
           "food-receiver-storekeeper-m-f-d-badrutts-palace-ch",
           "food-receiver-storekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "lebensmittelempfanger-lagerhalter-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "food-receiver-storekeeper-m-f-d-badrutts-palace-ch"
@@ -1078,6 +1117,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:24:25.118Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1106,7 +1146,7 @@
       "companyDomain": "badruttscareers.com",
       "title": "Painter (m/f/d)",
       "titleByLocale": {
-        "it": "Pittura (m/f/d)",
+        "it": "Painter (m/f/d)",
         "en": "Painter (m/f/d)",
         "de": "Maler (m/w/d)",
         "fr": "Peintre (h/f/d)"
@@ -1123,7 +1163,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8199029-painter-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.353Z",
+      "crawledAt": "2026-08-20T21:53:48.198Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1150,7 +1190,8 @@
         "blanchisserie-pour-personnes-a-charge-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "painter-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "painter-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1164,7 +1205,8 @@
           "blanchisserie-pour-personnes-a-charge-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "painter-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "painter-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "spontaneous-application-badrutt-s-palace-hotel-st-moritz"
@@ -1181,6 +1223,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:33:44.652Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1209,7 +1252,7 @@
       "companyDomain": "badruttscareers.com",
       "title": "Night Concierge (m/w/d)",
       "titleByLocale": {
-        "it": "Concierge notturno (m/f/d)",
+        "it": "Night Concierge (m/w/d)",
         "en": "Night Concierge (m/f/d)",
         "de": "Night Concierge (m/w/d)",
         "fr": "Concierge de nuit (h/f/d)"
@@ -1226,7 +1269,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8224117-night-concierge-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:10:28.350Z",
+      "crawledAt": "2026-08-20T21:53:48.197Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1243,17 +1286,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "night-concierge-m-w-d-badrutts-palace-ch"
+        "night-concierge-m-w-d-badrutts-palace-ch",
+        "night-concierge-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "night-concierge-m-w-d-badrutts-palace-ch"
+          "night-concierge-m-w-d-badrutts-palace-ch",
+          "night-concierge-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "night-concierge-m-w-d-badrutts-palace-ch"
         ]
       },
       "firstSeenAt": "2026-08-16T10:10:50.894Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1299,7 +1345,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.345Z",
+      "crawledAt": "2026-08-20T21:53:48.192Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1316,11 +1362,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
+        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
+          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+          "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
           "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
@@ -1349,7 +1397,7 @@
         "it": "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
         "en": "nurse-m-f-d-also-part-time-badrutts-palace-ch",
         "de": "nurse-m-f-d-also-teilzeit-badrutt-s-palace-hotel-st-moritz",
-        "fr": "infirmiere-m-f-j-egalement-a-temps-partiel-badrutt-s-palace-hotel-st-moritz"
+        "fr": "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -1359,7 +1407,7 @@
         "it": "Infermiera (m/f/d, anche part-time)",
         "en": "Nurse (m/f/d, also part-time)",
         "de": "Nurse (m/f/d, also Teilzeit)",
-        "fr": "Infirmière (m/f/j, également à temps partiel)"
+        "fr": "Nurse (m/f/d, also part-time)"
       },
       "description": "<p><strong>Your key responsibilites:</strong></p><ul><li><p>The role focuses on caring for and treating employees who are ill or have had an accident, and assessing whether further medical treatment is required.</p></li><li><p>This includes arranging appointments with our company doctor or, for emergencies, with a hospital.</p></li><li><p>Your job includes maintaining staff medical records with care while observing data-protection requirements.</p></li><li><p>Managing the staff medical room and ensuring that medical and first-aid supplies are complete, stored correctly and within their expiry dates is also a main task.</p></li><li><p>You will assist with accident reports and coordinate follow-up care with HR, doctors and hospitals.</p></li><li><p>Occasionally, support is also provided to our hotel guests to ensure their well-being.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><ul><li><p>Completed nursing qualification, ideally with several years of professional experience</p></li><li><p>Good written and spoken English; knowledge of Italian is an advantage</p></li><li><p>Empathy, patience and a strong sense of responsibility</p></li><li><p>Excellent teamwork skills and the ability to remain resilient under pressure</p></li><li><p>Confident use of standard IT applications</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Fixed-term seasonal position from the beginning of December 2026 until the end of March 2027, with the possibility of returning for future seasons</p></li><li><p><strong>Part-time employment possible</strong></p></li><li><p>Five-day working week averaging 43.5 hours, adjusted according to the agreed workload</p></li><li><p>Five weeks of annual leave and six public holidays per year</p></li><li><p>13th-month salary from the start of employment, paid pro rata</p></li><li><p>Accommodation in one of our attractive staff residences upon request</p></li><li><p>Meals available in our new, modern staff restaurant</p></li></ul><p>If you are looking for an interesting, challenging and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
       "descriptionByLocale": {
@@ -1373,7 +1421,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8101488-nurse-m-f-d-also-part-time",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:10:28.334Z",
+      "crawledAt": "2026-08-20T21:53:48.181Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1391,20 +1439,25 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nurse-m-f-d-also-part-time-badrutts-palace-ch",
+        "infirmiere-m-f-j-egalement-a-temps-partiel-badrutt-s-palace-hotel-st-moritz",
+        "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz",
         "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nurse-m-f-d-also-part-time-badrutts-palace-ch"
+          "nurse-m-f-d-also-part-time-badrutts-palace-ch",
+          "infermiera-m-f-d-anche-part-time-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "nurse-m-f-d-also-part-time-badrutts-palace-ch"
         ],
         "fr": [
+          "infirmiere-m-f-j-egalement-a-temps-partiel-badrutt-s-palace-hotel-st-moritz",
           "nurse-m-f-d-also-part-time-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "firstSeenAt": "2026-07-21T12:47:05.189Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1490,7 +1543,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

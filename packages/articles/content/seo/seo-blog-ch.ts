@@ -46742,6 +46742,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-sciaffusa-diritto-locazione': {
+    title: 'Affitti Sciaffusa: canoni, cauzione e diritto di locazione',
+    description: 'Guida completa al diritto della locazione nel cantone di Sciaffusa: deposito cauzionale, disdetta legale, contestazione canone e procedura conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, canoni, cauzione',
+    ogTitle: 'Affitti Sciaffusa: canoni, cauzione e diritto di locazione',
+    ogDescription: 'Scopri le regole federali svizzere sulla locazione: come funziona il deposito cauzionale, la disdetta con modulo ufficiale, come contestare un canone presso l\'autorità di conciliazione nel cantone di Sciaffusa.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: canoni, cauzione e diritto di locazione",
+      "description": "Guida completa al diritto della locazione nel cantone di Sciaffusa: deposito cauzionale, disdetta legale, contestazione canone e procedura conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno di un edificio residenziale moderno in Svizzera con finestre chiare e architettura pulita"
+      },
+      "datePublished": "2026-08-20T21:25:50+00:00",
+      "dateModified": "2026-08-20T21:25:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

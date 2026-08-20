@@ -3604,6 +3604,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-affitti-schiaffusa.title': 'Mietmarkt in Schaffhausen: Kaution und Mietrecht',
     'blog.article.mercato-affitti-schiaffusa.excerpt': 'Das Mietrecht in Schaffhausen richtet sich nach Artikel 253 des Schweizerischen Zivilgesetzbuches. Die Kaution ist auf ein auf den Mieter lautendes Konto gebunden.',
     'blog.article.mercato-affitti-schiaffusa.imageAlt': 'Schaffhausen, Mietmarkt, Kaution, Mieterrechte',
+    'blog.article.affitti-sciaffusa-diritto-locazione.title': 'Mieten Schaffhausen: Mieten, Kaution und Mietrecht',
+    'blog.article.affitti-sciaffusa-diritto-locazione.excerpt': 'Bundesvorschriften über Kaution, Kündigung und Gebührenbeanstandung im Kanton Schaffhausen gemäss Obligationenrecht.',
+    'blog.article.affitti-sciaffusa-diritto-locazione.imageAlt': 'Außenansicht eines modernen Wohngebäudes in der Schweiz mit klarer Fensterfront',
 };
 
 export default blogMetaChDe;

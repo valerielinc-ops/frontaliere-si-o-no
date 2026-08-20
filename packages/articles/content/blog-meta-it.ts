@@ -10295,6 +10295,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Vivere a Erba, lavorare in Ticino da frontaliere',
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba è una location strategica per frontalieri che lavorano in Ticino. Scopri il permesso G, la fiscalità italia-svizzera, LAMal e i costi di gestione.',
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Veduta aerea di Mendrisio e della regione frontaliera tra Como (Italia) e Ticino (Svizzera), con montagne e paesaggio alpino.',
+    'blog.article.eupilio-ticino-frontaliere-guida.title': 'Vivere a Eupilio e lavorare in Ticino: guida frontaliere',
+    'blog.article.eupilio-ticino-frontaliere-guida.excerpt': 'Eupilio a 20 km dal confine svizzero: tempi, tassazione, Permesso G, AVS/LPP e checklist pratica del trasferimento da frontaliere.',
+    'blog.article.eupilio-ticino-frontaliere-guida.imageAlt': 'Veduta del paesaggio ticinese con vallata alpina, laghi e insediamenti residenziali tipici della zona di confine.',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.title': 'Mariano Comense: guida fiscale per frontalieri in Ticino',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.excerpt': 'Permesso G, tassazione 2024, AVS/LPP/LAMal e checklist pratica. Come trasferirsi da Mariano Comense e lavorare in Ticino. Calcola il tuo netto.',
+    'blog.article.vivere-mariano-comense-lavorare-ticino.imageAlt': 'Vista panoramica di Lugano da Monte San Salvatore, destinazione lavorativa di frontalieri da Mariano Comense',
 };
 
 export default blogMetaIt;

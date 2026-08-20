@@ -1,19 +1,75 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-08-20T09:48:54.194Z",
+  "generatedAt": "2026-08-20T21:32:09.473Z",
   "total": 33,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 33,
-  "durationMs": 22081,
-  "avgDurationMs": 22081,
+  "unchangedCount": 32,
+  "durationMs": 17860,
+  "avgDurationMs": 17860,
   "durationHistory": [
-    22081
+    17860
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "efg-5984",
+      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-20T21:32:06.180Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -104,7 +160,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.351Z",
+      "crawledAt": "2026-08-20T21:32:06.238Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-08-04",
@@ -225,7 +281,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.348Z",
+      "crawledAt": "2026-08-20T21:32:06.235Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -389,7 +445,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.347Z",
+      "crawledAt": "2026-08-20T21:32:06.227Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -511,7 +567,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.345Z",
+      "crawledAt": "2026-08-20T21:32:06.224Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -618,7 +674,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.344Z",
+      "crawledAt": "2026-08-20T21:32:06.222Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -671,7 +727,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.342Z",
+      "crawledAt": "2026-08-20T21:32:06.220Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -726,7 +782,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.340Z",
+      "crawledAt": "2026-08-20T21:32:06.217Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -855,7 +911,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.338Z",
+      "crawledAt": "2026-08-20T21:32:06.214Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -956,7 +1012,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.336Z",
+      "crawledAt": "2026-08-20T21:32:06.211Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1011,7 +1067,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.333Z",
+      "crawledAt": "2026-08-20T21:32:06.207Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1135,7 +1191,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.331Z",
+      "crawledAt": "2026-08-20T21:32:06.204Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1190,7 +1246,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.329Z",
+      "crawledAt": "2026-08-20T21:32:06.202Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1202,62 +1258,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
       "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5984",
-      "slug": "switchboard-operator-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-08-20T09:48:50.321Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1373,7 +1373,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.312Z",
+      "crawledAt": "2026-08-20T21:32:06.169Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1429,7 +1429,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.310Z",
+      "crawledAt": "2026-08-20T21:32:06.167Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1576,7 +1576,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.307Z",
+      "crawledAt": "2026-08-20T21:32:06.165Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1680,7 +1680,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.302Z",
+      "crawledAt": "2026-08-20T21:32:06.158Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -1732,7 +1732,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-20T09:48:50.291Z",
+      "crawledAt": "2026-08-20T21:32:06.143Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -1741,7 +1741,6 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-13T21:53:02.806Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1796,7 +1795,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.892Z",
       "country": "CH",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2207,7 +2205,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
       "country": "CH",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2373,7 +2370,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.890Z",
       "country": "CH",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2668,7 +2664,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.879Z",
       "country": "CH",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2782,6 +2777,122 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6190",
+      "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "PB Support Specialist Americas Geneva",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6190",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region."
+            ],
+            "responsibilities": [
+              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
+              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
+              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
+              "Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business",
+              "Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate",
+              "Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department",
+              "Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise",
+              "Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally",
+              "Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently."
+            ],
+            "requirements": [
+              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
+              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
+              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
+              "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
+              "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
+              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
+              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
+              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
+              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
+              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics",
+              "Conduct risk assessment",
+              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
+              "Resolve audit issues by coordinating with stakeholders to implement corrective actions",
+              "Responsible for the output of the PB Support work area within the discipline",
+              "Support the Client Relationship Officers in proactively identifying",
+              "Perform due diligence on prospective and existing client relationships",
+              "Approve funds and securities transfers"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-24T21:53:50.479Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-15",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.905Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 22
       }

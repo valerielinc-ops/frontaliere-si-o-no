@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-20T10:26:12.732Z",
-  "total": 4,
+  "generatedAt": "2026-08-20T21:40:11.008Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 2,
-  "unchangedCount": 1,
-  "durationMs": 16996,
-  "avgDurationMs": 16996,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 14535,
+  "avgDurationMs": 14535,
   "durationHistory": [
-    16996
+    14535
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,11 +40,11 @@
       "firstSeenAt": "2026-08-19T22:00:18.023Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 66,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 21,
         "completeness": 15
       }
     },
@@ -74,11 +74,11 @@
       "firstSeenAt": "2026-08-19T10:01:58.202Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 66,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 23,
         "completeness": 15
       }
     },
@@ -108,98 +108,16 @@
       "firstSeenAt": "2026-08-19T10:01:58.202Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 66,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 23,
         "completeness": 15
       }
     }
   ],
   "removedJobs": [
-    {
-      "url": "https://www.mikron.com/en/quality-engineer-mfd",
-      "applyUrl": "https://www.mikron.com/en/quality-engineer-mfd",
-      "title": "Quality Engineer (m/f/d)",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "quality-engineer-m-f-d-mikron",
-      "sourceLang": "fr",
-      "category": "technology",
-      "datePosted": "2026-07-15",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "firstSeenAt": "2026-07-15T22:42:57.030Z",
-      "addressLocality": "Boudry",
-      "addressRegion": "NE",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 5987,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://www.mikron.com/en/rettificatori-di-utensili-metallo-duro-su-affilatrici-cnc",
-      "applyUrl": "https://www.mikron.com/en/rettificatori-di-utensili-metallo-duro-su-affilatrici-cnc",
-      "title": "Rettificatori di utensili in metallo duro su affilatrici CNC",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Agno",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6982",
-      "streetAddress": "Via Ginnasio 17, 6982 Agno",
-      "slug": "rettificatori-di-utensili-in-metallo-duro-su-affilatrici-cnc-mikron",
-      "sourceLang": "it",
-      "category": "production",
-      "datePosted": "2026-07-16",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Agno"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-16T22:40:19.781Z",
-      "addressLocality": "Agno",
-      "addressRegion": "TI",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
       "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -239,5 +157,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
