@@ -45689,6 +45689,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-orologi-export-svizzera-augusto-2026': {
+    title: 'Trump non ferma l\'export di orologi svizzeri: a luglio su del 10%',
+    description: 'Le esportazioni di orologi svizzeri hanno registrato un netto aumento a luglio, confermando come Trump non ferma l\'export di orologi svizzeri: a luglio',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, ferma, export, orologi',
+    ogTitle: 'Trump non ferma l\'export di orologi svizzeri: a luglio su del 10%',
+    ogDescription: 'Le esportazioni di orologi svizzeri hanno registrato un netto aumento a luglio, confermando come Trump non ferma l\'export di orologi svizzeri: a luglio su del 10%. La crescita è stata del 9,6% su base annua, portando il totale a 2,63 miliardi',
+    canonicalPath: '/articoli-svizzera/orologi-export-svizzera-augusto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trump non ferma l'export di orologi svizzeri: a luglio su del 10%",
+      "description": "Le esportazioni di orologi svizzeri hanno registrato un netto aumento a luglio, confermando come Trump non ferma l'export di orologi svizzeri: a luglio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/orologi-export-svizzera-augusto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La crescita delle esportazioni orologiere in Svizzera"
+      },
+      "datePublished": "2026-08-20T07:55:53+00:00",
+      "dateModified": "2026-08-20T07:55:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologi-export-svizzera-augusto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3523,6 +3523,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esportazioni-svizzera-luglio-record.title': 'Les exportations suisses s\'accélèrent en juillet 2026',
     'blog.article.esportazioni-svizzera-luglio-record.excerpt': 'En juillet 2026, les exportations suisses atteignent CHF 27,8 milliards (+13,8% par mois). Le secteur pharmaceutique croît de 25 %. Surplus balance commerciale : CHF 8,1 milliards.',
     'blog.article.esportazioni-svizzera-luglio-record.imageAlt': 'Conteneurs de fret dans une installation portuaire suisse avec les Alpes en arrière-plan',
+    'blog.article.orologi-export-svizzera-augusto-2026.title': 'Trump n\'arrête pas l\'exportation de montres suisses : en juillet sur 10%',
+    'blog.article.orologi-export-svizzera-augusto-2026.excerpt': 'Les exportations de montres suisses ont enregistré une nette hausse en juillet, confirmant que Trump n\'arrête pas les exportations de montres suisses : en juillet, elles ont grimpé de 10%. La croissance a été de 9,6 % sur une base annuelle, portant le total à 2,63 milliards de francs.',
+    'blog.article.orologi-export-svizzera-augusto-2026.imageAlt': 'Croissance des exportations d\'horloges suisses',
 };
 
 export default blogMetaChFr;
