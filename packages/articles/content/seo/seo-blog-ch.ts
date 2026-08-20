@@ -46040,6 +46040,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-preventivo-confederazione-2027': {
+    title: 'Consiglio federale adotta il preventivo 2027 | Frontaliere Ticino',
+    description: 'Il Consiglio federale adotta il 19 agosto 2026 il preventivo 2027 con PICF 2028-2030. Disponibile online. Scopri la struttura e i dettagli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, adotta, preventivo',
+    ogTitle: 'Consiglio federale adotta il preventivo 2027',
+    ogDescription: 'Il 19 agosto il Consiglio federale approva il preventivo federale 2027 con PICF 2028-2030. Scopri i dettagli su come consultare il documento online e cosa contiene per i cittadini svizzeri.',
+    canonicalPath: '/articoli-svizzera/preventivo-confederazione-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale adotta il preventivo 2027",
+      "description": "Il Consiglio federale adotta il 19 agosto 2026 il preventivo 2027 con PICF 2028-2030. Disponibile online. Scopri la struttura e i dettagli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/preventivo-confederazione-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Amministrazione federale svizzera: documenti del preventivo e pianificazione finanziaria confederale."
+      },
+      "datePublished": "2026-08-20T12:07:26+00:00",
+      "dateModified": "2026-08-20T12:07:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/preventivo-confederazione-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
