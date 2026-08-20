@@ -1,18 +1,19 @@
 {
   "key": "rheinmetall-air-defence",
   "label": "Rheinmetall Air Defence AG",
-  "generatedAt": "2026-08-20T10:08:58.479Z",
-  "total": 68,
-  "newCount": 1,
-  "updatedCount": 65,
+  "generatedAt": "2026-08-20T22:10:56.565Z",
+  "total": 66,
+  "newCount": 0,
+  "updatedCount": 66,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 18472,
-  "avgDurationMs": 18472,
+  "unchangedCount": 0,
+  "durationMs": 52262,
+  "avgDurationMs": 52262,
   "durationHistory": [
-    18472
+    52262
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rheinmetall-air-defence-17084e01e6d8",
       "slug": "mitarbeiter-administration-qualitatsmanagement-m-w-d-rheinmetall-air-defence-ag-zurich",
@@ -24,7 +25,7 @@
       "url": "https://www.rheinmetall.com/en/job/mitarbeiter_administration_qualitaetsmanagement__m_w_d_/1134485",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:55.616Z",
+      "crawledAt": "2026-08-20T22:10:22.552Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -46,16 +47,16 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T10:08:55.616Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rheinmetall-air-defence-648534591888",
       "slug": "production-planner-m-w-d-rheinmetall-air-defence-ag-zurich",
@@ -67,7 +68,7 @@
       "url": "https://www.rheinmetall.com/en/job/production_planner__m_w_d_/1132673",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:54.448Z",
+      "crawledAt": "2026-08-20T22:10:21.240Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -89,13 +90,12 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-19T09:50:18.039Z",
-      "_qualityScore": 81,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -110,7 +110,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikant___werkstudent_produktionsplanung__m_w_d_/1131155",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:54.993Z",
+      "crawledAt": "2026-08-20T22:10:21.846Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -132,7 +132,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Praktikum"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T09:51:22.258Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -153,7 +152,7 @@
       "url": "https://www.rheinmetall.com/en/job/supplier_quality_manager_sensorik__m_w_d_/1127987",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:54.024Z",
+      "crawledAt": "2026-08-20T22:10:20.352Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -175,7 +174,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:32:17.625Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -196,7 +194,7 @@
       "url": "https://www.rheinmetall.com/en/job/obsolescence_manager__m_w_d_/1124111",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:53.270Z",
+      "crawledAt": "2026-08-20T22:10:19.780Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -218,7 +216,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-11T10:16:19.687Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -239,7 +236,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_naval_systems__m_w_d_/1119902",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:53.198Z",
+      "crawledAt": "2026-08-20T22:10:18.165Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -282,7 +279,7 @@
       "url": "https://www.rheinmetall.com/en/job/teamlead_professional_onsite_support__m_w_d_/1119596",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:53.228Z",
+      "crawledAt": "2026-08-20T22:10:19.196Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -325,7 +322,7 @@
       "url": "https://www.rheinmetall.com/en/job/teamleiter_arbeitsvorbereitung__m_w_d_/1117976",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:53.175Z",
+      "crawledAt": "2026-08-20T22:10:17.333Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -347,7 +344,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-04T11:50:49.118Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -368,7 +364,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikum_business_excellence/1116107",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:50.362Z",
+      "crawledAt": "2026-08-20T22:10:52.515Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -390,7 +386,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Praktikum"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-01T11:14:58.934Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -411,7 +406,7 @@
       "url": "https://www.rheinmetall.com/en/job/spezialist_in_planung_und_steuerung_von_kundenprojekten_im_team_pmo__m_w_d_/1116209",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:50.383Z",
+      "crawledAt": "2026-08-20T22:10:53.017Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -454,7 +449,7 @@
       "url": "https://www.rheinmetall.com/en/job/material_manager_procurement__m_w_d_/1113569",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:51.033Z",
+      "crawledAt": "2026-08-20T22:10:53.515Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -476,7 +471,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-30T11:26:18.631Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -497,7 +491,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_asien__m_w_d_/1109363",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:49.199Z",
+      "crawledAt": "2026-08-20T22:10:50.572Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -519,7 +513,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-24T11:18:45.451Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -540,7 +533,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_mittlerer_osten__m_w_d_/1109369",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:49.274Z",
+      "crawledAt": "2026-08-20T22:10:51.038Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -562,7 +555,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-24T11:18:47.317Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -583,7 +575,7 @@
       "url": "https://www.rheinmetall.com/en/job/sales_manager_europa__m_w_d_/1109372",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:49.901Z",
+      "crawledAt": "2026-08-20T22:10:51.584Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -605,7 +597,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-24T11:18:50.767Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -626,7 +617,7 @@
       "url": "https://www.rheinmetall.com/en/job/warengruppeneinkaeufer_metall__m_w_d_/1109414",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:50.326Z",
+      "crawledAt": "2026-08-20T22:10:52.053Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -668,7 +659,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_systems_engineer_missile_systems__m_w_d_/1106909",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:49.075Z",
+      "crawledAt": "2026-08-20T22:10:49.046Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -711,7 +702,7 @@
       "url": "https://www.rheinmetall.com/en/job/cnc_fraeser___springer___allrounder__m_w_d_/1106936",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:49.102Z",
+      "crawledAt": "2026-08-20T22:10:49.855Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -733,7 +724,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T11:55:00.684Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -754,7 +744,7 @@
       "url": "https://www.rheinmetall.com/en/job/praktikant_im_bereich_deep_learning__m_w_d_/1105727",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:48.530Z",
+      "crawledAt": "2026-08-20T22:10:48.228Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -796,7 +786,7 @@
       "url": "https://www.rheinmetall.com/en/job/fachexperte_baugruppenverdrahtung_kabelfertigung__m_w_d_/1094570",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:53.120Z",
+      "crawledAt": "2026-08-20T22:10:16.793Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -818,7 +808,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-09T12:27:39.056Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -839,7 +828,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_payroll_specialist_100___m_w_d_/1086158",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:48.511Z",
+      "crawledAt": "2026-08-20T22:10:47.246Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -861,7 +850,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:46:30.247Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -882,7 +870,7 @@
       "url": "https://www.rheinmetall.com/en/job/senior_project_manager__m_w_d_/1084841",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:48.491Z",
+      "crawledAt": "2026-08-20T22:10:46.392Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -904,7 +892,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:46:08.931Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -925,7 +912,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektroniker___prueffeldtechniker__m_w_d_/1083524",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:47.833Z",
+      "crawledAt": "2026-08-20T22:10:45.308Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -967,7 +954,7 @@
       "url": "https://www.rheinmetall.com/en/job/head_of_integrated_product_support__ips__management__m_w_d_/1083539",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:48.468Z",
+      "crawledAt": "2026-08-20T22:10:45.911Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -989,7 +976,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:46:08.493Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -1010,7 +996,7 @@
       "url": "https://www.rheinmetall.com/en/job/elektrokonstrukteur_ecad__m_w_d_/1082336",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.755Z",
+      "crawledAt": "2026-08-20T22:10:41.794Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1032,7 +1018,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:46:05.691Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -1053,7 +1038,7 @@
       "url": "https://www.rheinmetall.com/en/job/atlassian_expert__m_w_d_/1082375",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.785Z",
+      "crawledAt": "2026-08-20T22:10:42.316Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1075,7 +1060,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:46:06.265Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -1096,7 +1080,7 @@
       "url": "https://www.rheinmetall.com/en/job/project_procurement_manager__m_w_d_/1082378",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.810Z",
+      "crawledAt": "2026-08-20T22:10:43.097Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1118,7 +1102,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:46:06.717Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -1139,7 +1122,7 @@
       "url": "https://www.rheinmetall.com/en/job/systemtechniker_erprobungszentrum__m_w_d_/1082417",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.943Z",
+      "crawledAt": "2026-08-20T22:10:43.571Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Studen",
       "postalCode": "8845",
@@ -1181,7 +1164,7 @@
       "url": "https://www.rheinmetall.com/en/job/systemingenieur_radarsysteme__m_w_d_/1079981",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.988Z",
+      "crawledAt": "2026-08-20T22:10:44.826Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1223,7 +1206,7 @@
       "url": "https://www.rheinmetall.com/en/job/produktionssteuerer_baugruppen_und_endmontage__m_w_d_/1078652",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.964Z",
+      "crawledAt": "2026-08-20T22:10:44.185Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1245,7 +1228,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:46:09.786Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1266,7 +1248,7 @@
       "url": "https://www.rheinmetall.com/en/job/mitarbeiter_lackiererei_im_2_schichtbetrieb__m_w_d_/1077128",
       "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:46.730Z",
+      "crawledAt": "2026-08-20T22:10:41.073Z",
       "companyDomain": "rheinmetall.com",
       "addressLocality": "Zürich",
       "postalCode": "8050",
@@ -1297,142 +1279,8 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "id": "rheinmetall-air-defence-4c8a58f10e13",
-      "slug": "elektroniker-baugruppenverdrahtung-m-w-d-rheinmetall-air-defence-ag-zurich",
-      "company": "Rheinmetall Air Defence AG",
-      "companyKey": "rheinmetall-air-defence",
-      "title": "Elektroniker Baugruppenverdrahtung (m/w/d)",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.rheinmetall.com/en/job/elektroniker_baugruppenverdrahtung__m_w_d_/1075796",
-      "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:08:45.922Z",
-      "companyDomain": "rheinmetall.com",
-      "addressLocality": "Zürich",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 155",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produktion und Fertigung",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "Berufserfahrene",
-      "sector": "Difesa / Industria",
-      "currency": "CHF",
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://www.rheinmetall.com/en/job/elektroniker_baugruppenverdrahtung__m_w_d_/1075796",
-      "featured": false,
-      "_rheinmetallMeta": {
-        "referenceNumber": "CH01360",
-        "departmentName": "Unternehmensbereich Defence",
-        "contractTypeLabel": "Unbefristeter Vertrag"
-      },
-      "firstSeenAt": "2026-07-04T11:46:28.475Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "rheinmetall-air-defence-30e318f45755",
-      "slug": "utente-chiave-del-modulo-sap-q-m-f-d-rheinmetall-air-defence-ag-zurich",
-      "company": "Rheinmetall Air Defence AG",
-      "companyKey": "rheinmetall-air-defence",
-      "title": "SAP Q-Modul Key-User (m/w/d)",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.rheinmetall.com/en/job/sap_q_modul_key_user__m_w_d_/1086140",
-      "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:37:12.954Z",
-      "companyDomain": "rheinmetall.com",
-      "addressLocality": "Zürich",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 155",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT und Software",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "Berufserfahrene",
-      "sector": "Difesa / Industria",
-      "currency": "CHF",
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://www.rheinmetall.com/en/job/sap_q_modul_key_user__m_w_d_/1086140",
-      "featured": false,
-      "_rheinmetallMeta": {
-        "referenceNumber": "CH00929",
-        "departmentName": "Unternehmensbereich Defence",
-        "contractTypeLabel": "Unbefristeter Vertrag"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:46:29.813Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "rheinmetall-air-defence-8c4d54fcafd6",
-      "slug": "responsabile-del-progetto-tecnico-sistemi-completi-missile-m-f-d-rheinmetall-air-defence-ag-zurich",
-      "company": "Rheinmetall Air Defence AG",
-      "companyKey": "rheinmetall-air-defence",
-      "title": "Technischer Projektleiter Gesamtsysteme Missile (m/w/d)",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.rheinmetall.com/en/job/technischer_projektleiter_gesamtsysteme_missile__m_w_d_/1058738",
-      "source": "Rheinmetall Air Defence AG Dedicated Parser (corporate careers API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:37:33.554Z",
-      "companyDomain": "rheinmetall.com",
-      "addressLocality": "Zürich",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 155",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingenieurwesen",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "Berufserfahrene",
-      "sector": "Difesa / Industria",
-      "currency": "CHF",
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://www.rheinmetall.com/en/job/technischer_projektleiter_gesamtsysteme_missile__m_w_d_/1058738",
-      "featured": false,
-      "_rheinmetallMeta": {
-        "referenceNumber": "CH01339",
-        "departmentName": "Unternehmensbereich Defence",
-        "contractTypeLabel": "Unbefristeter Vertrag"
-      },
-      "firstSeenAt": "2026-07-04T11:46:24.183Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
