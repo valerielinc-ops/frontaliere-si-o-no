@@ -1208,6 +1208,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pmi-svizzere-assenze-lavoro': { it: 'pmi-svizzere-assenze-lavoro', en: 'swiss-smes-absences-work-costs', de: 'kmu-absenzten-arbeitsmarkt-studie', fr: 'pme-absences-travail-suisse' },
  'benzina-due-franchi-agosto-2026': { it: 'benzina-due-franchi-agosto-2026', en: 'fuel-prices-two-francs-august-2026', de: 'benzinpreis-zwei-franken-august-2026', fr: 'essence-deux-francs-aout-2026' },
  'postfinance-utile-calo-primo-semestre': { it: 'postfinance-utile-calo-primo-semestre', en: 'postfinance-profits-decline-first-half', de: 'postfinance-gewinn-rueckgang-ersten-semester', fr: 'postfinance-baisses-benefices-premier-semestre' },
+ 'assicurazioni-svizzera-risultati-2025': { it: 'assicurazioni-svizzera-risultati-2025', en: 'insurance-switzerland-results-2025', de: 'versicherungen-schweiz-ergebnisse-2025', fr: 'assurances-suisse-resultats-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
