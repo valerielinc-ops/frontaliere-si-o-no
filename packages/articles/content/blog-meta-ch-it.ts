@@ -3490,6 +3490,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Trasporti Basilea Campagna: abbonamenti, zone e tariffe',
     'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Abbonamenti mensili e annuali, zone tariffarie, mezzo-prezzo e GA per pendolari e studenti in Basilea Campagna.',
     'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Stazione ferroviaria regionale svizzera con treno rosso SBB, paesaggio collinare del canton Basilea Campagna sullo sfondo.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.title': 'Aprire un\'attività in Basilea Campagna: guida pratica',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.excerpt': 'Forme giuridiche, iscrizione al registro commercio, tasse e previdenza: la procedura completa per avviare un\'impresa nel cantone di Basilea Campagna.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.imageAlt': 'Scrivania di lavoro con documenti di iscrizione al registro commercio e calcolatrice in uno studio a Basilea',
 };
 
 export default blogMetaChIt;

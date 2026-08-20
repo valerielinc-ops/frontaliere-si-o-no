@@ -3490,6 +3490,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Transporte Basel-Landschaft: Abonnements, Zonen und Tarife',
     'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Monats- und Jahresabonnements, Tarifzonen, Halbtax und GA für Pendler und Studenten in Basel-Landschaft.',
     'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Schweizer Regionalbahnhof mit rotem SBB-Zug, Landschaft des Kantons Basel-Landschaft im Hintergrund.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.title': 'Ein Geschäft in Basel-Landschaft eröffnen: Praktischer Leitfaden',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.excerpt': 'Rechtsformen, Handelsregistereintrag, Steuern und Vorsorge: Das komplette Verfahren zur Unternehmensgründung im Kanton Basel-Landschaft.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.imageAlt': 'Arbeitstisch mit Handelsregisterdokumenten und Taschenrechner in Basel',
 };
 
 export default blogMetaChDe;

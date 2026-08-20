@@ -3490,6 +3490,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Transport Basel Countryside: subscriptions, zones and fares',
     'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Monthly and annual subscriptions, fare zones, half-price and GA for commuters and students in Basel Countryside.',
     'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Swiss regional train station platform with red SBB train, Canton Baselland countryside and hills visible.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.title': 'Starting a business in Basel Countryside: a practical guide',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.excerpt': 'Legal forms, registration in the trade register, taxes and social security: the complete procedure for starting a business in the canton of Basel-Country.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.imageAlt': 'Workspace with business registration documents and calculator on desk in Basel office',
 };
 
 export default blogMetaChEn;
