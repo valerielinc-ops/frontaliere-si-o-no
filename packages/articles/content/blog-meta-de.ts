@@ -10177,6 +10177,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Leben in Alserio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Besteuerung, Doppelbesteuerung und Rückerstattung: Das ändert sich für Grenzgänger, die in Alserio leben und im Tessin arbeiten.',
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der in der Schweiz arbeitet und in Alserio lebt',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Leben in Anzano und Arbeiten im Tessin: Vor- und Nachteile',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger, die in Anzano del Parco wohnen und im Tessin arbeiten, müssen die Reisezeiten, die Lebenshaltungskosten und die empfohlenen Gebiete berücksichtigen.',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontaliere, der in Anzano del Parco lebt und in Ticino arbeitet, muss die Reisezeiten und den Lebensstandard berücksichtigen.',
 };
 
 export default blogMetaDe;

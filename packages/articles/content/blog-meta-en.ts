@@ -10178,6 +10178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Living in Alserio and working in Ticino as a border worker',
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Tax settings, double taxation and refunds: what changes for border workers living in Alserio and working in Ticino?',
     'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'A Ticino-based worker living in Alserio',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.title': 'Living in Anzano and working in Ticino: advantages and disadvantages',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.excerpt': 'Border workers who reside in Anzano del Parco and work in Ticino must consider the journey times, the cost of living and the recommended areas.',
+    'blog.article.vivere-anzano-parco-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere living in Anzano del Parco and working in Ticino must consider the travel times and the cost of living.',
 };
 
 export default blogMetaEn;
