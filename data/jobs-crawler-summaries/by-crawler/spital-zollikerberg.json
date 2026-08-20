@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-20T09:44:48.778Z",
-  "total": 9,
+  "generatedAt": "2026-08-20T21:31:45.232Z",
+  "total": 14,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 34428,
-  "avgDurationMs": 34428,
+  "unchangedCount": 1,
+  "durationMs": 36165,
+  "avgDurationMs": 36165,
   "durationHistory": [
-    34428
+    36165
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-c220638ffd1b",
       "slug": "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-spital-zollikerberg-zollikerberg",
@@ -21,7 +23,6 @@
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
-      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=776bf6fd-d07d-4d0a-9185-ceecaf04a641,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
@@ -45,7 +46,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
