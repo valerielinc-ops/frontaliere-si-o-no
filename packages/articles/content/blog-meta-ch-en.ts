@@ -3565,6 +3565,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.gas-svizzera-inverno-opzione.title': 'Gas, a new option for winter in Switzerland',
     'blog.article.gas-svizzera-inverno-opzione.excerpt': 'The Confederation activates the ITA.SWAPtion.26 option to access the France-Italy gas pipeline. Cost 2-3 francs per family. Available from October 2026.',
     'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Swiss alpine winter landscape with energy distribution infrastructure in the valley',
+    'blog.article.viticoltura-ticino-2026-sfide.title': 'Droughts, pests and hailstorms: but we will have a golden wine',
+    'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'The 2026 harvest promises to be among the best vintages, but drought, hail and pests put Ticino winemakers at risk',
+    'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Vineyard landscape in Ticino during summer with grapevines under afternoon sun',
 };
 
 export default blogMetaChEn;

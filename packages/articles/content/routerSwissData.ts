@@ -1214,6 +1214,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'uss-pensionati-rendite-2027': { it: 'uss-pensionati-rendite-2027', en: 'uss-pensioners-benefits-2027', de: 'uss-pensionare-leistungen-2027', fr: 'uss-pensionnes-prestations-2027' },
  'posta-utile-in-salita': { it: 'posta-utile-in-salita', en: 'posta-profit-increase', de: 'posta-gewinnsteigerung', fr: 'augmentation-des-benefices-de-la-posta' },
  'gas-svizzera-inverno-opzione': { it: 'gas-svizzera-inverno-opzione', en: 'switzerland-gas-winter-option', de: 'gas-schweiz-winter-option', fr: 'gaz-suisse-hiver-option' },
+ 'viticoltura-ticino-2026-sfide': { it: 'viticoltura-ticino-2026-sfide', en: 'viticulture-ticino-2026-challenges', de: 'weinbau-tessin-2026-herausforderungen', fr: 'viticulture-tessin-2026-defis' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

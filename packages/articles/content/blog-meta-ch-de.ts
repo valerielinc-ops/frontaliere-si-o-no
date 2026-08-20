@@ -3565,6 +3565,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.gas-svizzera-inverno-opzione.title': 'Gas, neue Option für den Winter in der Schweiz',
     'blog.article.gas-svizzera-inverno-opzione.excerpt': 'Der Bund aktiviert die Option ITA.SWAPtion.26 für den Zugang zur Pipeline Frankreich-Italien. Kosten 2-3 Franken pro Familie. Erhältlich ab Oktober 2026.',
     'blog.article.gas-svizzera-inverno-opzione.imageAlt': 'Schweizer Berglandschaft im Winter mit Energieinfrastruktur im Tal',
+    'blog.article.viticoltura-ticino-2026-sfide.title': 'Dürren, Schädlinge und Hagel: Aber wir werden einen goldenen Wein haben',
+    'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'Die Weinlese 2026 verspricht zu den besten Jahrgängen zu gehören, aber Dürre, Hagel und Schädlinge gefährden die Tessiner Winzer',
+    'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Weinberglandschaft im Tessin während des Sommers mit Weinreben in der Sonne',
 };
 
 export default blogMetaChDe;

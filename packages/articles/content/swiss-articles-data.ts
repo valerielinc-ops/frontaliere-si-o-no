@@ -10693,6 +10693,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'viticoltura-ticino-2026-sfide',
+    category: 'novita',
+    date: '2026-08-20T14:19:34.317Z',
+    image: '/images/blog/viticoltura-ticino-2026-sfide.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
