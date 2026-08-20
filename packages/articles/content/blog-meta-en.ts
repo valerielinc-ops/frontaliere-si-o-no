@@ -10184,6 +10184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bene-telelavoro-ticino.title': 'Telecommuting is good, but reduces costs',
     'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti and Rusconi ask the government for information on remote work in the cantonal administration',
     'blog.article.bene-telelavoro-ticino.imageAlt': 'Remote work in Ticino: benefits, but also changes',
+    'blog.article.clima-ticino-anno.title': 'Climate and weather Ticino: characteristic seasons',
+    'blog.article.clima-ticino-anno.excerpt': 'Average temperatures, rainfall, rare weather phenomena in Ticino.',
+    'blog.article.clima-ticino-anno.imageAlt': 'Panoramic view of Lake Lugano, Ticino, Switzerland, with a focus on the seasons',
 };
 
 export default blogMetaEn;

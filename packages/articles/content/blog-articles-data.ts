@@ -30504,6 +30504,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'clima-ticino-anno',
+ category: 'pratico',
+ date: '2026-08-20T02:27:19.748Z',
+ image: '/images/blog/clima-ticino-anno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

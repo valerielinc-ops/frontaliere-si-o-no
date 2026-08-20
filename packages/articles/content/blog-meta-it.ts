@@ -10185,6 +10185,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bene-telelavoro-ticino.title': '‘Bene il telelavoro, ma diminuire postazioni, superfici e spese immobiliari’',
     'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti e Rusconi chiedono lumi al governo sul lavoro da remoto nell\'Amministrazione cantonale',
     'blog.article.bene-telelavoro-ticino.imageAlt': 'Lavoro da remoto in Ticino: benefici, ma anche cambiamenti',
+    'blog.article.clima-ticino-anno.title': 'Clima e meteo Ticino: stagioni caratteristiche',
+    'blog.article.clima-ticino-anno.excerpt': 'Temperature medie, precipitazioni, fenomeni meteorologici rari nel Ticino.',
+    'blog.article.clima-ticino-anno.imageAlt': 'Vista panoramica del Lago di Lugano, Ticino, Svizzera, con un\'enfasi sulle stagioni',
 };
 
 export default blogMetaIt;

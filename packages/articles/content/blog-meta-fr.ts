@@ -10186,6 +10186,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bene-telelavoro-ticino.title': 'Bénéfice du télétravail, moins d\'espace et de coûts',
     'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti et Rusconi demandent des éclaircissements au gouvernement sur le travail à distance dans l\'administration cantonale',
     'blog.article.bene-telelavoro-ticino.imageAlt': 'Travail à distance en Suisse italienne: avantages, mais aussi changements',
+    'blog.article.clima-ticino-anno.title': 'Climat et météo Tessin : saisons caractéristiques',
+    'blog.article.clima-ticino-anno.excerpt': 'Températures moyennes, précipitations, phénomènes météorologiques rares au Tessin.',
+    'blog.article.clima-ticino-anno.imageAlt': 'Vue panoramique du lac de Lugano, Tessin, Suisse, avec un focus sur les saisons',
 };
 
 export default blogMetaFr;

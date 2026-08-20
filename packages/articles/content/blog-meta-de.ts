@@ -10183,6 +10183,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bene-telelavoro-ticino.title': '‘Gut Telearbeit, aber weniger Stellplätze, Flächen und Immobilienkosten’',
     'blog.article.bene-telelavoro-ticino.excerpt': 'Renzetti und Rusconi fordern von der Regierung Aufklärung über die Fernarbeit in der kantonalen Verwaltung',
     'blog.article.bene-telelavoro-ticino.imageAlt': 'Arbeitsplatz in Ticino: Vorteile, aber auch Änderungen',
+    'blog.article.clima-ticino-anno.title': 'Klima und Wetter Tessin: charakteristische Jahreszeiten',
+    'blog.article.clima-ticino-anno.excerpt': 'Durchschnittstemperaturen, Niederschläge, seltene Wetterphänomene im Tessin.',
+    'blog.article.clima-ticino-anno.imageAlt': 'Panoramablick auf den Luganersee, Tessin, Schweiz, mit Schwerpunkt auf die Jahreszeiten',
 };
 
 export default blogMetaDe;
