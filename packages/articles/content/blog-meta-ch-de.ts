@@ -3547,6 +3547,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, Gewinnrückgang im ersten Halbjahr',
     'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'Die Schweizer Bank schliesst das erste Halbjahr mit 103 Millionen Franken Reingewinn ab: Zinsertrag -10,6%, Kundenvermögen +3,3% auf 117,5 Milliarden',
     'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Lugano Stadtansicht mit Bankgebäuden und See, Symbol für Schweizer Wirtschaft und Finanzsektor.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.title': 'Schweizer Versicherungen: Gewinn +136% im Jahr 2025',
+    'blog.article.assicurazioni-svizzera-risultati-2025.excerpt': 'Die Schweizer Versicherungsgesellschaften erwirtschaften im Jahr 2025 einen Gewinn von CHF 24,4 Milliarden (+136%). Die FINMA bescheinigt eine gestärkte finanzielle Solidität und eine hohe Solvenz der Branche.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.imageAlt': 'Schweizer Finanzbezirk mit modernen Hochhäusern bei Sonnenuntergang',
 };
 
 export default blogMetaChDe;

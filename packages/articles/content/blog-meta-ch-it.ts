@@ -3547,6 +3547,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, utile in calo nel primo semestre',
     'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'La banca svizzera chiude il primo semestre con 103 milioni di franchi di utile netto: ricavi interessi -10,6%, patrimonio clientela +3,3% a 117,5 miliardi',
     'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Paesaggio urbano di Lugano con grattacieli bancari e lago sullo sfondo, simbolo dell\'economia e finanza svizzera.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.title': 'Assicurazioni svizzere: utili +136% nel 2025',
+    'blog.article.assicurazioni-svizzera-risultati-2025.excerpt': 'Le compagnie assicurative svizzera registrano 24,4 miliardi CHF di utili nel 2025 (+136%). FINMA certifica solidità finanziaria rafforzata e solvibilità elevata del settore.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.imageAlt': 'Panorama urbano di un distretto finanziario svizzero con grattacieli moderni al tramonto',
 };
 
 export default blogMetaChIt;

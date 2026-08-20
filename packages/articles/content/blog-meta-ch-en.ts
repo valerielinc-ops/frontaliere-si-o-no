@@ -3547,6 +3547,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, profit down in the first half',
     'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'The Swiss bank closed the first half of the year with 103 million francs of net profit: interest revenues -10.6%, customer equity +3.3% at 117.5 billion',
     'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Lugano city skyline with banking buildings and lake, representing Swiss economy and financial sector.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.title': 'Swiss insurance: profits +136% in 2025',
+    'blog.article.assicurazioni-svizzera-risultati-2025.excerpt': 'Swiss insurance companies recorded CHF 24.4 billion in profits in 2025 (+136%). FINMA certifies enhanced financial strength and high solvency of the sector.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.imageAlt': 'Swiss financial district cityscape with modern skyscrapers at sunset',
 };
 
 export default blogMetaChEn;

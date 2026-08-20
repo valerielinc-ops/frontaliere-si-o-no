@@ -3547,6 +3547,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, bénéfice en baisse au premier semestre',
     'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'La banque suisse clôture le premier semestre avec 103 millions de francs de bénéfice net : produits d\'intérêts -10,6%, patrimoine client +3,3% à 117,5 milliards',
     'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Vue de Lugano avec immeubles bancaires et lac, symbole de l\'économie et du secteur financier suisse.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.title': 'Assurances suisses : bénéfices +136% en 2025',
+    'blog.article.assicurazioni-svizzera-risultati-2025.excerpt': 'Les compagnies d\'assurance suisses enregistrent un bénéfice de CHF 24,4 milliards en 2025 (+136%). La FINMA certifie une solidité financière renforcée et une solvabilité élevée du secteur.',
+    'blog.article.assicurazioni-svizzera-risultati-2025.imageAlt': 'Quartier financier suisse avec gratte-ciel modernes au coucher du soleil',
 };
 
 export default blogMetaChFr;
