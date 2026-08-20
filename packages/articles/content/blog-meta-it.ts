@@ -10194,6 +10194,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano: concerti gratuiti per frontalieri',
     'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Scopri come organizzare una serata a Blues to Bop Lugano da frontaliere. Guida pratica su trasporti, valichi, parcheggio e costi della trasferta.',
     'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Vista della piazza di Lugano con palco per concerti e lago sullo sfondo',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Busta paga 2026: come leggerla da frontaliere entro 20 km',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'Nuovo Accordo 2024: trattenute svizzere, credito d\'imposta italiano, esenzione €7.500 (vecchi) o €10.000 (nuovi frontalieri). Calcola il tuo netto reale.',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Frontaliere esamina la busta paga svizzera 2026 su tablet al confine Ticino-Italia',
 };
 
 export default blogMetaIt;

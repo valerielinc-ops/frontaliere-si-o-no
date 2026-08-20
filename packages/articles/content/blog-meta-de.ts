@@ -10192,6 +10192,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blues-to-bop-lugano-trasferta.title': 'Blues to Bop Lugano: Kostenlose Konzerte für Grenzgänger',
     'blog.article.blues-to-bop-lugano-trasferta.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger einen Abend im Blues to Bop Lugano organisieren können. Praktischer Leitfaden zu Transport, Pässen, Parken und Reisekosten.',
     'blog.article.blues-to-bop-lugano-trasferta.imageAlt': 'Lugano Seeufer-Platz mit Konzertbühne und Bergblick',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.title': 'Lohnabrechnung 2026: Wie man sie als Grenzgänger innerhalb von 20 km liest',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.excerpt': 'Neues Abkommen 2024: Schweizer Einbehalte, italienische Steuergutschrift, Befreiung von € 7.500 (alt) oder € 10.000 (neue Grenzgänger). Berechnen Sie Ihren realen Nettowert.',
+    'blog.article.busta-paga-calcolata-frontalieri-20km.imageAlt': 'Grenzgänger überprüft Schweizer Lohnabrechnung 2026 auf Tablet an der Grenze',
 };
 
 export default blogMetaDe;
