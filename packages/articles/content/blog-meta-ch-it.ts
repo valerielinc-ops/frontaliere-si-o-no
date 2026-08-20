@@ -3601,6 +3601,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-sciaffusa-cauzione-disdetta.title': 'Affitti Sciaffusa: deposito cauzione e diritto di locazione',
     'blog.article.affitti-sciaffusa-cauzione-disdetta.excerpt': 'Nel canton Sciaffusa il diritto di locazione è regolato dalla legge federale. Ecco cosa sapere su deposito cauzionale, disdetta e contestazione del canone.',
     'blog.article.affitti-sciaffusa-cauzione-disdetta.imageAlt': 'Facciata di edificio residenziale con balconi in una città svizzera, vista urbana di qualità immobiliare.',
+    'blog.article.mercato-affitti-schiaffusa.title': 'Mercato degli affitti a Sciaffusa: cauzione e diritto di locazione',
+    'blog.article.mercato-affitti-schiaffusa.excerpt': 'Il diritto di locazione a Sciaffusa è regolato dall\'articolo 253 del codice civile svizzero. La cauzione è vincolata su conto intestato all\'inquilino.',
+    'blog.article.mercato-affitti-schiaffusa.imageAlt': 'Sciaffusa, mercato degli affitti, cauzione, diritto di locazione',
 };
 
 export default blogMetaChIt;
