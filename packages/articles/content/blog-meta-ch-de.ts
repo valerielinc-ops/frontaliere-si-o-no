@@ -3520,6 +3520,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esportazioni-aumento-svizzera.title': 'Stark steigende Schweizer Exporte',
     'blog.article.esportazioni-aumento-svizzera.excerpt': 'Die Schweizer Exporte stiegen im Juli um 13,8%, während die Importe gegenüber dem Vormonat um 4,5% zurückgingen.',
     'blog.article.esportazioni-aumento-svizzera.imageAlt': 'Eine Szene am Luganersee mit einem Segelboot im Vordergrund.',
+    'blog.article.esportazioni-svizzera-luglio-record.title': 'Schweizer Exporte beschleunigen sich im Juli 2026',
+    'blog.article.esportazioni-svizzera-luglio-record.excerpt': 'Im Juli 2026 erreichten die Schweizer Exporte 27,8 Milliarden CHF (+13,8% pro Monat). Die Pharmabranche wächst um 25 %. Handelsbilanzüberschuss: CHF 8,1 Mrd.',
+    'blog.article.esportazioni-svizzera-luglio-record.imageAlt': 'Frachtcontainer bei einer Schweizer Hafenanlage mit Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;

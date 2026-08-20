@@ -10217,6 +10217,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-imposta-2026-single.title': 'Credito imposta 2026: guida frontaliere single',
     'blog.article.credito-imposta-2026-single.excerpt': 'Frontalieri single: come calcolare il credito d\'imposta 2026, franchigia €7.500-€10.000, aliquote IRPEF, compilazione quadro CE 730 e ristorni entro maggio.',
     'blog.article.credito-imposta-2026-single.imageAlt': 'Consulente fiscale rivede dichiarazione redditi frontaliere con paesaggio di confine ticinese sullo sfondo',
+    'blog.article.coordinamento-avs-inps-frontaliere.title': 'Pensione frontaliere 2026: AVS e INPS',
+    'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'Coordinamento AVS-INPS dal 2024: totalizzazione contributi, imposta alla fonte e ristorni. Franchigia €10mila per nuovi frontalieri.',
+    'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Vista del Lago di Lugano con le montagne ticinesi, simbolo della regione frontaliera Ticino-Italia.',
 };
 
 export default blogMetaIt;

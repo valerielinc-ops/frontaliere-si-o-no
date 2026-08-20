@@ -10558,6 +10558,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'esportazioni-svizzera-luglio-record',
+    category: 'novita',
+    date: '2026-08-20T07:21:46.918Z',
+    image: '/images/blog/esportazioni-svizzera-luglio-record.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

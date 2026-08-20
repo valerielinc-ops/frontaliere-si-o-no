@@ -30594,6 +30594,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'coordinamento-avs-inps-frontaliere',
+ category: 'pensione',
+ date: '2026-08-20T07:15:48.669Z',
+ image: '/images/blog/coordinamento-avs-inps-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
