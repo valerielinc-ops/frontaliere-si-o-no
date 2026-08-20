@@ -10245,6 +10245,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Vorzeitige Pensionierung von Grenzgängern: 5 häufige Fehler',
     'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Die Vorverlegung der Grenzgängerrente Tessin-Italien bringt komplexe Entscheidungen über AHV, BVG und Doppelbesteuerung mit sich. Entdecken Sie die Fehler, die mit der neuen Vereinbarung 2024 zu vermeiden sind.',
     'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Rentplanungsdokument mit Tabellenkalkulation und SECO-Formularen auf dem Schreibtisch mit Blick auf Grenzübergang Tessin-Italien',
+    'blog.article.frontaliere-svizzera-dati.title': 'Grenzgänger in der Schweiz automatischer Datenaustausch',
+    'blog.article.frontaliere-svizzera-dati.excerpt': 'Der Schweizerische Bundesrat hat die Rechtsgrundlage für den gegenseitigen Informationsfluss mit Italien und Frankreich geschaffen.',
+    'blog.article.frontaliere-svizzera-dati.imageAlt': 'Frontalier in Tessin',
 };
 
 export default blogMetaDe;

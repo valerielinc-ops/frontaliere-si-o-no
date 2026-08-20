@@ -30684,6 +30684,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontaliere-svizzera-dati',
+ category: 'fiscale',
+ date: '2026-08-20T12:14:10.421Z',
+ image: '/images/blog/frontaliere-svizzera-dati.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

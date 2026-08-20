@@ -10246,6 +10246,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Frontier early retirement: 5 common mistakes',
     'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Anticipating the pension for border workers Ticino-Italy involves complex choices on AVS, LPP and double taxation. Discover the mistakes to avoid with the New 2024 Agreement.',
     'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Pension planning document with spreadsheet and SECO forms on desk workspace overlooking Ticino-Italy border crossing',
+    'blog.article.frontaliere-svizzera-dati.title': 'Border workers in Switzerland automatic data exchange',
+    'blog.article.frontaliere-svizzera-dati.excerpt': 'The Swiss Federal Council has activated the legal basis for reciprocal information flow with Italy and France.',
+    'blog.article.frontaliere-svizzera-dati.imageAlt': 'Frontalier in Ticino',
 };
 
 export default blogMetaEn;
