@@ -3490,6 +3490,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-basilea-campagna-abbonamenti.title': 'Transports Bâle-Campagne : abonnements, zones et tarifs',
     'blog.article.trasporti-basilea-campagna-abbonamenti.excerpt': 'Abonnements mensuels et annuels, zones tarifaires, demi-tarif et GA pour les navetteurs et les étudiants à Bâle-Campagne.',
     'blog.article.trasporti-basilea-campagna-abbonamenti.imageAlt': 'Gare ferroviaire régionale suisse avec train SBB rouge, paysage vallonné du canton de Bâle-Campagne en arrière-plan.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.title': 'Ouvrir une entreprise à Bâle Campagne : guide pratique',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.excerpt': 'Formes juridiques, inscription au registre du commerce, taxes et prévoyance : la procédure complète pour démarrer une entreprise dans le canton de Bâle-Campagne.',
+    'blog.article.aprire-attivita-basilea-campagna-commercio.imageAlt': 'Bureau de travail avec documents d\'inscription au registre commercial à Bâle',
 };
 
 export default blogMetaChFr;

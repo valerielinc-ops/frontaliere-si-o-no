@@ -45260,6 +45260,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-basilea-campagna-commercio': {
+    title: 'Aprire un\'attività in Basilea Campagna: guida pratica',
+    description: 'Scopri come aprire un\'attività nel cantone di Basilea Campagna: forme giuridiche, iscrizione al registro commercio, tassazione e previdenza obbligatoria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, basilea, campagna',
+    ogTitle: 'Aprire un\'attività in Basilea Campagna: guida pratica',
+    ogDescription: 'Guida completa all\'avvio di un\'impresa nel cantone di Basilea Campagna: procedure, forme giuridiche, tassazione su 3 livelli, affiliazioni previdenziali e assicurazioni obbligatorie.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-basilea-campagna-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Basilea Campagna: guida pratica",
+      "description": "Scopri come aprire un'attività nel cantone di Basilea Campagna: forme giuridiche, iscrizione al registro commercio, tassazione e previdenza obbligatoria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-basilea-campagna-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di lavoro con documenti di iscrizione al registro commercio e calcolatrice in uno studio a Basilea"
+      },
+      "datePublished": "2026-08-20T03:09:39+00:00",
+      "dateModified": "2026-08-20T03:09:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-basilea-campagna-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
