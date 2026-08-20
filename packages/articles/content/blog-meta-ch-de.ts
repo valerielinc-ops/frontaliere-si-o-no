@@ -3583,6 +3583,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.monopattini-casco-sicurezza.title': 'Rollerhelmpflicht: Plan Bundesrat',
     'blog.article.monopattini-casco-sicurezza.excerpt': 'Der Bundesrat schlägt eine Helmpflicht für E-Scooter vor, nachdem die Zahl der Unfälle gestiegen ist. Finden Sie heraus, was sich in der Schweiz ändern wird.',
     'blog.article.monopattini-casco-sicurezza.imageAlt': 'Elektrische Tretroller auf einer Schweizer Stadtstraße mit Schutzhelm',
+    'blog.article.apprendistato-sciaffusa-guida.title': 'Lehre und Ausbildung im Kanton Schaffhausen',
+    'blog.article.apprendistato-sciaffusa-guida.excerpt': 'Die Schweizer Lehre: So finden Sie eine Lehre, unterschreiben den Vertrag, die progressive Vergütung und den Weg zur Berufsmaturität (MP) und zur ESTV.',
+    'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Lernende in der Praxisausbildung in einem modernen Schweizer Berufsschulzimmer',
 };
 
 export default blogMetaChDe;

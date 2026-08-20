@@ -3583,6 +3583,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.monopattini-casco-sicurezza.title': 'Obbligo casco monopattini: piano Consiglio federale',
     'blog.article.monopattini-casco-sicurezza.excerpt': 'Il Consiglio federale propone l\'obbligo del casco per i monopattini elettrici dopo l\'aumento degli incidenti. Scopri cosa cambierà in Svizzera.',
     'blog.article.monopattini-casco-sicurezza.imageAlt': 'Monopattini elettrici parcheggiati su una strada urbana svizzera con casco di sicurezza',
+    'blog.article.apprendistato-sciaffusa-guida.title': 'Apprendistato e formazione nel canton Sciaffusa',
+    'blog.article.apprendistato-sciaffusa-guida.excerpt': 'L\'apprendistato svizzero: come trovare un tirocinio, sottoscrivere il contratto, la retribuzione progressiva e il percorso verso la maturità professionale (MP) e l\'AFC.',
+    'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprendisti in formazione pratica in un laboratorio di scuola professionale svizzera moderna',
 };
 
 export default blogMetaChIt;

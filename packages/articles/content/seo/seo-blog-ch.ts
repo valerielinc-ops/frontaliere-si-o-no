@@ -46469,6 +46469,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-sciaffusa-guida': {
+    title: 'Apprendistato e formazione nel canton Sciaffusa',
+    description: 'Guida completa al sistema di apprendistato svizzero: come trovare un tirocinio, il contratto di tirocinio, retribuzione, diritti e doveri, e il percorso',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, canton, sciaffusa',
+    ogTitle: 'Apprendistato e formazione nel canton Sciaffusa',
+    ogDescription: 'Scopri il sistema di apprendistato svizzero: come trovare un tirocinio, il contratto scritto, la retribuzione progressiva, i tuoi diritti e doveri, e il percorso verso l\'AFC e la maturità professionale (MP).',
+    canonicalPath: '/articoli-svizzera/apprendistato-sciaffusa-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione nel canton Sciaffusa",
+      "description": "Guida completa al sistema di apprendistato svizzero: come trovare un tirocinio, il contratto di tirocinio, retribuzione, diritti e doveri, e il percorso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-sciaffusa-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendisti in formazione pratica in un laboratorio di scuola professionale svizzera moderna"
+      },
+      "datePublished": "2026-08-20T17:50:42+00:00",
+      "dateModified": "2026-08-20T17:50:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-sciaffusa-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
