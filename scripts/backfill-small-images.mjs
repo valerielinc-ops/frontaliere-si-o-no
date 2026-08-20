@@ -240,7 +240,11 @@ async function saveAndOptimize(rawBuffer, providerLabel, contentType, articleId,
     console.error(`  ⚠️  Immagine troppo piccola (${rawBuffer.length} bytes) da ${providerLabel}`);
     return false;
   }
-  const sourceExt = (contentType || '').includes('png') ? 'png' : (contentType || '').includes('webp') ? 'webp' : 'jpg';
+  const sourceExt = (contentType || '').includes('png') ? 'png'
+    : (contentType || '').includes('webp') ? 'webp'
+    : (contentType || '').includes('gif') ? 'gif'
+    : (contentType || '').includes('avif') ? 'avif'
+    : 'jpg';
   const tempPath = resolve(`public/images/blog/${articleId}.source.${sourceExt}`);
   writeFileSync(tempPath, rawBuffer);
   const rawKB = (rawBuffer.length / 1024).toFixed(0);
