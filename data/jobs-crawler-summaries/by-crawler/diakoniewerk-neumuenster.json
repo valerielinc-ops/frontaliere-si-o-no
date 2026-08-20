@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-08-19T22:05:21.588Z",
-  "total": 7,
+  "generatedAt": "2026-08-20T10:28:04.250Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 41815,
-  "avgDurationMs": 41815,
+  "unchangedCount": 1,
+  "durationMs": 40485,
+  "avgDurationMs": 40485,
   "durationHistory": [
-    41815
+    40485
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-765a13d8d4fe",
       "slug": "foundation-diakoniewerk-neumunster-application-manager-clinical-processs-middle-office-diakoniewerk-neumunster",
@@ -45,7 +47,7 @@
       "salaryMin": 121500,
       "salaryMax": 206500,
       "needsRetranslation": true,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
