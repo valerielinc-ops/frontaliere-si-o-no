@@ -3568,6 +3568,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.viticoltura-ticino-2026-sfide.title': 'Sécheresse, parasites et grêle : mais nous aurons un vin d\'or',
     'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'Les vendanges 2026 promettent d\'être parmi les meilleures années, mais la sécheresse, la grêle et les parasites mettent en danger les viticulteurs tessinois',
     'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Vignoble du Tessin en été avec les vignes éclairées par le soleil de l\'après-midi',
+    'blog.article.monopattini-obbligo-casco.title': 'Trottinettes électriques : casque obligatoire en vue ?',
+    'blog.article.monopattini-obbligo-casco.excerpt': 'Le Conseil fédéral évaluera l\'obligation du casque de trottinette. Accidents doublés, risques de traumatismes supérieurs aux cyclistes.',
+    'blog.article.monopattini-obbligo-casco.imageAlt': 'Scène de rue suisse avec pistes cyclables et mobilité en trottinette électrique',
 };
 
 export default blogMetaChFr;

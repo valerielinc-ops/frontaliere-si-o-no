@@ -3568,6 +3568,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.viticoltura-ticino-2026-sfide.title': 'Siccità, parassiti e grandinate: ma avremo un vino d\'oro',
     'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'La vendemmia 2026 promette essere tra le migliori annate, ma siccità, grandine e parassiti mettono a rischio i viticoltori ticinesi',
     'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Vigneti ticinesi in estate sotto il sole, con le viti in primo piano e le montagne sullo sfondo',
+    'blog.article.monopattini-obbligo-casco.title': 'Monopattini elettrici: obbligo casco in vista?',
+    'blog.article.monopattini-obbligo-casco.excerpt': 'Il Consiglio federale valuterà l\'obbligo del casco per monopattini. Incidenti raddoppiati, rischi di traumi superiori ai ciclisti.',
+    'blog.article.monopattini-obbligo-casco.imageAlt': 'Veduta di una strada urbana svizzera con piste ciclabili e monopattini in circolazione',
 };
 
 export default blogMetaChIt;

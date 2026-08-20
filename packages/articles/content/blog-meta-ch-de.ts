@@ -3568,6 +3568,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.viticoltura-ticino-2026-sfide.title': 'Dürren, Schädlinge und Hagel: Aber wir werden einen goldenen Wein haben',
     'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'Die Weinlese 2026 verspricht zu den besten Jahrgängen zu gehören, aber Dürre, Hagel und Schädlinge gefährden die Tessiner Winzer',
     'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Weinberglandschaft im Tessin während des Sommers mit Weinreben in der Sonne',
+    'blog.article.monopattini-obbligo-casco.title': 'Elektroroller: Helmpflicht in Sicht?',
+    'blog.article.monopattini-obbligo-casco.excerpt': 'Der Bundesrat wird die Helmpflicht für Roller prüfen. Verdoppelte Unfälle, Trauma-Risiken höher als bei Radfahrern.',
+    'blog.article.monopattini-obbligo-casco.imageAlt': 'Schweizer Straßenszene mit Fahrradspuren und E-Scooter-Mobilität',
 };
 
 export default blogMetaChDe;

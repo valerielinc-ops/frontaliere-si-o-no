@@ -3568,6 +3568,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.viticoltura-ticino-2026-sfide.title': 'Droughts, pests and hailstorms: but we will have a golden wine',
     'blog.article.viticoltura-ticino-2026-sfide.excerpt': 'The 2026 harvest promises to be among the best vintages, but drought, hail and pests put Ticino winemakers at risk',
     'blog.article.viticoltura-ticino-2026-sfide.imageAlt': 'Vineyard landscape in Ticino during summer with grapevines under afternoon sun',
+    'blog.article.monopattini-obbligo-casco.title': 'Electric scooters: mandatory helmet in sight?',
+    'blog.article.monopattini-obbligo-casco.excerpt': 'The Federal Council will evaluate the obligation of the helmet for scooters. Accidents doubled, trauma risks higher than cyclists.',
+    'blog.article.monopattini-obbligo-casco.imageAlt': 'View of a Swiss urban street with cycle lanes and e-scooter mobility infrastructure',
 };
 
 export default blogMetaChEn;
