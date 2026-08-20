@@ -338,6 +338,9 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     // the exact regression #6120 fixed — fails instead of silently returning.
     await renderBanner();
     const io = bannerIo();
+    // Snapshot the target BEFORE the interactions below, while only the
+    // observer's own `observe(wrapper)` call could have touched `io.targets`.
+    const [wrapper] = io.targets;
     await act(async () => {
       document.dispatchEvent(new Event('touchstart'));
       document.dispatchEvent(new Event('pointerdown'));
@@ -371,6 +374,16 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     // check therefore stays green through the exact regression it claims to
     // pin — the same class of blind guard this file exists to prevent.
     expect(io.disconnected).toBe(false);
+
+    // `intersect(io, io.targets)` below reuses whatever `io.targets` holds at
+    // this point — it does not know the wrapper independently. If a future
+    // edit to `onFirstInteraction` added an `unobserve()` call (it currently
+    // touches only its own listeners and the script, never the observer),
+    // `io.targets` would empty out here and `intersect()` would silently do
+    // nothing: the assertion below would still fail, but with a generic
+    // "ins is null" that does not point at an unobserve call as the cause.
+    // Asserting the target set directly turns that into a diagnosable failure.
+    expect(io.targets).toEqual([wrapper]);
 
     // …and, with the observer intact, the slot does arm when it is reached.
     await act(async () => { intersect(io, io.targets); });
