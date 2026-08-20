@@ -46586,6 +46586,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-sciaffusa-cauzione-disdetta-conciliazione': {
+    title: 'Affitti Sciaffusa: cauzione, disdetta e conciliazione',
+    description: 'Deposito cauzionale max 3 mesi, disdetta su modulo cantonale, contestazione entro 30 giorni: le norme federali di locazione a Sciaffusa spiegate in dettaglio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, cauzione, disdetta',
+    ogTitle: 'Affitti Sciaffusa: cauzione, disdetta e conciliazione',
+    ogDescription: 'Nel Canton Sciaffusa gli affitti seguono le norme federali di locazione. Scopri deposito cauzionale (max 3 mesi pigione), disdetta e procedura di conciliazione per contestare canoni ingiustificati.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-cauzione-disdetta-conciliazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: cauzione, disdetta e conciliazione",
+      "description": "Deposito cauzionale max 3 mesi, disdetta su modulo cantonale, contestazione entro 30 giorni: le norme federali di locazione a Sciaffusa spiegate in dettaglio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-cauzione-disdetta-conciliazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali e proprietà in affitto nel Canton Sciaffusa"
+      },
+      "datePublished": "2026-08-20T19:41:32+00:00",
+      "dateModified": "2026-08-20T19:41:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-cauzione-disdetta-conciliazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
