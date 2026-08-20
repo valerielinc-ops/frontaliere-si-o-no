@@ -13205,11 +13205,6 @@ ${staticAnalyticsHtml}
  // that legitimately share a prevSlug emit DIFFERENT bridge URLs —
  // ownership is per (canton, locale, oldSlug), not per (locale, oldSlug).
  const previousSlugClaimants = new Map<string, PreviousSlugCandidate[]>();
- // Cache key → canton so we can re-derive the canton for the resolveWinner
- // call without re-splitting the composite key (split('::', 3) doesn't help
- // when oldSlug itself contains '::', and historically slugs don't but the
- // contract shouldn't depend on that).
- const cantonByKey = new Map<string, string>();
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const localeAwareAll = new Set<string>();
@@ -13241,7 +13236,6 @@ ${staticAnalyticsHtml}
  if (list) list.push(candidate);
  else {
  previousSlugClaimants.set(key, [candidate]);
- cantonByKey.set(key, jobCantonForClaim);
  }
  }
  }
@@ -13285,19 +13279,18 @@ ${staticAnalyticsHtml}
  );
  }
 
- // previousSlugClaimants/cantonByKey were the last reader of themselves —
- // their only purpose was resolving winnerByPrevSlugKey above (`.size` on
- // the line just above is their last read). Both stay dead state for the
- // rest of closeBundle: the emit loop below reads winnerByPrevSlugKey only.
+ // previousSlugClaimants was the last reader of itself — its only purpose
+ // was resolving winnerByPrevSlugKey above (`.size` on the line just above
+ // is its last read). It stays dead state for the rest of closeBundle: the
+ // emit loop below reads winnerByPrevSlugKey only.
  // Mirrors expiredSoftLandingCache.clear()+forceGc() a few hundred lines up
  // (same "clear the dead map before the next big emit" pattern, #6134):
- // free them before the ~65k-page previousSlugs full-content loop, the
+ // free it before the ~65k-page previousSlugs full-content loop, the
  // largest remaining phase before the OOM observed 2026-08-19 (7/8 deploys,
  // exit 134 "Ineffective mark-compacts near heap limit" shortly after the
  // "after expired-softlandings" [mem] checkpoint, no further checkpoint
  // logged before the crash).
  previousSlugClaimants.clear();
- cantonByKey.clear();
  forceGc();
 
  let bridgeCount = 0;
