@@ -1,6 +1,6 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-08-20T09:52:13.163Z",
+  "assembledAt": "2026-08-20T21:31:41.136Z",
   "jobs": [
     {
       "id": "patek-philippe-f6a05088a487",
@@ -33,7 +33,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Gestionnaire-Syst%C3%A8mes-d'Informations-%28HF%29/1358617755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:08.287Z",
+      "crawledAt": "2026-08-20T21:31:36.826Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -57,7 +57,8 @@
         "micromechanic-h-f-patek-philippe-saint-imier",
         "mikromechanisch-h-f-patek-philippe-saint-imier",
         "micromecanicien-h-f-patek-philippe-saint-imier",
-        "mikromechaniker-m-w-d-patek-philippe-saint-imier"
+        "mikromechaniker-m-w-d-patek-philippe-saint-imier",
+        "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,7 +68,8 @@
           "micromechanic-h-f-patek-philippe-saint-imier",
           "mikromechanisch-h-f-patek-philippe-saint-imier",
           "micromecanicien-h-f-patek-philippe-saint-imier",
-          "mikromechaniker-m-w-d-patek-philippe-saint-imier"
+          "mikromechaniker-m-w-d-patek-philippe-saint-imier",
+          "gestione-sistemi-informativi-h-f-patek-philippe-saint-imier"
         ],
         "en": [
           "micromechanic-h-f-patek-philippe-saint-imier"
@@ -80,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:11.734Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -99,7 +102,7 @@
       "slugByLocale": {
         "it": "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates",
         "en": "process-life-series-h-f-patek-philippe-plan-les-ouates",
-        "de": "prozesslebensdauer-h-f-patek-philippe-plan-les-ouates",
+        "de": "serienprozessbeauftragter-m-w-d-patek-philippe-plan-les-ouates",
         "fr": "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -108,7 +111,7 @@
       "title": "Chargé de Process Vie Série (H/F)",
       "titleByLocale": {
         "it": "Responsabile Processo Serie (H/F)",
-        "en": "Process Life Manager (M/F) Series",
+        "en": "Chargé de Process Vie Série (H/F)",
         "de": "Serienprozessbeauftragter (M/W)",
         "fr": "Chargé de Process Vie Série (H/F)"
       },
@@ -124,7 +127,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Vie-S%C3%A9rie-%28HF%29/1356655355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:07.829Z",
+      "crawledAt": "2026-08-20T21:31:36.364Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -145,17 +148,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
+        "prozesslebensdauer-h-f-patek-philippe-plan-les-ouates",
+        "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates",
         "serienprozessbeauftragter-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates"
+          "charge-de-process-vie-serie-h-f-patek-philippe-plan-les-ouates",
+          "serie-di-vita-di-processo-h-f-patek-philippe-plan-les-ouates"
         ],
         "de": [
+          "prozesslebensdauer-h-f-patek-philippe-plan-les-ouates",
           "serienprozessbeauftragter-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:12.395Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -200,7 +208,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:07.385Z",
+      "crawledAt": "2026-08-20T21:31:35.899Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -220,11 +228,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+        "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+          "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:10.436Z",
@@ -272,7 +282,7 @@
       "url": "https://careers.patek.com/job/Gen%C3%A8ve-Conseiller-de-Ventes/1358754555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:06.933Z",
+      "crawledAt": "2026-08-20T21:31:35.430Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Genève",
       "addressRegion": "Genève",
@@ -291,12 +301,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-de-ventes-h-f-patek-philippe-geneve",
-        "conseiller-de-ventes-patek-philippe-geneve"
+        "conseiller-de-ventes-patek-philippe-geneve",
+        "consulente-commerciale-h-f-patek-philippe-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-de-ventes-h-f-patek-philippe-geneve",
-          "conseiller-de-ventes-patek-philippe-geneve"
+          "conseiller-de-ventes-patek-philippe-geneve",
+          "consulente-commerciale-h-f-patek-philippe-geneve"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:11.082Z",
@@ -344,7 +356,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Charg%C3%A9-d'Industrialisation-Prototypes-%28HF%29/1359260155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:06.483Z",
+      "crawledAt": "2026-08-20T21:31:34.973Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -363,17 +375,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
-        "charge-d-industrialisation-prototypes-m-w-d-patek-philippe-saint-imier"
+        "charge-d-industrialisation-prototypes-m-w-d-patek-philippe-saint-imier",
+        "prototipi-industriali-h-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier"
+          "charge-d-industrialisation-prototypes-h-f-patek-philippe-saint-imier",
+          "prototipi-industriali-h-f-patek-philippe-saint-imier"
         ],
         "de": [
           "charge-d-industrialisation-prototypes-m-w-d-patek-philippe-saint-imier"
         ]
       },
       "firstSeenAt": "2026-08-17T09:52:01.753Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -418,7 +433,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:06.035Z",
+      "crawledAt": "2026-08-20T21:31:34.517Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -436,14 +451,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+        "wand-h-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+          "wand-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:08.354Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -488,7 +506,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-Restaurateur-R%C3%A9gleur-%28HF%29/1351663055/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:05.568Z",
+      "crawledAt": "2026-08-20T21:31:34.045Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -508,14 +526,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+        "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
+        "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates"
+          "horloger-restaurateur-regleur-h-f-patek-philippe-plan-les-ouates",
+          "aggiustatore-restauratore-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-08-17T09:52:00.846Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -560,7 +581,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Op%C3%A9rations-RH-%28HF%29/1362955155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:05.027Z",
+      "crawledAt": "2026-08-20T21:31:33.488Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -580,14 +601,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates"
+        "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
+        "hr-operations-manager-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates"
+          "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
+          "hr-operations-manager-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-08-04T22:16:24.406Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -632,7 +656,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-de-Sp%C3%A9cialit%C3%A9-Organe-R%C3%A9glant-%28HF%29/1363272155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:04.465Z",
+      "crawledAt": "2026-08-20T21:31:32.925Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -653,12 +677,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
-        "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
+        "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
+        "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
-          "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
+          "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
+          "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates"
@@ -712,7 +738,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:04.017Z",
+      "crawledAt": "2026-08-20T21:31:32.458Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -732,11 +758,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
+        "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
+        "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
+          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
+          "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
@@ -790,7 +818,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-Assemblage-S%C3%A9quentiel-%28HF%29/1360288355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:03.567Z",
+      "crawledAt": "2026-08-20T21:31:31.976Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -821,7 +849,8 @@
         "watchmaker-dresser-patek-philippe-plan-les-ouates",
         "uhrmacherkleider-patek-philippe-plan-les-ouates",
         "horloger-rhabilleur-patek-philippe-plan-les-ouates",
-        "uhrmacher-patek-philippe-plan-les-ouates"
+        "uhrmacher-patek-philippe-plan-les-ouates",
+        "responsabile-famiglia-26-330-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -836,7 +865,8 @@
           "watchmaker-dresser-patek-philippe-plan-les-ouates",
           "uhrmacherkleider-patek-philippe-plan-les-ouates",
           "horloger-rhabilleur-patek-philippe-plan-les-ouates",
-          "uhrmacher-patek-philippe-plan-les-ouates"
+          "uhrmacher-patek-philippe-plan-les-ouates",
+          "responsabile-famiglia-26-330-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-famille-26-330-patek-philippe-plan-les-ouates",
@@ -899,7 +929,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Technicien-M%C3%A9thodes-Maintenance-%28HF%29/1354672155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:02.921Z",
+      "crawledAt": "2026-08-20T21:31:31.496Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -919,11 +949,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-methodes-maintenance-h-f-patek-philippe-plan-les-ouates"
+        "technicien-methodes-maintenance-h-f-patek-philippe-plan-les-ouates",
+        "metodi-tecnici-di-manutenzione-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-methodes-maintenance-h-f-patek-philippe-plan-les-ouates"
+          "technicien-methodes-maintenance-h-f-patek-philippe-plan-les-ouates",
+          "metodi-tecnici-di-manutenzione-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "technicien-methodes-maintenance-h-f-patek-philippe-plan-les-ouates"
@@ -977,7 +1009,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Responsable-Qualit%C3%A9-%28HF%29/1364655255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:52:02.422Z",
+      "crawledAt": "2026-08-20T21:31:30.979Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -995,11 +1027,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-qualite-h-f-patek-philippe-saint-imier"
+        "responsable-qualite-h-f-patek-philippe-saint-imier",
+        "gestione-della-qualita-m-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-qualite-h-f-patek-philippe-saint-imier"
+          "responsable-qualite-h-f-patek-philippe-saint-imier",
+          "gestione-della-qualita-m-f-patek-philippe-saint-imier"
         ],
         "en": [
           "responsable-qualite-h-f-patek-philippe-saint-imier"
@@ -1009,6 +1043,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:14.719Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1021,6 +1056,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "patek-philippe-21688b2ebb7c",
+      "slug": "specialiste-medias-sociaux-h-f-patek-philippe-plan-les-ouates",
+      "slugByLocale": {
+        "fr": "specialiste-medias-sociaux-h-f-patek-philippe-plan-les-ouates",
+        "it": "specialiste-medias-sociaux-h-f-patek-philippe-plan-les-ouates",
+        "en": "specialiste-medias-sociaux-h-f-patek-philippe-plan-les-ouates",
+        "de": "specialiste-medias-sociaux-h-f-patek-philippe-plan-les-ouates"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Spécialiste Médias Sociaux (H/F)",
+      "titleByLocale": {
+        "fr": "Spécialiste Médias Sociaux (H/F)",
+        "it": "Spécialiste Médias Sociaux (H/F)",
+        "en": "Spécialiste Médias Sociaux (H/F)",
+        "de": "Spécialiste Médias Sociaux (H/F)"
+      },
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à la division Commercial et Marketing, vous participerez activement à la mise en œuvre de la stratégie médias sociaux en assurant le pilotage, l’analyse et l’optimisation des performances de nos contenus sur les différentes plateformes afin de renforcer la visibilité, l’engagement et le rayonnement de notre marque.\n A ce titre, vous participerez à la gestion de projets locaux et internationaux liés aux lancements de produits, aux campagnes de communication et aux activations digitales, tout en garantissant le respect des standards de qualité, des budgets et des délais.\n\nResponsabilités\n\n• Assurer le pilotage et la gestion de la présence de la marque sur les réseaux sociaux, selon le calendrier annuel éditorial, en garantissant le suivi et l’animation des comptes ainsi que l’analyse et le reporting des performances.\n\n• Optimiser la stratégie éditoriale médias sociaux en développant des concepts créatifs, des formats innovants et des contenus engageants adaptés aux attentes des audiences cibles.\n\n• Piloter et assurer le suivi des agences et des partenaires externes en élaborant les briefs et en garantissant la qualité des livrables selon nos lignes directrices.\n\n• Gérer les activations de paid media en suivant et optimisant le ciblage des audiences, les budgets et les performances des campagnes publicitaires.\n\n• Assurer une veille des tendances digitales, des usages sociaux et des bonnes pratiques du marché afin d’identifier les nouvelles opportunités.\n\nProfil recherché\n\n• Bachelor en marketing ou en informatique avec une spécialisation digitale/médias sociaux, ou tout autre titre équivalent et pertinent pour le poste.\n\n• Expérience de minimum 7 ans dans une fonction similaire.\n\n• Expérience préalable dans l’industrie du luxe ou au sein du secteur horloger souhaitée.\n\n• Maîtrise de l’animation et de la gestion des médias sociaux ainsi que des techniques de marketing et de communication.\n\n• Forte composante créative et orientation analyse/performance.\n\n• Aisance dans l’utilisation de MS Office, d’Adobe InDesign ainsi que des outils digitaux (Ad servers, Meta, Media Sociaux, Google Analytics, etc.).\n\n• Langue maternelle française, niveau Proficiency en anglais oral et écrit, tout autre langue un atout.\n\n• Aisance relationnelle, sens de la diplomatie.\n\n• Esprit d’équipe et capacité à travailler de manière transversale.\n\n• Sens de l’analyse et esprit critique.\n\n• Capacité à communiquer de façon concise et efficace.\n\n• Force de proposition, autonomie et prise d’initiatives.\n\n• Aptitude à coordonner et à fédérer.\n\nRéférence du poste\n\n3697",
+      "descriptionByLocale": {
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à la division Commercial et Marketing, vous participerez activement à la mise en œuvre de la stratégie médias sociaux en assurant le pilotage, l’analyse et l’optimisation des performances de nos contenus sur les différentes plateformes afin de renforcer la visibilité, l’engagement et le rayonnement de notre marque.\n A ce titre, vous participerez à la gestion de projets locaux et internationaux liés aux lancements de produits, aux campagnes de communication et aux activations digitales, tout en garantissant le respect des standards de qualité, des budgets et des délais.\n\nResponsabilités\n\n• Assurer le pilotage et la gestion de la présence de la marque sur les réseaux sociaux, selon le calendrier annuel éditorial, en garantissant le suivi et l’animation des comptes ainsi que l’analyse et le reporting des performances.\n\n• Optimiser la stratégie éditoriale médias sociaux en développant des concepts créatifs, des formats innovants et des contenus engageants adaptés aux attentes des audiences cibles.\n\n• Piloter et assurer le suivi des agences et des partenaires externes en élaborant les briefs et en garantissant la qualité des livrables selon nos lignes directrices.\n\n• Gérer les activations de paid media en suivant et optimisant le ciblage des audiences, les budgets et les performances des campagnes publicitaires.\n\n• Assurer une veille des tendances digitales, des usages sociaux et des bonnes pratiques du marché afin d’identifier les nouvelles opportunités.\n\nProfil recherché\n\n• Bachelor en marketing ou en informatique avec une spécialisation digitale/médias sociaux, ou tout autre titre équivalent et pertinent pour le poste.\n\n• Expérience de minimum 7 ans dans une fonction similaire.\n\n• Expérience préalable dans l’industrie du luxe ou au sein du secteur horloger souhaitée.\n\n• Maîtrise de l’animation et de la gestion des médias sociaux ainsi que des techniques de marketing et de communication.\n\n• Forte composante créative et orientation analyse/performance.\n\n• Aisance dans l’utilisation de MS Office, d’Adobe InDesign ainsi que des outils digitaux (Ad servers, Meta, Media Sociaux, Google Analytics, etc.).\n\n• Langue maternelle française, niveau Proficiency en anglais oral et écrit, tout autre langue un atout.\n\n• Aisance relationnelle, sens de la diplomatie.\n\n• Esprit d’équipe et capacité à travailler de manière transversale.\n\n• Sens de l’analyse et esprit critique.\n\n• Capacité à communiquer de façon concise et efficace.\n\n• Force de proposition, autonomie et prise d’initiatives.\n\n• Aptitude à coordonner et à fédérer.\n\nRéférence du poste\n\n3697",
+        "it": "Mission\n\nDans le cadre de cette fonction, rattachée à la division Commercial et Marketing, vous participerez activement à la mise en œuvre de la stratégie médias sociaux en assurant le pilotage, l’analyse et l’optimisation des performances de nos contenus sur les différentes plateformes afin de renforcer la visibilité, l’engagement et le rayonnement de notre marque.\n A ce titre, vous participerez à la gestion de projets locaux et internationaux liés aux lancements de produits, aux campagnes de communication et aux activations digitales, tout en garantissant le respect des standards de qualité, des budgets et des délais.\n\nResponsabilités\n\n• Assurer le pilotage et la gestion de la présence de la marque sur les réseaux sociaux, selon le calendrier annuel éditorial, en garantissant le suivi et l’animation des comptes ainsi que l’analyse et le reporting des performances.\n\n• Optimiser la stratégie éditoriale médias sociaux en développant des concepts créatifs, des formats innovants et des contenus engageants adaptés aux attentes des audiences cibles.\n\n• Piloter et assurer le suivi des agences et des partenaires externes en élaborant les briefs et en garantissant la qualité des livrables selon nos lignes directrices.\n\n• Gérer les activations de paid media en suivant et optimisant le ciblage des audiences, les budgets et les performances des campagnes publicitaires.\n\n• Assurer une veille des tendances digitales, des usages sociaux et des bonnes pratiques du marché afin d’identifier les nouvelles opportunités.\n\nProfil recherché\n\n• Bachelor en marketing ou en informatique avec une spécialisation digitale/médias sociaux, ou tout autre titre équivalent et pertinent pour le poste.\n\n• Expérience de minimum 7 ans dans une fonction similaire.\n\n• Expérience préalable dans l’industrie du luxe ou au sein du secteur horloger souhaitée.\n\n• Maîtrise de l’animation et de la gestion des médias sociaux ainsi que des techniques de marketing et de communication.\n\n• Forte composante créative et orientation analyse/performance.\n\n• Aisance dans l’utilisation de MS Office, d’Adobe InDesign ainsi que des outils digitaux (Ad servers, Meta, Media Sociaux, Google Analytics, etc.).\n\n• Langue maternelle française, niveau Proficiency en anglais oral et écrit, tout autre langue un atout.\n\n• Aisance relationnelle, sens de la diplomatie.\n\n• Esprit d’équipe et capacité à travailler de manière transversale.\n\n• Sens de l’analyse et esprit critique.\n\n• Capacité à communiquer de façon concise et efficace.\n\n• Force de proposition, autonomie et prise d’initiatives.\n\n• Aptitude à coordonner et à fédérer.\n\nRéférence du poste\n\n3697",
+        "en": "Mission\n\nDans le cadre de cette fonction, rattachée à la division Commercial et Marketing, vous participerez activement à la mise en œuvre de la stratégie médias sociaux en assurant le pilotage, l’analyse et l’optimisation des performances de nos contenus sur les différentes plateformes afin de renforcer la visibilité, l’engagement et le rayonnement de notre marque.\n A ce titre, vous participerez à la gestion de projets locaux et internationaux liés aux lancements de produits, aux campagnes de communication et aux activations digitales, tout en garantissant le respect des standards de qualité, des budgets et des délais.\n\nResponsabilités\n\n• Assurer le pilotage et la gestion de la présence de la marque sur les réseaux sociaux, selon le calendrier annuel éditorial, en garantissant le suivi et l’animation des comptes ainsi que l’analyse et le reporting des performances.\n\n• Optimiser la stratégie éditoriale médias sociaux en développant des concepts créatifs, des formats innovants et des contenus engageants adaptés aux attentes des audiences cibles.\n\n• Piloter et assurer le suivi des agences et des partenaires externes en élaborant les briefs et en garantissant la qualité des livrables selon nos lignes directrices.\n\n• Gérer les activations de paid media en suivant et optimisant le ciblage des audiences, les budgets et les performances des campagnes publicitaires.\n\n• Assurer une veille des tendances digitales, des usages sociaux et des bonnes pratiques du marché afin d’identifier les nouvelles opportunités.\n\nProfil recherché\n\n• Bachelor en marketing ou en informatique avec une spécialisation digitale/médias sociaux, ou tout autre titre équivalent et pertinent pour le poste.\n\n• Expérience de minimum 7 ans dans une fonction similaire.\n\n• Expérience préalable dans l’industrie du luxe ou au sein du secteur horloger souhaitée.\n\n• Maîtrise de l’animation et de la gestion des médias sociaux ainsi que des techniques de marketing et de communication.\n\n• Forte composante créative et orientation analyse/performance.\n\n• Aisance dans l’utilisation de MS Office, d’Adobe InDesign ainsi que des outils digitaux (Ad servers, Meta, Media Sociaux, Google Analytics, etc.).\n\n• Langue maternelle française, niveau Proficiency en anglais oral et écrit, tout autre langue un atout.\n\n• Aisance relationnelle, sens de la diplomatie.\n\n• Esprit d’équipe et capacité à travailler de manière transversale.\n\n• Sens de l’analyse et esprit critique.\n\n• Capacité à communiquer de façon concise et efficace.\n\n• Force de proposition, autonomie et prise d’initiatives.\n\n• Aptitude à coordonner et à fédérer.\n\nRéférence du poste\n\n3697",
+        "de": "Mission\n\nDans le cadre de cette fonction, rattachée à la division Commercial et Marketing, vous participerez activement à la mise en œuvre de la stratégie médias sociaux en assurant le pilotage, l’analyse et l’optimisation des performances de nos contenus sur les différentes plateformes afin de renforcer la visibilité, l’engagement et le rayonnement de notre marque.\n A ce titre, vous participerez à la gestion de projets locaux et internationaux liés aux lancements de produits, aux campagnes de communication et aux activations digitales, tout en garantissant le respect des standards de qualité, des budgets et des délais.\n\nResponsabilités\n\n• Assurer le pilotage et la gestion de la présence de la marque sur les réseaux sociaux, selon le calendrier annuel éditorial, en garantissant le suivi et l’animation des comptes ainsi que l’analyse et le reporting des performances.\n\n• Optimiser la stratégie éditoriale médias sociaux en développant des concepts créatifs, des formats innovants et des contenus engageants adaptés aux attentes des audiences cibles.\n\n• Piloter et assurer le suivi des agences et des partenaires externes en élaborant les briefs et en garantissant la qualité des livrables selon nos lignes directrices.\n\n• Gérer les activations de paid media en suivant et optimisant le ciblage des audiences, les budgets et les performances des campagnes publicitaires.\n\n• Assurer une veille des tendances digitales, des usages sociaux et des bonnes pratiques du marché afin d’identifier les nouvelles opportunités.\n\nProfil recherché\n\n• Bachelor en marketing ou en informatique avec une spécialisation digitale/médias sociaux, ou tout autre titre équivalent et pertinent pour le poste.\n\n• Expérience de minimum 7 ans dans une fonction similaire.\n\n• Expérience préalable dans l’industrie du luxe ou au sein du secteur horloger souhaitée.\n\n• Maîtrise de l’animation et de la gestion des médias sociaux ainsi que des techniques de marketing et de communication.\n\n• Forte composante créative et orientation analyse/performance.\n\n• Aisance dans l’utilisation de MS Office, d’Adobe InDesign ainsi que des outils digitaux (Ad servers, Meta, Media Sociaux, Google Analytics, etc.).\n\n• Langue maternelle française, niveau Proficiency en anglais oral et écrit, tout autre langue un atout.\n\n• Aisance relationnelle, sens de la diplomatie.\n\n• Esprit d’équipe et capacité à travailler de manière transversale.\n\n• Sens de l’analyse et esprit critique.\n\n• Capacité à communiquer de façon concise et efficace.\n\n• Force de proposition, autonomie et prise d’initiatives.\n\n• Aptitude à coordonner et à fédérer.\n\nRéférence du poste\n\n3697"
+      },
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Sp%C3%A9cialiste-M%C3%A9dias-Sociaux-%28HF%29/1365169355/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T21:31:30.503Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Sp%C3%A9cialiste-M%C3%A9dias-Sociaux-%28HF%29/1365169355/",
+      "jobReqId": "1365169355",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 61500,
+      "salaryMax": 109000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T21:31:30.503Z"
     }
   ]
 }
