@@ -1,16 +1,16 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-08-20T10:28:35.919Z",
+  "generatedAt": "2026-08-20T21:43:24.111Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7834,
-  "avgDurationMs": 7834,
+  "durationMs": 6317,
+  "avgDurationMs": 6317,
   "durationHistory": [
-    7834
+    6317
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.apgsga.ch/publication/lernende-kaufmann-frau-efz-zuerich/xkgzq2jrdlmqx2722bonikgyocy76s5eicpvnct0j0w7bqclfmapniklq34qxcsh",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:28:32.364Z",
+      "crawledAt": "2026-08-20T21:43:20.472Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-st-gallen/d54gb1dntc7fxfdn0rc7os0h00w5cikgfy33eobs8dly2ddtfuxdpck4q2uqfl5m",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:28:33.038Z",
+      "crawledAt": "2026-08-20T21:43:21.109Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:28:33.706Z",
+      "crawledAt": "2026-08-20T21:43:21.722Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,7 +115,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T22:32:51.344Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
