@@ -3607,6 +3607,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-sciaffusa-diritto-locazione.title': 'Location Schaffhouse : redevances, caution et droit de location',
     'blog.article.affitti-sciaffusa-diritto-locazione.excerpt': 'Règles fédérales sur le dépôt de garantie, la résiliation et la contestation des redevances dans le canton de Schaffhouse selon le Code suisse des obligations.',
     'blog.article.affitti-sciaffusa-diritto-locazione.imageAlt': 'Façade d\'un immeuble résidentiel moderne en Suisse avec fenêtres claires et architecture épurée',
+    'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.title': 'AVS et prestations complémentaires Schaffhouse',
+    'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.excerpt': 'La caisse de compensation cantonale gère le calcul de la rente AVS et l\'accès aux prestations complémentaires dans le canton de Schaffhouse, en garantissant le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.imageAlt': 'Panorama du paysage alpin suisse depuis les montagnes du nord',
 };
 
 export default blogMetaChFr;

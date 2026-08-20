@@ -10301,6 +10301,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-mariano-comense-lavorare-ticino.title': 'Mariano Comense: guida fiscale per frontalieri in Ticino',
     'blog.article.vivere-mariano-comense-lavorare-ticino.excerpt': 'Permesso G, tassazione 2024, AVS/LPP/LAMal e checklist pratica. Come trasferirsi da Mariano Comense e lavorare in Ticino. Calcola il tuo netto.',
     'blog.article.vivere-mariano-comense-lavorare-ticino.imageAlt': 'Vista panoramica di Lugano da Monte San Salvatore, destinazione lavorativa di frontalieri da Mariano Comense',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.title': 'Vivere a Sormano e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.excerpt': 'Impostazioni fiscali, doppia imposizione, permessi di lavoro e residenza: cosa bisogna sapere per lavorare in Ticino da frontaliere e vivere a Sormano.',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Sormano, lavora in Ticino e deve gestire le tasse e le imposte in entrambi i paesi.',
 };
 
 export default blogMetaIt;

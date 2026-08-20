@@ -127,9 +127,26 @@ jobs:
           INPUT_WINDOW_HOURS: ${{ github.event.inputs.window_hours || '24' }}
           INPUT_ACTIVE_WINDOW_DAYS: ${{ github.event.inputs.active_window_days || '30' }}
         run: |
+          set -uo pipefail
+          # The script's own exit-code contract (see its header comment):
+          # 0 ok, 3 partial (one/two of the three feeds — posthog/ga4/gsc —
+          # errored transiently, promotions still written to disk), 2 fatal
+          # (all three errored). Capture rc without `set -e` aborting the
+          # step (same pattern as cf-otto-route-monitor.yml), because a
+          # single feed's transient network blip (issue #5568: "gsc error:
+          # page: fetch failed") is expected hourly noise, not a workflow
+          # failure — treating exit 3 as a step failure skipped the
+          # downstream "Commit if changed" step entirely, silently
+          # dropping the promotions this run already computed, and fired a
+          # GitHub issue for a non-fatal, self-describing condition.
           node scripts/fetch-thin-page-promotions.mjs \
             --window-hours="$INPUT_WINDOW_HOURS" \
-            --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS"
+            --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS" && rc=0 || rc=$?
+          if [ "$rc" -eq 3 ]; then
+            echo "::warning title=thin-promotions partial feed failure::one or two of posthog/ga4/gsc errored this run (see data/thin-page-promotions.jsonl 'errors' field) — promotions from the remaining feed(s) were still written."
+            exit 0
+          fi
+          exit "$rc"
 
       # Single-writer invariant (see #794/#801): this is the ONLY automated writer of
       # data/thin-page-promotions-*.json + .jsonl — a new writer would break the rebase-retry loop.

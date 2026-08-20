@@ -10299,6 +10299,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-mariano-comense-lavorare-ticino.title': 'Mariano Comense: Steuerführer für Grenzgänger im Tessin',
     'blog.article.vivere-mariano-comense-lavorare-ticino.excerpt': 'Bewilligung G, Besteuerung 2024, AHV/BVG/KVG und Praxis-Checkliste. Wie man bei Mariano Comense einzieht und im Tessin arbeitet. Berechnen Sie Ihr Netto.',
     'blog.article.vivere-mariano-comense-lavorare-ticino.imageAlt': 'Panoramablick auf Lugano vom Monte San Salvatore, Arbeitsziel für Grenzgänger aus Mariano Comense',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.title': 'Leben in Sormano und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.excerpt': 'Steuerliche Regelungen, Doppelbesteuerung, Arbeits- und Aufenthaltsgenehmigungen: Was Sie wissen müssen, um als Grenzgänger im Tessin zu arbeiten und in Sormano zu leben.',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich nach Sormano verlegt, in Ticino arbeitet und die Steuern und Gebühren in beiden Ländern verwalten muss.',
 };
 
 export default blogMetaDe;

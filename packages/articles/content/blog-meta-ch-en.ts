@@ -3607,6 +3607,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-sciaffusa-diritto-locazione.title': 'Schaffhausen rentals: fees, deposit and right of lease',
     'blog.article.affitti-sciaffusa-diritto-locazione.excerpt': 'Federal rules on security deposit, cancellation and dispute of fees in the canton of Schaffhausen according to the Swiss Bond Code.',
     'blog.article.affitti-sciaffusa-diritto-locazione.imageAlt': 'Exterior of a modern residential building in Switzerland with clear windows and clean architecture',
+    'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.title': 'AVS and complementary services Schaffhausen',
+    'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.excerpt': 'The cantonal compensation fund manages the calculation of the AVS annuity and access to supplementary benefits in the Canton of Schaffhausen, guaranteeing the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.imageAlt': 'Swiss Alpine landscape panorama from the northern mountains of Switzerland',
 };
 
 export default blogMetaChEn;

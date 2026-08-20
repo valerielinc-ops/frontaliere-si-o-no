@@ -10300,6 +10300,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-mariano-comense-lavorare-ticino.title': 'Mariano Comense: tax guide for border workers in Ticino',
     'blog.article.vivere-mariano-comense-lavorare-ticino.excerpt': 'Permit G, 2024 taxation, AVS/LPP/LAMal and practical checklist. How to move to Mariano Comense and work in Ticino. Calculate your net.',
     'blog.article.vivere-mariano-comense-lavorare-ticino.imageAlt': 'Panoramic view of Lugano from Monte San Salvatore, work destination for cross-border workers from Mariano Comense',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.title': 'Living in Sormano and working in Ticino as a border worker',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.excerpt': 'Tax settings, double taxation, work and residence permits: what you need to know to work in Ticino as a border worker and live in Sormano.',
+    'blog.article.vivere-sormano-lavorare-ticino-frontaliere.imageAlt': 'A foreigner who moves to Sormano, works in Ticino and must manage taxes and fees in both countries.',
 };
 
 export default blogMetaEn;
