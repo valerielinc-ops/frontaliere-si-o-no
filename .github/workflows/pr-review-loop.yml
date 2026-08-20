@@ -194,7 +194,8 @@ jobs:
           fetch-depth: 1
           # NIENTE `sparse-checkout`, ed è una scelta MISURATA. Sarebbe stato
           # allettante: l'albero pesa ~2.6GB e il reviewer non apre mai
-          # public/images/events (790MB), public/images/blog (361MB),
+          # public/images/events (790MB, in uscita da git con #6163),
+          # public/images/blog (361MB),
           # data/jobs (627MB), data/translation-cache (182MB),
           # data/seo-404-compat (164MB) né docs/newsletter-qa (90MB).
           #
@@ -390,7 +391,34 @@ jobs:
             echo "max_turns=$3" >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
-          files=$(gh pr view "$PR_NUMBER" --json files --jq '.files[].path')
+          # `gh pr view --json files` passa da GraphQL, che su una PR con
+          # migliaia di file cambiati risponde `{"files":null}` invece di un
+          # errore. Misurato su #6175 (5.576 file, una cancellazione di massa):
+          # `--jq '.files[].path'` moriva con «cannot iterate over: null» e
+          # sotto `set -e` lo step usciva 1 PRIMA di qualunque guard qui sotto.
+          # Nessuna review postata → nessun `## LGTM` → nessun auto-merge, su
+          # una PR con la CI tutta verde. E un re-run non lo risolve: la
+          # nullità è deterministica nella taglia, non transitoria — la PR
+          # sarebbe restata ferma per sempre (l'autorebase la ricicla, `tests`
+          # torna verde, la review rimuore allo stesso punto).
+          #
+          # `.files // []` da solo non basta: toglie il crash ma lascia una
+          # lista vuota, cioè il tier deciso al buio proprio sulla PR più
+          # grande. Il fallback REST invece qualcosa lo restituisce sempre.
+          # Misurato su #6175: 100 file e NESSUN header `Link` — su un diff
+          # così grande GitHub tronca la lista e non offre pagine successive,
+          # quindi `--paginate` non è un di più ma non basta a completarla.
+          # Il tier finisce deciso su un campione, ed è accettabile per
+          # costruzione: questa lista serve SOLO a scegliere tier e budget, la
+          # review vera legge il diff per conto suo. Meglio un tier su un
+          # campione che nessuna review affatto.
+          files=$(gh pr view "$PR_NUMBER" --json files --jq '.files // [] | .[].path' 2>/dev/null || true)
+          if [ -z "$files" ]; then
+            files=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || true)
+            if [ -n "$files" ]; then
+              echo "GraphQL file list nulla → fallback REST: $(printf '%s\n' "$files" | grep -c .) file (lista possibilmente troncata)."
+            fi
+          fi
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
           # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
           # scatta.

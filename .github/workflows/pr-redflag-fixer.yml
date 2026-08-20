@@ -277,7 +277,28 @@ jobs:
           fi
 
           # File cambiati dalla PR (per tier + capability guard).
-          files=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json files --jq '.files[].path' 2>/dev/null || echo "")
+          #
+          # `gh pr view --json files` passa da GraphQL, che su una PR con
+          # migliaia di file cambiati risponde `{"files":null}` invece di un
+          # errore (misurato su #6175, 5.576 file). Qui il `|| echo ""` assorbe
+          # il crash del `--jq`, quindi non si vede niente: `$files` resta
+          # vuoto, `touches_wf` resta vuoto, e il capability guard qui sotto
+          # NON scatta. Il risultato e' peggiore del crash — si brucia un turno
+          # Claude su una PR che tocca `.github/workflows/**` senza PAT, e il
+          # push fallisce alla fine. Stessa forma in pr-review-loop.yml.
+          #
+          # Il fallback REST torna una lista troncata (misurato: 100 file, senza
+          # header `Link`) ma mai nulla. Per il capability guard il troncamento
+          # e' fail-open, quindi il grep `^.github/workflows/` gira anche
+          # sull'elenco REST completo dell'endpoint: meglio un campione che il
+          # vuoto, che oggi e' indistinguibile da «nessun workflow toccato».
+          files=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json files --jq '.files // [] | .[].path' 2>/dev/null || echo "")
+          if [ -z "$files" ]; then
+            files=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || echo "")
+            if [ -n "$files" ]; then
+              echo "GraphQL file list nulla → fallback REST: $(printf '%s\n' "$files" | grep -c .) file (lista possibilmente troncata)."
+            fi
+          fi
           touches_wf=$(echo "$files" | grep -E '^\.github/workflows/' || true)
           if [ -n "$touches_wf" ] && [ "$HAS_PAT" != "true" ]; then
             echo "::warning::PR tocca .github/workflows/** ma manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
