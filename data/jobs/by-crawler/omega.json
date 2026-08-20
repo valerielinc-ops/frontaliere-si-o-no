@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-08-20T10:20:10.692Z",
+  "assembledAt": "2026-08-20T22:03:48.200Z",
   "jobs": [
     {
       "id": "omega-32500",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:20:07.490Z",
+      "crawledAt": "2026-08-20T22:03:45.017Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -99,6 +99,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -143,7 +144,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32611",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:19:45.300Z",
+      "crawledAt": "2026-08-20T22:03:23.570Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -170,6 +171,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:51:59.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -214,7 +216,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32650",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:19:23.394Z",
+      "crawledAt": "2026-08-20T22:02:59.047Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -273,6 +275,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -317,7 +320,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32651",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:19:01.129Z",
+      "crawledAt": "2026-08-20T22:02:37.435Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -376,107 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "omega-32653",
-      "slug": "attenzione-operazione-omega-sa-biel-bienne",
-      "slugByLocale": {
-        "it": "attenzione-operazione-omega-sa-biel-bienne",
-        "en": "operational-learning-omega-sa-biel-bienne",
-        "de": "betriebliches-lernen-omega-sa-biel-bienne",
-        "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "APPRENTISSAGE OPÉRATEUR·RICE EN HORLOGERIE AFP",
-      "titleByLocale": {
-        "it": "ATTENZIONE OPERAZIONE",
-        "en": "OPERATIONAL LEARNING",
-        "de": "BETRIEBLICHES LERNEN",
-        "fr": "APPRENTISSAGE OPÉRATEUR·RICE EN HORLOGERIE AFP"
-      },
-      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE D'OPÉRATEUR·RICE EN HORLOGERIE AFP\n\nPour une durée de 2 ans à partir d’août 2027\n\n## Description du poste\n• Assemblage des composants de montres mécaniques ou électroniques\n\n• Pose de cadrans et aiguilles\n\n• Emboîtage de mouvements et pose des bracelets\n\n• Décottage de montres emboîtées\n\n## Profil\n• Avoir entre 15 et 25 ans\n\n• Scolarité obligatoire achevée\n\n## Compétences requises\n• Excellente dextérité\n\n• Bonne acuité visuelle\n\n• Grande capacité de concentration\n\n• Sens de la précision et minutie\n\n• Esprit méthodique et capacité à persévérer\n\n## Langues\nTrès bonnes connaissances du français",
-      "descriptionByLocale": {
-        "it": "## Introduzione della società\nOMEGA è un marchio di orologi di livello mondiale noto per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli del mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo rotto i record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nCome marchio internazionale, siamo sempre interessati a incontrare futuri colleghi e apprendisti che desiderano contribuire al lavoro dei nostri team in quasi tutti i continenti con i loro talenti, ambizioni e ispirazioni.\n\nVi disperiamo nelle nostre idee\n\nAVVERTENZA\n\nPer un periodo di 2 anni da agosto 2027\n\n## Descrizione del post\n• Montaggio di componenti meccanici o elettronici dell'orologio\n\n• Posizionare quadranti e aghi\n\n• Goffratura di movimenti e cinghie\n\n• Rifinitura di orologi\n\n## Profilo\n• Età compresa tra 15 e 25\n\n• Istruzione obbligatoria completata\n\n## Qualifiche\n• Eccellente destrezza\n\n• Buona acutezza visiva\n\n• Capacità di concentrazione elevata\n\n• Accuratezza e completezza\n\n• Spirito metodico e capacità di perseverare\n\n## Lingue\nMolto buona conoscenza del francese",
-        "en": "## Introduction of society\nOMEGA is a prestigious watch brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have broken records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues and apprentices wishing to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\nWE OFFER YOU IN OUR ENTERPRISES\n\nOPERATOR LEARNING\n\nFor a period of 2 years from August 2027\n\n## Description of post\n• Assembly of mechanical or electronic watch components\n\n• Place dials and needles\n\n• Embossing of movements and straps\n\n• Trimming of watches\n\n## Profile\n• Age between 15 and 25\n\n• Compulsory education completed\n\n## Qualifications\n• Excellent dexterity\n\n• Good visual acuity\n\n• High concentration capacity\n\n• Accuracy and thoroughness\n\n• Methodical spirit and ability to persevere\n\n## Languages\nVery good knowledge of French",
-        "de": "## Einführung der Gesellschaft\nOMEGA ist eine renommierte Uhrenmarke weltweit, die seit über 170 Jahren für ihre Qualitäts-, Präzisions- und Innovationsanforderungen bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch modernste Technik und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Rekorde an Präzision gebrochen, sportliches Timing neu definiert und unsere Position an der Spitze der Haute Horlogerie beibehalten.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen und Auszubildende zu treffen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\nWir bieten Ihnen in unseren Unternehmen an\n\nBETREIBERLERNEN\n\nFür einen Zeitraum von 2 Jahren ab August 2027\n\n## Beschreibung der Post\n• Montage mechanischer oder elektronischer Uhrenteile\n\n• Zifferblätter und Nadeln einlegen\n\n• Prägung von Uhrwerken und Gurten\n\n• Beschneiden von Uhren\n\n## Profil\n• Alter zwischen 15 und 25 Jahren\n\n• Schulpflicht abgeschlossen\n\n## Qualifikationen\n• Ausgezeichnete Geschicklichkeit\n\n• Gute Sehschärfe\n\n• Kapazität für hohe Konzentration\n\n• Genauigkeit und Gründlichkeit\n\n• Methodischer Geist und Beharrlichkeit\n\n## Sprachen\nSehr gute Französischkenntnisse",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE D'OPÉRATEUR·RICE EN HORLOGERIE AFP\n\nPour une durée de 2 ans à partir d’août 2027\n\n## Description du poste\n• Assemblage des composants de montres mécaniques ou électroniques\n\n• Pose de cadrans et aiguilles\n\n• Emboîtage de mouvements et pose des bracelets\n\n• Décottage de montres emboîtées\n\n## Profil\n• Avoir entre 15 et 25 ans\n\n• Scolarité obligatoire achevée\n\n## Compétences requises\n• Excellente dextérité\n\n• Bonne acuité visuelle\n\n• Grande capacité de concentration\n\n• Sens de la précision et minutie\n\n• Esprit méthodique et capacité à persévérer\n\n## Langues\nTrès bonnes connaissances du français"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/32653",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:18:39.050Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "Tecnica",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270190&langCode=fr_FR&source=swatchgroup.com",
-      "requirements": [
-        "Avoir entre 15 et 25 ans",
-        "Scolarité obligatoire achevée",
-        "Excellente dextérité",
-        "Bonne acuité visuelle",
-        "Grande capacité de concentration",
-        "Sens de la précision et minutie",
-        "Esprit méthodique et capacité à persévérer",
-        "Très bonnes connaissances du français"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Avoir entre 15 et 25 ans",
-          "Scolarité obligatoire achevée",
-          "Excellente dextérité",
-          "Bonne acuité visuelle",
-          "Grande capacité de concentration",
-          "Sens de la précision et minutie",
-          "Esprit méthodique et capacité à persévérer",
-          "Très bonnes connaissances du français"
-        ]
-      },
-      "previousSlugs": [
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "attenzione-operazione-omega-sa-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-          "attenzione-operazione-omega-sa-biel-bienne"
-        ],
-        "en": [
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
-        ],
-        "de": [
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T11:52:27.421Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -521,7 +424,7 @@
       "url": "https://www.swatchgroup.com/de/job/32652",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:18:17.435Z",
+      "crawledAt": "2026-08-20T22:02:14.288Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -593,6 +496,108 @@
       }
     },
     {
+      "id": "omega-32653",
+      "slug": "attenzione-operazione-omega-sa-biel-bienne",
+      "slugByLocale": {
+        "it": "attenzione-operazione-omega-sa-biel-bienne",
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne",
+        "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "APPRENTISSAGE OPÉRATEUR·RICE EN HORLOGERIE AFP",
+      "titleByLocale": {
+        "it": "ATTENZIONE OPERAZIONE",
+        "en": "OPERATIONAL LEARNING",
+        "de": "BETRIEBLICHES LERNEN",
+        "fr": "APPRENTISSAGE OPÉRATEUR·RICE EN HORLOGERIE AFP"
+      },
+      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE D'OPÉRATEUR·RICE EN HORLOGERIE AFP\n\nPour une durée de 2 ans à partir d’août 2027\n\n## Description du poste\n• Assemblage des composants de montres mécaniques ou électroniques\n\n• Pose de cadrans et aiguilles\n\n• Emboîtage de mouvements et pose des bracelets\n\n• Décottage de montres emboîtées\n\n## Profil\n• Avoir entre 15 et 25 ans\n\n• Scolarité obligatoire achevée\n\n## Compétences requises\n• Excellente dextérité\n\n• Bonne acuité visuelle\n\n• Grande capacité de concentration\n\n• Sens de la précision et minutie\n\n• Esprit méthodique et capacité à persévérer\n\n## Langues\nTrès bonnes connaissances du français",
+      "descriptionByLocale": {
+        "it": "## Introduzione della società\nOMEGA è un marchio di orologi di livello mondiale noto per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli del mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo rotto i record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nCome marchio internazionale, siamo sempre interessati a incontrare futuri colleghi e apprendisti che desiderano contribuire al lavoro dei nostri team in quasi tutti i continenti con i loro talenti, ambizioni e ispirazioni.\n\nVi disperiamo nelle nostre idee\n\nAVVERTENZA\n\nPer un periodo di 2 anni da agosto 2027\n\n## Descrizione del post\n• Montaggio di componenti meccanici o elettronici dell'orologio\n\n• Posizionare quadranti e aghi\n\n• Goffratura di movimenti e cinghie\n\n• Rifinitura di orologi\n\n## Profilo\n• Età compresa tra 15 e 25\n\n• Istruzione obbligatoria completata\n\n## Qualifiche\n• Eccellente destrezza\n\n• Buona acutezza visiva\n\n• Capacità di concentrazione elevata\n\n• Accuratezza e completezza\n\n• Spirito metodico e capacità di perseverare\n\n## Lingue\nMolto buona conoscenza del francese",
+        "en": "## Introduction of society\nOMEGA is a prestigious watch brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have broken records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues and apprentices wishing to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\nWE OFFER YOU IN OUR ENTERPRISES\n\nOPERATOR LEARNING\n\nFor a period of 2 years from August 2027\n\n## Description of post\n• Assembly of mechanical or electronic watch components\n\n• Place dials and needles\n\n• Embossing of movements and straps\n\n• Trimming of watches\n\n## Profile\n• Age between 15 and 25\n\n• Compulsory education completed\n\n## Qualifications\n• Excellent dexterity\n\n• Good visual acuity\n\n• High concentration capacity\n\n• Accuracy and thoroughness\n\n• Methodical spirit and ability to persevere\n\n## Languages\nVery good knowledge of French",
+        "de": "## Einführung der Gesellschaft\nOMEGA ist eine renommierte Uhrenmarke weltweit, die seit über 170 Jahren für ihre Qualitäts-, Präzisions- und Innovationsanforderungen bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch modernste Technik und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Rekorde an Präzision gebrochen, sportliches Timing neu definiert und unsere Position an der Spitze der Haute Horlogerie beibehalten.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen und Auszubildende zu treffen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\nWir bieten Ihnen in unseren Unternehmen an\n\nBETREIBERLERNEN\n\nFür einen Zeitraum von 2 Jahren ab August 2027\n\n## Beschreibung der Post\n• Montage mechanischer oder elektronischer Uhrenteile\n\n• Zifferblätter und Nadeln einlegen\n\n• Prägung von Uhrwerken und Gurten\n\n• Beschneiden von Uhren\n\n## Profil\n• Alter zwischen 15 und 25 Jahren\n\n• Schulpflicht abgeschlossen\n\n## Qualifikationen\n• Ausgezeichnete Geschicklichkeit\n\n• Gute Sehschärfe\n\n• Kapazität für hohe Konzentration\n\n• Genauigkeit und Gründlichkeit\n\n• Methodischer Geist und Beharrlichkeit\n\n## Sprachen\nSehr gute Französischkenntnisse",
+        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues et apprentis souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nNOUS VOUS OFFRONS L’OPPORTUNITE D’EFFECTUER AU SEIN DE NOTRE ENTREPRISE VOTRE\n\nAPPRENTISSAGE D'OPÉRATEUR·RICE EN HORLOGERIE AFP\n\nPour une durée de 2 ans à partir d’août 2027\n\n## Description du poste\n• Assemblage des composants de montres mécaniques ou électroniques\n\n• Pose de cadrans et aiguilles\n\n• Emboîtage de mouvements et pose des bracelets\n\n• Décottage de montres emboîtées\n\n## Profil\n• Avoir entre 15 et 25 ans\n\n• Scolarité obligatoire achevée\n\n## Compétences requises\n• Excellente dextérité\n\n• Bonne acuité visuelle\n\n• Grande capacité de concentration\n\n• Sens de la précision et minutie\n\n• Esprit méthodique et capacité à persévérer\n\n## Langues\nTrès bonnes connaissances du français"
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/fr/job/32653",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T22:01:52.041Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Tecnica",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270190&langCode=fr_FR&source=swatchgroup.com",
+      "requirements": [
+        "Avoir entre 15 et 25 ans",
+        "Scolarité obligatoire achevée",
+        "Excellente dextérité",
+        "Bonne acuité visuelle",
+        "Grande capacité de concentration",
+        "Sens de la précision et minutie",
+        "Esprit méthodique et capacité à persévérer",
+        "Très bonnes connaissances du français"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Avoir entre 15 et 25 ans",
+          "Scolarité obligatoire achevée",
+          "Excellente dextérité",
+          "Bonne acuité visuelle",
+          "Grande capacité de concentration",
+          "Sens de la précision et minutie",
+          "Esprit méthodique et capacité à persévérer",
+          "Très bonnes connaissances du français"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+        "attenzione-operazione-omega-sa-biel-bienne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
+          "attenzione-operazione-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        ],
+        "de": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        ]
+      },
+      "firstSeenAt": "2026-07-28T11:52:27.421Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "omega-32654",
       "slug": "avviso-occupato-del-trade-swc-omega-sa-biel-bienne",
       "slugByLocale": {
@@ -623,7 +628,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32654",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:17:55.838Z",
+      "crawledAt": "2026-08-20T22:01:30.280Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -673,6 +678,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -717,7 +723,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32655",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:17:34.267Z",
+      "crawledAt": "2026-08-20T22:01:07.868Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -771,6 +777,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:51:44.701Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -815,7 +822,7 @@
       "url": "https://www.swatchgroup.com/de/job/32658",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:17:12.808Z",
+      "crawledAt": "2026-08-20T22:00:46.339Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -900,7 +907,7 @@
         "it": "SALES REPRESENTATIVE - OMEGA BOUTIQUE (M/F)",
         "en": "SALES REPRESENTATIVE - OMEGA BOUTIQUE (M/F)",
         "de": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
-        "fr": "REPRÉSENTANT DES VENTES - OMEGA BOUTIQUE (H/F)"
+        "fr": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)"
       },
       "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
       "descriptionByLocale": {
@@ -914,7 +921,7 @@
       "url": "https://www.swatchgroup.com/de/job/32801",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:16:51.294Z",
+      "crawledAt": "2026-08-20T22:00:24.949Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -957,6 +964,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:28:22.470Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -985,7 +993,7 @@
       "title": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
       "titleByLocale": {
         "it": "SALES RPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
-        "en": "SALES REPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
+        "en": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
         "de": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
         "fr": "VENTES REPRÉSENTANT (H/F) 80% - OMEGA BOUTIQUE BERN"
       },
@@ -1001,7 +1009,7 @@
       "url": "https://www.swatchgroup.com/de/job/32817",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:16:29.804Z",
+      "crawledAt": "2026-08-20T22:00:01.468Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1081,7 +1089,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32819",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T10:16:08.132Z",
+      "crawledAt": "2026-08-20T21:59:39.974Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1155,6 +1163,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:54:36.386Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1185,7 +1194,7 @@
         "it": "DEPUTY BOUTIQUE Direttore - OMEGA BOUTIQUE ZURICH",
         "en": "DEPUTY BOUTIQUE DIRECTOR — OMEGA BOUTIQUE ZURICH",
         "de": "DEPUTY BOUTIQUE Direktor - OMEGA BOUTIQUE ZURICH",
-        "fr": "DIRECTEUR BOUTIQUE DE L'OMEGA"
+        "fr": "DEPUTY BOUTIQUE DIRECTOR - OMEGA BOUTIQUE ZURICH"
       },
       "description": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus.",
       "descriptionByLocale": {
@@ -1199,7 +1208,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32829",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:15:46.506Z",
+      "crawledAt": "2026-08-20T21:59:17.961Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1243,6 +1252,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:57:22.772Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1287,7 +1297,7 @@
       "url": "https://www.swatchgroup.com/en/job/32830",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:15:24.809Z",
+      "crawledAt": "2026-08-20T21:58:56.284Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1346,6 +1356,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:57:20.875Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1390,7 +1401,7 @@
       "url": "https://www.swatchgroup.com/en/job/32836",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:15:03.381Z",
+      "crawledAt": "2026-08-20T21:58:31.648Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1477,7 +1488,7 @@
       "url": "https://www.swatchgroup.com/en/job/32837",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T10:14:41.928Z",
+      "crawledAt": "2026-08-20T21:58:10.148Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1541,6 +1552,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:56:13.425Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
