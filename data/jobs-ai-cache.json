@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-21T21:32:17.699Z",
+  "savedAt": "2026-08-21T22:03:49.654Z",
   "entries": [
     {
       "key": "99db44cb3f80161d1f35141452df9fa6ee139944c94a47af1001bd18c5209df3",
@@ -71446,7 +71446,7 @@
     },
     {
       "key": "63172d39a6eea52e27303c8283d27124c0d7a8faed33699069d89b838b02ab56",
-      "touchedAt": 1784844967365,
+      "touchedAt": 1787349811428,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -71527,11 +71527,11 @@
     },
     {
       "key": "c1555daf864251ed679335e89d2f3195fb7d49088e8dc0e27e3143242c5acf23",
-      "touchedAt": 1784844971172,
+      "touchedAt": 1787349812027,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed responsibilities, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, detailed responsibilities, and application context, which are typical characteristics of a real single job detail page."
       }
     },
     {
@@ -238511,7 +238511,7 @@
     },
     {
       "key": "7c81de0a6fcbc3d075b8083cdf03d1c031e96260a211eb0bde5dda08690c10e1",
-      "touchedAt": 1787307041234,
+      "touchedAt": 1787349781103,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -244459,6 +244459,24 @@
         "isJob": true,
         "confidence": 0.98,
         "reason": "Concrete role title (Digital Communication Project Manager M/F), detailed mission statement, comprehensive responsibilities (360 campaigns, social media management, KPI-driven campaigns, etc.), specific profile requirements (3+ years luxury sector experience, Asian platform expertise, bachelor's degree), exact job location (Biel/Bienne, Switzerland), application call-to-action present, and specific company details (OMEGA/Swatch Group)."
+      }
+    },
+    {
+      "key": "5978edd47c79e1d51d529c8dcc8d56b697f6027c3785393bf1a615566d266590",
+      "touchedAt": 1787349797871,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page. The presence of a specific job title, detailed job description, and required skills also support this classification. However, the confidence level is not 1.0 due to the presence of a generic 'About Us' section, which is not directly related to the job description."
+      }
+    },
+    {
+      "key": "c76aed4aaff037573d68b11460ca602dbf05945214aceba1a8124a91ad4d2e64",
+      "touchedAt": 1787349811739,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, making it a real single job detail page."
       }
     }
   ]
