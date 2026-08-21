@@ -1275,6 +1275,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-b-berna-requisiti-rinnovo': { it: 'permesso-b-berna-requisiti-rinnovo', en: 'permit-b-berna-requirements-renewal', de: 'aufenthaltsbewilligung-b-bern-voraussetzungen-verlaengerung', fr: 'permis-b-berne-conditions-renouvellement' },
  'prestazioni-complementari-zurigo-minimo': { it: 'prestazioni-complementari-zurigo-minimo', en: 'supplementary-benefits-zurich-minimum-living', de: 'zusatzleistungen-zurich-existenzminimum', fr: 'prestations-complementaires-zurich-minimum-vital' },
  'primo-pilastro-zurigo-minimo-vitale': { it: 'primo-pilastro-zurigo-minimo-vitale', en: 'first-pillar-zurich-minimum-living-standard', de: 'erste-saule-zuerich-existenzminimum', fr: 'premier-pilier-zurich-minimum-vital' },
+ 'cassa-compensazione-zurigo-rendita-avs': { it: 'cassa-compensazione-zurigo-rendita-avs', en: 'zurich-aof-benefits-compensation-fund', de: 'zuericher-avs-ergaenzungsleistungen-rente', fr: 'zurich-avs-prestations-complementaires' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

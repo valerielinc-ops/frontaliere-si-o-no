@@ -11242,6 +11242,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'cassa-compensazione-zurigo-rendita-avs',
+    category: 'pensione',
+    date: '2026-08-21T22:38:24.764Z',
+    image: '/images/blog/cassa-compensazione-zurigo-rendita-avs.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
