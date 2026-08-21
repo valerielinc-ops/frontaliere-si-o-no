@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stgag",
-  "assembledAt": "2026-08-21T10:05:24.290Z",
+  "assembledAt": "2026-08-21T21:39:53.095Z",
   "jobs": [
     {
       "id": "stgag-7ccef968c29d",
@@ -34,7 +34,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3695/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:20.612Z",
+      "crawledAt": "2026-08-21T21:39:50.139Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -62,15 +62,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:19:12.279Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -107,7 +107,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3028/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:18.893Z",
+      "crawledAt": "2026-08-21T21:39:49.246Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,15 +138,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:19:11.165Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -183,7 +183,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3752/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:17.155Z",
+      "crawledAt": "2026-08-21T21:39:48.314Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -227,15 +227,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:08:28.820Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 48500,
+      "salaryMax": 89500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48500,
+          "maxValue": 89500,
           "unitText": "YEAR"
         }
       }
@@ -272,7 +272,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1500/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:15.566Z",
+      "crawledAt": "2026-08-21T21:39:47.814Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -305,15 +305,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:19:58.733Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -350,7 +350,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1536/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:13.705Z",
+      "crawledAt": "2026-08-21T21:39:46.867Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -427,7 +427,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3379/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:12.732Z",
+      "crawledAt": "2026-08-21T21:39:45.972Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -477,15 +477,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:19:56.848Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -522,7 +522,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3756/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:11.683Z",
+      "crawledAt": "2026-08-21T21:39:45.076Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -569,15 +569,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:49:56.340Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -614,7 +614,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3757/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:10.631Z",
+      "crawledAt": "2026-08-21T21:39:44.149Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -649,15 +649,15 @@
         "hebamme-stgag-ch"
       ],
       "firstSeenAt": "2026-08-17T21:36:29.618Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -694,7 +694,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3762/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:09.554Z",
+      "crawledAt": "2026-08-21T21:39:43.217Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -745,15 +745,15 @@
         "arztsekretar-in-orthopadie-stgag-munsterlingen"
       ],
       "firstSeenAt": "2026-08-18T21:36:44.397Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -790,7 +790,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3764/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:05:08.450Z",
+      "crawledAt": "2026-08-21T21:39:42.263Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -829,15 +829,15 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:35:32.956Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -934,7 +934,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
