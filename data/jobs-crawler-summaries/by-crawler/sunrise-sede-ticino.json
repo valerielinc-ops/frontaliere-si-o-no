@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-08-21T09:48:06.675Z",
+  "generatedAt": "2026-08-21T21:31:20.099Z",
   "total": 18,
-  "newCount": 1,
+  "newCount": 2,
   "updatedCount": 15,
   "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 9363,
-  "avgDurationMs": 9363,
+  "durationMs": 11975,
+  "avgDurationMs": 11975,
   "durationHistory": [
-    9363
+    11975
   ],
   "newJobs": [
     {
@@ -33,6 +33,37 @@
       "source": "sunrise-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-08-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Sales Agent Arbon 60-100%",
+      "slug": "sales-agent-arbon-60-100-sunrise-arbon",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036854/sales-agent-arbon-60-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Arbon/Store-Agent-Arbon-60-100-_REQ_30036854/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Arbon",
+      "addressLocality": "Arbon",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "postalCode": "9320",
+      "canton": "TG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
