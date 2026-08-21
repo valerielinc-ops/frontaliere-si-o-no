@@ -10333,6 +10333,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Living in Pusiano and working in Ticino: the frontier guide',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'From the New Frontier Agreement to the tax at source, from AVS/LPP contributions to the choice of LAMal: everything you need to know to move to Pusiano and work in Ticino.',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'View of Pusiano village in Como province, Italian border town with Swiss Alps in the background',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'Living in Biandronno and working in Ticino as a border worker: what changes?',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'The new agreement between Switzerland and Italy introduced some changes for frontier workers. This is what it means for border workers who live in Biandronno and work in Ticino.',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'A border worker living in Biandronno and working in Ticino',
 };
 
 export default blogMetaEn;

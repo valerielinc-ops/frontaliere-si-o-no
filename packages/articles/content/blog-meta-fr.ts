@@ -10335,6 +10335,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Vivre à Pusiano et travailler au Tessin : le guide du frontalier',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'Du nouvel accord frontalier à l\'impôt à la source, des cotisations AVS/LPP au choix de la LAMal : tout ce qu\'il faut savoir pour déménager à Pusiano et travailler au Tessin.',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'Vue de Pusiano, commune de la province de Côme, avec les Alpes tessinoises en arrière-plan',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'Vivre à Biandronno: le changement pour les frontaliers',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'Le nouvel accord entre la Suisse et l\'Italie a introduit quelques modifications pour les travailleurs frontaliers. C\'est ce que cela signifie pour les frontaliers qui vivent à Biandronno et travaillent au Tessin.',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'Un travailleur frontalier qui vit à Biandronno et travaille en Tessin',
 };
 
 export default blogMetaFr;

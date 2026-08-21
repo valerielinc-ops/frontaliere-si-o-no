@@ -10334,6 +10334,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Vivere a Pusiano e lavorare in Ticino: la guida del frontaliere',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'Dal Nuovo Accordo Frontalieri all\'imposta alla fonte, dai contributi AVS/LPP alla scelta della LAMal: tutto ciò che serve sapere per trasferirsi a Pusiano e lavorare in Ticino.',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Pusiano, comune della provincia di Como, con le Alpi ticinesi sullo sfondo',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'Vivere a Biandronno e lavorare in Ticino da frontaliere: cosa cambia?',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'Il nuovo accordo tra Svizzera e Italia ha introdotto alcune modifiche per i lavoratori frontalieri. Ecco cosa significa per i frontalieri che vivono a Biandronno e lavorano in Ticino.',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che vive a Biandronno e lavora in Ticino',
 };
 
 export default blogMetaIt;
