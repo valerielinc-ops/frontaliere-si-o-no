@@ -3715,6 +3715,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanziamento-studi-zurigo.title': 'Canton Zurich Scholarships: Requirements and Amounts',
     'blog.article.finanziamento-studi-zurigo.excerpt': 'Access methods, required economic capacity and presentation times: everything you need to know about the scholarship system in the Canton of Zurich.',
     'blog.article.finanziamento-studi-zurigo.imageAlt': 'Students walk between classical university buildings on a Swiss campus in natural daylight.',
+    'blog.article.compra-casa-zurigo-mutuo.title': 'Buying a house in Zurich: mortgage and taxes',
+    'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Real estate purchase in Zurich: mortgage, own funds, transfer taxes and notary fees. Procedure and costs for the purchase and sale in the Canton of Zurich.',
+    'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Modern residential building in Switzerland representing the real estate market and property ownership',
 };
 
 export default blogMetaChEn;
