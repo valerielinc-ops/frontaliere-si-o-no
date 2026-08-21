@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gavi-f73d2990abc8",
-      "slug": "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
+      "slug": "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
         "en": "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
-        "it": "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
+        "it": "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex",
         "de": "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
-        "fr": "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
+        "fr": "gestionnaire-conception-et-execution-de-la-strategie-temp-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
@@ -66,7 +66,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T21:36:32.939Z"
+      "firstSeenAt": "2026-08-20T21:36:32.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
+        ],
+        "fr": [
+          "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
+        ]
+      },
+      "previousSlugs": [
+        "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
+      ]
     },
     {
       "id": "gavi-c05f6ddca435",
@@ -119,13 +130,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
-        "gestione-progettazione-e-consegna-di-strategia-gavi-the-vaccine-alliance-le-grand-saconnex"
+        "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
-          "gestione-progettazione-e-consegna-di-strategia-gavi-the-vaccine-alliance-le-grand-saconnex"
+          "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
         ],
         "de": [
           "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"

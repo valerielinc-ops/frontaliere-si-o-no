@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gastronomie-neumunster-park-diatkoch-diatkochin-menumanagement-gastronomie-spital",
-        "gastronomia-neumunster-park-diet-chef-diet-chef-menu-management-gastronomia-spital-zollikerberg-zollikerberg"
+        "gastronomie-neumunster-park-diatkoch-diatkochin-menumanagement-gastronomie-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gastronomie-neumunster-park-diatkoch-diatkochin-menumanagement-gastronomie-spital",
-          "gastronomia-neumunster-park-diet-chef-diet-chef-menu-management-gastronomia-spital-zollikerberg-zollikerberg"
+          "gastronomie-neumunster-park-diatkoch-diatkochin-menumanagement-gastronomie-spital"
         ],
         "en": [
           "gastronomie-neumunster-park-diatkoch-diatkochin-menumanagement-gastronomie-spital"
@@ -87,8 +85,8 @@
       "slugByLocale": {
         "de": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
         "it": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-spital-zollikerberg",
-        "en": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und",
-        "fr": "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        "en": "vocational-trainer-for-dipl-specialist-dipl-specialist-in-surgical-technology-and-surgical-maintenance-medical-3070e7",
+        "fr": "formateur-professionnel-pour-dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-et-maintenance-chirurgicale"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -135,6 +133,12 @@
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        ],
+        "en": [
+          "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
+        ],
+        "fr": [
+          "berufsbildner-berufsbildnerin-fur-dipl-fachfrau-dipl-fachmann-operationstechnik-und"
         ]
       },
       "previousSlugs": [
@@ -156,12 +160,12 @@
     },
     {
       "id": "spital-zollikerberg-3c90a5284387",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
+      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-nella-formazione-di-ingegneria-medica-spital-zollikerberg",
+        "en": "dipl-radiology-specialist-radiology-specialist-hf-in-medical-engineering-training-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-specialiste-de-radiologie-specialiste-de-radiologie-hf-en-formation-en-genie-medical-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -216,16 +220,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-in-ausbildung-medizintechnische-bereiche"
+      ]
     },
     {
       "id": "spital-zollikerberg-67a510d3b332",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-piscina-professionale-su-richiesta-spital-zollikerberg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-piscina-professionale-su-richiesta-spital-zollikerberg",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-pool-on-demand-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-pool-professionnel-de-soins-infirmiers-sur-demande-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -280,16 +298,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-ce5beb4e6a86",
-      "slug": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
+      "slug": "professional-professional-health-pool-su-richiesta-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        "it": "professional-professional-health-pool-su-richiesta-spital-zollikerberg-zollikerberg",
+        "en": "professional-professional-health-pool-on-demand-spital-zollikerberg-zollikerberg",
+        "fr": "pool-de-sante-professionnelle-sur-demande-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -344,16 +376,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-pool-im-stundenlohn-auf-abruf-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-5049e05f5ea4",
-      "slug": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
+      "slug": "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "it": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "en": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "fr": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        "it": "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-spital-zollikerberg-zollikerberg",
+        "en": "vocational-trainer-vocational-trainer-station-surgery-gynecology-spital-zollikerberg-zollikerberg",
+        "fr": "entraineur-professionnel-formateur-professionnel-station-chirurgie-gynecologie-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -408,7 +454,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-5c4900edc9a1",

@@ -242,7 +242,8 @@
           "collaboratrice-collaboratore-production-coop-genossenschaft-castione-ticino-1zoekj"
         ],
         "fr": [
-          "collaboratrice-collaboratore-production-coop-genossenschaft-castione-ticino-1zoekj"
+          "collaboratrice-collaboratore-production-coop-genossenschaft-castione-ticino-1zoekj",
+          "collaboratrice-collaboratore-production-panofina-castione-ticino-1zoekj"
         ],
         "de": [
           "collaboratrice-collaboratore-produktion-panofina-castione-ticino-1zoekj"
@@ -252,7 +253,8 @@
         "collaboratrice-collaboratore-produzione-coop-genossenschaft-castione-ticino",
         "collaboratrice-collaboratore-production-coop-genossenschaft-castione-ticino-1zoekj",
         "collaboratrice-collaboratore-produzione-panofina-castione-ticino",
-        "collaboratrice-collaboratore-produktion-panofina-castione-ticino-1zoekj"
+        "collaboratrice-collaboratore-produktion-panofina-castione-ticino-1zoekj",
+        "collaboratrice-collaboratore-production-panofina-castione-ticino-1zoekj"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -344,7 +346,7 @@
     },
     {
       "id": "company-scn6v2",
-      "slug": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-zurich-9e2d38",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Zürich",
@@ -378,10 +380,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-zurich-9e2d38",
+        "en": "seller-fresh-products-coop-genossenschaft-zurich-9e2d38",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2"
+        "fr": "vendeur-produits-frais-coop-genossenschaft-zurich-9e2d38"
       },
       "requirementsByLocale": {
         "it": [],
@@ -394,11 +396,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-scn6v2"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -418,7 +428,7 @@
     },
     {
       "id": "company-98af32",
-      "slug": "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32",
+      "slug": "venditore-in-prodotti-freschi-incl-produzione-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte inkl. Produktion",
       "location": "Zürich",
@@ -452,10 +462,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32",
-        "en": "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32",
+        "it": "venditore-in-prodotti-freschi-incl-produzione-coop-genossenschaft-zurich",
+        "en": "seller-in-fresh-products-incl-production-coop-genossenschaft-zurich",
         "de": "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32",
-        "fr": "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32"
+        "fr": "vendeur-en-produits-frais-incl-production-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -468,11 +478,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich"
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich",
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich"
+        "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich",
+        "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-zurich-98af32"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -492,7 +510,7 @@
     },
     {
       "id": "company-sszcv2",
-      "slug": "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
+      "slug": "venditore-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood",
       "location": "Egerkingen, Solothurn",
@@ -526,10 +544,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
-        "en": "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
+        "it": "venditore-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
+        "en": "seller-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
         "de": "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
-        "fr": "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2"
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-egerkingen-solothurn"
       },
       "requirementsByLocale": {
         "it": [],
@@ -542,11 +560,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn"
+          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
+          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2"
+        ],
+        "en": [
+          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2"
+        ],
+        "fr": [
+          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn"
+        "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
+        "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7480,12 +7506,6 @@
           "polydesigner-in-3d-coop-genossenschaft-zug",
           "polydesigner-in-3d-coop-city-zug"
         ],
-        "en": [
-          "polydesigner-in-3d-coop-genossenschaft-zug-fzneri"
-        ],
-        "fr": [
-          "polydesigner-in-3d-coop-genossenschaft-zug-fzneri"
-        ],
         "de": [
           "polydesigner-in-3d-coop-city-zug-fzneri"
         ]
@@ -10962,30 +10982,22 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
+          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-h-f-d-coop-genossenschaft-oftringen",
           "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
-        "chef-chef-h-f-d-coop-genossenschaft-oftringen",
-        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
-        "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
+        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11134,7 +11146,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh",
           "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau-15rrqh",
-          "chef-chef-m-f-d-coop-genossenschaft-wettingen",
           "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau"
         ],
         "de": [
@@ -11149,8 +11160,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh",
         "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau-15rrqh",
-        "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau",
-        "chef-chef-m-f-d-coop-genossenschaft-wettingen"
+        "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11221,9 +11231,7 @@
         "it": [
           "kommissionierer-in-coop-genossenschaft-bern",
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
-          "kommissionierer-in-coop-bern",
-          "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
-          "addetto-a-al-picking-coop-genossenschaft-bern"
+          "kommissionierer-in-coop-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -11243,9 +11251,7 @@
         "kommissionierer-in-coop-bern",
         "order-picker-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
-        "commandeur-in-coop-genossenschaft-bern-65fc45",
-        "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
-        "addetto-a-al-picking-coop-genossenschaft-bern"
+        "commandeur-in-coop-genossenschaft-bern-65fc45"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -11915,7 +11921,6 @@
           "filialleiter-in-interdiscount-bern-5lbjpp",
           "filialleiter-in-interdiscount-bern",
           "directeur-de-branche-interdiscount-bern",
-          "directeur-de-branche-en-interdiscount-bern",
           "responsable-de-succursale-interdiscount-bern"
         ]
       },
@@ -11923,7 +11928,6 @@
         "filialleiter-in-interdiscount-bern-5lbjpp",
         "filialleiter-in-interdiscount-bern",
         "directeur-de-branche-interdiscount-bern",
-        "directeur-de-branche-en-interdiscount-bern",
         "responsable-de-succursale-interdiscount-bern"
       ],
       "salaryMin": 68500,
@@ -12011,7 +12015,6 @@
           "verkaufer-in-food-coop-genossenschaft-leuk-wallis-vhzi54",
           "vendeur-dans-la-nourriture-coop-genossenschaft-leuk-wallis",
           "vendeur-dans-la-nourriture-coop-genossenschaft-suhr",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-leuk",
           "employe-e-de-commerce-de-detail-food-coop-genossenschaft-leuk-wallis"
         ],
         "de": [
@@ -12029,7 +12032,6 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-suhr",
         "venditore-in-food-coop-genossenschaft-leuk-wallis",
         "verkaufer-in-food-coop-leuk-wallis",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-leuk",
         "employe-e-de-commerce-de-detail-food-coop-genossenschaft-leuk-wallis"
       ],
       "salaryMin": 60500,
@@ -12342,7 +12344,6 @@
         "fr": [
           "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
           "consultant-en-ventes-interdiscount-heimberg-bern",
-          "consultant-en-ventes-interdiscount-heimberg",
           "conseiller-de-vente-interdiscount-heimberg-bern"
         ]
       },
@@ -12352,7 +12353,6 @@
         "sales-consultant-in-interdiscount-heimberg-bern",
         "consultant-en-ventes-interdiscount-heimberg-bern",
         "consulente-commerciale-in-interdiscount-heimberg-bern",
-        "consultant-en-ventes-interdiscount-heimberg",
         "conseiller-de-vente-interdiscount-heimberg-bern"
       ],
       "salaryMin": 68500,
@@ -12588,7 +12588,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-5v5ad7",
-          "chef-chef-m-f-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "fr": [
@@ -12598,8 +12597,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-5v5ad7",
-        "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen",
-        "chef-chef-m-f-d-coop-genossenschaft-st-gallen"
+        "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -12853,7 +12851,6 @@
           "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id",
           "soutien-aux-tic-en-coop-genossenschaft-schafisheim-ef70b8",
           "ict-supporter-in-coop-schafisheim-aargau-0g50id",
-          "soutien-aux-tic-en-coop-genossenschaft-schafisheim-aargau",
           "technicien-technicienne-support-ict-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
@@ -12868,7 +12865,6 @@
         "ict-supporter-in-coop-genossenschaft-schafisheim",
         "ict-supporter-in-coop-genossenschaft-schafisheim-aargau",
         "ict-supporter-in-coop-schafisheim-aargau-0g50id",
-        "soutien-aux-tic-en-coop-genossenschaft-schafisheim-aargau",
         "technicien-technicienne-support-ict-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 64500,
@@ -14320,9 +14316,7 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau",
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consulente-commerciale-in-interdiscount-wettingen-aargau",
-          "consulente-commerciale-in-interdiscount-wettingen",
-          "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-          "venditore-a-interdiscount-wettingen-aargau"
+          "consulente-commerciale-in-interdiscount-wettingen"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
@@ -14333,7 +14327,6 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consultant-en-ventes-interdiscount-wettingen-aargau",
           "consultant-en-ventes-interdiscount-wettingen",
-          "consultant-en-ventes-interdiscount-wettingen-ffb287",
           "conseiller-e-de-vente-interdiscount-wettingen-aargau"
         ]
       },
@@ -14346,10 +14339,7 @@
         "consulente-commerciale-in-interdiscount-wettingen",
         "sales-consultant-in-interdiscount-wettingen",
         "consultant-en-ventes-interdiscount-wettingen",
-        "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-        "consultant-en-ventes-interdiscount-wettingen-ffb287",
-        "conseiller-e-de-vente-interdiscount-wettingen-aargau",
-        "venditore-a-interdiscount-wettingen-aargau"
+        "conseiller-e-de-vente-interdiscount-wettingen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -14518,9 +14508,7 @@
           "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-          "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-          "venditore-a-coop-genossenschaft-winterthur-zurich"
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -14529,7 +14517,6 @@
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
           "consultant-en-ventes-coop-genossenschaft-winterthur",
-          "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
           "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
         ]
       },
@@ -14542,10 +14529,7 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-        "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich",
-        "venditore-a-coop-genossenschaft-winterthur-zurich"
+        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17948,7 +17932,6 @@
         ],
         "fr": [
           "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau-aargau",
-          "oui-coop-genossenschaft-aarau-aargau",
           "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
         ]
       },
@@ -17958,7 +17941,6 @@
         "sales-consultant-in-household-coop-genossenschaft-aarau-aargau",
         "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau-aargau",
         "verkaufsberater-in-haushalt-coop-city-aarau-aargau",
-        "oui-coop-genossenschaft-aarau-aargau",
         "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
       ],
       "baseSalary": {
@@ -18264,7 +18246,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-rickenbach-thurgau"
       },
@@ -18285,7 +18267,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
           "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-          "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
@@ -18295,8 +18276,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
-        "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-        "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau"
+        "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -21319,7 +21299,6 @@
         "fr": [
           "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
           "lageriste-in-coop-genossenschaft-oberentfelden",
-          "lageriste-in-coop-genossenschaft-oberentfelden-aargau",
           "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
         ],
         "de": [
@@ -21335,7 +21314,6 @@
         "warehouse-worker-coop-genossenschaft-oberentfelden",
         "lagerist-in-livique-oberentfelden-aargau-cncnay",
         "lageriste-in-coop-genossenschaft-oberentfelden",
-        "lageriste-in-coop-genossenschaft-oberentfelden-aargau",
         "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
       ],
       "salaryMin": 62000,
@@ -21414,7 +21392,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn-7c9gqx",
           "cook-cook-f-m-d-coop-genossenschaft-olten",
-          "cook-cook-f-m-d-coop-genossenschaft-olten-solothurn",
           "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn"
         ],
         "fr": [
@@ -21427,8 +21404,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn-7c9gqx",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-olten",
         "cook-cook-f-m-d-coop-genossenschaft-olten",
-        "cuire-cuire-f-m-d-coop-genossenschaft-olten",
-        "cook-cook-f-m-d-coop-genossenschaft-olten-solothurn"
+        "cuire-cuire-f-m-d-coop-genossenschaft-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -21974,21 +21950,17 @@
           "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
           "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
-          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-          "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-          "chef-m-w-d-coop-genossenschaft-chur-graubunden"
+          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cook-cook-f-m-d-coop-genossenschaft-chur",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cuire-cuire-f-m-d-coop-genossenschaft-chur",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
         ]
       },
@@ -22009,8 +21981,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
         "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-        "chef-m-w-d-coop-genossenschaft-chur-graubunden",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
       ]
     },
@@ -25155,9 +25125,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -25165,9 +25133,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

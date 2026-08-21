@@ -4,9 +4,11 @@
   "jobs": [
     {
       "id": "alpiq-4b58080b1767",
-      "slug": "gas-operator-alpiq-olten",
+      "slug": "operatore-di-gas-alpiq-olten",
       "slugByLocale": {
-        "it": "gas-operator-alpiq-olten"
+        "it": "operatore-di-gas-alpiq-olten",
+        "de": "gasbetreiber-alpiq-olten",
+        "fr": "operateur-de-gaz-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -57,7 +59,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T22:08:27.130Z"
+      "firstSeenAt": "2026-08-20T22:08:27.130Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gas-operator-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "gas-operator-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
