@@ -78,7 +78,13 @@ export function commonUrlTemplate(urls = []) {
  */
 export function crawlerKeyFor(candidate) {
   const fromHost = candidate.tenantHost ? tenantLabel(candidate.tenantHost) : '';
-  const base = fromHost || candidate.domain?.split('.')[0] || candidate.name || 'unknown';
+  // Un tenant id opaco (`recruitingapp-2862`) e' una chiave pessima: non dice
+  // di chi e' il crawler, e finisce nel nome dei file, nel manifest e nei
+  // gruppi di workflow. Quando il vendor usa id anonimi, il nome dell'azienda
+  // — che la pagina del tenant ci ha gia' dato — e' l'unica cosa leggibile.
+  const opaqueLabel = /^[a-z]*[-_]?\d{2,}$/i.test(fromHost) || /^\d/.test(fromHost);
+  const preferred = opaqueLabel && candidate.name ? candidate.name : fromHost;
+  const base = preferred || candidate.domain?.split('.')[0] || candidate.name || 'unknown';
   return String(base)
     .toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
