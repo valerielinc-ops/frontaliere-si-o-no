@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-08-20T21:51:03.947Z",
+  "assembledAt": "2026-08-21T10:10:17.902Z",
   "jobs": [
     {
       "id": "logitech-318c1af909a7",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:51:00.982Z",
+      "crawledAt": "2026-08-21T10:10:15.751Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:51:00.013Z",
+      "crawledAt": "2026-08-21T10:10:14.678Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -144,6 +144,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -189,7 +190,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:50:59.050Z",
+      "crawledAt": "2026-08-21T10:10:13.555Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,15 +227,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:52:52.987Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "needsRetranslation": true,
+      "salaryMin": 97500,
+      "salaryMax": 148000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 97500,
+          "maxValue": 148000,
           "unitText": "YEAR"
         }
       },
@@ -271,7 +273,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Lead-Motor-and-Drive-Engineer_147220",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:50:57.966Z",
+      "crawledAt": "2026-08-21T10:10:12.476Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,15 +305,16 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:37:45.042Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "needsRetranslation": true,
+      "salaryMin": 97500,
+      "salaryMax": 148000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 97500,
+          "maxValue": 148000,
           "unitText": "YEAR"
         }
       },
