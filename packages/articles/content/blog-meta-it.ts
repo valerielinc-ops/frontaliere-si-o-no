@@ -10319,6 +10319,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caronno-varesino-frontaliere-ticino.title': 'Caronno Varesino-Ticino: il regime fiscale 2024',
     'blog.article.caronno-varesino-frontaliere-ticino.excerpt': 'Cosa sapere su imposta alla fonte, AVS e LAMal quando si vive a Caronno Varesino e si lavora in Ticino. Le regole dal Nuovo Accordo 2024.',
     'blog.article.caronno-varesino-frontaliere-ticino.imageAlt': 'Strada residenziale a Caronno Varesino, provincia di Varese, con le Alpi sullo sfondo',
+    'blog.article.vivere-castronno-lavorare-ticino.title': 'Vivere a Castronno e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-castronno-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Castronno: tassazione, nuovo accordo frontalieri, previdenza e i vantaggi del pendolarismo verso il Canton Ticino.',
+    'blog.article.vivere-castronno-lavorare-ticino.imageAlt': 'Paesaggio collinare tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
