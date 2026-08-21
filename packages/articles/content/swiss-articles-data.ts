@@ -11062,6 +11062,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stadler-rail-friburgo-117-milioni',
+    category: 'novita',
+    date: '2026-08-21T09:43:21.760Z',
+    image: '/images/blog/stadler-rail-friburgo-117-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3688,6 +3688,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-appenzello-interno.title': 'Appenzello Interno Scholarships: a guide to funding',
     'blog.article.borse-studio-appenzello-interno.excerpt': 'In the Inner Appenzell Canton, scholarships and study loans are available for those who continue their training after compulsory schooling. Find out how to apply.',
     'blog.article.borse-studio-appenzello-interno.imageAlt': 'Alpine school classroom in Switzerland with students studying, natural light and mountain peaks visible through windows',
+    'blog.article.stadler-rail-friburgo-117-milioni.title': 'Freiburg: 117 million for 13 new Flirt trains',
+    'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail will supply 13 new Flirt Evo trains to the Freiburg Public Transport for CHF 117 million. First deliveries in December 2028.',
+    'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'New Flirt Evo train for Fribourg public transport',
 };
 
 export default blogMetaChEn;

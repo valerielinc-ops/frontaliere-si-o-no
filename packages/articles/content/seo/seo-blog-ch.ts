@@ -47834,6 +47834,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stadler-rail-friburgo-117-milioni': {
+    title: 'Friburgo: 117 milioni per 13 nuovi treni Flirt',
+    description: 'Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Prime consegne a dicembre 2028. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, friburgo, milioni, nuovi, treni',
+    ogTitle: 'Stadler Rail: 117 mln per nuovi treni Friburgo',
+    ogDescription: 'Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Consegne a dicembre 2028, sostituiranno progressivamente la flotta Domino.',
+    canonicalPath: '/articoli-svizzera/stadler-rail-friburgo-117-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Friburgo: 117 milioni per 13 nuovi treni Flirt",
+      "description": "Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Prime consegne a dicembre 2028. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stadler-rail-friburgo-117-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovo treno Flirt Evo per i Trasporti pubblici friburghesi"
+      },
+      "datePublished": "2026-08-21T09:43:21+00:00",
+      "dateModified": "2026-08-21T09:43:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stadler-rail-friburgo-117-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

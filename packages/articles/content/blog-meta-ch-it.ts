@@ -3688,6 +3688,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-appenzello-interno.title': 'Borse di studio Appenzello Interno: guida ai finanziamenti',
     'blog.article.borse-studio-appenzello-interno.excerpt': 'Nel Canton Appenzello Interno sono disponibili borse di studio e prestiti allo studio per chi prosegue la formazione dopo l\'obbligo scolastico. Scopri come candidarsi.',
     'blog.article.borse-studio-appenzello-interno.imageAlt': 'Aula scolastica in una scuola svizzera di montagna con studenti intenti a studiare, luce naturale e picchi alpini visibili attraverso le finestre',
+    'blog.article.stadler-rail-friburgo-117-milioni.title': 'Friburgo: 117 milioni per 13 nuovi treni Flirt',
+    'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Prime consegne a dicembre 2028.',
+    'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'Nuovo treno Flirt Evo per i Trasporti pubblici friburghesi',
 };
 
 export default blogMetaChIt;

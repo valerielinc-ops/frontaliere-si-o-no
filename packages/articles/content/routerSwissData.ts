@@ -1255,6 +1255,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-appenzello-interno-domanda': { it: 'assegni-familiari-appenzello-interno-domanda', en: 'family-allowances-appenzello-interno-application', de: 'familienleistungen-appenzell-innerrhoden-antrag', fr: 'allocations-familiales-appenzell-rhodes-interieures-demande' },
  'parere-governo-infrastrutture-ferroviarie': { it: 'parere-governo-infrastrutture-ferroviarie', en: 'government-opinion-railway-infrastructure', de: 'regierungsstellungnahme-bahninfrastruktur', fr: 'avis-gouvernement-infrastructure-ferroviaire' },
  'borse-studio-appenzello-interno': { it: 'borse-studio-appenzello-interno', en: 'scholarships-appenzell-innerrhoden', de: 'stipendien-appenzell-innerrhoden', fr: 'bourses-appenzell-rhodes-interieures' },
+ 'stadler-rail-friburgo-117-milioni': { it: 'stadler-rail-friburgo-117-milioni', en: 'stadler-rail-fribourg-117-million', de: 'stadler-rail-freiburg-117-millionen', fr: 'stadler-rail-fribourg-117-millions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3688,6 +3688,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-appenzello-interno.title': 'Stipendien Appenzell Innerrhoden: Finanzierungsleitfaden',
     'blog.article.borse-studio-appenzello-interno.excerpt': 'Im Kanton Appenzell Innerrhoden stehen Stipendien und Studiendarlehen für Auszubildende nach der Schulpflicht zur Verfügung. Erfahren Sie, wie Sie sich bewerben können.',
     'blog.article.borse-studio-appenzello-interno.imageAlt': 'Klassenzimmer einer Schweizer Alpenschule mit studierenden Schülern, natürliches Licht und Bergspitzen sichtbar durch Fenster',
+    'blog.article.stadler-rail-friburgo-117-milioni.title': 'Freiburg: 117 Millionen für 13 neue FLIRT-Züge',
+    'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail wird 13 neue Flirt Evo-Züge für CHF 117 Mio. an den öffentlichen Verkehr in Freiburg liefern. Erste Auslieferungen im Dezember 2028.',
+    'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'Neuer Flirt Evo Zug für Freiburgs öffentliche Verkehrsmittel',
 };
 
 export default blogMetaChDe;
