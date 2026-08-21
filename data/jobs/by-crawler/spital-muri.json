@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-muri",
-  "assembledAt": "2026-08-21T09:47:12.325Z",
+  "assembledAt": "2026-08-21T21:30:02.703Z",
   "jobs": [
     {
       "id": "spital-muri-f630033e83b2",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2997.umantis.com/Vacancies/239/Description/1",
       "source": "Spital Muri Dedicated Parser (Umantis listing tenant 2997)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:08.575Z",
+      "crawledAt": "2026-08-21T21:30:00.438Z",
       "addressLocality": "Muri",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -62,15 +62,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:39.059Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
