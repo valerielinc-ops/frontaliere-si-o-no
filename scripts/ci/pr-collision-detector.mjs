@@ -132,6 +132,60 @@ export function computeColliders(nums, funnelFiles) {
   return colliders;
 }
 
+// `gh pr view --json files` interroga la connection GraphQL `files(first: 100)`
+// e NON pagina. Le modalita' sono TRE, non due, e il fallback della #6190 ne
+// copriva una sola:
+//
+//   <= 100     lista completa
+//   101..N     TRONCATA a 100, in ordine alfabetico, exit 0, lista NON vuota
+//   oversize   `.files: null` (GitHub rinuncia proprio a calcolare il diff)
+//
+// Un fallback keyed sul VUOTO non parte mai nella banda di mezzo, che e' anche
+// la piu' frequente. Misurato il 2026-08-20 su questo repo:
+//
+//   #6121  changedFiles=183  GraphQL=100 (i primi 100 alfabetici)  REST=183 ✅
+//   #6175  changedFiles=0    GraphQL=null                          REST=100 (troncata)
+//
+// Quindi nella banda 101..N la REST e' COMPLETA e va preferita, non subita: il
+// «meglio un campione che il vuoto» della #6190 sceglieva un campione mentre la
+// lista intera era a una chiamata di distanza. Il taglio e' alfabetico, quindi
+// cade sistematicamente la coda — `scripts/`, `services/`, `src/`, `tests/` —
+// cioe' quasi tutto il set funnel-critical.
+//
+// `changedFiles` fa da oracolo e distingue i due casi che `.files // []`
+// appiattisce entrambi su lista vuota: una PR rebase-only (0 file davvero) e un
+// diff oversize (0 dichiarato, file veri). Serve a sapere se l'elenco e'
+// COMPLETO, perche' «non lo so» non deve essere trattato come «non collide».
+export const GRAPHQL_FILES_CAP = 100;
+
+export function fetchPrFiles(number, expected, ghFn, repo = REPO) {
+  let files = [];
+  try {
+    files = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'files',
+      '--jq', '[.files // [] | .[].path]'], { allowFail: true }) || [];
+  } catch { files = []; }
+
+  const known = Number.isFinite(expected) && expected > 0;
+  const suspect = !files.length || files.length >= GRAPHQL_FILES_CAP
+    || (known && files.length < expected);
+  if (suspect) {
+    try {
+      // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
+      // array darebbe piu' valori JSON top-level concatenati, che JSON.parse
+      // rifiuta. Quindi filtro a righe e split, che regge n pagine.
+      const raw = ghFn(['api', `repos/${repo}/pulls/${number}/files`, '--paginate',
+        '--jq', '.[].filename'], { json: false, allowFail: true }) || '';
+      const rest = raw.split('\n').map((l) => l.trim()).filter(Boolean);
+      if (rest.length > files.length) files = rest;
+    } catch { /* tiene la lista GraphQL, gia' valutata da `complete` */ }
+  }
+
+  // `complete` e' una MISURA, non un default ottimista: se l'oracolo non c'e'
+  // (campo assente, fetch fallito) e qualche file c'e', resta false.
+  const complete = known ? files.length >= expected : files.length === 0;
+  return { files, complete };
+}
+
 function main() {
   if (!REPO) { console.error('GITHUB_REPOSITORY mancante'); process.exit(1); }
   console.log(`pr-collision-detector${DRY ? ' [DRY-RUN]' : ''} repo=${REPO}`);
@@ -139,7 +193,7 @@ function main() {
   let prs;
   try {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '50',
-      '--json', 'number,labels,isDraft']);
+      '--json', 'number,labels,isDraft,changedFiles']);
   } catch (e) {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
@@ -157,37 +211,24 @@ function main() {
   // scan (una per PR) e su una draft non serve a nulla.
   const funnelFiles = new Map(); // num -> Set(files)
   const hasLabel = new Map();    // num -> bool collision-risk già presente
+  const listComplete = new Map(); // num -> bool elenco file misurato completo
   for (const pr of prs) {
     hasLabel.set(pr.number, (pr.labels || []).some((l) => l.name === 'collision-risk'));
-    if (!candidates.has(pr.number)) { funnelFiles.set(pr.number, new Set()); continue; }
-    // `gh pr view --json files` passa da GraphQL, che su una PR con migliaia
-    // di file cambiati risponde `{"files":null}` invece di un errore (misurato
-    // su #6175, 5.576 file): il `--jq` muore, `allowFail` torna null, e il set
-    // finisce vuoto. Vuoto qui significa «non collide con nessuno», cioe' il
-    // fail-open esatto che questo scan deve evitare — e proprio sulla PR piu'
-    // grande, quella con piu' probabilita' di collidere davvero.
-    //
-    // Il fallback REST risponde con una lista troncata (misurato: 100 file,
-    // senza header `Link`) ma mai nulla. Un elenco parziale puo' mancare una
-    // collisione, il vuoto le manca tutte: la direzione e' comunque migliore.
-    let files = [];
-    try {
-      files = gh(['pr', 'view', String(pr.number), '--repo', REPO, '--json', 'files',
-        '--jq', '[.files // [] | .[].path]'], { allowFail: true }) || [];
-    } catch { files = []; }
-    if (!files.length) {
-      try {
-        // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
-        // array darebbe piu' valori JSON top-level concatenati, che JSON.parse
-        // rifiuta. Quindi filtro a righe e split, che regge n pagine.
-        const raw = gh(['api', `repos/${REPO}/pulls/${pr.number}/files`, '--paginate',
-          '--jq', '.[].filename'], { json: false, allowFail: true }) || '';
-        files = raw.split('\n').map((l) => l.trim()).filter(Boolean);
-        if (files.length) console.log(`PR #${pr.number}: file list GraphQL nulla → fallback REST (${files.length} file, lista possibilmente troncata).`);
-      } catch { files = []; }
+    // Le draft restano fuori dal grafo ma dentro il cleanup: non le
+    // interroghiamo, quindi il loro elenco e' completo per costruzione (vuoto
+    // perche' non lo cerchiamo, non perche' il fetch e' fallito).
+    if (!candidates.has(pr.number)) {
+      funnelFiles.set(pr.number, new Set());
+      listComplete.set(pr.number, true);
+      continue;
     }
+    const { files, complete } = fetchPrFiles(pr.number, pr.changedFiles, gh);
     const set = new Set(files.filter(isFunnel));
     funnelFiles.set(pr.number, set);
+    listComplete.set(pr.number, complete);
+    if (!complete) {
+      console.log(`PR #${pr.number}: elenco file INCOMPLETO (${files.length}/${pr.changedFiles ?? '?'} attesi) → una collisione puo' sfuggire, la label non verra' rimossa.`);
+    }
     if (set.size) console.log(`PR #${pr.number}: ${set.size} file funnel-critical.`);
   }
 
@@ -207,8 +248,18 @@ function main() {
           `⚠️ **collision-risk**: questa PR tocca file funnel-critical condivisi con la PR #${other}: ${list}. La seconda a raggiungere il merge DEVE prima rebasare oltre l'altra (\`git merge origin/main\` dopo che l'altra è mergiata) — l'auto-merge è bloccato finché \`collision-risk\` + dietro main. _Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
       }
     } else if (hasLabel.get(num)) {
-      console.log(`PR #${num}: non collide più → rimuovo collision-risk.`);
-      removeLabel(num, 'collision-risk');
+      // «Nessuna collisione VISTA» e «non collide» coincidono solo se l'elenco
+      // era completo. Con una lista troncata o non recuperata, togliere la
+      // label sblocca l'auto-merge su una PR che puo' collidere davvero: e' il
+      // fail-open che questo scan esiste per evitare, solo dal lato della
+      // rimozione invece che da quello dell'aggiunta. Nel dubbio la label resta
+      // — costa un rebase in piu', non un main rosso.
+      if (!listComplete.get(num)) {
+        console.log(`PR #${num}: nessuna collisione vista MA elenco file incompleto → tengo collision-risk (unknown ≠ non collide).`);
+      } else {
+        console.log(`PR #${num}: non collide più → rimuovo collision-risk.`);
+        removeLabel(num, 'collision-risk');
+      }
     }
   }
   console.log('collision scan completo.');

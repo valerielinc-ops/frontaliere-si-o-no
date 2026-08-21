@@ -287,20 +287,40 @@ jobs:
           # Claude su una PR che tocca `.github/workflows/**` senza PAT, e il
           # push fallisce alla fine. Stessa forma in pr-review-loop.yml.
           #
-          # Il fallback REST torna una lista troncata (misurato: 100 file, senza
-          # header `Link`) ma mai nulla. Per il capability guard il troncamento
-          # e' fail-open, quindi il grep `^.github/workflows/` gira anche
-          # sull'elenco REST completo dell'endpoint: meglio un campione che il
-          # vuoto, che oggi e' indistinguibile da «nessun workflow toccato».
+          # Il `null` pero' e' solo UNA delle due modalita' degradate, e la #6190
+          # keyava il fallback sulla sola lista vuota. `--json files` chiede la
+          # connection `files(first: 100)` e NON pagina: sopra i 100 file tronca
+          # in silenzio, in ordine alfabetico, con exit 0 e lista NON vuota.
+          # Misurato il 2026-08-20 su #6121 (183 file): GraphQL 100, REST
+          # `--paginate` 183/183. Su quella lista troncata `crit=` non trovava
+          # nulla (tier normal invece di high) perche' `scripts/` e `tests/`
+          # cadono oltre il taglio alfabetico. `changedFiles` dice se l'elenco
+          # e' completo; se non lo e', entrambi i consumatori qui sotto vanno in
+          # direzione conservativa invece di fidarsi del campione.
+          expected=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null || echo 0)
+          case "$expected" in ''|*[!0-9]*) expected=0 ;; esac
           files=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json files --jq '.files // [] | .[].path' 2>/dev/null || echo "")
-          if [ -z "$files" ]; then
-            files=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || echo "")
-            if [ -n "$files" ]; then
-              echo "GraphQL file list nulla → fallback REST: $(printf '%s\n' "$files" | grep -c .) file (lista possibilmente troncata)."
+          count=$(printf '%s\n' "$files" | grep -c . || true)
+          if [ -z "$files" ] || [ "$count" -ge 100 ] || [ "$count" -lt "$expected" ]; then
+            rest=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || echo "")
+            rest_count=$(printf '%s\n' "$rest" | grep -c . || true)
+            if [ "$rest_count" -gt "$count" ]; then
+              files="$rest"; count="$rest_count"
+              echo "GraphQL tronca/nulla → fallback REST: $count file (attesi $expected)."
             fi
           fi
+          files_complete=1
+          if [ "$expected" -gt 0 ] && [ "$count" -lt "$expected" ]; then files_complete=0; fi
+          if [ "$expected" -eq 0 ] && [ "$count" -gt 0 ]; then files_complete=0; fi
+          if [ "$files_complete" != "1" ]; then
+            echo "::warning::Elenco file INCOMPLETO ($count/$expected) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+          fi
           touches_wf=$(echo "$files" | grep -E '^\.github/workflows/' || true)
-          if [ -n "$touches_wf" ] && [ "$HAS_PAT" != "true" ]; then
+          # Elenco incompleto = «non lo so», e su un capability guard «non lo so»
+          # deve pesare come «si'»: il costo di sbagliare in questa direzione e'
+          # uno skip con commento, quello opposto e' un turno Claude bruciato e
+          # un push che fallisce alla fine.
+          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_PAT" != "true" ]; then
             echo "::warning::PR tocca .github/workflows/** ma manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
             gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '⏭️ 🔴-fixer skip: la PR tocca \x60.github/workflows/**\x60 e non è disponibile un PAT con scope \x60workflows\x60 → il push fallirebbe. Applicare il fix dei 🔴 a mano.')" \
               2>/dev/null || true
@@ -314,7 +334,7 @@ jobs:
           # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
           # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
-          if [ -n "$crit" ]; then
+          if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
           else
@@ -433,7 +453,7 @@ jobs:
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` (severity/scopo) + `AGENTS.md` (non-negotiables + Privacy). VINCOLANTI.
-            2. Carica la PR + le review: `gh pr view $PR_NUMBER --json title,body,headRefName,files`, `gh api repos/$REPO/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body'`. Il branch è già checkoutato sulla head della PR.
+            2. Carica la PR + le review: `gh pr view $PR_NUMBER --json title,body,headRefName` + `gh api repos/$REPO/pulls/$PR_NUMBER/files --paginate --jq '.[].filename'` per l'elenco file (NON `--json files`: tronca a 100 in silenzio), `gh api repos/$REPO/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body'`. Il branch è già checkoutato sulla head della PR.
 
             **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
 
