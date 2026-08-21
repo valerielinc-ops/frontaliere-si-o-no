@@ -1277,6 +1277,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'primo-pilastro-zurigo-minimo-vitale': { it: 'primo-pilastro-zurigo-minimo-vitale', en: 'first-pillar-zurich-minimum-living-standard', de: 'erste-saule-zuerich-existenzminimum', fr: 'premier-pilier-zurich-minimum-vital' },
  'cassa-compensazione-zurigo-rendita-avs': { it: 'cassa-compensazione-zurigo-rendita-avs', en: 'zurich-aof-benefits-compensation-fund', de: 'zuericher-avs-ergaenzungsleistungen-rente', fr: 'zurich-avs-prestations-complementaires' },
  'richiesta-permesso-dimora-berna': { it: 'richiesta-permesso-dimora-berna', en: 'bern-residence-permit-b-request', de: 'bern-aufenthaltserlaubnis-b-antrag', fr: 'berne-demande-permis-sejour-b' },
+ 'svizzera-cina-accordo-tariffe': { it: 'svizzera-cina-accordo-tariffe', en: 'switzerland-china-tariff-deal', de: 'schweiz-china-zollabkommen', fr: 'suisse-chine-accord-tarifaire' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
