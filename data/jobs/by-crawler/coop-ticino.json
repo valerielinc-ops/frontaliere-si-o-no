@@ -1928,7 +1928,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
           "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
@@ -1947,7 +1946,8 @@
           "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis-fb5zch",
@@ -3458,8 +3458,7 @@
           "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
         ],
         "de": [
-          "weihnachtsaushilfe-coop-city-zug-cv02in",
-          "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
+          "weihnachtsaushilfe-coop-city-zug-cv02in"
         ],
         "fr": [
           "weihnachtsaushilfe-coop-genossenschaft-zug-cv02in"
@@ -3542,8 +3541,7 @@
           "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
         ],
         "de": [
-          "verkaufberater-in-non-food-coop-city-zug-749kjq",
-          "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
+          "verkaufberater-in-non-food-coop-city-zug-749kjq"
         ],
         "fr": [
           "verkaufberater-in-non-food-coop-genossenschaft-zug-749kjq"
@@ -28031,7 +28029,6 @@
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
           "ladendetektiv-in-coop-schafisheim-aargau",
           "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
-          "negozio-detective-in-coop-genossenschaft-schafisheim",
           "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
           "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim"
         ],
@@ -28040,7 +28037,6 @@
         ],
         "fr": [
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
-          "inspecteur-coop-genossenschaft-schafisheim",
           "detective-magasin-coop-genossenschaft-schafisheim-aargau"
         ]
       },
@@ -28048,10 +28044,8 @@
         "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
         "ladendetektiv-in-coop-schafisheim-aargau",
         "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
-        "negozio-detective-in-coop-genossenschaft-schafisheim",
         "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
         "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
-        "inspecteur-coop-genossenschaft-schafisheim",
         "detective-magasin-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 73500,
@@ -211804,9 +211798,7 @@
         "location": "Argovia",
         "canton": "AG"
       },
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "sourceLang": "de"
     },
     {
       "id": "company-c4uye5",
@@ -211991,9 +211983,7 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-egg-zurich-4l4scm"
         ]
       },
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "sourceLang": "de"
     },
     {
       "id": "company-ncw67g",
@@ -212208,8 +212198,7 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern-q70zu5",
-          "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern",
-          "kochin-koch-m-w-d-coop-ristorante-saanen-bern"
+          "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern-q70zu5",
@@ -212297,8 +212286,7 @@
         "it": [
           "koch-kochin-60-80-two-spice-ag-dietlikon-u51iok",
           "koch-kochin-60-80-two-spice-ag-dietlikon",
-          "cuoco-a-asiatico-a-80-100-two-spice-ag-dietlikon",
-          "koch-kochin-60-80-two-spice-dietlikon"
+          "cuoco-a-asiatico-a-80-100-two-spice-ag-dietlikon"
         ],
         "en": [
           "koch-kochin-60-80-two-spice-ag-dietlikon-u51iok"
@@ -212386,8 +212374,7 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-basel-stadt-6uxeag",
-          "kochin-koch-m-w-d-coop-genossenschaft-basel-stadt",
-          "kochin-koch-m-w-d-coop-ristorante-basel-stadt"
+          "kochin-koch-m-w-d-coop-genossenschaft-basel-stadt"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-basel-stadt-6uxeag",
@@ -212763,7 +212750,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-ko20zi",
@@ -212779,8 +212765,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich-ko20zi",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-volketswil-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-sq6yep",
@@ -213312,9 +213297,7 @@
         "verkaufer-in-food-getranke-coop-bachenbulach-zurich-y3ebrm",
         "verkaufer-in-food-getranke-coop-bachenbulach-zurich"
       ],
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "sourceLang": "de"
     },
     {
       "id": "company-ruhh76",
@@ -213653,7 +213636,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-mohlin-aargau-j8ywu7",
@@ -213669,8 +213651,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-mohlin-aargau-j8ywu7",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-mohlin-aargau"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-ahr6ny",
@@ -213745,9 +213726,6 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-embrach-zurich-ahr6ny"
-        ],
-        "it": [
-          "verkaufer-in-food-coop-embrach-zurich"
         ]
       },
       "previousSlugs": [
@@ -213756,7 +213734,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-w9huxu",
@@ -213897,7 +213875,6 @@
         "de": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-reinach-basel-landschaft-vt0qe0",
         "fr": "collaborateur-trice-vente-food-06-00-bis-10-00-uhr-auffuller-in-coop-reinach-basel-landschaft-vt0qe0"
       },
-      "needsRetranslation": true,
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "salaryMin": 62000,
@@ -213920,8 +213897,7 @@
           "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-reinach-basel-landschaft"
         ]
       },
-      "sourceLang": "de",
-      "retranslationAttempts": 1
+      "sourceLang": "de"
     },
     {
       "id": "company-94qo89",
@@ -214165,9 +214141,6 @@
         ],
         "de": [
           "rayonleiter-in-grundnahrungsmittel-coop-kleinandelfingen-zurich-xse3fa"
-        ],
-        "it": [
-          "rayonleiter-in-grundnahrungsmittel-coop-kleinandelfingen-zurich"
         ]
       },
       "previousSlugs": [
@@ -214176,7 +214149,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-gbddsp",
@@ -214711,7 +214684,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz-g8hhaj",
@@ -214727,8 +214699,7 @@
       "previousSlugs": [
         "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz-g8hhaj",
         "rayonleiter-in-fruchte-gemuse-coop-siebnen-schwyz"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-s13tot",
@@ -214885,7 +214856,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
@@ -214918,8 +214888,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich-k01l7i",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-wadenswil-zurich",
         "macellaio-specialista-della-carne-coop-genossenschaft-wadenswil"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-t466kk",
@@ -214994,9 +214963,6 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-spreitenbach-aargau-t466kk"
-        ],
-        "it": [
-          "verkaufer-in-food-coop-spreitenbach-aargau"
         ]
       },
       "previousSlugs": [
@@ -215005,7 +214971,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-fm478g",
@@ -215786,7 +215752,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-regensdorf-zurich-pfpu6n",
@@ -215804,8 +215769,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-regensdorf-zurich-pfpu6n",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-regensdorf-zurich",
         "macellaio-specialista-della-carne-coop-genossenschaft-regensdorf"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-qhm6ts",
@@ -215968,18 +215932,13 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-bellach-solothurn-lxkx8f"
-        ],
-        "it": [
-          "verkaufer-in-food-coop-bellach-solothurn"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bellach-solothurn-lxkx8f",
         "verkaufer-in-food-coop-bellach-solothurn"
       ],
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "sourceLang": "de"
     },
     {
       "id": "company-btvhsn",
@@ -216047,16 +216006,13 @@
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-coop-saanen-bern-btvhsn"
-        ],
-        "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-coop-saanen-bern"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-coop-saanen-bern-btvhsn",
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-coop-saanen-bern"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-1hk3l",
@@ -216346,7 +216302,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-getranke-wein-coop-biberist-solothurn-geljdw",
@@ -216364,8 +216319,7 @@
         "verkaufer-in-food-getranke-wein-coop-biberist-solothurn-geljdw",
         "verkaufer-in-food-getranke-wein-coop-biberist-solothurn",
         "vendeur-vendeuse-alimentaire-boissons-vin-coop-genossenschaft-biberist"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-v4wxf6",
@@ -216529,9 +216483,6 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-f79xg7"
-        ],
-        "it": [
-          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen"
         ]
       },
       "previousSlugs": [
@@ -216540,7 +216491,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-a0b5qf",
@@ -217171,6 +217122,8 @@
       "addressLocality": "Burgdorf",
       "sourceLang": "de",
       "addressRegion": "SG",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217184,7 +217137,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern-ynow2l",
-          "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern"
+          "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern",
+          "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
         ],
         "en": [
           "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern-ynow2l"
@@ -217195,10 +217149,9 @@
       },
       "previousSlugs": [
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern-ynow2l",
-        "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+        "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern",
+        "menuisier-installateur-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+      ]
     },
     {
       "id": "company-rcnhdl",
@@ -217247,6 +217200,8 @@
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
       "addressRegion": "SG",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217260,7 +217215,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen-rcnhdl",
-          "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen"
+          "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen",
+          "scheduling-and-customer-service-clerk-fust-swiss-household-services-ag-otelfingen"
         ],
         "en": [
           "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen-rcnhdl"
@@ -217271,10 +217227,9 @@
       },
       "previousSlugs": [
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen-rcnhdl",
-        "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+        "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen",
+        "scheduling-and-customer-service-clerk-fust-swiss-household-services-ag-otelfingen"
+      ]
     },
     {
       "id": "company-gdco74",
@@ -217326,7 +217281,6 @@
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -217356,7 +217310,6 @@
         "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-winterthur-zurich-gdco74",
         "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-winterthur-zurich"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
@@ -217411,7 +217364,6 @@
         "de": "magaziner-in-verkauf-coop-genossenschaft-laupen-bern-rbitdu",
         "fr": "magaziner-in-vente-coop-genossenschaft-laupen-bern-rbitdu"
       },
-      "needsRetranslation": true,
       "addressLocality": "Laupen",
       "sourceLang": "de",
       "addressRegion": "BE",
@@ -217427,20 +217379,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-genossenschaft-laupen-bern"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-genossenschaft-laupen-bern"
-      ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Berna",
         "canton": "BE"
-      }
+      },
+      "previousSlugs": [
+        "magaziner-in-verkauf-coop-genossenschaft-laupen-bern"
+      ]
     },
     {
       "id": "company-qqpaf2",
@@ -217490,7 +217436,6 @@
         "de": "kochin-koch-m-w-d-coop-genossenschaft-aarberg-bern-qqpaf2",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-aarberg"
       },
-      "needsRetranslation": true,
       "addressLocality": "Aarberg",
       "sourceLang": "de",
       "addressRegion": "BE",
@@ -217519,7 +217464,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-aarberg-bern-qqpaf2",
         "kochin-koch-m-w-d-coop-genossenschaft-aarberg-bern"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Berna",
@@ -217643,7 +217587,6 @@
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -217673,7 +217616,6 @@
         "produktionsmitarbeiter-in-tagschicht-80-100-two-spice-ag-dietlikon-jl6wwq",
         "produktionsmitarbeiter-in-tagschicht-80-100-two-spice-ag-dietlikon"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
@@ -217728,7 +217670,6 @@
         "de": "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau-kmhsz6",
         "fr": "magaziner-in-vente-coop-genossenschaft-zurzach-aargau-kmhsz6"
       },
-      "needsRetranslation": true,
       "addressLocality": "Zurzach",
       "sourceLang": "de",
       "addressRegion": "AG",
@@ -217744,20 +217685,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau"
-      ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Argovia",
         "canton": "AG"
-      }
+      },
+      "previousSlugs": [
+        "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau"
+      ]
     },
     {
       "id": "company-ak19qf",
@@ -217807,7 +217742,6 @@
         "de": "magaziner-in-verkauf-coop-genossenschaft-basel-stadt-ak19qf",
         "fr": "magaziner-in-vente-coop-genossenschaft-basel-stadt-ak19qf"
       },
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
@@ -217823,20 +217757,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-genossenschaft-basel-stadt"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-genossenschaft-basel-stadt"
-      ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Basilea",
         "canton": "BS"
-      }
+      },
+      "previousSlugs": [
+        "magaziner-in-verkauf-coop-genossenschaft-basel-stadt"
+      ]
     },
     {
       "id": "company-scn6v2",
@@ -218077,8 +218005,7 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
-          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
-          "venditore-in-nonfood-coop-genossenschaft-egerkingen"
+          "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn"
         ],
         "en": [
           "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
@@ -218092,7 +218019,6 @@
       "previousSlugs": [
         "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn-sszcv2",
         "verkaufer-in-nonfood-coop-genossenschaft-egerkingen-solothurn",
-        "venditore-in-nonfood-coop-genossenschaft-egerkingen",
         "seller-in-nonfood-coop-genossenschaft-egerkingen",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-egerkingen"
       ],
@@ -218165,20 +218091,15 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-ostermundigen-bern"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-gastronomie-coop-genossenschaft-ostermundigen-bern"
-      ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-ostermundigen-bern"
+      ]
     },
     {
       "id": "company-6fvftz",
@@ -218737,7 +218658,6 @@
       },
       "addressLocality": "Ostermundigen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218766,8 +218686,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw",
         "verkaufer-in-food-coop-ostermundigen-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-elcpkw",
@@ -218824,7 +218743,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218853,8 +218771,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-elcpkw",
         "verkaufer-in-food-coop-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-v4ig4y",
@@ -219164,7 +219081,6 @@
       },
       "addressLocality": "Zug",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZG",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -219193,8 +219109,7 @@
       "previousSlugs": [
         "rayonleiter-in-molkerei-eier-kase-coop-zug-zdu5lx",
         "rayonleiter-in-molkerei-eier-kase-coop-zug"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-6cut81",
@@ -219601,7 +219516,6 @@
       },
       "addressLocality": "Feldmeilen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219630,8 +219544,7 @@
       "previousSlugs": [
         "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich-gqr3w4",
         "rayonleiter-in-grundnahrungsmittel-coop-feldmeilen-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-h23lcn",
@@ -219679,7 +219592,6 @@
       },
       "addressLocality": "Oberburg bei Burgdorf",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -219708,8 +219620,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-oberburg-bei-burgdorf-bern-h23lcn",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-oberburg-bei-burgdorf-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-lq8p6z",
