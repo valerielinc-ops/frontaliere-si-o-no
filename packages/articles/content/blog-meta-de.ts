@@ -10311,6 +10311,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.title': 'Leben in Lasnigo und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.excerpt': 'Quellensteuer in der Schweiz für Grenzgänger: nur in der Schweiz einbehalten.',
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier aus Lasnigo arbeitet in Ticino',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.title': 'Wohnen in Mozzate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die Mozzate als Wohnsitz im Kanton Tessin wählen: Steuern, Mobilität und das neue Abkommen über Grenzgänger.',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger bei der Überquerung der Grenze zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

@@ -10313,6 +10313,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.title': 'Vivere a Lasnigo e lavorare in Ticino da frontaliere',
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.excerpt': 'Imposta alla fonte in Svizzera per i frontalieri: trattenuta solo in Svizzera.',
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere di Lasnigo che lavora in Ticino',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.title': 'Vivere a Mozzate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per chi sceglie Mozzate come residenza lavorando nel Canton Ticino: imposte, mobilità e il nuovo accordo sui frontalieri.',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.imageAlt': 'Pendolare frontaliero che attraversa il confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

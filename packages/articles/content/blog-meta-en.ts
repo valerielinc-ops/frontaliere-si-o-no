@@ -10312,6 +10312,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.title': 'Living in Lasnigo and working in Ticino as a border worker',
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.excerpt': 'Tax at source in Switzerland for frontier workers: only withheld in Switzerland.',
     'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere from Lasnigo working in Ticino',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.title': 'Living in Mozzate and working in Ticino as a border worker',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.excerpt': 'Practical guide for those who choose Mozzate as a residence working in the Canton of Ticino: taxes, mobility and the new agreement on border workers.',
+    'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.imageAlt': 'Cross-border worker crossing the border between Italy and Switzerland',
 };
 
 export default blogMetaEn;
