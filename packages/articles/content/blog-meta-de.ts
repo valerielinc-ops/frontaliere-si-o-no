@@ -10436,6 +10436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Wohnen in Castione Andevenno und Arbeiten in Graubünden',
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Leitfaden für Grenzgänger: Besteuerung, neues Abkommen, Kosten und Verwaltung des Pendelverkehrs zwischen Italien und dem Kanton Graubünden.',
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Alpenpanorama im Kanton Graubünden',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.title': 'Von Caiolo nach Graubünden: Grenzgängerleben Schweiz-Italien',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.excerpt': 'Wohnen in Caiolo und Arbeiten in Graubünden: Praktischer Leitfaden zur Besteuerung, Bewilligung G, AHV-LPG, KVG und Rückerstattungen für Grenzgänger CH-IT.',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.imageAlt': 'Aussicht vom Monte Generoso in Richtung Graubünden, Grenze zwischen Schweiz und Italien',
 };
 
 export default blogMetaDe;
