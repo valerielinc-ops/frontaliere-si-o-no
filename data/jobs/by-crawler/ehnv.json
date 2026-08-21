@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-08-21T09:52:45.534Z",
+  "assembledAt": "2026-08-21T21:34:24.942Z",
   "jobs": [
     {
       "id": "ehnv-0bb13e86b14a",
@@ -34,7 +34,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:41.817Z",
+      "crawledAt": "2026-08-21T21:34:22.051Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -82,15 +82,15 @@
         ]
       },
       "firstSeenAt": "2026-07-08T10:56:36.199Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -127,7 +127,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4364/une-infirmierere-a-80-90",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:41.249Z",
+      "crawledAt": "2026-08-21T21:34:21.467Z",
       "addressLocality": "Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -181,15 +181,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:20:17.144Z",
-      "salaryMin": 54500,
-      "salaryMax": 82400,
+      "salaryMin": 77900,
+      "salaryMax": 108500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54500,
-          "maxValue": 82400,
+          "minValue": 77900,
+          "maxValue": 108500,
           "unitText": "YEAR"
         }
       }
@@ -226,7 +226,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4363/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:40.673Z",
+      "crawledAt": "2026-08-21T21:34:20.887Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -261,15 +261,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:20:16.479Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -306,7 +306,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4376/une-infirmierere-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:40.045Z",
+      "crawledAt": "2026-08-21T21:34:20.297Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -341,15 +341,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:29:09.126Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -386,7 +386,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4380/une-dieteticienne-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:39.456Z",
+      "crawledAt": "2026-08-21T21:34:19.708Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,15 +421,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:14:02.932Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }
@@ -466,7 +466,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4379/une-dieteticienne-a-80-en-cdd",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:38.806Z",
+      "crawledAt": "2026-08-21T21:34:19.138Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -501,15 +501,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:14:02.300Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }
@@ -546,7 +546,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4402/une-medecin-associee-en-rhumatologie-entre-50-et-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:38.220Z",
+      "crawledAt": "2026-08-21T21:34:18.565Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -581,15 +581,15 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:16:29.137Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -598,27 +598,27 @@
       "id": "ehnv-be585d2e1afb",
       "slug": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains",
         "it": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains",
         "en": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains",
-        "de": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains"
+        "de": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains",
+        "fr": "un-e-cadre-de-proximite-a-80-100-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un.e cadre de proximité à 80 -100%",
       "titleByLocale": {
-        "fr": "Un.e cadre de proximité à 80 -100%",
         "it": "Un.e cadre de proximité à 80 -100%",
         "en": "Un.e cadre de proximité à 80 -100%",
-        "de": "Un.e cadre de proximité à 80 -100%"
+        "de": "Un.e cadre de proximité à 80 -100%",
+        "fr": "Un.e cadre de proximité à 80 -100%"
       },
       "description": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de  St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
       "descriptionByLocale": {
-        "fr": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de  St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
-        "it": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de  St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
-        "en": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de  St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
-        "de": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de  St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026."
+        "it": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
+        "en": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
+        "de": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026.",
+        "fr": "LE SERVICE DE STERILISATION DE L’HOPITAL D’YVERDON ET DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Planifier et organiser les activités des services de stérilisation d'Yverdon et de St Loup avec les blocs opératoires et l’externalisation du retraitement des dispositifs médicaux\n\n• Garantir l'efficience du service en lien avec les normes de stérilisation en vigueur et le respect des bonnes pratiques\n\n• Promouvoir et favoriser le dialogue et faire preuve de leadership par l'exemple\n\n• Transférer ses connaissances à l'équipe\n\n• Assurer et organiser le suivi du personnel en apprentissage\n\n• Poste basé sur Yverdon\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Certificat d’assistant.e technique en stérilisation niveau 1 et 2 ou CFC de technologue en dispositifs médicaux exigé\n\n• Leadership et rigueur\n\n• Grande résistance au stress\n\n• Méthodique\n\n• Sens de l’organisation et des relations humaines\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er NOVEMBRE 2026 OU A DEFINIR\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, Directrice des soins adjointe, T : +41 24 424 54 57\n\nVOUS ÊTES INTÉRESSÉ-E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 20 septembre 2026."
       },
       "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
@@ -626,7 +626,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4421/une-cadre-de-proximite-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:37.594Z",
+      "crawledAt": "2026-08-21T21:34:17.988Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -642,9 +642,7 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4421/une-cadre-de-proximite-a-80-100",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4421",
       "previousSlugs": [
         "una-vicinanza-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
@@ -662,6 +660,7 @@
           "eine-nahe-zu-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ]
       },
+      "firstSeenAt": "2026-08-20T21:40:33.215Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -673,34 +672,33 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-20T21:40:33.215Z"
+      }
     },
     {
       "id": "ehnv-de020b88660e",
       "slug": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay",
       "slugByLocale": {
-        "fr": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay",
         "it": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay",
         "en": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay",
-        "de": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay"
+        "de": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay",
+        "fr": "un-e-apprenti-e-logisticien-ne-ehnv-chavornay"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un·e apprenti·e logisticien·ne",
       "titleByLocale": {
-        "fr": "Un·e apprenti·e logisticien·ne",
         "it": "Un·e apprenti·e logisticien·ne",
         "en": "Un·e apprenti·e logisticien·ne",
-        "de": "Un·e apprenti·e logisticien·ne"
+        "de": "Un·e apprenti·e logisticien·ne",
+        "fr": "Un·e apprenti·e logisticien·ne"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "it": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "en": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
-        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
+        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
+        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
       "needsRetranslation": true,
       "location": "Chavornay",
@@ -708,7 +706,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4430/une-apprentie-logisticienne",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:37.013Z",
+      "crawledAt": "2026-08-21T21:34:17.415Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -724,10 +722,9 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4430/une-apprentie-logisticienne",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4430",
+      "firstSeenAt": "2026-08-21T09:52:37.013Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -739,34 +736,33 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:52:37.013Z"
+      }
     },
     {
       "id": "ehnv-db012dda340c",
       "slug": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains",
         "it": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains",
         "en": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains",
-        "de": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains"
+        "de": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains",
+        "fr": "un-e-apprenti-e-agent-e-de-proprete-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un·e apprenti·e agent·e de propreté",
       "titleByLocale": {
-        "fr": "Un·e apprenti·e agent·e de propreté",
         "it": "Un·e apprenti·e agent·e de propreté",
         "en": "Un·e apprenti·e agent·e de propreté",
-        "de": "Un·e apprenti·e agent·e de propreté"
+        "de": "Un·e apprenti·e agent·e de propreté",
+        "fr": "Un·e apprenti·e agent·e de propreté"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "it": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "en": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
-        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
+        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
+        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
       "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
@@ -774,7 +770,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4429/une-apprentie-agente-de-proprete",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:36.406Z",
+      "crawledAt": "2026-08-21T21:34:16.827Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -790,49 +786,47 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4429/une-apprentie-agente-de-proprete",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4429",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-08-21T09:52:36.406Z",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 51000,
+          "maxValue": 94500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:52:36.406Z"
+      }
     },
     {
       "id": "ehnv-e16c1bd618d1",
       "slug": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains",
         "it": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains",
         "en": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains",
-        "de": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains"
+        "de": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains",
+        "fr": "un-e-apprenti-e-cuisinier-ere-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un·e apprenti·e cuisinier·ère",
       "titleByLocale": {
-        "fr": "Un·e apprenti·e cuisinier·ère",
         "it": "Un·e apprenti·e cuisinier·ère",
         "en": "Un·e apprenti·e cuisinier·ère",
-        "de": "Un·e apprenti·e cuisinier·ère"
+        "de": "Un·e apprenti·e cuisinier·ère",
+        "fr": "Un·e apprenti·e cuisinier·ère"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "it": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "en": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
-        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
+        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
+        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
       "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
@@ -840,7 +834,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4428/une-apprentie-cuisinierere",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:35.809Z",
+      "crawledAt": "2026-08-21T21:34:16.233Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -856,49 +850,47 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4428/une-apprentie-cuisinierere",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4428",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-08-21T09:52:35.809Z",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 51000,
+          "maxValue": 94500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:52:35.809Z"
+      }
     },
     {
       "id": "ehnv-6ab4fc147468",
       "slug": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains",
         "it": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains",
         "en": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains",
-        "de": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains"
+        "de": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains",
+        "fr": "des-apprenti-e-s-employe-e-s-de-commerce-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Des apprenti·e·s employé·e·s de commerce",
       "titleByLocale": {
-        "fr": "Des apprenti·e·s employé·e·s de commerce",
         "it": "Des apprenti·e·s employé·e·s de commerce",
         "en": "Des apprenti·e·s employé·e·s de commerce",
-        "de": "Des apprenti·e·s employé·e·s de commerce"
+        "de": "Des apprenti·e·s employé·e·s de commerce",
+        "fr": "Des apprenti·e·s employé·e·s de commerce"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "it": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "en": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
-        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
+        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
+        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
       "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
@@ -906,7 +898,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4427/des-apprenties-employees-de-commerce",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:35.176Z",
+      "crawledAt": "2026-08-21T21:34:15.616Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -922,49 +914,47 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4427/des-apprenties-employees-de-commerce",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4427",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-08-21T09:52:35.176Z",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 51000,
+          "maxValue": 94500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:52:35.176Z"
+      }
     },
     {
       "id": "ehnv-c63bbd3a50dd",
       "slug": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains",
         "it": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains",
         "en": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains",
-        "de": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains"
+        "de": "un-e-apprenti-e-assistent-e-medical-e-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "fr": "un-e-apprenti-e-assistant-e-medical-e-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un·e apprenti·e assistant·e médical·e",
       "titleByLocale": {
-        "fr": "Un·e apprenti·e assistant·e médical·e",
         "it": "Un·e apprenti·e assistant·e médical·e",
         "en": "Un·e apprenti·e assistant·e médical·e",
-        "de": "Un·e apprenti·e Assistent·e médical·e"
+        "de": "Un·e apprenti·e Assistent·e médical·e",
+        "fr": "Un·e apprenti·e assistant·e médical·e"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "it": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "en": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
-        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
+        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
+        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
       "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
@@ -972,7 +962,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4426/une-apprentie-assistante-medicale",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:34.595Z",
+      "crawledAt": "2026-08-21T21:34:14.992Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -988,49 +978,47 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4426/une-apprentie-assistante-medicale",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4426",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-08-21T09:52:34.595Z",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 51000,
+          "maxValue": 94500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:52:34.595Z"
+      }
     },
     {
       "id": "ehnv-9a8267ca1e39",
       "slug": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains",
         "it": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains",
         "en": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains",
-        "de": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains"
+        "de": "des-apprenti-e-s-assistent-e-s-en-soins-et-sante-communautaire-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "fr": "des-apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Des apprenti·e·s assistant·e·s en soins et santé communautaire",
       "titleByLocale": {
-        "fr": "Des apprenti·e·s assistant·e·s en soins et santé communautaire",
         "it": "Des apprenti·e·s assistant·e·s en soins et santé communautaire",
         "en": "Des apprenti·e·s assistant·e·s en soins et santé communautaire",
-        "de": "Des apprenti·e·s Assistent·e·s en soins et santé communautaire"
+        "de": "Des apprenti·e·s Assistent·e·s en soins et santé communautaire",
+        "fr": "Des apprenti·e·s assistant·e·s en soins et santé communautaire"
       },
       "description": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "it": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
         "en": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
-        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
+        "de": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026.",
+        "fr": "LES EHNV RECHERCHENT POUR LEURS DIFFERENTS SITES\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Scolarité obligatoire terminée avec certificat de fin de scolarité.\n\n• Maîtriser la langue française\n\n• Être motivé·e et avoir envie d’apprendre et de développer ses compétences\n\n• Apprécier le travail en équipe et la collaboration\n\n• Faire preuve de conscience professionnelle, d’initiative et d’autonomie\n\nNOUS OFFRONS\n\n• Un encadrement pédagogique de qualité, assuré par des professionnel·le·s engagé·e·s et motivé·e·s\n\n• Un parcours d’apprentissage riche et varié\n\n• D’excellentes prestations sociales\n\nVOUS ÊTES INTÉRESSÉ·E ?\n\nVotre offre avec documents usuels (lettre de motivation, curriculum vitae, bulletins scolaires et rapports de stages) est à adresser d’ici au 31 octobre 2026."
       },
       "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
@@ -1038,7 +1026,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4425/des-apprenties-assistantes-en-soins-et-sante-communautaire",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:52:34.006Z",
+      "crawledAt": "2026-08-21T21:34:14.385Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1054,23 +1042,21 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4425/des-apprenties-assistantes-en-soins-et-sante-communautaire",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4425",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-08-21T09:52:34.006Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:52:34.006Z"
+      }
     }
   ]
 }
