@@ -10438,6 +10438,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Vivere a Castione Andevenno e lavorare nei Grigioni',
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guida per frontalieri: fiscalità, nuovo accordo, costi e gestione del pendolarismo tra l\'Italia e il Canton Grigioni.',
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Panorama alpino nel Cantone dei Grigioni',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.title': 'Da Caiolo ai Grigioni: vita da frontaliere Svizzera-Italia',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.excerpt': 'Vivere a Caiolo e lavorare nei Grigioni: guida pratica a fiscalità, Permesso G, AVS-LPP, LAMal e ristorni per il frontaliere CH-IT.',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.imageAlt': 'Panorama dal Monte Generoso verso i Grigioni, confine tra Svizzera e Italia',
 };
 
 export default blogMetaIt;

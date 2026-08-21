@@ -10437,6 +10437,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Living in Castione Andevenno and working in Graubünden',
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guide for border workers: taxation, new agreement, costs and management of commuting between Italy and the Canton of Graubünden.',
     'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Alpine panorama in the Grisons Canton',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.title': 'From Caiolo to Graubünden: Switzerland-Italy border life',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.excerpt': 'Living in Caiolo and working in Graubünden: practical guide to taxation, G Permit, AVS-LPP, LAMal and refreshments for the CH-IT border crossing.',
+    'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.imageAlt': 'View from Monte Generoso towards Grisons, Switzerland-Italy border',
 };
 
 export default blogMetaEn;

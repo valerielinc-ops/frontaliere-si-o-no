@@ -31251,6 +31251,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-caiolo-lavorare-grigioni-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-21T23:52:59.098Z',
+ image: '/images/blog/vivere-caiolo-lavorare-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
