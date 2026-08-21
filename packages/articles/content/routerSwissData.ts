@@ -1254,6 +1254,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'richiedenti-asilo-severe-misure': { it: 'richiedenti-asilo-severe-misure', en: 'asylum-seekers-severe-measures', de: 'asylsuchende-severe-ma-nahmen', fr: 'requerants-d-asile-mesures-severes' },
  'assegni-familiari-appenzello-interno-domanda': { it: 'assegni-familiari-appenzello-interno-domanda', en: 'family-allowances-appenzello-interno-application', de: 'familienleistungen-appenzell-innerrhoden-antrag', fr: 'allocations-familiales-appenzell-rhodes-interieures-demande' },
  'parere-governo-infrastrutture-ferroviarie': { it: 'parere-governo-infrastrutture-ferroviarie', en: 'government-opinion-railway-infrastructure', de: 'regierungsstellungnahme-bahninfrastruktur', fr: 'avis-gouvernement-infrastructure-ferroviaire' },
+ 'borse-studio-appenzello-interno': { it: 'borse-studio-appenzello-interno', en: 'scholarships-appenzell-innerrhoden', de: 'stipendien-appenzell-innerrhoden', fr: 'bourses-appenzell-rhodes-interieures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3685,6 +3685,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Der Bundesrat für Bahnplanung',
     'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Veröffentlichung der Regierungsstellungnahme vom 19. August 2026 zum Bericht der GPK-S vom 18. Mai 2026 zu den Strategien für die Schieneninfrastruktur.',
     'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Schweizer Bahninfrastruktur mit modernem Zug',
+    'blog.article.borse-studio-appenzello-interno.title': 'Stipendien Appenzell Innerrhoden: Finanzierungsleitfaden',
+    'blog.article.borse-studio-appenzello-interno.excerpt': 'Im Kanton Appenzell Innerrhoden stehen Stipendien und Studiendarlehen für Auszubildende nach der Schulpflicht zur Verfügung. Erfahren Sie, wie Sie sich bewerben können.',
+    'blog.article.borse-studio-appenzello-interno.imageAlt': 'Klassenzimmer einer Schweizer Alpenschule mit studierenden Schülern, natürliches Licht und Bergspitzen sichtbar durch Fenster',
 };
 
 export default blogMetaChDe;

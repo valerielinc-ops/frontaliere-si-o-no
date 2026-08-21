@@ -11053,6 +11053,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-studio-appenzello-interno',
+    category: 'pratico',
+    date: '2026-08-21T09:09:48.091Z',
+    image: '/images/blog/borse-studio-appenzello-interno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

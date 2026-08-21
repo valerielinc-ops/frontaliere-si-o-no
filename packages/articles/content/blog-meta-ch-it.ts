@@ -3685,6 +3685,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Il Consiglio federale sulla pianificazione ferroviaria',
     'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Pubblicato il parere governativo del 19 agosto 2026 sul rapporto della CdG-S del 18 maggio 2026 in merito alle strategie per le infrastrutture su rotaia.',
     'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Infrastruttura ferroviaria svizzera con treno moderno',
+    'blog.article.borse-studio-appenzello-interno.title': 'Borse di studio Appenzello Interno: guida ai finanziamenti',
+    'blog.article.borse-studio-appenzello-interno.excerpt': 'Nel Canton Appenzello Interno sono disponibili borse di studio e prestiti allo studio per chi prosegue la formazione dopo l\'obbligo scolastico. Scopri come candidarsi.',
+    'blog.article.borse-studio-appenzello-interno.imageAlt': 'Aula scolastica in una scuola svizzera di montagna con studenti intenti a studiare, luce naturale e picchi alpini visibili attraverso le finestre',
 };
 
 export default blogMetaChIt;
