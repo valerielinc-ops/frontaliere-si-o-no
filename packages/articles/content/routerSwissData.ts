@@ -1238,6 +1238,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-cantone-appenzello-validita': { it: 'permesso-l-cantone-appenzello-validita', en: 'permit-l-short-term-appenzell-ausserrhoden-validity', de: 'kurzaufenthalt-appenzell-ausserrhoden-gultigkeit', fr: 'permis-l-appenzell-rhodes-exterieures-validite' },
  'assegni-familiari-appenzello-esterno': { it: 'assegni-familiari-appenzello-esterno', en: 'family-allowances-appenzell-ausserrhoden', de: 'familienzulagen-appenzell-ausserrhoden', fr: 'allocations-familiales-appenzell-rhodes-exterieures' },
  'asilo-custodia-appenzello-esterno': { it: 'asilo-custodia-appenzello-esterno', en: 'childcare-daycare-appenzell-rhodes-outer', de: 'kinderbetreuung-appenzell-ausserrhoden-kosten', fr: 'garde-enfants-appenzell-rhodes-exterieures' },
+ 'casa-appenzello-esterno-acquisto-mutuo': { it: 'casa-appenzello-esterno-acquisto-mutuo', en: 'buy-house-appenzello-esterno-mortgage', de: 'haus-kaufen-appenzello-hypothek', fr: 'acheter-maison-appenzello-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
