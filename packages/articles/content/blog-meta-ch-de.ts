@@ -3697,6 +3697,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.custodia-bambini-appenzello-interno.title': 'Kinderbetreuung Appenzell Innerrhoden: Kosten und Leistungen',
     'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Kindertagesstätten, Kindertagesstätten und Tagesfamilien im Kanton: Wie Einkommenstarife funktionieren und welche Kantonsbeiträge zu nutzen sind.',
     'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Schweizer Kinderbetreuungszentrum mit hellem Klassenzimmer, Lernspielzeug und Möbeln',
+    'blog.article.vendemmia-svizzera-2026-qualita.title': 'Lese 2026 in der Schweiz vielversprechend: hohe Qualität',
+    'blog.article.vendemmia-svizzera-2026-qualita.excerpt': 'Dürre und Hitzewallungen reduzieren die Mengen, aber die Qualität wird hoch sein. Im Wallis wird die Ernte ab dem 24. August 6-12 Tage im Voraus erwartet. Pilzmangel schränkt Behandlungen ein.',
+    'blog.article.vendemmia-svizzera-2026-qualita.imageAlt': 'Schweizer Weinberg waehrend der Erntezeit mit konzentrierten Trauben durch Duerre',
 };
 
 export default blogMetaChDe;

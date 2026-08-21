@@ -3697,6 +3697,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.custodia-bambini-appenzello-interno.title': 'Custodia bambini Appenzello Interno: costi e sussidi',
     'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Asili nido, doposcuola e famiglia diurne nel cantone: come funzionano tariffe calcolate sul reddito e quali sussidi cantonali sfruttare.',
     'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Centro di custodia diurna svizzero con aula illuminata, giocattoli educativi e arredi didattici',
+    'blog.article.vendemmia-svizzera-2026-qualita.title': 'Vendemmia 2026 promettente in Svizzera: qualita elevata',
+    'blog.article.vendemmia-svizzera-2026-qualita.excerpt': 'Siccita e canicola riducono i quantitativi, ma la qualita sara elevata. Nel Vallese raccolta attesa dal 24 agosto con anticipo di 6-12 giorni. Scarsita di funghi limita trattamenti.',
+    'blog.article.vendemmia-svizzera-2026-qualita.imageAlt': 'Vigna in Svizzera durante la vendemmia estiva con acini concentrati per effetto della siccita',
 };
 
 export default blogMetaChIt;
