@@ -1,6 +1,6 @@
 {
   "crawlerKey": "riri",
-  "assembledAt": "2026-08-20T21:48:40.493Z",
+  "assembledAt": "2026-08-21T10:19:49.821Z",
   "jobs": [
     {
       "id": "riri-c04d84002705",
@@ -46,7 +46,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Customer-Service-Specialist-Riri-Zippers-WM-TI-6850/1398158033/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:48:37.153Z",
+      "crawledAt": "2026-08-21T10:19:47.154Z",
       "previousSlugs": [
         "customer-service-specialist-riri-zippers-mendrisio-riri",
         "customer-service-specialist-riri-zippers-w-m-mendrisio-riri",
@@ -66,16 +66,16 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:41:22.541Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 59000,
+          "maxValue": 90500,
           "unitText": "YEAR"
         }
       }
