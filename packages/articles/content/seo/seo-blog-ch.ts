@@ -47600,6 +47600,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-settembre-neutralita-alimentazione': {
+    title: 'Sondaggio gfs: neutralità vicina al no, alimentazione 50-50',
+    description: 'Il primo sondaggio gfs.bern sulle votazioni del 27 settembre: neutralità verso il rifiuto (54%), alimentazione in bilico (49% vs 47%). Analisi regionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, sondaggio, neutralità, vicina, alimentazione',
+    ogTitle: 'Sondaggio gfs: neutralità no, alimentazione 50-50',
+    ogDescription: 'Primo sondaggio gfs.bern per le votazioni federali del 27 settembre: l\'iniziativa sulla neutralità rischia il rifiuto con il 54% contrario, mentre quella sull\'alimentazione è in perfetto equilibrio (49% no, 47% sì). Divergenze regionali e per partiti',
+    canonicalPath: '/articoli-svizzera/votazioni-settembre-neutralita-alimentazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sondaggio gfs: neutralità vicina al no, alimentazione 50-50",
+      "description": "Il primo sondaggio gfs.bern sulle votazioni del 27 settembre: neutralità verso il rifiuto (54%), alimentazione in bilico (49% vs 47%). Analisi regionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-settembre-neutralita-alimentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cittadini svizzeri durante una votazione federale, con fascicoli informativi visibili su tavoli per consultazione"
+      },
+      "datePublished": "2026-08-21T06:53:46+00:00",
+      "dateModified": "2026-08-21T06:53:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-settembre-neutralita-alimentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1249,6 +1249,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-appenzello-proroga': { it: 'permesso-l-appenzello-proroga', en: 'permit-l-appenzello-validity-renewal', de: 'permit-l-appenzell-innerrhoden-gultigkeit', fr: 'permis-l-appenzell-rhodes-validite' },
  'voto-27-settembre-neutralita': { it: 'voto-27-settembre-neutralita', en: 'voting-27-september-neutrality', de: 'wahlen-27-september-neutralitaet', fr: 'vote-27-septembre-neutre' },
  'holcim-acquista-fermacell': { it: 'holcim-acquista-fermacell', en: 'holcim-acquires-fermacell', de: 'holcim-uebernimmt-fermacell', fr: 'holcim-acquiert-fermacell' },
+ 'votazioni-settembre-neutralita-alimentazione': { it: 'votazioni-settembre-neutralita-alimentazione', en: 'voting-september-neutrality-food', de: 'abstimmung-september-neutralitaet-lebensmittel', fr: 'votations-septembre-neutralite-alimentation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
