@@ -10377,6 +10377,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Living in Ticino, working as a border worker: advantages and disadvantages',
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Connections with Ticino, travel times, cost of living, recommended areas for border crossers',
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere living in Antrona Schieranco and working in Ticino',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Living in Jerago with Orago and working in Ticino as a border worker',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Know the rules and procedures for border workers living in Ticino and working in the neighbouring country.',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere living in Jerago con Orago and working in Ticino, who needs to know about the new fiscal agreement and its implications.',
 };
 
 export default blogMetaEn;

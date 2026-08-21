@@ -10379,6 +10379,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Vivre au Tessin, travailler comme frontalier : avantages et inconvénients',
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Liaisons avec le Tessin, temps de trajet, coût de la vie, zones recommandées pour les frontaliers',
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier vit à Antrona Schieranco et travaille en Tessin',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Vivre à Jerago avec Orago et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Connaître les règles et les procédures pour les frontaliers qui vivent au Tessin et travaillent dans le pays voisin.',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalière vivant à Jerago con Orago et travaillant en Suisse, qui doit savoir de l\'accord fiscal nouveau et de ses implications.',
 };
 
 export default blogMetaFr;

@@ -10376,6 +10376,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Leben im Tessin, Arbeiten als Grenzgänger: Vor- und Nachteile',
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Verbindungen zum Tessin, Reisezeiten, Lebenshaltungskosten, empfohlene Gebiete für Grenzgänger',
     'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier lebt in Antrona Schieranco und arbeitet in Tessin',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Mit Orago in Jerago leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Kennen Sie die Regeln und Verfahren für Grenzgänger, die im Tessin leben und im Nachbarland arbeiten.',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier, der in Jerago con Orago lebt und in Ticino arbeitet, der über den neuen Steuerabkommen und seine Auswirkungen wissen muss.',
 };
 
 export default blogMetaDe;
