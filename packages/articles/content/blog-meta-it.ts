@@ -10423,6 +10423,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Vivere Valdisotto, lavorare Grigioni: fiscalita frontaliere',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Imposta alla fonte, AVS e LAMal: cosa sapere su fiscalita e previdenza per chi vive a Valdisotto e lavora in Grigioni come frontaliere',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Paesaggio alpino Ticino-Grigioni, veduta del confine frontaliere presso Locarno',
+    'blog.article.caspoggio-grigioni-frontaliere.title': 'Vivere Caspoggio, lavorare Grigioni: guida frontaliere',
+    'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontaliere da Caspoggio ai Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione e procedura pratica per trasferirsi.',
+    'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Paesaggio alpino di montagna svizzera con valle, simbolo della regione di confine tra Caspoggio e Grigioni',
 };
 
 export default blogMetaIt;

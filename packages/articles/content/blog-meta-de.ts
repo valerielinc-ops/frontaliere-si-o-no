@@ -10421,6 +10421,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Wohnen Valdisotto, arbeiten Graubünden: Grenzsteuer',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Quellensteuer, AHV und KVG: Was Sie über Steuern und Vorsorge für diejenigen wissen sollten, die in Valdisotto leben und in Graubünden als Grenzgänger arbeiten',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Alpenlandschaft Grenze Tessin-Graubuenden, Locarno-Tal',
+    'blog.article.caspoggio-grigioni-frontaliere.title': 'Wohnen Caspoggio, arbeiten Graubünden: Grenzführer',
+    'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Grenzgänger von Caspoggio nach Graubünden: Besteuerung, AHV/BVG/KVG, Bewilligung G, Doppelbesteuerung und praktisches Verfahren für den Umzug.',
+    'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Alpines Berglandschaftsszenario an der Grenze zwischen Caspoggio und Graubünden',
 };
 
 export default blogMetaDe;
