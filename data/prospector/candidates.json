@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-21T11:16:04.780Z",
+  "updatedAt": "2026-08-21T13:43:32.390Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -147,7 +147,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.368Z",
-      "updatedAt": "2026-08-21T10:02:54.625Z",
+      "updatedAt": "2026-08-21T13:40:16.849Z",
       "name": "Anker Swiss Ticino AG",
       "city": "Mendrisio",
       "zip": "6850",
@@ -171,7 +171,7 @@
       ],
       "platform": null,
       "tenantHost": null,
-      "vacancyCount": 222,
+      "vacancyCount": 223,
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
@@ -183,6 +183,19 @@
       "qualityVerdict": "good",
       "qualityProblems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:16.849Z",
+          "score": 0.933,
+          "verdict": "good",
+          "vacancyCount": 223,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.327
+        }
       ]
     },
     "annibale-costruzioni@breganzona": {
@@ -639,12 +652,12 @@
     },
     "jobup": {
       "key": "jobup",
-      "status": "validated",
+      "status": "rejected",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.369Z",
-      "updatedAt": "2026-08-21T10:03:26.078Z",
+      "updatedAt": "2026-08-21T13:18:57.441Z",
       "name": "Jobup",
       "city": "",
       "zip": "",
@@ -689,10 +702,24 @@
       "crawlerKey": "itunes",
       "mode": "template",
       "sourceLang": "de",
-      "qualityScore": 0.66,
-      "qualityVerdict": "weak",
+      "qualityScore": 0.385,
+      "qualityVerdict": "bad",
       "qualityProblems": [
+        "50% degli URL non risolve",
         "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:18:57.441Z",
+          "score": 0.385,
+          "verdict": "bad",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 0.5,
+          "titleMatchRate": 0.028,
+          "contentfulRate": 0.5,
+          "distinctRate": 1
+        }
       ]
     },
     "michael-page": {
@@ -702,7 +729,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.369Z",
-      "updatedAt": "2026-08-21T09:13:03.603Z",
+      "updatedAt": "2026-08-21T13:41:20.902Z",
       "name": "Michael Page",
       "city": "",
       "zip": "",
@@ -743,7 +770,20 @@
       "sourceLang": "en",
       "qualityScore": 0.995,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:20.902Z",
+          "score": 0.995,
+          "verdict": "good",
+          "vacancyCount": 21,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.952
+        }
+      ]
     },
     "bundesamt-fur-sport-baspo": {
       "key": "bundesamt-fur-sport-baspo",
@@ -1024,7 +1064,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.371Z",
-      "updatedAt": "2026-08-21T09:12:40.663Z",
+      "updatedAt": "2026-08-21T13:40:48.869Z",
       "name": "iPersonal",
       "city": "",
       "zip": "",
@@ -1067,9 +1107,22 @@
       "crawlerKey": "ipersonal",
       "mode": "template",
       "sourceLang": "de",
-      "qualityScore": 0.987,
+      "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:48.869Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 15,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "scherler@breganzona": {
       "key": "scherler@breganzona",
@@ -1464,7 +1517,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.373Z",
-      "updatedAt": "2026-08-21T10:05:33.862Z",
+      "updatedAt": "2026-08-21T13:43:29.617Z",
       "name": "Vebego AG, succursale Ticino",
       "city": "Castione",
       "zip": "6532",
@@ -1501,7 +1554,20 @@
       "sourceLang": "it",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:29.617Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 3,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "multiservice24@brissago": {
       "key": "multiservice24@brissago",
@@ -3505,7 +3571,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.378Z",
-      "updatedAt": "2026-08-21T09:12:55.380Z",
+      "updatedAt": "2026-08-21T13:41:13.362Z",
       "name": "MediPersonal",
       "city": "Wallisellen",
       "zip": "8304",
@@ -3544,7 +3610,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:13.362Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 15,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "prime-international-jobs-by-von-arx@coira": {
       "key": "prime-international-jobs-by-von-arx@coira",
@@ -3610,7 +3689,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.379Z",
-      "updatedAt": "2026-08-21T10:03:55.234Z",
+      "updatedAt": "2026-08-21T13:41:30.641Z",
       "name": "OK Job SA, succursale di Mendrisio",
       "city": "Mendrisio",
       "zip": "6850",
@@ -3647,9 +3726,22 @@
       "crawlerKey": "okjob",
       "mode": "template",
       "sourceLang": "fr",
-      "qualityScore": 0.949,
+      "qualityScore": 0.95,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:30.641Z",
+          "score": 0.95,
+          "verdict": "good",
+          "vacancyCount": 17,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0.858,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "girard-catherine-e-gabucci-tomaso@cureglia": {
       "key": "girard-catherine-e-gabucci-tomaso@cureglia",
@@ -4903,7 +4995,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.223Z",
-      "updatedAt": "2026-08-21T10:03:08.234Z",
+      "updatedAt": "2026-08-21T13:40:29.637Z",
       "name": "Basilese",
       "domain": "baloise.ch",
       "city": "Mendrisio",
@@ -4934,7 +5026,20 @@
       "sourceLang": "it",
       "qualityScore": 0.846,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:29.637Z",
+          "score": 0.846,
+          "verdict": "good",
+          "vacancyCount": 3,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0.56,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "centrolaserticino.ch": {
       "key": "centrolaserticino.ch",
@@ -135249,7 +135354,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.409Z",
-      "updatedAt": "2026-08-21T09:13:28.593Z",
+      "updatedAt": "2026-08-21T13:42:03.294Z",
       "name": "E-Recruiting GENERALI Stellen",
       "tenantHost": "recruitingapp-2717.umantis.com",
       "platform": "umantis.com",
@@ -135265,7 +135370,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:03.294Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2731@umantis.com": {
       "key": "recruitingapp-2731@umantis.com",
@@ -135312,7 +135430,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.409Z",
-      "updatedAt": "2026-08-21T10:04:28.467Z",
+      "updatedAt": "2026-08-21T13:42:08.043Z",
       "name": "Arbeiten im KSBL",
       "tenantHost": "recruitingapp-2748.umantis.com",
       "platform": "umantis.com",
@@ -135332,6 +135450,30 @@
       "qualityProblems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
         "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:20:19.040Z",
+          "score": 0.559,
+          "verdict": "weak",
+          "vacancyCount": 11,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 0.091
+        },
+        {
+          "at": "2026-08-21T13:42:08.043Z",
+          "score": 0.559,
+          "verdict": "weak",
+          "vacancyCount": 11,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 0.091
+        }
       ]
     },
     "recruitingapp-2769@umantis.com": {
@@ -135360,7 +135502,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.409Z",
-      "updatedAt": "2026-08-21T09:13:48.246Z",
+      "updatedAt": "2026-08-21T13:42:23.430Z",
       "name": "Bewerbungsplattform Primarschule Uster Stellen",
       "tenantHost": "recruitingapp-2794.umantis.com",
       "platform": "umantis.com",
@@ -135377,7 +135519,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:23.430Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 12,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2812@umantis.com": {
       "key": "recruitingapp-2812@umantis.com",
@@ -135405,7 +135560,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.410Z",
-      "updatedAt": "2026-08-21T10:04:50.919Z",
+      "updatedAt": "2026-08-21T13:42:38.724Z",
       "name": "Jobs",
       "tenantHost": "recruitingapp-2820.umantis.com",
       "platform": "umantis.com",
@@ -135419,10 +135574,34 @@
       "crawlerKey": "recruitingapp-2820",
       "mode": "template",
       "sourceLang": "de",
-      "qualityScore": 0.595,
+      "qualityScore": 0.638,
       "qualityVerdict": "weak",
       "qualityProblems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:20:48.997Z",
+          "score": 0.638,
+          "verdict": "weak",
+          "vacancyCount": 4,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0.108,
+          "contentfulRate": 0.75,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-21T13:42:38.724Z",
+          "score": 0.638,
+          "verdict": "weak",
+          "vacancyCount": 4,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0.108,
+          "contentfulRate": 0.75,
+          "distinctRate": 1
+        }
       ]
     },
     "recruitingapp-2844@umantis.com": {
@@ -135451,7 +135630,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.410Z",
-      "updatedAt": "2026-08-21T09:14:03.590Z",
+      "updatedAt": "2026-08-21T13:42:43.632Z",
       "name": "Bewerbermanagement Kanton Thurgau Stellen",
       "tenantHost": "recruitingapp-2849.umantis.com",
       "platform": "umantis.com",
@@ -135467,7 +135646,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:43.632Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2861@umantis.com": {
       "key": "recruitingapp-2861@umantis.com",
@@ -135476,7 +135668,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.410Z",
-      "updatedAt": "2026-08-21T10:04:57.496Z",
+      "updatedAt": "2026-08-21T13:42:46.339Z",
       "name": "Bewerbermanagement EPI und Klinik Lengg Stellen",
       "tenantHost": "recruitingapp-2861.umantis.com",
       "platform": "umantis.com",
@@ -135494,6 +135686,30 @@
       "qualityVerdict": "weak",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:20:57.559Z",
+          "score": 0.625,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0.5,
+          "contentfulRate": 0,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-21T13:42:46.339Z",
+          "score": 0.625,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0.5,
+          "contentfulRate": 0,
+          "distinctRate": 1
+        }
       ]
     },
     "recruitingapp-2923@umantis.com": {
@@ -135503,7 +135719,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.411Z",
-      "updatedAt": "2026-08-21T10:05:15.933Z",
+      "updatedAt": "2026-08-21T13:43:08.254Z",
       "name": "Jobs",
       "tenantHost": "recruitingapp-2923.umantis.com",
       "platform": "umantis.com",
@@ -135519,7 +135735,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:08.254Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2925@umantis.com": {
       "key": "recruitingapp-2925@umantis.com",
@@ -135547,7 +135776,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.411Z",
-      "updatedAt": "2026-08-21T09:14:28.435Z",
+      "updatedAt": "2026-08-21T13:43:17.967Z",
       "name": "EBP",
       "tenantHost": "recruitingapp-2952.umantis.com",
       "platform": "umantis.com",
@@ -135563,7 +135792,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:17.967Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 8,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-3018@umantis.com": {
       "key": "recruitingapp-3018@umantis.com",
@@ -135610,7 +135852,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.411Z",
-      "updatedAt": "2026-08-21T10:05:27.408Z",
+      "updatedAt": "2026-08-21T13:43:23.107Z",
       "name": "Rekrutierungstool Stadt Luzern Stellen",
       "tenantHost": "recruitingapp-3036.umantis.com",
       "platform": "umantis.com",
@@ -135627,7 +135869,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:23.107Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 6,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-1154@umantis.com": {
       "key": "recruitingapp-1154@umantis.com",
@@ -135636,7 +135891,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T09:13:13.867Z",
+      "updatedAt": "2026-08-21T13:41:40.851Z",
       "name": "SGKB Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-1154.umantis.com",
       "platform": "umantis.com",
@@ -135653,7 +135908,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:40.851Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 7,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2649@umantis.com": {
       "key": "recruitingapp-2649@umantis.com",
@@ -135662,7 +135930,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T10:04:12.713Z",
+      "updatedAt": "2026-08-21T13:41:48.461Z",
       "name": "Alexander von Humboldt-Stiftung Stellen",
       "tenantHost": "recruitingapp-2649.umantis.com",
       "platform": "umantis.com",
@@ -135679,7 +135947,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:48.461Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 4,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2677@umantis.com": {
       "key": "recruitingapp-2677@umantis.com",
@@ -135688,7 +135969,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T09:13:18.810Z",
+      "updatedAt": "2026-08-21T13:41:53.259Z",
       "name": "E-Recruiting LLB-Gruppe Stellen",
       "tenantHost": "recruitingapp-2677.umantis.com",
       "platform": "umantis.com",
@@ -135705,7 +135986,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:53.259Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 21,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2678@umantis.com": {
       "key": "recruitingapp-2678@umantis.com",
@@ -135714,7 +136008,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T09:13:23.652Z",
+      "updatedAt": "2026-08-21T13:41:58.239Z",
       "name": "E-Recruiting Hochschule Luzern Stellen",
       "tenantHost": "recruitingapp-2678.umantis.com",
       "platform": "umantis.com",
@@ -135730,7 +136024,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:58.239Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2759@umantis.com": {
       "key": "recruitingapp-2759@umantis.com",
@@ -135758,7 +136065,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T09:13:53.297Z",
+      "updatedAt": "2026-08-21T13:42:28.744Z",
       "name": "eRecruiting SteelcoBelimed Infection Control Job Openings",
       "tenantHost": "recruitingapp-2806.umantis.com",
       "platform": "umantis.com",
@@ -135775,7 +136082,20 @@
       "sourceLang": "en",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:28.738Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2814@umantis.com": {
       "key": "recruitingapp-2814@umantis.com",
@@ -135784,7 +136104,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T09:13:58.546Z",
+      "updatedAt": "2026-08-21T13:42:33.966Z",
       "name": "HR Suite",
       "tenantHost": "recruitingapp-2814.umantis.com",
       "platform": "umantis.com",
@@ -135800,7 +136120,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:33.966Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2862@umantis.com": {
       "key": "recruitingapp-2862@umantis.com",
@@ -135809,12 +136142,12 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-21T09:14:08.805Z",
+      "updatedAt": "2026-08-21T13:42:51.314Z",
       "name": "Mammut eRecruiting Stellenmarkt",
       "tenantHost": "recruitingapp-2862.umantis.com",
       "platform": "umantis.com",
       "careersUrl": "https://recruitingapp-2862.umantis.com/Jobs/All?lang=ger",
-      "vacancyCount": 25,
+      "vacancyCount": 27,
       "vacancySignals": [
         "template:25",
         "vacancy-path"
@@ -135825,7 +136158,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:51.314Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 27,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2896@umantis.com": {
       "key": "recruitingapp-2896@umantis.com",
@@ -135834,7 +136180,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.414Z",
-      "updatedAt": "2026-08-21T09:14:13.691Z",
+      "updatedAt": "2026-08-21T13:42:56.341Z",
       "name": "Bewerbermanagement GZ Dielsdorf Stellen",
       "tenantHost": "recruitingapp-2896.umantis.com",
       "platform": "umantis.com",
@@ -135852,6 +136198,19 @@
       "qualityVerdict": "good",
       "qualityProblems": [
         "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:56.341Z",
+          "score": 0.85,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 0.25,
+          "distinctRate": 1
+        }
       ]
     },
     "recruitingapp-2908@umantis.com": {
@@ -135880,12 +136239,12 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.414Z",
-      "updatedAt": "2026-08-21T10:05:09.381Z",
+      "updatedAt": "2026-08-21T13:43:00.419Z",
       "name": "Universität Liechtenstein Stellen",
       "tenantHost": "recruitingapp-2913.umantis.com",
       "platform": "umantis.com",
       "careersUrl": "https://recruitingapp-2913.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=",
-      "vacancyCount": 4,
+      "vacancyCount": 3,
       "vacancySignals": [
         "template:4",
         "vacancy-path"
@@ -135896,7 +136255,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:00.419Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 3,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2919@umantis.com": {
       "key": "recruitingapp-2919@umantis.com",
@@ -135905,7 +136277,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.414Z",
-      "updatedAt": "2026-08-21T09:14:18.636Z",
+      "updatedAt": "2026-08-21T13:43:05.265Z",
       "name": "Bewerbermanagement Stadt Frauenfeld Stellen",
       "tenantHost": "recruitingapp-2919.umantis.com",
       "platform": "umantis.com",
@@ -135921,7 +136293,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:05.265Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2924@umantis.com": {
       "key": "recruitingapp-2924@umantis.com",
@@ -135930,7 +136315,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.414Z",
-      "updatedAt": "2026-08-21T09:14:23.540Z",
+      "updatedAt": "2026-08-21T13:43:12.988Z",
       "name": "Bewerbermanagement Gesundheitszentrum Fricktal AG Stellen",
       "tenantHost": "recruitingapp-2924.umantis.com",
       "platform": "umantis.com",
@@ -135946,7 +136331,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:12.988Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2994@umantis.com": {
       "key": "recruitingapp-2994@umantis.com",
@@ -135974,7 +136372,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.414Z",
-      "updatedAt": "2026-08-21T10:05:30.236Z",
+      "updatedAt": "2026-08-21T13:43:25.942Z",
       "name": "AMANN Group Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-597.umantis.com",
       "platform": "umantis.com",
@@ -135990,7 +136388,20 @@
       "sourceLang": "de",
       "qualityScore": 0.825,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:43:25.942Z",
+          "score": 0.825,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0.5,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-1123@umantis.com": {
       "key": "recruitingapp-1123@umantis.com",
@@ -135999,7 +136410,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-21T09:13:08.623Z",
+      "updatedAt": "2026-08-21T13:41:35.914Z",
       "name": "BIG & ARE Stellen",
       "tenantHost": "recruitingapp-1123.umantis.com",
       "platform": "umantis.com",
@@ -136016,7 +136427,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:35.914Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2563@umantis.com": {
       "key": "recruitingapp-2563@umantis.com",
@@ -136025,7 +136449,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-21T10:04:08.890Z",
+      "updatedAt": "2026-08-21T13:41:43.570Z",
       "name": "Switch Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-2563.umantis.com",
       "platform": "umantis.com",
@@ -136041,7 +136465,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:43.570Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2783@umantis.com": {
       "key": "recruitingapp-2783@umantis.com",
@@ -136050,7 +136487,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-21T09:13:38.253Z",
+      "updatedAt": "2026-08-21T13:42:12.964Z",
       "name": "kloeckner applicant management Stellen",
       "tenantHost": "recruitingapp-2783.umantis.com",
       "platform": "umantis.com",
@@ -136066,7 +136503,20 @@
       "sourceLang": "de",
       "qualityScore": 0.97,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:12.964Z",
+          "score": 0.97,
+          "verdict": "good",
+          "vacancyCount": 50,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.7
+        }
+      ]
     },
     "recruitingapp-2788@umantis.com": {
       "key": "recruitingapp-2788@umantis.com",
@@ -136075,7 +136525,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-21T09:13:43.277Z",
+      "updatedAt": "2026-08-21T13:42:18.092Z",
       "name": "Bewerbermanagement Maschinenring Stellen",
       "tenantHost": "recruitingapp-2788.umantis.com",
       "platform": "umantis.com",
@@ -136092,7 +136542,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:42:18.092Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "recruitingapp-2964@umantis.com": {
       "key": "recruitingapp-2964@umantis.com",
@@ -136120,7 +136583,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.416Z",
-      "updatedAt": "2026-08-21T09:12:50.644Z",
+      "updatedAt": "2026-08-21T13:41:03.725Z",
       "name": "J. Safra Sarasin",
       "tenantHost": "jsafrasarasin.umantis.com",
       "platform": "umantis.com",
@@ -136136,7 +136599,20 @@
       "sourceLang": "en",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:03.725Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 14,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "beinspired@umantis.com": {
       "key": "beinspired@umantis.com",
@@ -137357,7 +137833,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.591Z",
-      "updatedAt": "2026-08-21T10:02:46.703Z",
+      "updatedAt": "2026-08-21T13:40:06.502Z",
       "name": "Albergo Gardenia",
       "domain": "albergo-gardenia.ch",
       "city": "",
@@ -137384,7 +137860,20 @@
       "sourceLang": "it",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:06.493Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "ascona-locarno.com": {
       "key": "ascona-locarno.com",
@@ -138560,7 +139049,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.609Z",
-      "updatedAt": "2026-08-21T10:03:58.226Z",
+      "updatedAt": "2026-08-21T13:41:30.846Z",
       "name": "Parkhotel Delta",
       "domain": "parkhoteldelta.ch",
       "city": "",
@@ -138573,7 +139062,7 @@
       ],
       "platform": "hotelcareer.ch",
       "tenantHost": "hotelcareer.ch",
-      "vacancyCount": 2,
+      "vacancyCount": 0,
       "vacancySignals": [
         "template:2",
         "vacancy-path"
@@ -138585,9 +139074,22 @@
       "crawlerKey": "parkhoteldelta",
       "mode": "template",
       "sourceLang": "de",
-      "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityScore": 0,
+      "qualityVerdict": "insufficient",
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:41:30.846Z",
+          "score": 0,
+          "verdict": "insufficient",
+          "vacancyCount": 0,
+          "sampled": 0,
+          "reachableRate": 0,
+          "titleMatchRate": 0,
+          "contentfulRate": 0,
+          "distinctRate": 0
+        }
+      ]
     },
     "muntlareita.ch": {
       "key": "muntlareita.ch",
@@ -156373,7 +156875,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.278Z",
-      "updatedAt": "2026-08-21T10:03:09.716Z",
+      "updatedAt": "2026-08-21T13:40:31.004Z",
       "name": "buersten-technik",
       "domain": "buersten-technik.ch",
       "careersUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
@@ -156398,7 +156900,31 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "insufficient",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:18:35.021Z",
+          "score": 1,
+          "verdict": "insufficient",
+          "vacancyCount": 1,
+          "sampled": 1,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-21T13:40:31.004Z",
+          "score": 1,
+          "verdict": "insufficient",
+          "vacancyCount": 1,
+          "sampled": 1,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "buesserzeidler.ch": {
       "key": "buesserzeidler.ch",
@@ -156802,7 +157328,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.288Z",
-      "updatedAt": "2026-08-21T10:03:15.606Z",
+      "updatedAt": "2026-08-21T13:40:39.278Z",
       "name": "glueckskette",
       "domain": "glueckskette.ch",
       "careersUrl": "https://www.swiss-solidarity.org/about-us/open-positions",
@@ -156828,6 +157354,30 @@
       "qualityVerdict": "weak",
       "qualityProblems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:18:43.741Z",
+          "score": 0.6,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 0.5
+        },
+        {
+          "at": "2026-08-21T13:40:39.277Z",
+          "score": 0.6,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 0.5
+        }
       ]
     },
     "gmo.ch": {
@@ -156837,7 +157387,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.288Z",
-      "updatedAt": "2026-08-21T10:03:19.359Z",
+      "updatedAt": "2026-08-21T13:40:44.191Z",
       "name": "gmo",
       "domain": "gmo.ch",
       "careersUrl": "https://www.arsante.ch/emploi",
@@ -156862,7 +157412,20 @@
       "sourceLang": "fr",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:44.191Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "gmppsa.ch": {
       "key": "gmppsa.ch",
@@ -156954,7 +157517,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.289Z",
-      "updatedAt": "2026-08-21T10:03:37.736Z",
+      "updatedAt": "2026-08-21T13:41:08.682Z",
       "name": "lenk-simmental",
       "domain": "lenk-simmental.ch",
       "careersUrl": "https://www.adelboden-lenk.ch/jobs",
@@ -156981,6 +157544,30 @@
       "qualityVerdict": "weak",
       "qualityProblems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:19:13.686Z",
+          "score": 0.65,
+          "verdict": "weak",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-21T13:41:08.682Z",
+          "score": 0.65,
+          "verdict": "weak",
+          "vacancyCount": 10,
+          "sampled": 4,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
       ]
     },
     "lenksportundevents.ch": {
@@ -157151,7 +157738,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.292Z",
-      "updatedAt": "2026-08-21T10:03:12.402Z",
+      "updatedAt": "2026-08-21T13:40:33.612Z",
       "name": "lepatron",
       "domain": "lepatron.ch",
       "careersUrl": "https://careers.orior.ch/go/Le-Patron/4574301/",
@@ -157175,7 +157762,20 @@
       "sourceLang": "de",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:33.612Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     },
     "leperolles.ch": {
       "key": "leperolles.ch",
@@ -158647,7 +159247,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.317Z",
-      "updatedAt": "2026-08-21T10:05:36.646Z",
+      "updatedAt": "2026-08-21T13:43:32.385Z",
       "name": "walker-renova",
       "domain": "walker-renova.ch",
       "careersUrl": "https://bim-center-chur.ch/",
@@ -158673,6 +159273,30 @@
       "qualityVerdict": "weak",
       "qualityProblems": [
         "50% degli URL non risolve"
+      ],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:37:09.765Z",
+          "score": 0,
+          "verdict": "insufficient",
+          "vacancyCount": 0,
+          "sampled": 0,
+          "reachableRate": 0,
+          "titleMatchRate": 0,
+          "contentfulRate": 0,
+          "distinctRate": 0
+        },
+        {
+          "at": "2026-08-21T13:43:32.385Z",
+          "score": 0.55,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 0.5,
+          "titleMatchRate": 0.5,
+          "contentfulRate": 0.5,
+          "distinctRate": 1
+        }
       ]
     },
     "walkerpc.ch": {
@@ -158991,7 +159615,7 @@
         "tenant:altamiraweb.com"
       ],
       "firstSeenAt": "2026-08-21T11:13:18.075Z",
-      "updatedAt": "2026-08-21T11:16:04.775Z",
+      "updatedAt": "2026-08-21T13:40:36.687Z",
       "name": "Cippà Trasporti S.A.",
       "tenantHost": "cippatrasporti.altamiraweb.com",
       "platform": "altamiraweb.com",
@@ -159008,7 +159632,20 @@
       "sourceLang": "it",
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "validationHistory": [
+        {
+          "at": "2026-08-21T13:40:36.687Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        }
+      ]
     }
   }
 }
