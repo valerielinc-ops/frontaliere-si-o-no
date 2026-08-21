@@ -30999,6 +30999,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'vivere-cantello-lavorare-ticino-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-21T05:43:34.295Z',
+ image: '/images/blog/vivere-cantello-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

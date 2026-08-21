@@ -10352,6 +10352,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-21.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 21. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-21.seoDescription': 'Grenzgänger-Bulletin vom 21. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-21.ogDescription': 'Die Zahlen vom 21. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.title': 'Wohnen in Cantello und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.excerpt': 'Die Vor- und Nachteile des Grenzgängerlebens in Cantello und der Arbeit im Tessin, praktische und verfahrenstechnische Überlegungen.',
+    'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.imageAlt': 'Lugano-Blick vom Stadtzentrum.',
 };
 
 export default blogMetaDe;
