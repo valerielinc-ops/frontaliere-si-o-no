@@ -3697,6 +3697,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.custodia-bambini-appenzello-interno.title': 'Appenzello Child Custody Interior: costs and subsidies',
     'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Nurseries, after-school and daytime family in the canton: how income-based rates work and what cantonal subsidies to take advantage of.',
     'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Swiss childcare center with bright classroom, educational toys and learning furniture',
+    'blog.article.vendemmia-svizzera-2026-qualita.title': 'Promising 2026 harvest in Switzerland: high quality',
+    'blog.article.vendemmia-svizzera-2026-qualita.excerpt': 'Drought and heat stroke reduce the quantities, but the quality will be high. In Valais collection expected from 24 August 6-12 days in advance. Scarcity of mushrooms limits treatments.',
+    'blog.article.vendemmia-svizzera-2026-qualita.imageAlt': 'Swiss vineyard during harvest season with concentrated grapes affected by drought conditions',
 };
 
 export default blogMetaChEn;

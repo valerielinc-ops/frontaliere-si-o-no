@@ -11089,6 +11089,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'vendemmia-svizzera-2026-qualita',
+    category: 'novita',
+    date: '2026-08-21T11:36:32.833Z',
+    image: '/images/blog/vendemmia-svizzera-2026-qualita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
