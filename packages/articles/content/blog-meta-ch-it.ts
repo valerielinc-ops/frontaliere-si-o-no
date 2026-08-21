@@ -3703,6 +3703,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.migros-sostegno-agricoltura.title': 'Siccità, Migros stanzia due milioni di franchi per gli agricoltori in difficoltà',
     'blog.article.migros-sostegno-agricoltura.excerpt': 'Il gruppo afferma di lavorare con i propri partner per rendere l\'agricoltura svizzera più resiliente',
     'blog.article.migros-sostegno-agricoltura.imageAlt': 'Un agricoltore colpito dalla siccità',
+    'blog.article.comprare-casa-appenzello-interno.title': 'Comprare casa in Appenzello Interno: costi e mutuo',
+    'blog.article.comprare-casa-appenzello-interno.excerpt': 'Acquistare casa nel Canton Appenzello Interno: mutui ipotecari, fondi propri, imposte sui trapassi, spese notarili e sostenibilità del mutuo.',
+    'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Consulenza immobiliare con documenti di mutuo e piani casa nel Canton Appenzello Interno',
 };
 
 export default blogMetaChIt;

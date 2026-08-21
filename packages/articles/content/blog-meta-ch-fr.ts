@@ -3703,6 +3703,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-sostegno-agricoltura.title': 'Sécheresse, Migros alloue deux millions de francs aux agriculteurs en difficulté',
     'blog.article.migros-sostegno-agricoltura.excerpt': 'Le groupe affirme travailler avec ses partenaires pour rendre l\'agriculture suisse plus résiliente',
     'blog.article.migros-sostegno-agricoltura.imageAlt': 'Un agriculteur touché par la sécheresse',
+    'blog.article.comprare-casa-appenzello-interno.title': 'Acheter une maison à Appenzell Interne : coûts et hypothèque',
+    'blog.article.comprare-casa-appenzello-interno.excerpt': 'Acheter une maison dans le canton d\'Appenzell : prêts hypothécaires, fonds propres, taxes sur les passages, frais de notaire et viabilité du prêt.',
+    'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Consultation immobilière avec documents hypothécaires et plans de maison dans la région d\'Appenzell',
 };
 
 export default blogMetaChFr;

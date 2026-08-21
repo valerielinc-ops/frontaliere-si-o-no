@@ -1260,6 +1260,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'custodia-bambini-appenzello-interno': { it: 'custodia-bambini-appenzello-interno', en: 'childcare-appenzell-innerrhoden', de: 'kinderbetreuung-appenzell-innerrhoden', fr: 'garde-enfants-appenzell-rhodes-interieures' },
  'vendemmia-svizzera-2026-qualita': { it: 'vendemmia-svizzera-2026-qualita', en: 'swiss-vintage-2026-quality-drought', de: 'weinlese-2026-schweiz-qualitaet', fr: 'vendanges-2026-suisse-qualite' },
  'migros-sostegno-agricoltura': { it: 'migros-sostegno-agricoltura', en: 'migros-supports-agriculture', de: 'migros-for-agrikultur', fr: 'migros-soutien-agriculture' },
+ 'comprare-casa-appenzello-interno': { it: 'comprare-casa-appenzello-interno', en: 'buy-house-appenzell-inner-rhodes-cost-mortgage', de: 'haus-kaufen-appenzell-innerrhoden-kosten-hypothek', fr: 'acheter-maison-appenzell-rhodes-interieures-prix-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

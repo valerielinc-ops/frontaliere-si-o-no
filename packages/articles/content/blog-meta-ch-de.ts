@@ -3703,6 +3703,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.migros-sostegno-agricoltura.title': 'Dürre: Migros stellt zwei Millionen Franken für Landwirte in Not bereit',
     'blog.article.migros-sostegno-agricoltura.excerpt': 'Die Gruppe behauptet, mit ihren Partnern zusammenzuarbeiten, um die Schweizer Landwirtschaft widerstandsfähiger zu machen',
     'blog.article.migros-sostegno-agricoltura.imageAlt': 'Ein Bauer, der von der Dürre betroffen ist',
+    'blog.article.comprare-casa-appenzello-interno.title': 'Haus kaufen in Appenzell Innerrhoden: Kosten und Darlehen',
+    'blog.article.comprare-casa-appenzello-interno.excerpt': 'Haus kaufen im Kanton Appenzell Innerrhoden: Hypothekendarlehen, Eigenmittel, Abgeltungssteuern, Notarkosten und Tragbarkeit des Darlehens.',
+    'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Immobilienberatung mit Hypothekendokumenten und Hausplänen in der Appenzeller Region',
 };
 
 export default blogMetaChDe;

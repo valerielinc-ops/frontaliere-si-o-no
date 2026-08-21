@@ -3703,6 +3703,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-sostegno-agricoltura.title': 'Drought, Migros allocates two million francs for farmers in need',
     'blog.article.migros-sostegno-agricoltura.excerpt': 'The group says it is working with its partners to make Swiss agriculture more resilient',
     'blog.article.migros-sostegno-agricoltura.imageAlt': 'A farmer affected by the drought',
+    'blog.article.comprare-casa-appenzello-interno.title': 'Buying a house in Appenzello Interno: costs and mortgage',
+    'blog.article.comprare-casa-appenzello-interno.excerpt': 'Buying a house in the Canton of Appenzello Interno: mortgages, own funds, transfer taxes, notary fees and mortgage sustainability.',
+    'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Real estate consultation with mortgage documents and house plans in Appenzell region',
 };
 
 export default blogMetaChEn;
