@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-20T21:35:49.991Z",
+  "updatedAt": "2026-08-21T09:47:26.658Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/": {
       "location": "Brig, CH, 1070",
@@ -33,51 +33,21 @@
       "company": "Ariston Group",
       "postedDate": "2026-07-24"
     },
-    "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
+    "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
       "company": "Ariston Group",
-      "postedDate": "2026-08-14"
-    },
-    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
-      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
-      "canton": "AG",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-06"
-    },
-    "https://careers.aristongroup.com/job/Leinfelden-Echterdingen-VERKAUFSBERATER-F%C3%9CR-HEIZTECHNIK-%28MWD%29-IM-VERKAUFSGEBIET-OST-BADEN-W%C3%9CRTTEMBERG-Lein-70771/1388749833/": {
-      "location": "Leinfelden-Echterdingen, DE, 70771",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-25"
-    },
-    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
-      "location": "Brig-Glis, CH, 3902",
-      "canton": "VS",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-29"
-    },
-    "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/": {
-      "location": "Mainburg, DE, 84048",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-25"
-    },
-    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
-      "location": "Thun, CH, 3600",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-19"
-    },
-    "https://careers.aristongroup.com/job/Freiburg-KEY-ACCOUNT-MANAGEMENT-%28MWD%29-PROJEKT-UND-WOHNUNGSWIRTSCHAFT-IN-BADEN-W%C3%9CRTTEMBERG-Bade-_/1241127101/": {
-      "location": "Baden-Württemberg, DE, .",
-      "canton": "AG",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-18"
+      "postedDate": "2026-08-08"
     },
     "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
       "location": "Biel, CH, 2502",
       "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-14"
+    },
+    "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
+      "location": "Gerlafingen, CH, 4563",
+      "canton": "SO",
       "company": "Ariston Group",
       "postedDate": "2026-08-14"
     },
@@ -86,6 +56,18 @@
       "canton": "LU",
       "company": "Ariston Group",
       "postedDate": "2026-08-13"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
+      "location": "Brig-Glis, CH, 3902",
+      "canton": "VS",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-29"
+    },
+    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-RE-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1403027133/": {
+      "location": "Genève, CH, 1202",
+      "canton": "GE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-07"
     },
     "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
       "location": "Bedano, CH, 6930",
@@ -99,15 +81,33 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
     },
-    "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
-      "location": "Gerlafingen, CH, 4563",
-      "canton": "SO",
+    "https://careers.aristongroup.com/job/Leinfelden-Echterdingen-VERKAUFSBERATER-F%C3%9CR-HEIZTECHNIK-%28MWD%29-IM-VERKAUFSGEBIET-OST-BADEN-W%C3%9CRTTEMBERG-Lein-70771/1388749833/": {
+      "location": "Leinfelden-Echterdingen, DE, 70771",
+      "canton": "",
       "company": "Ariston Group",
-      "postedDate": "2026-08-08"
+      "postedDate": "2026-07-25"
     },
-    "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-RE-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1403027133/": {
-      "location": "Genève, CH, 1202",
-      "canton": "GE",
+    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
+      "location": "Thun, CH, 3600",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-19"
+    },
+    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
+      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
+      "canton": "AG",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-06"
+    },
+    "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/": {
+      "location": "Mainburg, DE, 84048",
+      "canton": "",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-25"
+    },
+    "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-GEBIET-FREIBURG-UND-UMGEBUNG-Hech-72379/1424284533/": {
+      "location": "Hechingen, DE, 72379",
+      "canton": "",
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
     }

@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-20T21:39:18.122Z",
+  "updatedAt": "2026-08-21T09:52:49.991Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/addetto-a-senior-alla-lucidatura-e-alla-finitura-m-f-d-2688625/": {
       "location": "Genève",
@@ -577,36 +577,6 @@
       "company": "PEMSA",
       "postedDate": "2026-08-06"
     },
-    "https://www.pemsa.ch/it/job/manovale-edile-2685895/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-05"
-    },
-    "https://www.pemsa.ch/it/job/macchinista-2685892/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-05"
-    },
-    "https://www.pemsa.ch/it/job/muratore-2685889/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-05"
-    },
-    "https://www.pemsa.ch/it/job/carpentiere-2685884/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-05"
-    },
-    "https://www.pemsa.ch/it/job/operatore-operatrice-per-la-rimozione-dellamianto-2685882/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-05"
-    },
     "https://www.pemsa.ch/it/job/elettricista-di-montaggio-afc-m-f-d-2685688/": {
       "location": "Basel",
       "canton": "BS",
@@ -882,36 +852,6 @@
       "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-07-28"
-    },
-    "https://www.pemsa.ch/it/job/elettricista-con-attestato-federale-di-capacita-cfc-dall80-al-100-2685036/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-28"
-    },
-    "https://www.pemsa.ch/it/job/disegnatore-tecnico-reti-idrauliche-e-condutture-2684971/": {
-      "location": "Payerne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-27"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-a-di-officina-elettronica-2684964/": {
-      "location": "Vevey",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-27"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-dellassistenza-post-vendita-box-doccia-2684915/": {
-      "location": "Yverdon-les-Bains",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-27"
-    },
-    "https://www.pemsa.ch/it/job/posatore-di-pavimentazione-2684912/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-27"
     },
     "https://www.pemsa.ch/it/job/saldatore-tubista-2684708/": {
       "location": "Taverne",
