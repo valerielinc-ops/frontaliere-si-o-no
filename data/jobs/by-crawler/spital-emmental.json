@@ -3820,23 +3820,6 @@
       "pensumMax": 70,
       "pensum": "40 - 70%",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-        "medico-n-assistente-di-pratica-in-a-spital-emmental-langnau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
-          "medico-n-assistente-di-pratica-in-a-spital-emmental-langnau"
-        ],
-        "en": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
-        ],
-        "fr": [
-          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T09:46:00.260Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3848,7 +3831,28 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T09:46:00.260Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
+          "medico-n-assistente-di-pratica-in-a-spital-emmental-langnau",
+          "assistant-e-medical-e-a-spital-emmental-langnau",
+          "medico-n-assistente-pratico-assistente-pratico-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistent-in-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-n-praxisassistent-in-a-spital-emmental-langnau",
+        "medico-n-assistente-di-pratica-in-a-spital-emmental-langnau",
+        "assistant-e-medical-e-a-spital-emmental-langnau",
+        "medico-n-assistente-pratico-assistente-pratico-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-ff3ceab19342",

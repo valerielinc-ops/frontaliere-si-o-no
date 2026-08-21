@@ -24345,19 +24345,21 @@
       "referenceNumber": "50955",
       "previousSlugs": [
         "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
-        "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
+        "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
+        "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich",
+        "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
-          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
+          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
+          "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich"
         ],
         "en": [
           "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:52.410Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -24369,7 +24371,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1533da80a83b",
