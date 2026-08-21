@@ -57,6 +57,10 @@ function extractCampaignId(eventData) {
  // channel that preserves the tag NAME: `o:tag` sends bare values, so the
  // prefix scan below could never match what this sender actually emits, and
  // every Mailgun event fell through to the message id (measured 2026-08-20).
+ // Field name verified against independent real-world Events API consumers
+ // (django-anymail's mailgun webhook handler reads `event_data["user-variables"]`;
+ // same hyphenated key confirmed in other production parsers) — the underscore
+ // fallback below is defensive and has never been observed to fire (2026-08-21).
  const vars = eventData['user-variables'] || eventData.user_variables || {};
  if (vars && typeof vars === 'object' && vars.campaign_id) return String(vars.campaign_id);
 
