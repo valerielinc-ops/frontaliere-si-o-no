@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fmi",
-  "assembledAt": "2026-08-21T09:47:03.475Z",
+  "assembledAt": "2026-08-21T21:31:55.257Z",
   "jobs": [
     {
       "id": "fmi-0ac06fbabc27",
@@ -34,7 +34,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-langzeitpflege/90ce8148-065f-4daf-95de-74bcdd06ed04",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:59.797Z",
+      "crawledAt": "2026-08-21T21:31:52.348Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -87,15 +87,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:33:00.312Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -132,7 +132,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fuer-jede-lebenslage/ef8d65b4-c50a-49e4-b981-93c840035a5e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:58.962Z",
+      "crawledAt": "2026-08-21T21:31:51.570Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -160,15 +160,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:59.587Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -205,7 +205,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-psychiatrie-stationaer/cc3657be-a4d0-4367-ba22-674570a9d744",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:58.221Z",
+      "crawledAt": "2026-08-21T21:31:50.912Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -245,15 +245,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:58.752Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -290,7 +290,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/445a97be-e8b9-4774-830b-ba7a0dfa28a1",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:57.484Z",
+      "crawledAt": "2026-08-21T21:31:50.253Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -372,15 +372,15 @@
         "tecnico-a-di-sicurezza-e-manutenzione-al-80-100-spitaler-fmi-ag-unterseen"
       ],
       "firstSeenAt": "2026-05-19T15:32:58.062Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -417,7 +417,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/individuelle-einsaetze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann-gesundheit-efz-oder-assistent-in-gesundheit-und-soziales/c63d0192-89b3-48c4-bbd0-c427e3ff058e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:56.714Z",
+      "crawledAt": "2026-08-21T21:31:49.542Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -467,15 +467,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:57.283Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -512,7 +512,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/zivildienst-pflege-und-betreuung/a068f18b-1040-48e1-b11b-2b2ee5bd41bb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:55.964Z",
+      "crawledAt": "2026-08-21T21:31:48.894Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -556,15 +556,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:56.337Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -601,7 +601,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026/67956aec-38b8-4f76-84e0-6c0908843c71",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:55.201Z",
+      "crawledAt": "2026-08-21T21:31:48.215Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -656,15 +656,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:55.037Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -701,7 +701,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026/ac400a50-5b8d-451e-80e3-727199e6cf13",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:54.329Z",
+      "crawledAt": "2026-08-21T21:31:47.542Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -799,7 +799,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-psychiatrie/6eacc015-9bcb-412b-a2e3-7d085fd7153d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:53.711Z",
+      "crawledAt": "2026-08-21T21:31:46.832Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -840,15 +840,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:52.210Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -885,7 +885,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf/aff489f8-5b07-4860-8567-83167d830719",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:53.095Z",
+      "crawledAt": "2026-08-21T21:31:46.194Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -917,15 +917,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:51.490Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -962,7 +962,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-psychiatrie-im-nachtdienst/e005fe14-3e07-4c8d-91d9-796550bdf134",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:52.374Z",
+      "crawledAt": "2026-08-21T21:31:45.472Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1021,15 +1021,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:50.671Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -1066,7 +1066,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/zivildienstleistender-mitarbeiter-informatik/8ebef835-2500-43bc-9030-5ec4415acf30",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:51.617Z",
+      "crawledAt": "2026-08-21T21:31:44.730Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1158,7 +1158,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/experte-expertin-notfallpflege/daec2cf0-3bef-45c6-b4e8-3208b5aae34b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:50.866Z",
+      "crawledAt": "2026-08-21T21:31:44.078Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1193,15 +1193,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:48.173Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -1238,7 +1238,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/aerztliche-leitung-interdisziplinaere-intensivstation-ips/aeddba72-39a9-4459-8625-debeb94caae0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:50.102Z",
+      "crawledAt": "2026-08-21T21:31:43.360Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1270,15 +1270,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:47.426Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -1315,7 +1315,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/perioperative-r-assistent-in-poa/37e94e61-dad4-4ab9-b340-d92789a15a6a",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:49.144Z",
+      "crawledAt": "2026-08-21T21:31:42.656Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1363,15 +1363,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:46.709Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -1408,7 +1408,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie/a50b8252-267c-427d-8396-168297695861",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:48.361Z",
+      "crawledAt": "2026-08-21T21:31:41.862Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1464,15 +1464,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:44.308Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -1509,7 +1509,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/fb161cc4-f887-4014-a16b-3b4da26c7472",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:47.630Z",
+      "crawledAt": "2026-08-21T21:31:41.219Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1562,15 +1562,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:42.413Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -1607,7 +1607,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/0f106ebd-a8af-4986-bcda-b3a4f2ecfc2e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:46.889Z",
+      "crawledAt": "2026-08-21T21:31:40.499Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1662,15 +1662,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:41.276Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -1707,7 +1707,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/dipl-pflegefachperson-dialyse-hf-fh/cae68260-1205-4175-b5d5-405a84fe6fc9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:46.115Z",
+      "crawledAt": "2026-08-21T21:31:39.726Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1765,15 +1765,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:39.033Z",
-      "salaryMin": 34300,
-      "salaryMax": 52000,
+      "salaryMin": 42500,
+      "salaryMax": 59500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34300,
-          "maxValue": 52000,
+          "minValue": 42500,
+          "maxValue": 59500,
           "unitText": "YEAR"
         }
       }
@@ -1810,7 +1810,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/stellvertretende-wohngruppenleitung/c53d8be6-4dcc-4c7f-a169-bd61d3cd55aa",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:45.327Z",
+      "crawledAt": "2026-08-21T21:31:39.020Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1838,15 +1838,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:38.129Z",
-      "salaryMin": 56700,
-      "salaryMax": 85800,
+      "salaryMin": 69000,
+      "salaryMax": 96000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 56700,
-          "maxValue": 85800,
+          "minValue": 69000,
+          "maxValue": 96000,
           "unitText": "YEAR"
         }
       }
@@ -1883,7 +1883,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/ergotherapeut-in/1a5dbe6e-a1aa-4752-9746-9b17b6d33fb9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:44.600Z",
+      "crawledAt": "2026-08-21T21:31:38.349Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1942,15 +1942,15 @@
         "ergoterapista-60-80-spitaler-fmi-ag-unterseen"
       ],
       "firstSeenAt": "2026-05-19T15:32:37.359Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       }
@@ -1987,7 +1987,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegepersonal/9c227446-7612-4b79-b0fc-6a28403139e2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:43.745Z",
+      "crawledAt": "2026-08-21T21:31:37.601Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2042,15 +2042,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:35.676Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -2087,7 +2087,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-gesundheit-efz/f315d841-ffae-4aed-8a37-0ea65fdc93d0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:42.996Z",
+      "crawledAt": "2026-08-21T21:31:36.903Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2138,15 +2138,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:33.239Z",
-      "salaryMin": 34300,
-      "salaryMax": 52000,
+      "salaryMin": 42500,
+      "salaryMax": 59500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34300,
-          "maxValue": 52000,
+          "minValue": 42500,
+          "maxValue": 59500,
           "unitText": "YEAR"
         }
       }
@@ -2183,7 +2183,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-kauffrau-kaufmann-efz-spital-frutigen-2027/999184db-a35f-463c-8a7a-ec2ef3a69233",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:42.090Z",
+      "crawledAt": "2026-08-21T21:31:36.227Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2256,7 +2256,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-kauffrau-kaufmann-efz-spital-interlaken-2027/0d61e731-0ebe-4ce6-a1c5-2b7ddcc9e902",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:41.343Z",
+      "crawledAt": "2026-08-21T21:31:35.587Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2329,7 +2329,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027/8225ef49-9e67-43f0-80b3-bf8ee8ae8951",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:40.472Z",
+      "crawledAt": "2026-08-21T21:31:34.937Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2379,15 +2379,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:22.941Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2424,7 +2424,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-interlaken-2027/9603ba2d-4b72-431c-8374-3c3d4dfaf493",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:39.716Z",
+      "crawledAt": "2026-08-21T21:31:34.237Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2452,15 +2452,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:22.192Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2497,7 +2497,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027/a30626f2-2c18-430f-aee3-45601b11149c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:38.969Z",
+      "crawledAt": "2026-08-21T21:31:33.521Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2525,15 +2525,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:21.426Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2570,7 +2570,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027/c45ec92b-a03c-41a2-96b7-e0fdb0bc6462",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:38.206Z",
+      "crawledAt": "2026-08-21T21:31:32.594Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2617,15 +2617,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:20.673Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2662,7 +2662,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027/2baa4758-741f-402e-baaa-0b448d2c10c9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:34.559Z",
+      "crawledAt": "2026-08-21T21:31:31.834Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2709,15 +2709,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:20.041Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2754,7 +2754,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027/236c98b5-290e-49d0-853c-87be82a07f46",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:33.818Z",
+      "crawledAt": "2026-08-21T21:31:31.071Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2801,15 +2801,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:19.301Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2846,7 +2846,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-koechin-koch-efz-spital-interlaken-2027/dbb1a528-a7db-45ab-ab4d-66b96d60ecc0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:32.954Z",
+      "crawledAt": "2026-08-21T21:31:30.413Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2874,15 +2874,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:18.707Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 54000,
+      "salaryMax": 68000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 54000,
+          "maxValue": 68000,
           "unitText": "YEAR"
         }
       }
@@ -2919,7 +2919,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberarzt-oberaerztin-anaesthesie/5289b2e3-e0a0-48a5-b417-7f4170ed34c5",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:32.219Z",
+      "crawledAt": "2026-08-21T21:31:29.707Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2965,15 +2965,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:16.457Z",
-      "salaryMin": 75600,
-      "salaryMax": 114400,
+      "salaryMin": 92000,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 75600,
-          "maxValue": 114400,
+          "minValue": 92000,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3010,7 +3010,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-station-medizin/6062bcbc-38c1-4dc3-a814-538ae85be262",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:31.099Z",
+      "crawledAt": "2026-08-21T21:31:28.900Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3045,15 +3045,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:11.729Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3090,7 +3090,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/4cb91fc1-ca49-4791-b8e3-df610fbcd5ae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:30.234Z",
+      "crawledAt": "2026-08-21T21:31:28.218Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3158,15 +3158,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:09.531Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3203,7 +3203,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/3c68714d-5929-4a32-8bcc-1261b38bd3a0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:29.505Z",
+      "crawledAt": "2026-08-21T21:31:27.547Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3241,15 +3241,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:14:28.074Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3286,7 +3286,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:28.907Z",
+      "crawledAt": "2026-08-21T21:31:26.995Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3339,15 +3339,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:08.060Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3384,7 +3384,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben/8acf3d4c-798c-4510-bde3-57af39a33a49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:28.178Z",
+      "crawledAt": "2026-08-21T21:31:26.310Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3402,15 +3402,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-26T22:50:24.214Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3447,7 +3447,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/wohngruppenleitung/15513cd2-5c07-4092-b3b0-c780a56fec49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:27.421Z",
+      "crawledAt": "2026-08-21T21:31:25.639Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3486,15 +3486,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:50:23.609Z",
-      "salaryMin": 61700,
-      "salaryMax": 93600,
+      "salaryMin": 76500,
+      "salaryMax": 107100,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 61700,
-          "maxValue": 93600,
+          "minValue": 76500,
+          "maxValue": 107100,
           "unitText": "YEAR"
         }
       }
@@ -3531,7 +3531,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in/3d689cbc-b87d-4b32-b872-bb511137902e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:26.643Z",
+      "crawledAt": "2026-08-21T21:31:24.972Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3565,15 +3565,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:07:39.815Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -3610,7 +3610,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/473dcc71-145d-4530-9be9-b83e8c36904b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:25.887Z",
+      "crawledAt": "2026-08-21T21:31:24.307Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3646,15 +3646,15 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:13:51.584Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3691,7 +3691,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/85ced034-128c-4aa8-ba64-5c81a4eaa220",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:25.131Z",
+      "crawledAt": "2026-08-21T21:31:23.618Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3719,15 +3719,15 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:13:50.830Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3764,7 +3764,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/arztsekretaer-in-orthopaedie/05222584-9b44-42ef-9e2e-a1161384e0a7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:24.384Z",
+      "crawledAt": "2026-08-21T21:31:22.908Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3798,15 +3798,15 @@
         ]
       },
       "firstSeenAt": "2026-07-02T22:01:00.234Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       }
@@ -3843,7 +3843,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegeexpert-in-cns-chirurgischer-bereich/9ef694dc-cf41-4309-a98f-449ba8bdea21",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:23.564Z",
+      "crawledAt": "2026-08-21T21:31:22.258Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3877,15 +3877,15 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:49:08.731Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3922,7 +3922,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/nachdiplomstudium-notfallpflege-hf/9945f9c6-d13e-4f1e-92d2-17cf80df28e6",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:22.956Z",
+      "crawledAt": "2026-08-21T21:31:21.554Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3958,15 +3958,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:47.347Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4003,7 +4003,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/476409a8-cda5-4e04-ac79-6bfc0dde1dcb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:22.207Z",
+      "crawledAt": "2026-08-21T21:31:20.882Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4039,15 +4039,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:44.353Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       }
@@ -4084,7 +4084,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/bb78f6e2-e974-4c3a-ac2b-07cae42f1ea7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:21.586Z",
+      "crawledAt": "2026-08-21T21:31:20.125Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4112,15 +4112,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:41.351Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4157,7 +4157,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/nachdiplomstudium-intensivpflege-hf/9dd43dad-d20d-4153-8ffa-f63d4d8c013b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:20.988Z",
+      "crawledAt": "2026-08-21T21:31:19.433Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4191,15 +4191,15 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:09:28.126Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4236,7 +4236,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzarzt-aerztin-psychiatrie/dcf858b2-8b05-43fd-9cd3-f03a6f796465",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:20.219Z",
+      "crawledAt": "2026-08-21T21:31:18.719Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4270,15 +4270,15 @@
         ]
       },
       "firstSeenAt": "2026-07-14T10:57:58.395Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4315,7 +4315,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-intensivpflege/efdeb34b-9424-4f00-b03f-661737c71c2b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:19.484Z",
+      "crawledAt": "2026-08-21T21:31:18.034Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4349,15 +4349,15 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:47.323Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4394,7 +4394,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/eb38263b-bb56-445c-948f-e6914357813d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:18.749Z",
+      "crawledAt": "2026-08-21T21:31:17.395Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4432,15 +4432,15 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:46.475Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4477,7 +4477,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/cc3f4360-ceb8-4c92-a0ba-c83f392fdac8",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:17.970Z",
+      "crawledAt": "2026-08-21T21:31:16.646Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4509,15 +4509,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:42.348Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4554,7 +4554,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-apotheke-pharmaassistent-in/9c76555a-a799-494e-9b0b-3cfc0cd00dd7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:17.323Z",
+      "crawledAt": "2026-08-21T21:31:15.988Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4588,15 +4588,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:41.605Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -4633,7 +4633,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fh-oder-sozialpaedagog-in-hf-fh/1a858191-045c-4bd2-a4fc-1b9aac3550d6",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:16.669Z",
+      "crawledAt": "2026-08-21T21:31:15.312Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4665,15 +4665,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:40.873Z",
-      "salaryMin": 41100,
-      "salaryMax": 62400,
+      "salaryMin": 51000,
+      "salaryMax": 71400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
+          "minValue": 51000,
+          "maxValue": 71400,
           "unitText": "YEAR"
         }
       }
@@ -4710,7 +4710,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/psycholog-in-psychiatrie/45fc5072-cc72-447b-ac1c-8983af46a235",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:15.934Z",
+      "crawledAt": "2026-08-21T21:31:14.607Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4744,15 +4744,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:18:40.194Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       }
@@ -4789,7 +4789,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/gastgeber-gastgeberin/c618caf9-6881-478c-b8d0-3579731d1eae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:15.211Z",
+      "crawledAt": "2026-08-21T21:31:13.957Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4823,15 +4823,15 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:19:19.902Z",
-      "salaryMin": 27400,
-      "salaryMax": 41600,
+      "salaryMin": 27000,
+      "salaryMax": 33800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 27400,
-          "maxValue": 41600,
+          "minValue": 27000,
+          "maxValue": 33800,
           "unitText": "YEAR"
         }
       }
@@ -4868,7 +4868,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-oder-sozialpaedagogin-sozialpaedagoge-hf/31bd80a2-2d04-4bbe-bd07-8e5151add715",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:14.438Z",
+      "crawledAt": "2026-08-21T21:31:13.265Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4900,15 +4900,15 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:34:26.872Z",
-      "salaryMin": 44500,
-      "salaryMax": 67600,
+      "salaryMin": 55300,
+      "salaryMax": 77400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 44500,
-          "maxValue": 67600,
+          "minValue": 55300,
+          "maxValue": 77400,
           "unitText": "YEAR"
         }
       }
@@ -4945,7 +4945,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme/9dbdf88b-fbd5-45b0-90bd-b1dc2ab6d431",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:13.712Z",
+      "crawledAt": "2026-08-21T21:31:12.525Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4979,15 +4979,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:14.925Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -5024,7 +5024,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/sachbearbeiter-in-rechnungswesen/3768102b-8d44-44bb-af80-a909d2bb7e9d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:12.921Z",
+      "crawledAt": "2026-08-21T21:31:11.804Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5128,7 +5128,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-anaesthesiepflege/b1eae356-7bc2-41ea-a7c8-242c2d7c16ff",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:12.321Z",
+      "crawledAt": "2026-08-21T21:31:11.077Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5162,15 +5162,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:36:43.865Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -5207,7 +5207,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitender-arzt-leitende-aerztin-innere-medizin/a7fbda1e-5885-4878-84e9-d47181b41815",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:11.582Z",
+      "crawledAt": "2026-08-21T21:31:10.434Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5241,15 +5241,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:07:59.342Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -5286,7 +5286,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehilfe/01a01453-fa3c-434d-ba13-b0f4baa193a9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:10.769Z",
+      "crawledAt": "2026-08-21T21:31:09.643Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5318,15 +5318,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:03.732Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -5363,7 +5363,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leiter-in-finanzbuchhaltung/2b1706ac-0615-4f38-ad1b-c59cd9e05dbe",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:09.872Z",
+      "crawledAt": "2026-08-21T21:31:09.002Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5442,7 +5442,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/stellvertreter-in-leitung-finanzbuchhaltung/b8e6cc01-b42d-4572-96d9-46ae377507dc",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:09.138Z",
+      "crawledAt": "2026-08-21T21:31:08.342Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5526,7 +5526,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/studierende-r-rettungssanitaeter-in-hf/11d40920-6d9d-4cad-8a58-77fd73ea095c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:08.394Z",
+      "crawledAt": "2026-08-21T21:31:07.513Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5605,7 +5605,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-empfang-patientenaufnahme-bettendispostion/0be26358-de68-4dae-922e-1c32de3ae506",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:07.384Z",
+      "crawledAt": "2026-08-21T21:31:06.826Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5684,7 +5684,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/ict-projektleiter-in-80/b0d80ee8-daf3-4de4-b250-63215d924ea7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:06.649Z",
+      "crawledAt": "2026-08-21T21:31:06.009Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",

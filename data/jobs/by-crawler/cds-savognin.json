@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-08-21T09:50:26.923Z",
+  "assembledAt": "2026-08-21T21:46:41.498Z",
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:23.939Z",
+      "crawledAt": "2026-08-21T21:46:38.537Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,15 +70,15 @@
         ]
       },
       "firstSeenAt": "2026-06-15T22:41:27.054Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -115,7 +115,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:23.931Z",
+      "crawledAt": "2026-08-21T21:46:38.533Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,15 +153,15 @@
         ]
       },
       "firstSeenAt": "2026-06-15T22:41:27.049Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -198,7 +198,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:23.927Z",
+      "crawledAt": "2026-08-21T21:46:38.531Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -232,15 +232,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:22:20.781Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -277,7 +277,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:23.923Z",
+      "crawledAt": "2026-08-21T21:46:38.529Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -305,15 +305,15 @@
         ]
       },
       "firstSeenAt": "2026-06-27T10:16:30.022Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -350,7 +350,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:23.885Z",
+      "crawledAt": "2026-08-21T21:46:38.506Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -378,15 +378,15 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:13:18.823Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }

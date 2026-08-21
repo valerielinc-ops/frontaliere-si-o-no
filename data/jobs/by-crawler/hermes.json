@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-08-21T09:47:53.697Z",
+  "assembledAt": "2026-08-21T21:38:11.783Z",
   "jobs": [
     {
       "id": "hermes-c29e4ff59493",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:50.675Z",
+      "crawledAt": "2026-08-21T21:38:08.168Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,8 +59,8 @@
           "cx-manager-zurigo-f-m-hermes-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-06-11T07:53:06.117Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T07:53:06.117Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -105,7 +105,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:50.041Z",
+      "crawledAt": "2026-08-21T21:38:07.493Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,15 +153,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       }
@@ -197,7 +197,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:47:49.360Z",
+      "crawledAt": "2026-08-21T21:38:06.831Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -269,7 +269,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:48.731Z",
+      "crawledAt": "2026-08-21T21:38:06.152Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -299,8 +299,8 @@
           "cdi-hote-de-bienvenue-w-m-hermes-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-26T10:53:20.130Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-26T10:53:20.130Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

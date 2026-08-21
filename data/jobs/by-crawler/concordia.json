@@ -1,6 +1,6 @@
 {
   "crawlerKey": "concordia",
-  "assembledAt": "2026-08-21T07:56:15.146Z",
+  "assembledAt": "2026-08-21T21:36:01.642Z",
   "jobs": [
     {
       "id": "concordia-4100cd5864bc",
@@ -34,7 +34,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-lyss/adaaa324-add3-499d-baea-b03772a95c77",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:32.278Z",
+      "crawledAt": "2026-08-21T21:35:58.338Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -80,15 +80,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:35:49.920Z",
-      "salaryMin": 41100,
-      "salaryMax": 62400,
+      "salaryMin": 46500,
+      "salaryMax": 71100,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
+          "minValue": 46500,
+          "maxValue": 71100,
           "unitText": "YEAR"
         }
       }
@@ -125,7 +125,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-kloten/186cc6e0-b8cf-4632-9aaf-3f6323c076c8",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:31.745Z",
+      "crawledAt": "2026-08-21T21:35:57.869Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,15 +168,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:35:49.424Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 117000,
+      "salaryMax": 180000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 117000,
+          "maxValue": 180000,
           "unitText": "YEAR"
         }
       }
@@ -213,7 +213,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-winterthur/1e598755-1d52-42dd-8fa6-dca5ae42419d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:31.236Z",
+      "crawledAt": "2026-08-21T21:35:57.370Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -254,15 +254,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:11:49.747Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 79000,
+      "salaryMax": 131000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 79000,
+          "maxValue": 131000,
           "unitText": "YEAR"
         }
       }
@@ -299,7 +299,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-neuchatel/629f3012-be69-4814-aea4-98f47777741e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:01:30.677Z",
+      "crawledAt": "2026-08-21T21:35:56.878Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -334,15 +334,15 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:32:15.785Z",
-      "salaryMin": 30300,
-      "salaryMax": 45800,
+      "salaryMin": 36000,
+      "salaryMax": 55300,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 30300,
-          "maxValue": 45800,
+          "minValue": 36000,
+          "maxValue": 55300,
           "unitText": "YEAR"
         }
       }
@@ -379,7 +379,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-basel-sommer-2027/cccabfb3-d1c8-4c6f-8370-d148dc00fb9a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:30.151Z",
+      "crawledAt": "2026-08-21T21:35:56.374Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -470,15 +470,15 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:14:13.014Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "salaryMin": 44500,
+      "salaryMax": 82500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 44500,
+          "maxValue": 82500,
           "unitText": "YEAR"
         }
       }
@@ -515,7 +515,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-thalwil-sommer-2027/94536613-4ef8-4fa6-8e78-255fadb64b2d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:29.649Z",
+      "crawledAt": "2026-08-21T21:35:55.869Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -554,15 +554,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:18.560Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 53500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 53500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -599,7 +599,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027/71b30cea-0ed5-4464-9157-70d0df94b8d1",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:29.140Z",
+      "crawledAt": "2026-08-21T21:35:55.403Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -638,15 +638,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:18.083Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
+      "salaryMin": 51000,
+      "salaryMax": 93500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
+          "minValue": 51000,
+          "maxValue": 93500,
           "unitText": "YEAR"
         }
       }
@@ -683,7 +683,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-zug/57fe4f24-ad2a-4740-a6b7-8cc7515c8a89",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:28.568Z",
+      "crawledAt": "2026-08-21T21:35:54.879Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -730,15 +730,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:17.582Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -775,7 +775,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-schoenenwerd-sommer-2027/db5981a8-8798-4c80-b878-b3bd8ab90fe4",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:27.985Z",
+      "crawledAt": "2026-08-21T21:35:54.346Z",
       "addressLocality": "Schönenwerd",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -814,15 +814,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:16.986Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -859,7 +859,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027/af68a577-81fa-4442-8d65-ff108f55e4f8",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:27.416Z",
+      "crawledAt": "2026-08-21T21:35:53.850Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -898,15 +898,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:16.494Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
+      "salaryMin": 51000,
+      "salaryMax": 93500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
+          "minValue": 51000,
+          "maxValue": 93500,
           "unitText": "YEAR"
         }
       }
@@ -943,7 +943,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/lehrstelle-kauffrau-oder-kaufmann-efz-in-burgdorf-sommer-2027/59bfc937-24c6-4cd0-b6b1-78681e31dc9a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:26.922Z",
+      "crawledAt": "2026-08-21T21:35:53.391Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -990,15 +990,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:15.065Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -1035,7 +1035,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-zahn-d-f/3d841a89-c4f9-44eb-b4d1-39237a1c34a5",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:26.248Z",
+      "crawledAt": "2026-08-21T21:35:52.863Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1093,15 +1093,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:14.073Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -1138,7 +1138,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-chur/2ba31f47-66a8-4e0b-a25a-057c911e2c34",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:25.684Z",
+      "crawledAt": "2026-08-21T21:35:52.283Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1181,15 +1181,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:11.567Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 68500,
+      "salaryMax": 105000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 68500,
+          "maxValue": 105000,
           "unitText": "YEAR"
         }
       }
@@ -1226,7 +1226,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/fachspezialist-in-inkasso-80/b64b9248-4aa2-4687-96fd-1ba5d1ab97e1",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:25.202Z",
+      "crawledAt": "2026-08-21T21:35:51.819Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1265,15 +1265,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:19.101Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -1310,7 +1310,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/vertrauensaerztin-oder-vertrauensarzt-innere-medizin-40/60e81d9e-0873-4056-a558-3d6fd6984bca",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:24.562Z",
+      "crawledAt": "2026-08-21T21:35:51.249Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1347,15 +1347,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:16.053Z",
-      "salaryMin": 34800,
-      "salaryMax": 53000,
+      "salaryMin": 37300,
+      "salaryMax": 61800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34800,
-          "maxValue": 53000,
+          "minValue": 37300,
+          "maxValue": 61800,
           "unitText": "YEAR"
         }
       }
@@ -1392,7 +1392,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-willisau/1d2097e1-48e0-426e-bc37-a5b684bc4d32",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:24.009Z",
+      "crawledAt": "2026-08-21T21:35:50.730Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1431,15 +1431,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:50.915Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 110500,
+      "salaryMax": 169500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 110500,
+          "maxValue": 169500,
           "unitText": "YEAR"
         }
       }
@@ -1476,7 +1476,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-erlenbach/2b815bdf-4dd7-4799-bb6b-b72d90da1f12",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:23.463Z",
+      "crawledAt": "2026-08-21T21:35:50.183Z",
       "addressLocality": "Erlenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1516,15 +1516,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:50.350Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       }
@@ -1561,7 +1561,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-60-in-laufenburg/63017668-451c-411b-a550-2fb7c02d054e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:22.949Z",
+      "crawledAt": "2026-08-21T21:35:49.697Z",
       "addressLocality": "Laufenburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1600,15 +1600,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:49.864Z",
-      "salaryMin": 43400,
-      "salaryMax": 65800,
+      "salaryMin": 51800,
+      "salaryMax": 79500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 43400,
-          "maxValue": 65800,
+          "minValue": 51800,
+          "maxValue": 79500,
           "unitText": "YEAR"
         }
       }
@@ -1645,7 +1645,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-laufen/134fa02c-e409-4f13-b979-b5d7533f7363",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:22.475Z",
+      "crawledAt": "2026-08-21T21:35:49.213Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1686,15 +1686,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:49.417Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "salaryMin": 59200,
+      "salaryMax": 90800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 59200,
+          "maxValue": 90800,
           "unitText": "YEAR"
         }
       }
@@ -1731,7 +1731,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-schaffhausen/78b19cb9-36b0-4679-b4fc-ab79b0bb5770",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:21.994Z",
+      "crawledAt": "2026-08-21T21:35:48.739Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1770,15 +1770,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:48.960Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 68500,
+      "salaryMax": 105000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 68500,
+          "maxValue": 105000,
           "unitText": "YEAR"
         }
       }
@@ -1815,7 +1815,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-lenzburg/a80cf574-0b81-46a5-a0b1-56bd06f83761",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:21.476Z",
+      "crawledAt": "2026-08-21T21:35:48.250Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1856,15 +1856,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:48.474Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 67000,
+      "salaryMax": 111000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 67000,
+          "maxValue": 111000,
           "unitText": "YEAR"
         }
       }
@@ -1901,7 +1901,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-60-in-doettingen-oder-brugg/3aaa2cd0-6db9-43f9-bb26-8f25e1b16ba6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:20.987Z",
+      "crawledAt": "2026-08-21T21:35:47.765Z",
       "addressLocality": "Döttingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1934,15 +1934,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:45.777Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 74000,
+      "salaryMax": 113500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 74000,
+          "maxValue": 113500,
           "unitText": "YEAR"
         }
       }
@@ -1979,7 +1979,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-database-engineer-oracle-postgresql-80/b472d0ff-ad56-4291-b247-69045dd345c0",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:20.502Z",
+      "crawledAt": "2026-08-21T21:35:47.289Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2043,7 +2043,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-kloten/461df14d-273b-47e7-8372-bd68a142fd2d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:19.846Z",
+      "crawledAt": "2026-08-21T21:35:46.764Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2084,15 +2084,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:44.214Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 66400,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 66400,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -2129,7 +2129,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-schwyz/c8397386-ac3c-4456-ad03-3f9a5502ecf8",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:19.207Z",
+      "crawledAt": "2026-08-21T21:35:46.285Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -2172,15 +2172,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:43.740Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 79000,
+      "salaryMax": 121500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 79000,
+          "maxValue": 121500,
           "unitText": "YEAR"
         }
       }
@@ -2217,7 +2217,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-frick/35a700d5-739f-4dc4-b900-43bc80eacb46",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:18.586Z",
+      "crawledAt": "2026-08-21T21:35:45.752Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2256,15 +2256,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:43.213Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 74000,
+      "salaryMax": 113500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 74000,
+          "maxValue": 113500,
           "unitText": "YEAR"
         }
       }
@@ -2301,7 +2301,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-chur/db56b3a5-d09a-4dc8-8a85-f3987efd7aca",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:17.830Z",
+      "crawledAt": "2026-08-21T21:35:45.273Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2340,15 +2340,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:46.781Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 96000,
+      "salaryMax": 147500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 96000,
+          "maxValue": 147500,
           "unitText": "YEAR"
         }
       }
@@ -2385,7 +2385,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/fachspezialist-in-inkasso-d-f-80/2e44e76e-fd1b-4c1a-b041-ead97b318730",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:17.331Z",
+      "crawledAt": "2026-08-21T21:35:44.806Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2433,15 +2433,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:46.302Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -2478,7 +2478,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/vertrauensaerztin-oder-vertrauensarzt-80/08e3f8c8-02b9-4599-9846-6871cdb34c95",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:16.738Z",
+      "crawledAt": "2026-08-21T21:35:44.286Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2511,15 +2511,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:45.268Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -2556,7 +2556,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-luzern/389c303c-e7e1-4ee9-bace-1668e97b7dcc",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:16.206Z",
+      "crawledAt": "2026-08-21T21:35:43.742Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2595,15 +2595,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:48.002Z",
-      "salaryMin": 48700,
-      "salaryMax": 74200,
+      "salaryMin": 55300,
+      "salaryMax": 85100,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48700,
-          "maxValue": 74200,
+          "minValue": 55300,
+          "maxValue": 85100,
           "unitText": "YEAR"
         }
       }
@@ -2640,7 +2640,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-basel/16f90a7f-3870-491a-ac0e-c496d17fb685",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:15.656Z",
+      "crawledAt": "2026-08-21T21:35:43.201Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2681,15 +2681,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:15:47.479Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 74000,
+      "salaryMax": 113500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 74000,
+          "maxValue": 113500,
           "unitText": "YEAR"
         }
       }
@@ -2726,7 +2726,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-baar/eaa09185-3437-4082-8630-f57d4607611a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:15.137Z",
+      "crawledAt": "2026-08-21T21:35:42.751Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2761,15 +2761,15 @@
         ]
       },
       "firstSeenAt": "2026-08-03T13:17:10.372Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 110500,
+      "salaryMax": 169500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 110500,
+          "maxValue": 169500,
           "unitText": "YEAR"
         }
       }
@@ -2806,7 +2806,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zug-und-cham/aedac3ee-ec58-4f94-844f-c5891320bebd",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:14.540Z",
+      "crawledAt": "2026-08-21T21:35:42.153Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2839,15 +2839,15 @@
         ]
       },
       "firstSeenAt": "2026-08-03T13:17:03.846Z",
-      "salaryMin": 41700,
-      "salaryMax": 63600,
+      "salaryMin": 47400,
+      "salaryMax": 72900,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41700,
-          "maxValue": 63600,
+          "minValue": 47400,
+          "maxValue": 72900,
           "unitText": "YEAR"
         }
       }
@@ -2884,7 +2884,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung-im-kp1/e4b293d4-aa90-4d73-9349-d7f5a2fead5e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:13.950Z",
+      "crawledAt": "2026-08-21T21:35:41.620Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2931,15 +2931,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:31:39.401Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -2976,7 +2976,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-biel/4e566268-0f0a-42fc-a24f-702b85197f26",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:13.386Z",
+      "crawledAt": "2026-08-21T21:35:41.042Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3015,15 +3015,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:31:35.276Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77500,
+          "maxValue": 118500,
           "unitText": "YEAR"
         }
       }
@@ -3060,7 +3060,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitspruefung-bvm-80/fef2c449-500c-4790-824b-af3c2e8cc18f",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:12.849Z",
+      "crawledAt": "2026-08-21T21:35:40.554Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3093,15 +3093,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:41:40.848Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -3138,7 +3138,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-baar/3f6e53d4-6499-4062-a506-d48dd32824de",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:12.092Z",
+      "crawledAt": "2026-08-21T21:35:39.995Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3173,15 +3173,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:14:51.649Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 74500,
+      "salaryMax": 123500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 74500,
+          "maxValue": 123500,
           "unitText": "YEAR"
         }
       }
@@ -3218,7 +3218,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-80-in-bern/3e7d297a-a549-4216-b4ea-3cfe4ca08b32",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:11.500Z",
+      "crawledAt": "2026-08-21T21:35:39.434Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3255,15 +3255,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:23:57.619Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 73000,
+      "salaryMax": 121500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 73000,
+          "maxValue": 121500,
           "unitText": "YEAR"
         }
       }
@@ -3300,7 +3300,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-yverdon/2c7bd3ee-91f8-4915-9daa-3cd47b566299",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:01:10.949Z",
+      "crawledAt": "2026-08-21T21:35:38.954Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3335,15 +3335,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:57:03.032Z",
-      "salaryMin": 36300,
-      "salaryMax": 54900,
+      "salaryMin": 43200,
+      "salaryMax": 66600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 36300,
-          "maxValue": 54900,
+          "minValue": 43200,
+          "maxValue": 66600,
           "unitText": "YEAR"
         }
       }
@@ -3380,7 +3380,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-engineer-digital-workplace-w-m-d-80/200abc82-9ffe-4439-80f9-4cb3e3dc5ec5",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:10.343Z",
+      "crawledAt": "2026-08-21T21:35:38.504Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3444,7 +3444,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/product-owner-in-system-team-ci-cd-software-development-80/3ce29754-b6b3-4891-bcf9-183f96cbc65e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:09.679Z",
+      "crawledAt": "2026-08-21T21:35:37.809Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3518,7 +3518,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-biel/59b49fb8-d6d7-40cd-b796-ed31ada432b0",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:01:07.808Z",
+      "crawledAt": "2026-08-21T21:35:35.324Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3559,15 +3559,15 @@
         ]
       },
       "firstSeenAt": "2026-08-15T09:47:34.749Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 109000,
+      "salaryMax": 167000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 109000,
+          "maxValue": 167000,
           "unitText": "YEAR"
         }
       }

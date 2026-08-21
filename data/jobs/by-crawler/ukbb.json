@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-08-21T09:45:42.461Z",
+  "assembledAt": "2026-08-21T21:25:51.163Z",
   "jobs": [
     {
       "id": "ukbb-e7925ffef938",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ukbb.ch/jobs/sekretaer-in-im-bereich-operationstechnik-80-100/f6505cd3-fbe9-41fb-ad0d-a15cbb10a4eb",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:39.602Z",
+      "crawledAt": "2026-08-21T21:25:47.588Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -63,15 +63,15 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:22:50.245Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -108,7 +108,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-paediatrie/e845655a-2d2e-47e1-930e-eef715f2a440",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:38.878Z",
+      "crawledAt": "2026-08-21T21:25:46.840Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,15 +149,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:47.699Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -194,7 +194,7 @@
       "url": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie/df6d0d9e-3878-4204-8512-528c180fd64b",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:38.264Z",
+      "crawledAt": "2026-08-21T21:25:46.235Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -235,15 +235,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:47.035Z",
-      "salaryMin": 55800,
-      "salaryMax": 84600,
+      "salaryMin": 79200,
+      "salaryMax": 110700,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 55800,
-          "maxValue": 84600,
+          "minValue": 79200,
+          "maxValue": 110700,
           "unitText": "YEAR"
         }
       }
@@ -280,7 +280,7 @@
       "url": "https://jobs.ukbb.ch/jobs/zivildienst-in-der-pflege/dd8e0921-3080-4959-bb5d-0b27319318dc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:37.525Z",
+      "crawledAt": "2026-08-21T21:25:45.499Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -315,15 +315,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:46.384Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -360,7 +360,7 @@
       "url": "https://jobs.ukbb.ch/jobs/medizinische-r-praxisassistent-in-mpa-notfall-40/d79db7a5-6db4-4d57-9946-363e08898c5f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:35.433Z",
+      "crawledAt": "2026-08-21T21:25:43.364Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -418,15 +418,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:44.565Z",
-      "salaryMin": 24800,
-      "salaryMax": 37600,
+      "salaryMin": 35200,
+      "salaryMax": 49200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 24800,
-          "maxValue": 37600,
+          "minValue": 35200,
+          "maxValue": 49200,
           "unitText": "YEAR"
         }
       }
@@ -463,7 +463,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-6-woechiges-wahlpflichtpraktikum-in-der-paediatrie/d31d0352-f7bd-40f5-b2ca-a196225b92bf",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:34.607Z",
+      "crawledAt": "2026-08-21T21:25:42.603Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -506,15 +506,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:43.956Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "salaryMin": 79000,
+      "salaryMax": 110500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 79000,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       }
@@ -551,7 +551,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-uewp-neonatologie-80-100/cf339dbd-db33-4f55-8ad0-135eee70b132",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:33.871Z",
+      "crawledAt": "2026-08-21T21:25:41.796Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -582,15 +582,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:43.336Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -627,7 +627,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-paediatrie/ce261eef-f32c-49c5-8688-17633be08e0d",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:33.128Z",
+      "crawledAt": "2026-08-21T21:25:41.030Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -662,15 +662,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:42.720Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -707,7 +707,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60/c9c4baaf-d25a-4006-b59c-f80a0ddeb799",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:32.366Z",
+      "crawledAt": "2026-08-21T21:25:40.278Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -752,15 +752,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:42.008Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "salaryMin": 70400,
+      "salaryMax": 98400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 70400,
+          "maxValue": 98400,
           "unitText": "YEAR"
         }
       }
@@ -797,7 +797,7 @@
       "url": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90/c3107f85-9aef-429a-949e-9f9846dc71cb",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:31.615Z",
+      "crawledAt": "2026-08-21T21:25:39.527Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -836,15 +836,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:41.397Z",
-      "salaryMin": 55800,
-      "salaryMax": 84600,
+      "salaryMin": 79200,
+      "salaryMax": 110700,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 55800,
-          "maxValue": 84600,
+          "minValue": 79200,
+          "maxValue": 110700,
           "unitText": "YEAR"
         }
       }
@@ -881,7 +881,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-60-haematologische-onkologische-poliklinik/bee296f6-33a2-4aa2-8358-d3b99c45de38",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:30.764Z",
+      "crawledAt": "2026-08-21T21:25:38.756Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -910,15 +910,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:40.638Z",
-      "salaryMin": 37200,
-      "salaryMax": 56400,
+      "salaryMin": 52800,
+      "salaryMax": 73800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 37200,
-          "maxValue": 56400,
+          "minValue": 52800,
+          "maxValue": 73800,
           "unitText": "YEAR"
         }
       }
@@ -955,7 +955,7 @@
       "url": "https://jobs.ukbb.ch/jobs/aushilfe-records-management-50/bcec2194-c16e-4407-8afc-40031366f7a4",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:30.182Z",
+      "crawledAt": "2026-08-21T21:25:37.979Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1032,7 +1032,7 @@
       "url": "https://jobs.ukbb.ch/jobs/praktikant-in-ict-80-100/b637bdf5-d775-4b44-9f9c-870a3373cf8f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:29.595Z",
+      "crawledAt": "2026-08-21T21:25:37.215Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1067,15 +1067,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:40.010Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "salaryMin": 79000,
+      "salaryMax": 110500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 79000,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       }
@@ -1112,7 +1112,7 @@
       "url": "https://jobs.ukbb.ch/jobs/assistenzarzt-in-paediatrie-100-befristet-fuer-3-monate/ab6de5eb-5ad7-42c7-9ee1-b1d5058634a2",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:28.858Z",
+      "crawledAt": "2026-08-21T21:25:36.469Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1147,15 +1147,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:14:36.736Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -1192,7 +1192,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-expert-in-anaesthesiepflege-nds-hf-80-100/a1852e47-d823-4635-b8d3-40883ab9b018",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:28.241Z",
+      "crawledAt": "2026-08-21T21:25:35.586Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1237,15 +1237,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:39.357Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -1282,7 +1282,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-fachperson-op-technik-hf-topa/9d53a3c1-93b5-4830-b9cd-a68109b1e097",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:27.572Z",
+      "crawledAt": "2026-08-21T21:25:34.796Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1321,15 +1321,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:38.626Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -1366,7 +1366,7 @@
       "url": "https://jobs.ukbb.ch/jobs/praktikant-in-ict-schwerpunkt-support-100/8dafd0e9-bc80-40f8-b4a5-b622218286db",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:27.000Z",
+      "crawledAt": "2026-08-21T21:25:34.190Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1455,7 +1455,7 @@
       "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-60-100/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:26.254Z",
+      "crawledAt": "2026-08-21T21:25:33.433Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1490,15 +1490,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:36.655Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -1535,7 +1535,7 @@
       "url": "https://jobs.ukbb.ch/jobs/sozialpaedagog-in-50-mutterschaftsvertretung/6d5592ca-e3e9-43ce-b364-e79d37a273c3",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:25.526Z",
+      "crawledAt": "2026-08-21T21:25:32.694Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1564,15 +1564,15 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:14:28.419Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "salaryMin": 44000,
+      "salaryMax": 61500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
+          "minValue": 44000,
+          "maxValue": 61500,
           "unitText": "YEAR"
         }
       }
@@ -1609,7 +1609,7 @@
       "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-neuropaediatrie-80/4ca06ae6-0aa8-4f7a-bbda-d9ffa1c41fcc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:24.784Z",
+      "crawledAt": "2026-08-21T21:25:31.922Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1638,15 +1638,15 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:14:15.439Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "salaryMin": 70400,
+      "salaryMax": 98400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 70400,
+          "maxValue": 98400,
           "unitText": "YEAR"
         }
       }
@@ -1683,7 +1683,7 @@
       "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-50-paediatrische-mkg-chirurgie-jobsharing/49ade58b-1edc-4045-b462-bdd4f176c890",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:24.044Z",
+      "crawledAt": "2026-08-21T21:25:31.092Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1728,15 +1728,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:35.373Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "salaryMin": 44000,
+      "salaryMax": 61500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
+          "minValue": 44000,
+          "maxValue": 61500,
           "unitText": "YEAR"
         }
       }
@@ -1773,7 +1773,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100/3f40a320-1e74-46d2-8bce-3c773f7e5011",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:23.290Z",
+      "crawledAt": "2026-08-21T21:25:30.342Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1817,15 +1817,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:34.743Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -1862,7 +1862,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-terminkoordination-100-polikliniken-radiologie/3b3e5804-60ce-46a2-9df6-50de5a90193c",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:22.553Z",
+      "crawledAt": "2026-08-21T21:25:29.543Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1899,15 +1899,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:07:06.889Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -1944,7 +1944,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-fuer-die-paediatrische-nephrologie-50-80/32cb67ef-2767-46fe-9291-c3e157a0c537",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:21.819Z",
+      "crawledAt": "2026-08-21T21:25:28.760Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1979,15 +1979,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:34.099Z",
-      "salaryMin": 68400,
-      "salaryMax": 103600,
+      "salaryMin": 95200,
+      "salaryMax": 132800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68400,
-          "maxValue": 103600,
+          "minValue": 95200,
+          "maxValue": 132800,
           "unitText": "YEAR"
         }
       }
@@ -2024,7 +2024,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-radiologie-80-100/1cb676e3-f106-43fa-b498-924913fd0aa5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:21.085Z",
+      "crawledAt": "2026-08-21T21:25:27.961Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2059,15 +2059,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:33.348Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -2104,7 +2104,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-paediatrie/0fe24a9a-c685-47e4-8e93-962b860e240e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:20.352Z",
+      "crawledAt": "2026-08-21T21:25:27.210Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2147,15 +2147,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:32.697Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -2192,7 +2192,7 @@
       "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-polikliniken-80-ab-januar-2027-100/0f5298d2-65a5-460c-831e-46a1761c5691",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:19.597Z",
+      "crawledAt": "2026-08-21T21:25:26.450Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",

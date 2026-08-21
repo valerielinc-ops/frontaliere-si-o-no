@@ -1,18 +1,19 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-08-21T09:57:53.060Z",
+  "generatedAt": "2026-08-21T21:27:27.521Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3384,
-  "avgDurationMs": 3384,
+  "durationMs": 3376,
+  "avgDurationMs": 3376,
   "durationHistory": [
-    3384
+    3376
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-de-lavaux-a7255dd10142",
       "slug": "physiotherapeute-a-80-100-hopital-de-lavaux-bourg-en-lavaux",
@@ -26,7 +27,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:57:50.014Z",
+      "crawledAt": "2026-08-21T21:27:24.456Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://app.beehire.com/invite/GFUnCnSo4",
       "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-21T09:57:50.014Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hopital-de-lavaux-14408e0ea069",
       "slug": "assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-readaptation-hopital-de-lavaux",
@@ -65,7 +65,7 @@
       "url": "https://app.beehire.com/invite/swtNGdXFJ",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:57:50.010Z",
+      "crawledAt": "2026-08-21T21:27:24.452Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.beehire.com/invite/8XDoWyOzV",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:57:50.013Z",
+      "crawledAt": "2026-08-21T21:27:24.454Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",

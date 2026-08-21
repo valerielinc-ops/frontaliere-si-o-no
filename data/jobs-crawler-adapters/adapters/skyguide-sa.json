@@ -11,7 +11,7 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-21T09:47:44.508Z",
+  "updatedAt": "2026-08-21T21:29:05.041Z",
   "seedMetaByUrl": {
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-APS-&-ADC-Rated-%28ATCO%29-Instructor-%28100%29/1418247333/": {
       "location": "Wangen b. Dübendorf",
@@ -96,12 +96,6 @@
       "canton": "ZH",
       "company": "Skyguide",
       "postedDate": "2026-07-31"
-    },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&or-Geneva-Public-Affairs-&-Government-Relations-Manager-%28100%29/1419912033/": {
-      "location": "Wangen b. Düb. &/or Geneva",
-      "canton": "GE",
-      "company": "Skyguide",
-      "postedDate": "2026-07-28"
     }
   }
 }
