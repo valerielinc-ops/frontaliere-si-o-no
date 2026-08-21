@@ -3649,6 +3649,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Marché des loyers à Appenzell Externe : loyers moyens et droit de location',
     'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'Le marché locatif d\'Appenzell Extérieur suit les règles fédérales et cantonales. Le dépôt de garantie maximal est déterminé par les lois cantonales.',
     'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'Un locataire suisse d\'Appenzello Esterno cherche justice pour un bail non résolu.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Ouvrir une entreprise à Appenzell Extérieur : registre et coûts',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'Le canton d\'Appenzell Extérieur dispose d\'une législation spécifique pour les activités commerciales. Vous devez vous inscrire au registre du commerce du canton.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Une entreprise dans le canton d\'Appenzell Rhodes-Intérieures',
 };
 
 export default blogMetaChFr;

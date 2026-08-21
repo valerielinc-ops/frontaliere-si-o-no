@@ -47327,6 +47327,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-canton-appenzello-esterno': {
+    title: 'Aprire un\'attività in Appenzello Esterno: registro e costi',
+    description: 'Il Cantone di Appenzello Esterno ha una legislazione specifica per le attività commerciali. È necessario registrarsi presso il registro di commercio',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
+    ogTitle: 'Aprire un\'attività nel Cantone di Appenzello Esterno: registro di commercio e costi',
+    ogDescription: 'Il Cantone di Appenzello Esterno ha una legislazione specifica per le attività commerciali. È necessario registrarsi presso il registro di commercio del Cantone.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Appenzello Esterno: registro e costi",
+      "description": "Il Cantone di Appenzello Esterno ha una legislazione specifica per le attività commerciali. È necessario registrarsi presso il registro di commercio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine un'attività commerciale nel Cantone di Appenzello Esterno"
+      },
+      "datePublished": "2026-08-21T03:33:04+00:00",
+      "dateModified": "2026-08-21T03:33:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

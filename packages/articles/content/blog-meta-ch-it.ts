@@ -3649,6 +3649,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Mercato degli affitti in Appenzello Esterno: canoni medi e diritto di locazione',
     'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'Il mercato degli affitti in Appenzello Esterno segue le norme federali e cantonali. Il deposito cauzionale massimo è determinato dalle leggi cantonali.',
     'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'Un locatore svizzero di Appenzello Esterno si rivolge alla giustizia per un affitto irrisolto.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Aprire un\'attività in Appenzello Esterno: registro e costi',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'Il Cantone di Appenzello Esterno ha una legislazione specifica per le attività commerciali. È necessario registrarsi presso il registro di commercio del Cantone.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Immagine un\'attività commerciale nel Cantone di Appenzello Esterno',
 };
 
 export default blogMetaChIt;
