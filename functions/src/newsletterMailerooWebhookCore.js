@@ -4,7 +4,7 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
-import { campaignIdFromTags } from './lib/mailerooRef.js';
+import { campaignIdFromTags, tagValue } from './lib/mailerooRef.js';
 import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
@@ -84,12 +84,27 @@ function getRecipient(event) {
   return normalizeEmailAddress(data.to || event.to);
 }
 
+/**
+ * The twin of extractCampaignId's array-tags defect, left behind by #6195.
+ *
+ * Maileroo echoes `tags` back in two shapes, and this function used to carry the
+ * same `!Array.isArray` guard, which silently answered "not a job alert" for the
+ * array form — so a job-alert event whose tags arrived as
+ * `[{name:'type', value:'job-alert'}]` was routed to
+ * `newsletter_subscribers/{email}` instead of `job_alert_subscribers/{email}`.
+ * It now reads the tag through the shared `tagValue`, so the shape rule lives in
+ * one place and cannot be fixed in one reader and left broken in the other.
+ *
+ * It has been dormant rather than harmful: this heuristic only runs when the
+ * maileroo_refs lookup did not resolve (`isJobAlert = meta ? !!meta.is_job_alert
+ * : isJobAlertEvent(event)`), and since #6195 every sender writes that lookup.
+ * It is fixed anyway because it is the same defect class in the same file, and
+ * a fallback that is wrong only when the primary path fails is the worst kind
+ * to leave standing.
+ */
 function isJobAlertEvent(event) {
-  const tags = event.tags || {};
-  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
-    return tags.type === 'job-alert' || tags.type === 'job-alert-retry';
-  }
-  return false;
+  const type = tagValue(event.tags, 'type');
+  return type === 'job-alert' || type === 'job-alert-retry';
 }
 
 function getOccurredAt(event) {

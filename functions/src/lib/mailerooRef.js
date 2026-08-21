@@ -53,19 +53,31 @@ export const MAILEROO_REF_COLLECTION = 'maileroo_refs';
  * fall back on their channel id without a nullish dance.
  */
 export function campaignIdFromTags(tags) {
-  if (!tags) return '';
+  return tagValue(tags, 'campaign_id') || tagValue(tags, 'campaign');
+}
+
+/**
+ * Read one tag BY NAME out of either shape.
+ *
+ * Extracted because reading a named tag is now done for two different names —
+ * `campaign_id` here and `type` in newsletterMailerooWebhookCore's
+ * isJobAlertEvent — and the first version of each got the array shape wrong in
+ * the same way (`!Array.isArray` guards that answered "absent" for the shape
+ * Maileroo actually sends). Two copies of that rule is exactly how the second
+ * one stayed broken after the first was fixed.
+ *
+ * Returns '' rather than null/undefined so callers can use `||` without a
+ * nullish dance.
+ */
+export function tagValue(tags, name) {
+  if (!tags || !name) return '';
   if (Array.isArray(tags)) {
     for (const t of tags) {
-      if (t && typeof t === 'object' && (t.name === 'campaign_id' || t.name === 'campaign')) {
-        return String(t.value ?? '');
-      }
+      if (t && typeof t === 'object' && t.name === name) return String(t.value ?? '');
     }
     return '';
   }
-  if (typeof tags === 'object') {
-    if (tags.campaign_id) return String(tags.campaign_id);
-    if (tags.campaign) return String(tags.campaign);
-  }
+  if (typeof tags === 'object' && tags[name]) return String(tags[name]);
   return '';
 }
 
