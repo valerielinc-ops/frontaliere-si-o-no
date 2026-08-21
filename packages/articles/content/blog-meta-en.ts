@@ -10389,6 +10389,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.title': 'Living in Cavaria, working in Ticino: cross-border commuter guide',
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.excerpt': 'Tax legislation, withholding tax, AHV and BVG contributions: the complete guide for cross-border commuters who choose to live in Cavaria con Premezzo and work in Ticino as employees.',
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.imageAlt': 'View of Mendrisio, Ticino border town on the Italy-Switzerland border with Alpine landscape',
+    'blog.article.civate-frontaliere-ticino-lavoro.title': 'Living in Civate and working in Ticino: the guide',
+    'blog.article.civate-frontaliere-ticino-lavoro.excerpt': 'Permits, taxation, AVS and everything you need to know to move to the border area and start working as a border worker in Ticino.',
+    'blog.article.civate-frontaliere-ticino-lavoro.imageAlt': 'Panoramic view of Lake Como\'s scenic shoreline, typical landscape for cross-border residents working in Ticino',
 };
 
 export default blogMetaEn;

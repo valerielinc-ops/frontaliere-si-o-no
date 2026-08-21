@@ -10390,6 +10390,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.title': 'Vivere a Cavaria, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.excerpt': 'Normativa fiscale, imposta alla fonte, contributi AVS e LPP: la guida completa per frontalieri che scelgono di vivere in Cavaria con Premezzo e lavorare in Ticino da dipendenti.',
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.imageAlt': 'Veduta di Mendrisio, città ticinese di confine al confine Italia-Svizzera con paesaggio alpino',
+    'blog.article.civate-frontaliere-ticino-lavoro.title': 'Vivere a Civate e lavorare in Ticino: la guida',
+    'blog.article.civate-frontaliere-ticino-lavoro.excerpt': 'Permessi, fiscalità, AVS e tutto quello che serve sapere per trasferirsi nella zona di confine e iniziare a fare il frontaliere in Ticino.',
+    'blog.article.civate-frontaliere-ticino-lavoro.imageAlt': 'Vista panoramica del Lago di Como, scenario tipico per chi sceglie di vivere nel confine lombardo e lavorare in Ticino',
 };
 
 export default blogMetaIt;

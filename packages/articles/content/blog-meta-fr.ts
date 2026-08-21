@@ -10391,6 +10391,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.title': 'Vivre à Cavaria, travailler au Tessin : guide transfrontalier des navetteurs',
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.excerpt': 'Législation fiscale, retenue à la source, cotisations AHV et BVG : le guide complet pour les navetteurs transfrontaliers qui choisissent de vivre à Cavaria con Premezzo et de travailler en tant qu\'employés au Tessin.',
     'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.imageAlt': 'Vue de Mendrisio, ville frontalière du Tessin à la frontière Italie-Suisse avec paysage alpin',
+    'blog.article.civate-frontaliere-ticino-lavoro.title': 'Vivre à Civate et travailler au Tessin : le guide',
+    'blog.article.civate-frontaliere-ticino-lavoro.excerpt': 'Permis, fiscalité, AVS et tout ce qu\'il faut savoir pour se déplacer dans la zone frontalière et commencer à être frontalier au Tessin.',
+    'blog.article.civate-frontaliere-ticino-lavoro.imageAlt': 'Vue panoramique du lac de Côme, paysage typique pour les frontaliers travaillant au Tessin',
 };
 
 export default blogMetaFr;
