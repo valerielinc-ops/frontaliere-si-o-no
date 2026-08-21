@@ -327,6 +327,34 @@ describe('promotion gate', () => {
     expect(res.reasons.join(' ')).toMatch(/scesi/);
   });
 
+  // `needSample` is computed from `latest` alone, so a candidate whose two good
+  // days have wildly different vacancyCount is never re-checked against the
+  // OLDER day's own numbers. The two directions of that gap have to be sane:
+  // growing is not a defect, collapsing has to be caught by something.
+  it('promotes a listing that grew sharply between its two good days (2 -> 30)', () => {
+    const growing = graded(2, { vacancyCount: 30 });
+    growing.validationHistory[0].vacancyCount = 2;
+    growing.validationHistory[0].sampled = 2;
+    growing.validationHistory[1].vacancyCount = 30;
+    growing.validationHistory[1].sampled = 4;
+    expect(evaluatePromotion(growing).passed).toBe(true);
+  });
+
+  it('refuses a listing that collapsed sharply between its two good days (30 -> 2), caught by retention not sampling', () => {
+    const collapsing = graded(2, { vacancyCount: 2 });
+    collapsing.validationHistory[0].vacancyCount = 30;
+    collapsing.validationHistory[0].sampled = 4;
+    collapsing.validationHistory[1].vacancyCount = 2;
+    collapsing.validationHistory[1].sampled = 2;
+    const res = evaluatePromotion(collapsing);
+    expect(res.passed).toBe(false);
+    // The latest day's own sample (2 of 2) is complete on its own terms —
+    // it is the retention check, comparing against the day-1 peak, that blocks.
+    expect(res.checks.sampled).toBe(true);
+    expect(res.checks.retention).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/scesi/);
+  });
+
   it('promotes a two-vacancy micro-employer graded on both', () => {
     // Una soglia fissa a 3 pagine di dettaglio escluderebbe per sempre il
     // segmento per cui il loop esiste. Due su due e' copertura totale.
