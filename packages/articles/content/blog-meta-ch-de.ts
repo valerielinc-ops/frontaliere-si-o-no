@@ -3736,6 +3736,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Mieten Zürich: Rechte, Gebühren und Miete',
     'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Anfangsmiete, Kaution, Kündigung: Der praktische Leitfaden zum Mietrecht im Kanton Zürich. Bundesvorschriften und Schlichtungsverfahren.',
     'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Fassade eines Wohnhauses in einer Schweizer Stadt mit modernen Fensterstrukturen',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Zürich',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'So funktioniert die erste AHV-Säule im Kanton Zürich: Ausgleichskasse, Rentenberechnung, Lücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Ausgleichskasse des Kantons Zuerich bei der Bearbeitung von AVS-Rentenantraegen',
 };
 
 export default blogMetaChDe;

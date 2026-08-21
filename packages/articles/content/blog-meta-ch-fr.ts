@@ -3736,6 +3736,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Loyers Zurich : droits, loyers et loyers',
     'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Redevance initiale, caution, résiliation : le guide pratique du droit de location dans le canton de Zurich. Règles fédérales et procédures de conciliation.',
     'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Façade d\'un immeuble d\'habitation dans une ville suisse avec des fenêtres d\'appartements modernes',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS et prestations complémentaires dans le canton de Zurich',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'Comment fonctionne le premier pilier AVS dans le canton de Zurich : caisse de compensation, calcul de la rente, lacunes et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Caisse de compensation du canton de Zurich traitant les demandes de rente AVS',
 };
 
 export default blogMetaChFr;
