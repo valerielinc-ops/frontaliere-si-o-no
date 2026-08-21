@@ -10327,6 +10327,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Living in Monvalle, working in Ticino: advantages and disadvantages',
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, a municipality in the district of Lugano, is one of the most popular destinations for border crossers wishing to live in Ticino and work in Switzerland.',
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere working in Ticino and living in Monvalle',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.title': 'Living in Barni, working in Ticino: border taxation',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers living in Barni (IT) and working in Ticino (CH): G Permit, tax at source, refills, AVS, LPP and LAMal. How to calculate the net.',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.imageAlt': 'Lugano lakefront view, symbolizing the work destination for Barni commuters in Ticino',
 };
 
 export default blogMetaEn;

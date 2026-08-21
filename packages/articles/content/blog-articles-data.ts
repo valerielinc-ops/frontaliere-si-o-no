@@ -30927,6 +30927,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-barni-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-21T02:39:49.860Z',
+ image: '/images/blog/vivere-barni-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
