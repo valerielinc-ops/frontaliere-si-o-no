@@ -10341,6 +10341,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carnago-frontaliere-ticino-guida.title': 'Vivre à Carnago, travailler au Tessin : guide frontalier',
     'blog.article.carnago-frontaliere-ticino-guida.excerpt': 'Comment vivre à Carnago et travailler au Tessin en tant que frontalier : permis G, impôt à la source, LAMal, ristournes fiscales, checklist administrative.',
     'blog.article.carnago-frontaliere-ticino-guida.imageAlt': 'Panorama du Tessin avec collines et passages frontaliers vers la province de Varèse, région de Mendrisio',
+    'blog.article.vivere-santa-maria-maggiore-frontaliere.title': 'Vivre à Santa Maria Maggiore en tant que frontalier du Tessin',
+    'blog.article.vivere-santa-maria-maggiore-frontaliere.excerpt': 'Guide complet pour se déplacer : permis G, nouvel accord fiscal 2024, calcul des économies, procédures administratives et temps de trajet aux points de passage.',
+    'blog.article.vivere-santa-maria-maggiore-frontaliere.imageAlt': 'Route de frontière au passage de Brogeda entre l\'Italie et le Tessin, petit matin avec brouillard et montagnes',
 };
 
 export default blogMetaFr;

@@ -10340,6 +10340,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carnago-frontaliere-ticino-guida.title': 'Vivere a Carnago, lavorare in Ticino: guida frontaliere',
     'blog.article.carnago-frontaliere-ticino-guida.excerpt': 'Come vivere a Carnago e lavorare in Ticino come frontaliere: Permesso G, imposta alla fonte, LAMal, ristorni fiscali, checklist amministrativa.',
     'blog.article.carnago-frontaliere-ticino-guida.imageAlt': 'Panorama del Canton Ticino con colline e valichi di confine verso la provincia di Varese, vista dalla zona di Mendrisio',
+    'blog.article.vivere-santa-maria-maggiore-frontaliere.title': 'Vivere a santa maria maggiore da frontaliere Ticino',
+    'blog.article.vivere-santa-maria-maggiore-frontaliere.excerpt': 'Guida completa per trasferirsi: permesso G, nuovo accordo fiscale 2024, calcolo del risparmio, procedure amministrative e tempi di percorrenza ai valichi.',
+    'blog.article.vivere-santa-maria-maggiore-frontaliere.imageAlt': 'Strada di confine tra Italia e Ticino al valico di Brogeda, mattina con nebbia, montagne innevate sullo sfondo',
 };
 
 export default blogMetaIt;
