@@ -10404,6 +10404,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.title': 'Living in Comabbio, working in Ticino: what to know',
     'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.excerpt': 'Tax at source, new tax agreement, double taxation, refunds, G/B permit',
     'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.imageAlt': 'Image of a frontier worker at Comabbio with a view of Lake Lugano',
+    'blog.article.vivere-peglione-lavorare-ticino-frontaliere.title': 'Living in Peglio and working in Ticino: advantages and disadvantages',
+    'blog.article.vivere-peglione-lavorare-ticino-frontaliere.excerpt': 'Connections, journey times, cost of living, recommended areas for border workers resident in Peglio and workers in Ticino',
+    'blog.article.vivere-peglione-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri a Peglio, strategic location confine Ticino-Italia',
 };
 
 export default blogMetaEn;

@@ -10405,6 +10405,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.title': 'Vivere a Comabbio e lavorare in Ticino da frontaliere: cosa deve sapere e fare',
     'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.excerpt': 'Imposta alla fonte, nuovo accordo fiscale, doppia imposizione, ristorni, permesso G/B',
     'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.imageAlt': 'Immagine di un frontaliere a Comabbio con una vista sul Lago di Lugano',
+    'blog.article.vivere-peglione-lavorare-ticino-frontaliere.title': 'Vivere a Peglio e lavorare in Ticino: vantaggi e svantaggi',
+    'blog.article.vivere-peglione-lavorare-ticino-frontaliere.excerpt': 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri residenti a Peglio e lavoratori in Ticino',
+    'blog.article.vivere-peglione-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri a Peglio, strategica ubicazione confine Ticino-Italia',
 };
 
 export default blogMetaIt;
