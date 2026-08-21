@@ -73079,6 +73079,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-galliate-lavorare-ticino-frontaliere': {
+    title: 'Galliate–Ticino: la guida del frontaliere | Frontaliere Ticino',
+    description: 'Residenza a Galliate e lavoro in Ticino: gestisci fiscalità, permesso G, AVS e LAMal. Procedure essenziali, franchigia €10.000, contributi e diritti d\'opzione',
+    keywords: 'frontalieri, ticino, svizzera, italia, galliate, residenza, lavoro, gestire',
+    ogTitle: 'Galliate–Ticino: la guida del frontaliere',
+    ogDescription: 'Trasferirsi a Galliate per lavorare in Ticino: scopri il regime fiscale, la franchigia €10.000 per nuovi frontalieri, i contributi AVS/LPP e il diritto d\'opzione LAMal. Procedura step-by-step e domande frequenti.',
+    canonicalPath: '/articoli-frontaliere/vivere-galliate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Galliate–Ticino: la guida del frontaliere",
+      "description": "Residenza a Galliate e lavoro in Ticino: gestisci fiscalità, permesso G, AVS e LAMal. Procedure essenziali, franchigia €10.000, contributi e diritti d'opzione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-galliate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della regione di confine tra il Varesotto e il Ticino con vallate verdi, cittadine e il valico di Chiasso"
+      },
+      "datePublished": "2026-08-21T06:42:27+00:00",
+      "dateModified": "2026-08-21T06:42:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-galliate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

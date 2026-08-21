@@ -10361,6 +10361,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cazzago-brabbia-frontaliere.title': 'Vivre à Cazzago Brabbia, travailler au Tessin',
     'blog.article.vivere-cazzago-brabbia-frontaliere.excerpt': 'Transfert à Cazzago Brabbia en tant que frontalier du Tessin : permis G, taxes, AVS/LPP, LAMal, coûts et procédures essentiels.',
     'blog.article.vivere-cazzago-brabbia-frontaliere.imageAlt': 'Paysage frontalier entre le Tessin et la Lombardie près de Mendrisio avec vallées alpines et petits villages',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.title': 'Galliate Tessin : le guide du frontalier',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.excerpt': 'Résidence à Galliate et travail au Tessin : comment gérer la fiscalité, permis G, AVS et LAMal. Découvrez les avantages et les procédures essentielles pour les frontaliers.',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de la région frontalière Varese-Tessin avec vallées vertes, villes et passage de Chiasso',
 };
 
 export default blogMetaFr;

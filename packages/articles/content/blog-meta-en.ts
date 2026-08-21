@@ -10359,6 +10359,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cazzago-brabbia-frontaliere.title': 'Living in Cazzago Brabbia, working in Ticino',
     'blog.article.vivere-cazzago-brabbia-frontaliere.excerpt': 'Transfer to Cazzago Brabbia from border crossing Ticino: G permit, taxes, AVS/LPP, LAMal, costs and essential procedures.',
     'blog.article.vivere-cazzago-brabbia-frontaliere.imageAlt': 'Border landscape between Ticino and Lombardy near Mendrisio with Alpine valleys and Lombard villages',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.title': 'Galliate–Ticino: the frontier guide',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.excerpt': 'Residence in Galliate and work in Ticino: how to manage taxation, G permit, AVS and LAMal. Discover the essential benefits and procedures for border workers.',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Varese Province and Ticino border region with green valleys, towns and Chiasso crossing',
 };
 
 export default blogMetaEn;

@@ -10360,6 +10360,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cazzago-brabbia-frontaliere.title': 'Vivere a Cazzago Brabbia, lavorare in Ticino',
     'blog.article.vivere-cazzago-brabbia-frontaliere.excerpt': 'Trasferimento a Cazzago Brabbia da frontaliere Ticino: permesso G, tasse, AVS/LPP, LAMal, costi e procedimenti essenziali.',
     'blog.article.vivere-cazzago-brabbia-frontaliere.imageAlt': 'Paesaggio del confine Ticino-Lombardia visto da Mendrisio, con valli Alpine e comuni della Lombardia',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.title': 'Galliate–Ticino: la guida del frontaliere',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.excerpt': 'Residenza a Galliate e lavoro in Ticino: come gestire fiscalità, permesso G, AVS e LAMal. Scopri i vantaggi e le procedure essenziali per i frontalieri.',
+    'blog.article.vivere-galliate-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea della regione di confine tra il Varesotto e il Ticino con vallate verdi, cittadine e il valico di Chiasso',
 };
 
 export default blogMetaIt;
