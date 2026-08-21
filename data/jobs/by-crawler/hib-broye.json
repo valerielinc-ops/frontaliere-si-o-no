@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-08-21T09:56:35.164Z",
+  "assembledAt": "2026-08-21T21:27:14.651Z",
   "jobs": [
     {
       "id": "hib-broye-c91295de9ba0",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/psychologue-psychotherapeute-a-20",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.865Z",
+      "crawledAt": "2026-08-21T21:27:11.713Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -70,15 +70,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.578Z",
-      "salaryMin": 13700,
-      "salaryMax": 20800,
+      "salaryMin": 17000,
+      "salaryMax": 23800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 13700,
-          "maxValue": 20800,
+          "minValue": 17000,
+          "maxValue": 23800,
           "unitText": "YEAR"
         }
       }
@@ -115,7 +115,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.864Z",
+      "crawledAt": "2026-08-21T21:27:11.712Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -157,19 +157,19 @@
         "multiskilled-medical-assistant-secretary-80-hopital-intercantonal-de-la-broye-hib-payerne",
         "multifunktionaler-medizinischer-assistent-sekretar-80-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 56800,
+      "salaryMax": 86000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 56800,
+          "maxValue": 86000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:56:32.864Z"
+      "firstSeenAt": "2026-08-21T21:27:11.712Z"
     },
     {
       "id": "hib-broye-df08b1d82a20",
@@ -203,7 +203,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.863Z",
+      "crawledAt": "2026-08-21T21:27:11.709Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -231,15 +231,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.574Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -276,7 +276,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/technologue-en-dispositifs-medicaux-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.862Z",
+      "crawledAt": "2026-08-21T21:27:11.707Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -334,15 +334,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.573Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -379,7 +379,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/ergotherapeute-30-a-50",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.861Z",
+      "crawledAt": "2026-08-21T21:27:11.704Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -443,15 +443,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.571Z",
-      "salaryMin": 30300,
-      "salaryMax": 45800,
+      "salaryMin": 43300,
+      "salaryMax": 60300,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 30300,
-          "maxValue": 45800,
+          "minValue": 43300,
+          "maxValue": 60300,
           "unitText": "YEAR"
         }
       }
@@ -488,7 +488,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-de-90-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.860Z",
+      "crawledAt": "2026-08-21T21:27:11.702Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -530,19 +530,19 @@
         "operating-room-technician-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "chirurgietechniker-in-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:56:32.860Z"
+      "firstSeenAt": "2026-08-21T21:27:11.702Z"
     },
     {
       "id": "hib-broye-355a90dda5ad",
@@ -576,7 +576,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-en-soins-durgences-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.857Z",
+      "crawledAt": "2026-08-21T21:27:11.697Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -604,15 +604,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.567Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -649,7 +649,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.856Z",
+      "crawledAt": "2026-08-21T21:27:11.694Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -677,15 +677,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.565Z",
-      "salaryMin": 48000,
-      "salaryMax": 72800,
+      "salaryMin": 53900,
+      "salaryMax": 81600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 72800,
+          "minValue": 53900,
+          "maxValue": 81600,
           "unitText": "YEAR"
         }
       }
@@ -722,7 +722,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.855Z",
+      "crawledAt": "2026-08-21T21:27:11.692Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -778,7 +778,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:56:32.855Z"
+      "firstSeenAt": "2026-08-21T21:27:11.692Z"
     },
     {
       "id": "hib-broye-b0c37cd9b7a8",
@@ -812,7 +812,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-au-sein-du-service-de-facturation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.854Z",
+      "crawledAt": "2026-08-21T21:27:11.689Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -922,7 +922,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.853Z",
+      "crawledAt": "2026-08-21T21:27:11.688Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1024,7 +1024,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.852Z",
+      "crawledAt": "2026-08-21T21:27:11.686Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1087,15 +1087,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.555Z",
-      "salaryMin": 30300,
-      "salaryMax": 45800,
+      "salaryMin": 35500,
+      "salaryMax": 53800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 30300,
-          "maxValue": 45800,
+          "minValue": 35500,
+          "maxValue": 53800,
           "unitText": "YEAR"
         }
       }
@@ -1132,7 +1132,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.851Z",
+      "crawledAt": "2026-08-21T21:27:11.684Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1191,15 +1191,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.552Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1236,7 +1236,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.850Z",
+      "crawledAt": "2026-08-21T21:27:11.681Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1289,15 +1289,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.551Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1334,7 +1334,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.849Z",
+      "crawledAt": "2026-08-21T21:27:11.679Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1397,15 +1397,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.549Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -1442,7 +1442,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.848Z",
+      "crawledAt": "2026-08-21T21:27:11.676Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1505,15 +1505,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.548Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1550,7 +1550,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.847Z",
+      "crawledAt": "2026-08-21T21:27:11.674Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1608,15 +1608,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.547Z",
-      "salaryMin": 61700,
-      "salaryMax": 93600,
+      "salaryMin": 76500,
+      "salaryMax": 107100,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 61700,
-          "maxValue": 93600,
+          "minValue": 76500,
+          "maxValue": 107100,
           "unitText": "YEAR"
         }
       }
@@ -1653,7 +1653,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-en-pharmacie-cdm",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.846Z",
+      "crawledAt": "2026-08-21T21:27:11.672Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1702,15 +1702,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.546Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1747,7 +1747,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.844Z",
+      "crawledAt": "2026-08-21T21:27:11.668Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1818,15 +1818,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.543Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1863,7 +1863,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.843Z",
+      "crawledAt": "2026-08-21T21:27:11.667Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1891,15 +1891,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:10:25.454Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -1936,7 +1936,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-rh",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.842Z",
+      "crawledAt": "2026-08-21T21:27:11.665Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2020,7 +2020,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-de-60-a-70",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.841Z",
+      "crawledAt": "2026-08-21T21:27:11.663Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2093,7 +2093,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/intendant.e-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.839Z",
+      "crawledAt": "2026-08-21T21:27:11.661Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2133,15 +2133,15 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:42:08.662Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -2178,7 +2178,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-comptable-de-60-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.838Z",
+      "crawledAt": "2026-08-21T21:27:11.659Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2214,15 +2214,15 @@
         ]
       },
       "firstSeenAt": "2026-06-17T22:43:37.125Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       }
@@ -2259,7 +2259,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/collaborateur-trice-dexploitation-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.837Z",
+      "crawledAt": "2026-08-21T21:27:11.658Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2312,15 +2312,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.535Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 71000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       }
@@ -2357,7 +2357,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.836Z",
+      "crawledAt": "2026-08-21T21:27:11.656Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2403,15 +2403,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:00:17.471Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -2448,7 +2448,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.835Z",
+      "crawledAt": "2026-08-21T21:27:11.654Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2479,15 +2479,15 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:16:45.118Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -2524,7 +2524,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier-ere-en-dietetique-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.833Z",
+      "crawledAt": "2026-08-21T21:27:11.652Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2595,15 +2595,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.518Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 56800,
+      "salaryMax": 86000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 56800,
+          "maxValue": 86000,
           "unitText": "YEAR"
         }
       }
@@ -2640,7 +2640,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier.ere-en-dietetique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.832Z",
+      "crawledAt": "2026-08-21T21:27:11.650Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2676,15 +2676,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:08:14.662Z",
-      "salaryMin": 66800,
-      "salaryMax": 101200,
+      "salaryMin": 93200,
+      "salaryMax": 130000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 66800,
-          "maxValue": 101200,
+          "minValue": 93200,
+          "maxValue": 130000,
           "unitText": "YEAR"
         }
       }
@@ -2721,7 +2721,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.831Z",
+      "crawledAt": "2026-08-21T21:27:11.648Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2757,15 +2757,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:52:15.305Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -2796,12 +2796,13 @@
         "en": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Dans l'objectif de renforcer temporairement l'équipe de notre magasin central/pharmacie, l'HIB est à la recherche d'un.e :\n\nAssistant-e en pharmacie en contrat heures / demandes sur appels\n\nVotre mission\n\n• Réceptionner et traiter les commandes\n\n• Approvisionner en médicaments selon demande les différentes unités de soins, cabinets médicaux et services externes\n\n• Gérer le stock des médicaments et assurer la traçabilité des stupéfiants\n\n• Générer les commandes auprès des fournisseurs externes\n\nVos atouts\n\nVous êtes au bénéfice d'un CFC d'assistant.e en pharmacie et possédez au moins 3 ans d'expérience professionnelle en tant que tel. Travaillant de manière autonome et flexible, vous disposez d'un excellent esprit d'équipe. Dynamique et serviable, vous effectuez vos tâches avec soin et rapidité. Pour ce poste, une excellente maîtrise du français (parlé et écrit) ainsi que des outils informatiques sont indispensables. Une maitrise d'Opale est un vrai atout.\n Entrée en fonction: De suite ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature en postulant en ligne.\n\nDes renseignements peuvent être obtenus auprès de M. Nicolas Overney, responsable du service approvisionnement, au 026 662 82 27.\n\nLe service Recrutement reste à votre disposition au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges seront exigés avant la signature du contrat.",
         "de": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Dans l'objectif de renforcer temporairement l'équipe de notre magasin central/pharmacie, l'HIB est à la recherche d'un.e :\n\nAssistant-e en pharmacie en contrat heures / demandes sur appels\n\nVotre mission\n\n• Réceptionner et traiter les commandes\n\n• Approvisionner en médicaments selon demande les différentes unités de soins, cabinets médicaux et services externes\n\n• Gérer le stock des médicaments et assurer la traçabilité des stupéfiants\n\n• Générer les commandes auprès des fournisseurs externes\n\nVos atouts\n\nVous êtes au bénéfice d'un CFC d'assistant.e en pharmacie et possédez au moins 3 ans d'expérience professionnelle en tant que tel. Travaillant de manière autonome et flexible, vous disposez d'un excellent esprit d'équipe. Dynamique et serviable, vous effectuez vos tâches avec soin et rapidité. Pour ce poste, une excellente maîtrise du français (parlé et écrit) ainsi que des outils informatiques sont indispensables. Une maitrise d'Opale est un vrai atout.\n Entrée en fonction: De suite ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature en postulant en ligne.\n\nDes renseignements peuvent être obtenus auprès de M. Nicolas Overney, responsable du service approvisionnement, au 026 662 82 27.\n\nLe service Recrutement reste à votre disposition au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges seront exigés avant la signature du contrat."
       },
+      "needsRetranslation": true,
       "location": "Payerne",
       "canton": "VD",
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.830Z",
+      "crawledAt": "2026-08-21T21:27:11.647Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2846,109 +2847,19 @@
         "pharmacy-assistant-contract-hours-call-requests-hopital-intercantonal-de-la-broye-hib-payerne",
         "assistent-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:56:32.830Z",
-      "needsRetranslation": true
-    },
-    {
-      "id": "hib-broye-7560e5b3a31f",
-      "slug": "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
-      "slugByLocale": {
-        "it": "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
-        "en": "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
-        "de": "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
-        "fr": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Chef-fe de clinique en gériatrie de 80% à 100%",
-      "titleByLocale": {
-        "it": "Responsabile della Clinica Geriatrica dall'80% al 100%",
-        "en": "Head of Geriatric Clinic from 80% to 100%",
-        "de": "Leiterin der Geriatrischen Klinik von 80% bis 100%",
-        "fr": "Chef-fe de clinique en gériatrie de 80% à 100%"
-      },
-      "description": "Grâce à ses 800 collaborateurs.trices, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population Broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un.e :\n\nChef-fe de clinique en gériatrie de 80% à 100%\n\nVotre mission\n\nLe contexte et votre futur service\n\nLe service de rééducation (CTR) compte 47 lits, dont environ la moitié est dédiée à la réadaptation gériatrique sur le site d’Estavayer, complétés par 8 lits de gériatrie aiguë sur le site de Payerne. Le service est actuellement dans une dynamique de fort développement, portée par un projet d’augmentation des lits de gériatrie aiguë et le déploiement de notre offre ambulatoire. Vous intégrerez une équipe médicale pluridisciplinaire (internistes, spécialistes en MPR, rhumatologues, neurologues) travaillant en étroite synergie avec l’ensemble de nos spécialistes en rééducation (physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, diététicien·ne·s et psychologues).\n\nVos missions et objectifs\n\n• Excellence clinique : Assurer des prestations médicales de haute qualité auprès des patient.e.s, dans le respect des normes professionnelles et des valeurs institutionnelles.\n\n• Développement : Contribuer à la gestion et au développement de projets spécifiques, ainsi qu'au suivi des indicateurs de performance.\n\n• Formation : Encadrer, superviser et assurer la formation clinique des médecins assistant.e.s, stagiaires et étudiant.e.s.\n\n• Interdisciplinarité : Promouvoir la cohérence et garantir la qualité du travail interdisciplinaire avec l'ensemble des équipes.\n\n• Engagement institutionnel: Participer activement et de manière constructive aux différents colloques, séances et formations.\n\n• Continuité des soins : Participer à la continuité des soins avec les autres médecins de l’établissement.\n\nVos atouts\n\n• Vous êtes titulaire du diplôme fédéral de médecin (ou d'un titre étranger reconnu par la MEBEKO) et possédez une formation approfondie (titre de spécialiste) en gériatrie.\n\n• Vous portez un intérêt particulier et marqué pour la réadaptation gériatrique et la gériatrie aiguë.\n\n• Vous êtes reconnu·e pour votre capacité et votre goût à travailler au sein d'une équipe interdisciplinaire.\n\n• Vous faites preuve d'esprit d'initiative, d'un excellent sens de l'organisation et d'une forte collégialité.\n\nEntrée en fonction : à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec le Dr Thierry Epstein, directeur médical, au 026 662 85 02.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
-      "descriptionByLocale": {
-        "it": "Grazie ai suoi 800 dipendenti, l'Ospedale Intercantoneale del Broye (HIB) fornisce una missione di cura e riabilitazione acuta. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione di Broyard. Per rispondere alle molte sfide che ci attendono, HIB sta cercando un:\n\nResponsabile della Clinica Geriatrica dall'80% al 100%\n\nLa tua missione\n\nIl contesto e il vostro futuro servizio\n\nIl servizio di riabilitazione (CTR) ha 47 posti letto, circa la metà dei quali sono dedicati alla riabilitazione geriatrica presso il sito d'Estavayer, completato da 8 letti geriatrici acuti presso il sito Payerne. Il servizio è attualmente in una dinamica di forte sviluppo, guidata da un progetto per aumentare i letti geriatrici acuti e l'implementazione della nostra offerta ambulatoriale. Integrerai un team medico multidisciplinare (internisti, specialisti in RPM, reumatologi, neurologi) lavorando in stretta sinergia con tutti i nostri specialisti in riabilitazione (fisioterapisti, terapisti professionali, neuropsicologi, logopedisti, dietici e psicologi).\n\nLe vostre missioni e obiettivi\n\n• Eccellenza clinica: fornire servizi medici di alta qualità ai pazienti, nel rispetto degli standard professionali e dei valori istituzionali.\n\n• Sviluppo: Contribuire alla gestione e allo sviluppo di progetti specifici e al monitoraggio degli indicatori di performance.\n\n• Formazione: Per supervisionare, supervisionare e fornire una formazione clinica per medici, tirocinanti e studenti.\n\n• Interdisciplinarità: Promuovere la coerenza e garantire la qualità del lavoro interdisciplinare con tutte le squadre.\n\n• Impegno istituzionale: partecipazione attiva e costruttiva a vari seminari, sessioni e formazione.\n\n• Continuità della cura: partecipa in continuità di cura con altri medici dell'istituzione.\n\nI vostri beni\n\n• Hai una laurea federale in medicina (o un diploma straniero riconosciuto da MEBEKO) e hai una formazione approfondita (titolo specialistico) in geriatria.\n\n• Siete particolarmente interessati alla riabilitazione geriatrica e alla geriatria acuta.\n\n• Siete riconosciuti per la vostra capacità e il gusto di lavorare in un team interdisciplinare.\n\n• Si mostra l'iniziativa, un eccellente senso di organizzazione e forte collegialità.\n\nEntrata in ufficio: da concordare\n\nGrazie per averci inviato il tuo modulo di domanda corrente applicando online.\n\nPer ulteriori domande su questa posizione, si prega di contattare Dr. Thierry Epstein, direttore medico, a 026 662 85 02.\n\nIn caso di difficoltà tecniche, vi invitiamo a contattare il nostro reparto di reclutamento allo 026 662 81 91.\n\nUn estratto di record penale ordinario e un estratto speciale vuoto di meno di 3 mesi saranno richiesti prima della firma del contratto.",
-        "en": "Thanks to its 800 employees, the Intercantonal Hospital of the Broye (HIB) provides a mission of acute care and rehabilitation. His ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. To meet the many challenges ahead, HIB is looking for a:\n\nHead of Geriatric Clinic from 80% to 100%\n\nYour Mission\n\nThe context and your future service\n\nThe rehabilitation service (CTR) has 47 beds, about half of which are dedicated to geriatric rehabilitation at the d'Estavayer site, supplemented by 8 acute geriatric beds at the Payerne site. The service is currently in a dynamic of strong development, led by a project to increase acute geriatric beds and the deployment of our outpatient offer. You will integrate a multidisciplinary medical team (internists, specialists in RPM, rheumatologists, neurologists) working in close synergy with all our specialists in rehabilitation (physiotherapists, occupational therapists, neuropsychologists, logopedists, dieticians and psychologists).\n\nYour missions and objectives\n\n• Clinical Excellence: Provide high-quality medical services to patients, respecting professional standards and institutional values.\n\n• Development: Contribute to the management and development of specific projects and to the monitoring of performance indicators.\n\n• Training: To supervise, supervise and provide clinical training for assistant physicians, trainees and students.\n\n• Interdisciplinarity: Promote coherence and ensure the quality of interdisciplinary work with all teams.\n\n• Institutional engagement: Actively and constructively participate in various seminars, sessions and trainings.\n\n• Continuity of Care: Participate in continuity of care with other physicians in the institution.\n\nYour assets\n\n• You have a federal degree in medicine (or a foreign diploma recognized by MEBEKO) and have in-depth training (specialist title) in geriatrics.\n\n• You are particularly interested in geriatric rehabilitation and acute geriatrics.\n\n• You are recognized for your ability and taste to work in an interdisciplinary team.\n\n• You show initiative, an excellent sense of organization and strong collegiality.\n\nEntry into office: to be agreed\n\nThank you for sending us your current application form by applying online.\n\nFor further questions on this position, please contact Dr. Thierry Epstein, Medical Director, at 026 662 85 02.\n\nIn case of technical difficulties, we invite you to contact our recruitment department at 026 662 81 91.\n\nAn ordinary criminal record extract and a blank special extract of less than 3 months will be required before the contract is signed.",
-        "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus der Broye (HIB) eine Mission der akuten Pflege und Rehabilitation. Sein Ziel ist es, eine dynamische, innovative und exzellente Gesundheitseinrichtung zum Wohle der Broyard-Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach einem:\n\nLeiterin der Geriatrischen Klinik von 80% bis 100%\n\nDeine Mission\n\nDer Kontext und Ihr zukünftiger Service\n\nDer Rehabilitationsdienst (CTR) verfügt über 47 Betten, von denen etwa die Hälfte der geriatrischen Rehabilitation am Standort d'Estavayer gewidmet ist, ergänzt durch 8 akute geriatrische Betten am Standort Payerne. Der Service befindet sich derzeit in einer Dynamik starker Entwicklung, angeführt von einem Projekt zur Erhöhung der akuten geriatrischen Betten und der Bereitstellung unseres ambulanten Angebots. Sie werden ein multidisziplinäres medizinisches Team (Internisten, Spezialisten für RPM, Rheumatologen, Neurologen) integrieren, das in enger Synergie mit allen unseren Spezialisten für Rehabilitation arbeitet (Physiotherapeuten, Ergotherapeuten, Neuropsychologen, Logopäden, Diätassistenten und Psychologen).\n\nIhre Missionen und Ziele\n\n• Klinische Exzellenz: Bereitstellung hochwertiger medizinischer Dienstleistungen für Patienten unter Beachtung professioneller Standards und institutioneller Werte.\n\n• Entwicklung: Beitrag zur Verwaltung und Entwicklung spezifischer Projekte und zur Überwachung von Leistungsindikatoren.\n\n• Ausbildung: Betreuung, Betreuung und klinische Ausbildung für Assistenzärzte, Auszubildende und Studenten.\n\n• Interdisziplinarität: Kohärenz fördern und die Qualität der interdisziplinären Arbeit mit allen Teams sicherstellen.\n\n• Institutionelles Engagement: Aktiv und konstruktiv an verschiedenen Seminaren, Sessions und Trainings teilnehmen.\n\n• Kontinuität der Pflege: Beteiligen Sie sich an der Kontinuität der Pflege mit anderen Ärzten in der Einrichtung.\n\nIhre Vermögenswerte\n\n• Sie haben einen Bundesabschluss in Medizin (oder ein von MEBEKO anerkanntes Auslandsdiplom) und eine vertiefte Ausbildung (Fachtitel) in Geriatrie.\n\n• Sie interessieren sich besonders für geriatrische Rehabilitation und akute Geriatrie.\n\n• Sie werden für Ihre Fähigkeit und Ihren Geschmack anerkannt, in einem interdisziplinären Team zu arbeiten.\n\n• Sie zeigen Initiative, ein ausgezeichnetes Organisationsgefühl und eine starke Kollegialität.\n\nAmtsantritt: noch zu vereinbaren\n\nVielen Dank, dass Sie uns Ihr aktuelles Antragsformular per Online-Bewerbung zusenden.\n\nFür weitere Fragen zu dieser Position wenden Sie sich bitte an Dr. Thierry Epstein, Medical Director, unter 026 662 85 02.\n\nBei technischen Schwierigkeiten laden wir Sie ein, sich an unsere Rekrutierungsabteilung unter 026 662 81 91 zu wenden.\n\nEin gewöhnlicher Strafregisterauszug und ein leerer Spezialauszug von weniger als 3 Monaten sind erforderlich, bevor der Vertrag unterzeichnet wird.",
-        "fr": "Grâce à ses 800 collaborateurs.trices, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population Broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un.e :\nChef-fe de clinique en gériatrie de 80% à 100%\nVotre mission\nLe contexte et votre futur service\n\nLe service de rééducation (CTR) compte 47 lits, dont environ la moitié est dédiée à la réadaptation gériatrique sur le site d’Estavayer, complétés par 8 lits de gériatrie aiguë sur le site de Payerne. Le service est actuellement dans une dynamique de fort développement, portée par un projet d’augmentation des lits de gériatrie aiguë et le déploiement de notre offre ambulatoire. Vous intégrerez une équipe médicale pluridisciplinaire (internistes, spécialistes en MPR, rhumatologues, neurologues) travaillant en étroite synergie avec l’ensemble de nos spécialistes en rééducation (physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, diététicien·ne·s et psychologues).\n\nVos missions et objectifs\n\n• Excellence clinique : Assurer des prestations médicales de haute qualité auprès des patient.e.s, dans le respect des normes professionnelles et des valeurs institutionnelles.\n\n• Développement : Contribuer à la gestion et au développement de projets spécifiques, ainsi qu'au suivi des indicateurs de performance.\n\n• Formation : Encadrer, superviser et assurer la formation clinique des médecins assistant.e.s, stagiaires et étudiant.e.s.\n\n• Interdisciplinarité : Promouvoir la cohérence et garantir la qualité du travail interdisciplinaire avec l'ensemble des équipes.\n\n• Engagement institutionnel: Participer activement et de manière constructive aux différents colloques, séances et formations.\n\n• Continuité des soins : Participer à la continuité des soins avec les autres médecins de l’établissement.\n\nVos atouts\n\n• Vous êtes titulaire du diplôme fédéral de médecin (ou d'un titre étranger reconnu par la MEBEKO) et possédez une formation approfondie (titre de spécialiste) en gériatrie.\n\n• Vous portez un intérêt particulier et marqué pour la réadaptation gériatrique et la gériatrie aiguë.\n\n• Vous êtes reconnu·e pour votre capacité et votre goût à travailler au sein d'une équipe interdisciplinaire.\n\n• Vous faites preuve d'esprit d'initiative, d'un excellent sens de l'organisation et d'une forte collégialité.\n\nEntrée en fonction : à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec le Dr Thierry Epstein, directeur médical, au 026 662 85 02.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
-      },
-      "needsRetranslation": false,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/secretaire-medical.e-a-40",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.827Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/secretaire-medical.e-a-40",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-        "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
-        "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac-37a9df"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
-          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "en": [
-          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-          "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "de": [
-          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
-          "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "fr": [
-          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac-37a9df"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T09:46:47.177Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
+      "firstSeenAt": "2026-08-21T21:27:11.647Z"
     },
     {
       "id": "hib-broye-d8a55be0dc87",
@@ -2982,7 +2893,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/psychologue-a-60",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.827Z",
+      "crawledAt": "2026-08-21T21:27:11.643Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3042,15 +2953,104 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:17:29.248Z",
-      "salaryMin": 41100,
-      "salaryMax": 62400,
+      "salaryMin": 51000,
+      "salaryMax": 71400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41100,
-          "maxValue": 62400,
+          "minValue": 51000,
+          "maxValue": 71400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hib-broye-7560e5b3a31f",
+      "slug": "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
+      "slugByLocale": {
+        "it": "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
+        "en": "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
+        "de": "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd",
+        "fr": "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Chef-fe de clinique en gériatrie de 80% à 100%",
+      "titleByLocale": {
+        "it": "Responsabile della Clinica Geriatrica dall'80% al 100%",
+        "en": "Head of Geriatric Clinic from 80% to 100%",
+        "de": "Leiterin der Geriatrischen Klinik von 80% bis 100%",
+        "fr": "Chef-fe de clinique en gériatrie de 80% à 100%"
+      },
+      "description": "Grâce à ses 800 collaborateurs.trices, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population Broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un.e :\n\nChef-fe de clinique en gériatrie de 80% à 100%\n\nVotre mission\n\nLe contexte et votre futur service\n\nLe service de rééducation (CTR) compte 47 lits, dont environ la moitié est dédiée à la réadaptation gériatrique sur le site d’Estavayer, complétés par 8 lits de gériatrie aiguë sur le site de Payerne. Le service est actuellement dans une dynamique de fort développement, portée par un projet d’augmentation des lits de gériatrie aiguë et le déploiement de notre offre ambulatoire. Vous intégrerez une équipe médicale pluridisciplinaire (internistes, spécialistes en MPR, rhumatologues, neurologues) travaillant en étroite synergie avec l’ensemble de nos spécialistes en rééducation (physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, diététicien·ne·s et psychologues).\n\nVos missions et objectifs\n\n• Excellence clinique : Assurer des prestations médicales de haute qualité auprès des patient.e.s, dans le respect des normes professionnelles et des valeurs institutionnelles.\n\n• Développement : Contribuer à la gestion et au développement de projets spécifiques, ainsi qu'au suivi des indicateurs de performance.\n\n• Formation : Encadrer, superviser et assurer la formation clinique des médecins assistant.e.s, stagiaires et étudiant.e.s.\n\n• Interdisciplinarité : Promouvoir la cohérence et garantir la qualité du travail interdisciplinaire avec l'ensemble des équipes.\n\n• Engagement institutionnel: Participer activement et de manière constructive aux différents colloques, séances et formations.\n\n• Continuité des soins : Participer à la continuité des soins avec les autres médecins de l’établissement.\n\nVos atouts\n\n• Vous êtes titulaire du diplôme fédéral de médecin (ou d'un titre étranger reconnu par la MEBEKO) et possédez une formation approfondie (titre de spécialiste) en gériatrie.\n\n• Vous portez un intérêt particulier et marqué pour la réadaptation gériatrique et la gériatrie aiguë.\n\n• Vous êtes reconnu·e pour votre capacité et votre goût à travailler au sein d'une équipe interdisciplinaire.\n\n• Vous faites preuve d'esprit d'initiative, d'un excellent sens de l'organisation et d'une forte collégialité.\n\nEntrée en fonction : à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec le Dr Thierry Epstein, directeur médical, au 026 662 85 02.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
+      "descriptionByLocale": {
+        "it": "Grazie ai suoi 800 dipendenti, l'Ospedale Intercantoneale del Broye (HIB) fornisce una missione di cura e riabilitazione acuta. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione di Broyard. Per rispondere alle molte sfide che ci attendono, HIB sta cercando un:\n\nResponsabile della Clinica Geriatrica dall'80% al 100%\n\nLa tua missione\n\nIl contesto e il vostro futuro servizio\n\nIl servizio di riabilitazione (CTR) ha 47 posti letto, circa la metà dei quali sono dedicati alla riabilitazione geriatrica presso il sito d'Estavayer, completato da 8 letti geriatrici acuti presso il sito Payerne. Il servizio è attualmente in una dinamica di forte sviluppo, guidata da un progetto per aumentare i letti geriatrici acuti e l'implementazione della nostra offerta ambulatoriale. Integrerai un team medico multidisciplinare (internisti, specialisti in RPM, reumatologi, neurologi) lavorando in stretta sinergia con tutti i nostri specialisti in riabilitazione (fisioterapisti, terapisti professionali, neuropsicologi, logopedisti, dietici e psicologi).\n\nLe vostre missioni e obiettivi\n\n• Eccellenza clinica: fornire servizi medici di alta qualità ai pazienti, nel rispetto degli standard professionali e dei valori istituzionali.\n\n• Sviluppo: Contribuire alla gestione e allo sviluppo di progetti specifici e al monitoraggio degli indicatori di performance.\n\n• Formazione: Per supervisionare, supervisionare e fornire una formazione clinica per medici, tirocinanti e studenti.\n\n• Interdisciplinarità: Promuovere la coerenza e garantire la qualità del lavoro interdisciplinare con tutte le squadre.\n\n• Impegno istituzionale: partecipazione attiva e costruttiva a vari seminari, sessioni e formazione.\n\n• Continuità della cura: partecipa in continuità di cura con altri medici dell'istituzione.\n\nI vostri beni\n\n• Hai una laurea federale in medicina (o un diploma straniero riconosciuto da MEBEKO) e hai una formazione approfondita (titolo specialistico) in geriatria.\n\n• Siete particolarmente interessati alla riabilitazione geriatrica e alla geriatria acuta.\n\n• Siete riconosciuti per la vostra capacità e il gusto di lavorare in un team interdisciplinare.\n\n• Si mostra l'iniziativa, un eccellente senso di organizzazione e forte collegialità.\n\nEntrata in ufficio: da concordare\n\nGrazie per averci inviato il tuo modulo di domanda corrente applicando online.\n\nPer ulteriori domande su questa posizione, si prega di contattare Dr. Thierry Epstein, direttore medico, a 026 662 85 02.\n\nIn caso di difficoltà tecniche, vi invitiamo a contattare il nostro reparto di reclutamento allo 026 662 81 91.\n\nUn estratto di record penale ordinario e un estratto speciale vuoto di meno di 3 mesi saranno richiesti prima della firma del contratto.",
+        "en": "Thanks to its 800 employees, the Intercantonal Hospital of the Broye (HIB) provides a mission of acute care and rehabilitation. His ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. To meet the many challenges ahead, HIB is looking for a:\n\nHead of Geriatric Clinic from 80% to 100%\n\nYour Mission\n\nThe context and your future service\n\nThe rehabilitation service (CTR) has 47 beds, about half of which are dedicated to geriatric rehabilitation at the d'Estavayer site, supplemented by 8 acute geriatric beds at the Payerne site. The service is currently in a dynamic of strong development, led by a project to increase acute geriatric beds and the deployment of our outpatient offer. You will integrate a multidisciplinary medical team (internists, specialists in RPM, rheumatologists, neurologists) working in close synergy with all our specialists in rehabilitation (physiotherapists, occupational therapists, neuropsychologists, logopedists, dieticians and psychologists).\n\nYour missions and objectives\n\n• Clinical Excellence: Provide high-quality medical services to patients, respecting professional standards and institutional values.\n\n• Development: Contribute to the management and development of specific projects and to the monitoring of performance indicators.\n\n• Training: To supervise, supervise and provide clinical training for assistant physicians, trainees and students.\n\n• Interdisciplinarity: Promote coherence and ensure the quality of interdisciplinary work with all teams.\n\n• Institutional engagement: Actively and constructively participate in various seminars, sessions and trainings.\n\n• Continuity of Care: Participate in continuity of care with other physicians in the institution.\n\nYour assets\n\n• You have a federal degree in medicine (or a foreign diploma recognized by MEBEKO) and have in-depth training (specialist title) in geriatrics.\n\n• You are particularly interested in geriatric rehabilitation and acute geriatrics.\n\n• You are recognized for your ability and taste to work in an interdisciplinary team.\n\n• You show initiative, an excellent sense of organization and strong collegiality.\n\nEntry into office: to be agreed\n\nThank you for sending us your current application form by applying online.\n\nFor further questions on this position, please contact Dr. Thierry Epstein, Medical Director, at 026 662 85 02.\n\nIn case of technical difficulties, we invite you to contact our recruitment department at 026 662 81 91.\n\nAn ordinary criminal record extract and a blank special extract of less than 3 months will be required before the contract is signed.",
+        "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus der Broye (HIB) eine Mission der akuten Pflege und Rehabilitation. Sein Ziel ist es, eine dynamische, innovative und exzellente Gesundheitseinrichtung zum Wohle der Broyard-Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach einem:\n\nLeiterin der Geriatrischen Klinik von 80% bis 100%\n\nDeine Mission\n\nDer Kontext und Ihr zukünftiger Service\n\nDer Rehabilitationsdienst (CTR) verfügt über 47 Betten, von denen etwa die Hälfte der geriatrischen Rehabilitation am Standort d'Estavayer gewidmet ist, ergänzt durch 8 akute geriatrische Betten am Standort Payerne. Der Service befindet sich derzeit in einer Dynamik starker Entwicklung, angeführt von einem Projekt zur Erhöhung der akuten geriatrischen Betten und der Bereitstellung unseres ambulanten Angebots. Sie werden ein multidisziplinäres medizinisches Team (Internisten, Spezialisten für RPM, Rheumatologen, Neurologen) integrieren, das in enger Synergie mit allen unseren Spezialisten für Rehabilitation arbeitet (Physiotherapeuten, Ergotherapeuten, Neuropsychologen, Logopäden, Diätassistenten und Psychologen).\n\nIhre Missionen und Ziele\n\n• Klinische Exzellenz: Bereitstellung hochwertiger medizinischer Dienstleistungen für Patienten unter Beachtung professioneller Standards und institutioneller Werte.\n\n• Entwicklung: Beitrag zur Verwaltung und Entwicklung spezifischer Projekte und zur Überwachung von Leistungsindikatoren.\n\n• Ausbildung: Betreuung, Betreuung und klinische Ausbildung für Assistenzärzte, Auszubildende und Studenten.\n\n• Interdisziplinarität: Kohärenz fördern und die Qualität der interdisziplinären Arbeit mit allen Teams sicherstellen.\n\n• Institutionelles Engagement: Aktiv und konstruktiv an verschiedenen Seminaren, Sessions und Trainings teilnehmen.\n\n• Kontinuität der Pflege: Beteiligen Sie sich an der Kontinuität der Pflege mit anderen Ärzten in der Einrichtung.\n\nIhre Vermögenswerte\n\n• Sie haben einen Bundesabschluss in Medizin (oder ein von MEBEKO anerkanntes Auslandsdiplom) und eine vertiefte Ausbildung (Fachtitel) in Geriatrie.\n\n• Sie interessieren sich besonders für geriatrische Rehabilitation und akute Geriatrie.\n\n• Sie werden für Ihre Fähigkeit und Ihren Geschmack anerkannt, in einem interdisziplinären Team zu arbeiten.\n\n• Sie zeigen Initiative, ein ausgezeichnetes Organisationsgefühl und eine starke Kollegialität.\n\nAmtsantritt: noch zu vereinbaren\n\nVielen Dank, dass Sie uns Ihr aktuelles Antragsformular per Online-Bewerbung zusenden.\n\nFür weitere Fragen zu dieser Position wenden Sie sich bitte an Dr. Thierry Epstein, Medical Director, unter 026 662 85 02.\n\nBei technischen Schwierigkeiten laden wir Sie ein, sich an unsere Rekrutierungsabteilung unter 026 662 81 91 zu wenden.\n\nEin gewöhnlicher Strafregisterauszug und ein leerer Spezialauszug von weniger als 3 Monaten sind erforderlich, bevor der Vertrag unterzeichnet wird.",
+        "fr": "Grâce à ses 800 collaborateurs.trices, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population Broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un.e :\nChef-fe de clinique en gériatrie de 80% à 100%\nVotre mission\nLe contexte et votre futur service\n\nLe service de rééducation (CTR) compte 47 lits, dont environ la moitié est dédiée à la réadaptation gériatrique sur le site d’Estavayer, complétés par 8 lits de gériatrie aiguë sur le site de Payerne. Le service est actuellement dans une dynamique de fort développement, portée par un projet d’augmentation des lits de gériatrie aiguë et le déploiement de notre offre ambulatoire. Vous intégrerez une équipe médicale pluridisciplinaire (internistes, spécialistes en MPR, rhumatologues, neurologues) travaillant en étroite synergie avec l’ensemble de nos spécialistes en rééducation (physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, diététicien·ne·s et psychologues).\n\nVos missions et objectifs\n\n• Excellence clinique : Assurer des prestations médicales de haute qualité auprès des patient.e.s, dans le respect des normes professionnelles et des valeurs institutionnelles.\n\n• Développement : Contribuer à la gestion et au développement de projets spécifiques, ainsi qu'au suivi des indicateurs de performance.\n\n• Formation : Encadrer, superviser et assurer la formation clinique des médecins assistant.e.s, stagiaires et étudiant.e.s.\n\n• Interdisciplinarité : Promouvoir la cohérence et garantir la qualité du travail interdisciplinaire avec l'ensemble des équipes.\n\n• Engagement institutionnel: Participer activement et de manière constructive aux différents colloques, séances et formations.\n\n• Continuité des soins : Participer à la continuité des soins avec les autres médecins de l’établissement.\n\nVos atouts\n\n• Vous êtes titulaire du diplôme fédéral de médecin (ou d'un titre étranger reconnu par la MEBEKO) et possédez une formation approfondie (titre de spécialiste) en gériatrie.\n\n• Vous portez un intérêt particulier et marqué pour la réadaptation gériatrique et la gériatrie aiguë.\n\n• Vous êtes reconnu·e pour votre capacité et votre goût à travailler au sein d'une équipe interdisciplinaire.\n\n• Vous faites preuve d'esprit d'initiative, d'un excellent sens de l'organisation et d'une forte collégialité.\n\nEntrée en fonction : à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec le Dr Thierry Epstein, directeur médical, au 026 662 85 02.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
+      },
+      "needsRetranslation": false,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/secretaire-medical.e-a-40",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-21T21:27:11.641Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/secretaire-medical.e-a-40",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
+        "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac-37a9df",
+        "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
+          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "responsabile-della-clinica-geriatrica-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-0e13dd"
+        ],
+        "en": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
+          "head-of-geriatric-clinic-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "de": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac",
+          "leiterin-der-geriatrischen-klinik-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "fr": [
+          "chef-fe-de-clinique-en-geriatrie-de-80-a-100-hib-broye-estavayer-le-lac-37a9df"
+        ]
+      },
+      "firstSeenAt": "2026-08-20T09:46:47.177Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -3081,12 +3081,13 @@
         "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus der Broye (HIB) eine Mission der akuten Pflege und Rehabilitation. Sein Ziel ist es, eine dynamische, innovative und exzellente Gesundheitseinrichtung zum Wohle der Broyard-Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach einem:\n\nAssistenzarzt in Geriatrie von 50% bis 100%\n\nDeine Mission\n\nDer Kontext und Ihr zukünftiger Service\n\nDer Rehabilitationsdienst (CTR) verfügt über 47 Betten, von denen etwa die Hälfte der geriatrischen Rehabilitation am Standort d'Estavayer gewidmet ist, ergänzt durch 8 akute geriatrische Betten am Standort Payerne. Der Service befindet sich derzeit in einer Dynamik starker Entwicklung, angeführt von einem Projekt zur Erhöhung der akuten geriatrischen Betten und der Bereitstellung unseres ambulanten Angebots. Sie werden ein multidisziplinäres medizinisches Team (Internisten, Spezialisten für RPM, Rheumatologen, Neurologen) integrieren, das in enger Synergie mit allen unseren Spezialisten für Rehabilitation arbeitet (Physiotherapeuten, Ergotherapeuten, Neuropsychologen, Logopäden, Diätassistenten und Psychologen).\n\nIhre Missionen und Ziele\n\n• Klinische Exzellenz: Sicherstellung und Sicherstellung der Qualität der klinischen Dienstleistungen im Bereich der Geriatrie und Rehabilitation.\n\n• Entwicklung: Aktiv an der Schaffung und Entwicklung ambulanter Aktivitäten in der Geriatrie teilnehmen.\n\n• Training: Entwickeln und beteiligen Sie sich an der Lehre von Ärzten in der Ausbildung sowie an der Durchführung verschiedener Symposien.\n\n• Interdisziplinarität: Arbeiten Sie Hand in Hand mit Gesundheits- und Therapieteams, um eine umfassende, koordinierte und fokussierte Versorgung zur Erreichung der Patientenziele zu gewährleisten.\n\n• Netzwerk: Arbeiten Sie eng mit Akutpflegeteams, anderen HIB-Spezialisten und unseren externen Partnern zusammen.\n\n• Kontinuität der Pflege: Nehmen Sie an 2nd Line Pickets mit den anderen leitenden Ärzten des Dienstes teil.\n\nIhre Vermögenswerte\n\n• Sie haben einen Bundesabschluss in Medizin (oder ein von MEBEKO anerkanntes Auslandsdiplom) und eine vertiefte Ausbildung (Fachtitel) in Geriatrie.\n\n• Sie interessieren sich besonders für geriatrische Rehabilitation und akute Geriatrie.\n\n• Sie werden für Ihre Fähigkeit und Ihren Geschmack anerkannt, in einem interdisziplinären Team zu arbeiten.\n\n• Sie zeigen Initiative, ein ausgezeichnetes Organisationsgefühl und eine starke Kollegialität.\n\nAmtsantritt: noch zu vereinbaren\n\nVielen Dank, dass Sie uns Ihr aktuelles Antragsformular per Online-Bewerbung zusenden.\n\nFür weitere Fragen zu dieser Position wenden Sie sich bitte an Dr. Thierry Epstein, Medical Director, unter 026 662 85 02.\n\nBei technischen Schwierigkeiten laden wir Sie ein, sich an unsere Rekrutierungsabteilung unter 026 662 81 91 zu wenden.\n\nEin gewöhnlicher Strafregisterauszug und ein leerer Spezialauszug von weniger als 3 Monaten sind erforderlich, bevor der Vertrag unterzeichnet wird.",
         "fr": "Grâce à ses 800 collaborateurs.trices, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population Broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un.e :\nMédecin adjoint-e en gériatrie de 50% à 100%\nVotre mission\nLe contexte et votre futur service\n\nLe service de rééducation (CTR) compte 47 lits, dont environ la moitié est dédiée à la réadaptation gériatrique sur le site d’Estavayer, complétés par 8 lits de gériatrie aiguë sur le site de Payerne. Le service est actuellement dans une dynamique de fort développement, portée par un projet d’augmentation des lits de gériatrie aiguë et le déploiement de notre offre ambulatoire. Vous intégrerez une équipe médicale pluridisciplinaire (internistes, spécialistes en MPR, rhumatologues, neurologues) travaillant en étroite synergie avec l’ensemble de nos spécialistes en rééducation (physiothérapeutes, ergothérapeutes, neuropsychologues, logopédistes, diététicien·ne·s et psychologues).\n\nVos missions et objectifs\n\n• Excellence clinique : Assurer et garantir la qualité des prestations cliniques offertes dans le domaine de la gériatrie et de la réadaptation.\n\n• Développement : Participer activement à la création et au développement de l'activité ambulatoire en gériatrie.\n\n• Formation : Développer et participer à l'enseignement des médecins en formation, ainsi qu'à l'animation de divers colloques.\n\n• Interdisciplinarité : Travailler main dans la main avec les équipes soignantes et thérapeutiques pour assurer une prise en charge globale, coordonnée et orientée vers l'atteinte des objectifs du patient.\n\n• Réseau : Collaborer étroitement avec les équipes des soins aigus, les autres spécialistes de l’HIB et nos partenaires externes.\n\n• Continuité des soins : Participer aux piquets de 2ème ligne avec les autres médecins cadres du service.\n\nVos atouts\n\n• Vous êtes titulaire du diplôme fédéral de médecin (ou d'un titre étranger reconnu par la MEBEKO) et possédez une formation approfondie (titre de spécialiste) en gériatrie.\n\n• Vous portez un intérêt particulier et marqué pour la réadaptation gériatrique et la gériatrie aiguë.\n\n• Vous êtes reconnu·e pour votre capacité et votre goût à travailler au sein d'une équipe interdisciplinaire.\n\n• Vous faites preuve d'esprit d'initiative, d'un excellent sens de l'organisation et d'une forte collégialité.\n\nEntrée en fonction : à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec le Dr Thierry Epstein, directeur médical, au 026 662 85 02.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
       },
+      "needsRetranslation": true,
       "location": "Estavayer-le-Lac",
       "canton": "FR",
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.826Z",
+      "crawledAt": "2026-08-21T21:27:11.640Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3106,17 +3107,17 @@
       "previousSlugs": [
         "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
         "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e",
         "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "assistant-physician-in-geriatrics-from-50-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "assistenzarzt-in-geriatrie-von-50-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        "assistenzarzt-in-geriatrie-von-50-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e",
-          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "assistente-medico-in-geriatria-dal-50-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac-fa135e"
         ],
         "en": [
           "medecin-adjoint-e-en-geriatrie-de-50-a-100-hib-broye-estavayer-le-lac",
@@ -3128,19 +3129,18 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:46:47.174Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hib-broye-3d7d7f126957",
@@ -3174,7 +3174,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.824Z",
+      "crawledAt": "2026-08-21T21:27:11.639Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3208,15 +3208,15 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:41:53.542Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -3253,7 +3253,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-employe.e-de-commerce-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.820Z",
+      "crawledAt": "2026-08-21T21:27:11.637Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3302,15 +3302,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:19:47.111Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -3347,7 +3347,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-de-60-a-100-cdd",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.818Z",
+      "crawledAt": "2026-08-21T21:27:11.632Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3388,15 +3388,15 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:17:29.230Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3433,7 +3433,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.817Z",
+      "crawledAt": "2026-08-21T21:27:11.631Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3467,15 +3467,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:00:17.442Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -3512,7 +3512,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.816Z",
+      "crawledAt": "2026-08-21T21:27:11.629Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3548,15 +3548,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:00:17.441Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -3593,7 +3593,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.815Z",
+      "crawledAt": "2026-08-21T21:27:11.627Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3672,7 +3672,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-medical.e-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.813Z",
+      "crawledAt": "2026-08-21T21:27:11.624Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3706,15 +3706,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:11:07.455Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -3751,7 +3751,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.812Z",
+      "crawledAt": "2026-08-21T21:27:11.621Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3840,7 +3840,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-pour-le-service-des-urgences-et-la-policlinique-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.809Z",
+      "crawledAt": "2026-08-21T21:27:11.617Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3919,7 +3919,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-assc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.808Z",
+      "crawledAt": "2026-08-21T21:27:11.615Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4000,7 +4000,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti-e-test",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.806Z",
+      "crawledAt": "2026-08-21T21:27:11.611Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4034,15 +4034,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:31:02.414Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }
@@ -4079,7 +4079,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:56:32.793Z",
+      "crawledAt": "2026-08-21T21:27:11.586Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4107,15 +4107,15 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:38.208Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 71000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       }
