@@ -1,6 +1,6 @@
 {
   "crawlerKey": "palliativklinik",
-  "assembledAt": "2026-08-21T09:46:57.481Z",
+  "assembledAt": "2026-08-21T21:32:23.449Z",
   "jobs": [
     {
       "id": "palliativklinik-377ce6673bae",
@@ -34,7 +34,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_Medizinstudenten_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:54.070Z",
+      "crawledAt": "2026-08-21T21:32:20.529Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -68,15 +68,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:54:26.185Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -113,7 +113,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflege_FAGE-fach_Nov25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:53.157Z",
+      "crawledAt": "2026-08-21T21:32:19.631Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -147,15 +147,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:54:25.155Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -192,7 +192,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflegefach_Nov25-1.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:52.224Z",
+      "crawledAt": "2026-08-21T21:32:18.729Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -210,15 +210,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-21T12:54:24.123Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -255,7 +255,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/PKiP_Spitalarzt_April-26.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:51.271Z",
+      "crawledAt": "2026-08-21T21:32:17.826Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -289,15 +289,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:54:23.076Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -334,7 +334,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_AerztIn_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:50.349Z",
+      "crawledAt": "2026-08-21T21:32:16.905Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -368,15 +368,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:54:22.033Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "salaryMin": 70400,
+      "salaryMax": 98400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 70400,
+          "maxValue": 98400,
           "unitText": "YEAR"
         }
       }
