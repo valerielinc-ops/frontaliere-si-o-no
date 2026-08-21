@@ -21,6 +21,7 @@
 // `allowImportingTsExtensions: true`.
 import type { Locale } from '../i18n';
 import { cleanCanonicalItems } from '../relatedSearchClusters.ts';
+import { MARKDOWN_CHUNK_HEADING_RE } from '@/services/jobs/plainTextMarkdown';
 
 export type CanonicalLocaleContent = {
  summary: string[];
@@ -287,7 +288,7 @@ function fallbackUniq(items: string[], max = 999): string[] {
 }
 
 function fallbackDetectHeading(value: string): FallbackSectionId | null {
- const source = fallbackNormalizeIdSource(value.replace(/^#+\s*/, '').replace(/:$/, ''));
+ const source = fallbackNormalizeIdSource(value.replace(MARKDOWN_CHUNK_HEADING_RE, '').replace(/:$/, ''));
  for (const group of FALLBACK_HEADING_MAP) {
  for (const key of group.keys) {
  const normalized = fallbackNormalizeIdSource(key);
@@ -307,7 +308,7 @@ function fallbackRemoveHeadingPrefix(line: string, sectionId: FallbackSectionId)
  for (const rx of getHeadingPrefixRegexps(group)) {
  out = out.replace(rx, '');
  }
- return out.replace(/^#+\s*/, '').trim();
+ return out.replace(MARKDOWN_CHUNK_HEADING_RE, '').trim();
 }
 
 function fallbackSplitByInlineHeadings(text: string): string {
@@ -428,7 +429,9 @@ function fallbackExtractContacts(fullText: string): { emails: string[]; phones: 
 function fallbackNormalizeRequirementLine(line: string): string {
  let out = fallbackCleanSpaces(line)
  .replace(/^['"`]+|['"`]+$/g, '')
- .replace(/^#+\s*/, '')
+ // Shared with the gate teaser (services/jobs/plainTextMarkdown.ts) so the
+ // two surfaces cannot drift on what counts as a heading marker.
+ .replace(MARKDOWN_CHUNK_HEADING_RE, '')
  .replace(/^[-–—•*]+\s*/, '')
  .replace(/^[\],.;:!?)\s]+/, '')
  .replace(/&(?:amp;)?newline;?/gi, ' ')
