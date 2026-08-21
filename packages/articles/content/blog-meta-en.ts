@@ -10425,6 +10425,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caspoggio-grigioni-frontaliere.title': 'Living Caspoggio, working in Graubünden: border guide',
     'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontier from Caspoggio to Grisons: taxation, AVS/LPP/LAMal, G permit, double taxation and practical procedure to move.',
     'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Alpine mountain landscape representing the Swiss-Italian border region between Caspoggio and Graubünden',
+    'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Living in Spriana, working in Graubünden as a border worker',
+    'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Complete guide for frontier workers: New 2024 Agreement, tax at source only Switzerland, exemption €7,500-€10,000, G Permit, AVS/LPP and Italian refreshment.',
+    'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Alpine mountain pass between Italian Alps and Swiss Grisons with border checkpoint in morning mist',
 };
 
 export default blogMetaEn;
