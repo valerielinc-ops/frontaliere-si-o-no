@@ -166,24 +166,59 @@ export function fetchPrFiles(number, expected, ghFn, repo = REPO) {
   } catch { files = []; }
 
   const known = Number.isFinite(expected) && expected > 0;
+  const cappedExactly = files.length === GRAPHQL_FILES_CAP;
   const suspect = !files.length || files.length >= GRAPHQL_FILES_CAP
     || (known && files.length < expected);
+  // `restConfirmed` distingue «la REST ha risposto» da «la REST non c'e'
+  // arrivata». Senza, un elenco troncato passa per completo ogni volta che
+  // l'oracolo e' piu' basso del cap: vedi il calcolo di `complete` sotto.
+  let restConfirmed = false;
   if (suspect) {
     try {
       // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
       // array darebbe piu' valori JSON top-level concatenati, che JSON.parse
       // rifiuta. Quindi filtro a righe e split, che regge n pagine.
+      // `allowFail` NON va usato qui: il `gh()` reale lo traduce in `''`, che
+      // e' indistinguibile da una REST che ha risposto con zero file. Senza
+      // `allowFail` il fallimento arriva come eccezione, cioe' l'unico segnale
+      // che separa «ha risposto» da «non c'e' arrivata» — ed e' quello che
+      // `restConfirmed` deve misurare. Il catch qui sotto lo assorbe comunque.
       const raw = ghFn(['api', `repos/${repo}/pulls/${number}/files`, '--paginate',
-        '--jq', '.[].filename'], { json: false, allowFail: true }) || '';
+        '--jq', '.[].filename'], { json: false }) || '';
       const rest = raw.split('\n').map((l) => l.trim()).filter(Boolean);
+      restConfirmed = true;
       if (rest.length > files.length) files = rest;
     } catch { /* tiene la lista GraphQL, gia' valutata da `complete` */ }
   }
 
   // `complete` e' una MISURA, non un default ottimista: se l'oracolo non c'e'
   // (campo assente, fetch fallito) e qualche file c'e', resta false.
-  const complete = known ? files.length >= expected : files.length === 0;
+  let complete = known ? files.length >= expected : files.length === 0;
+  // Esattamente al cap e senza conferma dalla REST, «100» e' ambiguo per
+  // costruzione: puo' essere una PR da 100 file o il troncamento di una da
+  // 250. `expected` non scioglie il dubbio quando e' piu' basso del cap —
+  // succede se la PR cresce fra la `gh pr list` e questa fetch — e in quel
+  // caso `files.length >= expected` direbbe «completo» su una lista tagliata.
+  // Unknown non e' completo: e' il verso che tutto questo modulo difende.
+  if (cappedExactly && !restConfirmed) complete = false;
   return { files, complete };
+}
+
+/**
+ * Cosa fare della label `collision-risk` su una PR che al momento NON risulta
+ * collidere. Pura ed esportata perche' e' la decisione che questo modulo
+ * esiste per prendere, e viveva inline in `main()` — cioe' senza copertura,
+ * esattamente come ci era finito il cap a 100.
+ *
+ * @returns {'add'|'keep'|'remove'|'none'}
+ */
+export function decideCollisionLabel({ collides, hasLabel, listComplete }) {
+  if (collides) return hasLabel ? 'none' : 'add';
+  if (!hasLabel) return 'none';
+  // «Nessuna collisione VISTA» e «non collide» coincidono solo se l'elenco era
+  // completo. Con una lista troncata o non recuperata, togliere la label
+  // sblocca l'auto-merge su una PR che puo' collidere davvero.
+  return listComplete ? 'remove' : 'keep';
 }
 
 function main() {
@@ -239,27 +274,24 @@ function main() {
   // Applica/rimuovi label + commenta.
   for (const num of nums) {
     const cols = colliders.get(num);
+    const action = decideCollisionLabel({
+      collides: Boolean(cols && cols.size),
+      hasLabel: Boolean(hasLabel.get(num)),
+      listComplete: Boolean(listComplete.get(num)),
+    });
     if (cols && cols.size) {
-      if (!hasLabel.get(num)) addLabel(num, 'collision-risk');
+      if (action === 'add') addLabel(num, 'collision-risk');
       else console.log(`PR #${num}: collision-risk già presente.`);
       for (const [other, shared] of cols) {
         const list = shared.map((f) => `\`${f}\``).join(', ');
         commentOnce(num, `<!-- COLLISION:${other} -->`,
           `⚠️ **collision-risk**: questa PR tocca file funnel-critical condivisi con la PR #${other}: ${list}. La seconda a raggiungere il merge DEVE prima rebasare oltre l'altra (\`git merge origin/main\` dopo che l'altra è mergiata) — l'auto-merge è bloccato finché \`collision-risk\` + dietro main. _Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
       }
-    } else if (hasLabel.get(num)) {
-      // «Nessuna collisione VISTA» e «non collide» coincidono solo se l'elenco
-      // era completo. Con una lista troncata o non recuperata, togliere la
-      // label sblocca l'auto-merge su una PR che puo' collidere davvero: e' il
-      // fail-open che questo scan esiste per evitare, solo dal lato della
-      // rimozione invece che da quello dell'aggiunta. Nel dubbio la label resta
-      // — costa un rebase in piu', non un main rosso.
-      if (!listComplete.get(num)) {
-        console.log(`PR #${num}: nessuna collisione vista MA elenco file incompleto → tengo collision-risk (unknown ≠ non collide).`);
-      } else {
-        console.log(`PR #${num}: non collide più → rimuovo collision-risk.`);
-        removeLabel(num, 'collision-risk');
-      }
+    } else if (action === 'keep') {
+      console.log(`PR #${num}: nessuna collisione vista MA elenco file incompleto → tengo collision-risk (unknown ≠ non collide).`);
+    } else if (action === 'remove') {
+      console.log(`PR #${num}: non collide più → rimuovo collision-risk.`);
+      removeLabel(num, 'collision-risk');
     }
   }
   console.log('collision scan completo.');

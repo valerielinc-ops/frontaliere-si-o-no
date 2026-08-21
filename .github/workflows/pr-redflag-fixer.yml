@@ -297,7 +297,15 @@ jobs:
           # cadono oltre il taglio alfabetico. `changedFiles` dice se l'elenco
           # e' completo; se non lo e', entrambi i consumatori qui sotto vanno in
           # direzione conservativa invece di fidarsi del campione.
-          expected=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null || echo 0)
+          if ! expected=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null); then
+            # `expected=0` per fallimento di `gh` e `expected=0` perche' il diff
+            # e' oversize sono lo STESSO valore con significati opposti, e il
+            # secondo e' un dato mentre il primo e' un buco. Senza questa riga
+            # un `gh` che inciampa rende «incompleta» ogni PR normale (la regola
+            # `expected -eq 0 && count -gt 0`) e lo fa in silenzio.
+            expected=0
+            echo "::warning::gh pr view --json changedFiles FALLITO → oracolo assente, non «PR oversize». Ogni PR verra' trattata come incompleta finche' dura."
+          fi
           case "$expected" in ''|*[!0-9]*) expected=0 ;; esac
           files=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json files --jq '.files // [] | .[].path' 2>/dev/null || echo "")
           count=$(printf '%s\n' "$files" | grep -c . || true)
@@ -321,8 +329,19 @@ jobs:
           # uno skip con commento, quello opposto e' un turno Claude bruciato e
           # un push che fallisce alla fine.
           if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_PAT" != "true" ]; then
-            echo "::warning::PR tocca .github/workflows/** ma manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
-            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '⏭️ 🔴-fixer skip: la PR tocca \x60.github/workflows/**\x60 e non è disponibile un PAT con scope \x60workflows\x60 → il push fallirebbe. Applicare il fix dei 🔴 a mano.')" \
+            # Il commento deve dire QUALE dei due operandi ha fatto scattare lo
+            # skip: affermare «la PR tocca i workflow» quando lo scatto viene
+            # dall'elenco incompleto manda chi legge a cercare una modifica che
+            # non c'e'.
+            bt=$(printf '\x60')
+            if [ -n "$touches_wf" ]; then
+              skip_why="la PR tocca ${bt}.github/workflows/**${bt}"
+            else
+              skip_why="l'elenco file è incompleto, quindi non si può escludere che la PR tocchi ${bt}.github/workflows/**${bt}"
+            fi
+            echo "::warning::Skip capability workflows (causa: $skip_why), manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
+            gh pr comment "$PR_NUMBER" --repo "$REPO" \
+              --body "⏭️ 🔴-fixer skip: ${skip_why} e non è disponibile un PAT con scope ${bt}workflows${bt} → il push fallirebbe. Applicare il fix dei 🔴 a mano." \
               2>/dev/null || true
             echo "proceed=false" >> "$GITHUB_OUTPUT"
             exit 0
