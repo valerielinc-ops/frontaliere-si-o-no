@@ -10375,6 +10375,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivere a Cremia e lavorare in Ticino: frontaliere conviene?',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago di Como da Cremia con le Alpi sullo sfondo al tramonto',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Vivere in Ticino, lavorare da frontaliere: vantaggi e svantaggi',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere vive a Antrona Schieranco e lavora in Ticino',
 };
 
 export default blogMetaIt;

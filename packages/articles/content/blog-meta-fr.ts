@@ -10376,6 +10376,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivre à Cremia et travailler au Tessin : frontalier est-il avantageux ?',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia comme base résidentielle pour les frontaliers au Tessin : fiscalité, permis G, AVS, taxe à la source, frais de transport et points de passage frontaliers.',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Côme depuis Cremia avec les Alpes en arrière-plan au coucher du soleil',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Vivre au Tessin, travailler comme frontalier : avantages et inconvénients',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Liaisons avec le Tessin, temps de trajet, coût de la vie, zones recommandées pour les frontaliers',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier vit à Antrona Schieranco et travaille en Tessin',
 };
 
 export default blogMetaFr;
