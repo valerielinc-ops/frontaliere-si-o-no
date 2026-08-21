@@ -3676,6 +3676,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bcg-utile-semestrale-record.title': 'BCG record profit: +137.2 million in the semester',
     'blog.article.bcg-utile-semestrale-record.excerpt': 'The Cantonal Bank of Grison closed the first half of 2026 with a record profit of CHF 137.2 million, up 18.2%. Solidity confirmed in Graubünden.',
     'blog.article.bcg-utile-semestrale-record.imageAlt': 'Modern Swiss bank headquarters with glass and stone architecture, daylight setting',
+    'blog.article.richiedenti-asilo-severe-misure.title': 'Asylum seekers, Bern asks for stricter measures',
+    'blog.article.richiedenti-asilo-severe-misure.excerpt': 'The State Secretariat for Migration (SEM) is studying changes to the law to exclude young people from the Maghreb who have just arrived in Switzerland from the asylum procedure.',
+    'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Young person committing crimes in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -11026,6 +11026,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'richiedenti-asilo-severe-misure',
+    category: 'fiscale',
+    date: '2026-08-21T08:01:12.254Z',
+    image: '/images/blog/richiedenti-asilo-severe-misure.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

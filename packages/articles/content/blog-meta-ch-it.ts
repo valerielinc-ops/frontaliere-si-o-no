@@ -3676,6 +3676,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bcg-utile-semestrale-record.title': 'BCG utile record: +137,2 milioni nel semestre',
     'blog.article.bcg-utile-semestrale-record.excerpt': 'La Banca Cantonale Grigione chiude il primo semestre 2026 con utile record di 137,2 milioni CHF, in crescita del 18,2%. Solidità confermata nei Grigioni.',
     'blog.article.bcg-utile-semestrale-record.imageAlt': 'Edificio moderno di una banca cantonale svizzera con architettura in vetro e pietra',
+    'blog.article.richiedenti-asilo-severe-misure.title': 'Richiedenti l\'asilo, Berna chiede misure più severe',
+    'blog.article.richiedenti-asilo-severe-misure.excerpt': 'La Segreteria di Stato della migrazione (SEM) studia modifiche di legge per escludere dalla procedura d\'asilo i giovani del Maghreb che delinquono appena arrivati in Svizzera.',
+    'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Giovane che commette reati in Svizzera',
 };
 
 export default blogMetaChIt;
