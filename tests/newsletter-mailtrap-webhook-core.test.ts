@@ -294,4 +294,23 @@ describe('newsletterMailtrapWebhookCore — campaign attribution', () => {
     } as any);
     expect(campaignOf(db)).toBe('mt-message-id');
   });
+
+  // Shape verified against Mailtrap's official webhook payload docs
+  // (docs.mailtrap.io/email-api-smtp/advanced/webhooks): `category` and
+  // `custom_variables` sit flat at the top level of each event object, as
+  // in this trimmed real example, not nested under a namespaced key.
+  it('reads `category` from the documented flat event shape', async () => {
+    const db = createFakeDb();
+    await persistMailtrapEvent(db as any, {
+      event: 'delivery',
+      timestamp: 1728669700,
+      sending_stream: 'bulk',
+      category: 'winback-2026-08-20',
+      email: 'seeker@example.com',
+      event_id: 'bede7236-2284-43d6-a953-1fdcafd0fdbc',
+      sending_domain_name: 'frontaliereticino.ch',
+      message_id: 'mt-message-id',
+    } as any);
+    expect(campaignOf(db)).toBe('winback-2026-08-20');
+  });
 });
