@@ -47366,6 +47366,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-appenzello-interno': {
+    title: 'Imposte cantonali Appenzello Interno: aliquote e deduzioni',
+    description: 'Guida alle imposte cantonali nel Canton Appenzello Interno: sistema fiscale a 3 livelli, deduzioni ammesse, scaglioni, scadenze di presentazione e portale',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, appenzello, interno',
+    ogTitle: 'Imposte cantonali Appenzello Interno: aliquote e deduzioni',
+    ogDescription: 'Scopri come funzionano le imposte cantonali nel Canton Appenzello Interno: 3 livelli fiscali, deduzioni, scadenze di dichiarazione e procedura passo-passo. Guida pratica per contribuenti svizzeri.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali Appenzello Interno: aliquote e deduzioni",
+      "description": "Guida alle imposte cantonali nel Canton Appenzello Interno: sistema fiscale a 3 livelli, deduzioni ammesse, scaglioni, scadenze di presentazione e portale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrazione fiscale cantonale in Svizzera"
+      },
+      "datePublished": "2026-08-21T03:56:52+00:00",
+      "dateModified": "2026-08-21T03:56:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

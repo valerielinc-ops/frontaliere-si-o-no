@@ -3652,6 +3652,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Ouvrir une entreprise à Appenzell Extérieur : registre et coûts',
     'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'Le canton d\'Appenzell Extérieur dispose d\'une législation spécifique pour les activités commerciales. Vous devez vous inscrire au registre du commerce du canton.',
     'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Une entreprise dans le canton d\'Appenzell Rhodes-Intérieures',
+    'blog.article.imposte-cantonali-appenzello-interno.title': 'Impôts cantonaux Appenzell Interne : taux et déductions',
+    'blog.article.imposte-cantonali-appenzello-interno.excerpt': 'Comment fonctionnent les impôts cantonaux dans le canton d\'Appenzell Intérieur : les 3 niveaux fiscaux, les déductions admises, les délais de déclaration et le portail de l\'administration cantonale.',
+    'blog.article.imposte-cantonali-appenzello-interno.imageAlt': 'Bureau d\'administration fiscale cantonale suisse',
 };
 
 export default blogMetaChFr;

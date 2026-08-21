@@ -10954,6 +10954,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-cantonali-appenzello-interno',
+    category: 'fiscale',
+    date: '2026-08-21T03:56:52.687Z',
+    image: '/images/blog/imposte-cantonali-appenzello-interno.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Aug 2026 03:33:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 03:56:52 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,84 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Appenzello Interno cantonal taxes: rates and deductions</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/cantonal-taxes-appenzell-innerrhoden/</link>
+      <description><![CDATA[How cantonal taxes work in the Inner Appenzell Canton: the 3 tax levels, allowable deductions, reporting deadlines and portal of the cantonal administration.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Switzerland has 3 tax levels: federal, cantonal and municipal
+- Each canton has its own law and different tax multipliers
+- Standard deductions include business expenses, mortgage interest, and social security contributions
+- The cantonal administration of Appenzello Interno directly manages local taxes
+
+## Key facts
+- **What**: Tax system at three levels (federal, cantonal, municipal)
+- Where: Inner Appenzell Canton, north-eastern Switzerland
+- Who: AFC/ESTV (federal tax), cantonal administration AI (cantonal and municipal taxes)
+- Competence: Each canton has its own tax law and multiplier; municipalities apply multiplier on the cantonal
+- Portal: Appenzello Interno cantonal tax administration manages online returns
+
+The Swiss tax system is distinguished by decentralization: while direct federal tax is managed by the Federal Tax Administration (AFC/ESTV) with uniform federal rates, cantonal and municipal taxes vary significantly from canton to canton. In the Inner Appenzell Canton, as in all 26 Swiss cantons, the cantonal tax administration is the entity responsible for the collection and management of local taxes.
+
+This structure reflects the Swiss federalist principle: each canton has the competence to legislate its own taxation within the constitutional parameters. Inner Appenzell, as a canton of north-eastern Switzerland, has a
+### Allowable deductions and rate structure
+
+The deductions that can be made in the cantonal tax return of Appenzello Interno are subject to cantonal law. However, some categories of deductions are common to most Swiss cantons and reflect the principles of net income taxation.
+
+Deductions generally allowed in the Swiss cantons include:
+- Professional expenses and labour costs (professional clothing, tools, travel for employees)
+- Interest on mortgage loans (for own homes)
+- Health insurance premiums (LAMal/KVG, the mandatory coverage for Swiss residents)
+- Contributions to [previdenza professionale](nav:pension) (LPP/BVG, the mandatory second pillar)
+- Payments to the third pillar (social security savings accounts 3a), within annual indexed ceilings every year
+- Previous cantonal taxes (in some cantons), union and associative contributions
+
+Each canton then defines its own rate brackets: the system is progressive, so taxpayers with higher taxable income pay a higher percentage rate. In the Inner Appenzell Canton, as in the other cantons, the brackets are fixed by law and may vary every few years with parliamentary adjustments.
+
+### How to calculate total cantonal tax
+
+For those residing in Appenzello Interno, the calculation is:
+1. Tax Year Gross Income
+2. Fewer allowable deductions (such as those listed above)
+3. Equal income
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### How to present the tax return in Appenzell Innerrhoden
+
+Taxpayers residing in the Canton of Appenzell Innerrhoden must submit a cantonal tax return every year, by the deadline set by the cantonal administration (usually between May and July of the following year after the tax period). The exact deadline and delivery methods (paper or electronic) are communicated by the cantonal tax office.
+
+For 2026 and subsequent years, most Swiss cantons accept digital tax returns through an online portal. The Canton of Appenzell Innerrhoden provides a portal for the cantonal tax office where you can:
+- Download the official tax return form
+- Consult the applicable tax rates and brackets
+- Find instructions for calculating deductions
+- Electronically submit the tax return (if available)
+- View communications and notices from the administration
+
+### Step-by-step procedure
+
+**Step 1**: Gather documentation. You will need a copy of the federal income tax return (if submitted), pay slips for the year, bank statements for interest and dividends, insurance premium receipts (LAMal, accident insurance LAINF/LAA if self-employed), and a copy of the mortgage account statement (if property owner).
+
+Step 2: Contact the cantonal tax office of Appenzell Innerrhoden to receive the official tax return form and instructions. This can be done via email, phone, or through the cantonal online portal.
+
+Step 3: Complete the tax return, indicating the gross income, allowed deductions in the canton (following official instructions), and calculating the taxable income.
+
+Step 4: Submit by the deadline set. If the form is available in digital format, use the cantonal online portal. Otherwise, send via registered mail to the cantonal tax office address.
+
+Step 5: Keep a copy of the delivery receipt. The administration will communicate the tax notice (bill) within the legally prescribed times.
+
+For those with access to a [simplified tax calculator](nav:calculator), it is possible to make a preliminary estimate before submitting the official tax return, checking which deductions are beneficial.
+
+### Deadlines and appeals
+
+If the taxpayer disagrees with the tax notice issued by the cantonal administration, they have the right to appeal within the time limits established by cantonal law (usually 30 days). The appeal must be submitted to the Appenzell Innerrhoden tax office.
+
+Information on [deadlines and declaration procedures](nav:tax-return) is available from the Swiss Federal Statistical Office (UST/BFS), which publishes an annual comparative report on the overall tax burden in the cantons.]]></content:encoded>
+      <pubDate>Fri, 21 Aug 2026 03:56:52 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/imposte-cantonali-appenzello-interno</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-appenzello-interno.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in the External Appenzello: register and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/open-business-appenzell-ausserrhoden/</link>
@@ -2857,40 +2935,6 @@ To address the challenges related to personnel management, financial planning, a
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/studio-axa-assenze-psicologiche-pmi</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/studio-axa-assenze-psicologiche-pmi.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Neutrality survey: Ticino at 52% and Switzerland at 36%</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/ticino-neutrality-poll-vote/</link>
-      <description><![CDATA[Ahead of the September 27 vote on the neutrality initiative, the Tamedia survey reveals a strong divergence between Ticino and the rest of the nation.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Tamedia survey for the neutrality initiative of 27 September
-- In Ticino 52% approve, while nationally it is 36%
-- Political scientist Fabio Wasserfallen analyses the UDC factor
-
-## Key facts
-- **What**: Neutrality Initiative
-- When: Vote set for next 27 September
-- Where: South of the Alps and nationally in Switzerland
-- Who: Political scientist Fabio Wasserfallen, voters, UDC
-- Amount: 36% of votes nationwide and 52% in Ticino
-
-The rest of Switzerland thinks in one way, while Ticino is moving in another direction according to the first surveys on the neutrality initiative that will bring citizens to the polls on September 27. The initiative appears to be oriented towards rejection with thirty-six percent of the national consensus, but in Ticino, based on the Tamedia survey, it collects fifty-two percent of the preferences. This dynamic highlights a divergence of views between German Switzerland and the territory south of the Alps, an aspect not unprecedented and already observed in recent federal votes. The discussion about nav:cost-of-living and the political choices of the country is intertwined with very different opinions that emerged among readers. On the one hand there are those who argue in a provocative way that when NATO declares war on Russia and Switzerland is part of it, the Swiss-Germans will understand. On the other hand, there is a vision oriented towards a neutrality with feet on the ground, believing that
-Returning to the figures and analyzing the data collected more than a month before the vote, the political scientist of the University of Bern Fabio Wasserfallen invites us to take this counter-trend with a grain of salt, highlighting that Ticino's representation in proportion to the rest of the sample examined is rather small. Given this premise, the expert recalls that the initiative proposes a specific interpretation of neutrality and that, consequently, the vote is not expressed on neutrality itself but on the form that citizens prefer to adopt. Wasserfallen underlines how relevant the political brand of the initiative is, highlighting that the polls show that the proposal is clearly linked to the UDC and that voters take this element into account, as confirmed by the results divided according to the political parties of reference.
-
-### The influence of the party and the EU factor
-The effect of the link with the UDC could partly explain the level of support for the proposal, a link that appears perhaps less marked in Ticino than in the rest of the country and in particular towards German Switzerland. Also weighing on voting intentions is thatEuroscepticism of which Ticino now represents a solid bulwark within the national political landscape. Wasserfallen himself confirms that the choice of vote is certainly linked to opinions on the European Union, highlighting a direct connection between the perception of
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-In view of the electoral deadline set for next September 27, citizens called to the polls can deepen the issues related to federal policies and the economic management of the country through the nav:calculator tools available to verify the impact of public decisions. The voting procedure provides for those entitled to receive official documentation directly at home, allowing them to express their preference in the manner established by the cantonal and federal authorities competent for popular consultation. In order to fully understand the contents of the neutrality initiative and its implications for the institutional future of Switzerland, it is advisable to carefully follow the official communications and information issued ahead of the vote.
-
-Residents of Ticino and the rest of Switzerland can regularly consult the information updates and institutional channels to check the deadlines and how to participate in the consultation of 27 September. The understanding of the referendum questions goes through a careful analysis of the texts submitted to the vote and the public debate that sees academics, politicians and citizens confront each other. For those who wish to constantly monitor the economic, fiscal and political dynamics that affect the national territory and the Ticino region, the dedicated thematic guides and insights remain available
-
-*Source: [tio.ch](https://www.tio.ch/ticino/politica/1944772/neutralita-alla-ticinese)*]]></content:encoded>
-      <pubDate>Thu, 20 Aug 2026 04:46:46 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/sondaggio-neutralita-ticinese-voto</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/sondaggio-neutralita-ticinese-voto.webp" medium="image"/>
     </item>
   </channel>
 </rss>

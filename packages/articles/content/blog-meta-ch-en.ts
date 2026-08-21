@@ -3652,6 +3652,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Opening a business in the External Appenzello: register and costs',
     'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'The Canton of Appenzello Outermost has specific legislation for commercial activities. You must register with the cantonal trade register.',
     'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Imagin a business in Appenzell Ausserrhoden',
+    'blog.article.imposte-cantonali-appenzello-interno.title': 'Appenzello Interno cantonal taxes: rates and deductions',
+    'blog.article.imposte-cantonali-appenzello-interno.excerpt': 'How cantonal taxes work in the Inner Appenzell Canton: the 3 tax levels, allowable deductions, reporting deadlines and portal of the cantonal administration.',
+    'blog.article.imposte-cantonali-appenzello-interno.imageAlt': 'Swiss cantonal tax administration office building',
 };
 
 export default blogMetaChEn;
