@@ -10343,6 +10343,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-santa-maria-maggiore-frontaliere.title': 'Vivere a santa maria maggiore da frontaliere Ticino',
     'blog.article.vivere-santa-maria-maggiore-frontaliere.excerpt': 'Guida completa per trasferirsi: permesso G, nuovo accordo fiscale 2024, calcolo del risparmio, procedure amministrative e tempi di percorrenza ai valichi.',
     'blog.article.vivere-santa-maria-maggiore-frontaliere.imageAlt': 'Strada di confine tra Italia e Ticino al valico di Brogeda, mattina con nebbia, montagne innevate sullo sfondo',
+    'blog.article.vivere-rogeno-lavorare-ticino.title': 'Vivere a Rogeno e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-rogeno-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Rogeno: fiscalità, nuovo accordo frontalieri, regime transitorio e gestione del pendolarismo verso il Canton Ticino.',
+    'blog.article.vivere-rogeno-lavorare-ticino.imageAlt': 'Paesaggio residenziale vicino al confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
