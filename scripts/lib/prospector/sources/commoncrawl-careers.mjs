@@ -31,10 +31,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { politeFetch } from './../polite-fetch.mjs';
 import { normalizeHost, registrableDomain } from './../registrable.mjs';
-import { PROSPECTOR_DIR } from './../config.mjs';
+import { PROSPECTOR_DIR, WEB_CHANNEL_HEALTH_PATH } from './../config.mjs';
 
 const INDEX_HOST = 'https://index.commoncrawl.org';
 const CURSOR_PATH = path.join(PROSPECTOR_DIR, 'commoncrawl-cursor.json');
+
+/** How many runs of history to keep — a couple of months at one run/night. */
+const HEALTH_HISTORY_LIMIT = 60;
 
 /**
  * Career-page paths in the four site locales.
@@ -110,6 +113,50 @@ export async function careerPagesOnIndexPage(collection, page) {
 }
 
 /**
+ * Per-run yield history for this channel, oldest first. The index behind this
+ * source is a shared volunteer service that goes dark for stretches (measured:
+ * a full hour of `status 0`) with no signal beyond that night's run coming back
+ * empty — indistinguishable, from a single run, from a night the `.ch` range
+ * legitimately had nothing new. Keeping a short history turns "was that run a
+ * fluke or a trend" into something a report can answer instead of guess.
+ *
+ * @param {string} [file]
+ * @returns {{ at: string, collection: string|null, totalPages: number, pagesRead: number, employers: number, outage: boolean }[]}
+ */
+export function loadChannelHealth(file = WEB_CHANNEL_HEALTH_PATH) {
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Appends one run's yield to the channel health history, capped to the most
+ * recent {@link HEALTH_HISTORY_LIMIT} entries. `outage` is `totalPages === 0`:
+ * the index responded to neither `latestCollection` nor `chPageCount`, which a
+ * legitimately quiet night never produces (the `.ch` range is never empty).
+ *
+ * @param {{ collection: string|null, totalPages: number, pagesRead: number, employers: number }} sample
+ * @param {string} [file]
+ */
+export function recordChannelHealth(sample, file = WEB_CHANNEL_HEALTH_PATH) {
+  const history = loadChannelHealth(file);
+  history.push({
+    at: new Date().toISOString(),
+    collection: sample.collection,
+    totalPages: sample.totalPages,
+    pagesRead: sample.pagesRead,
+    employers: sample.employers,
+    outage: sample.totalPages === 0,
+  });
+  const trimmed = history.slice(-HEALTH_HISTORY_LIMIT);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify(trimmed, null, 2)}\n`);
+}
+
+/**
  * @returns {{ collection: string|null, nextPage: number, sweptPages: number[] }}
  */
 export function loadCursor() {
@@ -133,13 +180,29 @@ export function saveCursor(cursor) {
  */
 export async function sweepSwissCareerPages(opts = {}) {
   const wanted = opts.pages ?? 20;
+  // Recorded on every exit, including the outage ones below: a run that comes
+  // back with `totalPages: 0` because the index answered nothing looks
+  // identical, from a single console line, to a legitimately quiet night — the
+  // history is what tells the two apart (see `recordChannelHealth`).
+  const finish = (result) => {
+    if (opts.persist !== false) {
+      recordChannelHealth({
+        collection: result.collection,
+        totalPages: result.totalPages,
+        pagesRead: result.pagesRead.length,
+        employers: result.employers.length,
+      });
+    }
+    return result;
+  };
+
   const collection = opts.collection || await latestCollection();
-  if (!collection) return { employers: [], pagesRead: [], totalPages: 0, collection: null };
+  if (!collection) return finish({ employers: [], pagesRead: [], totalPages: 0, collection: null });
 
   const cursor = loadCursor();
   if (cursor.collection !== collection) { cursor.collection = collection; cursor.nextPage = 0; cursor.sweptPages = []; }
   const totalPages = await chPageCount(collection);
-  if (!totalPages) return { employers: [], pagesRead: [], totalPages: 0, collection };
+  if (!totalPages) return finish({ employers: [], pagesRead: [], totalPages: 0, collection });
 
   // Walk in strides so a short run samples the whole alphabet, not one slab.
   const stride = opts.stride ?? Math.max(1, Math.floor(totalPages / Math.max(wanted, 1)));
@@ -166,10 +229,10 @@ export async function sweepSwissCareerPages(opts = {}) {
     cursor.nextPage = (cursor.nextPage + 1) % Math.max(stride, 1);
     saveCursor(cursor);
   }
-  return {
+  return finish({
     employers: [...employers].map(([host, url]) => ({ host, url })),
     pagesRead,
     totalPages,
     collection,
-  };
+  });
 }
