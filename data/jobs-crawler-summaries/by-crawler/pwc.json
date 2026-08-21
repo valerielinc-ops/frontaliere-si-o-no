@@ -1,48 +1,19 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-20T21:44:25.337Z",
+  "generatedAt": "2026-08-21T09:58:00.660Z",
   "total": 132,
-  "newCount": 2,
-  "updatedCount": 83,
-  "removedCount": 1,
-  "unchangedCount": 11,
-  "durationMs": 3078,
-  "avgDurationMs": 3078,
+  "newCount": 0,
+  "updatedCount": 84,
+  "removedCount": 0,
+  "unchangedCount": 12,
+  "durationMs": 3690,
+  "avgDurationMs": 3690,
   "durationHistory": [
-    3078
+    3690
   ],
-  "newJobs": [
-    {
-      "title": "Praktikant:in - Sustainable Finance (Financial Services)",
-      "slug": "praktikant-in-sustainable-finance-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/praktikant-in-sustainable-finance-financial-services/b953b796-8f67-4401-85eb-27c80411d01f",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Praktikant-in---Sustainable-Finance--Financial-Services-_753700WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-20",
-      "validThrough": "2036-08-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sachbearbeiter:in - Steuern (Private Clients)",
       "slug": "sachbearbeiter-in-steuern-private-clients-pwc-zurich",
@@ -65,16 +36,20 @@
       "validThrough": "2036-08-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-4ce4ca001fba",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-20T21:44:25.308Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Manager – Fund Tax Reporting",
       "slug": "manager-fund-tax-reporting-pwc-zurich",
@@ -98,11 +73,11 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-0a7b648f84b7",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T21:43:48.084Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -134,11 +109,11 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-7be577f3ac1a",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T21:43:48.084Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -204,18 +179,12 @@
       "validThrough": "2036-08-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-cbfbc4470567",
-      "salaryMin": 92500,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-19T21:43:48.084Z",
-      "_qualityScore": 84,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -245,7 +214,6 @@
       "salaryMax": 102500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-18T10:09:36.422Z",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1095,77 +1063,46 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Manager - Corporate Tax 80%-100%",
-      "slug": "manager-corporate-tax-80-100-pwc-zug",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-corporate-tax/2d76ba02-4a29-47fe-baaa-47c275b020b5",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Lucerne/Corporate-Tax-Manager-Zentralschweiz_740132WD/apply",
+      "title": "Praktikant:in - Sustainable Finance (Financial Services)",
+      "slug": "praktikant-in-sustainable-finance-financial-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/praktikant-in-sustainable-finance-financial-services/b953b796-8f67-4401-85eb-27c80411d01f",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Praktikant-in---Sustainable-Finance--Financial-Services-_753700WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zug",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
-      "canton": "ZG",
+      "canton": "ZH",
       "country": "CH",
-      "category": "tax",
+      "category": "consulting",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "2036-06-27",
+      "postedDate": "2026-08-20",
+      "validThrough": "2036-08-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Manager - Tax Consultant",
-      "slug": "manager-tax-consulente-pwc-switzerland-lugano",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-tax-consultant/ae9bd178-3b8b-46bf-9717-5d709518a4e3",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Lugano/Manager---Tax-consultant_738271WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-26",
-      "validThrough": "2036-06-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-3810daa197be",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "id": "pwc-99b7c6adc100",
+      "salaryMin": 64500,
+      "salaryMax": 102500,
       "currency": "CHF",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-06-26T22:35:25.126Z",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:44:25.308Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Manager / Senior Manager - Cloud, Data & AI (CD&AI) - Data Engineering",
       "slug": "manager-senior-manager-cloud-data-ai-cd-ai-data-engineering-pwc-zurich",
