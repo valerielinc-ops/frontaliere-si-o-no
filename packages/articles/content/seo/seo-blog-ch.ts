@@ -47522,6 +47522,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-27-settembre-neutralita': {
+    title: 'Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata',
+    description: 'L\'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull\'alimentazione è in sostanziale pareggio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, settembre, neutralità, verso',
+    ogTitle: 'Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata',
+    ogDescription: 'L\'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull\'alimentazione è in sostanziale pareggio. Gli elettori più convinti dal testo abitano nella Svizzera italiana e nelle aree rurali.',
+    canonicalPath: '/articoli-svizzera/voto-27-settembre-neutralita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata",
+      "description": "L'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull'alimentazione è in sostanziale pareggio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-27-settembre-neutralita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elettori svizzeri discutono del voto"
+      },
+      "datePublished": "2026-08-21T06:03:50+00:00",
+      "dateModified": "2026-08-21T06:03:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-27-settembre-neutralita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3664,6 +3664,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-appenzello-proroga.title': 'Permit L Appenzello Interno: expiry and extension',
     'blog.article.permesso-l-appenzello-proroga.excerpt': 'The L permit allows for a temporary stay of up to one year. Here\'s how to check validity, extension and transition to permanent residence.',
     'blog.article.permesso-l-appenzello-proroga.imageAlt': 'Swiss cantonal administrative office with immigration and residence permit documents',
+    'blog.article.voto-27-settembre-neutralita.title': 'More Vote September 27: neutrality towards no, more tight power',
+    'blog.article.voto-27-settembre-neutralita.excerpt': 'The initiative on neutrality is heading towards a rejection, while that on food is in substantial equilibrium.',
+    'blog.article.voto-27-settembre-neutralita.imageAlt': 'Swiss voters discuss the vote on the neutrality and food initiatives',
 };
 
 export default blogMetaChEn;

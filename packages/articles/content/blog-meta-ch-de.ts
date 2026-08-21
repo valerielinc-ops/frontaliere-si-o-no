@@ -3664,6 +3664,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-appenzello-proroga.title': 'Genehmigung L Appenzell Innerrhoden: Ablauf und Verlängerung',
     'blog.article.permesso-l-appenzello-proroga.excerpt': 'Die Erlaubnis L erlaubt einen vorübergehenden Aufenthalt von bis zu einem Jahr. So überprüfen Sie die Gültigkeit, die Verlängerung und den dauerhaften Aufenthalt.',
     'blog.article.permesso-l-appenzello-proroga.imageAlt': 'Schweizer Kantonsamt mit Dokumenten zu Aufenthaltserlaubnissen und Migration',
+    'blog.article.voto-27-settembre-neutralita.title': 'Mehr Note 27. September: Nein-Neutralität, stärkere Fütterung',
+    'blog.article.voto-27-settembre-neutralita.excerpt': 'Die Neutralitätsinitiative geht auf eine Ablehnung zu, während die Ernährungsinitiative substanziell ausgeglichen ist.',
+    'blog.article.voto-27-settembre-neutralita.imageAlt': 'Schweizer Wähler diskutieren über den Wahlentscheid',
 };
 
 export default blogMetaChDe;
