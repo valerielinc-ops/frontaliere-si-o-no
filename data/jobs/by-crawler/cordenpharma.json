@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cordenpharma",
-  "assembledAt": "2026-08-21T09:58:18.011Z",
+  "assembledAt": "2026-08-21T21:30:07.653Z",
   "jobs": [
     {
       "id": "cordenpharma-91510af6435e",
@@ -33,7 +33,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20929/technischer-mitarbeitender-infrastruktur-projekte-80-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:15.444Z",
+      "crawledAt": "2026-08-21T21:30:05.268Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -67,17 +67,17 @@
           "technischer-mitarbeitender-infrastruktur-projekte-80-m-w-d-cordenpharma-ettingen"
         ]
       },
-      "firstSeenAt": "2026-07-16T12:36:03.436Z",
       "needsRetranslation": true,
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "firstSeenAt": "2026-07-16T12:36:03.436Z",
+      "salaryMin": 55600,
+      "salaryMax": 74800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 55600,
+          "maxValue": 74800,
           "unitText": "YEAR"
         }
       }
@@ -113,7 +113,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20928/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:14.895Z",
+      "crawledAt": "2026-08-21T21:30:04.779Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -147,17 +147,17 @@
           "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen"
         ]
       },
-      "firstSeenAt": "2026-07-16T12:36:02.888Z",
       "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-07-16T12:36:02.888Z",
+      "salaryMin": 69500,
+      "salaryMax": 93500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 69500,
+          "maxValue": 93500,
           "unitText": "YEAR"
         }
       }
@@ -193,7 +193,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20925/laborant-100-mwd-fachrichtung-chemie-prozessforschung-entwicklung-schwerpunkt-synthese",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:14.295Z",
+      "crawledAt": "2026-08-21T21:30:04.290Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -227,17 +227,17 @@
           "laborant-100-m-w-d-cordenpharma-liestal"
         ]
       },
-      "firstSeenAt": "2026-07-07T22:16:49.306Z",
       "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-07-07T22:16:49.306Z",
+      "salaryMin": 69500,
+      "salaryMax": 93500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 69500,
+          "maxValue": 93500,
           "unitText": "YEAR"
         }
       }
@@ -273,7 +273,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:13.674Z",
+      "crawledAt": "2026-08-21T21:30:03.751Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -304,17 +304,17 @@
           "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:47:48.276Z",
       "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "firstSeenAt": "2026-07-04T10:47:48.276Z",
+      "salaryMin": 83000,
+      "salaryMax": 138500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 83000,
+          "maxValue": 138500,
           "unitText": "YEAR"
         }
       }
