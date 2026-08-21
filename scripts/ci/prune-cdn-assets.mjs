@@ -256,12 +256,18 @@ async function main() {
     // Every JS/CSS bundle file in CDN assets/ is a prune CANDIDATE — stable-named
     // (`name.js`, the vite.config.ts stable-name policy) and any legacy
     // content-hashed leftover (`name-<hash8>.js`, from before the stable-name
-    // cutover #1933). `.hash-age.json`, images, fonts and `logo.svg` are not
-    // JS/CSS and are never touched here.
+    // cutover #1933). Sibling `.js.map`/`.css.map` files (vite.config.ts
+    // `build.sourcemap: true`, #5607) are candidates too — same lastActive
+    // tracking, same grace window — otherwise every renamed/removed chunk's
+    // sourcemap is invisible to this filter and accumulates forever (never
+    // enters `allAssets`, so `isActive`/registry never see it and
+    // deploy.yml's additive `cp -rn` carries it forward on every deploy).
+    // `.hash-age.json`, images, fonts and `logo.svg` are not JS/CSS(.map) and
+    // are never touched here.
     const allDirFiles = readdirSync(assetsDir);
-    const allAssets = allDirFiles.filter(f => /\.(js|css)$/.test(f));
-    const hashedCount = allAssets.filter(f => VITE_ASSET_RX.test(f)).length;
-    console.log(`[janitor] ${allAssets.length} JS/CSS file(s) in CDN assets/ (${hashedCount} legacy-hashed, ${allAssets.length - hashedCount} stable)`);
+    const allAssets = allDirFiles.filter(f => /\.(js|css)(\.map)?$/.test(f));
+    const hashedCount = allAssets.filter(f => VITE_ASSET_RX.test(f.replace(/\.map$/, ''))).length;
+    console.log(`[janitor] ${allAssets.length} JS/CSS(.map) file(s) in CDN assets/ (${hashedCount} legacy-hashed, ${allAssets.length - hashedCount} stable)`);
     if (allAssets.length === 0) {
       console.log('[janitor] nothing to do');
       return;
