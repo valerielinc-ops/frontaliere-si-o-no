@@ -10366,6 +10366,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Vivere a Solbiate Arno e lavorare in Ticino da frontaliere: cosa considerare',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'I vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino da frontaliere.',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere che valuta i vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontalieri che lavorano in Ticino.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Colverde per lavorare in Ticino.',
 };
 
 export default blogMetaIt;

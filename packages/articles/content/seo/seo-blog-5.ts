@@ -73157,6 +73157,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-colverde-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
+    description: 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontaliere che lavorano in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, colverde, lavorare, cosa',
+    ogTitle: 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
+    ogDescription: 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontaliere che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-colverde-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere",
+      "description": "Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontaliere che lavorano in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-colverde-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che si trasferisce a Colverde per lavorare in Ticino."
+      },
+      "datePublished": "2026-08-21T08:33:12+00:00",
+      "dateModified": "2026-08-21T08:33:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-colverde-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
