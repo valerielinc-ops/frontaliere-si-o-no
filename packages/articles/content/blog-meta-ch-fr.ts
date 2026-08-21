@@ -3682,6 +3682,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Allocations familiales Appenzell Interne : montants et demande',
     'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Guide complet des allocations familiales dans le canton d\'Appenzell Interne : système fédéral, montants mensuels par enfant, conditions de droit, caisse de compensation et procédure de demande étape par étape.',
     'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Paysage rural suisse avec bâtiments administratifs illustrant le système des allocations familiales dans le canton Appenzell Rhodes-Intérieures.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Le Conseil fédéral sur la planification ferroviaire',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Publication de l\'avis gouvernemental du 19 août 2026 sur le rapport de la CdG-S du 18 mai 2026 sur les stratégies pour les infrastructures ferroviaires.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Infrastructure ferroviaire suisse avec un train moderne',
 };
 
 export default blogMetaChFr;

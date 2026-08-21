@@ -11044,6 +11044,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parere-governo-infrastrutture-ferroviarie',
+    category: 'novita',
+    date: '2026-08-21T08:44:43.582Z',
+    image: '/images/blog/parere-governo-infrastrutture-ferroviarie.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

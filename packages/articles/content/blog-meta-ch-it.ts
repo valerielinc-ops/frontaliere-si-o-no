@@ -3682,6 +3682,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Assegni familiari Appenzello Interno: importi e domanda',
     'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Guida completa agli assegni familiari nel Canton Appenzello Interno: sistema federale, importi mensili per figlio, condizioni di diritto, cassa di compensazione e procedura di domanda passo-passo.',
     'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Paesaggio della campagna svizzera con edifici amministrativi, simbolo del sistema di sussidi familiari nel Canton Appenzello Interno.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Il Consiglio federale sulla pianificazione ferroviaria',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Pubblicato il parere governativo del 19 agosto 2026 sul rapporto della CdG-S del 18 maggio 2026 in merito alle strategie per le infrastrutture su rotaia.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Infrastruttura ferroviaria svizzera con treno moderno',
 };
 
 export default blogMetaChIt;
