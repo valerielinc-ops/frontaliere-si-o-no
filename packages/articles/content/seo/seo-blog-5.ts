@@ -73430,6 +73430,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cavaria-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cavaria, lavorare in Ticino: guida frontaliere',
+    description: 'Frontaliere a Cavaria con Premezzo: imposta alla fonte, AVS, LPP, LAMal, ristorni fiscali. Norma 2024, vantaggi e procedura di trasferimento in zona di confine.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cavaria, lavorare, normativa',
+    ogTitle: 'Vivere a Cavaria, lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri come vivere a Cavaria e lavorare in Ticino da frontaliere: normativa fiscale 2024, imposta alla fonte, contributi AVS/LPP, LAMal, ristorni e vantaggi della scelta transfrontaliera Italia-Svizzera. Guida pratica con procedura e checklist.',
+    canonicalPath: '/articoli-frontaliere/vivere-cavaria-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cavaria, lavorare in Ticino: guida frontaliere",
+      "description": "Frontaliere a Cavaria con Premezzo: imposta alla fonte, AVS, LPP, LAMal, ristorni fiscali. Norma 2024, vantaggi e procedura di trasferimento in zona di confine.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cavaria-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Mendrisio, città ticinese di confine al confine Italia-Svizzera con paesaggio alpino"
+      },
+      "datePublished": "2026-08-21T12:02:51+00:00",
+      "dateModified": "2026-08-21T12:02:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cavaria-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
