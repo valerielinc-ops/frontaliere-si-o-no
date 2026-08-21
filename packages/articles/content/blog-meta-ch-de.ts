@@ -3646,6 +3646,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-appenzello-esterno-canoni-locazione.title': 'Mieten in Appenzell Ausserrhoden: Mieten und Mietrecht',
     'blog.article.affitti-appenzello-esterno-canoni-locazione.excerpt': 'Leitfaden zum Mietrecht im Kanton Appenzell Ausserrhoden: Kaution, Kündigung, Anfechtung und Bundesmieterschutz.',
     'blog.article.affitti-appenzello-esterno-canoni-locazione.imageAlt': 'Schweizer Wohnstraße mit historischen Mietshäusern im Herbstlicht',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Mietmarkt Appenzell Ausserrhoden: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'Der Mietmarkt in Appenzell Ausserrhoden folgt den Vorgaben von Bund und Kantonen. Die maximale Kaution richtet sich nach den kantonalen Gesetzen.',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'Ein Schweizer Mieter in Appenzello Esterno sucht nach Gerechtigkeit für einen ungelösten Mietvertrag.',
 };
 
 export default blogMetaChDe;

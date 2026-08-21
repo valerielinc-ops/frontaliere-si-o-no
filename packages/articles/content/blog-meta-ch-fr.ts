@@ -3646,6 +3646,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-appenzello-esterno-canoni-locazione.title': 'Location à Appenzell Extérieur : loyers et droit de location',
     'blog.article.affitti-appenzello-esterno-canoni-locazione.excerpt': 'Guide du droit locatif dans le canton d\'Appenzell Extérieur : dépôt de garantie, résiliation, contestation et protections fédérales du locataire.',
     'blog.article.affitti-appenzello-esterno-canoni-locazione.imageAlt': 'Rue résidentielle suisse avec bâtiments d\'habitation historiques en automne',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Marché des loyers à Appenzell Externe : loyers moyens et droit de location',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'Le marché locatif d\'Appenzell Extérieur suit les règles fédérales et cantonales. Le dépôt de garantie maximal est déterminé par les lois cantonales.',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'Un locataire suisse d\'Appenzello Esterno cherche justice pour un bail non résolu.',
 };
 
 export default blogMetaChFr;
