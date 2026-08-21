@@ -21482,10 +21482,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "dipl-radiologiefachfrau-mann-hf-stgag-ch",
         "it": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
-        "de": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen"
+        "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+        "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-turgovia/dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-munsterlingen",
@@ -21499,6 +21499,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

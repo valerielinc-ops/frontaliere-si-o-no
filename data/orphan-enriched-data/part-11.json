@@ -47706,10 +47706,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "pipe-welder-pemsa-lugano",
+        "it": "saldatore-tubista-pemsa-lugano",
         "en": "pipe-welder-pemsa-lugano",
-        "de": "pipe-welder-pemsa-lugano",
-        "fr": "pipe-welder-pemsa-lugano"
+        "de": "rohrschwei-er-pemsa-lugano",
+        "fr": "soudeur-tuyauteur-pemsa-lugano"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/pipe-welder-pemsa-lugano",
@@ -47717,12 +47717,13 @@
         "de": "/de/jobs-im-tessin/pipe-welder-pemsa-lugano",
         "fr": "/fr/trouver-emploi-tessin/pipe-welder-pemsa-lugano"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/saldatore-tubista-2688574",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
