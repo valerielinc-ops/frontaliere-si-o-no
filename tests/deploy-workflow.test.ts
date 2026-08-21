@@ -19,6 +19,18 @@ import { resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+// Every workflow that uploads dist/audit-reports/** as an artifact — the
+// directory scripts/lib/auditReport.mjs writes to (discover-eligibility.json
+// included). Since #6202 that report is written only 1-in-7 post-deploy
+// runs, so an upload step over this path MUST tolerate a run where the
+// directory is empty or absent (issue #6208 item 2).
+const AUDIT_REPORTS_UPLOAD_WORKFLOWS = [
+  '.github/workflows/post-deploy-validate-dist.yml',
+  '.github/workflows/post-build-matrix-test.yml',
+  '.github/workflows/cathedral-seo-gates-check.yml',
+  '.github/workflows/audit-dist-from-run.yml',
+  '.github/workflows/post-deploy-validate-live.yml',
+] as const;
 // Section rehydrate loop (rehydrate_section) lives here, extracted out of
 // post-deploy-validate-dist.yml's 3 inline copies + the 4 seed-baseline
 // workflows' copies into one shared script (AGENTS.md #6 dedupe).
@@ -177,6 +189,52 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
       'scripts/validate-sitemap-pages.mjs no longer mentions audit-sitemap-canonicals — ' +
         'the check it was standing in for may have been removed.',
     ).toBe(true);
+  });
+});
+
+/**
+ * Guard for issue #6208 item 2: `audit:discover-eligibility` and
+ * `seo/meta-description-audit` are report-only (rc=0 cabled) and, since
+ * #6202, run at a 1-in-7 cadence — so `dist/audit-reports/discover-
+ * eligibility.json` is absent on 6 of every 7 post-deploy runs. Every
+ * `upload-artifact` step whose `path:` includes `dist/audit-reports/**` must
+ * therefore tolerate a missing/empty directory (`if-no-files-found: ignore`
+ * or `warn`), never `error` — an `error` setting would fail the job on the
+ * 6-in-7 skipped runs for a "problem" that isn't one.
+ */
+function extractUploadArtifactSteps(yml: string): string[] {
+  const stepStarts: number[] = [];
+  const re = /\n( {2,10})- name:/g;
+  let m;
+  while ((m = re.exec(yml)) !== null) stepStarts.push(m.index + 1);
+  stepStarts.push(yml.length);
+  const steps: string[] = [];
+  for (let i = 0; i < stepStarts.length - 1; i++) steps.push(yml.slice(stepStarts[i], stepStarts[i + 1]));
+  return steps.filter((s) => /uses:\s*actions\/upload-artifact@/.test(s));
+}
+
+describe('dist/audit-reports/** artifact uploads tolerate the report-only 1-in-7 cadence (#6208)', () => {
+  it('every upload-artifact step over dist/audit-reports/** sets if-no-files-found to ignore or warn, never error', () => {
+    let matchingStepsFound = 0;
+    for (const relPath of AUDIT_REPORTS_UPLOAD_WORKFLOWS) {
+      const yml = readFileSync(resolve(ROOT, relPath), 'utf-8');
+      const steps = extractUploadArtifactSteps(yml).filter((s) => /dist\/audit-reports/.test(s));
+      for (const step of steps) {
+        matchingStepsFound++;
+        const nameMatch = step.match(/- name:\s*(.+)/);
+        const stepName = nameMatch ? nameMatch[1].trim() : '(unnamed step)';
+        const valueMatch = step.match(/if-no-files-found:\s*(\S+)/);
+        // Field absent → GitHub defaults to `warn`, which is also safe.
+        const value = valueMatch ? valueMatch[1] : 'warn';
+        expect(
+          value,
+          `${relPath} — "${stepName}": if-no-files-found="${value}" would fail the job on the ` +
+          `6-in-7 runs where the report-only cadence (#6202) skips writing dist/audit-reports/. ` +
+          `Use "ignore" or "warn".`,
+        ).not.toBe('error');
+      }
+    }
+    expect(matchingStepsFound, 'expected at least one dist/audit-reports/** upload step across the checked workflows').toBeGreaterThan(0);
   });
 });
 
