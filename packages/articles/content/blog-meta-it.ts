@@ -10322,6 +10322,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-castronno-lavorare-ticino.title': 'Vivere a Castronno e lavorare in Ticino da frontaliere',
     'blog.article.vivere-castronno-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Castronno: tassazione, nuovo accordo frontalieri, previdenza e i vantaggi del pendolarismo verso il Canton Ticino.',
     'blog.article.vivere-castronno-lavorare-ticino.imageAlt': 'Paesaggio collinare tra Italia e Svizzera',
+    'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Vivere a Lonate Ceppino: guida frontaliere Ticino',
+    'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Struttura fiscale, contributi sociali e procedure pratiche per chi sceglie di vivere nel Varesotto e lavorare in Ticino con il Nuovo Accordo Frontalieri.',
+    'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Strada frontaliera tra Italia e Svizzera nel Mendrisiotto, con paesaggio alpino ticinese sullo sfondo',
 };
 
 export default blogMetaIt;

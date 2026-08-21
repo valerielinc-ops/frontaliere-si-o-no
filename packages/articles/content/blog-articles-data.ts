@@ -30909,6 +30909,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lonate-ceppino-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-21T01:57:43.604Z',
+ image: '/images/blog/lonate-ceppino-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10321,6 +10321,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-castronno-lavorare-ticino.title': 'Living in Castronno and working in Ticino as a border worker',
     'blog.article.vivere-castronno-lavorare-ticino.excerpt': 'Practical guide for those who choose Castronno: taxation, new border agreements, social security and the advantages of commuting to the Canton of Ticino.',
     'blog.article.vivere-castronno-lavorare-ticino.imageAlt': 'Hilly landscape between Italy and Switzerland',
+    'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Living in Lonate Ceppino: Ticino border guide',
+    'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Tax structure, social contributions and practical procedures for those who choose to live in Varese and work in Ticino with the New Frontier Agreement.',
+    'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Highway at Swiss-Italian border in Ticino region with Alpine landscape view',
 };
 
 export default blogMetaEn;
