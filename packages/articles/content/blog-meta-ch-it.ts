@@ -3625,6 +3625,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Permesso di dimora B Appenzello Esterno: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Guida completa al permesso B svizzero: caratteristiche, documenti necessari, durata e procedura di rinnovo presso l\'ufficio della migrazione cantonale.',
     'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Ufficio della migrazione cantonale svizzero: sportello con personale che assiste un richiedente con documentazione per il permesso di dimora.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.title': 'Permesso C Appenzello Esterno: requisiti e domanda',
+    'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Residenza minima, integrazione linguistica e procedura per il permesso di domicilio C nel cantone nord-orientale: tempi, documenti e step-by-step.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Ufficio amministrativo svizzero durante l\'elaborazione di una domanda di permesso di residenza C',
 };
 
 export default blogMetaChIt;

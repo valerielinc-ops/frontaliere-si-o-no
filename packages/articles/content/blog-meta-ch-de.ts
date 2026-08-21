@@ -3625,6 +3625,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Aufenthaltsbewilligung B Appenzell AR: Erhalt & Erneuerung',
     'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Vollständiger Leitfaden zur Schweizer B-Bewilligung: Eigenschaften, erforderliche Dokumente, Dauer und Erneuerungsverfahren beim kantonalen Migrationsamt.',
     'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Schweizer Kantonales Migrationsamt mit Sachbearbeiter und Besucher bei der Bearbeitung einer Aufenthaltsgenehmigung.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.title': 'C-Genehmigung Appenzell Ausserrhoden: Voraussetzungen und Antrag',
+    'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Mindestaufenthalt, Sprachintegration und Verfahren für die Niederlassungsbewilligung C im Nordostkanton: Zeiten, Dokumente und Schritt-für-Schritt.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Schweizer Verwaltungsbüro bei der Bearbeitung von Aufenthaltserlaubnis-C-Anträgen',
 };
 
 export default blogMetaChDe;
