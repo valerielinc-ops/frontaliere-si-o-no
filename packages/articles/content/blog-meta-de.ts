@@ -10430,6 +10430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-monno-lavorare-grigioni.title': 'Wohnen in Monno und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für diejenigen, die in Monno leben und in der Schweiz arbeiten: Steuern, neues Abkommen, Beiträge und Einkommensmanagement zwischen Italien und dem Kanton Graubünden.',
     'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Alpine Landschaft mit Bergstraße',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Leben in Hammer und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'Neues Frontalieri-Abkommen: Was ändert sich für Grenzgänger Tessin-Italien?',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Ticino-Italien Grenzgänger',
 };
 
 export default blogMetaDe;

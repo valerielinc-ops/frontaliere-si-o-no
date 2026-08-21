@@ -10433,6 +10433,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-monno-lavorare-grigioni.title': 'Vivre à Monno et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Guide pratique pour ceux qui vivent à Monno et travaillent en Suisse : fiscalité, nouvel accord, cotisations et gestion des revenus entre l\'Italie et le canton des Grisons.',
     'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Paysage alpin avec route de montagne',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Vivre à Marteau et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'Nouvel accord frontalier : ce qui change pour les frontaliers Tessin-Italie',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliers Ticino-Italie',
 };
 
 export default blogMetaFr;
