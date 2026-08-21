@@ -3742,6 +3742,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Permis B Berne : exigences et renouvellement',
     'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Permis de séjour B canton de Berne : exigences, documentation, durée et procédure de renouvellement. Guide complet et étape par étape par l\'autorité SEM.',
     'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Bureau administratif cantonal de Berne avec documents de migration et passeport sur bureau',
+    'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS et complémentaires à Zurich : guide au minimum vital',
+    'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Dans le canton de Zurich, la caisse de compensation calcule la rente AVS et intervient avec des prestations complémentaires si le premier pilier ne couvre pas le minimum vital.',
+    'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Conseil en prévoyance vieillesse suisse: rente AVS et prestations complémentaires à la caisse de compensation cantonale',
 };
 
 export default blogMetaChFr;

@@ -48536,6 +48536,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prestazioni-complementari-zurigo-minimo': {
+    title: 'AVS e complementari a Zurigo: guida al minimo vitale',
+    description: 'Guida completa su rendita AVS, lacune contributive e prestazioni complementari nel cantone Zurigo. Come funziona la cassa di compensazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, complementari, zurigo, minimo, vitale',
+    ogTitle: 'AVS e complementari Zurigo: il calcolo della rendita',
+    ogDescription: 'Nel cantone Zurigo la cassa di compensazione calcola la rendita AVS del primo pilastro e integra con prestazioni complementari se necessario per coprire il minimo vitale dei pensionati. Scopri come funziona.',
+    canonicalPath: '/articoli-svizzera/prestazioni-complementari-zurigo-minimo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e complementari a Zurigo: guida al minimo vitale",
+      "description": "Guida completa su rendita AVS, lacune contributive e prestazioni complementari nel cantone Zurigo. Come funziona la cassa di compensazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prestazioni-complementari-zurigo-minimo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulenza previdenziale AVS e prestazioni complementari in Svizzera presso cassa di compensazione cantonale"
+      },
+      "datePublished": "2026-08-21T20:44:12+00:00",
+      "dateModified": "2026-08-21T20:44:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prestazioni-complementari-zurigo-minimo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

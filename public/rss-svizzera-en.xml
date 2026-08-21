@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Aug 2026 20:18:13 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 20:44:12 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,71 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS and complementary in Zurich: a guide to the bare minimum</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/supplementary-benefits-zurich-minimum-living/</link>
+      <description><![CDATA[In the canton of Zurich, the compensation fund calculates the AVS annuity and intervenes with complementary benefits if the first pillar does not cover the vital minimum.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- First pillar AVS: 5.3% contributions for employees (10.6% with employer)
+- Contribution gaps: filled by complementary cantonal benefits
+- Compensation fund: calculates annuity and verifies entitlement
+- Minimum living: covered by canton Zurich integration if necessary
+
+## Key facts
+- **What**: AVS income + complementary services in the canton of Zurich
+- Who: Cantonal Clearing House Zurich, UFAS/BSV (federal)
+- When: From 65 years (reference age Switzerland)
+- Where: Canton Zurich, with federal and cantonal competences
+- Base: Contributions paid + legal accreditations (sickness, unemployment, education of children)
+
+In the canton of Zurich, the first pillar of social security guarantees every resident who reaches the reference age a basic income calculated by the cantonal compensation fund. This income depends on the number of contributory years and the average income of the professional career. The contributions paid during work — 5.3% paid by the employee and 5.3% paid by the employer (total 10.6%) — finance the AVS/AI/IPG system at the federal level, but it is the local cashier who organizes the calculation and monthly disbursement.
+
+However, not everyone has a full contributory career. Contribution gaps — periods of non-payment due to unemployment, illness, child rearing or other causes — automatically reduce the amount of the pension. If this annuity falls below the vital minimum
+### How AVS Rent Calculation Works
+
+Each contribution year registered with the compensation fund is worth one year for income purposes. It is not enough to have worked physically: Swiss law credits periods of absence from work covered by insurance as "contributory years". Specifically, the following are accredited:
+
+- Periods of insured sickness (covered by LAMal compulsory sickness insurance)
+- Periods of unemployment (if enrolled in unemployment insurance and paid regular contributions)
+- Education of children up to 3 years of age
+- Maternity periods (14 weeks at 80% covered by IPG)
+- Some periods of care for dependent family members
+
+Gaps NOT covered by these credits reduce the number of contribution years used for the calculation, and therefore proportionally decrease the monthly income. For example, a person who has paid regular contributions for 40 years but has a gap of 5 years without accreditation will see the annuity calculated as if they were 40 years old out of 44 years of theoretical career.
+
+### Complementary services and minimum life expectancy in Zurich
+
+If the calculated AVS annuity — even considering all possible accreditations — does not reach the living minimum set by the canton, the cantonal finance service (usually in coordination with the office of the municipality of residence) provides supplementary benefits. This integration covers:
+
+- Rent/mortgage installment (up to a ceiling set by the canton)
+-
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Procedure for applying for the AVS annuity in Zurich
+
+The AVS pension is paid automatically from the first day of the month following reaching the reference age, provided that an application is formally submitted. The procedure is:
+
+1. ** Cash register** — If you have paid contributions while working, you are already registered automatically. Verify your file by consulting the [nav:pension AVS statement] of your cantonal office online.
+
+2. Quote 6 months before — Contact the Zurich Compensation Fund 6 months before the expected start date of the annuity. Request the estimate by providing income and career documents.
+
+3. Formal application 3-4 months in advance — File an official application at the register using the federal form (available online). Attach identity documents and income statements.
+
+4. Decision and first payment — The cashier communicates the confirmed monthly amount. The first payment is made on the first day of the month following the birthday.
+
+### Request for supplementary services
+
+Supplementary benefits are NOT granted automatically: they must be requested explicitly from the competent service of your municipality of residence in the canton of Zurich, or directly from the regional cantonal finance office. The procedure is:
+
+1. Collect Documents — AVS Decision Copy, Lease Agreement, Latest Bank Statements, Statements
+
+For a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.]]></content:encoded>
+      <pubDate>Fri, 21 Aug 2026 20:44:12 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/prestazioni-complementari-zurigo-minimo</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/prestazioni-complementari-zurigo-minimo.webp" medium="image"/>
+    </item>
     <item>
       <title>Permit B Bern: requirements and renewal</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/permit-b-berna-requirements-renewal/</link>
@@ -2899,65 +2964,6 @@ First day as a cross-border worker? Our [practical guide](nav:first-day) walks y
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/acquisire-casa-sciaffusa-mutuo-fiscale</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/acquisire-casa-sciaffusa-mutuo-fiscale.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Schaffhausen rentals: deposit, cancellation and conciliation</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/rental-schaffhausen-deposit-termination-mediation/</link>
-      <description><![CDATA[Maximum security deposit 3 months, cancellation on cantonal form, dispute within 30 days: the federal rental rules in Schaffhausen explained in detail.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Maximum security deposit of 3 months of rent on a restricted account in the name of the tenant
-- Cancellation of the landlord valid only through the official cantonal form
-- Dispute of the fee within 30 days to the cantonal conciliation authority
-
-## Key facts
-- **What**: Federal lease rules applicable to Schaffhausen (CO art. 253 et seq.)
-- Where: Canton Schaffhausen (and all Swiss cantons)
-- Who: Tenants and landlords according to the Code of Obligations
-- Amount: Maximum security deposit 3 months of rent
-- Form: Cancellation exclusively on official cantonal form
-- Deadline: Dispute within 30 days to the conciliation authority
-
-The right to rent in Switzerland is federal and identical in all cantons, including Schaffhausen. There are no regional variations: the Code of Obligations (CO art. 253 et seq.) applies uniformly to tenants and landlords from Basel to Schaffhausen, from Geneva to Appenzell. This means that the rules on security deposit, cancellation and dispute of unjustified fees are the same for everyone.
-
-## # Security deposit and tenant protection
-
-In Schaffhausen, the landlord may request a security deposit to guarantee against damage to the property or non-payment of rent. Federal law places a strict limit: the deposit cannot exceed 3 months' rent. If the monthly rent is CHF 1,200, the maximum deposit is CHF 3,600. No landlord can ask for higher amounts.
-
-One
-The conciliation procedure is the federal mechanism for resolving tenancy disputes without resorting to lengthy and costly court proceedings. In all Swiss cantons, including Schaffhausen, rental disputes follow this path: formal appeal, assessment of the conciliation authority, possible recourse to the courts only if a party does not accept the result.
-
-### How fee dispute works
-
-When a tenant receives a rent proposal deemed disproportionate, they have the right to dispute it by telling the conciliation authority within 30 days of written communication of the rent. This deadline is mandatory: it starts from the date of the official communication, not from when the tenant signs the contract.
-
-The conciliation authority evaluates the disputed rent considering the characteristics of the property (size, state of conservation, location, installed equipment) and comparing it with the current rents of the area. To understand how rent affects your overall budget, check out our [nav:cost-of-living]. This procedure protects tenants from unwarranted increases and creates an incentive for landlords to set realistic fees from the start.
-
-Who can use conciliation? Both the tenant (to counteract a fee that is too high) and the landlord (in the event of disputes over the return of the deposit, liability for damages or other contractual issues). The procedure is
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-### Step-by-step procedure for tenants
-
-Step 1: Verification before signing
-Before signing the contract, carefully examine the proposed fee. If you consider it disproportionate to the local market, start a discussion with the landlord. If the landlord sends a written proposal for a fee that you do not accept, you can proceed with the formal dispute.
-
-Step 2: Filling in the dispute form
-Obtain the fee dispute form from the cantonal conciliation authority in Schaffhausen (available online or from the municipal office). Specify the reasons for your dispute: characteristics of the property, comparable fees, reasons for disparity. Sign the form and send it to the competent authority within 30 days of notification of the fee.
-
-**Step 3: Authority Decision **
-The conciliation authority will review the appeal and issue an assessment within a reasonable time. If the assessment is favourable, apply the new agreed fee. If you are not satisfied, you have the possibility to appeal to the cantonal courts, although this rarely happens in practice.
-
-### Security deposit management
-
-1. Check the amount: make sure it does not exceed 3 months of monthly rent.
-2. Escrow account: ask the landlord for documentation of the escrow payment in your name, not a deposit on the landlord's account.
-3. Keep the receipt: look at all the documents of the
-
-First day as a cross-border worker? Our [practical guide](nav:first-day) walks you from cantonal registration to your first paycheck.]]></content:encoded>
-      <pubDate>Thu, 20 Aug 2026 19:41:32 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/affitti-sciaffusa-cauzione-disdetta-conciliazione</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/affitti-sciaffusa-cauzione-disdetta-conciliazione.webp" medium="image"/>
     </item>
   </channel>
 </rss>
