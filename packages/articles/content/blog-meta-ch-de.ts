@@ -3649,6 +3649,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Mietmarkt Appenzell Ausserrhoden: Durchschnittsmieten und Mietrecht',
     'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'Der Mietmarkt in Appenzell Ausserrhoden folgt den Vorgaben von Bund und Kantonen. Die maximale Kaution richtet sich nach den kantonalen Gesetzen.',
     'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'Ein Schweizer Mieter in Appenzello Esterno sucht nach Gerechtigkeit für einen ungelösten Mietvertrag.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Geschäft in Appenzell Ausserrhoden eröffnen: Register und Kosten',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'Der Kanton Appenzell Ausserrhoden hat eine spezifische Gesetzgebung für gewerbliche Tätigkeiten. Sie müssen sich im Handelsregister des Kantons eintragen lassen.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Einzelhandel im Kanton Appenzell Ausserrhoden',
 };
 
 export default blogMetaChDe;

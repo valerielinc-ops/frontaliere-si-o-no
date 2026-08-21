@@ -1242,6 +1242,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-appenzello-esterno-mutui-tasse': { it: 'comprare-casa-appenzello-esterno-mutui-tasse', en: 'buy-house-appenzell-outer-rhodes-mortgages-taxes', de: 'haus-kaufen-appenzell-ausserrhoden-hypotheken-steuern', fr: 'acheter-maison-appenzell-externes-hypotheques-taxes' },
  'affitti-appenzello-esterno-canoni-locazione': { it: 'affitti-appenzello-esterno-canoni-locazione', en: 'rentals-appenzell-ausserrhoden-tenancy-law', de: 'mietpreise-appenzell-ausserrhoden-mietrecht', fr: 'loyers-appenzell-rhodes-exterieures-droit-locatif' },
  'mercato-gli-affitti-appenzello-esterno': { it: 'mercato-gli-affitti-appenzello-esterno', en: 'appenzello-esterno-rental-market', de: 'appenzello-ostern-mietmarkt', fr: 'appenzello-est-marche-du-locaux' },
+ 'aprire-attivita-canton-appenzello-esterno': { it: 'aprire-attivita-canton-appenzello-esterno', en: 'open-business-appenzell-ausserrhoden', de: 'unternehmen-in-appenzell-ausserrhoden-eroffnen', fr: 'ouvrir-une-entreprise-appenzell-rhodes-interieures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

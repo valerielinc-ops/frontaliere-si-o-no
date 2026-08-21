@@ -3649,6 +3649,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Rental market in the External Appenzell: average fees and rental rights',
     'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'The rental market in Outer Appenzell follows federal and cantonal regulations. The maximum security deposit is determined by cantonal laws.',
     'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'A Swiss tenant in Appenzello Esterno seeks justice for an unresolved rental.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Opening a business in the External Appenzello: register and costs',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'The Canton of Appenzello Outermost has specific legislation for commercial activities. You must register with the cantonal trade register.',
+    'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Imagin a business in Appenzell Ausserrhoden',
 };
 
 export default blogMetaChEn;
