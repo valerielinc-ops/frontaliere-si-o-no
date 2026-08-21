@@ -3658,6 +3658,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franchigie-riduzione-appenzello.title': 'Krankenkassenprämien Appenzell Innerrhoden: Selbstbehalte und Ermäßigung',
     'blog.article.franchigie-riduzione-appenzello.excerpt': 'Franchisen von CHF 300 bis 2.500 und Verfahren zur Erlangung des kantonalen Reduktionszuschusses. Leitfaden zu den KVG-Prämien und Zugangskriterien in Appenzell Innerrhoden.',
     'blog.article.franchigie-riduzione-appenzello.imageAlt': 'Schweizer Krankenversicherungsdokumente und Prämiereduktionsformulare auf modernem Schreibtisch',
+    'blog.article.domicilio-c-appenzello-interno.title': 'Domizil C in Appenzell Innerrhoden: Komplette Anleitung',
+    'blog.article.domicilio-c-appenzello-interno.excerpt': 'Ausweis C in Appenzell Innerrhoden: Voraussetzungen, Integrationskriterien, Sprachkenntnisse und kantonales Antragsverfahren — Praxisleitfaden und Fristen.',
+    'blog.article.domicilio-c-appenzello-interno.imageAlt': 'Schweizer Verwaltungspanoramablick: Symbol für Verwaltungsverfahren und kantonale Genehmigungen',
 };
 
 export default blogMetaChDe;

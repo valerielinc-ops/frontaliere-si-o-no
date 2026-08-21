@@ -3658,6 +3658,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franchigie-riduzione-appenzello.title': 'Primes caisse-maladie Appenzell Interne : franchises et réduction',
     'blog.article.franchigie-riduzione-appenzello.excerpt': 'Franchises de 300 CHF à 2 500 CHF et procédures d\'obtention de l\'allocation cantonale de réduction. Guide opérationnel des prix LAMal et des critères d\'accès à Appenzell Interne.',
     'blog.article.franchigie-riduzione-appenzello.imageAlt': 'Documents d\'assurance maladie suisse et formulaires de réduction des primes sur bureau moderne',
+    'blog.article.domicilio-c-appenzello-interno.title': 'Domicile C à Appenzell Interne : guide complet',
+    'blog.article.domicilio-c-appenzello-interno.excerpt': 'Permis C à Appenzell Interne : exigences, critères d\'intégration, connaissances linguistiques et procédure de demande cantonale — guide pratique et délais.',
+    'blog.article.domicilio-c-appenzello-interno.imageAlt': 'Vue panoramique administrative suisse: symbole des procédures bureaucratiques et permis cantonaux',
 };
 
 export default blogMetaChFr;
