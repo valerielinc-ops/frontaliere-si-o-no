@@ -3706,6 +3706,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-interno.title': 'Buying a house in Appenzello Interno: costs and mortgage',
     'blog.article.comprare-casa-appenzello-interno.excerpt': 'Buying a house in the Canton of Appenzello Interno: mortgages, own funds, transfer taxes, notary fees and mortgage sustainability.',
     'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Real estate consultation with mortgage documents and house plans in Appenzell region',
+    'blog.article.acquistare-casa-appenzello-interno.title': 'Buying a house in Appenzello Interno: mortgages and taxes',
+    'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Operational guide for the purchase of real estate in Appenzello Interno. Learn about transfer taxes, notary fees, mortgage sustainability, and registration procedures.',
+    'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Traditional Appenzell farmhouse with painted wooden shutters, green meadows and mountains in the background',
 };
 
 export default blogMetaChEn;

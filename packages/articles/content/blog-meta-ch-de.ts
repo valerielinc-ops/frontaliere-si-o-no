@@ -3706,6 +3706,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-interno.title': 'Haus kaufen in Appenzell Innerrhoden: Kosten und Darlehen',
     'blog.article.comprare-casa-appenzello-interno.excerpt': 'Haus kaufen im Kanton Appenzell Innerrhoden: Hypothekendarlehen, Eigenmittel, Abgeltungssteuern, Notarkosten und Tragbarkeit des Darlehens.',
     'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Immobilienberatung mit Hypothekendokumenten und Hausplänen in der Appenzeller Region',
+    'blog.article.acquistare-casa-appenzello-interno.title': 'Haus kaufen in Appenzell Innerrhoden: Hypotheken und Steuern',
+    'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Operativer Leitfaden zum Immobilienkauf in Appenzell Innerrhoden. Entdecken Sie Übertrittssteuern, Notarkosten, Tragbarkeit von Hypotheken und Registrierungsverfahren.',
+    'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Traditionelles Appenzeller Bauernhaus mit bemalten Holzbalkon, grünen Wiesen und Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

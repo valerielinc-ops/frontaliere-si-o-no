@@ -48068,6 +48068,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquistare-casa-appenzello-interno': {
+    title: 'Acquistare casa in Appenzello Interno: mutui e tasse',
+    description: 'Guida pratica all\'acquisto immobiliare in Appenzello Interno. Imposte sui trapassi, spese notarili, sostenibilità mutui e procedure di registrazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquistare, casa, appenzello, interno',
+    ogTitle: 'Comprare casa in Appenzello Interno: guida a mutui e tasse',
+    ogDescription: 'Acquistare una casa in Appenzello Interno richiede pianificazione fiscale e finanziaria. Leggi come funzionano imposte sui trapassi, mutui ipotecari, spese notarili e procedure di registrazione nel cantone svizzero.',
+    canonicalPath: '/articoli-svizzera/acquistare-casa-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquistare casa in Appenzello Interno: mutui e tasse",
+      "description": "Guida pratica all'acquisto immobiliare in Appenzello Interno. Imposte sui trapassi, spese notarili, sostenibilità mutui e procedure di registrazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-casa-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa tradizionale di Appenzello Interno con balconate di legno dipinte, prati verdi e montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-21T13:00:50+00:00",
+      "dateModified": "2026-08-21T13:00:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-casa-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3706,6 +3706,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-interno.title': 'Comprare casa in Appenzello Interno: costi e mutuo',
     'blog.article.comprare-casa-appenzello-interno.excerpt': 'Acquistare casa nel Canton Appenzello Interno: mutui ipotecari, fondi propri, imposte sui trapassi, spese notarili e sostenibilità del mutuo.',
     'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Consulenza immobiliare con documenti di mutuo e piani casa nel Canton Appenzello Interno',
+    'blog.article.acquistare-casa-appenzello-interno.title': 'Acquistare casa in Appenzello Interno: mutui e tasse',
+    'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Guida operativa all\'acquisto immobiliare in Appenzello Interno. Scopri imposte sui trapassi, spese notarili, sostenibilità mutui e procedure di registrazione.',
+    'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Casa tradizionale di Appenzello Interno con balconate di legno dipinte, prati verdi e montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

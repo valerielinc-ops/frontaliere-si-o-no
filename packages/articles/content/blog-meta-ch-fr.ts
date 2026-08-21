@@ -3706,6 +3706,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-interno.title': 'Acheter une maison à Appenzell Interne : coûts et hypothèque',
     'blog.article.comprare-casa-appenzello-interno.excerpt': 'Acheter une maison dans le canton d\'Appenzell : prêts hypothécaires, fonds propres, taxes sur les passages, frais de notaire et viabilité du prêt.',
     'blog.article.comprare-casa-appenzello-interno.imageAlt': 'Consultation immobilière avec documents hypothécaires et plans de maison dans la région d\'Appenzell',
+    'blog.article.acquistare-casa-appenzello-interno.title': 'Acheter une maison à Appenzell Interne : hypothèques et taxes',
+    'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Guide opérationnel pour l\'achat immobilier à Appenzell Interne. Découvrez les taxes sur les passages, les frais de notaire, la durabilité des prêts hypothécaires et les procédures d\'enregistrement.',
+    'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Maison traditionnelle d\'Appenzell avec balcons en bois peints, prés verts et montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;
