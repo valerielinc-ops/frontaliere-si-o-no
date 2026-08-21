@@ -10315,6 +10315,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.title': 'Living in Mozzate and working in Ticino as a border worker',
     'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.excerpt': 'Practical guide for those who choose Mozzate as a residence working in the Canton of Ticino: taxes, mobility and the new agreement on border workers.',
     'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.imageAlt': 'Cross-border worker crossing the border between Italy and Switzerland',
+    'blog.article.caronno-varesino-frontaliere-ticino.title': 'Caronno Varesino-Ticino: the 2024 tax regime',
+    'blog.article.caronno-varesino-frontaliere-ticino.excerpt': 'What to know about tax at source, AVS and LAMal when you live in Caronno Varesino and work in Ticino. The rules from the 2024 New Deal.',
+    'blog.article.caronno-varesino-frontaliere-ticino.imageAlt': 'Residential street in Caronno Varesino, Varese province, with the Alps visible',
 };
 
 export default blogMetaEn;

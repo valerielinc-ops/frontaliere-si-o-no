@@ -10316,6 +10316,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.title': 'Vivere a Mozzate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per chi sceglie Mozzate come residenza lavorando nel Canton Ticino: imposte, mobilità e il nuovo accordo sui frontalieri.',
     'blog.article.vivere-mozzate-lavorare-ticino-frontaliere.imageAlt': 'Pendolare frontaliero che attraversa il confine tra Italia e Svizzera',
+    'blog.article.caronno-varesino-frontaliere-ticino.title': 'Caronno Varesino-Ticino: il regime fiscale 2024',
+    'blog.article.caronno-varesino-frontaliere-ticino.excerpt': 'Cosa sapere su imposta alla fonte, AVS e LAMal quando si vive a Caronno Varesino e si lavora in Ticino. Le regole dal Nuovo Accordo 2024.',
+    'blog.article.caronno-varesino-frontaliere-ticino.imageAlt': 'Strada residenziale a Caronno Varesino, provincia di Varese, con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;
