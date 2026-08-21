@@ -31161,6 +31161,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-calo-secondo-trimestre-2026',
+ category: 'novita',
+ date: '2026-08-21T16:15:54.346Z',
+ image: '/images/blog/frontalieri-calo-secondo-trimestre-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

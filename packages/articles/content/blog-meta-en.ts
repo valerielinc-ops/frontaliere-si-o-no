@@ -10407,6 +10407,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.title': 'Living in Peglio and working in Ticino: advantages and disadvantages',
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.excerpt': 'Connections, journey times, cost of living, recommended areas for border workers resident in Peglio and workers in Ticino',
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri a Peglio, strategic location confine Ticino-Italia',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.title': 'Italian frontiersmen down: −0.6% in Ticino in Q2 2026',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.excerpt': 'In the second quarter of 2026, entries from Italy fell by 1.1%. In Ticino the drop is 0.6%. New tax agreement and better working conditions in Italy among the factors.',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.imageAlt': 'Lugano lakefront, primary economic center of Ticino attracting Italian cross-border workers impacted by Q2 2026 decline',
 };
 
 export default blogMetaEn;

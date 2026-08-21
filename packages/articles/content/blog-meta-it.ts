@@ -10408,6 +10408,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.title': 'Vivere a Peglio e lavorare in Ticino: vantaggi e svantaggi',
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.excerpt': 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri residenti a Peglio e lavoratori in Ticino',
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri a Peglio, strategica ubicazione confine Ticino-Italia',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.title': 'Frontalieri italiani in calo: −0,6% in Ticino nel Q2 2026',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.excerpt': 'Nel secondo trimestre 2026 gli ingressi dall\'Italia calano dell\'1,1%. In Ticino il calo è del 0,6%. Nuovo accordo fiscale e migliori condizioni lavorative in Italia tra i fattori.',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.imageAlt': 'Veduta di Lugano, centro economico ticinese che accoglie i frontalieri italiani colpiti dal calo del Q2 2026',
 };
 
 export default blogMetaIt;
