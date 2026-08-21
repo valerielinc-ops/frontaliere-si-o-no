@@ -444,7 +444,13 @@ jobs:
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
           # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
           # scatta.
-          if [ -z "$files" ]; then
+          # `&& files_complete = 1` non e' ridondante: elenco vuoto puo' voler
+          # dire «zero file davvero» oppure «i due fetch sono andati muti», e i
+          # `2>/dev/null || true` sopra rendono i due casi indistinguibili sullo
+          # stdout. Con `changedFiles` a dire 183 e `count` a 0, senza questa
+          # congiunzione lo step stampava «rebase-only» — falso — e sceglieva
+          # `normal`, scavalcando il guard di incompletezza dieci righe sotto.
+          if [ -z "$files" ] && [ "$files_complete" = "1" ]; then
             echo "Empty file list (rebase-only or empty PR)."
             set_tier normal claude-sonnet-5 35
             exit 0
@@ -612,10 +618,16 @@ jobs:
 
       - name: Prefetch review context (zero-Claude, saves turns)
         id: prefetch
-        # tier `minimal` ha il suo percorso corto (≤6 turni, gh pr view diretto
-        # nel prompt) e non legge mai $CTX_DIR — skip per non sprecare 3 gh call
-        # a vuoto su ogni PR data/docs-only.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier != 'minimal' && steps.debounce.outputs.superseded != 'true'
+        # Gira su TUTTI i tier, `minimal` compreso. Fino alla #6205 questo step
+        # era saltato su `minimal` («non legge mai $CTX_DIR»), ma quella stessa
+        # PR ha riscritto il prompt `minimal` perche' leggesse `pr.json` e
+        # `files.txt`: l'ordine puntava a due file che su quel tier nessuno
+        # scriveva, `mkdir -p` compreso. Il reviewer restava senza `title`/`body`
+        # — l'unico input del suo compito — e con il divieto esplicito di
+        # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
+        # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
+        # data-only puo' essere enorme: quello resta saltato, sotto.
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -630,6 +642,7 @@ jobs:
           INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
           REPO: ${{ github.repository }}
           CTX_DIR: ${{ runner.temp }}/review-ctx
+          TIER: ${{ steps.tier.outputs.tier }}
         run: |
           set -uo pipefail
           mkdir -p "$CTX_DIR"
@@ -643,11 +656,19 @@ jobs:
             || echo '{}' > "$CTX_DIR/pr.json"
           gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
-          gh pr diff "$PR_NUMBER" --repo "$REPO" \
-            --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
-            --exclude '_newsletter_variants/**' --exclude 'docs/**' \
-            > "$CTX_DIR/diff.patch" \
-            || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
+          # `minimal` = PR data/docs-only, ZERO code: il diff esce vuoto per
+          # costruzione (gli `--exclude` coprono proprio quei path) e il fetch
+          # su una PR da migliaia di file dati non e' gratis. Il file esiste
+          # comunque, cosi' un `Read` non fallisce.
+          if [ "${TIER:-}" = "minimal" ]; then
+            : > "$CTX_DIR/diff.patch"
+          else
+            gh pr diff "$PR_NUMBER" --repo "$REPO" \
+              --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
+              --exclude '_newsletter_variants/**' --exclude 'docs/**' \
+              > "$CTX_DIR/diff.patch" \
+              || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
+          fi
           if [ -n "${INCREMENTAL_BASE:-}" ]; then
             gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
               --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
@@ -701,7 +722,7 @@ jobs:
           prompt: |
             Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
-            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) leggi `pr.json` e `files.txt` gia' prefetchati (NON `gh pr view --json files`: tronca a 100 in silenzio); (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; un bullet che dichiara `per scelta` / `by construction` / `blocked: decisione del proprietario` **col motivo scritto dopo lo stato** è una voce CHIUSA: non chiederne l'implementazione, non è un finding; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
+            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) leggi con `Read` i due file gia' prefetchati in `${{ runner.temp }}/review-ctx/` — `pr.json` (title/body/labels) e `files.txt` (elenco file completo). Il path e' questo, NON dedurlo dal Bootstrap: su questo tier il Bootstrap non lo leggi. NON usare `gh pr view --json files`, tronca a 100 in silenzio; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; un bullet che dichiara `per scelta` / `by construction` / `blocked: decisione del proprietario` **col motivo scritto dopo lo stato** è una voce CHIUSA: non chiederne l'implementazione, non è un finding; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
 
             **Disciplina turni (budget rigido, tutti i tier eccetto `minimal`):** hai un budget di ${{ steps.tier.outputs.max_turns }} turni. Un messaggio con tool-call = 1 turno **indipendentemente da quanti tool_use contiene** — dati storici (112 morti `error_max_turns` analizzate su questo workflow, 2026-07-17) mostrano p50 ~20 turni contro un lavoro reale che ne richiederebbe ~10-12: la differenza è quasi tutta overhead meccanico, non ragionamento. Quindi: (1) probe indipendenti (grep/Read/gh su file diversi, verifiche non correlate) vanno emesse **in parallelo nello stesso messaggio**, mai una-per-turno; (2) `PR_NUMBER`/`HEAD_SHA`/`INCREMENTAL_BASE` sono già nell'env di questo prompt — mai spendere un turno su `env`/`printenv` per rileggerli; (3) il checkout NON ha `node_modules` installato — mai `npm`/`npx`/build/test runner, il verdetto si basa su lettura statica del diff, non su esecuzione; (4) **entro il turno $((${{ steps.tier.outputs.max_turns }} - 5))** DEVI aver postato la review — se a quel punto hai ancora verifiche aperte, postale come `❓ q:` (con l'escalation funnel-critical già normata sotto) invece di continuare a probeare: una review postata con un `❓` sblocca il loop, una review MAI postata brucia l'intero run senza verdetto (è successo in almeno un caso osservato: verdetto già formato al turno 22 su un cap di 25, morto al 26 senza mai postare).
 
