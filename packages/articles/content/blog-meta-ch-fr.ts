@@ -3625,6 +3625,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Permis de séjour B Appenzell Extérieur : exigences et renouvellement',
     'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Guide complet du permis B suisse : caractéristiques, documents nécessaires, durée et procédure de renouvellement auprès de l\'office cantonal des migrations.',
     'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Bureau cantonal des migrations suisse avec agent assistant un demandeur de permis de séjour.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.title': 'Permis C Appenzello Externe : exigences et demande',
+    'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Résidence minimale, intégration linguistique et procédure de permis de séjour C dans le canton du Nord-Est : délais, documents et étape par étape.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Bureau administratif suisse traitant une demande de permis de résidence C',
 };
 
 export default blogMetaChFr;

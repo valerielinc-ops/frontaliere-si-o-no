@@ -3625,6 +3625,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Residence Permit B External Appenzel: Requirements and Renewal',
     'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Complete guide to the Swiss B permit: characteristics, necessary documents, duration and renewal procedure at the cantonal migration office.',
     'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Swiss cantonal migration office desk with staff processing a residence permit application.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.title': 'Permit C External Appenzello: requirements and application',
+    'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Minimum residence, language integration and procedure for residence permit C in the north-eastern canton: time, documents and step-by-step.',
+    'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Swiss administrative office processing residence permit C application documents and forms',
 };
 
 export default blogMetaChEn;
