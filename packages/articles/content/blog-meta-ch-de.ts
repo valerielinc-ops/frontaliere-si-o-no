@@ -3742,6 +3742,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Ausweis B Bern: Voraussetzungen und Erneuerung',
     'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Aufenthaltsbewilligung B Kanton Bern: Voraussetzungen, Unterlagen, Dauer und Erneuerungsverfahren. Komplette Anleitung und Schritt-für-Schritt-Anleitung durch die SEM-Behörde.',
     'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Kantonales Verwaltungsbüro in Bern mit Migrationsdokumenten und Pass am Schreibtisch',
+    'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AHV und Ergänzungen in Zürich: Leitfaden zum Lebensminimum',
+    'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Im Kanton Zürich berechnet die Ausgleichskasse die AHV-Rente und greift mit Ergänzungsleistungen ein, wenn die erste Säule nicht das Existenzminimum abdeckt.',
+    'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Schweizer Altersvorsorge: AHV-Rente und Zusatzleistungen bei der kantonalen Ausgleichskasse',
 };
 
 export default blogMetaChDe;

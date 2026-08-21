@@ -3742,6 +3742,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Permit B Bern: requirements and renewal',
     'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Residence permit B Canton Bern: requirements, documentation, duration and renewal procedure. Complete and step-by-step guidance from SEM authority.',
     'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Cantonal administrative office in Berna with migration documents and passport on desk',
+    'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS and complementary in Zurich: a guide to the bare minimum',
+    'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'In the canton of Zurich, the compensation fund calculates the AVS annuity and intervenes with complementary benefits if the first pillar does not cover the vital minimum.',
+    'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Swiss pension advisory: AVS retirement benefits and supplementary benefits consultation at cantonal compensation fund',
 };
 
 export default blogMetaChEn;

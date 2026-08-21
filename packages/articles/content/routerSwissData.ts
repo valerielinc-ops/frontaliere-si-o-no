@@ -1273,6 +1273,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zurigo-affitti-canone-deposito-guida': { it: 'zurigo-affitti-canone-deposito-guida', en: 'zurich-rental-lease-deposit-guide', de: 'zuerich-miete-kaution-leitfaden', fr: 'zurich-loyer-depot-caution-guide' },
  'avs-prestazioni-complementari-zurigo-cassa': { it: 'avs-prestazioni-complementari-zurigo-cassa', en: 'avs-supplementary-benefits-zurich-compensation-office', de: 'avs-ergaenzungsleistungen-zuerich-ausgleichskasse', fr: 'ava-prestations-complementaires-zurich-caisse' },
  'permesso-b-berna-requisiti-rinnovo': { it: 'permesso-b-berna-requisiti-rinnovo', en: 'permit-b-berna-requirements-renewal', de: 'aufenthaltsbewilligung-b-bern-voraussetzungen-verlaengerung', fr: 'permis-b-berne-conditions-renouvellement' },
+ 'prestazioni-complementari-zurigo-minimo': { it: 'prestazioni-complementari-zurigo-minimo', en: 'supplementary-benefits-zurich-minimum-living', de: 'zusatzleistungen-zurich-existenzminimum', fr: 'prestations-complementaires-zurich-minimum-vital' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
