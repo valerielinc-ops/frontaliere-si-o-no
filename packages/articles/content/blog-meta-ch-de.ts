@@ -3655,6 +3655,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-appenzello-interno.title': 'Kantonale Steuern Appenzell Innerrhoden: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-appenzello-interno.excerpt': 'So funktionieren die kantonalen Steuern im Kanton Appenzell Innerrhoden: die 3 Steuerstufen, zulässige Abzüge, Deklarationsfristen und das Portal der kantonalen Verwaltung.',
     'blog.article.imposte-cantonali-appenzello-interno.imageAlt': 'Schweizer Kantonales Finanzamt Gebäude',
+    'blog.article.franchigie-riduzione-appenzello.title': 'Krankenkassenprämien Appenzell Innerrhoden: Selbstbehalte und Ermäßigung',
+    'blog.article.franchigie-riduzione-appenzello.excerpt': 'Franchisen von CHF 300 bis 2.500 und Verfahren zur Erlangung des kantonalen Reduktionszuschusses. Leitfaden zu den KVG-Prämien und Zugangskriterien in Appenzell Innerrhoden.',
+    'blog.article.franchigie-riduzione-appenzello.imageAlt': 'Schweizer Krankenversicherungsdokumente und Prämiereduktionsformulare auf modernem Schreibtisch',
 };
 
 export default blogMetaChDe;

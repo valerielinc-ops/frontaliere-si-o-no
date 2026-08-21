@@ -3655,6 +3655,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonali-appenzello-interno.title': 'Impôts cantonaux Appenzell Interne : taux et déductions',
     'blog.article.imposte-cantonali-appenzello-interno.excerpt': 'Comment fonctionnent les impôts cantonaux dans le canton d\'Appenzell Intérieur : les 3 niveaux fiscaux, les déductions admises, les délais de déclaration et le portail de l\'administration cantonale.',
     'blog.article.imposte-cantonali-appenzello-interno.imageAlt': 'Bureau d\'administration fiscale cantonale suisse',
+    'blog.article.franchigie-riduzione-appenzello.title': 'Primes caisse-maladie Appenzell Interne : franchises et réduction',
+    'blog.article.franchigie-riduzione-appenzello.excerpt': 'Franchises de 300 CHF à 2 500 CHF et procédures d\'obtention de l\'allocation cantonale de réduction. Guide opérationnel des prix LAMal et des critères d\'accès à Appenzell Interne.',
+    'blog.article.franchigie-riduzione-appenzello.imageAlt': 'Documents d\'assurance maladie suisse et formulaires de réduction des primes sur bureau moderne',
 };
 
 export default blogMetaChFr;
