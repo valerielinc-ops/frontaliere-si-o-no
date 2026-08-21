@@ -10414,6 +10414,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.beura-cardezza-frontaliere-ticino.title': 'Beura-Cardezza: vivere e lavorare come frontaliere Ticino',
     'blog.article.beura-cardezza-frontaliere-ticino.excerpt': 'Vivere a Beura-Cardezza e lavorare come frontaliere in Ticino: norme fiscali, permesso G, AVS, diritti previdenziali e cosa sapere prima di trasferirsi.',
     'blog.article.beura-cardezza-frontaliere-ticino.imageAlt': 'Veduta del Ticino nella regione del Verbano al confine svizzero-italiano, con architettura tradizionale e paesaggio montano',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Vivere a Sernio, lavorare in Grigioni: vantaggi e svantaggi',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Collegamenti con il Grigioni, tempi di percorrenza, costo della vita a Sernio e in Grigioni, zone consigliate, vantaggi e svantaggi del trasferimento per i frontalieri.',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere risiedente a Sernio lavora in Grigioni e deve tenere conto della fiscalità svizzera e italiana.',
 };
 
 export default blogMetaIt;
