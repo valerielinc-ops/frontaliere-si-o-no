@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-21T09:46:33.205Z",
+  "assembledAt": "2026-08-21T21:33:39.506Z",
   "jobs": [
     {
       "id": "bls-9f36179aeeb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:29.514Z",
+      "crawledAt": "2026-08-21T21:33:36.034Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,7 +139,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:28.653Z",
+      "crawledAt": "2026-08-21T21:33:35.226Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,7 +239,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:27.919Z",
+      "crawledAt": "2026-08-21T21:33:34.506Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -349,7 +349,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:27.195Z",
+      "crawledAt": "2026-08-21T21:33:33.832Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -442,7 +442,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:46:26.330Z",
+      "crawledAt": "2026-08-21T21:33:32.981Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -475,17 +475,17 @@
           "La conoscenza delle lingue inglese e tedesco"
         ]
       },
-      "firstSeenAt": "2026-07-30T22:19:48.942Z",
       "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 58000,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       }
@@ -521,7 +521,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:25.606Z",
+      "crawledAt": "2026-08-21T21:33:32.236Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -574,15 +574,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:38:08.799Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       },
@@ -619,7 +619,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:46:24.632Z",
+      "crawledAt": "2026-08-21T21:33:31.360Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,16 +650,16 @@
           "Diploma di scuola superiore"
         ]
       },
-      "firstSeenAt": "2026-07-30T22:19:48.191Z",
       "needsRetranslation": true,
-      "salaryMin": 49500,
+      "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
+          "minValue": 55500,
           "maxValue": 75000,
           "unitText": "YEAR"
         }
@@ -696,7 +696,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-inwerkstatt/018ea1ac-f126-44b0-ae9f-d19992805f0e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:23.866Z",
+      "crawledAt": "2026-08-21T21:33:30.658Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -790,7 +790,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/dba4554d-b4c7-4b34-9dbe-5172c585b85b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:22.981Z",
+      "crawledAt": "2026-08-21T21:33:29.854Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -889,7 +889,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:22.251Z",
+      "crawledAt": "2026-08-21T21:33:29.125Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -986,7 +986,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:21.336Z",
+      "crawledAt": "2026-08-21T21:33:28.425Z",
       "addressLocality": "Interlaken",
       "addressCountry": "CH",
       "country": "CH",
@@ -1055,9 +1055,9 @@
       "id": "bls-f4f21e8aef07",
       "slug": "servicetechniker-in-luftung-e-klima-bls-ag-bern",
       "slugByLocale": {
-        "de": "servicetechniker-in-luftung-und-klima-bls-ch",
         "it": "servicetechniker-in-luftung-e-klima-bls-ag-bern",
         "en": "servicetechniker-in-luftung-und-klima-bls-ch",
+        "de": "servicetechniker-in-luftung-und-klima-bls-ch",
         "fr": "servicetechniker-in-luftung-und-klima-bls-ch"
       },
       "company": "BLS AG",
@@ -1065,16 +1065,16 @@
       "companyDomain": "bls.ch",
       "title": "Servicetechniker:in Lüftung und Klima",
       "titleByLocale": {
-        "de": "Servicetechniker:in Lüftung und Klima",
         "it": "Servicetechniker:in Lüftung e Klima",
         "en": "Servicetechniker:in Lüftung und Klima",
+        "de": "Servicetechniker:in Lüftung und Klima",
         "fr": "Servicetechniker:in Lüftung und Klima"
       },
       "description": "Die Gebäudelüftungsanlagen unseres Lötschberg Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG & dem Lötschberg Basistunnel LBT\n\n• Neu- und Umbauarbeiten von Gebäudelüftungsanlagen\n\n• Störungsbehebung (2nd-Level) im zugewiesenen Fachbereich\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B / BE\n\n• Eigenverantwortliche und selbstständige Arbeitsweise\n\n• Bereitschaft zu Nachteinsätzen (ca. 15 – 20 Schichten pro Jahr)\n\n• Gute Deutschkenntnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
       "descriptionByLocale": {
-        "de": "Die Gebäudelüftungsanlagen unseres Lötschberg Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG & dem Lötschberg Basistunnel LBT\n\n• Neu- und Umbauarbeiten von Gebäudelüftungsanlagen\n\n• Störungsbehebung (2nd-Level) im zugewiesenen Fachbereich\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B / BE\n\n• Eigenverantwortliche und selbstständige Arbeitsweise\n\n• Bereitschaft zu Nachteinsätzen (ca. 15 – 20 Schichten pro Jahr)\n\n• Gute Deutschkenntnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "it": "Die Gebäudelüftungsanlagen unseres Lötschberg Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG & dem Lötschberg Basistunnel LBT\n\n• Neu- und Umbauarbeiten von Gebäudelüftungsanlagen\n\n• Störungsbehebung (2nd-Level) im zugewiesenen Fachbereich\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B / BE\n\n• Eigenverantwortliche und selbstständige Arbeitsweise\n\n• Bereitschaft zu Nachteinsätzen (ca. 15 – 20 Schichten pro Jahr)\n\n• Gute Deutschkenntnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "en": "Die Gebäudelüftungsanlagen unseres Lötschberg Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG & dem Lötschberg Basistunnel LBT\n\n• Neu- und Umbauarbeiten von Gebäudelüftungsanlagen\n\n• Störungsbehebung (2nd-Level) im zugewiesenen Fachbereich\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B / BE\n\n• Eigenverantwortliche und selbstständige Arbeitsweise\n\n• Bereitschaft zu Nachteinsätzen (ca. 15 – 20 Schichten pro Jahr)\n\n• Gute Deutschkenntnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "de": "Die Gebäudelüftungsanlagen unseres Lötschberg Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG & dem Lötschberg Basistunnel LBT\n\n• Neu- und Umbauarbeiten von Gebäudelüftungsanlagen\n\n• Störungsbehebung (2nd-Level) im zugewiesenen Fachbereich\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B / BE\n\n• Eigenverantwortliche und selbstständige Arbeitsweise\n\n• Bereitschaft zu Nachteinsätzen (ca. 15 – 20 Schichten pro Jahr)\n\n• Gute Deutschkenntnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "fr": "Die Gebäudelüftungsanlagen unseres Lötschberg Basistunnels und dem Streckennetz der BLS Netz AG sind wichtige Mosaiksteine im eng verzahnten Räderwerk der BLS. Mit deinem Wissen und Können sorgst du für einwandfrei funktionierende Anlagen und ermöglichst dadurch unseren Kund:innen ein optimales Reiseerlebnis.\n\nDas wartet auf dich:\n\n• Ausführung der Instandhaltung für die Gebäudelüftungsanlagen auf dem Streckennetz der BLS Netz AG & dem Lötschberg Basistunnel LBT\n\n• Neu- und Umbauarbeiten von Gebäudelüftungsanlagen\n\n• Störungsbehebung (2nd-Level) im zugewiesenen Fachbereich\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich\n\n• Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen\n\n• Elektro-Anschlussbewilligung NIV Art. 15\n\n• Führerausweis der Kategorie B / BE\n\n• Eigenverantwortliche und selbstständige Arbeitsweise\n\n• Bereitschaft zu Nachteinsätzen (ca. 15 – 20 Schichten pro Jahr)\n\n• Gute Deutschkenntnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
       },
       "location": "Bern",
@@ -1082,7 +1082,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/servicetechniker-in-lueftung-und-klima/329f7c5f-e5f5-4897-8927-e1b7d9129ca4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:20.574Z",
+      "crawledAt": "2026-08-21T21:33:27.738Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1111,7 +1111,6 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Abgeschlossene Ausbildung als Kältesystem-Monteur/in oder Elektroinstallateur/in EFZ oder eine äquivalente Ausbildung mit nachgewiesener Erfahrung in diesem Bereich",
           "Kenntnisse im Umgang mit Wasser-, Luft- und Kälteanlagen",
           "Elektro-Anschlussbewilligung NIV Art. 15",
           "Führerausweis der Kategorie B / BE",
@@ -1120,15 +1119,16 @@
           "Gute Deutschkenntnisse"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "servicetechniker-in-luftung-und-klima-bls-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-luftung-und-klima-bls-ch"
         ]
       },
-      "previousSlugs": [
-        "servicetechniker-in-luftung-und-klima-bls-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:46:20.574Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1141,8 +1141,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-21T09:46:20.574Z"
+      "addressRegion": "BE"
     },
     {
       "id": "bls-270396f3fc69",
@@ -1175,7 +1174,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teilprojektleiter-in-projektmanagement-office-pmo/787cdb61-7897-4e58-8cf3-6e0e075a8941",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:19.706Z",
+      "crawledAt": "2026-08-21T21:33:26.952Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
