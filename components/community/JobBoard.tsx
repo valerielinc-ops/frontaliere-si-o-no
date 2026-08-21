@@ -7808,6 +7808,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  .replace(/<br\s*\/?>/gi, '\n')
  .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
  .replace(/<[^>]+>/g, ' ')
+ // Strip ATX markdown headings (`## Heading`) left over from descriptions
+ // authored/crawled as markdown: HTML tags are gone by this point but `#`
+ // isn't HTML, so it survived and rendered literally in the gate teaser
+ // (verified in production). Anchored to line start + required whitespace
+ // so mid-line `#` (e.g. "C#", "row #3") is never touched.
+ .replace(/(^|\n)#{1,6}\s+/g, '$1')
  .replace(/[^\S\n]+/g, ' ')
  .replace(/\n[ \t]*/g, '\n')
  .replace(/\n{3,}/g, '\n\n')

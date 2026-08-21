@@ -191,6 +191,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  .replace(/<br\s*\/?>/gi, '\n')
  .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
  .replace(/<[^>]+>/g, ' ')
+ // Strip ATX markdown headings (`## Heading`) left over from descriptions
+ // authored/crawled as markdown — same fix as the JobBoard gate teaser,
+ // same root cause: `#` isn't HTML so the tag-stripping above never
+ // touches it. Anchored to line start + required whitespace so mid-line
+ // `#` (e.g. "C#", "row #3") is never touched.
+ .replace(/(^|\n)#{1,6}\s+/g, '$1')
  .replace(/[^\S\n]+/g, ' ')
  .replace(/\n[ \t]*/g, '\n')
  .replace(/\n{3,}/g, '\n\n')
