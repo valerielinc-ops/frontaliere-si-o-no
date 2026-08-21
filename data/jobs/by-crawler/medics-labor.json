@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medics-labor",
-  "assembledAt": "2026-08-20T21:58:41.119Z",
+  "assembledAt": "2026-08-21T10:01:24.902Z",
   "jobs": [
     {
       "id": "medics-labor-c8edd2cc4884",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/1474/0123/pub/100/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:58:35.995Z",
+      "crawledAt": "2026-08-21T10:01:19.843Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -82,15 +82,15 @@
         ]
       },
       "firstSeenAt": "2026-07-22T23:13:19.942Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
