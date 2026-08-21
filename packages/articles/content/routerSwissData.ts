@@ -1250,6 +1250,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-27-settembre-neutralita': { it: 'voto-27-settembre-neutralita', en: 'voting-27-september-neutrality', de: 'wahlen-27-september-neutralitaet', fr: 'vote-27-septembre-neutre' },
  'holcim-acquista-fermacell': { it: 'holcim-acquista-fermacell', en: 'holcim-acquires-fermacell', de: 'holcim-uebernimmt-fermacell', fr: 'holcim-acquiert-fermacell' },
  'votazioni-settembre-neutralita-alimentazione': { it: 'votazioni-settembre-neutralita-alimentazione', en: 'voting-september-neutrality-food', de: 'abstimmung-september-neutralitaet-lebensmittel', fr: 'votations-septembre-neutralite-alimentation' },
+ 'bcg-utile-semestrale-record': { it: 'bcg-utile-semestrale-record', en: 'bcg-record-half-year-profit', de: 'bcg-rekordhalbjahrsergebnis', fr: 'bcg-resultat-semestriel-record' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
