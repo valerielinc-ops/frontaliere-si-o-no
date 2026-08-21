@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-20T21:40:11.008Z",
+  "generatedAt": "2026-08-21T10:03:12.173Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14535,
-  "avgDurationMs": 14535,
+  "durationMs": 17541,
+  "avgDurationMs": 17541,
   "durationHistory": [
-    14535
+    17541
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -117,46 +117,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
-      "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
-      "title": "Giovane Ingegnere Meccanico madrelingua francese",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Agno",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6982",
-      "streetAddress": "Via Ginnasio 17, 6982 Agno",
-      "slug": "giovane-ingegnere-meccanico-madrelingua-francese-mikron",
-      "sourceLang": "it",
-      "category": "general",
-      "datePosted": "2026-07-15",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Agno"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-15T22:42:57.030Z",
-      "addressLocality": "Agno",
-      "addressRegion": "TI",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
