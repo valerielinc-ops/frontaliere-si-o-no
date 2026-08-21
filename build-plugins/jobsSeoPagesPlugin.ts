@@ -1615,8 +1615,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  /** Strip markdown syntax, emojis & structured noise for clean meta descriptions. */
  const cleanMetaDescription = (raw: string): string => {
  let s = String(raw || '');
- // Strip markdown headings (at line start or inline after content)
- s = s.replace(/#{1,6}\s+/g, '');
+ // Strip markdown headings (at line start only — unanchored also mangled `C#`/`#3`)
+ s = s.replace(/(^|\n)#{1,6}\s+/g, '$1');
  // Delimiters excluded from crossing a newline — a stray unpaired `*` (e.g. a
  // `* ` list bullet marker below) must not pair with an unrelated `*` on a
  // different line and swallow an unrelated run of text into the match.
