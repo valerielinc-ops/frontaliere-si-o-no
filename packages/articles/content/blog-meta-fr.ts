@@ -10400,6 +10400,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.baceno-ticino-frontaliere.title': 'Vivre à Baceno et travailler au Tessin : guide frontalier',
     'blog.article.baceno-ticino-frontaliere.excerpt': 'Avantages fiscaux, procédures, coûts et réglementation pour ceux qui vivent dans la vallée de l\'Ossola et passent au canton du Tessin en tant que frontalier.',
     'blog.article.baceno-ticino-frontaliere.imageAlt': 'Vue de la Vallée d\'Ossola vers le Tessin : paysage alpin frontalier des trajets quotidiens des travailleurs.',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.title': 'Vivre à Musso et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.excerpt': 'Musso, au Tessin, est une commune qui offre une bonne qualité de vie à ses habitants. Cependant, pour les frontaliers, travailler au Tessin peut présenter certains défis.',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier travaille à Musso, dans le canton du Tessin.',
 };
 
 export default blogMetaFr;
