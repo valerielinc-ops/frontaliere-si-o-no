@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-kind-autismus",
-  "assembledAt": "2026-08-20T21:40:04.315Z",
+  "assembledAt": "2026-08-21T10:03:02.728Z",
   "jobs": [
     {
       "id": "stiftung-kind-autismus-c04f839d446c",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:40:00.379Z",
+      "crawledAt": "2026-08-21T10:02:58.650Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,15 +69,15 @@
         ]
       },
       "firstSeenAt": "2026-07-02T23:17:06.184Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -114,7 +114,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/100/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:39:59.706Z",
+      "crawledAt": "2026-08-21T10:02:57.856Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -150,15 +150,15 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:02:49.596Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
