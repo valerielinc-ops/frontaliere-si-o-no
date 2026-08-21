@@ -1263,6 +1263,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-appenzello-interno': { it: 'comprare-casa-appenzello-interno', en: 'buy-house-appenzell-inner-rhodes-cost-mortgage', de: 'haus-kaufen-appenzell-innerrhoden-kosten-hypothek', fr: 'acheter-maison-appenzell-rhodes-interieures-prix-hypotheque' },
  'acquistare-casa-appenzello-interno': { it: 'acquistare-casa-appenzello-interno', en: 'buy-house-appenzello-interno', de: 'haus-kaufen-appenzello-innerrhoden', fr: 'acheter-maison-appenzell-rhodes-interieures' },
  'diritto-locazione-norme-svizzera': { it: 'diritto-locazione-norme-svizzera', en: 'tenancy-law-rules-switzerland', de: 'mietrecht-regeln-schweiz', fr: 'droit-bail-regles-suisse' },
+ 'finanziamento-studi-zurigo': { it: 'finanziamento-studi-zurigo', en: 'zurich-scholarships-funding', de: 'stipendien-zuerich', fr: 'bourses-etudes-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

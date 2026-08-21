@@ -3712,6 +3712,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-norme-svizzera.title': 'Mietrecht in der Schweiz: Regeln und Schutz',
     'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Entdecken Sie die Bundesvorschriften, die den Mietmarkt regeln: von der Kaution bis zu den Kündigungsverfahren und der Anfechtung von Mieten.',
     'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Modernes Wohngebäude in der Schweiz',
+    'blog.article.finanziamento-studi-zurigo.title': 'Stipendien Kanton Zürich: Voraussetzungen und Beträge',
+    'blog.article.finanziamento-studi-zurigo.excerpt': 'Zugangsmodalitäten, geforderte Wirtschaftskapazität und Bewerbungsfristen: Alles, was Sie über das Stipendiensystem im Kanton Zürich wissen müssen.',
+    'blog.article.finanziamento-studi-zurigo.imageAlt': 'Studierende gehen zwischen klassischen Universitaetsgebaeuden auf einem Schweizer Campus.',
 };
 
 export default blogMetaChDe;

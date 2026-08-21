@@ -3712,6 +3712,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-norme-svizzera.title': 'Droit de la location en Suisse : règles et protections',
     'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Découvrez les règles fédérales régissant le marché locatif : du dépôt de garantie aux procédures de résiliation et de contestation des loyers.',
     'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Bâtiment résidentiel moderne en Suisse',
+    'blog.article.finanziamento-studi-zurigo.title': 'Bourses d\'études Canton de Zurich : exigences et montants',
+    'blog.article.finanziamento-studi-zurigo.excerpt': 'Modalités d\'accès, capacité économique requise et délais de présentation : tout ce qu\'il faut savoir sur le système de bourses d\'études dans le canton de Zurich.',
+    'blog.article.finanziamento-studi-zurigo.imageAlt': 'Étudiants marchent entre bâtiments universitaires classiques sur un campus suisse par temps ensoleillé.',
 };
 
 export default blogMetaChFr;
