@@ -3724,6 +3724,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costi-psichiatria-svizzera-2024.title': 'Psicoterapia coperta dalla cassa malati? Solo con una diagnosi di uno psichiatra',
     'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'I costi delle cure di salute mentale a carico delle casse malattia sono aumentati del 6,1% nel 2024 e ammontavano a circa 3,2 miliardi di franchi, pari al 7,5% dei costi totali dell\'assicurazione obbligatoria.',
     'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Immagine della psichiatria in Svizzera',
+    'blog.article.manager-casse-malattia-commissione.title': 'Salari manager casse malattia: no della Commissione',
+    'blog.article.manager-casse-malattia-commissione.excerpt': 'CSSS-N e Consiglio federale divisi sui compensi dei vertici delle casse: 480mila CHF l\'anno è eccessivo. Commissione preferisce parametro su retribuzioni amministrative federali.',
+    'blog.article.manager-casse-malattia-commissione.imageAlt': 'Berna, sede della politica federale svizzera e della Commissione della sanità',
 };
 
 export default blogMetaChIt;

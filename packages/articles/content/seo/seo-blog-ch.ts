@@ -48302,6 +48302,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manager-casse-malattia-commissione': {
+    title: 'Salari manager casse malattia: no della Commissione',
+    description: 'CSSS-N contro Consiglio federale sui compensi dei vertici casse malattia. Circa 480mila CHF ritenuti eccessivi dalla Commissione della sanità. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, manager, casse, malattia',
+    ogTitle: 'Salari manager casse malattia: il no della Commissione',
+    ogDescription: 'La Commissione della sanità contesta i 480mila CHF proposti dal Consiglio federale per i vertici delle casse malattia. Preferisce parametri legati all\'Amministrazione federale. Scopri il dibattito che riguarda i tuoi premi.',
+    canonicalPath: '/articoli-svizzera/manager-casse-malattia-commissione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari manager casse malattia: no della Commissione",
+      "description": "CSSS-N contro Consiglio federale sui compensi dei vertici casse malattia. Circa 480mila CHF ritenuti eccessivi dalla Commissione della sanità. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/manager-casse-malattia-commissione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Berna, sede della politica federale svizzera e della Commissione della sanità"
+      },
+      "datePublished": "2026-08-21T16:21:58+00:00",
+      "dateModified": "2026-08-21T16:21:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manager-casse-malattia-commissione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
