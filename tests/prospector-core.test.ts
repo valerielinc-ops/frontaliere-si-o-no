@@ -327,6 +327,22 @@ describe('promotion gate', () => {
     expect(res.reasons.join(' ')).toMatch(/scesi/);
   });
 
+  it('promotes a two-vacancy micro-employer graded on both', () => {
+    // Una soglia fissa a 3 pagine di dettaglio escluderebbe per sempre il
+    // segmento per cui il loop esiste. Due su due e' copertura totale.
+    const micro = graded(2, { vacancyCount: 2 });
+    for (const h of micro.validationHistory) { h.vacancyCount = 2; h.sampled = 2; }
+    expect(evaluatePromotion(micro).passed).toBe(true);
+  });
+
+  it('still demands a real sample from an employer with many vacancies', () => {
+    const big = graded(2, { vacancyCount: 40 });
+    for (const h of big.validationHistory) { h.vacancyCount = 40; h.sampled = 2; }
+    const res = evaluatePromotion(big);
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/pagine di dettaglio/);
+  });
+
   it('refuses an aggregator even when every number is perfect', () => {
     expect(evaluatePromotion(graded(2, { aggregator: true })).passed).toBe(false);
   });

@@ -90,8 +90,16 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('score', Number(latest.score || 0) >= g.minScore,
     `qualita' ${Number(latest.score || 0).toFixed(2)} sotto la soglia ${g.minScore}`);
 
-  mark('sampled', Number(latest.sampled || 0) >= g.minSampled,
-    `giudicato su ${latest.sampled || 0} pagine di dettaglio, ne servono ${g.minSampled}`);
+  // Il campione richiesto non puo' superare gli annunci che il datore ha.
+  // Con una soglia fissa a 3, un datore con 2 annunci non e' promuovibile MAI —
+  // ed e' esattamente il segmento per cui il loop esiste, la micro-impresa che
+  // pubblica una o due posizioni e che nessun altro indicizza. Per lei
+  // giudicare 2 pagine su 2 e' copertura totale, piu' forte che campionarne 3
+  // su 50: il requisito e' quindi «tutte, fino a minSampled».
+  const vacancies = Number(latest.vacancyCount || 0);
+  const needSample = Math.max(1, Math.min(g.minSampled, vacancies));
+  mark('sampled', Number(latest.sampled || 0) >= needSample,
+    `giudicato su ${latest.sampled || 0} pagine di dettaglio su ${vacancies} annunci, ne servono ${needSample}`);
 
   mark('reachable', Number(latest.reachableRate || 0) >= g.minReachable,
     'non tutti gli URL che pubblicheremmo risolvono');
