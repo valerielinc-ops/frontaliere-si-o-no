@@ -3730,6 +3730,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Vermietungen Zürich: Mietrecht und Anfechtung',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Im Kanton Zürich gelten die eidgenössischen Mietregeln: maximal 3 Monate Kaution, Kündigung mit amtlichem Formular, Gebührenbeanstandung innerhalb von 30 Tagen.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Zürichs Stadtzentrum mit Wolkenkratzern und moderner Architektur, Symbol des Schweizer Immobilienmarkts',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Vermietung Zürich: Mietrechte, Hinterlegung und Kündigung',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Mietrecht in Zürich: Kaution (max. 3 Monate Miete), Anfechtung der Erstmiete und Kündigung gemäss Obligationenrecht.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Modernes Wohngebäude in Zürich mit Balkonen und Fenstern, zeitgenössische Schweizer Stadtarchitektur',
 };
 
 export default blogMetaChDe;
