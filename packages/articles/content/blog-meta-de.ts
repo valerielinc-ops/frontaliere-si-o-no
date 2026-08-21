@@ -10397,6 +10397,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.baceno-ticino-frontaliere.title': 'Leben in Baceno und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.baceno-ticino-frontaliere.excerpt': 'Steuervorteile, Verfahren, Kosten und Vorschriften für diejenigen, die im Ossolatal leben und als Grenzgänger in den Kanton Tessin wechseln.',
     'blog.article.baceno-ticino-frontaliere.imageAlt': 'Aussicht auf das Ossola-Tal in Richtung Tessin: Alpine Grenzlandschaft mit täglichem Pendelverkehr.',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.title': 'Leben in Musso und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.excerpt': 'Musso im Tessin ist eine Gemeinde, die ihren Bewohnern eine gute Lebensqualität bietet. Für Grenzgänger kann das Arbeiten im Tessin jedoch einige Herausforderungen mit sich bringen.',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier arbeitet in Musso, im Kanton Tessin.',
 };
 
 export default blogMetaDe;
