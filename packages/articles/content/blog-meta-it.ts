@@ -10369,6 +10369,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontalieri che lavorano in Ticino.',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Colverde per lavorare in Ticino.',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalieri che lavorano in Ticino',
 };
 
 export default blogMetaIt;

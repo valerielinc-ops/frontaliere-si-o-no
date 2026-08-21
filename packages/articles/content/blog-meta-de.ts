@@ -10367,6 +10367,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Arbeit im Tessin als Grenzgänger: was wissen Sie müssen',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Quellensteuern, G-Genehmigung, Rückerstattungen und andere Vergünstigungen für Grenzgänger, die im Tessin arbeiten.',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich nach Colverde verlegt, um in Tessin zu arbeiten.',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Wohnen in Fagnano Olona und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italienisch-schweizerisches Doppelbesteuerungsabkommen: unterzeichnet am 9. Dezember 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalier in Ticino',
 };
 
 export default blogMetaDe;

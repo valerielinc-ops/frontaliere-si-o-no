@@ -31044,6 +31044,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-fagnano-olona-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-21T08:51:35.325Z',
+ image: '/images/blog/vivere-fagnano-olona-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
