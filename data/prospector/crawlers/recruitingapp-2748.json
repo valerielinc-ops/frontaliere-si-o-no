@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2748",
+  "companyName": "Arbeiten im KSBL",
+  "companyHost": "karriere.ksbl.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://karriere.ksbl.ch/de/offene-stellen/jobs/"
+  ],
+  "detailTemplate": "/de/offene-stellen/jobs/detail/job/*/*",
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "<source media=\"(max-width: 480px)\" srcs",
+    "<source media=\"(max-width: 480px)\" srcs",
+    "<source media=\"(max-width: 480px)\" srcs",
+    "<source media=\"(max-width: 480px)\" srcs",
+    "<source media=\"(max-width: 480px)\" srcs"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:34.710Z"
+}

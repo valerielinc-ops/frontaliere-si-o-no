@@ -1,0 +1,107 @@
+name: prospector-loop
+
+# The autonomous coverage loop: discover Swiss employers we do not crawl, work
+# out where they publish their vacancies, synthesise a crawler, and grade it
+# against the employer's own page.
+#
+# Five stages, deliberately separate jobs rather than one script, because they
+# have completely different cost profiles and failure modes: DISCOVER is API
+# calls, TRACE and EXPAND are thousands of polite requests to third-party sites,
+# SYNTHESIZE and VALIDATE are re-crawls of a shortlist. Splitting them means a
+# rate-limited source cannot cost us the whole run, and a stage can be re-run on
+# its own from the Actions tab.
+#
+# Nothing here touches the production crawler set. The loop's output is a queue
+# and a graded report under data/prospector/, committed for review; promoting a
+# graded crawler into production stays a separate, human-initiated step.
+
+on:
+  schedule:
+    # 03:17 UTC — outside the crawler waves, and outside Swiss business hours,
+    # since TRACE knocks on several hundred small employers' web servers.
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      cantons:
+        description: 'Cantoni per DISCOVER (lista, oppure "all")'
+        default: 'TI'
+      sources:
+        description: 'Sorgenti: own,seco,osm,web'
+        default: 'own,seco,web'
+      trace_limit:
+        description: 'Quanti candidati tracciare'
+        default: '150'
+      expand_platforms:
+        description: 'Quante piattaforme espandere'
+        default: '2'
+
+concurrency:
+  group: prospector-loop
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  CANTONS: ${{ github.event.inputs.cantons || 'TI' }}
+  SOURCES: ${{ github.event.inputs.sources || 'own,seco,web' }}
+  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '150' }}
+  EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '2' }}
+  # Politeness is not a default worth leaving to chance: these employers never
+  # asked to be crawled.
+  PROSPECTOR_HOST_DELAY_MS: '1200'
+  PROSPECTOR_CONCURRENCY: '5'
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Discover
+        run: node scripts/prospect-discover.mjs --cantons="$CANTONS" --sources="$SOURCES"
+
+      - name: Trace
+        run: node scripts/prospect-trace.mjs --limit="$TRACE_LIMIT"
+
+      - name: Expand platforms
+        run: node scripts/prospect-expand.mjs --platforms="$EXPAND_PLATFORMS" --max-probe=200
+
+      - name: Synthesize crawlers
+        run: node scripts/prospect-synthesize.mjs --limit=40
+
+      - name: Grade extraction against the live pages
+        run: node scripts/prospect-validate.mjs --limit=40 --sample=3
+
+      - name: Summary
+        run: node scripts/prospect-report.mjs --markdown >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the queue and the report
+        # A full loop takes ~30 minutes, which is long enough for another push
+        # to land on the branch first: the first remote run failed here with
+        # "! [rejected] (fetch first)". So: rebase onto whatever arrived, and
+        # retry — the loop's state files are append-mostly and rebase cleanly.
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/prospector
+          if git diff --cached --quiet; then
+            echo 'Nessuna variazione da committare.'
+            exit 0
+          fi
+          git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "push riuscito al tentativo $attempt"
+              exit 0
+            fi
+            echo "push respinto, ribaso e riprovo ($attempt/3)"
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || exit 1
+          done
+          echo 'push fallito dopo 3 tentativi'
+          exit 1

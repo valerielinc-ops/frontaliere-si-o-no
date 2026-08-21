@@ -1,0 +1,21 @@
+{
+  "companyKey": "gmo",
+  "companyName": "gmo",
+  "companyHost": "arsante.ch",
+  "platform": "arsante.ch",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://www.arsante.ch/emploi"
+  ],
+  "detailTemplate": "/emploi/*",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Conducteur·rice de travaux junior",
+    "Comptable",
+    "Infirmier·ère pédiatrique",
+    "Psychologue psychothérapeute FSP",
+    "Experts médicaux"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-08-21T10:02:03.688Z"
+}
