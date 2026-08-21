@@ -10415,6 +10415,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Leben in Sernio, Arbeiten in Graubünden: Vor- und Nachteile',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Verbindungen zu Graubünden, Reisezeiten, Lebenshaltungskosten in Sernio und Graubünden, empfohlene Gebiete, Vor- und Nachteile des Umzugs für Grenzgänger.',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'Ein Grenzarbeiter lebt in Sernio und arbeitet in den Grisons und muss sich das schweizerische und italienische Steuersystem ansehen.',
+    'blog.article.frontaliere-tubre-grigioni-guida.title': 'Grenzgänger Tubre-Graubünden: Besteuerung und G-Genehmigung',
+    'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Vollständiger Leitfaden für diejenigen, die in Taufers leben und in Graubünden arbeiten: Quellensteuer, Rückerstattungen, KVG, AHV und Verwaltungsverfahren für Grenzgänger.',
+    'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Grenzstraße zwischen Italien und der Schweiz in der Region Tessin-Graubünden mit Zollzeichen und Berglandschaft',
 };
 
 export default blogMetaDe;

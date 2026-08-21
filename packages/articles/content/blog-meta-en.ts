@@ -10416,6 +10416,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Living in Sernio, working in Grisons: advantages and disadvantages',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Connections with the Graubünden, journey times, cost of living in Sernio and Graubünden, recommended areas, advantages and disadvantages of transfer for border crossers.',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'A border worker living in Sernio works in the Grisons and must take into account the Swiss and Italian tax system.',
+    'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontier ships Tubre-Grisioni: taxation and G permit',
+    'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Complete guide for those who live in Tubre and work in Grisons: taxation at source, refunds, LAMal, AVS and administrative procedures for border workers.',
+    'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Border road between Italy and Switzerland in Ticino-Grisons area with customs signs and alpine landscape',
 };
 
 export default blogMetaEn;

@@ -10417,6 +10417,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Vivere a Sernio, lavorare in Grigioni: vantaggi e svantaggi',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Collegamenti con il Grigioni, tempi di percorrenza, costo della vita a Sernio e in Grigioni, zone consigliate, vantaggi e svantaggi del trasferimento per i frontalieri.',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere risiedente a Sernio lavora in Grigioni e deve tenere conto della fiscalità svizzera e italiana.',
+    'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontaliere Tubre-Grigioni: fiscalità e permesso G',
+    'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Guida completa per chi vive a Tubre e lavora in Grigioni: tassazione alla fonte, ristorni, LAMal, AVS e procedure amministrative per frontalieri.',
+    'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Strada di confine tra Italia e Svizzera in zona Ticino-Grigioni, con segnaletica valico e paesaggio montano',
 };
 
 export default blogMetaIt;
