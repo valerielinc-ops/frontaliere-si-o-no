@@ -3664,6 +3664,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-appenzello-proroga.title': 'Permesso L Appenzello Interno: scadenza e proroga',
     'blog.article.permesso-l-appenzello-proroga.excerpt': 'Il permesso L consente soggiorno temporaneo fino a un anno. Ecco come verificare validità, proroga e passaggio a dimora stabile.',
     'blog.article.permesso-l-appenzello-proroga.imageAlt': 'Ufficio amministrativo cantonale svizzero con documenti relativi ai permessi di soggiorno e immigrazione',
+    'blog.article.voto-27-settembre-neutralita.title': 'Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata',
+    'blog.article.voto-27-settembre-neutralita.excerpt': 'L\'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull\'alimentazione è in sostanziale pareggio.',
+    'blog.article.voto-27-settembre-neutralita.imageAlt': 'Elettori svizzeri discutono del voto',
 };
 
 export default blogMetaChIt;
