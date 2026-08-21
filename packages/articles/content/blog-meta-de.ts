@@ -10335,6 +10335,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'In Biandronno leben und als Grenzgänger im Tessin arbeiten: Was ändert sich?',
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'Mit dem neuen Abkommen zwischen der Schweiz und Italien wurden einige Änderungen für Grenzgänger eingeführt. Das bedeutet es für Grenzgänger, die in Biandronno leben und im Tessin arbeiten.',
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Biandronno lebt und in Ticino arbeitet',
+    'blog.article.carnago-frontaliere-ticino-guida.title': 'Wohnen in Carnago, arbeiten im Tessin: Grenzführer',
+    'blog.article.carnago-frontaliere-ticino-guida.excerpt': 'Wie man in Carnago lebt und im Tessin als Grenzgänger arbeitet: Bewilligung G, Quellensteuer, KVG, Steuerrückvergütungen, administrative Checkliste.',
+    'blog.article.carnago-frontaliere-ticino-guida.imageAlt': 'Panoramablick auf den Kanton Tessin mit Hügeln und Grenzübergängen zur Provinz Varese, Blick aus Mendrisio-Gebiet',
 };
 
 export default blogMetaDe;

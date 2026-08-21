@@ -30954,6 +30954,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'carnago-frontaliere-ticino-guida',
+ category: 'pratico',
+ date: '2026-08-21T03:42:55.566Z',
+ image: '/images/blog/carnago-frontaliere-ticino-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
