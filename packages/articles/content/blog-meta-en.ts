@@ -10401,6 +10401,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.title': 'Living in Musso and working in Ticino as a border worker',
     'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.excerpt': 'Musso, in Ticino, is a municipality that offers a good quality of life to its residents. However, for border workers, working in Ticino can present some challenges.',
     'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere working in Musso, Ticino.',
+    'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.title': 'Living in Comabbio, working in Ticino: what to know',
+    'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.excerpt': 'Tax at source, new tax agreement, double taxation, refunds, G/B permit',
+    'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.imageAlt': 'Image of a frontier worker at Comabbio with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

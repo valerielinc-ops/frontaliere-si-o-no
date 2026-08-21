@@ -73625,6 +73625,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-comabbio-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Comabbio e lavorare in Ticino da frontaliere: cosa deve sapere e fare',
+    description: 'Il frontaliere deve sapere le nuove regole per la dichiarazione dei redditi e le imposte introdotte dal Nuovo Accordo Frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, comabbio, lavorare, cosa',
+    ogTitle: 'Vivere a Comabbio e lavorare in Ticino da frontaliere: cosa deve sapere e fare',
+    ogDescription: 'Il frontaliere deve sapere le nuove regole per la dichiarazione dei redditi e le imposte introdotte dal Nuovo Accordo Frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-comabbio-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Comabbio e lavorare in Ticino da frontaliere: cosa deve sapere e fare",
+      "description": "Il frontaliere deve sapere le nuove regole per la dichiarazione dei redditi e le imposte introdotte dal Nuovo Accordo Frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-comabbio-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere a Comabbio con una vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-08-21T15:13:05+00:00",
+      "dateModified": "2026-08-21T15:13:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-comabbio-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
