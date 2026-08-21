@@ -1,0 +1,214 @@
+name: Issue decompose (Claude → sub-issues)
+
+# Lo stadio di DECOMPOSIZIONE del ciclo autonomo (2026-08-21).
+#
+# Prima di questo workflow le issue "troppo grandi" uscivano dal ciclo: il
+# fixer moriva `error_max_turns` al primo tentativo → `fu-parked`+`needs-human`
+# (stato assorbente), e i detector epic/backlog del drainer parcheggiavano con
+# un commento che CHIEDEVA lo scorporo in issue singole senza che nessun
+# automatismo lo eseguisse. Misurato sulla finestra 07→21/08: esito finale
+# delle issue lavorate 11 `pr-created` contro 11 `max-turns`.
+#
+# Questo run NON implementa: legge la issue e la scorpora in ≤6 sub-issue
+# ATOMICHE con scheda verificabile (CAUSA/FIX/METRICA/OSSERVATORE), che il
+# triage instrada nella coda fix normale — dove il fixer ha la resa più alta.
+# Il padre resta aperto con `decomposed:1` e il marker machine-readable
+# `<!-- DECOMPOSED_INTO: n1 n2 ... -->`; lo chiude il pass PARENT-CLOSE di
+# `scripts/ci/followup-drainer.mjs` quando tutte le figlie sono chiuse.
+#
+# Chi promuove qui: SOLO `followup-drainer.mjs` (DECOMPOSE-DRAIN, 1 per tick,
+# a slot libero e fuori dal quota-backoff), con la stessa regola anti-sfratto
+# di issue-fix: una sola pending per gruppo concurrency, o GitHub cancella la
+# precedente (vedi il commento in testa a issue-fix.yml).
+
+on:
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: issue-decompose
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  decompose:
+    # Stesso gate di issue-fix: la label è il consenso, il sender è il PAT del
+    # drainer (valerielinc-ops) o un bot fidato del ciclo.
+    if: |
+      github.event.label.name == 'agent:decompose' &&
+      (github.event.sender.login == 'valerielinc-ops' ||
+       github.event.sender.login == 'frontaliere-automation[bot]' ||
+       startsWith(github.event.sender.login, 'claude'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          # Blobless come issue-fix (#4189): commit-graph completo + HEAD
+          # materializzato, blob storici on-demand.
+          filter: blob:none
+        timeout-minutes: 24
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      # Identità di creazione delle sub-issue. Con l'App token gli eventi
+      # `issues:[opened]` delle figlie TRIGGERANO issue-triage (routing
+      # immediato in coda); con GITHUB_TOKEN no (anti-ricorsione GitHub) e le
+      # figlie aspetterebbero il cron sweep (≤4h). Fallback benigno: il conio
+      # fallito lascia APP_TOKEN vuota e si ricade su GITHUB_TOKEN.
+      - name: Mint GitHub App token (zero-Claude, pre-npm)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Stesso gate di issue-fix (review #6228, 🔴): il beacon-scan del drainer
+      # copre la PROMOZIONE, ma una finestra 429 può aprirsi fra la promozione e
+      # questa run — misurato su issue-fix: l'80% delle run bruciate (49/61)
+      # cadeva dentro una finestra GIÀ nota. Qui la coppia di label è quella
+      # dello stadio decompose: su blocco, la issue torna in coda senza
+      # consumare il ri-arma del rescue.
+      - name: Pre-flight — quota backoff gate (zero-Claude)
+        id: quota
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          QUOTA_LBL_ACTIVE: agent:decompose
+          QUOTA_LBL_REQUEUE: agent:decompose-queued
+        run: node scripts/ci/check-quota-backoff.mjs
+
+      - name: Run Claude decompose
+        id: claude_decompose
+        if: steps.quota.outputs.quota_blocked != 'true'
+        # Come issue-fix: il colore del job lo decide `Classify outcome` sotto,
+        # in base al LAVORO reale (marker sulla issue), non all'exit della CLI.
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ env.APP_TOKEN }}
+          show_full_output: true
+          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
+          claude_args: "--max-turns 35 --model claude-sonnet-5 --dangerously-skip-permissions"
+          prompt: |
+            Sei l'agente di DECOMPOSIZIONE per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
+            La issue è stata instradata qui perché è troppo grande o eterogenea per un singolo run di fix (max-turns, contenitore di lavoro residuo, o escalation too-large). Il tuo compito NON è implementare: è scorporarla in sub-issue ATOMICHE che il fixer autonomo possa chiudere una alla volta.
+
+            **Bootstrap (in quest'ordine):**
+            1. `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments` — leggi TUTTO, compresi i commenti (spesso contengono misure recenti e verdetti FIX_OUTCOME che spiegano perché il fix è fallito).
+            2. Se esiste `VISION.md` nella root del repo, leggilo: contiene i driver di decisione (cosa è decidibile in autonomia e cosa è SEMPRE del proprietario).
+            3. Leggi `AGENTS.md` → Non-Negotiables (vincolante anche per come formuli le schede).
+
+            **Triage preliminare — tre uscite rapide (scegli la prima che si applica):**
+            - **Già risolta**: se la claim della issue non è più vera (rimisurala se il body contiene un comando; altrimenti verifica sul codice), posta un commento con la misura osservata e il comando che la riproduce, poi: `gh issue edit $ISSUE_NUMBER --add-label maybe-resolved --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: already-resolved -->`. STOP.
+            - **Atomica**: se la issue descrive in realtà UNA sola causa con UN target chiaro (il max-turns era dovuto ad altro: diagnosi lunga, contesto mancante), NON scomporla artificialmente. Arricchisci la issue con un commento `## Scheda` (formato sotto — la scheda è ciò che fa risparmiare turni al fixer), poi `gh issue edit $ISSUE_NUMBER --add-label from-decompose --add-label agent:fix-queued --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: atomic-requeue -->`. (`from-decompose` = giudicata atomica: il drainer non la ri-decompone mai.) STOP.
+            - **Decisione del proprietario**: se lo scope richiede una decisione che VISION.md non copre o riserva esplicitamente al proprietario (dati personali/LPD, spese, invii massivi, ritiro di contenuti pubblicati, scelte editoriali), posta un commento che formula la DOMANDA DECIDIBILE (con le opzioni e la misura che serve a rispondere), poi `gh issue edit $ISSUE_NUMBER --add-label needs-human --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: needs-human-decision -->`. STOP.
+
+            **Decomposizione (il caso normale):**
+            1. Identifica da 2 a 6 unità di lavoro ATOMICHE: una root cause ciascuna, un insieme di file target ciascuna, indipendenti fra loro dove possibile. Se le unità naturali sono più di 6: crea le 5 di massimo valore (funnel: revenue > SEO > stabilità > resto) più UNA issue-contenitore con l'elenco del residuo — la issue-contenitore NON riceve `from-decompose`, così il ciclo la ri-decompone al giro successivo (convergenza: ogni giro chiude ≥5 unità).
+            2. **Dedup prima di creare**: per ogni unità, `gh issue list --state open --search "<discriminante> in:title" --json number,title --limit 5`. Se un'issue aperta copre già l'unità, NON crearne una nuova: usala come figlia (annota il suo numero).
+            3. Crea ogni sub-issue con `gh issue create` (usa SEMPRE `--body-file` con heredoc quotato, mai `--body` inline). Titolo col DISCRIMINANTE IN TESTA (il dedup taglia a 60 char). Labels: `--label from-decompose` + la priorità ereditata dal padre (`--label "fu-prio:high"` se il padre è high, altrimenti `--label "fu-prio:low"`). NESSUNA label `agent:*`: il triage la instrada da solo. Body:
+               ```
+               ## Scheda
+               - CAUSA: <affermazione VERIFICABILE, non il sintomo>
+               - FIX: <cosa cambia, file target> | REPO: <questo repo, se certo — ometti se ambiguo>
+               - METRICA: prima=<n> atteso=<n> | COMANDO: <comando esatto che la riproduce>
+               - OSSERVATORE: <test/gate che impedisce il ritorno del difetto> oppure <by construction, perché ...>
+
+               ## Origine
+               Parent: #$ISSUE_NUMBER — <una riga: da quale parte dello scope del padre nasce>
+               ```
+               Senza il COMANDO della metrica la scheda NON è valida: trovalo o dichiara esplicitamente perché non esiste. La CAUSA è un'affermazione verificabile sul codice/dato, mai «X non funziona».
+            4. Sul padre, posta UN commento riepilogativo con: l'elenco delle figlie come checklist (`- [ ] #N — titolo`), le unità eventualmente lasciate nel contenitore residuo, e in fondo — su righe proprie — i due marker:
+               ```
+               <!-- DECOMPOSED_INTO: n1 n2 n3 -->
+               <!-- DECOMPOSE_OUTCOME: decomposed-K -->
+               ```
+               dove K è il numero di figlie. Il marker DECOMPOSED_INTO è il contratto col PARENT-CLOSE del drainer: elenca TUTTE le figlie (create + riusate + l'eventuale contenitore residuo), solo numeri separati da spazio.
+            5. Chiudi lo stadio sul padre: `gh issue edit $ISSUE_NUMBER --add-label "decomposed:1" --remove-label agent:decompose`. Il padre resta APERTO: lo chiude il drainer quando tutte le figlie sono chiuse.
+
+            **Vincoli:**
+            - NON modificare file del repo, NON aprire PR, NON implementare fix. Solo lettura + issue.
+            - Massimo 6 figlie nuove per run. Mai una figlia che sia a sua volta un contenitore (eccetto l'unica issue-contenitore residua del punto 1).
+            - Ogni riferimento al padre nelle figlie è `Parent: #N` — MAI `Closes`/`Fixes`/`Resolves` adiacente a `#N` (chiuderebbe il padre al primo merge).
+            - Se dopo l'analisi non riesci a produrre NEMMENO una scheda valida (contesto insufficiente, misure irriproducibili), trattala come «decisione del proprietario»: commento con ciò che manca + `needs-human` + `<!-- DECOMPOSE_OUTCOME: needs-human-decision -->`.
+            - L'ULTIMO commento che posti sul padre deve SEMPRE contenere un marker `<!-- DECOMPOSE_OUTCOME: <code> -->` con `<code>` ∈ `decomposed-K` · `atomic-requeue` · `needs-human-decision` · `already-resolved`.
+
+      - name: Claude usage metrics
+        if: always() && steps.quota.outputs.quota_blocked != 'true'
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_decompose.outputs.execution_file }}" "issue-decompose"
+
+      # Stesso rilevatore granulare di issue-fix: una run morta su 429 lascia il
+      # beacon QUOTA_RESETS_AT sulla issue, che il drainer legge (la scansione
+      # del beacon include anche le issue `agent:decompose`). Un error_max_turns
+      # lascia il marker FIX_OUTCOME: max-turns — innocuo qui (i pass di rescue
+      # fix non guardano le issue di questo stadio) ma utile come telemetria.
+      - name: Mark Claude terminal outcome (granular telemetry)
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_decompose.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          EXEC_FILE: ${{ steps.claude_decompose.outputs.execution_file }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WORKFLOW: issue-decompose
+        run: node scripts/ci/mark-claude-terminal-outcome.mjs
+
+      # Backstop deterministico: garantisce che OGNI run lasci un marker
+      # DECOMPOSE_OUTCOME interrogabile, anche quando la CLI muore prima di
+      # postare il proprio. Il drainer NON legge questo marker per decidere
+      # (il rescue decompose ragiona su età+label), ma la telemetria sì.
+      - name: Emit DECOMPOSE_OUTCOME telemetry (deterministic backstop)
+        if: always() && steps.quota.outputs.quota_blocked != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -uo pipefail
+          HAS=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- DECOMPOSE_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+          if [ "${HAS:-0}" != "0" ]; then
+            echo "DECOMPOSE_OUTCOME marker already present — no backstop needed."
+            exit 0
+          fi
+          gh issue comment "$ISSUE" --body "$(printf '<!-- DECOMPOSE_OUTCOME: no-outcome -->\n_Outcome rilevato dal post-step deterministico (run morta senza verdetto): il rescue del drainer ri-armerà o parcheggerà._')" || true
+
+      # Colore del job = lavoro reale: verde se il run ha lasciato un verdetto
+      # (decomposed/atomic/needs-human/already-resolved), rosso se la CLI è
+      # morta senza produrre nulla (segnale per loop-health; il recupero è del
+      # rescue decompose nel drainer).
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always() && steps.quota.outputs.quota_blocked != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          CLAUDE_OUTCOME: ${{ steps.claude_decompose.outcome }}
+        run: |
+          set -uo pipefail
+          DONE=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- DECOMPOSE_OUTCOME: (decomposed-[0-9]+|atomic-requeue|needs-human-decision|already-resolved) -->"))] | length' 2>/dev/null || echo 0)
+          echo "issue=$ISSUE outcome-markers=$DONE claude=$CLAUDE_OUTCOME"
+          if [ "${DONE:-0}" != "0" ]; then
+            echo "✓ verdetto di decomposizione presente → run SUCCESS (anche se la CLI è uscita '$CLAUDE_OUTCOME')."
+            exit 0
+          fi
+          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            echo "::error::issue-decompose #$ISSUE: nessun verdetto e CLI fallita → non-delivery reale. Il rescue del drainer ri-armerà (1 retry) o parcheggerà."
+            exit 1
+          fi
+          echo "CLI uscita pulita senza verdetto esplicito — il backstop ha marcato no-outcome. Job verde."
