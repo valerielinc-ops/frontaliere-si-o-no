@@ -3697,6 +3697,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.custodia-bambini-appenzello-interno.title': 'Housse pour enfants Appenzell Intérieur : coûts et subventions',
     'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Crèches, après l\'école et crèches dans le canton : comment fonctionnent les tarifs calculés sur le revenu et quelles allocations cantonales utiliser.',
     'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Centre de garde d\'enfants suisse avec salle de classe lumineuse, jouets éducatifs et mobilier',
+    'blog.article.vendemmia-svizzera-2026-qualita.title': 'Vendanges 2026 prometteuses en Suisse : qualité élevée',
+    'blog.article.vendemmia-svizzera-2026-qualita.excerpt': 'La sécheresse et la canicule réduisent les quantités, mais la qualité sera élevée. En Valais, collecte prévue à partir du 24 août avec un préavis de 6 à 12 jours. La pénurie de champignons limite les traitements.',
+    'blog.article.vendemmia-svizzera-2026-qualita.imageAlt': 'Vignoble suisse lors de la vendanges avec raisins concentres affectes par la secheresse',
+    'blog.article.migros-sostegno-agricoltura.title': 'Sécheresse, Migros alloue deux millions de francs aux agriculteurs en difficulté',
+    'blog.article.migros-sostegno-agricoltura.excerpt': 'Le groupe affirme travailler avec ses partenaires pour rendre l\'agriculture suisse plus résiliente',
+    'blog.article.migros-sostegno-agricoltura.imageAlt': 'Un agriculteur touché par la sécheresse',
 };
 
 export default blogMetaChFr;

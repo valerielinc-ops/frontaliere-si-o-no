@@ -11089,6 +11089,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'vendemmia-svizzera-2026-qualita',
+    category: 'novita',
+    date: '2026-08-21T11:36:32.833Z',
+    image: '/images/blog/vendemmia-svizzera-2026-qualita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'migros-sostegno-agricoltura',
+    category: 'fiscale',
+    date: '2026-08-21T11:53:59.487Z',
+    image: '/images/blog/migros-sostegno-agricoltura.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1258,6 +1258,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stadler-rail-friburgo-117-milioni': { it: 'stadler-rail-friburgo-117-milioni', en: 'stadler-rail-fribourg-117-million', de: 'stadler-rail-freiburg-117-millionen', fr: 'stadler-rail-fribourg-117-millions' },
  'esercito-misure-discriminazione': { it: 'esercito-misure-discriminazione', en: 'swiss-army-measures-discrimination', de: 'schweizer-armee-ma-nahmen-diskriminierung', fr: 'armee-suisse-mesures-discrimination' },
  'custodia-bambini-appenzello-interno': { it: 'custodia-bambini-appenzello-interno', en: 'childcare-appenzell-innerrhoden', de: 'kinderbetreuung-appenzell-innerrhoden', fr: 'garde-enfants-appenzell-rhodes-interieures' },
+ 'vendemmia-svizzera-2026-qualita': { it: 'vendemmia-svizzera-2026-qualita', en: 'swiss-vintage-2026-quality-drought', de: 'weinlese-2026-schweiz-qualitaet', fr: 'vendanges-2026-suisse-qualite' },
+ 'migros-sostegno-agricoltura': { it: 'migros-sostegno-agricoltura', en: 'migros-supports-agriculture', de: 'migros-for-agrikultur', fr: 'migros-soutien-agriculture' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

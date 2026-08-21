@@ -47951,6 +47951,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vendemmia-svizzera-2026-qualita': {
+    title: 'Vendemmia 2026 promettente in Svizzera: qualita elevata',
+    description: 'Nonostante siccita e canicola, la vendemmia 2026 in Svizzera sara di qualita elevata. Raccolta attesa dal 24 agosto nel Vallese con anticipo di 6-12 giorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendemmia, promettente, qualita, elevata',
+    ogTitle: 'Vendemmia 2026 promettente in Svizzera: qualita elevata',
+    ogDescription: 'La vendemmia 2026 si annuncia di qualita elevata malgrado siccita e canicola. Nel Vallese raccolta attesa dal 24 agosto, 6-12 giorni piu precoce del 2022. Scarsita di funghi e acini concentrati fanno dell\'annata una grande annata per i vini svizzeri.',
+    canonicalPath: '/articoli-svizzera/vendemmia-svizzera-2026-qualita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vendemmia 2026 promettente in Svizzera: qualita elevata",
+      "description": "Nonostante siccita e canicola, la vendemmia 2026 in Svizzera sara di qualita elevata. Raccolta attesa dal 24 agosto nel Vallese con anticipo di 6-12 giorni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vendemmia-svizzera-2026-qualita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigna in Svizzera durante la vendemmia estiva con acini concentrati per effetto della siccita"
+      },
+      "datePublished": "2026-08-21T11:36:32+00:00",
+      "dateModified": "2026-08-21T11:36:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vendemmia-svizzera-2026-qualita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-sostegno-agricoltura': {
+    title: 'Siccità, Migros stanzia due milioni di franchi per gli agricoltori in difficoltà',
+    description: 'Il gruppo afferma di lavorare con i propri partner per rendere l\'agricoltura svizzera più resiliente. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, migros, stanzia, milioni',
+    ogTitle: 'Siccità, Migros stanzia due milioni di franchi per gli agricoltori in difficoltà',
+    ogDescription: 'Il gruppo afferma di lavorare con i propri partner per rendere l\'agricoltura svizzera più resiliente',
+    canonicalPath: '/articoli-svizzera/migros-sostegno-agricoltura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità, Migros stanzia due milioni di franchi per gli agricoltori in difficoltà",
+      "description": "Il gruppo afferma di lavorare con i propri partner per rendere l'agricoltura svizzera più resiliente. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-sostegno-agricoltura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un agricoltore colpito dalla siccità"
+      },
+      "datePublished": "2026-08-21T11:53:59+00:00",
+      "dateModified": "2026-08-21T11:53:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-sostegno-agricoltura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
