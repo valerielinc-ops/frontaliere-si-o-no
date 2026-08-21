@@ -974,7 +974,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </form>
  {/* The panel's ONE notice (#5765): it stands under the email button and
  covers the provider buttons above it too. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  <div className="text-xs text-subtle">
  {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}
  </div>

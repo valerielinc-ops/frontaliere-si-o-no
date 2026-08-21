@@ -407,7 +407,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
  )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />

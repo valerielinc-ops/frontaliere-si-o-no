@@ -1431,7 +1431,7 @@ const PublisherPublishPage: React.FC = () => {
  provider buttons above it as well. */}
  <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
  <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} />
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </p>
  </div>
  </div>
