@@ -3622,6 +3622,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-franchigie-appenzello-esterno.title': 'Krankenkassenprämien Appenzell Ausserrhoden: Selbstbehalte und Zuschüsse',
     'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'So funktioniert die Krankenversicherung in Appenzell Ausserrhoden: verfügbare Selbstbehalte, Deckungsmodelle und Verfahren für den Zugang zu Prämienbeiträgen.',
     'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Schweizer Kantonsgebäude für regionale Gesundheitsdienstleistungen',
+    'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Aufenthaltsbewilligung B Appenzell AR: Erhalt & Erneuerung',
+    'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Vollständiger Leitfaden zur Schweizer B-Bewilligung: Eigenschaften, erforderliche Dokumente, Dauer und Erneuerungsverfahren beim kantonalen Migrationsamt.',
+    'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Schweizer Kantonales Migrationsamt mit Sachbearbeiter und Besucher bei der Bearbeitung einer Aufenthaltsgenehmigung.',
 };
 
 export default blogMetaChDe;

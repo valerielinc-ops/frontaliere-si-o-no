@@ -3622,6 +3622,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-franchigie-appenzello-esterno.title': 'Primes caisse-maladie Appenzell Extérieur : franchises et subventions',
     'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'Comment fonctionne l\'assurance maladie à Appenzell Extérieur : franchises disponibles, modèles de couverture et procédures d\'accès aux allocations sur primes.',
     'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Bâtiment administratif cantonal suisse pour services de santé régionaux',
+    'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Permis de séjour B Appenzell Extérieur : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Guide complet du permis B suisse : caractéristiques, documents nécessaires, durée et procédure de renouvellement auprès de l\'office cantonal des migrations.',
+    'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Bureau cantonal des migrations suisse avec agent assistant un demandeur de permis de séjour.',
 };
 
 export default blogMetaChFr;
