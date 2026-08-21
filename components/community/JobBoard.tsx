@@ -6702,7 +6702,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* The gate's ONE notice (#5765). It covers both ways through this gate —
  the provider buttons above and this button — which is why the sentence
  opens with "accedendo" and why both branches of the upsert store it. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </form>
  </div>
 
@@ -8160,7 +8160,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  happen if it sat inside, and the social branch would then subscribe an
  address with nothing on screen. Placed right after the form, so with
  the panel open (the default) it still reads under the email button. */}
- <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsSignIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </div>
 
  {authError && <p className="text-sm text-danger mt-2">{authError}</p>}

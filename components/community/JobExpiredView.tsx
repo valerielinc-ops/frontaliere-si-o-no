@@ -960,7 +960,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </details>
  </div>
 
