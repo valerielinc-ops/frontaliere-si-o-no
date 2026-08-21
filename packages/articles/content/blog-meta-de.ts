@@ -10347,6 +10347,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-bardello-lavorare-ticino-frontaliere.title': 'Leben in Bardello und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-bardello-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger Kategorie G: Neues Abkommen 2024, Quellensteuer nur Schweiz, Steuerbefreiungen, Bewilligung G, AHV/BVG, KVG, Erklärung 730.',
     'blog.article.vivere-bardello-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme der Grenzregion zwischen Tessin und der Provinz Varese mit Berglandschaft.',
+    'blog.article.bollettino-frontaliere-2026-08-21.title': 'Grenzgänger-Tagesbulletin – 21. August 2026: 617 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-21.excerpt': 'Die Zahlen von heute, 21. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-21.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 21. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-21.seoDescription': 'Grenzgänger-Bulletin vom 21. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-21.ogDescription': 'Die Zahlen vom 21. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
