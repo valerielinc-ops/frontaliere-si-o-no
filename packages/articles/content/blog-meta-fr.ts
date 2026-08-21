@@ -10409,6 +10409,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.title': 'Vivre à Peglio et travailler au Tessin : avantages et inconvénients',
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.excerpt': 'Liaisons, temps de trajet, coût de la vie, zones recommandées pour les frontaliers résidant à Peglio et les travailleurs du Tessin',
     'blog.article.vivere-peglione-lavorare-ticino-frontaliere.imageAlt': 'Frontaliers à Peglio, emplacement stratégique frontière Ticino-Italia',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.title': 'Frontaliers italiens en baisse : −0,6 % au Tessin au Q2 2026',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.excerpt': 'Au deuxième trimestre 2026, les entrées en provenance d\'Italie ont chuté de 1,1 %. Au Tessin, la baisse est de 0,6 %. Nouvel accord fiscal et meilleures conditions de travail en Italie parmi les facteurs.',
+    'blog.article.frontalieri-calo-secondo-trimestre-2026.imageAlt': 'Bord du lac de Lugano, centre économique du Tessin attirant les travailleurs frontaliers italiens affectés par le déclin du Q2 2026',
 };
 
 export default blogMetaFr;
