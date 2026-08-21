@@ -21,6 +21,7 @@ import {
   scanLiveDataTests,
   diffAgainstInventory,
   stripComments,
+  segmentSequenceRegex,
   KNOWN_LIVE_DATA_TESTS,
   LIVE_DATA_ROOTS,
 } from '../scripts/ci/live-data-test-guard.mjs';
@@ -67,6 +68,19 @@ describe('il rilevatore', () => {
     expect(stripComments('/* `packages/articles/content/y` */ const b = 2;')).not.toContain('packages/articles/content/');
     // Il codice vero sopravvive.
     expect(stripComments("read('services/locales/z')")).toContain('services/locales/');
+  });
+
+  it('vede un percorso costruito a segmenti, non solo il letterale con slash', () => {
+    // Gemello speculare del difetto dei commenti: li' testo che non e' lettura,
+    // qui lettura che non e' testo. `resolve(ROOT, 'packages', 'articles')` non
+    // contiene mai la stringa `packages/articles/`, e senza questo il guard e'
+    // aggirabile per caso — basta scrivere il percorso in due pezzi. Il repo ne
+    // aveva gia' uno che girava nel job bloccante (news-ticker-data).
+    const rx = segmentSequenceRegex(['packages', 'articles']);
+    expect(rx.test("np.resolve(ROOT, 'packages', 'articles')")).toBe(true);
+    expect(rx.test('path.join(ROOT, "packages" , "articles")')).toBe(true);
+    // Segmenti non adiacenti non sono quel percorso.
+    expect(rx.test("resolve(ROOT, 'packages', 'other', 'articles')")).toBe(false);
   });
 
   it('non confonde un URL con un commento di riga', () => {
