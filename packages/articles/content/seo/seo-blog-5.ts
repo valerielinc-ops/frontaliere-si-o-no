@@ -73508,6 +73508,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-lierna-lavorare-ticino': {
+    title: 'Vivere a Lierna e lavorare in Ticino: guida pratica per frontalieri',
+    description: 'Guida pratica per chi vive a Lierna e lavora in Ticino: collegamenti, imposta alla fonte, nuovo accordo frontalieri, costi e adempimenti fiscali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lierna, lavorare, pratica',
+    ogTitle: 'Vivere a Lierna e lavorare in Ticino da frontaliere: la guida',
+    ogDescription: 'Scopri tutto quello che c\'è da sapere per vivere a Lierna e lavorare come frontaliere in Ticino: fiscalità, collegamenti, accordo e adempimenti.',
+    canonicalPath: '/articoli-frontaliere/vivere-lierna-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Lierna e lavorare in Ticino: guida pratica per frontalieri",
+      "description": "Guida pratica per chi vive a Lierna e lavora in Ticino: collegamenti, imposta alla fonte, nuovo accordo frontalieri, costi e adempimenti fiscali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-lierna-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama sul lago e montagne vicino al confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-21T13:10:27+00:00",
+      "dateModified": "2026-08-21T13:10:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-lierna-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
