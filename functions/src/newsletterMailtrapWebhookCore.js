@@ -59,6 +59,11 @@ function extractCampaignId(data) {
  // echoes it back on every event — the two halves had simply never been
  // connected, so the campaign fell through to the message id here exactly as
  // it did on Mailgun and Maileroo (same defect class, found 2026-08-20).
+ // Field name verified against Mailtrap's official webhook payload docs
+ // (docs.mailtrap.io/email-api-smtp/advanced/webhooks): `category` is a
+ // top-level, optional string on every sending-stream event — not nested
+ // under a namespaced object — confirming the flat `data.category` read
+ // below is correct as written, not an assumption (2026-08-21).
  if (data.category) return String(data.category);
  return data.message_id || 'unknown';
 }
