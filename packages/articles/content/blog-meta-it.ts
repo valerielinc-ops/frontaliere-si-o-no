@@ -10346,6 +10346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-rogeno-lavorare-ticino.title': 'Vivere a Rogeno e lavorare in Ticino da frontaliere',
     'blog.article.vivere-rogeno-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Rogeno: fiscalità, nuovo accordo frontalieri, regime transitorio e gestione del pendolarismo verso il Canton Ticino.',
     'blog.article.vivere-rogeno-lavorare-ticino.imageAlt': 'Paesaggio residenziale vicino al confine tra Italia e Svizzera',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.title': 'Vivere a Bardello e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.excerpt': 'Frontaliere categoria G: Nuovo Accordo 2024, imposta alla fonte solo Svizzera, esenzioni fiscali, Permesso G, AVS/LPP, LAMal, dichiarazione 730.',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.imageAlt': 'Veduta aerea della regione di confine tra Ticino e provincia di Varese con paesaggio montuoso di montagna.',
 };
 
 export default blogMetaIt;

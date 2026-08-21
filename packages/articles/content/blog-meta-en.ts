@@ -10345,6 +10345,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-rogeno-lavorare-ticino.title': 'Living in Rogeno and working in Ticino as a border worker',
     'blog.article.vivere-rogeno-lavorare-ticino.excerpt': 'Practical guide for those who choose Rogeno: taxation, new border agreement, transitional regime and management of commuting to the Canton of Ticino.',
     'blog.article.vivere-rogeno-lavorare-ticino.imageAlt': 'Residential landscape near the Italy-Switzerland border',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.title': 'Living in Bardello and working in Ticino as a border worker',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.excerpt': 'Frontier category G: New Agreement 2024, tax at source only Switzerland, tax exemptions, Permit G, AVS/LPP, LAMal, declaration 730.',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of the border region between Ticino and Varese province with mountain landscape.',
 };
 
 export default blogMetaEn;
