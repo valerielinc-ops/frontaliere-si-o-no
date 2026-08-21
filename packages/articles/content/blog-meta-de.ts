@@ -10364,6 +10364,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Frontalierle zwischen Solbiate Arno und dem Tessin: Was beachten?',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'Die Vor- und Nachteile, in Solbiate Arno zu leben und als Grenzgänger im Tessin zu arbeiten.',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere, die die Vorteile und Nachteile von Leben in Solbiate Arno und Arbeit in Ticino abwägt.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Arbeit im Tessin als Grenzgänger: was wissen Sie müssen',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Quellensteuern, G-Genehmigung, Rückerstattungen und andere Vergünstigungen für Grenzgänger, die im Tessin arbeiten.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich nach Colverde verlegt, um in Tessin zu arbeiten.',
 };
 
 export default blogMetaDe;
