@@ -73664,6 +73664,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-peglione-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Peglio e lavorare in Ticino: vantaggi e svantaggi',
+    description: 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri residenti a Peglio e lavoratori in Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, peglio, lavorare, vantaggi',
+    ogTitle: 'Vivere a Peglio e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento, cosa considerare prima di trasferirsi',
+    ogDescription: 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri residenti a Peglio e lavoratori in Ticino',
+    canonicalPath: '/articoli-frontaliere/vivere-peglione-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Peglio e lavorare in Ticino: vantaggi e svantaggi",
+      "description": "Collegamenti, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri residenti a Peglio e lavoratori in Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-peglione-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri a Peglio, strategica ubicazione confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-21T15:57:43+00:00",
+      "dateModified": "2026-08-21T15:57:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-peglione-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
