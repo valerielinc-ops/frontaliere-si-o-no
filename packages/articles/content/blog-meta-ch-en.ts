@@ -3730,6 +3730,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Rentals Zurich: right to lease and dispute',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'In the canton of Zurich, the federal rules on leasing apply: maximum deposit 3 months, cancellation with official form, dispute within 30 days.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Zurich city center with skyscrapers and modern architecture, symbol of Swiss housing market',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Rentals Zurich: tenant rights, deposit and cancellation',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Right to rent in Zurich: security deposit (max 3 months rent), dispute of the initial rent and cancellation according to the Federal Bond Code.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Modern residential building in Zurich with balconies and windows, contemporary Swiss urban architecture',
 };
 
 export default blogMetaChEn;

@@ -48380,6 +48380,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-zurigo-procedura-locazione': {
+    title: 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    description: 'Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritti, locatari',
+    ogTitle: 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    ogDescription: 'Nel cantone di Zurigo, il diritto di locazione federale tutela inquilini e proprietari: deposito cauzionale limitato a 3 mesi, contestazione entro 30 giorni, disdetta solo su modulo ufficiale. Scopri le tue protezioni legali e le procedure concrete.',
+    canonicalPath: '/articoli-svizzera/affitti-zurigo-procedura-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritti locatari, deposito e disdetta",
+      "description": "Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-zurigo-procedura-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale moderno a Zurigo con balconi e finestre, architettura urbana contemporanea svizzera"
+      },
+      "datePublished": "2026-08-21T18:10:26+00:00",
+      "dateModified": "2026-08-21T18:10:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-zurigo-procedura-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

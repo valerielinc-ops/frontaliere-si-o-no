@@ -3730,6 +3730,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Location Zurich : droit de location et contestation',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Dans le canton de Zurich, les règles fédérales de location s\'appliquent : dépôt maximum de 3 mois, résiliation avec formulaire officiel, contestation de la redevance dans les 30 jours.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Centre-ville de Zurich avec gratte-ciel et architecture moderne, symbole du marché immobilier suisse',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Location Zurich : droits locataires, dépôt et résiliation',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Droit de location à Zurich : caution (max 3 mois de loyer), contestation du loyer initial et résiliation selon le Code fédéral des obligations.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Immeuble résidentiel moderne à Zurich avec balcons et fenêtres, architecture urbaine contemporaine suisse',
 };
 
 export default blogMetaChFr;
