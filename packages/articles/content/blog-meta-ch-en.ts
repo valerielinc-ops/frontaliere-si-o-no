@@ -3694,6 +3694,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esercito-misure-discriminazione.title': 'Army, anti-discrimination measures work',
     'blog.article.esercito-misure-discriminazione.excerpt': 'The Swiss Army has announced that it has implemented half of the measures announced to combat sexism and discrimination',
     'blog.article.esercito-misure-discriminazione.imageAlt': 'The Swiss Army',
+    'blog.article.custodia-bambini-appenzello-interno.title': 'Appenzello Child Custody Interior: costs and subsidies',
+    'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Nurseries, after-school and daytime family in the canton: how income-based rates work and what cantonal subsidies to take advantage of.',
+    'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Swiss childcare center with bright classroom, educational toys and learning furniture',
 };
 
 export default blogMetaChEn;

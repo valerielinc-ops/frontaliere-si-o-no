@@ -47912,6 +47912,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-custodia-bambini-appenzello-interno': {
+    title: 'Custodia bambini Appenzello Interno: costi e sussidi',
+    description: 'Guida ai servizi di custodia bambini nel canton Appenzello Interno: asili, tariffe su reddito, sussidi cantonali e procedure di accesso per famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, appenzello, interno',
+    ogTitle: 'Custodia bambini Appenzello Interno: costi e sussidi',
+    ogDescription: 'Scopri come accedere a servizi di custodia diurna nel canton Appenzello: asili nido, doposcuola e famiglia diurne. Tariffe calcolate su reddito e agevolazioni cantonali disponibili.',
+    canonicalPath: '/articoli-svizzera/custodia-bambini-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini Appenzello Interno: costi e sussidi",
+      "description": "Guida ai servizi di custodia bambini nel canton Appenzello Interno: asili, tariffe su reddito, sussidi cantonali e procedure di accesso per famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/custodia-bambini-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di custodia diurna svizzero con aula illuminata, giocattoli educativi e arredi didattici"
+      },
+      "datePublished": "2026-08-21T10:56:46+00:00",
+      "dateModified": "2026-08-21T10:56:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/custodia-bambini-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
