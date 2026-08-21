@@ -34,6 +34,15 @@ const GSC_READONLY_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly'
 // Editorial content groups only — jobs/account/community/marketing pages are
 // auto-generated or user-generated, not candidates for editorial content
 // refresh (see "Criteri suggeriti di priorità" nel playbook).
+//
+// `tools` (calcolatore stipendio, comparatore) e `core` (homepage) sono
+// inclusi DI PROPOSITO, non per svista: docs/gsc-content-refresh-playbook.md
+// (Fase 1) li elenca esplicitamente tra le pagine editoriali in scope
+// ("articoli, guide, statistiche, tool, glossario, home"). A differenza di
+// job/account/community non sono generati/gestiti altrove — hanno prosa
+// curata (spiegazioni, FAQ, testo esplicativo) soggetta allo stesso
+// content-gap delle pagine editoriali pure, quindi restano candidate valide
+// per il refresh.
 const EDITORIAL_CONTENT_GROUPS = new Set(['articles', 'guides', 'stats', 'tools', 'reference', 'core']);
 
 function argFlag(name, fallback) {
