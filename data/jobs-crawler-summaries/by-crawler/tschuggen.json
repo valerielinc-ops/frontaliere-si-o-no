@@ -1,16 +1,16 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-08-21T09:50:32.703Z",
-  "total": 9,
+  "generatedAt": "2026-08-21T21:39:50.845Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11695,
-  "avgDurationMs": 11695,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12814,
+  "avgDurationMs": 12814,
   "durationHistory": [
-    11695
+    12814
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:29.066Z",
+      "crawledAt": "2026-08-21T21:39:47.211Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1388/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:22.819Z",
+      "crawledAt": "2026-08-21T21:39:40.093Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -80,6 +80,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1388/Description/1",
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:32:04.717Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -101,7 +102,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1387/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:23.574Z",
+      "crawledAt": "2026-08-21T21:39:40.976Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -117,6 +118,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1387/Description/1",
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:17:56.133Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -138,7 +140,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1386/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:25.030Z",
+      "crawledAt": "2026-08-21T21:39:42.877Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -175,7 +177,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1385/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:25.778Z",
+      "crawledAt": "2026-08-21T21:39:43.775Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -191,6 +193,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1385/Description/1",
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T22:28:54.015Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -212,7 +215,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:26.788Z",
+      "crawledAt": "2026-08-21T21:39:44.661Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -228,6 +231,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
       "department": "Service",
       "hotelName": "Valsana Hotel Arosa",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T22:15:32.483Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -249,7 +253,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:27.548Z",
+      "crawledAt": "2026-08-21T21:39:45.582Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -265,6 +269,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "department": "Service",
       "hotelName": "Valsana Hotel Arosa",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -286,7 +291,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1067/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:50:28.298Z",
+      "crawledAt": "2026-08-21T21:39:46.509Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -302,6 +307,7 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1067/Description/1",
       "department": "Front Office",
       "hotelName": "Valsana Hotel Arosa",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:15:34.466Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -312,8 +318,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "tschuggen-2b3e4d6fe36e",
       "slug": "concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
@@ -347,6 +352,7 @@
       "salaryMax": 87000,
       "addressRegion": "GR",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -355,5 +361,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
