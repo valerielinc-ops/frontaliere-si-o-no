@@ -1,34 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-20T21:31:45.232Z",
-  "total": 14,
+  "generatedAt": "2026-08-21T09:45:12.511Z",
+  "total": 11,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 36165,
-  "avgDurationMs": 36165,
+  "unchangedCount": 0,
+  "durationMs": 37970,
+  "avgDurationMs": 37970,
   "durationHistory": [
-    36165
+    37970
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-c220638ffd1b",
-      "slug": "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-6ff6d94f92d4",
+      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
+      "title": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann Spitex mit Tagestreff-Verantwortung",
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=776bf6fd-d07d-4d0a-9185-ceecaf04a641,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5e63ac54-b8b3-432f-a888-884119b05d77,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:36.229Z",
+      "crawledAt": "2026-08-20T09:44:45.787Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -37,15 +36,15 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=776bf6fd-d07d-4d0a-9185-ceecaf04a641,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5e63ac54-b8b3-432f-a888-884119b05d77,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -55,5 +54,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
