@@ -1,6 +1,6 @@
 {
   "crawlerKey": "everest-re",
-  "assembledAt": "2026-08-21T10:02:28.639Z",
+  "assembledAt": "2026-08-21T22:09:39.426Z",
   "jobs": [
     {
       "id": "everest-re-f1d13b3c25ab",
@@ -34,7 +34,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:02:26.032Z",
+      "crawledAt": "2026-08-21T22:09:36.980Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -159,7 +159,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
