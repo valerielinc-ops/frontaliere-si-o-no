@@ -47795,6 +47795,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-studio-appenzello-interno': {
+    title: 'Borse di studio Appenzello Interno: guida ai finanziamenti',
+    description: 'Scopri le borse di studio nel Canton Appenzello Interno. Requisiti, criteri di accesso e procedura per candidarsi ai finanziamenti per studi post-obbligatori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, appenzello, interno',
+    ogTitle: 'Borse di studio Appenzello Interno: guida ai finanziamenti',
+    ogDescription: 'Nel Canton Appenzello Interno sono disponibili borse di studio e prestiti allo studio per chi prosegue la formazione dopo l\'obbligo scolastico. Scopri come candidarsi, requisiti e procedure presso l\'ufficio cantonale competente. Sistema',
+    canonicalPath: '/articoli-svizzera/borse-studio-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Appenzello Interno: guida ai finanziamenti",
+      "description": "Scopri le borse di studio nel Canton Appenzello Interno. Requisiti, criteri di accesso e procedura per candidarsi ai finanziamenti per studi post-obbligatori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica in una scuola svizzera di montagna con studenti intenti a studiare, luce naturale e picchi alpini visibili attraverso le finestre"
+      },
+      "datePublished": "2026-08-21T09:09:48+00:00",
+      "dateModified": "2026-08-21T09:09:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

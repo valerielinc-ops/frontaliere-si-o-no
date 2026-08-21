@@ -3685,6 +3685,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Le Conseil fédéral sur la planification ferroviaire',
     'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Publication de l\'avis gouvernemental du 19 août 2026 sur le rapport de la CdG-S du 18 mai 2026 sur les stratégies pour les infrastructures ferroviaires.',
     'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Infrastructure ferroviaire suisse avec un train moderne',
+    'blog.article.borse-studio-appenzello-interno.title': 'Bourses Appenzell Interne : guide de financement',
+    'blog.article.borse-studio-appenzello-interno.excerpt': 'Dans le canton d\'Appenzell, des bourses et des prêts d\'études sont disponibles pour ceux qui poursuivent leur formation après la scolarité obligatoire. Découvrez comment postuler.',
+    'blog.article.borse-studio-appenzello-interno.imageAlt': 'Salle de classe d\'une école suisse en montagne avec des étudiants étudiant, lumière naturelle et pics alpins visibles par les fenêtres',
 };
 
 export default blogMetaChFr;

@@ -3685,6 +3685,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'The Federal Council on Railway Planning',
     'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'The government opinion of 19 August 2026 was published in the CoG-S report of 18 May 2026 on rail infrastructure strategies.',
     'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Swiss railway infrastructure with a modern train',
+    'blog.article.borse-studio-appenzello-interno.title': 'Appenzello Interno Scholarships: a guide to funding',
+    'blog.article.borse-studio-appenzello-interno.excerpt': 'In the Inner Appenzell Canton, scholarships and study loans are available for those who continue their training after compulsory schooling. Find out how to apply.',
+    'blog.article.borse-studio-appenzello-interno.imageAlt': 'Alpine school classroom in Switzerland with students studying, natural light and mountain peaks visible through windows',
 };
 
 export default blogMetaChEn;
