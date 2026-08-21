@@ -10336,6 +10336,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'Living in Biandronno and working in Ticino as a border worker: what changes?',
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'The new agreement between Switzerland and Italy introduced some changes for frontier workers. This is what it means for border workers who live in Biandronno and work in Ticino.',
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'A border worker living in Biandronno and working in Ticino',
+    'blog.article.carnago-frontaliere-ticino-guida.title': 'Living in Carnago, working in Ticino: border guide',
+    'blog.article.carnago-frontaliere-ticino-guida.excerpt': 'How to live in Carnago and work in Ticino as a border worker: G Permit, tax at source, LAMal, tax refunds, administrative checklist.',
+    'blog.article.carnago-frontaliere-ticino-guida.imageAlt': 'Ticino Canton panorama with hills and border crossings towards Varese province, seen from Mendrisio area',
 };
 
 export default blogMetaEn;

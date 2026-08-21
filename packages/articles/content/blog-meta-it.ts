@@ -10337,6 +10337,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'Vivere a Biandronno e lavorare in Ticino da frontaliere: cosa cambia?',
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'Il nuovo accordo tra Svizzera e Italia ha introdotto alcune modifiche per i lavoratori frontalieri. Ecco cosa significa per i frontalieri che vivono a Biandronno e lavorano in Ticino.',
     'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che vive a Biandronno e lavora in Ticino',
+    'blog.article.carnago-frontaliere-ticino-guida.title': 'Vivere a Carnago, lavorare in Ticino: guida frontaliere',
+    'blog.article.carnago-frontaliere-ticino-guida.excerpt': 'Come vivere a Carnago e lavorare in Ticino come frontaliere: Permesso G, imposta alla fonte, LAMal, ristorni fiscali, checklist amministrativa.',
+    'blog.article.carnago-frontaliere-ticino-guida.imageAlt': 'Panorama del Canton Ticino con colline e valichi di confine verso la provincia di Varese, vista dalla zona di Mendrisio',
 };
 
 export default blogMetaIt;

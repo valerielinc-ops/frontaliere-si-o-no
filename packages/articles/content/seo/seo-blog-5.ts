@@ -72806,6 +72806,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carnago-frontaliere-ticino-guida': {
+    title: 'Vivere a Carnago, lavorare in Ticino: guida frontaliere',
+    description: 'Come vivere a Carnago e lavorare in Ticino come frontaliere: Permesso G, imposta alla fonte, LAMal, ristorni fiscali, checklist amministrativa 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, carnago, lavorare, permesso',
+    ogTitle: 'Vivere a Carnago, lavorare in Ticino: scelta da frontaliere',
+    ogDescription: 'Vivere a Carnago e lavorare in Ticino è conveniente? Scopri Permesso G, tassazione, AVS/LPP, costi di pendolarismo, vantaggi e svantaggi della scelta. Checklist pratica per frontalieri 2024.',
+    canonicalPath: '/articoli-frontaliere/carnago-frontaliere-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Carnago, lavorare in Ticino: guida frontaliere",
+      "description": "Come vivere a Carnago e lavorare in Ticino come frontaliere: Permesso G, imposta alla fonte, LAMal, ristorni fiscali, checklist amministrativa 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carnago-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Canton Ticino con colline e valichi di confine verso la provincia di Varese, vista dalla zona di Mendrisio"
+      },
+      "datePublished": "2026-08-21T03:42:55+00:00",
+      "dateModified": "2026-08-21T03:42:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carnago-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
