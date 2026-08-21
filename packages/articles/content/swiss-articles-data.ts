@@ -11179,6 +11179,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'locazione-zurigo-deposito-contestazione-procedure',
+    category: 'pratico',
+    date: '2026-08-21T16:56:27.695Z',
+    image: '/images/blog/locazione-zurigo-deposito-contestazione-procedure.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'affitti-zurigo-procedura-locazione',
+    category: 'pratico',
+    date: '2026-08-21T18:10:26.868Z',
+    image: '/images/blog/affitti-zurigo-procedura-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'zurigo-affitti-canone-deposito-guida',
+    category: 'pratico',
+    date: '2026-08-21T18:30:59.081Z',
+    image: '/images/blog/zurigo-affitti-canone-deposito-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'avs-prestazioni-complementari-zurigo-cassa',
+    category: 'pensione',
+    date: '2026-08-21T19:16:14.034Z',
+    image: '/images/blog/avs-prestazioni-complementari-zurigo-cassa.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

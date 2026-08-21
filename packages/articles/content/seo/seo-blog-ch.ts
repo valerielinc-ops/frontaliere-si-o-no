@@ -48341,6 +48341,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locazione-zurigo-deposito-contestazione-procedure': {
+    title: 'Affitti Zurigo: diritto di locazione e contestazione',
+    description: 'Guida al diritto di locazione nel cantone di Zurigo: deposito max 3 mesi, disdetta con modulo, contestazione canone in 30 giorni all\'autorità di conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritto, locazione',
+    ogTitle: 'Affitti Zurigo: diritto di locazione e contestazione',
+    ogDescription: 'Nel cantone di Zurigo il diritto di locazione federale protegge gli inquilini: deposito max 3 mesi di pigione su conto vincolato, disdetta solo con modulo ufficiale, contestazione del canone entro 30 giorni presso l\'autorità di conciliazione',
+    canonicalPath: '/articoli-svizzera/locazione-zurigo-deposito-contestazione-procedure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritto di locazione e contestazione",
+      "description": "Guida al diritto di locazione nel cantone di Zurigo: deposito max 3 mesi, disdetta con modulo, contestazione canone in 30 giorni all'autorità di conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locazione-zurigo-deposito-contestazione-procedure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del centro di Zurigo con grattacieli e architettura moderna, simbolo del mercato immobiliare svizzero"
+      },
+      "datePublished": "2026-08-21T16:56:27+00:00",
+      "dateModified": "2026-08-21T16:56:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/locazione-zurigo-deposito-contestazione-procedure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-zurigo-procedura-locazione': {
+    title: 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    description: 'Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritti, locatari',
+    ogTitle: 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    ogDescription: 'Nel cantone di Zurigo, il diritto di locazione federale tutela inquilini e proprietari: deposito cauzionale limitato a 3 mesi, contestazione entro 30 giorni, disdetta solo su modulo ufficiale. Scopri le tue protezioni legali e le procedure concrete.',
+    canonicalPath: '/articoli-svizzera/affitti-zurigo-procedura-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritti locatari, deposito e disdetta",
+      "description": "Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-zurigo-procedura-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale moderno a Zurigo con balconi e finestre, architettura urbana contemporanea svizzera"
+      },
+      "datePublished": "2026-08-21T18:10:26+00:00",
+      "dateModified": "2026-08-21T18:10:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-zurigo-procedura-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zurigo-affitti-canone-deposito-guida': {
+    title: 'Affitti Zurigo: diritti, canoni e locazione | Frontaliere Ticino',
+    description: 'Guida pratica al diritto di locazione nel Canton Zurigo: canone iniziale, deposito cauzionale, contestazione e disdetta. Norme federali e procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritti, canoni',
+    ogTitle: 'Affitti Zurigo: diritti, canoni e locazione',
+    ogDescription: 'Come funziona il diritto di locazione nel Canton Zurigo? Scopri canone iniziale, deposito cauzionale, contestazione, disdetta e i tuoi diritti come inquilino.',
+    canonicalPath: '/articoli-svizzera/zurigo-affitti-canone-deposito-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritti, canoni e locazione",
+      "description": "Guida pratica al diritto di locazione nel Canton Zurigo: canone iniziale, deposito cauzionale, contestazione e disdetta. Norme federali e procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zurigo-affitti-canone-deposito-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un edificio residenziale in una città svizzera con finestre di appartamenti moderni"
+      },
+      "datePublished": "2026-08-21T18:30:59+00:00",
+      "dateModified": "2026-08-21T18:30:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurigo-affitti-canone-deposito-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-zurigo-cassa': {
+    title: 'AVS e prestazioni complementari nel Canton Zurigo',
+    description: 'Guida completa al primo pilastro AVS nel Canton Zurigo: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, zurigo',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Zurigo',
+    ogDescription: 'Scopri come funziona il primo pilastro della previdenza nel Canton Zurigo: ruolo della cassa di compensazione cantonale, calcolo della rendita AVS, colmamento delle lacune contributive e prestazioni complementari per garantire il minimo vitale. Guida',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-zurigo-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Zurigo",
+      "description": "Guida completa al primo pilastro AVS nel Canton Zurigo: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-zurigo-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione del Canton Zurigo dove vengono elaborate richieste di rendita AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-08-21T19:16:14+00:00",
+      "dateModified": "2026-08-21T19:16:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-zurigo-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
