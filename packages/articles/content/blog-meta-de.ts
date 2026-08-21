@@ -10361,6 +10361,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-galliate-lavorare-ticino-frontaliere.title': 'Galliate–Ticino: Der Grenzgängerführer',
     'blog.article.vivere-galliate-lavorare-ticino-frontaliere.excerpt': 'Wohnsitz in Galliate und Arbeit im Tessin: Umgang mit Steuern, Bewilligung G, AHV und KVG. Entdecken Sie die Vorteile und die wesentlichen Verfahren für Grenzgänger.',
     'blog.article.vivere-galliate-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme der Grenzregion Provinz Varese und Tessin mit grünen Tälern, Gemeinden und Chiasso-Übergang',
+    'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Frontalierle zwischen Solbiate Arno und dem Tessin: Was beachten?',
+    'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'Die Vor- und Nachteile, in Solbiate Arno zu leben und als Grenzgänger im Tessin zu arbeiten.',
+    'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere, die die Vorteile und Nachteile von Leben in Solbiate Arno und Arbeit in Ticino abwägt.',
 };
 
 export default blogMetaDe;

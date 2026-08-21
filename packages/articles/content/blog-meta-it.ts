@@ -10363,6 +10363,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-galliate-lavorare-ticino-frontaliere.title': 'Galliate–Ticino: la guida del frontaliere',
     'blog.article.vivere-galliate-lavorare-ticino-frontaliere.excerpt': 'Residenza a Galliate e lavoro in Ticino: come gestire fiscalità, permesso G, AVS e LAMal. Scopri i vantaggi e le procedure essenziali per i frontalieri.',
     'blog.article.vivere-galliate-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea della regione di confine tra il Varesotto e il Ticino con vallate verdi, cittadine e il valico di Chiasso',
+    'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Vivere a Solbiate Arno e lavorare in Ticino da frontaliere: cosa considerare',
+    'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'I vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino da frontaliere.',
+    'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere che valuta i vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino.',
 };
 
 export default blogMetaIt;
