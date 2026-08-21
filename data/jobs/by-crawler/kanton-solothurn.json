@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-08-21T08:43:33.367Z",
+  "assembledAt": "2026-08-21T21:56:13.310Z",
   "jobs": [
     {
       "id": "kanton-solothurn-e34f08aa6360",
@@ -34,7 +34,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/fa6b7d68-1ec9-4005-a4e5-50ee5d5729d4",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:48.995Z",
+      "crawledAt": "2026-08-21T21:55:55.652Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -114,7 +114,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-informatik/f39e8705-9baa-4da2-b0f7-2429d8aedf3a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:46.049Z",
+      "crawledAt": "2026-08-21T21:55:50.218Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -194,7 +194,7 @@
       "url": "https://job.so.ch/offene-stellen/berufsinspektor-in/d425071f-31db-42a1-bf9b-02705da3cf01",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:40.504Z",
+      "crawledAt": "2026-08-21T21:55:49.160Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -274,7 +274,7 @@
       "url": "https://job.so.ch/offene-stellen/technische-r-mitarbeiter-in-erdwaermesonden/a4505e6d-63f1-4504-ba90-6ed5d5f8bbe9",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:35.599Z",
+      "crawledAt": "2026-08-21T21:55:48.734Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -354,7 +354,7 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/3960db84-1cd6-4c7f-8eee-e17ddf81805c",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:35.151Z",
+      "crawledAt": "2026-08-21T21:55:48.294Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -434,7 +434,7 @@
       "url": "https://job.so.ch/offene-stellen/fallverantwortliche-r-vollzug-1/6ad60c3e-fe1a-4a3f-bbc4-3d3394d48ac7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:34.587Z",
+      "crawledAt": "2026-08-21T21:55:47.646Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -527,7 +527,7 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in/7a48178d-fddc-46a1-852a-c3dcfe6f3362",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:34.027Z",
+      "crawledAt": "2026-08-21T21:55:47.191Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -551,7 +551,6 @@
         "staff-60-80-kanton-solothurn-solothurn",
         "mitarbeiter-in-personalwesen-60-80-kanton-solothurn-solothurn",
         "personnel-60-80-kanton-solothurn-solothurn",
-        "wissenschaftliche-r-collaboratore-trice-in-70-kanton-solothurn",
         "collaboratore-trice-in-schreinerei-50-100-kanton-solothurn",
         "employee-in-carpentry-50-100-kanton-solothurn-solothurn",
         "mitarbeiter-in-schreinerei-50-100-kanton-solothurn-solothurn",
@@ -559,7 +558,8 @@
         "collaboratore-trice-in-reinigung-50-kanton-solothurn",
         "employee-in-cleaning-50-kanton-solothurn-solothurn",
         "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn",
-        "employe-agent-de-nettoyage-50-kanton-solothurn-solothurn"
+        "employe-agent-de-nettoyage-50-kanton-solothurn-solothurn",
+        "wissenschaftliche-r-collaboratore-trice-in-70-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -568,7 +568,6 @@
           "staff-60-80-kanton-solothurn-solothurn",
           "mitarbeiter-in-personalwesen-60-80-kanton-solothurn-solothurn",
           "personnel-60-80-kanton-solothurn-solothurn",
-          "wissenschaftliche-r-collaboratore-trice-in-70-kanton-solothurn",
           "collaboratore-trice-in-schreinerei-50-100-kanton-solothurn",
           "employee-in-carpentry-50-100-kanton-solothurn-solothurn",
           "mitarbeiter-in-schreinerei-50-100-kanton-solothurn-solothurn",
@@ -576,7 +575,8 @@
           "collaboratore-trice-in-reinigung-50-kanton-solothurn",
           "employee-in-cleaning-50-kanton-solothurn-solothurn",
           "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn",
-          "employe-agent-de-nettoyage-50-kanton-solothurn-solothurn"
+          "employe-agent-de-nettoyage-50-kanton-solothurn-solothurn",
+          "wissenschaftliche-r-collaboratore-trice-in-70-kanton-solothurn"
         ],
         "en": [
           "wissenschaftliche-r-mitarbeiter-in-70-kanton-solothurn-solothurn",
@@ -640,7 +640,7 @@
       "url": "https://job.so.ch/offene-stellen/betreuer-in/567604d2-7866-477c-95f6-a3738c74b80a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:33.456Z",
+      "crawledAt": "2026-08-21T21:55:46.681Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -720,7 +720,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:32.302Z",
+      "crawledAt": "2026-08-21T21:55:46.088Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -800,7 +800,7 @@
       "url": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-servicedesk-support-und-ict-service-management/36b84ef1-039d-46c4-9beb-d23bbc260368",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:31.651Z",
+      "crawledAt": "2026-08-21T21:55:45.128Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -875,7 +875,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz/fcbae9b5-6833-4f9b-b776-dce03884b468",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:31.069Z",
+      "crawledAt": "2026-08-21T21:55:44.525Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -957,7 +957,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-eba/0e47fcf2-7ed9-4c8e-89b7-b89e38a84773",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:30.503Z",
+      "crawledAt": "2026-08-21T21:55:44.048Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1039,7 +1039,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz/c2965591-3e8e-4d9c-960f-404bc2f200b7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:29.503Z",
+      "crawledAt": "2026-08-21T21:55:43.586Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1121,7 +1121,7 @@
       "url": "https://job.so.ch/offene-stellen/verwaltungsjurist-in/d4fc0692-ddaf-4a38-b38a-92ebf4444017",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:28.497Z",
+      "crawledAt": "2026-08-21T21:55:43.128Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1170,99 +1170,6 @@
       }
     },
     {
-      "id": "kanton-solothurn-f00f2e53df31",
-      "slug": "responsabile-rechtsdienst-80-100-kanton-solothurn",
-      "slugByLocale": {
-        "it": "responsabile-rechtsdienst-80-100-kanton-solothurn",
-        "en": "head-of-legal-service-80-100-kanton-solothurn-solothurn",
-        "de": "leiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
-        "fr": "chef-du-service-juridique-80-100-kanton-solothurn-solothurn"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Leiter/-in Rechtsdienst, 80-100%",
-      "titleByLocale": {
-        "it": "Responsabile Rechtsdienst, 80-100%",
-        "en": "Head of Legal Service, 80-100 %",
-        "de": "Leiter/-in Rechtsdienst, 80-100%",
-        "fr": "Chef du service juridique, 80-100 %"
-      },
-      "description": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Als Leiter/-in des Rechtsdienstes leisten Sie einen entscheidenden Beitrag zur Sicherheit der Bevölkerung im Kanton Solothurn. Für die Kommandoabteilung suchen wir per sofort oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Rechtsdienst, 80-100%.\n\nIhre Verantwortung\n\n• In dieser verantwortungsvollen Funktion führen Sie den Rechtsdienst fachlich, organisatorisch und personell.\n\n• Eine qualitativ hochstehende, praxisnahe und einheitliche juristische Beratung innerhalb der Organisation sicherzustellen, gehört zu Ihren zentralen Aufgaben. Sie klären und beurteilen Rechtsfragen aus dem polizeilichen Alltag, bearbeiten Beschwerden und erteilen Rechtsauskünfte gegenüber internen und externen Stellen.\n\n• Sie verantworten die rechtliche Qualitätssicherung der Polizei Kanton Solothurn. Dazu gehören insbesondere Stellungnahmen, Verfügungen, Weisungen, Datenschutzfragen und weitere rechtlich anspruchsvolle Geschäfte.\n\n• Sie prüfen Gesetzesvorlagen aus juristischer Sicht und sorgen dafür, dass diese rechtlich korrekt, verständlich und in der Praxis umsetzbar sind.\n\n• Aus- und Weiterbildungen für Mitarbeitende konzipieren und führen Sie in den Bereichen Polizeirecht, Strafprozessrecht und weiteren polizeirelevanten Rechtsgebieten durch.\n\nIhr Profil\n\n• Sie verfügen über ein abgeschlossenes juristisches Studium, vorzugsweise mit Anwaltspatent, sowie über mehrjährige juristische Berufserfahrung. Idealerweise bringen Sie Führungserfahrung und vertiefte Kenntnisse im Staats- und Verwaltungsrecht sowie Polizeirecht mit.\n\n• Juristische Fragestellungen im Polizeikontext beantworten Sie sicher, praxisnah und lösungsorientiert.\n\n• Analytisches Denken, Sorgfalt und eine vernetzte Arbeitsweise zeichnen Sie aus. Ihre mündliche und schriftliche Ausdrucksweise in deutscher Sprache ist präzise, stilsicher und adressatengerecht.\n\n• Auch in anspruchsvollen Situationen arbeiten Sie selbstständig, verantwortungsbewusst und mit hoher Integrität. Rechtliche Risiken erkennen Sie frühzeitig, vertreten Ihre Einschätzung klar und leisten einen wichtigen Beitrag zu tragfähigen Lösungen im polizeilichen Alltag.\n\n• Sie überzeugen durch Sozialkompetenz, Belastbarkeit, Dienstleistungsorientierung und ein gutes Verständnis für organisatorische und polizeiliche Zusammenhänge.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nFabienne Holland\nKommandantin\n032 627 70 15\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "Il cantone di polizia di Solothurn garantisce un alto livello di sicurezza per le persone nel cantone di Solothurn - competente giorno e notte. Come capo del servizio legale, si dà un contributo decisivo alla sicurezza della popolazione nel cantone di Solothurn. Per il reparto di comando stiamo cercando immediatamente o per accordo nella posizione Solothurn un capo di servizio legale, 80-100%.\n\nLa tua responsabilità\n\n• In questa funzione responsabile, si guida il servizio legale professionalmente, organizzativa e in termini di personale.\n\n• Garantire consulenza legale di alta qualità, pratica e uniforme all'interno dell'organizzazione è uno dei vostri compiti centrali. Essi chiariscono e valutano le questioni legali della vita quotidiana della polizia, elaborano reclami e forniscono informazioni legali agli organismi interni ed esterni.\n\n• Lei è responsabile della garanzia di qualità legale della Polizia Canton Solothurn. Questo include in particolare dichiarazioni, ingiunzioni, istruzioni, problemi di protezione dei dati e altre transazioni legalmente esigenti.\n\n• Essi esaminano proposte legislative dal punto di vista giuridico e assicurano che siano legalmente corrette, comprensibili e attuabili in pratica.\n\n• Progettare e condurre la formazione e l'ulteriore formazione per i dipendenti nei settori del diritto di polizia, del diritto di procedura penale e di altre aree di polizia-relative.\n\nIl tuo profilo\n\n• Hanno completato studi legali, preferibilmente con il brevetto di un avvocato, così come diversi anni di esperienza professionale legale. Idealmente, si avrà esperienza di leadership e conoscenza approfondita del diritto statale e amministrativo, così come la legge della polizia.\n\n• È possibile rispondere a domande legali nel contesto della polizia in modo sicuro, praticamente e orientato alla soluzione.\n\n• Il pensiero analitico, la cura e un modo di lavorare in rete ti distinguono. La vostra espressione orale e scritta in tedesco è precisa, elegante e indirizzabile.\n\n• Anche in situazioni difficili, si lavora in modo indipendente, responsabile e con alta integrità. Riconoscete i rischi legali in una fase iniziale, rappresentate chiaramente la vostra valutazione e contribuite in modo importante alle soluzioni sostenibili nella vita quotidiana della polizia.\n\n• Convincono attraverso competenze sociali, resilienza, orientamento di servizio e una buona comprensione dei contesti organizzativi e di polizia.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nFabienne Olanda\nComandante\n032 627 70 15\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The police canton of Solothurn guarantees a high level of security for the people in the canton of Solothurn - competent day and night. As head of the legal service, you make a decisive contribution to the security of the population in the canton of Solothurn. For the command department we are looking for immediately or by agreement at the location Solothurn a head of legal service, 80-100%.\n\nYour responsibility\n\n• In this responsible function, you lead the legal service professionally, organizationally and in terms of personnel.\n\n• Ensuring high-quality, practical and uniform legal advice within the organization is one of your central tasks. They clarify and assess legal issues from everyday police life, process complaints and provide legal information to internal and external bodies.\n\n• You are responsible for the legal quality assurance of the Police Canton Solothurn. This includes in particular statements, injunctions, instructions, data protection issues and other legally demanding transactions.\n\n• They examine legislative proposals from a legal point of view and ensure that they are legally correct, understandable and implementable in practice.\n\n• You will design and conduct training and further education for employees in the areas of police law, criminal procedure law and other police-relevant areas of law.\n\nYour profile\n\n• They have completed legal studies, preferably with a lawyer's patent, as well as several years of legal professional experience. Ideally, you will have leadership experience and in-depth knowledge of state and administrative law as well as police law.\n\n• You can answer legal questions in the police context safely, practically and solution-oriented.\n\n• Analytical thinking, care and a networked way of working distinguish you. Your oral and written expression in German is precise, stylish and addressable.\n\n• Even in challenging situations, you work independently, responsibly and with high integrity. You recognize legal risks at an early stage, represent your assessment clearly and make an important contribution to sustainable solutions in everyday police life.\n\n• They convince through social skills, resilience, service orientation and a good understanding of organizational and police contexts.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nFabienne Holland\nCommander\n032 627 70 15\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Die Polizei Kanton Solothurn garantiert eine hohe Sicherheit für die Menschen im Kanton Solothurn - kompetent Tag und Nacht. Als Leiter/-in des Rechtsdienstes leisten Sie einen entscheidenden Beitrag zur Sicherheit der Bevölkerung im Kanton Solothurn. Für die Kommandoabteilung suchen wir per sofort oder nach Vereinbarung am Standort Solothurn eine/-n Leiter/-in Rechtsdienst, 80-100%.\n\nIhre Verantwortung\n\n• In dieser verantwortungsvollen Funktion führen Sie den Rechtsdienst fachlich, organisatorisch und personell.\n\n• Eine qualitativ hochstehende, praxisnahe und einheitliche juristische Beratung innerhalb der Organisation sicherzustellen, gehört zu Ihren zentralen Aufgaben. Sie klären und beurteilen Rechtsfragen aus dem polizeilichen Alltag, bearbeiten Beschwerden und erteilen Rechtsauskünfte gegenüber internen und externen Stellen.\n\n• Sie verantworten die rechtliche Qualitätssicherung der Polizei Kanton Solothurn. Dazu gehören insbesondere Stellungnahmen, Verfügungen, Weisungen, Datenschutzfragen und weitere rechtlich anspruchsvolle Geschäfte.\n\n• Sie prüfen Gesetzesvorlagen aus juristischer Sicht und sorgen dafür, dass diese rechtlich korrekt, verständlich und in der Praxis umsetzbar sind.\n\n• Aus- und Weiterbildungen für Mitarbeitende konzipieren und führen Sie in den Bereichen Polizeirecht, Strafprozessrecht und weiteren polizeirelevanten Rechtsgebieten durch.\n\nIhr Profil\n\n• Sie verfügen über ein abgeschlossenes juristisches Studium, vorzugsweise mit Anwaltspatent, sowie über mehrjährige juristische Berufserfahrung. Idealerweise bringen Sie Führungserfahrung und vertiefte Kenntnisse im Staats- und Verwaltungsrecht sowie Polizeirecht mit.\n\n• Juristische Fragestellungen im Polizeikontext beantworten Sie sicher, praxisnah und lösungsorientiert.\n\n• Analytisches Denken, Sorgfalt und eine vernetzte Arbeitsweise zeichnen Sie aus. Ihre mündliche und schriftliche Ausdrucksweise in deutscher Sprache ist präzise, stilsicher und adressatengerecht.\n\n• Auch in anspruchsvollen Situationen arbeiten Sie selbstständig, verantwortungsbewusst und mit hoher Integrität. Rechtliche Risiken erkennen Sie frühzeitig, vertreten Ihre Einschätzung klar und leisten einen wichtigen Beitrag zu tragfähigen Lösungen im polizeilichen Alltag.\n\n• Sie überzeugen durch Sozialkompetenz, Belastbarkeit, Dienstleistungsorientierung und ein gutes Verständnis für organisatorische und polizeiliche Zusammenhänge.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nFabienne Holland\nKommandantin\n032 627 70 15\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Le canton de Soleure garantit un haut niveau de sécurité pour la population du canton de Soleure - compétent jour et nuit. En tant que chef du service juridique, vous contribuez de manière décisive à la sécurité de la population du canton de Soleure. Pour le service de commandement que nous recherchons immédiatement ou par accord à l'emplacement Soleure un chef du service juridique, 80-100%.\n\nVotre responsabilité\n\n• Dans cette fonction responsable, vous dirigez le service juridique de façon professionnelle, organisationnelle et en termes de personnel.\n\n• Assurer des conseils juridiques de qualité, pratiques et uniformes au sein de l'organisation est l'une de vos tâches centrales. Ils clarifient et évaluent les questions juridiques de la vie quotidienne de la police, traitent les plaintes et fournissent des informations juridiques aux organes internes et externes.\n\n• Vous êtes responsable de l'assurance de la qualité juridique de la Police Canton Soleure. Cela comprend en particulier les déclarations, les injonctions, les instructions, les questions de protection des données et d'autres transactions juridiquement exigeantes.\n\n• Ils examinent les propositions législatives d'un point de vue juridique et veillent à ce qu'elles soient juridiquement correctes, compréhensibles et réalisables dans la pratique.\n\n• Vous concevrez et organiserez des formations et des cours de perfectionnement pour les employés dans les domaines du droit de la police, du droit de la procédure pénale et d'autres domaines du droit intéressant la police.\n\nVotre profil\n\n• Ils ont terminé des études juridiques, de préférence avec un brevet d'avocat, ainsi que plusieurs années d'expérience juridique professionnelle. Idéalement, vous aurez une expérience de leadership et une connaissance approfondie du droit de l'État et du droit administratif ainsi que du droit de la police.\n\n• Vous pouvez répondre aux questions juridiques dans le contexte de la police de façon sûre, pratique et orientée vers la solution.\n\n• La pensée analytique, les soins et une façon de travailler en réseau vous distinguent. Votre expression orale et écrite en allemand est précise, élégante et adressable.\n\n• Même dans des situations difficiles, vous travaillez de façon indépendante, responsable et avec une grande intégrité. Vous reconnaissez les risques juridiques à un stade précoce, représentez clairement votre évaluation et apportez une contribution importante aux solutions durables dans la vie quotidienne de la police.\n\n• Ils convainquent par leurs compétences sociales, leur résilience, leur orientation au service et une bonne compréhension des contextes organisationnels et policiers.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nFabienne Holland\nCommandant\n032 627 70 15\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
-      },
-      "needsRetranslation": true,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/leiter-in-rechtsdienst/735382ab-32cf-4761-8906-20816d26697f",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:27.565Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza & Giustizia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://job.so.ch/offene-stellen/leiter-in-rechtsdienst/735382ab-32cf-4761-8906-20816d26697f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
-        "responsabile-rechtsdienst-bau-e-justizdepartement-100-kanton-solothurn",
-        "head-of-legal-service-construction-and-justice-department-100-kanton-solothurn-solothurn",
-        "leiter-in-rechtsdienst-bau-und-justizdepartement-100-kanton-solothurn-solothurn",
-        "chef-du-departement-de-la-construction-et-de-la-justice-100-kanton-solothurn-solothurn",
-        "responsabile-rechtsdienst-80-100-kanton-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
-          "responsabile-rechtsdienst-bau-e-justizdepartement-100-kanton-solothurn",
-          "head-of-legal-service-construction-and-justice-department-100-kanton-solothurn-solothurn",
-          "leiter-in-rechtsdienst-bau-und-justizdepartement-100-kanton-solothurn-solothurn",
-          "chef-du-departement-de-la-construction-et-de-la-justice-100-kanton-solothurn-solothurn",
-          "responsabile-rechtsdienst-80-100-kanton-solothurn"
-        ],
-        "en": [
-          "head-of-legal-service-construction-and-justice-department-100-kanton-solothurn-solothurn",
-          "leiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
-        ],
-        "de": [
-          "leiter-in-rechtsdienst-bau-und-justizdepartement-100-kanton-solothurn-solothurn"
-        ],
-        "fr": [
-          "chef-du-departement-de-la-construction-et-de-la-justice-100-kanton-solothurn-solothurn",
-          "leiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:18:12.889Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kanton-solothurn-7e70f4967c45",
       "slug": "dipl-infermieristica-professionale-hf-kanton-solothurn-solothurn",
       "slugByLocale": {
@@ -1294,7 +1201,7 @@
       "url": "https://job.so.ch/offene-stellen/dipl-pflegefachmann-frau-hf/09b9ab52-5be4-408d-bb48-8c0412e53636",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:26.534Z",
+      "crawledAt": "2026-08-21T21:55:42.686Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1376,7 +1283,7 @@
       "url": "https://job.so.ch/offene-stellen/immobilienmanager-in-oder-immobilienentwickler-in/5d1f1a2b-f3ed-4c2a-8601-175c9923a8ea",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:25.494Z",
+      "crawledAt": "2026-08-21T21:55:42.255Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1454,7 +1361,7 @@
       "url": "https://job.so.ch/offene-stellen/betriebslogistiker-in/86750aac-8a9c-4d99-a246-d9021872fedb",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:24.505Z",
+      "crawledAt": "2026-08-21T21:55:41.682Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1531,7 +1438,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrer-in-wirtschaft-und-recht/2ad0fc69-6274-43ac-a1db-bab1714ea1dd",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:23.507Z",
+      "crawledAt": "2026-08-21T21:55:41.247Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1609,7 +1516,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-grundbuchamt/d3cc371d-2eaa-48d8-904f-59162b926d5c",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:22.547Z",
+      "crawledAt": "2026-08-21T21:55:40.809Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1658,70 +1565,6 @@
       }
     },
     {
-      "id": "kanton-solothurn-60ce914dc836",
-      "slug": "konrektor-in-fms-80-100-kanton-solothurn-olten",
-      "slugByLocale": {
-        "it": "konrektor-in-fms-80-100-kanton-solothurn-olten",
-        "en": "konrektor-in-fms-80-100-kanton-solothurn-olten",
-        "de": "konrektor-in-fms-80-100-kanton-solothurn-olten",
-        "fr": "konrektor-in-fms-80-100-kanton-solothurn-olten"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Konrektor/-in FMS, 80-100%",
-      "titleByLocale": {
-        "it": "connettore FMS, 80-100 %",
-        "en": "FMS connector, 80-100 %",
-        "de": "Konrektor/-in FMS, 80-100%",
-        "fr": "Connecteur FMS, 80-100 %"
-      },
-      "description": "Die Kantonsschule Olten unterrichtet rund 1100 Schülerinnen und Schüler am Gymnasium, an der Fachmittelschule (FMS), an der Sekundarstufe P und im Vorkurs PH und beschäftigt rund 175 Mitarbeitende. Für die Schulleitung der Kantonsschule Olten suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Olten eine/-n Konrektor/-in FMS, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind ein Mitglied der Schulleitung.\n\n• Dabei sind Sie verantwortlich für die pädagogische und organisatorische Führung der Abteilungen Fachmittelschule, Fachmaturität Gesundheit und Soziale Arbeit sowie den Vorkurs PH.\n\n• Sie übernehmen die Führung der Ihnen zugeordneten Lehrpersonen und Mitarbeitenden, setzen die Beschlüsse der Schulleitung sowie die kantonalen Vorgaben um und gestalten die Schul- und Qualitätsentwicklung aktiv mit.\n\n• Die Erteilung von Unterricht gehört ebenfalls zu Ihrem Pensum.\n\nIhr Profil\n\n• Sie verfügen über eine abgeschlossene Hochschulausbildung, ein Lehrdiplom (Sek II) mit mehrjähriger Berufserfahrung als Mittelschullehrperson sowie eine Ausbildung in Schulführung oder die Bereitschaft diese nachzuholen.\n\n• Wir erwarten eine überzeugende Führungspersönlichkeit mit ausgeprägtem Gestaltungswillen und hoher Auftrittskompetenz.\n\n• Die Vertrautheit mit Fragen aus dem Bereich FMS/FM/Vorkurs PH und ein Bewusstsein für die Zusammenarbeit sowohl mit abgebenden als auch aufnehmenden Institutionen gehören ebenso zu Ihren Stärken wie das Erkennen und Nutzen von Handlungsspielräumen und eine Vorstellung hinsichtlich der Entwicklung der FMS.\n\n• Dank Ihrer ausgeprägten Kommunikationsfähigkeiten, Einsatzfreude und Belastbarkeit tragen Sie zusammen mit Ihrem Team zu einem einwandfreien funktionierenden Schulbetrieb bei.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nPatrick Grob\nRektor der Kantonsschule Olten\n062 311 84 14\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "La Scuola cantonale Olten insegna circa 1100 alunni al Gymnasium, presso la Scuola di Scienze Applicate (FMS), al livello secondario P e nel corso preliminare PH e impiega circa 175 dipendenti. Per la gestione scolastica della Scuola cantonale Olten siamo alla ricerca di un /-n Conrektor /-in FMS, 80-100% entro il 01.02.2027 o per accordo nella posizione Olten.\n\nLa tua responsabilità\n\n• Sei un membro della direzione scolastica.\n\n• Sei responsabile della gestione pedagogica e organizzativa dei dipartimenti della scuola tecnica, della maturità specialistica e del lavoro sociale, nonché del corso preliminare PH.\n\n• Voi assumete la leadership degli insegnanti e dei dipendenti assegnati, attuate le decisioni della direzione scolastica, i requisiti cantonali e formate attivamente lo sviluppo scolastico e qualitativo.\n\n• L'insegnamento fa parte anche del vostro carico di lavoro.\n\nIl tuo profilo\n\n• Essi hanno completato l'istruzione superiore, un diploma di insegnamento (Sec II) con diversi anni di esperienza professionale come insegnante di scuola secondaria, così come l'istruzione nella gestione scolastica o la volontà di recuperare.\n\n• Ci aspettiamo un leader convincente con una forte volontà di modellare e un alto livello di competenza delle prestazioni.\n\n• La familiarità con le domande nel campo della FMS/FM/pre-corso PH e la consapevolezza della cooperazione con entrambi i donatori e le istituzioni riceventi sono tra i vostri punti di forza, nonché il riconoscimento e l'uso della portata per l'azione e un'idea per quanto riguarda lo sviluppo della FMS.\n\n• Grazie alle vostre forti capacità di comunicazione, impegno e resilienza, voi e il vostro team contribuite ad un funzionamento perfetto della scuola.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nPatrick Grob\nRettore della Scuola cantonale Olten\n062 311 84 14\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The Cantonal School Olten teaches about 1100 pupils at the Gymnasium, at the School of Applied Sciences (FMS), at the secondary level P and in the preliminary course PH and employs about 175 employees. For the school management of the Cantonal School Olten we are looking for a /-n Conrektor /-in FMS, 80-100% by 01.02.2027 or by agreement at the location Olten.\n\nYour responsibility\n\n• You are a member of the school management.\n\n• You are responsible for the pedagogical and organizational management of the departments of technical school, specialist maturity health and social work as well as the preliminary course PH.\n\n• You take over the leadership of the assigned teachers and employees, implement the decisions of the school management as well as the cantonal requirements and actively shape the school and quality development.\n\n• Teaching is also part of your workload.\n\nYour profile\n\n• They have completed higher education, a teaching diploma (Sec II) with several years of professional experience as a secondary school teacher, as well as education in school management or the willingness to catch up.\n\n• We expect a convincing leader with a strong will to shape and a high level of performance competence.\n\n• Familiarity with questions in the field of FMS/FM/pre-course PH and an awareness of cooperation with both donor and receiving institutions are among your strengths as well as the recognition and use of scope for action and an idea regarding the development of FMS.\n\n• Thanks to your strong communication skills, commitment and resilience, you and your team contribute to a flawless functioning school operation.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nPatrick Grob\nRector of the Cantonal School Olten\n062 311 84 14\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Die Kantonsschule Olten unterrichtet rund 1100 Schülerinnen und Schüler am Gymnasium, an der Fachmittelschule (FMS), an der Sekundarstufe P und im Vorkurs PH und beschäftigt rund 175 Mitarbeitende. Für die Schulleitung der Kantonsschule Olten suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Olten eine/-n Konrektor/-in FMS, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind ein Mitglied der Schulleitung.\n\n• Dabei sind Sie verantwortlich für die pädagogische und organisatorische Führung der Abteilungen Fachmittelschule, Fachmaturität Gesundheit und Soziale Arbeit sowie den Vorkurs PH.\n\n• Sie übernehmen die Führung der Ihnen zugeordneten Lehrpersonen und Mitarbeitenden, setzen die Beschlüsse der Schulleitung sowie die kantonalen Vorgaben um und gestalten die Schul- und Qualitätsentwicklung aktiv mit.\n\n• Die Erteilung von Unterricht gehört ebenfalls zu Ihrem Pensum.\n\nIhr Profil\n\n• Sie verfügen über eine abgeschlossene Hochschulausbildung, ein Lehrdiplom (Sek II) mit mehrjähriger Berufserfahrung als Mittelschullehrperson sowie eine Ausbildung in Schulführung oder die Bereitschaft diese nachzuholen.\n\n• Wir erwarten eine überzeugende Führungspersönlichkeit mit ausgeprägtem Gestaltungswillen und hoher Auftrittskompetenz.\n\n• Die Vertrautheit mit Fragen aus dem Bereich FMS/FM/Vorkurs PH und ein Bewusstsein für die Zusammenarbeit sowohl mit abgebenden als auch aufnehmenden Institutionen gehören ebenso zu Ihren Stärken wie das Erkennen und Nutzen von Handlungsspielräumen und eine Vorstellung hinsichtlich der Entwicklung der FMS.\n\n• Dank Ihrer ausgeprägten Kommunikationsfähigkeiten, Einsatzfreude und Belastbarkeit tragen Sie zusammen mit Ihrem Team zu einem einwandfreien funktionierenden Schulbetrieb bei.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nPatrick Grob\nRektor der Kantonsschule Olten\n062 311 84 14\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "L'École cantonale Olten enseigne environ 1100 élèves au Gymnase, à l'École des sciences appliquées (FMS), au niveau secondaire P et au cours préliminaire PH et emploie environ 175 employés. Pour la gestion scolaire de l'école cantonale Olten nous sommes à la recherche d'un /-n Conrektor /-in FMS, 80-100% au 01.02.2027 ou par accord à l'emplacement Olten.\n\nVotre responsabilité\n\n• Vous êtes membre de la direction de l'école.\n\n• Vous êtes responsable de la gestion pédagogique et organisationnelle des départements de l'école technique, de la maturité spécialisée de la santé et du travail social ainsi que du cours préliminaire PH.\n\n• Vous prenez en charge la direction des enseignants et des employés, mettez en œuvre les décisions de la direction de l'école ainsi que les exigences cantonales et façonnez activement l'école et le développement de la qualité.\n\n• L'enseignement fait également partie de votre charge de travail.\n\nVotre profil\n\n• Ils ont terminé des études supérieures, un diplôme d'enseignement (Sec II) avec plusieurs années d'expérience professionnelle en tant qu'enseignant de l'enseignement secondaire, ainsi que l'éducation à la gestion scolaire ou la volonté de rattrapage.\n\n• Nous nous attendons à un leader convaincant avec une forte volonté de façonner et un haut niveau de compétence en performance.\n\n• Familiariser avec les questions dans le domaine de la FMS/FM/PH pré-course et une sensibilisation à la coopération avec les institutions donatrices et les institutions d'accueil sont parmi vos points forts ainsi que la reconnaissance et l'utilisation de la marge d'action et une idée concernant le développement de la FMS.\n\n• Grâce à vos solides compétences en communication, votre engagement et votre résilience, vous et votre équipe contribuez à un fonctionnement scolaire sans faille.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nPatrick Grob\nRecteur de l'école cantonale Olten\n062 311 84 14\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
-      },
-      "needsRetranslation": true,
-      "location": "Olten",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/konrektor-in-fms/5b273814-d365-4558-8b04-31694f0cc115",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:21.371Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Educazione & Cultura",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://job.so.ch/offene-stellen/konrektor-in-fms/5b273814-d365-4558-8b04-31694f0cc115",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-17T10:03:53.392Z",
-      "salaryMin": 59000,
-      "salaryMax": 108500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kanton-solothurn-e081cf4c3dbb",
       "slug": "stage-universitario-60-100-kanton-solothurn-solothurn",
       "slugByLocale": {
@@ -1753,7 +1596,7 @@
       "url": "https://job.so.ch/offene-stellen/hochschulpraktikant-in/6813e705-e012-4bde-8939-753bd5cea916",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:20.941Z",
+      "crawledAt": "2026-08-21T21:55:40.324Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1833,7 +1676,7 @@
       "url": "https://job.so.ch/offene-stellen/jurist-in/a34c6ab6-8e3f-4db2-bd90-4d70acbd79bd",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:20.508Z",
+      "crawledAt": "2026-08-21T21:55:39.836Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1882,6 +1725,70 @@
       }
     },
     {
+      "id": "kanton-solothurn-60ce914dc836",
+      "slug": "konrektor-in-fms-80-100-kanton-solothurn-olten",
+      "slugByLocale": {
+        "it": "konrektor-in-fms-80-100-kanton-solothurn-olten",
+        "en": "konrektor-in-fms-80-100-kanton-solothurn-olten",
+        "de": "konrektor-in-fms-80-100-kanton-solothurn-olten",
+        "fr": "konrektor-in-fms-80-100-kanton-solothurn-olten"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Konrektor/-in FMS, 80-100%",
+      "titleByLocale": {
+        "it": "connettore FMS, 80-100 %",
+        "en": "FMS connector, 80-100 %",
+        "de": "Konrektor/-in FMS, 80-100%",
+        "fr": "Connecteur FMS, 80-100 %"
+      },
+      "description": "Die Kantonsschule Olten unterrichtet rund 1100 Schülerinnen und Schüler am Gymnasium, an der Fachmittelschule (FMS), an der Sekundarstufe P und im Vorkurs PH und beschäftigt rund 175 Mitarbeitende. Für die Schulleitung der Kantonsschule Olten suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Olten eine/-n Konrektor/-in FMS, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind ein Mitglied der Schulleitung.\n\n• Dabei sind Sie verantwortlich für die pädagogische und organisatorische Führung der Abteilungen Fachmittelschule, Fachmaturität Gesundheit und Soziale Arbeit sowie den Vorkurs PH.\n\n• Sie übernehmen die Führung der Ihnen zugeordneten Lehrpersonen und Mitarbeitenden, setzen die Beschlüsse der Schulleitung sowie die kantonalen Vorgaben um und gestalten die Schul- und Qualitätsentwicklung aktiv mit.\n\n• Die Erteilung von Unterricht gehört ebenfalls zu Ihrem Pensum.\n\nIhr Profil\n\n• Sie verfügen über eine abgeschlossene Hochschulausbildung, ein Lehrdiplom (Sek II) mit mehrjähriger Berufserfahrung als Mittelschullehrperson sowie eine Ausbildung in Schulführung oder die Bereitschaft diese nachzuholen.\n\n• Wir erwarten eine überzeugende Führungspersönlichkeit mit ausgeprägtem Gestaltungswillen und hoher Auftrittskompetenz.\n\n• Die Vertrautheit mit Fragen aus dem Bereich FMS/FM/Vorkurs PH und ein Bewusstsein für die Zusammenarbeit sowohl mit abgebenden als auch aufnehmenden Institutionen gehören ebenso zu Ihren Stärken wie das Erkennen und Nutzen von Handlungsspielräumen und eine Vorstellung hinsichtlich der Entwicklung der FMS.\n\n• Dank Ihrer ausgeprägten Kommunikationsfähigkeiten, Einsatzfreude und Belastbarkeit tragen Sie zusammen mit Ihrem Team zu einem einwandfreien funktionierenden Schulbetrieb bei.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nPatrick Grob\nRektor der Kantonsschule Olten\n062 311 84 14\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "it": "La Scuola cantonale Olten insegna circa 1100 alunni al Gymnasium, presso la Scuola di Scienze Applicate (FMS), al livello secondario P e nel corso preliminare PH e impiega circa 175 dipendenti. Per la gestione scolastica della Scuola cantonale Olten siamo alla ricerca di un /-n Conrektor /-in FMS, 80-100% entro il 01.02.2027 o per accordo nella posizione Olten.\n\nLa tua responsabilità\n\n• Sei un membro della direzione scolastica.\n\n• Sei responsabile della gestione pedagogica e organizzativa dei dipartimenti della scuola tecnica, della maturità specialistica e del lavoro sociale, nonché del corso preliminare PH.\n\n• Voi assumete la leadership degli insegnanti e dei dipendenti assegnati, attuate le decisioni della direzione scolastica, i requisiti cantonali e formate attivamente lo sviluppo scolastico e qualitativo.\n\n• L'insegnamento fa parte anche del vostro carico di lavoro.\n\nIl tuo profilo\n\n• Essi hanno completato l'istruzione superiore, un diploma di insegnamento (Sec II) con diversi anni di esperienza professionale come insegnante di scuola secondaria, così come l'istruzione nella gestione scolastica o la volontà di recuperare.\n\n• Ci aspettiamo un leader convincente con una forte volontà di modellare e un alto livello di competenza delle prestazioni.\n\n• La familiarità con le domande nel campo della FMS/FM/pre-corso PH e la consapevolezza della cooperazione con entrambi i donatori e le istituzioni riceventi sono tra i vostri punti di forza, nonché il riconoscimento e l'uso della portata per l'azione e un'idea per quanto riguarda lo sviluppo della FMS.\n\n• Grazie alle vostre forti capacità di comunicazione, impegno e resilienza, voi e il vostro team contribuite ad un funzionamento perfetto della scuola.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nPatrick Grob\nRettore della Scuola cantonale Olten\n062 311 84 14\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
+        "en": "The Cantonal School Olten teaches about 1100 pupils at the Gymnasium, at the School of Applied Sciences (FMS), at the secondary level P and in the preliminary course PH and employs about 175 employees. For the school management of the Cantonal School Olten we are looking for a /-n Conrektor /-in FMS, 80-100% by 01.02.2027 or by agreement at the location Olten.\n\nYour responsibility\n\n• You are a member of the school management.\n\n• You are responsible for the pedagogical and organizational management of the departments of technical school, specialist maturity health and social work as well as the preliminary course PH.\n\n• You take over the leadership of the assigned teachers and employees, implement the decisions of the school management as well as the cantonal requirements and actively shape the school and quality development.\n\n• Teaching is also part of your workload.\n\nYour profile\n\n• They have completed higher education, a teaching diploma (Sec II) with several years of professional experience as a secondary school teacher, as well as education in school management or the willingness to catch up.\n\n• We expect a convincing leader with a strong will to shape and a high level of performance competence.\n\n• Familiarity with questions in the field of FMS/FM/pre-course PH and an awareness of cooperation with both donor and receiving institutions are among your strengths as well as the recognition and use of scope for action and an idea regarding the development of FMS.\n\n• Thanks to your strong communication skills, commitment and resilience, you and your team contribute to a flawless functioning school operation.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nPatrick Grob\nRector of the Cantonal School Olten\n062 311 84 14\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Die Kantonsschule Olten unterrichtet rund 1100 Schülerinnen und Schüler am Gymnasium, an der Fachmittelschule (FMS), an der Sekundarstufe P und im Vorkurs PH und beschäftigt rund 175 Mitarbeitende. Für die Schulleitung der Kantonsschule Olten suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Olten eine/-n Konrektor/-in FMS, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind ein Mitglied der Schulleitung.\n\n• Dabei sind Sie verantwortlich für die pädagogische und organisatorische Führung der Abteilungen Fachmittelschule, Fachmaturität Gesundheit und Soziale Arbeit sowie den Vorkurs PH.\n\n• Sie übernehmen die Führung der Ihnen zugeordneten Lehrpersonen und Mitarbeitenden, setzen die Beschlüsse der Schulleitung sowie die kantonalen Vorgaben um und gestalten die Schul- und Qualitätsentwicklung aktiv mit.\n\n• Die Erteilung von Unterricht gehört ebenfalls zu Ihrem Pensum.\n\nIhr Profil\n\n• Sie verfügen über eine abgeschlossene Hochschulausbildung, ein Lehrdiplom (Sek II) mit mehrjähriger Berufserfahrung als Mittelschullehrperson sowie eine Ausbildung in Schulführung oder die Bereitschaft diese nachzuholen.\n\n• Wir erwarten eine überzeugende Führungspersönlichkeit mit ausgeprägtem Gestaltungswillen und hoher Auftrittskompetenz.\n\n• Die Vertrautheit mit Fragen aus dem Bereich FMS/FM/Vorkurs PH und ein Bewusstsein für die Zusammenarbeit sowohl mit abgebenden als auch aufnehmenden Institutionen gehören ebenso zu Ihren Stärken wie das Erkennen und Nutzen von Handlungsspielräumen und eine Vorstellung hinsichtlich der Entwicklung der FMS.\n\n• Dank Ihrer ausgeprägten Kommunikationsfähigkeiten, Einsatzfreude und Belastbarkeit tragen Sie zusammen mit Ihrem Team zu einem einwandfreien funktionierenden Schulbetrieb bei.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nPatrick Grob\nRektor der Kantonsschule Olten\n062 311 84 14\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "L'École cantonale Olten enseigne environ 1100 élèves au Gymnase, à l'École des sciences appliquées (FMS), au niveau secondaire P et au cours préliminaire PH et emploie environ 175 employés. Pour la gestion scolaire de l'école cantonale Olten nous sommes à la recherche d'un /-n Conrektor /-in FMS, 80-100% au 01.02.2027 ou par accord à l'emplacement Olten.\n\nVotre responsabilité\n\n• Vous êtes membre de la direction de l'école.\n\n• Vous êtes responsable de la gestion pédagogique et organisationnelle des départements de l'école technique, de la maturité spécialisée de la santé et du travail social ainsi que du cours préliminaire PH.\n\n• Vous prenez en charge la direction des enseignants et des employés, mettez en œuvre les décisions de la direction de l'école ainsi que les exigences cantonales et façonnez activement l'école et le développement de la qualité.\n\n• L'enseignement fait également partie de votre charge de travail.\n\nVotre profil\n\n• Ils ont terminé des études supérieures, un diplôme d'enseignement (Sec II) avec plusieurs années d'expérience professionnelle en tant qu'enseignant de l'enseignement secondaire, ainsi que l'éducation à la gestion scolaire ou la volonté de rattrapage.\n\n• Nous nous attendons à un leader convaincant avec une forte volonté de façonner et un haut niveau de compétence en performance.\n\n• Familiariser avec les questions dans le domaine de la FMS/FM/PH pré-course et une sensibilisation à la coopération avec les institutions donatrices et les institutions d'accueil sont parmi vos points forts ainsi que la reconnaissance et l'utilisation de la marge d'action et une idée concernant le développement de la FMS.\n\n• Grâce à vos solides compétences en communication, votre engagement et votre résilience, vous et votre équipe contribuez à un fonctionnement scolaire sans faille.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nPatrick Grob\nRecteur de l'école cantonale Olten\n062 311 84 14\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
+      },
+      "needsRetranslation": true,
+      "location": "Olten",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/konrektor-in-fms/5b273814-d365-4558-8b04-31694f0cc115",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T21:55:39.407Z",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "streetAddress": "",
+      "postalCode": "4600",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Educazione & Cultura",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://job.so.ch/offene-stellen/konrektor-in-fms/5b273814-d365-4558-8b04-31694f0cc115",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-17T10:03:53.392Z",
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kanton-solothurn-a62cbc348fba",
       "slug": "pedagoga-sociale-1-3-grado-39-kanton-solothurn-olten",
       "slugByLocale": {
@@ -1913,7 +1820,7 @@
       "url": "https://job.so.ch/offene-stellen/sozialpaedagoge-in-1-3-klasse/73d5cdc8-d5fa-42f3-8045-f8b86512bc0c",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:20.065Z",
+      "crawledAt": "2026-08-21T21:55:38.954Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1993,7 +1900,7 @@
       "url": "https://job.so.ch/offene-stellen/sozialpaedagoge-in-kindergarten/cdfde05f-163a-4e4b-baff-e60268ab5e8f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:19.633Z",
+      "crawledAt": "2026-08-21T21:55:38.477Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2073,7 +1980,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-administration-mit-schwerpunkt-hr/aad0c8a7-ce88-4cc6-abdd-c0d6f2bc74f9",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:19.196Z",
+      "crawledAt": "2026-08-21T21:55:38.018Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2137,7 +2044,7 @@
       "url": "https://job.so.ch/offene-stellen/psychomotoriktherapeut-in/11e4121d-7a94-4743-a7b0-5c96ba9892e4",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:18.741Z",
+      "crawledAt": "2026-08-21T21:55:37.587Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2219,7 +2126,7 @@
       "url": "https://job.so.ch/offene-stellen/facharbeiter-in/9a626474-27f2-4a64-97a6-e5f5a7d63292",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:18.108Z",
+      "crawledAt": "2026-08-21T21:55:36.940Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2299,7 +2206,7 @@
       "url": "https://job.so.ch/offene-stellen/richter-in-kantonales-steuergericht-nebenamt/8be535b5-b6ff-4d08-922c-ef7be5922279",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:17.478Z",
+      "crawledAt": "2026-08-21T21:55:36.364Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2379,7 +2286,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrer-in-bku-fachmann-fachfrau-bahntransport-efz/506fe27c-fc05-4b15-b203-96edc922de15",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:16.913Z",
+      "crawledAt": "2026-08-21T21:55:35.796Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2455,7 +2362,7 @@
       "url": "https://job.so.ch/offene-stellen/schulhilfe/50d811d9-d397-4989-8dbf-55ad145fabb8",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:16.342Z",
+      "crawledAt": "2026-08-21T21:55:35.220Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2535,7 +2442,7 @@
       "url": "https://job.so.ch/offene-stellen/fachexperte-fachexpertin-wasserversorgung/9dc40023-9687-4d3a-b74c-c3a39f66ab47",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:15.761Z",
+      "crawledAt": "2026-08-21T21:55:34.575Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2615,7 +2522,7 @@
       "url": "https://job.so.ch/offene-stellen/steuerrevisor-in/ae3115fc-92db-45ad-ae9b-3b3fb77ede09",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:15.172Z",
+      "crawledAt": "2026-08-21T21:55:33.985Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2689,12 +2596,13 @@
         "de": "Das Departement für Bildung, Kultur und Sport (DBKS) des Kantons Solothurn umfasst das Volksschulamt, das Amt für Berufsbildung, Mittel- und Hochschulen, das Amt für Kultur und Sport sowie das Departementssekretariat. Im Departementssekretariat angesiedelt ist die zentrale Kompetenz- und Anlaufstelle Kommunikation, die den Departementsvorsteher, die Departementssekretärin sowie die Amtsleiter bei sämtlichen Kommunikationsaufgaben berät und unterstützt. Für die Abteilung Kommunikation suchen wir per 01.11.2026 oder nach Vereinbarung am Standort Solothurn eine/-n Kommunikationsbeauftragte/-r, 60-80%.\n\nIhre Verantwortung\n\n• In Ihrer Funktion konzipieren, planen und koordinieren Sie die interne und externe Kommunikation bzw. Öffentlichkeitsarbeit im DBKS.\n\n• Sie verfassen oder bearbeiten verschiedenste Texte und Kommunikationsinhalte sowohl für das laufende Tagesgeschäft wie auch für besondere und anspruchsvolle Situationen.\n\n• Als zentrale Ansprechperson für Medienschaffende koordinieren oder verfassen Sie Medienmitteilungen, Stellungnahmen und Medienauskünfte.\n\n• In enger Zusammenarbeit mit der Departementssekretärin und den Ämtern führen Sie den internen elektronischen Kommunikationskanal des Departements.\n\n• Sie planen, erarbeiten und pflegen moderne Kommunikationskonzepte und -prozesse und entwickeln zeitgemässe Medienstrategien.\n\nIhr Profil\n\n• Sie verfügen über einen Abschluss einer Fachhochschule oder Universität im Bereich Kommunikation, idealerweise ergänzt durch eine Weiterbildung im Bereich PR, Kommunikationsmanagement oder Journalismus. Zudem weisen Sie mehrjährige Berufserfahrung in einer Unternehmenskommunikation oder im Journalismus auf.\n\n• Hervorragende redaktionelle Fähigkeiten sowie eine stilsichere Ausdrucksweise in Deutsch in Wort und Schrift zeichnen Sie aus, wobei Sie diese sowohl in analogen als auch in digitalen Formaten wie Internet und Social Media gewinnbringend einsetzen.\n\n• Sie arbeiten selbstständig und strukturiert mit Blick auf das Wesentliche. Auch komplexe oder sensible Inhalte formulieren Sie verständlich, adressatengerecht, der Situation angepasst und ansprechend. Vorausschauend und zielorientiert bringen Sie Projekte mit hoher Umsetzungskraft und der nötigen Flexibilität voran.\n\n• Ein wertschätzender Umgang, Teamfähigkeit und Diskretion zeichnen Ihre Persönlichkeit aus.\n\n• Sie besitzen Kenntnisse und ausgeprägte Fähigkeiten zur schnellen und flexiblen Reaktion im Alltag und in Krisensituationen (mündlich und schriftlich).\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDr. iur. Gabriela Küpfer\nDepartementssekretärin\n032 627 29 07\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le Département de l'éducation, de la culture et des sports (DBKS) du canton de Soleure comprend le Bureau de l'enseignement primaire, le Bureau de l'enseignement professionnel, l'enseignement central et supérieur, le Bureau de la culture et des sports et le Secrétariat départemental. Le secrétariat départemental est le centre de compétence et de coordination de la communication, qui conseille et soutient le chef de département, le secrétaire de département et les chefs de bureau dans toutes les tâches de communication. Pour le service des communications, nous cherchons un agent des communications, 60-80%, au 01.11.2026 ou par accord à l'endroit de Soleure.\n\nVotre responsabilité\n\n• Dans votre rôle, vous concevez, planifiez et coordonnez les communications internes et externes. Relations publiques dans le DBKS.\n\n• Ils écrivent ou édifient une grande variété de textes et de contenus de communication à la fois pour les affaires quotidiennes et pour les situations spéciales et exigeantes.\n\n• En tant que point de contact central pour les professionnels des médias, vous coordonnez ou rédigez des communiqués de presse, des déclarations et des informations sur les médias.\n\n• En étroite collaboration avec le secrétaire et les bureaux départementaux, vous gérerez le canal de communication électronique interne du département.\n\n• Ils planifient, développent et maintiennent des concepts et des processus de communication modernes et élaborent des stratégies médiatiques contemporaines.\n\nVotre profil\n\n• Vous avez un diplôme d'un collège technique ou d'une université dans le domaine de la communication, idéalement complété par une formation continue dans le domaine des relations publiques, de la gestion de la communication ou du journalisme. Vous avez également plusieurs années d'expérience professionnelle en communication d'entreprise ou en journalisme.\n\n• D'excellentes compétences éditoriales ainsi qu'une expression élégante en allemand en paroles et en écriture vous distinguent, en les utilisant avantageusement dans des formats analogiques et numériques comme Internet et les médias sociaux.\n\n• Ils travaillent de manière indépendante et structurée en vue de l'essentiel. Vous formulez également un contenu complexe ou sensible dans un langage compréhensible, adressable, adapté à la situation et attrayant. prospective et orientée vers les objectifs, vous avancez des projets avec une grande puissance de mise en œuvre et la flexibilité nécessaire.\n\n• Une approche reconnaissante, le travail d'équipe et la discrétion caractérisent votre personnalité.\n\n• Ils ont des connaissances et des compétences solides pour une réponse rapide et flexible dans la vie quotidienne et dans les situations de crise (verbal et écrit).\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nDocteur Iur. Gabriela Küpfer\nSecrétaire du Département\n032 627 29 07\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://job.so.ch/offene-stellen/kommunikationsbeauftragte-r/93d5119f-0891-46d8-8d50-54e6db1eab0f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:04:14.570Z",
+      "crawledAt": "2026-08-21T21:55:33.410Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2715,8 +2623,6 @@
       "previousSlugs": [
         "kommunikationsbeauftragte-r-60-80-kanton-solothurn-solothurn",
         "agent-de-communication-r-60-80-kanton-solothurn-solothurn",
-        "responsabile-delle-comunicazioni-60-80-kanton-solothurn-solothurn",
-        "kommunikationsbeauftragte-r-60-80-kanton-solothurn",
         "responsabile-contabile-80-100-kanton-solothurn-solothurn",
         "accounting-officer-80-100-kanton-solothurn-solothurn",
         "sachbearbeiter-in-rechnungswesen-80-100-kanton-solothurn-solothurn",
@@ -2724,12 +2630,13 @@
         "sachbearbeiter-in-stipendien-e-rechnungswesen-50-kanton-solothurn",
         "personnel-in-scholarships-and-accounting-50-kanton-solothurn-solothurn",
         "sachbearbeiter-in-stipendien-und-rechnungswesen-50-kanton-solothurn-solothurn",
-        "personnel-en-bourses-et-comptabilite-50-kanton-solothurn-solothurn"
+        "personnel-en-bourses-et-comptabilite-50-kanton-solothurn-solothurn",
+        "responsabile-delle-comunicazioni-60-80-kanton-solothurn-solothurn",
+        "kommunikationsbeauftragte-r-60-80-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kommunikationsbeauftragte-r-60-80-kanton-solothurn-solothurn",
-          "responsabile-delle-comunicazioni-60-80-kanton-solothurn-solothurn",
           "responsabile-contabile-80-100-kanton-solothurn-solothurn",
           "accounting-officer-80-100-kanton-solothurn-solothurn",
           "sachbearbeiter-in-rechnungswesen-80-100-kanton-solothurn-solothurn",
@@ -2737,22 +2644,23 @@
           "sachbearbeiter-in-stipendien-e-rechnungswesen-50-kanton-solothurn",
           "personnel-in-scholarships-and-accounting-50-kanton-solothurn-solothurn",
           "sachbearbeiter-in-stipendien-und-rechnungswesen-50-kanton-solothurn-solothurn",
-          "personnel-en-bourses-et-comptabilite-50-kanton-solothurn-solothurn"
+          "personnel-en-bourses-et-comptabilite-50-kanton-solothurn-solothurn",
+          "responsabile-delle-comunicazioni-60-80-kanton-solothurn-solothurn"
         ],
         "en": [
           "kommunikationsbeauftragte-r-60-80-kanton-solothurn-solothurn",
           "accounting-officer-80-100-kanton-solothurn-solothurn"
         ],
-        "fr": [
-          "kommunikationsbeauftragte-r-60-80-kanton-solothurn-solothurn",
-          "agent-de-communication-r-60-80-kanton-solothurn-solothurn",
-          "kommunikationsbeauftragte-r-60-80-kanton-solothurn",
-          "comptable-80-100-kanton-solothurn-solothurn"
-        ],
         "de": [
           "sachbearbeiter-in-rechnungswesen-80-100-kanton-solothurn-solothurn",
           "sachbearbeiter-in-stipendien-e-rechnungswesen-50-kanton-solothurn",
           "sachbearbeiter-in-stipendien-und-rechnungswesen-50-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "kommunikationsbeauftragte-r-60-80-kanton-solothurn-solothurn",
+          "agent-de-communication-r-60-80-kanton-solothurn-solothurn",
+          "comptable-80-100-kanton-solothurn-solothurn",
+          "kommunikationsbeauftragte-r-60-80-kanton-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-14T22:03:30.429Z",
@@ -2767,8 +2675,7 @@
           "maxValue": 130000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
