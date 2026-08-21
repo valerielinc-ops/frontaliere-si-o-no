@@ -3709,6 +3709,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquistare-casa-appenzello-interno.title': 'Buying a house in Appenzello Interno: mortgages and taxes',
     'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Operational guide for the purchase of real estate in Appenzello Interno. Learn about transfer taxes, notary fees, mortgage sustainability, and registration procedures.',
     'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Traditional Appenzell farmhouse with painted wooden shutters, green meadows and mountains in the background',
+    'blog.article.diritto-locazione-norme-svizzera.title': 'Lease law in Switzerland: rules and safeguards',
+    'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Learn about the federal rules governing the rental market-from security deposits to cancellation and rent dispute procedures.',
+    'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Modern residential building in Switzerland',
 };
 
 export default blogMetaChEn;
