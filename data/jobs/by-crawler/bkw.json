@@ -24917,7 +24917,7 @@
       "title": "Finance Systems Analyst FP&A",
       "titleByLocale": {
         "it": "Finanza Systems Analista FP&A",
-        "en": "Finance Systems Analyst FP&A",
+        "en": "Financial Systems Analyst FP&A",
         "de": "Finanzen Systems Analyst FP&A",
         "fr": "Finance Systems Analyste FP&A"
       },
@@ -24962,7 +24962,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:33:38.723Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -24974,7 +24973,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-5e8cdf3a647d",
@@ -26040,7 +26040,7 @@
       "title": "SAP Vendor Manager",
       "titleByLocale": {
         "it": "Responsabile Fornitori SAP",
-        "en": "SAP Vendor Manager",
+        "en": "Vendor manager",
         "de": "SAP Vendor Manager",
         "fr": "Gestionnaire de fournisseurs SAP"
       },
@@ -27813,7 +27813,7 @@
       "title": "Brandschutzfachmann:frau (alle)",
       "titleByLocale": {
         "it": "Specialista nella protezione antincendio (tutti)",
-        "en": "Brandschutzfachmann:frau (alle)",
+        "en": "Fire protection specialist:woman (all)",
         "de": "Brandschutzfachmann:frau (alle)",
         "fr": "Spécialiste de la protection incendie (tous)"
       },
@@ -27871,7 +27871,6 @@
       "localeMismatchSuppressedLen": 1352,
       "retranslationAttempts": 5,
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -27883,7 +27882,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-6194e508000f",
