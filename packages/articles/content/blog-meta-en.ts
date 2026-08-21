@@ -10431,6 +10431,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-monno-lavorare-grigioni.title': 'Living in Monno and working in Graubünden as a border worker',
     'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Practical guide for those living in Monno and working in Switzerland: taxation, new agreement, contributions and income management between Italy and the Canton of Graubünden.',
     'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Alpine landscape with mountain road',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Living in Hammer and working in Graubünden as a border worker',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'New Frontier Agreement: what changes for Ticino-Italy border workers',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Ticino-Italy frontiers',
 };
 
 export default blogMetaEn;
