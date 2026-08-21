@@ -1239,6 +1239,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-appenzello-esterno': { it: 'assegni-familiari-appenzello-esterno', en: 'family-allowances-appenzell-ausserrhoden', de: 'familienzulagen-appenzell-ausserrhoden', fr: 'allocations-familiales-appenzell-rhodes-exterieures' },
  'asilo-custodia-appenzello-esterno': { it: 'asilo-custodia-appenzello-esterno', en: 'childcare-daycare-appenzell-rhodes-outer', de: 'kinderbetreuung-appenzell-ausserrhoden-kosten', fr: 'garde-enfants-appenzell-rhodes-exterieures' },
  'casa-appenzello-esterno-acquisto-mutuo': { it: 'casa-appenzello-esterno-acquisto-mutuo', en: 'buy-house-appenzello-esterno-mortgage', de: 'haus-kaufen-appenzello-hypothek', fr: 'acheter-maison-appenzello-hypotheque' },
+ 'comprare-casa-appenzello-esterno-mutui-tasse': { it: 'comprare-casa-appenzello-esterno-mutui-tasse', en: 'buy-house-appenzell-outer-rhodes-mortgages-taxes', de: 'haus-kaufen-appenzell-ausserrhoden-hypotheken-steuern', fr: 'acheter-maison-appenzell-externes-hypotheques-taxes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
