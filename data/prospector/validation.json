@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-08-21T11:16:04.780Z",
+  "tally": {
+    "good": 1,
+    "weak": 0,
+    "bad": 0,
+    "insufficient": 0
+  },
+  "promotedVacancies": 2,
+  "reports": [
+    {
+      "companyKey": "cippatrasporti",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 354,
+          "status": 200
+        },
+        {
+          "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 323,
+          "status": 200
+        }
+      ],
+      "companyName": "Cippà Trasporti S.A.",
+      "companyHost": "cippatrasporti.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": []
+    }
+  ]
+}

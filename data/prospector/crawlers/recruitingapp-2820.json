@@ -1,0 +1,20 @@
+{
+  "companyKey": "recruitingapp-2820",
+  "companyName": "Jobs",
+  "companyHost": "jobs.sites.be.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.jobs.sites.be.ch/de/start/jobs.html"
+  ],
+  "detailTemplate": "/de/start/jobs/*",
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    ".css-47gkuc{padding-bottom:25px;} .css-1ii77j6{line-height:0;overflow:hidden;height:205px;}.css-1ii77j6 img{width:100%;-webkit-transition:all 250ms ease-in-out;",
+    "<img srcSet=\"https://newweb.imgix.net/content/dam/jobs_sites/bilder/de/jobs/Keyvisual-PA_SocialMedia_CristinaMoreno_02.jpg?ixlib=js-3.5.1&auto=format%2Ccompress",
+    "<img srcSet=\"https://newweb.imgix.net/content/dam/jobs_sites/bilder/de/jobs/Bilden%20Sie%20die%20Zukunft.jpg?ixlib=js-3.5.1&auto=format%2Ccompress&fit=crop&w=32",
+    ".css-x3wokz{width:32px;height:32px;} Mehr erfahren zum Bewerbu"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:05.161Z"
+}

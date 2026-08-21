@@ -1,0 +1,18 @@
+{
+  "companyKey": "recruitingapp-2861",
+  "companyName": "Bewerbermanagement EPI und Klinik Lengg Stellen",
+  "companyHost": "recruitingapp-2861.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2861.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Jobs/1",
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Stellen",
+    "Alle Filter"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:11.287Z"
+}
