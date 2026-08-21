@@ -25,6 +25,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { parse } from 'yaml';
+import { articleIdFromLedgerEntry } from '../scripts/ci/bfs-announcement-article-exists.mjs';
 
 const WORKFLOW = new URL('../.github/workflows/refresh-bfs-stats.yml', import.meta.url);
 const PROBE = new URL('../scripts/ci/bfs-announcement-article-exists.mjs', import.meta.url);
@@ -110,5 +111,37 @@ describe('la sonda fallisce APERTA, mai chiusa', () => {
     const dispatchStep = steps.find((s) => s.id === 'dispatch')!;
     expect(dispatchStep.run).toContain('stats-bfs://${NEW_QUARTER}');
     expect(probeSource).toContain('`stats-bfs://${q}`.toLowerCase()');
+  });
+});
+
+describe('articleIdFromLedgerEntry legge entrambe le forme del ledger (#5341 recurrence)', () => {
+  // Il corpus ha iniziato a scrivere `{ articleId, ts, keyForm }` per le chiavi
+  // piu' recenti (osservato 2026-08-19 su `stats-bfs://2026-q2` stessa), mentre
+  // le chiavi piu' vecchie restano stringa nuda. Un probe che accettasse solo la
+  // stringa avrebbe letto la nuova forma come "chiave assente" — il falso
+  // negativo che ha fatto riaprire #5341 dopo che l'articolo era gia' live.
+  it('forma legacy: valore stringa nuda', () => {
+    expect(articleIdFromLedgerEntry('frontaliere-ticino-statistica-2026-q1')).toBe(
+      'frontaliere-ticino-statistica-2026-q1',
+    );
+  });
+
+  it('forma nuova: oggetto { articleId, ts, keyForm }', () => {
+    expect(
+      articleIdFromLedgerEntry({
+        articleId: 'frontalieri-ticino-crescita-q2-2026',
+        ts: '2026-08-19T20:24:11.490Z',
+        keyForm: 2,
+      }),
+    ).toBe('frontalieri-ticino-crescita-q2-2026');
+  });
+
+  it('chiave assente resta assente', () => {
+    expect(articleIdFromLedgerEntry(undefined)).toBeUndefined();
+  });
+
+  it('oggetto senza articleId stringa non produce un falso positivo', () => {
+    expect(articleIdFromLedgerEntry({ ts: '2026-08-19T20:24:11.490Z' })).toBeUndefined();
+    expect(articleIdFromLedgerEntry({ articleId: 42 })).toBeUndefined();
   });
 });
