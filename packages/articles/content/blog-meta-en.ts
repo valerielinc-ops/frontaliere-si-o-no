@@ -10422,6 +10422,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Living Valdisotto, working in Graubünden: border taxation',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Tax at source, AVS and LAMal: what to know about taxation and social security for those who live in Valdisotto and work in Graubünden as a border worker',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Alpine border landscape between Ticino and Grisons, morning view',
+    'blog.article.caspoggio-grigioni-frontaliere.title': 'Living Caspoggio, working in Graubünden: border guide',
+    'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontier from Caspoggio to Grisons: taxation, AVS/LPP/LAMal, G permit, double taxation and practical procedure to move.',
+    'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Alpine mountain landscape representing the Swiss-Italian border region between Caspoggio and Graubünden',
 };
 
 export default blogMetaEn;

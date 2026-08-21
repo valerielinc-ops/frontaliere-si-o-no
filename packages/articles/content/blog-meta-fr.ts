@@ -10424,6 +10424,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Vivre Valdisotto, travailler Grisons : procureur frontalier',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Impôt à la source, AVS et LAMal : ce qu\'il faut savoir sur la fiscalité et la prévoyance pour ceux qui vivent à Valdisotto et travaillent dans les Grisons en tant que frontalier',
     'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Paysage alpin frontiere Tessin-Grisons, vallee de Locarno',
+    'blog.article.caspoggio-grigioni-frontaliere.title': 'Vivre Caspoggio, travailler Grisons : guide frontalier',
+    'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontière de Caspoggio aux Grisons : fiscalité, AVS/LPP/LAMal, permis G, double imposition et procédure pratique pour se déplacer.',
+    'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Paysage alpin montagneux symbolisant la région frontalière entre Caspoggio et Grisons',
 };
 
 export default blogMetaFr;

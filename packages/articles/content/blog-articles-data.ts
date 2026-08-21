@@ -31206,6 +31206,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'caspoggio-grigioni-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-21T19:52:43.713Z',
+ image: '/images/blog/caspoggio-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

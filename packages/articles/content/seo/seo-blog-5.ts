@@ -73898,6 +73898,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caspoggio-grigioni-frontaliere': {
+    title: 'Vivere Caspoggio, lavorare Grigioni: guida frontaliere',
+    description: 'Frontaliere Caspoggio-Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione, Nuovo Accordo 2024 e procedura trasferimento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, caspoggio, lavorare, grigioni',
+    ogTitle: 'Vivere Caspoggio, lavorare Grigioni: frontaliere',
+    ogDescription: 'Caspoggio-Grigioni: tassazione doppia, imposta fonte svizzera, IRPEF Italia, AVS/LPP/LAMal, Nuovo Accordo 2024, permesso G, franchigia INPS, checklist trasferimento e scadenze fiscali annuali.',
+    canonicalPath: '/articoli-frontaliere/caspoggio-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere Caspoggio, lavorare Grigioni: guida frontaliere",
+      "description": "Frontaliere Caspoggio-Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione, Nuovo Accordo 2024 e procedura trasferimento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caspoggio-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino di montagna svizzera con valle, simbolo della regione di confine tra Caspoggio e Grigioni"
+      },
+      "datePublished": "2026-08-21T19:52:43+00:00",
+      "dateModified": "2026-08-21T19:52:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caspoggio-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
