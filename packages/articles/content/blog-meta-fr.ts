@@ -10403,6 +10403,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.title': 'Vivre à Musso et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.excerpt': 'Musso, au Tessin, est une commune qui offre une bonne qualité de vie à ses habitants. Cependant, pour les frontaliers, travailler au Tessin peut présenter certains défis.',
     'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier travaille à Musso, dans le canton du Tessin.',
+    'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.title': 'Travailler en Ticino, vivre à Comabbio : les clés',
+    'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.excerpt': 'Impôt à la source, nouvel accord fiscal, double imposition, ristournes, permis G/B',
+    'blog.article.vivere-comabbio-lavorare-ticino-frontaliere.imageAlt': 'Image d\'un travailleur frontalier à Comabbio avec une vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

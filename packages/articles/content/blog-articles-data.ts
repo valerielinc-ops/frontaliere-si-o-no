@@ -31143,6 +31143,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-comabbio-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-21T15:13:05.590Z',
+ image: '/images/blog/vivere-comabbio-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
