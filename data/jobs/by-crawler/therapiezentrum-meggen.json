@@ -1,6 +1,6 @@
 {
   "crawlerKey": "therapiezentrum-meggen",
-  "assembledAt": "2026-08-21T09:56:25.966Z",
+  "assembledAt": "2026-08-21T21:26:27.922Z",
   "jobs": [
     {
       "id": "therapiezentrum-meggen-psychotherapie-stellenausschreibung-erfahren-mit-z-7c520020f93c",
@@ -35,7 +35,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:23.269Z",
+      "crawledAt": "2026-08-21T21:26:25.386Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -89,15 +89,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:41:04.793Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -135,7 +135,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:23.034Z",
+      "crawledAt": "2026-08-21T21:26:25.206Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
