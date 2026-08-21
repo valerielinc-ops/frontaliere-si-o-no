@@ -7849,7 +7849,8 @@
       },
       "addressLocality": "Pratteln, Basel-Landschaft",
       "addressRegion": "BL",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "id": "company-npv7em",
@@ -9122,7 +9123,9 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-w74abi",
@@ -19036,7 +19039,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-1mxh41",
@@ -25789,7 +25793,8 @@
       "country": "CH",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-u0alg5",
@@ -26565,7 +26570,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-ybe3g0",
@@ -27063,7 +27069,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-d0pzxs",
@@ -28362,7 +28369,8 @@
       "country": "CH",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-ex6doa",
@@ -28683,7 +28691,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-tkeh04",

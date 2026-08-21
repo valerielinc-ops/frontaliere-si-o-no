@@ -12554,5 +12554,161 @@
         "pending": 195
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-21T14:02:12.361Z",
+    "label": "before",
+    "total": 27519,
+    "needsRetranslation": 10932,
+    "suppressed": 52,
+    "incomplete": 11868,
+    "complete": 15651,
+    "slotsPresent": 15651,
+    "flaggedAmongSlotsPresent": 256,
+    "verifiedTranslated": 15395,
+    "sourceCopyExcused": 592,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 70,
+      "en": 41,
+      "de": 64,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 10932,
+      "withTimestamp": 10932,
+      "oldestAgeDays": 130.2,
+      "p50AgeDays": 20.7,
+      "p90AgeDays": 72.3,
+      "buckets": {
+        "0-7d": 1870,
+        "7-30d": 5061,
+        "30-90d": 3437,
+        "90-180d": 564,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2055
+      },
+      {
+        "company": "Roche",
+        "pending": 552
+      },
+      {
+        "company": "ACTIV FITNESS",
+        "pending": 480
+      },
+      {
+        "company": "LANDI",
+        "pending": 282
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 260
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 253
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 242
+      },
+      {
+        "company": "BKW",
+        "pending": 228
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 195
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-21T16:28:31.311Z",
+    "label": "after",
+    "total": 27519,
+    "needsRetranslation": 10671,
+    "suppressed": 52,
+    "incomplete": 11850,
+    "complete": 15669,
+    "slotsPresent": 15669,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15669,
+    "sourceCopyExcused": 592,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 70,
+      "en": 41,
+      "de": 63,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 10671,
+      "withTimestamp": 10671,
+      "oldestAgeDays": 130.3,
+      "p50AgeDays": 20.8,
+      "p90AgeDays": 72.2,
+      "buckets": {
+        "0-7d": 1816,
+        "7-30d": 4988,
+        "30-90d": 3354,
+        "90-180d": 513,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2054
+      },
+      {
+        "company": "Roche",
+        "pending": 552
+      },
+      {
+        "company": "ACTIV FITNESS",
+        "pending": 479
+      },
+      {
+        "company": "LANDI",
+        "pending": 282
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 260
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 253
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 242
+      },
+      {
+        "company": "BKW",
+        "pending": 228
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 195
+      }
+    ]
   }
 ]
