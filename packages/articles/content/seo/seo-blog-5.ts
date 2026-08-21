@@ -72923,6 +72923,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-bardello-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Bardello e lavorare in Ticino da frontaliere',
+    description: 'Frontaliere categoria G: Nuovo Accordo 2024, imposta alla fonte, esenzioni €7.500/€10.000, Permesso G, AVS/LPP/LAMal, dichiarazione 730 e procedura completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, bardello, lavorare, categoria',
+    ogTitle: 'Vivere a Bardello e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida completa: normativa Nuovo Accordo Frontalieri 2024, imposta solo Svizzera, esenzioni fiscali €7.500/€10.000, Permesso G, contributi AVS/LPP/LAMal, dichiarazione 730, procedura step-by-step e strumenti calcolo stipendio frontaliere.',
+    canonicalPath: '/articoli-frontaliere/vivere-bardello-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Bardello e lavorare in Ticino da frontaliere",
+      "description": "Frontaliere categoria G: Nuovo Accordo 2024, imposta alla fonte, esenzioni €7.500/€10.000, Permesso G, AVS/LPP/LAMal, dichiarazione 730 e procedura completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-bardello-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea della regione di confine tra Ticino e provincia di Varese con paesaggio montuoso di montagna."
+      },
+      "datePublished": "2026-08-21T05:10:11+00:00",
+      "dateModified": "2026-08-21T05:10:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-bardello-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-21': {
+    title: 'Bollettino del frontaliere – 21 agosto 2026: 617 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 21 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 21 agosto 2026: 617 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 21 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-21',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 21 agosto 2026: 617 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 21 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-21.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 21 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-21T05:36:20+00:00",
+      "dateModified": "2026-08-21T05:36:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-21/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cantello-lavorare-ticino-da-frontaliere': {
+    title: 'Vivere a Cantello e lavorare in Ticino da frontaliere',
+    description: 'I vantaggi e gli svantaggi di vivere a Cantello e lavorare in Ticino da frontaliere, considerazioni pratiche e procedurali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cantello, lavorare, vantaggi',
+    ogTitle: 'Vivere a Cantello e lavorare in Ticino da frontaliere',
+    ogDescription: 'I vantaggi e gli svantaggi di vivere a Cantello e lavorare in Ticino da frontaliere, considerazioni pratiche e procedurali.',
+    canonicalPath: '/articoli-frontaliere/vivere-cantello-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cantello e lavorare in Ticino da frontaliere",
+      "description": "I vantaggi e gli svantaggi di vivere a Cantello e lavorare in Ticino da frontaliere, considerazioni pratiche e procedurali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cantello-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il lago di Lugano vista dal centro di Lugano."
+      },
+      "datePublished": "2026-08-21T05:43:34+00:00",
+      "dateModified": "2026-08-21T05:43:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cantello-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cazzago-brabbia-frontaliere': {
+    title: 'Vivere a Cazzago Brabbia, lavorare in Ticino | Frontaliere Ticino',
+    description: 'Trasferimento a Cazzago Brabbia da frontaliere Ticino: permesso G, tasse 2024, AVS/LPP, LAMal, costo della vita e procedimenti essenziali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cazzago, brabbia, lavorare',
+    ogTitle: 'Vivere a Cazzago Brabbia, lavorare in Ticino',
+    ogDescription: 'Cazzago Brabbia: location strategica per frontalieri Ticino. Scopri tutto su permesso G, nuove tasse 2024 (€7\'500–€10\'000 esenzione), AVS, LPP, LAMal e valichi per il pendolarismo quotidiano verso il Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-cazzago-brabbia-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cazzago Brabbia, lavorare in Ticino",
+      "description": "Trasferimento a Cazzago Brabbia da frontaliere Ticino: permesso G, tasse 2024, AVS/LPP, LAMal, costo della vita e procedimenti essenziali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cazzago-brabbia-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del confine Ticino-Lombardia visto da Mendrisio, con valli Alpine e comuni della Lombardia"
+      },
+      "datePublished": "2026-08-21T06:21:39+00:00",
+      "dateModified": "2026-08-21T06:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cazzago-brabbia-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-galliate-lavorare-ticino-frontaliere': {
+    title: 'Galliate–Ticino: la guida del frontaliere | Frontaliere Ticino',
+    description: 'Residenza a Galliate e lavoro in Ticino: gestisci fiscalità, permesso G, AVS e LAMal. Procedure essenziali, franchigia €10.000, contributi e diritti d\'opzione',
+    keywords: 'frontalieri, ticino, svizzera, italia, galliate, residenza, lavoro, gestire',
+    ogTitle: 'Galliate–Ticino: la guida del frontaliere',
+    ogDescription: 'Trasferirsi a Galliate per lavorare in Ticino: scopri il regime fiscale, la franchigia €10.000 per nuovi frontalieri, i contributi AVS/LPP e il diritto d\'opzione LAMal. Procedura step-by-step e domande frequenti.',
+    canonicalPath: '/articoli-frontaliere/vivere-galliate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Galliate–Ticino: la guida del frontaliere",
+      "description": "Residenza a Galliate e lavoro in Ticino: gestisci fiscalità, permesso G, AVS e LAMal. Procedure essenziali, franchigia €10.000, contributi e diritti d'opzione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-galliate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della regione di confine tra il Varesotto e il Ticino con vallate verdi, cittadine e il valico di Chiasso"
+      },
+      "datePublished": "2026-08-21T06:42:27+00:00",
+      "dateModified": "2026-08-21T06:42:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-galliate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-solbiate-arno-lavorare-ticino': {
+    title: 'Vivere a Solbiate Arno e lavorare in Ticino da frontaliere: cosa considerare',
+    description: 'I vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, solbiate, arno, lavorare',
+    ogTitle: 'Vivere a Solbiate Arno e lavorare in Ticino da frontaliere: cosa considerare',
+    ogDescription: 'I vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/vivere-solbiate-arno-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Solbiate Arno e lavorare in Ticino da frontaliere: cosa considerare",
+      "description": "I vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-solbiate-arno-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che valuta i vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino."
+      },
+      "datePublished": "2026-08-21T07:09:11+00:00",
+      "dateModified": "2026-08-21T07:09:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-solbiate-arno-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -178,15 +178,25 @@ export function fetchPrFiles(number, expected, ghFn, repo = REPO) {
       // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
       // array darebbe piu' valori JSON top-level concatenati, che JSON.parse
       // rifiuta. Quindi filtro a righe e split, che regge n pagine.
-      // `allowFail` NON va usato qui: il `gh()` reale lo traduce in `''`, che
-      // e' indistinguibile da una REST che ha risposto con zero file. Senza
-      // `allowFail` il fallimento arriva come eccezione, cioe' l'unico segnale
-      // che separa «ha risposto» da «non c'e' arrivata» — ed e' quello che
-      // `restConfirmed` deve misurare. Il catch qui sotto lo assorbe comunque.
+      // `allowFail` NON va usato qui: il `gh()` reale lo traduce in `''`, e un
+      // fallimento silenzioso e' un segnale in meno. Senza, arriva come
+      // eccezione e il catch qui sotto lo assorbe. Non e' pero' cio' da cui
+      // dipende l'invariante: `restConfirmed` misura quanti file la REST ha
+      // CONSEGNATO, quindi un `''` da `allowFail` conta come non-conferma
+      // esattamente come un throw. La chiamata resta senza `allowFail` perche'
+      // un errore esplicito e' meglio di uno muto, non perche' il guard ci si
+      // appoggi.
       const raw = ghFn(['api', `repos/${repo}/pulls/${number}/files`, '--paginate',
         '--jq', '.[].filename'], { json: false }) || '';
       const rest = raw.split('\n').map((l) => l.trim()).filter(Boolean);
-      restConfirmed = true;
+      // Conferma vuol dire CONSEGNA, non «non ha lanciato». Una REST che esce 0
+      // a mani vuote, o che rende meno file della GraphQL, non scioglie
+      // l'ambiguita' del cap: la lista puo' essere ancora quella troncata.
+      // (Sta prima della riassegnazione per leggibilita', non per necessita':
+      // `files = rest` avviene solo quando `rest` e' piu' lunga, e in quel ramo
+      // i due ordini danno lo stesso `true`. Misurato: invertirli non rompe
+      // nessun test, ed e' corretto cosi' — e' un mutante equivalente.)
+      restConfirmed = rest.length >= files.length;
       if (rest.length > files.length) files = rest;
     } catch { /* tiene la lista GraphQL, gia' valutata da `complete` */ }
   }

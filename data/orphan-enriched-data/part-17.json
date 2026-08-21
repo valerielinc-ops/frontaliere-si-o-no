@@ -71414,9 +71414,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-produits-frais-coop-genossenschaft-zurich",
-        "en": "vendeur-vendeuse-produits-frais-coop-genossenschaft-zurich",
-        "de": "vendeur-vendeuse-produits-frais-coop-genossenschaft-zurich",
+        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-c4uye5",
+        "en": "fresh-products-sales-associate-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-c4uye5",
         "fr": "vendeur-vendeuse-produits-frais-coop-genossenschaft-zurich"
       },
       "localePaths": {
@@ -71431,6 +71431,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

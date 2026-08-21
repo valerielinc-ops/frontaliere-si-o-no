@@ -47483,6 +47483,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-appenzello-proroga': {
+    title: 'Permesso L Appenzello Interno: scadenza e proroga',
+    description: 'Guida al permesso L nel Canton Appenzello Interno: durata fino a 1 anno, proroga, transizione a permesso B, procedure SEM e requisiti cantonali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, appenzello, interno, scadenza',
+    ogTitle: 'Permesso L Appenzello: validità e proroga',
+    ogDescription: 'Scopri come funziona il permesso L nel Canton Appenzello Interno: durata massima 1 anno, condizioni di proroga, passaggio a permesso B per soggiorno stabile e procedure SEM federali.',
+    canonicalPath: '/articoli-svizzera/permesso-l-appenzello-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Appenzello Interno: scadenza e proroga",
+      "description": "Guida al permesso L nel Canton Appenzello Interno: durata fino a 1 anno, proroga, transizione a permesso B, procedure SEM e requisiti cantonali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-appenzello-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo cantonale svizzero con documenti relativi ai permessi di soggiorno e immigrazione"
+      },
+      "datePublished": "2026-08-21T05:36:40+00:00",
+      "dateModified": "2026-08-21T05:36:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-appenzello-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-voto-27-settembre-neutralita': {
+    title: 'Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata',
+    description: 'L\'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull\'alimentazione è in sostanziale pareggio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, settembre, neutralità, verso',
+    ogTitle: 'Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata',
+    ogDescription: 'L\'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull\'alimentazione è in sostanziale pareggio. Gli elettori più convinti dal testo abitano nella Svizzera italiana e nelle aree rurali.',
+    canonicalPath: '/articoli-svizzera/voto-27-settembre-neutralita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata",
+      "description": "L'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull'alimentazione è in sostanziale pareggio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-27-settembre-neutralita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elettori svizzeri discutono del voto"
+      },
+      "datePublished": "2026-08-21T06:03:50+00:00",
+      "dateModified": "2026-08-21T06:03:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-27-settembre-neutralita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-holcim-acquista-fermacell': {
+    title: 'Holcim acquisisce Fermacell: operazione da 784 milioni',
+    description: 'Il colosso svizzero Holcim annuncia l\'acquisizione della tedesca Fermacell per 784 milioni di franchi. Chiusura dell\'operazione prevista entro il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, holcim, acquisisce, fermacell, operazione',
+    ogTitle: 'Holcim acquista Fermacell per 784 milioni',
+    ogDescription: 'Il gruppo industriale svizzero Holcim ha siglato un accordo per l\'acquisizione della tedesca Fermacell. L\'operazione da 784 milioni di franchi sarà finalizzata nel primo semestre del 2027.',
+    canonicalPath: '/articoli-svizzera/holcim-acquista-fermacell/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Holcim acquisisce Fermacell: operazione da 784 milioni",
+      "description": "Il colosso svizzero Holcim annuncia l'acquisizione della tedesca Fermacell per 784 milioni di franchi. Chiusura dell'operazione prevista entro il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/holcim-acquista-fermacell.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede operativa industriale svizzera in un contesto moderno."
+      },
+      "datePublished": "2026-08-21T06:35:01+00:00",
+      "dateModified": "2026-08-21T06:35:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/holcim-acquista-fermacell/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-votazioni-settembre-neutralita-alimentazione': {
+    title: 'Sondaggio gfs: neutralità vicina al no, alimentazione 50-50',
+    description: 'Il primo sondaggio gfs.bern sulle votazioni del 27 settembre: neutralità verso il rifiuto (54%), alimentazione in bilico (49% vs 47%). Analisi regionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, sondaggio, neutralità, vicina, alimentazione',
+    ogTitle: 'Sondaggio gfs: neutralità no, alimentazione 50-50',
+    ogDescription: 'Primo sondaggio gfs.bern per le votazioni federali del 27 settembre: l\'iniziativa sulla neutralità rischia il rifiuto con il 54% contrario, mentre quella sull\'alimentazione è in perfetto equilibrio (49% no, 47% sì). Divergenze regionali e per partiti',
+    canonicalPath: '/articoli-svizzera/votazioni-settembre-neutralita-alimentazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sondaggio gfs: neutralità vicina al no, alimentazione 50-50",
+      "description": "Il primo sondaggio gfs.bern sulle votazioni del 27 settembre: neutralità verso il rifiuto (54%), alimentazione in bilico (49% vs 47%). Analisi regionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-settembre-neutralita-alimentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cittadini svizzeri durante una votazione federale, con fascicoli informativi visibili su tavoli per consultazione"
+      },
+      "datePublished": "2026-08-21T06:53:46+00:00",
+      "dateModified": "2026-08-21T06:53:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-settembre-neutralita-alimentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bcg-utile-semestrale-record': {
+    title: 'BCG utile record: +137,2 milioni nel semestre | Frontaliere Ticino',
+    description: 'La Banca Cantonale Grigione chiude il primo semestre 2026 con utile record di 137,2 milioni CHF, in crescita del 18,2%. Ricavi operativi a 286,3 milioni CHF.',
+    keywords: 'frontalieri, ticino, svizzera, italia, utile, record, milioni, semestre',
+    ogTitle: 'BCG utile record: +137,2 milioni nel semestre',
+    ogDescription: 'La BCG chiude il semestre con utile record di 137,2 milioni CHF (+18,2%). Ricavi operativi a 286,3 milioni (+11,2%). Banca Cantonale Grigione conferma solidità e crescita nel mercato bancario svizzero.',
+    canonicalPath: '/articoli-svizzera/bcg-utile-semestrale-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BCG utile record: +137,2 milioni nel semestre",
+      "description": "La Banca Cantonale Grigione chiude il primo semestre 2026 con utile record di 137,2 milioni CHF, in crescita del 18,2%. Ricavi operativi a 286,3 milioni CHF.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bcg-utile-semestrale-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno di una banca cantonale svizzera con architettura in vetro e pietra"
+      },
+      "datePublished": "2026-08-21T07:14:22+00:00",
+      "dateModified": "2026-08-21T07:14:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bcg-utile-semestrale-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-richiedenti-asilo-severe-misure': {
+    title: 'Richiedenti l\'asilo, Berna chiede misure più severe',
+    description: 'La Svizzera studia misure più severe per i richiedenti asilo del Maghreb che commettono reati. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiedenti, asilo, berna, chiede',
+    ogTitle: 'Richiedenti l\'asilo, Berna chiede misure più severe',
+    ogDescription: 'La Svizzera studia misure più severe per i richiedenti asilo del Maghreb che commettono reati',
+    canonicalPath: '/articoli-svizzera/richiedenti-asilo-severe-misure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiedenti l'asilo, Berna chiede misure più severe",
+      "description": "La Svizzera studia misure più severe per i richiedenti asilo del Maghreb che commettono reati. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiedenti-asilo-severe-misure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane che commette reati in Svizzera"
+      },
+      "datePublished": "2026-08-21T08:01:12+00:00",
+      "dateModified": "2026-08-21T08:01:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/richiedenti-asilo-severe-misure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
