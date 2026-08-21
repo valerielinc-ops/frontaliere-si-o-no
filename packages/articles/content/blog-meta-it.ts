@@ -10354,6 +10354,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-21.imageAlt': 'I numeri del giorno per i frontalieri – 21 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-21.seoDescription': 'Bollettino frontalieri del 21 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-21.ogDescription': 'I numeri del 21 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.title': 'Vivere a Cantello e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.excerpt': 'I vantaggi e gli svantaggi di vivere a Cantello e lavorare in Ticino da frontaliere, considerazioni pratiche e procedurali.',
+    'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.imageAlt': 'Il lago di Lugano vista dal centro di Lugano.',
 };
 
 export default blogMetaIt;
