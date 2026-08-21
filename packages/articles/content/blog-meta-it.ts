@@ -10435,6 +10435,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Vivere a Martello e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'Nuovo Accordo Frontalieri: cosa cambia per i frontalieri Ticino-Italia',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Frontalieri Ticino-Italia',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Vivere a Castione Andevenno e lavorare nei Grigioni',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guida per frontalieri: fiscalità, nuovo accordo, costi e gestione del pendolarismo tra l\'Italia e il Canton Grigioni.',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Panorama alpino nel Cantone dei Grigioni',
 };
 
 export default blogMetaIt;

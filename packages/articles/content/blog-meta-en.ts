@@ -10434,6 +10434,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Living in Hammer and working in Graubünden as a border worker',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'New Frontier Agreement: what changes for Ticino-Italy border workers',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Ticino-Italy frontiers',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Living in Castione Andevenno and working in Graubünden',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guide for border workers: taxation, new agreement, costs and management of commuting between Italy and the Canton of Graubünden.',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Alpine panorama in the Grisons Canton',
 };
 
 export default blogMetaEn;
