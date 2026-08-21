@@ -1232,6 +1232,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-donazione-sciaffusa': { it: 'imposta-successione-donazione-sciaffusa', en: 'shaffhausen-inheritance-donation-tax-rates', de: 'schaffhausen-erbschaft-schenkungsteuer-saetze', fr: 'schaffhouse-impot-succession-donation-taux' },
  'premi-lamal-appenzello-esterno-riduzione': { it: 'premi-lamal-appenzello-esterno-riduzione', en: 'lamal-premiums-appenzell-rhodes-reduction', de: 'krankenkasse-appenzell-ausserrhoden-reduktion', fr: 'primes-lamal-appenzell-rhodes-reduction' },
  'centrale-nucleare-costi-14-43-miliardi': { it: 'centrale-nucleare-costi-14-43-miliardi', en: 'swiss-nuclear-plant-costs-14-43-billion', de: 'schweizer-kernkraftwerk-kosten-14-43-milliarden', fr: 'centrale-nucleaire-suisse-couts-14-43-milliards' },
+ 'premi-franchigie-appenzello-esterno': { it: 'premi-franchigie-appenzello-esterno', en: 'health-insurance-appenzell-outsrhoden-deductibles', de: 'praemien-franchisen-appenzell-ausserrhoden', fr: 'primes-franchises-appenzell-rhodes-exterieures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

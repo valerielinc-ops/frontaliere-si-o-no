@@ -3619,6 +3619,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'Neue Kernanlage: 14 bis 43 Milliarden Franken',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'Ein Bericht der Schweizer Akademien schätzt die Kosten auf 14 bis 43 Milliarden CHF. Staatliche Unterstützung für den Bau eines Kernkraftwerks in der Schweiz erforderlich.',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Luftaufnahme eines Schweizer Atomkraftwerks mit Kühltuermen und Alpenpanorama',
+    'blog.article.premi-franchigie-appenzello-esterno.title': 'Krankenkassenprämien Appenzell Ausserrhoden: Selbstbehalte und Zuschüsse',
+    'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'So funktioniert die Krankenversicherung in Appenzell Ausserrhoden: verfügbare Selbstbehalte, Deckungsmodelle und Verfahren für den Zugang zu Prämienbeiträgen.',
+    'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Schweizer Kantonsgebäude für regionale Gesundheitsdienstleistungen',
 };
 
 export default blogMetaChDe;
