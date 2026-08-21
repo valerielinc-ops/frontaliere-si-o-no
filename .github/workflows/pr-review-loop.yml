@@ -423,7 +423,16 @@ jobs:
           # una PR rebase-only (0 file davvero) da un diff oversize (0
           # dichiarato, file veri): `.files // []` li appiattisce entrambi su
           # lista vuota.
-          expected=$(gh pr view "$PR_NUMBER" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null || echo 0)
+          #
+          # Il `|| echo 0` conflava due stati opposti: «PR oversize, 0 file
+          # dichiarati» e «`gh` non ha risposto». Il primo e' un dato, il
+          # secondo e' un buco, e siccome tutte e tre le chiamate qui sotto
+          # usano lo stesso token sulla stessa API, un'avaria le spegne
+          # insieme e il risultato passava per una PR rebase-only.
+          if ! expected=$(gh pr view "$PR_NUMBER" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null); then
+            expected=0
+            echo "::warning::gh pr view --json changedFiles FALLITO → oracolo assente, non «PR oversize». Il tier puo' scendere a normal su una PR che meriterebbe high."
+          fi
           # `expected` alimenta confronti aritmetici: un valore non numerico
           # (gh muto, campo assente) farebbe fallire `[ -gt ]` e, sotto `set -e`,
           # rimetterebbe lo step esattamente nello stallo che la #6190 chiudeva.
