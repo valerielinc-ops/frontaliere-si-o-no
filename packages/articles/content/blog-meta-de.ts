@@ -10308,6 +10308,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.title': 'Wohnen in Buguggiate und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.excerpt': 'Steuerliche Einstellungen, Verbindungen und empfohlene Zonen für Grenzgänger, die in Buguggiate leben und im Tessin arbeiten',
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.imageAlt': 'Landschaft mit See und Bergen im Tessin',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.title': 'Leben in Lasnigo und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.excerpt': 'Quellensteuer in der Schweiz für Grenzgänger: nur in der Schweiz einbehalten.',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier aus Lasnigo arbeitet in Ticino',
 };
 
 export default blogMetaDe;
