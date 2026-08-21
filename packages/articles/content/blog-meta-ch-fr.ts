@@ -3634,6 +3634,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-esterno.title': 'Allocations familiales Appenzell Extérieur : montants et demande',
     'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Guide complet des allocations familiales en Appenzell Extérieur : comment fonctionne le système fédéral-cantonal, conditions de droit, caisse de compensation et procédure de demande.',
     'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Bureau administratif cantonal suisse avec documents d\'allocations familiales',
+    'blog.article.asilo-custodia-appenzello-esterno.title': 'Garderie et garde d\'enfants : coûts à Appenzell Extérieur',
+    'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Tarifs calculés sur le revenu, allocations cantonales et déductions fiscales : tout sur les crèches, les familles de jour et après l\'école dans le canton d\'Appenzell Extérieur.',
+    'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Enfants jouant dehors dans une structure de garde suisse avec vue sur les Alpes',
 };
 
 export default blogMetaChFr;
