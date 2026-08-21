@@ -1,21 +1,19 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-08-20T21:37:10.323Z",
+  "generatedAt": "2026-08-21T09:49:00.831Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5576,
-  "avgDurationMs": 5576,
+  "unchangedCount": 0,
+  "durationMs": 7294,
+  "avgDurationMs": 7294,
   "durationHistory": [
-    5576
+    7294
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-20",
+      "postedDate": "2026-08-21",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-20T21:37:06.017Z",
+      "crawledAt": "2026-08-21T09:48:55.446Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,9 +75,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-20",
+      "postedDate": "2026-08-21",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-20T21:37:06.780Z",
+      "crawledAt": "2026-08-21T09:48:57.026Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -117,9 +115,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-20",
+      "postedDate": "2026-08-21",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-20T21:37:07.144Z",
+      "crawledAt": "2026-08-21T09:48:57.544Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -157,9 +155,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-08-20",
+      "postedDate": "2026-08-21",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-20T21:37:07.403Z",
+      "crawledAt": "2026-08-21T09:48:58.038Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -176,5 +174,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
