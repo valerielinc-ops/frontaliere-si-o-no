@@ -46,7 +46,20 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Raised 10 -> 20 (issue #5810, chronic recurrence across #4160..#5754):
+    # the "Commit if changed" step's fetch+rebase+push retry loop already
+    # budgets 40 attempts (git-push-with-retry.sh, #4557) to survive main's
+    # write contention, but every one of the six recorded recurrences shows
+    # that step running the FULL remaining job budget and getting cancelled
+    # mid-loop (attempt ~20-26/40), never exhausting its own attempt cap.
+    # The binding constraint was wall-clock, not attempt count. Contention
+    # clusters in the ~1-2h tail of orchestrate-crawlers' twice-daily dispatch
+    # (09:00/21:00 UTC, main sees a push every ~5-8s during that window) and
+    # this hourly job's actual start time drifts under GitHub Actions queueing
+    # load, so it regularly lands inside that tail. 20 min gives the existing
+    # 40-attempt budget realistic room to land a push outside the convoy's
+    # cadence instead of being cut off partway through.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
