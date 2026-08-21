@@ -3673,6 +3673,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-settembre-neutralita-alimentazione.title': 'Gfs-Umfrage: Neutralität nahe Nein, Stromversorgung 50-50',
     'blog.article.votazioni-settembre-neutralita-alimentazione.excerpt': 'Die erste gfs.bern-Umfrage zu den Abstimmungen vom 27. September: Neutralität gegenüber Ablehnung (54%), Ernährung in der Schwebe (49% vs. 47%). Regionale Unterschiede.',
     'blog.article.votazioni-settembre-neutralita-alimentazione.imageAlt': 'Schweizer Bürger bei einer Bundesabstimmung mit informativen Unterlagen zur Konsultation',
+    'blog.article.bcg-utile-semestrale-record.title': 'BCG Rekordgewinn: +137,2 Mio. im Halbjahr',
+    'blog.article.bcg-utile-semestrale-record.excerpt': 'Die Graubündner Kantonalbank schliesst das erste Halbjahr 2026 mit einem Rekordgewinn von CHF 137,2 Mio. ab, ein Plus von 18,2%. Bestätigte Solidität in Graubünden.',
+    'blog.article.bcg-utile-semestrale-record.imageAlt': 'Modernes Bankgebäude mit Glas- und Steinarchitektur, Tageslichtsetting',
 };
 
 export default blogMetaChDe;

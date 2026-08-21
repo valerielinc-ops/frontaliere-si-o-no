@@ -3673,6 +3673,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-settembre-neutralita-alimentazione.title': 'Sondaggio gfs: neutralità vicina al no, alimentazione 50-50',
     'blog.article.votazioni-settembre-neutralita-alimentazione.excerpt': 'Il primo sondaggio gfs.bern sulle votazioni del 27 settembre: neutralità verso il rifiuto (54%), alimentazione in bilico (49% vs 47%). Divergenze regionali.',
     'blog.article.votazioni-settembre-neutralita-alimentazione.imageAlt': 'Cittadini svizzeri durante una votazione federale, con fascicoli informativi visibili su tavoli per consultazione',
+    'blog.article.bcg-utile-semestrale-record.title': 'BCG utile record: +137,2 milioni nel semestre',
+    'blog.article.bcg-utile-semestrale-record.excerpt': 'La Banca Cantonale Grigione chiude il primo semestre 2026 con utile record di 137,2 milioni CHF, in crescita del 18,2%. Solidità confermata nei Grigioni.',
+    'blog.article.bcg-utile-semestrale-record.imageAlt': 'Edificio moderno di una banca cantonale svizzera con architettura in vetro e pietra',
 };
 
 export default blogMetaChIt;

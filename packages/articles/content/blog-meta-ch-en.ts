@@ -3673,6 +3673,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-settembre-neutralita-alimentazione.title': 'Gfs survey: neutrality close to no, power 50-50',
     'blog.article.votazioni-settembre-neutralita-alimentazione.excerpt': 'The first gfs.bern poll on the votes of 27 September: neutrality towards rejection (54%), hovering food (49% vs 47%). Regional differences.',
     'blog.article.votazioni-settembre-neutralita-alimentazione.imageAlt': 'Swiss citizens casting votes in federal ballot, informational materials visible for voter consultation, documentary style',
+    'blog.article.bcg-utile-semestrale-record.title': 'BCG record profit: +137.2 million in the semester',
+    'blog.article.bcg-utile-semestrale-record.excerpt': 'The Cantonal Bank of Grison closed the first half of 2026 with a record profit of CHF 137.2 million, up 18.2%. Solidity confirmed in Graubünden.',
+    'blog.article.bcg-utile-semestrale-record.imageAlt': 'Modern Swiss bank headquarters with glass and stone architecture, daylight setting',
 };
 
 export default blogMetaChEn;

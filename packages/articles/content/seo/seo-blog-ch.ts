@@ -47639,6 +47639,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bcg-utile-semestrale-record': {
+    title: 'BCG utile record: +137,2 milioni nel semestre | Frontaliere Ticino',
+    description: 'La Banca Cantonale Grigione chiude il primo semestre 2026 con utile record di 137,2 milioni CHF, in crescita del 18,2%. Ricavi operativi a 286,3 milioni CHF.',
+    keywords: 'frontalieri, ticino, svizzera, italia, utile, record, milioni, semestre',
+    ogTitle: 'BCG utile record: +137,2 milioni nel semestre',
+    ogDescription: 'La BCG chiude il semestre con utile record di 137,2 milioni CHF (+18,2%). Ricavi operativi a 286,3 milioni (+11,2%). Banca Cantonale Grigione conferma solidità e crescita nel mercato bancario svizzero.',
+    canonicalPath: '/articoli-svizzera/bcg-utile-semestrale-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BCG utile record: +137,2 milioni nel semestre",
+      "description": "La Banca Cantonale Grigione chiude il primo semestre 2026 con utile record di 137,2 milioni CHF, in crescita del 18,2%. Ricavi operativi a 286,3 milioni CHF.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bcg-utile-semestrale-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno di una banca cantonale svizzera con architettura in vetro e pietra"
+      },
+      "datePublished": "2026-08-21T07:14:22+00:00",
+      "dateModified": "2026-08-21T07:14:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bcg-utile-semestrale-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
