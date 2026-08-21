@@ -10329,6 +10329,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Vivre à Monvalle, travailler au Tessin : avantages et inconvénients',
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, commune du district de Lugano, est l\'une des destinations les plus populaires pour les frontaliers qui souhaitent vivre au Tessin et travailler en Suisse.',
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere travaillant en Suisse et vivant à Monvalle',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.title': 'Vivre à Barni, travailler au Tessin : fiscalité frontalière',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour les frontaliers qui vivent à Barni (IT) et travaillent au Tessin (CH) : Permis G, taxe à la source, restaurations, AVS, LPP et LAMal. Comment calculer le net.',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.imageAlt': 'Vue sur Lugano et le lac, symbole de destination de travail pour les frontaliers de Barni',
 };
 
 export default blogMetaFr;

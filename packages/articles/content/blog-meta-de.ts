@@ -10326,6 +10326,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Leben in Monvalle, Arbeiten im Tessin: Vor- und Nachteile',
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, Gemeinde des Bezirks Lugano, ist eines der beliebtesten Reiseziele für Grenzgänger, die im Tessin leben und in der Schweiz arbeiten möchten.',
     'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der in Ticino arbeitet und in Monvalle lebt',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.title': 'Wohnen in Barni, Arbeiten im Tessin: Grenzbesteuerung',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger, die in Barni (IT) leben und im Tessin (CH) arbeiten: Bewilligung G, Quellensteuer, Rückerstattungen, AHV, BVG und KVG. Wie berechnet man das Netto.',
+    'blog.article.vivere-barni-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Lugano und den See, Arbeitsziel für Grenzgänger aus Barni',
 };
 
 export default blogMetaDe;
