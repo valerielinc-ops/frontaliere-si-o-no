@@ -1,16 +1,16 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-08-20T21:45:17.356Z",
-  "total": 3,
+  "generatedAt": "2026-08-21T10:00:51.212Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6412,
-  "avgDurationMs": 6412,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 8068,
+  "avgDurationMs": 8068,
   "durationHistory": [
-    6412
+    8068
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:45:12.452Z",
+      "crawledAt": "2026-08-21T10:00:45.140Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -45,42 +45,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "prada-6c4e57745113",
-      "slug": "runner-prada-sankt-moritz-prada-group-saint-moritz",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA Runner, Sankt Moritz",
-      "location": "Saint Moritz",
-      "canton": "GR",
-      "addressLocality": "Saint Moritz",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:45:12.452Z",
-      "firstSeenAt": "2026-08-03T22:16:33.147Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "addressRegion": "GR",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
+  "removedJobs": [
     {
       "id": "prada-86e7722ee498",
       "slug": "miu-miu-stage-sviluppo-prodotto-calzature-prada-group-montevarchi",
@@ -148,6 +113,42 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
+        "completeness": 19
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "id": "prada-6c4e57745113",
+      "slug": "runner-prada-sankt-moritz-prada-group-saint-moritz",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "PRADA Runner, Sankt Moritz",
+      "location": "Saint Moritz",
+      "canton": "GR",
+      "addressLocality": "Saint Moritz",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-03",
+      "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T10:00:45.140Z",
+      "firstSeenAt": "2026-08-03T22:16:33.147Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "addressRegion": "GR",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 19
       }
     }
