@@ -8,14 +8,19 @@
     "api"
   ],
   "seedUrls": [
+    "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
     "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/",
     "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
     "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
     "https://www.bancasempione.ch/job/private-banking-assistant/"
   ],
   "notes": "WordPress REST API crawler — /wp-json/wp/v2/job. Swiss private bank HQ in Lugano (TI) with offices in Bellinzona, Locarno, Chiasso, and Zurich.",
-  "updatedAt": "2026-08-21T10:21:11.716Z",
+  "updatedAt": "2026-08-21T22:03:24.022Z",
   "seedMetaByUrl": {
+    "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/": {
+      "company": "Banca del Sempione",
+      "companyDomain": "bancasempione.ch"
+    },
     "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/": {
       "company": "Banca del Sempione",
       "companyDomain": "bancasempione.ch"
