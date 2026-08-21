@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-08-21T09:47:45.076Z",
-  "total": 15,
+  "generatedAt": "2026-08-21T21:29:05.415Z",
+  "total": 14,
   "newCount": 0,
-  "updatedCount": 12,
-  "removedCount": 0,
+  "updatedCount": 11,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 13398,
-  "avgDurationMs": 13398,
+  "durationMs": 9607,
+  "avgDurationMs": 9607,
   "durationHistory": [
-    13398
+    9607
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -414,7 +414,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Public Affairs & Government Relations Manager (100%)",
       "slug": "public-affairs-government-relations-manager-100-skyguide-wangen-b-dub-or-geneva-ch",
@@ -423,8 +425,8 @@
       "company": "Skyguide",
       "companyKey": "skyguide-sa",
       "companyDomain": "skyguide.ch",
-      "location": "Wangen b. Düb. &/or Geneva",
-      "addressLocality": "Wangen b. Düb. &/or Geneva",
+      "location": "Wangen b",
+      "addressLocality": "Wangen b",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "canton": "GE",
@@ -454,7 +456,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Technicien·ne de Maintenance - Navigation (80-100%)",
