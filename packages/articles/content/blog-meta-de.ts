@@ -10433,6 +10433,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Leben in Hammer und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'Neues Frontalieri-Abkommen: Was ändert sich für Grenzgänger Tessin-Italien?',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Ticino-Italien Grenzgänger',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Wohnen in Castione Andevenno und Arbeiten in Graubünden',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Leitfaden für Grenzgänger: Besteuerung, neues Abkommen, Kosten und Verwaltung des Pendelverkehrs zwischen Italien und dem Kanton Graubünden.',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Alpenpanorama im Kanton Graubünden',
 };
 
 export default blogMetaDe;

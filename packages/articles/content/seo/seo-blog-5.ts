@@ -74054,6 +74054,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-castione-andevenno-lavorare-grigioni': {
+    title: 'Vivere a Castione Andevenno e lavorare nei Grigioni',
+    description: 'Guida per frontalieri: fiscalità, nuovo accordo 2024, franchigia 10.000 euro e gestione previdenziale per chi lavora nel Canton Grigioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, castione, andevenno, lavorare',
+    ogTitle: 'Vivere a Castione Andevenno e lavorare nei Grigioni',
+    ogDescription: 'Guida pratica per frontalieri: scopri le regole fiscali, l\'accordo 2024, la franchigia IRPEF e come gestire la busta paga lavorando nel Canton Grigioni.',
+    canonicalPath: '/articoli-frontaliere/vivere-castione-andevenno-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Castione Andevenno e lavorare nei Grigioni",
+      "description": "Guida per frontalieri: fiscalità, nuovo accordo 2024, franchigia 10.000 euro e gestione previdenziale per chi lavora nel Canton Grigioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-castione-andevenno-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama alpino nel Cantone dei Grigioni"
+      },
+      "datePublished": "2026-08-21T23:28:26+00:00",
+      "dateModified": "2026-08-21T23:28:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-castione-andevenno-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

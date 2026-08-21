@@ -10436,6 +10436,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Vivre à Marteau et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'Nouvel accord frontalier : ce qui change pour les frontaliers Tessin-Italie',
     'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliers Ticino-Italie',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Vivre à Castione Andevenno et travailler dans les Grisons',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guide pour les frontaliers : fiscalité, nouvel accord, coûts et gestion des déplacements entre l\'Italie et le canton des Grisons.',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Panorama alpin dans le canton des Grisons',
 };
 
 export default blogMetaFr;
