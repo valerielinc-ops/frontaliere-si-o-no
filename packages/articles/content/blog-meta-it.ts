@@ -10429,6 +10429,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Vivere a Spriana, lavorare in Grigioni da frontaliere',
     'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: Nuovo Accordo 2024, imposta alla fonte solo Svizzera, esenzione €7.500-€10.000, Permesso G, AVS/LPP e ristorno italiano.',
     'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Valico alpino tra Alpi italiane e Grigioni svizzeri con checkpoint frontaliero nella nebbia mattutina',
+    'blog.article.vivere-monno-lavorare-grigioni.title': 'Vivere a Monno e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Guida pratica per chi vive a Monno e lavora in Svizzera: fiscalità, nuovo accordo, contributi e gestione del reddito tra Italia e Cantone dei Grigioni.',
+    'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Paesaggio alpino con strada di montagna',
 };
 
 export default blogMetaIt;

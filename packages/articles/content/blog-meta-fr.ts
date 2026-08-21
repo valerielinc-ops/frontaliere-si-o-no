@@ -10430,6 +10430,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Vivre à Spriana, travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Guide complet pour les frontaliers : Nouvel accord 2024, impôt à la source uniquement en Suisse, exonération € 7500- € 10 000, permis G, AVS/LPP et ristourne italienne.',
     'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Col alpin entre les Alpes italiennes et les Grisons suisses avec poste frontière dans la brume matinale',
+    'blog.article.vivere-monno-lavorare-grigioni.title': 'Vivre à Monno et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Guide pratique pour ceux qui vivent à Monno et travaillent en Suisse : fiscalité, nouvel accord, cotisations et gestion des revenus entre l\'Italie et le canton des Grisons.',
+    'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Paysage alpin avec route de montagne',
 };
 
 export default blogMetaFr;

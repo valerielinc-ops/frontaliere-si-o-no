@@ -3745,6 +3745,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS e complementari a Zurigo: guida al minimo vitale',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Nel cantone Zurigo la cassa di compensazione calcola la rendita AVS e interviene con prestazioni complementari se il primo pilastro non copre il minimo vitale.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Consulenza previdenziale AVS e prestazioni complementari in Svizzera presso cassa di compensazione cantonale',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'Rendita AVS a Zurigo: come funziona il primo pilastro',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Guida al sistema AVS nel Cantone Zurigo: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Ufficio amministrativo svizzero con desk per prestazioni sociali AVS e cassa di compensazione',
 };
 
 export default blogMetaChIt;

@@ -3745,6 +3745,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AHV und Ergänzungen in Zürich: Leitfaden zum Lebensminimum',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Im Kanton Zürich berechnet die Ausgleichskasse die AHV-Rente und greift mit Ergänzungsleistungen ein, wenn die erste Säule nicht das Existenzminimum abdeckt.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Schweizer Altersvorsorge: AHV-Rente und Zusatzleistungen bei der kantonalen Ausgleichskasse',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'AHV-Rente in Zürich: So funktioniert die erste Säule',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Leitfaden zum AHV-System im Kanton Zürich: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Schweizer Verwaltungsgebäude mit Schalter für Sozialversicherung und AVS-Ausgleichskasse',
 };
 
 export default blogMetaChDe;

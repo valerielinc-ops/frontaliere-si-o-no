@@ -3745,6 +3745,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS and complementary in Zurich: a guide to the bare minimum',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'In the canton of Zurich, the compensation fund calculates the AVS annuity and intervenes with complementary benefits if the first pillar does not cover the vital minimum.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Swiss pension advisory: AVS retirement benefits and supplementary benefits consultation at cantonal compensation fund',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'AVS Income in Zurich: how the first pillar works',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Guide to the AVS system in the Canton of Zurich: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Swiss administrative office with social security desk and AVS compensation fund counter',
 };
 
 export default blogMetaChEn;
