@@ -147,6 +147,16 @@ jobs:
           # l'App slug è allowlistato in #2881). Senza token → exit warning (inerte).
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          # Fairness di quota (2026-08-21): la quota Claude è condivisa coi run
+          # del corpus, e il beacon peer è a senso unico (il corpus cede al
+          # sito). Misurato: il sito consuma ogni finestra di reset e il corpus
+          # è passato da 40 success/giorno a 1 con la coda ferma a 37. Nell'ora
+          # UTC dopo il reset tipico (07:00Z osservato), se la coda del corpus
+          # supera la soglia, QUESTO drainer non promuove e lascia la finestra
+          # al peer. Solo qui: il corpus non ha (e non deve avere) queste env.
+          FAIRNESS_PEER_REPO: nanakokyobashi-rgb/frontaliere-articles
+          FAIRNESS_HOURS_UTC: '7'
+          FAIRNESS_PEER_QUEUE_MIN: '10'
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::warning::Nessun token usabile (App/PAT assenti) → drainer inerte (promozione non triggererebbe issue-fix)."

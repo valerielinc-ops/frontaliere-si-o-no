@@ -50,6 +50,9 @@
  *   ISSUE_NUMBER              opzionale: la issue di questa run, da ri-accodare.
  *   QUOTA_BEACON_LOOKBACK_H   default 24.
  *   QUOTA_BEACON_MAX_ISSUES   default 12.
+ *   QUOTA_LBL_ACTIVE          label della run corrente (default `agent:fix`;
+ *                             `issue-decompose.yml` passa `agent:decompose`).
+ *   QUOTA_LBL_REQUEUE         coda di ri-accodo (default `agent:fix-queued`).
  *   DRY_RUN                   "1" → nessuna scrittura, output comunque emesso.
  *   GITHUB_OUTPUT             file di output dello step Actions.
  */
@@ -66,6 +69,17 @@ const LOOKBACK_H = Number(process.env.QUOTA_BEACON_LOOKBACK_H || 24);
 const MAX_ISSUES = Number(process.env.QUOTA_BEACON_MAX_ISSUES || 12);
 const LBL_FIX = 'agent:fix';
 const LBL_QUEUED = 'agent:fix-queued';
+// Stadio di decomposizione (2026-08-21): stesso gate, label diverse. Il
+// chiamante (`issue-decompose.yml`) dichiara con QUALI label questa run è in
+// volo e in quale coda va ri-accodata; il default preserva byte-per-byte il
+// comportamento di `issue-fix.yml`. La SCANSIONE del beacon invece copre
+// sempre entrambe le famiglie: la quota è una sola, e un beacon lasciato da
+// una run di fix vale anche per una di decompose (e viceversa). Una label
+// inesistente costa una `gh issue list` fallita → lista vuota (allowFail).
+const LBL_ACTIVE = process.env.QUOTA_LBL_ACTIVE || LBL_FIX;
+const LBL_REQUEUE = process.env.QUOTA_LBL_REQUEUE || LBL_QUEUED;
+const LBL_DECOMP = 'agent:decompose';
+const LBL_DECOMP_QUEUED = 'agent:decompose-queued';
 
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 
@@ -140,7 +154,7 @@ function main() {
   const nowSec = Math.floor(nowMs / 1000);
 
   const candidates = beaconCandidates(
-    [listIssues(LBL_FIX), listIssues(LBL_QUEUED)],
+    [listIssues(LBL_FIX), listIssues(LBL_QUEUED), listIssues(LBL_DECOMP), listIssues(LBL_DECOMP_QUEUED)],
     { now: nowMs, lookbackH: LOOKBACK_H, max: MAX_ISSUES }
   );
 
@@ -171,24 +185,25 @@ function main() {
   console.log(`::warning::Quota Claude esaurita fino alle ${when} (~${minutes} min) — salto il fixer PRIMA di spendere la chiamata Claude.`);
 
   // Ri-accoda questa issue senza consumare un tentativo: la run non ha letto la
-  // issue, non è un fallimento del fixer. `agent:fix` → `agent:fix-queued` così
-  // il drainer la ripromuove appena la finestra si chiude (e nel frattempo il
-  // suo stesso backoff impedisce di ripromuoverla a vuoto).
+  // issue, non è un fallimento dell'agente. Label attiva → label di coda (per
+  // default `agent:fix` → `agent:fix-queued`; per lo stadio di decomposizione
+  // il chiamante passa la coppia `agent:decompose*`) così il drainer la
+  // ripromuove appena la finestra si chiude (e nel frattempo il suo stesso
+  // backoff impedisce di ripromuoverla a vuoto).
   if (ISSUE && !DRY_RUN) {
     const body = [
       '<!-- FIX_OUTCOME: rate-limited -->',
       `<!-- QUOTA_RESETS_AT: ${resetsAt} -->`,
       '',
       `⏳ **Pre-flight quota (zero-Claude)**: la quota Claude condivisa è esaurita fino alle **${when}**.`,
-      'Non promuovo questa issue al fixer: la run morirebbe su HTTP 429 al primo turno',
-      'senza leggere la issue (0 turni, $0), occupando lo slot serializzato `issue-fix`',
-      'e ritardando tutta la coda.',
+      'Non lancio la run Claude: morirebbe su HTTP 429 al primo turno senza leggere',
+      'la issue (0 turni, $0), occupando lo slot serializzato e ritardando la coda.',
       '',
       '**Nessun tentativo consumato** (`fu-attempt` invariato): la issue torna in',
-      '`agent:fix-queued` e riparte da sola appena la finestra si chiude.',
+      `\`${LBL_REQUEUE}\` e riparte da sola appena la finestra si chiude.`,
     ].join('\n');
     gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', body]);
-    gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', LBL_QUEUED, '--remove-label', LBL_FIX]);
+    gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', LBL_REQUEUE, '--remove-label', LBL_ACTIVE]);
   }
 
   setOutput(true, resetsAt);
