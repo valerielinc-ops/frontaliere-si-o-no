@@ -16,12 +16,6 @@ name: prospector-loop
 # graded crawler into production stays a separate, human-initiated step.
 
 on:
-  # Temporaneo, solo per verificare che il loop giri davvero sul runner prima
-  # del merge: `workflow_dispatch` non e' invocabile finche' il file non sta sul
-  # branch di default. Rimosso nel commit successivo.
-  push:
-    branches:
-      - prospector-loop
   schedule:
     # 03:17 UTC — outside the crawler waves, and outside Swiss business hours,
     # since TRACE knocks on several hundred small employers' web servers.
@@ -88,6 +82,10 @@ jobs:
         run: node scripts/prospect-report.mjs --markdown >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit the queue and the report
+        # A full loop takes ~30 minutes, which is long enough for another push
+        # to land on the branch first: the first remote run failed here with
+        # "! [rejected] (fetch first)". So: rebase onto whatever arrived, and
+        # retry — the loop's state files are append-mostly and rebase cleanly.
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -97,4 +95,13 @@ jobs:
             exit 0
           fi
           git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
-          git push
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "push riuscito al tentativo $attempt"
+              exit 0
+            fi
+            echo "push respinto, ribaso e riprovo ($attempt/3)"
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || exit 1
+          done
+          echo 'push fallito dopo 3 tentativi'
+          exit 1
