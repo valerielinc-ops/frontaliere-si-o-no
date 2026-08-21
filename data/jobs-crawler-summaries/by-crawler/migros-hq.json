@@ -1,57 +1,18 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-08-20T21:47:53.059Z",
+  "generatedAt": "2026-08-21T09:53:08.311Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 4,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8618,
-  "avgDurationMs": 8618,
+  "durationMs": 8376,
+  "avgDurationMs": 8376,
   "durationHistory": [
-    8618
+    8376
   ],
-  "newJobs": [
-    {
-      "id": "migros-hq-591572a8e855",
-      "slug": "projektleiter-in-intralogistik-automatisierung-migros-hq-ch",
-      "company": "Migros HQ Zürich",
-      "companyKey": "migros-hq",
-      "companyDomain": "migros.ch",
-      "title": "Projektleiter*in Intralogistik Automatisierung",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-intralogistik-automatisierung/cb447da7-1318-4e75-b069-13e7d80a8619",
-      "source": "Migros HQ Zürich Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:48.552Z",
-      "addressLocality": "Zürich",
-      "streetAddress": "Limmatstrasse 152",
-      "postalCode": "8005",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-intralogistik-automatisierung/cb447da7-1318-4e75-b069-13e7d80a8619",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:17:49.453Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "migros-hq-0cf886b0ea77",
@@ -65,7 +26,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:48.537Z",
+      "crawledAt": "2026-08-21T09:53:04.012Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -102,7 +63,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:48.548Z",
+      "crawledAt": "2026-08-21T09:53:04.027Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -139,7 +100,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:48.561Z",
+      "crawledAt": "2026-08-21T09:53:04.036Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -164,29 +125,27 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
       "id": "migros-hq-591572a8e855",
-      "slug": "project-manager-sistemi-di-automazione-e-logistica-migros-genossenschafts-bund-zurich-yh81ku",
+      "slug": "projektleiter-in-intralogistik-automatisierung-migros-hq-ch",
       "company": "Migros HQ Zürich",
       "companyKey": "migros-hq",
       "companyDomain": "migros.ch",
-      "title": "Projektleiter*in Automatisierung Anlagen und Logistik",
+      "title": "Projektleiter*in Intralogistik Automatisierung",
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-automatisierung-anlagen-und-logistik/cb447da7-1318-4e75-b069-13e7d80a8619",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-intralogistik-automatisierung/cb447da7-1318-4e75-b069-13e7d80a8619",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:59:22.989Z",
+      "crawledAt": "2026-08-21T09:53:04.034Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Logistica",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -194,19 +153,18 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-05",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-automatisierung-anlagen-und-logistik/cb447da7-1318-4e75-b069-13e7d80a8619",
+      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-intralogistik-automatisierung/cb447da7-1318-4e75-b069-13e7d80a8619",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:17:49.453Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "_qualityScore": 99,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 20
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
