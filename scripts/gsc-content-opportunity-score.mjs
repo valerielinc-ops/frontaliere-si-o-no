@@ -85,20 +85,42 @@ function loadWeights(path) {
   return JSON.parse(readFileSync(path, 'utf-8'));
 }
 
+// searchanalytics.query non espone un `orderBy`: l'ordine di default è per
+// click decrescenti (dimension `page`, no `date`) — proprio l'opposto di ciò
+// che serve al content-gap, che cerca pagine ad alta impression/basso click:
+// quelle finiscono in coda ai risultati e sarebbero le prime tagliate da un
+// rowLimit fisso. Paginiamo con `startRow` fino a esaurire i risultati
+// (rowLimit massimo consentito dall'API = 25000) invece di troncare a 5000.
+const GSC_QUERY_ROW_LIMIT = 25000;
+const GSC_QUERY_MAX_PAGES = 8; // safety cap: 8 * 25000 = 200000 righe
+
 async function fetchPagePerformance(token, days) {
   const today = new Date();
   const end = new Date(today); end.setDate(end.getDate() - 2); // GSC ha un ritardo di 2 giorni
   const start = new Date(end); start.setDate(start.getDate() - days);
 
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ startDate: fmt(start), endDate: fmt(end), dimensions: ['page'], rowLimit: 5000 }),
-  });
-  if (!res.ok) throw new Error(`GSC API request failed (${res.status}): ${await res.text()}`);
-  const data = await res.json();
-  return { rows: data.rows || [], window: { start: fmt(start), end: fmt(end) } };
+  const rows = [];
+  for (let page = 0; page < GSC_QUERY_MAX_PAGES; page += 1) {
+    const startRow = page * GSC_QUERY_ROW_LIMIT;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        startDate: fmt(start),
+        endDate: fmt(end),
+        dimensions: ['page'],
+        rowLimit: GSC_QUERY_ROW_LIMIT,
+        startRow,
+      }),
+    });
+    if (!res.ok) throw new Error(`GSC API request failed (${res.status}): ${await res.text()}`);
+    const data = await res.json();
+    const batch = data.rows || [];
+    rows.push(...batch);
+    if (batch.length < GSC_QUERY_ROW_LIMIT) break;
+  }
+  return { rows, window: { start: fmt(start), end: fmt(end) } };
 }
 
 async function main() {
