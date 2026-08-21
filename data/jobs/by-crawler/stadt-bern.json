@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-08-21T09:44:55.937Z",
+  "assembledAt": "2026-08-21T09:15:37.996Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -1153,18 +1153,35 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betreuungsfachperson-tertiar-stadt-bern-bern",
-        "terziario-professionale-stadt-bern-bern"
+        "terziario-professionale-stadt-bern-bern",
+        "professionista-stadt-bern-bern",
+        "care-professional-stadt-bern-bern",
+        "betreuungsfachperson-stadt-bern-bern",
+        "specialiste-des-soins-stadt-bern-bern",
+        "cura-professionale-stadt-bern-bern",
+        "professionnel-de-soins-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betreuungsfachperson-tertiar-stadt-bern-bern",
-          "terziario-professionale-stadt-bern-bern"
+          "terziario-professionale-stadt-bern-bern",
+          "professionista-stadt-bern-bern",
+          "care-professional-stadt-bern-bern",
+          "betreuungsfachperson-stadt-bern-bern",
+          "specialiste-des-soins-stadt-bern-bern",
+          "cura-professionale-stadt-bern-bern",
+          "professionnel-de-soins-stadt-bern-bern"
         ],
         "en": [
-          "betreuungsfachperson-tertiar-stadt-bern-bern"
+          "betreuungsfachperson-tertiar-stadt-bern-bern",
+          "care-professional-stadt-bern-bern"
         ],
         "fr": [
-          "betreuungsfachperson-tertiar-stadt-bern-bern"
+          "betreuungsfachperson-tertiar-stadt-bern-bern",
+          "specialiste-des-soins-stadt-bern-bern"
+        ],
+        "de": [
+          "betreuungsfachperson-stadt-bern-bern"
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:42.700Z",

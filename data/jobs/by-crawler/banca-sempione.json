@@ -95,7 +95,7 @@
         "fr": "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – Private Banker (Zurigo)",
+        "it": "Global Wealth Management – ​​Private Banker (Zurigo)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
         "fr": "Global Wealth Management – Private Banker (Zurigo)"
@@ -144,7 +144,8 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -167,7 +168,7 @@
         "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – Private Banker (Lugano)",
+        "it": "Global Wealth Management – ​​Private Banker (Lugano)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
         "fr": "Global Wealth Management – Private Banker (Lugano)"
@@ -212,9 +213,9 @@
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -232,7 +233,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",

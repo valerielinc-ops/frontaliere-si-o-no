@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-21T09:53:45.962Z",
+  "assembledAt": "2026-08-21T09:20:52.784Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -3156,7 +3156,11 @@
         "teamleiter-in-administration-unispital-basel-ch",
         "amministrazione-aziendale-universitatsspital-basel-basel",
         "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel",
-        "administrative-r-collaboratore-trice-in-universitatsspital-basel"
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel",
+        "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel",
+        "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
+        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
+        "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3179,13 +3183,19 @@
           "administrative-r-collaboratore-trice-in-universitatsspital-basel-qe5qcp",
           "administrative-r-mitarbeiter-in-unispital-basel-ch",
           "professional-hr-administration-universitatsspital-basel-basel",
-          "administrative-r-collaboratore-trice-in-universitatsspital-basel"
+          "administrative-r-collaboratore-trice-in-universitatsspital-basel",
+          "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel"
         ],
         "en": [
           "administrative-staff-universitatsspital-basel-basel"
         ],
         "fr": [
-          "administrative-r-mitarbeiter-in-universitatsspital-basel"
+          "administrative-r-mitarbeiter-in-universitatsspital-basel",
+          "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
+          "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
         ]
       },
       "needsRetranslation": true,

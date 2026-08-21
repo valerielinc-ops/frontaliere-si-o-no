@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-emmental",
-  "assembledAt": "2026-08-21T09:46:55.558Z",
+  "assembledAt": "2026-08-21T09:12:20.933Z",
   "jobs": [
     {
       "id": "spital-emmental-8f2c8dd7a292",
@@ -2216,11 +2216,13 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental"
+        "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
+        "lieu-de-formation-pour-le-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental"
+          "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental",
+          "lieu-de-formation-pour-le-dipl-soins-professionnels-hf-pour-entree-croisee-a-spital-emmental-burgdorf-langnau"
         ],
         "en": [
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-fur-quereinsteigende-a-spital-emmental"
@@ -2302,14 +2304,18 @@
         "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
         "apprendistato-fage-per-dipl-infermiera-hf-tra-2-anni-a-spital-emmental-burgdorf-langnau",
         "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau",
-        "luogo-di-formazione-fage-per-dipl-infermiera-hf-in-2-anni-a-spital-emmental-burgdorf-langnau"
+        "luogo-di-formazione-fage-per-dipl-infermiera-hf-in-2-anni-a-spital-emmental-burgdorf-langnau",
+        "lieu-de-formation-fage-pour-dipl-infirmiere-hf-en-2-ans-a-spital-emmental-burgdorf",
+        "training-place-fage-for-dipl-nurse-hf-in-2-years-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
           "apprendistato-fage-per-dipl-infermiera-hf-tra-2-anni-a-spital-emmental-burgdorf-langnau",
           "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau",
-          "luogo-di-formazione-fage-per-dipl-infermiera-hf-in-2-anni-a-spital-emmental-burgdorf-langnau"
+          "luogo-di-formazione-fage-per-dipl-infermiera-hf-in-2-anni-a-spital-emmental-burgdorf-langnau",
+          "lieu-de-formation-fage-pour-dipl-infirmiere-hf-en-2-ans-a-spital-emmental-burgdorf",
+          "training-place-fage-for-dipl-nurse-hf-in-2-years-a-spital-emmental-burgdorf"
         ],
         "en": [
           "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
@@ -4256,23 +4262,6 @@
       "pensumMax": 60,
       "pensum": "60%",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "sekretar-in-a-spital-emmental-burgdorf",
-        "a-spital-emmental-burgdorf-langnau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sekretar-in-a-spital-emmental-burgdorf",
-          "a-spital-emmental-burgdorf-langnau"
-        ],
-        "en": [
-          "sekretar-in-a-spital-emmental-burgdorf"
-        ],
-        "fr": [
-          "sekretar-in-a-spital-emmental-burgdorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:32:32.881Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4284,7 +4273,45 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T21:32:32.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-a-spital-emmental-burgdorf",
+          "a-spital-emmental-burgdorf-langnau",
+          "ceo-a-spital-emmental-burgdorf-langnau",
+          "intern-in-a-spital-emmental-burgdorf-langnau",
+          "interno-a-spital-emmental-burgdorf-langnau",
+          "praktikant-in-a-spital-emmental-burgdorf",
+          "stagiaire-en-a-spital-emmental-burgdorf-langnau",
+          "internship-a-spital-emmental-burgdorf-langnau",
+          "stage-a-spital-emmental-burgdorf-langnau",
+          "tirocinio-a-spital-emmental-burgdorf-langnau"
+        ],
+        "en": [
+          "sekretar-in-a-spital-emmental-burgdorf",
+          "intern-in-a-spital-emmental-burgdorf-langnau"
+        ],
+        "fr": [
+          "sekretar-in-a-spital-emmental-burgdorf",
+          "stagiaire-en-a-spital-emmental-burgdorf-langnau"
+        ],
+        "de": [
+          "praktikant-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-a-spital-emmental-burgdorf",
+        "a-spital-emmental-burgdorf-langnau",
+        "ceo-a-spital-emmental-burgdorf-langnau",
+        "intern-in-a-spital-emmental-burgdorf-langnau",
+        "interno-a-spital-emmental-burgdorf-langnau",
+        "praktikant-in-a-spital-emmental-burgdorf",
+        "stagiaire-en-a-spital-emmental-burgdorf-langnau",
+        "internship-a-spital-emmental-burgdorf-langnau",
+        "stage-a-spital-emmental-burgdorf-langnau",
+        "tirocinio-a-spital-emmental-burgdorf-langnau"
+      ]
     },
     {
       "id": "spital-emmental-99d79baa9bbc",

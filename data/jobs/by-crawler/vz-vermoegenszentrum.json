@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-08-21T09:51:29.573Z",
+  "assembledAt": "2026-08-21T09:30:20.669Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",
@@ -455,26 +455,40 @@
       "previousSlugsByLocale": {
         "de": [
           "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-          "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch"
+          "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch",
+          "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch"
         ],
         "it": [
           "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
           "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch",
           "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-          "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich"
+          "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich",
+          "specialista-in-amministrazione-vz-vermogenszentrum-zurich-zurich",
+          "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich",
+          "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
+          "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich",
+          "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich"
         ],
         "fr": [
-          "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich"
+          "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
+          "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich"
+        ],
+        "en": [
+          "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
         "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch",
         "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-        "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich"
+        "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich",
+        "specialista-in-amministrazione-vz-vermogenszentrum-zurich-zurich",
+        "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich",
+        "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
+        "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich",
+        "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich"
       ],
       "firstSeenAt": "2026-07-04T12:46:45.786Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "baseSalary": {
@@ -486,7 +500,8 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "vz-vermoegenszentrum-40d477fc0809",
