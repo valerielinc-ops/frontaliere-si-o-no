@@ -10310,6 +10310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.title': 'Vivere a Buguggiate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.excerpt': 'Impostazioni fiscali, collegamenti e zone consigliate per i frontalieri che vivono a Buguggiate e lavorano in Ticino',
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio con lago e montagne nel Ticino',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.title': 'Vivere a Lasnigo e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.excerpt': 'Imposta alla fonte in Svizzera per i frontalieri: trattenuta solo in Svizzera.',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere di Lasnigo che lavora in Ticino',
 };
 
 export default blogMetaIt;

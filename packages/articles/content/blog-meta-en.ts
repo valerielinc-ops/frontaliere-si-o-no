@@ -10309,6 +10309,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.title': 'Living in Buguggiate and working in Ticino as a border worker',
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.excerpt': 'Tax settings, connections and recommended areas for border crossers living in Buguggiate and working in Ticino',
     'blog.article.vivere-buguggiate-lavorare-ticino-frontaliere.imageAlt': 'Landscape with lake and mountains in Ticino',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.title': 'Living in Lasnigo and working in Ticino as a border worker',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.excerpt': 'Tax at source in Switzerland for frontier workers: only withheld in Switzerland.',
+    'blog.article.vivere-lasnigo-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere from Lasnigo working in Ticino',
 };
 
 export default blogMetaEn;
