@@ -10373,6 +10373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Vivre à Fagnano Olona et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convention italo-suisse contre les doubles impositions : signée le 9 décembre 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalier travaillant en Ticino',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivre à Cremia et travailler au Tessin : frontalier est-il avantageux ?',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia comme base résidentielle pour les frontaliers au Tessin : fiscalité, permis G, AVS, taxe à la source, frais de transport et points de passage frontaliers.',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Côme depuis Cremia avec les Alpes en arrière-plan au coucher du soleil',
 };
 
 export default blogMetaFr;

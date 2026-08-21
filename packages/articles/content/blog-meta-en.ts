@@ -10371,6 +10371,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Living in Fagnano Olona and working in Ticino as a border worker',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italian-Swiss Double Taxation Convention: signed on 9 December 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontaliers working in Ticino',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Living in Cremia and working in Ticino: is it convenient for border workers?',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia as a residential base for border workers in Ticino: taxation, G permit, AVS, source tax, transport costs and border crossings.',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'View of Lake Como from Cremia with Alps in the background at sunset',
 };
 
 export default blogMetaEn;
