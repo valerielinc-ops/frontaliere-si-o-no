@@ -11035,6 +11035,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'assegni-familiari-appenzello-interno-domanda',
+    category: 'pratico',
+    date: '2026-08-21T08:25:22.014Z',
+    image: '/images/blog/assegni-familiari-appenzello-interno-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3679,6 +3679,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.richiedenti-asilo-severe-misure.title': 'Demandeurs d\'asile, Berne demande des mesures plus sévères',
     'blog.article.richiedenti-asilo-severe-misure.excerpt': 'Le Secrétariat d\'Etat aux migrations (SEM) étudie des modifications de loi pour exclure de la procédure d\'asile les jeunes du Maghreb qui viennent d\'arriver en Suisse.',
     'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Jeune personne commettant des crimes en Suisse',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Allocations familiales Appenzell Interne : montants et demande',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Guide complet des allocations familiales dans le canton d\'Appenzell Interne : système fédéral, montants mensuels par enfant, conditions de droit, caisse de compensation et procédure de demande étape par étape.',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Paysage rural suisse avec bâtiments administratifs illustrant le système des allocations familiales dans le canton Appenzell Rhodes-Intérieures.',
 };
 
 export default blogMetaChFr;

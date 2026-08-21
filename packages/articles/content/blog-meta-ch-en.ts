@@ -3679,6 +3679,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.richiedenti-asilo-severe-misure.title': 'Asylum seekers, Bern asks for stricter measures',
     'blog.article.richiedenti-asilo-severe-misure.excerpt': 'The State Secretariat for Migration (SEM) is studying changes to the law to exclude young people from the Maghreb who have just arrived in Switzerland from the asylum procedure.',
     'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Young person committing crimes in Switzerland',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Family allowances Internal Appenzello: amounts and application',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Complete guide to family allowances in the Inner Appenzell Canton: federal system, monthly amounts per child, legal conditions, compensation fund and step-by-step application procedure.',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Swiss rural landscape with administrative buildings representing the family benefits system in Appenzello Interno canton.',
 };
 
 export default blogMetaChEn;

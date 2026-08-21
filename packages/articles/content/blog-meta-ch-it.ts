@@ -3679,6 +3679,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.richiedenti-asilo-severe-misure.title': 'Richiedenti l\'asilo, Berna chiede misure più severe',
     'blog.article.richiedenti-asilo-severe-misure.excerpt': 'La Segreteria di Stato della migrazione (SEM) studia modifiche di legge per escludere dalla procedura d\'asilo i giovani del Maghreb che delinquono appena arrivati in Svizzera.',
     'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Giovane che commette reati in Svizzera',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Assegni familiari Appenzello Interno: importi e domanda',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Guida completa agli assegni familiari nel Canton Appenzello Interno: sistema federale, importi mensili per figlio, condizioni di diritto, cassa di compensazione e procedura di domanda passo-passo.',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Paesaggio della campagna svizzera con edifici amministrativi, simbolo del sistema di sussidi familiari nel Canton Appenzello Interno.',
 };
 
 export default blogMetaChIt;
