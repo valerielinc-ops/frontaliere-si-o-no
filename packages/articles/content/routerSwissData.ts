@@ -1243,6 +1243,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-appenzello-esterno-canoni-locazione': { it: 'affitti-appenzello-esterno-canoni-locazione', en: 'rentals-appenzell-ausserrhoden-tenancy-law', de: 'mietpreise-appenzell-ausserrhoden-mietrecht', fr: 'loyers-appenzell-rhodes-exterieures-droit-locatif' },
  'mercato-gli-affitti-appenzello-esterno': { it: 'mercato-gli-affitti-appenzello-esterno', en: 'appenzello-esterno-rental-market', de: 'appenzello-ostern-mietmarkt', fr: 'appenzello-est-marche-du-locaux' },
  'aprire-attivita-canton-appenzello-esterno': { it: 'aprire-attivita-canton-appenzello-esterno', en: 'open-business-appenzell-ausserrhoden', de: 'unternehmen-in-appenzell-ausserrhoden-eroffnen', fr: 'ouvrir-une-entreprise-appenzell-rhodes-interieures' },
+ 'imposte-cantonali-appenzello-interno': { it: 'imposte-cantonali-appenzello-interno', en: 'cantonal-taxes-appenzell-innerrhoden', de: 'kantonale-steuern-appenzell-innerrhoden', fr: 'impots-cantonaux-appenzell-rhodes-internes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

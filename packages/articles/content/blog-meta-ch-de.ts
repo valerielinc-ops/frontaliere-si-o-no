@@ -3652,6 +3652,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-appenzello-esterno.title': 'Geschäft in Appenzell Ausserrhoden eröffnen: Register und Kosten',
     'blog.article.aprire-attivita-canton-appenzello-esterno.excerpt': 'Der Kanton Appenzell Ausserrhoden hat eine spezifische Gesetzgebung für gewerbliche Tätigkeiten. Sie müssen sich im Handelsregister des Kantons eintragen lassen.',
     'blog.article.aprire-attivita-canton-appenzello-esterno.imageAlt': 'Einzelhandel im Kanton Appenzell Ausserrhoden',
+    'blog.article.imposte-cantonali-appenzello-interno.title': 'Kantonale Steuern Appenzell Innerrhoden: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonali-appenzello-interno.excerpt': 'So funktionieren die kantonalen Steuern im Kanton Appenzell Innerrhoden: die 3 Steuerstufen, zulässige Abzüge, Deklarationsfristen und das Portal der kantonalen Verwaltung.',
+    'blog.article.imposte-cantonali-appenzello-interno.imageAlt': 'Schweizer Kantonales Finanzamt Gebäude',
 };
 
 export default blogMetaChDe;
