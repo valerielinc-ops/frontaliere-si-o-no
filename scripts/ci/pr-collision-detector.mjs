@@ -191,9 +191,11 @@ export function fetchPrFiles(number, expected, ghFn, repo = REPO) {
       const rest = raw.split('\n').map((l) => l.trim()).filter(Boolean);
       // Conferma vuol dire CONSEGNA, non «non ha lanciato». Una REST che esce 0
       // a mani vuote, o che rende meno file della GraphQL, non scioglie
-      // l'ambiguita' del cap: la lista puo' essere ancora quella troncata. Va
-      // calcolato PRIMA della riassegnazione qui sotto, altrimenti misura se
-      // stesso.
+      // l'ambiguita' del cap: la lista puo' essere ancora quella troncata.
+      // (Sta prima della riassegnazione per leggibilita', non per necessita':
+      // `files = rest` avviene solo quando `rest` e' piu' lunga, e in quel ramo
+      // i due ordini danno lo stesso `true`. Misurato: invertirli non rompe
+      // nessun test, ed e' corretto cosi' — e' un mutante equivalente.)
       restConfirmed = rest.length >= files.length;
       if (rest.length > files.length) files = rest;
     } catch { /* tiene la lista GraphQL, gia' valutata da `complete` */ }
