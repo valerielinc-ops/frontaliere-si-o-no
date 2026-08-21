@@ -10392,6 +10392,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.civate-frontaliere-ticino-lavoro.title': 'Living in Civate and working in Ticino: the guide',
     'blog.article.civate-frontaliere-ticino-lavoro.excerpt': 'Permits, taxation, AVS and everything you need to know to move to the border area and start working as a border worker in Ticino.',
     'blog.article.civate-frontaliere-ticino-lavoro.imageAlt': 'Panoramic view of Lake Como\'s scenic shoreline, typical landscape for cross-border residents working in Ticino',
+    'blog.article.vivere-lierna-lavorare-ticino.title': 'Living in Lierna and working in Ticino: a practical guide for border workers',
+    'blog.article.vivere-lierna-lavorare-ticino.excerpt': 'Comprehensive analysis for those who choose to live in Lierna and work in Ticino: connections, tax at source, costs and benefits.',
+    'blog.article.vivere-lierna-lavorare-ticino.imageAlt': 'Scenic view of the lake and mountains near the border',
 };
 
 export default blogMetaEn;

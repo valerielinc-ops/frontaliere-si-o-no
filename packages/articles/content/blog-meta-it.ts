@@ -10393,6 +10393,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.civate-frontaliere-ticino-lavoro.title': 'Vivere a Civate e lavorare in Ticino: la guida',
     'blog.article.civate-frontaliere-ticino-lavoro.excerpt': 'Permessi, fiscalità, AVS e tutto quello che serve sapere per trasferirsi nella zona di confine e iniziare a fare il frontaliere in Ticino.',
     'blog.article.civate-frontaliere-ticino-lavoro.imageAlt': 'Vista panoramica del Lago di Como, scenario tipico per chi sceglie di vivere nel confine lombardo e lavorare in Ticino',
+    'blog.article.vivere-lierna-lavorare-ticino.title': 'Vivere a Lierna e lavorare in Ticino: guida pratica per frontalieri',
+    'blog.article.vivere-lierna-lavorare-ticino.excerpt': 'Analisi completa per chi sceglie di vivere a Lierna e lavorare in Ticino: collegamenti, imposta alla fonte, costi e vantaggi.',
+    'blog.article.vivere-lierna-lavorare-ticino.imageAlt': 'Panorama sul lago e montagne vicino al confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
