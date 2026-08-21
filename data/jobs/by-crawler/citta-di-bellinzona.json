@@ -1,7 +1,115 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-08-20T21:36:47.889Z",
+  "assembledAt": "2026-08-21T09:48:22.346Z",
   "jobs": [
+    {
+      "id": "citta-di-bellinzona-operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+      "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+      "slugByLocale": {
+        "it": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
+      "titleByLocale": {
+        "it": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche"
+      },
+      "description": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+      "descriptionByLocale": {
+        "it": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-21T09:48:20.070Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-29T21:52:24.302Z"
+    },
+    {
+      "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
+      "slug": "responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
+      "slugByLocale": {
+        "it": "responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona",
+      "titleByLocale": {
+        "it": "Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona"
+      },
+      "description": "## Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+      "descriptionByLocale": {
+        "it": "## Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "url": "https://www.bellinzona.ch/assunzioni",
+      "pdfUrl": null,
+      "applyUrl": null,
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-21T09:48:20.071Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T09:48:20.071Z"
+    },
     {
       "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
       "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
@@ -48,7 +156,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-20T21:36:45.774Z",
+      "crawledAt": "2026-08-21T09:48:20.068Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
