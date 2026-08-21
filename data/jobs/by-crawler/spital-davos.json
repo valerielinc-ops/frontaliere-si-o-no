@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-08-20T21:48:10.562Z",
+  "assembledAt": "2026-08-21T09:56:17.061Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:07.795Z",
+      "crawledAt": "2026-08-21T09:56:13.417Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -77,25 +77,27 @@
         "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
-          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
+          "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -132,7 +134,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:06.942Z",
+      "crawledAt": "2026-08-21T09:56:12.414Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -185,24 +187,26 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "unterassistent-in-sportmedizin-100-spital-davos-ch"
+        "unterassistent-in-sportmedizin-100-spital-davos-ch",
+        "assistente-in-medicina-sportiva-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-sportmedizin-100-spital-davos-ch"
+          "unterassistent-in-sportmedizin-100-spital-davos-ch",
+          "assistente-in-medicina-sportiva-100-spital-davos-davos"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -239,7 +243,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:06.058Z",
+      "crawledAt": "2026-08-21T09:56:11.432Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -283,24 +287,26 @@
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
         "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
         "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
-        "senior-physician-internal-medicine-80-100-spital-davos-davos"
+        "senior-physician-internal-medicine-80-100-spital-davos-davos",
+        "assistente-di-medicina-interna-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-innere-medizin-100-spital-davos-ch"
+          "unterassistent-in-innere-medizin-100-spital-davos-ch",
+          "assistente-di-medicina-interna-100-spital-davos-davos"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -337,7 +343,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:05.186Z",
+      "crawledAt": "2026-08-21T09:56:10.368Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -383,12 +389,14 @@
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
         "sostanza-in-anestesia-100-spital-davos-davos",
-        "subassistance-in-anaesthesia-100-spital-davos-davos"
+        "subassistance-in-anaesthesia-100-spital-davos-davos",
+        "assistente-anestesia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch",
-          "sostanza-in-anestesia-100-spital-davos-davos"
+          "sostanza-in-anestesia-100-spital-davos-davos",
+          "assistente-anestesia-100-spital-davos-davos"
         ],
         "en": [
           "subassistance-in-anaesthesia-100-spital-davos-davos"
@@ -396,15 +404,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -441,7 +449,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:04.325Z",
+      "crawledAt": "2026-08-21T09:56:09.375Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -464,12 +472,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "fachperson-gesundheit-80-100-spital-davos-ch",
-        "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch"
+        "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch",
+        "salute-specialistica-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-80-100-spital-davos-ch",
-          "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch"
+          "fachperson-gesundheit-80-100-akutabteilung-spital-davos-ch",
+          "salute-specialistica-80-100-spital-davos-davos"
         ],
         "en": [
           "fachperson-gesundheit-80-100-spital-davos-ch"
@@ -479,15 +489,16 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -524,7 +535,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:03.485Z",
+      "crawledAt": "2026-08-21T09:56:08.403Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -546,11 +557,13 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+        "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+        "salvataggio-suit-2027-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
+          "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch",
+          "salvataggio-suit-2027-50-100-spital-davos-davos"
         ],
         "fr": [
           "rettungssanitater-in-sommersaison-2027-50-100-spital-davos-ch"
@@ -558,15 +571,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -603,7 +616,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:02.636Z",
+      "crawledAt": "2026-08-21T09:56:07.426Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -626,24 +639,26 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "spitex-salute-specialistica-50-100-spital-davos-davos"
+        "spitex-salute-specialistica-50-100-spital-davos-davos",
+        "spitex-assistente-sanitario-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-          "spitex-salute-specialistica-50-100-spital-davos-davos"
+          "spitex-salute-specialistica-50-100-spital-davos-davos",
+          "spitex-assistente-sanitario-50-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -680,7 +695,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:01.769Z",
+      "crawledAt": "2026-08-21T09:56:06.470Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -710,14 +725,16 @@
         "unterassistent-in-chirurgie-orthopadie-100-spital-davos-ch",
         "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos",
           "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
           "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
-          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos"
+          "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
+          "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos"
         ],
         "en": [
           "surgery-orthopaedics-assistant-100-spital-davos-davos"
@@ -730,15 +747,16 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -775,7 +793,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:00.889Z",
+      "crawledAt": "2026-08-21T09:56:05.515Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -797,11 +815,13 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
+        "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos",
+        "medico-assistente-pratico-in-pediatria-stagionale-invernale-2026-27-60-80-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
+          "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos",
+          "medico-assistente-pratico-in-pediatria-stagionale-invernale-2026-27-60-80-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-padiatrie-saisonstelle-winter-2026-27-60-80-spital-davos"
@@ -812,15 +832,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
+      "salaryMin": 65200,
+      "salaryMax": 91200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
+          "minValue": 65200,
+          "maxValue": 91200,
           "unitText": "YEAR"
         }
       },
@@ -857,7 +877,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:00.036Z",
+      "crawledAt": "2026-08-21T09:56:04.477Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -885,7 +905,8 @@
         "dipl-pflegefachperson-hf-per-tagesklinik-40-spital-davos",
         "dipl-nursing-professional-hf-for-day-clinic-40-spital-davos-davos",
         "dipl-pflegefachperson-hf-fur-tagesklinik-40-spital-davos-ch",
-        "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos"
+        "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos",
+        "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -894,7 +915,8 @@
           "dipl-pflegefachperson-hf-per-tagesklinik-40-spital-davos",
           "dipl-nursing-professional-hf-for-day-clinic-40-spital-davos-davos",
           "dipl-pflegefachperson-hf-fur-tagesklinik-40-spital-davos-ch",
-          "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos"
+          "dipl-soins-infirmiers-professionnels-hf-pour-la-clinique-de-jour-40-spital-davos-davos",
+          "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers"
         ],
         "en": [
           "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
@@ -911,15 +933,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -956,7 +978,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:59.171Z",
+      "crawledAt": "2026-08-21T09:56:03.504Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1006,15 +1028,16 @@
         ]
       },
       "firstSeenAt": "2026-04-16T22:19:31.942Z",
-      "salaryMin": 63200,
-      "salaryMax": 96000,
+      "needsRetranslation": true,
+      "salaryMin": 88400,
+      "salaryMax": 123200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63200,
-          "maxValue": 96000,
+          "minValue": 88400,
+          "maxValue": 123200,
           "unitText": "YEAR"
         }
       },
@@ -1051,7 +1074,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/706/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:58.311Z",
+      "crawledAt": "2026-08-21T09:56:02.483Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1073,11 +1096,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "hausarztin-hausarzt-60-100-spital-davos-ch"
+        "hausarztin-hausarzt-60-100-spital-davos-ch",
+        "home-medico-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hausarztin-hausarzt-60-100-spital-davos-ch"
+          "hausarztin-hausarzt-60-100-spital-davos-ch",
+          "home-medico-60-100-spital-davos-davos"
         ],
         "en": [
           "hausarztin-hausarzt-60-100-spital-davos-ch"
@@ -1087,15 +1112,16 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:53:46.703Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1132,7 +1158,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/707/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:57.440Z",
+      "crawledAt": "2026-08-21T09:56:01.487Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1154,11 +1180,13 @@
       "pensumMax": 70,
       "pensum": "60 - 70%",
       "previousSlugs": [
-        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
+        "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
+        "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
+          "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch",
+          "dialisi-dipl-pflegefachperson-60-70-spital-davos-davos"
         ],
         "en": [
           "dipl-pflegefachperson-dialyse-60-70-spital-davos-ch"
@@ -1166,15 +1194,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-28T11:37:05.341Z",
-      "salaryMin": 40300,
-      "salaryMax": 60900,
+      "salaryMin": 57100,
+      "salaryMax": 79800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 40300,
-          "maxValue": 60900,
+          "minValue": 57100,
+          "maxValue": 79800,
           "unitText": "YEAR"
         }
       },
@@ -1211,7 +1239,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/708/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:56.558Z",
+      "crawledAt": "2026-08-21T09:56:00.466Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1233,24 +1261,26 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+        "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+          "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T13:58:41.353Z",
-      "salaryMin": 23000,
-      "salaryMax": 34800,
+      "salaryMin": 32600,
+      "salaryMax": 45600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 23000,
-          "maxValue": 34800,
+          "minValue": 32600,
+          "maxValue": 45600,
           "unitText": "YEAR"
         }
       },
@@ -1287,7 +1317,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/709/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:55.679Z",
+      "crawledAt": "2026-08-21T09:55:59.447Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1315,13 +1345,15 @@
         "medical-practice-assistant-60-100-spital-davos-davos-e070f5",
         "assistant-de-pratique-medicale-60-100-spital-davos-davos",
         "assistant-e-medical-e-60-100-spital-davos-davos",
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+        "assistente-medico-a-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-ambulatorio-medico-nel-60-100-spital-davos-davos",
           "assistente-medico-60-100-spital-davos-davos",
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+          "assistente-medico-a-60-100-spital-davos-davos"
         ],
         "en": [
           "medical-practice-assistant-60-100-spital-davos-davos-e070f5"
@@ -1334,15 +1366,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T13:58:40.477Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1379,7 +1411,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/691/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:54.829Z",
+      "crawledAt": "2026-08-21T09:55:58.642Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1402,12 +1434,14 @@
       "pensum": "60 - 100%",
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2",
+        "assistente-pratico-nel-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2",
+          "assistente-pratico-nel-60-100-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch-2"
@@ -1418,15 +1452,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T22:44:48.724Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1463,7 +1497,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/712/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:53.954Z",
+      "crawledAt": "2026-08-21T09:55:57.564Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1498,15 +1532,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:58:58.071Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
+      "salaryMin": 65200,
+      "salaryMax": 91200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
+          "minValue": 65200,
+          "maxValue": 91200,
           "unitText": "YEAR"
         }
       },
@@ -1543,7 +1577,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/716/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:53.087Z",
+      "crawledAt": "2026-08-21T09:55:56.566Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1565,23 +1599,25 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch"
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch",
+        "dipl-expert-expert-anesthesia-care-nds-hf-inverno-2026-27-40-80-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-winter-2026-27-40-80-spital-davos-ch",
+          "dipl-expert-expert-anesthesia-care-nds-hf-inverno-2026-27-40-80-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-06-30T23:16:35.039Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
+      "salaryMin": 65200,
+      "salaryMax": 91200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
+          "minValue": 65200,
+          "maxValue": 91200,
           "unitText": "YEAR"
         }
       },
@@ -1618,7 +1654,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/722/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:52.202Z",
+      "crawledAt": "2026-08-21T09:55:55.585Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1638,15 +1674,15 @@
       "contractDuration": "permanent",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T12:21:00.414Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1683,7 +1719,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/724/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:51.325Z",
+      "crawledAt": "2026-08-21T09:55:54.554Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1709,11 +1745,13 @@
         "rettungssanitater-in-wintersaison-2026-27-50-100-spital-davos-ch",
         "emergency-medical-technician-winter-season-2026-27-50-100-spital-davos-davos",
         "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
-        "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
+        "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
+        "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
+          "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch",
+          "paramedici-nella-stagione-invernale-2027-28-50-100-spital-davos-davos"
         ],
         "en": [
           "rettungssanitater-in-wintersaison-2027-28-50-100-spital-davos-ch"
@@ -1724,15 +1762,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T12:20:59.620Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1769,7 +1807,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/725/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:50.464Z",
+      "crawledAt": "2026-08-21T09:55:53.603Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1791,11 +1829,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
+        "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
+        "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
+          "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
+          "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos"
         ],
         "en": [
           "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
@@ -1806,15 +1846,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T11:03:09.407Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1851,7 +1891,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/652/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:49.611Z",
+      "crawledAt": "2026-08-21T09:55:52.818Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1869,11 +1909,13 @@
       "requirementsByLocale": {},
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-spital-davos-ch"
+        "lehrstelle-kauffrau-mann-efz-spital-davos-ch",
+        "apprendistato-kauffrau-mann-cfc-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-spital-davos-ch"
+          "lehrstelle-kauffrau-mann-efz-spital-davos-ch",
+          "apprendistato-kauffrau-mann-cfc-spital-davos"
         ],
         "en": [
           "lehrstelle-kauffrau-mann-efz-spital-davos-ch"
@@ -1884,15 +1926,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:21:48.891Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 73000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -1929,7 +1971,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/650/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:48.758Z",
+      "crawledAt": "2026-08-21T09:55:51.853Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1948,11 +1990,13 @@
       "department": "D3 Pflege",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch"
+        "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch",
+        "apprendistato-fachfrau-fachmann-gesundheit-cfc-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch"
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch",
+          "apprendistato-fachfrau-fachmann-gesundheit-cfc-spital-davos"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-gesundheit-efz-spital-davos-ch"
@@ -1963,15 +2007,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:21:47.958Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 73000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -2008,7 +2052,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/649/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:47.876Z",
+      "crawledAt": "2026-08-21T09:55:50.832Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2027,11 +2071,13 @@
       "department": "Medizin- und Managementsupport",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-2027-medizinische-r-praxisassistent-in-efz-spital-davos-ch"
+        "lehrstelle-2027-medizinische-r-praxisassistent-in-efz-spital-davos-ch",
+        "apprendistato-2027-medizinische-r-praxisassistent-in-cfc-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-medizinische-r-praxisassistent-in-efz-spital-davos-ch"
+          "lehrstelle-2027-medizinische-r-praxisassistent-in-efz-spital-davos-ch",
+          "apprendistato-2027-medizinische-r-praxisassistent-in-cfc-spital-davos"
         ],
         "en": [
           "lehrstelle-2027-medizinische-r-praxisassistent-in-efz-spital-davos-ch"
@@ -2042,15 +2088,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:21:47.033Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 73000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -2087,7 +2133,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/727/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:47.029Z",
+      "crawledAt": "2026-08-21T09:55:49.766Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2109,11 +2155,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-physiotherapeut-in-80-100-spital-davos-ch"
+        "dipl-physiotherapeut-in-80-100-spital-davos-ch",
+        "dipl-terapeuta-fisica-in-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-80-100-spital-davos-ch"
+          "dipl-physiotherapeut-in-80-100-spital-davos-ch",
+          "dipl-terapeuta-fisica-in-80-100-spital-davos-davos"
         ],
         "en": [
           "dipl-physiotherapeut-in-80-100-spital-davos-ch"
@@ -2124,15 +2172,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:21:39.179Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -2169,7 +2217,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/729/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:46.143Z",
+      "crawledAt": "2026-08-21T09:55:48.742Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2191,11 +2239,13 @@
       "pensumMax": 20,
       "pensum": "20%",
       "previousSlugs": [
-        "mitarbeiter-in-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos-ch"
+        "mitarbeiter-in-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos-ch",
+        "collaboratore-trice-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos-ch"
+          "mitarbeiter-in-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos-ch",
+          "collaboratore-trice-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos"
         ],
         "en": [
           "mitarbeiter-in-mahlzeitendienst-im-stundenlohn-pensum-ca-20-spital-davos-ch"
@@ -2206,15 +2256,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:16:49.891Z",
-      "salaryMin": 11500,
-      "salaryMax": 17400,
+      "salaryMin": 16300,
+      "salaryMax": 22800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 11500,
-          "maxValue": 17400,
+          "minValue": 16300,
+          "maxValue": 22800,
           "unitText": "YEAR"
         }
       },
@@ -2224,9 +2274,9 @@
       "id": "spital-davos-12263da966ee",
       "slug": "projektmanagement-e-unternehmensentwicklung-80-100-spital-davos",
       "slugByLocale": {
-        "de": "projektmanagement-und-unternehmensentwicklung-80-100-spital-davos-ch",
         "it": "projektmanagement-e-unternehmensentwicklung-80-100-spital-davos",
         "en": "project-management-and-corporate-development-80-100-spital-davos-davos",
+        "de": "projektmanagement-und-unternehmensentwicklung-80-100-spital-davos-ch",
         "fr": "gestion-de-projet-et-developpement-corporatif-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
@@ -2234,16 +2284,16 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Projektmanagement und Unternehmensentwicklung (80 - 100%)",
       "titleByLocale": {
-        "de": "Projektmanagement und Unternehmensentwicklung (80 - 100%)",
         "it": "Projektmanagement e Unternehmensentwicklung (80 - 100%)",
         "en": "Project Management and Corporate Development (80 - 100%)",
+        "de": "Projektmanagement und Unternehmensentwicklung (80 - 100%)",
         "fr": "Gestion de projet et développement corporatif (80 - 100 %)"
       },
       "description": "Die Spital Davos AG plant einen Um- und Neubau am bestehenden Standort. Mit Ihrem Fachwissen in Projektmanagement und Betriebswirtschaft unterstützen Sie Verwaltungsrat und Spitalleitung bei einer allfälligen Umsetzung des sich zurzeit in Planung befindlichen Projektes. In Ihrer Rolle arbeiten Sie eng mit internen und externen Stellen zusammen. Darüber hinaus arbeiten Sie an weiteren Projekten im Rahmen der Unternehmensentwicklung und im Netzwerk mit der Organisation mit und tragen massgeblich zum Erfolg bei. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Nach Vereinbarung suchen wir eine versierte Person für |\n• Projektmanagement und Unternehmensentwicklung\n• Koordination und Vertretung der Bauherreninteressen bei einer Umsetzung des Um- und Neubauprojektes am Standort der Spital Davos AG zuhanden CEO und Projektteam punkto Etappierung, Umsetzung, Kostenrahmen und Terminplanung\n• Vorbereitung von Entscheidungsgrundlagen für interne und externe Gremien sowie Abstimmung mit den involvierten internen und externen Parteien\n• Weiterentwicklung und Umsetzung der bestehenden Grundlagen und Varianten gemäss Projektausschreibung im Sinne der Bauherrschaft\n• Termingerechte Umsetzung inklusive Koordination des internen Umzugs und Sicherstellen eines reibungslosen Ablaufs im laufenden Betrieb\n• Übernahme der Schnittstellenfunktion der Bauherrschaft (und der internen Anspruchsgruppen) mit der Bauleitung, den Architekten und Fachplanern bei einer Umsetzung\n• Koordination und Vertretung der Bauherreninteressen auch im Rahmen der Begleitung von Ausschreibungen, Vertragsmanagement sowie Sicherstellung von Bewilligungsverfahren (Bau, Brandschutz, Behördenauflagen) in Koordination mit dem Baumanagement und den Fachplanenden bei einer Umsetzung\n• Übernahme weiterer Aufgaben je nach Erfahrung und Expertise |\n• Fachhochschul- oder Hochschulabschluss in BWL oder (technische) Grundausbildung mit einschlägiger Weiterbildung wie CAS/MAS Projekt-/(Bau-) Management, BWL, Real Estate oder Facility Management\n• Erfahrung in erfolgreicher Führung von Grossprojekten, idealerweise im Spitalbau oder -umbau\n• Kenntnisse von Spitalprozessen und künftigen Entwicklungen im Gesundheitswesen von Vorteil\n• Erfahrung im öffentlichen Beschaffungswesen (sowie Umgang mit SIA-Normen)\n• Sehr gute analytische, konzeptionelle Fähigkeiten und vernetztes Denken, um interdisziplinäre Projekte agil und parallel zum laufenden Betrieb zu meistern\n• Durchsetzungsfähige, kommunikationsstarke, pragmatische und emphatische Persönlichkeit mit hoher Eigenverantwortung und selbständiger Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englischkenntnisse von Vorteil |\n• Äusserst interessante Position für agile Persönlichkeiten, die sich in einem komplexen Projekt und Umfeld bewähren wollen\n• Kurze Entscheidungswege dank Involvierung in den CEO-Stab und in die aufbau- und ablaufbezogene Organisation der Spital Davos AG\n• Umfassender Einblick in die betrieblichen und operativen Gegebenheiten\n• Position mit späterem Entwicklungspotential über das Projektmanagement und die Unternehmensentwicklung hinaus | Für weitere Auskünfte steht Ihnen das HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
       "descriptionByLocale": {
-        "de": "Die Spital Davos AG plant einen Um- und Neubau am bestehenden Standort. Mit Ihrem Fachwissen in Projektmanagement und Betriebswirtschaft unterstützen Sie Verwaltungsrat und Spitalleitung bei einer allfälligen Umsetzung des sich zurzeit in Planung befindlichen Projektes. In Ihrer Rolle arbeiten Sie eng mit internen und externen Stellen zusammen. Darüber hinaus arbeiten Sie an weiteren Projekten im Rahmen der Unternehmensentwicklung und im Netzwerk mit der Organisation mit und tragen massgeblich zum Erfolg bei. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Nach Vereinbarung suchen wir eine versierte Person für |\n• Projektmanagement und Unternehmensentwicklung\n• Koordination und Vertretung der Bauherreninteressen bei einer Umsetzung des Um- und Neubauprojektes am Standort der Spital Davos AG zuhanden CEO und Projektteam punkto Etappierung, Umsetzung, Kostenrahmen und Terminplanung\n• Vorbereitung von Entscheidungsgrundlagen für interne und externe Gremien sowie Abstimmung mit den involvierten internen und externen Parteien\n• Weiterentwicklung und Umsetzung der bestehenden Grundlagen und Varianten gemäss Projektausschreibung im Sinne der Bauherrschaft\n• Termingerechte Umsetzung inklusive Koordination des internen Umzugs und Sicherstellen eines reibungslosen Ablaufs im laufenden Betrieb\n• Übernahme der Schnittstellenfunktion der Bauherrschaft (und der internen Anspruchsgruppen) mit der Bauleitung, den Architekten und Fachplanern bei einer Umsetzung\n• Koordination und Vertretung der Bauherreninteressen auch im Rahmen der Begleitung von Ausschreibungen, Vertragsmanagement sowie Sicherstellung von Bewilligungsverfahren (Bau, Brandschutz, Behördenauflagen) in Koordination mit dem Baumanagement und den Fachplanenden bei einer Umsetzung\n• Übernahme weiterer Aufgaben je nach Erfahrung und Expertise |\n• Fachhochschul- oder Hochschulabschluss in BWL oder (technische) Grundausbildung mit einschlägiger Weiterbildung wie CAS/MAS Projekt-/(Bau-) Management, BWL, Real Estate oder Facility Management\n• Erfahrung in erfolgreicher Führung von Grossprojekten, idealerweise im Spitalbau oder -umbau\n• Kenntnisse von Spitalprozessen und künftigen Entwicklungen im Gesundheitswesen von Vorteil\n• Erfahrung im öffentlichen Beschaffungswesen (sowie Umgang mit SIA-Normen)\n• Sehr gute analytische, konzeptionelle Fähigkeiten und vernetztes Denken, um interdisziplinäre Projekte agil und parallel zum laufenden Betrieb zu meistern\n• Durchsetzungsfähige, kommunikationsstarke, pragmatische und emphatische Persönlichkeit mit hoher Eigenverantwortung und selbständiger Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englischkenntnisse von Vorteil |\n• Äusserst interessante Position für agile Persönlichkeiten, die sich in einem komplexen Projekt und Umfeld bewähren wollen\n• Kurze Entscheidungswege dank Involvierung in den CEO-Stab und in die aufbau- und ablaufbezogene Organisation der Spital Davos AG\n• Umfassender Einblick in die betrieblichen und operativen Gegebenheiten\n• Position mit späterem Entwicklungspotential über das Projektmanagement und die Unternehmensentwicklung hinaus | Für weitere Auskünfte steht Ihnen das HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "it": "Spital Davos AG sta progettando una conversione e un nuovo edificio nella posizione esistente. Con la vostra esperienza nella gestione dei progetti e nell'amministrazione aziendale, il Consiglio di Amministrazione e la gestione ospedaliera vi supportano nella possibile realizzazione del progetto attualmente in fase di progettazione. Nel tuo ruolo, lavori a stretto contatto con corpi interni ed esterni. Inoltre, si lavora su altri progetti nel quadro dello sviluppo aziendale e della rete con l'organizzazione e contribuiscono in modo significativo al successo. Come ospedale regionale / ospedale acuto con il servizio di ambulanza, la casa di cura e Spitex, siamo responsabili per l'assistenza medica di base per la popolazione di Davos e gli ospiti. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavoriamo in un'azienda gestibile, ma importante per la regione, manteniamo un'atmosfera collegiale di lavoro e apprezziamo la vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. # Per accordo, stiamo cercando una persona compiuta per |\n• Gestione del progetto e sviluppo aziendale\n• Coordinamento e rappresentanza degli interessi dei clienti nell'attuazione del nuovo progetto di conversione e costruzione presso la sede di Spital Davos AG per il team CEO e di progetto in termini di elaborazione, implementazione, budget e pianificazione\n• Preparazione delle basi decisionali per gli organismi interni ed esterni nonché coordinamento con le parti interne ed esterne coinvolte\n• Ulteriore sviluppo e attuazione delle basi e delle varianti esistenti secondo l'offerta di progetto nel senso dell'autorità di costruzione\n• Attuazione tempestiva che comprende il coordinamento della delocalizzazione interna e la garanzia di un funzionamento regolare durante il funzionamento\n• Assumendo la funzione di interfaccia del gestore dell'edificio (e dei gruppi di stakeholder interni) con la gestione degli edifici, gli architetti e i pianificatori specializzati durante un'implementazione\n• Coordinamento e rappresentanza degli interessi dei clienti anche nell'ambito del sostegno delle offerte, della gestione dei contratti e delle procedure di approvazione (costruzione, protezione antincendio, requisiti di autorità) in coordinamento con la gestione delle costruzioni e i progettisti specializzati durante l'attuazione\n• Assunzione di ulteriori compiti a seconda dell'esperienza e della competenza |\n• Università di scienze applicate o laurea in amministrazione aziendale o (tecnica) istruzione di base con l'ulteriore formazione rilevante come CAS/MAS project/(costruzione) gestione, amministrazione aziendale, gestione immobiliare o struttura\n• Esperienza nella gestione di grandi progetti, idealmente nella costruzione ospedaliera o ristrutturazione\n• Conoscenza dei processi ospedalieri e sviluppi futuri nel settore sanitario\n• Esperienza negli appalti pubblici (e gestione degli standard SIA)\n• Molto buone capacità analitiche, concettuali e pensiero in rete per padroneggiare i progetti interdisciplinari agili e paralleli alle operazioni in corso\n• personalità assertiva, comunicativa, pragmatica ed enfatica con un elevato livello di responsabilità personale e di metodi di lavoro indipendenti\n• Comunicazione stilistica in tedesco, inglese competenze di vantaggio |\n• Posizione estremamente interessante per personalità agili che vogliono dimostrarsi in un complesso progetto e ambiente\n• Brevi percorsi decisionali grazie al coinvolgimento del personale CEO e dell'organizzazione di Spital Davos AG\n• Una panoramica completa delle circostanze operative e operative\n• Per ulteriori informazioni, contattare il team di reclutamento HRM al numero +41 81 414 84 12 o via email job@spitaldavos.ch.",
         "en": "Spital Davos AG is planning a conversion and new building at the existing location. With your expertise in project management and business administration, the Board of Directors and hospital management support you in the possible implementation of the project currently being planned. In your role, you work closely with internal and external bodies. In addition, you work on other projects within the framework of corporate development and in the network with the organization and contribute significantly to success. As a regional hospital/acute hospital with ambulance service, nursing home and Spitex, we are responsible for basic medical care for the Davos population and guests. Equally important to us is the well-being of our employees. With us you work in a manageable company, but important for the region, we maintain a collegial working atmosphere and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. | By arrangement, we are looking for an accomplished person for |\n• Project management and corporate development\n• Coordination and representation of the client interests in the implementation of the conversion and new construction project at the location of Spital Davos AG for the CEO and project team in terms of elaboration, implementation, budget and scheduling\n• Preparation of decision-making bases for internal and external bodies as well as coordination with the involved internal and external parties\n• Further development and implementation of the existing foundations and variants according to the project tender in the sense of the building authority\n• Timely implementation including coordination of the internal relocation and ensuring a smooth operation during operation\n• Assuming the interface function of the building manager (and the internal stakeholder groups) with the building management, the architects and specialist planners during an implementation\n• Coordination and representation of the client interests also in the context of the support of tenders, contract management and securing of approval procedures (construction, fire protection, authority requirements) in coordination with the construction management and the specialist planners during implementation\n• Assumption of further tasks depending on experience and expertise |\n• University of applied sciences or university degree in business administration or (technical) basic education with relevant further education such as CAS/MAS project/(construction) management, business administration, real estate or facility management\n• Experience in successful management of large projects, ideally in hospital construction or renovation\n• Knowledge of hospital processes and future developments in the healthcare sector\n• Experience in public procurement (and handling of SIA standards)\n• Very good analytical, conceptual skills and networked thinking to master interdisciplinary projects agile and in parallel with ongoing operations\n• assertive, communication-strong, pragmatic and emphatic personality with a high level of personal responsibility and independent working methods\n• Stylistic communication in German, English skills of advantage |\n• Extremely interesting position for agile personalities who want to prove themselves in a complex project and environment\n• Short decision paths thanks to involvement in the CEO staff and in the organization of Spital Davos AG\n• Comprehensive insight into operational and operational circumstances\n• Position with later development potential beyond project management and corporate development | For further information, please contact the HRM recruitment team at +41 81 414 84 12 or by email jobs@spitaldavos.ch.",
+        "de": "Die Spital Davos AG plant einen Um- und Neubau am bestehenden Standort. Mit Ihrem Fachwissen in Projektmanagement und Betriebswirtschaft unterstützen Sie Verwaltungsrat und Spitalleitung bei einer allfälligen Umsetzung des sich zurzeit in Planung befindlichen Projektes. In Ihrer Rolle arbeiten Sie eng mit internen und externen Stellen zusammen. Darüber hinaus arbeiten Sie an weiteren Projekten im Rahmen der Unternehmensentwicklung und im Netzwerk mit der Organisation mit und tragen massgeblich zum Erfolg bei. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Nach Vereinbarung suchen wir eine versierte Person für |\n• Projektmanagement und Unternehmensentwicklung\n• Koordination und Vertretung der Bauherreninteressen bei einer Umsetzung des Um- und Neubauprojektes am Standort der Spital Davos AG zuhanden CEO und Projektteam punkto Etappierung, Umsetzung, Kostenrahmen und Terminplanung\n• Vorbereitung von Entscheidungsgrundlagen für interne und externe Gremien sowie Abstimmung mit den involvierten internen und externen Parteien\n• Weiterentwicklung und Umsetzung der bestehenden Grundlagen und Varianten gemäss Projektausschreibung im Sinne der Bauherrschaft\n• Termingerechte Umsetzung inklusive Koordination des internen Umzugs und Sicherstellen eines reibungslosen Ablaufs im laufenden Betrieb\n• Übernahme der Schnittstellenfunktion der Bauherrschaft (und der internen Anspruchsgruppen) mit der Bauleitung, den Architekten und Fachplanern bei einer Umsetzung\n• Koordination und Vertretung der Bauherreninteressen auch im Rahmen der Begleitung von Ausschreibungen, Vertragsmanagement sowie Sicherstellung von Bewilligungsverfahren (Bau, Brandschutz, Behördenauflagen) in Koordination mit dem Baumanagement und den Fachplanenden bei einer Umsetzung\n• Übernahme weiterer Aufgaben je nach Erfahrung und Expertise |\n• Fachhochschul- oder Hochschulabschluss in BWL oder (technische) Grundausbildung mit einschlägiger Weiterbildung wie CAS/MAS Projekt-/(Bau-) Management, BWL, Real Estate oder Facility Management\n• Erfahrung in erfolgreicher Führung von Grossprojekten, idealerweise im Spitalbau oder -umbau\n• Kenntnisse von Spitalprozessen und künftigen Entwicklungen im Gesundheitswesen von Vorteil\n• Erfahrung im öffentlichen Beschaffungswesen (sowie Umgang mit SIA-Normen)\n• Sehr gute analytische, konzeptionelle Fähigkeiten und vernetztes Denken, um interdisziplinäre Projekte agil und parallel zum laufenden Betrieb zu meistern\n• Durchsetzungsfähige, kommunikationsstarke, pragmatische und emphatische Persönlichkeit mit hoher Eigenverantwortung und selbständiger Arbeitsweise\n• Stilsichere Kommunikation in Deutsch, Englischkenntnisse von Vorteil |\n• Äusserst interessante Position für agile Persönlichkeiten, die sich in einem komplexen Projekt und Umfeld bewähren wollen\n• Kurze Entscheidungswege dank Involvierung in den CEO-Stab und in die aufbau- und ablaufbezogene Organisation der Spital Davos AG\n• Umfassender Einblick in die betrieblichen und operativen Gegebenheiten\n• Position mit späterem Entwicklungspotential über das Projektmanagement und die Unternehmensentwicklung hinaus | Für weitere Auskünfte steht Ihnen das HRM-Rekrutierungsteam unter der Telefonnummer +41 81 414 84 12 oder per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "fr": "Spital Davos AG prévoit une conversion et un nouveau bâtiment à l'emplacement existant. Grâce à votre expertise en gestion de projet et en administration des affaires, le conseil d'administration et la gestion des hôpitaux vous accompagnent dans la mise en œuvre éventuelle du projet en cours. Dans votre rôle, vous travaillez en étroite collaboration avec des organismes internes et externes. De plus, vous travaillez sur d'autres projets dans le cadre du développement de l'entreprise et du réseau avec l'organisation et contribuez grandement au succès. En tant qu'hôpital régional avec service d'ambulance, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base pour la population et les invités de Davos. Le bien-être de nos employés est tout aussi important pour nous. Avec nous vous travaillez dans une entreprise gérable, mais important pour la région, nous maintenons une atmosphère de travail collégiale et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. Autres Par arrangement, nous cherchons une personne accomplie pour\n• Gestion de projets et développement institutionnel\n• Coordination et représentation des intérêts des clients dans la mise en œuvre du projet de conversion et de construction à l'emplacement de Spital Davos AG pour le PDG et l'équipe de projet en termes d'élaboration, d'exécution, de budget et de programmation\n• Élaboration de bases de décision pour les organes internes et externes ainsi que coordination avec les parties internes et externes concernées\n• Développement et mise en œuvre des fondations et variantes existantes selon l'appel d'offres au sens de l'autorité chargée de la construction\n• Mise en œuvre en temps voulu, y compris la coordination de la réinstallation interne et le bon fonctionnement de l'opération\n• En supposant la fonction d'interface du gestionnaire du bâtiment (et des groupes d'intervenants internes) avec la direction du bâtiment, les architectes et les planificateurs spécialisés lors d'une mise en œuvre\n• Coordination et représentation des intérêts des clients également dans le cadre de l'appui aux appels d'offres, de la gestion des contrats et de la sécurisation des procédures d'approbation (construction, protection contre les incendies, exigences d'autorité) en coordination avec la direction de la construction et les planificateurs spécialisés pendant la mise en œuvre\n• Hypothèse de tâches supplémentaires en fonction de l'expérience et de l'expertise\n• Université des sciences appliquées ou diplôme universitaire en administration des affaires ou (technique) éducation de base avec formation complémentaire pertinente comme CAS/MAS gestion de projet/(construction), administration des affaires, immobilier ou gestion des installations\n• Expérience dans la gestion réussie de grands projets, idéalement dans la construction ou la rénovation hospitalières\n• Connaissance des processus hospitaliers et développements futurs dans le secteur des soins de santé\n• Expérience en matière de marchés publics (et traitement des normes SIA)\n• Très bonnes compétences analytiques, conceptuelles et pensée en réseau pour maîtriser les projets interdisciplinaires agiles et en parallèle avec les opérations en cours\n• une personnalité affirmée, forte en communication, pragmatique et emphatique avec un haut niveau de responsabilité personnelle et des méthodes de travail indépendantes\n• Communication styliste en allemand, compétences anglaises d'avantage\n• Position extrêmement intéressante pour des personnalités agiles qui veulent se prouver dans un projet et un environnement complexes\n• Courts chemins de décision grâce à l'implication dans le personnel du PDG et dans l'organisation de Spital Davos AG\n• Aperçu complet des circonstances opérationnelles et opérationnelles\n• Position avec un potentiel de développement ultérieur au-delà de la gestion de projet et du développement de l'entreprise."
       },
       "location": "Davos",
@@ -2251,7 +2301,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/723/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:45.245Z",
+      "crawledAt": "2026-08-21T09:55:47.957Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2266,15 +2316,15 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/723/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "D5 Unternehmensentwicklung / Services",
       "contractDuration": "permanent",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "projektmanagement-und-unternehmensentwicklung-80-100-spital-davos-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektmanagement-und-unternehmensentwicklung-80-100-spital-davos-ch"
@@ -2286,23 +2336,21 @@
           "projektmanagement-und-unternehmensentwicklung-80-100-spital-davos-ch"
         ]
       },
-      "previousSlugs": [
-        "projektmanagement-und-unternehmensentwicklung-80-100-spital-davos-ch"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:47:45.245Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-20T21:47:45.245Z"
+      "addressRegion": "GR"
     },
     {
       "id": "spital-davos-9ee7a190d0b2",
@@ -2335,7 +2383,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:44.380Z",
+      "crawledAt": "2026-08-21T09:55:46.971Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2377,23 +2425,26 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "stationsleitung-akutabteilung-80-100-spital-davos-ch"
+        "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+        "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-akutabteilung-80-100-spital-davos-ch"
+          "stationsleitung-akutabteilung-80-100-spital-davos-ch",
+          "direzione-del-reparto-di-medicina-acuta-80-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "needsRetranslation": true,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -2430,7 +2481,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:43.485Z",
+      "crawledAt": "2026-08-21T09:55:45.976Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2483,23 +2534,26 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch"
+          "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
+          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -2536,7 +2590,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:42.586Z",
+      "crawledAt": "2026-08-21T09:55:44.961Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2565,13 +2619,15 @@
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
         "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
           "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
-          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos"
+          "dipl-assistente-sanitario-hf-stazione-di-monitoraggio-70-100-spital-davos-davos",
+          "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos"
         ],
         "en": [
           "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos"
@@ -2585,15 +2641,16 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
+      "needsRetranslation": true,
+      "salaryMin": 48900,
+      "salaryMax": 68400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
+          "minValue": 48900,
+          "maxValue": 68400,
           "unitText": "YEAR"
         }
       },
