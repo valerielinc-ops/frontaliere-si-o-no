@@ -1,6 +1,6 @@
 {
   "crawlerKey": "riveneuve",
-  "assembledAt": "2026-08-21T10:08:03.838Z",
+  "assembledAt": "2026-08-21T21:40:32.827Z",
   "jobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
@@ -34,7 +34,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:08:00.163Z",
+      "crawledAt": "2026-08-21T21:40:30.224Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -95,15 +95,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:46.973Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -140,7 +140,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:07:59.037Z",
+      "crawledAt": "2026-08-21T21:40:29.413Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -192,15 +192,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:46.266Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }
@@ -237,7 +237,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:07:57.871Z",
+      "crawledAt": "2026-08-21T21:40:28.379Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -289,15 +289,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:45.530Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -334,7 +334,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:07:56.479Z",
+      "crawledAt": "2026-08-21T21:40:27.608Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -398,15 +398,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:44.377Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
