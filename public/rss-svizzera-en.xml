@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Aug 2026 20:44:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 21:34:42 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,101 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS Income in Zurich: how the first pillar works</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/first-pillar-zurich-minimum-living-standard/</link>
+      <description><![CDATA[Guide to the AVS system in the Canton of Zurich: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+
+- The AVS is the first pillar of Swiss social security
+- Managed by cantonal clearing houses (one per canton)
+- Supplementary benefits supplement the annuity for the minimum living
+
+## Key facts
+
+- **What**: AVS (first pillar), complementary services (PC/EL)
+- Where: Canton Zurich, via cantonal clearing house
+- Who: UFAS/BSV federal; cantonal fund; insure
+- How: Contributions paid (5.3% employee + 5.3% employer), accreditation, recognition of gaps
+
+In the Canton of Zurich, the old-age pension system is divided into two complementary levels: the AVS (first pillar) and the complementary benefits (PC), both managed by the cantonal compensation fund.
+
+The AVS represents the basis of social protection: it is financed through compulsory contributions (5.3% borne by the employee, 5.3% by the employer, on wages up to the federally fixed annual ceiling) and covers the risks of old age, disability and death of the family. The cantonal compensation fund of Zurich is the institution that centralizes payments, credits contribution periods, and pays annuities to those who have reached the reference age.
+
+However, the AVS annuity is not always sufficient to cover the vital minimum. This includes supplementary benefits, financed by general taxes (not contributions), which supplement the AVS income if the insured's income and assets remain below the coverage threshold.
+
+One
+## Complementary services: how they cover the vital minimum
+
+Complementary benefits (PC) are the mechanism that ensures economic dignity to those who are entitled to an AVS annuity but do not reach the living minimum. In Zurich, as in all Swiss cantons, the living minimum is defined by federal tariffs, but the cantonal administration coordinates with the compensation fund for the disbursement.
+
+To access PCs, the amount of the AVS annuity (plus any other sources of income or equity) must remain below the coverage threshold. The "minimum living" includes: accommodation, food, clothing, medical care, essential expenses.
+
+Unlike the AVS, which is contributory right, PCs are welfare benefits: the funding comes from taxes (50% Confederation, 50% canton), not from contributions. This means that even those who have paid few contributions, or who have long periods of gaps, can access PCs if income is insufficient.
+
+### Scenario: AVS income reduced by contribution gaps
+
+An insured who has reached the reference age may find an AVS annuity lower than expected for several reasons:
+- Non-insurance periods (e.g. unaffiliated self-employment)
+- Breaks due to prolonged unemployment without recognised contributions
+- Years of contribution less than 44 years (total from 1948 to 2024 for those who turn 65 in 2024)
+
+In these cases, the Zurich Compensation Fund examines whether gaps can
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+## Procedure: How to Request AVS Pension and PCs in Zurich
+
+### Step 1: Gathering Contributory Documents
+
+About 3-4 months before the reference age (65 for men, 64 for women, subject to ongoing changes), request the professional career certificate from the Zurich Compensation Fund. You can do this:
+- Online, through the myAVS/miAVS portal (with Swiss digital certificate)
+- By mail, downloading the form from the Zurich fund's website
+- In person at the fund's office
+
+The fund will inform you of:
+- Accredited years
+- Identified gaps (and if they can be recognized)
+- Estimated pension amount
+
+### Step 2: Filling Gaps if Possible
+
+If you identify gaps, consider:
+- **Voluntary LPP redemption**: If you were a freelance professional, you can redeem missing periods in the second pillar within a year of requesting the pension
+- Bonuses for unpaid work: If you cared for family members (young children, elderly parents), you can request accreditation of periods
+- Periods abroad: If you worked abroad with a Swiss spouse, some periods may be recognized
+
+Contact the Zurich fund directly: they have experts who examine each case individually
+
+### Step 3: AVS Pension Request
+
+About a month before the reference age, submit the pension request (form available on the fund's website). The request must be submitted by mail or online. Attach:
+- Career certificate (obtained in step 1)
+- Copy of identification document
+- Declaration of current income (if still working)
+
+### Step 4: If the pension does not cover the minimum vital amount → PC Request
+
+Receive the decision on the pension. If the amount is low (often due to unfillable gaps), contact the Zurich Canton's Complementary Benefits Service (sometimes hosted at the fund's office itself).
+
+Documents for the PC request:
+- Letter of AVS pension grant
+- Patrimonial declaration (immovable property, savings, securities)
+- Documentation of housing expenses (rental contract / property certificate)
+- Documentation of uncovered medical expenses
+
+### Deadlines and Contacts
+
+The decision on the AVS pension usually arrives within 30-60 days of the request. PCs must be requested once the AVS pension is definitively known.
+
+Use the [AVS Calculator](nav:pension) to estimate your pension based on contributions paid in Switzerland. Enter your professional career data and the system will show a projection of the expected pension, helping you evaluate whether filling gaps is beneficial.
+
+Also, consult the [Guide to the Cost of Living in Switzerland](nav:cost-of-living) to understand how the minimum vital amount varies by canton and what support measures are available in your situation.]]></content:encoded>
+      <pubDate>Fri, 21 Aug 2026 21:34:42 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/primo-pilastro-zurigo-minimo-vitale</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/primo-pilastro-zurigo-minimo-vitale.webp" medium="image"/>
+    </item>
     <item>
       <title>AVS and complementary in Zurich: a guide to the bare minimum</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/supplementary-benefits-zurich-minimum-living/</link>
@@ -2921,49 +3016,6 @@ A cost-of-living calculator can help verify if a rent is within reasonable param
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/affitti-sciaffusa-cauzione-disdetta</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/affitti-sciaffusa-cauzione-disdetta.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Buy house canton Schaffhausen: prices and mortgage</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/buy-house-canton-schaffhausen-mortgage-tax/</link>
-      <description><![CDATA[Guide to buying homes in the Canton of Schaffhausen: own funds, sustainability of the mortgage, transfer tax and notary fees.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Federal requirement: minimum 20% own funds of the purchase price
-- Sustainable loan: installments ≤ 30-33% of annual gross income
-- Taxation on 3 levels: federal + cantonal + municipal
-
-## Key facts
-- **What**: Purchase of a house in the Canton of Schaffhausen
-- Where: Canton Schaffhausen, north-eastern Switzerland
-- Requirements: Minimum 20% own funds; bank sustainability tests
-- Taxation: federal + cantonal + municipal IFD
-- Tax on crossings: Cantonal competence, variae for Schaffhausen
-
-Buying a house in Canton Schaffhausen is subject to Swiss federal principles and local cantonal regulations. Swiss law states that the purchase of real estate must be registered in the cantonal land register and subject to uniform rules for mortgage financing. One of the fundamental pillars is the requirement of own funds: according to federal law (Code of Bonds), the buyer must have at least 20% of the purchase price as own capital. 20% may include personal savings, family contributions, and in some cases 3rd pillar redemptions (with specific constraints).
-
-The remaining 80% is financed by mortgage. Swiss banks, before approving a mortgage, conduct a sustainability test. This test verifies that the mortgage installments plus property management expenses (municipal taxes, estimated maintenance) do not exceed 30-33% of the annual gross income of the
-Choosing the right mortgage is crucial for sustainable home buying. In Switzerland, the mortgage market offers various options: fixed-rate mortgages (5, 10, 15 years), variable-rate mortgages, and Libor/SOFR-indexed mortgages. The Swiss mortgage is secured by the right of pledge on the property. The bank registers its pledge in the land register, which becomes the guarantee of the loan. If the borrower fails to pay, the bank can proceed with foreclosure and forced sale of the property.
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-After checking your own funds and getting a pre-approval of the mortgage, it's time to move on to the purchase operating procedure in the Canton of Schaffhausen.
-
-### Step 1: Find the property and negotiate
-
-Search for properties on Swiss real estate platforms (Immobiliare.ch, Homegate, Newhome, etc.). Filter by Canton Schaffhausen, city, square footage, price. Contact your local real estate agent or private seller. Negotiate the price based on local market valuations. Once an agreement has been reached, sign a Promise to Purchase contract. This document is optional but recommended: it links both parties to the price and conditions.
-
-### Step 2: Banking appraisal and mortgage confirmation
-
-The bank orders a professional appraisal of the property to verify that the declared value is realistic. If the appraisal is lower, the mortgage is reduced proportionately. With the confirmed appraisal, the bank sends the loan offer letter, which specifies: amount, rate, duration, monthly installments, investigation costs.
-
-### Step 3: Involve the notary and cadastral registration
-
-A notary is required for all property purchases in Switzerland. The notary draws up the deed of sale, verifies that the seller is the rightful owner, collects the signatures, transmits the deed to the land registry office of the Canton of Schaffhausen for registration, and calculates the transfer tax to the cantonal tax office.
-
-First day as a cross-border worker? Our [practical guide](nav:first-day) walks you from cantonal registration to your first paycheck.]]></content:encoded>
-      <pubDate>Thu, 20 Aug 2026 20:08:39 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/acquisire-casa-sciaffusa-mutuo-fiscale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/acquisire-casa-sciaffusa-mutuo-fiscale.webp" medium="image"/>
     </item>
   </channel>
 </rss>

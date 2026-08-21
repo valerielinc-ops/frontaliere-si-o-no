@@ -11233,6 +11233,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'primo-pilastro-zurigo-minimo-vitale',
+    category: 'pensione',
+    date: '2026-08-21T21:34:42.130Z',
+    image: '/images/blog/primo-pilastro-zurigo-minimo-vitale.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

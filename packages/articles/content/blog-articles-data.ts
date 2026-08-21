@@ -31224,6 +31224,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-monno-lavorare-grigioni',
+ category: 'fiscale',
+ date: '2026-08-21T21:21:51.140Z',
+ image: '/images/blog/vivere-monno-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

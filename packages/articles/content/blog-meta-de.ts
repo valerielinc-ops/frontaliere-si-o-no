@@ -10427,6 +10427,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Leben in Spriana, Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Neues Abkommen 2024, Quellensteuer nur Schweiz, Befreiung € 7.500- € 10.000, Bewilligung G, AHV/BVG und italienische Rückerstattung.',
     'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Alpiner Bergpass zwischen Italienischen Alpen und Schweizer Graubünden mit Grenzübergang im Morgennebel',
+    'blog.article.vivere-monno-lavorare-grigioni.title': 'Wohnen in Monno und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für diejenigen, die in Monno leben und in der Schweiz arbeiten: Steuern, neues Abkommen, Beiträge und Einkommensmanagement zwischen Italien und dem Kanton Graubünden.',
+    'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Alpine Landschaft mit Bergstraße',
 };
 
 export default blogMetaDe;
