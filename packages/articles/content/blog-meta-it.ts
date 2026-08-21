@@ -10420,6 +10420,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontaliere Tubre-Grigioni: fiscalità e permesso G',
     'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Guida completa per chi vive a Tubre e lavora in Grigioni: tassazione alla fonte, ristorni, LAMal, AVS e procedure amministrative per frontalieri.',
     'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Strada di confine tra Italia e Svizzera in zona Ticino-Grigioni, con segnaletica valico e paesaggio montano',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Vivere Valdisotto, lavorare Grigioni: fiscalita frontaliere',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Imposta alla fonte, AVS e LAMal: cosa sapere su fiscalita e previdenza per chi vive a Valdisotto e lavora in Grigioni come frontaliere',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Paesaggio alpino Ticino-Grigioni, veduta del confine frontaliere presso Locarno',
 };
 
 export default blogMetaIt;
