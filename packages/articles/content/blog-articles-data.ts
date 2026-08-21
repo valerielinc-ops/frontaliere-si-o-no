@@ -31170,6 +31170,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'beura-cardezza-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-21T16:41:43.237Z',
+ image: '/images/blog/beura-cardezza-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

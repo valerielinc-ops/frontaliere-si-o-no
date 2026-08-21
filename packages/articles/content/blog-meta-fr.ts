@@ -10412,6 +10412,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-calo-secondo-trimestre-2026.title': 'Frontaliers italiens en baisse : −0,6 % au Tessin au Q2 2026',
     'blog.article.frontalieri-calo-secondo-trimestre-2026.excerpt': 'Au deuxième trimestre 2026, les entrées en provenance d\'Italie ont chuté de 1,1 %. Au Tessin, la baisse est de 0,6 %. Nouvel accord fiscal et meilleures conditions de travail en Italie parmi les facteurs.',
     'blog.article.frontalieri-calo-secondo-trimestre-2026.imageAlt': 'Bord du lac de Lugano, centre économique du Tessin attirant les travailleurs frontaliers italiens affectés par le déclin du Q2 2026',
+    'blog.article.beura-cardezza-frontaliere-ticino.title': 'Beura-Cardezza : vivre et travailler comme frontalier Tessin',
+    'blog.article.beura-cardezza-frontaliere-ticino.excerpt': 'Vivre à Beura-Cardezza et travailler comme frontalier au Tessin : règles fiscales, permis G, AVS, droits de sécurité sociale et ce qu\'il faut savoir avant de déménager.',
+    'blog.article.beura-cardezza-frontaliere-ticino.imageAlt': 'Vue du Tessin dans la région du Verbano à la frontière suisse-italienne, montrant l\'architecture traditionnelle et le paysage montagneux',
 };
 
 export default blogMetaFr;
