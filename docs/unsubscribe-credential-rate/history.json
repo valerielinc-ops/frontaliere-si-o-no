@@ -64,6 +64,22 @@
       "findings": [
         "uncredentialed_share"
       ]
+    },
+    {
+      "date": "2026-08-21",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 22,
+        "email_token": 123,
+        "legacy_auth_token": 0,
+        "missing": 49
+      },
+      "graded": 145,
+      "fallbackRate": 0.15172413793103448,
+      "findings": [
+        "uncredentialed_share",
+        "fallback_rate_warn"
+      ]
     }
   ]
 }
