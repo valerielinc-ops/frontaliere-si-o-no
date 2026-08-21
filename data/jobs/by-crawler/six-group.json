@@ -1,6 +1,6 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-08-20T21:32:55.453Z",
+  "assembledAt": "2026-08-21T09:08:18.050Z",
   "jobs": [
     {
       "id": "six-group-8d94518ce753",
@@ -6663,69 +6663,6 @@
           "@type": "QuantitativeValue",
           "minValue": 121500,
           "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "six-group-03c437722a82",
-      "slug": "site-reliability-engineer-data-availability-six-group-singapore",
-      "slugByLocale": {
-        "it": "site-reliability-engineer-data-availability-six-group-singapore",
-        "en": "site-reliability-engineer-data-availability-six-group-singapore",
-        "de": "site-reliability-engineer-data-availability-six-group-singapore",
-        "fr": "site-reliability-engineer-data-availability-six-group-singapore"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Site Reliability Engineer - Data Availability",
-      "titleByLocale": {
-        "it": "Site Reliability Ingegnere - Data Availability",
-        "en": "Site Reliability Engineer - Data Availability",
-        "de": "Site Reliability Ingenieur - Data Availability",
-        "fr": "Site Reliability Ingénieur - Data Availability"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSite Reliability Engineer - Data Availability\n\nSingapore |  working from home up to 40% | Reference 7751\n\nWe are looking for a skilled and reliability-driven Site Reliability Engineer (SRE) to strengthen our engineering team. In this hybrid role, you will combine hands-on 2nd level support responsibilities with monitoring, automation, and reliability engineering. You will play a key role in ensuring the stability, observability, and continuous improvement of our production systems supporting real-time financial data processing.\n\nWhat You Will Do\n\nOperational Support & Incident Management\n\n• Provide 2nd level support for production systems and critical business applications.\n\n• Investigate, troubleshoot, and resolve incidents and performance issues.\n\n• Perform root cause analysis (RCA) and document findings in a structured manner.\n\nMonitoring, Observability & Automation\n\n•\n\n• Design, implement, and maintain monitoring dashboards.\n\n• Improve alert quality and reduce noise through effective threshold and metric design.\n\n• Analyze logs, metrics, and system behavior to proactively detect anomalies, automate operational processes using Ansible and scripting.\n\nWhat You Bring\n\n• Operational Mindset & Collaboration\n\n• Proven experience in Site Reliability Engineering, DevOps, or 2nd level production support.\n\n• Effective communication skills and ability to work with cross-functional teams.\n\nTechnical Skills\n\n• Hands-on experience with Elastic Stack and Grafana for monitoring and logging.\n\n• Experience with Ansible for configuration management and automation.\n\n• Experience with Git/GitLab.\n\n• Familiarity with scripting languages.\n\nIf you have any questions, check out our FAQ page or call Anthony Mills  at +44 207 550 5407 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\nWhat We Offer\n\nFlexible Work Models\n\nWe trust our employees and offer a work environment that is well-balanced, productive and fosters success.\n\nPersonal Development\n\nYou will benefit from a culture of continuous learning and feedback. Your personal growth is supported through an extensive learning offering.\n\n<div",
-      "descriptionByLocale": {
-        "it": "SIX drives the transformation of financial markets. What sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us. Site Reliability Engineer - Data Availability Singapore | working from home up to 40% | Reference 7751 We are looking for a skilled and reliability-driven Site Reliability Engineer (SRE) to strengthen our engineering team. In this hybrid role, you will combine hands-on 2nd level support responsibilities with monitoring, automation, and reliability engineering. You will play a key role in ensuring the stability, observability, and continuous improvement of our production systems supporting real-time financial data processing. What You Will Do Operational Support & Incident Management\n• Provide 2nd level support for production systems and critical business applications.\n• Investigate, troubleshoot, and resolve incidents and performance issues.\n• Perform root cause analysis (RCA) and document findings in a structured manner. Monitoring, Observability & Automation\n•\n• Design, implement, and maintain monitoring dashboards.\n• Improve alert quality and reduce noise through effective threshold and metric design.\n• Analyze logs, metrics, and system behavior to proactively detect anomalies, automate operational processes using Ansible and scripting. What You Bring\n• Operational Mindset & Collaboration\n• Proven experience in Site Reliability Engineering, DevOps, or 2nd level production support.\n• Effective communication skills and ability to work with cross-functional teams. Technical Skills\n• Hands-on experience with Elastic Stack and Grafana for monitoring and logging.\n• Experience with Ansible for configuration management and automation.\n• Experience with Git/GitLab.\n• Familiarity with scripting languages. If you have any questions, check out our FAQ page or call Anthony Mills at +44 207 550 5407 . For this vacancy we only accept direct applications. Diversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background. What We Offer Flexible Work Models We trust our employees and offer a work environment that is well-balanced, productive and fosters success. Personal Development You will benefit from a culture of continuous learning and feedback. Your personal growth is supported through an extensive learning offering. <div",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSite Reliability Engineer - Data Availability\n\nSingapore | working from home up to 40% | Reference 7751\n\nWe are looking for a skilled and reliability-driven Site Reliability Engineer (SRE) to strengthen our engineering team. In this hybrid role, you will combine hands-on 2nd level support responsibilities with monitoring, automation, and reliability engineering. You will play a key role in ensuring the stability, observability, and continuous improvement of our production systems supporting real-time financial data processing.\n\nWhat You Will Do\n\nOperational Support & Incident Management\n\n• Provide 2nd level support for production systems and critical business applications.\n\n• Investigate, troubleshoot, and resolve incidents and performance issues.\n\n• Perform root cause analysis (RCA) and document findings in a structured manner.\n\nMonitoring, Observability & Automation\n\n•\n\n• Design, implement, and maintain monitoring dashboards.\n\n• Improve alert quality and reduce noise through effective threshold and metric design.\n\n• Analyze logs, metrics, and system behavior to proactively detect anomalies, automate operational processes using Ansible and scripting.\n\nWhat You Bring\n\n• Operational Mindset & Collaboration\n\n• Proven experience in Site Reliability Engineering, DevOps, or 2nd level production support.\n\n• Effective communication skills and ability to work with cross-functional teams.\n\nTechnical Skills\n\n• Hands-on experience with Elastic Stack and Grafana for monitoring and logging.\n\n• Experience with Ansible for configuration management and automation.\n\n• Experience with Git/GitLab.\n\n• Familiarity with scripting languages.\n\nIf you have any questions, check out our FAQ page or call Anthony Mills at +44 207 550 5407 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.\n\nWhat We Offer\n\nFlexible Work Models\n\nWe trust our employees and offer a work environment that is well-balanced, productive and fosters success.\n\nPersonal Development\n\nYou will benefit from a culture of continuous learning and feedback. Your personal growth is supported through an extensive learning offering.\n\n<div",
-        "de": "SIX drives the transformation of financial markets. What sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us. Site Reliability Engineer - Data Availability Singapore | working from home up to 40% | Reference 7751 We are looking for a skilled and reliability-driven Site Reliability Engineer (SRE) to strengthen our engineering team. In this hybrid role, you will combine hands-on 2nd level support responsibilities with monitoring, automation, and reliability engineering. You will play a key role in ensuring the stability, observability, and continuous improvement of our production systems supporting real-time financial data processing. What You Will Do Operational Support & Incident Management\n• Provide 2nd level support for production systems and critical business applications.\n• Investigate, troubleshoot, and resolve incidents and performance issues.\n• Perform root cause analysis (RCA) and document findings in a structured manner. Monitoring, Observability & Automation\n•\n• Design, implement, and maintain monitoring dashboards.\n• Improve alert quality and reduce noise through effective threshold and metric design.\n• Analyze logs, metrics, and system behavior to proactively detect anomalies, automate operational processes using Ansible and scripting. What You Bring\n• Operational Mindset & Collaboration\n• Proven experience in Site Reliability Engineering, DevOps, or 2nd level production support.\n• Effective communication skills and ability to work with cross-functional teams. Technical Skills\n• Hands-on experience with Elastic Stack and Grafana for monitoring and logging.\n• Experience with Ansible for configuration management and automation.\n• Experience with Git/GitLab.\n• Familiarity with scripting languages. If you have any questions, check out our FAQ page or call Anthony Mills at +44 207 550 5407 . For this vacancy we only accept direct applications. Diversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background. What We Offer Flexible Work Models We trust our employees and offer a work environment that is well-balanced, productive and fosters success. Personal Development You will benefit from a culture of continuous learning and feedback. Your personal growth is supported through an extensive learning offering. <div",
-        "fr": "SIX drives the transformation of financial markets. What sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us. Site Reliability Engineer - Data Availability Singapore | working from home up to 40% | Reference 7751 We are looking for a skilled and reliability-driven Site Reliability Engineer (SRE) to strengthen our engineering team. In this hybrid role, you will combine hands-on 2nd level support responsibilities with monitoring, automation, and reliability engineering. You will play a key role in ensuring the stability, observability, and continuous improvement of our production systems supporting real-time financial data processing. What You Will Do Operational Support & Incident Management\n• Provide 2nd level support for production systems and critical business applications.\n• Investigate, troubleshoot, and resolve incidents and performance issues.\n• Perform root cause analysis (RCA) and document findings in a structured manner. Monitoring, Observability & Automation\n•\n• Design, implement, and maintain monitoring dashboards.\n• Improve alert quality and reduce noise through effective threshold and metric design.\n• Analyze logs, metrics, and system behavior to proactively detect anomalies, automate operational processes using Ansible and scripting. What You Bring\n• Operational Mindset & Collaboration\n• Proven experience in Site Reliability Engineering, DevOps, or 2nd level production support.\n• Effective communication skills and ability to work with cross-functional teams. Technical Skills\n• Hands-on experience with Elastic Stack and Grafana for monitoring and logging.\n• Experience with Ansible for configuration management and automation.\n• Experience with Git/GitLab.\n• Familiarity with scripting languages. If you have any questions, check out our FAQ page or call Anthony Mills at +44 207 550 5407 . For this vacancy we only accept direct applications. Diversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background. What We Offer Flexible Work Models We trust our employees and offer a work environment that is well-balanced, productive and fosters success. Personal Development You will benefit from a culture of continuous learning and feedback. Your personal growth is supported through an extensive learning offering. <div"
-      },
-      "needsRetranslation": true,
-      "location": "Singapore",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Singapore-Site-Reliability-Engineer-Data-Availability/1367879933/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:32:01.626Z",
-      "addressLocality": "Singapore",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8005",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1367879933/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-23T12:39:16.395Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
