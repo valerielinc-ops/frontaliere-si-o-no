@@ -10411,6 +10411,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-calo-secondo-trimestre-2026.title': 'Frontalieri italiani in calo: −0,6% in Ticino nel Q2 2026',
     'blog.article.frontalieri-calo-secondo-trimestre-2026.excerpt': 'Nel secondo trimestre 2026 gli ingressi dall\'Italia calano dell\'1,1%. In Ticino il calo è del 0,6%. Nuovo accordo fiscale e migliori condizioni lavorative in Italia tra i fattori.',
     'blog.article.frontalieri-calo-secondo-trimestre-2026.imageAlt': 'Veduta di Lugano, centro economico ticinese che accoglie i frontalieri italiani colpiti dal calo del Q2 2026',
+    'blog.article.beura-cardezza-frontaliere-ticino.title': 'Beura-Cardezza: vivere e lavorare come frontaliere Ticino',
+    'blog.article.beura-cardezza-frontaliere-ticino.excerpt': 'Vivere a Beura-Cardezza e lavorare come frontaliere in Ticino: norme fiscali, permesso G, AVS, diritti previdenziali e cosa sapere prima di trasferirsi.',
+    'blog.article.beura-cardezza-frontaliere-ticino.imageAlt': 'Veduta del Ticino nella regione del Verbano al confine svizzero-italiano, con architettura tradizionale e paesaggio montano',
 };
 
 export default blogMetaIt;

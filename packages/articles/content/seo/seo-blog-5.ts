@@ -73742,6 +73742,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-beura-cardezza-frontaliere-ticino': {
+    title: 'Beura-Cardezza: vivere e lavorare come frontaliere Ticino',
+    description: 'Vivere a Beura-Cardezza e lavorare come frontaliere in Ticino: norme fiscali, permesso G, AVS, diritti previdenziali e cosa sapere prima di trasferirsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, beura-cardezza, vivere, lavorare, norme',
+    ogTitle: 'Beura-Cardezza: vivere e lavorare come frontaliere Ticino',
+    ogDescription: 'Vivere a Beura-Cardezza e lavorare come frontaliere in Ticino: norme fiscali, permesso G, AVS, diritti previdenziali e cosa sapere prima di trasferirsi.',
+    canonicalPath: '/articoli-frontaliere/beura-cardezza-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Beura-Cardezza: vivere e lavorare come frontaliere Ticino",
+      "description": "Vivere a Beura-Cardezza e lavorare come frontaliere in Ticino: norme fiscali, permesso G, AVS, diritti previdenziali e cosa sapere prima di trasferirsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/beura-cardezza-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Ticino nella regione del Verbano al confine svizzero-italiano, con architettura tradizionale e paesaggio montano"
+      },
+      "datePublished": "2026-08-21T16:41:43+00:00",
+      "dateModified": "2026-08-21T16:41:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/beura-cardezza-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
