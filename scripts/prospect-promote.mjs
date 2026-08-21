@@ -29,6 +29,7 @@
  *   node scripts/prospect-promote.mjs --dry-run
  *   node scripts/prospect-promote.mjs --max=5
  *   node scripts/prospect-promote.mjs --open-pr
+ *   node scripts/prospect-promote.mjs --min-days=1 --open-pr   # verifica una tantum
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -47,14 +48,62 @@ const dryRun = flag('dry-run');
 const openPr = flag('open-pr');
 const maxPerRun = Number(arg('max', GATE_DEFAULTS.maxPerRun));
 
+/**
+ * Leva di verifica: abbassa la regola di stabilita' per un giro.
+ *
+ * Esiste perche' la condizione vincolante del gate — due validazioni buone su
+ * due GIORNI distinti — rende impossibile provare il percorso di promozione nel
+ * giorno in cui lo si costruisce, e un percorso mai eseguito e' un percorso non
+ * verificato. Non e' un modo per allentare il gate di nascosto: e' esposta solo
+ * come input di `workflow_dispatch`, il cron non la tocca mai, e ogni uso
+ * finisce scritto nel titolo e nel corpo della PR che produce — cosi' una
+ * promozione a gate ridotto non puo' essere scambiata per una normale.
+ */
+const minDays = Number(arg('min-days', GATE_DEFAULTS.minDistinctDays));
+const relaxed = minDays < GATE_DEFAULTS.minDistinctDays;
+if (relaxed) {
+  console.log(`⚠️  GATE RIDOTTO: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}.`);
+  console.log('   Giro di verifica: l\'uso e\' registrato nella PR prodotta.\n');
+}
+
 const store = loadCandidates();
 const coverage = loadCoverage();
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
+/**
+ * Un candidato resta `promoting` finche' la sua PR non merge. Se quella PR viene
+ * CHIUSA senza merge, senza questo passaggio resterebbe bloccato per sempre: il
+ * gate lo esclude e nessuno lo rimette in gioco. Quindi all'avvio si controlla
+ * l'esito delle PR registrate e si riapre la candidatura di quelle fallite.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @returns {number} quanti sono tornati candidabili
+ */
+function reopenAbandonedPromotions(store) {
+  let reopened = 0;
+  for (const c of byStatus(store, 'promoting')) {
+    if (!c.promotionPr) continue;
+    let state = '';
+    try {
+      state = execFileSync('gh', ['pr', 'view', String(c.promotionPr), '--json', 'state', '-q', '.state'], {
+        cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+      }).toString().trim();
+    } catch { continue; } // gh non disponibile o PR non leggibile: non toccare nulla
+    if (state === 'CLOSED') {
+      setStatus(store, c.key, 'promoted', { reason: `PR ${c.promotionPr} chiusa senza merge, ricandidato` });
+      reopened++;
+    }
+  }
+  return reopened;
+}
+
+const reopened = reopenAbandonedPromotions(store);
+if (reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reopened}`);
+
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
   { existingKeys: coverage.keys },
-  { maxPerRun },
+  { maxPerRun, minDistinctDays: minDays, minRuns: Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays)) },
 );
 
 console.log('═══ Prospector · PROMOTE ═══');
@@ -81,6 +130,12 @@ for (const c of promotable) {
   let spec;
   try { spec = JSON.parse(fs.readFileSync(specPath, 'utf8')); } catch {
     console.log(`  ✗ ${c.crawlerKey}: spec mancante, salto`);
+    continue;
+  }
+  // Un seed vuoto renderebbe `--url` un `undefined` passato a execFileSync, che
+  // fallisce in modo oscuro a meta' scaffolding. Meglio saltare e dirlo.
+  if (!Array.isArray(spec.seedUrls) || !spec.seedUrls[0]) {
+    console.log(`  ✗ ${c.crawlerKey}: spec senza seed URL, salto`);
     continue;
   }
   const args = [
@@ -129,7 +184,26 @@ if (!openPr) {
 }
 
 const stamp = new Date().toISOString().slice(0, 10);
-const branch = `prospector/promote-${stamp}`;
+// Il cron gira una volta al giorno, ma un workflow_dispatch manuale nello stesso
+// giorno userebbe lo stesso nome e `git checkout -b` fallirebbe: la promozione di
+// quel giro andrebbe persa senza che nulla lo dica.
+const baseBranch = (() => {
+  try {
+    return execFileSync('git', ['rev-parse', '--abbrev-ref', 'HEAD'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+  } catch { return 'main'; }
+})();
+const branchExists = (name) => {
+  try {
+    execFileSync('git', ['rev-parse', '--verify', '--quiet', `refs/heads/${name}`], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    return true;
+  } catch { /* non locale */ }
+  try {
+    const out = execFileSync('git', ['ls-remote', '--heads', 'origin', name], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+    return out.length > 0;
+  } catch { return false; }
+};
+let branch = `prospector/promote-${stamp}`;
+for (let n = 2; branchExists(branch) && n < 20; n++) branch = `prospector/promote-${stamp}-${n}`;
 const totalVacancies = shipped.reduce((a, s) => a + (s.vacancyCount || 0), 0);
 
 const bullets = shipped.map((s) => {
@@ -138,10 +212,14 @@ const bullets = shipped.map((s) => {
   return `- **in questa PR** — \`${s.spec.companyKey}\` · ${s.spec.companyName} · ${s.vacancyCount} annunci · qualita' ${Number(s.qualityScore).toFixed(2)} su ${days} giorni distinti · estrazione \`${s.spec.mode}\` · ${s.spec.companyHost}`;
 }).join('\n');
 
+const relaxedNote = relaxed
+  ? `\n- **in questa PR** — ⚠️ **giro di verifica a gate ridotto**: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}. Serviva a eseguire il percorso di promozione senza attendere il secondo giorno; tutte le altre condizioni del gate sono quelle normali. Il cron non usa mai questa leva.`
+  : '';
+
 const body = `## Implementato
 
 - **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare.
-${bullets}
+${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente.
 
 ## Non implementato (ancora)
@@ -173,11 +251,34 @@ try {
   git('push', '-u', 'origin', branch);
   const url = execFileSync('gh', [
     'pr', 'create', '--base', 'main', '--head', branch,
-    '--title', `Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
+    '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
     '--body-file', bodyFile,
   ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
   console.log(`\nPR aperta: ${url}`);
-  console.log('Il ciclo del repo la revisiona e la mergia da solo su ## LGTM.');
+
+  // Il passaggio a `production` vive sul branch della PR, quindi su main questi
+  // candidati resterebbero `promoted` finche' la PR non merge — e il giro
+  // successivo, che riparte da main fresco, li riscaffolderebbe aprendo una
+  // seconda PR con gli stessi file. Quindi si torna sul branch base e ci si
+  // scrive `promoting` con il numero di PR: e' l'unico stato che il giro dopo
+  // vedra' davvero.
+  const prNumber = (url.match(/\/pull\/(\d+)/) || [])[1] || url;
+  git('checkout', baseBranch);
+  const mainStore = loadCandidates();
+  for (const s of shipped) {
+    setStatus(mainStore, s.key, 'promoting', { promotionPr: prNumber, promotionBranch: branch });
+  }
+  saveCandidates(mainStore);
+  try {
+    git('add', 'data/prospector');
+    git('commit', '-m', `prospector: segna ${shipped.length} candidati come in promozione (PR ${prNumber})`);
+    git('push', 'origin', baseBranch);
+    console.log(`stato "promoting" scritto su ${baseBranch}: il giro successivo non li riproporra'.`);
+  } catch (err) {
+    console.error(`⚠️ non sono riuscito a scrivere lo stato su ${baseBranch}: ${String(err.stderr || err.message).slice(0, 200)}`);
+    console.error('   Il giro successivo potrebbe riproporre questi candidati.');
+  }
+  console.log('Il ciclo del repo revisiona e mergia la PR da solo su ## LGTM.');
 } catch (err) {
   console.error(`\n❌ apertura PR fallita: ${String(err.stderr || err.message).slice(0, 400)}`);
   process.exit(1);
