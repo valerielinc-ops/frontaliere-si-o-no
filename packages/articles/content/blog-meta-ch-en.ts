@@ -3619,6 +3619,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'New nuclear plant: CHF 14 billion to CHF 43 billion',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'A report by the Swiss Academies estimates costs between CHF 14 billion and CHF 43 billion. Necessary state support for the construction of a nuclear power plant in Switzerland.',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Overhead view of Swiss nuclear power plant with cooling towers and Alpine landscape',
+    'blog.article.premi-franchigie-appenzello-esterno.title': 'Sick pay premiums Appenzello Esterno: deductibles and subsidies',
+    'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'How health insurance works in Appenzello Esterno: available deductibles, coverage models and procedures to access premium subsidies.',
+    'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Swiss cantonal administrative building representing regional healthcare services',
 };
 
 export default blogMetaChEn;

@@ -3619,6 +3619,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'Nouvelle centrale nucléaire : 14 à 43 milliards de francs',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'Un rapport des Académies suisses estime les coûts entre 14 et 43 milliards de CHF. Un soutien de l\'État est nécessaire pour la construction d\'une centrale nucléaire en Suisse.',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Vue aérienne d\'une centrale nucléaire suisse avec tours de refroidissement et paysage alpin',
+    'blog.article.premi-franchigie-appenzello-esterno.title': 'Primes caisse-maladie Appenzell Extérieur : franchises et subventions',
+    'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'Comment fonctionne l\'assurance maladie à Appenzell Extérieur : franchises disponibles, modèles de couverture et procédures d\'accès aux allocations sur primes.',
+    'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Bâtiment administratif cantonal suisse pour services de santé régionaux',
 };
 
 export default blogMetaChFr;

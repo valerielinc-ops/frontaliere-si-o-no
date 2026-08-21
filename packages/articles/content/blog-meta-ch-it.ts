@@ -3619,6 +3619,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'Nuovo impianto nucleare: da 14 a 43 miliardi di franchi',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.',
     'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Vista aerea di una centrale nucleare svizzera con torri di raffreddamento e paesaggio alpino sullo sfondo',
+    'blog.article.premi-franchigie-appenzello-esterno.title': 'Premi cassa malati Appenzello Esterno: franchigie e sussidi',
+    'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'Come funziona l\'assicurazione malattia in Appenzello Esterno: franchigie disponibili, modelli di copertura e procedure per accedere ai sussidi sui premi.',
+    'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Edificio amministrativo cantonale svizzero che rappresenta i servizi sanitari regionali',
 };
 
 export default blogMetaChIt;
