@@ -224634,7 +224634,6 @@
           "cuisinier-cuisiniere-m-f-d-coop-genossenschaft-saanen"
         ],
         "de": [
-          "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern-q70zu5",
           "kochin-koch-m-w-d-coop-ristorante-saanen-bern-q70zu5"
         ]
       },
@@ -224810,7 +224809,6 @@
           "cuisiniere-cuisinier-f-h-d-coop-genossenschaft-basel"
         ],
         "de": [
-          "kochin-koch-m-w-d-coop-genossenschaft-basel-stadt-6uxeag",
           "kochin-koch-m-w-d-coop-ristorante-basel-stadt-6uxeag"
         ]
       },
@@ -225087,7 +225085,6 @@
           "collaboratrice-collaboratore-production-coop-genossenschaft-castione-ticino-1zoekj"
         ],
         "de": [
-          "collaboratrice-collaboratore-produktion-coop-genossenschaft-castione-ticino-1zoekj",
           "collaboratrice-collaboratore-produktion-panofina-castione-ticino-1zoekj"
         ],
         "fr": [
@@ -225098,7 +225095,6 @@
         "collaboratrice-collaboratore-produzione-coop-genossenschaft-castione-ticino",
         "collaboratrice-collaboratore-produzione-panofina-castione-ticino",
         "collaboratrice-collaboratore-production-coop-genossenschaft-castione-ticino-1zoekj",
-        "collaboratrice-collaboratore-produktion-coop-genossenschaft-castione-ticino-1zoekj",
         "collaboratrice-collaboratore-produktion-panofina-castione-ticino-1zoekj",
         "collaboratrice-collaboratore-production-panofina-castione-ticino-1zoekj"
       ],
@@ -225526,7 +225522,6 @@
           "verkaufer-in-food-coop-zurich-hm2yrj"
         ],
         "de": [
-          "verkaufer-in-food-coop-zurich-hm2yrj",
           "verkaufer-in-lebensmittel-coop-zurich-ff85b6"
         ],
         "fr": [
@@ -225777,7 +225772,7 @@
       },
       "slugByLocale": {
         "it": "venditore-in-food-drink-coop-genossenschaft-bachenbulach-ac586d",
-        "en": "verkaufer-in-food-getranke-coop-bachenbulach-zurich-y3ebrm",
+        "en": "food-beverage-sales-associate-coop-genossenschaft-bachenbulach",
         "de": "verkaufer-in-food-getranke-coop-bachenbulach-zurich-y3ebrm",
         "fr": "verkaufer-dans-la-nourriture-getranke-coop-bachenbulach-zurich"
       },
@@ -225802,6 +225797,9 @@
         "it": [
           "verkaufer-in-food-getranke-coop-bachenbulach-zurich-y3ebrm",
           "verkaufer-in-food-getranke-coop-bachenbulach-zurich"
+        ],
+        "en": [
+          "verkaufer-in-food-getranke-coop-bachenbulach-zurich-y3ebrm"
         ]
       },
       "previousSlugs": [
@@ -229077,7 +229075,7 @@
         "it": "venditore-in-cibo-bevande-vino-coop-genossenschaft-biberist-bcc8f0",
         "en": "seller-in-food-drinks-wine-coop-genossenschaft-biberist-bcc8f0",
         "de": "verkaufer-in-food-getranke-wein-coop-biberist-solothurn-geljdw",
-        "fr": "verkaufer-in-food-getranke-wein-coop-biberist-solothurn-geljdw"
+        "fr": "vendeur-vendeuse-alimentaire-boissons-vin-coop-genossenschaft-biberist"
       },
       "addressLocality": "Biberist",
       "addressRegion": "SO",
@@ -229101,6 +229099,9 @@
           "verkaufer-in-food-getranke-wein-coop-biberist-solothurn"
         ],
         "en": [
+          "verkaufer-in-food-getranke-wein-coop-biberist-solothurn-geljdw"
+        ],
+        "fr": [
           "verkaufer-in-food-getranke-wein-coop-biberist-solothurn-geljdw"
         ]
       },
@@ -229185,7 +229186,6 @@
           "boucher-ere-coop-genossenschaft-rapperswil-jona"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-rapperswil-jona-sankt-gallen-v4wxf6",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona-v4wxf6"
         ]
       },
@@ -229367,7 +229367,6 @@
           "vendeur-vendeuse-food-coop-genossenschaft-solothurn"
         ],
         "de": [
-          "verkaufer-in-food-coop-solothurn-a0b5qf",
           "verkaufer-in-food-coop-genossenschaft-solothurn-a0b5qf"
         ]
       },
@@ -229461,7 +229460,6 @@
           "vendeur-se-alimentation-boissons-coop-genossenschaft-heimberg"
         ],
         "de": [
-          "verkaufer-in-food-getranke-coop-heimberg-bern-e90qes",
           "verkaufer-in-food-getranke-coop-genossenschaft-heimberg-e90qes"
         ]
       },
@@ -231631,10 +231629,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "gestione-delle-applicazioni-in-sap-operations-senior-interdiscount-jegenstorf",
-        "en": "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-v4ig4y",
+        "it": "gestione-delle-applicazioni-in-sap-operations-senior-interdiscount-jegenstorf-fa4556",
+        "en": "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf",
         "de": "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-v4ig4y",
-        "fr": "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf"
+        "fr": "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf-fa4556"
       },
       "needsRetranslation": true,
       "addressLocality": "Jegenstorf",
@@ -231660,6 +231658,10 @@
           "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern"
         ],
         "fr": [
+          "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-v4ig4y",
+          "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf"
+        ],
+        "en": [
           "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-v4ig4y"
         ]
       },
@@ -231667,7 +231669,8 @@
         "application-manager-in-sap-operations-senior-interdiscount-jegenstorf",
         "gestione-delle-applicazioni-sap-operations-senior-interdiscount-jegenstorf",
         "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-v4ig4y",
-        "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern"
+        "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern",
+        "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf"
       ]
     },
     {

@@ -2618,10 +2618,10 @@
       "id": "migrolino-689a04d73074",
       "slug": "personale-di-vendita-migrolino-wilderswil-e929cd",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-wilderswil-e929cd",
-        "en": "sales-staff-migrolino-wilderswil-e929cd",
         "de": "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "fr": "personnel-de-vente-migrolino-wilderswil-e929cd"
+        "it": "personale-di-vendita-migrolino-wilderswil-1abf98",
+        "en": "sales-staff-migrolino-wilderswil-1abf98",
+        "fr": "personnel-de-vente-migrolino-wilderswil-1abf98"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -2662,25 +2662,6 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/d4d65354-9355-4297-b288-2a8c27c90a34",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-wilderswil",
-        "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-        "personale-di-vendita-migrolino-wilderswil-e929cd"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsmitarbeiter-in-migrolino-wilderswil",
-          "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-          "personale-di-vendita-migrolino-wilderswil-e929cd"
-        ],
-        "en": [
-          "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
-        ],
-        "fr": [
-          "verkaufsmitarbeiter-in-migrolino-wilderswil-2"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:31:53.983Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2692,7 +2673,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T21:31:53.983Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil",
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
+          "personale-di-vendita-migrolino-wilderswil-e929cd"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
+          "sales-staff-migrolino-wilderswil-e929cd"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
+          "personnel-de-vente-migrolino-wilderswil-e929cd"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-wilderswil",
+        "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
+        "personale-di-vendita-migrolino-wilderswil-e929cd",
+        "sales-staff-migrolino-wilderswil-e929cd",
+        "personnel-de-vente-migrolino-wilderswil-e929cd"
+      ]
     },
     {
       "id": "migrolino-7116204cf5b3",

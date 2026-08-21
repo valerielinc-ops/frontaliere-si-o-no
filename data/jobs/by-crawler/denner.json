@@ -2284,8 +2284,8 @@
       "slug": "vendeur-vendeuse-denner-sa-renens-vd",
       "slugByLocale": {
         "it": "vendeur-vendeuse-denner-sa-renens-vd",
-        "en": "seller-seller-denner-renens-vd",
-        "de": "verkaufer-verkaufer-denner-renens-vd",
+        "en": "seller-seller-denner-sa-renens-vd",
+        "de": "verkaufer-verkaufer-denner-sa-renens-vd",
         "fr": "vendeur-vendeuse-denner-sa-renens-vd-s2zjlc"
       },
       "company": "Denner",
@@ -2341,20 +2341,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
       "crawledAt": "2026-08-21T09:47:00.112Z",
-      "firstSeenAt": "2026-08-20T21:40:17.113Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "vendeur-vendeuse-denner"
-        ],
-        "fr": [
-          "vendeur-vendeuse-denner-renens-vd"
-        ]
-      },
-      "previousSlugs": [
-        "vendeur-vendeuse-denner",
-        "vendeur-vendeuse-denner-renens-vd"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2366,16 +2352,38 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T21:40:17.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vendeur-vendeuse-denner"
+        ],
+        "fr": [
+          "vendeur-vendeuse-denner-renens-vd"
+        ],
+        "en": [
+          "seller-seller-denner-renens-vd"
+        ],
+        "de": [
+          "verkaufer-verkaufer-denner-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-renens-vd",
+        "seller-seller-denner-renens-vd",
+        "verkaufer-verkaufer-denner-renens-vd"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "denner-9824be52af5e",
       "slug": "venditore-denner-riehen",
       "slugByLocale": {
-        "it": "venditore-denner-riehen",
-        "en": "seller-denner-riehen",
+        "it": "venditore-denner-ag-riehen",
+        "en": "seller-denner-ag-riehen",
         "de": "verkaufer-in-denner-ag-riehen",
-        "fr": "vendeur-denner-riehen"
+        "fr": "vendeur-denner-ag-riehen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2431,28 +2439,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-21T09:47:00.109Z",
-      "previousSlugs": [
-        "verkaufer-in-denner-riehen",
-        "verkaufer-in-denner",
-        "venditore-denner-riehen"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "verkaufer-in-denner-riehen"
-        ],
-        "fr": [
-          "verkaufer-in-denner-riehen"
-        ],
-        "de": [
-          "verkaufer-in-denner-riehen"
-        ],
-        "it": [
-          "verkaufer-in-denner",
-          "venditore-denner-riehen"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:40:17.111Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2464,7 +2450,33 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T21:40:17.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner",
+          "venditore-denner-riehen"
+        ],
+        "en": [
+          "verkaufer-in-denner-riehen",
+          "seller-denner-riehen"
+        ],
+        "fr": [
+          "verkaufer-in-denner-riehen",
+          "vendeur-denner-riehen"
+        ],
+        "de": [
+          "verkaufer-in-denner-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner-riehen",
+        "verkaufer-in-denner",
+        "venditore-denner-riehen",
+        "seller-denner-riehen",
+        "vendeur-denner-riehen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "denner-60d180e5f04b",
@@ -2638,10 +2650,10 @@
       "id": "denner-eec4d78e7a22",
       "slug": "assistente-nella-gestione-delle-branche-denner-embrach-d2fd9f",
       "slugByLocale": {
-        "it": "assistente-nella-gestione-delle-branche-denner-embrach-d2fd9f",
-        "en": "assistant-in-branch-management-denner-embrach-d2fd9f",
+        "it": "assistente-nella-gestione-delle-branche-denner-ag-embrach",
+        "en": "assistant-in-branch-management-denner-ag-embrach",
         "de": "assistent-in-filialleitung-denner-ag-embrach-tj2ohv",
-        "fr": "assistant-dans-la-gestion-des-succursales-denner-embrach-d2fd9f"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ag-embrach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2698,30 +2710,33 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-21T09:46:59.413Z",
-      "previousSlugs": [
-        "assistent-in-filialleitung-denner-2",
-        "assistent-in-filialleitung-denner-embrach",
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-embrach-d2fd9f"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-2",
           "assistent-in-filialleitung-denner",
           "assistente-nella-gestione-delle-branche-denner-embrach-d2fd9f"
         ],
-        "de": [
-          "assistent-in-filialleitung-denner-embrach"
-        ],
         "en": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistant-in-branch-management-denner-embrach-d2fd9f"
         ],
         "fr": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistant-dans-la-gestion-des-succursales-denner-embrach-d2fd9f"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner-embrach"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-20T21:40:16.362Z",
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner-embrach",
+        "assistent-in-filialleitung-denner",
+        "assistente-nella-gestione-delle-branche-denner-embrach-d2fd9f",
+        "assistant-in-branch-management-denner-embrach-d2fd9f",
+        "assistant-dans-la-gestion-des-succursales-denner-embrach-d2fd9f"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2733,7 +2748,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T21:40:16.362Z"
     },
     {
       "id": "denner-c9b278d7d575",
