@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-08-20T21:43:23.879Z",
+  "assembledAt": "2026-08-21T09:50:32.124Z",
   "jobs": [
     {
       "id": "somedia-95b276249a90",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Fachperson-Personalentwicklung-Kultur-100-de-j407.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:43:21.041Z",
+      "crawledAt": "2026-08-21T09:50:27.437Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,15 +84,16 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:44:33.146Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -129,7 +130,7 @@
       "url": "https://jobs.somedia.ch/Fachspezialistin-Finanz-und-Rechnungswesen-mit-klarer-Pers-de-j406.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:43:20.055Z",
+      "crawledAt": "2026-08-21T09:50:26.387Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,15 +179,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:38:25.921Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -223,7 +224,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:43:18.986Z",
+      "crawledAt": "2026-08-21T09:50:25.203Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -281,15 +282,16 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "needsRetranslation": true,
+      "salaryMin": 92000,
+      "salaryMax": 140000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 92000,
+          "maxValue": 140000,
           "unitText": "YEAR"
         }
       },
@@ -310,7 +312,7 @@
       "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
       "titleByLocale": {
         "it": "Apprendistato come Impiegato/a EFZ Marketing & Comunicazione 2027",
-        "en": "Apprenticeship as a businessman/woman EFZ Marketing & Communication 2027",
+        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "fr": "Alternance en tant que Commercial/e EFZ Marketing & Communication 2027"
       },
@@ -326,7 +328,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:43:18.158Z",
+      "crawledAt": "2026-08-21T09:50:24.298Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -383,15 +385,16 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:08:48.087Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "needsRetranslation": true,
+      "salaryMin": 46500,
+      "salaryMax": 70500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 46500,
+          "maxValue": 70500,
           "unitText": "YEAR"
         }
       },
@@ -428,7 +431,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j412.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:43:17.328Z",
+      "crawledAt": "2026-08-21T09:50:23.383Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -487,6 +490,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:32:05.410Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
