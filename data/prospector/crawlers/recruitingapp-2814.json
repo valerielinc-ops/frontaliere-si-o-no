@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2814",
+  "companyName": "HR Suite",
+  "companyHost": "recruitingapp-2814.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2814.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Internship IT Knowledge & Training (4-6 Mt.)",
+    "Design Engineer Manufacturing Equipment",
+    "Project Planner & Buyer (m/w/d)",
+    "Supplier Engineer",
+    "Project Manager Third Party Solutions (B2P)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:36.569Z"
+}

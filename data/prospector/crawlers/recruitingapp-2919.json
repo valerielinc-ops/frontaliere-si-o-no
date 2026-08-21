@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2919",
+  "companyName": "Bewerbermanagement Stadt Frauenfeld Stellen",
+  "companyHost": "recruitingapp-2919.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2919.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Köchin / Koch EFZ",
+    "Werkstudent:in Prozess-Digitalisierung",
+    "Payroll Spezialist:in",
+    "Lehrstelle Fachperson Gesundheit EFZ - Ausbildungsbeginn August 2027",
+    "Fachmitarbeiter:in Administration Berufsbeistandschaft"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:37.476Z"
+}

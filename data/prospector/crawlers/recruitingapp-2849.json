@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2849",
+  "companyName": "Bewerbermanagement Kanton Thurgau Stellen",
+  "companyHost": "recruitingapp-2849.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2849.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Leiterin / Leiter Landwirtschaftliche Beratung, Mitglied der Geschäftsleitung Arenenberg",
+    "HR Specialist / Allrounder",
+    "Fachspezialist/in Rechnungswesen",
+    "Projektleiter/in und Sachbearbeiter/in Kundenbetreuung (m/w/d)",
+    "Gerichtsschreiberin / Gerichtsschreiber"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:35.479Z"
+}

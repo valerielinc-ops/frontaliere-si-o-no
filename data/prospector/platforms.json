@@ -1,0 +1,1481 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-21T11:13:18.119Z",
+  "platforms": {
+    "myworkdayjobs.com": {
+      "domain": "myworkdayjobs.com",
+      "status": "confirmed",
+      "seenOn": [
+        "alcon",
+        "fielmann-group",
+        "kantonsspital-baden-(ksb)",
+        "lonza",
+        "medbase",
+        "nvidia-(ufficio-zurich)",
+        "roche",
+        "sulzer",
+        "trafigura",
+        "vontobel",
+        "csl-behring",
+        "eraneos-switzerland-ag",
+        "hamilton-bonaduz-ag",
+        "huntsman-corporation",
+        "medtronic",
+        "novartis",
+        "otis-sa",
+        "siegfried",
+        "abbott",
+        "georg-fischer",
+        "lindt-&-sprüngli",
+        "stryker",
+        "vf-international-(the-north-face,-timberland)",
+        "bossard-group",
+        "lombard-odier",
+        "siemens-healthineers",
+        "trumpf-schweiz-ag",
+        "galderma",
+        "arxada",
+        "everest-re",
+        "logitech",
+        "temenos",
+        "rituals-cosmetics-switzerland",
+        "ardian",
+        "swiss-life",
+        "bracco-suisse-s.a",
+        "capri-holdings-(michael-kors-",
+        "fnz-(switzerland)-ag",
+        "julius-baer",
+        "swisscom-(sede-ticino)"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "alcon.wd5.myworkdayjobs.com",
+        "fielmann.wd3.myworkdayjobs.com",
+        "kantonsspitalbaden.wd3.myworkdayjobs.com",
+        "lonza.wd3.myworkdayjobs.com",
+        "medbase.wd502.myworkdayjobs.com",
+        "nvidia.wd5.myworkdayjobs.com",
+        "roche.wd3.myworkdayjobs.com",
+        "sulzer.wd502.myworkdayjobs.com",
+        "trafigura.wd3.myworkdayjobs.com",
+        "vontobel.wd3.myworkdayjobs.com",
+        "csl.wd1.myworkdayjobs.com",
+        "eraneos.wd3.myworkdayjobs.com",
+        "hamilton.wd3.myworkdayjobs.com",
+        "huntsman.wd1.myworkdayjobs.com",
+        "medtronic.wd1.myworkdayjobs.com",
+        "novartis.wd3.myworkdayjobs.com",
+        "otis.wd5.myworkdayjobs.com",
+        "siegfried.wd103.myworkdayjobs.com",
+        "abbott.wd5.myworkdayjobs.com",
+        "georgfischer.wd103.myworkdayjobs.com",
+        "lindtspruengli.wd103.myworkdayjobs.com",
+        "stryker.wd1.myworkdayjobs.com",
+        "vfc.wd5.myworkdayjobs.com",
+        "bossard.wd103.myworkdayjobs.com",
+        "lombardodier.wd3.myworkdayjobs.com"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "alcon.wd5.myworkdayjobs.com": 1,
+        "fielmann.wd3.myworkdayjobs.com": 1,
+        "kantonsspitalbaden.wd3.myworkdayjobs.com": 1,
+        "lonza.wd3.myworkdayjobs.com": 1,
+        "medbase.wd502.myworkdayjobs.com": 1,
+        "nvidia.wd5.myworkdayjobs.com": 1,
+        "roche.wd3.myworkdayjobs.com": 1,
+        "sulzer.wd502.myworkdayjobs.com": 1,
+        "trafigura.wd3.myworkdayjobs.com": 1,
+        "vontobel.wd3.myworkdayjobs.com": 1,
+        "csl.wd1.myworkdayjobs.com": 1,
+        "eraneos.wd3.myworkdayjobs.com": 1,
+        "hamilton.wd3.myworkdayjobs.com": 1,
+        "huntsman.wd1.myworkdayjobs.com": 1,
+        "medtronic.wd1.myworkdayjobs.com": 1,
+        "novartis.wd3.myworkdayjobs.com": 1,
+        "otis.wd5.myworkdayjobs.com": 1,
+        "siegfried.wd103.myworkdayjobs.com": 1,
+        "abbott.wd5.myworkdayjobs.com": 1,
+        "georgfischer.wd103.myworkdayjobs.com": 1,
+        "lindtspruengli.wd103.myworkdayjobs.com": 1,
+        "stryker.wd1.myworkdayjobs.com": 1,
+        "vfc.wd5.myworkdayjobs.com": 1,
+        "bossard.wd103.myworkdayjobs.com": 1,
+        "lombardodier.wd3.myworkdayjobs.com": 1,
+        "onehealthineers.wd3.myworkdayjobs.com": 1,
+        "trumpf.wd3.myworkdayjobs.com": 1,
+        "galderma.wd3.myworkdayjobs.com": 1,
+        "lsi.wd3.myworkdayjobs.com": 1,
+        "everestre.wd5.myworkdayjobs.com": 1,
+        "logitech.wd5.myworkdayjobs.com": 1,
+        "temenos.wd103.myworkdayjobs.com": 1,
+        "rituals.wd3.myworkdayjobs.com": 1,
+        "ardian.wd103.myworkdayjobs.com": 1,
+        "swisslife.wd3.myworkdayjobs.com": 1,
+        "bracco.wd103.myworkdayjobs.com": 1,
+        "capri.wd1.myworkdayjobs.com": 1,
+        "fnz.wd3.myworkdayjobs.com": 1,
+        "juliusbaer.wd3.myworkdayjobs.com": 1,
+        "swisscom.wd103.myworkdayjobs.com": 1
+      },
+      "pathHits": {
+        "/en-US": 22,
+        "/en": 13,
+        "/LindtSpruengliGroupCareers": 1,
+        "/vfc_careers": 1,
+        "/TRUMPF_Graduates_and_Professionals": 1,
+        "/it-IT": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.698Z",
+      "note": "own-crawl census: 40 datori"
+    },
+    "smartrecruiters.com": {
+      "domain": "smartrecruiters.com",
+      "status": "confirmed",
+      "seenOn": [
+        "cern",
+        "hug",
+        "hôpital-de-moutier",
+        "clinique-de-genolier",
+        "talan",
+        "audemars-piguet",
+        "imad",
+        "clinique-de-valère",
+        "smg-swiss-marketplace-group",
+        "swissquote",
+        "établissements-publics-pour-l'intégration",
+        "sobi",
+        "privatklinik-bethanien",
+        "ardentis",
+        "privatklinik-villa-im-park",
+        "stäubli",
+        "clinique-générale-ste-anne",
+        "oetiker",
+        "clinique-générale-beaulieu",
+        "privatklinik-siloah",
+        "kiabi-suisse",
+        "clinique-de-montchoisi",
+        "privatklinik-obach",
+        "hospice-général",
+        "swiss-medical-network"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "jobs.smartrecruiters.com"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "jobs.smartrecruiters.com": 25
+      },
+      "pathHits": {
+        "/CERN": 1,
+        "/HUG": 1,
+        "/SwissMedicalNetwork1": 11,
+        "/Talan": 1,
+        "/AudemarsPiguet": 1,
+        "/imad": 1,
+        "/SMGSwissMarketplaceGroup": 1,
+        "/Swissquote": 1,
+        "/EtablissementsPublicsPourLIntegration": 1,
+        "/Sobi": 1,
+        "/Ardentis1": 1,
+        "/StaubliGroup": 1,
+        "/Oetiker": 1,
+        "/KIABI": 1,
+        "/Hospicegeneral": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.709Z",
+      "note": "own-crawl census: 25 datori",
+      "listingPaths": [
+        "/v1"
+      ]
+    },
+    "umantis.com": {
+      "domain": "umantis.com",
+      "status": "confirmed",
+      "seenOn": [
+        "kantonsspital-aarau-(ksa)",
+        "kanton-aargau",
+        "universitäts-kinderspital-zürich-(kispi)",
+        "eoc-–-ente-ospedaliero-cantonale",
+        "tschuggen-collection",
+        "gesundheitszentrum-fricktal",
+        "klinik-sonnenhalde",
+        "kanton-st.-gallen",
+        "bürgenstock-hotels-ag",
+        "nsn-medical-group",
+        "universitäre-psychiatrische-dienste-bern-(upd)",
+        "sanatorium-kilchberg",
+        "graubündner-kantonalbank",
+        "spital-männedorf",
+        "see-spital",
+        "spital-davos",
+        "bethesda-spital",
+        "klinik-im-hasel",
+        "ostschweizer-kinderspital",
+        "kzu-kompetenzzentrum-pflege-und-gesundheit",
+        "spital-muri"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "recruitingapp-122706.umantis.com",
+        "recruitingapp-12705.umantis.com",
+        "recruitingapp-2316.umantis.com",
+        "recruitingapp-2761.umantis.com",
+        "recruitingapp-2904.umantis.com",
+        "recruitingapp-2924.umantis.com",
+        "recruitingapp-3030.umantis.com",
+        "recruitingapp-2800.umantis.com",
+        "recruitingapp-2850.umantis.com",
+        "recruitingapp-2884.umantis.com",
+        "recruitingapp-2908.umantis.com",
+        "recruitingapp-3010.umantis.com",
+        "recruitingapp-2607.umantis.com",
+        "recruitingapp-2736.umantis.com",
+        "recruitingapp-2939.umantis.com",
+        "recruitingapp-2966.umantis.com",
+        "recruitingapp-2998.umantis.com",
+        "recruitingapp-2912.umantis.com",
+        "recruitingapp-2979.umantis.com",
+        "recruitingapp-1251.umantis.com",
+        "recruitingapp-2997.umantis.com"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "recruitingapp-122706.umantis.com": 1,
+        "recruitingapp-12705.umantis.com": 1,
+        "recruitingapp-2316.umantis.com": 1,
+        "recruitingapp-2761.umantis.com": 1,
+        "recruitingapp-2904.umantis.com": 1,
+        "recruitingapp-2924.umantis.com": 1,
+        "recruitingapp-3030.umantis.com": 1,
+        "recruitingapp-2800.umantis.com": 1,
+        "recruitingapp-2850.umantis.com": 1,
+        "recruitingapp-2884.umantis.com": 1,
+        "recruitingapp-2908.umantis.com": 1,
+        "recruitingapp-3010.umantis.com": 1,
+        "recruitingapp-2607.umantis.com": 1,
+        "recruitingapp-2736.umantis.com": 1,
+        "recruitingapp-2939.umantis.com": 1,
+        "recruitingapp-2966.umantis.com": 1,
+        "recruitingapp-2998.umantis.com": 1,
+        "recruitingapp-2912.umantis.com": 1,
+        "recruitingapp-2979.umantis.com": 1,
+        "recruitingapp-1251.umantis.com": 1,
+        "recruitingapp-2997.umantis.com": 1
+      },
+      "pathHits": {
+        "/Vacancies": 21
+      },
+      "tenantCount": 108,
+      "discoveredAt": "2026-08-21T09:05:27.709Z",
+      "note": "own-crawl census: 21 datori",
+      "listingPaths": [
+        "/Vacancies",
+        "/Jobs"
+      ]
+    },
+    "softgarden.io": {
+      "domain": "softgarden.io",
+      "status": "confirmed",
+      "seenOn": [
+        "vaudoise-assurances",
+        "etavis-ag",
+        "etavis-grossenbacher-ag",
+        "etavis-kriegel+co.-ag",
+        "etavis-kriegel+schaffner-ag",
+        "vinci-energies-schweiz-ag",
+        "gfeller-elektro",
+        "etavis-beutler",
+        "etavis-jag-jakob",
+        "etavis-romandie-sa",
+        "etavis-elcom-ag",
+        "etavis-bern-mittelland-ag",
+        "etavis-elettro-impianti-sa",
+        "etavis-arnold"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "vaudoise.softgarden.io",
+        "etavis.softgarden.io"
+      ],
+      "tenantShape": "mixed",
+      "hostHits": {
+        "vaudoise.softgarden.io": 1,
+        "etavis.softgarden.io": 13
+      },
+      "pathHits": {
+        "/job": 14
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 14 datori"
+    },
+    "refline.ch": {
+      "domain": "refline.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "psychiatrische-universitätsklinik-zürich",
+        "zürcher-kantonalbank",
+        "möbel-pfister-ag",
+        "spital-limmattal",
+        "caritas-schweiz",
+        "kantonale-verwaltung-graubünden",
+        "galliker-transport-ag",
+        "empa",
+        "gesundheitsnetz-küsnacht-ag",
+        "confiserie-sprüngli-ag",
+        "privatklinik-hohenegg"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "apply.refline.ch"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "apply.refline.ch": 11
+      },
+      "pathHits": {
+        "/163206": 1,
+        "/792841": 1,
+        "/424626": 1,
+        "/486538": 1,
+        "/126757": 1,
+        "/514915": 1,
+        "/878019": 1,
+        "/673276": 1,
+        "/780392": 1,
+        "/116352": 1,
+        "/640332": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 11 datori"
+    },
+    "solique.ch": {
+      "domain": "solique.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "kantonsspital-winterthur-(ksw)",
+        "kantonale-verwaltung-zürich",
+        "otto's-ag",
+        "planzer",
+        "spital-oberengadin",
+        "spitalverbund-appenzell-ausserrhoden-(svar)",
+        "integrierte-psychiatrie-winterthur-(ipw)",
+        "spital-emmental",
+        "adullam-stiftung",
+        "rieter"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "live.solique.ch"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "live.solique.ch": 10
+      },
+      "pathHits": {
+        "/ksw": 1,
+        "/ktzh": 1,
+        "/ottosag": 1,
+        "/planzer": 1,
+        "/stiftung-gesundheitsversorgung-oberengadin": 1,
+        "/svar": 1,
+        "/ipw": 1,
+        "/spital-emmental": 1,
+        "/adullam": 1,
+        "/rieter": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 10 datori"
+    },
+    "galenica.com": {
+      "domain": "galenica.com",
+      "status": "confirmed",
+      "seenOn": [
+        "galexis-ag-(galenica)",
+        "alloga-ag-(galenica)",
+        "unione-farmaceutica-distribuzione-sa-(galenica)",
+        "amavita-(galenica)",
+        "coop-vitality-(galenica)",
+        "sun-store-apotheke-(galenica)"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "jobs.galenica.com"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "jobs.galenica.com": 6
+      },
+      "pathHits": {
+        "/it": 6
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 8 datori"
+    },
+    "dualoo.com": {
+      "domain": "dualoo.com",
+      "status": "confirmed",
+      "seenOn": [
+        "uroviva",
+        "klinik-arlesheim",
+        "klinik-aadorf",
+        "spital-affoltern-ag",
+        "forel-klinik",
+        "cereneo"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "jobs.dualoo.com"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "jobs.dualoo.com": 6
+      },
+      "pathHits": {
+        "/portal": 6
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 6 datori"
+    },
+    "coopjobs.ch": {
+      "domain": "coopjobs.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "interdiscount",
+        "jumbo",
+        "coop-genossenschaft",
+        "fust"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "jobs.coopjobs.ch",
+        "coopjobs.ch"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "jobs.coopjobs.ch": 4,
+        "coopjobs.ch": 1
+      },
+      "pathHits": {
+        "/postes-vacantes": 2,
+        "/offene-stellen": 2,
+        "/content": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 5 datori"
+    },
+    "jobalino.ch": {
+      "domain": "jobalino.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "kuhn-rikon",
+        "rehaklinik-hasliberg",
+        "privatklinik-meiringen",
+        "klinik-schönberg-ag",
+        "michel-gruppe-ag"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "my.jobalino.ch"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "my.jobalino.ch": 5
+      },
+      "pathHits": {
+        "/job": 5
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 5 datori"
+    },
+    "reflinejobs.io": {
+      "domain": "reflinejobs.io",
+      "status": "confirmed",
+      "seenOn": [
+        "arosa-lenzerheide",
+        "stiftung-pigna",
+        "stiftung-kind-und-autismus",
+        "medics-labor-ag"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "app.reflinejobs.io"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "app.reflinejobs.io": 4
+      },
+      "pathHits": {
+        "/3316": 1,
+        "/1531": 1,
+        "/2044": 1,
+        "/1474": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 4 datori"
+    },
+    "ostendis.com": {
+      "domain": "ostendis.com",
+      "status": "confirmed",
+      "seenOn": [
+        "vista-augenpraxen-&-kliniken",
+        "kantonsspital-obwalden",
+        "salina-rehaklinik-rheinfelden",
+        "regionalspital-surselva"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "link.ostendis.com"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "link.ostendis.com": 4
+      },
+      "pathHits": {
+        "/publication": 4
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 4 datori"
+    },
+    "talent-soft.com": {
+      "domain": "talent-soft.com",
+      "status": "confirmed",
+      "seenOn": [
+        "victorinox",
+        "aarreha-schinznach",
+        "rehab-basel",
+        "molecular-partners"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "victorinox-career.talent-soft.com",
+        "aarreha-bewerber.talent-soft.com",
+        "rehabbasel-career.talent-soft.com",
+        "molecularpartners-career.talent-soft.com"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "victorinox-career.talent-soft.com": 1,
+        "aarreha-bewerber.talent-soft.com": 1,
+        "rehabbasel-career.talent-soft.com": 1,
+        "molecularpartners-career.talent-soft.com": 1
+      },
+      "pathHits": {
+        "/stelle": 3,
+        "/job": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 4 datori"
+    },
+    "greenhouse.io": {
+      "domain": "greenhouse.io",
+      "status": "confirmed",
+      "seenOn": [
+        "proton",
+        "on-running",
+        "vaxcyte",
+        "veeam-software"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "job-boards.eu.greenhouse.io",
+        "boards.greenhouse.io"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "job-boards.eu.greenhouse.io": 2,
+        "boards.greenhouse.io": 2
+      },
+      "pathHits": {
+        "/proton": 1,
+        "/onrunning": 1,
+        "/vaxcyte": 1,
+        "/veeamsoftware": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 4 datori"
+    },
+    "post.ch": {
+      "domain": "post.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "la-poste-suisse",
+        "die-schweizerische-post",
+        "carpostal"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "job.post.ch"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "job.post.ch": 3
+      },
+      "pathHits": {
+        "/default": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.710Z",
+      "note": "own-crawl census: 4 datori"
+    },
+    "prospective.ch": {
+      "domain": "prospective.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "sro-ag-(spital-region-oberaargau)",
+        "spital-sts",
+        "gesundheitszentrum-dielsdorf"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "ohws.prospective.ch"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "ohws.prospective.ch": 3
+      },
+      "pathHits": {
+        "/public": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori",
+      "listingPaths": [
+        "/public"
+      ]
+    },
+    "workable.com": {
+      "domain": "workable.com",
+      "status": "confirmed",
+      "seenOn": [
+        "guess-europe-sagl",
+        "sophia-genetics",
+        "debiopharm"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "apply.workable.com"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "apply.workable.com": 3
+      },
+      "pathHits": {
+        "/guess-europe-sagl": 1,
+        "/sophia-genetics": 1,
+        "/debiopharm": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori"
+    },
+    "lever.co": {
+      "domain": "lever.co",
+      "status": "confirmed",
+      "seenOn": [
+        "anybotics",
+        "sonarsource-(sonar)",
+        "tsmg"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "jobs.lever.co"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "jobs.lever.co": 3
+      },
+      "pathHits": {
+        "/anybotics": 1,
+        "/sonarsource": 1,
+        "/tsmg": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori"
+    },
+    "personio.com": {
+      "domain": "personio.com",
+      "status": "confirmed",
+      "seenOn": [
+        "kellerhals-carrard",
+        "lalive",
+        "fachspital-sune-egge"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "kellerhals-carrard.jobs.personio.com",
+        "lalive-law.jobs.personio.com",
+        "swsieber.jobs.personio.com"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "kellerhals-carrard.jobs.personio.com": 1,
+        "lalive-law.jobs.personio.com": 1,
+        "swsieber.jobs.personio.com": 1
+      },
+      "pathHits": {
+        "/job": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori"
+    },
+    "beehire.com": {
+      "domain": "beehire.com",
+      "status": "confirmed",
+      "seenOn": [
+        "hôpital-de-lavaux",
+        "groupement-hospitalier-de-l'ouest-lémanique",
+        "fondation-de-nant"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "app.beehire.com"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "app.beehire.com": 3
+      },
+      "pathHits": {
+        "/invite": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori"
+    },
+    "recruitee.com": {
+      "domain": "recruitee.com",
+      "status": "confirmed",
+      "seenOn": [
+        "climeworks",
+        "tether-operations",
+        "bitfinex"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "climeworks.recruitee.com",
+        "tether.recruitee.com",
+        "bitfinex.recruitee.com"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "climeworks.recruitee.com": 1,
+        "tether.recruitee.com": 1,
+        "bitfinex.recruitee.com": 1
+      },
+      "pathHits": {
+        "/o": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori",
+      "listingPaths": [
+        "/api"
+      ]
+    },
+    "personio.de": {
+      "domain": "personio.de",
+      "status": "confirmed",
+      "seenOn": [
+        "felfel",
+        "yapeal",
+        "igroove-ag"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "felfel.jobs.personio.de",
+        "yapeal-ag.jobs.personio.de",
+        "igroove.jobs.personio.de"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "felfel.jobs.personio.de": 1,
+        "yapeal-ag.jobs.personio.de": 1,
+        "igroove.jobs.personio.de": 1
+      },
+      "pathHits": {
+        "/job": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori"
+    },
+    "pi-asp.de": {
+      "domain": "pi-asp.de",
+      "status": "confirmed",
+      "seenOn": [
+        "città-di-locarno",
+        "città-di-bellinzona",
+        "diakoniewerk-neumünster-(gesundheitswelt-zollikerberg)-—-spital-zollikerberg"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "locarno.pi-asp.de",
+        "bellinz.pi-asp.de",
+        "stiftdia.pi-asp.de"
+      ],
+      "tenantShape": "subdomain",
+      "hostHits": {
+        "locarno.pi-asp.de": 1,
+        "bellinz.pi-asp.de": 1,
+        "stiftdia.pi-asp.de": 1
+      },
+      "pathHits": {
+        "/bewerber-web": 3
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 3 datori"
+    },
+    "pinpointhq.com": {
+      "domain": "pinpointhq.com",
+      "status": "confirmed",
+      "seenOn": [
+        "kempinski-palace-engelberg",
+        "grand-hotel-des-bains-kempinski-st.-moritz"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "kempinski.pinpointhq.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "kempinski.pinpointhq.com": 2
+      },
+      "pathHits": {
+        "/en": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori",
+      "listingPaths": [
+        "/postings.json"
+      ]
+    },
+    "publicjobs.ch": {
+      "domain": "publicjobs.ch",
+      "status": "confirmed",
+      "seenOn": [
+        "gzo-spital-wetzikon",
+        "interessengemeinschaft-sozialpsychiatrie-bern"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "publicjobs.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "publicjobs.ch": 2
+      },
+      "pathHits": {
+        "/jobs": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori"
+    },
+    "oraclecloud.eu": {
+      "domain": "oraclecloud.eu",
+      "status": "confirmed",
+      "seenOn": [
+        "edmond-de-rothschild",
+        "union-bancaire-privée"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "evht.fa.ocs.oraclecloud.eu",
+        "iaadtu.fa.ocs.oraclecloud.eu"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "evht.fa.ocs.oraclecloud.eu": 1,
+        "iaadtu.fa.ocs.oraclecloud.eu": 1
+      },
+      "pathHits": {
+        "/hcmUI": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori"
+    },
+    "onlyfy.jobs": {
+      "domain": "onlyfy.jobs",
+      "status": "confirmed",
+      "seenOn": [
+        "spitex-zürich",
+        "vitrea-gesundheit"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "spitex-zuerich.onlyfy.jobs",
+        "vamed-ag-ch.onlyfy.jobs"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "spitex-zuerich.onlyfy.jobs": 1,
+        "vamed-ag-ch.onlyfy.jobs": 1
+      },
+      "pathHits": {
+        "/de": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori"
+    },
+    "salesforce-sites.com": {
+      "domain": "salesforce-sites.com",
+      "status": "confirmed",
+      "seenOn": [
+        "sygnum-bank",
+        "gavi,-the-vaccine-alliance"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "sygnumpeopleportal.my.salesforce-sites.com",
+        "fs-2662.my.salesforce-sites.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "sygnumpeopleportal.my.salesforce-sites.com": 1,
+        "fs-2662.my.salesforce-sites.com": 1
+      },
+      "pathHits": {
+        "/recruit": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori"
+    },
+    "successfactors.eu": {
+      "domain": "successfactors.eu",
+      "status": "confirmed",
+      "seenOn": [
+        "pictet-group",
+        "p.a"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "career012.successfactors.eu",
+        "career5.successfactors.eu"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "career012.successfactors.eu": 1,
+        "career5.successfactors.eu": 1
+      },
+      "pathHits": {
+        "/career": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori",
+      "listingPaths": [
+        "/career"
+      ]
+    },
+    "teamtailor.com": {
+      "domain": "teamtailor.com",
+      "status": "confirmed",
+      "seenOn": [
+        "ckw",
+        "kernkraftwerk-leibstadt-ag"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "ckw.teamtailor.com",
+        "kernkraftwerkleibstadtag.teamtailor.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "ckw.teamtailor.com": 1,
+        "kernkraftwerkleibstadtag.teamtailor.com": 1
+      },
+      "pathHits": {
+        "/jobs": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori"
+    },
+    "intervieweb.it": {
+      "domain": "intervieweb.it",
+      "status": "confirmed",
+      "seenOn": [
+        "elettra-1938",
+        "p.a"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "inrecruiting.intervieweb.it"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "inrecruiting.intervieweb.it": 2
+      },
+      "pathHits": {
+        "/fiammcomponents": 1,
+        "/impresapizzarotti": 1
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori",
+      "listingPaths": [
+        "/app.php"
+      ]
+    },
+    "csod.com": {
+      "domain": "csod.com",
+      "status": "confirmed",
+      "seenOn": [
+        "chopard",
+        "groupe-mutuel"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "chopard.csod.com",
+        "groupemutuel.csod.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "chopard.csod.com": 1,
+        "groupemutuel.csod.com": 1
+      },
+      "pathHits": {
+        "/ux": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori"
+    },
+    "applytojob.com": {
+      "domain": "applytojob.com",
+      "status": "confirmed",
+      "seenOn": [
+        "fincons-group",
+        "board-international"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "fincons.applytojob.com",
+        "boardinternationalsa.applytojob.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "fincons.applytojob.com": 1,
+        "boardinternationalsa.applytojob.com": 1
+      },
+      "pathHits": {
+        "/apply": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori",
+      "listingPaths": [
+        "/apply"
+      ]
+    },
+    "ncoreplat.com": {
+      "domain": "ncoreplat.com",
+      "status": "confirmed",
+      "seenOn": [
+        "sintetica-sa",
+        "zambon-svizzera-sa"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "app.ncoreplat.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "app.ncoreplat.com": 2
+      },
+      "pathHits": {
+        "/jobposition": 2
+      },
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:05:27.711Z",
+      "note": "own-crawl census: 2 datori",
+      "listingPaths": [
+        "/jobposition"
+      ]
+    },
+    "swissmedical.net": {
+      "domain": "swissmedical.net",
+      "status": "confirmed",
+      "seenOn": [
+        "centromedico.ch",
+        "clinicasantanna.ch",
+        "arsmedica.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "swissmedical.net"
+      ],
+      "tenantShape": "shared",
+      "hostHits": {
+        "swissmedical.net": 3
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.723Z",
+      "note": "careers outlink, score 4"
+    },
+    "georgfischer.com": {
+      "domain": "georgfischer.com",
+      "status": "candidate",
+      "seenOn": [
+        "precicast.com"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "georgfischer.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "georgfischer.com": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.723Z",
+      "note": "careers outlink, score 3"
+    },
+    "moncucco.ch": {
+      "domain": "moncucco.ch",
+      "status": "candidate",
+      "seenOn": [
+        "clinicasantachiara.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "moncucco.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "moncucco.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.724Z",
+      "note": "careers outlink, score 3"
+    },
+    "hotelleriesuisse.ch": {
+      "domain": "hotelleriesuisse.ch",
+      "status": "candidate",
+      "seenOn": [
+        "albergo-gardenia.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "hotelleriesuisse.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "hotelleriesuisse.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.727Z",
+      "note": "careers outlink, score 4.2"
+    },
+    "tschuggencollection.ch": {
+      "domain": "tschuggencollection.ch",
+      "status": "candidate",
+      "seenOn": [
+        "edenroc.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "tschuggencollection.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "tschuggencollection.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.728Z",
+      "note": "careers outlink, score 3"
+    },
+    "ubs.com": {
+      "domain": "ubs.com",
+      "status": "candidate",
+      "seenOn": [
+        "credit-suisse.com"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "ubs.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "ubs.com": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.729Z",
+      "note": "careers outlink, score 3"
+    },
+    "tcs.ch": {
+      "domain": "tcs.ch",
+      "status": "candidate",
+      "seenOn": [
+        "bellariva.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "camping.tcs.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "camping.tcs.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.730Z",
+      "note": "careers outlink, score 3"
+    },
+    "hotelcareer.ch": {
+      "domain": "hotelcareer.ch",
+      "status": "candidate",
+      "seenOn": [
+        "parkhoteldelta.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "hotelcareer.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "hotelcareer.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:45:25.731Z",
+      "note": "careers outlink, score 3.2"
+    },
+    "yousty.ch": {
+      "domain": "yousty.ch",
+      "status": "candidate",
+      "seenOn": [
+        "buersten-technik.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "yousty.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "yousty.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.619Z",
+      "note": "careers outlink, score 8"
+    },
+    "bonheur.ch": {
+      "domain": "bonheur.ch",
+      "status": "candidate",
+      "seenOn": [
+        "glueckskette.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "bonheur.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "bonheur.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.620Z",
+      "note": "careers outlink, score 3"
+    },
+    "catena-della-solidarieta.ch": {
+      "domain": "catena-della-solidarieta.ch",
+      "status": "candidate",
+      "seenOn": [
+        "glueckskette.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "catena-della-solidarieta.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "catena-della-solidarieta.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.620Z",
+      "note": "careers outlink, score 3"
+    },
+    "swiss-solidarity.org": {
+      "domain": "swiss-solidarity.org",
+      "status": "candidate",
+      "seenOn": [
+        "glueckskette.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "swiss-solidarity.org"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "swiss-solidarity.org": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.620Z",
+      "note": "careers outlink, score 4.2"
+    },
+    "arsante.ch": {
+      "domain": "arsante.ch",
+      "status": "candidate",
+      "seenOn": [
+        "gmo.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "arsante.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "arsante.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.620Z",
+      "note": "careers outlink, score 7"
+    },
+    "adelboden-lenk.ch": {
+      "domain": "adelboden-lenk.ch",
+      "status": "candidate",
+      "seenOn": [
+        "lenk-simmental.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "adelboden-lenk.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "adelboden-lenk.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.621Z",
+      "note": "careers outlink, score 6"
+    },
+    "bergluft-sport.ch": {
+      "domain": "bergluft-sport.ch",
+      "status": "candidate",
+      "seenOn": [
+        "lenk-simmental.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "bergluft-sport.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "bergluft-sport.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.621Z",
+      "note": "careers outlink, score 3"
+    },
+    "orior.ch": {
+      "domain": "orior.ch",
+      "status": "candidate",
+      "seenOn": [
+        "lepatron.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "careers.orior.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "careers.orior.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.621Z",
+      "note": "careers outlink, score 3.2"
+    },
+    "paraplegie.ch": {
+      "domain": "paraplegie.ch",
+      "status": "candidate",
+      "seenOn": [
+        "spv.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "karriere.paraplegie.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "karriere.paraplegie.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.624Z",
+      "note": "careers outlink, score 3"
+    },
+    "bim-center-chur.ch": {
+      "domain": "bim-center-chur.ch",
+      "status": "candidate",
+      "seenOn": [
+        "walker-renova.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "bim-center-chur.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "bim-center-chur.ch": 1
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-08-21T09:52:09.625Z",
+      "note": "careers outlink, score 4.2"
+    },
+    "altamiraweb.com": {
+      "domain": "altamiraweb.com",
+      "status": "confirmed",
+      "seenOn": [
+        "cippatrasporti.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "cippatrasporti.altamiraweb.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "cippatrasporti.altamiraweb.com": 1
+      },
+      "pathHits": {},
+      "tenantCount": 1,
+      "discoveredAt": "2026-08-21T11:06:47.570Z",
+      "note": "careers outlink, score 5.2"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "med-ipersonal",
+  "companyName": "MediPersonal",
+  "companyHost": "ipersonal.ch",
+  "platform": "ipersonal.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.ipersonal.ch/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "Personalvermittler 100% in der Region Wallisellen gesucht – jetzt bewerben",
+    "Elektroinstallateur 100% für die Region Altstätten SG – Temporär & Dauerstelle",
+    "Elektroinstallateur 100% für die Region Schwarzenberg LU gesucht – jetzt bewerben",
+    "Fachmann Gesundheit 100% in der Region Rothenburg – Temporärbüro iPersonal",
+    "Fachmann Gesundheit 100% in der Region Seedorf BE – offene Stelle"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:33.636Z"
+}

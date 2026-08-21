@@ -1,0 +1,21 @@
+{
+  "companyKey": "jsafrasarasin",
+  "companyName": "J. Safra Sarasin",
+  "companyHost": "jsafrasarasin.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://jsafrasarasin.umantis.com/Jobs/All?lang=eng"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "sampleVacancyCount": 14,
+  "sampleTitles": [
+    "Junior Quantitative Portfolio Manager",
+    "Stewardship Specialist",
+    "Regulatory Trade / Transaction Reporting Analyst",
+    "(Senior) FIX Engineer Specialist",
+    "Client Service Executive"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-08-21T09:11:34.088Z"
+}

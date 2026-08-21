@@ -1,0 +1,22 @@
+{
+  "companyKey": "okjob",
+  "companyName": "OK Job SA, succursale di Mendrisio",
+  "companyHost": "okjob.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.okjob.ch/offres-demplois/"
+  ],
+  "detailTemplate": "/de/jobangebote/*/",
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "21.08.2026 / 41593 Zurich / Fixe Berufsbildner/in (70-100%)",
+    "21.08.2026 / 41594 Zurich / Fixe Fachperson Gesundheit EFZ (80-100%) im Nachtdienst",
+    "21.08.2026 / 41595 Zurich / Fixe Stv. Teamleitung Pflege (50-100%)",
+    "21.08.2026 / 41596 Zurich / Fixe Co-Leitung Pflege (Langzeitbereich)",
+    "21.08.2026 / 41597 Zurich / Fixe Berufsbildner/in inkl. Fallführung (80-100%)"
+  ],
+  "canton": "TI",
+  "sourceLang": "fr",
+  "learnedAt": "2026-08-21T10:02:42.709Z"
+}
