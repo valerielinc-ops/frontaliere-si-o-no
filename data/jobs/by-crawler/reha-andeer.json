@@ -1,6 +1,6 @@
 {
   "crawlerKey": "reha-andeer",
-  "assembledAt": "2026-08-21T09:46:28.535Z",
+  "assembledAt": "2026-08-21T21:26:21.288Z",
   "jobs": [
     {
       "id": "reha-andeer-stelleninserat-pflegehelferin-223c33846989",
@@ -35,7 +35,7 @@
       "applyUrl": "https://reha-andeer.ch/offene-stellen/",
       "source": "Reha Andeer Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:26.472Z",
+      "crawledAt": "2026-08-21T21:26:19.253Z",
       "addressLocality": "Andeer",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -82,15 +82,15 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:06:04.288Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
