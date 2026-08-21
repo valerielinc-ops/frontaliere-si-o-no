@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-basel",
-  "assembledAt": "2026-08-20T10:13:03.243Z",
+  "assembledAt": "2026-08-21T10:07:59.122Z",
   "jobs": [
     {
       "id": "spitex-basel-a5d7f6e236fb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/94d0c29c-00d1-47ac-a24c-13514725a0f0",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.421Z",
+      "crawledAt": "2026-08-21T10:07:55.899Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -75,15 +75,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:58.465Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -120,7 +120,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie-a-auch-stundenweise-moeglich/a48eb696-f021-4878-986a-68ecb376ac88",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.419Z",
+      "crawledAt": "2026-08-21T10:07:55.895Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -159,15 +159,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:20:40.659Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -198,12 +198,13 @@
         "de": "Aufgaben:\n• Steuern des Pflegeprozesses bei somatischen Kundinnen und Kunden\n\n• Ermitteln des Dienstleistungsbedarfs, Erstellen des Hilfe- und Pflegeplans\n\n• Gewährleisten der fachgerechten Erbringung von Pflegeleistungen, Sicherstellen der differenzierten und spezialisierten Pflege sowie des professionellen Wund- und Schmerzmanagements\n\n• Übernehmen von pflegerischen Einsätzen bei unseren Kundinnen und Kunden daheim\n\n• Durchführen von Interventionen und Führen der elektronischen Dokumentation\n\n• Fachliches Führen von Mitarbeitenden und Unterstützen in komplexen Pflegesituationen\n\nAnforderungen:\n• Grundausbildung Pflegefachperson HF/FH oder gleichwertig mit SRK-Anerkennung\n\n• Mehrjährige pflegerische Berufserfahrung\n\n• Kompetentes Einschätzen von pflegerischen Situationen\n\n• Flair und Freude an administrativen und organisatorischen Tätigkeiten\n\n• Gute IT Anwenderkenntnisse\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
         "fr": "Tâches :\n• Contrôler le processus de soins pour les clients somatiques\n\n• Détermination des besoins en services, création du plan d'aide et de soins\n\n• Assurer la prestation professionnelle des services de soins, assurer des soins différenciés et spécialisés ainsi que la gestion professionnelle des blessures et de la douleur\n\n• En supposant des missions de soins infirmiers chez nos clients à la maison\n\n• Mise en œuvre des interventions et de la documentation électronique\n\n• Gestion professionnelle des employés et soutien dans des situations de soins complexes\n\nExigences\n• Infirmière de formation de base HF/FH ou équivalent avec reconnaissance SRC\n\n• Expérience professionnelle en soins infirmiers depuis plusieurs années\n\n• Évaluation compétente des situations de soins infirmiers\n\n• Flair et plaisir dans les activités administratives et organisationnelles\n\n• Bonne connaissance de l'utilisateur informatique\n\n• Prêt à voyager avec le Velo\n\nNous offrons:\nActivité significative dans un environnement de travail multiculturel, hiérarchies plates\n\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\n\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie."
       },
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/3682c0d9-3b46-4bc0-b9b9-d2e5b613321e",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.415Z",
+      "crawledAt": "2026-08-21T10:07:55.890Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -248,93 +249,15 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:37:02.925Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spitex-basel-4c9e92a24ca9",
-      "slug": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-      "slugByLocale": {
-        "it": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
-        "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
-      },
-      "company": "SPITEX BASEL",
-      "companyKey": "spitex-basel",
-      "companyDomain": "spitexbasel.ch",
-      "title": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
-      "titleByLocale": {
-        "it": "Fachperson Gesundheit (FaGe), auch nur Morgen- o nur Abendeinsätze möglich (a)",
-        "en": "Specialist Health (FaGe), also only morning or only evening assignments possible (a)",
-        "de": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
-        "fr": "Spécialiste de la santé (FaGe), aussi seulement le matin ou seulement le soir des affectations possibles (a)"
-      },
-      "description": "Aufgaben:\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n\n• Angehörige unterstützen und begleiten\n\n• Mitwirken bei der Qualitätsverbesserung\n\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\nAnforderungen:\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n\n• Freude an der Arbeit mit Menschen\n\n• Selbstständiges Einschätzen von pflegerischen Situationen\n\n• Wertschätzende und empathische Kommunikation\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Cura e supporto clienti a casa (assistenza medica e cura)\n\n• Osservare, documentare e modificare le situazioni dei clienti\n\n• Supporto e accompagnamento dei parenti\n\n• Partecipazione al miglioramento della qualità\n\n• Cooperazione con i responsabili delle case\n\n• Su richiesta e d'intesa accompagnano gli studenti (AGS, FaGe)\n\nRequisiti\n• Formazione di base come professionista sanitario (FaGe) o equivalente\n\n• Gioia di lavorare con le persone\n\n• Valutazione indipendente delle situazioni di allattamento\n\n• Comunicazione apprezzata ed empatica\n\n• Prontezza per viaggiare con il Velo\n\nOffriamo:\nAttività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\n\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\n\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di assistenza ambulatoriale e pulizia. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.",
-        "en": "Tasks:\n• Caring for and supporting customers at home (basic and treatment care)\n\n• Observe, document and forward changes in customer situations\n\n• Supporting and accompanying relatives\n\n• Participation in quality improvement\n\n• Cooperation with case-leading staff\n\n• Upon request and by agreement accompany learners (AGS, FaGe)\n\nRequirements\n• Basic training as a health professional (FaGe) or equivalent\n\n• Joy of working with people\n\n• Independent assessment of nursing situations\n\n• Appreciative and empathetic communication\n\n• Readiness to travel with the Velo\n\nWe offer:\nMeaningful activity in a multicultural working environment, flat hierarchies\n\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\n\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.",
-        "de": "Aufgaben:\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n\n• Angehörige unterstützen und begleiten\n\n• Mitwirken bei der Qualitätsverbesserung\n\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\nAnforderungen:\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n\n• Freude an der Arbeit mit Menschen\n\n• Selbstständiges Einschätzen von pflegerischen Situationen\n\n• Wertschätzende und empathische Kommunikation\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
-        "fr": "Tâches :\n• Soins et soutien aux clients à domicile (soins de base et soins médicaux)\n\n• Observer, documenter et transmettre les changements dans la situation des clients\n\n• Familles d ' appui et de soutien\n\n• Participation à l ' amélioration de la qualité\n\n• Coopération avec le personnel chef de file\n\n• Sur demande et par accord accompagner les apprenants (AGS, FaGe)\n\nExigences\n• Formation de base en tant que professionnel de la santé (FaGe) ou équivalent\n\n• Joy de travailler avec les gens\n\n• Évaluation indépendante des situations de soins infirmiers\n\n• Communication reconnaissante et empathique\n\n• Prêt à voyager avec le Velo\n\nNous offrons:\nActivité significative dans un environnement de travail multiculturel, hiérarchies plates\n\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\n\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie."
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/bd5bb354-989f-4ee2-80ec-fc422ea0064b",
-      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.413Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4051",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/bd5bb354-989f-4ee2-80ec-fc422ea0064b",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
-        ],
-        "en": [
-          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
-        ],
-        "fr": [
-          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T22:32:11.855Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -371,7 +294,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/010ae4f6-e82c-44f5-be04-dc93c194f42e",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.409Z",
+      "crawledAt": "2026-08-21T10:07:55.884Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -410,15 +333,93 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:37:02.899Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spitex-basel-4c9e92a24ca9",
+      "slug": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
+      "slugByLocale": {
+        "it": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
+        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
+        "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
+      },
+      "company": "SPITEX BASEL",
+      "companyKey": "spitex-basel",
+      "companyDomain": "spitexbasel.ch",
+      "title": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
+      "titleByLocale": {
+        "it": "Fachperson Gesundheit (FaGe), auch nur Morgen- o nur Abendeinsätze möglich (a)",
+        "en": "Specialist Health (FaGe), also only morning or only evening assignments possible (a)",
+        "de": "Fachperson Gesundheit (FaGe), auch nur Morgen- oder nur Abendeinsätze möglich (a)",
+        "fr": "Spécialiste de la santé (FaGe), aussi seulement le matin ou seulement le soir des affectations possibles (a)"
+      },
+      "description": "Aufgaben:\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n\n• Angehörige unterstützen und begleiten\n\n• Mitwirken bei der Qualitätsverbesserung\n\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\nAnforderungen:\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n\n• Freude an der Arbeit mit Menschen\n\n• Selbstständiges Einschätzen von pflegerischen Situationen\n\n• Wertschätzende und empathische Kommunikation\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Cura e supporto clienti a casa (assistenza medica e cura)\n\n• Osservare, documentare e modificare le situazioni dei clienti\n\n• Supporto e accompagnamento dei parenti\n\n• Partecipazione al miglioramento della qualità\n\n• Cooperazione con i responsabili delle case\n\n• Su richiesta e d'intesa accompagnano gli studenti (AGS, FaGe)\n\nRequisiti\n• Formazione di base come professionista sanitario (FaGe) o equivalente\n\n• Gioia di lavorare con le persone\n\n• Valutazione indipendente delle situazioni di allattamento\n\n• Comunicazione apprezzata ed empatica\n\n• Prontezza per viaggiare con il Velo\n\nOffriamo:\nAttività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\n\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\n\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di assistenza ambulatoriale e pulizia. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.",
+        "en": "Tasks:\n• Caring for and supporting customers at home (basic and treatment care)\n\n• Observe, document and forward changes in customer situations\n\n• Supporting and accompanying relatives\n\n• Participation in quality improvement\n\n• Cooperation with case-leading staff\n\n• Upon request and by agreement accompany learners (AGS, FaGe)\n\nRequirements\n• Basic training as a health professional (FaGe) or equivalent\n\n• Joy of working with people\n\n• Independent assessment of nursing situations\n\n• Appreciative and empathetic communication\n\n• Readiness to travel with the Velo\n\nWe offer:\nMeaningful activity in a multicultural working environment, flat hierarchies\n\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\n\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.",
+        "de": "Aufgaben:\n• Kundinnen und Kunden zu Hause pflegen und unterstützen (Grund- und Behandlungspflege)\n\n• Veränderungen der Kundensituationen beobachten, dokumentieren und weiterleiten\n\n• Angehörige unterstützen und begleiten\n\n• Mitwirken bei der Qualitätsverbesserung\n\n• Zusammenarbeiten mit den fallführenden Mitarbeitenden\n\n• Auf Wunsch und nach Absprache begleiten von Lernenden (AGS, FaGe)\n\nAnforderungen:\n• Grundausbildung als Fachperson Gesundheit (FaGe) oder gleichwertig\n\n• Freude an der Arbeit mit Menschen\n\n• Selbstständiges Einschätzen von pflegerischen Situationen\n\n• Wertschätzende und empathische Kommunikation\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
+        "fr": "Tâches :\n• Soins et soutien aux clients à domicile (soins de base et soins médicaux)\n\n• Observer, documenter et transmettre les changements dans la situation des clients\n\n• Familles d ' appui et de soutien\n\n• Participation à l ' amélioration de la qualité\n\n• Coopération avec le personnel chef de file\n\n• Sur demande et par accord accompagner les apprenants (AGS, FaGe)\n\nExigences\n• Formation de base en tant que professionnel de la santé (FaGe) ou équivalent\n\n• Joy de travailler avec les gens\n\n• Évaluation indépendante des situations de soins infirmiers\n\n• Communication reconnaissante et empathique\n\n• Prêt à voyager avec le Velo\n\nNous offrons:\nActivité significative dans un environnement de travail multiculturel, hiérarchies plates\n\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\n\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie."
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/bd5bb354-989f-4ee2-80ec-fc422ea0064b",
+      "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T10:07:55.877Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/bd5bb354-989f-4ee2-80ec-fc422ea0064b",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ]
+      },
+      "firstSeenAt": "2026-07-30T22:32:11.855Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -455,7 +456,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/dacb6e79-c064-4368-8020-394535a0da45",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.407Z",
+      "crawledAt": "2026-08-21T10:07:55.872Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -490,15 +491,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:14.429Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -535,7 +536,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/92eaa9d5-9720-4fb6-89f3-a075bbb7e864",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.404Z",
+      "crawledAt": "2026-08-21T10:07:55.868Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -568,15 +569,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T22:04:26.811Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "salaryMin": 44000,
+      "salaryMax": 61500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
+          "minValue": 44000,
+          "maxValue": 61500,
           "unitText": "YEAR"
         }
       }
@@ -613,7 +614,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/3a022997-9d75-4a4b-8119-c0d88be8f384",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.375Z",
+      "crawledAt": "2026-08-21T10:07:55.823Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -646,15 +647,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T22:04:26.898Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -685,12 +686,13 @@
         "de": "Aufgaben:\n• Psychiatrisches Pflegen und Betreuen von Kindern und Jugendlichen\n\n• Mitverantwortlich für den Pflegeprozess\n\n• Selbstständiges Sicherstellen der differenzierten und spezialisierten Pflege\n\n• Durchführen von Evaluationen und Anpassen der elektronischen Dokumentation\n\n• Enge Zusammenarbeit mit dem Umfeld (Eltern, Angehörige, Fachpersonen)\n\n• Mitwirken bei der Qualitätsverbesserung und Weiterentwickeln der Pflegeprozesse\n\nAnforderungen:\n• Grundausbildung Pflegefachperson HF/FH mit Weiterbildung im Bereich Psychiatrie oder Berufserfahrung im Bereich der Kinder- und Jugendpsychiatrie\n\n• Selbstständiges Einschätzen von pflegerischen Situationen\n\n• Wertschätzende Kommunikation\n\n• Sehr gute IT Anwenderkenntnisse\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
         "fr": "Tâches :\n• Soins psychiatriques aux enfants et aux adolescents\n\n• Partager la responsabilité du processus de soins\n\n• Assurance indépendante des soins différenciés et spécialisés\n\n• Effectuer des évaluations et adapter la documentation électronique\n\n• Coopération étroite avec l'environnement (parents, parents, professionnels)\n\n• Participation à l'amélioration de la qualité et au développement des processus de soins\n\nExigences\n• Infirmière de formation de base HF/FH avec formation continue en psychiatrie ou expérience professionnelle en psychiatrie des enfants et des adolescents\n\n• Évaluation indépendante des situations de soins infirmiers\n\n• Communication reconnaissante\n\n• Très bonne connaissance de l'utilisateur informatique\n\n• Prêt à voyager avec le Velo\n\nNous offrons:\nActivité significative dans un environnement de travail multiculturel, hiérarchies plates\n\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\n\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie."
       },
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie/92742be2-a70c-4f19-b21a-4939b9a90e31",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:12:59.332Z",
+      "crawledAt": "2026-08-21T10:07:55.751Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -725,15 +727,15 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:53:35.977Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
