@@ -10426,6 +10426,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caspoggio-grigioni-frontaliere.title': 'Vivere Caspoggio, lavorare Grigioni: guida frontaliere',
     'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontaliere da Caspoggio ai Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione e procedura pratica per trasferirsi.',
     'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Paesaggio alpino di montagna svizzera con valle, simbolo della regione di confine tra Caspoggio e Grigioni',
+    'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Vivere a Spriana, lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: Nuovo Accordo 2024, imposta alla fonte solo Svizzera, esenzione €7.500-€10.000, Permesso G, AVS/LPP e ristorno italiano.',
+    'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Valico alpino tra Alpi italiane e Grigioni svizzeri con checkpoint frontaliero nella nebbia mattutina',
 };
 
 export default blogMetaIt;

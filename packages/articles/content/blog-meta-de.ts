@@ -10424,6 +10424,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caspoggio-grigioni-frontaliere.title': 'Wohnen Caspoggio, arbeiten Graubünden: Grenzführer',
     'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Grenzgänger von Caspoggio nach Graubünden: Besteuerung, AHV/BVG/KVG, Bewilligung G, Doppelbesteuerung und praktisches Verfahren für den Umzug.',
     'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Alpines Berglandschaftsszenario an der Grenze zwischen Caspoggio und Graubünden',
+    'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Leben in Spriana, Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Neues Abkommen 2024, Quellensteuer nur Schweiz, Befreiung € 7.500- € 10.000, Bewilligung G, AHV/BVG und italienische Rückerstattung.',
+    'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Alpiner Bergpass zwischen Italienischen Alpen und Schweizer Graubünden mit Grenzübergang im Morgennebel',
 };
 
 export default blogMetaDe;
