@@ -3631,6 +3631,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-cantone-appenzello-validita.title': 'Permis L Appenzell Extérieur : validité et renouvellement',
     'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Permis L courte durée en Appenzell Extérieur : durée 12 mois, critères de renouvellement, passage au permis B, contraintes liées à l\'employeur. Guide pratique.',
     'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'Bureau SEM traitant les permis de courte durée L pour travailleurs étrangers à Appenzell Rhodes-Extérieures',
+    'blog.article.assegni-familiari-appenzello-esterno.title': 'Allocations familiales Appenzell Extérieur : montants et demande',
+    'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Guide complet des allocations familiales en Appenzell Extérieur : comment fonctionne le système fédéral-cantonal, conditions de droit, caisse de compensation et procédure de demande.',
+    'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Bureau administratif cantonal suisse avec documents d\'allocations familiales',
 };
 
 export default blogMetaChFr;

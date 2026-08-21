@@ -3631,6 +3631,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-cantone-appenzello-validita.title': 'Permesso L Appenzello Esterno: validità e rinnovo',
     'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Permesso L breve durata in Appenzello Esterno: durata 12 mesi, criteri di rinnovo, passaggio a permesso B, vincoli legati al datore di lavoro. Guida pratica.',
     'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'Ufficio SEM per la gestione di permessi L di breve durata per lavoratori stranieri in Appenzello Esterno',
+    'blog.article.assegni-familiari-appenzello-esterno.title': 'Assegni familiari Appenzello Esterno: importi e domanda',
+    'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Guida completa agli assegni familiari in Appenzello Esterno: come funziona il sistema federale-cantonale, condizioni di diritto, cassa di compensazione e procedura di domanda.',
+    'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Ufficio amministrativo svizzero con documenti di assegni familiari su scrivania',
 };
 
 export default blogMetaChIt;
