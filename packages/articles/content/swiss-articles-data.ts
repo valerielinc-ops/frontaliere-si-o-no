@@ -11161,6 +11161,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costi-psichiatria-svizzera-2024',
+    category: 'fiscale',
+    date: '2026-08-21T16:09:28.043Z',
+    image: '/images/blog/costi-psichiatria-svizzera-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

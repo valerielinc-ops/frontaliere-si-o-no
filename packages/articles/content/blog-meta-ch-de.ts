@@ -3721,6 +3721,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Mietrecht in der Schweiz: Leitfaden zur Hinterlegung und Beanstandungen',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Kaution, Kündigung, Gebührenbeanstandung - so funktioniert das Bundesmietrecht in der Schweiz und die Verfahren bei der Schlichtungsstelle.',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Schweizer Wohngebäude mit Holzbalkonen und natürlichem Morgenlicht',
+    'blog.article.costi-psichiatria-svizzera-2024.title': 'Psychotherapie nur mit Arztzertifikat?',
+    'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'Die Kosten für psychiatrische Behandlungen zu Lasten der Krankenkassen stiegen 2024 um 6,1 Prozent auf rund 3,2 Milliarden Franken, was 7,5 Prozent der Gesamtkosten der obligatorischen Versicherung entspricht.',
+    'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Bild der Psychiatrie in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -3721,6 +3721,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Droit de la location en Suisse : guide de dépôt et contestations',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Caution, résiliation, contestation de la redevance : voici comment fonctionne le droit fédéral de la location en Suisse et les procédures auprès de l\'autorité de conciliation.',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Immeuble résidentiel suisse avec balcons en bois et lumière naturelle du matin',
+    'blog.article.costi-psichiatria-svizzera-2024.title': 'Diagnostico psichiatrico per psicoterapia coperta',
+    'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'Les coûts des soins de santé mentale pris en charge par les caisses-maladie ont augmenté de 6,1% en 2024 et s\'élevaient à environ 3,2 milliards de francs, soit 7,5% du coût total de l\'assurance obligatoire.',
+    'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Image de la santé mentale en Suisse',
 };
 
 export default blogMetaChFr;

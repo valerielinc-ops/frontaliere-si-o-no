@@ -48263,6 +48263,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-psichiatria-svizzera-2024': {
+    title: 'Psicoterapia coperta dalla cassa malati? Solo con una diagnosi di uno psichiatra',
+    description: 'I costi delle cure di salute mentale in Svizzera sono aumentati del 6,1% nel 2024 e ammontavano a circa 3,2 miliardi di franchi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, psicoterapia, coperta, dalla, cassa',
+    ogTitle: 'Psicoterapia coperta dalla cassa malati in Svizzera',
+    ogDescription: 'I costi delle cure di salute mentale in Svizzera sono aumentati del 6,1% nel 2024 e ammontavano a circa 3,2 miliardi di franchi.',
+    canonicalPath: '/articoli-svizzera/costi-psichiatria-svizzera-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Psicoterapia coperta dalla cassa malati? Solo con una diagnosi di uno psichiatra",
+      "description": "I costi delle cure di salute mentale in Svizzera sono aumentati del 6,1% nel 2024 e ammontavano a circa 3,2 miliardi di franchi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-psichiatria-svizzera-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine della psichiatria in Svizzera"
+      },
+      "datePublished": "2026-08-21T16:09:28+00:00",
+      "dateModified": "2026-08-21T16:09:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-psichiatria-svizzera-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
