@@ -36,6 +36,7 @@ import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
+import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
 
 interface RelatedJob {
  slug: string;
@@ -187,7 +188,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
  const description = job.descriptionByLocale?.[locale] ?? '';
- const descriptionPlain = description
+ // Same teaser chain as JobBoard's gate, and the same defect: it strips HTML
+ // and prints the rest verbatim, so a markdown heading reached the reader as
+ // `## Mansioni`. Markdown first — after the HTML strip below, `<[^>]+>` has
+ // already eaten the `(url)` half of a link and stranded its brackets.
+ const descriptionPlain = stripMarkdownMarkers(description)
  .replace(/<br\s*\/?>/gi, '\n')
  .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
  .replace(/<[^>]+>/g, ' ')

@@ -21,7 +21,9 @@
 // `allowImportingTsExtensions: true`.
 import type { Locale } from '../i18n';
 import { cleanCanonicalItems } from '../relatedSearchClusters.ts';
-import { MARKDOWN_CHUNK_HEADING_RE } from '@/services/jobs/plainTextMarkdown';
+// Relative, not `@/`: this module is reachable from vite.config.ts, which Vite
+// bundles with esbuild BEFORE its own aliases exist (tests/vite-config-import-graph).
+import { MARKDOWN_CHUNK_HEADING_RE } from './plainTextMarkdown';
 
 export type CanonicalLocaleContent = {
  summary: string[];

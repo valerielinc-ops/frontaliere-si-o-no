@@ -11,6 +11,7 @@ import {
  SEARCH_QUERY_BOILERPLATE_TOKENS,
  stripSearchQueryBoilerplate,
 } from './searchQueryBoilerplate.mjs';
+import { MARKDOWN_CHUNK_HEADING_RE } from './jobs/plainTextMarkdown';
 
 export { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword };
 export {
@@ -29,7 +30,7 @@ export function sanitizeJobTitle(raw: string): string {
  .replace(/&raquo;/gi, '»')
  .replace(/&laquo;/gi, '«')
  .replace(/<[^>]+>/g, ' ')
- .replace(/^#+\s*/, '')
+ .replace(MARKDOWN_CHUNK_HEADING_RE, '')
  .replace(/\s+/g, ' ')
  .trim();
 

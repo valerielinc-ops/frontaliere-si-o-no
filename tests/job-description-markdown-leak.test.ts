@@ -94,6 +94,30 @@ describe('the surfaces that print a description verbatim use the shared rule', (
     expect(call).toBeLessThan(htmlStrip);
   });
 
+  it('the expired-job teaser, a byte-identical twin, strips markdown too', () => {
+    // JobExpiredView carried the same `.replace` chain as the gate teaser,
+    // copied literally. The sibling gate surfaced it; fixing one and not the
+    // other is how the two would have drifted.
+    const src = read('components/community/JobExpiredView.tsx');
+    expect(src).toContain("from '@/services/jobs/plainTextMarkdown'");
+    const chain = src.slice(src.indexOf('const descriptionPlain'));
+    expect(chain.indexOf('stripMarkdownMarkers(')).toBeLessThan(chain.indexOf('.replace(/<br'));
+  });
+
+  it('no file retypes the chunk heading literal', () => {
+    // The rule lived as the same literal in four files. `.mjs` scripts stay
+    // out: they cannot import a `.ts` module, which is a module-system limit,
+    // not a decision to duplicate.
+    for (const rel of [
+      'services/jobs/canonicalFallback.ts',
+      'services/relatedSearchClusters.ts',
+      'build-plugins/shared/jobDetailHtml/highlightsChips.ts',
+    ]) {
+      expect(read(rel), `${rel} must import the shared rule`).toContain('MARKDOWN_CHUNK_HEADING_RE');
+      expect(read(rel), `${rel} still retypes the literal`).not.toMatch(/\.replace\(\/\^#\+\\s\*\//);
+    }
+  });
+
   it('canonicalFallback shares the chunk rule instead of retyping it', () => {
     // AGENTS.md #6: a regex duplicated literally in two files is drift waiting
     // to happen. The two shapes are deliberately different (line-oriented vs
