@@ -10356,6 +10356,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.title': 'Living in Cantello and working in Ticino as a border worker',
     'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.excerpt': 'The advantages and disadvantages of living in Cantello and working in Ticino as border workers, practical and procedural considerations.',
     'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.imageAlt': 'Lugano view from the city center.',
+    'blog.article.vivere-cazzago-brabbia-frontaliere.title': 'Living in Cazzago Brabbia, working in Ticino',
+    'blog.article.vivere-cazzago-brabbia-frontaliere.excerpt': 'Transfer to Cazzago Brabbia from border crossing Ticino: G permit, taxes, AVS/LPP, LAMal, costs and essential procedures.',
+    'blog.article.vivere-cazzago-brabbia-frontaliere.imageAlt': 'Border landscape between Ticino and Lombardy near Mendrisio with Alpine valleys and Lombard villages',
 };
 
 export default blogMetaEn;

@@ -10355,6 +10355,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.title': 'Wohnen in Cantello und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.excerpt': 'Die Vor- und Nachteile des Grenzgängerlebens in Cantello und der Arbeit im Tessin, praktische und verfahrenstechnische Überlegungen.',
     'blog.article.vivere-cantello-lavorare-ticino-da-frontaliere.imageAlt': 'Lugano-Blick vom Stadtzentrum.',
+    'blog.article.vivere-cazzago-brabbia-frontaliere.title': 'Leben in Cazzago Brabbia, Arbeiten im Tessin',
+    'blog.article.vivere-cazzago-brabbia-frontaliere.excerpt': 'Transfer nach Cazzago Brabbia als Grenzgänger Tessin: Bewilligung G, Steuern, AHV/BVG, KVG, Kosten und wesentliche Verfahren.',
+    'blog.article.vivere-cazzago-brabbia-frontaliere.imageAlt': 'Grenzlandschaft zwischen Tessin und der Lombardei bei Mendrisio mit Alpentälern und lombardischen Dörfern',
 };
 
 export default blogMetaDe;
