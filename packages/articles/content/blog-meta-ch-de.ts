@@ -3682,6 +3682,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Familienzulagen Appenzell Innerrhoden: Beträge und Antrag',
     'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Vollständiger Leitfaden zur Familienzulage im Kanton Appenzell Innerrhoden: Bundessystem, monatliche Kinderzulagen, Rechtslage, Ausgleichskasse und Schritt-für-Schritt-Antragsverfahren.',
     'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Alpentäler mit traditioneller Kantonsarchitektur, Symbol des Familienleistungssystems in Appenzell Innerrhoden.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Der Bundesrat für Bahnplanung',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Veröffentlichung der Regierungsstellungnahme vom 19. August 2026 zum Bericht der GPK-S vom 18. Mai 2026 zu den Strategien für die Schieneninfrastruktur.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Schweizer Bahninfrastruktur mit modernem Zug',
 };
 
 export default blogMetaChDe;

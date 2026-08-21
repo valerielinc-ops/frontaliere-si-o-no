@@ -47756,6 +47756,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parere-governo-infrastrutture-ferroviarie': {
+    title: 'Il Consiglio federale sulla pianificazione ferroviaria',
+    description: 'Il Consiglio federale ha ufficializzato il parere sulla pianificazione ferroviaria in risposta al rapporto della CdG-S del 18 maggio 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, sulla, pianificazione',
+    ogTitle: 'Consiglio federale: parere su infrastrutture ferroviarie',
+    ogDescription: 'Il governo svizzero ha pubblicato il proprio parere sulla pianificazione strategica delle infrastrutture ferroviarie in risposta alla Commissione della gestione del Consiglio degli Stati.',
+    canonicalPath: '/articoli-svizzera/parere-governo-infrastrutture-ferroviarie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio federale sulla pianificazione ferroviaria",
+      "description": "Il Consiglio federale ha ufficializzato il parere sulla pianificazione ferroviaria in risposta al rapporto della CdG-S del 18 maggio 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parere-governo-infrastrutture-ferroviarie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infrastruttura ferroviaria svizzera con treno moderno"
+      },
+      "datePublished": "2026-08-21T08:44:43+00:00",
+      "dateModified": "2026-08-21T08:44:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parere-governo-infrastrutture-ferroviarie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

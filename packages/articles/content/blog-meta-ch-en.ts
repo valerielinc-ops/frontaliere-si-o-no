@@ -3682,6 +3682,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Family allowances Internal Appenzello: amounts and application',
     'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Complete guide to family allowances in the Inner Appenzell Canton: federal system, monthly amounts per child, legal conditions, compensation fund and step-by-step application procedure.',
     'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Swiss rural landscape with administrative buildings representing the family benefits system in Appenzello Interno canton.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'The Federal Council on Railway Planning',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'The government opinion of 19 August 2026 was published in the CoG-S report of 18 May 2026 on rail infrastructure strategies.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Swiss railway infrastructure with a modern train',
 };
 
 export default blogMetaChEn;
