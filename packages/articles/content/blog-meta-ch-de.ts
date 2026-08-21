@@ -3679,6 +3679,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.richiedenti-asilo-severe-misure.title': 'Asylsuchende, Bern fordert schärfere Massnahmen',
     'blog.article.richiedenti-asilo-severe-misure.excerpt': 'Das Staatssekretariat für Migration (sem) prüft Gesetzesänderungen, um Jugendliche aus dem Maghreb, die gerade in der Schweiz angekommen sind, vom Asylverfahren auszuschliessen.',
     'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Junge Person, die in der Schweiz Straftaten begeht',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Familienzulagen Appenzell Innerrhoden: Beträge und Antrag',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Vollständiger Leitfaden zur Familienzulage im Kanton Appenzell Innerrhoden: Bundessystem, monatliche Kinderzulagen, Rechtslage, Ausgleichskasse und Schritt-für-Schritt-Antragsverfahren.',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Alpentäler mit traditioneller Kantonsarchitektur, Symbol des Familienleistungssystems in Appenzell Innerrhoden.',
 };
 
 export default blogMetaChDe;
