@@ -19820,19 +19820,18 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
-          "responsabile-di-progetto-warenflusssteuerung-jumbo-dietlikon"
+          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon"
         ],
         "en": [
           "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
           "project-manager-warenflusssteuerung-jumbo-dietlikon"
         ],
-        "de": [
-          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon"
-        ],
         "fr": [
           "projektleiter-in-warenflusssteuerung-jumbo-dietlikon",
           "chef-de-projet-warenflusssteuerung-jumbo-dietlikon"
+        ],
+        "de": [
+          "projektleiter-in-warenflusssteuerung-jumbo-dietlikon"
         ]
       },
       "needsRetranslation": true,
@@ -19854,10 +19853,10 @@
       "id": "jumbo-8379b7f3-ef5",
       "slug": "marketing-assistant-controllo-pianificazione-jumbo-dietlikon",
       "slugByLocale": {
-        "it": "marketing-assistant-controllo-pianificazione-jumbo-dietlikon",
-        "en": "marketing-assistant-controlling-planung-jumbo-dietlikon",
         "de": "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "fr": "assistant-marketing-controle-planification-jumbo-dietlikon"
+        "it": "marketing-assistant-controlling-planung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-ncw67g",
+        "en": "marketing-assistant-controlling-planung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-ncw67g",
+        "fr": "marketing-assistant-controlling-planung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-ncw67g"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19914,21 +19913,6 @@
           "• Gute mündliche und schriftliche Deutschkenntnisse"
         ]
       },
-      "previousSlugs": [
-        "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-assistant-controlling-planung-jumbo-dietlikon",
-          "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
-        ],
-        "fr": [
-          "marketing-assistant-controlling-planung-jumbo-dietlikon"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T10:08:24.041Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "baseSalary": {
@@ -19940,7 +19924,27 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T10:08:24.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-assistant-controlling-planung-jumbo-dietlikon",
+          "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
+        ],
+        "fr": [
+          "marketing-assistant-controlling-planung-jumbo-dietlikon",
+          "assistant-marketing-controle-planification-jumbo-dietlikon"
+        ],
+        "en": [
+          "marketing-assistant-controlling-planung-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-assistant-controlling-planung-jumbo-dietlikon",
+        "marketing-assistant-controllo-pianificazione-jumbo-dietlikon",
+        "assistant-marketing-controle-planification-jumbo-dietlikon"
+      ],
+      "needsRetranslation": true
     }
   ]
 }
