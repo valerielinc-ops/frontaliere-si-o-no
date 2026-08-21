@@ -10381,6 +10381,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Vivere a Jerago con Orago e lavorare in Ticino da frontaliere',
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Conoscere le norme e le procedure per i frontalieri che vivono in Ticino e lavorano nel Paese confinante.',
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che vive a Jerago con Orago e lavora in Ticino, che deve sapere dell\'accordo fiscale nuovo e delle sue implicazioni.',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.title': 'Vivere a Casale Litta e lavorare in Ticino',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.excerpt': 'Casale Litta e il lavoro da frontaliere in Ticino: permessi, fiscalità, costi della vita e guida pratica al trasferimento.',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.imageAlt': 'Vista di Casale Litta con sfondo del confine svizzero-italiano e montagne, simboleggiante il pendolarismo frontaliere',
 };
 
 export default blogMetaIt;

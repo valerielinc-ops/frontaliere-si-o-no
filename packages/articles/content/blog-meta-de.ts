@@ -10379,6 +10379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Mit Orago in Jerago leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Kennen Sie die Regeln und Verfahren für Grenzgänger, die im Tessin leben und im Nachbarland arbeiten.',
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier, der in Jerago con Orago lebt und in Ticino arbeitet, der über den neuen Steuerabkommen und seine Auswirkungen wissen muss.',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.title': 'Wohnen in Casale Litta und Arbeiten im Tessin',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.excerpt': 'Casale Litta und die Arbeit als Grenzgänger im Tessin: Genehmigungen, Steuern, Lebenshaltungskosten und praktischer Leitfaden für den Umzug.',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.imageAlt': 'Blick auf Casale Litta mit Schweizer Grenzgebirgen im Hintergrund, die Grenzpendler-Landschaft symbolisiert',
 };
 
 export default blogMetaDe;
