@@ -35,7 +35,14 @@
  *
  * The pre-hydration skeleton is non-interactive and `aria-hidden`; CompanyFollowMount
  * clears `innerHTML` before mounting (createPortal does NOT clear the container).
- * Its height tracks the real button + hint so hydration costs no layout shift.
+ * It reserves the BUTTON only — not the hint line, not the consent notice, both
+ * of which the hydrated `CompanyFollowButton` renders underneath it. This
+ * comment used to claim "button + hint"; it never emitted the hint. Said
+ * plainly because the gap is real: hydration here still costs the height of
+ * those two lines. The React-side twin, `components/community/CompanyFollowPlaceholder.tsx`,
+ * DOES reserve them, and that asymmetry is deliberate only in the sense that
+ * nobody has measured this surface (#6110 covers the job detail, not
+ * `/aziende/<slug>/`).
  */
 import { escHtml } from './htmlEscape';
 

@@ -41,6 +41,7 @@ import ConsentNotice from '@/components/shared/ConsentNotice';
 import {
   CONSENT_LOCALES,
   CONSENT_PAGE_LABEL,
+  CONSENT_PAGE_LABELS,
   CONSENT_PAGE_PATH,
   CONSENT_TEXTS,
   consentDisplayText,
@@ -902,7 +903,7 @@ describe('ConsentNotice renders the bytes that get stored', () => {
     );
     const link = container.querySelector('a');
     expect(link?.getAttribute('href')).toBe(CONSENT_PAGE_PATH);
-    expect(link?.textContent).toBe(CONSENT_PAGE_LABEL);
+    expect(link?.textContent).toBe(CONSENT_PAGE_LABELS.it);
     expect(container.textContent).toBe(CONSENT_TEXTS.communicationsOptIn.text);
     unmount();
   });
@@ -930,16 +931,22 @@ describe('what the displayed formulas may and may not say', () => {
       for (const locale of CONSENT_LOCALES) {
         expect(
           proof.texts?.[locale],
-          `${proof.id}/${locale} names a cadence — the cadence belongs on ${CONSENT_PAGE_LABEL}`,
+          `${proof.id}/${locale} names a cadence — the cadence belongs on the communications page`,
         ).not.toMatch(CADENCE_WORDS);
       }
     }
   });
 
   it('names the channel list, so the missing cadence is findable', () => {
+    // The name used to be the URL spelled out. It is now one word per locale
+    // (`CONSENT_PAGE_LABELS`), and ConsentNotice turns that word into the
+    // anchor — so what must survive here is that the formula still CARRIES the
+    // word the link is made of. A formula without it renders with no link at
+    // all, silently: ConsentNotice emits the sentence unlinked rather than
+    // dropping content.
     for (const proof of displayed) {
       for (const locale of CONSENT_LOCALES) {
-        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain(CONSENT_PAGE_LABEL);
+        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain(CONSENT_PAGE_LABELS[locale]);
       }
     }
   });
@@ -972,9 +979,13 @@ describe('what the displayed formulas may and may not say', () => {
      * section from the page fails this test — that is the line between "the
      * disclosure moved" and "the disclosure went", and it did not move.
      *
-     * The formula side keeps two teeth: it must NAME the page (a bare URL with
-     * no word for what is behind it is a dangling link, not a disclosure), and
-     * it must carry a conditions/terms word in the visitor's own language.
+     * The formula side keeps two teeth: it must NAME the page, and it must do
+     * so with a conditions/terms word in the visitor's own language. Those used
+     * to be two separate things — a spelled-out URL plus a word introducing it
+     * — and since the URL left the sentence they are the same characters: the
+     * word IS the name and the anchor. Both assertions stay, because they fail
+     * differently: the regex catches a locale left in another language, the
+     * label check catches a formula that dropped the pointer altogether.
      */
     const CONDITIONS_WORD = /Condizioni|Terms|Bedingungen|Conditions/;
     for (const proof of displayed) {
@@ -983,7 +994,7 @@ describe('what the displayed formulas may and may not say', () => {
           proof.texts?.[locale],
           `${proof.id}/${locale} must say that conditions exist, not just link a URL`,
         ).toMatch(CONDITIONS_WORD);
-        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain(CONSENT_PAGE_LABEL);
+        expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain(CONSENT_PAGE_LABELS[locale]);
       }
     }
     // Read as text, never imported — see the note on the plugin assertion below.
@@ -1103,7 +1114,7 @@ describe('what the displayed formulas may and may not say', () => {
             proof.texts?.[locale],
             `${proof.id}/${locale} should point at the page, not enumerate the category`,
           ).not.toMatch(ADVERTISING);
-          expect(proof.texts?.[locale]).toContain(CONSENT_PAGE_LABEL);
+          expect(proof.texts?.[locale]).toContain(CONSENT_PAGE_LABELS[locale]);
         }
       }
     });
@@ -1761,7 +1772,11 @@ describe('the channel list the formula points at cannot under-report what we sen
 
   it('the page the formula names is the page the router resolves', () => {
     // A formula pointing at a 404 would be worse than one pointing nowhere.
-    expect(`${CONSENT_PAGE_LABEL}`).toContain(COMMUNICATIONS_PAGE_PATH.it.replace(/\/$/, ''));
+    // This used to be checkable on the label, because the label WAS the URL.
+    // The label is a word now, so the only thing tying the sentence to the page
+    // is the href ConsentNotice renders — assert on that instead of deleting
+    // the guard, or nothing would notice the two drifting apart.
+    expect(CONSENT_PAGE_PATH).toBe(COMMUNICATIONS_PAGE_PATH.it);
     const router = read('services/router.ts');
     for (const locale of CONSENT_LOCALES) {
       expect(router, `router.ts must resolve ${COMMUNICATIONS_PAGE_PATH[locale]}`)
