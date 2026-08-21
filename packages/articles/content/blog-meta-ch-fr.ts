@@ -3733,6 +3733,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-zurigo-procedura-locazione.title': 'Location Zurich : droits locataires, dépôt et résiliation',
     'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Droit de location à Zurich : caution (max 3 mois de loyer), contestation du loyer initial et résiliation selon le Code fédéral des obligations.',
     'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Immeuble résidentiel moderne à Zurich avec balcons et fenêtres, architecture urbaine contemporaine suisse',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Loyers Zurich : droits, loyers et loyers',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Redevance initiale, caution, résiliation : le guide pratique du droit de location dans le canton de Zurich. Règles fédérales et procédures de conciliation.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Façade d\'un immeuble d\'habitation dans une ville suisse avec des fenêtres d\'appartements modernes',
 };
 
 export default blogMetaChFr;

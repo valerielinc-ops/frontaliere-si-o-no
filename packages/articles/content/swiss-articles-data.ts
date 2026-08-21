@@ -11197,6 +11197,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'zurigo-affitti-canone-deposito-guida',
+    category: 'pratico',
+    date: '2026-08-21T18:30:59.081Z',
+    image: '/images/blog/zurigo-affitti-canone-deposito-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
