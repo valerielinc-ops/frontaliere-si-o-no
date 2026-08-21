@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-08-21T09:49:54.686Z",
+  "assembledAt": "2026-08-21T21:43:00.014Z",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
@@ -81,16 +81,16 @@
       "firstSeenAt": "2026-08-07T01:09:19.840Z",
       "postedDate": "06.08.26",
       "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 73000,
+          "maxValue": 124500,
           "unitText": "YEAR"
         }
       },
@@ -176,6 +176,206 @@
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "postedDate": "04.08.26",
       "crawledAt": "",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Bern",
+      "addressRegion": "BE"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Embedded-Tester-Test-Automation-Engineer-Chatbot-&-Voicebot-%28wmd%29/74589-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Embedded-Tester-Test-Automation-Engineer-Chatbot-&-Voicebot-%28wmd%29/74589-de_DE",
+      "title": "Embedded Tester / Test Automation Engineer - Chatbot & Voicebot (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Wir heben den Kundenservice von PostFinance mit intelligenten, vernetzten Lösungen auf ein neues Level. Dafür entwickeln wir moderne Services, automatisieren Prozesse und verbinden Cloud- mit On-Prem-Systemen, um unsere Chat- und Voicebots noch leistungsfähiger zu machen.\n\nAls Embedded Tester / Test Automation Engineer im Delivery Team Next Gen Bot stellst du gemeinsam mit unseren Entwickler:innen die kontinuierliche Qualität unserer KI-basierten Bot-Plattform sicher. Was uns auszeichnet, ist ein motiviertes interdisziplinäres Team, welches über Standorte hinweg vertrauensvoll und auf Augenhöhe zusammenarbeitet. Bei uns hast du Raum, aktiv mitzugestalten, Neues auszuprobieren und mutig zu sein.\n\nDas kannst du bewirken\n\nDu stellst gemeinsam mit Entwickler:innen die kontinuierliche Qualität unseres Produkts bis zur Application Integration sicher\n\nDu konzipierst und pflegst anspruchsvolle Tests für unsere Applikation bis zur Application Integration auf Basis von \n• Anforderungen und Risiken und dokumentierst Testspezifikationen sowie Ergebnisse in den entsprechenden Testmanagement-Tools\n\nDu automatisierst Regressionstests für APIs, Web-Anwendungen und Voicebot-Funktionalitäten und entwickelst die bestehende Testautomation kontinuierlich weiter\n\nDu testest Sprachdialoge und Voicebot-Funktionalitäten und berücksichtigst dabei unterschiedliche Sprachen, Formulierungen und Kundensituationen\n\nDu analysierst, reproduzierst und dokumentierst Fehler und begleitest deren Behebung gemeinsam mit Entwickler:innen auch teamübergreifend\n\nDu unterstützt bei Triage und Management von Bugs in Jira und arbeitest bei Bedarf mit externen Teams und Lieferanten zusammen\n\nDu bringst die Kundensicht sowie Usability- und Qualitätsaspekte aktiv ins Team ein und engagierst dich in der Community of Practice der Embedded Tester\n\nDas bringst du mit\n\nFundierte Erfahrung im Software Testing und in der Testautomatisierung in komplexen und verteilten Systemlandschaften\n\nErfahrung mit Integrations- und Regressionstests sowie im Testen von Schnittstellen zu angebundenen Systemen\n\nErfahrung im Testen von KI-basierten Anwendungen oder Interesse an neuen Testansätzen für GenAI- und LLM-basierte Systeme\n\nErfahrung mit Testautomation sowie API-, Web- und Voice-Testing; Kenntnisse in STEP als Vorteil\n\nErfahrung im professionellen Testmanagement und in strukturierter Testdokumentation; Kenntnisse in HP Quality Center als Vorteil\n\nGutes technisches Verständnis von REST-Services sowie von Cloud- und On-Prem-Systemen; Kenntnisse in Voicebot-Technologien als Plus\n\nStrukturierte, analytische und qualitätsorientierte Arbeitsweise mit hoher Eigeninitiative sowie Freude an der Zusammenarbeit in einem internationalen und interdisziplinären Team\n\nSehr gute Deutsch- und Englischkenntnisse; Kenntnisse weiterer Landessprachen als Vorteil",
+      "descriptionByLocale": {
+        "it": "Wir heben den Kundenservice von PostFinance mit intelligenten, vernetzten Lösungen auf ein neues Level. Dafür entwickeln wir moderne Services, automatisieren Prozesse und verbinden Cloud- mit On-Prem-Systemen, um unsere Chat- und Voicebots noch leistungsfähiger zu machen.\n\nAls Embedded Tester / Test Automation Engineer im Delivery Team Next Gen Bot stellst du gemeinsam mit unseren Entwickler:innen die kontinuierliche Qualität unserer KI-basierten Bot-Plattform sicher. Was uns auszeichnet, ist ein motiviertes interdisziplinäres Team, welches über Standorte hinweg vertrauensvoll und auf Augenhöhe zusammenarbeitet. Bei uns hast du Raum, aktiv mitzugestalten, Neues auszuprobieren und mutig zu sein.\n\nDas kannst du bewirken\n\nDu stellst gemeinsam mit Entwickler:innen die kontinuierliche Qualität unseres Produkts bis zur Application Integration sicher\n\nDu konzipierst und pflegst anspruchsvolle Tests für unsere Applikation bis zur Application Integration auf Basis von \n• Anforderungen und Risiken und dokumentierst Testspezifikationen sowie Ergebnisse in den entsprechenden Testmanagement-Tools\n\nDu automatisierst Regressionstests für APIs, Web-Anwendungen und Voicebot-Funktionalitäten und entwickelst die bestehende Testautomation kontinuierlich weiter\n\nDu testest Sprachdialoge und Voicebot-Funktionalitäten und berücksichtigst dabei unterschiedliche Sprachen, Formulierungen und Kundensituationen\n\nDu analysierst, reproduzierst und dokumentierst Fehler und begleitest deren Behebung gemeinsam mit Entwickler:innen auch teamübergreifend\n\nDu unterstützt bei Triage und Management von Bugs in Jira und arbeitest bei Bedarf mit externen Teams und Lieferanten zusammen\n\nDu bringst die Kundensicht sowie Usability- und Qualitätsaspekte aktiv ins Team ein und engagierst dich in der Community of Practice der Embedded Tester\n\nDas bringst du mit\n\nFundierte Erfahrung im Software Testing und in der Testautomatisierung in komplexen und verteilten Systemlandschaften\n\nErfahrung mit Integrations- und Regressionstests sowie im Testen von Schnittstellen zu angebundenen Systemen\n\nErfahrung im Testen von KI-basierten Anwendungen oder Interesse an neuen Testansätzen für GenAI- und LLM-basierte Systeme\n\nErfahrung mit Testautomation sowie API-, Web- und Voice-Testing; Kenntnisse in STEP als Vorteil\n\nErfahrung im professionellen Testmanagement und in strukturierter Testdokumentation; Kenntnisse in HP Quality Center als Vorteil\n\nGutes technisches Verständnis von REST-Services sowie von Cloud- und On-Prem-Systemen; Kenntnisse in Voicebot-Technologien als Plus\n\nStrukturierte, analytische und qualitätsorientierte Arbeitsweise mit hoher Eigeninitiative sowie Freude an der Zusammenarbeit in einem internationalen und interdisziplinären Team\n\nSehr gute Deutsch- und Englischkenntnisse; Kenntnisse weiterer Landessprachen als Vorteil",
+        "de": "Wir heben den Kundenservice von PostFinance mit intelligenten, vernetzten Lösungen auf ein neues Level. Dafür entwickeln wir moderne Services, automatisieren Prozesse und verbinden Cloud- mit On-Prem-Systemen, um unsere Chat- und Voicebots noch leistungsfähiger zu machen.\n\nAls Embedded Tester / Test Automation Engineer im Delivery Team Next Gen Bot stellst du gemeinsam mit unseren Entwickler:innen die kontinuierliche Qualität unserer KI-basierten Bot-Plattform sicher. Was uns auszeichnet, ist ein motiviertes interdisziplinäres Team, welches über Standorte hinweg vertrauensvoll und auf Augenhöhe zusammenarbeitet. Bei uns hast du Raum, aktiv mitzugestalten, Neues auszuprobieren und mutig zu sein.\n\nDas kannst du bewirken\n\nDu stellst gemeinsam mit Entwickler:innen die kontinuierliche Qualität unseres Produkts bis zur Application Integration sicher\n\nDu konzipierst und pflegst anspruchsvolle Tests für unsere Applikation bis zur Application Integration auf Basis von \n• Anforderungen und Risiken und dokumentierst Testspezifikationen sowie Ergebnisse in den entsprechenden Testmanagement-Tools\n\nDu automatisierst Regressionstests für APIs, Web-Anwendungen und Voicebot-Funktionalitäten und entwickelst die bestehende Testautomation kontinuierlich weiter\n\nDu testest Sprachdialoge und Voicebot-Funktionalitäten und berücksichtigst dabei unterschiedliche Sprachen, Formulierungen und Kundensituationen\n\nDu analysierst, reproduzierst und dokumentierst Fehler und begleitest deren Behebung gemeinsam mit Entwickler:innen auch teamübergreifend\n\nDu unterstützt bei Triage und Management von Bugs in Jira und arbeitest bei Bedarf mit externen Teams und Lieferanten zusammen\n\nDu bringst die Kundensicht sowie Usability- und Qualitätsaspekte aktiv ins Team ein und engagierst dich in der Community of Practice der Embedded Tester\n\nDas bringst du mit\n\nFundierte Erfahrung im Software Testing und in der Testautomatisierung in komplexen und verteilten Systemlandschaften\n\nErfahrung mit Integrations- und Regressionstests sowie im Testen von Schnittstellen zu angebundenen Systemen\n\nErfahrung im Testen von KI-basierten Anwendungen oder Interesse an neuen Testansätzen für GenAI- und LLM-basierte Systeme\n\nErfahrung mit Testautomation sowie API-, Web- und Voice-Testing; Kenntnisse in STEP als Vorteil\n\nErfahrung im professionellen Testmanagement und in strukturierter Testdokumentation; Kenntnisse in HP Quality Center als Vorteil\n\nGutes technisches Verständnis von REST-Services sowie von Cloud- und On-Prem-Systemen; Kenntnisse in Voicebot-Technologien als Plus\n\nStrukturierte, analytische und qualitätsorientierte Arbeitsweise mit hoher Eigeninitiative sowie Freude an der Zusammenarbeit in einem internationalen und interdisziplinären Team\n\nSehr gute Deutsch- und Englischkenntnisse; Kenntnisse weiterer Landessprachen als Vorteil",
+        "en": "Wir heben den Kundenservice von PostFinance mit intelligenten, vernetzten Lösungen auf ein neues Level. Dafür entwickeln wir moderne Services, automatisieren Prozesse und verbinden Cloud- mit On-Prem-Systemen, um unsere Chat- und Voicebots noch leistungsfähiger zu machen.\n\nAls Embedded Tester / Test Automation Engineer im Delivery Team Next Gen Bot stellst du gemeinsam mit unseren Entwickler:innen die kontinuierliche Qualität unserer KI-basierten Bot-Plattform sicher. Was uns auszeichnet, ist ein motiviertes interdisziplinäres Team, welches über Standorte hinweg vertrauensvoll und auf Augenhöhe zusammenarbeitet. Bei uns hast du Raum, aktiv mitzugestalten, Neues auszuprobieren und mutig zu sein.\n\nDas kannst du bewirken\n\nDu stellst gemeinsam mit Entwickler:innen die kontinuierliche Qualität unseres Produkts bis zur Application Integration sicher\n\nDu konzipierst und pflegst anspruchsvolle Tests für unsere Applikation bis zur Application Integration auf Basis von \n• Anforderungen und Risiken und dokumentierst Testspezifikationen sowie Ergebnisse in den entsprechenden Testmanagement-Tools\n\nDu automatisierst Regressionstests für APIs, Web-Anwendungen und Voicebot-Funktionalitäten und entwickelst die bestehende Testautomation kontinuierlich weiter\n\nDu testest Sprachdialoge und Voicebot-Funktionalitäten und berücksichtigst dabei unterschiedliche Sprachen, Formulierungen und Kundensituationen\n\nDu analysierst, reproduzierst und dokumentierst Fehler und begleitest deren Behebung gemeinsam mit Entwickler:innen auch teamübergreifend\n\nDu unterstützt bei Triage und Management von Bugs in Jira und arbeitest bei Bedarf mit externen Teams und Lieferanten zusammen\n\nDu bringst die Kundensicht sowie Usability- und Qualitätsaspekte aktiv ins Team ein und engagierst dich in der Community of Practice der Embedded Tester\n\nDas bringst du mit\n\nFundierte Erfahrung im Software Testing und in der Testautomatisierung in komplexen und verteilten Systemlandschaften\n\nErfahrung mit Integrations- und Regressionstests sowie im Testen von Schnittstellen zu angebundenen Systemen\n\nErfahrung im Testen von KI-basierten Anwendungen oder Interesse an neuen Testansätzen für GenAI- und LLM-basierte Systeme\n\nErfahrung mit Testautomation sowie API-, Web- und Voice-Testing; Kenntnisse in STEP als Vorteil\n\nErfahrung im professionellen Testmanagement und in strukturierter Testdokumentation; Kenntnisse in HP Quality Center als Vorteil\n\nGutes technisches Verständnis von REST-Services sowie von Cloud- und On-Prem-Systemen; Kenntnisse in Voicebot-Technologien als Plus\n\nStrukturierte, analytische und qualitätsorientierte Arbeitsweise mit hoher Eigeninitiative sowie Freude an der Zusammenarbeit in einem internationalen und interdisziplinären Team\n\nSehr gute Deutsch- und Englischkenntnisse; Kenntnisse weiterer Landessprachen als Vorteil",
+        "fr": "Wir heben den Kundenservice von PostFinance mit intelligenten, vernetzten Lösungen auf ein neues Level. Dafür entwickeln wir moderne Services, automatisieren Prozesse und verbinden Cloud- mit On-Prem-Systemen, um unsere Chat- und Voicebots noch leistungsfähiger zu machen.\n\nAls Embedded Tester / Test Automation Engineer im Delivery Team Next Gen Bot stellst du gemeinsam mit unseren Entwickler:innen die kontinuierliche Qualität unserer KI-basierten Bot-Plattform sicher. Was uns auszeichnet, ist ein motiviertes interdisziplinäres Team, welches über Standorte hinweg vertrauensvoll und auf Augenhöhe zusammenarbeitet. Bei uns hast du Raum, aktiv mitzugestalten, Neues auszuprobieren und mutig zu sein.\n\nDas kannst du bewirken\n\nDu stellst gemeinsam mit Entwickler:innen die kontinuierliche Qualität unseres Produkts bis zur Application Integration sicher\n\nDu konzipierst und pflegst anspruchsvolle Tests für unsere Applikation bis zur Application Integration auf Basis von \n• Anforderungen und Risiken und dokumentierst Testspezifikationen sowie Ergebnisse in den entsprechenden Testmanagement-Tools\n\nDu automatisierst Regressionstests für APIs, Web-Anwendungen und Voicebot-Funktionalitäten und entwickelst die bestehende Testautomation kontinuierlich weiter\n\nDu testest Sprachdialoge und Voicebot-Funktionalitäten und berücksichtigst dabei unterschiedliche Sprachen, Formulierungen und Kundensituationen\n\nDu analysierst, reproduzierst und dokumentierst Fehler und begleitest deren Behebung gemeinsam mit Entwickler:innen auch teamübergreifend\n\nDu unterstützt bei Triage und Management von Bugs in Jira und arbeitest bei Bedarf mit externen Teams und Lieferanten zusammen\n\nDu bringst die Kundensicht sowie Usability- und Qualitätsaspekte aktiv ins Team ein und engagierst dich in der Community of Practice der Embedded Tester\n\nDas bringst du mit\n\nFundierte Erfahrung im Software Testing und in der Testautomatisierung in komplexen und verteilten Systemlandschaften\n\nErfahrung mit Integrations- und Regressionstests sowie im Testen von Schnittstellen zu angebundenen Systemen\n\nErfahrung im Testen von KI-basierten Anwendungen oder Interesse an neuen Testansätzen für GenAI- und LLM-basierte Systeme\n\nErfahrung mit Testautomation sowie API-, Web- und Voice-Testing; Kenntnisse in STEP als Vorteil\n\nErfahrung im professionellen Testmanagement und in strukturierter Testdokumentation; Kenntnisse in HP Quality Center als Vorteil\n\nGutes technisches Verständnis von REST-Services sowie von Cloud- und On-Prem-Systemen; Kenntnisse in Voicebot-Technologien als Plus\n\nStrukturierte, analytische und qualitätsorientierte Arbeitsweise mit hoher Eigeninitiative sowie Freude an der Zusammenarbeit in einem internationalen und interdisziplinären Team\n\nSehr gute Deutsch- und Englischkenntnisse; Kenntnisse weiterer Landessprachen als Vorteil"
+      },
+      "titleByLocale": {
+        "it": "Embedded Tester / Test Automation Ingegnere - Chatbot & Voicebot (w/m/d)",
+        "en": "Embedded Tester / Test Automation Engineer - Chatbot & Voicebot (w/m/d)",
+        "de": "Embedded Tester / Test Automation Ingenieur - Chatbot & Voicebot (w/m/d)",
+        "fr": "Embedded Tester / Test Automation Ingénieur - Chatbot & Voicebot (w/m/d)"
+      },
+      "slug": "embedded-tester-test-automation-engineer-chatbot-voicebot-w-m-d-postfinance",
+      "slugByLocale": {
+        "it": "embedded-tester-test-automation-engineer-chatbot-voicebot-w-m-d-postfinance",
+        "en": "embedded-tester-test-automation-engineer-chatbot-voicebot-w-m-d-postfinance",
+        "de": "embedded-tester-test-automation-engineer-chatbot-voicebot-w-m-d-postfinance",
+        "fr": "embedded-tester-test-automation-engineer-chatbot-voicebot-w-m-d-postfinance"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "21.08.26",
+      "validThrough": "21.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-7b25a13f7fbe",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-21T21:43:00.013Z"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Leiterin-Customer-Care-Firmenkunden-Massenmarkt/74464-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Leiterin-Customer-Care-Firmenkunden-Massenmarkt/74464-de_DE",
+      "title": "Leiter:in Customer Care Firmenkunden Massenmarkt",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Du willst die Zukunft des Firmenkundengeschäfts aktiv mitgestalten? Als Leiter:in Customer Care Firmenkunden Massenmarkt übernimmst du die Verantwortung für eine zentrale Serviceorganisation mit rund 60 Mitarbeitenden. Gemeinsam mit deinen Teams sorgst du für begeisternde Kundenerlebnisse, entwickelst Prozesse und Services weiter und leistest einen wesentlichen Beitrag zur Kundenbindung, Geschäftsentwicklung und Transformation im Firmenkundengeschäft von PostFinance.\n\nDas kannst du bewirken\n\nDu führst das Customer Care Firmenkunden Massenmarkt mit rund 60 Mitarbeitenden in vier Teams an verschiedenen Standorten in der Deutsch- und Westschweiz und entwickelst Organisation, Prozesse sowie Führungsstrukturen gezielt weiter\n\nDu coachst und befähigst die direkt unterstellten Teamleiter:innen und schaffst die Voraussetzungen für eine leistungsfähige, kundenorientierte und zukunftsfähige Serviceorganisation\n\nDu stellst eine qualitativ hochwertige Betreuung unserer Firmenkunden sicher und verantwortest die Einhaltung von Service-, Qualitäts- und Compliance-Vorgaben über den gesamten Kundenlebenszyklus hinweg\n\nDu steuerst das operative Geschäft anhand relevanter Kennzahlen, optimierst Ressourcen und Kapazitäten standortübergreifend und erschliesst Effizienzpotenziale in Prozessen und Systemen\n\nDu stärkst die Verkaufs- und Kundenorientierung im Customer Care, verantwortest die Erreichung der definierten Geschäftsziele und förderst die Ausschöpfung von Kundenpotenzialen\n\nDu arbeitest eng mit Vertriebseinheiten und weiteren internen Stakeholdern zusammen und trägst aktiv zur Weiterentwicklung des Firmenkundengeschäfts bei\n\nDu gestaltest Veränderungs- und Transformationsprozesse aktiv mit, förderst eine offene und leistungsorientierte Kultur und setzt strategische Vorhaben wirkungsvoll um\n\nDas bringst du mit\n\nAbgeschlossene höhere Ausbildung in Betriebswirtschaft oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Leadership von Vorteil\n\nMehrjährige Berufs- und Führungserfahrung im Vertrieb, Kundenservice oder in einem vergleichbaren Umfeld\n\nFundierte Kenntnisse im Firmenkundengeschäft sowie ausgeprägtes Verständnis für die Bedürfnisse von Geschäftskunden\n\nErfahrung in der erfolgreichen Führung und Weiterentwicklung mehrsprachiger Service-, Support- oder Vertriebsteams\n\nHohe Kundenorientierung sowie Fähigkeit zur gezielten Weiterentwicklung von Kundenerlebnissen und Schaffung nachhaltigen Mehrwerts\n\nAusgeprägte Umsetzungsstärke, unternehmerisches Denken sowie überzeugende Kommunikations- und Begeisterungsfähigkeit\n\nStilsichere Deutschkenntnisse- und sehr gute Französischkenntnisse sowie Englisch- und/oder Italienischkenntnisse als Plus",
+      "descriptionByLocale": {
+        "it": "Du willst die Zukunft des Firmenkundengeschäfts aktiv mitgestalten? Als Leiter:in Customer Care Firmenkunden Massenmarkt übernimmst du die Verantwortung für eine zentrale Serviceorganisation mit rund 60 Mitarbeitenden. Gemeinsam mit deinen Teams sorgst du für begeisternde Kundenerlebnisse, entwickelst Prozesse und Services weiter und leistest einen wesentlichen Beitrag zur Kundenbindung, Geschäftsentwicklung und Transformation im Firmenkundengeschäft von PostFinance.\n\nDas kannst du bewirken\n\nDu führst das Customer Care Firmenkunden Massenmarkt mit rund 60 Mitarbeitenden in vier Teams an verschiedenen Standorten in der Deutsch- und Westschweiz und entwickelst Organisation, Prozesse sowie Führungsstrukturen gezielt weiter\n\nDu coachst und befähigst die direkt unterstellten Teamleiter:innen und schaffst die Voraussetzungen für eine leistungsfähige, kundenorientierte und zukunftsfähige Serviceorganisation\n\nDu stellst eine qualitativ hochwertige Betreuung unserer Firmenkunden sicher und verantwortest die Einhaltung von Service-, Qualitäts- und Compliance-Vorgaben über den gesamten Kundenlebenszyklus hinweg\n\nDu steuerst das operative Geschäft anhand relevanter Kennzahlen, optimierst Ressourcen und Kapazitäten standortübergreifend und erschliesst Effizienzpotenziale in Prozessen und Systemen\n\nDu stärkst die Verkaufs- und Kundenorientierung im Customer Care, verantwortest die Erreichung der definierten Geschäftsziele und förderst die Ausschöpfung von Kundenpotenzialen\n\nDu arbeitest eng mit Vertriebseinheiten und weiteren internen Stakeholdern zusammen und trägst aktiv zur Weiterentwicklung des Firmenkundengeschäfts bei\n\nDu gestaltest Veränderungs- und Transformationsprozesse aktiv mit, förderst eine offene und leistungsorientierte Kultur und setzt strategische Vorhaben wirkungsvoll um\n\nDas bringst du mit\n\nAbgeschlossene höhere Ausbildung in Betriebswirtschaft oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Leadership von Vorteil\n\nMehrjährige Berufs- und Führungserfahrung im Vertrieb, Kundenservice oder in einem vergleichbaren Umfeld\n\nFundierte Kenntnisse im Firmenkundengeschäft sowie ausgeprägtes Verständnis für die Bedürfnisse von Geschäftskunden\n\nErfahrung in der erfolgreichen Führung und Weiterentwicklung mehrsprachiger Service-, Support- oder Vertriebsteams\n\nHohe Kundenorientierung sowie Fähigkeit zur gezielten Weiterentwicklung von Kundenerlebnissen und Schaffung nachhaltigen Mehrwerts\n\nAusgeprägte Umsetzungsstärke, unternehmerisches Denken sowie überzeugende Kommunikations- und Begeisterungsfähigkeit\n\nStilsichere Deutschkenntnisse- und sehr gute Französischkenntnisse sowie Englisch- und/oder Italienischkenntnisse als Plus",
+        "de": "Du willst die Zukunft des Firmenkundengeschäfts aktiv mitgestalten? Als Leiter:in Customer Care Firmenkunden Massenmarkt übernimmst du die Verantwortung für eine zentrale Serviceorganisation mit rund 60 Mitarbeitenden. Gemeinsam mit deinen Teams sorgst du für begeisternde Kundenerlebnisse, entwickelst Prozesse und Services weiter und leistest einen wesentlichen Beitrag zur Kundenbindung, Geschäftsentwicklung und Transformation im Firmenkundengeschäft von PostFinance.\n\nDas kannst du bewirken\n\nDu führst das Customer Care Firmenkunden Massenmarkt mit rund 60 Mitarbeitenden in vier Teams an verschiedenen Standorten in der Deutsch- und Westschweiz und entwickelst Organisation, Prozesse sowie Führungsstrukturen gezielt weiter\n\nDu coachst und befähigst die direkt unterstellten Teamleiter:innen und schaffst die Voraussetzungen für eine leistungsfähige, kundenorientierte und zukunftsfähige Serviceorganisation\n\nDu stellst eine qualitativ hochwertige Betreuung unserer Firmenkunden sicher und verantwortest die Einhaltung von Service-, Qualitäts- und Compliance-Vorgaben über den gesamten Kundenlebenszyklus hinweg\n\nDu steuerst das operative Geschäft anhand relevanter Kennzahlen, optimierst Ressourcen und Kapazitäten standortübergreifend und erschliesst Effizienzpotenziale in Prozessen und Systemen\n\nDu stärkst die Verkaufs- und Kundenorientierung im Customer Care, verantwortest die Erreichung der definierten Geschäftsziele und förderst die Ausschöpfung von Kundenpotenzialen\n\nDu arbeitest eng mit Vertriebseinheiten und weiteren internen Stakeholdern zusammen und trägst aktiv zur Weiterentwicklung des Firmenkundengeschäfts bei\n\nDu gestaltest Veränderungs- und Transformationsprozesse aktiv mit, förderst eine offene und leistungsorientierte Kultur und setzt strategische Vorhaben wirkungsvoll um\n\nDas bringst du mit\n\nAbgeschlossene höhere Ausbildung in Betriebswirtschaft oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Leadership von Vorteil\n\nMehrjährige Berufs- und Führungserfahrung im Vertrieb, Kundenservice oder in einem vergleichbaren Umfeld\n\nFundierte Kenntnisse im Firmenkundengeschäft sowie ausgeprägtes Verständnis für die Bedürfnisse von Geschäftskunden\n\nErfahrung in der erfolgreichen Führung und Weiterentwicklung mehrsprachiger Service-, Support- oder Vertriebsteams\n\nHohe Kundenorientierung sowie Fähigkeit zur gezielten Weiterentwicklung von Kundenerlebnissen und Schaffung nachhaltigen Mehrwerts\n\nAusgeprägte Umsetzungsstärke, unternehmerisches Denken sowie überzeugende Kommunikations- und Begeisterungsfähigkeit\n\nStilsichere Deutschkenntnisse- und sehr gute Französischkenntnisse sowie Englisch- und/oder Italienischkenntnisse als Plus",
+        "en": "Du willst die Zukunft des Firmenkundengeschäfts aktiv mitgestalten? Als Leiter:in Customer Care Firmenkunden Massenmarkt übernimmst du die Verantwortung für eine zentrale Serviceorganisation mit rund 60 Mitarbeitenden. Gemeinsam mit deinen Teams sorgst du für begeisternde Kundenerlebnisse, entwickelst Prozesse und Services weiter und leistest einen wesentlichen Beitrag zur Kundenbindung, Geschäftsentwicklung und Transformation im Firmenkundengeschäft von PostFinance.\n\nDas kannst du bewirken\n\nDu führst das Customer Care Firmenkunden Massenmarkt mit rund 60 Mitarbeitenden in vier Teams an verschiedenen Standorten in der Deutsch- und Westschweiz und entwickelst Organisation, Prozesse sowie Führungsstrukturen gezielt weiter\n\nDu coachst und befähigst die direkt unterstellten Teamleiter:innen und schaffst die Voraussetzungen für eine leistungsfähige, kundenorientierte und zukunftsfähige Serviceorganisation\n\nDu stellst eine qualitativ hochwertige Betreuung unserer Firmenkunden sicher und verantwortest die Einhaltung von Service-, Qualitäts- und Compliance-Vorgaben über den gesamten Kundenlebenszyklus hinweg\n\nDu steuerst das operative Geschäft anhand relevanter Kennzahlen, optimierst Ressourcen und Kapazitäten standortübergreifend und erschliesst Effizienzpotenziale in Prozessen und Systemen\n\nDu stärkst die Verkaufs- und Kundenorientierung im Customer Care, verantwortest die Erreichung der definierten Geschäftsziele und förderst die Ausschöpfung von Kundenpotenzialen\n\nDu arbeitest eng mit Vertriebseinheiten und weiteren internen Stakeholdern zusammen und trägst aktiv zur Weiterentwicklung des Firmenkundengeschäfts bei\n\nDu gestaltest Veränderungs- und Transformationsprozesse aktiv mit, förderst eine offene und leistungsorientierte Kultur und setzt strategische Vorhaben wirkungsvoll um\n\nDas bringst du mit\n\nAbgeschlossene höhere Ausbildung in Betriebswirtschaft oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Leadership von Vorteil\n\nMehrjährige Berufs- und Führungserfahrung im Vertrieb, Kundenservice oder in einem vergleichbaren Umfeld\n\nFundierte Kenntnisse im Firmenkundengeschäft sowie ausgeprägtes Verständnis für die Bedürfnisse von Geschäftskunden\n\nErfahrung in der erfolgreichen Führung und Weiterentwicklung mehrsprachiger Service-, Support- oder Vertriebsteams\n\nHohe Kundenorientierung sowie Fähigkeit zur gezielten Weiterentwicklung von Kundenerlebnissen und Schaffung nachhaltigen Mehrwerts\n\nAusgeprägte Umsetzungsstärke, unternehmerisches Denken sowie überzeugende Kommunikations- und Begeisterungsfähigkeit\n\nStilsichere Deutschkenntnisse- und sehr gute Französischkenntnisse sowie Englisch- und/oder Italienischkenntnisse als Plus",
+        "fr": "Du willst die Zukunft des Firmenkundengeschäfts aktiv mitgestalten? Als Leiter:in Customer Care Firmenkunden Massenmarkt übernimmst du die Verantwortung für eine zentrale Serviceorganisation mit rund 60 Mitarbeitenden. Gemeinsam mit deinen Teams sorgst du für begeisternde Kundenerlebnisse, entwickelst Prozesse und Services weiter und leistest einen wesentlichen Beitrag zur Kundenbindung, Geschäftsentwicklung und Transformation im Firmenkundengeschäft von PostFinance.\n\nDas kannst du bewirken\n\nDu führst das Customer Care Firmenkunden Massenmarkt mit rund 60 Mitarbeitenden in vier Teams an verschiedenen Standorten in der Deutsch- und Westschweiz und entwickelst Organisation, Prozesse sowie Führungsstrukturen gezielt weiter\n\nDu coachst und befähigst die direkt unterstellten Teamleiter:innen und schaffst die Voraussetzungen für eine leistungsfähige, kundenorientierte und zukunftsfähige Serviceorganisation\n\nDu stellst eine qualitativ hochwertige Betreuung unserer Firmenkunden sicher und verantwortest die Einhaltung von Service-, Qualitäts- und Compliance-Vorgaben über den gesamten Kundenlebenszyklus hinweg\n\nDu steuerst das operative Geschäft anhand relevanter Kennzahlen, optimierst Ressourcen und Kapazitäten standortübergreifend und erschliesst Effizienzpotenziale in Prozessen und Systemen\n\nDu stärkst die Verkaufs- und Kundenorientierung im Customer Care, verantwortest die Erreichung der definierten Geschäftsziele und förderst die Ausschöpfung von Kundenpotenzialen\n\nDu arbeitest eng mit Vertriebseinheiten und weiteren internen Stakeholdern zusammen und trägst aktiv zur Weiterentwicklung des Firmenkundengeschäfts bei\n\nDu gestaltest Veränderungs- und Transformationsprozesse aktiv mit, förderst eine offene und leistungsorientierte Kultur und setzt strategische Vorhaben wirkungsvoll um\n\nDas bringst du mit\n\nAbgeschlossene höhere Ausbildung in Betriebswirtschaft oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Leadership von Vorteil\n\nMehrjährige Berufs- und Führungserfahrung im Vertrieb, Kundenservice oder in einem vergleichbaren Umfeld\n\nFundierte Kenntnisse im Firmenkundengeschäft sowie ausgeprägtes Verständnis für die Bedürfnisse von Geschäftskunden\n\nErfahrung in der erfolgreichen Führung und Weiterentwicklung mehrsprachiger Service-, Support- oder Vertriebsteams\n\nHohe Kundenorientierung sowie Fähigkeit zur gezielten Weiterentwicklung von Kundenerlebnissen und Schaffung nachhaltigen Mehrwerts\n\nAusgeprägte Umsetzungsstärke, unternehmerisches Denken sowie überzeugende Kommunikations- und Begeisterungsfähigkeit\n\nStilsichere Deutschkenntnisse- und sehr gute Französischkenntnisse sowie Englisch- und/oder Italienischkenntnisse als Plus"
+      },
+      "titleByLocale": {
+        "it": "Responsabile Customer Care Firmenkunden Massenmarkt",
+        "de": "Leiter:in Customer Care Firmenkunden Massenmarkt",
+        "en": "Leiter:in Customer Care Firmenkunden Massenmarkt",
+        "fr": "Leiter:in Customer Care Firmenkunden Massenmarkt"
+      },
+      "slug": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+      "slugByLocale": {
+        "it": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+        "en": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+        "de": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+        "fr": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "21.08.26",
+      "validThrough": "20.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-0ecc8812c887",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 167000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-21T21:43:00.013Z"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
+      "title": "HR Businesspartner:in",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Bei PostFinance begleitest du als HR Businesspartner:in die Leitungsteams deiner verantworteten Units auf Augenhöhe und stellst ein ganzheitliches und professionelles Personalmanagement sicher. Dabei bietest du als HR Businesspartner:in echten Mehrwert und begleitest deine Units proaktiv bei deren Herausforderungen. Zudem trägst du dazu bei, innerhalb der HR-Organisation ein unternehmensweites Verständnis für die Herausforderungen der Units zu schaffen. So stellst du die Umsetzungsfähigkeit und Wirksamkeit der HR-Themen sicher und leistest einen wichtigen Beitrag zum Erfolg von PostFinance.\n\nDas kannst du bewirken\n\nDu berätst und betreust die Führungsstufe der verantworteten Units in allen taktischen und strategischen HR-Fragestellungen und stellst ein ganzheitliches und professionelles Personalmanagement sicher\n\nDu treibst in den Units die strategischen Stossrichtungen im HR voran und nimmst dabei eine bereichsübergreifende Perspektive ein\n\nDu leitest interdisziplinäre Strategie- und Transformationsvorhaben und ermöglichst das Zusammenspiel aller relevanten HR-Disziplinen, um nachhaltige Veränderungen umzusetzen und in der Organisation zu verankern\n\nDu bringst Ideen proaktiv ein und verbindest deine konzeptionelle Stärke mit wirkungsvoller Umsetzung\n\nDu begleitest die Units in der strategischen Personalplanung und definierst die langfristige Planung des Personalbestands hinsichtlich Grösse, Struktur und Kompetenzen\n\nDas bringst du mit\n\nTertiärer Abschluss sowie mehrjährige, vertiefte Kenntnisse in Betriebswirtschaft mit Schwerpunkt Personal und Führung oder in Arbeits- und Organisationspsychologie\n\nBreite Fachkompetenz in allen HR-Disziplinen, hohe Beratungskompetenz und idealerweise Führungserfahrung\n\nErfahrung in der Begleitung von Transformationsprozessen\n\nAnalytisches Denken sowie Fähigkeit zur Erstellung datenbasiert Entscheidungsgrundlagen\n\nToolfitness und hohe Kompetenz im Umgang mit HR-Daten\n\nTalent, zur prägnanten Darstellung komplexer Sachverhalte sowie souveränes Auftreten\n\nVerhandlungssichere Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse von Vorteil",
+      "descriptionByLocale": {
+        "it": "Bei PostFinance begleitest du als HR Businesspartner:in die Leitungsteams deiner verantworteten Units auf Augenhöhe und stellst ein ganzheitliches und professionelles Personalmanagement sicher. Dabei bietest du als HR Businesspartner:in echten Mehrwert und begleitest deine Units proaktiv bei deren Herausforderungen. Zudem trägst du dazu bei, innerhalb der HR-Organisation ein unternehmensweites Verständnis für die Herausforderungen der Units zu schaffen. So stellst du die Umsetzungsfähigkeit und Wirksamkeit der HR-Themen sicher und leistest einen wichtigen Beitrag zum Erfolg von PostFinance.\n\nDas kannst du bewirken\n\nDu berätst und betreust die Führungsstufe der verantworteten Units in allen taktischen und strategischen HR-Fragestellungen und stellst ein ganzheitliches und professionelles Personalmanagement sicher\n\nDu treibst in den Units die strategischen Stossrichtungen im HR voran und nimmst dabei eine bereichsübergreifende Perspektive ein\n\nDu leitest interdisziplinäre Strategie- und Transformationsvorhaben und ermöglichst das Zusammenspiel aller relevanten HR-Disziplinen, um nachhaltige Veränderungen umzusetzen und in der Organisation zu verankern\n\nDu bringst Ideen proaktiv ein und verbindest deine konzeptionelle Stärke mit wirkungsvoller Umsetzung\n\nDu begleitest die Units in der strategischen Personalplanung und definierst die langfristige Planung des Personalbestands hinsichtlich Grösse, Struktur und Kompetenzen\n\nDas bringst du mit\n\nTertiärer Abschluss sowie mehrjährige, vertiefte Kenntnisse in Betriebswirtschaft mit Schwerpunkt Personal und Führung oder in Arbeits- und Organisationspsychologie\n\nBreite Fachkompetenz in allen HR-Disziplinen, hohe Beratungskompetenz und idealerweise Führungserfahrung\n\nErfahrung in der Begleitung von Transformationsprozessen\n\nAnalytisches Denken sowie Fähigkeit zur Erstellung datenbasiert Entscheidungsgrundlagen\n\nToolfitness und hohe Kompetenz im Umgang mit HR-Daten\n\nTalent, zur prägnanten Darstellung komplexer Sachverhalte sowie souveränes Auftreten\n\nVerhandlungssichere Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse von Vorteil",
+        "de": "Bei PostFinance begleitest du als HR Businesspartner:in die Leitungsteams deiner verantworteten Units auf Augenhöhe und stellst ein ganzheitliches und professionelles Personalmanagement sicher. Dabei bietest du als HR Businesspartner:in echten Mehrwert und begleitest deine Units proaktiv bei deren Herausforderungen. Zudem trägst du dazu bei, innerhalb der HR-Organisation ein unternehmensweites Verständnis für die Herausforderungen der Units zu schaffen. So stellst du die Umsetzungsfähigkeit und Wirksamkeit der HR-Themen sicher und leistest einen wichtigen Beitrag zum Erfolg von PostFinance.\n\nDas kannst du bewirken\n\nDu berätst und betreust die Führungsstufe der verantworteten Units in allen taktischen und strategischen HR-Fragestellungen und stellst ein ganzheitliches und professionelles Personalmanagement sicher\n\nDu treibst in den Units die strategischen Stossrichtungen im HR voran und nimmst dabei eine bereichsübergreifende Perspektive ein\n\nDu leitest interdisziplinäre Strategie- und Transformationsvorhaben und ermöglichst das Zusammenspiel aller relevanten HR-Disziplinen, um nachhaltige Veränderungen umzusetzen und in der Organisation zu verankern\n\nDu bringst Ideen proaktiv ein und verbindest deine konzeptionelle Stärke mit wirkungsvoller Umsetzung\n\nDu begleitest die Units in der strategischen Personalplanung und definierst die langfristige Planung des Personalbestands hinsichtlich Grösse, Struktur und Kompetenzen\n\nDas bringst du mit\n\nTertiärer Abschluss sowie mehrjährige, vertiefte Kenntnisse in Betriebswirtschaft mit Schwerpunkt Personal und Führung oder in Arbeits- und Organisationspsychologie\n\nBreite Fachkompetenz in allen HR-Disziplinen, hohe Beratungskompetenz und idealerweise Führungserfahrung\n\nErfahrung in der Begleitung von Transformationsprozessen\n\nAnalytisches Denken sowie Fähigkeit zur Erstellung datenbasiert Entscheidungsgrundlagen\n\nToolfitness und hohe Kompetenz im Umgang mit HR-Daten\n\nTalent, zur prägnanten Darstellung komplexer Sachverhalte sowie souveränes Auftreten\n\nVerhandlungssichere Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse von Vorteil",
+        "en": "Bei PostFinance begleitest du als HR Businesspartner:in die Leitungsteams deiner verantworteten Units auf Augenhöhe und stellst ein ganzheitliches und professionelles Personalmanagement sicher. Dabei bietest du als HR Businesspartner:in echten Mehrwert und begleitest deine Units proaktiv bei deren Herausforderungen. Zudem trägst du dazu bei, innerhalb der HR-Organisation ein unternehmensweites Verständnis für die Herausforderungen der Units zu schaffen. So stellst du die Umsetzungsfähigkeit und Wirksamkeit der HR-Themen sicher und leistest einen wichtigen Beitrag zum Erfolg von PostFinance.\n\nDas kannst du bewirken\n\nDu berätst und betreust die Führungsstufe der verantworteten Units in allen taktischen und strategischen HR-Fragestellungen und stellst ein ganzheitliches und professionelles Personalmanagement sicher\n\nDu treibst in den Units die strategischen Stossrichtungen im HR voran und nimmst dabei eine bereichsübergreifende Perspektive ein\n\nDu leitest interdisziplinäre Strategie- und Transformationsvorhaben und ermöglichst das Zusammenspiel aller relevanten HR-Disziplinen, um nachhaltige Veränderungen umzusetzen und in der Organisation zu verankern\n\nDu bringst Ideen proaktiv ein und verbindest deine konzeptionelle Stärke mit wirkungsvoller Umsetzung\n\nDu begleitest die Units in der strategischen Personalplanung und definierst die langfristige Planung des Personalbestands hinsichtlich Grösse, Struktur und Kompetenzen\n\nDas bringst du mit\n\nTertiärer Abschluss sowie mehrjährige, vertiefte Kenntnisse in Betriebswirtschaft mit Schwerpunkt Personal und Führung oder in Arbeits- und Organisationspsychologie\n\nBreite Fachkompetenz in allen HR-Disziplinen, hohe Beratungskompetenz und idealerweise Führungserfahrung\n\nErfahrung in der Begleitung von Transformationsprozessen\n\nAnalytisches Denken sowie Fähigkeit zur Erstellung datenbasiert Entscheidungsgrundlagen\n\nToolfitness und hohe Kompetenz im Umgang mit HR-Daten\n\nTalent, zur prägnanten Darstellung komplexer Sachverhalte sowie souveränes Auftreten\n\nVerhandlungssichere Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse von Vorteil",
+        "fr": "Bei PostFinance begleitest du als HR Businesspartner:in die Leitungsteams deiner verantworteten Units auf Augenhöhe und stellst ein ganzheitliches und professionelles Personalmanagement sicher. Dabei bietest du als HR Businesspartner:in echten Mehrwert und begleitest deine Units proaktiv bei deren Herausforderungen. Zudem trägst du dazu bei, innerhalb der HR-Organisation ein unternehmensweites Verständnis für die Herausforderungen der Units zu schaffen. So stellst du die Umsetzungsfähigkeit und Wirksamkeit der HR-Themen sicher und leistest einen wichtigen Beitrag zum Erfolg von PostFinance.\n\nDas kannst du bewirken\n\nDu berätst und betreust die Führungsstufe der verantworteten Units in allen taktischen und strategischen HR-Fragestellungen und stellst ein ganzheitliches und professionelles Personalmanagement sicher\n\nDu treibst in den Units die strategischen Stossrichtungen im HR voran und nimmst dabei eine bereichsübergreifende Perspektive ein\n\nDu leitest interdisziplinäre Strategie- und Transformationsvorhaben und ermöglichst das Zusammenspiel aller relevanten HR-Disziplinen, um nachhaltige Veränderungen umzusetzen und in der Organisation zu verankern\n\nDu bringst Ideen proaktiv ein und verbindest deine konzeptionelle Stärke mit wirkungsvoller Umsetzung\n\nDu begleitest die Units in der strategischen Personalplanung und definierst die langfristige Planung des Personalbestands hinsichtlich Grösse, Struktur und Kompetenzen\n\nDas bringst du mit\n\nTertiärer Abschluss sowie mehrjährige, vertiefte Kenntnisse in Betriebswirtschaft mit Schwerpunkt Personal und Führung oder in Arbeits- und Organisationspsychologie\n\nBreite Fachkompetenz in allen HR-Disziplinen, hohe Beratungskompetenz und idealerweise Führungserfahrung\n\nErfahrung in der Begleitung von Transformationsprozessen\n\nAnalytisches Denken sowie Fähigkeit zur Erstellung datenbasiert Entscheidungsgrundlagen\n\nToolfitness und hohe Kompetenz im Umgang mit HR-Daten\n\nTalent, zur prägnanten Darstellung komplexer Sachverhalte sowie souveränes Auftreten\n\nVerhandlungssichere Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse von Vorteil"
+      },
+      "titleByLocale": {
+        "it": "Risorse Umane Businesspartner:in",
+        "de": "HR Businesspartner:in",
+        "en": "HR Businesspartner:in",
+        "fr": "Ressources Humaines Businesspartner:in"
+      },
+      "slug": "hr-businesspartner-in-postfinance",
+      "slugByLocale": {
+        "it": "hr-businesspartner-in-postfinance",
+        "en": "hr-businesspartner-in-postfinance-bern",
+        "de": "hr-businesspartner-in-postfinance-bern",
+        "fr": "hr-businesspartner-in-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Büro-Personal"
+      ],
+      "category": [
+        "Büro-Personal"
+      ],
+      "datePosted": "21.08.26",
+      "validThrough": "20.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Risorse Umane",
+      "workload": "70-90%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-778d2920ef6b",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -190,7 +390,8 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-21T21:43:00.013Z"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
@@ -204,22 +405,22 @@
       "description": "Gemeinsam machen wir Wissen sichtbar, verständlich und nutzbar. Im Bereich Interaction Management bist du die zentrale Drehscheibe für Informationen und unterstützt die Unit Privatkunden im Tagesgeschäft. Du stellst sicher, dass relevantes Know-how genau dort ankommt, wo es gebraucht wird. In deiner Schlüsselrolle gestaltest du die Weiterentwicklung unseres Wissensmanagements aktiv mit und trägst dazu bei, Informationen effizient und nutzerorientiert bereitzustellen.\n\nDas kannst du bewirken\n\nDu bereitest Informationen strukturiert auf und pflegst digitale Wissensplattformen\n\nDu identifizierst Verbesserungspotenziale und gestaltest Prozesse einfacher, schneller und kundenorientierter\n\nDu koordinierst Fachanfragen als Single Point of Contact für die Unit Privatkunden\n\nDu stellst die Störungs- und Notfallkommunikation für die Unit Privatkunden sicher\n\nDu unterstützt die technologische Weiterentwicklung des Wissensmanagements\n\nDas bringst du mit\n\nAbgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise ergänzt durch Weiterbildung in Kommunikation oder Betriebswirtschaft\n\nErfahrung im Informations- und Wissensmanagement sowie im Umgang mit digitalen Wissensplattformen\n\nAusgeprägte Affinität für neue Technologien\n\nAnalytisches Verständnis für die Auswertung und Analyse von Daten\n\nHohe Umsetzungsorientierung sowie Durchsetzungskraft bei der Einforderung von Lösungen\n\nErfahrung im Projekt-, Qualitäts- und Prozessmanagement\n\nMuttersprache Deutsch mit sehr guten Französisch- und/oder Italienischkenntnissen in Wort und Schrift",
       "descriptionByLocale": {
         "it": "Gemeinsam machen wir Wissen sichtbar, verständlich und nutzbar. Im Bereich Interaction Management bist du die zentrale Drehscheibe für Informationen und unterstützt die Unit Privatkunden im Tagesgeschäft. Du stellst sicher, dass relevantes Know-how genau dort ankommt, wo es gebraucht wird. In deiner Schlüsselrolle gestaltest du die Weiterentwicklung unseres Wissensmanagements aktiv mit und trägst dazu bei, Informationen effizient und nutzerorientiert bereitzustellen.\n\nDas kannst du bewirken\n\nDu bereitest Informationen strukturiert auf und pflegst digitale Wissensplattformen\n\nDu identifizierst Verbesserungspotenziale und gestaltest Prozesse einfacher, schneller und kundenorientierter\n\nDu koordinierst Fachanfragen als Single Point of Contact für die Unit Privatkunden\n\nDu stellst die Störungs- und Notfallkommunikation für die Unit Privatkunden sicher\n\nDu unterstützt die technologische Weiterentwicklung des Wissensmanagements\n\nDas bringst du mit\n\nAbgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise ergänzt durch Weiterbildung in Kommunikation oder Betriebswirtschaft\n\nErfahrung im Informations- und Wissensmanagement sowie im Umgang mit digitalen Wissensplattformen\n\nAusgeprägte Affinität für neue Technologien\n\nAnalytisches Verständnis für die Auswertung und Analyse von Daten\n\nHohe Umsetzungsorientierung sowie Durchsetzungskraft bei der Einforderung von Lösungen\n\nErfahrung im Projekt-, Qualitäts- und Prozessmanagement\n\nMuttersprache Deutsch mit sehr guten Französisch- und/oder Italienischkenntnissen in Wort und Schrift",
-        "de": "Gemeinsam machen wir Wissen sichtbar, verständlich und nutzbar. Im Bereich Interaction Management bist du die zentrale Drehscheibe für Informationen und unterstützt die Unit Privatkunden im Tagesgeschäft. Du stellst sicher, dass relevantes Know-how genau dort ankommt, wo es gebraucht wird. In deiner Schlüsselrolle gestaltest du die Weiterentwicklung unseres Wissensmanagements aktiv mit und trägst dazu bei, Informationen effizient und nutzerorientiert bereitzustellen.\n\nDas kannst du bewirken\n\nDu bereitest Informationen strukturiert auf und pflegst digitale Wissensplattformen\n\nDu identifizierst Verbesserungspotenziale und gestaltest Prozesse einfacher, schneller und kundenorientierter\n\nDu koordinierst Fachanfragen als Single Point of Contact für die Unit Privatkunden\n\nDu stellst die Störungs- und Notfallkommunikation für die Unit Privatkunden sicher\n\nDu unterstützt die technologische Weiterentwicklung des Wissensmanagements\n\nDas bringst du mit\n\nAbgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise ergänzt durch Weiterbildung in Kommunikation oder Betriebswirtschaft\n\nErfahrung im Informations- und Wissensmanagement sowie im Umgang mit digitalen Wissensplattformen\n\nAusgeprägte Affinität für neue Technologien\n\nAnalytisches Verständnis für die Auswertung und Analyse von Daten\n\nHohe Umsetzungsorientierung sowie Durchsetzungskraft bei der Einforderung von Lösungen\n\nErfahrung im Projekt-, Qualitäts- und Prozessmanagement\n\nMuttersprache Deutsch mit sehr guten Französisch- und/oder Italienischkenntnissen in Wort und Schrift",
         "en": "Gemeinsam machen wir Wissen sichtbar, verständlich und nutzbar. Im Bereich Interaction Management bist du die zentrale Drehscheibe für Informationen und unterstützt die Unit Privatkunden im Tagesgeschäft. Du stellst sicher, dass relevantes Know-how genau dort ankommt, wo es gebraucht wird. In deiner Schlüsselrolle gestaltest du die Weiterentwicklung unseres Wissensmanagements aktiv mit und trägst dazu bei, Informationen effizient und nutzerorientiert bereitzustellen.\n\nDas kannst du bewirken\n\nDu bereitest Informationen strukturiert auf und pflegst digitale Wissensplattformen\n\nDu identifizierst Verbesserungspotenziale und gestaltest Prozesse einfacher, schneller und kundenorientierter\n\nDu koordinierst Fachanfragen als Single Point of Contact für die Unit Privatkunden\n\nDu stellst die Störungs- und Notfallkommunikation für die Unit Privatkunden sicher\n\nDu unterstützt die technologische Weiterentwicklung des Wissensmanagements\n\nDas bringst du mit\n\nAbgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise ergänzt durch Weiterbildung in Kommunikation oder Betriebswirtschaft\n\nErfahrung im Informations- und Wissensmanagement sowie im Umgang mit digitalen Wissensplattformen\n\nAusgeprägte Affinität für neue Technologien\n\nAnalytisches Verständnis für die Auswertung und Analyse von Daten\n\nHohe Umsetzungsorientierung sowie Durchsetzungskraft bei der Einforderung von Lösungen\n\nErfahrung im Projekt-, Qualitäts- und Prozessmanagement\n\nMuttersprache Deutsch mit sehr guten Französisch- und/oder Italienischkenntnissen in Wort und Schrift",
+        "de": "Gemeinsam machen wir Wissen sichtbar, verständlich und nutzbar. Im Bereich Interaction Management bist du die zentrale Drehscheibe für Informationen und unterstützt die Unit Privatkunden im Tagesgeschäft. Du stellst sicher, dass relevantes Know-how genau dort ankommt, wo es gebraucht wird. In deiner Schlüsselrolle gestaltest du die Weiterentwicklung unseres Wissensmanagements aktiv mit und trägst dazu bei, Informationen effizient und nutzerorientiert bereitzustellen.\n\nDas kannst du bewirken\n\nDu bereitest Informationen strukturiert auf und pflegst digitale Wissensplattformen\n\nDu identifizierst Verbesserungspotenziale und gestaltest Prozesse einfacher, schneller und kundenorientierter\n\nDu koordinierst Fachanfragen als Single Point of Contact für die Unit Privatkunden\n\nDu stellst die Störungs- und Notfallkommunikation für die Unit Privatkunden sicher\n\nDu unterstützt die technologische Weiterentwicklung des Wissensmanagements\n\nDas bringst du mit\n\nAbgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise ergänzt durch Weiterbildung in Kommunikation oder Betriebswirtschaft\n\nErfahrung im Informations- und Wissensmanagement sowie im Umgang mit digitalen Wissensplattformen\n\nAusgeprägte Affinität für neue Technologien\n\nAnalytisches Verständnis für die Auswertung und Analyse von Daten\n\nHohe Umsetzungsorientierung sowie Durchsetzungskraft bei der Einforderung von Lösungen\n\nErfahrung im Projekt-, Qualitäts- und Prozessmanagement\n\nMuttersprache Deutsch mit sehr guten Französisch- und/oder Italienischkenntnissen in Wort und Schrift",
         "fr": "Gemeinsam machen wir Wissen sichtbar, verständlich und nutzbar. Im Bereich Interaction Management bist du die zentrale Drehscheibe für Informationen und unterstützt die Unit Privatkunden im Tagesgeschäft. Du stellst sicher, dass relevantes Know-how genau dort ankommt, wo es gebraucht wird. In deiner Schlüsselrolle gestaltest du die Weiterentwicklung unseres Wissensmanagements aktiv mit und trägst dazu bei, Informationen effizient und nutzerorientiert bereitzustellen.\n\nDas kannst du bewirken\n\nDu bereitest Informationen strukturiert auf und pflegst digitale Wissensplattformen\n\nDu identifizierst Verbesserungspotenziale und gestaltest Prozesse einfacher, schneller und kundenorientierter\n\nDu koordinierst Fachanfragen als Single Point of Contact für die Unit Privatkunden\n\nDu stellst die Störungs- und Notfallkommunikation für die Unit Privatkunden sicher\n\nDu unterstützt die technologische Weiterentwicklung des Wissensmanagements\n\nDas bringst du mit\n\nAbgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation, idealerweise ergänzt durch Weiterbildung in Kommunikation oder Betriebswirtschaft\n\nErfahrung im Informations- und Wissensmanagement sowie im Umgang mit digitalen Wissensplattformen\n\nAusgeprägte Affinität für neue Technologien\n\nAnalytisches Verständnis für die Auswertung und Analyse von Daten\n\nHohe Umsetzungsorientierung sowie Durchsetzungskraft bei der Einforderung von Lösungen\n\nErfahrung im Projekt-, Qualitäts- und Prozessmanagement\n\nMuttersprache Deutsch mit sehr guten Französisch- und/oder Italienischkenntnissen in Wort und Schrift"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice Interaction Management",
-        "de": "Mitarbeiter:in Interaction Management",
         "en": "Associate Interaction Management",
+        "de": "Mitarbeiter:in Interaction Management",
         "fr": "Collaborateur/trice Interaction Management"
       },
-      "slug": "mitarbeiter-in-interaction-management-postfinance",
+      "slug": "collaboratore-trice-interaction-management-postfinance-bern",
       "slugByLocale": {
-        "it": "mitarbeiter-in-interaction-management-postfinance",
-        "en": "mitarbeiter-in-interaction-management-postfinance",
+        "it": "collaboratore-trice-interaction-management-postfinance-bern",
+        "en": "associate-interaction-management-postfinance-bern",
         "de": "mitarbeiter-in-interaction-management-postfinance",
-        "fr": "mitarbeiter-in-interaction-management-postfinance"
+        "fr": "collaborateur-trice-interaction-management-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -240,8 +441,23 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "crawledAt": "",
       "id": "postfinance-ac2729fb9d3c",
+      "firstSeenAt": "2026-08-21T09:49:54.685Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-interaction-management-postfinance"
+        ],
+        "en": [
+          "mitarbeiter-in-interaction-management-postfinance"
+        ],
+        "fr": [
+          "mitarbeiter-in-interaction-management-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-interaction-management-postfinance"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -256,8 +472,7 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-21T09:49:54.685Z"
+      "addressRegion": "BE"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/74260-de_DE",
@@ -321,16 +536,16 @@
       },
       "firstSeenAt": "2026-08-17T21:49:16.998Z",
       "crawledAt": "",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       },
@@ -791,16 +1006,16 @@
       "id": "postfinance-0124684530fa",
       "firstSeenAt": "2026-08-13T10:51:25.007Z",
       "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 73000,
+          "maxValue": 124500,
           "unitText": "YEAR"
         }
       },
@@ -877,16 +1092,16 @@
       },
       "firstSeenAt": "2026-08-11T10:16:45.907Z",
       "crawledAt": "",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 82500,
+          "maxValue": 127000,
           "unitText": "YEAR"
         }
       },
@@ -1036,16 +1251,16 @@
       },
       "firstSeenAt": "2026-08-08T09:48:27.767Z",
       "crawledAt": "",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 113000,
+          "maxValue": 192000,
           "unitText": "YEAR"
         }
       },
@@ -1111,16 +1326,16 @@
       },
       "firstSeenAt": "2026-08-08T09:48:27.767Z",
       "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 73000,
+          "maxValue": 124500,
           "unitText": "YEAR"
         }
       },
@@ -1178,16 +1393,16 @@
       "id": "postfinance-d5dbcaad5f86",
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 73000,
+          "maxValue": 124500,
           "unitText": "YEAR"
         }
       },
@@ -1203,9 +1418,9 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "description": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei \n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer \n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
+      "description": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei\n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer\n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
       "descriptionByLocale": {
-        "it": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei \n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer \n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
+        "it": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei\n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer\n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
         "en": "At PostFinance, you are actively building up the management of our investment funds and strengthening our position as a digital investment bank. As a specialist: in fund and portfolio management, you take on a central role in the ongoing project. You contribute to the implementation and further development and bring your know-how to the portfolio management. In this way, you create the basis for PostFinance to manage its investment funds independently and ensure sustainable operation.\n\nYou can do that.\n\nYou play a central role in the insourcing of fund management activities and actively shape the development of modern portfolio management processes, controls and responsibilities\n\nTogether with your team, you are responsible for the implementation and smooth operation of the new portfolio management system.\n\nIn the long term, you ensure the day-to-day operational handling of the portfolio management of our investment fund range, which currently consists mainly of funds (no active stock selection)\n\nYou accompany the transformation from the project phase into operation and ensure an efficient and sustainable implementation of the concepts\n\nYou implement the investment strategy defined by the investment committee for our funds and ensure professional management and supervision\n\nYou support the Investment Office in\n• Tasks such as financial market analysis, asset management and internal and external communication of market assessments\n\nYou bring that with you\n\nuniversity degree (FH/university) in business administration and/or banking or in a comparable field of expertise; Further developments of advantage\n\nExperience in front-to-back portfolio management of investment funds\n\nSound understanding of regulatory\n• Requirements and operating models in fund management under Swiss law\n\nAnalytical and structured working method with a pronounced quality orientation\n\nCommunication strength, initiative, willingness to take responsibility, team spirit and joy in actively shaping change\n\nVery good user knowledge in MS Office, especially Excel, as well as advantageous experience with Bloomberg",
         "de": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei\n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer\n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
         "fr": "Chez PostFinance, vous développez activement la gestion de nos fonds d'investissement et renforcez notre position de banque d'investissement numérique. En tant que spécialiste : en gestion de fonds et de portefeuille, vous assumez un rôle central dans le projet en cours. Vous contribuez à la mise en œuvre et au développement ultérieur et apportez votre savoir-faire à la gestion du portefeuille. De cette façon, vous créez la base pour PostFinance pour gérer ses fonds d'investissement indépendamment et assurer une exploitation durable.\n\nTu peux le faire.\n\nVous jouez un rôle central dans l'approvisionnement des activités de gestion de fonds et façonnez activement le développement des processus, contrôles et responsabilités modernes de gestion de portefeuille\n\nAvec votre équipe, vous êtes responsable de la mise en œuvre et du bon fonctionnement du nouveau système de gestion de portefeuille.\n\nÀ long terme, vous assurez le traitement opérationnel quotidien de la gestion de portefeuille de notre gamme de fonds d'investissement, qui se compose actuellement principalement de fonds (pas de sélection active des actions)\n\nVous accompagnez la transformation de la phase du projet en opération et assurez une mise en œuvre efficace et durable des concepts\n\nVous mettez en œuvre la stratégie d'investissement définie par le comité d'investissement pour nos fonds et assurez la gestion et la supervision professionnelles\n\nVous soutenez l'Office d'investissement dans\n• Tâches telles que l'analyse des marchés financiers, la gestion des actifs et la communication interne et externe des évaluations de marché\n\nApporte ça avec toi.\n\ndiplôme universitaire (FH/universitaire) en administration des affaires et/ou en banque ou dans un domaine d'expertise comparable;\n\nExpérience de la gestion de portefeuilles de fonds d'investissement\n\nBonne compréhension de la réglementation\n• Exigences et modèles d'exploitation en matière de gestion de fonds en droit suisse\n\nMéthode de travail analytique et structurée avec une orientation qualitative prononcée\n\nLa force de la communication, l'initiative, la volonté de prendre des responsabilités, l'esprit d'équipe et la joie de façonner activement le changement\n\nTrès bonne connaissance utilisateur dans MS Office, en particulier Excel, ainsi qu'une expérience avantageuse avec Bloomberg"
@@ -1271,7 +1486,8 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://jobs.postfinance.ch/job/Teamlead-Customer-Center-%28wmd%29-Topsharing-m%C3%B6glich%21/74310-de_DE",
@@ -1338,7 +1554,7 @@
       },
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1416,16 +1632,16 @@
       "firstSeenAt": "2026-08-20T21:51:40.248Z",
       "postedDate": "28.07.26",
       "crawledAt": "",
-      "salaryMin": 89500,
-      "salaryMax": 136000,
+      "salaryMin": 103500,
+      "salaryMax": 158500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 89500,
-          "maxValue": 136000,
+          "minValue": 103500,
+          "maxValue": 158500,
           "unitText": "YEAR"
         }
       },
