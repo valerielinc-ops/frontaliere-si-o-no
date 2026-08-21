@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prosenectute-ti",
-  "assembledAt": "2026-08-21T09:44:53.360Z",
+  "assembledAt": "2026-08-21T21:25:11.669Z",
   "jobs": [
     {
       "id": "prosenectute-ti-34a987b1a59e",
@@ -34,7 +34,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:cfa32a7b-6cf6-4e4d-a149-f05c25e772cf/Concorso%20generale%202026_Op.%20socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:44:50.023Z",
+      "crawledAt": "2026-08-21T21:25:08.096Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -70,15 +70,15 @@
         "concorso-generale-2026-op-socio-assistenziali-pro-senectute-ticino-e-moesano-lugano"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -115,7 +115,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:44:49.754Z",
+      "crawledAt": "2026-08-21T21:25:07.692Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -143,15 +143,15 @@
         "concorso-generale-2026-infermieri-pro-senectute-ticino-e-moesano-lugano"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -188,7 +188,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:44:49.268Z",
+      "crawledAt": "2026-08-21T21:25:07.164Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -220,15 +220,15 @@
         "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -265,7 +265,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:44:48.389Z",
+      "crawledAt": "2026-08-21T21:25:06.213Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -293,15 +293,15 @@
         "concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.686Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
