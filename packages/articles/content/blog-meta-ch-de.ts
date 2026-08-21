@@ -3643,6 +3643,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.title': 'Haus kaufen im Kanton Appenzell Ausserrhoden: Hypotheken und Steuern',
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.excerpt': 'Immobilienkauf im Kanton Appenzell Ausserrhoden: Verfahrensleitfaden, Kantons- und Gemeindesteuern, Hypothekendarlehen, Notarkosten.',
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.imageAlt': 'Aussicht auf ein Haus und die ländliche Landschaft im Kanton Appenzell Ausserrhoden, Nordostschweiz.',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.title': 'Mieten in Appenzell Ausserrhoden: Mieten und Mietrecht',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.excerpt': 'Leitfaden zum Mietrecht im Kanton Appenzell Ausserrhoden: Kaution, Kündigung, Anfechtung und Bundesmieterschutz.',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.imageAlt': 'Schweizer Wohnstraße mit historischen Mietshäusern im Herbstlicht',
 };
 
 export default blogMetaChDe;

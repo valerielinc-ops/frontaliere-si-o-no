@@ -3643,6 +3643,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.title': 'Comprare casa nel canton Appenzello Esterno: mutui e tasse',
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.excerpt': 'Acquisto immobiliare nel canton Appenzello Esterno: guida alle procedure, imposte cantonali e comunali, mutui ipotecari, spese notarili.',
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.imageAlt': 'Vista di una casa e paesaggio rurale nel canton Appenzello Esterno, Svizzera nord-orientale.',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.title': 'Affitti ad Appenzello Esterno: canoni e diritto di locazione',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.excerpt': 'Guida al diritto della locazione nel Cantone Appenzello Esterno: deposito cauzionale, disdetta, contestazione e protezioni federali dell\'inquilino.',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.imageAlt': 'Strada residenziale svizzera con edifici storici locatizi nel pomeriggio autunnale',
 };
 
 export default blogMetaChIt;

@@ -3643,6 +3643,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.title': 'Acheter une maison dans le canton d\'Appenzell Extérieur : hypothèques et taxes',
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.excerpt': 'Achat immobilier dans le canton d\'Appenzell Extérieur : guide des procédures, impôts cantonaux et communaux, prêts hypothécaires, frais de notaire.',
     'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.imageAlt': 'Vue d\'une maison et d\'un paysage rural dans le canton d\'Appenzell Rhodes-Extérieures, nord-est de la Suisse.',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.title': 'Location à Appenzell Extérieur : loyers et droit de location',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.excerpt': 'Guide du droit locatif dans le canton d\'Appenzell Extérieur : dépôt de garantie, résiliation, contestation et protections fédérales du locataire.',
+    'blog.article.affitti-appenzello-esterno-canoni-locazione.imageAlt': 'Rue résidentielle suisse avec bâtiments d\'habitation historiques en automne',
 };
 
 export default blogMetaChFr;

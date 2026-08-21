@@ -10927,6 +10927,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-appenzello-esterno-canoni-locazione',
+    category: 'pratico',
+    date: '2026-08-21T02:46:13.445Z',
+    image: '/images/blog/affitti-appenzello-esterno-canoni-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
