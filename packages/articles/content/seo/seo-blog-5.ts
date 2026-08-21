@@ -72611,6 +72611,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lonate-ceppino-frontaliere-ticino': {
+    title: 'Vivere a Lonate Ceppino: guida frontaliere Ticino',
+    description: 'Vivere a Lonate Ceppino e lavorare in Ticino: imposta alla fonte, contributi AVS/LPP, Permesso G, dichiarazione redditi. Nuovo Accordo Frontalieri dal 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lonate, ceppino, struttura',
+    ogTitle: 'Lonate Ceppino: guida pratica frontaliere Ticino 2024',
+    ogDescription: 'Struttura fiscale, contributi sociali e procedure complete per chi vive a Lonate Ceppino e lavora in Ticino. Esenzioni Nuovo Accordo €7.500–€10.000, imposta alla fonte svizzera, permesso G.',
+    canonicalPath: '/articoli-frontaliere/lonate-ceppino-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Lonate Ceppino: guida frontaliere Ticino",
+      "description": "Vivere a Lonate Ceppino e lavorare in Ticino: imposta alla fonte, contributi AVS/LPP, Permesso G, dichiarazione redditi. Nuovo Accordo Frontalieri dal 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lonate-ceppino-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada frontaliera tra Italia e Svizzera nel Mendrisiotto, con paesaggio alpino ticinese sullo sfondo"
+      },
+      "datePublished": "2026-08-21T01:57:43+00:00",
+      "dateModified": "2026-08-21T01:57:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lonate-ceppino-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10323,6 +10323,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-castronno-lavorare-ticino.title': 'Vivre à Castronno et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-castronno-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Castronno : fiscalité, nouvel accord frontalier, prévoyance et les avantages du trajet vers le canton du Tessin.',
     'blog.article.vivere-castronno-lavorare-ticino.imageAlt': 'Paysage vallonné entre l\'Italie et la Suisse',
+    'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Vivre à Lonate Ceppino : guide frontalier du Tessin',
+    'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Structure fiscale, cotisations sociales et procédures pratiques pour ceux qui choisissent de vivre à Varesotto et de travailler au Tessin avec le nouvel accord frontalier.',
+    'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Route frontalière entre l\'Italie et la Suisse dans la région tessinoise avec paysage alpin',
 };
 
 export default blogMetaFr;
