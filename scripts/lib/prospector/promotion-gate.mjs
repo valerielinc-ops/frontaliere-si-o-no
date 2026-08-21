@@ -43,6 +43,25 @@ export const GATE_DEFAULTS = {
 };
 
 /**
+ * Normalizza la leva di verifica `--min-days`.
+ *
+ * A 0 la condizione del gate diventa `distinctDays >= 0`, cioe' sempre vera: il
+ * vincolo sui giorni sparisce del tutto mentre l'etichetta continua a dire
+ * «ridotto a 1 giorno». L'input arriva da `workflow_dispatch` e non e'
+ * validato, e una leva che mente su quanto ha allentato e' peggio di nessuna
+ * leva. Un valore assente o non numerico torna al default pieno, non al minimo.
+ *
+ * @param {unknown} raw
+ * @param {number} [fallback]
+ * @returns {number}
+ */
+export function clampMinDays(raw, fallback = GATE_DEFAULTS.minDistinctDays) {
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n <= 0) return fallback;
+  return Math.max(1, Math.floor(n));
+}
+
+/**
  * @param {any[]} history
  * @returns {number} distinct calendar days present
  */

@@ -10,6 +10,11 @@ data/dist-size-history.jsonl       merge=union
 data/quality-alerts-history.jsonl  merge=union
 data/quota-history.jsonl           merge=union
 data/thin-page-promotions.jsonl    merge=union
+# data/prospector/ledger.jsonl e' scritto in append da DUE lati nello stesso
+# giro: sul branch della PR di promozione (durante lo scaffold) e su main (dal
+# commit di stato). Senza `merge=union` le due code collidono e wedgiano
+# esattamente il merge che deve avvenire da solo.
+data/prospector/ledger.jsonl       merge=union
 
 # data/article-defect-history.jsonl is the article pipeline's rejection ledger
 # (docs/ARTICLE-LEARNING-LOOP.md §4.2): one row per generate-article run, saying

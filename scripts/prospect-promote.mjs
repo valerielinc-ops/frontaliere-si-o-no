@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
-import { selectForPromotion, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
+import { selectForPromotion, clampMinDays, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
@@ -59,7 +59,11 @@ const maxPerRun = Number(arg('max', GATE_DEFAULTS.maxPerRun));
  * finisce scritto nel titolo e nel corpo della PR che produce — cosi' una
  * promozione a gate ridotto non puo' essere scambiata per una normale.
  */
-const minDays = Number(arg('min-days', GATE_DEFAULTS.minDistinctDays));
+// Clamp a 1: `--min-days=0` renderebbe `distinctDays(good) >= 0` sempre vera,
+// disattivando del tutto il vincolo sui giorni mentre l'etichetta continua a
+// dire «gate ridotto a 1 giorno». Un input di workflow_dispatch non e'
+// validato, e una leva che mente su quanto ha allentato e' peggio di nessuna leva.
+const minDays = clampMinDays(arg('min-days', GATE_DEFAULTS.minDistinctDays));
 const relaxed = minDays < GATE_DEFAULTS.minDistinctDays;
 if (relaxed) {
   console.log(`⚠️  GATE RIDOTTO: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}.`);
@@ -71,15 +75,23 @@ const coverage = loadCoverage();
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 /**
- * Un candidato resta `promoting` finche' la sua PR non merge. Se quella PR viene
- * CHIUSA senza merge, senza questo passaggio resterebbe bloccato per sempre: il
- * gate lo esclude e nessuno lo rimette in gioco. Quindi all'avvio si controlla
- * l'esito delle PR registrate e si riapre la candidatura di quelle fallite.
+ * Porta a termine le promozioni gia' aperte, leggendo l'esito della loro PR.
+ *
+ * `promoting` e' uno stato di transito e vive SOLO su main, perche' scriverlo
+ * anche sul branch della PR farebbe divergere le stesse righe di
+ * candidates.json e la PR non sarebbe piu' mergiabile in automatico. Quindi il
+ * passaggio finale non puo' che avvenire qui, in un giro successivo:
+ *
+ *   PR MERGED  -> `production`: il crawler e' in produzione davvero.
+ *   PR CLOSED  -> `promoted`: senza questo il candidato resterebbe bloccato per
+ *                 sempre, escluso dal gate e non rimesso in gioco da nessuno.
+ *   PR OPEN    -> non si tocca: e' ancora in volo.
  *
  * @param {ReturnType<typeof loadCandidates>} store
- * @returns {number} quanti sono tornati candidabili
+ * @returns {{ landed: number, reopened: number }}
  */
-function reopenAbandonedPromotions(store) {
+function reconcileOpenPromotions(store) {
+  let landed = 0;
   let reopened = 0;
   for (const c of byStatus(store, 'promoting')) {
     if (!c.promotionPr) continue;
@@ -89,16 +101,21 @@ function reopenAbandonedPromotions(store) {
         cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
       }).toString().trim();
     } catch { continue; } // gh non disponibile o PR non leggibile: non toccare nulla
-    if (state === 'CLOSED') {
+    if (state === 'MERGED') {
+      setStatus(store, c.key, 'production', { promotedAt: new Date().toISOString() });
+      landed++;
+    } else if (state === 'CLOSED') {
       setStatus(store, c.key, 'promoted', { reason: `PR ${c.promotionPr} chiusa senza merge, ricandidato` });
       reopened++;
     }
   }
-  return reopened;
+  return { landed, reopened };
 }
 
-const reopened = reopenAbandonedPromotions(store);
-if (reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reopened}`);
+const reconciled = reconcileOpenPromotions(store);
+if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
+if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
+if (reconciled.landed || reconciled.reopened) saveCandidates(store);
 
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
@@ -157,7 +174,19 @@ for (const c of promotable) {
     console.log(`  ✗ ${spec.companyKey}: scaffold fallito — ${String(err.stderr || err.message).slice(0, 160)}`);
     continue;
   }
-  setStatus(store, c.key, 'production', { promotedAt: new Date().toISOString() });
+  // NIENTE cambio di stato qui.
+  //
+  // Scriverlo sul branch della PR era un conflitto Git garantito: il branch
+  // avrebbe scritto `production` e main `promoting` per gli stessi candidati,
+  // dalla stessa base e sulle stesse righe di candidates.json (`status` sta su
+  // una riga propria, e non c'e' merge driver per questo file). La PR sarebbe
+  // risultata non-mergeable e ogni promozione RIUSCITA avrebbe richiesto un
+  // intervento umano — il percorso normale, non un caso limite, e l'esatto
+  // contrario di un loop che si chiude da solo.
+  //
+  // L'evidenza della promozione, sul branch, sono i file scaffoldati e la voce
+  // di manifest. Lo stato lo scrive solo main: `promoting` adesso, `production`
+  // quando un giro successivo vede che la PR e' stata mergiata.
   shipped.push({ ...c, spec });
   console.log(`  ✓ ${spec.companyKey.padEnd(28)} ${String(c.vacancyCount).padStart(3)} annunci  qualita' ${Number(c.qualityScore).toFixed(2)}`);
 }
