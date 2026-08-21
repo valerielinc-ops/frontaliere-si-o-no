@@ -3691,6 +3691,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stadler-rail-friburgo-117-milioni.title': 'Freiburg: 117 million for 13 new Flirt trains',
     'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail will supply 13 new Flirt Evo trains to the Freiburg Public Transport for CHF 117 million. First deliveries in December 2028.',
     'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'New Flirt Evo train for Fribourg public transport',
+    'blog.article.esercito-misure-discriminazione.title': 'Army, anti-discrimination measures work',
+    'blog.article.esercito-misure-discriminazione.excerpt': 'The Swiss Army has announced that it has implemented half of the measures announced to combat sexism and discrimination',
+    'blog.article.esercito-misure-discriminazione.imageAlt': 'The Swiss Army',
 };
 
 export default blogMetaChEn;
