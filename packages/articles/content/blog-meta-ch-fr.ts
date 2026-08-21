@@ -3754,6 +3754,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.richiesta-permesso-dimora-berna.title': 'Permis de séjour B Berne : exigences et renouvellement',
     'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Le permis B est renouvelable chaque année. Guide complet des exigences, des documents nécessaires et de la procédure de renouvellement auprès des offices cantonaux des migrations.',
     'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Bureau cantonal suisse employe aidant resident a completer documentation de renouvellement permis',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Suisse-Chine : accord pour éliminer les droits de douane',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accord d\'exonération douanière sur 99,8 % des exportations suisses vers la Chine : économies annuelles estimées à 244 millions de CHF pour les entreprises suisses.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palais fédéral à Berne, centre des décisions économiques suisses.',
 };
 
 export default blogMetaChFr;

@@ -11260,6 +11260,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-cina-accordo-tariffe',
+    category: 'novita',
+    date: '2026-08-21T23:35:19.702Z',
+    image: '/images/blog/svizzera-cina-accordo-tariffe.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

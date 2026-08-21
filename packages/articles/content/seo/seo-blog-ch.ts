@@ -48692,6 +48692,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-cina-accordo-tariffe': {
+    title: 'Svizzera-Cina: intesa per eliminare i dazi doganali',
+    description: 'Accordo tra Svizzera e Cina per eliminare i dazi sul 99,8% delle esportazioni svizzere. Risparmi stimati per le aziende elvetiche di 244 milioni di franchi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-cina, intesa, eliminare, dazi',
+    ogTitle: 'Svizzera-Cina: intesa per eliminare i dazi doganali',
+    ogDescription: 'Il consigliere federale Guy Parmelin ha annunciato un accordo che esenta il 99,8% dell\'export svizzero dai dazi cinesi, con risparmi annui di 244 milioni di CHF e nuove tutele sociali.',
+    canonicalPath: '/articoli-svizzera/svizzera-cina-accordo-tariffe/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera-Cina: intesa per eliminare i dazi doganali",
+      "description": "Accordo tra Svizzera e Cina per eliminare i dazi sul 99,8% delle esportazioni svizzere. Risparmi stimati per le aziende elvetiche di 244 milioni di franchi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-cina-accordo-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle decisioni economiche svizzere."
+      },
+      "datePublished": "2026-08-21T23:35:19+00:00",
+      "dateModified": "2026-08-21T23:35:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-cina-accordo-tariffe/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

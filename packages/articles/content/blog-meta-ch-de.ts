@@ -3754,6 +3754,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.richiesta-permesso-dimora-berna.title': 'Aufenthaltsbewilligung B Bern: Voraussetzungen und Verlängerung',
     'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Die B-Bewilligung kann jedes Jahr erneuert werden. Vollständiger Leitfaden zu Anforderungen, erforderlichen Unterlagen und Erneuerungsverfahren bei den kantonalen Migrationsämtern.',
     'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Schweizer Kantonsamt mit Beamten beim Assistieren bei Aufenthaltserlaubnis-Dokumenten',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Schweiz-China: Vereinbarung zur Abschaffung der Zölle',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Vereinbarung über die Zollbefreiung von 99,8% der Schweizer Exporte nach China: geschätzte jährliche Einsparungen von CHF 244 Mio. für Schweizer Unternehmen.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Bundeshaus in Bern, Zentrum schweizerischer wirtschaftspolitischer Entscheidungen.',
 };
 
 export default blogMetaChDe;

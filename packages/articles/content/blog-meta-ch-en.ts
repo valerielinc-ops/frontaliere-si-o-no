@@ -3754,6 +3754,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.richiesta-permesso-dimora-berna.title': 'Residence Permit B Bern: Requirements and Renewal',
     'blog.article.richiesta-permesso-dimora-berna.excerpt': 'The B permit is renewable every year. Complete guide to requirements, necessary documents and renewal procedure at cantonal migration offices.',
     'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Swiss cantonal administration office officer assisting resident with permit renewal documentation',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Switzerland-China: agreement to eliminate customs duties',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Agreement for customs exemption on 99.8% of Swiss exports to China: estimated annual savings of CHF 244 million for Swiss companies.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Federal Palace in Bern, center of Swiss economic policy decisions.',
 };
 
 export default blogMetaChEn;

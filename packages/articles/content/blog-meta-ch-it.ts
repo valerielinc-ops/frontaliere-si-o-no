@@ -3754,6 +3754,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.richiesta-permesso-dimora-berna.title': 'Permesso di dimora B Berna: requisiti e rinnovo',
     'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Il permesso B è rinnovabile ogni anno. Guida completa a requisiti, documenti necessari e procedura di rinnovo presso gli uffici cantonali della migrazione.',
     'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Ufficio amministrativo svizzero con impiegato che assiste un residente nella compilazione di documenti per rinnovo permesso di dimora',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Svizzera-Cina: intesa per eliminare i dazi doganali',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accordo per l\'esenzione doganale sul 99,8% dell\'export svizzero verso la Cina: risparmi annui stimati di 244 milioni di CHF per le imprese elvetiche.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palazzo federale a Berna, sede delle decisioni economiche svizzere.',
 };
 
 export default blogMetaChIt;
