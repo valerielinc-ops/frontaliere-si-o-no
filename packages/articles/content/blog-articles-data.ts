@@ -31071,6 +31071,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-jerago-orago-lavorare-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-21T10:28:36.150Z',
+ image: '/images/blog/vivere-jerago-orago-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
