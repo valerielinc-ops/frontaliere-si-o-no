@@ -37,7 +37,14 @@ const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 const store = loadCandidates();
 /** @type {Map<string, any>} candidate key by crawler key */
 const byCrawlerKey = new Map();
-for (const c of byStatus(store, ['synthesized', 'validated'])) if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
+// Deve includere `promoted` e `production`, non solo i due stati iniziali: il
+// gate di promozione decide sulla STABILITA' fra giorni, e un candidato gia'
+// graduato "promoted" veniva rigraduato senza che il suo storico si
+// aggiornasse. Il secondo giorno non arrivava mai e il loop non avrebbe
+// promosso nulla, senza alcun errore visibile.
+for (const c of byStatus(store, ['synthesized', 'validated', 'promoted', 'production'])) {
+  if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
+}
 
 let specs = [];
 try {
@@ -74,11 +81,29 @@ for (const spec of specs) {
   const candidate = byCrawlerKey.get(spec.companyKey);
   if (candidate) {
     const next = report.verdict === 'good' ? 'promoted' : (report.verdict === 'bad' ? 'rejected' : 'validated');
+    // Keep a short grading history. A single good grade proves the page parsed
+    // ONCE; autonomous promotion needs proof it parses the same way on a
+    // different day, because the dominant failure of a synthesised crawler is a
+    // listing that renders differently between visits (A/B markup, a cookie
+    // wall, an empty week). The promotion gate reads this, nothing else does.
+    const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+    history.push({
+      at: new Date().toISOString(),
+      score: report.score,
+      verdict: report.verdict,
+      vacancyCount: report.vacancyCount,
+      sampled: report.sampled,
+      reachableRate: report.reachableRate,
+      titleMatchRate: report.titleMatchRate,
+      contentfulRate: report.contentfulRate,
+      distinctRate: report.distinctRate,
+    });
     setStatus(store, candidate.key, next, {
       qualityScore: report.score,
       qualityVerdict: report.verdict,
       qualityProblems: report.problems,
       vacancyCount: report.vacancyCount,
+      validationHistory: history.slice(-8),
     });
   }
 }
