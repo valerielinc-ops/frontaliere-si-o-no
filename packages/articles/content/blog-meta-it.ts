@@ -10384,6 +10384,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-casale-litta-ticino-frontaliere.title': 'Vivere a Casale Litta e lavorare in Ticino',
     'blog.article.vivere-casale-litta-ticino-frontaliere.excerpt': 'Casale Litta e il lavoro da frontaliere in Ticino: permessi, fiscalità, costi della vita e guida pratica al trasferimento.',
     'blog.article.vivere-casale-litta-ticino-frontaliere.imageAlt': 'Vista di Casale Litta con sfondo del confine svizzero-italiano e montagne, simboleggiante il pendolarismo frontaliere',
+    'blog.article.carenza-infermieri-varese.title': 'Carenza infermieri, l\'Ordine di Varese chiede interventi',
+    'blog.article.carenza-infermieri-varese.excerpt': 'Gli infermieri lavorano su turni che coprono le 24 ore, compresi notti e festivi. L\'Ordine delle Professioni Infermieristiche di Varese chiede interventi finanziati e tempi certi per trattenere gli infermieri sul territorio.',
+    'blog.article.carenza-infermieri-varese.imageAlt': 'Infermieri in un ospedale',
 };
 
 export default blogMetaIt;
