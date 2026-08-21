@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-la-source",
-  "assembledAt": "2026-08-21T09:48:18.657Z",
+  "assembledAt": "2026-08-21T21:31:31.469Z",
   "jobs": [
     {
       "id": "clinique-la-source-71b89c53db19",
@@ -34,7 +34,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:15.561Z",
+      "crawledAt": "2026-08-21T21:31:29.044Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -71,15 +71,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:32:20.962Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -116,7 +116,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=769",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:14.992Z",
+      "crawledAt": "2026-08-21T21:31:28.429Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,15 +151,15 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:34:23.270Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -196,7 +196,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=776",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:14.437Z",
+      "crawledAt": "2026-08-21T21:31:27.788Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -231,15 +231,15 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:53:50.738Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -276,7 +276,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=746",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:13.893Z",
+      "crawledAt": "2026-08-21T21:31:27.149Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -311,15 +311,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:54.712Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -356,7 +356,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=771",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:13.324Z",
+      "crawledAt": "2026-08-21T21:31:26.508Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -395,15 +395,15 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:06:03.073Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -440,7 +440,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=772",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:12.766Z",
+      "crawledAt": "2026-08-21T21:31:25.895Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -472,15 +472,15 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:07:55.390Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -517,7 +517,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:12.182Z",
+      "crawledAt": "2026-08-21T21:31:25.286Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -577,15 +577,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:52.867Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -622,7 +622,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=775",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:11.633Z",
+      "crawledAt": "2026-08-21T21:31:24.686Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -657,15 +657,15 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:37:46.911Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -702,7 +702,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:11.049Z",
+      "crawledAt": "2026-08-21T21:31:24.034Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -737,15 +737,15 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:34:21.540Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -782,7 +782,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=777",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:10.489Z",
+      "crawledAt": "2026-08-21T21:31:23.430Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -817,15 +817,15 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:36:35.584Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -862,7 +862,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=764",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:48:09.921Z",
+      "crawledAt": "2026-08-21T21:31:22.793Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -899,15 +899,15 @@
         ]
       },
       "firstSeenAt": "2026-06-03T13:10:07.225Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
