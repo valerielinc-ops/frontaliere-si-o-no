@@ -3700,6 +3700,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vendemmia-svizzera-2026-qualita.title': 'Promising 2026 harvest in Switzerland: high quality',
     'blog.article.vendemmia-svizzera-2026-qualita.excerpt': 'Drought and heat stroke reduce the quantities, but the quality will be high. In Valais collection expected from 24 August 6-12 days in advance. Scarcity of mushrooms limits treatments.',
     'blog.article.vendemmia-svizzera-2026-qualita.imageAlt': 'Swiss vineyard during harvest season with concentrated grapes affected by drought conditions',
+    'blog.article.migros-sostegno-agricoltura.title': 'Drought, Migros allocates two million francs for farmers in need',
+    'blog.article.migros-sostegno-agricoltura.excerpt': 'The group says it is working with its partners to make Swiss agriculture more resilient',
+    'blog.article.migros-sostegno-agricoltura.imageAlt': 'A farmer affected by the drought',
 };
 
 export default blogMetaChEn;
