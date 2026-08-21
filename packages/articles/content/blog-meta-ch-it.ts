@@ -3694,6 +3694,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esercito-misure-discriminazione.title': 'Esercito, le misure contro la discriminazione funzionano',
     'blog.article.esercito-misure-discriminazione.excerpt': 'L\'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione',
     'blog.article.esercito-misure-discriminazione.imageAlt': 'L\'Esercito svizzero',
+    'blog.article.custodia-bambini-appenzello-interno.title': 'Custodia bambini Appenzello Interno: costi e sussidi',
+    'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Asili nido, doposcuola e famiglia diurne nel cantone: come funzionano tariffe calcolate sul reddito e quali sussidi cantonali sfruttare.',
+    'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Centro di custodia diurna svizzero con aula illuminata, giocattoli educativi e arredi didattici',
 };
 
 export default blogMetaChIt;

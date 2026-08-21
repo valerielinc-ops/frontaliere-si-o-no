@@ -3694,6 +3694,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercito-misure-discriminazione.title': 'Armee, Antidiskriminierungsmaßnahmen funktionieren',
     'blog.article.esercito-misure-discriminazione.excerpt': 'Die Schweizer Armee hat angekündigt, die Hälfte der angekündigten Massnahmen zur Bekämpfung von Sexismus und Diskriminierung umgesetzt zu haben.',
     'blog.article.esercito-misure-discriminazione.imageAlt': 'Die Schweizer Armee',
+    'blog.article.custodia-bambini-appenzello-interno.title': 'Kinderbetreuung Appenzell Innerrhoden: Kosten und Leistungen',
+    'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Kindertagesstätten, Kindertagesstätten und Tagesfamilien im Kanton: Wie Einkommenstarife funktionieren und welche Kantonsbeiträge zu nutzen sind.',
+    'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Schweizer Kinderbetreuungszentrum mit hellem Klassenzimmer, Lernspielzeug und Möbeln',
 };
 
 export default blogMetaChDe;

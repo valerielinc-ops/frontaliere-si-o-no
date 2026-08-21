@@ -3694,6 +3694,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esercito-misure-discriminazione.title': 'Armée, les mesures anti-discrimination fonctionnent',
     'blog.article.esercito-misure-discriminazione.excerpt': 'L\'Armée suisse a annoncé avoir mis en œuvre la moitié des mesures annoncées pour lutter contre le sexisme et la discrimination',
     'blog.article.esercito-misure-discriminazione.imageAlt': 'L\'Armée suisse',
+    'blog.article.custodia-bambini-appenzello-interno.title': 'Housse pour enfants Appenzell Intérieur : coûts et subventions',
+    'blog.article.custodia-bambini-appenzello-interno.excerpt': 'Crèches, après l\'école et crèches dans le canton : comment fonctionnent les tarifs calculés sur le revenu et quelles allocations cantonales utiliser.',
+    'blog.article.custodia-bambini-appenzello-interno.imageAlt': 'Centre de garde d\'enfants suisse avec salle de classe lumineuse, jouets éducatifs et mobilier',
 };
 
 export default blogMetaChFr;
