@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abbott",
-  "assembledAt": "2026-08-21T09:46:42.273Z",
+  "assembledAt": "2026-08-21T21:33:52.536Z",
   "jobs": [
     {
       "id": "abbott-d2551ed36471",
@@ -34,7 +34,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Cloud-Architect_31138417",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:39.774Z",
+      "crawledAt": "2026-08-21T21:33:49.396Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Cardiometabolic_31146564",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:39.107Z",
+      "crawledAt": "2026-08-21T21:33:48.276Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -192,15 +192,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:33.997Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -237,7 +237,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Gastroenterology_31146562",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:38.419Z",
+      "crawledAt": "2026-08-21T21:33:47.409Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -267,15 +267,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:33.243Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -312,7 +312,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Quality-Engineer_31153258",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:37.691Z",
+      "crawledAt": "2026-08-21T21:33:46.368Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -350,15 +350,15 @@
         ]
       },
       "firstSeenAt": "2026-06-15T13:45:33.917Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 85000,
+      "salaryMax": 145000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 85000,
+          "maxValue": 145000,
           "unitText": "YEAR"
         }
       }
@@ -395,7 +395,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Romandie_31154099",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:46:37.017Z",
+      "crawledAt": "2026-08-21T21:33:45.515Z",
       "addressLocality": "Remote",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -471,7 +471,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Quality-Engineer_31154509",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:36.269Z",
+      "crawledAt": "2026-08-21T21:33:44.703Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -519,15 +519,15 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:22:56.371Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 131500,
+      "salaryMax": 225500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 131500,
+          "maxValue": 225500,
           "unitText": "YEAR"
         }
       }
@@ -564,7 +564,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Bern---Bern/Field-Technical-Engineer-Applikationsspezialist-Elektrophysiologie---Region-Deutschschweiz_31154621",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:35.550Z",
+      "crawledAt": "2026-08-21T21:33:43.644Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -597,15 +597,15 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:01:33.788Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -642,7 +642,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/XMLNAME--Senior--Electrical-Engineer_31155443",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:34.821Z",
+      "crawledAt": "2026-08-21T21:33:42.696Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -676,15 +676,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:02:28.238Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 113500,
+          "maxValue": 172000,
           "unitText": "YEAR"
         }
       }
@@ -721,7 +721,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/EHS-Specialist_31155192",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:34.128Z",
+      "crawledAt": "2026-08-21T21:33:41.683Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -755,15 +755,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:02:27.288Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -800,7 +800,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Manager---Women-s-Health_31154466",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:33.446Z",
+      "crawledAt": "2026-08-21T21:33:40.831Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -834,15 +834,15 @@
         ]
       },
       "firstSeenAt": "2026-06-25T10:33:41.274Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -879,7 +879,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Sr-Global-HEOR---Payer-Evidence-Lead_31156318",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:32.764Z",
+      "crawledAt": "2026-08-21T21:33:40.004Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -907,15 +907,15 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:12:57.696Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -952,7 +952,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Business-Development-Manager--m-w-d--Neuromodulation---Schweiz_31156326",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:32.063Z",
+      "crawledAt": "2026-08-21T21:33:39.282Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -983,15 +983,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:19:08.245Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 110500,
+      "salaryMax": 169500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 110500,
+          "maxValue": 169500,
           "unitText": "YEAR"
         }
       }
@@ -1028,7 +1028,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Analyst---People---Workforce-Analytics_31156643",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:31.394Z",
+      "crawledAt": "2026-08-21T21:33:38.493Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1062,15 +1062,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:09:45.544Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -1107,7 +1107,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Financial-Analyst--Procurement-TPM_31156930",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:30.711Z",
+      "crawledAt": "2026-08-21T21:33:37.790Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1183,7 +1183,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Germany---Neustadt-am-Rbenberge/Director-Civil---Constructions-Engineering-Capital-Projects--m-f-d-_31156466",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:30.029Z",
+      "crawledAt": "2026-08-21T21:33:37.046Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1214,15 +1214,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:19:07.277Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 99500,
+      "salaryMax": 151000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 99500,
+          "maxValue": 151000,
           "unitText": "YEAR"
         }
       }
@@ -1259,7 +1259,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Manager--Int-l-Health-Systems-Integrations_35000065",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:29.086Z",
+      "crawledAt": "2026-08-21T21:33:36.272Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1293,15 +1293,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:18:08.525Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 117000,
+      "salaryMax": 163000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 117000,
+          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
@@ -1338,7 +1338,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Commercial-Training-Manager-Austria---Switzerland--m-f-d-_31158062",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:28.406Z",
+      "crawledAt": "2026-08-21T21:33:35.534Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1372,15 +1372,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:28:06.215Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 117000,
+      "salaryMax": 163000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 117000,
+          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
@@ -1417,7 +1417,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Country-Manager-Structural-Heart-Switzerland_31158803",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:27.722Z",
+      "crawledAt": "2026-08-21T21:33:34.645Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1451,15 +1451,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:49:42.379Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 117000,
+      "salaryMax": 163000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 117000,
+          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
@@ -1496,7 +1496,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-NPI-Engineer_31154974-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:27.082Z",
+      "crawledAt": "2026-08-21T21:33:33.942Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1530,15 +1530,15 @@
         ]
       },
       "firstSeenAt": "2026-07-01T21:41:10.087Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 113500,
+          "maxValue": 172000,
           "unitText": "YEAR"
         }
       }
@@ -1575,7 +1575,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Territory-Manager-Heart-Failure-CardioMEMS---German-speaking-Switzerland_31158074",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:46:26.385Z",
+      "crawledAt": "2026-08-21T21:33:33.176Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1606,15 +1606,15 @@
         ]
       },
       "firstSeenAt": "2026-08-19T09:46:39.029Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 110500,
+      "salaryMax": 169500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 110500,
+          "maxValue": 169500,
           "unitText": "YEAR"
         }
       }
