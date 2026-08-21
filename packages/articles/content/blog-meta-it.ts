@@ -10325,6 +10325,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Vivere a Lonate Ceppino: guida frontaliere Ticino',
     'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Struttura fiscale, contributi sociali e procedure pratiche per chi sceglie di vivere nel Varesotto e lavorare in Ticino con il Nuovo Accordo Frontalieri.',
     'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Strada frontaliera tra Italia e Svizzera nel Mendrisiotto, con paesaggio alpino ticinese sullo sfondo',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Vivere a Monvalle, lavorare in Ticino: vantaggi e svantaggi',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, comune del distretto di Lugano, è una delle destinazioni più popolari per i frontalieri che desiderano vivere in Ticino e lavorare in Svizzera.',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e vive a Monvalle',
 };
 
 export default blogMetaIt;

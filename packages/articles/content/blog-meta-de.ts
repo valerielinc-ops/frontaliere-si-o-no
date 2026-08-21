@@ -10323,6 +10323,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Leben in Lonate Ceppino: Grenzführer Tessin',
     'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Steuerstruktur, Sozialbeiträge und praktische Verfahren für diejenigen, die sich entscheiden, im Varesotto zu leben und im Tessin mit dem Neuen Frontalieri-Abkommen zu arbeiten.',
     'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Grenzstrasse zwischen Italien und der Schweiz in der Region Mendrisiotto mit Alpenpanorama',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Leben in Monvalle, Arbeiten im Tessin: Vor- und Nachteile',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, Gemeinde des Bezirks Lugano, ist eines der beliebtesten Reiseziele für Grenzgänger, die im Tessin leben und in der Schweiz arbeiten möchten.',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der in Ticino arbeitet und in Monvalle lebt',
 };
 
 export default blogMetaDe;

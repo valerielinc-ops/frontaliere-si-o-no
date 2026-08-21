@@ -10326,6 +10326,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Vivre à Lonate Ceppino : guide frontalier du Tessin',
     'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Structure fiscale, cotisations sociales et procédures pratiques pour ceux qui choisissent de vivre à Varesotto et de travailler au Tessin avec le nouvel accord frontalier.',
     'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Route frontalière entre l\'Italie et la Suisse dans la région tessinoise avec paysage alpin',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Vivre à Monvalle, travailler au Tessin : avantages et inconvénients',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, commune du district de Lugano, est l\'une des destinations les plus populaires pour les frontaliers qui souhaitent vivre au Tessin et travailler en Suisse.',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere travaillant en Suisse et vivant à Monvalle',
 };
 
 export default blogMetaFr;

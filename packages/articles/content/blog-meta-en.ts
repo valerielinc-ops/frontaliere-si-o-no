@@ -10324,6 +10324,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lonate-ceppino-frontaliere-ticino.title': 'Living in Lonate Ceppino: Ticino border guide',
     'blog.article.lonate-ceppino-frontaliere-ticino.excerpt': 'Tax structure, social contributions and practical procedures for those who choose to live in Varese and work in Ticino with the New Frontier Agreement.',
     'blog.article.lonate-ceppino-frontaliere-ticino.imageAlt': 'Highway at Swiss-Italian border in Ticino region with Alpine landscape view',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.title': 'Living in Monvalle, working in Ticino: advantages and disadvantages',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.excerpt': 'Monvalle, a municipality in the district of Lugano, is one of the most popular destinations for border crossers wishing to live in Ticino and work in Switzerland.',
+    'blog.article.vivere-monvalle-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere working in Ticino and living in Monvalle',
 };
 
 export default blogMetaEn;
