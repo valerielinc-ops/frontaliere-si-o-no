@@ -6,7 +6,8 @@
  * locale-localized section/prefix combos) and verifies the contracts the
  * plugin promises:
  *   - mobile-first source order (job list before <details> filler)
- *   - exactly one <h1>, one canonical, ≥1 hreflang link (matched
+ *   - exactly one <h1>, one canonical, and an hreflang set that is either
+ *     ABSENT or COMPLETE — never partial (matched
  *     QUOTE-AGNOSTICALLY via build-plugins/shared/headLinkPatterns.ts — the
  *     build's own minifier emits `rel=canonical`, not `rel="canonical"`)
  *   - <title> length ≤66 chars + no `(#abcdef12)` disambiguator
@@ -38,7 +39,7 @@ import {
   countCanonicalLinks,
   countHreflangLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
-import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -164,6 +165,13 @@ const SAMPLE_PER_LOCALE = 400;
  * set from. Ratcheting them down as the data arrives is the follow-up; picking
  * a number today and calling it calibrated would be inventing one.
  */
+/**
+ * A complete cross-locale set is the four locales plus `x-default` — see
+ * buildLocaleAlternateEntries() in build-plugins/shared/localeAlternateBlock.ts,
+ * which is where the number comes from so the two cannot drift.
+ */
+const HREFLANG_COMPLETE_SET = ALTERNATE_LOCALES.length + 1;
+
 const SYSTEMIC_RATE_CEILING = 0.6;
 
 /**
@@ -355,7 +363,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expectSystemicRate(offenders, scanned, 'mobile-fold order (<h1> before <details>)');
     });
 
-    it('every page has exactly one <h1>, one canonical, and ≥1 hreflang alternate', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
+    it('every page has exactly one <h1>, one canonical, and a COMPLETE-or-absent hreflang set', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       let scanned = 0;
       for (const loc of LOCALES) {
@@ -378,22 +386,39 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
             offenders.push(`${page.file} — canonical count = ${canonicalCount}`);
           }
 
-          // Redirect stubs are exempt from the hreflang requirement ONLY —
-          // canonical, title and BreadcrumbList still apply to them in full.
-          // A below-floor bridge canonicalises to the hub, so any alternate
-          // set it emitted would have to list its own URL as a canonical the
-          // same page disclaims: Google drops such a set, and the markup
-          // would exist only to turn this assertion green. Same marker, same
-          // reasoning as scripts/audit-spa-bundle-injection.mjs and
-          // tests/seo/cathedral-sector-hubs.test.ts.
-          const isRedirectStub = page.html.includes(REDIRECT_STUB_MARKER);
+          // HREFLANG: the defect is a PARTIAL set, not an absent one.
+          //
+          // This asserted `>= 1` and was wrong against the build's own
+          // documented contract. build-plugins/shared/localeAlternateBlock.ts
+          // enforces all-or-nothing — "every required locale eligible → emit
+          // the full block (4 + x-default); any required locale missing →
+          // emit NOTHING" — because a broken alternate is a hard error for
+          // Google while a missing one is tolerated. A cluster whose
+          // keyword+city exists in fewer than four locales therefore emits
+          // ZERO alternates BY DESIGN, and `scripts/audit-hreflang.mjs`
+          // deliberately "skips pages carrying zero" while failing 1..4 as
+          // `[tooFew]`.
+          //
+          // So the old assertion contradicted both the emitter and the
+          // sibling gate: on post-deploy run 32426150547 it reported
+          // 165/200 sampled pages (82.50 %) as offenders — every one of them
+          // a page behaving exactly as designed — while `audit:hreflang`
+          // passed over the same corpus. Same shape as the
+          // audit:sitemap-canonicals / validate:canonical disagreement:
+          // two gates, one corpus, opposite verdicts.
+          //
+          // The redirect-stub exemption is gone with it: a stub emits zero
+          // alternates, which this rule allows outright, so the marker no
+          // longer needs to be imported here at all.
           const hreflangCount = countHreflangLinks(page.html);
-          if (!isRedirectStub && hreflangCount < 1) {
-            offenders.push(`${page.file} — hreflang count = ${hreflangCount}`);
+          if (hreflangCount > 0 && hreflangCount !== HREFLANG_COMPLETE_SET) {
+            offenders.push(
+              `${page.file} — partial hreflang set: ${hreflangCount} (must be 0, or ${HREFLANG_COMPLETE_SET} = ${ALTERNATE_LOCALES.length} locales + x-default)`,
+            );
           }
         }
       }
-      expectSystemicRate(offenders, scanned, 'head shape (one <h1>, one canonical, >=1 hreflang)');
+      expectSystemicRate(offenders, scanned, 'head shape (one <h1>, one canonical, hreflang 0-or-complete)');
     });
 
     it('every <title> is ≤66 chars and contains no `(#abcdef12)` disambiguator', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
