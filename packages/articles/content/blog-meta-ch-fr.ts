@@ -3676,6 +3676,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bcg-utile-semestrale-record.title': 'BCG bénéfice record : +137,2 millions au semestre',
     'blog.article.bcg-utile-semestrale-record.excerpt': 'La Banca Cantonale Grigione clôture le premier semestre 2026 avec un bénéfice record de CHF 137,2 millions, en hausse de 18,2 %. Solidité confirmée dans les Grisons.',
     'blog.article.bcg-utile-semestrale-record.imageAlt': 'Siège de banque moderne avec architecture en verre et pierre, lumière naturelle',
+    'blog.article.richiedenti-asilo-severe-misure.title': 'Demandeurs d\'asile, Berne demande des mesures plus sévères',
+    'blog.article.richiedenti-asilo-severe-misure.excerpt': 'Le Secrétariat d\'Etat aux migrations (SEM) étudie des modifications de loi pour exclure de la procédure d\'asile les jeunes du Maghreb qui viennent d\'arriver en Suisse.',
+    'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Jeune personne commettant des crimes en Suisse',
 };
 
 export default blogMetaChFr;

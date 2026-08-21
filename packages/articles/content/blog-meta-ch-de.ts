@@ -3676,6 +3676,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bcg-utile-semestrale-record.title': 'BCG Rekordgewinn: +137,2 Mio. im Halbjahr',
     'blog.article.bcg-utile-semestrale-record.excerpt': 'Die Graubündner Kantonalbank schliesst das erste Halbjahr 2026 mit einem Rekordgewinn von CHF 137,2 Mio. ab, ein Plus von 18,2%. Bestätigte Solidität in Graubünden.',
     'blog.article.bcg-utile-semestrale-record.imageAlt': 'Modernes Bankgebäude mit Glas- und Steinarchitektur, Tageslichtsetting',
+    'blog.article.richiedenti-asilo-severe-misure.title': 'Asylsuchende, Bern fordert schärfere Massnahmen',
+    'blog.article.richiedenti-asilo-severe-misure.excerpt': 'Das Staatssekretariat für Migration (sem) prüft Gesetzesänderungen, um Jugendliche aus dem Maghreb, die gerade in der Schweiz angekommen sind, vom Asylverfahren auszuschliessen.',
+    'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Junge Person, die in der Schweiz Straftaten begeht',
 };
 
 export default blogMetaChDe;
