@@ -73820,6 +73820,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-tubre-grigioni-guida': {
+    title: 'Frontaliere Tubre-Grigioni: fiscalità e permesso G',
+    description: 'Guida fiscale per frontalieri che vivono a Tubre e lavorano in Grigioni: imposta alla fonte, ristorni, AVS, LAMal e procedure amministrative. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tubre-grigioni, fiscalità, permesso, completa',
+    ogTitle: 'Frontaliere Tubre-Grigioni: tassazione e permessi',
+    ogDescription: 'Vivi a Tubre e lavori in Grigioni? Scopri tassazione, assicurazioni, pensione e procedure complete per frontalieri Italia-Svizzera. Franchigia €10.000 dal 2024.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tubre-grigioni-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Tubre-Grigioni: fiscalità e permesso G",
+      "description": "Guida fiscale per frontalieri che vivono a Tubre e lavorano in Grigioni: imposta alla fonte, ristorni, AVS, LAMal e procedure amministrative. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-tubre-grigioni-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di confine tra Italia e Svizzera in zona Ticino-Grigioni, con segnaletica valico e paesaggio montano"
+      },
+      "datePublished": "2026-08-21T18:17:22+00:00",
+      "dateModified": "2026-08-21T18:17:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tubre-grigioni-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10418,6 +10418,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Vivre à Sernio, travailler dans les Grisons : avantages et inconvénients',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Liaisons avec les Grisons, temps de trajet, coût de la vie à Sernio et dans les Grisons, zones recommandées, avantages et inconvénients du transfert pour les frontaliers.',
     'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'Un travailleur frontalier vit à Sernio et travaille dans les Grisons et doit prendre en compte le système fiscal suisse et italien.',
+    'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontière Tubre-Grigioni : fiscalité et permis G',
+    'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Guide complet pour ceux qui vivent à Tubre et travaillent dans les Grisons : taxation à la source, restaurations, LAMal, AVS et procédures administratives pour les frontaliers.',
+    'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Route frontalière entre l\'Italie et la Suisse dans la région Tessin-Grisons avec panneaux douaniers et paysage alpin',
 };
 
 export default blogMetaFr;

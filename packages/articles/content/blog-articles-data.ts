@@ -31188,6 +31188,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-tubre-grigioni-guida',
+ category: 'fiscale',
+ date: '2026-08-21T18:17:22.585Z',
+ image: '/images/blog/frontaliere-tubre-grigioni-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
