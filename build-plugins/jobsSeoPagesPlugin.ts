@@ -3044,9 +3044,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const relatedTitle = stripLiteralMarkdownFromTitle(String(r?.titleByLocale?.[locale] || r.title || ''));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
- if (!r.salaryMin) return '';
- const min = (r.salaryMin / 1000).toFixed(0);
- const max = r.salaryMax ? (r.salaryMax / 1000).toFixed(0) : null;
+ const rSalaryMin = Number(r.salaryMin) || Number(r.baseSalary?.value?.minValue);
+ if (!rSalaryMin || !Number.isFinite(rSalaryMin)) return '';
+ const rSalaryMax = Number(r.salaryMax) || Number(r.baseSalary?.value?.maxValue);
+ const min = (rSalaryMin / 1000).toFixed(0);
+ const max = (rSalaryMax && Number.isFinite(rSalaryMax)) ? (rSalaryMax / 1000).toFixed(0) : null;
  return max ? `${r.currency || 'CHF'} ${min}k – ${max}k` : `${r.currency || 'CHF'} ${min}k+`;
  })();
  // CSS classes `.rj` / `.rja` / `.rjw` / `.rjt` / `.rjs` / `.rjp`
