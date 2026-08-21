@@ -48107,6 +48107,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diritto-locazione-norme-svizzera': {
+    title: 'Diritto di locazione in Svizzera: regole e tutele',
+    description: 'Guida completa al diritto di locazione svizzero: regole per cauzione, disdetta e contestazione canoni secondo il Codice delle obbligazioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, regole, tutele',
+    ogTitle: 'Diritto di locazione in Svizzera: guida alle norme vigenti',
+    ogDescription: 'Approfondimento sulle normative federali che regolano il mercato degli affitti in Svizzera. Scopri come tutelare i tuoi diritti di inquilino.',
+    canonicalPath: '/articoli-svizzera/diritto-locazione-norme-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto di locazione in Svizzera: regole e tutele",
+      "description": "Guida completa al diritto di locazione svizzero: regole per cauzione, disdetta e contestazione canoni secondo il Codice delle obbligazioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diritto-locazione-norme-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale moderno in Svizzera"
+      },
+      "datePublished": "2026-08-21T13:24:46+00:00",
+      "dateModified": "2026-08-21T13:24:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritto-locazione-norme-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

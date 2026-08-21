@@ -3709,6 +3709,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquistare-casa-appenzello-interno.title': 'Acheter une maison à Appenzell Interne : hypothèques et taxes',
     'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Guide opérationnel pour l\'achat immobilier à Appenzell Interne. Découvrez les taxes sur les passages, les frais de notaire, la durabilité des prêts hypothécaires et les procédures d\'enregistrement.',
     'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Maison traditionnelle d\'Appenzell avec balcons en bois peints, prés verts et montagnes en arrière-plan',
+    'blog.article.diritto-locazione-norme-svizzera.title': 'Droit de la location en Suisse : règles et protections',
+    'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Découvrez les règles fédérales régissant le marché locatif : du dépôt de garantie aux procédures de résiliation et de contestation des loyers.',
+    'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Bâtiment résidentiel moderne en Suisse',
 };
 
 export default blogMetaChFr;

@@ -3709,6 +3709,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquistare-casa-appenzello-interno.title': 'Haus kaufen in Appenzell Innerrhoden: Hypotheken und Steuern',
     'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Operativer Leitfaden zum Immobilienkauf in Appenzell Innerrhoden. Entdecken Sie Übertrittssteuern, Notarkosten, Tragbarkeit von Hypotheken und Registrierungsverfahren.',
     'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Traditionelles Appenzeller Bauernhaus mit bemalten Holzbalkon, grünen Wiesen und Bergen im Hintergrund',
+    'blog.article.diritto-locazione-norme-svizzera.title': 'Mietrecht in der Schweiz: Regeln und Schutz',
+    'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Entdecken Sie die Bundesvorschriften, die den Mietmarkt regeln: von der Kaution bis zu den Kündigungsverfahren und der Anfechtung von Mieten.',
+    'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Modernes Wohngebäude in der Schweiz',
 };
 
 export default blogMetaChDe;

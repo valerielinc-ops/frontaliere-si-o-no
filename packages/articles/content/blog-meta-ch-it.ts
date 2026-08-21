@@ -3709,6 +3709,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-casa-appenzello-interno.title': 'Acquistare casa in Appenzello Interno: mutui e tasse',
     'blog.article.acquistare-casa-appenzello-interno.excerpt': 'Guida operativa all\'acquisto immobiliare in Appenzello Interno. Scopri imposte sui trapassi, spese notarili, sostenibilità mutui e procedure di registrazione.',
     'blog.article.acquistare-casa-appenzello-interno.imageAlt': 'Casa tradizionale di Appenzello Interno con balconate di legno dipinte, prati verdi e montagne sullo sfondo',
+    'blog.article.diritto-locazione-norme-svizzera.title': 'Diritto di locazione in Svizzera: regole e tutele',
+    'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Scopri le norme federali che regolano il mercato degli affitti: dal deposito cauzionale alle procedure di disdetta e contestazione dei canoni.',
+    'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Edificio residenziale moderno in Svizzera',
 };
 
 export default blogMetaChIt;

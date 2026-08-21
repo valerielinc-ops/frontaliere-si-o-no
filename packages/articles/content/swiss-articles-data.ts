@@ -11125,6 +11125,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diritto-locazione-norme-svizzera',
+    category: 'pratico',
+    date: '2026-08-21T13:24:46.494Z',
+    image: '/images/blog/diritto-locazione-norme-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
