@@ -48341,6 +48341,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locazione-zurigo-deposito-contestazione-procedure': {
+    title: 'Affitti Zurigo: diritto di locazione e contestazione',
+    description: 'Guida al diritto di locazione nel cantone di Zurigo: deposito max 3 mesi, disdetta con modulo, contestazione canone in 30 giorni all\'autorità di conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritto, locazione',
+    ogTitle: 'Affitti Zurigo: diritto di locazione e contestazione',
+    ogDescription: 'Nel cantone di Zurigo il diritto di locazione federale protegge gli inquilini: deposito max 3 mesi di pigione su conto vincolato, disdetta solo con modulo ufficiale, contestazione del canone entro 30 giorni presso l\'autorità di conciliazione',
+    canonicalPath: '/articoli-svizzera/locazione-zurigo-deposito-contestazione-procedure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritto di locazione e contestazione",
+      "description": "Guida al diritto di locazione nel cantone di Zurigo: deposito max 3 mesi, disdetta con modulo, contestazione canone in 30 giorni all'autorità di conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locazione-zurigo-deposito-contestazione-procedure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del centro di Zurigo con grattacieli e architettura moderna, simbolo del mercato immobiliare svizzero"
+      },
+      "datePublished": "2026-08-21T16:56:27+00:00",
+      "dateModified": "2026-08-21T16:56:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/locazione-zurigo-deposito-contestazione-procedure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

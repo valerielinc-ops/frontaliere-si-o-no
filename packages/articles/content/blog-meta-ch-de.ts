@@ -3727,6 +3727,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.manager-casse-malattia-commissione.title': 'Krankenkassenmanagerlöhne: Nein der Kommission',
     'blog.article.manager-casse-malattia-commissione.excerpt': 'SBK-N und Bundesrat teilen sich die Vergütungen der Kassenoberhäupter: 480 \'000 Franken pro Jahr sind zu viel. Kommission bevorzugt Parameter auf Bundesverwaltungsgehälter.',
     'blog.article.manager-casse-malattia-commissione.imageAlt': 'Bern, Sitz der Schweizer Bundespolitik und der Gesundheitskommission',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Vermietungen Zürich: Mietrecht und Anfechtung',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Im Kanton Zürich gelten die eidgenössischen Mietregeln: maximal 3 Monate Kaution, Kündigung mit amtlichem Formular, Gebührenbeanstandung innerhalb von 30 Tagen.',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Zürichs Stadtzentrum mit Wolkenkratzern und moderner Architektur, Symbol des Schweizer Immobilienmarkts',
 };
 
 export default blogMetaChDe;

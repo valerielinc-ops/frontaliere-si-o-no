@@ -1268,6 +1268,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'diritto-locazione-svizzera-affitti-procedura': { it: 'diritto-locazione-svizzera-affitti-procedura', en: 'swiss-tenancy-law-rental-procedures', de: 'schweizer-mietrecht-verfahren-kaution', fr: 'droit-locatif-suisse-procedures-cautionnement' },
  'costi-psichiatria-svizzera-2024': { it: 'costi-psichiatria-svizzera-2024', en: 'mental-health-care-costs-switzerland-2024', de: 'psychiatrische-kosten-schweiz-2024', fr: 'couts-de-soins-psychiatriques-suisse-2024' },
  'manager-casse-malattia-commissione': { it: 'manager-casse-malattia-commissione', en: 'health-insurance-managers-commission', de: 'krankenkassen-manager-kommission', fr: 'managers-caisses-maladie-commission' },
+ 'locazione-zurigo-deposito-contestazione-procedure': { it: 'locazione-zurigo-deposito-contestazione-procedure', en: 'zurich-tenancy-deposit-dispute-procedures', de: 'zuerich-mietrecht-kaution-beschwerde-verfahren', fr: 'zurich-location-cautionnement-contestation-procedures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

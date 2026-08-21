@@ -3727,6 +3727,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.manager-casse-malattia-commissione.title': 'Salaires managers caisses maladie : non de la Commission',
     'blog.article.manager-casse-malattia-commissione.excerpt': 'CSSS-N et Conseil fédéral divisés sur les rémunérations des sommets des caisses : 480 000 CHF par an est excessif. Commission préfère paramètre sur les salaires administratifs fédéraux.',
     'blog.article.manager-casse-malattia-commissione.imageAlt': 'Berne, siège de la politique fédérale suisse et de la commission de la santé',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Location Zurich : droit de location et contestation',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Dans le canton de Zurich, les règles fédérales de location s\'appliquent : dépôt maximum de 3 mois, résiliation avec formulaire officiel, contestation de la redevance dans les 30 jours.',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Centre-ville de Zurich avec gratte-ciel et architecture moderne, symbole du marché immobilier suisse',
 };
 
 export default blogMetaChFr;
