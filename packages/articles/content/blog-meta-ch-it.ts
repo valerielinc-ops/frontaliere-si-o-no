@@ -3667,6 +3667,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voto-27-settembre-neutralita.title': 'Di più Voto 27 settembre: neutralità verso no, alimentazione più tirata',
     'blog.article.voto-27-settembre-neutralita.excerpt': 'L\'iniziativa sulla neutralità va verso una bocciatura, mentre quella sull\'alimentazione è in sostanziale pareggio.',
     'blog.article.voto-27-settembre-neutralita.imageAlt': 'Elettori svizzeri discutono del voto',
+    'blog.article.holcim-acquista-fermacell.title': 'Holcim acquisisce Fermacell: operazione da 784 milioni',
+    'blog.article.holcim-acquista-fermacell.excerpt': 'Il gruppo svizzero Holcim rileva la tedesca Fermacell per 784 milioni di franchi. L\'operazione, finalizzata entro il primo semestre 2027, punta al mercato edile.',
+    'blog.article.holcim-acquista-fermacell.imageAlt': 'Sede operativa industriale svizzera in un contesto moderno.',
 };
 
 export default blogMetaChIt;
