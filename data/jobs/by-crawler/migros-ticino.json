@@ -619,7 +619,7 @@
     },
     {
       "id": "company-if9enf",
-      "slug": "rivenditore-specializzato-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-basel",
+      "slug": "addetto-a-alle-vendite-non-food-migros-lehenmatt-genossenschaft-migros-basel-basel",
       "company": "Genossenschaft Migros Basel",
       "title": "Fachverkäufer*in Non Food Migros Lehenmatt",
       "location": "Basel",
@@ -682,7 +682,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rivenditore-specializzato-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-basel",
+        "it": "addetto-a-alle-vendite-non-food-migros-lehenmatt-genossenschaft-migros-basel-basel",
         "en": "specialist-vendor-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf",
         "de": "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf",
         "fr": "vendeur-specialise-en-non-alimentation-migros-lehenmatt-genossenschaft-migros-basel-basel"
@@ -692,7 +692,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel",
-          "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf"
+          "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf",
+          "rivenditore-specializzato-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-basel"
         ],
         "en": [
           "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf"
@@ -700,7 +701,8 @@
       },
       "previousSlugs": [
         "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel",
-        "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf"
+        "fachverkaufer-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-if9enf",
+        "rivenditore-specializzato-in-non-food-migros-lehenmatt-genossenschaft-migros-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4449,7 +4451,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "stv-branch-manager-in-migros-ticino-unterkulm",
-        "en": "stv-branch-manager-in-migros-ticino-unterkulm",
+        "en": "deputy-store-manager-migros-ticino-unterkulm",
         "de": "stv-filialleiter-in-migros-ticino-unterkulm-o686v6",
         "fr": "directeur-de-succursale-stv-in-migros-ticino-unterkulm"
       },
@@ -4665,9 +4667,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "collaboratore-trice-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2",
-        "en": "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2",
+        "en": "team-leader-kinderparadies-activ-fitness-kreuzlingen",
         "de": "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2",
-        "fr": "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2"
+        "fr": "chef-d-equipe-kinderparadies-activ-fitness-kreuzlingen"
       },
       "requirementsByLocale": {
         "de": [
@@ -4708,11 +4710,18 @@
         "it": [
           "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen",
           "teamleader-m-w-d-kinderparadies-activ-fitness-kreuzlingen"
+        ],
+        "en": [
+          "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2"
+        ],
+        "fr": [
+          "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen",
-        "teamleader-m-w-d-kinderparadies-activ-fitness-kreuzlingen"
+        "teamleader-m-w-d-kinderparadies-activ-fitness-kreuzlingen",
+        "mitarbeiter-in-kinderparadies-activ-fitness-kreuzlingen-aqxhf2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
