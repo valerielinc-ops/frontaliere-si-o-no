@@ -51,6 +51,9 @@
  */
 import { execFileSync } from 'node:child_process';
 import { commentOnce as commentOnceShared } from './lib/prComments.mjs';
+import { fetchPrFiles, GRAPHQL_FILES_CAP } from './lib/fetchPrFiles.mjs';
+
+export { fetchPrFiles, GRAPHQL_FILES_CAP };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -132,88 +135,6 @@ export function computeColliders(nums, funnelFiles) {
   return colliders;
 }
 
-// `gh pr view --json files` interroga la connection GraphQL `files(first: 100)`
-// e NON pagina. Le modalita' sono TRE, non due, e il fallback della #6190 ne
-// copriva una sola:
-//
-//   <= 100     lista completa
-//   101..N     TRONCATA a 100, in ordine alfabetico, exit 0, lista NON vuota
-//   oversize   `.files: null` (GitHub rinuncia proprio a calcolare il diff)
-//
-// Un fallback keyed sul VUOTO non parte mai nella banda di mezzo, che e' anche
-// la piu' frequente. Misurato il 2026-08-20 su questo repo:
-//
-//   #6121  changedFiles=183  GraphQL=100 (i primi 100 alfabetici)  REST=183 ✅
-//   #6175  changedFiles=0    GraphQL=null                          REST=100 (troncata)
-//
-// Quindi nella banda 101..N la REST e' COMPLETA e va preferita, non subita: il
-// «meglio un campione che il vuoto» della #6190 sceglieva un campione mentre la
-// lista intera era a una chiamata di distanza. Il taglio e' alfabetico, quindi
-// cade sistematicamente la coda — `scripts/`, `services/`, `src/`, `tests/` —
-// cioe' quasi tutto il set funnel-critical.
-//
-// `changedFiles` fa da oracolo e distingue i due casi che `.files // []`
-// appiattisce entrambi su lista vuota: una PR rebase-only (0 file davvero) e un
-// diff oversize (0 dichiarato, file veri). Serve a sapere se l'elenco e'
-// COMPLETO, perche' «non lo so» non deve essere trattato come «non collide».
-export const GRAPHQL_FILES_CAP = 100;
-
-export function fetchPrFiles(number, expected, ghFn, repo = REPO) {
-  let files = [];
-  try {
-    files = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'files',
-      '--jq', '[.files // [] | .[].path]'], { allowFail: true }) || [];
-  } catch { files = []; }
-
-  const known = Number.isFinite(expected) && expected > 0;
-  const cappedExactly = files.length === GRAPHQL_FILES_CAP;
-  const suspect = !files.length || files.length >= GRAPHQL_FILES_CAP
-    || (known && files.length < expected);
-  // `restConfirmed` distingue «la REST ha risposto» da «la REST non c'e'
-  // arrivata». Senza, un elenco troncato passa per completo ogni volta che
-  // l'oracolo e' piu' basso del cap: vedi il calcolo di `complete` sotto.
-  let restConfirmed = false;
-  if (suspect) {
-    try {
-      // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
-      // array darebbe piu' valori JSON top-level concatenati, che JSON.parse
-      // rifiuta. Quindi filtro a righe e split, che regge n pagine.
-      // `allowFail` NON va usato qui: il `gh()` reale lo traduce in `''`, e un
-      // fallimento silenzioso e' un segnale in meno. Senza, arriva come
-      // eccezione e il catch qui sotto lo assorbe. Non e' pero' cio' da cui
-      // dipende l'invariante: `restConfirmed` misura quanti file la REST ha
-      // CONSEGNATO, quindi un `''` da `allowFail` conta come non-conferma
-      // esattamente come un throw. La chiamata resta senza `allowFail` perche'
-      // un errore esplicito e' meglio di uno muto, non perche' il guard ci si
-      // appoggi.
-      const raw = ghFn(['api', `repos/${repo}/pulls/${number}/files`, '--paginate',
-        '--jq', '.[].filename'], { json: false }) || '';
-      const rest = raw.split('\n').map((l) => l.trim()).filter(Boolean);
-      // Conferma vuol dire CONSEGNA, non «non ha lanciato». Una REST che esce 0
-      // a mani vuote, o che rende meno file della GraphQL, non scioglie
-      // l'ambiguita' del cap: la lista puo' essere ancora quella troncata.
-      // (Sta prima della riassegnazione per leggibilita', non per necessita':
-      // `files = rest` avviene solo quando `rest` e' piu' lunga, e in quel ramo
-      // i due ordini danno lo stesso `true`. Misurato: invertirli non rompe
-      // nessun test, ed e' corretto cosi' — e' un mutante equivalente.)
-      restConfirmed = rest.length >= files.length;
-      if (rest.length > files.length) files = rest;
-    } catch { /* tiene la lista GraphQL, gia' valutata da `complete` */ }
-  }
-
-  // `complete` e' una MISURA, non un default ottimista: se l'oracolo non c'e'
-  // (campo assente, fetch fallito) e qualche file c'e', resta false.
-  let complete = known ? files.length >= expected : files.length === 0;
-  // Esattamente al cap e senza conferma dalla REST, «100» e' ambiguo per
-  // costruzione: puo' essere una PR da 100 file o il troncamento di una da
-  // 250. `expected` non scioglie il dubbio quando e' piu' basso del cap —
-  // succede se la PR cresce fra la `gh pr list` e questa fetch — e in quel
-  // caso `files.length >= expected` direbbe «completo» su una lista tagliata.
-  // Unknown non e' completo: e' il verso che tutto questo modulo difende.
-  if (cappedExactly && !restConfirmed) complete = false;
-  return { files, complete };
-}
-
 /**
  * Cosa fare della label `collision-risk` su una PR che al momento NON risulta
  * collidere. Pura ed esportata perche' e' la decisione che questo modulo
@@ -267,7 +188,7 @@ function main() {
       listComplete.set(pr.number, true);
       continue;
     }
-    const { files, complete } = fetchPrFiles(pr.number, pr.changedFiles, gh);
+    const { files, complete } = fetchPrFiles(pr.number, pr.changedFiles, gh, REPO);
     const set = new Set(files.filter(isFunnel));
     funnelFiles.set(pr.number, set);
     listComplete.set(pr.number, complete);
