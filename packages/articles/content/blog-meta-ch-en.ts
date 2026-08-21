@@ -3637,6 +3637,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-custodia-appenzello-esterno.title': 'Nursery and care: costs in the External Appenzello',
     'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Rates calculated on income, cantonal subsidies and tax deductions: all on kindergartens, day families and after-school in the canton of Appenzello Esterno.',
     'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Children playing outdoors at a Swiss daycare facility with alpine mountains in background',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.title': 'Buying a house in Appenzello Esterno: mortgage, prices and taxes',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.excerpt': 'Guide to buying real estate in Appenzell Ausserrhoden: affordability of the mortgage, minimum capital adequacy, transfer tax, notary fees and step-by-step procedure.',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.imageAlt': 'Modern residential house in Eastern Switzerland with mortgage documents on consultant\'s desk',
 };
 
 export default blogMetaChEn;

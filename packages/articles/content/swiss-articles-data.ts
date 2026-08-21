@@ -10909,6 +10909,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'casa-appenzello-esterno-acquisto-mutuo',
+    category: 'pratico',
+    date: '2026-08-21T02:05:16.042Z',
+    image: '/images/blog/casa-appenzello-esterno-acquisto-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

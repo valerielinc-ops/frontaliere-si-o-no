@@ -3637,6 +3637,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-custodia-appenzello-esterno.title': 'Asilo nido e custodia: costi in Appenzello Esterno',
     'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Tariffe calcolate sul reddito, sussidi cantonali e deduzioni fiscali: tutto su asili nido, famiglie diurne e doposcuola nel canton Appenzello Esterno.',
     'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Bambini che giocano all\'aperto presso una struttura di custodia svizzera con vista su montagne alpine',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.title': 'Comprare casa Appenzello Esterno: mutuo, prezzi e tasse',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.excerpt': 'Guida all\'acquisto immobiliare ad Appenzello Esterno: sostenibilità del mutuo, fondi propri minimi, imposta sui trapassi, spese notarili e procedura step-by-step.',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.imageAlt': 'Casa residenziale moderna in Svizzera orientale con documenti di mutuo ipotecario su scrivania',
 };
 
 export default blogMetaChIt;

@@ -3637,6 +3637,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-custodia-appenzello-esterno.title': 'Kindertagesstätte und Obhut: Kosten in Appenzell Ausserrhoden',
     'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Berechnete Einkommenstarife, Kantonsbeiträge und Steuerabzüge: Alles rund um Kindertagesstätten, Tagesfamilien und Nachmittagsbetreuung im Kanton Appenzell Ausserrhoden.',
     'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Kinder spielen im Freien in einer Schweizer Betreuungseinrichtung mit Bergblick',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.title': 'Haus kaufen Appenzell Ausserrhoden: Hypothek, Preise und Steuern',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.excerpt': 'Leitfaden zum Immobilienkauf in Appenzell Ausserrhoden: Tragbarkeit des Darlehens, Mindesteigenmittel, Stempelsteuer, Notarkosten und Schritt-für-Schritt-Verfahren.',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.imageAlt': 'Modernes Wohnhaus in der Ostschweiz mit Hypothekendokumenten auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

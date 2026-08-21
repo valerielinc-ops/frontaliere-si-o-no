@@ -3637,6 +3637,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-custodia-appenzello-esterno.title': 'Garderie et garde d\'enfants : coûts à Appenzell Extérieur',
     'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Tarifs calculés sur le revenu, allocations cantonales et déductions fiscales : tout sur les crèches, les familles de jour et après l\'école dans le canton d\'Appenzell Extérieur.',
     'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Enfants jouant dehors dans une structure de garde suisse avec vue sur les Alpes',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.title': 'Acheter maison Appenzell Extérieur : hypothèque, prix et taxes',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.excerpt': 'Guide d\'achat immobilier à Appenzell Externe : viabilité du prêt, fonds propres minimaux, taxe de passage, frais de notaire et procédure étape par étape.',
+    'blog.article.casa-appenzello-esterno-acquisto-mutuo.imageAlt': 'Maison résidentielle en Suisse orientale avec documents hypothécaires sur le bureau',
 };
 
 export default blogMetaChFr;
