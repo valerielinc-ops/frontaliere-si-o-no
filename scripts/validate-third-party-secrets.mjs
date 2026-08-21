@@ -108,7 +108,17 @@ function findMatches(filePath, content) {
 const findings = [];
 
 for (const filePath of getFiles()) {
-  const content = fs.readFileSync(filePath, 'utf8');
+  let content;
+  try {
+    content = fs.readFileSync(filePath, 'utf8');
+  } catch (err) {
+    // Several tracked paths (data/blog-articles-data.ts, services/seo/seo-blog*.ts, …)
+    // are symlinks into packages/articles/content/, which sparse-checkout jobs like
+    // validate-dist-source deliberately exclude (out of scope for this validator).
+    // A broken symlink under that exclusion is expected, not a finding — skip it.
+    if (err.code === 'ENOENT') continue;
+    throw err;
+  }
   findings.push(...findMatches(filePath, content));
 }
 
