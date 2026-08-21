@@ -3724,6 +3724,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costi-psichiatria-svizzera-2024.title': 'Diagnostico psichiatrico per psicoterapia coperta',
     'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'Les coûts des soins de santé mentale pris en charge par les caisses-maladie ont augmenté de 6,1% en 2024 et s\'élevaient à environ 3,2 milliards de francs, soit 7,5% du coût total de l\'assurance obligatoire.',
     'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Image de la santé mentale en Suisse',
+    'blog.article.manager-casse-malattia-commissione.title': 'Salaires managers caisses maladie : non de la Commission',
+    'blog.article.manager-casse-malattia-commissione.excerpt': 'CSSS-N et Conseil fédéral divisés sur les rémunérations des sommets des caisses : 480 000 CHF par an est excessif. Commission préfère paramètre sur les salaires administratifs fédéraux.',
+    'blog.article.manager-casse-malattia-commissione.imageAlt': 'Berne, siège de la politique fédérale suisse et de la commission de la santé',
 };
 
 export default blogMetaChFr;

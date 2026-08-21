@@ -3724,6 +3724,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costi-psichiatria-svizzera-2024.title': 'Psychiatrist diagnosis required for sick fund coverage',
     'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'The costs of mental health care borne by sickness funds increased by 6.1% in 2024 and amounted to about CHF 3.2 billion, equivalent to 7.5% of the total costs of compulsory insurance.',
     'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Image of mental health care in Switzerland',
+    'blog.article.manager-casse-malattia-commissione.title': 'Salaries manager sickness funds: no of the Commission',
+    'blog.article.manager-casse-malattia-commissione.excerpt': 'CSSS-N and the Federal Council divided on the remuneration of the heads of the coffers: CHF 480,000 per year is excessive. Commission prefers benchmark on federal administrative salaries.',
+    'blog.article.manager-casse-malattia-commissione.imageAlt': 'Bern, seat of Swiss federal politics and health commission decision-making',
 };
 
 export default blogMetaChEn;

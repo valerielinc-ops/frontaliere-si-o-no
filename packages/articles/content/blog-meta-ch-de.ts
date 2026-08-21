@@ -3724,6 +3724,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-psichiatria-svizzera-2024.title': 'Psychotherapie nur mit Arztzertifikat?',
     'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'Die Kosten für psychiatrische Behandlungen zu Lasten der Krankenkassen stiegen 2024 um 6,1 Prozent auf rund 3,2 Milliarden Franken, was 7,5 Prozent der Gesamtkosten der obligatorischen Versicherung entspricht.',
     'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Bild der Psychiatrie in der Schweiz',
+    'blog.article.manager-casse-malattia-commissione.title': 'Krankenkassenmanagerlöhne: Nein der Kommission',
+    'blog.article.manager-casse-malattia-commissione.excerpt': 'SBK-N und Bundesrat teilen sich die Vergütungen der Kassenoberhäupter: 480 \'000 Franken pro Jahr sind zu viel. Kommission bevorzugt Parameter auf Bundesverwaltungsgehälter.',
+    'blog.article.manager-casse-malattia-commissione.imageAlt': 'Bern, Sitz der Schweizer Bundespolitik und der Gesundheitskommission',
 };
 
 export default blogMetaChDe;

@@ -11170,6 +11170,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'manager-casse-malattia-commissione',
+    category: 'novita',
+    date: '2026-08-21T16:21:58.326Z',
+    image: '/images/blog/manager-casse-malattia-commissione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
