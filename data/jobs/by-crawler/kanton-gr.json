@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-08-21T09:58:56.836Z",
+  "assembledAt": "2026-08-21T21:30:43.420Z",
   "jobs": [
     {
       "id": "kanton-gr-b176b2910754",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2817/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:53.305Z",
+      "crawledAt": "2026-08-21T21:30:40.902Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -69,15 +69,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:49:01.807Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -114,7 +114,7 @@
       "url": "https://apply.refline.ch/514915/2778/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:52.632Z",
+      "crawledAt": "2026-08-21T21:30:40.174Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -148,17 +148,17 @@
           "lehrstelle-als-koch-kochin-efz-kanton-gr-ch"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:12:41.382Z",
       "needsRetranslation": true,
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "firstSeenAt": "2026-08-07T01:12:41.382Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -195,7 +195,7 @@
       "url": "https://apply.refline.ch/514915/2763/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:51.283Z",
+      "crawledAt": "2026-08-21T21:30:38.130Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -230,17 +230,17 @@
           "lehrstelle-als-kaufmann-frau-efz-fur-leistungssportler-innen-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:12:40.037Z",
       "needsRetranslation": true,
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "firstSeenAt": "2026-08-07T01:12:40.037Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -277,7 +277,7 @@
       "url": "https://apply.refline.ch/514915/2775/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:50.612Z",
+      "crawledAt": "2026-08-21T21:30:37.453Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -305,17 +305,17 @@
           "apprendistato-come-kaufmann-frau-cfc-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "firstSeenAt": "2026-08-10T21:48:35.180Z",
       "needsRetranslation": true,
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "firstSeenAt": "2026-08-10T21:48:35.180Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -352,7 +352,7 @@
       "url": "https://apply.refline.ch/514915/2774/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:48.043Z",
+      "crawledAt": "2026-08-21T21:30:36.101Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -388,15 +388,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:36.444Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -433,7 +433,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/9/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:47.368Z",
+      "crawledAt": "2026-08-21T21:30:35.422Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -467,17 +467,17 @@
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:12:35.767Z",
       "needsRetranslation": true,
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "firstSeenAt": "2026-08-07T01:12:35.767Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -514,7 +514,7 @@
       "url": "https://apply.refline.ch/514915/2773/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:46.697Z",
+      "crawledAt": "2026-08-21T21:30:34.738Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -549,15 +549,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:35.082Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -594,7 +594,7 @@
       "url": "https://apply.refline.ch/514915/2772/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:46.028Z",
+      "crawledAt": "2026-08-21T21:30:34.062Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -629,15 +629,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:34.263Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -674,7 +674,7 @@
       "url": "https://apply.refline.ch/514915/2768/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:45.356Z",
+      "crawledAt": "2026-08-21T21:30:33.385Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -710,15 +710,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:33.442Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -755,7 +755,7 @@
       "url": "https://apply.refline.ch/514915/2770/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:44.684Z",
+      "crawledAt": "2026-08-21T21:30:32.708Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -793,15 +793,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:32.623Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -838,7 +838,7 @@
       "url": "https://apply.refline.ch/514915/2769/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:43.998Z",
+      "crawledAt": "2026-08-21T21:30:32.014Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -891,15 +891,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:31.794Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -936,7 +936,7 @@
       "url": "https://apply.refline.ch/514915/2767/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:43.313Z",
+      "crawledAt": "2026-08-21T21:30:31.327Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -972,15 +972,15 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:34:53.263Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -1017,7 +1017,7 @@
       "url": "https://apply.refline.ch/514915/2765/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:41.958Z",
+      "crawledAt": "2026-08-21T21:30:29.965Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1051,17 +1051,17 @@
           "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch"
         ]
       },
-      "firstSeenAt": "2026-08-06T11:34:52.021Z",
       "needsRetranslation": true,
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "firstSeenAt": "2026-08-06T11:34:52.021Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -1098,7 +1098,7 @@
       "url": "https://apply.refline.ch/514915/2815/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:41.287Z",
+      "crawledAt": "2026-08-21T21:30:28.073Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1136,15 +1136,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T22:04:47.985Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -1181,7 +1181,7 @@
       "url": "https://apply.refline.ch/514915/2821/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:40.613Z",
+      "crawledAt": "2026-08-21T21:30:27.396Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1275,7 +1275,7 @@
       "url": "https://apply.refline.ch/514915/2816/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:39.938Z",
+      "crawledAt": "2026-08-21T21:30:26.717Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1360,7 +1360,7 @@
       "url": "https://apply.refline.ch/514915/2819/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:38.005Z",
+      "crawledAt": "2026-08-21T21:30:26.040Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1400,15 +1400,15 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:48:48.053Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 48500,
+      "salaryMax": 89500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48500,
+          "maxValue": 89500,
           "unitText": "YEAR"
         }
       },
@@ -1445,7 +1445,7 @@
       "url": "https://apply.refline.ch/514915/2818/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:37.333Z",
+      "crawledAt": "2026-08-21T21:30:25.362Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1528,7 +1528,7 @@
       "url": "https://apply.refline.ch/514915/2814/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:36.663Z",
+      "crawledAt": "2026-08-21T21:30:24.681Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1568,15 +1568,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:48:46.178Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -1613,7 +1613,7 @@
       "url": "https://apply.refline.ch/514915/2808/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:35.320Z",
+      "crawledAt": "2026-08-21T21:30:23.329Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1695,7 +1695,7 @@
       "url": "https://apply.refline.ch/514915/2811/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:34.649Z",
+      "crawledAt": "2026-08-21T21:30:22.652Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1744,15 +1744,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:26:06.937Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 99000,
+      "salaryMax": 174000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 99000,
+          "maxValue": 174000,
           "unitText": "YEAR"
         }
       },
@@ -1789,7 +1789,7 @@
       "url": "https://apply.refline.ch/514915/2812/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:33.980Z",
+      "crawledAt": "2026-08-21T21:30:21.976Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1821,15 +1821,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:26:06.259Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 65000,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 65000,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1866,7 +1866,7 @@
       "url": "https://apply.refline.ch/514915/2805/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:33.309Z",
+      "crawledAt": "2026-08-21T21:30:21.299Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1905,15 +1905,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:26:05.582Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 92000,
+      "salaryMax": 140000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 92000,
+          "maxValue": 140000,
           "unitText": "YEAR"
         }
       },
@@ -1950,7 +1950,7 @@
       "url": "https://apply.refline.ch/514915/2806/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:32.646Z",
+      "crawledAt": "2026-08-21T21:30:20.620Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1981,8 +1981,8 @@
           "risorse-umane-business-partner-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:26:04.904Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:26:04.904Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2028,7 +2028,7 @@
       "url": "https://apply.refline.ch/514915/2809/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:31.975Z",
+      "crawledAt": "2026-08-21T21:30:19.938Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2112,7 +2112,7 @@
       "url": "https://apply.refline.ch/514915/2807/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:31.304Z",
+      "crawledAt": "2026-08-21T21:30:18.132Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2151,15 +2151,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:26:03.549Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -2196,7 +2196,7 @@
       "url": "https://apply.refline.ch/514915/2810/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:30.632Z",
+      "crawledAt": "2026-08-21T21:30:17.455Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2217,6 +2217,11 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
+      "previousSlugs": [
+        "strassenwart-in-kanton-gr-ch",
+        "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
@@ -2226,26 +2231,21 @@
           "streetkeeper-in-kantonale-verwaltung-graubunden-thusis"
         ]
       },
-      "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis"
-      ],
       "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-08-20T22:04:37.301Z",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-20T22:04:37.301Z"
+      "addressRegion": "GR"
     },
     {
       "id": "kanton-gr-2312f654628e",
@@ -2278,7 +2278,7 @@
       "url": "https://apply.refline.ch/514915/2797/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:29.959Z",
+      "crawledAt": "2026-08-21T21:30:16.776Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2309,8 +2309,8 @@
           "generalsekretar-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:26:02.196Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:26:02.196Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2356,7 +2356,7 @@
       "url": "https://apply.refline.ch/514915/2804/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:28.022Z",
+      "crawledAt": "2026-08-21T21:30:16.101Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2388,15 +2388,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:26:01.525Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -2433,7 +2433,7 @@
       "url": "https://apply.refline.ch/514915/2784/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:27.349Z",
+      "crawledAt": "2026-08-21T21:30:15.422Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2526,7 +2526,7 @@
       "url": "https://apply.refline.ch/514915/2755/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:26.678Z",
+      "crawledAt": "2026-08-21T21:30:14.744Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2628,7 +2628,7 @@
       "url": "https://apply.refline.ch/514915/2803/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:26.007Z",
+      "crawledAt": "2026-08-21T21:30:14.064Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2712,7 +2712,7 @@
       "url": "https://apply.refline.ch/514915/2802/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:25.339Z",
+      "crawledAt": "2026-08-21T21:30:13.386Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2795,7 +2795,7 @@
       "url": "https://apply.refline.ch/514915/2800/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:24.668Z",
+      "crawledAt": "2026-08-21T21:30:12.706Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2880,7 +2880,7 @@
       "url": "https://apply.refline.ch/514915/2788/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:23.996Z",
+      "crawledAt": "2026-08-21T21:30:12.030Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2963,7 +2963,7 @@
       "url": "https://apply.refline.ch/514915/2799/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:23.326Z",
+      "crawledAt": "2026-08-21T21:30:11.351Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3049,7 +3049,7 @@
       "url": "https://apply.refline.ch/514915/2711/pub/19/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:22.653Z",
+      "crawledAt": "2026-08-21T21:30:10.672Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3089,15 +3089,15 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:19:36.478Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -3134,7 +3134,7 @@
       "url": "https://apply.refline.ch/514915/2795/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:21.979Z",
+      "crawledAt": "2026-08-21T21:30:09.990Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3219,7 +3219,7 @@
       "url": "https://apply.refline.ch/514915/2793/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:21.293Z",
+      "crawledAt": "2026-08-21T21:30:08.228Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3302,7 +3302,7 @@
       "url": "https://apply.refline.ch/514915/2783/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:20.620Z",
+      "crawledAt": "2026-08-21T21:30:07.542Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3409,7 +3409,7 @@
       "url": "https://apply.refline.ch/514915/2791/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:19.950Z",
+      "crawledAt": "2026-08-21T21:30:06.855Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3494,7 +3494,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:58:18.267Z",
+      "crawledAt": "2026-08-21T21:30:06.168Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3565,8 +3565,8 @@
         "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
-      "firstSeenAt": "2026-04-13T10:48:34.939Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:48:34.939Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3580,367 +3580,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-4368fb4c7e41",
-      "slug": "streetkeeper-in-kantonale-verwaltung-graubunden-thusis",
-      "slugByLocale": {
-        "de": "strassenwart-in-kanton-gr-ch",
-        "it": "streetkeeper-in-kantonale-verwaltung-graubunden-thusis",
-        "en": "strassenwart-in-kanton-gr-ch",
-        "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Strassenwart/-in",
-      "titleByLocale": {
-        "de": "Strassenwart/-in",
-        "it": "Strassenwart/-in",
-        "en": "Streetkeeper/in",
-        "fr": "Gardien de rue/in"
-      },
-      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. November 2026 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-      "descriptionByLocale": {
-        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. November 2026 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-        "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici d’arte, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM).\n\nStiamo cercando il reparto manutenzione stradale nel distretto 7 Sois per 1. Novembre 2026 o su appuntamento\n\nCompiti\n• Esecuzione dei lavori di manutenzione stradale in un piccolo team di manutenzione\n\n• Servizio estivo e invernale\n\n• Lavori di pulizia e riparazione dopo eventi accidentali o naturali\n\n• Controllo delle condizioni stradali e degli impianti stradali\n\n• Pikettdienst (estate e inverno)\n\nRequisiti\n• Apprendistato completo in costruzione\n\n• Artigianato\n\n• Capacità di carico fisica\n\n• Gioia del lavoro di squadra\n\n• La buona conoscenza di diverse lingue cantonali è vantaggiosa",
-        "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 art buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work challenging and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM).\n\nWe are looking for the road maintenance department in district 7 Sois per 1. November 2026 or by appointment a road attendant\n\nTasks\n• Execution of road maintenance work in a small maintenance team\n\n• Summer and winter service\n\n• Clean-up and repair work after accidental or natural events\n\n• Control of road conditions and road installations\n\n• Pikettdienst (summer and winter)\n\nRequirements\n• Completed apprenticeship in construction\n\n• Craftsmanship\n\n• Physical load capacity\n\n• Joy of teamwork\n\n• Good knowledge of several cantonal languages is advantageous",
-        "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments d'art, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels jusqu'à 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail stimulant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. Pour cette raison, nous sommes engagés dans la gestion systématique de la santé au travail (MGB).\n\nNous recherchons le service d'entretien de la route dans le district 7 Sois per 1. Novembre 2026 ou sur rendez-vous un préposé à la route\n\nTâches\n• Exécution des travaux d ' entretien des routes dans une petite équipe d ' entretien\n\n• Service d'été et d'hiver\n\n• Travaux de nettoyage et de réparation après des événements accidentels ou naturels\n\n• Contrôle des conditions routières et des installations routières\n\n• Pikettdienst (été et hiver)\n\nExigences\n• Apprentissage dans la construction\n\n• Artisanat\n\n• Capacité de charge physique\n\n• La joie du travail d'équipe\n\n• Une bonne connaissance de plusieurs langues cantonales est avantageuse"
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2820/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:48:46.804Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://apply.refline.ch/514915/2820/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Tiefbauamt Graubünden, Bezirk 7 Thusis",
-      "applicationDeadline": "2026-09-13",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
-        "road-maintenance-worker-kantonale-verwaltung-graubunden-thusis",
-        "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
-        "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis",
-        "road-maintenance-officer-kantonale-verwaltung-graubunden-thusis",
-        "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis-0umb0q",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis-9ehx4t",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis-mgqmn8",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis-whtyv4",
-        "strassenwart-in-kanton-gr-ch",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "streetkeeper-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
-          "road-maintenance-worker-kantonale-verwaltung-graubunden-thusis",
-          "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
-          "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis",
-          "road-maintenance-officer-kantonale-verwaltung-graubunden-thusis",
-          "road-maintenance-in-kantonale-verwaltung-graubunden-thusis",
-          "strassenwart-in-kantonale-verwaltung-graubunden-thusis-0umb0q",
-          "strassenwart-in-kantonale-verwaltung-graubunden-thusis-9ehx4t",
-          "strassenwart-in-kantonale-verwaltung-graubunden-thusis-mgqmn8",
-          "strassenwart-in-kantonale-verwaltung-graubunden-thusis-whtyv4",
-          "strassenwart-in-kanton-gr-ch",
-          "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
-        ],
-        "en": [
-          "road-maintenance-worker-kantonale-verwaltung-graubunden-thusis"
-        ],
-        "fr": [
-          "gardien-de-rue-in-kantonale-verwaltung-graubunden-thusis-f3e3c1",
-          "strassenwart-in-kanton-gr-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-20T09:48:46.804Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kanton-gr-0d8dc215eed2",
-      "slug": "tecnologo-del-latte-tecnologo-del-latte-kantonale-verwaltung-graubunden-landquart",
-      "slugByLocale": {
-        "it": "tecnologo-del-latte-tecnologo-del-latte-kantonale-verwaltung-graubunden-landquart",
-        "en": "milk-technologist-milk-technologist-kantonale-verwaltung-graubunden-landquart",
-        "de": "milchtechnologin-milchtechnologe-kanton-gr-ch",
-        "fr": "technologue-technologue-du-lait-kantonale-verwaltung-graubunden-landquart"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Milchtechnologin / Milchtechnologe",
-      "titleByLocale": {
-        "it": "Tecnologo del latte/Tecnologo del latte",
-        "en": "Milk technologist/milk technologist",
-        "de": "Milchtechnologin / Milchtechnologe",
-        "fr": "Technologue/technologue du lait"
-      },
-      "description": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung eine Milchtechnologin oder einen Milchtechnologen\n\nAufgaben\n• Selbstständige Herstellung hochwertiger und innovativer Milchprodukte für das Tagungszentrum, die eigenen Hofläden und für weitere Kundinnen und Kunden\n\n• Produktion einer vielfältigen Palette an Spezialitäten aus hofeigener Kuh-, Ziegen- und Schafmilch, gemeinsam mit einer lernenden Person\n\n• Verantwortung für eine konstant hohe Produktqualität\n\n• Einbringen eigener Ideen zur Weiterentwicklung des Sortiments\n\n• Nach Möglichkeit: Mitwirkung bei Weiterbildungskursen\n\nAnforderungen\n• Abgeschlossene Ausbildung als Milchtechnologin/Milchtechnologe oder als Käserin/Käser\n\n• Berufserfahrung in der Käse- und / oder Milchverarbeitung von Vorteil\n\n• Erfahrung im Umgang mit verschiedenen Milcharten (Kuh, Schaf, Ziege) ist ein Plus\n\n• Flair für neue Markttrends und Einbringen innovativer Ideen für neue Produkte\n\n• Ausgeprägtes Hygienebewusstsein sowie gute Kenntnisse der Lebensmittelvorschriften\n\n• Selbstständige, lösungsorientierte und strukturierte Arbeitsweise\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil.",
-      "descriptionByLocale": {
-        "it": "Il Plantahof è un ufficio del Dipartimento di Economia e Affari Sociali e il centro di competenza per l'istruzione e la consulenza agricola nel Canton Grigioni. Oltre alla scuola professionale agricola, il Plantahof offre vari corsi, ulteriori corsi di formazione e conferenze ed è responsabile di una consulenza completa e della fornitura di conoscenze specialistiche a beneficio di Grisons e di aziende agricole e alpine Glarner e di altri ambienti interessati a tematiche agricole. Per questi scopi, gestisce anche la sua attività sperimentale e immobiliare in quattro diverse sedi insieme a due negozi di fattoria. Infine, ha un centro congressi con scuola di imbarco, sala conferenze e una struttura di ristorazione.\n\nStiamo cercando 1. Ottobre 2026 o su appuntamento un tecnologo del latte\n\nCompiti\n• Produzione indipendente di prodotti lattiero-caseari di alta qualità e innovativi per il centro congressi, i suoi negozi di fattoria e altri clienti\n\n• Produzione di una vasta gamma di specialità provenienti da mucca, capra e latte di pecora, insieme a una persona che impara\n\n• Responsabilità per una qualità sempre elevata del prodotto\n\n• Introdurre le proprie idee per l'ulteriore sviluppo della gamma\n\n• Dove possibile: partecipazione ai corsi CVT\n\nRequisiti\n• Formazione completa come tecnologo caseario o formaggio\n\n• Esperienza professionale nel formaggio e/o nella lavorazione del latte è benefica\n\n• L'esperienza nella gestione di diversi tipi di latte (cow, pecore, capra) è un plus\n\n• Flair per le nuove tendenze del mercato e l'introduzione di idee innovative per i nuovi prodotti\n\n• Forte consapevolezza dell'igiene e buona conoscenza delle normative alimentari\n\n• Metodo di lavoro indipendente, orientato alla soluzione e strutturato\n\n• La lingua di lavoro comune è il tedesco. La conoscenza di un'altra lingua cantonale è un vantaggio.",
-        "en": "The Plantahof is an office in the Department of Economics and Social Affairs and the competence center for agricultural education and advice in the Canton of Graubünden. In addition to the agricultural vocational school, the Plantahof offers various further courses, further education courses and conferences and is responsible for comprehensive advice and the provision of specialist knowledge for the benefit of Grisons and Glarner agricultural and Alpine farms and other circles involved in agricultural topics. For these purposes, he also runs his own experimental and estate operation at four different locations together with two farm shops. Finally, it has a conference centre with boarding school, lecture hall and a catering facility.\n\nWe are looking for 1. October 2026 or by appointment a milk technologist\n\nTasks\n• Independent production of high-quality and innovative milk products for the conference centre, its own farm shops and other customers\n\n• Production of a wide range of specialties from farm-owned cow, goat and sheep milk, together with a learning person\n\n• Responsibility for consistently high product quality\n\n• Introducing your own ideas for the further development of the range\n\n• Where possible: participation in CVT courses\n\nRequirements\n• Completed training as dairy technologist or cheesemaker\n\n• Professional experience in cheese and / or milk processing is beneficial\n\n• Experience in handling different types of milk (cow, sheep, goat) is a plus\n\n• Flair for new market trends and introducing innovative ideas for new products\n\n• Strong hygiene awareness and good knowledge of food regulations\n\n• Independent, solution-oriented and structured working method\n\n• The common working language is German. Knowledge of another cantonal language is an advantage.",
-        "de": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb.\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung eine Milchtechnologin oder einen Milchtechnologen\n\nAufgaben\n• Selbstständige Herstellung hochwertiger und innovativer Milchprodukte für das Tagungszentrum, die eigenen Hofläden und für weitere Kundinnen und Kunden\n\n• Produktion einer vielfältigen Palette an Spezialitäten aus hofeigener Kuh-, Ziegen- und Schafmilch, gemeinsam mit einer lernenden Person\n\n• Verantwortung für eine konstant hohe Produktqualität\n\n• Einbringen eigener Ideen zur Weiterentwicklung des Sortiments\n\n• Nach Möglichkeit: Mitwirkung bei Weiterbildungskursen\n\nAnforderungen\n• Abgeschlossene Ausbildung als Milchtechnologin/Milchtechnologe oder als Käserin/Käser\n\n• Berufserfahrung in der Käse- und / oder Milchverarbeitung von Vorteil\n\n• Erfahrung im Umgang mit verschiedenen Milcharten (Kuh, Schaf, Ziege) ist ein Plus\n\n• Flair für neue Markttrends und Einbringen innovativer Ideen für neue Produkte\n\n• Ausgeprägtes Hygienebewusstsein sowie gute Kenntnisse der Lebensmittelvorschriften\n\n• Selbstständige, lösungsorientierte und strukturierte Arbeitsweise\n\n• Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil.",
-        "fr": "Le Plantahof est un bureau du Département de l'économie et des affaires sociales et le centre de compétence pour l'éducation et les conseils agricoles dans le canton des Grisons. Outre l'école professionnelle agricole, le Plantahof propose divers cours complémentaires, des cours de perfectionnement et des conférences et est chargé de fournir des conseils complets et des connaissances spécialisées au profit des exploitations agricoles et alpines de Grisons et de Glarner et d'autres milieux concernés par les questions agricoles. À cette fin, il dirige également sa propre exploitation expérimentale et successorale à quatre endroits différents ainsi que deux magasins agricoles. Enfin, il dispose d'un centre de conférences avec pensionnat, salle de conférence et un service de restauration.\n\nNous cherchons 1. Octobre 2026 ou sur rendez-vous un technologue du lait\n\nTâche\n• Production indépendante de produits laitiers innovants et de qualité pour le centre de conférences, ses propres magasins agricoles et d'autres clients\n\n• Production d'un large éventail de spécialités du lait de vache, de chèvre et de mouton appartenant à l'exploitation, ainsi que d'une personne apprenante\n\n• Responsabilité en matière de qualité des produits\n\n• Présenter vos propres idées pour le développement futur de la gamme\n\n• Dans la mesure du possible: participation aux cours de FPC\n\nExigences\n• Formation complétée en tant que technologue ou fromagerie laitière\n\n• Expérience professionnelle dans la transformation du fromage et/ou du lait est bénéfique\n\n• L'expérience dans la manipulation de différents types de lait (coq, ovin, chèvre) est un plus\n\n• Flair pour les nouvelles tendances du marché et l'introduction d'idées innovantes pour les nouveaux produits\n\n• Forte sensibilisation à l'hygiène et bonne connaissance de la réglementation alimentaire\n\n• Méthode de travail indépendante, orientée vers la solution et structurée\n\n• La langue de travail commune est l'allemand. La connaissance d'une autre langue cantonale est un avantage."
-      },
-      "location": "Landquart",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2801/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:48:35.602Z",
-      "addressLocality": "Landquart",
-      "postalCode": "7302",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-06",
-      "applyUrl": "https://apply.refline.ch/514915/2801/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Plantahof",
-      "applicationDeadline": "2026-08-20",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60-100%",
-      "previousSlugs": [
-        "milchtechnologin-milchtechnologe-kanton-gr-ch",
-        "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "milchtechnologin-milchtechnologe-kanton-gr-ch",
-          "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
-        ],
-        "en": [
-          "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
-        ],
-        "fr": [
-          "milchtechnologin-milchtechnologe-kantonale-verwaltung-graubunden-landquart"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:34:50.767Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
-      "id": "kanton-gr-0a53c6687439",
-      "slug": "jurist-in-im-rechtsdienst-strasse-wald-e-wild-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "jurist-in-im-rechtsdienst-strasse-wald-e-wild-kantonale-verwaltung-graubunden-chur",
-        "en": "lawyer-in-the-legal-service-street-forest-and-wildlife-kantonale-verwaltung-graubunden-chur",
-        "de": "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch",
-        "fr": "avocat-au-service-juridique-rue-foret-et-faune-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Jurist/-in im Rechtsdienst Strasse, Wald und Wild",
-      "titleByLocale": {
-        "it": "Jurist/-in im Rechtsdienst Strasse, Wald e Wild",
-        "en": "Lawyer in the legal service street, forest and wildlife",
-        "de": "Jurist/-in im Rechtsdienst Strasse, Wald und Wild",
-        "fr": "Avocat au service juridique rue, forêt et faune"
-      },
-      "description": "Das Departement für Infrastruktur, Energie und Mobilität (DIEM) umfasst die Bereiche Energie, Wasserkraft, Naturgefahren, öffentlicher Verkehr, Hoch- und Tiefbau, Beschaffungswesen, Wald sowie Jagd, Grossraubtiere und Fischerei. Es gliedert sich in fünf Dienststellen sowie das Departementssekretariat, welches als zentrales Stabsorgan die Departementsvorsteherin bei der fachlichen und politischen Führung des Departementes umfassend unterstützt.\n\nDas Departementssekretariat erbringt seine Dienstleistungen im neuen Verwaltungszentrum \"sinergia\" unmittelbar neben dem Bahnhof Chur West in einem modernen, offenen und digital geprägten Arbeitsumfeld. Zudem besteht die Möglichkeit, teilweise im Homeoffice zu arbeiten.\n\nWir suchen für das Departementssekretariats des DIEM per 1. November 2026 oder nach Vereinbarung eine/n Juristin oder Juristen.\n\nAufgaben\n• Rechtliche Betreuung der dem Departement zugewiesenen Geschäfte mit Schwerpunkt auf den Themen Wald und Schutz vor Naturgefahren\n\n• Punktuelle Unterstützung in den Bereichen Jagd und Fischerei sowie Tiefbau\n\n• Sicherstellung eines geordneten Geschäftsablaufs mit den für die rechtliche Betreuung zugewiesenen Dienststellen\n\n• Verfassen von Anträgen, Verfügungen, Verträgen, Berichten und Stellungnahmen sowie Entwürfen zu Botschaften, parlamentarischen Vorstössen und Rechtserlassen in den zugewiesenen Bereichen\n\n• Bearbeitung von Beschwerden und Verfassen von Rechtsschriften zuhanden der Gerichte\n\nAnforderungen\n• Rechtswissenschaftliche Hochschulausbildung, Zusatzausbildung von Vorteil\n\n• Praktische Erfahrungen im Umfeld einer öffentlichen Verwaltung wünschenswert\n\n• Fähigkeit, komplexe Sachverhalte entscheidungsreif aufzuarbeiten\n\n• Hohe Eigenmotivation, Initiative, Belastbarkeit und Teamfähigkeit\n\n• Gute kommunikative Fähigkeiten\n\n• Einwandfreie Beherrschung der deutschen Sprache wird vorausgesetzt\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-      "descriptionByLocale": {
-        "it": "Il Dipartimento di Infrastrutture, Energia e Mobilità (DIEM) copre l'energia, l'energia idroelettrica, i pericoli naturali, i trasporti pubblici, l'ingegneria civile, gli appalti, la silvicoltura, la caccia, i predatori su larga scala e la pesca. Esso è diviso in cinque dipartimenti e il segretariato dipartimentale, che, come l'organismo centrale del personale, fornisce un supporto completo per la testa dipartimentale nella leadership tecnica e politica del dipartimento.\n\nIl segretariato dipartimentale fornisce i suoi servizi nel nuovo centro amministrativo \"sinergia\" immediatamente vicino alla stazione di Chur West in un ambiente di lavoro moderno, aperto e digitale. È anche possibile lavorare parzialmente nell'ufficio di casa.\n\nStiamo cercando un avvocato per il segretariato dipartimentale del DIEM il 1o novembre 2026 o d'accordo.\n\nCompiti\n• Controllo legale delle operazioni assegnate al dipartimento con particolare attenzione alla silvicoltura e alla protezione contro i pericoli naturali\n\n• Supporto specifico per la caccia, la pesca e l'ingegneria civile\n\n• Garantire un processo di business ordinato con i servizi assegnati al supporto legale\n\n• Progetti di proposte, decisioni, contratti, relazioni e pareri e progetti di ambasciate, iniziative parlamentari e atti giuridici nei settori assegnati\n\n• Gestione delle denunce e redazione dei documenti legali per i tribunali\n\nRequisiti\n• Istruzione superiore in diritto, formazione supplementare benefico\n\n• Esperienza pratica in un ambiente di pubblica amministrazione auspicabile\n\n• Capacità di prendere decisioni su questioni complesse\n\n• Alta automotivazione, iniziativa, resilienza e lavoro di squadra\n\n• Buone capacità di comunicazione\n\n• È richiesto un comando perfetto della lingua tedesca\n\n• La buona conoscenza di diverse lingue cantonali è vantaggiosa",
-        "en": "The Department of Infrastructure, Energy and Mobility (DIEM) covers energy, hydropower, natural hazards, public transport, civil engineering, procurement, forestry, hunting, large-scale predators and fisheries. It is divided into five departments as well as the departmental secretariat, which, as the central staff body, provides comprehensive support for the departmental head in the technical and political leadership of the department.\n\nThe departmental secretariat provides its services in the new administrative centre \"sinergia\" immediately next to the Chur West station in a modern, open and digital working environment. It is also possible to work partially in the home office.\n\nWe are looking for a lawyer for the Departmental Secretariat of DIEM on 1 November 2026 or by agreement.\n\nTasks\n• Legal supervision of the operations assigned to the department with a focus on forestry and protection against natural hazards\n\n• Specific support for hunting, fishing and civil engineering\n\n• Ensuring an orderly business process with the services assigned to legal support\n\n• Drafting motions, decisions, contracts, reports and opinions and drafts of embassies, parliamentary initiatives and legal acts in the assigned areas\n\n• Handling of complaints and drafting of legal documents for the courts\n\nRequirements\n• Higher education in law, additional training beneficial\n\n• Practical experience in a public administration environment desirable\n\n• Ability to take decisions on complex issues\n\n• High self-motivation, initiative, resilience and teamwork\n\n• Good communication skills\n\n• A perfect command of the German language is required\n\n• Good knowledge of several cantonal languages is advantageous",
-        "de": "Das Departement für Infrastruktur, Energie und Mobilität (DIEM) umfasst die Bereiche Energie, Wasserkraft, Naturgefahren, öffentlicher Verkehr, Hoch- und Tiefbau, Beschaffungswesen, Wald sowie Jagd, Grossraubtiere und Fischerei. Es gliedert sich in fünf Dienststellen sowie das Departementssekretariat, welches als zentrales Stabsorgan die Departementsvorsteherin bei der fachlichen und politischen Führung des Departementes umfassend unterstützt.\n\nDas Departementssekretariat erbringt seine Dienstleistungen im neuen Verwaltungszentrum \"sinergia\" unmittelbar neben dem Bahnhof Chur West in einem modernen, offenen und digital geprägten Arbeitsumfeld. Zudem besteht die Möglichkeit, teilweise im Homeoffice zu arbeiten.\n\nWir suchen für das Departementssekretariats des DIEM per 1. November 2026 oder nach Vereinbarung eine/n Juristin oder Juristen.\n\nAufgaben\n• Rechtliche Betreuung der dem Departement zugewiesenen Geschäfte mit Schwerpunkt auf den Themen Wald und Schutz vor Naturgefahren\n\n• Punktuelle Unterstützung in den Bereichen Jagd und Fischerei sowie Tiefbau\n\n• Sicherstellung eines geordneten Geschäftsablaufs mit den für die rechtliche Betreuung zugewiesenen Dienststellen\n\n• Verfassen von Anträgen, Verfügungen, Verträgen, Berichten und Stellungnahmen sowie Entwürfen zu Botschaften, parlamentarischen Vorstössen und Rechtserlassen in den zugewiesenen Bereichen\n\n• Bearbeitung von Beschwerden und Verfassen von Rechtsschriften zuhanden der Gerichte\n\nAnforderungen\n• Rechtswissenschaftliche Hochschulausbildung, Zusatzausbildung von Vorteil\n\n• Praktische Erfahrungen im Umfeld einer öffentlichen Verwaltung wünschenswert\n\n• Fähigkeit, komplexe Sachverhalte entscheidungsreif aufzuarbeiten\n\n• Hohe Eigenmotivation, Initiative, Belastbarkeit und Teamfähigkeit\n\n• Gute kommunikative Fähigkeiten\n\n• Einwandfreie Beherrschung der deutschen Sprache wird vorausgesetzt\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-        "fr": "Le Département des infrastructures, de l'énergie et de la mobilité (DIEM) couvre l'énergie, l'hydroélectricité, les risques naturels, les transports publics, le génie civil, les achats, la foresterie, la chasse, les prédateurs à grande échelle et la pêche. Il est divisé en cinq départements ainsi que le secrétariat du département, qui, en tant qu ' organe central du personnel, fournit un appui complet au chef du département dans la direction technique et politique du département.\n\nLe secrétariat départemental fournit ses services dans le nouveau centre administratif \"sinergia\" immédiatement à côté de la station Chur West dans un environnement de travail moderne, ouvert et numérique. Il est également possible de travailler partiellement au bureau à domicile.\n\nNous cherchons un avocat pour le Secrétariat départemental du DIEM le 1er novembre 2026 ou par accord.\n\nTâche\n• Supervision juridique des opérations assignées au département en mettant l'accent sur la foresterie et la protection contre les risques naturels\n\n• Soutien spécifique à la chasse, à la pêche et au génie civil\n\n• Assurer un processus opérationnel ordonné avec les services affectés au soutien juridique\n\n• Propositions, décisions, contrats, rapports et avis et projets d'ambassades, d'initiatives parlementaires et d'actes juridiques dans les domaines concernés\n\n• Traitement des plaintes et rédaction des documents juridiques destinés aux tribunaux\n\nExigences\n• Enseignement supérieur en droit, formation complémentaire bénéfique\n\n• Expérience pratique dans un environnement d'administration publique souhaitable\n\n• Capacité de prendre des décisions sur des questions complexes\n\n• Haute motivation, initiative, résilience et travail d'équipe\n\n• Bonnes compétences en communication\n\n• Une maîtrise parfaite de la langue allemande est nécessaire\n\n• Une bonne connaissance de plusieurs langues cantonales est avantageuse"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2796/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:48:31.196Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://apply.refline.ch/514915/2796/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Departementssekretariat DIEM",
-      "applicationDeadline": "2026-08-20",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
-        ],
-        "en": [
-          "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
-        ],
-        "fr": [
-          "jurist-in-im-rechtsdienst-strasse-wald-und-wild-kanton-gr-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-30T11:16:46.668Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "kanton-gr-2521bcc974e0",
-      "slug": "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "specialist-caregivers-riconoscimento-kantonale-verwaltung-graubunden-chur",
-        "en": "specialist-caregivers-recognition-contributions-kantonale-verwaltung-graubunden-chur",
-        "de": "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-        "fr": "aides-specialisees-contributions-de-reconnaissance-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Fachmitarbeiter/-in betreuende Bezugspersonen / Anerkennungsbeiträge",
-      "titleByLocale": {
-        "it": "Specialist caregivers / Riconoscimento",
-        "en": "Specialist caregivers / Recognition contributions",
-        "de": "Fachmitarbeiter/-in betreuende Bezugspersonen / Anerkennungsbeiträge",
-        "fr": "Aides spécialisées / Contributions de reconnaissance"
-      },
-      "description": "Das Gesundheitsamt ist eine zentrale Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Es setzt die bundes- und kantonalrechtlichen Vorgaben um und leistet damit einen wesentlichen Beitrag zu einer qualitativ hochstehenden, sicheren und zukunftsfähigen Gesundheitsversorgung im Kanton.\n\nDas Amt gliedert sich in folgende Fachbereiche: Bewilligungen und Aufsicht über Gesundheitsberufe und -institutionen, kantonsärztlicher Dienst, Heilmittel- und Betäubungsmittelkontrolle, Finanzen und Controlling, Gesundheitsförderung und Prävention sowie der Sanitätsnotruf Graubünden.\n\nDie Abteilung Alters- und Langzeitpflege setzt ab Januar 2027 die im Rahmen der Teilrevision des Krankenpflegegesetzes festgelegte Auszahlung von Betreuungsbeiträgen um.\n\nAufgaben\n• Beratung von Antragstellenden, betreuungsbedürftigen Personen und anerkannten Stellen für den Bereich der Anerkennungsbeiträge Betreuung\n\n• Verantwortung für den gesamten Antragsprozess, von der Entgegennahme, Prüfung und Bearbeitung der Anträge und Anspruchsvoraussetzungen, bis zur Auszahlung in Zusammenarbeit mit internen und externen Stellen\n\n• Führung der elektronischen Dossiers\n\nAnforderungen\n• Sie haben einen Abschluss im Bereich Pflege, medizinische Praxisassistenz, Soziales oder einer vergleichbaren Ausbildung\n\n• Sie bringen mehrjährige Berufserfahrung im Bereich Pflege oder Soziales, Beratung oder ähnlichem mit\n\n• Sie haben sowohl Freude am Umgang und Kontakt mit betreuenden Bezugspersonen, Leistungsempfängern, Leistungserbringern als auch an Abklärungen im Bereich der Rahmenbedingungen und freuen sich, mit uns diese Stelle aufzubauen und weiterzuentwickeln\n\n• Sie sind versiert im Umgang mit MS Office-Programmen respektive M365 und setzen die gängigen Anwendungen sicher und effizient ein, ausserdem sind Sie erfahren im Umgang mit digitalen Fachapplikationen\n\n• Sie kommunizieren stilsicher auf Deutsch, sowohl mündlich als auch schriftlich. Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
-      "descriptionByLocale": {
-        "it": "L'Ufficio sanitario è un dipartimento centrale del Dipartimento di Giustizia, Sicurezza e Salute del Cantone dei Grigioni. Realizza i requisiti di legge federale e cantonale e contribuisce in modo significativo all'assistenza sanitaria di alta qualità, sicura e sostenibile nel Cantone.\n\nL'Ufficio è suddiviso nelle seguenti aree specializzate: approvazione e supervisione di professioni e istituzioni sanitarie, assistenza medica cantonale, controllo dei medicinali e dei narcotici, finanza e controllo, promozione e prevenzione della salute, nonché la chiamata medica di emergenza Graubünden.\n\nDal gennaio 2027, il Dipartimento di Old-Age e Long-Term Care implementerà il pagamento dei contributi di assistenza stipulati nel quadro della revisione parziale della legge di infermieristica.\n\nCompiti\n• Consulenza di candidati, persone che hanno bisogno di assistenza e di enti riconosciuti nel settore dei contributi di riconoscimento\n\n• Responsabilità per l'intero processo di applicazione, dal ricevimento, dall'esame e dal trattamento delle domande e dei requisiti di ammissibilità, al pagamento in collaborazione con gli organismi interni ed esterni\n\n• Gestione dei dossier elettronici\n\nRequisiti\n• Hai una laurea in allattamento, assistenza medica, affari sociali o formazione comparabile\n\n• Hai diversi anni di esperienza professionale nel campo della cura o degli affari sociali, della consulenza o simili\n\n• Ti piace trattare e contattare caregiver, destinatari, fornitori di servizi e chiarimenti nell'ambito delle condizioni quadro e sono felici di stabilire e sviluppare questa posizione con noi.\n\n• Si è ben versato nel trattare con programmi MS Office o M365 e utilizzare le applicazioni comuni in modo sicuro ed efficiente, e si è anche sperimentato nel trattare con applicazioni specialistiche digitali.\n\n• Comunicano con stile in tedesco, sia verbalmente che per iscritto. Buona conoscenza di diverse lingue cantonali è un vantaggio",
-        "en": "The Health Office is a central department of the Department of Justice, Security and Health of the Canton of Graubünden. It implements federal and cantonal law requirements and thus makes a significant contribution to high-quality, secure and sustainable health care in the canton.\n\nThe Office is divided into the following specialist areas: approvals and supervision of health professions and institutions, cantonal medical service, control of medicinal products and narcotics, finance and controlling, health promotion and prevention as well as the emergency medical call Graubünden.\n\nFrom January 2027, the Department of Old-Age and Long-Term Care will implement the payment of care contributions stipulated in the framework of the partial revision of the Nursing Act.\n\nTasks\n• Advising applicants, persons in need of care and recognised bodies in the field of recognition contributions\n\n• Responsibility for the entire application process, from receipt, examination and processing of applications and eligibility requirements, to payment in cooperation with internal and external bodies\n\n• Management of electronic dossiers\n\nRequirements\n• You have a degree in nursing, medical practice assistance, social affairs or comparable training\n\n• You have several years of professional experience in the field of care or social affairs, counselling or similar\n\n• You enjoy dealing with and contacting caregivers, recipients, service providers as well as clarifications in the area of framework conditions and are happy to establish and develop this position with us.\n\n• You are well versed in dealing with MS Office programs or M365 and use the common applications safely and efficiently, and you are also experienced in dealing with digital specialist applications.\n\n• They communicate stylishly in German, both verbally and in writing. Good knowledge of several cantonal languages is an advantage",
-        "de": "Das Gesundheitsamt ist eine zentrale Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Es setzt die bundes- und kantonalrechtlichen Vorgaben um und leistet damit einen wesentlichen Beitrag zu einer qualitativ hochstehenden, sicheren und zukunftsfähigen Gesundheitsversorgung im Kanton.\n\nDas Amt gliedert sich in folgende Fachbereiche: Bewilligungen und Aufsicht über Gesundheitsberufe und -institutionen, kantonsärztlicher Dienst, Heilmittel- und Betäubungsmittelkontrolle, Finanzen und Controlling, Gesundheitsförderung und Prävention sowie der Sanitätsnotruf Graubünden.\n\nDie Abteilung Alters- und Langzeitpflege setzt ab Januar 2027 die im Rahmen der Teilrevision des Krankenpflegegesetzes festgelegte Auszahlung von Betreuungsbeiträgen um.\n\nAufgaben\n• Beratung von Antragstellenden, betreuungsbedürftigen Personen und anerkannten Stellen für den Bereich der Anerkennungsbeiträge Betreuung\n\n• Verantwortung für den gesamten Antragsprozess, von der Entgegennahme, Prüfung und Bearbeitung der Anträge und Anspruchsvoraussetzungen, bis zur Auszahlung in Zusammenarbeit mit internen und externen Stellen\n\n• Führung der elektronischen Dossiers\n\nAnforderungen\n• Sie haben einen Abschluss im Bereich Pflege, medizinische Praxisassistenz, Soziales oder einer vergleichbaren Ausbildung\n\n• Sie bringen mehrjährige Berufserfahrung im Bereich Pflege oder Soziales, Beratung oder ähnlichem mit\n\n• Sie haben sowohl Freude am Umgang und Kontakt mit betreuenden Bezugspersonen, Leistungsempfängern, Leistungserbringern als auch an Abklärungen im Bereich der Rahmenbedingungen und freuen sich, mit uns diese Stelle aufzubauen und weiterzuentwickeln\n\n• Sie sind versiert im Umgang mit MS Office-Programmen respektive M365 und setzen die gängigen Anwendungen sicher und effizient ein, ausserdem sind Sie erfahren im Umgang mit digitalen Fachapplikationen\n\n• Sie kommunizieren stilsicher auf Deutsch, sowohl mündlich als auch schriftlich. Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
-        "fr": "Le Bureau de la santé est un département central du Département de la justice, de la sécurité et de la santé du canton des Grisons. Il applique les lois fédérales et cantonales et apporte ainsi une contribution significative à des soins de santé de qualité, sûrs et durables dans le canton.\n\nL'Office est divisé en domaines spécialisés suivants: approbation et supervision des professions et institutions de santé, service médical cantonal, contrôle des médicaments et des stupéfiants, finances et contrôle, promotion et prévention de la santé, ainsi que l'appel médical d'urgence Graubünden.\n\nÀ compter de janvier 2027, le ministère de la Vieillesse et des Soins de longue durée mettra en oeuvre le paiement des cotisations de soins stipulées dans le cadre de la révision partielle de la Loi sur les soins infirmiers.\n\nTâche\n• Conseiller les demandeurs, les personnes ayant besoin de soins et les organismes reconnus dans le domaine des contributions de reconnaissance\n\n• Responsabilité de l'ensemble du processus de demande, de la réception, de l'examen et du traitement des demandes et des conditions d'éligibilité, au paiement en coopération avec les organismes internes et externes\n\n• Gestion des dossiers électroniques\n\nExigences\n• Vous avez un diplôme en soins infirmiers, assistance médicale, affaires sociales ou formation comparable\n\n• Vous avez plusieurs années d'expérience professionnelle dans le domaine des soins ou des affaires sociales, du conseil ou d'autres domaines similaires\n\n• Vous aimez traiter avec les soignants, les bénéficiaires, les fournisseurs de services et communiquer avec eux, ainsi que des précisions dans le domaine des conditions-cadres, et vous êtes heureux d'établir et de développer cette position avec nous.\n\n• Vous êtes bien renseigné dans le traitement des programmes MS Office ou M365 et utilisez les applications communes en toute sécurité et efficacement, et vous êtes également expérimenté dans le traitement des applications numériques spécialisées.\n\n• Ils communiquent élégamment en allemand, verbalement et par écrit. Une bonne connaissance de plusieurs langues cantonales est un avantage"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2790/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:48:29.910Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://apply.refline.ch/514915/2790/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Gesundheitsamt",
-      "applicationDeadline": "2026-08-20",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-        "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kanton-gr-ch",
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
-        ],
-        "en": [
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
-        ],
-        "fr": [
-          "fachmitarbeiter-in-betreuende-bezugspersonen-anerkennungsbeitrage-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T12:33:19.361Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }
