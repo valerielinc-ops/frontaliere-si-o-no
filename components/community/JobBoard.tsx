@@ -5418,9 +5418,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
 
  const formatSalary = (job: JobListing) => {
- if (!job.salaryMin) return null;
- const min = (job.salaryMin / 1000).toFixed(0);
- const max = job.salaryMax ? (job.salaryMax / 1000).toFixed(0) : null;
+ const salaryMin = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue);
+ if (!salaryMin || !Number.isFinite(salaryMin)) return null;
+ const salaryMax = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue);
+ const min = (salaryMin / 1000).toFixed(0);
+ const max = (salaryMax && Number.isFinite(salaryMax)) ? (salaryMax / 1000).toFixed(0) : null;
  return max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
  };
 

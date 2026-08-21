@@ -322,8 +322,8 @@ function resolveAvatarSrc(job) {
 // Format a job salary (annual / monthly / hourly) into a compact, locale-aware label.
 // Returns null if the job has no salary data — caller should not render the chip.
 function formatSalary(job, locale = 'it') {
-  const min = Number(job.salaryMin) || 0;
-  const max = Number(job.salaryMax) || 0;
+  const min = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue) || 0;
+  const max = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue) || 0;
   if (!min && !max) return null;
   const currency = String(job.currency || job.baseSalary?.currency || 'CHF').toUpperCase();
   const unit = String(job.baseSalary?.value?.unitText || 'YEAR').toUpperCase();
