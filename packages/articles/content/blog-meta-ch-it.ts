@@ -3727,6 +3727,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.manager-casse-malattia-commissione.title': 'Salari manager casse malattia: no della Commissione',
     'blog.article.manager-casse-malattia-commissione.excerpt': 'CSSS-N e Consiglio federale divisi sui compensi dei vertici delle casse: 480mila CHF l\'anno è eccessivo. Commissione preferisce parametro su retribuzioni amministrative federali.',
     'blog.article.manager-casse-malattia-commissione.imageAlt': 'Berna, sede della politica federale svizzera e della Commissione della sanità',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Affitti Zurigo: diritto di locazione e contestazione',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Nel cantone di Zurigo valgono le norme federali sulla locazione: deposito massimo 3 mesi, disdetta con modulo ufficiale, contestazione canone entro 30 giorni.',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Veduta del centro di Zurigo con grattacieli e architettura moderna, simbolo del mercato immobiliare svizzero',
 };
 
 export default blogMetaChIt;

@@ -3727,6 +3727,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.manager-casse-malattia-commissione.title': 'Salaries manager sickness funds: no of the Commission',
     'blog.article.manager-casse-malattia-commissione.excerpt': 'CSSS-N and the Federal Council divided on the remuneration of the heads of the coffers: CHF 480,000 per year is excessive. Commission prefers benchmark on federal administrative salaries.',
     'blog.article.manager-casse-malattia-commissione.imageAlt': 'Bern, seat of Swiss federal politics and health commission decision-making',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Rentals Zurich: right to lease and dispute',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'In the canton of Zurich, the federal rules on leasing apply: maximum deposit 3 months, cancellation with official form, dispute within 30 days.',
+    'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Zurich city center with skyscrapers and modern architecture, symbol of Swiss housing market',
 };
 
 export default blogMetaChEn;
