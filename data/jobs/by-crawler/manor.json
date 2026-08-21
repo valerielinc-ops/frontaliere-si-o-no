@@ -1285,12 +1285,14 @@
       "id": "manor-4b2841d3763e",
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-        "collaboratore-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
+        "collaboratore-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food",
+        "collaborateur-trice-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-          "collaboratore-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
+          "collaboratore-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food",
+          "collaborateur-trice-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
@@ -1301,7 +1303,6 @@
       },
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -1317,7 +1318,8 @@
       },
       "addressLocality": "Nyon Collaborateurtrice caisse (Food)",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 100%",

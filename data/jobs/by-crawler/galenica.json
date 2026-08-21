@@ -2702,11 +2702,11 @@
         "fr": "Assistante en pharmacie (f/h/d)"
       },
       "id": "galenica-c526b16d9cd0",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-8cfc14"
+          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-8cfc14",
+          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
         ],
         "en": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj"
@@ -2719,7 +2719,8 @@
         "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
         "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern-nxnxqj",
         "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-8cfc14",
-        "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-8cfc14"
+        "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-8cfc14",
+        "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -2739,7 +2740,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Senior HR Consultant (f/h/d)",

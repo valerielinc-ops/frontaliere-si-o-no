@@ -8378,27 +8378,38 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40074",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kindergartenlehrperson-8-12-lektionen-kindergarten-und-primarschule-hasle-b-b-hasle-b-b-40074",
-        "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b",
-        "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
-        "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "kindergartenlehrperson-8-12-lektionen-kindergarten-und-primarschule-hasle-b-b-hasle-b-b-40074",
           "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b",
-          "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
+          "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
+          "professore-di-asilo-27-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss",
+          "deputy-kindergarten-teacher-27-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss-39784",
+          "stellvertretung-kindergartenlehrperson-27-lektionen-schule-stegmatt-lyss-39784",
+          "professeur-adjoint-de-maternelle-27-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39784"
         ],
         "en": [
-          "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
+          "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
+          "deputy-kindergarten-teacher-27-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss-39784"
         ],
         "fr": [
-          "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074"
+          "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
+          "professeur-adjoint-de-maternelle-27-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39784"
+        ],
+        "de": [
+          "stellvertretung-kindergartenlehrperson-27-lektionen-schule-stegmatt-lyss-39784"
         ]
       },
-      "firstSeenAt": "2026-08-20T10:08:41.090Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "kindergartenlehrperson-8-12-lektionen-kindergarten-und-primarschule-hasle-b-b-hasle-b-b-40074",
+        "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b",
+        "kindergartenlehrperson-8-12-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
+        "scuola-materna-insegnante-8-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hasle-b-40074",
+        "professore-di-asilo-27-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss",
+        "deputy-kindergarten-teacher-27-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lyss-39784",
+        "stellvertretung-kindergartenlehrperson-27-lektionen-schule-stegmatt-lyss-39784",
+        "professeur-adjoint-de-maternelle-27-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39784"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8410,7 +8421,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T10:08:41.090Z",
+      "needsRetranslation": true
     },
     {
       "id": "ksml-d400a145c4ef",
