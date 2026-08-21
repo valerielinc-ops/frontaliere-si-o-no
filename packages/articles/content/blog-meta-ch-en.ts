@@ -3646,6 +3646,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-appenzello-esterno-canoni-locazione.title': 'Rentals in Appenzello Externo: fees and rental rights',
     'blog.article.affitti-appenzello-esterno-canoni-locazione.excerpt': 'Guide to tenancy law in the Outer Appenzell Canton: security deposit, cancellation, dispute and federal tenant protections.',
     'blog.article.affitti-appenzello-esterno-canoni-locazione.imageAlt': 'Swiss residential street with historic rental buildings in autumn afternoon light',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.title': 'Rental market in the External Appenzell: average fees and rental rights',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.excerpt': 'The rental market in Outer Appenzell follows federal and cantonal regulations. The maximum security deposit is determined by cantonal laws.',
+    'blog.article.mercato-gli-affitti-appenzello-esterno.imageAlt': 'A Swiss tenant in Appenzello Esterno seeks justice for an unresolved rental.',
 };
 
 export default blogMetaChEn;

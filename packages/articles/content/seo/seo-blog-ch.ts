@@ -47288,6 +47288,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-gli-affitti-appenzello-esterno': {
+    title: 'Mercato degli affitti in Appenzello Esterno: canoni medi e diritto di locazione',
+    description: 'Il mercato degli affitti in Appenzello Esterno segue le norme federali e cantonali. Il deposito cauzionale massimo è determinato dalle leggi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, appenzello, esterno',
+    ogTitle: 'Mercato degli affitti in Appenzello Esterno: canoni medi e diritto di locazione',
+    ogDescription: 'Il mercato degli affitti in Appenzello Esterno segue le norme federali e cantonali. Il deposito cauzionale massimo è determinato dalle leggi cantonali.',
+    canonicalPath: '/articoli-svizzera/mercato-gli-affitti-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato degli affitti in Appenzello Esterno: canoni medi e diritto di locazione",
+      "description": "Il mercato degli affitti in Appenzello Esterno segue le norme federali e cantonali. Il deposito cauzionale massimo è determinato dalle leggi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-gli-affitti-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un locatore svizzero di Appenzello Esterno si rivolge alla giustizia per un affitto irrisolto."
+      },
+      "datePublished": "2026-08-21T03:06:42+00:00",
+      "dateModified": "2026-08-21T03:06:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-gli-affitti-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

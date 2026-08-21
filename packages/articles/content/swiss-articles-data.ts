@@ -10936,6 +10936,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-gli-affitti-appenzello-esterno',
+    category: 'fiscale',
+    date: '2026-08-21T03:06:42.397Z',
+    image: '/images/blog/mercato-gli-affitti-appenzello-esterno.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
