@@ -1,0 +1,20 @@
+{
+  "companyKey": "gruppomulti",
+  "companyName": "Gruppo Multi",
+  "companyHost": "gruppomulti.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://gruppomulti.ch/carriera/"
+  ],
+  "detailTemplate": "/annuncio/*/",
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Dettagli offerta",
+    "Dettagli offerta",
+    "Dettagli offerta"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-08-21T18:40:05.791Z"
+}
