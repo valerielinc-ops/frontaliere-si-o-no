@@ -3658,6 +3658,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franchigie-riduzione-appenzello.title': 'Premi cassa malati Appenzello Interno: franchigie e riduzione',
     'blog.article.franchigie-riduzione-appenzello.excerpt': 'Franchigie da CHF 300 a 2.500 e procedure per ottenere il sussidio cantonale di riduzione. Guida operativa ai premi LAMal e ai criteri di accesso in Appenzello Interno.',
     'blog.article.franchigie-riduzione-appenzello.imageAlt': 'Documenti di assicurazione malattia svizzera e moduli di riduzione premi su scrivania in ufficio moderno',
+    'blog.article.domicilio-c-appenzello-interno.title': 'Domicilio C in Appenzello Interno: guida completa',
+    'blog.article.domicilio-c-appenzello-interno.excerpt': 'Permesso C ad Appenzello Interno: requisiti, criteri di integrazione, conoscenze linguistiche e procedura di domanda cantonale — guida pratica e scadenze.',
+    'blog.article.domicilio-c-appenzello-interno.imageAlt': 'Vista panoramica amministrativa svizzera: simbolo di procedimenti burocratici e permessi cantonali',
 };
 
 export default blogMetaChIt;

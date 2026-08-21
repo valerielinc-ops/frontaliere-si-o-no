@@ -154,7 +154,13 @@ async function sendStage2(items) {
       meta: { type: 'dormant_winback_stage2' },
     };
   });
-  const result = await sendEmailCascade(cascade, { concurrency: 3 });
+  // forceProvider: 'resend' (#6198) — Maileroo's tracking param is a single
+  // flag (opens+clicks together), so tracking:false above would also blind
+  // the open-rate measurement. Resend's send fn already sets open_tracking
+  // and click_tracking independently, so it's the only cascade provider that
+  // can honor "clicks off, opens on". Volume is weekly/low (dormant cohort
+  // only), well inside Resend's 50k/mo budget.
+  const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'resend' });
   logProviderSummary();
   return new Set(
     (result.failed || []).map((f) => String(f?.recipient?.email || f?.payload?.to?.[0] || '').toLowerCase()),

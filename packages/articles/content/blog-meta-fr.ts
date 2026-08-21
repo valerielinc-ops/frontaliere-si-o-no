@@ -10347,6 +10347,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-rogeno-lavorare-ticino.title': 'Vivre à Rogeno et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-rogeno-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Rogeno : fiscalité, nouvel accord frontalier, régime transitoire et gestion des déplacements vers le canton du Tessin.',
     'blog.article.vivere-rogeno-lavorare-ticino.imageAlt': 'Paysage résidentiel près de la frontière italo-suisse',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.title': 'Vivre à Bardello et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.excerpt': 'Frontalier catégorie G : Nouvel Accord 2024, impôt à la source uniquement Suisse, exonérations fiscales, Permis G, AVS/LPP, LAMal, déclaration 730.',
+    'blog.article.vivere-bardello-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de la région frontalière entre le Tessin et la province de Varèse avec paysage montagneux.',
 };
 
 export default blogMetaFr;
