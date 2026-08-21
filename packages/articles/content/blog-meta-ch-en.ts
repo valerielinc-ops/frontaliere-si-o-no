@@ -3661,6 +3661,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.domicilio-c-appenzello-interno.title': 'Address C in Appenzello Interno: complete guide',
     'blog.article.domicilio-c-appenzello-interno.excerpt': 'Permit C to Appenzello Interno: requirements, integration criteria, language skills and cantonal application procedure — practical guide and deadlines.',
     'blog.article.domicilio-c-appenzello-interno.imageAlt': 'Swiss administrative panoramic view: symbol of bureaucratic processes and cantonal permits',
+    'blog.article.permesso-l-appenzello-proroga.title': 'Permit L Appenzello Interno: expiry and extension',
+    'blog.article.permesso-l-appenzello-proroga.excerpt': 'The L permit allows for a temporary stay of up to one year. Here\'s how to check validity, extension and transition to permanent residence.',
+    'blog.article.permesso-l-appenzello-proroga.imageAlt': 'Swiss cantonal administrative office with immigration and residence permit documents',
 };
 
 export default blogMetaChEn;

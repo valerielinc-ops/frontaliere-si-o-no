@@ -3661,6 +3661,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.domicilio-c-appenzello-interno.title': 'Domizil C in Appenzell Innerrhoden: Komplette Anleitung',
     'blog.article.domicilio-c-appenzello-interno.excerpt': 'Ausweis C in Appenzell Innerrhoden: Voraussetzungen, Integrationskriterien, Sprachkenntnisse und kantonales Antragsverfahren — Praxisleitfaden und Fristen.',
     'blog.article.domicilio-c-appenzello-interno.imageAlt': 'Schweizer Verwaltungspanoramablick: Symbol für Verwaltungsverfahren und kantonale Genehmigungen',
+    'blog.article.permesso-l-appenzello-proroga.title': 'Genehmigung L Appenzell Innerrhoden: Ablauf und Verlängerung',
+    'blog.article.permesso-l-appenzello-proroga.excerpt': 'Die Erlaubnis L erlaubt einen vorübergehenden Aufenthalt von bis zu einem Jahr. So überprüfen Sie die Gültigkeit, die Verlängerung und den dauerhaften Aufenthalt.',
+    'blog.article.permesso-l-appenzello-proroga.imageAlt': 'Schweizer Kantonsamt mit Dokumenten zu Aufenthaltserlaubnissen und Migration',
 };
 
 export default blogMetaChDe;

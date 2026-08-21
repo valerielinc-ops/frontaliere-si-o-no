@@ -3661,6 +3661,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.domicilio-c-appenzello-interno.title': 'Domicile C à Appenzell Interne : guide complet',
     'blog.article.domicilio-c-appenzello-interno.excerpt': 'Permis C à Appenzell Interne : exigences, critères d\'intégration, connaissances linguistiques et procédure de demande cantonale — guide pratique et délais.',
     'blog.article.domicilio-c-appenzello-interno.imageAlt': 'Vue panoramique administrative suisse: symbole des procédures bureaucratiques et permis cantonaux',
+    'blog.article.permesso-l-appenzello-proroga.title': 'Permis L Appenzell Interne : échéance et prorogation',
+    'blog.article.permesso-l-appenzello-proroga.excerpt': 'Le permis L permet un séjour temporaire jusqu\'à un an. Voici comment vérifier la validité, la prolongation et le passage à un logement stable.',
+    'blog.article.permesso-l-appenzello-proroga.imageAlt': 'Bureau administratif cantonal suisse avec documents de permis de séjour et d\'immigration',
 };
 
 export default blogMetaChFr;
