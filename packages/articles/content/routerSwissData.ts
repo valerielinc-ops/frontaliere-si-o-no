@@ -1244,6 +1244,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-gli-affitti-appenzello-esterno': { it: 'mercato-gli-affitti-appenzello-esterno', en: 'appenzello-esterno-rental-market', de: 'appenzello-ostern-mietmarkt', fr: 'appenzello-est-marche-du-locaux' },
  'aprire-attivita-canton-appenzello-esterno': { it: 'aprire-attivita-canton-appenzello-esterno', en: 'open-business-appenzell-ausserrhoden', de: 'unternehmen-in-appenzell-ausserrhoden-eroffnen', fr: 'ouvrir-une-entreprise-appenzell-rhodes-interieures' },
  'imposte-cantonali-appenzello-interno': { it: 'imposte-cantonali-appenzello-interno', en: 'cantonal-taxes-appenzell-innerrhoden', de: 'kantonale-steuern-appenzell-innerrhoden', fr: 'impots-cantonaux-appenzell-rhodes-internes' },
+ 'franchigie-riduzione-appenzello': { it: 'franchigie-riduzione-appenzello', en: 'deductibles-reduction-appenzell-rhodes', de: 'selbstbehalte-ermaessigung-appenzell', fr: 'franchises-reduction-appenzell' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

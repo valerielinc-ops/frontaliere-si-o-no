@@ -47405,6 +47405,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigie-riduzione-appenzello': {
+    title: 'Premi cassa malati Appenzello Interno: franchigie e riduzione',
+    description: 'Scopri come funzionano i premi LAMal in Appenzello Interno, le franchigie disponibili e come richiedere il sussidio cantonale di riduzione premi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, appenzello',
+    ogTitle: 'Premi malati Appenzello: franchigie e come ottenere riduzione',
+    ogDescription: 'Guida completa ai premi dell\'assicurazione malattia in Appenzello Interno. Franchigie standardizzate da CHF 300 a 2.500, modelli alternativi e procedura per richiedere il sussidio cantonale di riduzione.',
+    canonicalPath: '/articoli-svizzera/franchigie-riduzione-appenzello/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Appenzello Interno: franchigie e riduzione",
+      "description": "Scopri come funzionano i premi LAMal in Appenzello Interno, le franchigie disponibili e come richiedere il sussidio cantonale di riduzione premi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigie-riduzione-appenzello.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di assicurazione malattia svizzera e moduli di riduzione premi su scrivania in ufficio moderno"
+      },
+      "datePublished": "2026-08-21T04:19:19+00:00",
+      "dateModified": "2026-08-21T04:19:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franchigie-riduzione-appenzello/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
