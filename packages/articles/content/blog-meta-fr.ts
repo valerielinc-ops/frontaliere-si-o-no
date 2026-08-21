@@ -10332,6 +10332,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.title': 'Vivre à Barni, travailler au Tessin : fiscalité frontalière',
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour les frontaliers qui vivent à Barni (IT) et travaillent au Tessin (CH) : Permis G, taxe à la source, restaurations, AVS, LPP et LAMal. Comment calculer le net.',
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.imageAlt': 'Vue sur Lugano et le lac, symbole de destination de travail pour les frontaliers de Barni',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Vivre à Pusiano et travailler au Tessin : le guide du frontalier',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'Du nouvel accord frontalier à l\'impôt à la source, des cotisations AVS/LPP au choix de la LAMal : tout ce qu\'il faut savoir pour déménager à Pusiano et travailler au Tessin.',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'Vue de Pusiano, commune de la province de Côme, avec les Alpes tessinoises en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -10329,6 +10329,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.title': 'Wohnen in Barni, Arbeiten im Tessin: Grenzbesteuerung',
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger, die in Barni (IT) leben und im Tessin (CH) arbeiten: Bewilligung G, Quellensteuer, Rückerstattungen, AHV, BVG und KVG. Wie berechnet man das Netto.',
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Lugano und den See, Arbeitsziel für Grenzgänger aus Barni',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Leben in Pusiano und Arbeiten im Tessin: Der Grenzgängerführer',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'Vom Neuen Grenzgängerabkommen über die Quellensteuer, die AHV/BVG-Beiträge bis hin zur WAHL des KVG: Alles, was Sie wissen müssen, um nach Pusiano zu ziehen und im Tessin zu arbeiten.',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Pusiano, Gemeinde in der Provinz Como, mit Tessiner Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -72728,6 +72728,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-pusiano-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Pusiano e lavorare in Ticino: la guida del frontaliere',
+    description: 'Guida pratica per frontalieri: fiscalità, AVS, LPP, LAMal. Procedura per il trasferimento a Pusiano e lavoro in Ticino. Convenzione italo-svizzera e Nuovo',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pusiano, lavorare, nuovo',
+    ogTitle: 'Vivere a Pusiano, lavorare in Ticino: guida del frontaliere',
+    ogDescription: 'Dal trasferimento a Pusiano all\'imposta alla fonte: scopri come vivere in Italia e lavorare in Svizzera. Fiscalità, permessi, AVS, LPP, LAMal e procedure step-by-step per frontalieri Ticino-Como.',
+    canonicalPath: '/articoli-frontaliere/vivere-pusiano-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Pusiano e lavorare in Ticino: la guida del frontaliere",
+      "description": "Guida pratica per frontalieri: fiscalità, AVS, LPP, LAMal. Procedura per il trasferimento a Pusiano e lavoro in Ticino. Convenzione italo-svizzera e Nuovo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-pusiano-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Pusiano, comune della provincia di Como, con le Alpi ticinesi sullo sfondo"
+      },
+      "datePublished": "2026-08-21T02:57:16+00:00",
+      "dateModified": "2026-08-21T02:57:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-pusiano-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
