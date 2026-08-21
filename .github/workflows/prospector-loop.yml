@@ -41,6 +41,9 @@ on:
       promote_max:
         description: 'Quanti crawler validati promuovere in produzione per giro'
         default: '10'
+      promote_min_days:
+        description: 'Giorni distinti di validazione richiesti (2 = normale; 1 SOLO per un giro di verifica)'
+        default: '2'
 
 concurrency:
   group: prospector-loop
@@ -127,4 +130,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
-        run: node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --open-pr
+          # Il cron non passa mai questo input, quindi resta 2: la leva e'
+          # raggiungibile solo da un dispatch manuale, e ogni uso finisce
+          # scritto nel titolo e nel corpo della PR prodotta.
+          PROMOTE_MIN_DAYS: ${{ github.event.inputs.promote_min_days || '2' }}
+        run: node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --min-days="$PROMOTE_MIN_DAYS" --open-pr

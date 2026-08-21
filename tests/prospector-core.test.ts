@@ -343,6 +343,16 @@ describe('promotion gate', () => {
     expect(res.reasons.join(' ')).toMatch(/pagine di dettaglio/);
   });
 
+  it('refuses a candidate already inside an open promotion PR', () => {
+    // Il passaggio a `production` vive sul branch della PR, non su main. Senza
+    // questo stato il giro successivo — che riparte da main fresco — lo
+    // riscaffolderebbe, aprendo una seconda PR con gli stessi file.
+    const inFlight = graded(2, { status: 'promoting', promotionPr: '6245' });
+    const res = evaluatePromotion(inFlight);
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/gia' in promozione nella PR 6245/);
+  });
+
   it('refuses an aggregator even when every number is perfect', () => {
     expect(evaluatePromotion(graded(2, { aggregator: true })).passed).toBe(false);
   });

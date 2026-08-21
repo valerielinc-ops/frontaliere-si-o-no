@@ -50,7 +50,21 @@ type CheckResult =
 // contract under test is unchanged; injecting the frontaliere reader alone
 // keeps these fixtures deterministic (the frontaliere corpus is the one they
 // were tuned against).
-const readAllSectionsMetaIt = () => read('services/locales/blog-meta-it.ts');
+// Corpus PINNATO, non quello vivo.
+//
+// Questa riga leggeva `services/locales/blog-meta-it.ts`, cioe' i 3'457 titoli
+// che la pipeline pubblica ogni giorno. Una suite che legge dati vivi non e'
+// riproducibile e non e' CI: la stessa identica revisione passava alle 15:47 e
+// falliva alle 18:38 perche' nel frattempo era uscito un articolo che collideva
+// con uno dei titoli «unrelated» qui sotto — su una PR che non toccava nulla di
+// tutto cio'. Il file portava gia' la cicatrice di un giro precedente dello
+// stesso problema (vedi il commento «Cathedral 2026-05-10» piu' sotto), sanato
+// spostando il titolo invece della causa.
+//
+// La fixture contiene voci reali nella forma reale, incluso il cluster
+// `salario-minimo` su cui poggiano i test di deduplica, ma ferme: il verde
+// dipende dal codice e non da cosa e' stato pubblicato stanotte.
+const readAllSectionsMetaIt = () => read('tests/__fixtures__/blog-meta-it-headline-check.ts');
 const runner = new Function(
   'readAllSectionsMetaIt',
   'tokenizeIt',

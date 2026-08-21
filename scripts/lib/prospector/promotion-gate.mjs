@@ -69,8 +69,14 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const good = history.filter((h) => h.verdict === 'good');
   const latest = history[history.length - 1] || {};
 
+  // `promoting` significa che il candidato e' gia' dentro una PR di promozione
+  // aperta. Riselezionarlo aprirebbe una SECONDA PR con gli stessi file, perche'
+  // il passaggio a `production` vive sul branch della PR e non su main finche'
+  // quella non merge — e il loop riparte ogni notte da main fresco.
   mark('status', candidate.status === 'promoted',
-    `stato ${candidate.status}, atteso "promoted"`);
+    candidate.status === 'promoting'
+      ? `gia' in promozione nella PR ${candidate.promotionPr || '(aperta)'}`
+      : `stato ${candidate.status}, atteso "promoted"`);
 
   mark('notAggregator', candidate.aggregator !== true,
     'e\' un aggregatore: porta inventario che hanno gia\' tutti');

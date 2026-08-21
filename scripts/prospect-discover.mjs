@@ -148,10 +148,16 @@ if (sources.includes('seco')) {
 if (sources.includes('osm')) {
   // Overpass is a volunteer-run service and a census changes over months, not
   // hours: sweeping all 26 cantons every night would be both rude and pointless.
-  // So the national run walks a rotating slice — the whole country is covered
-  // over a fortnight, and any single night costs Overpass a couple of queries.
+  // So the national run walks a rotating slice.
+  //
+  // The offset advances by a WHOLE slice per day, not by one: advancing by one
+  // makes consecutive days overlap by `slice - 1` cantons, so covering 26 takes
+  // 26 days and visits each canton twice. Advancing by the slice covers the
+  // country in `ceil(26 / slice)` days — a fortnight at slice 2 — with no
+  // repeats inside a cycle.
   const slice = Number(arg('osm-cantons', cantons.length > 4 ? 2 : cantons.length));
-  const offset = Number(arg('osm-offset', new Date().getUTCDate())) % Math.max(cantons.length, 1);
+  const day = Number(arg('osm-offset', Math.floor(Date.now() / 86400000)));
+  const offset = (day * slice) % Math.max(cantons.length, 1);
   const osmCantons = cantons.length > slice
     ? Array.from({ length: slice }, (_, i) => cantons[(offset + i) % cantons.length])
     : cantons;
