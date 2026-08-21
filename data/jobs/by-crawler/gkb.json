@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-08-21T09:48:04.675Z",
+  "assembledAt": "2026-08-21T21:38:38.992Z",
   "jobs": [
     {
       "id": "gkb-d9aa8d946fdc",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:01.949Z",
+      "crawledAt": "2026-08-21T21:38:35.464Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:01.074Z",
+      "crawledAt": "2026-08-21T21:38:32.251Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -150,8 +150,8 @@
           "senior-specialist-client-lifecycle-management-80-100-gkb-ch"
         ]
       },
-      "firstSeenAt": "2026-07-09T22:31:04.014Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-09T22:31:04.014Z",
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -197,7 +197,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:00.177Z",
+      "crawledAt": "2026-08-21T21:38:31.606Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -230,8 +230,8 @@
           "junior-specialist-asset-servicing-80-100-gkb-ch"
         ]
       },
-      "firstSeenAt": "2026-07-16T11:12:16.682Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T11:12:16.682Z",
       "salaryMin": 48500,
       "salaryMax": 85500,
       "baseSalary": {
@@ -277,7 +277,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:59.304Z",
+      "crawledAt": "2026-08-21T21:38:30.823Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -318,15 +318,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:08:38.847Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 69000,
+      "salaryMax": 121000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 69000,
+          "maxValue": 121000,
           "unitText": "YEAR"
         }
       },
@@ -363,7 +363,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1952/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:58.419Z",
+      "crawledAt": "2026-08-21T21:38:30.059Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -447,7 +447,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:57.553Z",
+      "crawledAt": "2026-08-21T21:38:29.297Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -485,8 +485,8 @@
           "studentenstelle-marketing-60-graubundner-kantonalbank-chur"
         ]
       },
-      "firstSeenAt": "2026-07-29T22:05:06.647Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T22:05:06.647Z",
       "salaryMin": 35100,
       "salaryMax": 62100,
       "baseSalary": {
@@ -532,7 +532,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:56.679Z",
+      "crawledAt": "2026-08-21T21:38:28.535Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -572,15 +572,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 165000,
+      "salaryMax": 290000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 165000,
+          "maxValue": 290000,
           "unitText": "YEAR"
         }
       },
@@ -617,7 +617,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:55.808Z",
+      "crawledAt": "2026-08-21T21:38:27.771Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -655,15 +655,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:12:45.906Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
+      "salaryMin": 79200,
+      "salaryMax": 139200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
+          "minValue": 79200,
+          "maxValue": 139200,
           "unitText": "YEAR"
         }
       },
@@ -700,7 +700,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:54.933Z",
+      "crawledAt": "2026-08-21T21:38:26.990Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -737,15 +737,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:11:36.147Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 165000,
+      "salaryMax": 290000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 165000,
+          "maxValue": 290000,
           "unitText": "YEAR"
         }
       },
@@ -782,7 +782,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:53.880Z",
+      "crawledAt": "2026-08-21T21:38:26.044Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -822,15 +822,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T22:03:08.013Z",
-      "salaryMin": 23000,
-      "salaryMax": 34800,
+      "salaryMin": 39600,
+      "salaryMax": 69600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 23000,
-          "maxValue": 34800,
+          "minValue": 39600,
+          "maxValue": 69600,
           "unitText": "YEAR"
         }
       },
