@@ -312,7 +312,7 @@ export default function CompanyFollowButton({
             {t('jobAlert.companyFollow.cta')}
           </button>
         </div>
-        <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="mt-2 text-[11px] text-muted leading-relaxed block" />
+        <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="mt-2 text-[10px] text-muted leading-snug block" />
         {captureError && <p className="mt-2 text-xs text-danger">{captureError}</p>}
       </form>
     );
@@ -351,7 +351,7 @@ export default function CompanyFollowButton({
           ? t('jobAlert.companyFollow.following', 'Stai seguendo questa azienda')
           : t('jobAlert.companyFollow.cta', 'Segui questa azienda')}
       </button>
-      <p className="mt-2 text-xs text-muted">
+      <p className="mt-2 text-[11px] text-muted">
         {following
           ? t('jobAlert.companyFollow.followingHint', 'Ti scriviamo quando pubblica un nuovo annuncio. Tocca per smettere di seguirla.')
           : t('jobAlert.companyFollow.hint', 'Ricevi una email quando questa azienda pubblica nuovi lavori.')}
@@ -365,7 +365,7 @@ export default function CompanyFollowButton({
         <ConsentNotice
           consentKey="communicationsOptIn"
           locale={locale}
-          className="mt-2 text-[11px] text-muted leading-relaxed block"
+          className="mt-2 text-[10px] text-muted leading-snug block"
         />
       )}
       {following && (

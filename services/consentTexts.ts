@@ -165,8 +165,38 @@ export type ConsentLocale = (typeof CONSENT_LOCALES)[number];
  * unable to find it.
  */
 export const CONSENT_PAGE_PATH = '/comunicazioni/';
-/** How that page is written inside the formula — bare host, no scheme, as a person would read it aloud. */
+/**
+ * How that page is NAMED inside the formula — one word per locale, and the
+ * word itself is the link.
+ *
+ * It used to be the bare host (`frontaliereticino.ch/comunicazioni`, 34
+ * characters) printed in full inside the sentence. That worked as ONE constant
+ * for all four locales precisely because a URL is not a word: nothing to
+ * translate, nothing to decline. Spelling the URL out cost 34 of the ~130
+ * characters the formula is allowed, and on a 390px screen those characters
+ * are a whole third line under every gate — measured on the live job detail,
+ * where the notice renders three times on one page.
+ *
+ * A word per locale is what a URL did not need: `See the condizioni` is the
+ * sentence a single constant would have produced in English.
+ */
+/**
+ * The OLD form, kept because the archived register entries below quote it: they
+ * record what was actually on screen when those consents were collected, so
+ * rewriting them would falsify the proof. Not used by any live formula.
+ */
 export const CONSENT_PAGE_LABEL = 'frontaliereticino.ch/comunicazioni';
+
+export const CONSENT_PAGE_LABELS: Readonly<Record<ConsentLocale, string>> = Object.freeze({
+  it: 'Condizioni',
+  en: 'Terms',
+  de: 'Bedingungen',
+  fr: 'Conditions',
+});
+
+/** The label for a visitor's locale, for the one component that links it. */
+export const consentPageLabel = (locale?: string | null): string =>
+  CONSENT_PAGE_LABELS[consentLocale(locale)];
 
 /**
  * HOW THIRD-PARTY ADVERTISING IS CONSENTED TO, now that the owner has decided.
@@ -301,10 +331,10 @@ const entry = (e: ConsentProofEntry): ConsentProofEntry =>
  * have made the register weaker instead of clearer.
  */
 const POINTER: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: `Condizioni: ${CONSENT_PAGE_LABEL} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
-  en: `Terms: ${CONSENT_PAGE_LABEL} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
-  de: `Bedingungen: ${CONSENT_PAGE_LABEL} (V. ${COMMUNICATIONS_PAGE_VERSION}).`,
-  fr: `Conditions : ${CONSENT_PAGE_LABEL} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  it: `${CONSENT_PAGE_LABELS.it} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  en: `${CONSENT_PAGE_LABELS.en} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  de: `${CONSENT_PAGE_LABELS.de} (V. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  fr: `${CONSENT_PAGE_LABELS.fr} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
 });
 
 /**
@@ -370,7 +400,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-19.1',
+    version: '2026-08-20.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -396,7 +426,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-19.1',
+    version: '2026-08-20.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -428,7 +458,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-08-19.1',
+    version: '2026-08-20.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
