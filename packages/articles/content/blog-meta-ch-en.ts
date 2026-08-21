@@ -3628,6 +3628,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-appenzello-esterno-domanda.title': 'Permit C External Appenzello: requirements and application',
     'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Minimum residence, language integration and procedure for residence permit C in the north-eastern canton: time, documents and step-by-step.',
     'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Swiss administrative office processing residence permit C application documents and forms',
+    'blog.article.permesso-l-cantone-appenzello-validita.title': 'Permit L External Appenzell: validity and renewal',
+    'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Permit L short duration in External Appenzello: duration 12 months, renewal criteria, transition to permit B, constraints related to the employer. Practical guide.',
+    'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'SEM office handling residence permit L applications for foreign workers in Appenzell Ausserrhoden',
 };
 
 export default blogMetaChEn;

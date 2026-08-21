@@ -3628,6 +3628,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-appenzello-esterno-domanda.title': 'C-Genehmigung Appenzell Ausserrhoden: Voraussetzungen und Antrag',
     'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Mindestaufenthalt, Sprachintegration und Verfahren für die Niederlassungsbewilligung C im Nordostkanton: Zeiten, Dokumente und Schritt-für-Schritt.',
     'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Schweizer Verwaltungsbüro bei der Bearbeitung von Aufenthaltserlaubnis-C-Anträgen',
+    'blog.article.permesso-l-cantone-appenzello-validita.title': 'Genehmigung L Appenzell Ausserrhoden: Gültigkeit und Erneuerung',
+    'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Kurzzeitbewilligung in Appenzell Ausserrhoden: Dauer 12 Monate, Verlängerungskriterien, Umstellung auf Bewilligung B, arbeitgeberbezogene Bindungen. Praxisleitfaden.',
+    'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'SEM-Büro für die Verwaltung von Kurzzeitaufenthalt-Permiten für ausländische Arbeitskräfte in Appenzell Ausserrhoden',
 };
 
 export default blogMetaChDe;
