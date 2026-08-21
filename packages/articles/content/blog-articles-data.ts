@@ -30936,6 +30936,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-pusiano-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-21T02:57:16.041Z',
+ image: '/images/blog/vivere-pusiano-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10330,6 +10330,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.title': 'Living in Barni, working in Ticino: border taxation',
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers living in Barni (IT) and working in Ticino (CH): G Permit, tax at source, refills, AVS, LPP and LAMal. How to calculate the net.',
     'blog.article.vivere-barni-lavorare-ticino-frontaliere.imageAlt': 'Lugano lakefront view, symbolizing the work destination for Barni commuters in Ticino',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Living in Pusiano and working in Ticino: the frontier guide',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'From the New Frontier Agreement to the tax at source, from AVS/LPP contributions to the choice of LAMal: everything you need to know to move to Pusiano and work in Ticino.',
+    'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'View of Pusiano village in Como province, Italian border town with Swiss Alps in the background',
 };
 
 export default blogMetaEn;
