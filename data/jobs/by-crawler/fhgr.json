@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-08-20T21:45:16.855Z",
+  "assembledAt": "2026-08-21T09:52:37.508Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:13.379Z",
+      "crawledAt": "2026-08-21T09:52:34.554Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -95,15 +95,16 @@
         "ingegnere-civile-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 48500,
+      "salaryMax": 89500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48500,
+          "maxValue": 89500,
           "unitText": "YEAR"
         }
       },
@@ -140,7 +141,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/803/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:12.207Z",
+      "crawledAt": "2026-08-21T09:52:33.440Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
