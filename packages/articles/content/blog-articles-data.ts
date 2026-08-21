@@ -30882,6 +30882,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-mozzate-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-21T00:49:57.318Z',
+ image: '/images/blog/vivere-mozzate-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
