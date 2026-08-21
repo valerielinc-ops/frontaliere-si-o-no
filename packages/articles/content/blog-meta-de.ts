@@ -10385,6 +10385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carenza-infermieri-varese.title': 'Mangel an Krankenschwestern, der Orden von Varese fordert Eingriffe',
     'blog.article.carenza-infermieri-varese.excerpt': 'Krankenschwestern arbeiten in Schichten, die 24 Stunden einschließlich Nächte und Feiertage abdecken. Der Orden der Krankenschwestern und Krankenpfleger von Varese fordert finanzierte Interventionen und sichere Zeiten, um die Krankenschwestern im Gebiet zu halten.',
     'blog.article.carenza-infermieri-varese.imageAlt': 'Schwestern in einem Krankenhaus',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.title': 'Leben in Cavaria, Arbeit im Tessin: Leitführer für grenzüberschreitende Pendler',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.excerpt': 'Steuerrecht, Quellensteuer, AHV- und BVG-Beiträge: der vollständige Leitfaden für grenzüberschreitende Pendler, die sich entscheiden, in Cavaria con Premezzo zu leben und als Angestellte in Tessin zu arbeiten.',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Mendrisio, Grenzstadt Tessin an der Grenze Italien-Schweiz mit Alpenpanorama',
 };
 
 export default blogMetaDe;

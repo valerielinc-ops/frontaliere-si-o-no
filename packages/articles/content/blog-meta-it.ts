@@ -10387,6 +10387,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carenza-infermieri-varese.title': 'Carenza infermieri, l\'Ordine di Varese chiede interventi',
     'blog.article.carenza-infermieri-varese.excerpt': 'Gli infermieri lavorano su turni che coprono le 24 ore, compresi notti e festivi. L\'Ordine delle Professioni Infermieristiche di Varese chiede interventi finanziati e tempi certi per trattenere gli infermieri sul territorio.',
     'blog.article.carenza-infermieri-varese.imageAlt': 'Infermieri in un ospedale',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.title': 'Vivere a Cavaria, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.excerpt': 'Normativa fiscale, imposta alla fonte, contributi AVS e LPP: la guida completa per frontalieri che scelgono di vivere in Cavaria con Premezzo e lavorare in Ticino da dipendenti.',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.imageAlt': 'Veduta di Mendrisio, città ticinese di confine al confine Italia-Svizzera con paesaggio alpino',
 };
 
 export default blogMetaIt;

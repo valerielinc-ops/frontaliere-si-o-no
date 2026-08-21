@@ -10386,6 +10386,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carenza-infermieri-varese.title': 'Shortage of nurses, the Order of Varese asks for interventions',
     'blog.article.carenza-infermieri-varese.excerpt': 'Nurses work 24-hour shifts, including nights and holidays. The Order of Nursing Professions of Varese asks for funded interventions and certain times to retain nurses in the area.',
     'blog.article.carenza-infermieri-varese.imageAlt': 'Nurses in a hospital',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.title': 'Living in Cavaria, working in Ticino: cross-border commuter guide',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.excerpt': 'Tax legislation, withholding tax, AHV and BVG contributions: the complete guide for cross-border commuters who choose to live in Cavaria con Premezzo and work in Ticino as employees.',
+    'blog.article.vivere-cavaria-lavorare-ticino-frontaliere.imageAlt': 'View of Mendrisio, Ticino border town on the Italy-Switzerland border with Alpine landscape',
 };
 
 export default blogMetaEn;
