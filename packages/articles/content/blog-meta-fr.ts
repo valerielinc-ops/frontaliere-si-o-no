@@ -10344,6 +10344,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-santa-maria-maggiore-frontaliere.title': 'Vivre à Santa Maria Maggiore en tant que frontalier du Tessin',
     'blog.article.vivere-santa-maria-maggiore-frontaliere.excerpt': 'Guide complet pour se déplacer : permis G, nouvel accord fiscal 2024, calcul des économies, procédures administratives et temps de trajet aux points de passage.',
     'blog.article.vivere-santa-maria-maggiore-frontaliere.imageAlt': 'Route de frontière au passage de Brogeda entre l\'Italie et le Tessin, petit matin avec brouillard et montagnes',
+    'blog.article.vivere-rogeno-lavorare-ticino.title': 'Vivre à Rogeno et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-rogeno-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Rogeno : fiscalité, nouvel accord frontalier, régime transitoire et gestion des déplacements vers le canton du Tessin.',
+    'blog.article.vivere-rogeno-lavorare-ticino.imageAlt': 'Paysage résidentiel près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;
