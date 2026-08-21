@@ -68,14 +68,28 @@ export interface ConsentNoticeProps {
  * When the label is absent the whole string is emitted as-is rather than
  * silently losing content.
  */
-const escapeForRegExp = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+/**
+ * Is this character part of a word? Used to reject a label that is only a
+ * SUBSTRING of a longer token.
+ *
+ * Deliberately NOT a lookbehind (`(?<!…)`): `tests/check-client-lookbehind.test.ts`
+ * forbids lookbehind anywhere in the client-bundled tree, because Safari below
+ * 16.4 throws a SyntaxError while PARSING a regex literal that contains one —
+ * the whole chunk dies, not the call. Unicode property escapes are fine, the
+ * lookaround is not, so the boundary check reads the neighbouring characters
+ * directly instead.
+ */
+const isWordChar = (ch: string | undefined): boolean => ch !== undefined && /[\p{L}\p{N}]/u.test(ch);
 
 /** Index of the last occurrence of `label` that is a whole word, or -1. */
 const lastStandaloneIndex = (text: string, label: string): number => {
-  const re = new RegExp(`(?<![\\p{L}\\p{N}])${escapeForRegExp(label)}(?![\\p{L}\\p{N}])`, 'gu');
-  let last = -1;
-  for (let m = re.exec(text); m !== null; m = re.exec(text)) last = m.index;
-  return last;
+  if (!label) return -1;
+  for (let i = text.lastIndexOf(label); i !== -1; i = text.lastIndexOf(label, i - 1)) {
+    if (!isWordChar(text[i - 1]) && !isWordChar(text[i + label.length])) return i;
+    // `lastIndexOf(label, -1)` clamps to 0 and would return 0 forever.
+    if (i === 0) break;
+  }
+  return -1;
 };
 
 const ConsentNotice: React.FC<ConsentNoticeProps> = ({ consentKey, locale, className, id }) => {
