@@ -53,6 +53,7 @@
 
 import fs from 'node:fs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { campaignIdFromTags } from '../functions/src/lib/mailerooRef.js';
 
 const args = process.argv.slice(2);
 const argValue = (flag, fallback = null) => {
@@ -83,18 +84,26 @@ const TAG_NOISE = new Set(['lifecycle', 'transactional', 'marketing', 'newslette
  */
 const MAILEROO_HISTORICALLY_TRACKED = new Set(['job_alert', 'newsletter_weekly']);
 
+/**
+ * Recover the campaign from a raw provider event.
+ *
+ * The array/object half is NOT reimplemented here: it delegates to
+ * `campaignIdFromTags`, the same rule the webhooks read tags with, so a fix to
+ * the shape handling reaches this report too. What is added on top is
+ * provider-specific and belongs to the READ side only: Mailgun echoes bare tag
+ * VALUES (the name is lost to `o:tag`), Mailtrap carries `custom_variables`,
+ * Mailjet a `custom_id`. Those are shapes this report meets in stored history,
+ * not shapes anything of ours sends.
+ */
 export function campaignFromMetadata(md) {
   if (!md || typeof md !== 'object') return '';
   const tags = md.tags || md.data?.tags;
+  const named = campaignIdFromTags(tags);
+  if (named) return named;
   if (Array.isArray(tags)) {
-    for (const t of tags) {
-      if (t && typeof t === 'object' && (t.name === 'campaign_id' || t.name === 'campaign')) return String(t.value || '');
-    }
     for (const t of tags) {
       if (typeof t === 'string' && !TAG_NOISE.has(t) && !LOCALES.has(t)) return t;
     }
-  } else if (tags && typeof tags === 'object') {
-    if (tags.campaign_id) return String(tags.campaign_id);
   }
   const cv = md.custom_variables || md.data?.custom_variables;
   if (cv && typeof cv === 'object' && cv.campaign_id) return String(cv.campaign_id);
