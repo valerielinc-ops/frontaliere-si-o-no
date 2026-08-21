@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-21T13:43:32.388Z",
+  "generatedAt": "2026-08-21T18:44:10.329Z",
   "tally": {
-    "good": 34,
-    "weak": 7,
+    "good": 31,
+    "weak": 6,
     "bad": 1,
     "insufficient": 2
   },
-  "promotedVacancies": 571,
+  "promotedVacancies": 550,
   "reports": [
     {
       "companyKey": "albergo-gardenia",
@@ -45,48 +45,40 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 223,
-      "sampled": 4,
+      "vacancyCount": 226,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.327,
-      "score": 0.933,
+      "distinctRate": 0.319,
+      "score": 0.932,
       "verdict": "good",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
       ],
       "samples": [
         {
-          "url": "https://anker-swiss.ch/stellen/plattenleger-1220939/",
+          "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1232174/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 593,
+          "words": 552,
           "status": 200
         },
         {
-          "url": "https://anker-swiss.ch/stellen/staplerfahrer-1188043/",
+          "url": "https://anker-swiss.ch/stellen/schaler-1122239/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 560,
+          "words": 566,
           "status": 200
         },
         {
-          "url": "https://anker-swiss.ch/stellen/gaertner-1144840/",
+          "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1042586/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 569,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1017032/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 606,
+          "words": 610,
           "status": 200
         }
       ],
@@ -141,30 +133,23 @@
     },
     {
       "companyKey": "buersten-technik",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
       "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 480,
-          "status": 200
-        }
-      ],
+      "samples": [],
       "companyName": "buersten-technik",
       "companyHost": "yousty.ch",
       "platform": "yousty.ch",
       "mode": "jsonld",
-      "runErrors": []
+      "runErrors": [
+        "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag: HTTP 503"
+      ]
     },
     {
       "companyKey": "careers",
@@ -230,7 +215,7 @@
           "status": 200
         }
       ],
-      "companyName": "Cippà Trasporti S.A.",
+      "companyName": "Cippà Trasporti SA",
       "companyHost": "cippatrasporti.altamiraweb.com",
       "platform": "altamiraweb.com",
       "mode": "template",
@@ -276,7 +261,7 @@
     {
       "companyKey": "gmo",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -294,19 +279,11 @@
           "status": 200
         },
         {
-          "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
+          "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 432,
-          "status": 200
-        },
-        {
-          "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 238,
+          "words": 308,
           "status": 200
         },
         {
@@ -325,9 +302,54 @@
       "runErrors": []
     },
     {
+      "companyKey": "gruppomulti",
+      "vacancyCount": 3,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.667,
+      "contentfulRate": 1,
+      "distinctRate": 0.333,
+      "score": 0.817,
+      "verdict": "good",
+      "problems": [
+        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
+      ],
+      "samples": [
+        {
+          "url": "https://gruppomulti.ch/annuncio/junior-real-estate-consultant/",
+          "reachable": true,
+          "titleMatch": 0.5,
+          "contentful": true,
+          "words": 564,
+          "status": 200
+        },
+        {
+          "url": "https://gruppomulti.ch/annuncio/stage-contabilita-fiscalita-e-hr/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 356,
+          "status": 200
+        },
+        {
+          "url": "https://gruppomulti.ch/annuncio/contabile-fiscalista-con-esperienza/",
+          "reachable": true,
+          "titleMatch": 0.5,
+          "contentful": true,
+          "words": 416,
+          "status": 200
+        }
+      ],
+      "companyName": "Gruppo Multi",
+      "companyHost": "gruppomulti.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": []
+    },
+    {
       "companyKey": "ipersonal",
       "vacancyCount": 15,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -337,39 +359,31 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-kuesnacht-gesucht-medizinische-fuehrung-mit-verantwortung/",
+          "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-haegendorf-gesucht-setze-dein-fachwissen-gezielt-ein/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1312,
+          "words": 1567,
           "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-muensterlingen-und-umgebung-gesucht-mit-herz-und-fachkompetenz-fuer-die-langzeitpflege/",
+          "url": "https://med-ipersonal.ch/jobs/jobs-fachpersonen-langzeitpflege-betreuung-in-kuesnacht-jetzt-durchstarten-deutschschweiz/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1281,
+          "words": 1263,
           "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/fachrztin-facharzt-allgemeinmedizin-80100-in-frauenfeld-ganzheitliche-medizin-in-einer-modern-gefhrten-hausarztpraxis/",
+          "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-muotathal-gesucht-hochspezialisierte-pflege-mit-praezision-und-verantwortung/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1268,
-          "status": 200
-        },
-        {
-          "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-fh-akutpsychiatrie-80-100-fuer-die-region-doettingen-gesucht/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1494,
+          "words": 1670,
           "status": 200
         }
       ],
-      "companyName": "iPersonal",
+      "companyName": "iPersonal AG",
       "companyHost": "med-ipersonal.ch",
       "platform": "med-ipersonal.ch",
       "mode": "template",
@@ -415,7 +429,7 @@
     {
       "companyKey": "jobs",
       "vacancyCount": 48,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0,
       "contentfulRate": 0,
@@ -436,7 +450,7 @@
           "status": 200
         },
         {
-          "url": "https://app.jobconvo.com/job/MzcyMjQxNQ-agente-comercial-i/fd29c65c-86b9-4526-9e82-89dac49e1d59/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/1e79a015-25bc-421e-bee6-49d91862f578/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
@@ -444,15 +458,7 @@
           "status": 200
         },
         {
-          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/64eb120a-f603-4cdb-9884-b82e88cf6bb2/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": false,
-          "words": 1,
-          "status": 200
-        },
-        {
-          "url": "https://app.jobconvo.com/job/MzYwOTQ1Ng-ajudante-de-producao-ii-feira-de-santana-banco-de-talentos-2026/7ddd7d55-4ad4-431b-be4c-191caa14eb54/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjE5OTcwMg-ajudante-de-producao-i-manaus-2/d28f07c8-b396-43a3-8664-69a46e84bf99/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
@@ -469,7 +475,7 @@
     {
       "companyKey": "jsafrasarasin",
       "vacancyCount": 14,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -487,27 +493,19 @@
           "status": 200
         },
         {
-          "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/503/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 476,
+          "words": 466,
           "status": 200
         },
         {
-          "url": "https://jsafrasarasin.umantis.com/Vacancies/477/Description/2",
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 552,
-          "status": 200
-        },
-        {
-          "url": "https://jsafrasarasin.umantis.com/Vacancies/490/Description/2",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 458,
+          "words": 525,
           "status": 200
         }
       ],
@@ -520,7 +518,7 @@
     {
       "companyKey": "lenk-simmental",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0,
       "contentfulRate": 1,
@@ -540,19 +538,11 @@
           "status": 200
         },
         {
-          "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Souschef%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
+          "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Koch%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
           "reachable": true,
           "titleMatch": 0,
           "contentful": true,
-          "words": 5114,
-          "status": 200
-        },
-        {
-          "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Hilfskoch%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 5199,
+          "words": 5193,
           "status": 200
         },
         {
@@ -573,7 +563,7 @@
     {
       "companyKey": "med-ipersonal",
       "vacancyCount": 15,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -591,27 +581,19 @@
           "status": 200
         },
         {
-          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-kriens-direkte-festanstellung/",
+          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1352,
+          "words": 1342,
           "status": 200
         },
         {
-          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-ruswil-jobangebot/",
+          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1350,
-          "status": 200
-        },
-        {
-          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-hochdorf-offene-stelle/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1350,
+          "words": 1349,
           "status": 200
         }
       ],
@@ -622,9 +604,44 @@
       "runErrors": []
     },
     {
+      "companyKey": "mendrisio",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://mendrisio.ch/home/lavorare/economia-e-commercio-a-Mendrisio.html",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 480,
+          "status": 200
+        },
+        {
+          "url": "https://mendrisio.ch/home/lavorare/lavorare-per-la-citta.html",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 282,
+          "status": 200
+        }
+      ],
+      "companyName": "Casa Comunale Meride",
+      "companyHost": "mendrisio.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": []
+    },
+    {
       "companyKey": "michaelpage",
       "vacancyCount": 21,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -638,31 +655,23 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1452,
+          "words": 1433,
           "status": 200
         },
         {
-          "url": "https://www.pageexecutive.com/job-detail/business-development-director-industrial-north-america/ref/jn-062026-7040890",
+          "url": "https://www.pageexecutive.com/job-detail/vice-president-global-strategic-sourcing-chemicals/ref/jn-022026-6936290",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1317,
+          "words": 1291,
           "status": 200
         },
         {
-          "url": "https://www.pageexecutive.com/job-detail/senior-human-resources-manager/ref/jn-082026-7087617",
+          "url": "https://www.pageexecutive.com/job-detail/head-de-marketing-y-business-strategy-filial-uruguay-adium/ref/jn-082026-7085958",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1355,
-          "status": 200
-        },
-        {
-          "url": "https://www.pageexecutive.com/job-detail/head-regional-de-supply/ref/jn-082026-7082350",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1022,
+          "words": 1147,
           "status": 200
         }
       ],
@@ -675,45 +684,37 @@
     {
       "companyKey": "okjob",
       "vacancyCount": 17,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.858,
+      "titleMatchRate": 0.841,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.95,
+      "score": 0.944,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/de/jobangebote/stv-teamleitung-pflege-50-100-zuerich/?ref=41595",
-          "reachable": true,
-          "titleMatch": 0.875,
-          "contentful": true,
-          "words": 641,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/fachperson-gesundheit-efz-80-100-im-nachtdienst-zuerich/?ref=41594",
-          "reachable": true,
-          "titleMatch": 0.8888888888888888,
-          "contentful": true,
-          "words": 645,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/elektrikerin-100-m-w-d-bern/?ref=41638",
+          "url": "https://www.okjob.ch/de/jobangebote/berufsbildner-in-70-100-zuerich/?ref=41593",
           "reachable": true,
           "titleMatch": 0.8333333333333334,
+          "contentful": true,
+          "words": 635,
+          "status": 200
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/teamleitung-psychiatrie-60-100-zuerich/?ref=41599",
+          "reachable": true,
+          "titleMatch": 0.8571428571428571,
           "contentful": true,
           "words": 665,
           "status": 200
         },
         {
-          "url": "https://www.okjob.ch/de/jobangebote/maurerin-80-100-m-w-d-bern/?ref=41647",
+          "url": "https://www.okjob.ch/de/jobangebote/mechanikerin-80-100-m-w-d-bern/?ref=41641",
           "reachable": true,
           "titleMatch": 0.8333333333333334,
           "contentful": true,
-          "words": 653,
+          "words": 665,
           "status": 200
         }
       ],
@@ -740,13 +741,13 @@
       "platform": "hotelcareer.ch",
       "mode": "template",
       "runErrors": [
-        "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822: HTTP 0"
+        "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822: HTTP 403"
       ]
     },
     {
       "companyKey": "recruitingapp-1123",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -764,19 +765,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
+          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 756,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 746,
+          "words": 678,
           "status": 200
         },
         {
@@ -797,7 +790,7 @@
     {
       "companyKey": "recruitingapp-1154",
       "vacancyCount": 7,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -815,14 +808,6 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 516,
-          "status": 200
-        },
-        {
           "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
           "reachable": true,
           "titleMatch": 1,
@@ -831,11 +816,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
+          "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 277,
+          "words": 312,
           "status": 200
         }
       ],
@@ -883,7 +868,7 @@
     {
       "companyKey": "recruitingapp-2649",
       "vacancyCount": 4,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -915,14 +900,6 @@
           "contentful": true,
           "words": 555,
           "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 559,
-          "status": 200
         }
       ],
       "companyName": "Alexander von Humboldt-Stiftung Stellen",
@@ -934,7 +911,7 @@
     {
       "companyKey": "recruitingapp-2677",
       "vacancyCount": 21,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -952,27 +929,19 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1976/Description/1",
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1980/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 457,
+          "words": 409,
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1973/Description/1",
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1966/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 469,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1961/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 429,
+          "words": 427,
           "status": 200
         }
       ],
@@ -985,7 +954,7 @@
     {
       "companyKey": "recruitingapp-2678",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1003,19 +972,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3431/Description/1",
+          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3493/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 270,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2678.umantis.com/Vacancies/3502/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 336,
+          "words": 530,
           "status": 200
         },
         {
@@ -1036,7 +997,7 @@
     {
       "companyKey": "recruitingapp-2717",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1054,19 +1015,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2717.umantis.com/Vacancies/5990/Description/1",
+          "url": "https://recruitingapp-2717.umantis.com/Vacancies/6006/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 380,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2717.umantis.com/Vacancies/6140/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 384,
+          "words": 383,
           "status": 200
         },
         {
@@ -1087,7 +1040,7 @@
     {
       "companyKey": "recruitingapp-2748",
       "vacancyCount": 11,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0,
       "contentfulRate": 1,
@@ -1108,19 +1061,11 @@
           "status": 200
         },
         {
-          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mpa-oder-fage-an-der-notfallporte-a/37ebfb29-ddaa-43da-b2fa-a3738ebdffa8",
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/mitarbeiterin-mitarbeiter-hauswirtschaft-a/da3b1ee2-2c0f-4579-a77c-2790f3da5e6d",
           "reachable": true,
           "titleMatch": 0,
           "contentful": true,
-          "words": 403,
-          "status": 200
-        },
-        {
-          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/diaetkoechin-diaetkoch-koechin-koch-a/c71f276b-4def-4545-baca-e4926a9e32de",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 411,
+          "words": 343,
           "status": 200
         },
         {
@@ -1141,7 +1086,7 @@
     {
       "companyKey": "recruitingapp-2783",
       "vacancyCount": 50,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1151,35 +1096,27 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5095/Description/1",
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5209/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 298,
+          "words": 341,
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5189/Description/1",
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5195/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 372,
+          "words": 344,
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5182/Description/1",
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5160/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 374,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5146/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 207,
+          "words": 429,
           "status": 200
         }
       ],
@@ -1192,7 +1129,7 @@
     {
       "companyKey": "recruitingapp-2788",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1210,19 +1147,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24481/Description/1",
+          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24482/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 373,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2788.umantis.com/Vacancies/24483/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 349,
+          "words": 371,
           "status": 200
         },
         {
@@ -1243,7 +1172,7 @@
     {
       "companyKey": "recruitingapp-2794",
       "vacancyCount": 12,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1261,27 +1190,19 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2794.umantis.com/Vacancies/958/Description/1",
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/957/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 410,
+          "words": 467,
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2794.umantis.com/Vacancies/953/Description/1",
+          "url": "https://recruitingapp-2794.umantis.com/Vacancies/929/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 225,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2794.umantis.com/Vacancies/928/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 287,
+          "words": 350,
           "status": 200
         }
       ],
@@ -1294,7 +1215,7 @@
     {
       "companyKey": "recruitingapp-2806",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1312,19 +1233,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6628/Description/2",
+          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6639/Description/2",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 729,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2806.umantis.com/Vacancies/6643/Description/2",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 805,
+          "words": 629,
           "status": 200
         },
         {
@@ -1345,7 +1258,7 @@
     {
       "companyKey": "recruitingapp-2814",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1363,19 +1276,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8069/Description/1",
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8086/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 354,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8067/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 427,
+          "words": 361,
           "status": 200
         },
         {
@@ -1396,12 +1301,12 @@
     {
       "companyKey": "recruitingapp-2820",
       "vacancyCount": 4,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.108,
-      "contentfulRate": 0.75,
+      "titleMatchRate": 0.033,
+      "contentfulRate": 0.667,
       "distinctRate": 1,
-      "score": 0.638,
+      "score": 0.595,
       "verdict": "weak",
       "problems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
@@ -1430,14 +1335,6 @@
           "contentful": false,
           "words": 95,
           "status": 200
-        },
-        {
-          "url": "https://www.jobs.sites.be.ch/de/start/jobs/so-lernen-wir-uns-kennen.html",
-          "reachable": true,
-          "titleMatch": 0.3333333333333333,
-          "contentful": true,
-          "words": 491,
-          "status": 200
         }
       ],
       "companyName": "Jobs",
@@ -1449,7 +1346,7 @@
     {
       "companyKey": "recruitingapp-2849",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1467,19 +1364,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4406/Description/1",
+          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4405/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 232,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4400/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 169,
+          "words": 363,
           "status": 200
         },
         {
@@ -1537,7 +1426,7 @@
     {
       "companyKey": "recruitingapp-2862",
       "vacancyCount": 27,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1555,19 +1444,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1437/Description/1",
+          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1436/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 265,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2862.umantis.com/Vacancies/1431/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 331,
+          "words": 375,
           "status": 200
         },
         {
@@ -1588,12 +1469,12 @@
     {
       "companyKey": "recruitingapp-2896",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
-      "contentfulRate": 0.25,
+      "contentfulRate": 0,
       "distinctRate": 1,
-      "score": 0.85,
+      "score": 0.8,
       "verdict": "good",
       "problems": [
         "pagine di dettaglio senza testo: probabile render lato client"
@@ -1608,19 +1489,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2896.umantis.com/Vacancies/706/Description/1",
+          "url": "https://recruitingapp-2896.umantis.com/Vacancies/704/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
-          "words": 85,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2896.umantis.com/Vacancies/703/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 142,
+          "words": 93,
           "status": 200
         },
         {
@@ -1684,7 +1557,7 @@
     {
       "companyKey": "recruitingapp-2919",
       "vacancyCount": 10,
-      "sampled": 4,
+      "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
@@ -1702,19 +1575,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1031/Description/1",
+          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1060/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 223,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1028/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 226,
+          "words": 241,
           "status": 200
         },
         {
@@ -1764,274 +1629,6 @@
       "companyName": "Jobs",
       "companyHost": "blkb.ch",
       "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-2924",
-      "vacancyCount": 10,
-      "sampled": 4,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-2924.umantis.com/Vacancies/2383/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 207,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2924.umantis.com/Vacancies/2376/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 146,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 264,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 378,
-          "status": 200
-        }
-      ],
-      "companyName": "Bewerbermanagement Gesundheitszentrum Fricktal AG Stellen",
-      "companyHost": "recruitingapp-2924.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-2952",
-      "vacancyCount": 8,
-      "sampled": 4,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/644/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 223,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/640/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 288,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/638/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 195,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/635/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 271,
-          "status": 200
-        }
-      ],
-      "companyName": "EBP",
-      "companyHost": "recruitingapp-2952.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-3036",
-      "vacancyCount": 6,
-      "sampled": 4,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-3036.umantis.com/Vacancies/1815/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 272,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-3036.umantis.com/Vacancies/1814/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 255,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-3036.umantis.com/Vacancies/1812/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 214,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-3036.umantis.com/Vacancies/1811/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 328,
-          "status": 200
-        }
-      ],
-      "companyName": "Rekrutierungstool Stadt Luzern Stellen",
-      "companyHost": "recruitingapp-3036.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-597",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0.5,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 0.825,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-597.umantis.com/Jobs/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 286,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-597.umantis.com/Jobs/1?Extended=Search",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 185,
-          "status": 200
-        }
-      ],
-      "companyName": "AMANN Group Bewerbermanagement Stellen",
-      "companyHost": "recruitingapp-597.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "vebego",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.vebego.ch/it/lavoro-e-carriera/apprendistato-presso-vebego",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 534,
-          "status": 200
-        },
-        {
-          "url": "https://www.vebego.ch/it/lavoro-e-carriera/il-mondo-del-lavoro-da-vebego",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1130,
-          "status": 200
-        },
-        {
-          "url": "https://www.vebego.ch/it/lavoro-e-carriera/great-place-to-work",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 440,
-          "status": 200
-        }
-      ],
-      "companyName": "Vebego AG, succursale Ticino",
-      "companyHost": "vebego.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "walker-renova",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 0.5,
-      "titleMatchRate": 0.5,
-      "contentfulRate": 0.5,
-      "distinctRate": 1,
-      "score": 0.55,
-      "verdict": "weak",
-      "problems": [
-        "50% degli URL non risolve"
-      ],
-      "samples": [
-        {
-          "url": "https://bim-center-chur.ch/stellenangebote/bauleiterin-oder-architektin-partner/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 441,
-          "status": 200
-        },
-        {
-          "url": "https://bim-center-chur.ch/stellenangebote/3d-zeichnerin-architektin/",
-          "reachable": false,
-          "titleMatch": 0,
-          "contentful": false,
-          "words": 0,
-          "status": 404
-        }
-      ],
-      "companyName": "walker-renova",
-      "companyHost": "bim-center-chur.ch",
-      "platform": "bim-center-chur.ch",
       "mode": "template",
       "runErrors": []
     }

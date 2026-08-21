@@ -3730,6 +3730,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Location Zurich : droit de location et contestation',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Dans le canton de Zurich, les règles fédérales de location s\'appliquent : dépôt maximum de 3 mois, résiliation avec formulaire officiel, contestation de la redevance dans les 30 jours.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Centre-ville de Zurich avec gratte-ciel et architecture moderne, symbole du marché immobilier suisse',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Location Zurich : droits locataires, dépôt et résiliation',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Droit de location à Zurich : caution (max 3 mois de loyer), contestation du loyer initial et résiliation selon le Code fédéral des obligations.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Immeuble résidentiel moderne à Zurich avec balcons et fenêtres, architecture urbaine contemporaine suisse',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Loyers Zurich : droits, loyers et loyers',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Redevance initiale, caution, résiliation : le guide pratique du droit de location dans le canton de Zurich. Règles fédérales et procédures de conciliation.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Façade d\'un immeuble d\'habitation dans une ville suisse avec des fenêtres d\'appartements modernes',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS et prestations complémentaires dans le canton de Zurich',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'Comment fonctionne le premier pilier AVS dans le canton de Zurich : caisse de compensation, calcul de la rente, lacunes et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Caisse de compensation du canton de Zurich traitant les demandes de rente AVS',
 };
 
 export default blogMetaChFr;

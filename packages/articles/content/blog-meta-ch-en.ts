@@ -3730,6 +3730,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Rentals Zurich: right to lease and dispute',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'In the canton of Zurich, the federal rules on leasing apply: maximum deposit 3 months, cancellation with official form, dispute within 30 days.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Zurich city center with skyscrapers and modern architecture, symbol of Swiss housing market',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Rentals Zurich: tenant rights, deposit and cancellation',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Right to rent in Zurich: security deposit (max 3 months rent), dispute of the initial rent and cancellation according to the Federal Bond Code.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Modern residential building in Zurich with balconies and windows, contemporary Swiss urban architecture',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Rentals Zurich: rights, fees and lease',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Initial rent, security deposit, cancellation: the practical guide to the right to rent in the Canton of Zurich. Federal Rules and Conciliation Procedures.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Facade of a residential building in a Swiss city with modern apartment windows',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS and complementary services in the Canton of Zurich',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'How the first AVS pillar works in the Canton of Zurich: compensation fund, annuity calculation, gaps and supplementary benefits for the living minimum.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Zurich cantonal compensation office processing AVS pension applications and supplementary benefits',
 };
 
 export default blogMetaChEn;
