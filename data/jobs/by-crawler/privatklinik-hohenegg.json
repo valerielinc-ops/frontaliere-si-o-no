@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-08-20T21:31:12.001Z",
+  "assembledAt": "2026-08-21T21:26:01.439Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-2c9323d6be7b",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:31:07.974Z",
+      "crawledAt": "2026-08-21T21:25:57.182Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -73,15 +73,15 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:11:32.287Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 82000,
+          "maxValue": 114500,
           "unitText": "YEAR"
         }
       }
@@ -118,7 +118,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:31:07.499Z",
+      "crawledAt": "2026-08-21T21:25:56.702Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -159,15 +159,15 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:11:31.842Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -198,12 +198,13 @@
         "de": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
         "fr": "Industrie hôtelière salariée (sur demande) à la clinique privée Hohenegg à Meilen, Canton de Zurich.\n\nPrivatklinik Hohenegg AG est un centre de compétence moderne pour la psychiatrie, la psychosomatique et la psychothérapie des patients hospitalisés sur le lac de Zurich. Nous traitons les adultes avec épuisement, dépression, anxiété, traumatisme et crises de vie dans un environnement calme.\n\nCe que le Hohenegg offre:\n• Environnement hospitalier moderne avec une qualité professionnelle élevée\n• Coopération interdisciplinaire dans une équipe engagée\n• Conditions d'emploi et possibilités de formation attrayantes\n• Magnifique emplacement sur le lac de Zurich en miles"
       },
+      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:31:07.002Z",
+      "crawledAt": "2026-08-21T21:25:56.188Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -240,15 +241,15 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:33.112Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 73000,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 73000,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
