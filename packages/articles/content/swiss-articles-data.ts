@@ -11134,6 +11134,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'finanziamento-studi-zurigo',
+    category: 'pratico',
+    date: '2026-08-21T14:05:01.404Z',
+    image: '/images/blog/finanziamento-studi-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

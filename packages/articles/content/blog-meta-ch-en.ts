@@ -3712,6 +3712,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-norme-svizzera.title': 'Lease law in Switzerland: rules and safeguards',
     'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Learn about the federal rules governing the rental market-from security deposits to cancellation and rent dispute procedures.',
     'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Modern residential building in Switzerland',
+    'blog.article.finanziamento-studi-zurigo.title': 'Canton Zurich Scholarships: Requirements and Amounts',
+    'blog.article.finanziamento-studi-zurigo.excerpt': 'Access methods, required economic capacity and presentation times: everything you need to know about the scholarship system in the Canton of Zurich.',
+    'blog.article.finanziamento-studi-zurigo.imageAlt': 'Students walk between classical university buildings on a Swiss campus in natural daylight.',
 };
 
 export default blogMetaChEn;
