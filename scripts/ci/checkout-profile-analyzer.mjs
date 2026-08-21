@@ -181,6 +181,32 @@ export function checkoutEntryPoints(text, npmScripts, depth = 0) {
   return [...out];
 }
 
+/**
+ * Testo di tutti gli script npm raggiunti da `npm run <nome>` dentro `text`,
+ * seguendo la catena (stessa profondita' di `checkoutEntryPoints`).
+ *
+ * Serve perche' OPAQUE_RULES gira sul testo del workflow, non su questo:
+ * uno script custom come `gate:seo-source` (`vitest run tests/seo/
+ * --reporter=dot`) non contiene ne' "test" ne' "vitest run" nel passo YAML —
+ * solo "npm run gate:seo-source" — quindi la regola opaca non lo vedeva mai e
+ * il job veniva profilato sparse pur girando l'intera suite vitest (#6234:
+ * gate:seo-source falliva su file esclusi dal profilo, es.
+ * data/slug-registry.json, data/related-search-candidates.json).
+ */
+function resolveNpmRunBodies(text, npmScripts, depth = 0, seen = new Set()) {
+  if (depth >= 3 || !npmScripts) return '';
+  let out = '';
+  for (const m of text.matchAll(/\bnpm\s+run\s+([\w:.-]+)/g)) {
+    const name = m[1];
+    if (seen.has(name)) continue;
+    seen.add(name);
+    const body = npmScripts[name];
+    if (!body) continue;
+    out += '\n' + body + resolveNpmRunBodies(body, npmScripts, depth + 1, seen);
+  }
+  return out;
+}
+
 export function transitiveClosure(entries) {
   const seen = new Set(); const queue = [...entries]; const resolved = [];
   const cands = (b) => [b, b + '.mjs', b + '.js', b + '.ts', b + '.mts', b + '.cjs',
@@ -242,7 +268,8 @@ export function bucketsReferencedBy(text) {
 function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const exec = textOfSteps(job?.steps) + '\n' + workflowEnvText + '\n' +
     (job?.env && typeof job.env === 'object' ? Object.values(job.env).filter((v) => typeof v === 'string').join('\n') : '');
-  const opaqueBy = [...new Set(OPAQUE_RULES.filter(([, r]) => r.test(exec)).map(([k]) => k))];
+  const opaqueText = exec + resolveNpmRunBodies(exec, npmScripts);
+  const opaqueBy = [...new Set(OPAQUE_RULES.filter(([, r]) => r.test(opaqueText)).map(([k]) => k))];
   const entries = checkoutEntryPoints(exec, npmScripts);
   const resolved = transitiveClosure(entries);
   const corpus = exec + '\n' + resolved.map((r) => r.src).join('\n');
