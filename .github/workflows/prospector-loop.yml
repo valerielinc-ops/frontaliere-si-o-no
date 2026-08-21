@@ -4,16 +4,20 @@ name: prospector-loop
 # out where they publish their vacancies, synthesise a crawler, and grade it
 # against the employer's own page.
 #
-# Five stages, deliberately separate jobs rather than one script, because they
+# Sei stadi, tenuti separati invece che in un solo script, perche'
 # have completely different cost profiles and failure modes: DISCOVER is API
 # calls, TRACE and EXPAND are thousands of polite requests to third-party sites,
 # SYNTHESIZE and VALIDATE are re-crawls of a shortlist. Splitting them means a
 # rate-limited source cannot cost us the whole run, and a stage can be re-run on
 # its own from the Actions tab.
 #
-# Nothing here touches the production crawler set. The loop's output is a queue
-# and a graded report under data/prospector/, committed for review; promoting a
-# graded crawler into production stays a separate, human-initiated step.
+# L'ultimo stadio CHIUDE il loop: i crawler che superano il gate di qualita'
+# entrano in produzione senza passi umani. Il gate non e' "punteggio alto" ma la
+# congiunzione in scripts/lib/prospector/promotion-gate.mjs, la cui condizione
+# vincolante — due validazioni buone su due giorni distinti — non e'
+# soddisfacibile da una singola run, per quanto buona sembri. La PR che apre
+# viaggia poi sul ciclo autonomo che questo repo gia' usa: tests verde,
+# pr-review-loop, auto-merge su `## LGTM`.
 
 on:
   schedule:
@@ -24,16 +28,19 @@ on:
     inputs:
       cantons:
         description: 'Cantoni per DISCOVER (lista, oppure "all")'
-        default: 'TI'
+        default: 'all'
       sources:
         description: 'Sorgenti: own,seco,osm,web'
-        default: 'own,seco,web'
+        default: 'own,seco,web,osm'
       trace_limit:
         description: 'Quanti candidati tracciare'
         default: '150'
       expand_platforms:
         description: 'Quante piattaforme espandere'
         default: '2'
+      promote_max:
+        description: 'Quanti crawler validati promuovere in produzione per giro'
+        default: '10'
 
 concurrency:
   group: prospector-loop
@@ -41,10 +48,16 @@ concurrency:
 
 permissions:
   contents: write
+  # PROMOTE apre una PR con i crawler validati, che il ciclo del repo revisiona
+  # e mergia da solo su `## LGTM`.
+  pull-requests: write
 
 env:
-  CANTONS: ${{ github.event.inputs.cantons || 'TI' }}
-  SOURCES: ${{ github.event.inputs.sources || 'own,seco,web' }}
+  # Tutta la Svizzera. Il feed SECO su un solo cantone rende 172 datori, sui 26
+  # ne rende 5'923 — e la copertura nazionale e' l'obiettivo del loop. `web` e
+  # `own` erano gia' nazionali per costruzione.
+  CANTONS: ${{ github.event.inputs.cantons || 'all' }}
+  SOURCES: ${{ github.event.inputs.sources || 'own,seco,web,osm' }}
   TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '150' }}
   EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '2' }}
   # Politeness is not a default worth leaving to chance: these employers never
@@ -105,3 +118,13 @@ jobs:
           done
           echo 'push fallito dopo 3 tentativi'
           exit 1
+
+      # ── Chiusura del loop ────────────────────────────────────────────────
+      # Ship dei crawler che hanno superato il gate: nessun passo umano. Gira
+      # DOPO il commit dello stato, cosi' la PR di promozione parte da un main
+      # che gia' contiene lo storico di validazione su cui il gate ha deciso.
+      - name: Promote validated crawlers
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
+        run: node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --open-pr

@@ -36,6 +36,7 @@ una sola azienda, e rende ogni tenant che quel vendor ha.
 | EXPAND | `prospect-expand.mjs` | enumera i tenant di una piattaforma — qui la copertura moltiplica |
 | SYNTHESIZE | `prospect-synthesize.mjs` | genera la spec del crawler dalla pagina viva |
 | VALIDATE | `prospect-validate.mjs` | confronta l'estratto con la pagina ufficiale, campo per campo |
+| PROMOTE | `prospect-promote.mjs` | manda in produzione chi supera il gate — **nessun passo umano** |
 
 `prospect-report.mjs` stampa lo stato e **dove il loop non arriva**.
 
@@ -74,6 +75,43 @@ misura quattro cose indipendenti:
 Su un lotto di 44 crawler generati: **34 promossi, 7 deboli, 1 respinto**. I due
 difetti trovati — titoli non corrispondenti, e titoli tutti uguali — sono
 esattamente quelli che un controllo per conteggio non vede.
+
+## Chiusura del loop: promozione senza passi umani
+
+Un crawler validato entra in produzione da solo. È difendibile solo perché la
+decisione non è «il punteggio è alto», ma la congiunzione in
+`scripts/lib/prospector/promotion-gate.mjs`:
+
+| condizione | soglia | cosa previene |
+|---|---|---|
+| qualità | ≥ 0,90 | estrazioni mediocri |
+| pagine di dettaglio giudicate | ≥ 3 | un voto su un campione che non prova nulla |
+| URL che risolvono | 100% | link morti pubblicati |
+| titoli che combaciano | ≥ 80% | cluster che ha agganciato un archivio news |
+| titoli distinti | ≥ 80% | un selettore su un elemento ricorrente |
+| pagine con prosa | ≥ 75% | listing renderizzati lato client |
+| **validazioni buone** | **≥ 2, su ≥ 2 giorni distinti** | **markup A/B, cookie wall al secondo giro, settimana vuota** |
+| annunci rispetto al massimo osservato | ≥ 50% | un listing che sta collassando |
+| chiave crawler | libera | collisione con un crawler esistente |
+| tetto per giro | 10 | una pipeline non presidiata che ne aggiunge 400 |
+
+La condizione vincolante è quella sulla **stabilità**: non è soddisfacibile da
+una singola run, per quanto buona sembri. Un crawler sintetizzato e graduato
+stamattina non è promuovibile oggi pomeriggio.
+
+Cosa significa «entrare in produzione»: lo stesso `scaffold-crawler.mjs` di ogni
+crawler scritto a mano, sul tier `prospected` — parser, runner, test unitario e
+voce in `data/crawler-manifest.json`, con i gruppi di workflow rigenerati. Il
+risultato è indistinguibile da un crawler scaffoldato a mano, salvo che la
+conoscenza specifica del datore sta in una spec invece che nel codice.
+
+La PR che apre viaggia poi sul **ciclo autonomo che questo repo già usa**:
+`tests` verde → `pr-review-loop` → auto-merge su `## LGTM`. «Nessun passo umano»
+non è un meccanismo nuovo inventato qui, è quello su cui il repo gira già,
+alimentato da un gate abbastanza severo da meritarselo.
+
+Ogni candidato fermato riporta le sue cause: senza nessuno che guarda, **le
+cause sono la revisione**.
 
 ## Cortesia
 

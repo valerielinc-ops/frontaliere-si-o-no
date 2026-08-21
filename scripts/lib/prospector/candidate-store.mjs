@@ -14,7 +14,8 @@
  *   dead        -> no site, no careers page, or no vacancies anywhere
  *   synthesized -> a crawler exists for it
  *   validated   -> extraction graded against the live page
- *   promoted    -> good enough to enter the production crawler set
+ *   promoted    -> graded good; eligible for the promotion gate
+ *   production  -> passed the promotion gate and shipped as a real crawler
  *   rejected    -> measured and dismissed, with a reason
  *
  * The ledger records every transition so a later run can answer "why is this
@@ -26,7 +27,7 @@ import { CANDIDATES_PATH, LEDGER_PATH } from './config.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
 
-/** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'rejected'} CandidateStatus */
+/** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'production'|'rejected'} CandidateStatus */
 
 /**
  * Stable key for an employer. Domain when we have one — it is the only truly
@@ -113,7 +114,7 @@ export function upsertCandidate(store, incoming, source) {
   return { key, created: false };
 }
 
-const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted'];
+const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted', 'production'];
 
 /**
  * @param {ReturnType<typeof loadCandidates>} store

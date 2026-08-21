@@ -146,7 +146,19 @@ if (sources.includes('seco')) {
 
 /* ── OSM ──────────────────────────────────────────────────────── */
 if (sources.includes('osm')) {
-  for (const canton of cantons) {
+  // Overpass is a volunteer-run service and a census changes over months, not
+  // hours: sweeping all 26 cantons every night would be both rude and pointless.
+  // So the national run walks a rotating slice — the whole country is covered
+  // over a fortnight, and any single night costs Overpass a couple of queries.
+  const slice = Number(arg('osm-cantons', cantons.length > 4 ? 2 : cantons.length));
+  const offset = Number(arg('osm-offset', new Date().getUTCDate())) % Math.max(cantons.length, 1);
+  const osmCantons = cantons.length > slice
+    ? Array.from({ length: slice }, (_, i) => cantons[(offset + i) % cantons.length])
+    : cantons;
+  if (osmCantons.length !== cantons.length) {
+    console.log(`OSM : fetta a rotazione ${osmCantons.join(',')} (di ${cantons.length} cantoni)`);
+  }
+  for (const canton of osmCantons) {
     const businesses = await fetchOsmBusinesses(canton);
     console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio`);
     for (const b of businesses) {

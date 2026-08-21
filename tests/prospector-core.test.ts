@@ -20,6 +20,8 @@ import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/cover
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang } from '../scripts/lib/prospector/synthesize.mjs';
+import { evaluatePromotion, selectForPromotion, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
+import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -277,5 +279,106 @@ describe('crawler synthesis', () => {
   it('reads the page language', () => {
     expect(detectPageLang('<html lang="it"><body>x</body></html>')).toBe('it');
     expect(detectPageLang('<html><body>Wir suchen und bieten für die neue Stellen mit unsere Arbeit bei der das</body></html>')).toBe('de');
+  });
+});
+
+describe('promotion gate', () => {
+  /** A candidate graded good on `days` distinct days. */
+  const graded = (days, over = {}) => ({
+    status: 'promoted',
+    crawlerKey: 'acme',
+    vacancyCount: 6,
+    qualityScore: 0.97,
+    validationHistory: Array.from({ length: days }, (_, i) => ({
+      at: `2026-08-${String(10 + i).padStart(2, '0')}T03:00:00Z`,
+      verdict: 'good',
+      score: 0.97,
+      sampled: 4,
+      reachableRate: 1,
+      titleMatchRate: 1,
+      contentfulRate: 1,
+      distinctRate: 1,
+      vacancyCount: 6,
+    })),
+    ...over,
+  });
+
+  it('ships a candidate proven on two distinct days', () => {
+    expect(evaluatePromotion(graded(2)).passed).toBe(true);
+  });
+
+  it('refuses a candidate proven only once, however good', () => {
+    const res = evaluatePromotion(graded(1));
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/giorno/);
+  });
+
+  it('refuses two gradings that landed on the SAME day', () => {
+    const sameDay = graded(2);
+    sameDay.validationHistory[1].at = sameDay.validationHistory[0].at;
+    expect(evaluatePromotion(sameDay).passed).toBe(false);
+  });
+
+  it('refuses a listing whose vacancies collapsed since the best run', () => {
+    const collapsing = graded(2);
+    collapsing.validationHistory[1].vacancyCount = 1; // 6 -> 1
+    const res = evaluatePromotion(collapsing);
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/scesi/);
+  });
+
+  it('promotes a two-vacancy micro-employer graded on both', () => {
+    // Una soglia fissa a 3 pagine di dettaglio escluderebbe per sempre il
+    // segmento per cui il loop esiste. Due su due e' copertura totale.
+    const micro = graded(2, { vacancyCount: 2 });
+    for (const h of micro.validationHistory) { h.vacancyCount = 2; h.sampled = 2; }
+    expect(evaluatePromotion(micro).passed).toBe(true);
+  });
+
+  it('still demands a real sample from an employer with many vacancies', () => {
+    const big = graded(2, { vacancyCount: 40 });
+    for (const h of big.validationHistory) { h.vacancyCount = 40; h.sampled = 2; }
+    const res = evaluatePromotion(big);
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/pagine di dettaglio/);
+  });
+
+  it('refuses an aggregator even when every number is perfect', () => {
+    expect(evaluatePromotion(graded(2, { aggregator: true })).passed).toBe(false);
+  });
+
+  it('refuses a key that already exists in production', () => {
+    const res = evaluatePromotion(graded(2), { existingKeys: new Set(['acme']) });
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/esiste gia/);
+  });
+
+  it('caps how many ship in one run and reports the overflow', () => {
+    const many = Array.from({ length: GATE_DEFAULTS.maxPerRun + 4 }, (_, i) => graded(2, { crawlerKey: `acme-${i}` }));
+    const { promotable, capped } = selectForPromotion(many);
+    expect(promotable).toHaveLength(GATE_DEFAULTS.maxPerRun);
+    expect(capped).toBe(4);
+  });
+
+  it('ships the biggest inventory first', () => {
+    const small = graded(2, { crawlerKey: 'small', vacancyCount: 2 });
+    const big = graded(2, { crawlerKey: 'big', vacancyCount: 40 });
+    expect(selectForPromotion([small, big]).promotable[0].crawlerKey).toBe('big');
+  });
+});
+
+describe('production spec runtime', () => {
+  it('accepts only URLs the learned template matches', () => {
+    const rx = templateToRegex('/annunci-lavoro/*');
+    expect(rx.test('/annunci-lavoro/Autista-CE-111111.htm')).toBe(true);
+    // Navigation and deeper paths are chrome, and unattended chrome becomes a
+    // published fake vacancy.
+    expect(rx.test('/chi-siamo')).toBe(false);
+    expect(rx.test('/annunci-lavoro/a/b')).toBe(false);
+  });
+
+  it('honours a numeric placeholder', () => {
+    expect(templateToRegex('/job/#').test('/job/12345')).toBe(true);
+    expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
   });
 });

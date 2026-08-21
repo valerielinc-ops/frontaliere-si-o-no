@@ -137,7 +137,7 @@ function normalizeAtsHint(hint) {
   return 'custom';
 }
 
-const VALID_ATS_TIERS = new Set(['workday', 'greenhouse', 'lever', 'successfactors', 'custom']);
+const VALID_ATS_TIERS = new Set(['workday', 'greenhouse', 'lever', 'successfactors', 'prospected', 'custom']);
 
 // First pass: resolve --marquee so its values can act as defaults below.
 const marqueeSlug = getOption('--marquee', '').toLowerCase();
@@ -266,10 +266,29 @@ if (!force) {
  * template (slug + locale + Job-shape assembly) consumes that array and
  * is identical for every ATS tier.
  *
- * @param {string} tier 'workday' | 'greenhouse' | 'lever' | 'successfactors' | 'custom'
+ * @param {string} tier 'workday' | 'greenhouse' | 'lever' | 'successfactors' | 'prospected' | 'custom'
  * @returns {{ imports: string, fetchBlock: string }}
  */
 function buildAtsParserSection(tier) {
+  if (tier === 'prospected') {
+    // Crawler promosso dal prospector: tutto cio' che e' specifico del datore
+    // vive nella spec dichiarativa che il loop ha imparato dalla pagina viva e
+    // che il gate di qualita' ha misurato. Il parser e' quindi un guscio, e
+    // l'estrazione qui e' LA STESSA che il gate ha giudicato — se divergesse,
+    // il voto di qualita' parlerebbe di un altro programma.
+    return {
+      imports: `import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';`,
+      fetchBlock: `/* ── Fetcher guidato dalla spec ───────────────────────────────
+ * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
+ * template degli URL di dettaglio, appresi dalla pagina reale.
+ */
+async function fetchJobListings() {
+  const spec = loadSpec(${CONST_PREFIX}_KEY);
+  return runSpecInProduction(spec);
+}`,
+    };
+  }
+
   if (tier === 'workday') {
     return {
       imports: `import {
