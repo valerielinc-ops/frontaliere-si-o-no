@@ -24,12 +24,12 @@
         "en": "Teamleader:in vocational trainers:in delivery packages",
         "fr": "Chef d'équipe:dans les formateurs professionnels:dans les programmes d'enseignement"
       },
-      "slug": "teamleader-in-berufsbildner-in-zustellung-pakete-post",
+      "slug": "teamleader-in-formatori-professionali-in-pacchetti-di-consegna-die-schweizerische-post-harkingen",
       "slugByLocale": {
-        "it": "teamleader-in-berufsbildner-in-zustellung-pakete-post",
-        "en": "teamleader-in-berufsbildner-in-zustellung-pakete-post",
+        "it": "teamleader-in-formatori-professionali-in-pacchetti-di-consegna-die-schweizerische-post-harkingen",
+        "en": "teamleader-in-vocational-trainers-in-delivery-packages-die-schweizerische-post-harkingen",
         "de": "teamleader-in-berufsbildner-in-zustellung-pakete-post",
-        "fr": "teamleader-in-berufsbildner-in-zustellung-pakete-post"
+        "fr": "chef-d-equipe-dans-les-formateurs-professionnels-dans-les-programmes-d-enseignement-die-schweizerische-post-harkingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       },
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
-      "firstSeenAt": "2026-08-20T21:39:58.447Z"
+      "firstSeenAt": "2026-08-20T21:39:58.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-in-berufsbildner-in-zustellung-pakete-post"
+        ],
+        "en": [
+          "teamleader-in-berufsbildner-in-zustellung-pakete-post"
+        ],
+        "fr": [
+          "teamleader-in-berufsbildner-in-zustellung-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-in-berufsbildner-in-zustellung-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Contact-Center-KMU/74583-de_DE",
@@ -815,12 +829,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-frick",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-frick",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-frick",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-frick"
       },
       "sourceLang": "de",
       "department": "",
@@ -854,7 +868,21 @@
       },
       "addressLocality": "Frick",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-08-20T21:39:58.447Z"
+      "firstSeenAt": "2026-08-20T21:39:58.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
@@ -883,7 +911,7 @@
         "it": "postauto-chauffeur-in-post",
         "en": "postauto-chauffeur-in-post",
         "de": "postauto-chauffeur-in-postauto-einsiedeln",
-        "fr": "postauto-chauffeur-in-post"
+        "fr": "chauffeur-postauto-in-postauto-ag-einsiedeln"
       },
       "sourceLang": "de",
       "department": "",
@@ -3407,7 +3435,7 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
         "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
         "fr": "pilote-postbus-in-postauto-ag-reichenburg"
@@ -3447,8 +3475,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg",
-          "postbus-driver-in-postauto-ag-reichenburg"
+          "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
           "postauto-fahrer-in-post",
@@ -3461,8 +3488,7 @@
       "previousSlugs": [
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-ag-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -9576,12 +9602,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-3817e7",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-3817e7",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-ostermundigen",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-3817e7"
       },
       "sourceLang": "de",
       "department": "",
@@ -9614,7 +9640,21 @@
       },
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-20T21:39:58.447Z"
+      "firstSeenAt": "2026-08-20T21:39:58.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/73954-de_DE",
@@ -11088,7 +11128,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -11097,8 +11136,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -11496,12 +11534,12 @@
         "en": "Apprenticeship as a retail trade expert EFZ",
         "fr": "Apprentissage en tant qu'expert en commerce de détail EFZ"
       },
-      "slug": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-heerbrugg",
       "slugByLocale": {
-        "it": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-heerbrugg",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-heerbrugg",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-heerbrugg"
       },
       "sourceLang": "de",
       "department": "",
@@ -11534,7 +11572,21 @@
       },
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
-      "firstSeenAt": "2026-08-20T21:39:58.447Z"
+      "firstSeenAt": "2026-08-20T21:39:58.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Kundendialog-EFZ/73895-de_DE",
@@ -12873,10 +12925,10 @@
         "en": "CarPostal Driver, Thierrens",
         "de": "CarPostal Driver, Thierrens"
       },
-      "slug": "conductrice-conducteur-carpostal-thierrens-post",
+      "slug": "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-thierrens-post",
-        "en": "conductrice-conducteur-carpostal-thierrens-post",
+        "it": "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens",
+        "en": "carpostal-driver-thierrens-carpostal-thierrens",
         "de": "conductrice-conducteur-carpostal-thierrens-post",
         "fr": "conductrice-conducteur-carpostal-thierrens-post"
       },
@@ -12911,7 +12963,18 @@
       },
       "addressLocality": "Thierrens",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-20T21:39:58.447Z"
+      "firstSeenAt": "2026-08-20T21:39:58.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-thierrens-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-thierrens-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-thierrens-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Sion/74548-fr_FR",
@@ -12935,10 +12998,10 @@
         "en": "CarPostal Driver, Sion",
         "de": "CarPostal Driver, Sion"
       },
-      "slug": "conductrice-conducteur-carpostal-sion-post",
+      "slug": "conducente-carpostal-sion-carpostal-sion",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-sion-post",
-        "en": "conductrice-conducteur-carpostal-sion-post",
+        "it": "conducente-carpostal-sion-carpostal-sion",
+        "en": "carpostal-driver-sion-carpostal-sion",
         "de": "conductrice-conducteur-carpostal-sion-post",
         "fr": "conductrice-conducteur-carpostal-sion-post"
       },
@@ -12973,7 +13036,18 @@
       },
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-20T21:39:58.447Z"
+      "firstSeenAt": "2026-08-20T21:39:58.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-sion-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-sion-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-sion-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/ConductriceConducteur-Auxiliaire-Transport-scolaire%2C-Canton-Vaud/74508-fr_FR",
@@ -15629,7 +15703,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -15653,7 +15727,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

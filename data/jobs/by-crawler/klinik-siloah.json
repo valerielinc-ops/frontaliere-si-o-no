@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "klinik-siloah-146d521c9987",
-      "slug": "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen",
+      "slug": "assistente-in-op-logistics-100-privatklinik-siloah-gumligen",
       "slugByLocale": {
         "de": "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen",
-        "it": "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen",
-        "en": "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen",
-        "fr": "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen"
+        "it": "assistente-in-op-logistics-100-privatklinik-siloah-gumligen",
+        "en": "supply-assistant-in-op-logistics-100-privatklinik-siloah-gumligen",
+        "fr": "assistant-d-approvisionnement-en-op-logistics-100-privatklinik-siloah-gumligen"
       },
       "company": "Privatklinik Siloah",
       "companyKey": "klinik-siloah",
@@ -56,14 +56,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versorgungsassistent-in-op-logistik-100-klinik-siloah"
+          "versorgungsassistent-in-op-logistik-100-klinik-siloah",
+          "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen"
         ],
         "de": [
           "versorgungsassistent-in-op-logistik-100-klinik-siloah"
+        ],
+        "en": [
+          "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen"
+        ],
+        "fr": [
+          "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen"
         ]
       },
       "previousSlugs": [
-        "versorgungsassistent-in-op-logistik-100-klinik-siloah"
+        "versorgungsassistent-in-op-logistik-100-klinik-siloah",
+        "versorgungsassistent-in-op-logistik-100-privatklinik-siloah-gumligen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -133,16 +141,14 @@
         "case-manager-in-dipl-pflegefachperson-hf-fh-klinik-siloah",
         "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-gumligen",
         "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
-        "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
-        "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-gumligen"
+        "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "case-manager-in-dipl-pflegefachperson-hf-fh-klinik-siloah",
           "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-gumligen",
           "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-bern",
-          "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
-          "case-manager-in-dipl-cura-professionale-hf-fh-privatklinik-siloah-gumligen"
+          "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern"
         ]
       },
       "firstSeenAt": "2026-07-23T22:08:10.443Z",
@@ -210,21 +216,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
-        "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern"
+        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
-          "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern"
+          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
         ],
         "en": [
           "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
         ],
         "de": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern"
+          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
         ],
         "fr": [
           "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
