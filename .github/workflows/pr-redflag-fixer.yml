@@ -276,61 +276,17 @@ jobs:
             exit 0
           fi
 
-          # File cambiati dalla PR (per tier + capability guard).
-          #
-          # `gh pr view --json files` passa da GraphQL, che su una PR con
-          # migliaia di file cambiati risponde `{"files":null}` invece di un
-          # errore (misurato su #6175, 5.576 file). Qui il `|| echo ""` assorbe
-          # il crash del `--jq`, quindi non si vede niente: `$files` resta
-          # vuoto, `touches_wf` resta vuoto, e il capability guard qui sotto
-          # NON scatta. Il risultato e' peggiore del crash — si brucia un turno
-          # Claude su una PR che tocca `.github/workflows/**` senza PAT, e il
-          # push fallisce alla fine. Stessa forma in pr-review-loop.yml.
-          #
-          # Il `null` pero' e' solo UNA delle due modalita' degradate, e la #6190
-          # keyava il fallback sulla sola lista vuota. `--json files` chiede la
-          # connection `files(first: 100)` e NON pagina: sopra i 100 file tronca
-          # in silenzio, in ordine alfabetico, con exit 0 e lista NON vuota.
-          # Misurato il 2026-08-20 su #6121 (183 file): GraphQL 100, REST
-          # `--paginate` 183/183. Su quella lista troncata `crit=` non trovava
-          # nulla (tier normal invece di high) perche' `scripts/` e `tests/`
-          # cadono oltre il taglio alfabetico. `changedFiles` dice se l'elenco
-          # e' completo; se non lo e', entrambi i consumatori qui sotto vanno in
-          # direzione conservativa invece di fidarsi del campione.
-          if ! expected=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null); then
-            # `expected=0` per fallimento di `gh` e `expected=0` perche' il diff
-            # e' oversize sono lo STESSO valore con significati opposti, e il
-            # secondo e' un dato mentre il primo e' un buco. Senza questa riga
-            # un `gh` che inciampa rende «incompleta» ogni PR normale (la regola
-            # `expected -eq 0 && count -gt 0`) e lo fa in silenzio.
-            expected=0
-            echo "::warning::gh pr view --json changedFiles FALLITO → oracolo assente, non «PR oversize». Ogni PR verra' trattata come incompleta finche' dura."
-          fi
-          case "$expected" in ''|*[!0-9]*) expected=0 ;; esac
-          files=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json files --jq '.files // [] | .[].path' 2>/dev/null || echo "")
-          count=$(printf '%s\n' "$files" | grep -c . || true)
-          rest_confirmed=0
-          if [ -z "$files" ] || [ "$count" -ge 100 ] || [ "$count" -lt "$expected" ]; then
-            rest=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || echo "")
-            rest_count=$(printf '%s\n' "$rest" | grep -c . || true)
-            # Conferma vuol dire CONSEGNA, non «ha risposto»: una REST che rende
-            # meno file della GraphQL non scioglie l'ambiguita' del cap.
-            if [ "$rest_count" -ge "$count" ]; then rest_confirmed=1; fi
-            if [ "$rest_count" -gt "$count" ]; then
-              files="$rest"; count="$rest_count"
-              echo "GraphQL tronca/nulla → fallback REST: $count file (attesi $expected)."
-            fi
-          fi
-          files_complete=1
-          if [ "$expected" -gt 0 ] && [ "$count" -lt "$expected" ]; then files_complete=0; fi
-          if [ "$expected" -eq 0 ] && [ "$count" -gt 0 ]; then files_complete=0; fi
-          # Esattamente al cap e senza conferma dalla REST, «100» e' ambiguo per
-          # costruzione: puo' essere una PR da 100 file o il troncamento di una
-          # da 250. `expected` non scioglie il dubbio quando e' piu' basso del
-          # cap — succede se la PR cresce fra la lettura dell'oracolo e questa
-          # fetch — e in quel caso nessuna delle due regole qui sopra scatta.
-          # Stessa clausola di `scripts/ci/pr-collision-detector.mjs`.
-          if [ "$count" -eq 100 ] && [ "$rest_confirmed" != "1" ]; then files_complete=0; fi
+          # File cambiati dalla PR (per tier + capability guard). Fallback
+          # GraphQL→REST/cap-100 + `expected`/`files_complete` sono nel CLI
+          # condiviso `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano
+          # una reimplementazione shell inline, tenuta allineata a mano alla
+          # stessa logica in `scripts/ci/pr-collision-detector.mjs` e nel
+          # gemello `pr-review-loop.yml`).
+          result=$(node scripts/ci/fetch-pr-files.mjs --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
+          expected=$(echo "$result" | jq -r '.expected // 0')
+          count=$(echo "$result" | jq -r '.count // 0')
+          files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          files=$(echo "$result" | jq -r '(.files // [])[]')
           if [ "$files_complete" != "1" ]; then
             echo "::warning::Elenco file INCOMPLETO ($count/$expected) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
           fi
