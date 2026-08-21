@@ -1,52 +1,54 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-20T21:33:37.247Z",
-  "total": 386,
+  "generatedAt": "2026-08-21T09:59:49.204Z",
+  "total": 380,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 109633,
-  "avgDurationMs": 109633,
+  "unchangedCount": 0,
+  "durationMs": 106424,
+  "avgDurationMs": 106424,
   "durationHistory": [
-    109633
+    106424
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistente di farmacia AFC",
-      "company": "Coop Vitality  (Galenica)",
+      "title": "Assistante en pharmacie (f/h/d)",
+      "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12766258",
-      "location": "Flims",
-      "canton": "GR",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3124474.4042680",
+      "location": "Bern",
+      "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Flims, Via Nova 80, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12766258-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-flims-gr-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
-      "postedDate": "",
+      "descriptionIt": "Assistante en pharmacie (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "",
+      "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-coop-vitality-vich-assistente-di-farmacia-afc-flims",
-      "id": "galenica-977376ad82b3",
+      "slug": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
+      "id": "galenica-c526b16d9cd0",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "currency": "CHF",
-      "addressLocality": "Flims",
-      "addressRegion": "GR",
+      "streetAddress": "Untermattweg 8",
+      "postalCode": "3027",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 78,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
