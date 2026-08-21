@@ -1,0 +1,125 @@
+name: Needs-human sweep (Claude, weekly)
+
+# `needs-human` era uno stato ASSORBENTE: nessun meccanismo lo riprendeva in
+# mano (l'unico effetto a valle era una issue-digest passiva in
+# recycle-stale-prs.yml). Misurato il 2026-08-21: 47 issue aperte in
+# `needs-human` sul sito; il 2026-08-14 era già stato misurato che 16 su 35
+# erano difetti tecnici parcheggiati per sbaglio, non decisioni vere.
+#
+# Questo sweep è l'UNICA porta di rientro dallo stato, ed è volutamente:
+#  - SETTIMANALE (1 run Claude batch: frugalità di quota per architettura);
+#  - guidato da VISION.md (i driver dicono cosa è decidibile in autonomia e
+#    cosa resta del proprietario — incluse le decisioni GIÀ prese);
+#  - bounded (max 15 azioni per run, il resto al giro successivo).
+#
+# Esiti per issue: (A) decisione vera del proprietario → resta needs-human ed
+# entra nel digest settimanale con la domanda DECIDIBILE; (B) capability oggi
+# disponibile / difetto tecnico → rientra in coda (fix o decompose); (C) claim
+# non più vera → chiusa con la misura. Il drainer e lo stadio di decomposizione
+# fanno il resto (ISSUES.md → «Drenare il backlog» e «Stadio di decomposizione»).
+
+on:
+  schedule:
+    - cron: '37 5 * * 1' # lunedì 05:37Z, fuori dalle ore di punta del ciclo
+  workflow_dispatch:
+
+concurrency:
+  group: needs-human-sweep
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+        timeout-minutes: 24
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      # Come issue-decompose: con l'App token le label `agent:fix-queued` /
+      # `agent:decompose-queued` applicate qui vengono viste dal drainer e gli
+      # eventi delle issue toccate restano attivi (GITHUB_TOKEN no).
+      - name: Mint GitHub App token (zero-Claude, pre-npm)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Run Claude sweep
+        id: claude_sweep
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ env.APP_TOKEN }}
+          show_full_output: true
+          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
+          claude_args: "--max-turns 60 --model claude-sonnet-5 --dangerously-skip-permissions"
+          prompt: |
+            Sei lo sweep settimanale delle issue `needs-human` di questo repo. Il tuo compito: separare le decisioni VERE del proprietario dal resto, e rimettere il resto nel ciclo autonomo. NON implementi fix e NON apri PR.
+
+            **Bootstrap:**
+            1. Leggi `VISION.md` PER INTERO: i driver di decisione, la lista «Sempre umano» e il registro delle decisioni già prese sono il tuo criterio di classificazione.
+            2. `gh issue list --repo $REPO --state open --label needs-human --json number,title,labels,createdAt,updatedAt --limit 100` — ordina per updatedAt crescente (le più ferme prima).
+
+            **Per ogni issue (MASSIMO 15 azioni totali in questo run — un'azione = un cambio di label/stato; le issue oltre il cap restano al giro successivo):**
+            1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione del proprietario già registrata (comando nel registro di VISION.md): se c'è, la issue non è più una domanda — applicala.
+            2. Classifica in UNA delle quattro:
+               - **A — decisione vera del proprietario**: rientra in «Sempre umano» di VISION.md, o nessun driver la copre. NON toccare le label. Aggiungila alla lista per il digest (punto finale), formulando la domanda in modo DECIDIBILE: le opzioni concrete e la misura che serve a scegliere, in ≤4 righe.
+               - **B — capability/permessi**: era bloccata da una capacità che oggi esiste (scope `workflows` concesso via App quando `APP_TOKEN_WORKFLOWS=true`; il fixer ha tutti i tool incluso `curl` dal 2026-07-02; lo stadio di decomposizione esiste per le issue grandi). Commento che cita il driver o la capacità + `gh issue edit N --remove-label needs-human --remove-label fu-parked --add-label agent:fix-queued` (issue singola con causa chiara) oppure `--add-label agent:decompose-queued` (issue grande/contenitore: più cause o più target).
+               - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, NON chiudere: trattala come A o lasciala.
+               - **D — parcheggiata giusta**: needs-human corretto ma già nel digest/registro (es. famiglia job-alert: VISION.md dice di lasciarla stare). Non toccare nulla, non metterla nel digest di nuovo se già presente.
+            3. VINCOLI: mai chiudere ciò che non hai misurato; mai toccare le issue che il registro di VISION.md riserva (famiglia job-alert: #5705 e affini); mai rimuovere `agent:no-age-out`; un'issue con PR aperta collegata non si tocca.
+
+            **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `needs-human,automation,agent:no-age-out`). Sostituisci/aggiorna il body con: l'elenco delle domande di classe A (numero, domanda decidibile, opzioni), le decisioni applicate in questo run (classe B/C, con issue e driver citato), e il conteggio residuo `needs-human`. Il body deve restare leggibile in 2 minuti: le domande sono POCHE e decidibili, o lo sweep ha fallito il suo compito.
+
+            **Telemetria:** chiudi postando sul digest un commento con l'ultimo marker su riga propria: `<!-- SWEEP_OUTCOME: a=<n> b=<n> c=<n> d=<n> -->`.
+
+      - name: Claude usage metrics
+        if: always()
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_sweep.outputs.execution_file }}" "needs-human-sweep"
+
+      # Colore = lavoro reale: verde se il marker SWEEP_OUTCOME è stato postato
+      # (anche a cap raggiunto), rosso se la CLI è morta senza produrlo.
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLAUDE_OUTCOME: ${{ steps.claude_sweep.outcome }}
+        run: |
+          set -uo pipefail
+          N=$(gh search issues --repo "$GITHUB_REPOSITORY" --state open --match title "🧭 Decisioni del proprietario — digest" --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "${N:-}" ]; then
+            HAS=$(gh issue view "$N" --json comments --jq '[.comments[].body | select(test("<!-- SWEEP_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+          else
+            HAS=0
+          fi
+          echo "digest=${N:-<none>} sweep-markers=$HAS claude=$CLAUDE_OUTCOME"
+          if [ "${HAS:-0}" != "0" ]; then
+            echo "✓ marker SWEEP_OUTCOME presente → run SUCCESS."
+            exit 0
+          fi
+          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            echo "::error::needs-human-sweep: CLI fallita senza marker → non-delivery. Il prossimo run settimanale (o un dispatch manuale) recupera: lo sweep è idempotente."
+            exit 1
+          fi
+          echo "CLI pulita senza marker (es. zero issue needs-human) → verde."
