@@ -3718,6 +3718,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.compra-casa-zurigo-mutuo.title': 'Buying a house in Zurich: mortgage and taxes',
     'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Real estate purchase in Zurich: mortgage, own funds, transfer taxes and notary fees. Procedure and costs for the purchase and sale in the Canton of Zurich.',
     'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Modern residential building in Switzerland representing the real estate market and property ownership',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Lease Law in Switzerland: Deposit Guide and Disputes',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Security deposit, cancellation, dispute of the rent: this is how the federal lease law in Switzerland works and the procedures with the conciliation authority.',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Swiss residential building with wooden balconies and natural morning light',
 };
 
 export default blogMetaChEn;

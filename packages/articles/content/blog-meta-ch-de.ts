@@ -3718,6 +3718,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.compra-casa-zurigo-mutuo.title': 'Haus kaufen in Zürich: Hypothekendarlehen und Steuern',
     'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Immobilienkauf in Zürich: Hypothek, Eigenkapital, Abgaben und Notarkosten. Verfahren und Kosten für den Kauf und Verkauf im Kanton Zürich.',
     'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Modernes Wohngebäude in der Schweiz, zeigt den Immobilienmarkt und Hauskauf',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Mietrecht in der Schweiz: Leitfaden zur Hinterlegung und Beanstandungen',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Kaution, Kündigung, Gebührenbeanstandung - so funktioniert das Bundesmietrecht in der Schweiz und die Verfahren bei der Schlichtungsstelle.',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Schweizer Wohngebäude mit Holzbalkonen und natürlichem Morgenlicht',
 };
 
 export default blogMetaChDe;
