@@ -36,7 +36,11 @@ const REST_PAGE = 30; // quanti file rende l'endpoint REST senza `--paginate`
  *  - senza `--paginate` rende solo la prima pagina (30), come l'endpoint vero;
  *  - con `json !== false` fa `JSON.parse` dell'output, che su un elenco
  *    newline-delimited lancia — come lancia il `gh()` reale;
- *  - un endpoint sbagliato non risponde.
+ *  - un endpoint sbagliato non risponde;
+ *  - con `allowFail` un fallimento NON lancia: rende `''` (o `null` in modo
+ *    JSON), esattamente come il `gh()` reale. Senza questo ramo la mutazione
+ *    «rimetti `allowFail: true` sulla REST» restava verde 20/20, cioe' il
+ *    doppio era ancora cieco a meta' della firma che dichiara di replicare.
  */
 function fakeGh({ graphql, rest }: { graphql?: unknown; rest?: string | Error }) {
   const calls: string[][] = [];
@@ -49,7 +53,13 @@ function fakeGh({ graphql, rest }: { graphql?: unknown; rest?: string | Error })
     if (!/^repos\/[^/]+\/[^/]+\/pulls\/\d+\/files$/.test(args[1] ?? '')) {
       throw new Error(`endpoint REST inatteso: ${args[1]}`);
     }
-    if (rest instanceof Error) throw rest;
+    if (rest instanceof Error) {
+      // Il `gh()` reale con `allowFail` INGHIOTTE: rende `''`/`null` invece di
+      // lanciare. E' proprio il segnale che sparisce, quindi il finto deve
+      // riprodurlo o il test non puo' vederlo mancare.
+      if (opts.allowFail) return opts.json === false ? '' : null;
+      throw rest;
+    }
     let out = rest ?? '';
     if (!args.includes('--paginate')) {
       out = out.split('\n').filter(Boolean).slice(0, REST_PAGE).join('\n');
@@ -190,6 +200,52 @@ describe('fetchPrFiles — la clausola del cap, isolata', () => {
     const { files, complete } = fetchPrFiles(10, GRAPHQL_FILES_CAP, fn as never, 'o/r');
     expect(files).toHaveLength(GRAPHQL_FILES_CAP);
     expect(complete).toBe(true);
+  });
+
+  it('al cap con REST che risponde con MENO file: non e una conferma', () => {
+    // Il buco vero: `restConfirmed = true` messo PRIMA di guardare quanto la
+    // REST avesse consegnato. Una REST che esce 0 rendendo 60 file su una
+    // GraphQL tagliata a 100 non scioglie nulla — la lista puo' essere ancora
+    // quella troncata — ma contava come conferma, e con `expected` piu' basso
+    // del cap `100 >= 50` dichiarava completa una lista tagliata.
+    const { fn } = fakeGh({
+      graphql: listOf(GRAPHQL_FILES_CAP),
+      rest: listOf(60).join('\n'),
+    });
+    const { files, complete } = fetchPrFiles(11, 50, fn as never, 'o/r');
+    expect(files).toHaveLength(GRAPHQL_FILES_CAP);
+    expect(complete).toBe(false);
+  });
+
+  it('al cap con REST che risponde 200 A MANI VUOTE: non e una conferma', () => {
+    // Stesso difetto per l'altra via: `''` non lancia, quindi passava per
+    // «ha risposto». Zero file consegnati non confermano un elenco da 100.
+    const { fn } = fakeGh({ graphql: listOf(GRAPHQL_FILES_CAP), rest: '' });
+    const { files, complete } = fetchPrFiles(12, 50, fn as never, 'o/r');
+    expect(files).toHaveLength(GRAPHQL_FILES_CAP);
+    expect(complete).toBe(false);
+  });
+
+  it('il finto ONORA allowFail: una REST giu rende una stringa vuota, non lancia', () => {
+    // Test del doppio, non del sorgente: senza questo ramo il finto lanciava
+    // comunque, quindi la mutazione «rimetti `allowFail: true`» restava verde
+    // e il punto non era coperto da niente.
+    const { fn } = fakeGh({ graphql: listOf(1), rest: new Error('REST giu') });
+    expect(() => fn(['api', 'repos/o/r/pulls/1/files'], { json: false })).toThrow();
+    expect(fn(['api', 'repos/o/r/pulls/1/files'], { json: false, allowFail: true })).toBe('');
+  });
+
+  it('l invariante del cap NON dipende da allowFail: tiene anche se qualcuno lo rimette', () => {
+    // Con `allowFail` il fallimento arriva come `''` invece che come throw.
+    // Poiche' `restConfirmed` misura la CONSEGNA e non l'assenza di eccezione,
+    // le due strade danno lo stesso verdetto conservativo.
+    const gh = (args: string[], opts: { json?: boolean; allowFail?: boolean } = {}) => {
+      if (args[0] === 'pr') return listOf(GRAPHQL_FILES_CAP);
+      if (opts.allowFail) return opts.json === false ? '' : null;
+      throw new Error('REST giu');
+    };
+    const { complete } = fetchPrFiles(13, 50, gh as never, 'o/r');
+    expect(complete).toBe(false);
   });
 });
 
