@@ -3739,6 +3739,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS e prestazioni complementari nel Canton Zurigo',
     'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'Come funziona il primo pilastro AVS nel Canton Zurigo: cassa di compensazione, calcolo della rendita, lacune e prestazioni complementari per il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Ufficio della cassa di compensazione del Canton Zurigo dove vengono elaborate richieste di rendita AVS e prestazioni complementari',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Permesso B Berna: requisiti e rinnovo',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Permesso dimora B Cantone Berna: requisiti, documentazione, durata e procedura di rinnovo. Guida completa e step-by-step da autorità SEM.',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Ufficio amministrativo cantonale Berna con documenti di permesso e passaporto su scrivania',
 };
 
 export default blogMetaChIt;
