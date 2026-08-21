@@ -10383,6 +10383,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-casale-litta-ticino-frontaliere.title': 'Living in Casale Litta and working in Ticino',
     'blog.article.vivere-casale-litta-ticino-frontaliere.excerpt': 'Casale Litta and border work in Ticino: permits, taxation, living costs and practical transfer guide.',
     'blog.article.vivere-casale-litta-ticino-frontaliere.imageAlt': 'Casale Litta with Swiss border mountains in the distance, representing cross-border commuting landscape',
+    'blog.article.carenza-infermieri-varese.title': 'Shortage of nurses, the Order of Varese asks for interventions',
+    'blog.article.carenza-infermieri-varese.excerpt': 'Nurses work 24-hour shifts, including nights and holidays. The Order of Nursing Professions of Varese asks for funded interventions and certain times to retain nurses in the area.',
+    'blog.article.carenza-infermieri-varese.imageAlt': 'Nurses in a hospital',
 };
 
 export default blogMetaEn;

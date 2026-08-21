@@ -10385,6 +10385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-casale-litta-ticino-frontaliere.title': 'Vivre à Casale Litta et travailler au Tessin',
     'blog.article.vivere-casale-litta-ticino-frontaliere.excerpt': 'Casale Litta et le travail de frontalier au Tessin : permis, fiscalité, coût de la vie et guide pratique pour le transfert.',
     'blog.article.vivere-casale-litta-ticino-frontaliere.imageAlt': 'Vue di Casale Litta avec les Alpes suisses en arrière-plan, symbolisant le paysage du navettage transfrontalier',
+    'blog.article.carenza-infermieri-varese.title': 'Pénurie d\'infirmières, l\'Ordre de Varèse demande des interventions',
+    'blog.article.carenza-infermieri-varese.excerpt': 'Les infirmières travaillent par équipes de 24 heures, y compris les nuits et les jours fériés. L\'Ordre des professions infirmières de Varèse demande des interventions financées et un certain temps pour retenir les infirmières sur le territoire.',
+    'blog.article.carenza-infermieri-varese.imageAlt': 'Infirmières dans un hôpital',
 };
 
 export default blogMetaFr;
