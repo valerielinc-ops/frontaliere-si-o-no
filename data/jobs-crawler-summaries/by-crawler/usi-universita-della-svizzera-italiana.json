@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-08-21T10:10:01.504Z",
+  "generatedAt": "2026-08-21T22:00:53.076Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 111543,
-  "avgDurationMs": 111543,
+  "durationMs": 51750,
+  "avgDurationMs": 51750,
   "durationHistory": [
-    111543
+    51750
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -359,12 +359,12 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-91715087b937",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-05-27T00:41:02.159Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
         "completeness": 9
       }
@@ -455,12 +455,12 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-10T10:25:30.321Z",
-      "_qualityScore": 77,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 22,
         "translation": 25,
         "completeness": 9
       }
