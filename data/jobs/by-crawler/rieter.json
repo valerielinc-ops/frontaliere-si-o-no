@@ -437,7 +437,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-10T10:27:28.480Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -663,7 +662,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-30T22:10:46.762Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -756,7 +754,7 @@
       "title": "Head of Sales, Service & Marketing (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile Sales, Service & Marketing (m/w/d)",
-        "en": "Head of Sales, Service & Marketing (m/w/d)",
+        "en": "Head of Sales, Service & Marketing (m/f/d)",
         "de": "Leiter Sales, Service & Marketing (m/w/d)",
         "fr": "Responsable Sales, Service & Marketing (m/w/d)"
       },
@@ -804,8 +802,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
