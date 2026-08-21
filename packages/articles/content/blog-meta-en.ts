@@ -10398,6 +10398,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.baceno-ticino-frontaliere.title': 'Living in Baceno and working in Ticino: border guide',
     'blog.article.baceno-ticino-frontaliere.excerpt': 'Tax advantages, procedures, costs and regulations for those who live in the Ossola Valley and commute to the Canton of Ticino as a border worker.',
     'blog.article.baceno-ticino-frontaliere.imageAlt': 'View of the Ossola Valley towards Ticino: Alpine border landscape with daily cross-border worker commutes.',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.title': 'Living in Musso and working in Ticino as a border worker',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.excerpt': 'Musso, in Ticino, is a municipality that offers a good quality of life to its residents. However, for border workers, working in Ticino can present some challenges.',
+    'blog.article.vivere-musso-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere working in Musso, Ticino.',
 };
 
 export default blogMetaEn;

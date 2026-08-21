@@ -3712,6 +3712,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-norme-svizzera.title': 'Diritto di locazione in Svizzera: regole e tutele',
     'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Scopri le norme federali che regolano il mercato degli affitti: dal deposito cauzionale alle procedure di disdetta e contestazione dei canoni.',
     'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Edificio residenziale moderno in Svizzera',
+    'blog.article.finanziamento-studi-zurigo.title': 'Borse studio Canton Zurigo: requisiti e importi',
+    'blog.article.finanziamento-studi-zurigo.excerpt': 'Modalità di accesso, capacità economica richiesta e tempistiche di presentazione: tutto quello che serve sapere sul sistema di borse di studio nel Canton Zurigo.',
+    'blog.article.finanziamento-studi-zurigo.imageAlt': 'Studenti camminano tra edifici universitari classici su un campus svizzero in una giornata soleggiata.',
+    'blog.article.compra-casa-zurigo-mutuo.title': 'Comprare casa a Zurigo: mutuo ipotecario e imposte',
+    'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Acquisto immobiliare a Zurigo: mutuo, fondi propri, imposte sui trapassi e spese notarili. Procedura e costi per la compravendita nel Canton Zurigo.',
+    'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Edificio residenziale moderno in Svizzera, rappresenta il mercato immobiliare e l\'acquisto di proprietà',
 };
 
 export default blogMetaChIt;

@@ -73586,6 +73586,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-musso-lavorare-ticino-da-frontaliere': {
+    title: 'Vivere a Musso e lavorare in Ticino da frontaliere',
+    description: 'Musso, in Ticino, è un comune che offre una buona qualità della vita ai suoi residenti. Tuttavia, per i frontaliere, lavorare in Ticino può presentare alcune',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, musso, lavorare, comune',
+    ogTitle: 'Vivere a Musso e lavorare in Ticino da frontaliere',
+    ogDescription: 'Musso, in Ticino, è un comune che offre una buona qualità della vita ai suoi residenti. Tuttavia, per i frontaliere, lavorare in Ticino può presentare alcune sfide.',
+    canonicalPath: '/articoli-frontaliere/vivere-musso-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Musso e lavorare in Ticino da frontaliere",
+      "description": "Musso, in Ticino, è un comune che offre una buona qualità della vita ai suoi residenti. Tuttavia, per i frontaliere, lavorare in Ticino può presentare alcune",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-musso-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere lavora a Musso, in Ticino."
+      },
+      "datePublished": "2026-08-21T14:13:14+00:00",
+      "dateModified": "2026-08-21T14:13:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-musso-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

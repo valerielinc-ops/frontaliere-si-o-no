@@ -3712,6 +3712,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-norme-svizzera.title': 'Droit de la location en Suisse : règles et protections',
     'blog.article.diritto-locazione-norme-svizzera.excerpt': 'Découvrez les règles fédérales régissant le marché locatif : du dépôt de garantie aux procédures de résiliation et de contestation des loyers.',
     'blog.article.diritto-locazione-norme-svizzera.imageAlt': 'Bâtiment résidentiel moderne en Suisse',
+    'blog.article.finanziamento-studi-zurigo.title': 'Bourses d\'études Canton de Zurich : exigences et montants',
+    'blog.article.finanziamento-studi-zurigo.excerpt': 'Modalités d\'accès, capacité économique requise et délais de présentation : tout ce qu\'il faut savoir sur le système de bourses d\'études dans le canton de Zurich.',
+    'blog.article.finanziamento-studi-zurigo.imageAlt': 'Étudiants marchent entre bâtiments universitaires classiques sur un campus suisse par temps ensoleillé.',
+    'blog.article.compra-casa-zurigo-mutuo.title': 'Acheter une maison à Zurich : hypothèque et impôts',
+    'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Achat immobilier à Zurich : hypothèque, fonds propres, droits de passage et frais de notaire. Procédure et coûts pour la vente dans le canton de Zurich.',
+    'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Immeuble résidentiel moderne en Suisse représentant le marché immobilier et l\'achat de propriété',
 };
 
 export default blogMetaChFr;

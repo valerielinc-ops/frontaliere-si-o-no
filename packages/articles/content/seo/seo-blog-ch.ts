@@ -48146,6 +48146,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanziamento-studi-zurigo': {
+    title: 'Borse studio Canton Zurigo: requisiti e importi',
+    description: 'Borse di studio nel Canton Zurigo: requisiti economici, criteri di accesso e procedura di domanda. Informazioni ufficiali e contatti dell\'ufficio cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, zurigo',
+    ogTitle: 'Borse studio Canton Zurigo: Come accedere e quanto ricevere',
+    ogDescription: 'Borse di studio nel Canton Zurigo: scopri i requisiti economici, i criteri di merito, gli importi massimi e le scadenze di presentazione. Guida pratica con contatti dell\'ufficio cantonale competente per accedere al servizio.',
+    canonicalPath: '/articoli-svizzera/finanziamento-studi-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse studio Canton Zurigo: requisiti e importi",
+      "description": "Borse di studio nel Canton Zurigo: requisiti economici, criteri di accesso e procedura di domanda. Informazioni ufficiali e contatti dell'ufficio cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanziamento-studi-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti camminano tra edifici universitari classici su un campus svizzero in una giornata soleggiata."
+      },
+      "datePublished": "2026-08-21T14:05:01+00:00",
+      "dateModified": "2026-08-21T14:05:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamento-studi-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-compra-casa-zurigo-mutuo': {
+    title: 'Comprare casa a Zurigo: mutuo ipotecario e imposte',
+    description: 'Acquisto immobiliare a Zurigo: requisiti mutuo, fondi propri, imposte sui trapassi e spese notarili. Guida pratica al finanziamento nel Canton Zurigo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, zurigo, mutuo',
+    ogTitle: 'Comprare casa a Zurigo: mutuo ipotecario e imposte',
+    ogDescription: 'Guida completa all\'acquisto immobiliare nel Canton Zurigo: scopri i requisiti mutuo, i fondi propri necessari, le imposte cantonal-comunali sui trapassi immobili, le spese notarili, e la procedura passo-dopo-passo per completare la transazione.',
+    canonicalPath: '/articoli-svizzera/compra-casa-zurigo-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Zurigo: mutuo ipotecario e imposte",
+      "description": "Acquisto immobiliare a Zurigo: requisiti mutuo, fondi propri, imposte sui trapassi e spese notarili. Guida pratica al finanziamento nel Canton Zurigo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/compra-casa-zurigo-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale moderno in Svizzera, rappresenta il mercato immobiliare e l'acquisto di proprietà"
+      },
+      "datePublished": "2026-08-21T14:24:19+00:00",
+      "dateModified": "2026-08-21T14:24:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/compra-casa-zurigo-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
