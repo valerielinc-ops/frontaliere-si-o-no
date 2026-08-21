@@ -1236,6 +1236,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-appenzello-esterno': { it: 'permesso-dimora-b-appenzello-esterno', en: 'residence-permit-b-appenzell-ausserrhoden', de: 'aufenthaltserlaubnis-b-appenzell-ausserrhoden', fr: 'permis-sejour-b-appenzell-rhodes-exterieures' },
  'permesso-c-appenzello-esterno-domanda': { it: 'permesso-c-appenzello-esterno-domanda', en: 'residence-permit-c-appenzell-outer-rhodes-requirements', de: 'aufenthaltserlaubnis-c-appenzell-ausserrhoden-voraussetzungen', fr: 'permis-domicile-c-appenzell-rhodes-exte-conditions-demande' },
  'permesso-l-cantone-appenzello-validita': { it: 'permesso-l-cantone-appenzello-validita', en: 'permit-l-short-term-appenzell-ausserrhoden-validity', de: 'kurzaufenthalt-appenzell-ausserrhoden-gultigkeit', fr: 'permis-l-appenzell-rhodes-exterieures-validite' },
+ 'assegni-familiari-appenzello-esterno': { it: 'assegni-familiari-appenzello-esterno', en: 'family-allowances-appenzell-ausserrhoden', de: 'familienzulagen-appenzell-ausserrhoden', fr: 'allocations-familiales-appenzell-rhodes-exterieures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

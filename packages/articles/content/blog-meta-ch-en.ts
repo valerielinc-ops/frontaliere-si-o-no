@@ -3631,6 +3631,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-cantone-appenzello-validita.title': 'Permit L External Appenzell: validity and renewal',
     'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Permit L short duration in External Appenzello: duration 12 months, renewal criteria, transition to permit B, constraints related to the employer. Practical guide.',
     'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'SEM office handling residence permit L applications for foreign workers in Appenzell Ausserrhoden',
+    'blog.article.assegni-familiari-appenzello-esterno.title': 'Family allowances External Appenzello: amounts and application',
+    'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Complete guide to family allowances in Outer Appenzell: how the federal-cantonal system works, conditions of law, compensation fund and application procedure.',
+    'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Swiss cantonal office desk with family benefits application documents',
 };
 
 export default blogMetaChEn;

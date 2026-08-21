@@ -3631,6 +3631,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-cantone-appenzello-validita.title': 'Genehmigung L Appenzell Ausserrhoden: Gültigkeit und Erneuerung',
     'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Kurzzeitbewilligung in Appenzell Ausserrhoden: Dauer 12 Monate, Verlängerungskriterien, Umstellung auf Bewilligung B, arbeitgeberbezogene Bindungen. Praxisleitfaden.',
     'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'SEM-Büro für die Verwaltung von Kurzzeitaufenthalt-Permiten für ausländische Arbeitskräfte in Appenzell Ausserrhoden',
+    'blog.article.assegni-familiari-appenzello-esterno.title': 'Familienzulagen Appenzell Ausserrhoden: Beträge und Antrag',
+    'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Vollständiger Leitfaden zur Familienzulage im Appenzell Ausserrhoden: Funktionsweise des kantonalen Bundessystems, rechtliche Rahmenbedingungen, Ausgleichskasse und Antragsverfahren.',
+    'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Schweizer Kantonsamt mit Familienzulagsdokumenten auf Schreibtisch',
 };
 
 export default blogMetaChDe;
