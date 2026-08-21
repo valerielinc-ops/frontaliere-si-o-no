@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-21T11:28:27.361Z",
+  "updatedAt": "2026-08-21T13:44:33.888Z",
   "perCrossing": {
     "anieres": {
       "waitTimeMinutes": 0,
@@ -207,7 +207,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-21T11:28:27.361Z"
+      "lastUpdate": "2026-08-21T13:44:33.888Z"
     },
     "campocologno-tirano": {
       "waitTimeMinutes": 0,
@@ -239,7 +239,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-21T11:28:27.361Z"
+      "lastUpdate": "2026-08-21T13:44:33.888Z"
     },
     "chiasso-centro": {
       "waitTimeMinutes": 0,
@@ -247,7 +247,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-21T11:28:27.361Z"
+      "lastUpdate": "2026-08-21T13:44:33.888Z"
     },
     "chiasso-strada": {
       "waitTimeMinutes": 0,
@@ -255,7 +255,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-21T11:28:27.361Z"
+      "lastUpdate": "2026-08-21T13:44:33.888Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 1,
@@ -394,12 +394,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "gaggiolo": {
-      "waitTimeMinutes": 0,
+      "waitTimeMinutes": 15,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 0,
-      "status": "green",
+      "totalCrossingMinutes": 15,
+      "status": "red",
       "source": "webcam",
-      "lastUpdate": "2026-08-21T11:28:27.361Z"
+      "lastUpdate": "2026-08-21T13:44:33.888Z"
     },
     "gailingen-am-hochrhein-dorflingen": {
       "waitTimeMinutes": 0,
@@ -978,12 +978,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "san-pietro": {
-      "waitTimeMinutes": 0,
+      "waitTimeMinutes": 15,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 0,
-      "status": "green",
+      "totalCrossingMinutes": 15,
+      "status": "red",
       "source": "webcam",
-      "lastUpdate": "2026-08-21T11:28:27.361Z"
+      "lastUpdate": "2026-08-21T13:44:33.888Z"
     },
     "sauverny": {
       "waitTimeMinutes": 0,
