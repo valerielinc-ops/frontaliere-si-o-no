@@ -29,6 +29,7 @@
  *   node scripts/prospect-promote.mjs --dry-run
  *   node scripts/prospect-promote.mjs --max=5
  *   node scripts/prospect-promote.mjs --open-pr
+ *   node scripts/prospect-promote.mjs --min-days=1 --open-pr   # verifica una tantum
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -46,6 +47,24 @@ const flag = (n) => argv.includes(`--${n}`);
 const dryRun = flag('dry-run');
 const openPr = flag('open-pr');
 const maxPerRun = Number(arg('max', GATE_DEFAULTS.maxPerRun));
+
+/**
+ * Leva di verifica: abbassa la regola di stabilita' per un giro.
+ *
+ * Esiste perche' la condizione vincolante del gate — due validazioni buone su
+ * due GIORNI distinti — rende impossibile provare il percorso di promozione nel
+ * giorno in cui lo si costruisce, e un percorso mai eseguito e' un percorso non
+ * verificato. Non e' un modo per allentare il gate di nascosto: e' esposta solo
+ * come input di `workflow_dispatch`, il cron non la tocca mai, e ogni uso
+ * finisce scritto nel titolo e nel corpo della PR che produce — cosi' una
+ * promozione a gate ridotto non puo' essere scambiata per una normale.
+ */
+const minDays = Number(arg('min-days', GATE_DEFAULTS.minDistinctDays));
+const relaxed = minDays < GATE_DEFAULTS.minDistinctDays;
+if (relaxed) {
+  console.log(`⚠️  GATE RIDOTTO: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}.`);
+  console.log('   Giro di verifica: l\'uso e\' registrato nella PR prodotta.\n');
+}
 
 const store = loadCandidates();
 const coverage = loadCoverage();
@@ -84,7 +103,7 @@ if (reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reopened}`)
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
   { existingKeys: coverage.keys },
-  { maxPerRun },
+  { maxPerRun, minDistinctDays: minDays, minRuns: Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays)) },
 );
 
 console.log('═══ Prospector · PROMOTE ═══');
@@ -193,10 +212,14 @@ const bullets = shipped.map((s) => {
   return `- **in questa PR** — \`${s.spec.companyKey}\` · ${s.spec.companyName} · ${s.vacancyCount} annunci · qualita' ${Number(s.qualityScore).toFixed(2)} su ${days} giorni distinti · estrazione \`${s.spec.mode}\` · ${s.spec.companyHost}`;
 }).join('\n');
 
+const relaxedNote = relaxed
+  ? `\n- **in questa PR** — ⚠️ **giro di verifica a gate ridotto**: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}. Serviva a eseguire il percorso di promozione senza attendere il secondo giorno; tutte le altre condizioni del gate sono quelle normali. Il cron non usa mai questa leva.`
+  : '';
+
 const body = `## Implementato
 
 - **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare.
-${bullets}
+${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente.
 
 ## Non implementato (ancora)
@@ -228,7 +251,7 @@ try {
   git('push', '-u', 'origin', branch);
   const url = execFileSync('gh', [
     'pr', 'create', '--base', 'main', '--head', branch,
-    '--title', `Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
+    '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
     '--body-file', bodyFile,
   ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
   console.log(`\nPR aperta: ${url}`);
