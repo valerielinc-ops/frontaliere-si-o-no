@@ -1271,6 +1271,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'locazione-zurigo-deposito-contestazione-procedure': { it: 'locazione-zurigo-deposito-contestazione-procedure', en: 'zurich-tenancy-deposit-dispute-procedures', de: 'zuerich-mietrecht-kaution-beschwerde-verfahren', fr: 'zurich-location-cautionnement-contestation-procedures' },
  'affitti-zurigo-procedura-locazione': { it: 'affitti-zurigo-procedura-locazione', en: 'zurich-rental-procedure-localization-rights', de: 'zurich-mietverfahren-mietrecht', fr: 'zurich-procedure-location-droits-locataires' },
  'zurigo-affitti-canone-deposito-guida': { it: 'zurigo-affitti-canone-deposito-guida', en: 'zurich-rental-lease-deposit-guide', de: 'zuerich-miete-kaution-leitfaden', fr: 'zurich-loyer-depot-caution-guide' },
+ 'avs-prestazioni-complementari-zurigo-cassa': { it: 'avs-prestazioni-complementari-zurigo-cassa', en: 'avs-supplementary-benefits-zurich-compensation-office', de: 'avs-ergaenzungsleistungen-zuerich-ausgleichskasse', fr: 'ava-prestations-complementaires-zurich-caisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

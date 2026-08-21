@@ -3736,6 +3736,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Affitti Zurigo: diritti, canoni e locazione',
     'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Canone iniziale, deposito cauzionale, disdetta: la guida pratica al diritto di locazione nel Canton Zurigo. Norme federali e procedure di conciliazione.',
     'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Facciata di un edificio residenziale in una città svizzera con finestre di appartamenti moderni',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS e prestazioni complementari nel Canton Zurigo',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'Come funziona il primo pilastro AVS nel Canton Zurigo: cassa di compensazione, calcolo della rendita, lacune e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Ufficio della cassa di compensazione del Canton Zurigo dove vengono elaborate richieste di rendita AVS e prestazioni complementari',
 };
 
 export default blogMetaChIt;
