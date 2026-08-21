@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-08-21T10:00:55.705Z",
+  "assembledAt": "2026-08-21T21:35:20.307Z",
   "jobs": [
     {
       "id": "nsn-medical-3f3fb0b19839",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/782/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:50.066Z",
+      "crawledAt": "2026-08-21T21:35:15.343Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -76,15 +76,15 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:38:46.797Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 73200,
+      "salaryMax": 102400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 73200,
+          "maxValue": 102400,
           "unitText": "YEAR"
         }
       }
@@ -121,7 +121,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:49.413Z",
+      "crawledAt": "2026-08-21T21:35:14.746Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,15 +179,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:07.759Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -224,7 +224,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:48.691Z",
+      "crawledAt": "2026-08-21T21:35:14.088Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -274,15 +274,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:07.348Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -319,7 +319,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/827/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:47.999Z",
+      "crawledAt": "2026-08-21T21:35:13.476Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -378,15 +378,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:06.939Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -423,7 +423,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:47.351Z",
+      "crawledAt": "2026-08-21T21:35:12.781Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -499,15 +499,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:06.529Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -544,7 +544,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:46.540Z",
+      "crawledAt": "2026-08-21T21:35:12.026Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -605,15 +605,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:05.135Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 73200,
+      "salaryMax": 102400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 73200,
+          "maxValue": 102400,
           "unitText": "YEAR"
         }
       }
@@ -650,7 +650,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:45.861Z",
+      "crawledAt": "2026-08-21T21:35:11.362Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -732,7 +732,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/832/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:45.219Z",
+      "crawledAt": "2026-08-21T21:35:10.724Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -750,15 +750,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-25T22:54:45.618Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 82000,
+          "maxValue": 114500,
           "unitText": "YEAR"
         }
       }
@@ -795,7 +795,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:44.566Z",
+      "crawledAt": "2026-08-21T21:35:10.032Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -831,15 +831,15 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:58:28.705Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -876,7 +876,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/837/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:00:43.661Z",
+      "crawledAt": "2026-08-21T21:35:09.196Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -914,15 +914,15 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:12:47.880Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 73200,
+      "salaryMax": 102400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 73200,
+          "maxValue": 102400,
           "unitText": "YEAR"
         }
       }
