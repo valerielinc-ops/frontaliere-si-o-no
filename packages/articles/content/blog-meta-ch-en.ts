@@ -3733,6 +3733,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-zurigo-procedura-locazione.title': 'Rentals Zurich: tenant rights, deposit and cancellation',
     'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Right to rent in Zurich: security deposit (max 3 months rent), dispute of the initial rent and cancellation according to the Federal Bond Code.',
     'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Modern residential building in Zurich with balconies and windows, contemporary Swiss urban architecture',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Rentals Zurich: rights, fees and lease',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Initial rent, security deposit, cancellation: the practical guide to the right to rent in the Canton of Zurich. Federal Rules and Conciliation Procedures.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Facade of a residential building in a Swiss city with modern apartment windows',
 };
 
 export default blogMetaChEn;

@@ -3733,6 +3733,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-zurigo-procedura-locazione.title': 'Vermietung Zürich: Mietrechte, Hinterlegung und Kündigung',
     'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Mietrecht in Zürich: Kaution (max. 3 Monate Miete), Anfechtung der Erstmiete und Kündigung gemäss Obligationenrecht.',
     'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Modernes Wohngebäude in Zürich mit Balkonen und Fenstern, zeitgenössische Schweizer Stadtarchitektur',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Mieten Zürich: Rechte, Gebühren und Miete',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Anfangsmiete, Kaution, Kündigung: Der praktische Leitfaden zum Mietrecht im Kanton Zürich. Bundesvorschriften und Schlichtungsverfahren.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Fassade eines Wohnhauses in einer Schweizer Stadt mit modernen Fensterstrukturen',
 };
 
 export default blogMetaChDe;

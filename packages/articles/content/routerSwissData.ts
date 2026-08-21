@@ -1270,6 +1270,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'manager-casse-malattia-commissione': { it: 'manager-casse-malattia-commissione', en: 'health-insurance-managers-commission', de: 'krankenkassen-manager-kommission', fr: 'managers-caisses-maladie-commission' },
  'locazione-zurigo-deposito-contestazione-procedure': { it: 'locazione-zurigo-deposito-contestazione-procedure', en: 'zurich-tenancy-deposit-dispute-procedures', de: 'zuerich-mietrecht-kaution-beschwerde-verfahren', fr: 'zurich-location-cautionnement-contestation-procedures' },
  'affitti-zurigo-procedura-locazione': { it: 'affitti-zurigo-procedura-locazione', en: 'zurich-rental-procedure-localization-rights', de: 'zurich-mietverfahren-mietrecht', fr: 'zurich-procedure-location-droits-locataires' },
+ 'zurigo-affitti-canone-deposito-guida': { it: 'zurigo-affitti-canone-deposito-guida', en: 'zurich-rental-lease-deposit-guide', de: 'zuerich-miete-kaution-leitfaden', fr: 'zurich-loyer-depot-caution-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

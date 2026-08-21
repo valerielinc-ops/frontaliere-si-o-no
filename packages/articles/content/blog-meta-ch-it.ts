@@ -3733,6 +3733,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-zurigo-procedura-locazione.title': 'Affitti Zurigo: diritti locatari, deposito e disdetta',
     'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.',
     'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Edificio residenziale moderno a Zurigo con balconi e finestre, architettura urbana contemporanea svizzera',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Affitti Zurigo: diritti, canoni e locazione',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Canone iniziale, deposito cauzionale, disdetta: la guida pratica al diritto di locazione nel Canton Zurigo. Norme federali e procedure di conciliazione.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Facciata di un edificio residenziale in una città svizzera con finestre di appartamenti moderni',
 };
 
 export default blogMetaChIt;
