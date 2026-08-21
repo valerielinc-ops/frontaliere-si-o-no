@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-08-21T09:48:06.293Z",
+  "updatedAt": "2026-08-21T21:31:19.859Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -109,6 +109,12 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-20"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036854/sales-agent-arbon-60-100": {
+      "location": "Arbon",
+      "canton": "TG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-21"
     }
   }
 }
