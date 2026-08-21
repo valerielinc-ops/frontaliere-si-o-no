@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-08-21T09:48:10.958Z",
+  "assembledAt": "2026-08-21T21:31:21.352Z",
   "jobs": [
     {
       "id": "spital-sts-ae7a89566714",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/29467efe-5e8b-429f-8866-eeb96322cc47/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:07.686Z",
+      "crawledAt": "2026-08-21T21:31:19.010Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,15 +68,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:42:16.347Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -113,7 +113,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/8ceb3598-123e-4a0f-8ef3-8dbfc9c20299/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:07.022Z",
+      "crawledAt": "2026-08-21T21:31:18.403Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -147,15 +147,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:42:54.732Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -192,7 +192,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:06.442Z",
+      "crawledAt": "2026-08-21T21:31:17.814Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -224,15 +224,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:39:55.262Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -269,7 +269,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:05.809Z",
+      "crawledAt": "2026-08-21T21:31:17.035Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -303,15 +303,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:45:33.529Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -348,7 +348,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:05.198Z",
+      "crawledAt": "2026-08-21T21:31:16.338Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -411,15 +411,15 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:23:41.218Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -456,7 +456,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/93b14957-805a-4228-a89b-28d8f286e304/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:04.487Z",
+      "crawledAt": "2026-08-21T21:31:15.768Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -488,15 +488,15 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:16.306Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -533,7 +533,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/aaa0f523-1dc2-461b-a77d-8328fc4d5e2b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:03.687Z",
+      "crawledAt": "2026-08-21T21:31:15.178Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -612,7 +612,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/39acf9e7-6acb-45d6-9378-18ec2beb7a69/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:03.064Z",
+      "crawledAt": "2026-08-21T21:31:14.423Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -630,15 +630,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-20T09:53:24.841Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       }
@@ -675,7 +675,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:02.449Z",
+      "crawledAt": "2026-08-21T21:31:13.712Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -709,15 +709,15 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:53:24.004Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
@@ -754,7 +754,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:48:01.595Z",
+      "crawledAt": "2026-08-21T21:31:12.987Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -788,96 +788,18 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:36:24.760Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-c978201abace",
-      "slug": "med-praxisassistent-in-o-dipl-pflegefachperson-spital-sts-zweisimmen",
-      "slugByLocale": {
-        "it": "med-praxisassistent-in-o-dipl-pflegefachperson-spital-sts-zweisimmen",
-        "en": "med-praxisassistent-in-or-dipl-nursing-professional-spital-sts-zweisimmen",
-        "de": "med-praxisassistent-in-oder-dipl-pflegefachperson-spital-sts-zweisimmen",
-        "fr": "med-praxissing-in-ou-dipl-professionnels-des-soins-infirmiers-spital-sts-zweisimmen"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Med. Praxisassistent:in oder Dipl. Pflegefachperson",
-      "titleByLocale": {
-        "it": "Med. Praxisassistent:in o Dipl. Pflegefachperson",
-        "en": "Med. Praxisassistent:in or Dipl. Nursing professional",
-        "de": "Med. Praxisassistent:in oder Dipl. Pflegefachperson",
-        "fr": "Med. Praxissing:in ou Dipl. Professionnels des soins infirmiers"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu wirst vor allem im Bereich der kardiologischen Sprechstunden eingesetzt. Zu deinen Aufgaben gehören die Planung der Sprechstunden der Ärzteschaft, die Assistenz bei kardiologischen Untersuchungen, die Durchführung von verschiedenen EKG's, die Übernahme von Sekretariatsaufgaben und das Schreiben der Behandlungsberichte ab Diktat.\n\nZudem unterstützt du das 7-köpfige Team fachübergreifend und bist bereit während Ferienabwesenheiten deiner Kolleginnen flexibel einzuspringen.\n\nEintritt per 1. September 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Arbeit in Kombination von Pflege und Administration\n\n• Geregelte Arbeitszeiten ohne Wochenend- und Feiertagseinsätze\n\n• Kleines, herzliches und interdisziplinäres Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Wählbares Ferien- und Pensionskassenmodell und gute Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Med. Praxisassistent:in EFZ oder Dipl. Pflegefachperson HF/FH mit Berufserfahrung\n\n• Sehr gute PC-Anwenderkenntnisse\n\n• Freude daran, die internen Spezialsprechstunden mit direktem Patienten/- und Ärztekontakt begleiten und organisieren zu können\n\n• Teamorientiert, kommunikativ und bereit Neues zu lernen",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre ad un lavoro versatile nell'ambiente familiare, l'Ospedale Zweisimmen offre anche la possibilità di svago flessibile nella natura circostante e nella regione montana. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nSono utilizzati principalmente nel campo delle ore di consultazione cardiologica. I vostri compiti includono la pianificazione delle ore di ufficio medico, l'assistenza in esami cardiologici, l'implementazione di vari ECG, l'assunzione di compiti di segreteria e la scrittura dei rapporti di trattamento da dettati.\n\nInoltre, si supporta il team di 7 membri attraverso le discipline e sono pronti a saltare in modo flessibile durante le vacanze assenze dei vostri colleghi.\n\nEntrata di 1. Settembre 2026 o accordo\n\nQuesto ti aspetta\n\n• Lavoro vario ed emozionante in combinazione di cura e amministrazione\n\n• Orari di lavoro regolamentati senza fine settimana e incarichi di festività pubbliche\n\n• Squadra piccola, calda e interdisciplinare\n\n• Una stretta collaborazione con il personale medico\n\n• Modello del fondo pensionistico e delle buone condizioni di lavoro\n\nDiventa parte del nostro team\n\n• Med. Praxisassistent: in EFZ o Dipl. Infermiera HF/FH con esperienza professionale\n\n• Conoscenza dell'utente PC molto buona\n\n• Divertimento per essere in grado di accompagnare e organizzare le ore di consultazione speciali interne con il contatto diretto del paziente/e del medico\n\n• Team-oriented, comunicativo e pronto ad imparare cose nuove",
-        "en": "A job with prospects: In addition to a versatile work in the family environment, the Hospital Zweisimmen also offers you the opportunity for flexible leisure in the surrounding nature and mountain region. Are you looking meaningful, but also fair? Then you're right here.\n\nThey are mainly used in the field of cardiological consultation hours. Your tasks include the planning of the medical office hours, the assistance in cardiological examinations, the implementation of various ECG's, the assumption of secretarial tasks and the writing of the treatment reports from dictates.\n\nIn addition, you support the 7-member team across disciplines and are ready to jump in flexibly during holiday absences of your colleagues.\n\nEntrance by 1. September 2026 or by agreement\n\nThis is waiting for you\n\n• Varied and exciting work in combination of care and administration\n\n• Regulated working hours without weekend and public holiday assignments\n\n• Small, warm and interdisciplinary team\n\n• Close cooperation with medical staff\n\n• Selectable holiday and pension fund model and good employment conditions\n\nBecome part of our team\n\n• Med. Praxisassistent:in EFZ or Dipl. Nurse HF/FH with professional experience\n\n• Very good PC user knowledge\n\n• Enjoyment to be able to accompany and organize the internal special consultation hours with direct patient/ and doctor contact\n\n• Team-oriented, communicative and ready to learn new things",
-        "de": "Ein Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu wirst vor allem im Bereich der kardiologischen Sprechstunden eingesetzt. Zu deinen Aufgaben gehören die Planung der Sprechstunden der Ärzteschaft, die Assistenz bei kardiologischen Untersuchungen, die Durchführung von verschiedenen EKG's, die Übernahme von Sekretariatsaufgaben und das Schreiben der Behandlungsberichte ab Diktat.\n\nZudem unterstützt du das 7-köpfige Team fachübergreifend und bist bereit während Ferienabwesenheiten deiner Kolleginnen flexibel einzuspringen.\n\nEintritt per 1. September 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Abwechslungsreiche und spannende Arbeit in Kombination von Pflege und Administration\n\n• Geregelte Arbeitszeiten ohne Wochenend- und Feiertagseinsätze\n\n• Kleines, herzliches und interdisziplinäres Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Wählbares Ferien- und Pensionskassenmodell und gute Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Med. Praxisassistent:in EFZ oder Dipl. Pflegefachperson HF/FH mit Berufserfahrung\n\n• Sehr gute PC-Anwenderkenntnisse\n\n• Freude daran, die internen Spezialsprechstunden mit direktem Patienten/- und Ärztekontakt begleiten und organisieren zu können\n\n• Teamorientiert, kommunikativ und bereit Neues zu lernen",
-        "fr": "Un travail avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région de montagne. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nIls sont principalement utilisés dans le domaine des heures de consultation cardiologique. Vos tâches comprennent la planification des heures de bureau médical, l'assistance dans les examens cardiologiques, la mise en œuvre de divers ECG, l'assumer des tâches de secrétariat et la rédaction des rapports de traitement à partir des prescriptions.\n\nEn outre, vous soutenez l'équipe de 7 membres dans toutes les disciplines et êtes prêt à sauter dans la souplesse pendant les absences de vacances de vos collègues.\n\nEntrée par 1. Septembre 2026 ou par accord\n\nÇa vous attend.\n\n• Travail varié et passionnant en combinaison de soins et d'administration\n\n• Heures de travail réglementées sans affectation de week-end et de jours fériés\n\n• Petite équipe, chaleureuse et interdisciplinaire\n\n• Coopération étroite avec le personnel médical\n\n• Modèle de fonds de vacances et de retraite sélectionnable et bonnes conditions d'emploi\n\nDevenez membre de notre équipe\n\n• Med. Praxissing:dans EFZ ou Dipl. Infirmière HF/FH avec expérience professionnelle\n\n• Très bonne connaissance utilisateur PC\n\n• Profitez de pouvoir accompagner et organiser les heures de consultation interne avec contact direct patient/ médecin\n\n• Orientée par l'équipe, communicative et prête à apprendre de nouvelles choses"
-      },
-      "needsRetranslation": true,
-      "location": "Zweisimmen",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/fbb26ca5-a0dd-4576-850f-65fbef3990be/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:53:30.414Z",
-      "addressLocality": "Zweisimmen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3770",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/fbb26ca5-a0dd-4576-850f-65fbef3990be",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "med-praxisassistent-in-oder-dipl-pflegefachperson-spital-sts-zweisimmen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-oder-dipl-pflegefachperson-spital-sts-zweisimmen"
-        ],
-        "en": [
-          "med-praxisassistent-in-oder-dipl-pflegefachperson-spital-sts-zweisimmen"
-        ],
-        "fr": [
-          "med-praxisassistent-in-oder-dipl-pflegefachperson-spital-sts-zweisimmen"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T22:21:43.751Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
