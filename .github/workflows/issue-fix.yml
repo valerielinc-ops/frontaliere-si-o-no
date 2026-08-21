@@ -542,6 +542,7 @@ jobs:
             **Bootstrap (in quest'ordine):**
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
+            2b. Leggi `VISION.md` — driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR; scala a `needs-human` SOLO ciò che la sezione «Sempre umano» riserva. Il registro delle decisioni del proprietario già prese è lì: non ri-chiedere ciò che è già deciso.
             3. Carica la issue: `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
 
             **Pre-condizioni (abort se falliscono):**
