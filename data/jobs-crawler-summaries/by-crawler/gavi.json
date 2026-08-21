@@ -1,18 +1,19 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-20T21:36:36.207Z",
+  "generatedAt": "2026-08-21T09:48:11.761Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6196,
-  "avgDurationMs": 6196,
+  "durationMs": 5850,
+  "avgDurationMs": 5850,
   "durationHistory": [
-    6196
+    5850
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "gavi-f73d2990abc8",
       "slug": "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
@@ -25,7 +26,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2523&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:36:32.939Z",
+      "crawledAt": "2026-08-21T09:48:08.689Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -42,16 +43,15 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2523&portal=Global",
       "jobReqId": "VN2523",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-20T21:36:32.939Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "gavi-c05f6ddca435",
       "slug": "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
@@ -64,7 +64,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:36:32.205Z",
+      "crawledAt": "2026-08-21T09:48:07.796Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
