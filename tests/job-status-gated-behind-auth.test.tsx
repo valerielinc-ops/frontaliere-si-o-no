@@ -41,6 +41,14 @@ const expiredJob: ExpiredJob = {
  expiredAt: '2025-11-15T00:00:00.000Z',
 };
 
+const markdownHeadingJob: ExpiredJob = {
+ ...expiredJob,
+ slug: 'demo-markdown-heading-job',
+ descriptionByLocale: {
+  it: "## addetti/e pulizie presso l'Amministrazione comunale\n<p>Mansioni di pulizia locali comunali.</p>",
+ },
+};
+
 describe('Offer status gated behind auth (logged-out)', () => {
  afterEach(() => {
   cleanup();
@@ -61,6 +69,13 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(
    screen.getByRole('heading', { level: 1, name: /Software Engineer Frontaliere/i }),
   ).toBeInTheDocument();
+ });
+
+ it('JobExpiredView gate teaser strips a leading markdown ATX heading (`## `) instead of printing it literally', () => {
+  render(<JobExpiredView job={markdownHeadingJob} />);
+
+  expect(screen.getByText(/addetti\/e pulizie presso l'Amministrazione comunale/i)).toBeInTheDocument();
+  expect(screen.queryByText(/##\s*addetti/i)).not.toBeInTheDocument();
  });
 
  it('JobOrphanView hides "no longer available" banner until sign-in', () => {
