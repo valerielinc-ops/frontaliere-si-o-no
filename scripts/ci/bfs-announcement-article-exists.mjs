@@ -42,6 +42,15 @@
  * deliberate and `tests/refresh-bfs-announcement-existence-guard.test.ts`
  * pins it.
  *
+ * LEDGER VALUE SHAPE. `recordSourceUrl` originally stored a plain string
+ * (`<key> → <article id>`). The corpus started writing richer entries —
+ * `{ articleId, ts, keyForm }` — for newer keys (observed 2026-08-19 on
+ * `stats-bfs://2026-q2` itself: `{"articleId":"frontalieri-ticino-crescita-q2-2026",...}`).
+ * A probe that only accepted a bare string read that shape as "key absent" —
+ * the exact false negative this script exists to prevent, on the one quarter
+ * it was written to catch. Both shapes are read; `articleId` is the field
+ * that identifies the article either way.
+ *
  * Output (GITHUB_OUTPUT): `exists=true|false`, plus `article_id=<id>` when found.
  *
  * Env:
@@ -70,6 +79,21 @@ export function ledgerKeyForQuarter(quarter) {
   const q = String(quarter || '').trim();
   if (!q) return '';
   return `stats-bfs://${q}`.toLowerCase().replace(/\/$/, '');
+}
+
+/**
+ * Extracts the article id from a ledger entry regardless of shape: legacy
+ * plain string, or the richer `{ articleId, ts, keyForm }` object newer
+ * entries use. Returns `undefined` when the entry is absent or carries no
+ * usable id, so callers can keep a single `typeof === 'string'` truthiness
+ * check downstream.
+ */
+export function articleIdFromLedgerEntry(entry) {
+  if (typeof entry === 'string') return entry;
+  if (entry && typeof entry === 'object' && typeof entry.articleId === 'string') {
+    return entry.articleId;
+  }
+  return undefined;
 }
 
 function setOutput(exists, articleId) {
@@ -115,7 +139,7 @@ async function main() {
   const key = ledgerKeyForQuarter(quarter);
   try {
     const ledger = await fetchLedger();
-    const articleId = ledger[key];
+    const articleId = articleIdFromLedgerEntry(ledger[key]);
     if (typeof articleId === 'string' && articleId.trim()) {
       console.error(`✅ Articolo di annuncio gia' presente per ${quarter}: ${key} → ${articleId}`);
       setOutput(true, articleId.trim());
