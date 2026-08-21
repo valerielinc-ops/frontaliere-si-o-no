@@ -3730,6 +3730,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Vermietungen Zürich: Mietrecht und Anfechtung',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Im Kanton Zürich gelten die eidgenössischen Mietregeln: maximal 3 Monate Kaution, Kündigung mit amtlichem Formular, Gebührenbeanstandung innerhalb von 30 Tagen.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Zürichs Stadtzentrum mit Wolkenkratzern und moderner Architektur, Symbol des Schweizer Immobilienmarkts',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Vermietung Zürich: Mietrechte, Hinterlegung und Kündigung',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Mietrecht in Zürich: Kaution (max. 3 Monate Miete), Anfechtung der Erstmiete und Kündigung gemäss Obligationenrecht.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Modernes Wohngebäude in Zürich mit Balkonen und Fenstern, zeitgenössische Schweizer Stadtarchitektur',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Mieten Zürich: Rechte, Gebühren und Miete',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Anfangsmiete, Kaution, Kündigung: Der praktische Leitfaden zum Mietrecht im Kanton Zürich. Bundesvorschriften und Schlichtungsverfahren.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Fassade eines Wohnhauses in einer Schweizer Stadt mit modernen Fensterstrukturen',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Zürich',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'So funktioniert die erste AHV-Säule im Kanton Zürich: Ausgleichskasse, Rentenberechnung, Lücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Ausgleichskasse des Kantons Zuerich bei der Bearbeitung von AVS-Rentenantraegen',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Ausweis B Bern: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Aufenthaltsbewilligung B Kanton Bern: Voraussetzungen, Unterlagen, Dauer und Erneuerungsverfahren. Komplette Anleitung und Schritt-für-Schritt-Anleitung durch die SEM-Behörde.',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Kantonales Verwaltungsbüro in Bern mit Migrationsdokumenten und Pass am Schreibtisch',
+    'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AHV und Ergänzungen in Zürich: Leitfaden zum Lebensminimum',
+    'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Im Kanton Zürich berechnet die Ausgleichskasse die AHV-Rente und greift mit Ergänzungsleistungen ein, wenn die erste Säule nicht das Existenzminimum abdeckt.',
+    'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Schweizer Altersvorsorge: AHV-Rente und Zusatzleistungen bei der kantonalen Ausgleichskasse',
 };
 
 export default blogMetaChDe;

@@ -3730,6 +3730,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Affitti Zurigo: diritto di locazione e contestazione',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Nel cantone di Zurigo valgono le norme federali sulla locazione: deposito massimo 3 mesi, disdetta con modulo ufficiale, contestazione canone entro 30 giorni.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Veduta del centro di Zurigo con grattacieli e architettura moderna, simbolo del mercato immobiliare svizzero',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Edificio residenziale moderno a Zurigo con balconi e finestre, architettura urbana contemporanea svizzera',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Affitti Zurigo: diritti, canoni e locazione',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Canone iniziale, deposito cauzionale, disdetta: la guida pratica al diritto di locazione nel Canton Zurigo. Norme federali e procedure di conciliazione.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Facciata di un edificio residenziale in una città svizzera con finestre di appartamenti moderni',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS e prestazioni complementari nel Canton Zurigo',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'Come funziona il primo pilastro AVS nel Canton Zurigo: cassa di compensazione, calcolo della rendita, lacune e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Ufficio della cassa di compensazione del Canton Zurigo dove vengono elaborate richieste di rendita AVS e prestazioni complementari',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Permesso B Berna: requisiti e rinnovo',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Permesso dimora B Cantone Berna: requisiti, documentazione, durata e procedura di rinnovo. Guida completa e step-by-step da autorità SEM.',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Ufficio amministrativo cantonale Berna con documenti di permesso e passaporto su scrivania',
+    'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS e complementari a Zurigo: guida al minimo vitale',
+    'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Nel cantone Zurigo la cassa di compensazione calcola la rendita AVS e interviene con prestazioni complementari se il primo pilastro non copre il minimo vitale.',
+    'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Consulenza previdenziale AVS e prestazioni complementari in Svizzera presso cassa di compensazione cantonale',
 };
 
 export default blogMetaChIt;

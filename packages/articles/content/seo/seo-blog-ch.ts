@@ -48380,6 +48380,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-zurigo-procedura-locazione': {
+    title: 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    description: 'Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritti, locatari',
+    ogTitle: 'Affitti Zurigo: diritti locatari, deposito e disdetta',
+    ogDescription: 'Nel cantone di Zurigo, il diritto di locazione federale tutela inquilini e proprietari: deposito cauzionale limitato a 3 mesi, contestazione entro 30 giorni, disdetta solo su modulo ufficiale. Scopri le tue protezioni legali e le procedure concrete.',
+    canonicalPath: '/articoli-svizzera/affitti-zurigo-procedura-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritti locatari, deposito e disdetta",
+      "description": "Diritto di locazione a Zurigo: deposito cauzionale (max 3 mesi canone), contestazione del canone iniziale e disdetta secondo il Codice Obbligazioni federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-zurigo-procedura-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale moderno a Zurigo con balconi e finestre, architettura urbana contemporanea svizzera"
+      },
+      "datePublished": "2026-08-21T18:10:26+00:00",
+      "dateModified": "2026-08-21T18:10:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-zurigo-procedura-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zurigo-affitti-canone-deposito-guida': {
+    title: 'Affitti Zurigo: diritti, canoni e locazione | Frontaliere Ticino',
+    description: 'Guida pratica al diritto di locazione nel Canton Zurigo: canone iniziale, deposito cauzionale, contestazione e disdetta. Norme federali e procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zurigo, diritti, canoni',
+    ogTitle: 'Affitti Zurigo: diritti, canoni e locazione',
+    ogDescription: 'Come funziona il diritto di locazione nel Canton Zurigo? Scopri canone iniziale, deposito cauzionale, contestazione, disdetta e i tuoi diritti come inquilino.',
+    canonicalPath: '/articoli-svizzera/zurigo-affitti-canone-deposito-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zurigo: diritti, canoni e locazione",
+      "description": "Guida pratica al diritto di locazione nel Canton Zurigo: canone iniziale, deposito cauzionale, contestazione e disdetta. Norme federali e procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zurigo-affitti-canone-deposito-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un edificio residenziale in una città svizzera con finestre di appartamenti moderni"
+      },
+      "datePublished": "2026-08-21T18:30:59+00:00",
+      "dateModified": "2026-08-21T18:30:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurigo-affitti-canone-deposito-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-zurigo-cassa': {
+    title: 'AVS e prestazioni complementari nel Canton Zurigo',
+    description: 'Guida completa al primo pilastro AVS nel Canton Zurigo: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, zurigo',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Zurigo',
+    ogDescription: 'Scopri come funziona il primo pilastro della previdenza nel Canton Zurigo: ruolo della cassa di compensazione cantonale, calcolo della rendita AVS, colmamento delle lacune contributive e prestazioni complementari per garantire il minimo vitale. Guida',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-zurigo-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Zurigo",
+      "description": "Guida completa al primo pilastro AVS nel Canton Zurigo: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-zurigo-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione del Canton Zurigo dove vengono elaborate richieste di rendita AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-08-21T19:16:14+00:00",
+      "dateModified": "2026-08-21T19:16:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-zurigo-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-berna-requisiti-rinnovo': {
+    title: 'Permesso B Berna: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Permesso dimora B Cantone Berna: requisiti, documentazione, durata e procedura di rinnovo. Guida completa e step-by-step da autorità SEM federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, berna, requisiti, rinnovo',
+    ogTitle: 'Permesso B Berna: come rinnovare',
+    ogDescription: 'Scopri come rinnovare il permesso di dimora B nel Cantone Berna: requisiti essenziali, documentazione richiesta, procedura step-by-step e scadenze critiche. Contatta l\'ufficio cantonale competente.',
+    canonicalPath: '/articoli-svizzera/permesso-b-berna-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Berna: requisiti e rinnovo",
+      "description": "Permesso dimora B Cantone Berna: requisiti, documentazione, durata e procedura di rinnovo. Guida completa e step-by-step da autorità SEM federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-berna-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo cantonale Berna con documenti di permesso e passaporto su scrivania"
+      },
+      "datePublished": "2026-08-21T20:18:13+00:00",
+      "dateModified": "2026-08-21T20:18:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-berna-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prestazioni-complementari-zurigo-minimo': {
+    title: 'AVS e complementari a Zurigo: guida al minimo vitale',
+    description: 'Guida completa su rendita AVS, lacune contributive e prestazioni complementari nel cantone Zurigo. Come funziona la cassa di compensazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, complementari, zurigo, minimo, vitale',
+    ogTitle: 'AVS e complementari Zurigo: il calcolo della rendita',
+    ogDescription: 'Nel cantone Zurigo la cassa di compensazione calcola la rendita AVS del primo pilastro e integra con prestazioni complementari se necessario per coprire il minimo vitale dei pensionati. Scopri come funziona.',
+    canonicalPath: '/articoli-svizzera/prestazioni-complementari-zurigo-minimo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e complementari a Zurigo: guida al minimo vitale",
+      "description": "Guida completa su rendita AVS, lacune contributive e prestazioni complementari nel cantone Zurigo. Come funziona la cassa di compensazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prestazioni-complementari-zurigo-minimo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulenza previdenziale AVS e prestazioni complementari in Svizzera presso cassa di compensazione cantonale"
+      },
+      "datePublished": "2026-08-21T20:44:12+00:00",
+      "dateModified": "2026-08-21T20:44:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prestazioni-complementari-zurigo-minimo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -10414,6 +10414,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.beura-cardezza-frontaliere-ticino.title': 'Beura-Cardezza: vivere e lavorare come frontaliere Ticino',
     'blog.article.beura-cardezza-frontaliere-ticino.excerpt': 'Vivere a Beura-Cardezza e lavorare come frontaliere in Ticino: norme fiscali, permesso G, AVS, diritti previdenziali e cosa sapere prima di trasferirsi.',
     'blog.article.beura-cardezza-frontaliere-ticino.imageAlt': 'Veduta del Ticino nella regione del Verbano al confine svizzero-italiano, con architettura tradizionale e paesaggio montano',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Vivere a Sernio, lavorare in Grigioni: vantaggi e svantaggi',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Collegamenti con il Grigioni, tempi di percorrenza, costo della vita a Sernio e in Grigioni, zone consigliate, vantaggi e svantaggi del trasferimento per i frontalieri.',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere risiedente a Sernio lavora in Grigioni e deve tenere conto della fiscalità svizzera e italiana.',
+    'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontaliere Tubre-Grigioni: fiscalità e permesso G',
+    'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Guida completa per chi vive a Tubre e lavora in Grigioni: tassazione alla fonte, ristorni, LAMal, AVS e procedure amministrative per frontalieri.',
+    'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Strada di confine tra Italia e Svizzera in zona Ticino-Grigioni, con segnaletica valico e paesaggio montano',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Vivere Valdisotto, lavorare Grigioni: fiscalita frontaliere',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Imposta alla fonte, AVS e LAMal: cosa sapere su fiscalita e previdenza per chi vive a Valdisotto e lavora in Grigioni come frontaliere',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Paesaggio alpino Ticino-Grigioni, veduta del confine frontaliere presso Locarno',
+    'blog.article.caspoggio-grigioni-frontaliere.title': 'Vivere Caspoggio, lavorare Grigioni: guida frontaliere',
+    'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontaliere da Caspoggio ai Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione e procedura pratica per trasferirsi.',
+    'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Paesaggio alpino di montagna svizzera con valle, simbolo della regione di confine tra Caspoggio e Grigioni',
+    'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Vivere a Spriana, lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: Nuovo Accordo 2024, imposta alla fonte solo Svizzera, esenzione €7.500-€10.000, Permesso G, AVS/LPP e ristorno italiano.',
+    'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Valico alpino tra Alpi italiane e Grigioni svizzeri con checkpoint frontaliero nella nebbia mattutina',
 };
 
 export default blogMetaIt;

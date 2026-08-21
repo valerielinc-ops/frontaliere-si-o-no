@@ -3730,6 +3730,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.title': 'Location Zurich : droit de location et contestation',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.excerpt': 'Dans le canton de Zurich, les règles fédérales de location s\'appliquent : dépôt maximum de 3 mois, résiliation avec formulaire officiel, contestation de la redevance dans les 30 jours.',
     'blog.article.locazione-zurigo-deposito-contestazione-procedure.imageAlt': 'Centre-ville de Zurich avec gratte-ciel et architecture moderne, symbole du marché immobilier suisse',
+    'blog.article.affitti-zurigo-procedura-locazione.title': 'Location Zurich : droits locataires, dépôt et résiliation',
+    'blog.article.affitti-zurigo-procedura-locazione.excerpt': 'Droit de location à Zurich : caution (max 3 mois de loyer), contestation du loyer initial et résiliation selon le Code fédéral des obligations.',
+    'blog.article.affitti-zurigo-procedura-locazione.imageAlt': 'Immeuble résidentiel moderne à Zurich avec balcons et fenêtres, architecture urbaine contemporaine suisse',
+    'blog.article.zurigo-affitti-canone-deposito-guida.title': 'Loyers Zurich : droits, loyers et loyers',
+    'blog.article.zurigo-affitti-canone-deposito-guida.excerpt': 'Redevance initiale, caution, résiliation : le guide pratique du droit de location dans le canton de Zurich. Règles fédérales et procédures de conciliation.',
+    'blog.article.zurigo-affitti-canone-deposito-guida.imageAlt': 'Façade d\'un immeuble d\'habitation dans une ville suisse avec des fenêtres d\'appartements modernes',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AVS et prestations complémentaires dans le canton de Zurich',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'Comment fonctionne le premier pilier AVS dans le canton de Zurich : caisse de compensation, calcul de la rente, lacunes et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Caisse de compensation du canton de Zurich traitant les demandes de rente AVS',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Permis B Berne : exigences et renouvellement',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Permis de séjour B canton de Berne : exigences, documentation, durée et procédure de renouvellement. Guide complet et étape par étape par l\'autorité SEM.',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Bureau administratif cantonal de Berne avec documents de migration et passeport sur bureau',
+    'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS et complémentaires à Zurich : guide au minimum vital',
+    'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Dans le canton de Zurich, la caisse de compensation calcule la rente AVS et intervient avec des prestations complémentaires si le premier pilier ne couvre pas le minimum vital.',
+    'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Conseil en prévoyance vieillesse suisse: rente AVS et prestations complémentaires à la caisse de compensation cantonale',
 };
 
 export default blogMetaChFr;

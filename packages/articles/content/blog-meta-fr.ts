@@ -10415,6 +10415,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.beura-cardezza-frontaliere-ticino.title': 'Beura-Cardezza : vivre et travailler comme frontalier Tessin',
     'blog.article.beura-cardezza-frontaliere-ticino.excerpt': 'Vivre à Beura-Cardezza et travailler comme frontalier au Tessin : règles fiscales, permis G, AVS, droits de sécurité sociale et ce qu\'il faut savoir avant de déménager.',
     'blog.article.beura-cardezza-frontaliere-ticino.imageAlt': 'Vue du Tessin dans la région du Verbano à la frontière suisse-italienne, montrant l\'architecture traditionnelle et le paysage montagneux',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Vivre à Sernio, travailler dans les Grisons : avantages et inconvénients',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Liaisons avec les Grisons, temps de trajet, coût de la vie à Sernio et dans les Grisons, zones recommandées, avantages et inconvénients du transfert pour les frontaliers.',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'Un travailleur frontalier vit à Sernio et travaille dans les Grisons et doit prendre en compte le système fiscal suisse et italien.',
+    'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontière Tubre-Grigioni : fiscalité et permis G',
+    'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Guide complet pour ceux qui vivent à Tubre et travaillent dans les Grisons : taxation à la source, restaurations, LAMal, AVS et procédures administratives pour les frontaliers.',
+    'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Route frontalière entre l\'Italie et la Suisse dans la région Tessin-Grisons avec panneaux douaniers et paysage alpin',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Vivre Valdisotto, travailler Grisons : procureur frontalier',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Impôt à la source, AVS et LAMal : ce qu\'il faut savoir sur la fiscalité et la prévoyance pour ceux qui vivent à Valdisotto et travaillent dans les Grisons en tant que frontalier',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Paysage alpin frontiere Tessin-Grisons, vallee de Locarno',
+    'blog.article.caspoggio-grigioni-frontaliere.title': 'Vivre Caspoggio, travailler Grisons : guide frontalier',
+    'blog.article.caspoggio-grigioni-frontaliere.excerpt': 'Frontière de Caspoggio aux Grisons : fiscalité, AVS/LPP/LAMal, permis G, double imposition et procédure pratique pour se déplacer.',
+    'blog.article.caspoggio-grigioni-frontaliere.imageAlt': 'Paysage alpin montagneux symbolisant la région frontalière entre Caspoggio et Grisons',
+    'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Vivre à Spriana, travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Guide complet pour les frontaliers : Nouvel accord 2024, impôt à la source uniquement en Suisse, exonération € 7500- € 10 000, permis G, AVS/LPP et ristourne italienne.',
+    'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Col alpin entre les Alpes italiennes et les Grisons suisses avec poste frontière dans la brume matinale',
 };
 
 export default blogMetaFr;

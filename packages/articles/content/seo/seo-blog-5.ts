@@ -73781,6 +73781,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-sernio-lavorare-grigioni-frontaliere': {
+    title: 'Vivere a Sernio, lavorare in Grigioni: vantaggi e svantaggi',
+    description: 'Il Nuovo Accordo Frontalieri rappresenta un importante cambiamento per i frontalieri che lavorano in Svizzera e risiedono in Italia. L\'accordo prevede',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, sernio, lavorare, grigioni',
+    ogTitle: 'Vivere a Sernio e lavorare in Grigioni da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento, cosa considerare prima di trasferirsi.',
+    ogDescription: 'Il Nuovo Accordo Frontalieri rappresenta un importante cambiamento per i frontalieri che lavorano in Svizzera e risiedono in Italia. L\'accordo prevede la creazione di un regime transitorio per i frontalieri già presenti prima del 17 luglio 2023.',
+    canonicalPath: '/articoli-frontaliere/vivere-sernio-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Sernio, lavorare in Grigioni: vantaggi e svantaggi",
+      "description": "Il Nuovo Accordo Frontalieri rappresenta un importante cambiamento per i frontalieri che lavorano in Svizzera e risiedono in Italia. L'accordo prevede",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-sernio-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere risiedente a Sernio lavora in Grigioni e deve tenere conto della fiscalità svizzera e italiana."
+      },
+      "datePublished": "2026-08-21T17:56:39+00:00",
+      "dateModified": "2026-08-21T17:56:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-sernio-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-tubre-grigioni-guida': {
+    title: 'Frontaliere Tubre-Grigioni: fiscalità e permesso G',
+    description: 'Guida fiscale per frontalieri che vivono a Tubre e lavorano in Grigioni: imposta alla fonte, ristorni, AVS, LAMal e procedure amministrative. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tubre-grigioni, fiscalità, permesso, completa',
+    ogTitle: 'Frontaliere Tubre-Grigioni: tassazione e permessi',
+    ogDescription: 'Vivi a Tubre e lavori in Grigioni? Scopri tassazione, assicurazioni, pensione e procedure complete per frontalieri Italia-Svizzera. Franchigia €10.000 dal 2024.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tubre-grigioni-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Tubre-Grigioni: fiscalità e permesso G",
+      "description": "Guida fiscale per frontalieri che vivono a Tubre e lavorano in Grigioni: imposta alla fonte, ristorni, AVS, LAMal e procedure amministrative. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-tubre-grigioni-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di confine tra Italia e Svizzera in zona Ticino-Grigioni, con segnaletica valico e paesaggio montano"
+      },
+      "datePublished": "2026-08-21T18:17:22+00:00",
+      "dateModified": "2026-08-21T18:17:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tubre-grigioni-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-valdisotto-grigioni-frontaliere-fiscal': {
+    title: 'Vivere Valdisotto, lavorare Grigioni: fiscalita frontaliere',
+    description: 'Frontaliere Valdisotto-Grigioni: guida fiscale su imposta alla fonte, AVS, LPP, LAMal, franchigia 10.000 EUR, nuovo accordo 2024 e dichiarazione 730.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valdisotto, lavorare, grigioni',
+    ogTitle: 'Frontaliere Valdisotto-Grigioni: fiscalita, AVS e LAMal',
+    ogDescription: 'Decidi di vivere a Valdisotto e lavorare in Grigioni? Scopri imposta alla fonte svizzera, contributi AVS-LPP, LAMal e franchigia 10.000 EUR del nuovo accordo 2024.',
+    canonicalPath: '/articoli-frontaliere/valdisotto-grigioni-frontaliere-fiscal',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere Valdisotto, lavorare Grigioni: fiscalita frontaliere",
+      "description": "Frontaliere Valdisotto-Grigioni: guida fiscale su imposta alla fonte, AVS, LPP, LAMal, franchigia 10.000 EUR, nuovo accordo 2024 e dichiarazione 730.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/valdisotto-grigioni-frontaliere-fiscal.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino Ticino-Grigioni, veduta del confine frontaliere presso Locarno"
+      },
+      "datePublished": "2026-08-21T18:57:16+00:00",
+      "dateModified": "2026-08-21T18:57:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valdisotto-grigioni-frontaliere-fiscal/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caspoggio-grigioni-frontaliere': {
+    title: 'Vivere Caspoggio, lavorare Grigioni: guida frontaliere',
+    description: 'Frontaliere Caspoggio-Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione, Nuovo Accordo 2024 e procedura trasferimento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, caspoggio, lavorare, grigioni',
+    ogTitle: 'Vivere Caspoggio, lavorare Grigioni: frontaliere',
+    ogDescription: 'Caspoggio-Grigioni: tassazione doppia, imposta fonte svizzera, IRPEF Italia, AVS/LPP/LAMal, Nuovo Accordo 2024, permesso G, franchigia INPS, checklist trasferimento e scadenze fiscali annuali.',
+    canonicalPath: '/articoli-frontaliere/caspoggio-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere Caspoggio, lavorare Grigioni: guida frontaliere",
+      "description": "Frontaliere Caspoggio-Grigioni: tassazione, AVS/LPP/LAMal, permesso G, doppia imposizione, Nuovo Accordo 2024 e procedura trasferimento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caspoggio-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino di montagna svizzera con valle, simbolo della regione di confine tra Caspoggio e Grigioni"
+      },
+      "datePublished": "2026-08-21T19:52:43+00:00",
+      "dateModified": "2026-08-21T19:52:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caspoggio-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-spriana-grigioni-frontaliere': {
+    title: 'Vivere a Spriana, lavorare in Grigioni da frontaliere',
+    description: 'Nuovo Accordo Frontalieri 2024: guida completa per chi vive a Spriana e lavora in Grigioni. Imposta alla fonte, Permesso G, AVS/LPP, LAMal, ristorno italiano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, spriana, lavorare, grigioni',
+    ogTitle: 'Frontaliere Spriana-Grigioni: imposte e diritti 2024',
+    ogDescription: 'Vivi a Spriana (Lombardia) e lavori in Grigioni (Svizzera)? Scopri Nuovo Accordo, tasse, Permesso G, AVS, ristorno italiano. Guida completa per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-spriana-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Spriana, lavorare in Grigioni da frontaliere",
+      "description": "Nuovo Accordo Frontalieri 2024: guida completa per chi vive a Spriana e lavora in Grigioni. Imposta alla fonte, Permesso G, AVS/LPP, LAMal, ristorno italiano.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-spriana-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico alpino tra Alpi italiane e Grigioni svizzeri con checkpoint frontaliero nella nebbia mattutina"
+      },
+      "datePublished": "2026-08-21T20:28:33+00:00",
+      "dateModified": "2026-08-21T20:28:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-spriana-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
