@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-08-21T09:56:58.624Z",
+  "assembledAt": "2026-08-21T21:28:28.619Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:56.644Z",
+      "crawledAt": "2026-08-21T21:28:26.243Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -69,15 +69,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:20:12.754Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -114,7 +114,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:56.073Z",
+      "crawledAt": "2026-08-21T21:28:25.691Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -149,15 +149,15 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:16:26.830Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -194,7 +194,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:55.291Z",
+      "crawledAt": "2026-08-21T21:28:25.137Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -233,15 +233,15 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:16:25.136Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 67000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }

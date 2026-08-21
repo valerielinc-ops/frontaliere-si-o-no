@@ -1,16 +1,16 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-08-21T09:56:58.625Z",
+  "generatedAt": "2026-08-21T21:28:28.620Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6177,
-  "avgDurationMs": 6177,
+  "durationMs": 4927,
+  "avgDurationMs": 4927,
   "durationHistory": [
-    6177
+    4927
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:56.644Z",
+      "crawledAt": "2026-08-21T21:28:26.243Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:55.291Z",
+      "crawledAt": "2026-08-21T21:28:25.137Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:56.073Z",
+      "crawledAt": "2026-08-21T21:28:25.691Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -129,48 +129,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "arosa-lenzerheide-4fac9b112f86",
-      "slug": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
-      "company": "Arosa Lenzerheide",
-      "companyKey": "arosa-lenzerheide",
-      "companyDomain": "arosalenzerheide.swiss",
-      "title": "Patrouilleur:in",
-      "needsRetranslation": true,
-      "location": "Lenzerheide",
-      "canton": "GR",
-      "url": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
-      "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:05:22.792Z",
-      "addressLocality": "Lenzerheide",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7078",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-21",
-      "applyUrl": "https://app.reflinejobs.io/3316/0036/pub/23/index.html",
-      "externalId": "0036",
-      "firstSeenAt": "2026-07-21T11:44:58.522Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
