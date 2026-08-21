@@ -47873,6 +47873,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esercito-misure-discriminazione': {
+    title: 'Esercito, le misure contro la discriminazione funzionano',
+    description: 'L\'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, misure, contro, discriminazione',
+    ogTitle: 'Esercito, le misure contro la discriminazione funzionano',
+    ogDescription: 'L\'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione',
+    canonicalPath: '/articoli-svizzera/esercito-misure-discriminazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercito, le misure contro la discriminazione funzionano",
+      "description": "L'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esercito-misure-discriminazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'Esercito svizzero"
+      },
+      "datePublished": "2026-08-21T10:21:15+00:00",
+      "dateModified": "2026-08-21T10:21:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esercito-misure-discriminazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

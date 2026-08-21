@@ -3691,6 +3691,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stadler-rail-friburgo-117-milioni.title': 'Fribourg : 117 millions pour 13 nouveaux trains Flirt',
     'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail fournira 13 nouveaux trains Flirt Evo aux Transports publics fribourgeois pour CHF 117 millions. Premières livraisons en décembre 2028.',
     'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'Nouveau train Flirt Evo pour les transports fribourgois',
+    'blog.article.esercito-misure-discriminazione.title': 'Armée, les mesures anti-discrimination fonctionnent',
+    'blog.article.esercito-misure-discriminazione.excerpt': 'L\'Armée suisse a annoncé avoir mis en œuvre la moitié des mesures annoncées pour lutter contre le sexisme et la discrimination',
+    'blog.article.esercito-misure-discriminazione.imageAlt': 'L\'Armée suisse',
 };
 
 export default blogMetaChFr;
