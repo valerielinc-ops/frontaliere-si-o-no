@@ -1,7 +1,63 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-08-21T10:21:14.025Z",
+  "assembledAt": "2026-08-21T22:03:26.436Z",
   "jobs": [
+    {
+      "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "description": "Global Wealth Management – Assistente alla Consulenza (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
+      "descriptionIt": "Global Wealth Management – Assistente alla Consulenza (Lugano) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
+      "postedDate": "2026-08-21",
+      "source": "company-website",
+      "slug": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
+      "slugByLocale": {
+        "it": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
+        "en": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
+        "de": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
+        "fr": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano"
+      },
+      "titleByLocale": {
+        "it": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
+        "en": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
+        "de": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
+        "fr": "Global Wealth Management – Assistente alla Consulenza (Lugano)"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Global Wealth Management – Assistente alla Consulenza (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
+        "en": "Global Wealth Management – Assistente alla Consulenza (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
+        "de": "Global Wealth Management – Assistente alla Consulenza (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
+        "fr": "Global Wealth Management – Assistente alla Consulenza (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…"
+      },
+      "needsRetranslation": true,
+      "id": "banca-sempione-f1f2cedfa71f",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via P. Peri 2",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-21T22:03:26.436Z"
+    },
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
       "company": "Banca del Sempione",
@@ -52,6 +108,7 @@
           "chef-de-la-banque-du-sempione-branche-milan-banca-del-sempione-lugano"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "salaryMin": 87000,
@@ -71,8 +128,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -95,10 +151,10 @@
         "fr": "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – ​​Private Banker (Zurigo)",
+        "it": "Global Wealth Management – Private Banker (Zurigo)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Global Wealth Management – Private Banker (Zurich)"
+        "fr": "Global Wealth Management – Private Banker (Zurigo)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
@@ -144,8 +200,7 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -168,10 +223,10 @@
         "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
-        "it": "Global Wealth Management – ​​Private Banker (Lugano)",
+        "it": "Global Wealth Management – Private Banker (Lugano)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Gestion de patrimoine mondiale – Banquier privé (Lugano)"
+        "fr": "Global Wealth Management – Private Banker (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
@@ -213,9 +268,9 @@
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -233,8 +288,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
@@ -292,9 +346,9 @@
           "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",

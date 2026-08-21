@@ -1,18 +1,43 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-08-21T10:21:14.026Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-08-21T22:03:26.437Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4155,
-  "avgDurationMs": 4155,
+  "durationMs": 4677,
+  "avgDurationMs": 4677,
   "durationHistory": [
-    4155
+    4677
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "descriptionIt": "Global Wealth Management – Assistente alla Consulenza (Lugano) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
+      "postedDate": "2026-08-21",
+      "source": "company-website",
+      "slug": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 52,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 2,
+        "completeness": 11
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -29,6 +54,7 @@
       "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
       "sourceLang": "it",
       "id": "banca-sempione-f74739997e11",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -57,11 +83,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -83,11 +109,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -106,6 +132,7 @@
       "slug": "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich",
       "sourceLang": "en",
       "id": "banca-sempione-f45acac33926",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,
