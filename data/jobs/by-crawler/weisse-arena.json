@@ -2213,23 +2213,6 @@
       "jobNumber": "WAG02457",
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "koch-kochin-vorab-weisse-arena-ch",
-        "cucinare-cucinare-in-anticipo-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-vorab-weisse-arena-ch",
-          "cucinare-cucinare-in-anticipo-weisse-arena-gruppe-laax"
-        ],
-        "en": [
-          "koch-kochin-vorab-weisse-arena-ch"
-        ],
-        "fr": [
-          "koch-kochin-vorab-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:33:53.072Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2242,7 +2225,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-20T21:33:53.072Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-vorab-weisse-arena-ch",
+          "cucinare-cucinare-in-anticipo-weisse-arena-gruppe-laax",
+          "cook-kochin-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "koch-kochin-vorab-weisse-arena-ch"
+        ],
+        "fr": [
+          "koch-kochin-vorab-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-vorab-weisse-arena-ch",
+        "cucinare-cucinare-in-anticipo-weisse-arena-gruppe-laax",
+        "cook-kochin-weisse-arena-gruppe-laax"
+      ]
     },
     {
       "id": "weisse-arena-39d83e36ebf5",
@@ -2295,18 +2297,6 @@
       "jobNumber": "WAG02423",
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "koch-kochin-capalari-weisse-arena-ch",
-        "chef-capalari-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-capalari-weisse-arena-ch",
-          "chef-capalari-weisse-arena-gruppe-laax"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:33:53.072Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2319,7 +2309,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-20T21:33:53.072Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-capalari-weisse-arena-ch",
+          "chef-capalari-weisse-arena-gruppe-laax",
+          "pizzaiolo-a-chef-weisse-arena-gruppe-laax"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-capalari-weisse-arena-ch",
+        "chef-capalari-weisse-arena-gruppe-laax",
+        "pizzaiolo-a-chef-weisse-arena-gruppe-laax"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-b9c99a08dc28",

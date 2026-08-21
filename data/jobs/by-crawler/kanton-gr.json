@@ -2217,18 +2217,21 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "previousSlugs": [
-        "strassenwart-in-kanton-gr-ch",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
           "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
+        ],
+        "en": [
+          "streetkeeper-in-kantonale-verwaltung-graubunden-thusis"
         ]
       },
+      "previousSlugs": [
+        "strassenwart-in-kanton-gr-ch",
+        "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-thusis"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-20T22:04:37.301Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2241,7 +2244,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-20T22:04:37.301Z"
     },
     {
       "id": "kanton-gr-2312f654628e",
