@@ -3751,6 +3751,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS et prestations complémentaires à Zurich',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Caisse de compensation, rente AVS et prestations complémentaires dans le canton de Zurich. Guide complet du premier pilier : calcul, lacunes contributives, minimum vital.',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Bureau de caisse de compensation à Zurich avec documents de rente AVS sur bureau',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Permis de séjour B Berne : exigences et renouvellement',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Le permis B est renouvelable chaque année. Guide complet des exigences, des documents nécessaires et de la procédure de renouvellement auprès des offices cantonaux des migrations.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Bureau cantonal suisse employe aidant resident a completer documentation de renouvellement permis',
 };
 
 export default blogMetaChFr;

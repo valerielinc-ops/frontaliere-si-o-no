@@ -3751,6 +3751,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS e prestazioni complementari a Zurigo',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Cassa di compensazione, rendita AVS e prestazioni complementari nel Cantone di Zurigo. Guida completa al primo pilastro: calcolo, lacune contributive, minimo vitale.',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Interno di un ufficio della cassa di compensazione a Zurigo con documenti di rendita AVS su scrivania',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Permesso di dimora B Berna: requisiti e rinnovo',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Il permesso B è rinnovabile ogni anno. Guida completa a requisiti, documenti necessari e procedura di rinnovo presso gli uffici cantonali della migrazione.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Ufficio amministrativo svizzero con impiegato che assiste un residente nella compilazione di documenti per rinnovo permesso di dimora',
 };
 
 export default blogMetaChIt;
