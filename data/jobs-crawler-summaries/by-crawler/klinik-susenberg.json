@@ -1,16 +1,16 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-08-21T10:15:54.235Z",
-  "total": 3,
+  "generatedAt": "2026-08-21T22:11:20.808Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7431,
-  "avgDurationMs": 7431,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5607,
+  "avgDurationMs": 5607,
   "durationHistory": [
-    7431
+    5607
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:15:51.378Z",
+      "crawledAt": "2026-08-21T22:11:18.500Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:15:49.391Z",
+      "crawledAt": "2026-08-21T22:11:16.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,8 +93,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-susenberg-e7db425dc7ec",
       "slug": "gestione-operativa-amministrazione-e-servizi-klinik-susenberg-zurich-0917ff",
@@ -137,5 +136,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
