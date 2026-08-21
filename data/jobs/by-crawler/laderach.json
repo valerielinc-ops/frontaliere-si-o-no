@@ -1,15 +1,15 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-08-21T09:46:43.977Z",
+  "assembledAt": "2026-08-21T21:32:02.184Z",
   "jobs": [
     {
       "id": "laderach-e73b067931f9",
-      "slug": "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus",
+      "slug": "elettricista-commerciale-m-f-d-laderach-schweiz-ag-glarus",
       "slugByLocale": {
-        "de": "betriebselektriker-w-m-d-laderach-glarus",
-        "it": "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus",
+        "it": "elettricista-commerciale-m-f-d-laderach-schweiz-ag-glarus",
         "en": "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus",
-        "fr": "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus"
+        "de": "betriebselektriker-w-m-d-laderach-glarus",
+        "fr": "electricien-d-affaires-h-f-d-laderach-schweiz-ag-glarus"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -30,9 +30,7 @@
       },
       "sourceLang": "de",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Glarus",
       "canton": "GL",
       "addressLocality": "Glarus",
@@ -45,14 +43,19 @@
       "postedDate": "2026-08-21",
       "url": "https://laderach.career.softgarden.de/jobs/66878055/Betriebselektriker-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:39.372Z",
+      "crawledAt": "2026-08-21T21:31:58.192Z",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-w-m-d-laderach-glarus"
+          "betriebselektriker-w-m-d-laderach-glarus",
+          "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus"
+        ],
+        "fr": [
+          "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-w-m-d-laderach-glarus"
+        "betriebselektriker-w-m-d-laderach-glarus",
+        "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus"
       ],
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -97,9 +100,7 @@
       },
       "sourceLang": "de",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Glarus",
       "canton": "GL",
       "addressLocality": "Glarus",
@@ -112,7 +113,7 @@
       "postedDate": "2026-08-21",
       "url": "https://laderach.career.softgarden.de/jobs/66874770/Logistiker-Kommissionierung-befristet-bis-April-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:39.199Z",
+      "crawledAt": "2026-08-21T21:31:58.016Z",
       "previousSlugsByLocale": {
         "it": [
           "logistiker-kommissionierung-befristet-bis-april-2027-w-m-d-laderach-glarus"
@@ -148,7 +149,7 @@
       "slugByLocale": {
         "de": "hauswart-w-m-d-laderach-glarus-nord",
         "it": "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
-        "en": "hauswart-w-m-d-laderach-glarus-nord",
+        "en": "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
         "fr": "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord"
       },
       "company": "Läderach (Schweiz) AG",
@@ -170,9 +171,7 @@
       },
       "sourceLang": "de",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Glarus Nord",
       "canton": "GL",
       "addressLocality": "Glarus Nord",
@@ -185,7 +184,7 @@
       "postedDate": "2026-08-21",
       "url": "https://laderach.career.softgarden.de/jobs/66866905/Hauswart-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:39.028Z",
+      "crawledAt": "2026-08-21T21:31:57.841Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -200,17 +199,22 @@
       },
       "addressRegion": "GL",
       "firstSeenAt": "2026-08-21T09:46:39.028Z",
+      "previousSlugs": [
+        "hauswart-w-m-d-laderach-glarus-nord",
+        "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "hauswart-w-m-d-laderach-glarus-nord"
+          "hauswart-w-m-d-laderach-glarus-nord",
+          "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord"
         ],
         "fr": [
           "hauswart-w-m-d-laderach-glarus-nord"
+        ],
+        "en": [
+          "hauswart-w-m-d-laderach-glarus-nord"
         ]
-      },
-      "previousSlugs": [
-        "hauswart-w-m-d-laderach-glarus-nord"
-      ]
+      }
     },
     {
       "id": "laderach-83054ec42585",
@@ -240,9 +244,7 @@
       },
       "sourceLang": "fr",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Fribourg",
       "canton": "FR",
       "addressLocality": "Fribourg",
@@ -255,7 +257,7 @@
       "postedDate": "2026-08-21",
       "url": "https://laderach.career.softgarden.de/jobs/66864055/Vendeur-50-%25-taux-variable-Chocolaterie-Fribourg-CDD-du-1er-octobre-%C3%A0-d%C3%A9zembre-m-f-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:38.854Z",
+      "crawledAt": "2026-08-21T21:31:57.669Z",
       "previousSlugsByLocale": {
         "it": [
           "vendeur-50-taux-variable-chocolaterie-fribourg-cdd-du-1er-octobre-a-dezembre-m-f-d-laderach-fribourg"
@@ -326,7 +328,7 @@
       "postedDate": "2026-08-20",
       "url": "https://laderach.career.softgarden.de/jobs/66856170/Weihnachtsaushilfe-40-60%25-Chocolaterie-Baden-Metro-befristet-von-01-09-2026-bis-31-12-2026-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:38.681Z",
+      "crawledAt": "2026-08-21T21:31:57.493Z",
       "previousSlugs": [
         "weihnachtsaushilfe-40-60-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-31-12-2026-laderach-baden"
       ],
@@ -397,7 +399,7 @@
       "postedDate": "2026-08-20",
       "url": "https://laderach.career.softgarden.de/jobs/66855980/Weihnachtsaushilfe-60-80%25-Chocolaterie-Baden-Metro-befristet-von-01-09-2026-bis-30-04-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:38.511Z",
+      "crawledAt": "2026-08-21T21:31:57.284Z",
       "previousSlugs": [
         "weihnachtsaushilfe-60-80-chocolaterie-baden-metro-befristet-von-01-09-2026-bis-30-04-2027-laderach-baden"
       ],
@@ -468,7 +470,7 @@
       "postedDate": "2026-08-18",
       "url": "https://laderach.career.softgarden.de/jobs/66816660/Manager-House-of-L%C3%A4derach-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:37.897Z",
+      "crawledAt": "2026-08-21T21:31:56.753Z",
       "previousSlugs": [
         "manager-house-of-laderach-w-m-d-laderach-glarus"
       ],
@@ -536,7 +538,7 @@
       "postedDate": "2026-08-14",
       "url": "https://laderach.career.softgarden.de/jobs/66761080/Weihnachtsaushilfe-60-100%25-Chocolaterie-Luzern-befristet-von-01-11-2026-bis-31-12-2026-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:37.059Z",
+      "crawledAt": "2026-08-21T21:31:56.048Z",
       "previousSlugs": [
         "weihnachtsaushilfe-60-100-chocolaterie-luzern-befristet-von-01-11-2026-bis-31-12-2026-laderach-luzern",
         "vendor-60-chocolaterie-lucerne-f-m-d-laderach-schweiz-ag-luzern",
@@ -618,7 +620,7 @@
       "postedDate": "2026-08-12",
       "url": "https://laderach.career.softgarden.de/jobs/66683998/Verkaufsaushilfe-40-60%25-befristet-bis-31-12-2026,-Chocolaterie-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:36.258Z",
+      "crawledAt": "2026-08-21T21:31:55.356Z",
       "previousSlugs": [
         "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich",
         "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-m-w-d-laderach-schweiz-ag-zurich"
@@ -691,7 +693,7 @@
       "postedDate": "2026-08-12",
       "url": "https://laderach.career.softgarden.de/jobs/66680423/KV-Praktikum-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:36.085Z",
+      "crawledAt": "2026-08-21T21:31:55.185Z",
       "previousSlugs": [
         "kv-praktikum-2027-w-m-d-laderach-bilten"
       ],
@@ -762,7 +764,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66526293/KV-Lehrstelle-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:35.463Z",
+      "crawledAt": "2026-08-21T21:31:54.669Z",
       "previousSlugs": [
         "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten"
       ],
@@ -833,7 +835,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:35.281Z",
+      "crawledAt": "2026-08-21T21:31:54.494Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f",
@@ -910,7 +912,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:35.102Z",
+      "crawledAt": "2026-08-21T21:31:54.316Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
       ],
@@ -982,7 +984,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:34.745Z",
+      "crawledAt": "2026-08-21T21:31:53.970Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
       ],
@@ -1054,7 +1056,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66508768/Lehrstelle-Entwickler-in-digitales-Business-EFZ-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:34.571Z",
+      "crawledAt": "2026-08-21T21:31:53.794Z",
       "previousSlugs": [
         "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
       ],
@@ -1126,7 +1128,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66508228/Zusatzausbildung-Fachrichtung-Confiserie-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:34.397Z",
+      "crawledAt": "2026-08-21T21:31:53.613Z",
       "previousSlugs": [
         "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
       ],
@@ -1198,7 +1200,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:34.216Z",
+      "crawledAt": "2026-08-21T21:31:53.422Z",
       "previousSlugs": [
         "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
       ],
@@ -1270,7 +1272,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66507313/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:34.014Z",
+      "crawledAt": "2026-08-21T21:31:53.248Z",
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
       ],
@@ -1342,7 +1344,7 @@
       "postedDate": "2026-08-04",
       "url": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:33.833Z",
+      "crawledAt": "2026-08-21T21:31:53.058Z",
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-2027-laderach-bilten"
       ],
@@ -1414,7 +1416,7 @@
       "postedDate": "2026-07-31",
       "url": "https://laderach.career.softgarden.de/jobs/66456603/IT-Projektleiter-im-Bereich-Produktentwicklung,-Produktion-und-Logistik-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:33.653Z",
+      "crawledAt": "2026-08-21T21:31:52.876Z",
       "previousSlugs": [
         "it-projektleiter-im-bereich-produktentwicklung-produktion-und-logistik-w-m-d-laderach-bilten"
       ],
@@ -1486,7 +1488,7 @@
       "postedDate": "2026-07-17",
       "url": "https://laderach.career.softgarden.de/jobs/66169573/Verk%C3%A4ufer-20-40%25-Chocolaterie-Shopping-Arena-St-Gallen-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:32.566Z",
+      "crawledAt": "2026-08-21T21:31:51.950Z",
       "previousSlugs": [
         "verkaufer-20-40-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen"
       ],
@@ -1557,7 +1559,7 @@
       "postedDate": "2026-07-15",
       "url": "https://laderach.career.softgarden.de/jobs/66096098/Technical-Product-Owner-Service-Owner-Power-BI-Data-Warehouse-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:32.387Z",
+      "crawledAt": "2026-08-21T21:31:51.707Z",
       "previousSlugs": [
         "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
       ],
@@ -1626,7 +1628,7 @@
       "postedDate": "2026-07-15",
       "url": "https://laderach.career.softgarden.de/jobs/64161118/IT-Projektleiter-HR--Corporate-Service-Applikationen-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:32.201Z",
+      "crawledAt": "2026-08-21T21:31:51.507Z",
       "previousSlugs": [
         "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
         "gestionnaire-de-projet-de-ti-demandes-de-rh-et-de-services-ministeriels-f-m-d-laderach-schweiz-ag-bilten",
@@ -1704,7 +1706,7 @@
       "postedDate": "2026-07-15",
       "url": "https://laderach.career.softgarden.de/jobs/66082518/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:32.026Z",
+      "crawledAt": "2026-08-21T21:31:51.301Z",
       "previousSlugs": [
         "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
       ],
@@ -1776,7 +1778,7 @@
       "postedDate": "2026-07-10",
       "url": "https://laderach.career.softgarden.de/jobs/65995198/Head-of-Engineering-Operational-Excellence-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:31.853Z",
+      "crawledAt": "2026-08-21T21:31:51.114Z",
       "previousSlugs": [
         "head-of-engineering-w-m-d-laderach-ennenda",
         "head-of-engineering-operational-excellence-w-m-d-laderach-ennenda",
@@ -1853,7 +1855,7 @@
       "postedDate": "2026-07-10",
       "url": "https://laderach.career.softgarden.de/jobs/65967018/Servicetechniker-f%C3%BCr-mechatronische-Systeme-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:31.676Z",
+      "crawledAt": "2026-08-21T21:31:50.932Z",
       "previousSlugs": [
         "servicetechniker-fur-mechatronische-systeme-w-m-d-laderach-bilten"
       ],
@@ -1925,7 +1927,7 @@
       "postedDate": "2026-06-23",
       "url": "https://laderach.career.softgarden.de/jobs/65493251/Stv-Filialleiter-60%25-Chocolaterie-Mall-of-Switzerland-Ebikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:29.957Z",
+      "crawledAt": "2026-08-21T21:31:49.210Z",
       "previousSlugs": [
         "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
       ],
@@ -1996,7 +1998,7 @@
       "postedDate": "2026-06-17",
       "url": "https://laderach.career.softgarden.de/jobs/57440683/Verk%C3%A4ufer-60%25-im-Stundenlohn-Chocolaterie-House-of-L%C3%A4derach-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:29.504Z",
+      "crawledAt": "2026-08-21T21:31:48.827Z",
       "previousSlugs": [
         "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
       ],
@@ -2067,7 +2069,7 @@
       "postedDate": "2026-06-15",
       "url": "https://laderach.career.softgarden.de/jobs/65307461/HR-Business-Partner-Retail-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:29.325Z",
+      "crawledAt": "2026-08-21T21:31:48.646Z",
       "firstSeenAt": "2026-06-15T15:00:54.823Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -2124,7 +2126,7 @@
       "postedDate": "2026-06-15",
       "url": "https://laderach.career.softgarden.de/jobs/65305826/Verk%C3%A4ufer-auf-Abruf-40-60%25-Chocolaterie-Z%C3%BCrich-Augustiner-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:29.144Z",
+      "crawledAt": "2026-08-21T21:31:48.465Z",
       "previousSlugs": [
         "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
       ],
@@ -2195,7 +2197,7 @@
       "postedDate": "2026-06-03",
       "url": "https://laderach.career.softgarden.de/jobs/65117528/Verk%C3%A4ufer-40-60%25-Chocolaterie-Flughafen-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:28.473Z",
+      "crawledAt": "2026-08-21T21:31:47.925Z",
       "previousSlugs": [
         "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
       ],
@@ -2266,7 +2268,7 @@
       "postedDate": "2026-05-26",
       "url": "https://laderach.career.softgarden.de/jobs/62367409/IT-Architect/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:28.290Z",
+      "crawledAt": "2026-08-21T21:31:47.736Z",
       "previousSlugsByLocale": {
         "de": [
           "it-architect-laderach-bilten"
@@ -2340,7 +2342,7 @@
       "postedDate": "2026-05-23",
       "url": "https://laderach.career.softgarden.de/jobs/63394664/Project-Manager-R-D-Couverture-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:28.098Z",
+      "crawledAt": "2026-08-21T21:31:47.552Z",
       "previousSlugs": [
         "project-manager-r-d-couverture-laderach-bilten"
       ],
@@ -2406,7 +2408,7 @@
       "postedDate": "2026-05-09",
       "url": "https://laderach.career.softgarden.de/jobs/64654739/Verk%C3%A4ufer-60%25-befristet-Chocolaterie-Aarau-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:27.654Z",
+      "crawledAt": "2026-08-21T21:31:47.211Z",
       "previousSlugs": [
         "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
         "venditore-60-terminato-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau",
@@ -2484,7 +2486,7 @@
       "postedDate": "2026-05-11",
       "url": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-08-21T09:46:27.471Z",
+      "crawledAt": "2026-08-21T21:31:47.038Z",
       "previousSlugsByLocale": {
         "de": [
           "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten",

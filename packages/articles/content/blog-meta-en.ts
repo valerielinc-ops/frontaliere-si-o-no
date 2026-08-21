@@ -10428,6 +10428,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Living in Spriana, working in Graubünden as a border worker',
     'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Complete guide for frontier workers: New 2024 Agreement, tax at source only Switzerland, exemption €7,500-€10,000, G Permit, AVS/LPP and Italian refreshment.',
     'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Alpine mountain pass between Italian Alps and Swiss Grisons with border checkpoint in morning mist',
+    'blog.article.vivere-monno-lavorare-grigioni.title': 'Living in Monno and working in Graubünden as a border worker',
+    'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Practical guide for those living in Monno and working in Switzerland: taxation, new agreement, contributions and income management between Italy and the Canton of Graubünden.',
+    'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Alpine landscape with mountain road',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Living in Hammer and working in Graubünden as a border worker',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'New Frontier Agreement: what changes for Ticino-Italy border workers',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Ticino-Italy frontiers',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Living in Castione Andevenno and working in Graubünden',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guide for border workers: taxation, new agreement, costs and management of commuting between Italy and the Canton of Graubünden.',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Alpine panorama in the Grisons Canton',
 };
 
 export default blogMetaEn;

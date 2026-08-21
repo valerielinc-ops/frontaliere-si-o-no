@@ -31224,6 +31224,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-monno-lavorare-grigioni',
+ category: 'fiscale',
+ date: '2026-08-21T21:21:51.140Z',
+ image: '/images/blog/vivere-monno-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'vivere-martello-lavorare-grigioni-frontaliere',
+ category: 'pratico',
+ date: '2026-08-21T22:53:02.661Z',
+ image: '/images/blog/vivere-martello-lavorare-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-castione-andevenno-lavorare-grigioni',
+ category: 'pratico',
+ date: '2026-08-21T23:28:26.265Z',
+ image: '/images/blog/vivere-castione-andevenno-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

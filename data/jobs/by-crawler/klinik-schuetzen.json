@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-schuetzen",
-  "assembledAt": "2026-08-21T09:45:24.082Z",
+  "assembledAt": "2026-08-21T21:25:52.959Z",
   "jobs": [
     {
       "id": "klinik-schuetzen-393ec131438a",
@@ -34,7 +34,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-PLUT7122",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.702Z",
+      "crawledAt": "2026-08-21T21:25:47.923Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -67,15 +67,15 @@
         "practica-di-psicologia-2028-klinik-schutzen-rheinfelden-rheinfelden"
       ],
       "firstSeenAt": "2026-05-19T12:20:46.884Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -112,7 +112,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-J1I46YOY",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.698Z",
+      "crawledAt": "2026-08-21T21:25:47.922Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -144,15 +144,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.883Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -188,7 +188,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-NP0Q2G9O",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.697Z",
+      "crawledAt": "2026-08-21T21:25:47.918Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-O08R04ND",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.697Z",
+      "crawledAt": "2026-08-21T21:25:47.918Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -327,15 +327,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.878Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
       }
@@ -372,7 +372,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-7FGL22SN",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.695Z",
+      "crawledAt": "2026-08-21T21:25:47.917Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -480,7 +480,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-E621GG46",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.690Z",
+      "crawledAt": "2026-08-21T21:25:47.913Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -524,15 +524,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.879Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -568,7 +568,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-K9I31R10",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.689Z",
+      "crawledAt": "2026-08-21T21:25:47.910Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -609,15 +609,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.878Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -654,7 +654,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-299CUA1I",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.687Z",
+      "crawledAt": "2026-08-21T21:25:47.898Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -731,7 +731,7 @@
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-96LUBLG9",
       "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:18.685Z",
+      "crawledAt": "2026-08-21T21:25:47.897Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -763,18 +763,83 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.884Z",
-      "salaryMin": 68400,
-      "salaryMax": 103600,
+      "salaryMin": 95200,
+      "salaryMax": 132800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68400,
-          "maxValue": 103600,
+          "minValue": 95200,
+          "maxValue": 132800,
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "klinik-schuetzen-3dcac0a7658e",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden"
+      },
+      "company": "Klinik Schützen Rheinfelden",
+      "companyKey": "klinik-schuetzen",
+      "companyDomain": "klinikschuetzen.ch",
+      "title": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%)",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%)",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%)",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%)",
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%)"
+      },
+      "description": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Aufmerksam und kompetent. Ihre Leidenschaft ist die Patientenbetreuung? In unserem einzigartigen «Klinik im Hotel»-Konzept arbeiten Sie in modernen Räumlichkeiten mit viel Ambiente an zentraler Lage. Die Klinik Schützen ist eine führende Privatklinik für Psychosomatik, Psychiatrie und Psychotherapie mit 108 Betten. Für die Abteilung für Psychosomatik an einem unserer Standorte in Rheinfelden suchen wir per 01. Februar 2027 oder nach Vereinbarung eine dipl. Pflegefachperson zur Verstärkung unseres Teams. Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Sie sind Teil unseres interprofessionellen Teams\n• Als dipl. Pflegefachperson sind Sie für die pflegerische Betreuung und Sicherheit unserer Patientinnen und Patienten zuständig.\n• Im interprofessionellen Team übernehmen Sie eine aktive Rolle.\n• Sie leisten einen Beitrag an die professionelle Pflegequalität. Das bringen Sie mit\n• Abgeschlossene Ausbildung auf Tertiärstufe in Pflege (FH / HF)\n• Erfahrung im Fachbereich Psychiatrie erwünscht\n• Belastbare und offene Persönlichkeit mit einer hohen Sozialkompetenz\n• Verantwortungsbewusste und selbständige Arbeitsweise\n• Hohes Qualitätsbewusstsein\n• Ausgezeichnete mündliche und schriftliche Deutschkenntnisse Unseren 400 Mitarbeitenden bieten wir\n• Ein attraktives Arbeitsumfeld in familiärer Atmosphäre mit Du-Kultur und vielen Mitarbeitendenanlässen\n• Regelmässige Supervision, interne Fortbildungen und eine bezahlte Weiterbildungswoche\n• Mitarbeiterfrühstück und vergünstigte Verpflegung in unseren Hotelrestaurants\n• 6 Wochen Ferien sowie die Möglichkeit auf unbezahlte Ferien\n• Ein vielseitiges Angebot zur Gesundheitsförderung Bei Fragen steht Ihnen unsere Abteilungsleiterin Cornelia Garske, T 061 836 26 60, gerne zur Verfügung. Jetzt bewerben",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Aufmerksam und kompetent. Ihre Leidenschaft ist die Patientenbetreuung? In unserem einzigartigen «Klinik im Hotel»-Konzept arbeiten Sie in modernen Räumlichkeiten mit viel Ambiente an zentraler Lage. Die Klinik Schützen ist eine führende Privatklinik für Psychosomatik, Psychiatrie und Psychotherapie mit 108 Betten. Für die Abteilung für Psychosomatik an einem unserer Standorte in Rheinfelden suchen wir per 01. Februar 2027 oder nach Vereinbarung eine dipl. Pflegefachperson zur Verstärkung unseres Teams. Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Sie sind Teil unseres interprofessionellen Teams\n• Als dipl. Pflegefachperson sind Sie für die pflegerische Betreuung und Sicherheit unserer Patientinnen und Patienten zuständig.\n• Im interprofessionellen Team übernehmen Sie eine aktive Rolle.\n• Sie leisten einen Beitrag an die professionelle Pflegequalität. Das bringen Sie mit\n• Abgeschlossene Ausbildung auf Tertiärstufe in Pflege (FH / HF)\n• Erfahrung im Fachbereich Psychiatrie erwünscht\n• Belastbare und offene Persönlichkeit mit einer hohen Sozialkompetenz\n• Verantwortungsbewusste und selbständige Arbeitsweise\n• Hohes Qualitätsbewusstsein\n• Ausgezeichnete mündliche und schriftliche Deutschkenntnisse Unseren 400 Mitarbeitenden bieten wir\n• Ein attraktives Arbeitsumfeld in familiärer Atmosphäre mit Du-Kultur und vielen Mitarbeitendenanlässen\n• Regelmässige Supervision, interne Fortbildungen und eine bezahlte Weiterbildungswoche\n• Mitarbeiterfrühstück und vergünstigte Verpflegung in unseren Hotelrestaurants\n• 6 Wochen Ferien sowie die Möglichkeit auf unbezahlte Ferien\n• Ein vielseitiges Angebot zur Gesundheitsförderung Bei Fragen steht Ihnen unsere Abteilungsleiterin Cornelia Garske, T 061 836 26 60, gerne zur Verfügung. Jetzt bewerben",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Aufmerksam und kompetent. Ihre Leidenschaft ist die Patientenbetreuung? In unserem einzigartigen «Klinik im Hotel»-Konzept arbeiten Sie in modernen Räumlichkeiten mit viel Ambiente an zentraler Lage. Die Klinik Schützen ist eine führende Privatklinik für Psychosomatik, Psychiatrie und Psychotherapie mit 108 Betten. Für die Abteilung für Psychosomatik an einem unserer Standorte in Rheinfelden suchen wir per 01. Februar 2027 oder nach Vereinbarung eine dipl. Pflegefachperson zur Verstärkung unseres Teams. Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Sie sind Teil unseres interprofessionellen Teams\n• Als dipl. Pflegefachperson sind Sie für die pflegerische Betreuung und Sicherheit unserer Patientinnen und Patienten zuständig.\n• Im interprofessionellen Team übernehmen Sie eine aktive Rolle.\n• Sie leisten einen Beitrag an die professionelle Pflegequalität. Das bringen Sie mit\n• Abgeschlossene Ausbildung auf Tertiärstufe in Pflege (FH / HF)\n• Erfahrung im Fachbereich Psychiatrie erwünscht\n• Belastbare und offene Persönlichkeit mit einer hohen Sozialkompetenz\n• Verantwortungsbewusste und selbständige Arbeitsweise\n• Hohes Qualitätsbewusstsein\n• Ausgezeichnete mündliche und schriftliche Deutschkenntnisse Unseren 400 Mitarbeitenden bieten wir\n• Ein attraktives Arbeitsumfeld in familiärer Atmosphäre mit Du-Kultur und vielen Mitarbeitendenanlässen\n• Regelmässige Supervision, interne Fortbildungen und eine bezahlte Weiterbildungswoche\n• Mitarbeiterfrühstück und vergünstigte Verpflegung in unseren Hotelrestaurants\n• 6 Wochen Ferien sowie die Möglichkeit auf unbezahlte Ferien\n• Ein vielseitiges Angebot zur Gesundheitsförderung Bei Fragen steht Ihnen unsere Abteilungsleiterin Cornelia Garske, T 061 836 26 60, gerne zur Verfügung. Jetzt bewerben",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Aufmerksam und kompetent. Ihre Leidenschaft ist die Patientenbetreuung? In unserem einzigartigen «Klinik im Hotel»-Konzept arbeiten Sie in modernen Räumlichkeiten mit viel Ambiente an zentraler Lage. Die Klinik Schützen ist eine führende Privatklinik für Psychosomatik, Psychiatrie und Psychotherapie mit 108 Betten. Für die Abteilung für Psychosomatik an einem unserer Standorte in Rheinfelden suchen wir per 01. Februar 2027 oder nach Vereinbarung eine dipl. Pflegefachperson zur Verstärkung unseres Teams. Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Sie sind Teil unseres interprofessionellen Teams\n• Als dipl. Pflegefachperson sind Sie für die pflegerische Betreuung und Sicherheit unserer Patientinnen und Patienten zuständig.\n• Im interprofessionellen Team übernehmen Sie eine aktive Rolle.\n• Sie leisten einen Beitrag an die professionelle Pflegequalität. Das bringen Sie mit\n• Abgeschlossene Ausbildung auf Tertiärstufe in Pflege (FH / HF)\n• Erfahrung im Fachbereich Psychiatrie erwünscht\n• Belastbare und offene Persönlichkeit mit einer hohen Sozialkompetenz\n• Verantwortungsbewusste und selbständige Arbeitsweise\n• Hohes Qualitätsbewusstsein\n• Ausgezeichnete mündliche und schriftliche Deutschkenntnisse Unseren 400 Mitarbeitenden bieten wir\n• Ein attraktives Arbeitsumfeld in familiärer Atmosphäre mit Du-Kultur und vielen Mitarbeitendenanlässen\n• Regelmässige Supervision, interne Fortbildungen und eine bezahlte Weiterbildungswoche\n• Mitarbeiterfrühstück und vergünstigte Verpflegung in unseren Hotelrestaurants\n• 6 Wochen Ferien sowie die Möglichkeit auf unbezahlte Ferien\n• Ein vielseitiges Angebot zur Gesundheitsförderung Bei Fragen steht Ihnen unsere Abteilungsleiterin Cornelia Garske, T 061 836 26 60, gerne zur Verfügung. Jetzt bewerben",
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Aufmerksam und kompetent. Ihre Leidenschaft ist die Patientenbetreuung? In unserem einzigartigen «Klinik im Hotel»-Konzept arbeiten Sie in modernen Räumlichkeiten mit viel Ambiente an zentraler Lage. Die Klinik Schützen ist eine führende Privatklinik für Psychosomatik, Psychiatrie und Psychotherapie mit 108 Betten. Für die Abteilung für Psychosomatik an einem unserer Standorte in Rheinfelden suchen wir per 01. Februar 2027 oder nach Vereinbarung eine dipl. Pflegefachperson zur Verstärkung unseres Teams. Dipl. Pflegefachfrau / Pflegefachmann HF (80%) Sie sind Teil unseres interprofessionellen Teams\n• Als dipl. Pflegefachperson sind Sie für die pflegerische Betreuung und Sicherheit unserer Patientinnen und Patienten zuständig.\n• Im interprofessionellen Team übernehmen Sie eine aktive Rolle.\n• Sie leisten einen Beitrag an die professionelle Pflegequalität. Das bringen Sie mit\n• Abgeschlossene Ausbildung auf Tertiärstufe in Pflege (FH / HF)\n• Erfahrung im Fachbereich Psychiatrie erwünscht\n• Belastbare und offene Persönlichkeit mit einer hohen Sozialkompetenz\n• Verantwortungsbewusste und selbständige Arbeitsweise\n• Hohes Qualitätsbewusstsein\n• Ausgezeichnete mündliche und schriftliche Deutschkenntnisse Unseren 400 Mitarbeitenden bieten wir\n• Ein attraktives Arbeitsumfeld in familiärer Atmosphäre mit Du-Kultur und vielen Mitarbeitendenanlässen\n• Regelmässige Supervision, interne Fortbildungen und eine bezahlte Weiterbildungswoche\n• Mitarbeiterfrühstück und vergünstigte Verpflegung in unseren Hotelrestaurants\n• 6 Wochen Ferien sowie die Möglichkeit auf unbezahlte Ferien\n• Ein vielseitiges Angebot zur Gesundheitsförderung Bei Fragen steht Ihnen unsere Abteilungsleiterin Cornelia Garske, T 061 836 26 60, gerne zur Verfügung. Jetzt bewerben"
+      },
+      "needsRetranslation": true,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-XH88AO1H",
+      "source": "Klinik Schützen Rheinfelden Dedicated Parser (HTML in-page anchors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T21:25:47.894Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-XH88AO1H",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 70400,
+      "salaryMax": 98400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70400,
+          "maxValue": 98400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T12:20:46.884Z"
     }
   ]
 }

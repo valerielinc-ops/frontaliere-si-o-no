@@ -20,7 +20,7 @@ import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/cover
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang } from '../scripts/lib/prospector/synthesize.mjs';
-import { evaluatePromotion, selectForPromotion, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
+import { evaluatePromotion, selectForPromotion, clampMinDays, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
@@ -327,6 +327,34 @@ describe('promotion gate', () => {
     expect(res.reasons.join(' ')).toMatch(/scesi/);
   });
 
+  // `needSample` is computed from `latest` alone, so a candidate whose two good
+  // days have wildly different vacancyCount is never re-checked against the
+  // OLDER day's own numbers. The two directions of that gap have to be sane:
+  // growing is not a defect, collapsing has to be caught by something.
+  it('promotes a listing that grew sharply between its two good days (2 -> 30)', () => {
+    const growing = graded(2, { vacancyCount: 30 });
+    growing.validationHistory[0].vacancyCount = 2;
+    growing.validationHistory[0].sampled = 2;
+    growing.validationHistory[1].vacancyCount = 30;
+    growing.validationHistory[1].sampled = 4;
+    expect(evaluatePromotion(growing).passed).toBe(true);
+  });
+
+  it('refuses a listing that collapsed sharply between its two good days (30 -> 2), caught by retention not sampling', () => {
+    const collapsing = graded(2, { vacancyCount: 2 });
+    collapsing.validationHistory[0].vacancyCount = 30;
+    collapsing.validationHistory[0].sampled = 4;
+    collapsing.validationHistory[1].vacancyCount = 2;
+    collapsing.validationHistory[1].sampled = 2;
+    const res = evaluatePromotion(collapsing);
+    expect(res.passed).toBe(false);
+    // The latest day's own sample (2 of 2) is complete on its own terms —
+    // it is the retention check, comparing against the day-1 peak, that blocks.
+    expect(res.checks.sampled).toBe(true);
+    expect(res.checks.retention).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/scesi/);
+  });
+
   it('promotes a two-vacancy micro-employer graded on both', () => {
     // Una soglia fissa a 3 pagine di dettaglio escluderebbe per sempre il
     // segmento per cui il loop esiste. Due su due e' copertura totale.
@@ -361,6 +389,28 @@ describe('promotion gate', () => {
     const res = evaluatePromotion(graded(2), { existingKeys: new Set(['acme']) });
     expect(res.passed).toBe(false);
     expect(res.reasons.join(' ')).toMatch(/esiste gia/);
+  });
+
+  it('non lascia che la leva di verifica DISATTIVI il vincolo sui giorni', () => {
+    // A 0 la condizione diventa `distinctDays >= 0`, sempre vera: il vincolo
+    // sparisce mentre l'etichetta dice ancora «ridotto a 1 giorno». L'input
+    // arriva da workflow_dispatch e non e' validato.
+    expect(clampMinDays(0)).toBe(GATE_DEFAULTS.minDistinctDays);
+    expect(clampMinDays(-3)).toBe(GATE_DEFAULTS.minDistinctDays);
+    expect(clampMinDays('non-un-numero')).toBe(GATE_DEFAULTS.minDistinctDays);
+    expect(clampMinDays(undefined)).toBe(GATE_DEFAULTS.minDistinctDays);
+    // Il caso d'uso vero resta possibile.
+    expect(clampMinDays(1)).toBe(1);
+    expect(clampMinDays('1')).toBe(1);
+  });
+
+  it('con un giorno solo il gate si allenta, ma di quel tanto e basta', () => {
+    const oneDay = graded(1);
+    expect(evaluatePromotion(oneDay, {}, { minDistinctDays: 1, minRuns: 1 }).passed).toBe(true);
+    // Le altre condizioni NON si allentano insieme.
+    const oneDayBadTitles = graded(1);
+    oneDayBadTitles.validationHistory[0].titleMatchRate = 0.3;
+    expect(evaluatePromotion(oneDayBadTitles, {}, { minDistinctDays: 1, minRuns: 1 }).passed).toBe(false);
   });
 
   it('caps how many ship in one run and reports the overflow', () => {

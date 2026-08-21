@@ -3745,6 +3745,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS e complementari a Zurigo: guida al minimo vitale',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Nel cantone Zurigo la cassa di compensazione calcola la rendita AVS e interviene con prestazioni complementari se il primo pilastro non copre il minimo vitale.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Consulenza previdenziale AVS e prestazioni complementari in Svizzera presso cassa di compensazione cantonale',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'Rendita AVS a Zurigo: come funziona il primo pilastro',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Guida al sistema AVS nel Cantone Zurigo: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Ufficio amministrativo svizzero con desk per prestazioni sociali AVS e cassa di compensazione',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS e prestazioni complementari a Zurigo',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Cassa di compensazione, rendita AVS e prestazioni complementari nel Cantone di Zurigo. Guida completa al primo pilastro: calcolo, lacune contributive, minimo vitale.',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Interno di un ufficio della cassa di compensazione a Zurigo con documenti di rendita AVS su scrivania',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Permesso di dimora B Berna: requisiti e rinnovo',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Il permesso B è rinnovabile ogni anno. Guida completa a requisiti, documenti necessari e procedura di rinnovo presso gli uffici cantonali della migrazione.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Ufficio amministrativo svizzero con impiegato che assiste un residente nella compilazione di documenti per rinnovo permesso di dimora',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Svizzera-Cina: intesa per eliminare i dazi doganali',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accordo per l\'esenzione doganale sul 99,8% dell\'export svizzero verso la Cina: risparmi annui stimati di 244 milioni di CHF per le imprese elvetiche.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palazzo federale a Berna, sede delle decisioni economiche svizzere.',
 };
 
 export default blogMetaChIt;

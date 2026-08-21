@@ -3745,6 +3745,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS et complémentaires à Zurich : guide au minimum vital',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Dans le canton de Zurich, la caisse de compensation calcule la rente AVS et intervient avec des prestations complémentaires si le premier pilier ne couvre pas le minimum vital.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Conseil en prévoyance vieillesse suisse: rente AVS et prestations complémentaires à la caisse de compensation cantonale',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'Revenu AVS à Zurich : comment fonctionne le premier pilier',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Guide du système AVS dans le canton de Zurich : caisse de compensation, calcul de la rente, lacunes contributives et prestations complémentaires pour le minimum vital.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Bureau administratif suisse avec guichet d\'assurances sociales et caisse de compensation AVS',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS et prestations complémentaires à Zurich',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Caisse de compensation, rente AVS et prestations complémentaires dans le canton de Zurich. Guide complet du premier pilier : calcul, lacunes contributives, minimum vital.',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Bureau de caisse de compensation à Zurich avec documents de rente AVS sur bureau',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Permis de séjour B Berne : exigences et renouvellement',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Le permis B est renouvelable chaque année. Guide complet des exigences, des documents nécessaires et de la procédure de renouvellement auprès des offices cantonaux des migrations.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Bureau cantonal suisse employe aidant resident a completer documentation de renouvellement permis',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Suisse-Chine : accord pour éliminer les droits de douane',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accord d\'exonération douanière sur 99,8 % des exportations suisses vers la Chine : économies annuelles estimées à 244 millions de CHF pour les entreprises suisses.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palais fédéral à Berne, centre des décisions économiques suisses.',
 };
 
 export default blogMetaChFr;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-08-21T09:52:36.265Z",
+  "assembledAt": "2026-08-21T21:50:28.142Z",
   "jobs": [
     {
       "id": "spital-nidwalden-3026ca67f725",
@@ -34,7 +34,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:52:33.664Z",
+      "crawledAt": "2026-08-21T21:50:25.101Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -56,14 +56,12 @@
         "leitung-spital-nidwalden-100-spital-nidwalden-stans",
         "head-of-hospital-nidwalden-100-spital-nidwalden-stans",
         "chef-de-l-hopital-nidwalden-100-spital-nidwalden-stans",
-        "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans",
-        "responsabile-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
+        "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans",
-          "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans",
-          "responsabile-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
+          "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans"
         ],
         "en": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans",
@@ -123,7 +121,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:52:33.663Z",
+      "crawledAt": "2026-08-21T21:50:25.100Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -146,15 +144,13 @@
         "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
         "head-of-hospital-nidwalden-100-spital-nidwalden-stans-241c1a",
         "chef-de-l-hopital-nidwalden-100-spital-nidwalden-stans-241c1a",
-        "capo-ospedale-nidwalden-100-spital-nidwalden-stans",
-        "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
+        "capo-ospedale-nidwalden-100-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans",
           "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
-          "capo-ospedale-nidwalden-100-spital-nidwalden-stans",
-          "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
+          "capo-ospedale-nidwalden-100-spital-nidwalden-stans"
         ],
         "en": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
@@ -186,10 +182,10 @@
       "id": "spital-nidwalden-5cade8756bec",
       "slug": "dipl-hf-endoscopia-100-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "dipl-hf-endoscopia-100-spital-nidwalden-stans",
-        "en": "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans",
+        "it": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
+        "en": "dipl-caregiver-hf-endoscopy-100-luzerner-kantonsspital-luks-stans",
         "de": "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-        "fr": "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans"
+        "fr": "dipl-endoscopie-hf-du-soignant-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -214,7 +210,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/145804c1-3f2f-46d7-a531-c8d07aade199",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:52:33.662Z",
+      "crawledAt": "2026-08-21T21:50:25.099Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -235,19 +231,21 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
         "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans",
-        "dipl-hf-endoscopia-100-spital-nidwalden-stans"
+        "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans",
+        "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-          "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans",
-          "dipl-hf-endoscopia-100-spital-nidwalden-stans"
+          "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans"
+          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+          "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans"
+          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+          "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans"
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:41.182Z",
@@ -268,10 +266,10 @@
       "id": "spital-nidwalden-796f71c8e89a",
       "slug": "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans",
-        "en": "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans",
+        "it": "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans",
+        "en": "senior-physician-senior-intensive-care-physician-50-100-luzerner-kantonsspital-luks-stans",
         "de": "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
-        "fr": "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans"
+        "fr": "medecin-principal-medecin-principal-en-soins-intensifs-50-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -296,7 +294,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-intensivmedizin-50/4db0abe4-9ba2-4178-9421-2d8d676397d5",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:52:33.662Z",
+      "crawledAt": "2026-08-21T21:50:25.096Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -316,18 +314,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
-        "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans"
+        "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans",
+        "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
-          "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans"
+          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
         ],
         "en": [
-          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
+          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
+          "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans"
         ],
         "fr": [
-          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
+          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
+          "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans"
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:41.186Z",
@@ -348,10 +348,10 @@
       "id": "spital-nidwalden-4ff2bab44af5",
       "slug": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans",
-        "en": "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-spital-nidwalden-stans",
+        "it": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-luzerner-kantonsspital-luks-stans",
+        "en": "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-luzerner-kantonsspital",
         "de": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
-        "fr": "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-9dfff6"
+        "fr": "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-100"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -376,7 +376,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-arztsekretaer-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie-adipositaszentrum/e95f0cdb-d12f-40aa-a06e-5a14962fc8e4",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:52:33.660Z",
+      "crawledAt": "2026-08-21T21:50:25.093Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -395,17 +395,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
+        "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-spital-nidwalden-stans",
+        "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-9dfff6"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
         ],
         "en": [
-          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
+          "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-spital-nidwalden-stans"
         ],
         "fr": [
-          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
+          "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-9dfff6"
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:41.188Z",

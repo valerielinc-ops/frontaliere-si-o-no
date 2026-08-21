@@ -3745,6 +3745,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AHV und Ergänzungen in Zürich: Leitfaden zum Lebensminimum',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'Im Kanton Zürich berechnet die Ausgleichskasse die AHV-Rente und greift mit Ergänzungsleistungen ein, wenn die erste Säule nicht das Existenzminimum abdeckt.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Schweizer Altersvorsorge: AHV-Rente und Zusatzleistungen bei der kantonalen Ausgleichskasse',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'AHV-Rente in Zürich: So funktioniert die erste Säule',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Leitfaden zum AHV-System im Kanton Zürich: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Schweizer Verwaltungsgebäude mit Schalter für Sozialversicherung und AVS-Ausgleichskasse',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AHV und Ergänzungsleistungen in Zürich',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Ausgleichskasse, AHV-Rente und Ergänzungsleistungen im Kanton Zürich. Vollständiger Leitfaden zur ersten Säule: Berechnung, Beitragslücken, Existenzminimum.',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Büroraum einer Ausgleichskasse in Zürich mit AVS-Rentendokumenten und Unterlagen auf dem Schreibtisch',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Aufenthaltsbewilligung B Bern: Voraussetzungen und Verlängerung',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Die B-Bewilligung kann jedes Jahr erneuert werden. Vollständiger Leitfaden zu Anforderungen, erforderlichen Unterlagen und Erneuerungsverfahren bei den kantonalen Migrationsämtern.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Schweizer Kantonsamt mit Beamten beim Assistieren bei Aufenthaltserlaubnis-Dokumenten',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Schweiz-China: Vereinbarung zur Abschaffung der Zölle',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Vereinbarung über die Zollbefreiung von 99,8% der Schweizer Exporte nach China: geschätzte jährliche Einsparungen von CHF 244 Mio. für Schweizer Unternehmen.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Bundeshaus in Bern, Zentrum schweizerischer wirtschaftspolitischer Entscheidungen.',
 };
 
 export default blogMetaChDe;

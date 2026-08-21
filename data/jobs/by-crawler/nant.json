@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-08-21T09:45:48.691Z",
+  "assembledAt": "2026-08-21T21:25:54.375Z",
   "jobs": [
     {
       "id": "nant-eda937afa152",
@@ -33,7 +33,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:45:44.775Z",
+      "crawledAt": "2026-08-21T21:25:50.301Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -76,15 +76,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:16:10.940Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -120,7 +120,7 @@
       "url": "https://app.beehire.com/invite/uZyK5KPP4",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:45:44.774Z",
+      "crawledAt": "2026-08-21T21:25:50.300Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -155,15 +155,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:49:36.395Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
+      "salaryMin": 77500,
+      "salaryMax": 108000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
+          "minValue": 77500,
+          "maxValue": 108000,
           "unitText": "YEAR"
         }
       }
@@ -199,7 +199,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:45:44.772Z",
+      "crawledAt": "2026-08-21T21:25:50.299Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -255,15 +255,15 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:47:09.688Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -299,7 +299,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:45:44.765Z",
+      "crawledAt": "2026-08-21T21:25:50.292Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -342,15 +342,15 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:32:00.438Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
+      "salaryMin": 69200,
+      "salaryMax": 96400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }

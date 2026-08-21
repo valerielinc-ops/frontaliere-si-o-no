@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tl-lausanne",
-  "assembledAt": "2026-08-21T09:46:42.495Z",
+  "assembledAt": "2026-08-21T21:26:43.814Z",
   "jobs": [
     {
       "id": "tl-lausanne-89a5b0ee385c",
@@ -34,7 +34,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:46:39.071Z",
+      "crawledAt": "2026-08-21T21:26:41.280Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Approvisionnement-Supply-Chain-Ferroviaire/1424618233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:46:38.457Z",
+      "crawledAt": "2026-08-21T21:26:40.659Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,15 +167,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:29:45.267Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
+      "salaryMin": 43500,
+      "salaryMax": 80000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
+          "minValue": 43500,
+          "maxValue": 80000,
           "unitText": "YEAR"
         }
       }
@@ -211,7 +211,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-ferroviaire-Installations-de-S%C3%A9curit%C3%A9/1425742733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:46:37.849Z",
+      "crawledAt": "2026-08-21T21:26:40.008Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -231,7 +231,6 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "chef-fe-de-projet-ferroviaire-installations-de-securite-tl-lausanne-lausanne",
-        "rail-project-manager-impianti-di-sicurezza-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "internship-ambiente-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "internship-environment-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "praktikumsumgebung-tl-transports-publics-de-la-region-lausannoise-lausanne",
@@ -239,12 +238,12 @@
         "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
+        "rail-project-manager-impianti-di-sicurezza-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-ferroviaire-installations-de-securite-tl-lausanne-lausanne",
-          "rail-project-manager-impianti-di-sicurezza-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "internship-ambiente-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "internship-environment-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "praktikumsumgebung-tl-transports-publics-de-la-region-lausannoise-lausanne",
@@ -252,7 +251,8 @@
           "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
+          "rail-project-manager-impianti-di-sicurezza-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "en": [
           "chef-fe-de-projet-ferroviaire-installations-de-securite-tl-lausanne-lausanne",

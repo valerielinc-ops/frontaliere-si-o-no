@@ -3745,6 +3745,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prestazioni-complementari-zurigo-minimo.title': 'AVS and complementary in Zurich: a guide to the bare minimum',
     'blog.article.prestazioni-complementari-zurigo-minimo.excerpt': 'In the canton of Zurich, the compensation fund calculates the AVS annuity and intervenes with complementary benefits if the first pillar does not cover the vital minimum.',
     'blog.article.prestazioni-complementari-zurigo-minimo.imageAlt': 'Swiss pension advisory: AVS retirement benefits and supplementary benefits consultation at cantonal compensation fund',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'AVS Income in Zurich: how the first pillar works',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Guide to the AVS system in the Canton of Zurich: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.',
+    'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Swiss administrative office with social security desk and AVS compensation fund counter',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS and complementary services in Zurich',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Compensation fund, AVH annuity and supplementary benefits in the Canton of Zurich. Complete guide to the first pillar: calculation, contribution gaps, vital minimum.',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Insurance office interior in Zurich with AVS pension documents and compensation fund paperwork on desk',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Residence Permit B Bern: Requirements and Renewal',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'The B permit is renewable every year. Complete guide to requirements, necessary documents and renewal procedure at cantonal migration offices.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Swiss cantonal administration office officer assisting resident with permit renewal documentation',
+    'blog.article.svizzera-cina-accordo-tariffe.title': 'Switzerland-China: agreement to eliminate customs duties',
+    'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Agreement for customs exemption on 99.8% of Swiss exports to China: estimated annual savings of CHF 244 million for Swiss companies.',
+    'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Federal Palace in Bern, center of Swiss economic policy decisions.',
 };
 
 export default blogMetaChEn;

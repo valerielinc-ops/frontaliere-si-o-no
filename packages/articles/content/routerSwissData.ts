@@ -1274,6 +1274,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-zurigo-cassa': { it: 'avs-prestazioni-complementari-zurigo-cassa', en: 'avs-supplementary-benefits-zurich-compensation-office', de: 'avs-ergaenzungsleistungen-zuerich-ausgleichskasse', fr: 'ava-prestations-complementaires-zurich-caisse' },
  'permesso-b-berna-requisiti-rinnovo': { it: 'permesso-b-berna-requisiti-rinnovo', en: 'permit-b-berna-requirements-renewal', de: 'aufenthaltsbewilligung-b-bern-voraussetzungen-verlaengerung', fr: 'permis-b-berne-conditions-renouvellement' },
  'prestazioni-complementari-zurigo-minimo': { it: 'prestazioni-complementari-zurigo-minimo', en: 'supplementary-benefits-zurich-minimum-living', de: 'zusatzleistungen-zurich-existenzminimum', fr: 'prestations-complementaires-zurich-minimum-vital' },
+ 'primo-pilastro-zurigo-minimo-vitale': { it: 'primo-pilastro-zurigo-minimo-vitale', en: 'first-pillar-zurich-minimum-living-standard', de: 'erste-saule-zuerich-existenzminimum', fr: 'premier-pilier-zurich-minimum-vital' },
+ 'cassa-compensazione-zurigo-rendita-avs': { it: 'cassa-compensazione-zurigo-rendita-avs', en: 'zurich-aof-benefits-compensation-fund', de: 'zuericher-avs-ergaenzungsleistungen-rente', fr: 'zurich-avs-prestations-complementaires' },
+ 'richiesta-permesso-dimora-berna': { it: 'richiesta-permesso-dimora-berna', en: 'bern-residence-permit-b-request', de: 'bern-aufenthaltserlaubnis-b-antrag', fr: 'berne-demande-permis-sejour-b' },
+ 'svizzera-cina-accordo-tariffe': { it: 'svizzera-cina-accordo-tariffe', en: 'switzerland-china-tariff-deal', de: 'schweiz-china-zollabkommen', fr: 'suisse-chine-accord-tarifaire' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

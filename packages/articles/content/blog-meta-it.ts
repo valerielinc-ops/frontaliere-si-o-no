@@ -10429,6 +10429,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-spriana-grigioni-frontaliere.title': 'Vivere a Spriana, lavorare in Grigioni da frontaliere',
     'blog.article.vivere-spriana-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: Nuovo Accordo 2024, imposta alla fonte solo Svizzera, esenzione €7.500-€10.000, Permesso G, AVS/LPP e ristorno italiano.',
     'blog.article.vivere-spriana-grigioni-frontaliere.imageAlt': 'Valico alpino tra Alpi italiane e Grigioni svizzeri con checkpoint frontaliero nella nebbia mattutina',
+    'blog.article.vivere-monno-lavorare-grigioni.title': 'Vivere a Monno e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-monno-lavorare-grigioni.excerpt': 'Guida pratica per chi vive a Monno e lavora in Svizzera: fiscalità, nuovo accordo, contributi e gestione del reddito tra Italia e Cantone dei Grigioni.',
+    'blog.article.vivere-monno-lavorare-grigioni.imageAlt': 'Paesaggio alpino con strada di montagna',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.title': 'Vivere a Martello e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.excerpt': 'Nuovo Accordo Frontalieri: cosa cambia per i frontalieri Ticino-Italia',
+    'blog.article.vivere-martello-lavorare-grigioni-frontaliere.imageAlt': 'Frontalieri Ticino-Italia',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.title': 'Vivere a Castione Andevenno e lavorare nei Grigioni',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.excerpt': 'Guida per frontalieri: fiscalità, nuovo accordo, costi e gestione del pendolarismo tra l\'Italia e il Canton Grigioni.',
+    'blog.article.vivere-castione-andevenno-lavorare-grigioni.imageAlt': 'Panorama alpino nel Cantone dei Grigioni',
 };
 
 export default blogMetaIt;

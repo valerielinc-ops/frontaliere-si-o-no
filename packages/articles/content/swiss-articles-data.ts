@@ -11233,6 +11233,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'primo-pilastro-zurigo-minimo-vitale',
+    category: 'pensione',
+    date: '2026-08-21T21:34:42.130Z',
+    image: '/images/blog/primo-pilastro-zurigo-minimo-vitale.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'cassa-compensazione-zurigo-rendita-avs',
+    category: 'pensione',
+    date: '2026-08-21T22:38:24.764Z',
+    image: '/images/blog/cassa-compensazione-zurigo-rendita-avs.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'richiesta-permesso-dimora-berna',
+    category: 'pratico',
+    date: '2026-08-21T23:12:39.702Z',
+    image: '/images/blog/richiesta-permesso-dimora-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svizzera-cina-accordo-tariffe',
+    category: 'novita',
+    date: '2026-08-21T23:35:19.702Z',
+    image: '/images/blog/svizzera-cina-accordo-tariffe.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
