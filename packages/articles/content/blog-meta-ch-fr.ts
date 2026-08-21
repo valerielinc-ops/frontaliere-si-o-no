@@ -3670,6 +3670,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.holcim-acquista-fermacell.title': 'Holcim acquiert Fermacell : opération de 784 millions',
     'blog.article.holcim-acquista-fermacell.excerpt': 'Le groupe suisse Holcim rachète l\'allemand Fermacell pour 784 millions de francs. L\'opération, finalisée au premier semestre 2027, vise le marché de la construction.',
     'blog.article.holcim-acquista-fermacell.imageAlt': 'Siège industriel suisse moderne.',
+    'blog.article.votazioni-settembre-neutralita-alimentazione.title': 'Sondage gfs : neutralité proche du non, alimentation 50-50',
+    'blog.article.votazioni-settembre-neutralita-alimentazione.excerpt': 'Le premier sondage gfs.bern sur les votes du 27 septembre : neutralité vis-à-vis du rejet (54%), alimentation en balancier (49% vs 47%). Divergences régionales.',
+    'blog.article.votazioni-settembre-neutralita-alimentazione.imageAlt': 'Citoyens suisses participant à un scrutin fédéral, documents informatifs visibles pour consultation',
 };
 
 export default blogMetaChFr;
