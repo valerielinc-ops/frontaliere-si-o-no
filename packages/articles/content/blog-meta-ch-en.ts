@@ -3751,6 +3751,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS and complementary services in Zurich',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Compensation fund, AVH annuity and supplementary benefits in the Canton of Zurich. Complete guide to the first pillar: calculation, contribution gaps, vital minimum.',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Insurance office interior in Zurich with AVS pension documents and compensation fund paperwork on desk',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Residence Permit B Bern: Requirements and Renewal',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'The B permit is renewable every year. Complete guide to requirements, necessary documents and renewal procedure at cantonal migration offices.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Swiss cantonal administration office officer assisting resident with permit renewal documentation',
 };
 
 export default blogMetaChEn;

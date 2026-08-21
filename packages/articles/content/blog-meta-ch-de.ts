@@ -3751,6 +3751,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AHV und Ergänzungsleistungen in Zürich',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Ausgleichskasse, AHV-Rente und Ergänzungsleistungen im Kanton Zürich. Vollständiger Leitfaden zur ersten Säule: Berechnung, Beitragslücken, Existenzminimum.',
     'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Büroraum einer Ausgleichskasse in Zürich mit AVS-Rentendokumenten und Unterlagen auf dem Schreibtisch',
+    'blog.article.richiesta-permesso-dimora-berna.title': 'Aufenthaltsbewilligung B Bern: Voraussetzungen und Verlängerung',
+    'blog.article.richiesta-permesso-dimora-berna.excerpt': 'Die B-Bewilligung kann jedes Jahr erneuert werden. Vollständiger Leitfaden zu Anforderungen, erforderlichen Unterlagen und Erneuerungsverfahren bei den kantonalen Migrationsämtern.',
+    'blog.article.richiesta-permesso-dimora-berna.imageAlt': 'Schweizer Kantonsamt mit Beamten beim Assistieren bei Aufenthaltserlaubnis-Dokumenten',
 };
 
 export default blogMetaChDe;
