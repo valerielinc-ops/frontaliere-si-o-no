@@ -59,7 +59,7 @@
     "https://jobs.ruag.ch/offene-stellen/legal-counsel/9e7711a0-4521-4fdf-a1e4-99dcd29eb969",
     "https://jobs.ruag.ch/offene-stellen/compliance-investigation-officer/f1721f91-de32-4fdb-8e82-992eff94a200",
     "https://jobs.ruag.ch/offene-stellen/helikoptermechaniker-ec-635/24e02ed3-4dc6-4358-a9f4-9383b380371b",
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/640ca0c1-7efc-4a4f-a32f-562d2ad46f33",
+    "https://jobs.ruag.ch/offene-stellen/technician-avionics/df130dc2-08b6-425d-8f27-85f1ed988397",
     "https://jobs.ruag.ch/offene-stellen/junior-project-management-officer-c5i/0b8d6b0b-7f3b-4c80-a87b-e0b254e42dfd",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-polymechaniker-in-efz-2027/11314101-7c63-4d7c-b2d4-d33a06bacb32",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-2027/70bc6896-64bf-4480-8dd5-a7371139c9a1",
@@ -68,10 +68,10 @@
     "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d",
     "https://jobs.ruag.ch/offene-stellen/berufsbildungsverantwortliche-r-automatikerin-efz-und-informatikerin-efz/27c9d0a9-cf17-4fed-936e-522aa230e2fa",
     "https://jobs.ruag.ch/offene-stellen/head-of-ils-service-unit-ground-thun/78db1b8f-533e-4b2d-84c1-a8aaf7366c66",
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/df130dc2-08b6-425d-8f27-85f1ed988397"
+    "https://jobs.ruag.ch/offene-stellen/technician-avionics/640ca0c1-7efc-4a4f-a32f-562d2ad46f33"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-21T10:09:42.797Z",
+  "updatedAt": "2026-08-21T22:00:18.076Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/betriebselektrikerin-facility-manager-technics/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -367,11 +367,11 @@
       "company": "RUAG AG",
       "postedDate": "2026-08-10"
     },
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/640ca0c1-7efc-4a4f-a32f-562d2ad46f33": {
+    "https://jobs.ruag.ch/offene-stellen/technician-avionics/df130dc2-08b6-425d-8f27-85f1ed988397": {
       "location": "Wilderswil",
       "canton": "BE",
       "company": "RUAG AG",
-      "postedDate": "2026-08-10"
+      "postedDate": "2026-08-21"
     },
     "https://jobs.ruag.ch/offene-stellen/junior-project-management-officer-c5i/0b8d6b0b-7f3b-4c80-a87b-e0b254e42dfd": {
       "location": "Thun",
@@ -421,11 +421,11 @@
       "company": "RUAG AG",
       "postedDate": "2026-08-20"
     },
-    "https://jobs.ruag.ch/offene-stellen/technician-avionics/df130dc2-08b6-425d-8f27-85f1ed988397": {
+    "https://jobs.ruag.ch/offene-stellen/technician-avionics/640ca0c1-7efc-4a4f-a32f-562d2ad46f33": {
       "location": "Wilderswil",
       "canton": "BE",
       "company": "RUAG AG",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-10"
     }
   }
 }
