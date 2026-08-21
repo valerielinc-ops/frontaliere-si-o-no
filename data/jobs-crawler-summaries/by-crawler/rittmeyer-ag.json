@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-08-21T09:55:59.616Z",
+  "generatedAt": "2026-08-21T21:58:45.863Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16506,
-  "avgDurationMs": 16506,
+  "durationMs": 13283,
+  "avgDurationMs": 13283,
   "durationHistory": [
-    16506
+    13283
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -121,7 +121,6 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -159,7 +158,6 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:29:24.869Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -197,6 +195,7 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -272,7 +271,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -393,46 +391,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Service Techniker (a) im Innendienst",
-      "slug": "service-techniker-a-im-servizio-interno-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/service-techniker-a-im-innendienst/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "rittmeyer-ag-8202fbacc612",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-03T00:50:36.287Z",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
