@@ -36,12 +36,40 @@
  *   node scripts/ci/checkout-profile-analyzer.mjs [--list] [--json] [--job <id>]
  */
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import YAML from 'yaml';
 
 export const ROOT = process.env.CHECKOUT_ANALYZER_ROOT || process.cwd();
 const WF_DIR = path.join(ROOT, '.github/workflows');
 const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ci/checkout-buckets.json'), 'utf8'));
+
+/**
+ * I symlink TRACCIATI, come coppie [link, bersaglio-relativo-alla-root].
+ * Letti da git (non dal filesystem) perche' in un worktree sparse il link
+ * puo' non essere materializzato, e allora la tabella sarebbe vuota proprio
+ * dove serve. `|| ''` degrada a "nessun symlink": non peggiora nulla, al
+ * massimo lascia il difetto dov'era.
+ */
+export const TRACKED_SYMLINKS = (() => {
+  let out = '';
+  try {
+    out = execFileSync('git', ['ls-tree', '-r', 'HEAD'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  } catch { return []; }
+  const pairs = [];
+  for (const line of out.split('\n')) {
+    if (!line.startsWith('120000')) continue;
+    const link = line.split('\t')[1];
+    if (!link) continue;
+    let target = '';
+    try {
+      target = execFileSync('git', ['cat-file', '-p', `HEAD:${link}`], { cwd: ROOT, encoding: 'utf8' }).trim();
+    } catch { continue; }
+    const dir = path.posix.dirname(link);
+    pairs.push([link, path.posix.normalize(path.posix.join(dir, target))]);
+  }
+  return pairs;
+})();
 export const BUCKETS = TABLE.buckets;
 export const BASELINE_MB = TABLE.baselineMb;
 
@@ -247,6 +275,27 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const resolved = transitiveClosure(entries);
   const corpus = exec + '\n' + resolved.map((r) => r.src).join('\n');
   const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
+
+  // SYMLINK. Il repo traccia 30 symlink; 23 stanno sotto `data/` e
+  // `services/locales/` e puntano dentro `packages/articles/content/`. Il
+  // corpus di un job nomina il LINK (`data/blog-articles-data.ts`), mai il
+  // bersaglio, quindi `bucketsReferencedBy` non vede il bucket dietro — e il
+  // job si porta a casa un link PENDENTE. Un symlink pendente non da'
+  // «percorso escluso»: da' `ENOENT` sul path del link, cioe' sembra un file
+  // assente dal repository. E' cosi' che `gate:seo-source` e
+  // `validate:third-party-secrets` sono rimasti rossi a ogni run di
+  // validate-dist dal 2026-08-19, con cinque issue del reporter automatico
+  // (#5445, #5447, #5621, #5786, #5874) che cercavano un file cancellato che
+  // nessuno aveva cancellato.
+  //
+  // Regola: se il corpus nomina un link, serve il bucket del suo BERSAGLIO.
+  // Vale per qualunque bucket e qualunque job, non solo per questo caso.
+  for (const [link, target] of TRACKED_SYMLINKS) {
+    if (!corpus.includes(link)) continue;
+    for (const b of BUCKETS) {
+      if (target === b.id.replace(/\/$/, '') || target.startsWith(b.id)) needs.add(b.id);
+    }
+  }
   if (needs.has('public/images/')) needs.add('public/data/');
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
   // Se anche escludendo tutto il possibile resta piu' di CROSSOVER_MB, lo sparse

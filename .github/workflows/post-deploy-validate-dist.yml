@@ -122,42 +122,6 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
-            # I 23 symlink tracciati sotto data/ e services/ puntano DENTRO
-            # /packages/articles/content/, escluso qui sopra. Dal per-job sparse
-            # checkout (#6121) restano quindi PENDENTI: il link c'e', il bersaglio
-            # no, e ogni lettore prende ENOENT. E' cosi' che `gate:seo-source` e
-            # `validate:third-party-secrets` sono rossi a ogni run —
-            # `data/blog-articles-data.ts` e' un symlink, non un file, e l'errore
-            # arriva come «ENOENT: no such file or directory» su un path che in
-            # git c'e' eccome.
-            # Re-inclusi solo i bersagli a FILE SINGOLO: 23,6 MB in tutto. Le due
-            # cartelle (blog-body 130,6 MB / 13'756 file, blog-body-ch 35,9 MB /
-            # 4'868) restano fuori — nessun test sotto tests/seo/ le apre, e
-            # includerle riporterebbe il job dove #6121 l'ha tolto.
-            # validate-dist-report e integrity-verdict hanno gli stessi symlink
-            # pendenti ma NESSUN lettore, e passano: lasciati com'e' invece di
-            # pagarci 23,6 MB a vuoto.
-            /packages/articles/content/blog-articles-data.ts
-            /packages/articles/content/blog-meta-ch-de.ts
-            /packages/articles/content/blog-meta-ch-en.ts
-            /packages/articles/content/blog-meta-ch-fr.ts
-            /packages/articles/content/blog-meta-ch-it.ts
-            /packages/articles/content/blog-meta-de.ts
-            /packages/articles/content/blog-meta-en.ts
-            /packages/articles/content/blog-meta-fr.ts
-            /packages/articles/content/blog-meta-it.ts
-            /packages/articles/content/blogArticleIds.ts
-            /packages/articles/content/routerBlogData.ts
-            /packages/articles/content/routerSwissData.ts
-            /packages/articles/content/seo/seo-blog-2.ts
-            /packages/articles/content/seo/seo-blog-3.ts
-            /packages/articles/content/seo/seo-blog-4.ts
-            /packages/articles/content/seo/seo-blog-5.ts
-            /packages/articles/content/seo/seo-blog-6.ts
-            /packages/articles/content/seo/seo-blog-7.ts
-            /packages/articles/content/seo/seo-blog-ch.ts
-            /packages/articles/content/seo/seo-blog.ts
-            /packages/articles/content/swiss-articles-data.ts
           sparse-checkout-cone-mode: false
 
       # Reclaim ~25 GB of preinstalled SDKs we never use (dotnet, android,
