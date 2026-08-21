@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-generale-ste-anne",
-  "assembledAt": "2026-08-20T21:47:34.339Z",
+  "assembledAt": "2026-08-21T09:54:46.963Z",
   "jobs": [
     {
       "id": "clinique-generale-ste-anne-42d3ec8c44f5",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T21:47:29.862Z",
+      "crawledAt": "2026-08-21T09:54:42.817Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -66,15 +66,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:16:45.145Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -112,7 +112,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140227709-physiotherapeute-cabinet-ambulatoire-suivi-hospitalier",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T21:47:29.861Z",
+      "crawledAt": "2026-08-21T09:54:42.816Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -152,15 +152,15 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:15:38.703Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
