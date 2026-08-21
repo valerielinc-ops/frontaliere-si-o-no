@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pigna",
-  "assembledAt": "2026-08-20T21:47:34.112Z",
+  "assembledAt": "2026-08-21T10:08:04.802Z",
   "jobs": [
     {
       "id": "pigna-53e6c00f9b23",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/1531/0285/pub/480/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:30.641Z",
+      "crawledAt": "2026-08-21T10:08:01.806Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://app.reflinejobs.io/1531/0276/pub/466/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:30.077Z",
+      "crawledAt": "2026-08-21T10:08:01.233Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -144,15 +144,15 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:58:38.281Z",
-      "salaryMin": 36800,
-      "salaryMax": 55800,
+      "salaryMin": 45800,
+      "salaryMax": 64000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 36800,
-          "maxValue": 55800,
+          "minValue": 45800,
+          "maxValue": 64000,
           "unitText": "YEAR"
         }
       }
@@ -189,7 +189,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:29.394Z",
+      "crawledAt": "2026-08-21T10:08:00.396Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,15 +221,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:56:12.093Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -266,7 +266,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/467/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:28.682Z",
+      "crawledAt": "2026-08-21T10:07:59.580Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -311,15 +311,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:11:11.495Z",
-      "salaryMin": 66200,
-      "salaryMax": 100400,
+      "salaryMin": 82400,
+      "salaryMax": 115200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 66200,
-          "maxValue": 100400,
+          "minValue": 82400,
+          "maxValue": 115200,
           "unitText": "YEAR"
         }
       }
@@ -356,7 +356,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/470/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:27.760Z",
+      "crawledAt": "2026-08-21T10:07:58.615Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -394,15 +394,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:24:32.996Z",
-      "salaryMin": 66200,
-      "salaryMax": 100400,
+      "salaryMin": 82400,
+      "salaryMax": 115200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 66200,
-          "maxValue": 100400,
+          "minValue": 82400,
+          "maxValue": 115200,
           "unitText": "YEAR"
         }
       }
@@ -439,7 +439,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/473/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:27.143Z",
+      "crawledAt": "2026-08-21T10:07:57.904Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -465,15 +465,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:49:19.004Z",
-      "salaryMin": 66200,
-      "salaryMax": 100400,
+      "salaryMin": 82400,
+      "salaryMax": 115200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 66200,
-          "maxValue": 100400,
+          "minValue": 82400,
+          "maxValue": 115200,
           "unitText": "YEAR"
         }
       }

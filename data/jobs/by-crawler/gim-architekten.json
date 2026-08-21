@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gim-architekten",
-  "assembledAt": "2026-08-20T21:47:28.313Z",
+  "assembledAt": "2026-08-21T10:07:59.535Z",
   "jobs": [
     {
       "id": "gim-architekten-dfcd34dca23b",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1d796c78-bfb5-4f59-abbc-afa0ee492061/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:47:24.847Z",
+      "crawledAt": "2026-08-21T10:07:56.010Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -69,15 +69,15 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:49:57.418Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }

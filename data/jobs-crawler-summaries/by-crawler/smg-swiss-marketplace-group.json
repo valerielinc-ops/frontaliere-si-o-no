@@ -1,16 +1,16 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-08-20T21:31:33.578Z",
+  "generatedAt": "2026-08-21T09:47:17.306Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4669,
-  "avgDurationMs": 4669,
+  "durationMs": 5551,
+  "avgDurationMs": 5551,
   "durationHistory": [
-    4669
+    5551
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142898924-key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:31:29.947Z",
+      "crawledAt": "2026-08-21T09:47:12.929Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142145079-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:31:29.956Z",
+      "crawledAt": "2026-08-21T09:47:12.937Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,46 +87,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "smg-swiss-marketplace-group-fafeb79d6eb4",
-      "slug": "responsabile-product-design-ux-ricerca-f-m-d-80-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group",
-      "company": "SMG Swiss Marketplace Group",
-      "companyKey": "smg-swiss-marketplace-group",
-      "companyDomain": "swissmarketplace.group",
-      "title": "Head of Product Design & UX Research (f/m/d) | 80-100% | Hybrid working model | Zurich Switzerland",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000140696319-head-of-product-design-ux-research-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
-      "source": "SMG Swiss Marketplace Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:19:31.665Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8050",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Marketplace digitale / Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000140696319-head-of-product-design-ux-research-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
-      "firstSeenAt": "2026-07-30T22:10:45.178Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-08-20T21:45:17.799Z",
+  "assembledAt": "2026-08-21T09:52:36.265Z",
   "jobs": [
     {
       "id": "spital-nidwalden-3026ca67f725",
@@ -34,7 +34,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:14.568Z",
+      "crawledAt": "2026-08-21T09:52:33.664Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -78,15 +78,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:38:14.847Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 117000,
+      "salaryMax": 163000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 117000,
+          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
@@ -123,7 +123,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:14.566Z",
+      "crawledAt": "2026-08-21T09:52:33.663Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -169,15 +169,15 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:22:41.642Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 117000,
+      "salaryMax": 163000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 117000,
+          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
@@ -214,7 +214,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/145804c1-3f2f-46d7-a531-c8d07aade199",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:14.565Z",
+      "crawledAt": "2026-08-21T09:52:33.662Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -251,93 +251,15 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:41.182Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-nidwalden-4ff2bab44af5",
-      "slug": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans",
-      "slugByLocale": {
-        "it": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans",
-        "en": "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-spital-nidwalden-stans",
-        "de": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
-        "fr": "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-9dfff6"
-      },
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "MPA/Arztsekretär/in Sekretariat Klinik allgemeine und viszerale Chirurgie sowie Adipositaszentrum 80-100%",
-      "titleByLocale": {
-        "it": "MPA/Arztsekretär/in Sekretariat Klinik allgemeine e viszerale Chirurgie sowie Adipositaszentrum 80-100%",
-        "en": "MPA/doctor secretary/in secretariat clinic general and visceral surgery and obesity center 80-100 %",
-        "de": "MPA/Arztsekretär/in Sekretariat Klinik allgemeine und viszerale Chirurgie sowie Adipositaszentrum 80-100%",
-        "fr": "MPA/doctorat secrétaire/dans la clinique de secrétariat général et centre de chirurgie viscérale et d'obésité 80-100 %"
-      },
-      "description": "<p>Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per sofort oder nach Vereinbarung eine/n</p>\n\nAufgaben:\n• Sie planen und organisieren chirurgische Sprechstunden\n\n• Sie koordinieren Telefonate mit Patienten sowie zuweisenden Ärzten und erteilen kompetente Auskunft\n\n• Sie unterstützen bei der Patientenversorgung im chirurgischen Ambulatorium (Kleineingriffe, Oszillographien, Sprechstundenassistenzen, PTNS, Instruktionen)\n\n• Sie übernehmen administrative und organisatorische Aufgaben, dazu gehören die Bearbeitung von Post und E-Mails, die Datenpflege in EDV-Systemen, die Bearbeitung von Versicherungsanfragen sowie Controlling und Berichtsversand\n\nAnforderungen:\n• Sie bringen eine abgeschlossene Grundausbildung als MPA, Arztsekretär/- in oder FaGe mit\n\n• Sie sind eine dienstleistungsorientierte und empathische Persönlichkeit und überzeugen durch einen sicheren Umgang mit EDV-Systemen, MS-Office und Outlook\n\n• Sie verfügen über stilsichere Deutschkenntnisse in Wort und Schrift, gute mündliche Englischkenntnisse sind ein Plus\n\n• Sie behalten auch in hektischen Situationen den Überblick, setzen Prioritäten richtig und arbeiten selbständig sowie qualitätsbewusst\n\nWir bieten:\n• Sie arbeiten in einem aufgeschlossenen und kollegialen Team mit abwechslungsreichen Aufgaben\n\n• Ein sehr spannendes, herausforderndes und vielseitiges Tätigkeitsgebiet erwartet Sie, zusammen mit einer dynamischen Arbeitsumgebung und der Chance, Ihr gesamtes Wissen einzubringen und die Zukunft aktiv mitzugestalten\n\n• Bei entsprechender Entwicklung und Eignung besteht die Perspektive, die Rolle der stellvertretenden Teamleitung zu übernehmen.",
-      "descriptionByLocale": {
-        "it": "<p>Spital Nidwalden è un moderno ospedale acuto con 90 posti letto, circa 600 dipendenti dedicati ed è responsabile per l'assistenza di base estesa. Come azienda del Gruppo LUKS, siamo parte di una potente rete che è uno dei principali gruppi ospedalieri in Svizzera. Insieme, forniamo tutto l'orologio con passione e impegno per la salute coordinata, digitalmente collegata e accessibile per tutti. <br/>\n\nCompiti:\n• Pianifichi e organizzi ore di consultazione chirurgica\n\n• Coordinate le chiamate telefoniche con i pazienti e assegnate medici e fornite informazioni competenti\n\n• Supportano la cura del paziente nell'ambulatorio chirurgico (piccoli procedure, oscillografie, assistenza di consultazione, PTNS, istruzioni)\n\n• L'utente assume compiti amministrativi e organizzativi, tra cui il trattamento delle postazioni e delle e-mail, la manutenzione dei dati nei sistemi informatici, il trattamento delle indagini assicurative nonché il controllo e la segnalazione\n\nRequisiti\n• Hai completato la formazione di base come MPA, segretario medico /- in o FaGe\n\n• Sei una personalità orientata al servizio ed empatica e convinci da un uso sicuro di sistemi informatici, MS-Office e Outlook\n\n• Hai una conoscenza elegante del tedesco in parola e scrittura, buone abilità di inglese orale sono un plus\n\n• Tengono anche una panoramica in situazioni frenetiche, fissano le priorità correttamente e lavorano in modo indipendente e di qualità-cosciente.\n\nOffriamo:\n• Si lavora in un team aperto e collegiale con vari compiti\n\n• Un campo di attività molto eccitante, stimolante e versatile vi aspetta, insieme ad un ambiente di lavoro dinamico e l'opportunità di contribuire a tutte le vostre conoscenze e plasmare attivamente il futuro.\n\n• Con un adeguato sviluppo e idoneità, c'è la prospettiva di assumere il ruolo di vice capo squadra.",
-        "en": "<p>Spital Nidwalden is a modern acute care hospital with 90 beds, around 600 dedicated employees and is responsible for the extended basic care. As a LUKS Group company, we are part of a powerful network that is one of the leading hospital groups in Switzerland. Together, we provide around the clock with passion and commitment for coordinated, digitally connected and accessible healthcare for all. <br/><br/ >We are looking for a /n</p> immediately or by agreement\n\nTasks:\n• You plan and organize surgical consultation hours\n\n• You coordinate telephone calls with patients and assigning doctors and provide competent information\n\n• They support patient care in the surgical ambulatory (small procedures, oscillographies, consultation assistance, PTNS, instructions)\n\n• You take on administrative and organizational tasks, including the processing of post and e-mails, the data maintenance in computer systems, the processing of insurance inquiries as well as controlling and reporting\n\nRequirements\n• You have completed basic training as MPA, medical secretary/- in or FaGe\n\n• You are a service-oriented and empathetic personality and convince by a safe use of computer systems, MS-Office and Outlook\n\n• You have stylish knowledge of German in word and writing, good oral English skills are a plus\n\n• They also keep an overview in hectic situations, set priorities correctly and work independently and quality-consciously.\n\nWe offer:\n• You work in an open-minded and collegial team with varied tasks\n\n• A very exciting, challenging and versatile field of activity awaits you, together with a dynamic working environment and the opportunity to contribute all your knowledge and actively shape the future.\n\n• With appropriate development and suitability, there is the prospect of taking on the role of deputy team leader.",
-        "de": "<p>Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per sofort oder nach Vereinbarung eine/n</p>\n\nAufgaben:\n• Sie planen und organisieren chirurgische Sprechstunden\n\n• Sie koordinieren Telefonate mit Patienten sowie zuweisenden Ärzten und erteilen kompetente Auskunft\n\n• Sie unterstützen bei der Patientenversorgung im chirurgischen Ambulatorium (Kleineingriffe, Oszillographien, Sprechstundenassistenzen, PTNS, Instruktionen)\n\n• Sie übernehmen administrative und organisatorische Aufgaben, dazu gehören die Bearbeitung von Post und E-Mails, die Datenpflege in EDV-Systemen, die Bearbeitung von Versicherungsanfragen sowie Controlling und Berichtsversand\n\nAnforderungen:\n• Sie bringen eine abgeschlossene Grundausbildung als MPA, Arztsekretär/- in oder FaGe mit\n\n• Sie sind eine dienstleistungsorientierte und empathische Persönlichkeit und überzeugen durch einen sicheren Umgang mit EDV-Systemen, MS-Office und Outlook\n\n• Sie verfügen über stilsichere Deutschkenntnisse in Wort und Schrift, gute mündliche Englischkenntnisse sind ein Plus\n\n• Sie behalten auch in hektischen Situationen den Überblick, setzen Prioritäten richtig und arbeiten selbständig sowie qualitätsbewusst\n\nWir bieten:\n• Sie arbeiten in einem aufgeschlossenen und kollegialen Team mit abwechslungsreichen Aufgaben\n\n• Ein sehr spannendes, herausforderndes und vielseitiges Tätigkeitsgebiet erwartet Sie, zusammen mit einer dynamischen Arbeitsumgebung und der Chance, Ihr gesamtes Wissen einzubringen und die Zukunft aktiv mitzugestalten\n\n• Bei entsprechender Entwicklung und Eignung besteht die Perspektive, die Rolle der stellvertretenden Teamleitung zu übernehmen.",
-        "fr": "<p>Spital Nidwalden est un hôpital moderne de soins actifs avec 90 lits, environ 600 employés dévoués et est responsable des soins de base prolongés. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un puissant réseau qui est l'un des principaux groupes hospitaliers en Suisse. Ensemble, nous fournissons 24 heures sur 24 avec passion et engagement pour des soins de santé coordonnés, connectés numériquement et accessibles pour tous. <br/><br/ > Nous cherchons un /n</p> immédiatement ou par accord\n\nTâches :\n• Vous planifiez et organisez des heures de consultation chirurgicale\n\n• Vous coordonnez les appels téléphoniques avec les patients et assignez des médecins et fournissez des informations compétentes\n\n• Ils soutiennent les soins aux patients dans les ambulatoires chirurgicales (petites interventions, oscillographies, aide à la consultation, SPT, instructions)\n\n• Vous assumez des tâches administratives et organisationnelles, y compris le traitement des courriers postaux et électroniques, la maintenance des données dans les systèmes informatiques, le traitement des demandes d'assurance ainsi que le contrôle et la déclaration\n\nExigences\n• Vous avez suivi une formation de base en tant que MPA, secrétaire médical ou FaGe\n\n• Vous êtes une personnalité service-orientée et empathique et convaincre par une utilisation sûre des systèmes informatiques, MS-Office et Outlook\n\n• Vous avez une connaissance élégante de l'allemand dans la parole et l'écriture, de bonnes compétences en anglais oral sont un plus\n\n• Ils gardent également une vue d'ensemble dans des situations mouvementées, fixent correctement les priorités et travaillent de manière indépendante et soucieuse de la qualité.\n\nNous offrons:\n• Vous travaillez dans une équipe ouverte et collégiale avec des tâches variées\n\n• Un domaine d'activité très excitant, stimulant et polyvalent vous attend, avec un environnement de travail dynamique et l'occasion de contribuer à toutes vos connaissances et de façonner activement l'avenir.\n\n• Avec le développement approprié et la pertinence, il est possible d'assumer le rôle de chef d'équipe adjoint."
-      },
-      "needsRetranslation": true,
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/mpa-arztsekretaer-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie-adipositaszentrum/e95f0cdb-d12f-40aa-a06e-5a14962fc8e4",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:14.563Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a00f77a50f519c&j=jobexchange",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
-        ],
-        "en": [
-          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
-        ],
-        "fr": [
-          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T21:51:41.188Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -374,7 +296,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-intensivmedizin-50/4db0abe4-9ba2-4178-9421-2d8d676397d5",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:45:14.559Z",
+      "crawledAt": "2026-08-21T09:52:33.662Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -409,15 +331,93 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:41.186Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 117000,
+      "salaryMax": 163000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 117000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-nidwalden-4ff2bab44af5",
+      "slug": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans",
+      "slugByLocale": {
+        "it": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-spital-nidwalden-stans",
+        "en": "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-spital-nidwalden-stans",
+        "de": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
+        "fr": "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-9dfff6"
+      },
+      "company": "Spital Nidwalden",
+      "companyKey": "spital-nidwalden",
+      "companyDomain": "spital-nidwalden.ch",
+      "title": "MPA/Arztsekretär/in Sekretariat Klinik allgemeine und viszerale Chirurgie sowie Adipositaszentrum 80-100%",
+      "titleByLocale": {
+        "it": "MPA/Arztsekretär/in Sekretariat Klinik allgemeine e viszerale Chirurgie sowie Adipositaszentrum 80-100%",
+        "en": "MPA/doctor secretary/in secretariat clinic general and visceral surgery and obesity center 80-100 %",
+        "de": "MPA/Arztsekretär/in Sekretariat Klinik allgemeine und viszerale Chirurgie sowie Adipositaszentrum 80-100%",
+        "fr": "MPA/doctorat secrétaire/dans la clinique de secrétariat général et centre de chirurgie viscérale et d'obésité 80-100 %"
+      },
+      "description": "<p>Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per sofort oder nach Vereinbarung eine/n</p>\n\nAufgaben:\n• Sie planen und organisieren chirurgische Sprechstunden\n\n• Sie koordinieren Telefonate mit Patienten sowie zuweisenden Ärzten und erteilen kompetente Auskunft\n\n• Sie unterstützen bei der Patientenversorgung im chirurgischen Ambulatorium (Kleineingriffe, Oszillographien, Sprechstundenassistenzen, PTNS, Instruktionen)\n\n• Sie übernehmen administrative und organisatorische Aufgaben, dazu gehören die Bearbeitung von Post und E-Mails, die Datenpflege in EDV-Systemen, die Bearbeitung von Versicherungsanfragen sowie Controlling und Berichtsversand\n\nAnforderungen:\n• Sie bringen eine abgeschlossene Grundausbildung als MPA, Arztsekretär/- in oder FaGe mit\n\n• Sie sind eine dienstleistungsorientierte und empathische Persönlichkeit und überzeugen durch einen sicheren Umgang mit EDV-Systemen, MS-Office und Outlook\n\n• Sie verfügen über stilsichere Deutschkenntnisse in Wort und Schrift, gute mündliche Englischkenntnisse sind ein Plus\n\n• Sie behalten auch in hektischen Situationen den Überblick, setzen Prioritäten richtig und arbeiten selbständig sowie qualitätsbewusst\n\nWir bieten:\n• Sie arbeiten in einem aufgeschlossenen und kollegialen Team mit abwechslungsreichen Aufgaben\n\n• Ein sehr spannendes, herausforderndes und vielseitiges Tätigkeitsgebiet erwartet Sie, zusammen mit einer dynamischen Arbeitsumgebung und der Chance, Ihr gesamtes Wissen einzubringen und die Zukunft aktiv mitzugestalten\n\n• Bei entsprechender Entwicklung und Eignung besteht die Perspektive, die Rolle der stellvertretenden Teamleitung zu übernehmen.",
+      "descriptionByLocale": {
+        "it": "<p>Spital Nidwalden è un moderno ospedale acuto con 90 posti letto, circa 600 dipendenti dedicati ed è responsabile per l'assistenza di base estesa. Come azienda del Gruppo LUKS, siamo parte di una potente rete che è uno dei principali gruppi ospedalieri in Svizzera. Insieme, forniamo tutto l'orologio con passione e impegno per la salute coordinata, digitalmente collegata e accessibile per tutti. <br/>\n\nCompiti:\n• Pianifichi e organizzi ore di consultazione chirurgica\n\n• Coordinate le chiamate telefoniche con i pazienti e assegnate medici e fornite informazioni competenti\n\n• Supportano la cura del paziente nell'ambulatorio chirurgico (piccoli procedure, oscillografie, assistenza di consultazione, PTNS, istruzioni)\n\n• L'utente assume compiti amministrativi e organizzativi, tra cui il trattamento delle postazioni e delle e-mail, la manutenzione dei dati nei sistemi informatici, il trattamento delle indagini assicurative nonché il controllo e la segnalazione\n\nRequisiti\n• Hai completato la formazione di base come MPA, segretario medico /- in o FaGe\n\n• Sei una personalità orientata al servizio ed empatica e convinci da un uso sicuro di sistemi informatici, MS-Office e Outlook\n\n• Hai una conoscenza elegante del tedesco in parola e scrittura, buone abilità di inglese orale sono un plus\n\n• Tengono anche una panoramica in situazioni frenetiche, fissano le priorità correttamente e lavorano in modo indipendente e di qualità-cosciente.\n\nOffriamo:\n• Si lavora in un team aperto e collegiale con vari compiti\n\n• Un campo di attività molto eccitante, stimolante e versatile vi aspetta, insieme ad un ambiente di lavoro dinamico e l'opportunità di contribuire a tutte le vostre conoscenze e plasmare attivamente il futuro.\n\n• Con un adeguato sviluppo e idoneità, c'è la prospettiva di assumere il ruolo di vice capo squadra.",
+        "en": "<p>Spital Nidwalden is a modern acute care hospital with 90 beds, around 600 dedicated employees and is responsible for the extended basic care. As a LUKS Group company, we are part of a powerful network that is one of the leading hospital groups in Switzerland. Together, we provide around the clock with passion and commitment for coordinated, digitally connected and accessible healthcare for all. <br/><br/ >We are looking for a /n</p> immediately or by agreement\n\nTasks:\n• You plan and organize surgical consultation hours\n\n• You coordinate telephone calls with patients and assigning doctors and provide competent information\n\n• They support patient care in the surgical ambulatory (small procedures, oscillographies, consultation assistance, PTNS, instructions)\n\n• You take on administrative and organizational tasks, including the processing of post and e-mails, the data maintenance in computer systems, the processing of insurance inquiries as well as controlling and reporting\n\nRequirements\n• You have completed basic training as MPA, medical secretary/- in or FaGe\n\n• You are a service-oriented and empathetic personality and convince by a safe use of computer systems, MS-Office and Outlook\n\n• You have stylish knowledge of German in word and writing, good oral English skills are a plus\n\n• They also keep an overview in hectic situations, set priorities correctly and work independently and quality-consciously.\n\nWe offer:\n• You work in an open-minded and collegial team with varied tasks\n\n• A very exciting, challenging and versatile field of activity awaits you, together with a dynamic working environment and the opportunity to contribute all your knowledge and actively shape the future.\n\n• With appropriate development and suitability, there is the prospect of taking on the role of deputy team leader.",
+        "de": "<p>Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per sofort oder nach Vereinbarung eine/n</p>\n\nAufgaben:\n• Sie planen und organisieren chirurgische Sprechstunden\n\n• Sie koordinieren Telefonate mit Patienten sowie zuweisenden Ärzten und erteilen kompetente Auskunft\n\n• Sie unterstützen bei der Patientenversorgung im chirurgischen Ambulatorium (Kleineingriffe, Oszillographien, Sprechstundenassistenzen, PTNS, Instruktionen)\n\n• Sie übernehmen administrative und organisatorische Aufgaben, dazu gehören die Bearbeitung von Post und E-Mails, die Datenpflege in EDV-Systemen, die Bearbeitung von Versicherungsanfragen sowie Controlling und Berichtsversand\n\nAnforderungen:\n• Sie bringen eine abgeschlossene Grundausbildung als MPA, Arztsekretär/- in oder FaGe mit\n\n• Sie sind eine dienstleistungsorientierte und empathische Persönlichkeit und überzeugen durch einen sicheren Umgang mit EDV-Systemen, MS-Office und Outlook\n\n• Sie verfügen über stilsichere Deutschkenntnisse in Wort und Schrift, gute mündliche Englischkenntnisse sind ein Plus\n\n• Sie behalten auch in hektischen Situationen den Überblick, setzen Prioritäten richtig und arbeiten selbständig sowie qualitätsbewusst\n\nWir bieten:\n• Sie arbeiten in einem aufgeschlossenen und kollegialen Team mit abwechslungsreichen Aufgaben\n\n• Ein sehr spannendes, herausforderndes und vielseitiges Tätigkeitsgebiet erwartet Sie, zusammen mit einer dynamischen Arbeitsumgebung und der Chance, Ihr gesamtes Wissen einzubringen und die Zukunft aktiv mitzugestalten\n\n• Bei entsprechender Entwicklung und Eignung besteht die Perspektive, die Rolle der stellvertretenden Teamleitung zu übernehmen.",
+        "fr": "<p>Spital Nidwalden est un hôpital moderne de soins actifs avec 90 lits, environ 600 employés dévoués et est responsable des soins de base prolongés. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un puissant réseau qui est l'un des principaux groupes hospitaliers en Suisse. Ensemble, nous fournissons 24 heures sur 24 avec passion et engagement pour des soins de santé coordonnés, connectés numériquement et accessibles pour tous. <br/><br/ > Nous cherchons un /n</p> immédiatement ou par accord\n\nTâches :\n• Vous planifiez et organisez des heures de consultation chirurgicale\n\n• Vous coordonnez les appels téléphoniques avec les patients et assignez des médecins et fournissez des informations compétentes\n\n• Ils soutiennent les soins aux patients dans les ambulatoires chirurgicales (petites interventions, oscillographies, aide à la consultation, SPT, instructions)\n\n• Vous assumez des tâches administratives et organisationnelles, y compris le traitement des courriers postaux et électroniques, la maintenance des données dans les systèmes informatiques, le traitement des demandes d'assurance ainsi que le contrôle et la déclaration\n\nExigences\n• Vous avez suivi une formation de base en tant que MPA, secrétaire médical ou FaGe\n\n• Vous êtes une personnalité service-orientée et empathique et convaincre par une utilisation sûre des systèmes informatiques, MS-Office et Outlook\n\n• Vous avez une connaissance élégante de l'allemand dans la parole et l'écriture, de bonnes compétences en anglais oral sont un plus\n\n• Ils gardent également une vue d'ensemble dans des situations mouvementées, fixent correctement les priorités et travaillent de manière indépendante et soucieuse de la qualité.\n\nNous offrons:\n• Vous travaillez dans une équipe ouverte et collégiale avec des tâches variées\n\n• Un domaine d'activité très excitant, stimulant et polyvalent vous attend, avec un environnement de travail dynamique et l'occasion de contribuer à toutes vos connaissances et de façonner activement l'avenir.\n\n• Avec le développement approprié et la pertinence, il est possible d'assumer le rôle de chef d'équipe adjoint."
+      },
+      "needsRetranslation": true,
+      "location": "Stans",
+      "canton": "NW",
+      "url": "https://jobs.luks.ch/offene-stellen/mpa-arztsekretaer-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie-adipositaszentrum/e95f0cdb-d12f-40aa-a06e-5a14962fc8e4",
+      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T09:52:33.660Z",
+      "addressLocality": "Stans",
+      "addressRegion": "NW",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6370",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a00f77a50f519c&j=jobexchange",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        ],
+        "en": [
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        ],
+        "fr": [
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        ]
+      },
+      "firstSeenAt": "2026-08-17T21:51:41.188Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }

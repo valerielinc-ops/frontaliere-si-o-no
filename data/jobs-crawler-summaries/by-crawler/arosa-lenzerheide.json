@@ -1,16 +1,16 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-08-20T21:34:41.962Z",
-  "total": 4,
+  "generatedAt": "2026-08-21T09:56:58.625Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6974,
-  "avgDurationMs": 6974,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6177,
+  "avgDurationMs": 6177,
   "durationHistory": [
-    6974
+    6177
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:34:39.614Z",
+      "crawledAt": "2026-08-21T09:56:56.644Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:34:38.422Z",
+      "crawledAt": "2026-08-21T09:56:55.291Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:34:39.058Z",
+      "crawledAt": "2026-08-21T09:56:56.073Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -129,8 +129,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "arosa-lenzerheide-4fac9b112f86",
       "slug": "pattugliatore-in-arosa-lenzerheide-lenzerheide",
@@ -172,5 +171,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

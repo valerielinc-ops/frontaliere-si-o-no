@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-thusis",
-  "assembledAt": "2026-08-20T21:47:57.160Z",
+  "assembledAt": "2026-08-21T09:56:01.189Z",
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
@@ -33,7 +33,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Radiologiefachperson-Pensum-flexibel-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:54.400Z",
+      "crawledAt": "2026-08-21T09:55:58.712Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -82,15 +82,16 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:34.057Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -127,7 +128,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Chirurgie-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:53.691Z",
+      "crawledAt": "2026-08-21T09:55:57.849Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -175,15 +176,16 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:32.297Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -220,7 +222,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:53.070Z",
+      "crawledAt": "2026-08-21T09:55:56.975Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -282,15 +284,16 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:18.081Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -327,7 +330,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-SPITEX-50-70-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:52.355Z",
+      "crawledAt": "2026-08-21T09:55:56.258Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -378,15 +381,16 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:31.549Z",
-      "salaryMin": 40300,
-      "salaryMax": 60900,
+      "needsRetranslation": true,
+      "salaryMin": 57100,
+      "salaryMax": 79800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 40300,
-          "maxValue": 60900,
+          "minValue": 57100,
+          "maxValue": 79800,
           "unitText": "YEAR"
         }
       },
@@ -423,7 +427,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildungsplatz-als-Pflegefachperson-HF-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:51.725Z",
+      "crawledAt": "2026-08-21T09:55:55.577Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -469,15 +473,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:24:30.244Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 48500,
+      "salaryMax": 89500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 48500,
+          "maxValue": 89500,
           "unitText": "YEAR"
         }
       },
@@ -514,7 +518,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-80-90-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:51.099Z",
+      "crawledAt": "2026-08-21T09:55:54.875Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -561,15 +565,16 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:29.583Z",
-      "salaryMin": 51800,
-      "salaryMax": 78300,
+      "needsRetranslation": true,
+      "salaryMin": 73400,
+      "salaryMax": 102600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51800,
-          "maxValue": 78300,
+          "minValue": 73400,
+          "maxValue": 102600,
           "unitText": "YEAR"
         }
       },
@@ -603,7 +608,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:50.462Z",
+      "crawledAt": "2026-08-21T09:55:54.143Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -635,111 +640,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:24:28.951Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "spital-thusis-fbc24a2d5c9f",
-      "slug": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
-        "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-spital-thusis-thusis",
-        "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-        "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-spital-thusis-thusis"
-      },
-      "company": "Spital Thusis",
-      "companyKey": "spital-thusis",
-      "companyDomain": "spitalthusis.ch",
-      "title": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come Fachperson Hotellerie-Hauswirtschaft CFC",
-        "en": "Apprenticeship as a specialist hotel industry-household industry EFZ",
-        "de": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
-        "fr": "Apprentissage en tant qu'industrie hôtelière spécialisée-industrie domestique EFZ"
-      },
-      "description": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
-      "descriptionByLocale": {
-        "it": "Requisiti: •\nIstruzione secondaria o secondaria\n\n• Gioia nel trattare con altri esseri umani e una buona idea di servizio\n\n• alta motivazione, divertimento nel lavoro fisico, volontà di imparare e perseveranza\n\n• Un buon spirito di squadra\n\n• Divertimento delle attività domestiche\n\n• Livello di lingua Tedesco almeno B2\n\nTi senti indirizzato e vuoi diventare parte della nostra fondazione?\nVieni a farti ispirare!\n\nAltri | Offriamo:\n\n• Un'educazione emozionante e varia.\n\n• lavoro indipendente e responsabile nella vostra area di competenza.\n\n• supporto professionale e supporto del dipartimento e di altri dipartimenti.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.",
-        "en": "Requirements: •\nSecondary or secondary education\n\n• Joy in dealing with fellow human beings and a good service idea\n\n• high motivation, fun in physical work, willingness to learn and perseverance\n\n• A good team spirit\n\n• Enjoyment of domestic activities\n\n• Language level German at least B2\n\nDo you feel addressed and want to become part of our foundation?\nCome and let yourself be inspired!\n\nOther | We offer: you:\n\n• An exciting and varied education.\n\n• independent and responsible work in your area of competence.\n\n• professional support and support from the department and other departments.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.",
-        "de": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
-        "fr": "Exigences: •\nEnseignement secondaire ou secondaire\n\n• La joie de traiter avec ses semblables et une bonne idée de service\n\n• haute motivation, plaisir dans le travail physique, volonté d'apprendre et persévérance\n\n• Un bon esprit d'équipe\n\n• Profitez des activités domestiques\n\n• Niveau de langue Allemand au moins B2\n\nVous sentez-vous adressé et voulez devenir une partie de notre fondation?\nVenez et laissez-vous inspirer!\n\nAutres Nous vous proposons:\n\n• Une éducation passionnante et variée.\n\n• travail indépendant et responsable dans votre domaine de compétence.\n\n• soutien et soutien professionnels du ministère et d'autres ministères.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM."
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
-      "source": "Spital Thusis Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:49.821Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "streetAddress": "Alte Strasse 31",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
-      "requirements": [
-        "Sekundar- oder Realschulabschluss",
-        "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
-        "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
-        "einen guten Teamgeist",
-        "Freude an hauswirtschaftlichen Tätigkeiten",
-        "Sprachniveau Deutsch mindestens B2"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Sekundar- oder Realschulabschluss",
-          "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
-          "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
-          "einen guten Teamgeist",
-          "Freude an hauswirtschaftlichen Tätigkeiten",
-          "Sprachniveau Deutsch mindestens B2"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-        "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-          "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
-        ],
-        "en": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
-        ],
-        "fr": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:24:28.312Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -776,7 +685,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spitex-Viamala/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:49.184Z",
+      "crawledAt": "2026-08-21T09:55:53.418Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -834,15 +743,111 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:24:27.047Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "spital-thusis-fbc24a2d5c9f",
+      "slug": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
+        "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-spital-thusis-thusis",
+        "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+        "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-spital-thusis-thusis"
+      },
+      "company": "Spital Thusis",
+      "companyKey": "spital-thusis",
+      "companyDomain": "spitalthusis.ch",
+      "title": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come Fachperson Hotellerie-Hauswirtschaft CFC",
+        "en": "Apprenticeship as a specialist hotel industry-household industry EFZ",
+        "de": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
+        "fr": "Apprentissage en tant qu'industrie hôtelière spécialisée-industrie domestique EFZ"
+      },
+      "description": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
+      "descriptionByLocale": {
+        "it": "Requisiti: •\nIstruzione secondaria o secondaria\n\n• Gioia nel trattare con altri esseri umani e una buona idea di servizio\n\n• alta motivazione, divertimento nel lavoro fisico, volontà di imparare e perseveranza\n\n• Un buon spirito di squadra\n\n• Divertimento delle attività domestiche\n\n• Livello di lingua Tedesco almeno B2\n\nTi senti indirizzato e vuoi diventare parte della nostra fondazione?\nVieni a farti ispirare!\n\nAltri | Offriamo:\n\n• Un'educazione emozionante e varia.\n\n• lavoro indipendente e responsabile nella vostra area di competenza.\n\n• supporto professionale e supporto del dipartimento e di altri dipartimenti.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.",
+        "en": "Requirements: •\nSecondary or secondary education\n\n• Joy in dealing with fellow human beings and a good service idea\n\n• high motivation, fun in physical work, willingness to learn and perseverance\n\n• A good team spirit\n\n• Enjoyment of domestic activities\n\n• Language level German at least B2\n\nDo you feel addressed and want to become part of our foundation?\nCome and let yourself be inspired!\n\nOther | We offer: you:\n\n• An exciting and varied education.\n\n• independent and responsible work in your area of competence.\n\n• professional support and support from the department and other departments.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.",
+        "de": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
+        "fr": "Exigences: •\nEnseignement secondaire ou secondaire\n\n• La joie de traiter avec ses semblables et une bonne idée de service\n\n• haute motivation, plaisir dans le travail physique, volonté d'apprendre et persévérance\n\n• Un bon esprit d'équipe\n\n• Profitez des activités domestiques\n\n• Niveau de langue Allemand au moins B2\n\nVous sentez-vous adressé et voulez devenir une partie de notre fondation?\nVenez et laissez-vous inspirer!\n\nAutres Nous vous proposons:\n\n• Une éducation passionnante et variée.\n\n• travail indépendant et responsable dans votre domaine de compétence.\n\n• soutien et soutien professionnels du ministère et d'autres ministères.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM."
+      },
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
+      "source": "Spital Thusis Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T09:55:52.716Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "streetAddress": "Alte Strasse 31",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
+      "requirements": [
+        "Sekundar- oder Realschulabschluss",
+        "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
+        "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
+        "einen guten Teamgeist",
+        "Freude an hauswirtschaftlichen Tätigkeiten",
+        "Sprachniveau Deutsch mindestens B2"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Sekundar- oder Realschulabschluss",
+          "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
+          "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
+          "einen guten Teamgeist",
+          "Freude an hauswirtschaftlichen Tätigkeiten",
+          "Sprachniveau Deutsch mindestens B2"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+        "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+          "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:24:28.312Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -879,7 +884,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:48.553Z",
+      "crawledAt": "2026-08-21T09:55:51.990Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -937,15 +942,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:24:26.401Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 76000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 76000,
           "unitText": "YEAR"
         }
       },
@@ -982,7 +987,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-mit-Weiterbildung-in-onkologischer-Pflege-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:47.923Z",
+      "crawledAt": "2026-08-21T09:55:51.299Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1004,15 +1009,15 @@
       "pensum": "20%",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:24:25.043Z",
-      "salaryMin": 11500,
-      "salaryMax": 17400,
+      "salaryMin": 16300,
+      "salaryMax": 22800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 11500,
-          "maxValue": 17400,
+          "minValue": 16300,
+          "maxValue": 22800,
           "unitText": "YEAR"
         }
       },
@@ -1049,7 +1054,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-SPITEX-40-80-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:47.215Z",
+      "crawledAt": "2026-08-21T09:55:50.462Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1080,15 +1085,15 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:24.411Z",
-      "salaryMin": 46000,
-      "salaryMax": 69600,
+      "salaryMin": 65200,
+      "salaryMax": 91200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 69600,
+          "minValue": 65200,
+          "maxValue": 91200,
           "unitText": "YEAR"
         }
       },
@@ -1125,7 +1130,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Fachperson-Operationstechnik-HF-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:46.580Z",
+      "crawledAt": "2026-08-21T09:55:49.742Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1172,15 +1177,16 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:23.012Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
+      "needsRetranslation": true,
+      "salaryMin": 48900,
+      "salaryMax": 68400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
+          "minValue": 48900,
+          "maxValue": 68400,
           "unitText": "YEAR"
         }
       },
@@ -1217,7 +1223,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-50-100-Notfall-Tagesklinik/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:45.939Z",
+      "crawledAt": "2026-08-21T09:55:49.046Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1256,15 +1262,15 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:23.749Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1301,7 +1307,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-mit-Zusatzaufgabe-Berufsbildner-in-SPITEX-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:45.231Z",
+      "crawledAt": "2026-08-21T09:55:47.731Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1328,15 +1334,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T12:20:54.567Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -1373,7 +1379,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Biomedizinische-n-Analytiker-in-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:44.591Z",
+      "crawledAt": "2026-08-21T09:55:47.022Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1418,15 +1424,16 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:46:09.962Z",
-      "salaryMin": 11500,
-      "salaryMax": 17400,
+      "needsRetranslation": true,
+      "salaryMin": 16300,
+      "salaryMax": 22800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 11500,
-          "maxValue": 17400,
+          "minValue": 16300,
+          "maxValue": 22800,
           "unitText": "YEAR"
         }
       },
@@ -1463,7 +1470,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitender-Arzt-Oberarzt-m-w-Innere-Medizin-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:43.938Z",
+      "crawledAt": "2026-08-21T09:55:46.312Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1500,15 +1507,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:54:51.538Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -1545,7 +1552,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Mitarbeiter-in-Patientenadministration-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:43.284Z",
+      "crawledAt": "2026-08-21T09:55:45.475Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1582,15 +1589,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:31:17.909Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
+      "salaryMin": 48900,
+      "salaryMax": 68400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
+          "minValue": 48900,
+          "maxValue": 68400,
           "unitText": "YEAR"
         }
       },
@@ -1627,7 +1634,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Notfallstation-und-Tagesklinik-90-100-mit-NDS-HF-Notfallpflege/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:42.601Z",
+      "crawledAt": "2026-08-21T09:55:44.761Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1676,6 +1683,91 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "spital-thusis-cf6d5173b023",
+      "slug": "leitung-hauswirtschaft-80-100-spital-thusis-ch",
+      "slugByLocale": {
+        "de": "leitung-hauswirtschaft-80-100-spital-thusis-ch",
+        "it": "leitung-hauswirtschaft-80-100-spital-thusis-ch",
+        "en": "leitung-hauswirtschaft-80-100-spital-thusis-ch",
+        "fr": "leitung-hauswirtschaft-80-100-spital-thusis-ch"
+      },
+      "company": "Spital Thusis",
+      "companyKey": "spital-thusis",
+      "companyDomain": "spitalthusis.ch",
+      "title": "Leitung Hauswirtschaft 80-100%",
+      "titleByLocale": {
+        "de": "Leitung Hauswirtschaft 80-100%",
+        "it": "Leitung Hauswirtschaft 80-100%",
+        "en": "Leitung Hauswirtschaft 80-100%",
+        "fr": "Leitung Hauswirtschaft 80-100%"
+      },
+      "description": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserem Regionalspital\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten.\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
+      "descriptionByLocale": {
+        "de": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserem Regionalspital\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten.\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
+        "it": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserem Regionalspital\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten.\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
+        "en": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserem Regionalspital\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten.\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
+        "fr": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserem Regionalspital\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten.\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere"
+      },
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Hauswirtschaft-80-100-/",
+      "source": "Spital Thusis Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T09:55:43.847Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "streetAddress": "Alte Strasse 31",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Hauswirtschaft-80-100-/",
+      "requirements": [
+        "dreijährige Ausbildung EFZ im Bereich Hospitality oder Gastgewerbe und Abschluss Hauswirtschafterin HF oder vergleichbare Qualifikationen",
+        "Führungserfahrung erwünscht",
+        "Berufserfahrung im Gesundheitswesen von Vorteil",
+        "Kommunikationsstärke, Organisationstalent und Freude am Umgang mit Menschen",
+        "ausgeprägter Dienstleistungsgedanke",
+        "Belastbarkeit, Flexibilität und die Fähigkeit, auch in stressigen Situationen einen kühlen Kopf zu bewahren",
+        "gute Kenntnisse in MS Office und idealerweise in branchenspezifischen Softwarelösungen"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "dreijährige Ausbildung EFZ im Bereich Hospitality oder Gastgewerbe und Abschluss Hauswirtschafterin HF oder vergleichbare Qualifikationen",
+          "Führungserfahrung erwünscht",
+          "Berufserfahrung im Gesundheitswesen von Vorteil",
+          "Kommunikationsstärke, Organisationstalent und Freude am Umgang mit Menschen",
+          "ausgeprägter Dienstleistungsgedanke",
+          "Belastbarkeit, Flexibilität und die Fähigkeit, auch in stressigen Situationen einen kühlen Kopf zu bewahren",
+          "gute Kenntnisse in MS Office und idealerweise in branchenspezifischen Softwarelösungen"
+        ]
+      },
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-21T09:55:43.847Z"
     }
   ]
 }

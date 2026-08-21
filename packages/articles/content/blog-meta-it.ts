@@ -10366,6 +10366,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Vivere a Solbiate Arno e lavorare in Ticino da frontaliere: cosa considerare',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'I vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino da frontaliere.',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere che valuta i vantaggi e gli svantaggi di vivere a Solbiate Arno e lavorare in Ticino.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontalieri che lavorano in Ticino.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Colverde per lavorare in Ticino.',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalieri che lavorano in Ticino',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivere a Cremia e lavorare in Ticino: frontaliere conviene?',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago di Como da Cremia con le Alpi sullo sfondo al tramonto',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Vivere in Ticino, lavorare da frontaliere: vantaggi e svantaggi',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere vive a Antrona Schieranco e lavora in Ticino',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Vivere a Jerago con Orago e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Conoscere le norme e le procedure per i frontalieri che vivono in Ticino e lavorano nel Paese confinante.',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che vive a Jerago con Orago e lavora in Ticino, che deve sapere dell\'accordo fiscale nuovo e delle sue implicazioni.',
 };
 
 export default blogMetaIt;

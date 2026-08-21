@@ -1,18 +1,57 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-20T21:51:40.251Z",
-  "total": 17,
-  "newCount": 0,
+  "generatedAt": "2026-08-21T09:49:54.689Z",
+  "total": 18,
+  "newCount": 1,
   "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 32164,
-  "avgDurationMs": 32164,
+  "durationMs": 37958,
+  "avgDurationMs": 37958,
   "durationHistory": [
-    32164
+    37958
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
+      "title": "Mitarbeiter:in Interaction Management",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "mitarbeiter-in-interaction-management-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Marketing und Kommunikation"
+      ],
+      "category": [
+        "Büro-Marketing und Kommunikation"
+      ],
+      "datePosted": "20.08.26",
+      "validThrough": "18.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "60-80%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
@@ -640,7 +679,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "60-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Biel/Bienne"
@@ -648,12 +686,19 @@
       "id": "postfinance-32e4aa77a438",
       "firstSeenAt": "2026-07-27T22:10:24.138Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
     },
     {
@@ -665,7 +710,7 @@
       "location": "Niederurnen",
       "canton": "GL",
       "country": "CH",
-      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-niederurnen",
       "sourceLang": "de",
       "department": [
         "Verkauf und Kundenberatung"
@@ -685,13 +730,15 @@
         "canton": "GL",
         "location": "Niederurnen"
       },
-      "crawledAt": "",
+      "id": "postfinance-c8993d3e0261",
+      "firstSeenAt": "2026-08-20T21:51:40.248Z",
       "postedDate": "28.07.26",
-      "_qualityScore": 60,
+      "crawledAt": "",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 11
       }
     }

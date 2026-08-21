@@ -3679,6 +3679,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.richiedenti-asilo-severe-misure.title': 'Asylsuchende, Bern fordert schärfere Massnahmen',
     'blog.article.richiedenti-asilo-severe-misure.excerpt': 'Das Staatssekretariat für Migration (sem) prüft Gesetzesänderungen, um Jugendliche aus dem Maghreb, die gerade in der Schweiz angekommen sind, vom Asylverfahren auszuschliessen.',
     'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Junge Person, die in der Schweiz Straftaten begeht',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Familienzulagen Appenzell Innerrhoden: Beträge und Antrag',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Vollständiger Leitfaden zur Familienzulage im Kanton Appenzell Innerrhoden: Bundessystem, monatliche Kinderzulagen, Rechtslage, Ausgleichskasse und Schritt-für-Schritt-Antragsverfahren.',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Alpentäler mit traditioneller Kantonsarchitektur, Symbol des Familienleistungssystems in Appenzell Innerrhoden.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Der Bundesrat für Bahnplanung',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Veröffentlichung der Regierungsstellungnahme vom 19. August 2026 zum Bericht der GPK-S vom 18. Mai 2026 zu den Strategien für die Schieneninfrastruktur.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Schweizer Bahninfrastruktur mit modernem Zug',
+    'blog.article.borse-studio-appenzello-interno.title': 'Stipendien Appenzell Innerrhoden: Finanzierungsleitfaden',
+    'blog.article.borse-studio-appenzello-interno.excerpt': 'Im Kanton Appenzell Innerrhoden stehen Stipendien und Studiendarlehen für Auszubildende nach der Schulpflicht zur Verfügung. Erfahren Sie, wie Sie sich bewerben können.',
+    'blog.article.borse-studio-appenzello-interno.imageAlt': 'Klassenzimmer einer Schweizer Alpenschule mit studierenden Schülern, natürliches Licht und Bergspitzen sichtbar durch Fenster',
+    'blog.article.stadler-rail-friburgo-117-milioni.title': 'Freiburg: 117 Millionen für 13 neue FLIRT-Züge',
+    'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail wird 13 neue Flirt Evo-Züge für CHF 117 Mio. an den öffentlichen Verkehr in Freiburg liefern. Erste Auslieferungen im Dezember 2028.',
+    'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'Neuer Flirt Evo Zug für Freiburgs öffentliche Verkehrsmittel',
+    'blog.article.esercito-misure-discriminazione.title': 'Armee, Antidiskriminierungsmaßnahmen funktionieren',
+    'blog.article.esercito-misure-discriminazione.excerpt': 'Die Schweizer Armee hat angekündigt, die Hälfte der angekündigten Massnahmen zur Bekämpfung von Sexismus und Diskriminierung umgesetzt zu haben.',
+    'blog.article.esercito-misure-discriminazione.imageAlt': 'Die Schweizer Armee',
 };
 
 export default blogMetaChDe;

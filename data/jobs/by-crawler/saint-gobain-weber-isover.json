@@ -1,6 +1,6 @@
 {
   "crawlerKey": "saint-gobain-weber-isover",
-  "assembledAt": "2026-08-20T21:47:45.953Z",
+  "assembledAt": "2026-08-21T09:55:47.397Z",
   "jobs": [
     {
       "id": "saint-gobain-weber-isover-1112bd83d229",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/2ba039ed-84b7-46c5-85a1-cd42949a9cf8/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:41.536Z",
+      "crawledAt": "2026-08-21T09:55:42.566Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,15 +69,15 @@
         ]
       },
       "firstSeenAt": "2026-08-15T21:57:17.767Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       }

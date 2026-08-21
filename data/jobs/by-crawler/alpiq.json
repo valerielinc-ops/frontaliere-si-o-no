@@ -1,10 +1,10 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-20T22:08:31.958Z",
+  "assembledAt": "2026-08-21T10:16:48.436Z",
   "jobs": [
     {
       "id": "alpiq-4b58080b1767",
-      "slug": "operatore-di-gas-alpiq-olten",
+      "slug": "gas-operator-alpiq-olten",
       "slugByLocale": {
         "it": "operatore-di-gas-alpiq-olten",
         "de": "gasbetreiber-alpiq-olten",
@@ -26,9 +26,7 @@
         "fr": "Opérateur de gaz\n\nAfin de soutenir l'expansion de notre portefeuille de gaz, nous cherchons à embaucher une personne dynamique et enthousiaste pour rejoindre notre équipe Gas Scheduling à Olten, Suisse ou Milan, Italie. Ce rôle mettra fortement l'accent sur le marché italien du gaz tout en contribuant à l'élargissement de l'Europe du gaz et de l'héliport;\n\nOlten - 100%\nPermanent"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -46,7 +44,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9620&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.130Z",
+      "crawledAt": "2026-08-21T10:16:43.543Z",
+      "firstSeenAt": "2026-08-20T22:08:27.130Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
       "baseSalary": {
@@ -59,14 +58,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-20T22:08:27.130Z",
       "previousSlugsByLocale": {
         "it": [
-          "gas-operator-alpiq-olten"
+          "gas-operator-alpiq-olten",
+          "operatore-di-gas-alpiq-olten"
         ]
       },
       "previousSlugs": [
-        "gas-operator-alpiq-olten"
+        "gas-operator-alpiq-olten",
+        "operatore-di-gas-alpiq-olten"
       ]
     },
     {
@@ -114,7 +114,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.128Z",
+      "crawledAt": "2026-08-21T10:16:43.543Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,

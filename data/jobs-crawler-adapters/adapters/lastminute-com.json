@@ -10,19 +10,11 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000143033339&jobName=Consolidation+Specialist",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll"
   ],
   "notes": "Dedicated lastminute.com crawler seeds from Chiasso listing pages and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
-  "updatedAt": "2026-08-20T22:01:51.582Z",
+  "updatedAt": "2026-08-21T10:02:15.056Z",
   "seedMetaByUrl": {
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000143033339&jobName=Consolidation+Specialist": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll": {
       "location": "Chiasso",
       "canton": "TI",

@@ -10365,6 +10365,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Living in Solbiate Arno, working in Ticino: key considerations',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'The advantages and disadvantages of living in Solbiate Arno and working in Ticino as a border worker.',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere considering the pros and cons of living in Solbiate Arno and working in Ticino.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Living in Colverde and working in Ticino as a border worker: what to know',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Taxes at source, G permit, refunds and other benefits for border workers working in Ticino.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere who relocates to Colverde to work in Ticino.',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Living in Fagnano Olona and working in Ticino as a border worker',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italian-Swiss Double Taxation Convention: signed on 9 December 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontaliers working in Ticino',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Living in Cremia and working in Ticino: is it convenient for border workers?',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia as a residential base for border workers in Ticino: taxation, G permit, AVS, source tax, transport costs and border crossings.',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'View of Lake Como from Cremia with Alps in the background at sunset',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Living in Ticino, working as a border worker: advantages and disadvantages',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Connections with Ticino, travel times, cost of living, recommended areas for border crossers',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere living in Antrona Schieranco and working in Ticino',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Living in Jerago with Orago and working in Ticino as a border worker',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Know the rules and procedures for border workers living in Ticino and working in the neighbouring country.',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere living in Jerago con Orago and working in Ticino, who needs to know about the new fiscal agreement and its implications.',
 };
 
 export default blogMetaEn;

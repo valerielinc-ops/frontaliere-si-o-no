@@ -10364,6 +10364,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-solbiate-arno-lavorare-ticino.title': 'Frontalierle zwischen Solbiate Arno und dem Tessin: Was beachten?',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.excerpt': 'Die Vor- und Nachteile, in Solbiate Arno zu leben und als Grenzgänger im Tessin zu arbeiten.',
     'blog.article.vivere-solbiate-arno-lavorare-ticino.imageAlt': 'Frontaliere, die die Vorteile und Nachteile von Leben in Solbiate Arno und Arbeit in Ticino abwägt.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.title': 'Arbeit im Tessin als Grenzgänger: was wissen Sie müssen',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Quellensteuern, G-Genehmigung, Rückerstattungen und andere Vergünstigungen für Grenzgänger, die im Tessin arbeiten.',
+    'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich nach Colverde verlegt, um in Tessin zu arbeiten.',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Wohnen in Fagnano Olona und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italienisch-schweizerisches Doppelbesteuerungsabkommen: unterzeichnet am 9. Dezember 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalier in Ticino',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Leben in Cremia und Arbeiten im Tessin: Grenzgänger lohnt sich?',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia als Wohnbasis für Grenzgänger im Tessin: Steuern, Bewilligung G, AHV, Quellensteuer, Transportkosten und Grenzübergänge.',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Comer See von Cremia mit Alpen im Hintergrund bei Sonnenuntergang',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.title': 'Leben im Tessin, Arbeiten als Grenzgänger: Vor- und Nachteile',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.excerpt': 'Verbindungen zum Tessin, Reisezeiten, Lebenshaltungskosten, empfohlene Gebiete für Grenzgänger',
+    'blog.article.vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier lebt in Antrona Schieranco und arbeitet in Tessin',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Mit Orago in Jerago leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Kennen Sie die Regeln und Verfahren für Grenzgänger, die im Tessin leben und im Nachbarland arbeiten.',
+    'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier, der in Jerago con Orago lebt und in Ticino arbeitet, der über den neuen Steuerabkommen und seine Auswirkungen wissen muss.',
 };
 
 export default blogMetaDe;

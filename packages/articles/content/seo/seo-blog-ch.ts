@@ -47717,6 +47717,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-appenzello-interno-domanda': {
+    title: 'Assegni familiari Appenzello Interno: importi e domanda',
+    description: 'Guida agli assegni familiari nel Canton Appenzello Interno: sistema federale, importi mensili variabili, condizioni di diritto, cassa di compensazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, appenzello, interno',
+    ogTitle: 'Assegni familiari Appenzello Interno: importi e procedura',
+    ogDescription: 'Scopri come richiedere gli assegni familiari nel Canton Appenzello Interno. Importi mensili, condizioni di diritto, cassa di compensazione competente e procedura completa di domanda. Guida pratica per famiglie svizzere.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-appenzello-interno-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Appenzello Interno: importi e domanda",
+      "description": "Guida agli assegni familiari nel Canton Appenzello Interno: sistema federale, importi mensili variabili, condizioni di diritto, cassa di compensazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-appenzello-interno-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio della campagna svizzera con edifici amministrativi, simbolo del sistema di sussidi familiari nel Canton Appenzello Interno."
+      },
+      "datePublished": "2026-08-21T08:25:22+00:00",
+      "dateModified": "2026-08-21T08:25:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-appenzello-interno-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-parere-governo-infrastrutture-ferroviarie': {
+    title: 'Il Consiglio federale sulla pianificazione ferroviaria',
+    description: 'Il Consiglio federale ha ufficializzato il parere sulla pianificazione ferroviaria in risposta al rapporto della CdG-S del 18 maggio 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, sulla, pianificazione',
+    ogTitle: 'Consiglio federale: parere su infrastrutture ferroviarie',
+    ogDescription: 'Il governo svizzero ha pubblicato il proprio parere sulla pianificazione strategica delle infrastrutture ferroviarie in risposta alla Commissione della gestione del Consiglio degli Stati.',
+    canonicalPath: '/articoli-svizzera/parere-governo-infrastrutture-ferroviarie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio federale sulla pianificazione ferroviaria",
+      "description": "Il Consiglio federale ha ufficializzato il parere sulla pianificazione ferroviaria in risposta al rapporto della CdG-S del 18 maggio 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parere-governo-infrastrutture-ferroviarie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infrastruttura ferroviaria svizzera con treno moderno"
+      },
+      "datePublished": "2026-08-21T08:44:43+00:00",
+      "dateModified": "2026-08-21T08:44:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parere-governo-infrastrutture-ferroviarie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borse-studio-appenzello-interno': {
+    title: 'Borse di studio Appenzello Interno: guida ai finanziamenti',
+    description: 'Scopri le borse di studio nel Canton Appenzello Interno. Requisiti, criteri di accesso e procedura per candidarsi ai finanziamenti per studi post-obbligatori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, appenzello, interno',
+    ogTitle: 'Borse di studio Appenzello Interno: guida ai finanziamenti',
+    ogDescription: 'Nel Canton Appenzello Interno sono disponibili borse di studio e prestiti allo studio per chi prosegue la formazione dopo l\'obbligo scolastico. Scopri come candidarsi, requisiti e procedure presso l\'ufficio cantonale competente. Sistema',
+    canonicalPath: '/articoli-svizzera/borse-studio-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Appenzello Interno: guida ai finanziamenti",
+      "description": "Scopri le borse di studio nel Canton Appenzello Interno. Requisiti, criteri di accesso e procedura per candidarsi ai finanziamenti per studi post-obbligatori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica in una scuola svizzera di montagna con studenti intenti a studiare, luce naturale e picchi alpini visibili attraverso le finestre"
+      },
+      "datePublished": "2026-08-21T09:09:48+00:00",
+      "dateModified": "2026-08-21T09:09:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stadler-rail-friburgo-117-milioni': {
+    title: 'Friburgo: 117 milioni per 13 nuovi treni Flirt',
+    description: 'Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Prime consegne a dicembre 2028. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, friburgo, milioni, nuovi, treni',
+    ogTitle: 'Stadler Rail: 117 mln per nuovi treni Friburgo',
+    ogDescription: 'Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Consegne a dicembre 2028, sostituiranno progressivamente la flotta Domino.',
+    canonicalPath: '/articoli-svizzera/stadler-rail-friburgo-117-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Friburgo: 117 milioni per 13 nuovi treni Flirt",
+      "description": "Stadler Rail fornirà 13 nuovi treni Flirt Evo ai Trasporti pubblici friburghesi per 117 milioni CHF. Prime consegne a dicembre 2028. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stadler-rail-friburgo-117-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovo treno Flirt Evo per i Trasporti pubblici friburghesi"
+      },
+      "datePublished": "2026-08-21T09:43:21+00:00",
+      "dateModified": "2026-08-21T09:43:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stadler-rail-friburgo-117-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-esercito-misure-discriminazione': {
+    title: 'Esercito, le misure contro la discriminazione funzionano',
+    description: 'L\'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, misure, contro, discriminazione',
+    ogTitle: 'Esercito, le misure contro la discriminazione funzionano',
+    ogDescription: 'L\'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione',
+    canonicalPath: '/articoli-svizzera/esercito-misure-discriminazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercito, le misure contro la discriminazione funzionano",
+      "description": "L'Esercito svizzero ha annunciato di aver implementato la metà delle misure annunciate per combattere il sessismo e la discriminazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esercito-misure-discriminazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'Esercito svizzero"
+      },
+      "datePublished": "2026-08-21T10:21:15+00:00",
+      "dateModified": "2026-08-21T10:21:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esercito-misure-discriminazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

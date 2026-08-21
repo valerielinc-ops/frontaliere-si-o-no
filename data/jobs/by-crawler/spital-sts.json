@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-08-20T21:36:34.643Z",
+  "assembledAt": "2026-08-21T09:48:10.958Z",
   "jobs": [
     {
       "id": "spital-sts-ae7a89566714",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/29467efe-5e8b-429f-8866-eeb96322cc47/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:30.994Z",
+      "crawledAt": "2026-08-21T09:48:07.686Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-chirurgie-spital-sts-thun"
+        "oberarztin-oberarzt-chirurgie-spital-sts-thun",
+        "medico-senior-chirurgia-medico-senior-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-chirurgie-spital-sts-thun"
+          "oberarztin-oberarzt-chirurgie-spital-sts-thun",
+          "medico-senior-chirurgia-medico-senior-spital-sts-thun"
         ],
         "en": [
           "oberarztin-oberarzt-chirurgie-spital-sts-thun"
@@ -111,7 +113,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/8ceb3598-123e-4a0f-8ef3-8dbfc9c20299/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:30.395Z",
+      "crawledAt": "2026-08-21T09:48:07.022Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -129,11 +131,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun"
+        "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun",
+        "medico-r-assistente-pratico-in-angiologia-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun"
+          "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun",
+          "medico-r-assistente-pratico-in-angiologia-spital-sts-thun"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-angiologie-spital-sts-thun"
@@ -188,7 +192,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:29.807Z",
+      "crawledAt": "2026-08-21T09:48:06.442Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -265,7 +269,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:29.091Z",
+      "crawledAt": "2026-08-21T09:48:05.809Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -283,11 +287,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
+        "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
+        "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
+          "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
+          "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun"
         ],
         "en": [
           "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
@@ -342,7 +348,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:28.382Z",
+      "crawledAt": "2026-08-21T09:48:05.198Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -372,7 +378,8 @@
         "medical-practice-assistant-urology-spital-sts-thun",
         "med-praxisassistent-in-urologie-spital-sts-thun",
         "assistant-medical-en-urologie-spital-sts-thun",
-        "med-praxisassistent-in-kardiologie-spital-sts-thun"
+        "med-praxisassistent-in-kardiologie-spital-sts-thun",
+        "med-assistente-pratica-in-cardiologia-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -388,7 +395,8 @@
           "medical-practice-assistant-urology-spital-sts-thun",
           "med-praxisassistent-in-urologie-spital-sts-thun",
           "assistant-medical-en-urologie-spital-sts-thun",
-          "med-praxisassistent-in-kardiologie-spital-sts-thun"
+          "med-praxisassistent-in-kardiologie-spital-sts-thun",
+          "med-assistente-pratica-in-cardiologia-spital-sts-thun"
         ],
         "en": [
           "med-practice-assistant-in-spinal-surgery-spital-sts-thun",
@@ -448,7 +456,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/93b14957-805a-4228-a89b-28d8f286e304/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:27.694Z",
+      "crawledAt": "2026-08-21T09:48:04.487Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -519,12 +527,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu nimmst innerhalb der Distributionslogistik, in verschiedenen Diensten, eine vielseitige Allrounder-Funktion ein. Du führst interne Transporte (Laborproben & Sterilgut) aus, kommissionierst und lieferst Patientengetränke auf die jeweiligen Stationen aus. Die Warenannahme sowie die Kontrolle und Verbuchung der Ware im System bis zur Auslieferung an Ort und Stelle gehören auch dazu. Unter anderem gehört die Bewirtschaftung des Wäschesortimentes auf den Stationen zu deinen Aufgaben. Das Einsammeln, Sortieren und Bereitstellen für den Abtransport von Wertstoffen und Sonderabfall rundet den Kreislauf der Warenwirtschaft ab.\nWeiters transportierst du die Speisewagen mit Patientenverpflegung von der Küche sicher auf die Abteilung und wieder retour. Hier bist du bereit als Vertretung auch am Wochenende oder am Abend einen Einsatz zu leisten.\nDu bist mit deiner Arbeit ein wichtiger Teil des Ganzen und gestaltest unseren gemeinsamen Erfolg in der Logistik mit.\nEintritt per 1. September 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Aufgestelltes und unterstützendes Team\n\n• Spannende Herausforderungen im Spitalumfeld\n\n• Gute Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Zulage bei Wochenendarbeit\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine Gewerblich-industrielle Grundausbildung mit und hast vorzugsweise bereits Erfahrung in einer ähnlichen Funktion\n\n• Du verfügts über sehr gute schriftliche und mündliche Deutschkenntnisse\n\n• Du bist im Besitz eines Führerscheins für Deichselstapler\n\n• Du hast eine rasche Auffassungsgabe und bist ein Teamplayer",
         "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nDans la logistique de distribution, dans divers services, vous assumez une fonction polyvalente et polyvalente. Vous effectuez des transports internes (échantillons de laboratoire et produits stériles), choisissez et livrez des boissons aux stations respectives. L'acceptation des marchandises ainsi que le contrôle et la réservation des marchandises dans le système jusqu'à la livraison sur place sont également inclus. Entre autres choses, la gestion de la gamme de blanchisserie sur les stations est l'une de vos tâches. La collecte, le tri et l'élimination des matières recyclables et des déchets spéciaux mettent fin au cycle de gestion des biens.\nEn outre, vous transportez la voiture à manger avec de la nourriture patiente de la cuisine en toute sécurité au département et retour. Ici, vous êtes prêt en tant que représentant également le week-end ou le soir pour faire un déploiement.\nVous êtes une partie importante de l'ensemble avec votre travail et façonner notre succès conjoint dans la logistique.\nEntrée au 1er septembre 2026 ou par arrangement.\n\nÇa vous attend.\n\n• Équipe créée et de soutien\n\n• Des défis passionnants dans l'environnement hospitalier\n\n• Bonnes conditions d'emploi selon GAV Bern hôpitaux et cliniques\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Indemnité de fin de semaine\n\nDevenez membre de notre équipe\n\n• Vous apportez une éducation commerciale-industrielle de base et de préférence déjà avoir une expérience dans une fonction similaire\n\n• Vous aviez de très bonnes compétences écrites et orales en allemand\n\n• Vous avez un permis de conduire pour les camions à timon\n\n• Vous avez une compréhension rapide et êtes un joueur d'équipe"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/aaa0f523-1dc2-461b-a77d-8328fc4d5e2b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:26.975Z",
+      "crawledAt": "2026-08-21T09:48:03.687Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -542,11 +551,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+        "mitarbeiter-in-distributionslogistik-spital-sts-thun",
+        "collaboratore-trice-distributionslogistik-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+          "mitarbeiter-in-distributionslogistik-spital-sts-thun",
+          "collaboratore-trice-distributionslogistik-spital-sts-thun"
         ],
         "en": [
           "mitarbeiter-in-distributionslogistik-spital-sts-thun"
@@ -590,9 +601,9 @@
       },
       "description": "Zur Verstärkung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als Oberärztin / Oberarzt Orthopädie/ Traumatologie & Sportmedizin, die Verantwortung übernimmt und unsere Klinik in Zukunft aktiv mitgestalten möchte.\n\nAm Spital Thun erwartet Sie das gesamte Spektrum der Orthopädie/Traumatologie und Sportmedizin. Ihr Aufgabenbereich umfasst sowohl die operative Versorgung der Patient:innen (bei Bedarf mit Unterstützung durch die Leitenden Ärzt:innen) als auch die Abdeckung der Sprechstunde und der Pikettdienste.\nSie übernehmen eigenverantwortlich und mit eigenständigen Handlungsspielraum die Betreuung von Patient:innen mit Verletzungen und Erkrankungen des gesamten Bewegungsapparates. Sie beteiligen sich aktiv an internen- und externen Weiterbildungsveranstaltungen.\n\nDas wartet auf Sie\n\n• Anerkannte Weiterbildungsstätte für den interdisziplinären Schwerpunkt Orthopädie/Traumatologie und Sportmedizin\n\n• Ein breites operatives und konservatives Behandlungsspektrum mit hoher Eigenverantwortung in einer Klinik der Kategorie B1\n\n• Attraktive Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung – inklusive Unterstützung von Kursen, Kongressen und Fortbildungen\n\n• Regelmässige klinikinterne Fortbildungen\n\n• Sie werden Teil eines motivierten, kollegialen Teams mit wertschätzender Zusammenarbeit\n\n• Kurze Entscheidungswege und eine offene, wertschätzende Teamkultur mit flacher Hierarchie\n\n• Supervision und Weiterbildung unserer Assistenzärztinnen und Assistenzärzte\n\n• Flexible Arbeitsmodelle, attraktive Anstellungsbedingungen mit der Option auf zusätzliche Ferientage\n\n• Schöner Arbeitsplatz im Berner Oberland mit hoher Lebensqualität\n\nIhre Aufgaben\n• Selbstständige Betreuung von ambulanten und stationären Patient:innen\n\n• Operative Tätigkeit im Bereich Orthopädie und Traumatologie entsprechend Ihrer Erfahrung und Spezialisierung\n\n• Mitwirkung im traumatologischen Dienst sowie in der Versorgung von Notfallpatient:innen\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Orthopädische Chirurgie/Traumatologie FMH oder äquivalent (oder kurz vor Abschluss der Ausbildung)\n\n• Eine teamorientierte Persönlichkeit mit ausgeprägter Kommunikations- und Kooperationsfähigkeit für eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Hohe Sozialkompetenz, Belastbarkeit, Eigeninitiative und Verantwortungsbewusstsein mit grossem Interesse an der Traumatologie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\nKlingt das nach Ihrer nächsten Herausforderung?\nDann bringen Sie Ihre Erfahrung und Ihre Persönlichkeit in unser Team ein – wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "de": "Zur Verstärkung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als Oberärztin / Oberarzt Orthopädie/ Traumatologie & Sportmedizin, die Verantwortung übernimmt und unsere Klinik in Zukunft aktiv mitgestalten möchte.\n\nAm Spital Thun erwartet Sie das gesamte Spektrum der Orthopädie/Traumatologie und Sportmedizin. Ihr Aufgabenbereich umfasst sowohl die operative Versorgung der Patient:innen (bei Bedarf mit Unterstützung durch die Leitenden Ärzt:innen) als auch die Abdeckung der Sprechstunde und der Pikettdienste.\nSie übernehmen eigenverantwortlich und mit eigenständigen Handlungsspielraum die Betreuung von Patient:innen mit Verletzungen und Erkrankungen des gesamten Bewegungsapparates. Sie beteiligen sich aktiv an internen- und externen Weiterbildungsveranstaltungen.\n\nDas wartet auf Sie\n\n• Anerkannte Weiterbildungsstätte für den interdisziplinären Schwerpunkt Orthopädie/Traumatologie und Sportmedizin\n\n• Ein breites operatives und konservatives Behandlungsspektrum mit hoher Eigenverantwortung in einer Klinik der Kategorie B1\n\n• Attraktive Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung – inklusive Unterstützung von Kursen, Kongressen und Fortbildungen\n\n• Regelmässige klinikinterne Fortbildungen\n\n• Sie werden Teil eines motivierten, kollegialen Teams mit wertschätzender Zusammenarbeit\n\n• Kurze Entscheidungswege und eine offene, wertschätzende Teamkultur mit flacher Hierarchie\n\n• Supervision und Weiterbildung unserer Assistenzärztinnen und Assistenzärzte\n\n• Flexible Arbeitsmodelle, attraktive Anstellungsbedingungen mit der Option auf zusätzliche Ferientage\n\n• Schöner Arbeitsplatz im Berner Oberland mit hoher Lebensqualität\n\nIhre Aufgaben\n• Selbstständige Betreuung von ambulanten und stationären Patient:innen\n\n• Operative Tätigkeit im Bereich Orthopädie und Traumatologie entsprechend Ihrer Erfahrung und Spezialisierung\n\n• Mitwirkung im traumatologischen Dienst sowie in der Versorgung von Notfallpatient:innen\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Orthopädische Chirurgie/Traumatologie FMH oder äquivalent (oder kurz vor Abschluss der Ausbildung)\n\n• Eine teamorientierte Persönlichkeit mit ausgeprägter Kommunikations- und Kooperationsfähigkeit für eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Hohe Sozialkompetenz, Belastbarkeit, Eigeninitiative und Verantwortungsbewusstsein mit grossem Interesse an der Traumatologie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\nKlingt das nach Ihrer nächsten Herausforderung?\nDann bringen Sie Ihre Erfahrung und Ihre Persönlichkeit in unser Team ein – wir freuen uns auf Ihre Bewerbung.",
         "it": "Per rafforzare il nostro team, stiamo cercando 1. Novembre 2026 o su appuntamento una personalità impegnata come medico senior / senior medico ortopedia / traumatologia & medicina sportiva, che si assume la responsabilità e vuole plasmare attivamente la nostra clinica in futuro.\n\nA Spital Thun, l'intero spettro di ortopedia/traumatologia e medicina sportiva vi aspetta. Le sue responsabilità includono la cura chirurgica dei pazienti:innen (se necessario con il supporto dei principali medici:innen) e la copertura delle ore di consultazione e dei servizi pikett.\nEssi assumono la propria responsabilità e con un ambito di azione indipendente la cura dei pazienti: donne con lesioni e malattie dell'intero sistema muscoloscheletrico. Partecipano attivamente a eventi di formazione interni ed esterni.\n\nTi sta aspettando.\n\n• Istituzione di formazione riconosciuta per l'attenzione interdisciplinare ortopedia/traumatologia e medicina sportiva\n\n• Una vasta gamma di trattamenti chirurgici e conservatori con un alto livello di responsabilità personale in una clinica di categoria B1\n\n• Opportunità interessanti per lo sviluppo professionale e personale – compreso il supporto per corsi, congressi e formazione ulteriore\n\n• Formazione intraclinica regolare\n\n• Diventerai parte di un team motivato e collaborativo con una cooperazione apprezzata\n\n• Brevi percorsi decisionali e una cultura del team aperta e apprezzata con una gerarchia piana\n\n• Supervisione e formazione ulteriore dei nostri medici assistenti\n\n• Modelli di lavoro flessibili, condizioni di lavoro attraenti con la possibilità di vacanze aggiuntive\n\n• Bellissimo posto di lavoro nell'Oberland Bernese con un'alta qualità di vita\n\nI loro compiti\n• Cura indipendente di pazienti ambulatoriali e malati: all'interno\n\n• Attività operativa nel campo dell'ortopedia e traumatologia secondo la vostra esperienza e specializzazione\n\n• Partecipazione al servizio traumatologico e alla cura dei pazienti di emergenza:\n\nDiventa parte del nostro team\n\n• Titolo specialistico Chirurgia ortopedica/Traumatologia FMH o equivalente (o poco prima del completamento della formazione)\n\n• Una personalità orientata al team con forti capacità di comunicazione e cooperazione per una buona cooperazione interdisciplinare e interprofessionale\n\n• Alta capacità sociale, resilienza, iniziativa e un senso di responsabilità con grande interesse per la traumatologia\n\n• Conoscenza molto buona del tedesco in parola e scrittura (almeno livello C1)\n\nSembra la tua prossima sfida?\nAllora portate la vostra esperienza e personalità al nostro team – non vediamo l'ora di presentare la vostra applicazione.",
         "en": "To strengthen our team, we are looking for 1. November 2026 or by appointment a committed personality as senior physician / senior physician orthopaedics / traumatology & sports medicine, who takes responsibility and wants to actively shape our clinic in the future.\n\nAt Spital Thun, the entire spectrum of orthopaedics/traumatology and sports medicine awaits you. Her responsibilities include the surgical care of the patients:innen (if necessary with the support of the leading doctors:innen) as well as the coverage of the consultation hours and the pikett services.\nThey take on their own responsibility and with independent scope of action the care of patients: women with injuries and diseases of the entire musculoskeletal system. They actively participate in internal and external training events.\n\nThis is waiting for you\n\n• Recognized training institution for the interdisciplinary focus orthopaedics/traumatology and sports medicine\n\n• A broad range of surgical and conservative treatment with a high level of personal responsibility in a category B1 clinic\n\n• Attractive opportunities for professional and personal development – including support for courses, congresses and further education\n\n• Regular intra-clinic training\n\n• You will become part of a motivated, collaborative team with appreciative cooperation\n\n• Short decision paths and an open, appreciative team culture with a flat hierarchy\n\n• Supervision and further training of our assistant doctors\n\n• Flexible working models, attractive employment conditions with the option of additional holidays\n\n• Beautiful workplace in the Bernese Oberland with a high quality of life\n\nTheir tasks\n• Independent care of ambulatory and inpatient patients: inside\n\n• Operational activity in the field of orthopaedics and traumatology according to your experience and specialization\n\n• Participation in the traumatological service and in the care of emergency patients:\n\nBecome part of our team\n\n• Specialist title Orthopaedic Surgery/Traumatology FMH or equivalent (or shortly before completion of training)\n\n• A team-oriented personality with strong communication and cooperation skills for good interdisciplinary and interprofessional cooperation\n\n• High social skills, resilience, initiative and a sense of responsibility with great interest in traumatology\n\n• Very good knowledge of German in word and writing (at least level C1)\n\nDoes that sound like your next challenge?\nThen bring your experience and personality to our team – we look forward to your application.",
+        "de": "Zur Verstärkung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als Oberärztin / Oberarzt Orthopädie/ Traumatologie & Sportmedizin, die Verantwortung übernimmt und unsere Klinik in Zukunft aktiv mitgestalten möchte.\n\nAm Spital Thun erwartet Sie das gesamte Spektrum der Orthopädie/Traumatologie und Sportmedizin. Ihr Aufgabenbereich umfasst sowohl die operative Versorgung der Patient:innen (bei Bedarf mit Unterstützung durch die Leitenden Ärzt:innen) als auch die Abdeckung der Sprechstunde und der Pikettdienste.\nSie übernehmen eigenverantwortlich und mit eigenständigen Handlungsspielraum die Betreuung von Patient:innen mit Verletzungen und Erkrankungen des gesamten Bewegungsapparates. Sie beteiligen sich aktiv an internen- und externen Weiterbildungsveranstaltungen.\n\nDas wartet auf Sie\n\n• Anerkannte Weiterbildungsstätte für den interdisziplinären Schwerpunkt Orthopädie/Traumatologie und Sportmedizin\n\n• Ein breites operatives und konservatives Behandlungsspektrum mit hoher Eigenverantwortung in einer Klinik der Kategorie B1\n\n• Attraktive Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung – inklusive Unterstützung von Kursen, Kongressen und Fortbildungen\n\n• Regelmässige klinikinterne Fortbildungen\n\n• Sie werden Teil eines motivierten, kollegialen Teams mit wertschätzender Zusammenarbeit\n\n• Kurze Entscheidungswege und eine offene, wertschätzende Teamkultur mit flacher Hierarchie\n\n• Supervision und Weiterbildung unserer Assistenzärztinnen und Assistenzärzte\n\n• Flexible Arbeitsmodelle, attraktive Anstellungsbedingungen mit der Option auf zusätzliche Ferientage\n\n• Schöner Arbeitsplatz im Berner Oberland mit hoher Lebensqualität\n\nIhre Aufgaben\n• Selbstständige Betreuung von ambulanten und stationären Patient:innen\n\n• Operative Tätigkeit im Bereich Orthopädie und Traumatologie entsprechend Ihrer Erfahrung und Spezialisierung\n\n• Mitwirkung im traumatologischen Dienst sowie in der Versorgung von Notfallpatient:innen\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Orthopädische Chirurgie/Traumatologie FMH oder äquivalent (oder kurz vor Abschluss der Ausbildung)\n\n• Eine teamorientierte Persönlichkeit mit ausgeprägter Kommunikations- und Kooperationsfähigkeit für eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Hohe Sozialkompetenz, Belastbarkeit, Eigeninitiative und Verantwortungsbewusstsein mit grossem Interesse an der Traumatologie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\nKlingt das nach Ihrer nächsten Herausforderung?\nDann bringen Sie Ihre Erfahrung und Ihre Persönlichkeit in unser Team ein – wir freuen uns auf Ihre Bewerbung.",
         "fr": "Pour renforcer notre équipe, nous cherchons 1. Novembre 2026 ou sur rendez-vous une personnalité engagée en tant que médecin senior / médecin senior orthopédie / traumatologie & médecine sportive, qui prend la responsabilité et veut façonner activement notre clinique à l'avenir.\n\nChez Spital Thun, tout le spectre de l'orthopédie/traumatologie et de la médecine sportive vous attend. Ses responsabilités comprennent les soins chirurgicaux des patients:innen (si nécessaire avec le soutien des médecins principaux:innen) ainsi que la couverture des heures de consultation et les services de pikett.\nIls assument leur propre responsabilité et avec un champ d'action indépendant les soins aux patients: les femmes souffrant de blessures et de maladies de l'ensemble du système musculo-squelettique. Ils participent activement à des activités de formation internes et externes.\n\nÇa vous attend.\n\n• Institution de formation reconnue pour l'orthopédie interdisciplinaire/traumatologie et médecine sportive\n\n• Un large éventail de traitements chirurgicaux et conservateurs avec un haut niveau de responsabilité personnelle dans une clinique de catégorie B1\n\n• Des possibilités de développement professionnel et personnel attrayantes – y compris un soutien aux cours, congrès et formations complémentaires\n\n• Formation intraclinique régulière\n\n• Vous deviendrez membre d'une équipe de collaboration motivée et reconnaissante\n\n• Courts chemins de décision et une culture d'équipe ouverte et appréciée avec une hiérarchie plate\n\n• Supervision et formation continue de nos médecins adjoints\n\n• Modèles de travail flexibles, conditions d'emploi attrayantes avec possibilité de vacances supplémentaires\n\n• Beau lieu de travail dans l'Oberland bernois avec une qualité de vie élevée\n\nLeurs tâches\n• Soins indépendants des patients ambulatoires et hospitalisés: à l'intérieur\n\n• Activité opérationnelle dans le domaine de l'orthopédie et de la traumatologie selon votre expérience et spécialisation\n\n• Participation au service traumatologique et aux soins des patients d'urgence:\n\nDevenez membre de notre équipe\n\n• Titre du spécialiste Chirurgie orthopédique/Traumatologie FMH ou équivalent (ou peu avant la fin de la formation)\n\n• Une personnalité axée sur l'équipe avec de solides compétences en communication et en coopération pour une bonne coopération interdisciplinaire et interprofessionnelle\n\n• Hautes compétences sociales, résilience, initiative et sens des responsabilités avec un grand intérêt pour la traumatologie\n\n• Très bonne connaissance de l'allemand en paroles et en écriture (au moins niveau C1)\n\nÇa ressemble à ton prochain défi ?\nApportez ensuite votre expérience et votre personnalité à notre équipe – nous attendons avec impatience votre candidature."
       },
       "needsRetranslation": true,
@@ -601,7 +612,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/39acf9e7-6acb-45d6-9378-18ec2beb7a69/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:26.249Z",
+      "crawledAt": "2026-08-21T09:48:03.064Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -664,7 +675,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:25.372Z",
+      "crawledAt": "2026-08-21T09:48:02.449Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -682,11 +693,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
+        "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
+        "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
+          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
+          "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun"
         ],
         "en": [
           "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
@@ -713,9 +726,9 @@
       "id": "spital-sts-10cba5f6c3b0",
       "slug": "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
         "it": "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
         "en": "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -723,24 +736,25 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
         "it": "Dipl. Specialista HF/FH Oncologia",
         "en": "Dipl. Nursing specialist HF/FH Oncology",
+        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
         "fr": "Dipl. Spécialiste des soins infirmiers HF/FH Oncologie"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
         "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nVoi siete congiuntamente responsabili di una cura professionale, olistica e del trattamento di pazienti oncologici ed ematologici: nel nostro ambulatorio portate esperienza e idealmente un'ulteriore formazione nella cura dell'oncologia. La familiarizzazione con l'area del soggetto complesso è accuratamente e strutturato. Apprezziamo il vostro pensiero, che contribuisce ai nostri standard di alta qualità. Sarete attivamente coinvolti nelle decisioni e nella loro attuazione.\n\nTi sta aspettando.\n\n• Attività varie e impegnative in un settore dinamico specializzato e team collegiale\n\n• Atmosfera di lavoro apprezzata in una cooperazione interprofessionale e interdisciplinare\n\n• Un lavoro con opportunità di formazione e sviluppo\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\n• Condizioni di lavoro flessibili per l'acquisto e i modelli di fondi pensione\n\nDiventa parte del nostro team\n\n• Hai completato l'allenamento come infermiera HF/FH e l'esperienza professionale in oncologia e/o cura acuta\n\n• Avete formazione specialistica oncologia o la volontà di completare uno\n\n• Il lavoro nella squadra è importante per voi\n\n• Si lavora orientato al servizio e sono pronti per andare il miglio supplementare\n\n• Sei flessibile e adattabile nella progettazione della vita quotidiana\n\n• Hai una mentalità in rete e previsionale",
         "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYou are jointly responsible for a professional, holistic care and treatment of oncological & hematological patients: in our ambulatory you bring experience and ideally a further education in oncology care. The familiarization with the complex subject area is carefully and structured. We appreciate your thinking, which contributes to our high quality standards. You will be actively involved in decisions and their implementation.\n\nThis is waiting for you\n\n• Varied and demanding activities in a dynamic specialist area and collegial team\n\n• Appreciative working atmosphere in an interprofessional and interdisciplinary cooperation\n\n• A job with training and development opportunities\n\n• Leisure and nature experiences in the immediate vicinity\n\n• Flexible employment conditions regarding holiday purchase and pension fund models\n\nBecome part of our team\n\n• You have completed training as a nurse HF/FH and professional experience in oncology and/or acute care\n\n• You have oncology specialist training or the willingness to complete one\n\n• Work in the team is important to you\n\n• You work service-oriented and are ready to go the extra mile\n\n• You are flexible and adaptable in the design of everyday life\n\n• You have a networked and forward-looking mindset",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous êtes conjointement responsable d'un traitement et d'un traitement professionnels et holistiques des patients oncologiques et hématologiques : dans notre ambulatoire vous apportez de l'expérience et idéalement une formation complémentaire en soins oncologiques. La familiarisation avec le sujet complexe est soigneusement et structurée. Nous apprécions votre réflexion, qui contribue à nos normes de qualité élevées. Vous participerez activement aux décisions et à leur mise en œuvre.\n\nÇa vous attend.\n\n• Activités variées et exigeantes dans un domaine spécialisé dynamique et une équipe collégiale\n\n• Ambiance de travail appréciée dans une coopération interprofessionnelle et interdisciplinaire\n\n• Un emploi avec des possibilités de formation et de perfectionnement\n\n• Loisirs et expériences nature dans les environs immédiats\n\n• Conditions d'emploi flexibles en ce qui concerne les modèles d'achat de vacances et de fonds de pension\n\nDevenez membre de notre équipe\n\n• Vous avez suivi une formation d'infirmière HF/FH et une expérience professionnelle en oncologie et/ou en soins actifs\n\n• Vous avez une formation de spécialiste en oncologie ou la volonté de compléter une\n\n• Le travail dans l'équipe est important pour vous\n\n• Vous travaillez orienté service et êtes prêt à faire le mile supplémentaire\n\n• Vous êtes flexible et adaptable dans la conception de la vie quotidienne\n\n• Vous avez un état d'esprit en réseau et tourné vers l'avenir"
       },
+      "needsRetranslation": false,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:36:24.760Z",
+      "crawledAt": "2026-08-21T09:48:01.595Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -756,9 +770,24 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/ff4bf947-1859-4029-88b8-e7c49381df7a",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
+        "dipl-specialista-hf-fh-oncologia-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
+          "dipl-specialista-hf-fh-oncologia-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
+        ]
       },
+      "firstSeenAt": "2026-08-20T21:36:24.760Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -770,22 +799,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-20T21:36:24.760Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-      ]
+      }
     },
     {
       "id": "spital-sts-c978201abace",
@@ -851,162 +865,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:21:43.751Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "spital-sts-774dcaf0c85b",
-      "slug": "stellvertretende-r-responsabile-disposition-sekretariat-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez",
-      "slugByLocale": {
-        "it": "stellvertretende-r-responsabile-disposition-sekretariat-onkologie-e-hamatologiezentrum-spital-sts-thun-und-spiez",
-        "en": "deputy-r-head-in-disposition-secretariat-oncology-and-haematology-centre-spital-sts-thun-und-spiez",
-        "de": "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum",
-        "fr": "chef-adjoint-dans-la-disposition-secretariat-centre-d-oncologie-et-d-hematologie-spital-sts-thun-und-spiez"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Stellvertretende:r Leiter:in Disposition / Sekretariat Onkologie- und Hämatologiezentrum",
-      "titleByLocale": {
-        "it": "Stellvertretende:r Responsabile Disposition / Sekretariat Onkologie- e Hämatologiezentrum",
-        "en": "Deputy:r Head:in Disposition / Secretariat Oncology and Haematology Centre",
-        "de": "Stellvertretende:r Leiter:in Disposition / Sekretariat Onkologie- und Hämatologiezentrum",
-        "fr": "Chef adjoint:dans la disposition / Secrétariat Centre d'oncologie et d'hématologie"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Stellvertreter/in unterstützt du die Teamleitung im operativen Alltag und übernimmst bei deren Abwesenheit die personelle sowie organisatorische Führung des Teams. Du trägst dazu bei, einen reibungslosen Ablauf sicherzustellen, unterstützt bei der Personalplanung und Einsatzkoordination.\n\nIn dieser vielseitigen Drehscheibenfunktion arbeitest du aktiv im Sekretariat und an der Disposition mit und koordinierst gemeinsam mit dem Team das Tagesgeschäft in Thun sowie in der Praxis in Spiez inklusive Durchführung der Laboranalysen. An der Disposition übernimmst du den Empfang der Patient:innen, die Telefontriage sowie das Terminieren von Sprechstunden, Therapien und internen wie externen Untersuchungen. Zudem arbeitest du im Sekretariat mit, schreibst Berichte ab Diktaphon, bereitest das Tumorboard vor und erledigst sonstige administrative Arbeiten.\n\nEintritt per 1. November 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Kollegiales Team, welches einander gegenseitig unterstützt\n\n• Möglichkeit, erste Führungserfahrung zu sammeln\n\n• Familiäre Zusammenarbeit in einem spezialisierten und interdisziplinären Umfeld\n\n• Abwechslungsreiche Herausforderung in einer dynamischen Umgebung\n\n• Durch das Spital unterstützte Weiterbildungsmöglichkeiten\n\n• Ein flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine abgeschlossene Ausbildung zur / zum Arzt und Spitalsekretär:in, Medizinische:r Praxisassistent:in oder zur / zum kaufmännischen Angestellten mit Berufserfahrung im Gesundheitswesen oder im Spital mit\n\n• Du hast Erfahrung im Schreiben, Bearbeiten und Versenden von Arztberichten\n\n• Du hast Erfahrung in der Disposition sowie in der Koordination komplexer Termin- und Behandlungsabläufe\n\n• Du arbeitest selbstständig, zuverlässig, verantwortungsbewusst und zeichnest dich durch eine strukturierte sowie organisierte Arbeitsweise aus\n\n• Dank deiner raschen Auffassungsgabe und deinem vernetzten Denken erkennst du Zusammenhänge, setzt Prioritäten und behältst auch in anspruchsvollen Situationen den Überblick\n\n• Du hast Interesse, Prozesse aktiv mitzugestalten, Optimierungspotenziale zu erkennen und Veränderungen mitzutragen\n\n• Du bist teamfähig, kommunikationsstark und hast Freude daran, Verantwortung zu übernehmen\n\n• Du freust dich auf ein engagiertes, dynamisches Team und ein abwechslungsreiches Aufgabengebiet\n\n• Du bist bereit, für unsere Patient:innen die Extrameile zu gehen",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nCome vice, supporti la gestione del team nelle operazioni quotidiane e prendi il controllo del personale e della leadership organizzativa del team in loro assenza. Aiuta a garantire un processo regolare, il supporto nella pianificazione del personale e il coordinamento operativo.\n\nIn questa versatile funzione hub, si lavora attivamente nel segretariato e sulla pianificazione e coordinare il business giorno per giorno a Thun e in pratica a Spiez insieme al team, tra cui l'esecuzione delle analisi di laboratorio. A disposizione si prende il controllo della ricezione dei pazienti: all'interno, il triage telefonico e la cessazione delle ore di consultazione, terapie e esami interni ed esterni. Inoltre, si lavora nel segretariato, scrivere rapporti da Diktaphon, preparare la scheda tumorale e fare altro lavoro amministrativo.\n\nIngresso al 1° novembre 2026 o per accordo.\n\nTi sta aspettando.\n\n• Squadra Collegiale che si sostiene a vicenda\n\n• Opportunità per acquisire esperienza di leadership iniziale\n\n• Cooperazione familiare in un ambiente specializzato e interdisciplinare\n\n• Varie sfide in un ambiente dinamico\n\n• Opportunità di formazione sostenute dall'ospedale\n\n• Un modello di fondo pensionistico e vacanza flessibile\n\n• Opportunità di svago attraenti nelle regioni del mare e della montagna\n\nDiventa parte del nostro team\n\n• Si porta una formazione completa a / al medico e segretario ospedaliero:in, medico:r assistente pratica:in o a / al dipendente commerciale con esperienza professionale nell'assistenza sanitaria o in ospedale\n\n• Hai esperienza di scrittura, redazione e invio di rapporti medici\n\n• Hai esperienza nello smaltimento e nel coordinamento di complesse procedure di appuntamento e trattamento\n\n• Si lavora in modo indipendente, affidabile, responsabile e sono caratterizzati da un modo strutturato e organizzato di lavorare\n\n• Grazie alla rapida comprensione e al pensiero in rete, riconoscerete connessioni, impostare le priorità e mantenere una panoramica anche in situazioni difficili.\n\n• Sei interessato a modellare attivamente i processi, identificare il potenziale di ottimizzazione e contribuire ai cambiamenti\n\n• Siete in grado di lavorare di squadra, forte nella comunicazione e godere di assumersi la responsabilità\n\n• Sei impaziente di un team dinamico e impegnato e di una variegata area di responsabilità\n\n• Siete pronti per i nostri pazienti: dentro il miglio supplementare per andare",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nAs a deputy, you support the team management in day-to-day operations and take over the personnel and organizational leadership of the team in their absence. You help to ensure a smooth process, support in personnel planning and operational coordination.\n\nIn this versatile hub function, you work actively in the secretariat and on the scheduling and coordinate the day-to-day business in Thun and in practice in Spiez together with the team, including the carrying out of the laboratory analyses. At the disposition you take over the reception of the patients: inside, the telephone triage as well as the termination of consultation hours, therapies and internal and external examinations. In addition, you work in the secretariat, write reports from Diktaphon, prepare the tumor board and do other administrative work.\n\nEntry as of 1 November 2026 or by arrangement.\n\nThis is waiting for you\n\n• Collegial team that supports each other\n\n• Opportunity to gain initial leadership experience\n\n• Family cooperation in a specialized and interdisciplinary environment\n\n• Varied challenge in a dynamic environment\n\n• Training opportunities supported by the hospital\n\n• A flexibly selectable holiday and pension fund model\n\n• Attractive leisure opportunities in the sea and mountain regions\n\nBecome part of our team\n\n• You bring a completed training to / to the doctor and hospital secretary:in, medical:r practice assistant:in or to / to the commercial employee with professional experience in the health care or in the hospital\n\n• You have experience writing, editing and sending medical reports\n\n• You have experience in disposing and coordinating complex appointment and treatment procedures\n\n• You work independently, reliably, responsibly and are characterized by a structured and organized way of working\n\n• Thanks to your rapid comprehension and networked thinking, you will recognize connections, set priorities and maintain an overview even in demanding situations.\n\n• You are interested in actively shaping processes, identifying optimization potential and contributing to changes\n\n• You are capable of teamwork, strong in communication and enjoy taking on responsibility\n\n• You are looking forward to a committed, dynamic team and a varied area of responsibility\n\n• You are ready for our patients: inside the extra mile to go",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Stellvertreter/in unterstützt du die Teamleitung im operativen Alltag und übernimmst bei deren Abwesenheit die personelle sowie organisatorische Führung des Teams. Du trägst dazu bei, einen reibungslosen Ablauf sicherzustellen, unterstützt bei der Personalplanung und Einsatzkoordination.\n\nIn dieser vielseitigen Drehscheibenfunktion arbeitest du aktiv im Sekretariat und an der Disposition mit und koordinierst gemeinsam mit dem Team das Tagesgeschäft in Thun sowie in der Praxis in Spiez inklusive Durchführung der Laboranalysen. An der Disposition übernimmst du den Empfang der Patient:innen, die Telefontriage sowie das Terminieren von Sprechstunden, Therapien und internen wie externen Untersuchungen. Zudem arbeitest du im Sekretariat mit, schreibst Berichte ab Diktaphon, bereitest das Tumorboard vor und erledigst sonstige administrative Arbeiten.\n\nEintritt per 1. November 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Kollegiales Team, welches einander gegenseitig unterstützt\n\n• Möglichkeit, erste Führungserfahrung zu sammeln\n\n• Familiäre Zusammenarbeit in einem spezialisierten und interdisziplinären Umfeld\n\n• Abwechslungsreiche Herausforderung in einer dynamischen Umgebung\n\n• Durch das Spital unterstützte Weiterbildungsmöglichkeiten\n\n• Ein flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine abgeschlossene Ausbildung zur / zum Arzt und Spitalsekretär:in, Medizinische:r Praxisassistent:in oder zur / zum kaufmännischen Angestellten mit Berufserfahrung im Gesundheitswesen oder im Spital mit\n\n• Du hast Erfahrung im Schreiben, Bearbeiten und Versenden von Arztberichten\n\n• Du hast Erfahrung in der Disposition sowie in der Koordination komplexer Termin- und Behandlungsabläufe\n\n• Du arbeitest selbstständig, zuverlässig, verantwortungsbewusst und zeichnest dich durch eine strukturierte sowie organisierte Arbeitsweise aus\n\n• Dank deiner raschen Auffassungsgabe und deinem vernetzten Denken erkennst du Zusammenhänge, setzt Prioritäten und behältst auch in anspruchsvollen Situationen den Überblick\n\n• Du hast Interesse, Prozesse aktiv mitzugestalten, Optimierungspotenziale zu erkennen und Veränderungen mitzutragen\n\n• Du bist teamfähig, kommunikationsstark und hast Freude daran, Verantwortung zu übernehmen\n\n• Du freust dich auf ein engagiertes, dynamisches Team und ein abwechslungsreiches Aufgabengebiet\n\n• Du bist bereit, für unsere Patient:innen die Extrameile zu gehen",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nEn tant qu'adjoint, vous soutenez la direction de l'équipe dans les opérations quotidiennes et prenez en charge le personnel et le leadership organisationnel de l'équipe en leur absence. Vous aidez à assurer un processus en douceur, un soutien dans la planification du personnel et la coordination opérationnelle.\n\nDans cette fonction polyvalente, vous travaillez activement au sein du secrétariat et sur la planification et la coordination des activités quotidiennes à Thun et en pratique à Spiez avec l'équipe, y compris la réalisation des analyses de laboratoire. À la disposition vous prenez en charge la réception des patients: à l'intérieur, le triage téléphonique ainsi que la fin des heures de consultation, les thérapies et les examens internes et externes. De plus, vous travaillez au secrétariat, rédigez des rapports de Diktaphon, préparez le tableau des tumeurs et faites d'autres travaux administratifs.\n\nEntrée au 1er novembre 2026 ou par arrangement.\n\nÇa vous attend.\n\n• Équipe collégiale qui se soutient mutuellement\n\n• Possibilité d'acquérir une expérience initiale en leadership\n\n• Coopération familiale dans un environnement spécialisé et interdisciplinaire\n\n• Un défi varié dans un environnement dynamique\n\n• Possibilités de formation soutenues par l'hôpital\n\n• Un modèle flexible de fonds de vacances et de retraite\n\n• Des loisirs attrayants dans les régions de la mer et de la montagne\n\nDevenez membre de notre équipe\n\n• Vous apportez une formation complète au médecin et au secrétaire de l'hôpital:in, assistant médical:r pratique:in ou à / à l'employé commercial ayant une expérience professionnelle dans les soins de santé ou à l'hôpital\n\n• Vous avez de l'expérience en rédaction, édition et envoi de rapports médicaux\n\n• Vous avez de l'expérience dans l'élimination et la coordination des procédures complexes de nomination et de traitement\n\n• Vous travaillez de façon indépendante, fiable, responsable et caractérisée par une façon structurée et organisée de travailler\n\n• Grâce à votre compréhension rapide et à votre pensée en réseau, vous reconnaîtrez les connexions, fixerez les priorités et conserverez un aperçu même dans des situations exigeantes.\n\n• Vous êtes intéressé à façonner activement les processus, identifier le potentiel d'optimisation et contribuer aux changements\n\n• Vous êtes capable de travailler en équipe, fort dans la communication et aimez prendre des responsabilités\n\n• Vous êtes impatients d'avoir une équipe engagée, dynamique et une zone de responsabilité variée\n\n• Vous êtes prêt pour nos patients: à l'intérieur du mile supplémentaire"
-      },
-      "needsRetranslation": true,
-      "location": "Thun und Spiez",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/66c1e49e-5e89-4660-a29a-0f22c58bc120/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:37:38.134Z",
-      "addressLocality": "Thun und Spiez",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/66c1e49e-5e89-4660-a29a-0f22c58bc120",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
-        ],
-        "en": [
-          "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
-        ],
-        "fr": [
-          "stellvertretende-r-leiter-in-disposition-sekretariat-onkologie-und-hamatologiezentrum"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:43:13.568Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "spital-sts-5aa0eee3bb31",
-      "slug": "farmacia-professionale-professionale-spital-sts-thun",
-      "slugByLocale": {
-        "it": "farmacia-professionale-professionale-spital-sts-thun",
-        "en": "professional-professional-pharmacy-spital-sts-thun",
-        "de": "fachfrau-fachmann-apotheke-spital-sts-thun",
-        "fr": "pharmacie-professionnelle-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Fachfrau / Fachmann Apotheke",
-      "titleByLocale": {
-        "it": "Farmacia professionale / professionale",
-        "en": "Professional / Professional Pharmacy",
-        "de": "Fachfrau / Fachmann Apotheke",
-        "fr": "Pharmacie professionnelle"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDein vielseitiges Aufgabengebiet umfasst die zentrale Medikamentenbewirtschaftung (Nexus Matman) und die Versorgung der Stationsapotheken mit automatischem Medikamenten-Dispensiersystem (Pyxis) und Schrankversorgung. Bei Interesse besteht die Möglichkeit, in der Zytostatika-Herstellung mitzuwirken.\nDu bist den Umgang mit IT-Komponenten gewohnt. Du pflegst einen vielseitigen Informationsaustausch mit unseren Kund:innen und berätst das Spitalpersonal im Handverkauf. Die Teamarbeit schätzt du sowohl in deinem Bereich als auch im Austausch mit anderen Disziplinen. Das patientenspezifische Arzneimittel-Richten auf zwei chirurgischen Stationen ergänzt deine Aufgaben. Deine Begeisterungsfähigkeit für neue Projekte rundet dein Profil ab.\n\nEintritt per 1. Oktober 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Vielseitige Aufgabe mit interdisziplinärer Zusammenarbeit\n\n• Tägliche Kontakte mit diversen Anspruchsgruppen wie Pflegefachpersonen, Ärzt:innen, Logistiker:innen, Industrie, usw.\n\n• Moderne Infrastruktur\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachmann/-frau Apotheke EFZ mit Berufserfahrung\n\n• Erfahrung im Spitalumfeld ist von Vorteil, aber keine Bedingung\n\n• Exaktes, selbständiges, zuverlässiges und verantwortungsbewusstes Arbeitsverhalten\n\n• Freundliche Persönlichkeit mit Teamgeist\n\n• Interesse am Spitalapothekenbetrieb und Offenheit für Neues",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nLa vostra area versatile di responsabilità comprende la gestione della droga centrale (Nexus Matman) e la fornitura di farmacie di stazione con sistema di erogazione automatica della droga (Pyxis) e l'alimentazione dell'armadio. Se interessati, è possibile partecipare alla produzione di citostatici.\nSiete abituati a trattare con i componenti IT. Si mantiene uno scambio versatile di informazioni con i nostri clienti e consigliare il personale ospedaliero nelle vendite di mani. Valori il lavoro di squadra sia nel tuo campo che in cambio di altre discipline. La classificazione del farmaco specifico del paziente su due stazioni chirurgiche completa i vostri compiti. Il vostro entusiasmo per i nuovi progetti completa il vostro profilo.\n\nEntrata dal 1° ottobre 2026 o per accordo.\n\nTi sta aspettando.\n\n• Compito multiforme con cooperazione interdisciplinare\n\n• Contatti giornalieri con vari stakeholder come infermieri, medici: dentro, logistici: dentro, industria, ecc.\n\n• Infrastrutture moderne\n\n• Modello flessibile per le vacanze e i fondi pensione\n\n• Opportunità di svago attraenti nelle regioni del mare e della montagna\n\nDiventa parte del nostro team\n\n• Professional / donna Farmacia EFZ con esperienza professionale\n\n• L'esperienza nell'ambiente ospedaliero è benefica, ma non una condizione\n\n• Comportamento di lavoro accurato, indipendente, affidabile e responsabile\n\n• Personalità amichevole con spirito di squadra\n\n• Interessi nelle operazioni di farmacia ospedaliera e apertura ai nuovi sviluppi",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYour versatile area of responsibility includes central drug management (Nexus Matman) and the supply of station pharmacies with automatic drug dispensing system (Pyxis) and cabinet supply. If interested, it is possible to participate in the production of cytostatics.\nYou are used to dealing with IT components. You maintain a versatile exchange of information with our customers and advise the hospital staff in hand sales. You value teamwork both in your field and in exchange with other disciplines. The patient-specific drug classification on two surgical stations complements your tasks. Your enthusiasm for new projects rounds off your profile.\n\nEntry as of 1 October 2026 or by arrangement.\n\nThis is waiting for you\n\n• Multifaceted task with interdisciplinary cooperation\n\n• Daily contacts with various stakeholders such as nurses, doctors: inside, logisticians: inside, industry, etc.\n\n• Modern infrastructure\n\n• Flexibly selectable holiday and pension fund model\n\n• Attractive leisure opportunities in the sea and mountain regions\n\nBecome part of our team\n\n• Professional / woman Pharmacy EFZ with professional experience\n\n• Experience in the hospital environment is beneficial, but not a condition\n\n• Accurate, independent, reliable and responsible work behavior\n\n• Friendly personality with team spirit\n\n• Interest in hospital pharmacy operations and openness to new developments",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDein vielseitiges Aufgabengebiet umfasst die zentrale Medikamentenbewirtschaftung (Nexus Matman) und die Versorgung der Stationsapotheken mit automatischem Medikamenten-Dispensiersystem (Pyxis) und Schrankversorgung. Bei Interesse besteht die Möglichkeit, in der Zytostatika-Herstellung mitzuwirken.\nDu bist den Umgang mit IT-Komponenten gewohnt. Du pflegst einen vielseitigen Informationsaustausch mit unseren Kund:innen und berätst das Spitalpersonal im Handverkauf. Die Teamarbeit schätzt du sowohl in deinem Bereich als auch im Austausch mit anderen Disziplinen. Das patientenspezifische Arzneimittel-Richten auf zwei chirurgischen Stationen ergänzt deine Aufgaben. Deine Begeisterungsfähigkeit für neue Projekte rundet dein Profil ab.\n\nEintritt per 1. Oktober 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Vielseitige Aufgabe mit interdisziplinärer Zusammenarbeit\n\n• Tägliche Kontakte mit diversen Anspruchsgruppen wie Pflegefachpersonen, Ärzt:innen, Logistiker:innen, Industrie, usw.\n\n• Moderne Infrastruktur\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachmann/-frau Apotheke EFZ mit Berufserfahrung\n\n• Erfahrung im Spitalumfeld ist von Vorteil, aber keine Bedingung\n\n• Exaktes, selbständiges, zuverlässiges und verantwortungsbewusstes Arbeitsverhalten\n\n• Freundliche Persönlichkeit mit Teamgeist\n\n• Interesse am Spitalapothekenbetrieb und Offenheit für Neues",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVotre zone de responsabilité polyvalente comprend la gestion centrale des médicaments (Nexus Matman) et l'approvisionnement en pharmacies de gare avec système de distribution automatique des médicaments (Pyxis) et l'approvisionnement en cabinets. Si vous êtes intéressé, il est possible de participer à la production de cytostatiques.\nVous avez l'habitude de traiter des composants informatiques. Vous maintenez un échange polyvalent d'informations avec nos clients et conseillez le personnel hospitalier en vente manuelle. Vous appréciez le travail d'équipe dans votre domaine et en échange avec d'autres disciplines. La classification des médicaments par patient sur deux postes chirurgicaux complète vos tâches. Votre enthousiasme pour les nouveaux projets vient compléter votre profil.\n\nEntrée au 1er octobre 2026 ou par arrangement.\n\nÇa vous attend.\n\n• Tâche multiforme avec coopération interdisciplinaire\n\n• Contacts quotidiens avec divers intervenants tels que les infirmières, les médecins : à l'intérieur, les logisticiens : à l'intérieur, dans l'industrie, etc.\n\n• Infrastructures modernes\n\n• Modèle flexible de fonds de vacances et de retraite\n\n• Des loisirs attrayants dans les régions de la mer et de la montagne\n\nDevenez membre de notre équipe\n\n• Professionnel / femme Pharmacie EFZ avec expérience professionnelle\n\n• L'expérience dans l'environnement hospitalier est bénéfique, mais pas une condition\n\n• Un comportement professionnel précis, indépendant, fiable et responsable\n\n• Personnalité amicale avec esprit d'équipe\n\n• Intérêt pour le fonctionnement de la pharmacie hospitalière et ouverture aux nouveaux développements"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/54d6df5b-104e-4911-b106-158ee0afe71f/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:37:37.435Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/54d6df5b-104e-4911-b106-158ee0afe71f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-apotheke-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-apotheke-spital-sts-thun"
-        ],
-        "en": [
-          "fachfrau-fachmann-apotheke-spital-sts-thun"
-        ],
-        "fr": [
-          "fachfrau-fachmann-apotheke-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:43:12.754Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

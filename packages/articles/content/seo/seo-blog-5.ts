@@ -73157,6 +73157,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-colverde-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
+    description: 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontaliere che lavorano in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, colverde, lavorare, cosa',
+    ogTitle: 'Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere',
+    ogDescription: 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontaliere che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-colverde-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Colverde e lavorare in Ticino da frontaliere: cosa sapere",
+      "description": "Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontaliere che lavorano in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-colverde-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che si trasferisce a Colverde per lavorare in Ticino."
+      },
+      "datePublished": "2026-08-21T08:33:12+00:00",
+      "dateModified": "2026-08-21T08:33:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-colverde-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-fagnano-olona-lavorare-ticino': {
+    title: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
+    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, fagnano, olona, lavorare',
+    ogTitle: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
+    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    canonicalPath: '/articoli-frontaliere/vivere-fagnano-olona-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Fagnano Olona e lavorare in Ticino da frontaliere",
+      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-fagnano-olona-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che lavorano in Ticino"
+      },
+      "datePublished": "2026-08-21T08:51:35+00:00",
+      "dateModified": "2026-08-21T08:51:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-fagnano-olona-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cremia-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cremia e lavorare in Ticino: frontaliere conviene?',
+    description: 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cremia, lavorare, conviene',
+    ogTitle: 'Vivere a Cremia e lavorare in Ticino: frontaliere',
+    ogDescription: 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
+    canonicalPath: '/articoli-frontaliere/vivere-cremia-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cremia e lavorare in Ticino: frontaliere conviene?",
+      "description": "Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cremia-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como da Cremia con le Alpi sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-08-21T09:37:23+00:00",
+      "dateModified": "2026-08-21T09:37:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cremia-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-antrona-schieranco-lavorare-ticino-da-frontaliere': {
+    title: 'Vivere in Ticino, lavorare da frontaliere: vantaggi e svantaggi',
+    description: 'Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lavorare, vantaggi, svantaggi',
+    ogTitle: 'Vivere a Antrona Schieranco e lavorare in Ticino da frontaliere',
+    ogDescription: 'Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/vivere-antrona-schieranco-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere in Ticino, lavorare da frontaliere: vantaggi e svantaggi",
+      "description": "Collegamenti con il Ticino, tempi di percorrenza, costo della vita, zone consigliate per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-antrona-schieranco-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere vive a Antrona Schieranco e lavora in Ticino"
+      },
+      "datePublished": "2026-08-21T10:08:22+00:00",
+      "dateModified": "2026-08-21T10:08:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-antrona-schieranco-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-jerago-orago-lavorare-ticino-da-frontaliere': {
+    title: 'Vivere a Jerago con Orago e lavorare in Ticino da frontaliere',
+    description: 'Conoscere le norme e le procedure per i frontaliere che vivono in Ticino e lavorano nel Paese confinante. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, jerago, orago, lavorare',
+    ogTitle: 'Vivere a Jerago con Orago e lavorare in Ticino da frontaliere',
+    ogDescription: 'Conoscere le norme e le procedure per i frontaliere che vivono in Ticino e lavorano nel Paese confinante.',
+    canonicalPath: '/articoli-frontaliere/vivere-jerago-orago-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Jerago con Orago e lavorare in Ticino da frontaliere",
+      "description": "Conoscere le norme e le procedure per i frontaliere che vivono in Ticino e lavorano nel Paese confinante. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-jerago-orago-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che vive a Jerago con Orago e lavora in Ticino, che deve sapere dell'accordo fiscale nuovo e delle sue implicazioni."
+      },
+      "datePublished": "2026-08-21T10:28:36+00:00",
+      "dateModified": "2026-08-21T10:28:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-jerago-orago-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

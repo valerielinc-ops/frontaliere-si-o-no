@@ -3679,6 +3679,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.richiedenti-asilo-severe-misure.title': 'Demandeurs d\'asile, Berne demande des mesures plus sévères',
     'blog.article.richiedenti-asilo-severe-misure.excerpt': 'Le Secrétariat d\'Etat aux migrations (SEM) étudie des modifications de loi pour exclure de la procédure d\'asile les jeunes du Maghreb qui viennent d\'arriver en Suisse.',
     'blog.article.richiedenti-asilo-severe-misure.imageAlt': 'Jeune personne commettant des crimes en Suisse',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.title': 'Allocations familiales Appenzell Interne : montants et demande',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.excerpt': 'Guide complet des allocations familiales dans le canton d\'Appenzell Interne : système fédéral, montants mensuels par enfant, conditions de droit, caisse de compensation et procédure de demande étape par étape.',
+    'blog.article.assegni-familiari-appenzello-interno-domanda.imageAlt': 'Paysage rural suisse avec bâtiments administratifs illustrant le système des allocations familiales dans le canton Appenzell Rhodes-Intérieures.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.title': 'Le Conseil fédéral sur la planification ferroviaire',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.excerpt': 'Publication de l\'avis gouvernemental du 19 août 2026 sur le rapport de la CdG-S du 18 mai 2026 sur les stratégies pour les infrastructures ferroviaires.',
+    'blog.article.parere-governo-infrastrutture-ferroviarie.imageAlt': 'Infrastructure ferroviaire suisse avec un train moderne',
+    'blog.article.borse-studio-appenzello-interno.title': 'Bourses Appenzell Interne : guide de financement',
+    'blog.article.borse-studio-appenzello-interno.excerpt': 'Dans le canton d\'Appenzell, des bourses et des prêts d\'études sont disponibles pour ceux qui poursuivent leur formation après la scolarité obligatoire. Découvrez comment postuler.',
+    'blog.article.borse-studio-appenzello-interno.imageAlt': 'Salle de classe d\'une école suisse en montagne avec des étudiants étudiant, lumière naturelle et pics alpins visibles par les fenêtres',
+    'blog.article.stadler-rail-friburgo-117-milioni.title': 'Fribourg : 117 millions pour 13 nouveaux trains Flirt',
+    'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail fournira 13 nouveaux trains Flirt Evo aux Transports publics fribourgeois pour CHF 117 millions. Premières livraisons en décembre 2028.',
+    'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'Nouveau train Flirt Evo pour les transports fribourgois',
+    'blog.article.esercito-misure-discriminazione.title': 'Armée, les mesures anti-discrimination fonctionnent',
+    'blog.article.esercito-misure-discriminazione.excerpt': 'L\'Armée suisse a annoncé avoir mis en œuvre la moitié des mesures annoncées pour lutter contre le sexisme et la discrimination',
+    'blog.article.esercito-misure-discriminazione.imageAlt': 'L\'Armée suisse',
 };
 
 export default blogMetaChFr;

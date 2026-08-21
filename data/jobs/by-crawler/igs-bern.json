@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igs-bern",
-  "assembledAt": "2026-08-20T21:57:11.950Z",
+  "assembledAt": "2026-08-21T09:54:21.732Z",
   "jobs": [
     {
       "id": "igs-bern-53da410315b2",
@@ -34,7 +34,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:57:09.688Z",
+      "crawledAt": "2026-08-21T09:54:19.498Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -67,15 +67,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:23:20.460Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -113,7 +113,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:57:09.162Z",
+      "crawledAt": "2026-08-21T09:54:18.987Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -145,15 +145,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:43:24.350Z",
-      "salaryMin": 48000,
-      "salaryMax": 72800,
+      "salaryMin": 59500,
+      "salaryMax": 83300,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 72800,
+          "minValue": 59500,
+          "maxValue": 83300,
           "unitText": "YEAR"
         }
       },
@@ -191,7 +191,7 @@
       "url": "https://www.publicjobs.ch/jobs/psychologie-psychotherapie/~job161634?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:57:08.638Z",
+      "crawledAt": "2026-08-21T09:54:18.438Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -229,15 +229,15 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:43:21.032Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
+      "salaryMin": 68000,
+      "salaryMax": 95200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
+          "minValue": 68000,
+          "maxValue": 95200,
           "unitText": "YEAR"
         }
       },

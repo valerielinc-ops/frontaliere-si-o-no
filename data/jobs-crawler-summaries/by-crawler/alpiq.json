@@ -1,20 +1,20 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-08-20T22:08:30.655Z",
+  "generatedAt": "2026-08-21T10:16:46.721Z",
   "total": 3,
   "newCount": 1,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5403,
-  "avgDurationMs": 5403,
+  "durationMs": 5082,
+  "avgDurationMs": 5082,
   "durationHistory": [
-    5403
+    5082
   ],
   "newJobs": [
     {
-      "id": "alpiq-4b58080b1767",
+      "id": "alpiq-2337a63af6bb",
       "slug": "gas-operator-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -32,12 +32,12 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9620",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9620&lang=en_GB",
+      "postedDate": "2026-08-21",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.130Z",
+      "crawledAt": "2026-08-21T10:16:43.541Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,7 +49,7 @@
   ],
   "updatedJobs": [
     {
-      "id": "alpiq-2337a63af6bb",
+      "id": "alpiq-4b58080b1767",
       "slug": "gas-operator-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -67,13 +67,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
+      "postedDate": "2026-08-20",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9620",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9620&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.129Z",
-      "firstSeenAt": "2026-08-17T10:34:12.954Z",
+      "crawledAt": "2026-08-21T10:16:43.543Z",
+      "firstSeenAt": "2026-08-20T22:08:27.130Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -106,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.128Z",
+      "crawledAt": "2026-08-21T10:16:43.543Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -117,14 +117,15 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "alpiq-dbe206690861",
-      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
+      "id": "alpiq-2337a63af6bb",
+      "slug": "gas-operator-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
+      "title": "Gas Operator",
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -137,26 +138,20 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
+      "postedDate": "2026-08-21",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:09:03.884Z",
-      "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T10:16:43.541Z",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "alpiq-4b58080b1767",
       "slug": "gas-operator-alpiq-olten",
@@ -181,41 +176,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9620&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.130Z",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "alpiq-2337a63af6bb",
-      "slug": "gas-operator-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Gas Operator",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.129Z",
-      "firstSeenAt": "2026-08-17T10:34:12.954Z",
+      "crawledAt": "2026-08-21T10:16:43.543Z",
+      "firstSeenAt": "2026-08-20T22:08:27.130Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -248,7 +210,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T22:08:27.128Z",
+      "crawledAt": "2026-08-21T10:16:43.543Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {

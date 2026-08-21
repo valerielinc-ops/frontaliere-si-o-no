@@ -81,13 +81,16 @@ const TICINO_SECTOR_MEDIANS = {
 };
 
 // ── Category → Sector mapping ──────────────────────────────────────────────
+// Keys are matched after normalizeCategoryKey() (accent-strip, lowercase,
+// separator collapse — see below), so 'quality-assurance' and 'quality
+// assurance' are the same lookup and only one needs to be listed.
 const CATEGORY_TO_SECTOR = {
   // Core sectors
   tech: 'IT', finance: 'Finance', pharma: 'Pharma', engineering: 'Engineering',
   health: 'Healthcare', healthcare: 'Healthcare', admin: 'Logistics',
   sales: 'Retail', hr: 'Logistics', legal: 'Legal', logistics: 'Logistics',
   hospitality: 'Hospitality', construction: 'Construction', education: 'Education',
-  retail: 'Retail', other: 'Logistics', marketing: 'Marketing',
+  retail: 'Retail', other: 'Logistics', altro: 'Logistics', marketing: 'Marketing',
   consulting: 'Consulting', insurance: 'Insurance', telecom: 'Telecom',
   // Extended mappings
   'dispositivi medici': 'MedicalDevices', 'medical devices': 'MedicalDevices',
@@ -106,7 +109,102 @@ const CATEGORY_TO_SECTOR = {
   'real estate': 'RealEstate', immobiliare: 'RealEstate', 'real-estate': 'RealEstate',
   'personal services': 'PersonalServices', beauty: 'PersonalServices',
   wellness: 'PersonalServices', cleaning: 'PersonalServices',
+  // ── Observed corpus labels (issue #6230, measured 2026-08-21) ──
+  // Healthcare / Sanità / Gesundheitswesen
+  'sanità / ospedali': 'Healthcare', sanità: 'Healthcare', 'sanità / assistenza': 'Healthcare',
+  'sanità e sociale': 'Healthcare', gesundheitswesen: 'Healthcare', infermieristica: 'Healthcare',
+  medicina: 'Healthcare', 'healthcare-nursing': 'Healthcare', 'healthcare-medical': 'Healthcare',
+  'healthcare-therapy': 'Healthcare', 'healthcare-psychology': 'Healthcare', nursing: 'Healthcare',
+  medical: 'Healthcare', psicologia: 'Healthcare', pediatria: 'Healthcare', radiologia: 'Healthcare',
+  terapia: 'Healthcare', physiotherapy: 'Healthcare', 'salute / benessere': 'Healthcare',
+  'life science & tecnologia medica': 'Healthcare', 'healthcare-medtech': 'MedicalDevices',
+  // Engineering / Ingegneria / Tecnica
+  tecnica: 'Engineering', ingegneria: 'Engineering', 'ingegneria & tecnica': 'Engineering',
+  impiantistica: 'Engineering', 'strumentazione industriale / automazione': 'Engineering',
+  ingenieurwesen: 'Engineering', meccanica: 'Engineering', elettrotecnica: 'Engineering',
+  'robotica & automazione': 'Engineering', progettazione: 'Engineering',
+  'progetti / tecnica edile': 'Engineering', 'tecnica agricola': 'Engineering',
+  'vertrieb und technischer kundenservice': 'Engineering', drafting: 'Engineering', tecnico: 'Engineering',
+  // Retail / Vendita / Commercio
+  'vendita & commercio': 'Retail', commerciale: 'Retail', vendita: 'Retail', vendite: 'Retail',
+  'agricoltura & commercio': 'Retail', ottica: 'Retail', 'commercio & servizi': 'Retail',
+  'vendita al dettaglio': 'Retail', 'verkauf und kundenberatung': 'Retail',
+  'vendite & commerciale': 'Retail', 'it / salesforce': 'IT',
+  'sales channels & retail excellence/retail': 'Retail',
+  // Hospitality / Ospitalità / Ristorazione
+  ospitalità: 'Hospitality', 'turismo & ospitalità': 'Hospitality', cucina: 'Hospitality',
+  ristorazione: 'Hospitality', 'ospitalità / ristorazione': 'Hospitality',
+  'hospitality-food-beverage': 'Hospitality', housekeeping: 'Hospitality', turismo: 'Hospitality',
+  tourism: 'Hospitality', ricevimento: 'Hospitality', 'cucina / gastronomia': 'Hospitality',
+  'hospitality-housekeeping': 'Hospitality', gastronomia: 'Hospitality', 'hospitality-spa': 'Hospitality',
+  'hospitality-front-office': 'Hospitality', 'hospitality-events': 'Hospitality',
+  // Logistics / Logistica / Trasporti
+  logistica: 'Logistics', 'servizi-postali': 'Logistics', 'logistica & trasporti': 'Logistics',
+  trasporti: 'Logistics', 'autisti / chauffeur': 'Logistics', 'autisti / conducenti': 'Logistics',
+  'trasporti / autisti': 'Logistics', 'lager und logistik': 'Logistics', transport: 'Logistics',
+  'logistica & magazzino': 'Logistics', 'guida / conduzione': 'Logistics',
+  // Legal / Legale / Giuridico
+  legale: 'Legal', 'qualità / compliance': 'Legal', giuridico: 'Legal', 'compliance & risk': 'Legal',
+  // Finance / Finanza
+  finanza: 'Finance', tax: 'Finance', audit: 'Finance', banca: 'Finance', 'finanza / banca': 'Finance',
+  'consulenza finanziaria': 'Finance', 'wealth-management': 'Finance', anlageberatung: 'Finance',
+  'finanzen controlling und accounting': 'Finance',
+  'corporate and staff functions/finance & control': 'Finance', 'büro-finanzen und revision': 'Finance',
+  // Insurance / Assicurazioni
+  assicurazioni: 'Insurance',
+  // Education / Formazione / Istruzione
+  formazione: 'Education', 'istruzione / docenza': 'Education', istruzione: 'Education',
+  'istruzione / sostegno pedagogico': 'Education', 'istruzione / scuola speciale': 'Education',
+  'educazione & cultura': 'Education', 'sociale / educazione': 'Education',
+  'istruzione / direzione scolastica': 'Education', 'istruzione / assistenza in classe': 'Education',
+  'formazione / ricerca': 'Education',
+  // Marketing
+  'marketing / comunicazione': 'Marketing', 'marketing und kommunikation': 'Marketing',
+  // Manufacturing / Produzione
+  produzione: 'Manufacturing', 'produktion und fertigung': 'Manufacturing', metallo: 'Manufacturing',
+  'produzione media': 'Marketing',
+  'product development, manufacturing, end-to end supply chain/manufacturing': 'Manufacturing',
+  // Construction / Edilizia
+  edilizia: 'Construction', elettricità: 'Construction', costruzioni: 'Construction',
+  cantiere: 'Construction', 'edilizia & costruzioni': 'Construction',
+  // IT / Informatica
+  technology: 'IT', 'it / sviluppo software': 'IT', 'informatik und digital services': 'IT',
+  'it und software': 'IT', informatica: 'IT', devops: 'IT', 'it / infrastruttura': 'IT',
+  'it / sicurezza': 'IT', 'it / project management': 'IT', 'it & digital transformation': 'IT',
+  // Energy / Ambiente
+  'ambiente / energia': 'Energy', energia: 'Energy',
+  // FoodIndustry / Agricoltura
+  'agricoltura & mangimi': 'FoodIndustry', 'industria alimentare': 'FoodIndustry',
+  // PersonalServices
+  'pulizie di manutenzione': 'PersonalServices', 'facility management': 'PersonalServices',
+  'pulizie specializzate': 'PersonalServices', giardinaggio: 'PersonalServices',
+  // Consulting
+  consulenza: 'Consulting',
+  // Pharma
+  science: 'Pharma', chemistry: 'Pharma', biotech: 'Pharma', 'chimica & analisi': 'Pharma',
+  chimica: 'Pharma', laboratorio: 'Pharma', scienza: 'Pharma',
 };
+
+/**
+ * Normalize a category label for CATEGORY_TO_SECTOR lookup: strip accents,
+ * lowercase, collapse separators (/, &, -, _, comma, dot, parens) to a
+ * single space, trim. Applied to both the map keys (once, at module load)
+ * and the job's category value, so 'Sanità / Ospedali', 'sanita-ospedali'
+ * and 'SANITÀ  OSPEDALI' all resolve to the same lookup key.
+ */
+function normalizeCategoryKey(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[/&_,.()-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const NORMALIZED_CATEGORY_TO_SECTOR = Object.fromEntries(
+  Object.entries(CATEGORY_TO_SECTOR).map(([key, sector]) => [normalizeCategoryKey(key), sector])
+);
 
 // ── CCL/GAV minimum salary floors (annual gross CHF) ───────────────────────
 // Hard floors from collective labor agreements — estimates never go below these.
@@ -158,8 +256,8 @@ export function estimateSwissSalary(job, options = {}) {
   const factor = getCantonSalaryFactor(canton);
   const border = isBorderCanton(canton);
 
-  const cat = String(job?.category || 'other').toLowerCase();
-  const sectorName = CATEGORY_TO_SECTOR[cat] || 'Logistics';
+  const cat = normalizeCategoryKey(job?.category || 'other');
+  const sectorName = NORMALIZED_CATEGORY_TO_SECTOR[cat] || 'Logistics';
   const sector = TICINO_SECTOR_MEDIANS[sectorName] || TICINO_SECTOR_MEDIANS.Logistics;
 
   const title = String(job?.title || '')
@@ -217,4 +315,13 @@ export function estimateTicinoSalary(job, options = {}) {
   return { minValue, maxValue, level, sectorName, frontialieriAdjusted };
 }
 
-export { TICINO_SECTOR_MEDIANS, CATEGORY_TO_SECTOR, CCL_MINIMUM_FLOORS, LEVEL_JUNIOR_RE, LEVEL_SENIOR_RE, roundTo500 };
+export {
+  TICINO_SECTOR_MEDIANS,
+  CATEGORY_TO_SECTOR,
+  NORMALIZED_CATEGORY_TO_SECTOR,
+  normalizeCategoryKey,
+  CCL_MINIMUM_FLOORS,
+  LEVEL_JUNIOR_RE,
+  LEVEL_SENIOR_RE,
+  roundTo500,
+};
