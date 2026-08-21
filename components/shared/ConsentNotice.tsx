@@ -55,17 +55,33 @@ export interface ConsentNoticeProps {
 /**
  * Render the disclosure, linking the one word that names the channel list.
  *
- * Links the LAST occurrence, not every one. The label used to be a URL, which
- * cannot appear twice in a sentence by accident; it is now an ordinary word of
- * the visitor's language (`Condizioni`, `Terms`, …) sitting in the closing
- * pointer, and linking every match would put an anchor on a word that happened
- * to be reused earlier in some future formula. When the label is absent the
- * whole string is emitted as-is rather than silently losing content.
+ * Links the LAST STANDALONE occurrence, not every one and not a substring. The
+ * label used to be a URL, which cannot appear twice in a sentence by accident
+ * nor hide inside a longer token; it is now an ordinary word of the visitor's
+ * language (`Condizioni`, `Terms`, …) sitting in the closing pointer. Two
+ * consequences, both handled here rather than trusted to the formulas:
+ *   · linking every match would put an anchor on a word a future formula
+ *     happened to reuse earlier in the sentence — hence LAST;
+ *   · a naive `indexOf` would match the label inside a longer word
+ *     (`Precondizioni` contains `condizioni`) and split mid-word instead of
+ *     failing visibly — hence the letter/digit boundaries.
+ * When the label is absent the whole string is emitted as-is rather than
+ * silently losing content.
  */
+const escapeForRegExp = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** Index of the last occurrence of `label` that is a whole word, or -1. */
+const lastStandaloneIndex = (text: string, label: string): number => {
+  const re = new RegExp(`(?<![\\p{L}\\p{N}])${escapeForRegExp(label)}(?![\\p{L}\\p{N}])`, 'gu');
+  let last = -1;
+  for (let m = re.exec(text); m !== null; m = re.exec(text)) last = m.index;
+  return last;
+};
+
 const ConsentNotice: React.FC<ConsentNoticeProps> = ({ consentKey, locale, className, id }) => {
   const text = consentDisplayText(consentKey, locale);
   const label = consentPageLabel(locale);
-  const at = text.lastIndexOf(label);
+  const at = lastStandaloneIndex(text, label);
   const parts = at === -1 ? [text] : [text.slice(0, at), text.slice(at + label.length)];
 
   return (

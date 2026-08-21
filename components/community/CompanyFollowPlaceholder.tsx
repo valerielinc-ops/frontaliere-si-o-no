@@ -30,18 +30,23 @@
  * TWO lines of 10px, not three of 12px, since the formula lost the spelled-out
  * URL (`CONSENT_PAGE_LABELS` in `services/consentTexts.ts`: the page is named
  * by one linked word now) and the notice moved to `text-[10px] leading-snug`.
- * At ~92 characters it is one line on the desktop column and two on a 390px
- * phone, so the reservation is exact on mobile and one line long on desktop —
- * the opposite of the old three-bar block, which over-reserved on desktop and
- * under-reserved by ~2 lines on a phone (#6110). Keep the two numbers in step:
- * change the notice's size or the sentence's length and this block is stale.
+ *
+ * Measured, not assumed — rendered at 10px / leading-snug in the real column
+ * width (viewport x 0.95, minus the page's px-3 and the header's p-4):
+ *
+ *     390px viewport -> 315px column: it 96ch, en 89ch, de 102ch, fr 93ch -> 2 lines each
+ *     320px viewport -> 248px column: it/en/fr 2 lines, de 3 lines
+ *
+ * Hence two bars for everyone plus a third for German below 360px. Keep the
+ * numbers in step: change the notice's size or the sentence's length and this
+ * block is stale (#6110).
  */
 import React from 'react';
 
 import { useTranslation } from '@/services/i18n';
 
 const CompanyFollowPlaceholder: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
     <div className="mt-3" aria-hidden="true" data-testid="company-follow-placeholder">
@@ -53,6 +58,16 @@ const CompanyFollowPlaceholder: React.FC = () => {
       <div className="mt-2 space-y-1">
         <div className="h-2.5 w-full rounded bg-surface-raised animate-pulse" />
         <div className="h-2.5 w-3/4 rounded bg-surface-raised animate-pulse" />
+        {/* German only, and only on the narrowest phones. Measured at 10px /
+            leading-snug in the real column width: at a 390px viewport (315px
+            column) all four locales wrap to 2 lines, but at 320px (248px
+            column) German — 102 characters against 89-96 for the others —
+            takes 3. Reserving the third bar unconditionally would over-reserve
+            13px for everyone else; reserving it never leaves exactly the
+            German-on-a-small-phone residual this component exists to remove. */}
+        {locale === 'de' && (
+          <div className="hidden max-[359px]:block h-2.5 w-1/2 rounded bg-surface-raised animate-pulse" />
+        )}
       </div>
     </div>
   );
