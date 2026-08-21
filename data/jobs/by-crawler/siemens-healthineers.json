@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-08-20T21:47:30.256Z",
+  "assembledAt": "2026-08-21T10:08:01.686Z",
   "jobs": [
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
@@ -34,7 +34,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:47:26.928Z",
+      "crawledAt": "2026-08-21T10:07:58.669Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,15 +68,15 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:12:19.122Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 85000,
+      "salaryMax": 145000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 85000,
+          "maxValue": 145000,
           "unitText": "YEAR"
         }
       }
@@ -113,7 +113,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/CEY-BO/Network-Engineer---Cloud-Operations_R-25439-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:47:26.207Z",
+      "crawledAt": "2026-08-21T10:07:57.922Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,15 +149,15 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:28:43.520Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       }
@@ -194,7 +194,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:47:25.472Z",
+      "crawledAt": "2026-08-21T10:07:56.825Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,15 +212,15 @@
       "requirementsByLocale": {},
       "jobReqId": "R-29705",
       "firstSeenAt": "2026-08-10T21:57:41.622Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 117000,
+      "salaryMax": 180000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 117000,
+          "maxValue": 180000,
           "unitText": "YEAR"
         }
       }
