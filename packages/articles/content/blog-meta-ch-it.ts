@@ -3634,6 +3634,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-esterno.title': 'Assegni familiari Appenzello Esterno: importi e domanda',
     'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Guida completa agli assegni familiari in Appenzello Esterno: come funziona il sistema federale-cantonale, condizioni di diritto, cassa di compensazione e procedura di domanda.',
     'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Ufficio amministrativo svizzero con documenti di assegni familiari su scrivania',
+    'blog.article.asilo-custodia-appenzello-esterno.title': 'Asilo nido e custodia: costi in Appenzello Esterno',
+    'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Tariffe calcolate sul reddito, sussidi cantonali e deduzioni fiscali: tutto su asili nido, famiglie diurne e doposcuola nel canton Appenzello Esterno.',
+    'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Bambini che giocano all\'aperto presso una struttura di custodia svizzera con vista su montagne alpine',
 };
 
 export default blogMetaChIt;

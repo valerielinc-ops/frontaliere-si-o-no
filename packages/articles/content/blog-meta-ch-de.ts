@@ -3634,6 +3634,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-esterno.title': 'Familienzulagen Appenzell Ausserrhoden: Beträge und Antrag',
     'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Vollständiger Leitfaden zur Familienzulage im Appenzell Ausserrhoden: Funktionsweise des kantonalen Bundessystems, rechtliche Rahmenbedingungen, Ausgleichskasse und Antragsverfahren.',
     'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Schweizer Kantonsamt mit Familienzulagsdokumenten auf Schreibtisch',
+    'blog.article.asilo-custodia-appenzello-esterno.title': 'Kindertagesstätte und Obhut: Kosten in Appenzell Ausserrhoden',
+    'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Berechnete Einkommenstarife, Kantonsbeiträge und Steuerabzüge: Alles rund um Kindertagesstätten, Tagesfamilien und Nachmittagsbetreuung im Kanton Appenzell Ausserrhoden.',
+    'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Kinder spielen im Freien in einer Schweizer Betreuungseinrichtung mit Bergblick',
 };
 
 export default blogMetaChDe;

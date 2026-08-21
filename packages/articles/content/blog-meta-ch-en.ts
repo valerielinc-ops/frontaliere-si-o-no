@@ -3634,6 +3634,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-appenzello-esterno.title': 'Family allowances External Appenzello: amounts and application',
     'blog.article.assegni-familiari-appenzello-esterno.excerpt': 'Complete guide to family allowances in Outer Appenzell: how the federal-cantonal system works, conditions of law, compensation fund and application procedure.',
     'blog.article.assegni-familiari-appenzello-esterno.imageAlt': 'Swiss cantonal office desk with family benefits application documents',
+    'blog.article.asilo-custodia-appenzello-esterno.title': 'Nursery and care: costs in the External Appenzello',
+    'blog.article.asilo-custodia-appenzello-esterno.excerpt': 'Rates calculated on income, cantonal subsidies and tax deductions: all on kindergartens, day families and after-school in the canton of Appenzello Esterno.',
+    'blog.article.asilo-custodia-appenzello-esterno.imageAlt': 'Children playing outdoors at a Swiss daycare facility with alpine mountains in background',
 };
 
 export default blogMetaChEn;
