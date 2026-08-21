@@ -3640,6 +3640,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casa-appenzello-esterno-acquisto-mutuo.title': 'Comprare casa Appenzello Esterno: mutuo, prezzi e tasse',
     'blog.article.casa-appenzello-esterno-acquisto-mutuo.excerpt': 'Guida all\'acquisto immobiliare ad Appenzello Esterno: sostenibilità del mutuo, fondi propri minimi, imposta sui trapassi, spese notarili e procedura step-by-step.',
     'blog.article.casa-appenzello-esterno-acquisto-mutuo.imageAlt': 'Casa residenziale moderna in Svizzera orientale con documenti di mutuo ipotecario su scrivania',
+    'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.title': 'Comprare casa nel canton Appenzello Esterno: mutui e tasse',
+    'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.excerpt': 'Acquisto immobiliare nel canton Appenzello Esterno: guida alle procedure, imposte cantonali e comunali, mutui ipotecari, spese notarili.',
+    'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.imageAlt': 'Vista di una casa e paesaggio rurale nel canton Appenzello Esterno, Svizzera nord-orientale.',
 };
 
 export default blogMetaChIt;

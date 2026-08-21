@@ -47210,6 +47210,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-appenzello-esterno-mutui-tasse': {
+    title: 'Comprare casa nel canton Appenzello Esterno: mutui e tasse',
+    description: 'Acquisto immobiliare nel canton Appenzello Esterno: guida alle procedure, imposte cantonali e comunali, mutui ipotecari, spese notarili e sostenibilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, appenzello',
+    ogTitle: 'Comprare casa nel canton Appenzello Esterno: mutui e tasse',
+    ogDescription: 'Scopri come acquistare una proprietà nel canton Appenzello Esterno: analisi dei costi (imposte, mutui, spese notarili), procedure legali, calcolo della capacità di prestito e sostenibilità finanziaria per nuovi residenti.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-appenzello-esterno-mutui-tasse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel canton Appenzello Esterno: mutui e tasse",
+      "description": "Acquisto immobiliare nel canton Appenzello Esterno: guida alle procedure, imposte cantonali e comunali, mutui ipotecari, spese notarili e sostenibilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-appenzello-esterno-mutui-tasse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una casa e paesaggio rurale nel canton Appenzello Esterno, Svizzera nord-orientale."
+      },
+      "datePublished": "2026-08-21T02:21:53+00:00",
+      "dateModified": "2026-08-21T02:21:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-appenzello-esterno-mutui-tasse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

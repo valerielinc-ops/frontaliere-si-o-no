@@ -3640,6 +3640,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casa-appenzello-esterno-acquisto-mutuo.title': 'Buying a house in Appenzello Esterno: mortgage, prices and taxes',
     'blog.article.casa-appenzello-esterno-acquisto-mutuo.excerpt': 'Guide to buying real estate in Appenzell Ausserrhoden: affordability of the mortgage, minimum capital adequacy, transfer tax, notary fees and step-by-step procedure.',
     'blog.article.casa-appenzello-esterno-acquisto-mutuo.imageAlt': 'Modern residential house in Eastern Switzerland with mortgage documents on consultant\'s desk',
+    'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.title': 'Buying a house in the canton of Appenzello Esterno: mortgages and taxes',
+    'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.excerpt': 'Property purchase in the canton of Appenzello Esterno: guide to procedures, cantonal and municipal taxes, mortgage loans, notary fees.',
+    'blog.article.comprare-casa-appenzello-esterno-mutui-tasse.imageAlt': 'View of a house and rural landscape in Appenzell Outer Rhodes Canton, northeastern Switzerland.',
 };
 
 export default blogMetaChEn;
