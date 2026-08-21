@@ -983,6 +983,15 @@ async function sendViaMailgun(email, scheduledAt, signal) {
   form.append('o:tracking-opens', 'yes');
   if (email.tags?.length) {
     for (const tag of email.tags) form.append('o:tag', tag.value);
+    // `o:tag` is a flat list of VALUES — the name is lost in transit, so the
+    // webhook could only guess which of ["welcome_job","lifecycle","en"] was
+    // the campaign. It guessed by looking for a `campaign:` prefix that this
+    // sender never produced, so every Mailgun event fell through to the raw
+    // message id instead (measured 2026-08-20, same defect class as Maileroo's
+    // array tags). A custom variable keeps the NAME, so the webhook can read it
+    // back by key: see extractCampaignId in newsletterMailgunWebhookCore.js.
+    const campaignId = campaignIdTag(email);
+    if (campaignId) form.append('v:campaign_id', campaignId);
   }
   // Forward custom email headers (List-Unsubscribe, etc.)
   if (email.headers && typeof email.headers === 'object') {

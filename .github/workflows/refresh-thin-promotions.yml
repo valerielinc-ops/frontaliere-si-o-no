@@ -46,7 +46,20 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Raised 10 -> 20 (issue #5810, chronic recurrence across #4160..#5754):
+    # the "Commit if changed" step's fetch+rebase+push retry loop already
+    # budgets 40 attempts (git-push-with-retry.sh, #4557) to survive main's
+    # write contention, but every one of the six recorded recurrences shows
+    # that step running the FULL remaining job budget and getting cancelled
+    # mid-loop (attempt ~20-26/40), never exhausting its own attempt cap.
+    # The binding constraint was wall-clock, not attempt count. Contention
+    # clusters in the ~1-2h tail of orchestrate-crawlers' twice-daily dispatch
+    # (09:00/21:00 UTC, main sees a push every ~5-8s during that window) and
+    # this hourly job's actual start time drifts under GitHub Actions queueing
+    # load, so it regularly lands inside that tail. 20 min gives the existing
+    # 40-attempt budget realistic room to land a push outside the convoy's
+    # cadence instead of being cut off partway through.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
@@ -127,9 +140,26 @@ jobs:
           INPUT_WINDOW_HOURS: ${{ github.event.inputs.window_hours || '24' }}
           INPUT_ACTIVE_WINDOW_DAYS: ${{ github.event.inputs.active_window_days || '30' }}
         run: |
+          set -uo pipefail
+          # The script's own exit-code contract (see its header comment):
+          # 0 ok, 3 partial (one/two of the three feeds — posthog/ga4/gsc —
+          # errored transiently, promotions still written to disk), 2 fatal
+          # (all three errored). Capture rc without `set -e` aborting the
+          # step (same pattern as cf-otto-route-monitor.yml), because a
+          # single feed's transient network blip (issue #5568: "gsc error:
+          # page: fetch failed") is expected hourly noise, not a workflow
+          # failure — treating exit 3 as a step failure skipped the
+          # downstream "Commit if changed" step entirely, silently
+          # dropping the promotions this run already computed, and fired a
+          # GitHub issue for a non-fatal, self-describing condition.
           node scripts/fetch-thin-page-promotions.mjs \
             --window-hours="$INPUT_WINDOW_HOURS" \
-            --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS"
+            --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS" && rc=0 || rc=$?
+          if [ "$rc" -eq 3 ]; then
+            echo "::warning title=thin-promotions partial feed failure::one or two of posthog/ga4/gsc errored this run (see data/thin-page-promotions.jsonl 'errors' field) — promotions from the remaining feed(s) were still written."
+            exit 0
+          fi
+          exit "$rc"
 
       # Single-writer invariant (see #794/#801): this is the ONLY automated writer of
       # data/thin-page-promotions-*.json + .jsonl — a new writer would break the rebase-retry loop.

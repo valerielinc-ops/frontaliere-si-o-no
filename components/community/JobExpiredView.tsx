@@ -441,7 +441,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
  <div className="flex-1 min-w-0">
- <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
+ <h1 className="text-xl font-bold font-display text-heading leading-tight break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
  {job.company && companyHref && (
  <button
@@ -960,7 +960,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  </details>
  </div>
 

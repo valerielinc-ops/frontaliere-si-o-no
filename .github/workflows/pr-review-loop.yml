@@ -404,27 +404,61 @@ jobs:
           #
           # `.files // []` da solo non basta: toglie il crash ma lascia una
           # lista vuota, cioè il tier deciso al buio proprio sulla PR più
-          # grande. Il fallback REST invece qualcosa lo restituisce sempre.
-          # Misurato su #6175: 100 file e NESSUN header `Link` — su un diff
-          # così grande GitHub tronca la lista e non offre pagine successive,
-          # quindi `--paginate` non è un di più ma non basta a completarla.
-          # Il tier finisce deciso su un campione, ed è accettabile per
-          # costruzione: questa lista serve SOLO a scegliere tier e budget, la
-          # review vera legge il diff per conto suo. Meglio un tier su un
-          # campione che nessuna review affatto.
+          # grande. Ma il `null` è solo UNA delle due modalità degradate, e la
+          # #6190 keyava il fallback sulla sola lista vuota. `--json files`
+          # chiede la connection `files(first: 100)` e NON pagina, quindi:
+          #
+          #   <= 100     completa
+          #   101..N     TRONCATA a 100, alfabetica, exit 0, NON vuota
+          #   oversize   `.files: null`
+          #
+          # Misurato il 2026-08-20: #6121 changedFiles=183 → GraphQL 100, REST
+          # `--paginate` 183/183 con header `Link`; #6175 → GraphQL null, REST
+          # 100 senza `Link`. Nella banda di mezzo la REST è COMPLETA: il
+          # campione non è un male necessario, era una chiamata non fatta. E il
+          # taglio è alfabetico, quindi cade la coda (`scripts/`, `services/`,
+          # `src/`, `tests/`) — quasi tutto il funnel-critical.
+          #
+          # `changedFiles` è l'oracolo che dice se l'elenco è completo, e separa
+          # una PR rebase-only (0 file davvero) da un diff oversize (0
+          # dichiarato, file veri): `.files // []` li appiattisce entrambi su
+          # lista vuota.
+          expected=$(gh pr view "$PR_NUMBER" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null || echo 0)
+          # `expected` alimenta confronti aritmetici: un valore non numerico
+          # (gh muto, campo assente) farebbe fallire `[ -gt ]` e, sotto `set -e`,
+          # rimetterebbe lo step esattamente nello stallo che la #6190 chiudeva.
+          case "$expected" in ''|*[!0-9]*) expected=0 ;; esac
           files=$(gh pr view "$PR_NUMBER" --json files --jq '.files // [] | .[].path' 2>/dev/null || true)
-          if [ -z "$files" ]; then
-            files=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || true)
-            if [ -n "$files" ]; then
-              echo "GraphQL file list nulla → fallback REST: $(printf '%s\n' "$files" | grep -c .) file (lista possibilmente troncata)."
+          count=$(printf '%s\n' "$files" | grep -c . || true)
+          if [ -z "$files" ] || [ "$count" -ge 100 ] || [ "$count" -lt "$expected" ]; then
+            rest=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || true)
+            rest_count=$(printf '%s\n' "$rest" | grep -c . || true)
+            if [ "$rest_count" -gt "$count" ]; then
+              files="$rest"; count="$rest_count"
+              echo "GraphQL tronca/nulla → fallback REST: $count file (attesi $expected)."
             fi
           fi
+          files_complete=1
+          if [ "$expected" -gt 0 ] && [ "$count" -lt "$expected" ]; then files_complete=0; fi
+          if [ "$expected" -eq 0 ] && [ "$count" -gt 0 ]; then files_complete=0; fi
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
           # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
           # scatta.
           if [ -z "$files" ]; then
             echo "Empty file list (rebase-only or empty PR)."
             set_tier normal claude-sonnet-5 35
+            exit 0
+          fi
+          # Elenco incompleto: il tier NON si decide su un campione. Senza questo
+          # guard il degrado non è monotono e può finire SOTTO la baseline che il
+          # fallback voleva alzare: bastano >100 file non-code in testa
+          # all'alfabeto (`data/`, `public/`) perché `code_files` esca vuoto, il
+          # ramo `minimal` dichiari «no reviewable code touched» — falso — e una
+          # PR che tocca `scripts/` o `src/` passi con 12 turni, senza
+          # adversarial check, chiudendo con `## LGTM` e auto-merge.
+          if [ "$files_complete" != "1" ]; then
+            echo "Elenco file INCOMPLETO ($count/$expected) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            set_tier high claude-sonnet-5 60
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
@@ -599,8 +633,16 @@ jobs:
         run: |
           set -uo pipefail
           mkdir -p "$CTX_DIR"
-          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,labels,files > "$CTX_DIR/pr.json" \
+          # `files` esce dal payload GraphQL: è il campo che mente (null sopra il
+          # diff oversize, troncato a 100 sopra i 100 file — vedi lo step tier).
+          # Il reviewer legge `pr.json` e ha l'ordine esplicito di NON rieseguire
+          # `gh pr view`, quindi si sarebbe fidato di una lista corta senza
+          # potersene accorgere. L'elenco vero sta in `files.txt`, dalla REST che
+          # in quella banda pagina davvero.
+          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,labels > "$CTX_DIR/pr.json" \
             || echo '{}' > "$CTX_DIR/pr.json"
+          gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+            > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
           gh pr diff "$PR_NUMBER" --repo "$REPO" \
             --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
             --exclude '_newsletter_variants/**' --exclude 'docs/**' \
@@ -659,14 +701,14 @@ jobs:
           prompt: |
             Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
-            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) `gh pr view $PR_NUMBER --json title,body,files`; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; un bullet che dichiara `per scelta` / `by construction` / `blocked: decisione del proprietario` **col motivo scritto dopo lo stato** è una voce CHIUSA: non chiederne l'implementazione, non è un finding; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
+            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) leggi `pr.json` e `files.txt` gia' prefetchati (NON `gh pr view --json files`: tronca a 100 in silenzio); (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; un bullet che dichiara `per scelta` / `by construction` / `blocked: decisione del proprietario` **col motivo scritto dopo lo stato** è una voce CHIUSA: non chiederne l'implementazione, non è un finding; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
 
             **Disciplina turni (budget rigido, tutti i tier eccetto `minimal`):** hai un budget di ${{ steps.tier.outputs.max_turns }} turni. Un messaggio con tool-call = 1 turno **indipendentemente da quanti tool_use contiene** — dati storici (112 morti `error_max_turns` analizzate su questo workflow, 2026-07-17) mostrano p50 ~20 turni contro un lavoro reale che ne richiederebbe ~10-12: la differenza è quasi tutta overhead meccanico, non ragionamento. Quindi: (1) probe indipendenti (grep/Read/gh su file diversi, verifiche non correlate) vanno emesse **in parallelo nello stesso messaggio**, mai una-per-turno; (2) `PR_NUMBER`/`HEAD_SHA`/`INCREMENTAL_BASE` sono già nell'env di questo prompt — mai spendere un turno su `env`/`printenv` per rileggerli; (3) il checkout NON ha `node_modules` installato — mai `npm`/`npx`/build/test runner, il verdetto si basa su lettura statica del diff, non su esecuzione; (4) **entro il turno $((${{ steps.tier.outputs.max_turns }} - 5))** DEVI aver postato la review — se a quel punto hai ancora verifiche aperte, postale come `❓ q:` (con l'escalation funnel-critical già normata sotto) invece di continuare a probeare: una review postata con un `❓` sblocca il loop, una review MAI postata brucia l'intero run senza verdetto (è successo in almeno un caso osservato: verdetto già formato al turno 22 su un cap di 25, morto al 26 senza mai postare).
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
             2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
-            3. Il contesto PR è già prefetchato (zero-Claude, prima che tu parta) in `${{ runner.temp }}/review-ctx/`: `pr.json` (`gh pr view --json title,body,labels,files`) e `diff.patch` (diff del SOLO code, stesso `--exclude` di sempre). **Leggili con `Read` — non rieseguire `gh pr view`/`gh pr diff`**, è lo stesso identico output e rifarlo brucia turni di setup. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
+            3. Il contesto PR è già prefetchato (zero-Claude, prima che tu parta) in `${{ runner.temp }}/review-ctx/`: `pr.json` (`gh pr view --json title,body,labels`), `files.txt` (elenco file COMPLETO dalla REST paginata — `gh pr view --json files` tronca a 100 e non paginare e' il difetto della #6190) e `diff.patch` (diff del SOLO code, stesso `--exclude` di sempre). **Leggili con `Read` — non rieseguire `gh pr view`/`gh pr diff`**, è lo stesso identico output e rifarlo brucia turni di setup. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
 
             **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Il delta dei file code dall'ultima review è già prefetchato in `${{ runner.temp }}/review-ctx/delta.patch` — **leggilo con `Read`, non rieseguire la `gh api compare`** (rifarla turno-per-turno era il primo consumatore di setup-turni osservato). Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
 

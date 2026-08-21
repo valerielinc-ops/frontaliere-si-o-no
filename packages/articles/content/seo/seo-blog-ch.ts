@@ -46547,6 +46547,747 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-sciaffusa-mutuo': {
+    title: 'Comprare casa Sciaffusa: prezzi, mutuo e imposte',
+    description: 'Guida all\'acquisto immobiliare nel canton Sciaffusa: fondi propri, mutuo ipotecario, imposta sui trapassi, spese notarili e procedura completa step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, sciaffusa, prezzi',
+    ogTitle: 'Comprare casa Sciaffusa: mutuo e imposte 2026',
+    ogDescription: 'Acquistare casa nel canton Sciaffusa? Scopri i requisiti del mutuo ipotecario, imposte dovute (trapassi, federale, cantonale), spese notarili e fondi propri necessari. Guida operativa con procedura step-by-step per compratori.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-sciaffusa-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Sciaffusa: prezzi, mutuo e imposte",
+      "description": "Guida all'acquisto immobiliare nel canton Sciaffusa: fondi propri, mutuo ipotecario, imposta sui trapassi, spese notarili e procedura completa step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-sciaffusa-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in paesaggio alpino svizzero con veduta sul territorio."
+      },
+      "datePublished": "2026-08-20T18:36:04+00:00",
+      "dateModified": "2026-08-20T18:36:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-sciaffusa-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-sciaffusa-cauzione-disdetta-conciliazione': {
+    title: 'Affitti Sciaffusa: cauzione, disdetta e conciliazione',
+    description: 'Deposito cauzionale max 3 mesi, disdetta su modulo cantonale, contestazione entro 30 giorni: le norme federali di locazione a Sciaffusa spiegate in dettaglio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, cauzione, disdetta',
+    ogTitle: 'Affitti Sciaffusa: cauzione, disdetta e conciliazione',
+    ogDescription: 'Nel Canton Sciaffusa gli affitti seguono le norme federali di locazione. Scopri deposito cauzionale (max 3 mesi pigione), disdetta e procedura di conciliazione per contestare canoni ingiustificati.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-cauzione-disdetta-conciliazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: cauzione, disdetta e conciliazione",
+      "description": "Deposito cauzionale max 3 mesi, disdetta su modulo cantonale, contestazione entro 30 giorni: le norme federali di locazione a Sciaffusa spiegate in dettaglio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-cauzione-disdetta-conciliazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali e proprietà in affitto nel Canton Sciaffusa"
+      },
+      "datePublished": "2026-08-20T19:41:32+00:00",
+      "dateModified": "2026-08-20T19:41:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-cauzione-disdetta-conciliazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquisire-casa-sciaffusa-mutuo-fiscale': {
+    title: 'Comprare casa canton Sciaffusa: prezzi e mutuo',
+    description: 'Guida all\'acquisto di abitazioni nel Cantone Sciaffusa. Requisiti di fondi propri, sostenibilità del mutuo ipotecario, tassazione cantonale e procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, sciaffusa',
+    ogTitle: 'Comprare casa Sciaffusa: prezzi, mutuo, tassazione',
+    ogDescription: 'Scopri come comprare casa nel Canton Sciaffusa. Guida completa su fondi propri richiesti (20%), test sostenibilità mutuo, tassazione cantonale, imposta sui trapassi, e procedura notarile fino alla registrazione catastale.',
+    canonicalPath: '/articoli-svizzera/acquisire-casa-sciaffusa-mutuo-fiscale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa canton Sciaffusa: prezzi e mutuo",
+      "description": "Guida all'acquisto di abitazioni nel Cantone Sciaffusa. Requisiti di fondi propri, sostenibilità del mutuo ipotecario, tassazione cantonale e procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisire-casa-sciaffusa-mutuo-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una tradizionale casa svizzera con giardino e montagne sullo sfondo nel cantone della Svizzera nordorientale."
+      },
+      "datePublished": "2026-08-20T20:08:39+00:00",
+      "dateModified": "2026-08-20T20:08:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisire-casa-sciaffusa-mutuo-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-sciaffusa-cauzione-disdetta': {
+    title: 'Affitti Sciaffusa: deposito cauzione e diritto di locazione',
+    description: 'Nel canton Sciaffusa il diritto di locazione è regolato dalla legge federale. Ecco cosa sapere su deposito cauzionale, disdetta e contestazione del canone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, deposito, cauzione',
+    ogTitle: 'Affitti Sciaffusa: deposito cauzione e diritto',
+    ogDescription: 'Nel canton Sciaffusa il diritto di locazione è regolato dalla legge federale. Ecco cosa sapere su deposito cauzionale, disdetta e contestazione del canone.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-cauzione-disdetta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: deposito cauzione e diritto di locazione",
+      "description": "Nel canton Sciaffusa il diritto di locazione è regolato dalla legge federale. Ecco cosa sapere su deposito cauzionale, disdetta e contestazione del canone.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-cauzione-disdetta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di edificio residenziale con balconi in una città svizzera, vista urbana di qualità immobiliare."
+      },
+      "datePublished": "2026-08-20T20:49:52+00:00",
+      "dateModified": "2026-08-20T20:49:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-cauzione-disdetta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-affitti-schiaffusa': {
+    title: 'Mercato degli affitti a Sciaffusa: cauzione e diritto di locazione',
+    description: 'Il mercato degli affitti a Sciaffusa è regolato dal codice civile svizzero. La cauzione è vincolata su conto intestato all\'inquilino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, sciaffusa, cauzione',
+    ogTitle: 'Mercato degli affitti a Sciaffusa: cauzione e diritto di locazione',
+    ogDescription: 'Il mercato degli affitti a Sciaffusa è regolato dal codice civile svizzero. La cauzione è vincolata su conto intestato all\'inquilino.',
+    canonicalPath: '/articoli-svizzera/mercato-affitti-schiaffusa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato degli affitti a Sciaffusa: cauzione e diritto di locazione",
+      "description": "Il mercato degli affitti a Sciaffusa è regolato dal codice civile svizzero. La cauzione è vincolata su conto intestato all'inquilino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-affitti-schiaffusa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sciaffusa, mercato degli affitti, cauzione, diritto di locazione"
+      },
+      "datePublished": "2026-08-20T21:06:12+00:00",
+      "dateModified": "2026-08-20T21:06:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-affitti-schiaffusa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-sciaffusa-diritto-locazione': {
+    title: 'Affitti Sciaffusa: canoni, cauzione e diritto di locazione',
+    description: 'Guida completa al diritto della locazione nel cantone di Sciaffusa: deposito cauzionale, disdetta legale, contestazione canone e procedura conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, sciaffusa, canoni, cauzione',
+    ogTitle: 'Affitti Sciaffusa: canoni, cauzione e diritto di locazione',
+    ogDescription: 'Scopri le regole federali svizzere sulla locazione: come funziona il deposito cauzionale, la disdetta con modulo ufficiale, come contestare un canone presso l\'autorità di conciliazione nel cantone di Sciaffusa.',
+    canonicalPath: '/articoli-svizzera/affitti-sciaffusa-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Sciaffusa: canoni, cauzione e diritto di locazione",
+      "description": "Guida completa al diritto della locazione nel cantone di Sciaffusa: deposito cauzionale, disdetta legale, contestazione canone e procedura conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-sciaffusa-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno di un edificio residenziale moderno in Svizzera con finestre chiare e architettura pulita"
+      },
+      "datePublished": "2026-08-20T21:25:50+00:00",
+      "dateModified": "2026-08-20T21:25:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-sciaffusa-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-sciaffusa-cassa': {
+    title: 'AVS e prestazioni complementari Sciaffusa | Frontaliere Ticino',
+    description: 'La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, sciaffusa, cassa',
+    ogTitle: 'AVS e prestazioni complementari Sciaffusa',
+    ogDescription: 'La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-sciaffusa-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari Sciaffusa",
+      "description": "La cassa di compensazione cantonale gestisce il calcolo della rendita AVS e accesso alle prestazioni complementari nel Canton Sciaffusa, garantendo il minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-sciaffusa-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del paesaggio svizzero con vista sulle montagne alpine della Svizzera settentrionale"
+      },
+      "datePublished": "2026-08-20T22:04:59+00:00",
+      "dateModified": "2026-08-20T22:04:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-sciaffusa-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-donazione-sciaffusa': {
+    title: 'Imposta successione e donazione Sciaffusa: aliquote',
+    description: 'Scopri aliquote, esenzioni per coniuge e discendenti, procedure e termini per l\'imposta di successione nel canton Sciaffusa. Guida completa per eredi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, sciaffusa',
+    ogTitle: 'Imposta successione e donazione Sciaffusa: aliquote',
+    ogDescription: 'Nel canton Sciaffusa le imposte su successioni e donazioni seguono regole cantonali specifiche. Scopri aliquote per grado di parentela, esenzioni per coniuge e figli, procedure di dichiarazione e termini da rispettare. Guida pratica e completa',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-sciaffusa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione e donazione Sciaffusa: aliquote",
+      "description": "Scopri aliquote, esenzioni per coniuge e discendenti, procedure e termini per l'imposta di successione nel canton Sciaffusa. Guida completa per eredi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-donazione-sciaffusa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un consulente esamina documenti di successione in un ufficio svizzero del canton Sciaffusa"
+      },
+      "datePublished": "2026-08-20T22:44:06+00:00",
+      "dateModified": "2026-08-20T22:44:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-sciaffusa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-appenzello-esterno-riduzione': {
+    title: 'Premi LAMal Appenzello Esterno e riduzione premi',
+    description: 'Guida ai premi LAMal nel Cantone di Appenzello Esterno: franchigie, modelli assicurativi disponibili, sussidi cantonali e procedura per richiedere la riduzione',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, appenzello, esterno',
+    ogTitle: 'Premi LAMal Appenzello Esterno e riduzione premi',
+    ogDescription: 'Guida ai premi LAMal nel Cantone di Appenzello Esterno: franchigie, modelli assicurativi disponibili, sussidi cantonali e procedura per richiedere la riduzione basata su reddito.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-appenzello-esterno-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Appenzello Esterno e riduzione premi",
+      "description": "Guida ai premi LAMal nel Cantone di Appenzello Esterno: franchigie, modelli assicurativi disponibili, sussidi cantonali e procedura per richiedere la riduzione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-appenzello-esterno-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale svizzero con personale che assiste residente per documentazione riduzione premi LAMal"
+      },
+      "datePublished": "2026-08-20T23:06:24+00:00",
+      "dateModified": "2026-08-20T23:06:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-appenzello-esterno-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-centrale-nucleare-costi-14-43-miliardi': {
+    title: 'Nuovo impianto nucleare: da 14 a 43 miliardi di franchi',
+    description: 'Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, impianto, nucleare, miliardi',
+    ogTitle: 'Nuovo impianto nucleare: da 14 a 43 miliardi di franchi',
+    ogDescription: 'Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.',
+    canonicalPath: '/articoli-svizzera/centrale-nucleare-costi-14-43-miliardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo impianto nucleare: da 14 a 43 miliardi di franchi",
+      "description": "Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrale-nucleare-costi-14-43-miliardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di una centrale nucleare svizzera con torri di raffreddamento e paesaggio alpino sullo sfondo"
+      },
+      "datePublished": "2026-08-20T23:22:00+00:00",
+      "dateModified": "2026-08-20T23:22:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centrale-nucleare-costi-14-43-miliardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-franchigie-appenzello-esterno': {
+    title: 'Premi cassa malati Appenzello Esterno: franchigie e sussidi',
+    description: 'Come funziona l\'assicurazione malattia in Appenzello Esterno: franchigie disponibili, modelli di copertura e procedure per accedere ai sussidi sui premi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, appenzello',
+    ogTitle: 'Premi cassa malati Appenzello Esterno: franchigie',
+    ogDescription: 'Come funziona l\'assicurazione malattia in Appenzello Esterno: franchigie disponibili, modelli di copertura e procedure per accedere ai sussidi sui premi.',
+    canonicalPath: '/articoli-svizzera/premi-franchigie-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Appenzello Esterno: franchigie e sussidi",
+      "description": "Come funziona l'assicurazione malattia in Appenzello Esterno: franchigie disponibili, modelli di copertura e procedure per accedere ai sussidi sui premi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-franchigie-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo cantonale svizzero che rappresenta i servizi sanitari regionali"
+      },
+      "datePublished": "2026-08-21T00:08:39+00:00",
+      "dateModified": "2026-08-21T00:08:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-franchigie-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-dimora-b-appenzello-esterno': {
+    title: 'Permesso di dimora B Appenzello Esterno: requisiti e rinnovo',
+    description: 'Guida al permesso B svizzero ad Appenzello Esterno: requisiti, documenti, durata, procedura di rinnovo e ufficio della migrazione cantonale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, appenzello, esterno',
+    ogTitle: 'Permesso di dimora B Appenzello Esterno: requisiti e rinnovo',
+    ogDescription: 'Procedura completa per richiedere e rinnovare il permesso di dimora B in Svizzera: documentazione necessaria, durata, e come rivolgersi all\'ufficio della migrazione di Appenzello Esterno.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B Appenzello Esterno: requisiti e rinnovo",
+      "description": "Guida al permesso B svizzero ad Appenzello Esterno: requisiti, documenti, durata, procedura di rinnovo e ufficio della migrazione cantonale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione cantonale svizzero: sportello con personale che assiste un richiedente con documentazione per il permesso di dimora."
+      },
+      "datePublished": "2026-08-21T00:16:38+00:00",
+      "dateModified": "2026-08-21T00:16:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-c-appenzello-esterno-domanda': {
+    title: 'Permesso C Appenzello Esterno: requisiti e domanda',
+    description: 'Guida ai requisiti, tempi di residenza, criteri di integrazione e procedura di domanda per il permesso di domicilio C nel canton Appenzello Esterno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, appenzello, esterno, requisiti',
+    ogTitle: 'Permesso C Appenzello Esterno: tutto sulla domanda',
+    ogDescription: 'Scopri i requisiti di residenza, i criteri di integrazione linguistica e la procedura per richiedere il permesso di domicilio C nel canton Appenzello Esterno. Guida step-by-step ai tempi, documenti e esame della domanda.',
+    canonicalPath: '/articoli-svizzera/permesso-c-appenzello-esterno-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Appenzello Esterno: requisiti e domanda",
+      "description": "Guida ai requisiti, tempi di residenza, criteri di integrazione e procedura di domanda per il permesso di domicilio C nel canton Appenzello Esterno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-appenzello-esterno-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero durante l'elaborazione di una domanda di permesso di residenza C"
+      },
+      "datePublished": "2026-08-21T00:38:18+00:00",
+      "dateModified": "2026-08-21T00:38:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-appenzello-esterno-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-l-cantone-appenzello-validita': {
+    title: 'Permesso L Appenzello Esterno: validità e rinnovo',
+    description: 'Permesso L di breve durata in Appenzello Esterno: durata 12 mesi, criteri rinnovo, passaggio a permesso B, vincoli datore lavoro. Guida pratica per datori',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, appenzello, esterno, validità',
+    ogTitle: 'Permesso L Appenzello Esterno: validità e rinnovo',
+    ogDescription: 'Scopri come funziona il permesso L in Appenzello Esterno: durata 12 mesi, criteri rinnovo, passaggio a permesso B, procedure SEM e autorità cantonali. Guida per datori e lavoratori stranieri.',
+    canonicalPath: '/articoli-svizzera/permesso-l-cantone-appenzello-validita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Appenzello Esterno: validità e rinnovo",
+      "description": "Permesso L di breve durata in Appenzello Esterno: durata 12 mesi, criteri rinnovo, passaggio a permesso B, vincoli datore lavoro. Guida pratica per datori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-cantone-appenzello-validita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio SEM per la gestione di permessi L di breve durata per lavoratori stranieri in Appenzello Esterno"
+      },
+      "datePublished": "2026-08-21T01:01:59+00:00",
+      "dateModified": "2026-08-21T01:01:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-cantone-appenzello-validita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assegni-familiari-appenzello-esterno': {
+    title: 'Assegni familiari Appenzello Esterno: importi e domanda',
+    description: 'Guida completa agli assegni familiari in Appenzello Esterno: come funziona il sistema federale-cantonale, condizioni di diritto, cassa di compensazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, appenzello, esterno',
+    ogTitle: 'Assegni familiari Appenzello Esterno: importi e domanda',
+    ogDescription: 'Guida completa agli assegni familiari in Appenzello Esterno: come funziona il sistema federale-cantonale, condizioni di diritto, cassa di compensazione e procedura di domanda.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Appenzello Esterno: importi e domanda",
+      "description": "Guida completa agli assegni familiari in Appenzello Esterno: come funziona il sistema federale-cantonale, condizioni di diritto, cassa di compensazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con documenti di assegni familiari su scrivania"
+      },
+      "datePublished": "2026-08-21T01:22:00+00:00",
+      "dateModified": "2026-08-21T01:22:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-custodia-appenzello-esterno': {
+    title: 'Asilo nido e custodia: costi in Appenzello Esterno',
+    description: 'Servizi di custodia nel canton Appenzello Esterno: tariffe progressive, sussidi cantonali, deduzioni fiscali e congedi parentali. Guida completa e pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, costi',
+    ogTitle: 'Custodia bambini Appenzello Esterno: tariffe, sussidi e deduzioni',
+    ogDescription: 'Scopri come funzionano gli asili nido, famiglie diurne e doposcuola nel canton Appenzello Esterno. Tariffe legate al reddito, sussidi cantonali e deduzioni fiscali per famiglie con bambini piccoli.',
+    canonicalPath: '/articoli-svizzera/asilo-custodia-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia: costi in Appenzello Esterno",
+      "description": "Servizi di custodia nel canton Appenzello Esterno: tariffe progressive, sussidi cantonali, deduzioni fiscali e congedi parentali. Guida completa e pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-custodia-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambini che giocano all'aperto presso una struttura di custodia svizzera con vista su montagne alpine"
+      },
+      "datePublished": "2026-08-21T01:51:49+00:00",
+      "dateModified": "2026-08-21T01:51:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-custodia-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casa-appenzello-esterno-acquisto-mutuo': {
+    title: 'Comprare casa Appenzello Esterno: mutuo, prezzi e tasse',
+    description: 'Guida all\'acquisto di abitazioni ad Appenzello Esterno: sostenibilità mutuo, fondi propri, imposta sui trapassi, spese notarili e procedure pratiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, appenzello, esterno',
+    ogTitle: 'Comprare casa Appenzello Esterno: guida al mutuo ipotecario',
+    ogDescription: 'Scopri come comprare casa ad Appenzello Esterno: valutazione sostenibilità mutuo, fondi propri minimi (20%), tassa di trasferimento cantonale, spese notarili e step-by-step per l\'acquisto immobiliare in Svizzera.',
+    canonicalPath: '/articoli-svizzera/casa-appenzello-esterno-acquisto-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Appenzello Esterno: mutuo, prezzi e tasse",
+      "description": "Guida all'acquisto di abitazioni ad Appenzello Esterno: sostenibilità mutuo, fondi propri, imposta sui trapassi, spese notarili e procedure pratiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-appenzello-esterno-acquisto-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa residenziale moderna in Svizzera orientale con documenti di mutuo ipotecario su scrivania"
+      },
+      "datePublished": "2026-08-21T02:05:16+00:00",
+      "dateModified": "2026-08-21T02:05:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-appenzello-esterno-acquisto-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-appenzello-esterno-mutui-tasse': {
+    title: 'Comprare casa nel canton Appenzello Esterno: mutui e tasse',
+    description: 'Acquisto immobiliare nel canton Appenzello Esterno: guida alle procedure, imposte cantonali e comunali, mutui ipotecari, spese notarili e sostenibilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, appenzello',
+    ogTitle: 'Comprare casa nel canton Appenzello Esterno: mutui e tasse',
+    ogDescription: 'Scopri come acquistare una proprietà nel canton Appenzello Esterno: analisi dei costi (imposte, mutui, spese notarili), procedure legali, calcolo della capacità di prestito e sostenibilità finanziaria per nuovi residenti.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-appenzello-esterno-mutui-tasse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel canton Appenzello Esterno: mutui e tasse",
+      "description": "Acquisto immobiliare nel canton Appenzello Esterno: guida alle procedure, imposte cantonali e comunali, mutui ipotecari, spese notarili e sostenibilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-appenzello-esterno-mutui-tasse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una casa e paesaggio rurale nel canton Appenzello Esterno, Svizzera nord-orientale."
+      },
+      "datePublished": "2026-08-21T02:21:53+00:00",
+      "dateModified": "2026-08-21T02:21:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-appenzello-esterno-mutui-tasse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-appenzello-esterno-canoni-locazione': {
+    title: 'Affitti ad Appenzello Esterno: canoni e diritto di locazione',
+    description: 'Diritto della locazione nel Cantone Appenzello Esterno: deposito cauzionale massimo 3 mesi, disdetta su modulo ufficiale, contestazione entro 30 giorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, appenzello, esterno, canoni',
+    ogTitle: 'Affitti ad Appenzello Esterno: norme federali e diritti dell\'inquilino',
+    ogDescription: 'Scopri le norme federali sulla locazione nel Cantone Appenzello Esterno: deposito cauzionale massimo 3 mesi, disdetta su modulo cantonale, contestazione entro 30 giorni. Tutte le procedure e scadenze pratiche.',
+    canonicalPath: '/articoli-svizzera/affitti-appenzello-esterno-canoni-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti ad Appenzello Esterno: canoni e diritto di locazione",
+      "description": "Diritto della locazione nel Cantone Appenzello Esterno: deposito cauzionale massimo 3 mesi, disdetta su modulo ufficiale, contestazione entro 30 giorni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-appenzello-esterno-canoni-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada residenziale svizzera con edifici storici locatizi nel pomeriggio autunnale"
+      },
+      "datePublished": "2026-08-21T02:46:13+00:00",
+      "dateModified": "2026-08-21T02:46:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-appenzello-esterno-canoni-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

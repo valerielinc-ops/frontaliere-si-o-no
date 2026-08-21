@@ -4,6 +4,7 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
+import { campaignIdFromTags, tagValue } from './lib/mailerooRef.js';
 import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
@@ -61,12 +62,20 @@ function mapMailerooEvent(type) {
 
 // ── Extract identifiers from a Maileroo event ────────────────
 
+/**
+ * Maileroo echoes `tags` back in BOTH shapes depending on the event, and the
+ * array form was silently unhandled until 2026-08-20: the `!Array.isArray`
+ * guard below used to skip it and fall through to the message id, so every
+ * lifecycle send whose tags arrived as `[{name:'campaign_id', value:'...'}]`
+ * was filed under a raw message id instead of its campaign. Measured over
+ * 1-20 August 2026 that was 7.945 messages whose campaign could not be told
+ * from the event alone. campaignIdFromTags accepts both shapes; the fallback
+ * to the message id stays, because an event with no campaign tag at all still
+ * needs a stable key.
+ */
 function extractCampaignId(event) {
-  const tags = event.tags || {};
-  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
-    if (tags.campaign_id) return String(tags.campaign_id);
-    if (tags.campaign) return String(tags.campaign);
-  }
+  const fromTags = campaignIdFromTags(event.tags);
+  if (fromTags) return fromTags;
   return event.message_reference_id || event.message_id || 'unknown';
 }
 
@@ -75,12 +84,27 @@ function getRecipient(event) {
   return normalizeEmailAddress(data.to || event.to);
 }
 
+/**
+ * The twin of extractCampaignId's array-tags defect, left behind by #6195.
+ *
+ * Maileroo echoes `tags` back in two shapes, and this function used to carry the
+ * same `!Array.isArray` guard, which silently answered "not a job alert" for the
+ * array form — so a job-alert event whose tags arrived as
+ * `[{name:'type', value:'job-alert'}]` was routed to
+ * `newsletter_subscribers/{email}` instead of `job_alert_subscribers/{email}`.
+ * It now reads the tag through the shared `tagValue`, so the shape rule lives in
+ * one place and cannot be fixed in one reader and left broken in the other.
+ *
+ * It has been dormant rather than harmful: this heuristic only runs when the
+ * maileroo_refs lookup did not resolve (`isJobAlert = meta ? !!meta.is_job_alert
+ * : isJobAlertEvent(event)`), and since #6195 every sender writes that lookup.
+ * It is fixed anyway because it is the same defect class in the same file, and
+ * a fallback that is wrong only when the primary path fails is the worst kind
+ * to leave standing.
+ */
 function isJobAlertEvent(event) {
-  const tags = event.tags || {};
-  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
-    return tags.type === 'job-alert' || tags.type === 'job-alert-retry';
-  }
-  return false;
+  const type = tagValue(event.tags, 'type');
+  return type === 'job-alert' || type === 'job-alert-retry';
 }
 
 function getOccurredAt(event) {

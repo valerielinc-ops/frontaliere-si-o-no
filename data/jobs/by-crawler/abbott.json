@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abbott",
-  "assembledAt": "2026-08-20T09:45:51.229Z",
+  "assembledAt": "2026-08-20T21:32:53.216Z",
   "jobs": [
     {
       "id": "abbott-d2551ed36471",
@@ -33,7 +33,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Cloud-Architect_31138417",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:48.890Z",
+      "crawledAt": "2026-08-20T21:32:50.908Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -70,12 +70,14 @@
       "previousSlugs": [
         "cloud-architect-abbott-ch",
         "cloud-architect-abbott-basel",
-        "cloud-architekt-abbott-basel"
+        "cloud-architekt-abbott-basel",
+        "cloud-architetto-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cloud-architect-abbott-ch",
-          "cloud-architect-abbott-basel"
+          "cloud-architect-abbott-basel",
+          "cloud-architetto-abbott-basel"
         ],
         "en": [
           "cloud-architect-abbott-basel"
@@ -129,7 +131,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Cardiometabolic_31146564",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:48.172Z",
+      "crawledAt": "2026-08-20T21:32:50.180Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -178,11 +180,13 @@
       },
       "jobReqId": "31146564",
       "previousSlugs": [
-        "global-medical-director-cardiometabolic-abbott-ch"
+        "global-medical-director-cardiometabolic-abbott-ch",
+        "direttore-medico-globale-cardiometabolico-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-director-cardiometabolic-abbott-ch"
+          "global-medical-director-cardiometabolic-abbott-ch",
+          "direttore-medico-globale-cardiometabolico-abbott-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:33.997Z",
@@ -230,7 +234,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Gastroenterology_31146562",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:47.250Z",
+      "crawledAt": "2026-08-20T21:32:49.391Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -305,7 +309,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Quality-Engineer_31153258",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:46.508Z",
+      "crawledAt": "2026-08-20T21:32:48.618Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -325,12 +329,14 @@
       "previousSlugs": [
         "quality-engineer-abbott-ch",
         "quality-ingegnere-abbott-zurich",
-        "qualitat-ingenieur-abbott-zurich"
+        "qualitat-ingenieur-abbott-zurich",
+        "ingegnere-della-qualita-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quality-engineer-abbott-ch",
-          "quality-ingegnere-abbott-zurich"
+          "quality-ingegnere-abbott-zurich",
+          "ingegnere-della-qualita-abbott-zurich"
         ],
         "de": [
           "quality-engineer-abbott-ch",
@@ -385,7 +391,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Romandie_31154099",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:45.770Z",
+      "crawledAt": "2026-08-20T21:32:47.873Z",
       "addressLocality": "Remote",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -403,11 +409,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31154099",
       "previousSlugs": [
-        "medical-educator-romandie-abbott-ch"
+        "medical-educator-romandie-abbott-ch",
+        "insegnante-medico-romandie-abbott-remote"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-educator-romandie-abbott-ch"
+          "medical-educator-romandie-abbott-ch",
+          "insegnante-medico-romandie-abbott-remote"
         ],
         "de": [
           "medical-educator-romandie-abbott-ch"
@@ -459,7 +467,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Quality-Engineer_31154509",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:45.007Z",
+      "crawledAt": "2026-08-20T21:32:47.050Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -552,7 +560,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Bern---Bern/Field-Technical-Engineer-Applikationsspezialist-Elektrophysiologie---Region-Deutschschweiz_31154621",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:45:44.255Z",
+      "crawledAt": "2026-08-20T21:32:46.242Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -571,12 +579,14 @@
       "jobReqId": "31154621",
       "previousSlugs": [
         "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz",
-        "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz-abbott-bern"
+        "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz-abbott-bern",
+        "field-technical-ingegnere-applikationsspezialist-elektrophysiologie-region-deutschschweiz-abbott-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz",
-          "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz-abbott-bern"
+          "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz-abbott-bern",
+          "field-technical-ingegnere-applikationsspezialist-elektrophysiologie-region-deutschschweiz-abbott-bern"
         ],
         "fr": [
           "field-technical-engineer-applikationsspezialist-elektrophysiologie-region-deutschschweiz"
@@ -628,7 +638,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/XMLNAME--Senior--Electrical-Engineer_31155443",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:43.514Z",
+      "crawledAt": "2026-08-20T21:32:45.521Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -646,11 +656,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31155443",
       "previousSlugs": [
-        "senior-electrical-engineer-abbott-ch"
+        "senior-electrical-engineer-abbott-ch",
+        "senior-electrical-ingegnere-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-electrical-engineer-abbott-ch"
+          "senior-electrical-engineer-abbott-ch",
+          "senior-electrical-ingegnere-abbott-zurich"
         ],
         "de": [
           "senior-electrical-engineer-abbott-ch"
@@ -705,7 +717,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/EHS-Specialist_31155192",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:42.770Z",
+      "crawledAt": "2026-08-20T21:32:44.752Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -723,11 +735,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31155192",
       "previousSlugs": [
-        "ehs-specialist-abbott-ch"
+        "ehs-specialist-abbott-ch",
+        "ehs-specialista-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ehs-specialist-abbott-ch"
+          "ehs-specialist-abbott-ch",
+          "ehs-specialista-abbott-zurich"
         ],
         "de": [
           "ehs-specialist-abbott-ch"
@@ -781,7 +795,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Manager---Women-s-Health_31154466",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:42.053Z",
+      "crawledAt": "2026-08-20T21:32:44.022Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -799,11 +813,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31154466",
       "previousSlugs": [
-        "global-medical-manager-women-s-health-abbott-ch"
+        "global-medical-manager-women-s-health-abbott-ch",
+        "global-medical-manager-salute-delle-donne-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-manager-women-s-health-abbott-ch"
+          "global-medical-manager-women-s-health-abbott-ch",
+          "global-medical-manager-salute-delle-donne-abbott-basel"
         ],
         "de": [
           "global-medical-manager-women-s-health-abbott-ch"
@@ -858,7 +874,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Sr-Global-HEOR---Payer-Evidence-Lead_31156318",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:41.291Z",
+      "crawledAt": "2026-08-20T21:32:43.267Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -876,11 +892,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31156318",
       "previousSlugs": [
-        "sr-global-heor-payer-evidence-lead-abbott-ch"
+        "sr-global-heor-payer-evidence-lead-abbott-ch",
+        "responsabile-senior-globale-heor-e-evidenze-per-i-pagatori-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sr-global-heor-payer-evidence-lead-abbott-ch"
+          "sr-global-heor-payer-evidence-lead-abbott-ch",
+          "responsabile-senior-globale-heor-e-evidenze-per-i-pagatori-abbott-basel"
         ]
       },
       "firstSeenAt": "2026-07-15T22:12:57.696Z",
@@ -929,7 +947,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Business-Development-Manager--m-w-d--Neuromodulation---Schweiz_31156326",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T09:45:40.571Z",
+      "crawledAt": "2026-08-20T21:32:42.549Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -947,11 +965,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31156326",
       "previousSlugs": [
-        "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch"
+        "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch",
+        "business-development-manager-m-f-d-neuromodulazione-svizzera-abbott-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch"
+          "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch",
+          "business-development-manager-m-f-d-neuromodulazione-svizzera-abbott-baar"
         ],
         "fr": [
           "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch"
@@ -1002,7 +1022,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Analyst---People---Workforce-Analytics_31156643",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:39.867Z",
+      "crawledAt": "2026-08-20T21:32:41.658Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1020,11 +1040,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31156643",
       "previousSlugs": [
-        "senior-analyst-people-workforce-analytics-abbott-ch"
+        "senior-analyst-people-workforce-analytics-abbott-ch",
+        "senior-analista-people-workforce-analytics-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-analyst-people-workforce-analytics-abbott-ch"
+          "senior-analyst-people-workforce-analytics-abbott-ch",
+          "senior-analista-people-workforce-analytics-abbott-basel"
         ],
         "de": [
           "senior-analyst-people-workforce-analytics-abbott-ch"
@@ -1078,7 +1100,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Financial-Analyst--Procurement-TPM_31156930",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:38.906Z",
+      "crawledAt": "2026-08-20T21:32:40.920Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1096,11 +1118,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31156930",
       "previousSlugs": [
-        "senior-financial-analyst-procurement-tpm-abbott-ch"
+        "senior-financial-analyst-procurement-tpm-abbott-ch",
+        "senior-financial-analista-procurement-tpm-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-financial-analyst-procurement-tpm-abbott-ch"
+          "senior-financial-analyst-procurement-tpm-abbott-ch",
+          "senior-financial-analista-procurement-tpm-abbott-basel"
         ],
         "fr": [
           "senior-financial-analyst-procurement-tpm-abbott-ch"
@@ -1151,7 +1175,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Germany---Neustadt-am-Rbenberge/Director-Civil---Constructions-Engineering-Capital-Projects--m-f-d-_31156466",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:38.177Z",
+      "crawledAt": "2026-08-20T21:32:40.197Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1169,11 +1193,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31156466",
       "previousSlugs": [
-        "director-civil-constructions-engineering-capital-projects-m-f-d-abbott-ch"
+        "director-civil-constructions-engineering-capital-projects-m-f-d-abbott-ch",
+        "direttore-civil-constructions-engineering-capital-projects-m-f-d-abbott-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-civil-constructions-engineering-capital-projects-m-f-d-abbott-ch"
+          "director-civil-constructions-engineering-capital-projects-m-f-d-abbott-ch",
+          "direttore-civil-constructions-engineering-capital-projects-m-f-d-abbott-basel"
         ],
         "de": [
           "director-civil-constructions-engineering-capital-projects-m-f-d-abbott-ch"
@@ -1225,7 +1251,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Manager--Int-l-Health-Systems-Integrations_35000065",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:37.401Z",
+      "crawledAt": "2026-08-20T21:32:39.416Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1243,11 +1269,13 @@
       "requirementsByLocale": {},
       "jobReqId": "35000065",
       "previousSlugs": [
-        "manager-int-l-health-systems-integrations-abbott-ch"
+        "manager-int-l-health-systems-integrations-abbott-ch",
+        "manager-integrazioni-di-sistemi-sanitari-abbott-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-int-l-health-systems-integrations-abbott-ch"
+          "manager-int-l-health-systems-integrations-abbott-ch",
+          "manager-integrazioni-di-sistemi-sanitari-abbott-baar"
         ],
         "de": [
           "manager-int-l-health-systems-integrations-abbott-ch"
@@ -1302,7 +1330,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Commercial-Training-Manager-Austria---Switzerland--m-f-d-_31158062",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:36.679Z",
+      "crawledAt": "2026-08-20T21:32:38.638Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1320,11 +1348,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31158062",
       "previousSlugs": [
-        "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch"
+        "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch",
+        "responsabile-della-formazione-commerciale-austria-svizzera-m-f-d-abbott-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch"
+          "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch",
+          "responsabile-della-formazione-commerciale-austria-svizzera-m-f-d-abbott-baar"
         ],
         "de": [
           "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch"
@@ -1378,7 +1408,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Country-Manager-Structural-Heart-Switzerland_31158803",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:35.978Z",
+      "crawledAt": "2026-08-20T21:32:37.937Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1396,11 +1426,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31158803",
       "previousSlugs": [
-        "country-manager-structural-heart-switzerland-abbott-ch"
+        "country-manager-structural-heart-switzerland-abbott-ch",
+        "direttore-nazionale-cuore-strutturale-svizzera-abbott-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "country-manager-structural-heart-switzerland-abbott-ch"
+          "country-manager-structural-heart-switzerland-abbott-ch",
+          "direttore-nazionale-cuore-strutturale-svizzera-abbott-baar"
         ],
         "de": [
           "country-manager-structural-heart-switzerland-abbott-ch"
@@ -1455,7 +1487,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-NPI-Engineer_31154974-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:35.283Z",
+      "crawledAt": "2026-08-20T21:32:37.136Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1473,11 +1505,13 @@
       "requirementsByLocale": {},
       "jobReqId": "31154974",
       "previousSlugs": [
-        "senior-npi-engineer-abbott-ch"
+        "senior-npi-engineer-abbott-ch",
+        "senior-npi-ingegnere-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-npi-engineer-abbott-ch"
+          "senior-npi-engineer-abbott-ch",
+          "senior-npi-ingegnere-abbott-zurich"
         ],
         "de": [
           "senior-npi-engineer-abbott-ch"
@@ -1531,7 +1565,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Territory-Manager-Heart-Failure-CardioMEMS---German-speaking-Switzerland_31158074",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:45:34.543Z",
+      "crawledAt": "2026-08-20T21:32:36.345Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1548,6 +1582,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31158074",
+      "previousSlugs": [
+        "territory-manager-heart-failure-cardiomems-german-speaking-switzerland-abbott-ch",
+        "gestione-del-territorio-insufficienza-cardiaca-cardiomems-svizzera-tedesca-abbott-baar-a5ff27"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "territory-manager-heart-failure-cardiomems-german-speaking-switzerland-abbott-ch",
+          "gestione-del-territorio-insufficienza-cardiaca-cardiomems-svizzera-tedesca-abbott-baar-a5ff27"
+        ],
+        "fr": [
+          "territory-manager-heart-failure-cardiomems-german-speaking-switzerland-abbott-ch"
+        ]
+      },
       "firstSeenAt": "2026-08-19T09:46:39.029Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -1560,18 +1607,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "territory-manager-heart-failure-cardiomems-german-speaking-switzerland-abbott-ch"
-        ],
-        "fr": [
-          "territory-manager-heart-failure-cardiomems-german-speaking-switzerland-abbott-ch"
-        ]
-      },
-      "previousSlugs": [
-        "territory-manager-heart-failure-cardiomems-german-speaking-switzerland-abbott-ch"
-      ]
+      }
     }
   ]
 }

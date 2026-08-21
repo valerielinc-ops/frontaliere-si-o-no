@@ -77,12 +77,17 @@ export default function EmployerHubCta({ company, companyKey = null, locale }: E
     <a
       href={employerHub.href}
       onClick={() => Analytics.trackSelectContent('employer_hub_open', employerHub.slug)}
-      className="mt-3 flex items-center gap-2.5 rounded-xl border border-accent-border bg-accent-subtle px-3.5 py-3 min-h-[44px] text-sm font-semibold text-accent hover:bg-accent-subtle/70 transition-colors"
+      // Denser below `sm`: at 390px this box was 64-84px tall (the anchor
+      // wraps to two lines on any employer with a long name) and it sits
+      // between the title block and the follow CTA, so every pixel here is a
+      // pixel of the ad itself pushed under the fold. Padding, type scale and
+      // leading tighten together; the 44px touch target is untouched.
+      className="mt-3 flex items-center gap-2 sm:gap-2.5 rounded-xl border border-accent-border bg-accent-subtle px-3 py-2 sm:px-3.5 sm:py-3 min-h-[44px] text-[13px] sm:text-sm font-semibold leading-snug text-accent hover:bg-accent-subtle/70 transition-colors"
     >
       <Building2 size={16} className="shrink-0" aria-hidden="true" />
       <span className="min-w-0 flex-1">
         {employerHubAnchor(company, locale)}
-        <span className="block text-xs font-normal text-subtle mt-0.5">
+        <span className="block text-[11px] sm:text-xs font-normal text-subtle mt-0.5">
           {employerOpenRolesLabel(employerHub.activeJobs, locale)}
         </span>
       </span>

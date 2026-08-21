@@ -26,6 +26,7 @@
 
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { sendEmailCascade, isProviderConfigured } from './emailCascade.js';
@@ -262,7 +263,18 @@ export async function handleSendCalculatorReport({
     },
     recipient: { email: normalizedEmail },
     meta: {},
-  }], { forceProvider: 'resend' });
+  }], {
+    forceProvider: 'resend',
+    // A no-op while `forceProvider: 'resend'` stands — recordMailerooRef exits
+    // on any provider but Maileroo. It is wired anyway because that flag is the
+    // only thing keeping this sender off Maileroo, and dropping it would
+    // otherwise take this channel's opens and clicks with it, silently. See
+    // functions/src/lib/mailerooRef.js.
+    onSent: makeMailerooRefOnSent(async () => db, {
+      defaultCampaignId: src,
+      isJobAlert: false,
+    }),
+  });
 
   if (failed.length > 0) {
     console.error('[sendCalculatorReport] send error:', failed[0].error);

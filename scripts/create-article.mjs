@@ -2011,16 +2011,30 @@ function getSectionExistingIds(slugDataSrc) {
  * across sections, so a new id colliding with one from the sibling section
  * would silently override that page's canonical / structured-data. Dedup must
  * therefore be GLOBAL — this is what makes the "ids never collide across
- * sections" invariant true. Sibling files are read fresh, tolerated-empty.
+ * sections" invariant true.
+ *
+ * Cache per-processo (issue #5849 item 2 — stesso antipattern di
+ * `loadAllSectionSourceUrls`, sibling nella stessa hot loop di
+ * `isSourceUrlAlreadyUsed`): questa funzione rilegge+ri-regexa ENTRAMBI
+ * `services/routerBlogData.ts` e `services/routerSwissData.ts` (~1,2MB
+ * insieme) a OGNI chiamata — non solo una volta per headline nel pre-filtro,
+ * ma anche una volta per `selectArticle`/`callGemini`/registrazione slug.
+ * Misurato sui file reali: ~4ms/chiamata, quindi ~2s anche a un pool di 500
+ * headline. Sibling files invalidati da `modifyRouterTs()`, l'unico
+ * scrittore, cosi' una lettura successiva alla registrazione di un nuovo id
+ * in questo stesso processo vede comunque dati freschi.
  */
+let _allArticleIdsCache = null;
 function getAllArticleIds() {
+  if (_allArticleIdsCache) return _allArticleIdsCache;
   const ids = new Set();
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
     let src = '';
     try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
     for (const m of src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)) ids.add(m[2]);
   }
-  return [...ids];
+  _allArticleIdsCache = [...ids];
+  return _allArticleIdsCache;
 }
 
 /** Read the active section's IT meta source (blog-meta-it | blog-meta-ch-it). */
@@ -2106,10 +2120,25 @@ function loadSourceUrls() {
  *
  * `loadSourceUrls()` sopra apre `SECTION.sourceUrlsFile`, cioe' un file solo:
  * e' corretto per quota e registrazione, ed e' esattamente cio' che rendeva il
- * dedup della fonte cieco sull'altra sezione. Letti freschi a ogni chiamata e
- * tolleranti al file assente, come i lettori di registro qui accanto.
+ * dedup della fonte cieco sull'altra sezione.
+ *
+ * Cache per-processo (issue #5849 item 2): `isSourceUrlAlreadyUsed` la chiama
+ * per OGNI headline del pool pre-filtro (fino a centinaia per run) piu' una
+ * volta per ogni retry di decodifica Google News — senza cache ogni chiamata
+ * riapre e ri-parsa ENTRAMBI i file ledger. Misurato sui ledger reali
+ * (data/article-source-urls.json + data/swiss-article-source-urls.json,
+ * ~125KB insieme, cap 500 voci/sezione): ~0,25ms/chiamata, quindi ~120ms
+ * anche a un pool di 500 headline — contro un RUN_WALL_BUDGET_MS di decine di
+ * minuti e' <0,005% (il pool piu' grande osservato in produzione e' ~219
+ * headline). Trascurabile oggi, ma la cache lo rende O(1) per run invece di
+ * O(headline × sezioni) by construction, cosi' non torna a pesare se il pool
+ * o il numero di sezioni crescono. Invalidata da `saveSourceUrls()`, l'unico
+ * scrittore, cosi' una lettura successiva alla registrazione di una fonte in
+ * questo stesso processo vede comunque dati freschi.
  */
+let _allSectionSourceUrlsCache = null;
 function loadAllSectionSourceUrls() {
+  if (_allSectionSourceUrlsCache) return _allSectionSourceUrlsCache;
   const bySection = {};
   for (const [name, cfg] of Object.entries(ARTICLE_SECTION_CONFIGS)) {
     let map = {};
@@ -2119,6 +2148,7 @@ function loadAllSectionSourceUrls() {
     } catch { /* ledger assente, vuoto o non ancora scritto */ }
     bySection[name] = map;
   }
+  _allSectionSourceUrlsCache = bySection;
   return bySection;
 }
 
@@ -2130,6 +2160,10 @@ function saveSourceUrls(map) {
       ? Object.fromEntries(entries.slice(-500))
       : map;
     write(SOURCE_URLS_FILE, `${JSON.stringify(trimmed, null, 2)}\n`);
+    // Invalidate loadAllSectionSourceUrls()'s per-process cache: this section's
+    // ledger just changed on disk, a subsequent read in this same process must
+    // not serve the stale pre-write snapshot.
+    _allSectionSourceUrlsCache = null;
   } catch (e) {
     console.error(`  ⚠️  Impossibile salvare source URLs: ${e.message}`);
   }
@@ -8239,7 +8273,11 @@ async function generateArticleImage(data) {
       console.error(`  ⚠️ Immagine troppo piccola (${rawBuffer.length} bytes) da ${providerLabel}`);
       return null;
     }
-    const sourceExt = (contentType || '').includes('png') ? 'png' : (contentType || '').includes('webp') ? 'webp' : 'jpg';
+    const sourceExt = (contentType || '').includes('png') ? 'png'
+      : (contentType || '').includes('webp') ? 'webp'
+      : (contentType || '').includes('gif') ? 'gif'
+      : (contentType || '').includes('avif') ? 'avif'
+      : 'jpg';
     const tempPath = resolve(`public/images/blog/${data.id}.source.${sourceExt}`);
     writeFileSync(tempPath, rawBuffer);
     const rawKB = (rawBuffer.length / 1024).toFixed(0);
@@ -8913,6 +8951,10 @@ function modifyRouterTs(data) {
   }
 
   write(blogDataFile, blogSrc);
+  // Invalidate getAllArticleIds()'s per-process cache: this section just
+  // gained a new id on disk, a subsequent read in this same process must not
+  // serve the stale pre-write snapshot.
+  _allArticleIdsCache = null;
   console.error(`  ✅ ${blogDataFile}`);
 }
 

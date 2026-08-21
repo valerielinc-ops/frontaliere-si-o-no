@@ -510,23 +510,43 @@ step_push_cdn() {
   # once this push succeeds (see its job-canon phase).
   [ -d dist/job-canon ]    && cp -r dist/job-canon    "$stage/job-canon"
   [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
-  # Self-hosted brand/logo/author images (#1360) + nationwide events source
-  # images (#3125, mirrorEventImage -> public/images/events/): push from the
-  # git-tracked public/images/<dir> source to ${CDN}/images/<dir>, so the
-  # offload script (offload-generated-images-cdn.mjs IMAGE TARGETS) can
-  # rewrite the static HTML refs + the SPA's cdnImageUrl() runtime refs to the
-  # CDN and then delete the dist copies. MUST stay in sync with that script's
-  # TARGETS and services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES.
+  # Self-hosted brand/logo/author images (#1360): push from the git-tracked
+  # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script
+  # (offload-generated-images-cdn.mjs IMAGE TARGETS) can rewrite the static HTML
+  # refs + the SPA's cdnImageUrl() runtime refs to the CDN and then delete the
+  # dist copies. MUST stay in sync with that script's TARGETS and
+  # services/cdnImageBase.ts CDN_OFFLOADED_IMAGE_PREFIXES.
   # (/images/places is intentionally excluded — it stays same-origin.)
-  for d in brands insurers providers logos authors publisher events; do
+  #
+  # `events` is NOT in this list any more (#6163). Those 5'568 mirrored source
+  # images were 4'108 MB of the tracked tree and are no longer committed, so in
+  # a deploy checkout public/images/events simply does not exist: leaving it
+  # here would have staged nothing and looked like it still worked. The CDN copy
+  # is now written by whoever produces it — crawl-events.yml uploads each image
+  # it mirrors, in the same run, via scripts/lib/upload-cdn-file.sh. Do not add
+  # it back: a deploy has no source to push from, and re-adding it would make
+  # this loop's silence look like coverage.
+  #
+  # Nothing is lost at the edge by dropping it: the R2 publish path
+  # (_publish_cdn_r2, CDN_TARGET=r2) is `rclone copy` — additive, never
+  # `sync` — so an absent stage dir cannot delete the 5'568 objects already in
+  # the bucket, and _janitor_cdn_r2 only ever scans the `assets/` prefix.
+  # The legacy Pages path below IS a force-push of the whole stage, so if
+  # CDN_TARGET is ever flipped back to 'pages' the events images WOULD be
+  # dropped from the frontaliere-cdn repo — flip it only after giving that path
+  # its own source for them.
+  for d in brands insurers providers logos authors publisher; do
     [ -d "public/images/$d" ] && mkdir -p "$stage/images" && cp -r "public/images/$d" "$stage/images/$d"
   done
   # Build-time generated per-category "catalog" fallback SVGs (#3740,
-  # writeCatalogImages() in build-plugins/eventsSeoPagesPlugin.ts): unlike the
-  # mirrored real event photos above (git-tracked under public/images/events/),
-  # these 11 deterministic SVGs are emitted straight into dist/images/events/catalog/
-  # at build time and are NOT git-tracked, so the public/images/$d loop above
-  # never picks them up. Without this stage copy, offload-generated-images-cdn.mjs
+  # writeCatalogImages() in build-plugins/eventsSeoPagesPlugin.ts). These 11
+  # deterministic SVGs are emitted straight into dist/images/events/catalog/ at
+  # build time and are NOT git-tracked, so the public/images/$d loop above never
+  # picks them up. (Until #6163 this comment contrasted them with the mirrored
+  # real event photos "git-tracked under public/images/events/" — those are
+  # neither tracked nor staged by that loop any more, so the contrast no longer
+  # holds; what survives is the reason this copy exists.) Without this stage
+  # copy, offload-generated-images-cdn.mjs
   # still rewrote the HTML refs to the CDN and deleted the dist copies, leaving
   # cdn.frontaliereticino.ch/images/events/catalog/*.svg permanently 404.
   [ -d dist/images/events/catalog ] && mkdir -p "$stage/images/events" && cp -r dist/images/events/catalog "$stage/images/events/catalog"

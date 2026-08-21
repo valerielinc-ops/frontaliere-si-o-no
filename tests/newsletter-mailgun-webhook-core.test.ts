@@ -177,3 +177,53 @@ describe('newsletterMailgunWebhookCore — malformed "Name <email>" recipient (r
     expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
   });
 });
+
+/**
+ * Campaign attribution (2026-08-20). `o:tag` sends bare VALUES, so the name is
+ * lost in transit and the old `campaign:` prefix scan matched nothing this
+ * sender emits: every Mailgun event was filed under its raw message id. The
+ * cascade now stamps `v:campaign_id`, which survives with its name.
+ */
+describe('newsletterMailgunWebhookCore — campaign attribution', () => {
+  const docId = 'seeker@example.com';
+
+  const campaignOf = (db: any) => {
+    const added = db.__adds.find((a: any) => a.collection.endsWith('/events'));
+    return added?.data?.campaign_id;
+  };
+
+  it('reads the campaign from the user-variables the cascade stamps', async () => {
+    const db = createFakeDb();
+    await persistMailgunEvent(db as any, {
+      event: 'opened',
+      recipient: docId,
+      timestamp: 1700000200,
+      'user-variables': { campaign_id: 'onboarding_drip_step_1' },
+      tags: ['onboarding_drip_step_1', 'lifecycle', 'it'],
+    } as any);
+    expect(campaignOf(db)).toBe('onboarding_drip_step_1');
+  });
+
+  it('still honours the legacy campaign:<id> tag form for late-arriving events', async () => {
+    const db = createFakeDb();
+    await persistMailgunEvent(db as any, {
+      event: 'opened',
+      recipient: docId,
+      timestamp: 1700000200,
+      tags: ['campaign:weekly_2026-08-17'],
+    } as any);
+    expect(campaignOf(db)).toBe('weekly_2026-08-17');
+  });
+
+  it('does not crash on the bare-value tag array, and falls back to the message id', async () => {
+    const db = createFakeDb();
+    await persistMailgunEvent(db as any, {
+      event: 'opened',
+      recipient: docId,
+      timestamp: 1700000200,
+      tags: ['welcome_job', 'lifecycle', 'en'],
+      id: 'mg-message-id',
+    } as any);
+    expect(campaignOf(db)).toBe('mg-message-id');
+  });
+});

@@ -319,7 +319,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {/* Job header */}
  {localizedTitle && (
  <div>
- <h1 className="text-xl font-bold font-display text-strong leading-snug">{localizedTitle}</h1>
+ <h1 className="text-xl font-bold font-display text-strong leading-snug break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
  {jobData?.company && (() => {
  const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
@@ -407,7 +407,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
  </button>
  </form>
- <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[11px] text-muted leading-relaxed block" />
+ <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
  {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
  )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />

@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-08-20T10:25:22.496Z",
+  "generatedAt": "2026-08-20T21:48:30.307Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5294,
-  "avgDurationMs": 5294,
+  "durationMs": 4916,
+  "avgDurationMs": 4916,
   "durationHistory": [
-    5294
+    4916
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-20T10:25:19.242Z",
+      "crawledAt": "2026-08-20T21:48:26.914Z",
       "id": "pkb-private-bank-0b868337e255",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
@@ -64,9 +64,8 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-20T10:25:19.563Z",
+      "crawledAt": "2026-08-20T21:48:27.289Z",
       "id": "pkb-private-bank-14e6e40f691f",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {

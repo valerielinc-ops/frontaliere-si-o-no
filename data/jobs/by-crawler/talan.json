@@ -1,87 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-08-20T09:45:04.932Z",
+  "assembledAt": "2026-08-20T21:31:20.579Z",
   "jobs": [
-    {
-      "id": "talan-ed296462036e",
-      "slug": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-      "slugByLocale": {
-        "it": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-      "titleByLocale": {
-        "it": "SAP Full Stack Sviluppatore (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
-      },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\n Sans ces compétences, la candidature ne pourra pas être retenue.\n ⭐ Compétences souhaitées (atouts)\n Ces compétences augmenteront fortement votre valeur dans nos projets :\n 🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n 💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n 🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-      "descriptionByLocale": {
-        "it": "Si gioca un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti. La vostra missione è:\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n• Progettazione, esposizione e sicurezza dei servizi OData o SAP API.\n• Sviluppare estensioni su SAP BTP (Extension Suite) .\n• Partecipa alle scelte di architettura tecnica applicativa SAP.\n• Assicurare la qualità degli sviluppi, attraverso buone pratiche, recensioni di codice e documentazione.\n• Collabora con team funzionali, tecnici, cloud e architettonici sui progetti SAP. Stiamo cercando qualcuno che sappia padroneggiare:\n• ABAP / ABAP OO\n• SAP S/4HANA\n• SAP Fiori / SAPUI5\n• Visualizza CDS\n• API OData / SAP\n• Conoscenza del suono di SAP BTP Senza queste competenze, l'applicazione non può essere accettata. ⭐ Compétences souhaitées (atouts) Queste competenze aumenteranno notevolmente il vostro valore nei nostri progetti: Cloud & Estensioni\n• SAP BTP Extension Suite (lato per lato)\n• CAP – Modello di programmazione delle applicazioni cloud\n• SAP Event Mesh / Architetture per eventi\n• SAP Build Apps & Process Automation\n• Kyma Runtime / Kubernetes\n• SAP AI Core / AI Foundation\n• Incorporazione di SAP ( SAP Joule) Tecnologia e integrazione\n• Node.js o Java\n• SAP Integration Suite / API\n• SAP DevOps: Git, CI/CD, gCTS\n• Ottimizzazione delle prestazioni SAP HANA Conoscenza funzionale (bonus)\n• FI, CO, MM, SD, HR\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh...).\n• Stimolare l'ambiente, incoraggiare la competenza e la leadership.\n• Accesso a corsi di formazione SAP avanzati (BTP, Fiori, CAP, IA...).\n• comunità interna attiva SAP, scambi regolari con gli esperti.\n• Possibilità di trasferirsi a Tech Lead, SAP Architect o BTP Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions. Your mission is to:\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n• Design, expose and secure OData or SAP APIs services.\n• Develop extensions on SAP BTP (Extension Suite) .\n• Participate in SAP application technical architecture choices.\n• Ensure the quality of developments, through good practices, code reviews and documentation.\n• Collaborate with functional, technical, cloud and architectural teams on SAP projects. We're looking for someone who can master:\n• ABAP / ABAP OO\n• SAP S/4HANA developments\n• SAP Fiori / SAPUI5\n• CDS Views\n• OData / SAP APIs\n• Sound knowledge of SAP BTP Without these skills, the application cannot be accepted. ⭐ Compétences souhaitées (atouts) These skills will greatly increase your value in our projects: Cloud & Extensions\n• SAP BTP Extension Suite (side‐by‐side)\n• CAP – Cloud Application Programming Model\n• SAP Event Mesh / Event-Driven Architectures\n• SAP Build Apps & Process Automation\n• Kyma Runtime / Kubernetes\n• SAP AI Core / AI Foundation\n• Incorporation of SAP ( SAP Joule ) Technology & Integration\n• Node.js or Java\n• SAP Integration Suite / APIs\n• SAP DevOps: Git, CI/CD, gCTS\n• Optimizing SAP HANA performance Functional knowledge (bonus)\n• FI, CO, MM, SD, HR\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh...).\n• Stimulating environment, encouraging competence and leadership.\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA...).\n• Active SAP internal community, regular exchanges with experts.\n• Possibility of moving to Tech Lead, SAP Architect, or BTP Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Gestaltung und Entwicklung moderner und effizienter SAP-Lösungen. Ihre Mission ist:\n• Design und Entwicklung technischer Lösungen auf SAP S/4HANA (ABAP / ABAP OO, CDS).\n• Erstellen Sie intuitive und robuste SAP Fiori / SAPUI5-Anwendungen.\n• Entwerfen, Aufdecken und Sichern von OData- oder SAP-APIs-Services.\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n• Beteiligen Sie sich an der Auswahl der technischen SAP-Anwendungsarchitektur.\n• Gewährleistung der Qualität der Entwicklungen durch bewährte Verfahren, Code-Reviews und Dokumentation.\n• Arbeiten Sie mit funktionalen, technischen, Cloud- und Architekturteams an SAP-Projekten zusammen. Wir suchen jemanden, der beherrschen kann:\n• ABAP/ABAP OO\n• SAP S/4HANA Entwicklungen\n• SAP Fiori / SAPUI5\n• CDS-Ansichten\n• OData / SAP APIs\n• Fundierte Kenntnisse über SAP BTP Ohne diese Fähigkeiten kann der Antrag nicht akzeptiert werden. ⭐ Compétences souhaitées (atouts) Diese Fähigkeiten werden Ihren Wert in unseren Projekten erheblich steigern: Cloud & Extensions\n• SAP BTP Extension Suite (Side-by-Side)\n• CAP – Cloud Application Programming Model\n• SAP Event Mesh / Eventgesteuerte Architekturen\n• SAP Build Apps und Prozessautomatisierung\n• Kyma Runtime / Kubernetes\n• SAP AI Core / AI Foundation\n• Integration von SAP ( SAP Joule) Technologie & Integration\n• Node.js oder Java\n• SAP Integration Suite / APIs\n• SAP DevOps: Git, CI/CD, gCTS\n• Optimierung der SAP HANA Performance Funktionale Kenntnisse (Bonus)\n• FI, CO, MM, SD, HR\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh...).\n• Umwelt stimulieren, Kompetenz und Führung fördern.\n• Zugang zu fortgeschrittenen SAP-Schulungen (BTP, Fiori, CAP, IA...).\n• Aktive SAP interne Community, regelmäßiger Austausch mit Experten.\n• Möglichkeit, zu Tech Lead, SAP Architect oder BTP Expert zu wechseln.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\nSans ces compétences, la candidature ne pourra pas être retenue.\n⭐ Compétences souhaitées (atouts)\nCes compétences augmenteront fortement votre valeur dans nos projets :\n🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.767Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000126720720",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
-        ],
-        "en": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T23:41:37.238Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "talan-838cc2a04384",
       "slug": "sviluppatore-abap-s-4hana-talan-geneva",
@@ -114,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.766Z",
+      "crawledAt": "2026-08-20T21:31:16.970Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -164,37 +84,117 @@
       }
     },
     {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "id": "talan-ed296462036e",
+      "slug": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+        "it": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
+        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "de": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
+        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
+      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
       "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
+        "it": "SAP Full Stack Sviluppatore (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
       },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\n Sans ces compétences, la candidature ne pourra pas être retenue.\n ⭐ Compétences souhaitées (atouts)\n Ces compétences augmenteront fortement votre valeur dans nos projets :\n 🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n 💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n 🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
       "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+        "it": "Si gioca un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti. La vostra missione è:\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n• Progettazione, esposizione e sicurezza dei servizi OData o SAP API.\n• Sviluppare estensioni su SAP BTP (Extension Suite) .\n• Partecipa alle scelte di architettura tecnica applicativa SAP.\n• Assicurare la qualità degli sviluppi, attraverso buone pratiche, recensioni di codice e documentazione.\n• Collabora con team funzionali, tecnici, cloud e architettonici sui progetti SAP. Stiamo cercando qualcuno che sappia padroneggiare:\n• ABAP / ABAP OO\n• SAP S/4HANA\n• SAP Fiori / SAPUI5\n• Visualizza CDS\n• API OData / SAP\n• Conoscenza del suono di SAP BTP Senza queste competenze, l'applicazione non può essere accettata. ⭐ Compétences souhaitées (atouts) Queste competenze aumenteranno notevolmente il vostro valore nei nostri progetti: Cloud & Estensioni\n• SAP BTP Extension Suite (lato per lato)\n• CAP – Modello di programmazione delle applicazioni cloud\n• SAP Event Mesh / Architetture per eventi\n• SAP Build Apps & Process Automation\n• Kyma Runtime / Kubernetes\n• SAP AI Core / AI Foundation\n• Incorporazione di SAP ( SAP Joule) Tecnologia e integrazione\n• Node.js o Java\n• SAP Integration Suite / API\n• SAP DevOps: Git, CI/CD, gCTS\n• Ottimizzazione delle prestazioni SAP HANA Conoscenza funzionale (bonus)\n• FI, CO, MM, SD, HR\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh...).\n• Stimolare l'ambiente, incoraggiare la competenza e la leadership.\n• Accesso a corsi di formazione SAP avanzati (BTP, Fiori, CAP, IA...).\n• comunità interna attiva SAP, scambi regolari con gli esperti.\n• Possibilità di trasferirsi a Tech Lead, SAP Architect o BTP Expert.",
+        "en": "You play a key role in the design and development of modern and efficient SAP solutions. Your mission is to:\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n• Design, expose and secure OData or SAP APIs services.\n• Develop extensions on SAP BTP (Extension Suite) .\n• Participate in SAP application technical architecture choices.\n• Ensure the quality of developments, through good practices, code reviews and documentation.\n• Collaborate with functional, technical, cloud and architectural teams on SAP projects. We're looking for someone who can master:\n• ABAP / ABAP OO\n• SAP S/4HANA developments\n• SAP Fiori / SAPUI5\n• CDS Views\n• OData / SAP APIs\n• Sound knowledge of SAP BTP Without these skills, the application cannot be accepted. ⭐ Compétences souhaitées (atouts) These skills will greatly increase your value in our projects: Cloud & Extensions\n• SAP BTP Extension Suite (side‐by‐side)\n• CAP – Cloud Application Programming Model\n• SAP Event Mesh / Event-Driven Architectures\n• SAP Build Apps & Process Automation\n• Kyma Runtime / Kubernetes\n• SAP AI Core / AI Foundation\n• Incorporation of SAP ( SAP Joule ) Technology & Integration\n• Node.js or Java\n• SAP Integration Suite / APIs\n• SAP DevOps: Git, CI/CD, gCTS\n• Optimizing SAP HANA performance Functional knowledge (bonus)\n• FI, CO, MM, SD, HR\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh...).\n• Stimulating environment, encouraging competence and leadership.\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA...).\n• Active SAP internal community, regular exchanges with experts.\n• Possibility of moving to Tech Lead, SAP Architect, or BTP Expert.",
+        "de": "Sie spielen eine Schlüsselrolle bei der Gestaltung und Entwicklung moderner und effizienter SAP-Lösungen. Ihre Mission ist:\n• Design und Entwicklung technischer Lösungen auf SAP S/4HANA (ABAP / ABAP OO, CDS).\n• Erstellen Sie intuitive und robuste SAP Fiori / SAPUI5-Anwendungen.\n• Entwerfen, Aufdecken und Sichern von OData- oder SAP-APIs-Services.\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n• Beteiligen Sie sich an der Auswahl der technischen SAP-Anwendungsarchitektur.\n• Gewährleistung der Qualität der Entwicklungen durch bewährte Verfahren, Code-Reviews und Dokumentation.\n• Arbeiten Sie mit funktionalen, technischen, Cloud- und Architekturteams an SAP-Projekten zusammen. Wir suchen jemanden, der beherrschen kann:\n• ABAP/ABAP OO\n• SAP S/4HANA Entwicklungen\n• SAP Fiori / SAPUI5\n• CDS-Ansichten\n• OData / SAP APIs\n• Fundierte Kenntnisse über SAP BTP Ohne diese Fähigkeiten kann der Antrag nicht akzeptiert werden. ⭐ Compétences souhaitées (atouts) Diese Fähigkeiten werden Ihren Wert in unseren Projekten erheblich steigern: Cloud & Extensions\n• SAP BTP Extension Suite (Side-by-Side)\n• CAP – Cloud Application Programming Model\n• SAP Event Mesh / Eventgesteuerte Architekturen\n• SAP Build Apps und Prozessautomatisierung\n• Kyma Runtime / Kubernetes\n• SAP AI Core / AI Foundation\n• Integration von SAP ( SAP Joule) Technologie & Integration\n• Node.js oder Java\n• SAP Integration Suite / APIs\n• SAP DevOps: Git, CI/CD, gCTS\n• Optimierung der SAP HANA Performance Funktionale Kenntnisse (Bonus)\n• FI, CO, MM, SD, HR\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh...).\n• Umwelt stimulieren, Kompetenz und Führung fördern.\n• Zugang zu fortgeschrittenen SAP-Schulungen (BTP, Fiori, CAP, IA...).\n• Aktive SAP interne Community, regelmäßiger Austausch mit Experten.\n• Möglichkeit, zu Tech Lead, SAP Architect oder BTP Expert zu wechseln.",
+        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\nSans ces compétences, la candidature ne pourra pas être retenue.\n⭐ Compétences souhaitées (atouts)\nCes compétences augmenteront fortement votre valeur dans nos projets :\n🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T21:31:16.970Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "jobReqId": "744000126720720",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
+        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
+          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
+        ],
+        "en": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T23:41:37.238Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-8b2dd9df4445",
+      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+        "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+        "de": "ms-cloud-ingenieur-product-spezialist-m365-talan-geneve",
+        "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "MS Cloud Engineer & Product Specialist (M365)",
+      "titleByLocale": {
+        "it": "MS Cloud Ingegnere & Product Specialista (M365)",
+        "en": "MS Cloud Engineer & Product Specialist (M365)",
+        "de": "MS Cloud Ingenieur & Product Spezialist (M365)",
+        "fr": "MS Cloud Ingénieur & Product Spécialiste (M365)"
+      },
+      "description": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\n Missions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\n Compétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant.",
+      "descriptionByLocale": {
+        "it": "Nei nostri team di consulenza e ingegneria, supporta un client nella sua migrazione Cloud. Questo è un ruolo ibrido tra tecnologia e Product Management. La vostra missione: definire le direzioni, organizzare la governance e garantire la transizione agli strumenti M365, integrando i vincoli normativi. Missioni:\n• Governance M365: Progettazione, implementare e automatizzare la governance M365. Impostare la pianificazione e organizzare l'accesso alle applicazioni (Planner, Viva, Teams).\n• Sicurezza e rischi: protezione delle perdite di dati quadro (DLP), collaborazione interna e accesso condizionale. Partecipa a valutazioni legali per convalidare la conformità della conservazione dei dati nel cloud.\n• Migrazione tecnica: Supervia la migrazione delle caselle di posta a Exchange Online, la revisione del traffico di posta, l'archiviazione, la ritenzione e il backup.\n• Spazio collaborativo: Distribuisci SharePoint Online e OneDrive per le squadre.\n• Gestione del prodotto: Trasmettere la visione, riunire i team tecnici e aziendali e garantire la comunicazione con gli stakeholder esterni. Stiamo cercando un profilo in grado di divulgare la tecnica, mettendo in discussione quello esistente e conducendo la pianificazione. Capacità obbligatorie:\n• Esperienza: da 3 a 5 anni di esperienza in un ruolo simile (MS Cloud Engineer, Consulente M365, Architetto).\n• Tecnica: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Gestione del prodotto: Pratica nella gestione della roadmap, pianificazione, coordinamento del team e comunicazione esterna.\n• Leadership: Capacità di unire gli interlocutori e portare il cambiamento.\n• Rischi: Conoscenza della conformità e della protezione delle perdite di dati (DLP).\n• Corrente inglese e francese.",
+        "en": "In our consulting and engineering teams, you support a client in its Cloud migration. This is a hybrid role between technology and Product Management. Your mission: to define directions, organize governance and secure the transition to M365 tools, integrating regulatory constraints. Missions:\n• Governance M365: Design, implement and automate governance M365. Set schedule and organize access to applications (Planner, Viva, Teams).\n• Security & Risks: Framework data leak protection (DLP), internal collaboration and conditional access. Participate in legal assessments to validate compliance of data storage in the Cloud.\n• Technical migration: Supervise the migration of mailboxes to Exchange Online, revision of mail traffic, archiving, retention and backup.\n• Collaborative Space: Deploy SharePoint Online and OneDrive for teams.\n• Product Management: Transmit the vision, bring together technical and business teams, and ensure communication with external stakeholders. We are looking for a profile capable of popularizing the technique, questioning the existing one and conducting planning. Mandatory skills:\n• Experience: 3 to 5 years of experience in a similar role (MS Cloud Engineer, Consultant M365, Architect).\n• Technique: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Product Management: Practice in roadmap management, planning, team coordination and external communication.\n• Leadership: Ability to unite interlocutors and lead change.\n• Risks: Knowledge of Compliance and Data Leak Protection (DLP).\n• English and French current.",
+        "de": "In unseren Beratungs- und Engineering-Teams unterstützen Sie einen Kunden bei seiner Cloud-Migration. Dies ist eine hybride Rolle zwischen Technologie und Produktmanagement. Ihre Mission: Richtungen zu definieren, Governance zu organisieren und den Übergang zu M365-Tools zu sichern, indem Sie regulatorische Einschränkungen integrieren. Missionen:\n• Governance M365: Design, Implementierung und Automatisierung von Governance M365. Legen Sie einen Zeitplan fest und organisieren Sie den Zugriff auf Anwendungen (Planner, Viva, Teams).\n• Security & Risks: Framework Data Leak Protection (DLP), interne Zusammenarbeit und bedingter Zugriff. Nehmen Sie an rechtlichen Bewertungen teil, um die Einhaltung der Datenspeicherung in der Cloud zu validieren.\n• Technische Migration: Überwachung der Migration von Postfächern zu Exchange Online, Überarbeitung des E-Mail-Verkehrs, Archivierung, Aufbewahrung und Sicherung.\n• Collaborative Space: Bereitstellen von SharePoint Online und OneDrive für Teams.\n• Produktmanagement: Übertragen Sie die Vision, bringen Sie technische und geschäftliche Teams zusammen und gewährleisten Sie die Kommunikation mit externen Stakeholdern. Wir suchen nach einem Profil, das in der Lage ist, die Technik zu popularisieren, die bestehende in Frage zu stellen und die Planung durchzuführen. Pflichtqualifikationen:\n• Erfahrung: 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle (MS Cloud Engineer, Consultant M365, Architekt).\n• Technik: Modern Workplace Environment Management (Teams, Viva, Planer, Exchange Online, SharePoint, OneDrive).\n• Produktmanagement: Praxis in Roadmapmanagement, Planung, Teamkoordination und externer Kommunikation.\n• Führung: Fähigkeit, Gesprächspartner zu vereinen und Veränderungen zu führen.\n• Risiken: Wissen über Compliance und Data Leak Protection (DLP).\n• Englisch und Französisch aktuell.",
+        "fr": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\nMissions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\nCompétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant."
       },
       "location": "Genève, , Switzerland",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.765Z",
+      "crawledAt": "2026-08-20T21:31:16.969Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -208,22 +208,25 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "jobReqId": "744000135283150",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland",
-        "qa-ingegnere-ebanking-talan-geneve-switzerland"
+        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+        "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland",
-          "qa-ingegnere-ebanking-talan-geneve-switzerland"
+          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+          "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
+        ],
+        "de": [
+          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "firstSeenAt": "2026-07-03T23:41:37.237Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -269,7 +272,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.765Z",
+      "crawledAt": "2026-08-20T21:31:16.969Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -319,37 +322,114 @@
       }
     },
     {
-      "id": "talan-8b2dd9df4445",
-      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+      "id": "talan-734093123605",
+      "slug": "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
       "slugByLocale": {
-        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
-        "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-        "de": "ms-cloud-ingenieur-product-spezialist-m365-talan-geneve",
-        "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+        "it": "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
+        "en": "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
+        "de": "leittechnik-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
+        "fr": "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "MS Cloud Engineer & Product Specialist (M365)",
+      "title": "Lead Technique MDM Semarchy (H/F)",
       "titleByLocale": {
-        "it": "MS Cloud Ingegnere & Product Specialista (M365)",
-        "en": "MS Cloud Engineer & Product Specialist (M365)",
-        "de": "MS Cloud Ingenieur & Product Spezialist (M365)",
-        "fr": "MS Cloud Ingénieur & Product Spécialiste (M365)"
+        "it": "Tecnica di piombo MDM Semarchy (H/F)",
+        "en": "Lead Technique MDM Semarchy (M/F)",
+        "de": "Leittechnik MDM Semarchy (H/F)",
+        "fr": "Lead Technique MDM Semarchy (H/F)"
       },
-      "description": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\n Missions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\n Compétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant.",
+      "description": "Votre rôle:\n En tant que  Lead Technique MDM Semarchy , vous êtes le référent technique de notre offre MDM et jouez un rôle clé dans la réussite des projets de nos clients.\n Vous êtes avant tout un profil  hands-on , capable de prendre en charge les aspects les plus complexes des projets MDM tout en encadrant des consultants plus juniors.\n Vous intervenez depuis les phases d'avant-vente jusqu'à la mise en production des solutions et accompagnez les équipes projet sur les aspects d'architecture, d'implémentation et de gouvernance technique.\n Vous contribuerez également à la montée en compétence de nos consultants et au développement de l'expertise MDM au sein de Talan Suisse.\n Vos responsabilités:\n Expertise et leadership technique\n\n• Concevoir et mettre en œuvre des solutions MDM basées sur  Semarchy xDM / SDP .\n\n• Définir les architectures techniques et les bonnes pratiques de développement.\n\n• Superviser les choix de modélisation des données maîtres et de référence.\n\n• Garantir la qualité technique des solutions mises en œuvre.\n\n• Réaliser les revues d'architecture et de code.\n\n• Encadrer et accompagner les équipes de développement MDM.\n\n• Assurer la montée en compétence des consultants plus juniors.\n Delivery projets\n\n• Installer et configurer les plateformes Semarchy dans les environnements clients.\n\n• Participer à la définition des architectures d'intégration avec les systèmes existants.\n\n• Superviser les développements complexes et les composants critiques.\n\n• Garantir la performance, la sécurité et la maintenabilité des plateformes.\n\n• Accompagner les phases de tests, migration et mise en production.\n\n• Assurer un rôle de référent sur les problématiques techniques rencontrées durant les projets.\n Conseil et accompagnement client\n\n• Animer des ateliers techniques avec les équipes métiers et IT.\n\n• Conseiller les clients sur les bonnes pratiques de gouvernance et de gestion des données de référence.\n\n• Accompagner la définition des feuilles de route MDM.\n\n• Participer aux phases de cadrage et d'architecture d'entreprise liées au Data Management.\n Développement de l'offre et avant-vente\n\n• Contribuer au développement de l'offre Data Management de Talan Suisse.\n\n• Participer aux soutenances et démonstrations clients.\n\n• Réaliser des estimations de charge et des dossiers de réponse aux appels d'offres.\n\n• Contribuer au partenariat avec l'éditeur Semarchy.\n\n• Participer aux actions de veille et au rayonnement de l'expertise MDM au sein du marché suisse.\n\nExpérience\n\n• Minimum  8 années d'expérience  dans la mise en œuvre de solutions de Data Management / Master Data Management.\n\n• Minimum  3 années d'expérience significative et démontrable sur Semarchy xDM .\n\n• Expérience avérée sur des projets de déploiement MDM de bout en bout.\n\n• Expérience dans l'encadrement technique d'équipes projet.\n Compétences techniques obligatoires\n Master Data Management\n\n• Expertise de la solution  Semarchy xDM .\n\n• Installation, paramétrage et administration de la plateforme.\n\n• Modélisation MDM.\n\n• Gestion des workflows.\n\n• Intégration de données.\n\n• Déploiement et exploitation de plateformes MDM.\n Architecture et intégration\n\n• Architecture applicative et architecture de données.\n\n• API REST.\n\n• SQL avancé.\n\n• Intégration de données et ETL.\n\n• Environnements Cloud et hybrides.\n\n• Déploiements multi-environnements.\n Atouts appréciés\n\n• Connaissance de  Semarchy Data Platform (SDP) .\n\n• Expérience sur des outils de Data Quality ou Data Governance.\n\n• Connaissance des environnements Cloud Azure, AWS ou GCP.\n\n• Expérience sur des programmes de transformation Data à grande échelle.\n\n• Certification Semarchy.\n Soft Skills\n\n• Leadership technique reconnu.\n\n• Forte capacité à challenger les choix d'architecture.\n\n• Excellent relationnel client.\n\n• Esprit de conseil et pragmatisme.\n\n• Capacité à travailler en autonomie.\n\n• Excellentes qualités de communication.\n\n• Goût pour la transmission de connaissances et le coaching.\n Langues\n\n• Français : courant ou natif.\n\n• Anglais : professionnel courant.\n\n• L'allemand constitue un atout.\n Localisation\n\n• Suisse Romande.\n\n• Basé idéalement dans la région de Genève ou Lausanne.\n\n• Mobilité requise sur les sites clients en Suisse Romande.\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
       "descriptionByLocale": {
-        "it": "Nei nostri team di consulenza e ingegneria, supporta un client nella sua migrazione Cloud. Questo è un ruolo ibrido tra tecnologia e Product Management. La vostra missione: definire le direzioni, organizzare la governance e garantire la transizione agli strumenti M365, integrando i vincoli normativi. Missioni:\n• Governance M365: Progettazione, implementare e automatizzare la governance M365. Impostare la pianificazione e organizzare l'accesso alle applicazioni (Planner, Viva, Teams).\n• Sicurezza e rischi: protezione delle perdite di dati quadro (DLP), collaborazione interna e accesso condizionale. Partecipa a valutazioni legali per convalidare la conformità della conservazione dei dati nel cloud.\n• Migrazione tecnica: Supervia la migrazione delle caselle di posta a Exchange Online, la revisione del traffico di posta, l'archiviazione, la ritenzione e il backup.\n• Spazio collaborativo: Distribuisci SharePoint Online e OneDrive per le squadre.\n• Gestione del prodotto: Trasmettere la visione, riunire i team tecnici e aziendali e garantire la comunicazione con gli stakeholder esterni. Stiamo cercando un profilo in grado di divulgare la tecnica, mettendo in discussione quello esistente e conducendo la pianificazione. Capacità obbligatorie:\n• Esperienza: da 3 a 5 anni di esperienza in un ruolo simile (MS Cloud Engineer, Consulente M365, Architetto).\n• Tecnica: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Gestione del prodotto: Pratica nella gestione della roadmap, pianificazione, coordinamento del team e comunicazione esterna.\n• Leadership: Capacità di unire gli interlocutori e portare il cambiamento.\n• Rischi: Conoscenza della conformità e della protezione delle perdite di dati (DLP).\n• Corrente inglese e francese.",
-        "en": "In our consulting and engineering teams, you support a client in its Cloud migration. This is a hybrid role between technology and Product Management. Your mission: to define directions, organize governance and secure the transition to M365 tools, integrating regulatory constraints. Missions:\n• Governance M365: Design, implement and automate governance M365. Set schedule and organize access to applications (Planner, Viva, Teams).\n• Security & Risks: Framework data leak protection (DLP), internal collaboration and conditional access. Participate in legal assessments to validate compliance of data storage in the Cloud.\n• Technical migration: Supervise the migration of mailboxes to Exchange Online, revision of mail traffic, archiving, retention and backup.\n• Collaborative Space: Deploy SharePoint Online and OneDrive for teams.\n• Product Management: Transmit the vision, bring together technical and business teams, and ensure communication with external stakeholders. We are looking for a profile capable of popularizing the technique, questioning the existing one and conducting planning. Mandatory skills:\n• Experience: 3 to 5 years of experience in a similar role (MS Cloud Engineer, Consultant M365, Architect).\n• Technique: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Product Management: Practice in roadmap management, planning, team coordination and external communication.\n• Leadership: Ability to unite interlocutors and lead change.\n• Risks: Knowledge of Compliance and Data Leak Protection (DLP).\n• English and French current.",
-        "de": "In unseren Beratungs- und Engineering-Teams unterstützen Sie einen Kunden bei seiner Cloud-Migration. Dies ist eine hybride Rolle zwischen Technologie und Produktmanagement. Ihre Mission: Richtungen zu definieren, Governance zu organisieren und den Übergang zu M365-Tools zu sichern, indem Sie regulatorische Einschränkungen integrieren. Missionen:\n• Governance M365: Design, Implementierung und Automatisierung von Governance M365. Legen Sie einen Zeitplan fest und organisieren Sie den Zugriff auf Anwendungen (Planner, Viva, Teams).\n• Security & Risks: Framework Data Leak Protection (DLP), interne Zusammenarbeit und bedingter Zugriff. Nehmen Sie an rechtlichen Bewertungen teil, um die Einhaltung der Datenspeicherung in der Cloud zu validieren.\n• Technische Migration: Überwachung der Migration von Postfächern zu Exchange Online, Überarbeitung des E-Mail-Verkehrs, Archivierung, Aufbewahrung und Sicherung.\n• Collaborative Space: Bereitstellen von SharePoint Online und OneDrive für Teams.\n• Produktmanagement: Übertragen Sie die Vision, bringen Sie technische und geschäftliche Teams zusammen und gewährleisten Sie die Kommunikation mit externen Stakeholdern. Wir suchen nach einem Profil, das in der Lage ist, die Technik zu popularisieren, die bestehende in Frage zu stellen und die Planung durchzuführen. Pflichtqualifikationen:\n• Erfahrung: 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle (MS Cloud Engineer, Consultant M365, Architekt).\n• Technik: Modern Workplace Environment Management (Teams, Viva, Planer, Exchange Online, SharePoint, OneDrive).\n• Produktmanagement: Praxis in Roadmapmanagement, Planung, Teamkoordination und externer Kommunikation.\n• Führung: Fähigkeit, Gesprächspartner zu vereinen und Veränderungen zu führen.\n• Risiken: Wissen über Compliance und Data Leak Protection (DLP).\n• Englisch und Französisch aktuell.",
-        "fr": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\nMissions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\nCompétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant."
+        "it": "Il tuo ruolo:\nCome tecnica di piombo MDM Semarchy, sei il riferimento tecnico della nostra offerta MDM e gioca un ruolo chiave nel successo dei progetti dei nostri clienti.\nSei soprattutto un profilo pratico, in grado di gestire gli aspetti più complessi dei progetti MDM, supervisionando più consulenti junior.\nIntervenite dalle fasi pre-vendita alla produzione di soluzioni e accompagnate i team di progetto sugli aspetti dell'architettura, dell'implementazione e della governance tecnica.\nContribuirai anche all'aggiornamento dei nostri consulenti e allo sviluppo delle competenze MDM in Talan Svizzera.\nLe tue responsabilità:\nCompetenza e leadership tecnica\n\n• Progettazione e realizzazione di soluzioni MDM basate su Semarchy xDM / SDP .\n\n• Definire architetture tecniche e buone pratiche di sviluppo.\n\n• Supervise master e opzioni di modellazione dati di riferimento.\n\n• Assicurare la qualità tecnica delle soluzioni implementate.\n\n• Eseguire l'architettura e le recensioni di codice.\n\n• Supporto e supporto ai team di sviluppo MDM.\n\n• Assicurarsi che più consulenti junior diventano competenti.\nProgetti di consegna\n\n• Installare e configurare piattaforme Semarchy in ambienti clienti.\n\n• Partecipa alla definizione di architetture di integrazione con sistemi esistenti.\n\n• Superare gli sviluppi complessi e componenti critici.\n\n• Assicurare prestazioni, sicurezza e sostenibilità della piattaforma.\n\n• Test di supporto, fasi di migrazione e produzione.\n\n• Fornire un ruolo di riferimento sulle questioni tecniche incontrate durante i progetti.\nConsulenza e supporto dei clienti\n\n• Condurre workshop tecnici con scambi e team IT.\n\n• Consigliare i clienti alle buone pratiche di governance e gestione dei dati.\n\n• Accompagnate la definizione di roadmap MDM.\n\n• Partecipa alle fasi di inquadramento e architettura aziendale relative alla gestione dei dati.\nSviluppo della fornitura e pre-vendita\n\n• Contribuisci allo sviluppo dell'offerta di Gestione dati di Talan Svizzera.\n\n• Partecipare a supporto e dimostrazioni dei clienti.\n\n• Eseguire le stime delle spese e dei file di risposta alle richieste di offerte.\n\n• Contribuisci alla partnership con l'editore Semarchy.\n\n• Partecipa alle azioni di monitoraggio e alla diffusione delle competenze MDM nel mercato svizzero.\n\nEsperienza\n\n• Esperienza minima di 8 anni nell'attuazione delle soluzioni di Data Management / Master Data Management.\n\n• Minimo 3 anni di esperienza significativa e dimostrabile su Semarchy xDM .\n\n• Esperienza con progetti di distribuzione MDM end-to-end.\n\n• Esperienza nella supervisione tecnica dei team di progetto.\nCapacità tecniche obbligatorie\nGestione dei dati master\n\n• Esperienza di soluzione Semarchy xDM.\n\n• Installazione, impostazione e amministrazione della piattaforma.\n\n• Modellazione MDM.\n\n• Gestione del flusso di lavoro.\n\n• Integrazione dei dati.\n\n• Distribuzione e funzionamento delle piattaforme MDM.\nArchitettura e integrazione\n\n• Architettura delle applicazioni e architettura dei dati.\n\n• API REST.\n\n• Avanzato SQL.\n\n• Integrazione dei dati e ETL.\n\n• Ambiente cloud e ibrido.\n\n• Distribuzione multi-ambiente.\nVantaggi\n\n• Conoscenza di Semarchy Data Platform (SDP).\n\n• Esperienza con gli strumenti di Data Quality o Data Governance.\n\n• Conoscenza degli ambienti Azure Cloud, AWS o GCP.\n\n• Esperienza nei programmi di trasformazione dati su larga scala.\n\n• Certificazione Semarchy.\nAbilità morbide\n\n• Riconosciuta leadership tecnica.\n\n• Forte capacità di sfidare le scelte architettoniche.\n\n• Eccellente rapporto con i clienti.\n\n• Spirito di consiglio e pragmatismo.\n\n• Capacità di lavorare in modo indipendente.\n\n• Eccellente capacità di comunicazione.\n\n• Gusto per trasferimento di conoscenze e coaching.\nLingue\n\n• Francese: attuale o nativo.\n\n• Inglese: attuale professionista.\n\n• Il tedesco e' una risorsa.\nLocation\n\n• Svizzera Romande.\n\n• Idealmente con sede nella regione di Ginevra o Losanna.\n\n• Mobilità richiesta sui siti dei clienti in Suisse Romande.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "Your role:\nAs Lead Technique MDM Semarchy, you are the technical reference of our MDM offer and play a key role in the success of our customers' projects.\nYou are above all a hands-on profile, able to handle the most complex aspects of MDM projects while supervising more junior consultants.\nYou intervene from the pre-sales phases to the production of solutions and accompany the project teams on the aspects of architecture, implementation and technical governance.\nYou will also contribute to the upgrading of our consultants and the development of MDM expertise within Talan Switzerland.\nYour responsibilities:\nExpertise and technical leadership\n\n• Design and implement MDM solutions based on Semarchy xDM / SDP .\n\n• Define technical architectures and good development practices.\n\n• Supervise master and reference data modeling choices.\n\n• Ensure the technical quality of the solutions implemented.\n\n• Perform architecture and code reviews.\n\n• Support and support MDM development teams.\n\n• Ensure that more junior consultants become competent.\nDelivery projects\n\n• Install and configure Semarchy platforms in customer environments.\n\n• Participate in defining integration architectures with existing systems.\n\n• Supervise complex developments and critical components.\n\n• Ensure platform performance, security and sustainability.\n\n• Support testing, migration and production phases.\n\n• Provide a reference role on technical issues encountered during projects.\nCustomer advice and support\n\n• Conduct technical workshops with trades and IT teams.\n\n• Advise clients on good governance and data management practices.\n\n• Accompany the definition of MDM roadmaps.\n\n• Participate in the framing and business architecture phases related to Data Management.\nSupply development and pre-sales\n\n• Contribute to the development of Talan Switzerland's Data Management offer.\n\n• Participate in customer support and demonstrations.\n\n• Carry out estimates of charges and response files to calls for tenders.\n\n• Contribute to the partnership with publisher Semarchy.\n\n• Participate in monitoring actions and the dissemination of MDM expertise within the Swiss market.\n\nExperience\n\n• Minimum 8 years experience in implementing Data Management / Master Data Management solutions.\n\n• Minimum 3 years of significant and demonstrable experience on Semarchy xDM .\n\n• Experience with end-to-end MDM deployment projects.\n\n• Experience in technical supervision of project teams.\nMandatory technical skills\nMaster Data Management\n\n• Semarchy xDM solution expertise.\n\n• Installation, setting and administration of the platform.\n\n• MDM modelling.\n\n• Workflow management.\n\n• Data integration.\n\n• Deployment and operation of MDM platforms.\nArchitecture and integration\n\n• Application architecture and data architecture.\n\n• REST API.\n\n• Advanced SQL.\n\n• Data integration and ETL.\n\n• Cloud and hybrid environments.\n\n• Multi-environment deployment.\nBenefits\n\n• Knowledge of Semarchy Data Platform (SDP).\n\n• Experience with Data Quality or Data Governance tools.\n\n• Knowledge of Azure Cloud, AWS or GCP environments.\n\n• Experience in large-scale Data transformation programs.\n\n• Semarchy certification.\nSoft Skills\n\n• Recognized technical leadership.\n\n• Strong ability to challenge architectural choices.\n\n• Excellent customer relationship.\n\n• Spirit of counsel and pragmatism.\n\n• Ability to work independently.\n\n• Excellent communication skills.\n\n• Taste for knowledge transfer and coaching.\nLanguages\n\n• French: current or native.\n\n• English: current professional.\n\n• German is an asset.\nLocation\n\n• Switzerland Romande.\n\n• Ideally based in the Geneva or Lausanne region.\n\n• Mobility required on customer sites in Suisse Romande.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Ihre Rolle:\nAls Lead Technique MDM Semarchy, Sie sind die technische Referenz unseres MDM-Angebots und spielen eine Schlüsselrolle für den Erfolg der Projekte unserer Kunden.\nSie sind vor allem ein praktisches Profil, das in der Lage ist, die komplexesten Aspekte von MDM-Projekten zu bewältigen und gleichzeitig mehr Junior-Berater zu betreuen.\nSie intervenieren von den Pre-Sales-Phasen bis hin zur Erstellung von Lösungen und begleiten die Projektteams zu den Aspekten Architektur, Umsetzung und technischer Governance.\nSie werden auch zur Aufwertung unserer Berater und zur Entwicklung der MDM-Expertise in Talan Schweiz beitragen.\nIhre Aufgaben:\nExpertise und technische Führung\n\n• Design und Implementierung von MDM-Lösungen basierend auf Semarchy xDM / SDP .\n\n• Definieren Sie technische Architekturen und gute Entwicklungspraktiken.\n\n• Beaufsichtigen Sie Master- und Referenzdatenmodellierungsoptionen.\n\n• Gewährleistung der technischen Qualität der implementierten Lösungen.\n\n• Führen Sie Architektur- und Code Reviews durch.\n\n• Unterstützung und Unterstützung von MDM-Entwicklungsteams.\n\n• Stellen Sie sicher, dass mehr Junior Consultants kompetent werden.\nLieferprojekte\n\n• Installieren und konfigurieren Sie Semarchy-Plattformen in Kundenumgebungen.\n\n• Beteiligen Sie sich an der Definition von Integrationsarchitekturen mit bestehenden Systemen.\n\n• Beaufsichtigen Sie komplexe Entwicklungen und kritische Komponenten.\n\n• Sicherstellen von Performance, Sicherheit und Nachhaltigkeit der Plattform.\n\n• Unterstützung von Test-, Migrations- und Produktionsphasen.\n\n• Geben Sie eine Referenzrolle zu technischen Problemen, die während der Projekte auftreten.\nKundenberatung und Support\n\n• Führen Sie technische Workshops mit Trades und IT-Teams durch.\n\n• Beratung von Kunden zu Good Governance- und Datenmanagementpraktiken.\n\n• Begleiten Sie die Definition von MDM-Roadmaps.\n\n• Nehmen Sie an den Framing- und Business-Architekturphasen im Zusammenhang mit Datenmanagement teil.\nSupply Development und Pre-Sales\n\n• Tragen Sie zur Entwicklung des Datenmanagement-Angebots von Talan Schweiz bei.\n\n• Nehmen Sie an Kundensupport und Demonstrationen teil.\n\n• Erstellung von Gebührenschätzungen und Antwortdateien für Ausschreibungen.\n\n• Tragen Sie zur Partnerschaft mit dem Verlag Semarchy bei.\n\n• Beteiligen Sie sich an Überwachungsmaßnahmen und der Verbreitung von MDM-Know-how auf dem Schweizer Markt.\n\nErfahrung\n\n• Mindestens 8 Jahre Erfahrung in der Implementierung von Data Management / Master Data Management-Lösungen.\n\n• Mindestens 3 Jahre bedeutende und nachweisbare Erfahrung auf Semarchy xDM .\n\n• Erfahrung mit End-to-End-MDM-Bereitstellungsprojekten.\n\n• Erfahrung in der technischen Betreuung von Projektteams.\nVerpflichtende technische Fähigkeiten\nMaster Data Management\n\n• Semarchy xDM Lösungskompetenz.\n\n• Installation, Einstellung und Verwaltung der Plattform.\n\n• MDM-Modellierung.\n\n• Workflow-Management.\n\n• Datenintegration.\n\n• Bereitstellung und Betrieb von MDM-Plattformen.\nArchitektur und Integration\n\n• Anwendungsarchitektur und Datenarchitektur.\n\n• REST-API.\n\n• Advanced SQL.\n\n• Datenintegration und ETL.\n\n• Cloud- und Hybrid-Umgebungen.\n\n• Einsatz von Multi-Environment.\nVorteile\n\n• Kenntnisse der Semarchy Data Platform (SDP).\n\n• Erfahrung mit Data Quality oder Data Governance Tools.\n\n• Kenntnisse in Azure Cloud, AWS oder GCP-Umgebungen.\n\n• Erfahrung in groß angelegten Datentransformationsprogrammen.\n\n• Semarchy-Zertifizierung.\nSoft Skills\n\n• Anerkannte technische Führung.\n\n• Starke Fähigkeit, architektonische Entscheidungen herauszufordern.\n\n• Ausgezeichnete Kundenbeziehung.\n\n• Geist des Rates und des Pragmatismus.\n\n• Fähigkeit, unabhängig zu arbeiten.\n\n• Hervorragende Kommunikationsfähigkeiten.\n\n• Geschmack für Wissenstransfer und Coaching.\nSprachen\n\n• Französisch: aktuell oder gebürtig.\n\n• Englisch: Aktuell Professional.\n\n• Deutsch ist ein Asset.\nStandort\n\n• Schweiz Romande.\n\n• Idealerweise in der Region Genf oder Lausanne.\n\n• Mobilität auf Kundenstandorten in Suisse Romande erforderlich.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Votre rôle:\nEn tant que  Lead Technique MDM Semarchy , vous êtes le référent technique de notre offre MDM et jouez un rôle clé dans la réussite des projets de nos clients.\nVous êtes avant tout un profil  hands-on , capable de prendre en charge les aspects les plus complexes des projets MDM tout en encadrant des consultants plus juniors.\nVous intervenez depuis les phases d'avant-vente jusqu'à la mise en production des solutions et accompagnez les équipes projet sur les aspects d'architecture, d'implémentation et de gouvernance technique.\nVous contribuerez également à la montée en compétence de nos consultants et au développement de l'expertise MDM au sein de Talan Suisse.\nVos responsabilités:\nExpertise et leadership technique\n\n• Concevoir et mettre en œuvre des solutions MDM basées sur  Semarchy xDM / SDP .\n\n• Définir les architectures techniques et les bonnes pratiques de développement.\n\n• Superviser les choix de modélisation des données maîtres et de référence.\n\n• Garantir la qualité technique des solutions mises en œuvre.\n\n• Réaliser les revues d'architecture et de code.\n\n• Encadrer et accompagner les équipes de développement MDM.\n\n• Assurer la montée en compétence des consultants plus juniors.\nDelivery projets\n\n• Installer et configurer les plateformes Semarchy dans les environnements clients.\n\n• Participer à la définition des architectures d'intégration avec les systèmes existants.\n\n• Superviser les développements complexes et les composants critiques.\n\n• Garantir la performance, la sécurité et la maintenabilité des plateformes.\n\n• Accompagner les phases de tests, migration et mise en production.\n\n• Assurer un rôle de référent sur les problématiques techniques rencontrées durant les projets.\nConseil et accompagnement client\n\n• Animer des ateliers techniques avec les équipes métiers et IT.\n\n• Conseiller les clients sur les bonnes pratiques de gouvernance et de gestion des données de référence.\n\n• Accompagner la définition des feuilles de route MDM.\n\n• Participer aux phases de cadrage et d'architecture d'entreprise liées au Data Management.\nDéveloppement de l'offre et avant-vente\n\n• Contribuer au développement de l'offre Data Management de Talan Suisse.\n\n• Participer aux soutenances et démonstrations clients.\n\n• Réaliser des estimations de charge et des dossiers de réponse aux appels d'offres.\n\n• Contribuer au partenariat avec l'éditeur Semarchy.\n\n• Participer aux actions de veille et au rayonnement de l'expertise MDM au sein du marché suisse.\n\nExpérience\n\n• Minimum  8 années d'expérience  dans la mise en œuvre de solutions de Data Management / Master Data Management.\n\n• Minimum  3 années d'expérience significative et démontrable sur Semarchy xDM .\n\n• Expérience avérée sur des projets de déploiement MDM de bout en bout.\n\n• Expérience dans l'encadrement technique d'équipes projet.\nCompétences techniques obligatoires\nMaster Data Management\n\n• Expertise de la solution  Semarchy xDM .\n\n• Installation, paramétrage et administration de la plateforme.\n\n• Modélisation MDM.\n\n• Gestion des workflows.\n\n• Intégration de données.\n\n• Déploiement et exploitation de plateformes MDM.\nArchitecture et intégration\n\n• Architecture applicative et architecture de données.\n\n• API REST.\n\n• SQL avancé.\n\n• Intégration de données et ETL.\n\n• Environnements Cloud et hybrides.\n\n• Déploiements multi-environnements.\nAtouts appréciés\n\n• Connaissance de  Semarchy Data Platform (SDP) .\n\n• Expérience sur des outils de Data Quality ou Data Governance.\n\n• Connaissance des environnements Cloud Azure, AWS ou GCP.\n\n• Expérience sur des programmes de transformation Data à grande échelle.\n\n• Certification Semarchy.\nSoft Skills\n\n• Leadership technique reconnu.\n\n• Forte capacité à challenger les choix d'architecture.\n\n• Excellent relationnel client.\n\n• Esprit de conseil et pragmatisme.\n\n• Capacité à travailler en autonomie.\n\n• Excellentes qualités de communication.\n\n• Goût pour la transmission de connaissances et le coaching.\nLangues\n\n• Français : courant ou natif.\n\n• Anglais : professionnel courant.\n\n• L'allemand constitue un atout.\nLocalisation\n\n• Suisse Romande.\n\n• Basé idéalement dans la région de Genève ou Lausanne.\n\n• Mobilité requise sur les sites clients en Suisse Romande.\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137468618-lead-technique-mdm-semarchy-h-f-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T21:31:16.968Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137468618-lead-technique-mdm-semarchy-h-f-?oga=true",
+      "jobReqId": "744000137468618",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
+        "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
+          "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T21:56:50.005Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
       },
       "location": "Genève, , Switzerland",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.763Z",
+      "crawledAt": "2026-08-20T21:31:16.967Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -363,25 +443,22 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
-      "jobReqId": "744000135283150",
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-        "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
+        "qa-engineer-ebanking-talan-geneve-switzerland",
+        "qa-ingegnere-ebanking-talan-geneve-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-          "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
-        ],
-        "de": [
-          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+          "qa-engineer-ebanking-talan-geneve-switzerland",
+          "qa-ingegnere-ebanking-talan-geneve-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-03T23:41:37.237Z",
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -426,7 +503,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000136176174-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.762Z",
+      "crawledAt": "2026-08-20T21:31:16.966Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -483,83 +560,6 @@
       }
     },
     {
-      "id": "talan-734093123605",
-      "slug": "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
-      "slugByLocale": {
-        "it": "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
-        "en": "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
-        "de": "leittechnik-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
-        "fr": "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Lead Technique MDM Semarchy (H/F)",
-      "titleByLocale": {
-        "it": "Tecnica di piombo MDM Semarchy (H/F)",
-        "en": "Lead Technique MDM Semarchy (M/F)",
-        "de": "Leittechnik MDM Semarchy (H/F)",
-        "fr": "Lead Technique MDM Semarchy (H/F)"
-      },
-      "description": "Votre rôle:\n En tant que  Lead Technique MDM Semarchy , vous êtes le référent technique de notre offre MDM et jouez un rôle clé dans la réussite des projets de nos clients.\n Vous êtes avant tout un profil  hands-on , capable de prendre en charge les aspects les plus complexes des projets MDM tout en encadrant des consultants plus juniors.\n Vous intervenez depuis les phases d'avant-vente jusqu'à la mise en production des solutions et accompagnez les équipes projet sur les aspects d'architecture, d'implémentation et de gouvernance technique.\n Vous contribuerez également à la montée en compétence de nos consultants et au développement de l'expertise MDM au sein de Talan Suisse.\n Vos responsabilités:\n Expertise et leadership technique\n\n• Concevoir et mettre en œuvre des solutions MDM basées sur  Semarchy xDM / SDP .\n\n• Définir les architectures techniques et les bonnes pratiques de développement.\n\n• Superviser les choix de modélisation des données maîtres et de référence.\n\n• Garantir la qualité technique des solutions mises en œuvre.\n\n• Réaliser les revues d'architecture et de code.\n\n• Encadrer et accompagner les équipes de développement MDM.\n\n• Assurer la montée en compétence des consultants plus juniors.\n Delivery projets\n\n• Installer et configurer les plateformes Semarchy dans les environnements clients.\n\n• Participer à la définition des architectures d'intégration avec les systèmes existants.\n\n• Superviser les développements complexes et les composants critiques.\n\n• Garantir la performance, la sécurité et la maintenabilité des plateformes.\n\n• Accompagner les phases de tests, migration et mise en production.\n\n• Assurer un rôle de référent sur les problématiques techniques rencontrées durant les projets.\n Conseil et accompagnement client\n\n• Animer des ateliers techniques avec les équipes métiers et IT.\n\n• Conseiller les clients sur les bonnes pratiques de gouvernance et de gestion des données de référence.\n\n• Accompagner la définition des feuilles de route MDM.\n\n• Participer aux phases de cadrage et d'architecture d'entreprise liées au Data Management.\n Développement de l'offre et avant-vente\n\n• Contribuer au développement de l'offre Data Management de Talan Suisse.\n\n• Participer aux soutenances et démonstrations clients.\n\n• Réaliser des estimations de charge et des dossiers de réponse aux appels d'offres.\n\n• Contribuer au partenariat avec l'éditeur Semarchy.\n\n• Participer aux actions de veille et au rayonnement de l'expertise MDM au sein du marché suisse.\n\nExpérience\n\n• Minimum  8 années d'expérience  dans la mise en œuvre de solutions de Data Management / Master Data Management.\n\n• Minimum  3 années d'expérience significative et démontrable sur Semarchy xDM .\n\n• Expérience avérée sur des projets de déploiement MDM de bout en bout.\n\n• Expérience dans l'encadrement technique d'équipes projet.\n Compétences techniques obligatoires\n Master Data Management\n\n• Expertise de la solution  Semarchy xDM .\n\n• Installation, paramétrage et administration de la plateforme.\n\n• Modélisation MDM.\n\n• Gestion des workflows.\n\n• Intégration de données.\n\n• Déploiement et exploitation de plateformes MDM.\n Architecture et intégration\n\n• Architecture applicative et architecture de données.\n\n• API REST.\n\n• SQL avancé.\n\n• Intégration de données et ETL.\n\n• Environnements Cloud et hybrides.\n\n• Déploiements multi-environnements.\n Atouts appréciés\n\n• Connaissance de  Semarchy Data Platform (SDP) .\n\n• Expérience sur des outils de Data Quality ou Data Governance.\n\n• Connaissance des environnements Cloud Azure, AWS ou GCP.\n\n• Expérience sur des programmes de transformation Data à grande échelle.\n\n• Certification Semarchy.\n Soft Skills\n\n• Leadership technique reconnu.\n\n• Forte capacité à challenger les choix d'architecture.\n\n• Excellent relationnel client.\n\n• Esprit de conseil et pragmatisme.\n\n• Capacité à travailler en autonomie.\n\n• Excellentes qualités de communication.\n\n• Goût pour la transmission de connaissances et le coaching.\n Langues\n\n• Français : courant ou natif.\n\n• Anglais : professionnel courant.\n\n• L'allemand constitue un atout.\n Localisation\n\n• Suisse Romande.\n\n• Basé idéalement dans la région de Genève ou Lausanne.\n\n• Mobilité requise sur les sites clients en Suisse Romande.\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Il tuo ruolo:\nCome tecnica di piombo MDM Semarchy, sei il riferimento tecnico della nostra offerta MDM e gioca un ruolo chiave nel successo dei progetti dei nostri clienti.\nSei soprattutto un profilo pratico, in grado di gestire gli aspetti più complessi dei progetti MDM, supervisionando più consulenti junior.\nIntervenite dalle fasi pre-vendita alla produzione di soluzioni e accompagnate i team di progetto sugli aspetti dell'architettura, dell'implementazione e della governance tecnica.\nContribuirai anche all'aggiornamento dei nostri consulenti e allo sviluppo delle competenze MDM in Talan Svizzera.\nLe tue responsabilità:\nCompetenza e leadership tecnica\n\n• Progettazione e realizzazione di soluzioni MDM basate su Semarchy xDM / SDP .\n\n• Definire architetture tecniche e buone pratiche di sviluppo.\n\n• Supervise master e opzioni di modellazione dati di riferimento.\n\n• Assicurare la qualità tecnica delle soluzioni implementate.\n\n• Eseguire l'architettura e le recensioni di codice.\n\n• Supporto e supporto ai team di sviluppo MDM.\n\n• Assicurarsi che più consulenti junior diventano competenti.\nProgetti di consegna\n\n• Installare e configurare piattaforme Semarchy in ambienti clienti.\n\n• Partecipa alla definizione di architetture di integrazione con sistemi esistenti.\n\n• Superare gli sviluppi complessi e componenti critici.\n\n• Assicurare prestazioni, sicurezza e sostenibilità della piattaforma.\n\n• Test di supporto, fasi di migrazione e produzione.\n\n• Fornire un ruolo di riferimento sulle questioni tecniche incontrate durante i progetti.\nConsulenza e supporto dei clienti\n\n• Condurre workshop tecnici con scambi e team IT.\n\n• Consigliare i clienti alle buone pratiche di governance e gestione dei dati.\n\n• Accompagnate la definizione di roadmap MDM.\n\n• Partecipa alle fasi di inquadramento e architettura aziendale relative alla gestione dei dati.\nSviluppo della fornitura e pre-vendita\n\n• Contribuisci allo sviluppo dell'offerta di Gestione dati di Talan Svizzera.\n\n• Partecipare a supporto e dimostrazioni dei clienti.\n\n• Eseguire le stime delle spese e dei file di risposta alle richieste di offerte.\n\n• Contribuisci alla partnership con l'editore Semarchy.\n\n• Partecipa alle azioni di monitoraggio e alla diffusione delle competenze MDM nel mercato svizzero.\n\nEsperienza\n\n• Esperienza minima di 8 anni nell'attuazione delle soluzioni di Data Management / Master Data Management.\n\n• Minimo 3 anni di esperienza significativa e dimostrabile su Semarchy xDM .\n\n• Esperienza con progetti di distribuzione MDM end-to-end.\n\n• Esperienza nella supervisione tecnica dei team di progetto.\nCapacità tecniche obbligatorie\nGestione dei dati master\n\n• Esperienza di soluzione Semarchy xDM.\n\n• Installazione, impostazione e amministrazione della piattaforma.\n\n• Modellazione MDM.\n\n• Gestione del flusso di lavoro.\n\n• Integrazione dei dati.\n\n• Distribuzione e funzionamento delle piattaforme MDM.\nArchitettura e integrazione\n\n• Architettura delle applicazioni e architettura dei dati.\n\n• API REST.\n\n• Avanzato SQL.\n\n• Integrazione dei dati e ETL.\n\n• Ambiente cloud e ibrido.\n\n• Distribuzione multi-ambiente.\nVantaggi\n\n• Conoscenza di Semarchy Data Platform (SDP).\n\n• Esperienza con gli strumenti di Data Quality o Data Governance.\n\n• Conoscenza degli ambienti Azure Cloud, AWS o GCP.\n\n• Esperienza nei programmi di trasformazione dati su larga scala.\n\n• Certificazione Semarchy.\nAbilità morbide\n\n• Riconosciuta leadership tecnica.\n\n• Forte capacità di sfidare le scelte architettoniche.\n\n• Eccellente rapporto con i clienti.\n\n• Spirito di consiglio e pragmatismo.\n\n• Capacità di lavorare in modo indipendente.\n\n• Eccellente capacità di comunicazione.\n\n• Gusto per trasferimento di conoscenze e coaching.\nLingue\n\n• Francese: attuale o nativo.\n\n• Inglese: attuale professionista.\n\n• Il tedesco e' una risorsa.\nLocation\n\n• Svizzera Romande.\n\n• Idealmente con sede nella regione di Ginevra o Losanna.\n\n• Mobilità richiesta sui siti dei clienti in Suisse Romande.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "Your role:\nAs Lead Technique MDM Semarchy, you are the technical reference of our MDM offer and play a key role in the success of our customers' projects.\nYou are above all a hands-on profile, able to handle the most complex aspects of MDM projects while supervising more junior consultants.\nYou intervene from the pre-sales phases to the production of solutions and accompany the project teams on the aspects of architecture, implementation and technical governance.\nYou will also contribute to the upgrading of our consultants and the development of MDM expertise within Talan Switzerland.\nYour responsibilities:\nExpertise and technical leadership\n\n• Design and implement MDM solutions based on Semarchy xDM / SDP .\n\n• Define technical architectures and good development practices.\n\n• Supervise master and reference data modeling choices.\n\n• Ensure the technical quality of the solutions implemented.\n\n• Perform architecture and code reviews.\n\n• Support and support MDM development teams.\n\n• Ensure that more junior consultants become competent.\nDelivery projects\n\n• Install and configure Semarchy platforms in customer environments.\n\n• Participate in defining integration architectures with existing systems.\n\n• Supervise complex developments and critical components.\n\n• Ensure platform performance, security and sustainability.\n\n• Support testing, migration and production phases.\n\n• Provide a reference role on technical issues encountered during projects.\nCustomer advice and support\n\n• Conduct technical workshops with trades and IT teams.\n\n• Advise clients on good governance and data management practices.\n\n• Accompany the definition of MDM roadmaps.\n\n• Participate in the framing and business architecture phases related to Data Management.\nSupply development and pre-sales\n\n• Contribute to the development of Talan Switzerland's Data Management offer.\n\n• Participate in customer support and demonstrations.\n\n• Carry out estimates of charges and response files to calls for tenders.\n\n• Contribute to the partnership with publisher Semarchy.\n\n• Participate in monitoring actions and the dissemination of MDM expertise within the Swiss market.\n\nExperience\n\n• Minimum 8 years experience in implementing Data Management / Master Data Management solutions.\n\n• Minimum 3 years of significant and demonstrable experience on Semarchy xDM .\n\n• Experience with end-to-end MDM deployment projects.\n\n• Experience in technical supervision of project teams.\nMandatory technical skills\nMaster Data Management\n\n• Semarchy xDM solution expertise.\n\n• Installation, setting and administration of the platform.\n\n• MDM modelling.\n\n• Workflow management.\n\n• Data integration.\n\n• Deployment and operation of MDM platforms.\nArchitecture and integration\n\n• Application architecture and data architecture.\n\n• REST API.\n\n• Advanced SQL.\n\n• Data integration and ETL.\n\n• Cloud and hybrid environments.\n\n• Multi-environment deployment.\nBenefits\n\n• Knowledge of Semarchy Data Platform (SDP).\n\n• Experience with Data Quality or Data Governance tools.\n\n• Knowledge of Azure Cloud, AWS or GCP environments.\n\n• Experience in large-scale Data transformation programs.\n\n• Semarchy certification.\nSoft Skills\n\n• Recognized technical leadership.\n\n• Strong ability to challenge architectural choices.\n\n• Excellent customer relationship.\n\n• Spirit of counsel and pragmatism.\n\n• Ability to work independently.\n\n• Excellent communication skills.\n\n• Taste for knowledge transfer and coaching.\nLanguages\n\n• French: current or native.\n\n• English: current professional.\n\n• German is an asset.\nLocation\n\n• Switzerland Romande.\n\n• Ideally based in the Geneva or Lausanne region.\n\n• Mobility required on customer sites in Suisse Romande.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Ihre Rolle:\nAls Lead Technique MDM Semarchy, Sie sind die technische Referenz unseres MDM-Angebots und spielen eine Schlüsselrolle für den Erfolg der Projekte unserer Kunden.\nSie sind vor allem ein praktisches Profil, das in der Lage ist, die komplexesten Aspekte von MDM-Projekten zu bewältigen und gleichzeitig mehr Junior-Berater zu betreuen.\nSie intervenieren von den Pre-Sales-Phasen bis hin zur Erstellung von Lösungen und begleiten die Projektteams zu den Aspekten Architektur, Umsetzung und technischer Governance.\nSie werden auch zur Aufwertung unserer Berater und zur Entwicklung der MDM-Expertise in Talan Schweiz beitragen.\nIhre Aufgaben:\nExpertise und technische Führung\n\n• Design und Implementierung von MDM-Lösungen basierend auf Semarchy xDM / SDP .\n\n• Definieren Sie technische Architekturen und gute Entwicklungspraktiken.\n\n• Beaufsichtigen Sie Master- und Referenzdatenmodellierungsoptionen.\n\n• Gewährleistung der technischen Qualität der implementierten Lösungen.\n\n• Führen Sie Architektur- und Code Reviews durch.\n\n• Unterstützung und Unterstützung von MDM-Entwicklungsteams.\n\n• Stellen Sie sicher, dass mehr Junior Consultants kompetent werden.\nLieferprojekte\n\n• Installieren und konfigurieren Sie Semarchy-Plattformen in Kundenumgebungen.\n\n• Beteiligen Sie sich an der Definition von Integrationsarchitekturen mit bestehenden Systemen.\n\n• Beaufsichtigen Sie komplexe Entwicklungen und kritische Komponenten.\n\n• Sicherstellen von Performance, Sicherheit und Nachhaltigkeit der Plattform.\n\n• Unterstützung von Test-, Migrations- und Produktionsphasen.\n\n• Geben Sie eine Referenzrolle zu technischen Problemen, die während der Projekte auftreten.\nKundenberatung und Support\n\n• Führen Sie technische Workshops mit Trades und IT-Teams durch.\n\n• Beratung von Kunden zu Good Governance- und Datenmanagementpraktiken.\n\n• Begleiten Sie die Definition von MDM-Roadmaps.\n\n• Nehmen Sie an den Framing- und Business-Architekturphasen im Zusammenhang mit Datenmanagement teil.\nSupply Development und Pre-Sales\n\n• Tragen Sie zur Entwicklung des Datenmanagement-Angebots von Talan Schweiz bei.\n\n• Nehmen Sie an Kundensupport und Demonstrationen teil.\n\n• Erstellung von Gebührenschätzungen und Antwortdateien für Ausschreibungen.\n\n• Tragen Sie zur Partnerschaft mit dem Verlag Semarchy bei.\n\n• Beteiligen Sie sich an Überwachungsmaßnahmen und der Verbreitung von MDM-Know-how auf dem Schweizer Markt.\n\nErfahrung\n\n• Mindestens 8 Jahre Erfahrung in der Implementierung von Data Management / Master Data Management-Lösungen.\n\n• Mindestens 3 Jahre bedeutende und nachweisbare Erfahrung auf Semarchy xDM .\n\n• Erfahrung mit End-to-End-MDM-Bereitstellungsprojekten.\n\n• Erfahrung in der technischen Betreuung von Projektteams.\nVerpflichtende technische Fähigkeiten\nMaster Data Management\n\n• Semarchy xDM Lösungskompetenz.\n\n• Installation, Einstellung und Verwaltung der Plattform.\n\n• MDM-Modellierung.\n\n• Workflow-Management.\n\n• Datenintegration.\n\n• Bereitstellung und Betrieb von MDM-Plattformen.\nArchitektur und Integration\n\n• Anwendungsarchitektur und Datenarchitektur.\n\n• REST-API.\n\n• Advanced SQL.\n\n• Datenintegration und ETL.\n\n• Cloud- und Hybrid-Umgebungen.\n\n• Einsatz von Multi-Environment.\nVorteile\n\n• Kenntnisse der Semarchy Data Platform (SDP).\n\n• Erfahrung mit Data Quality oder Data Governance Tools.\n\n• Kenntnisse in Azure Cloud, AWS oder GCP-Umgebungen.\n\n• Erfahrung in groß angelegten Datentransformationsprogrammen.\n\n• Semarchy-Zertifizierung.\nSoft Skills\n\n• Anerkannte technische Führung.\n\n• Starke Fähigkeit, architektonische Entscheidungen herauszufordern.\n\n• Ausgezeichnete Kundenbeziehung.\n\n• Geist des Rates und des Pragmatismus.\n\n• Fähigkeit, unabhängig zu arbeiten.\n\n• Hervorragende Kommunikationsfähigkeiten.\n\n• Geschmack für Wissenstransfer und Coaching.\nSprachen\n\n• Französisch: aktuell oder gebürtig.\n\n• Englisch: Aktuell Professional.\n\n• Deutsch ist ein Asset.\nStandort\n\n• Schweiz Romande.\n\n• Idealerweise in der Region Genf oder Lausanne.\n\n• Mobilität auf Kundenstandorten in Suisse Romande erforderlich.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Votre rôle:\nEn tant que  Lead Technique MDM Semarchy , vous êtes le référent technique de notre offre MDM et jouez un rôle clé dans la réussite des projets de nos clients.\nVous êtes avant tout un profil  hands-on , capable de prendre en charge les aspects les plus complexes des projets MDM tout en encadrant des consultants plus juniors.\nVous intervenez depuis les phases d'avant-vente jusqu'à la mise en production des solutions et accompagnez les équipes projet sur les aspects d'architecture, d'implémentation et de gouvernance technique.\nVous contribuerez également à la montée en compétence de nos consultants et au développement de l'expertise MDM au sein de Talan Suisse.\nVos responsabilités:\nExpertise et leadership technique\n\n• Concevoir et mettre en œuvre des solutions MDM basées sur  Semarchy xDM / SDP .\n\n• Définir les architectures techniques et les bonnes pratiques de développement.\n\n• Superviser les choix de modélisation des données maîtres et de référence.\n\n• Garantir la qualité technique des solutions mises en œuvre.\n\n• Réaliser les revues d'architecture et de code.\n\n• Encadrer et accompagner les équipes de développement MDM.\n\n• Assurer la montée en compétence des consultants plus juniors.\nDelivery projets\n\n• Installer et configurer les plateformes Semarchy dans les environnements clients.\n\n• Participer à la définition des architectures d'intégration avec les systèmes existants.\n\n• Superviser les développements complexes et les composants critiques.\n\n• Garantir la performance, la sécurité et la maintenabilité des plateformes.\n\n• Accompagner les phases de tests, migration et mise en production.\n\n• Assurer un rôle de référent sur les problématiques techniques rencontrées durant les projets.\nConseil et accompagnement client\n\n• Animer des ateliers techniques avec les équipes métiers et IT.\n\n• Conseiller les clients sur les bonnes pratiques de gouvernance et de gestion des données de référence.\n\n• Accompagner la définition des feuilles de route MDM.\n\n• Participer aux phases de cadrage et d'architecture d'entreprise liées au Data Management.\nDéveloppement de l'offre et avant-vente\n\n• Contribuer au développement de l'offre Data Management de Talan Suisse.\n\n• Participer aux soutenances et démonstrations clients.\n\n• Réaliser des estimations de charge et des dossiers de réponse aux appels d'offres.\n\n• Contribuer au partenariat avec l'éditeur Semarchy.\n\n• Participer aux actions de veille et au rayonnement de l'expertise MDM au sein du marché suisse.\n\nExpérience\n\n• Minimum  8 années d'expérience  dans la mise en œuvre de solutions de Data Management / Master Data Management.\n\n• Minimum  3 années d'expérience significative et démontrable sur Semarchy xDM .\n\n• Expérience avérée sur des projets de déploiement MDM de bout en bout.\n\n• Expérience dans l'encadrement technique d'équipes projet.\nCompétences techniques obligatoires\nMaster Data Management\n\n• Expertise de la solution  Semarchy xDM .\n\n• Installation, paramétrage et administration de la plateforme.\n\n• Modélisation MDM.\n\n• Gestion des workflows.\n\n• Intégration de données.\n\n• Déploiement et exploitation de plateformes MDM.\nArchitecture et intégration\n\n• Architecture applicative et architecture de données.\n\n• API REST.\n\n• SQL avancé.\n\n• Intégration de données et ETL.\n\n• Environnements Cloud et hybrides.\n\n• Déploiements multi-environnements.\nAtouts appréciés\n\n• Connaissance de  Semarchy Data Platform (SDP) .\n\n• Expérience sur des outils de Data Quality ou Data Governance.\n\n• Connaissance des environnements Cloud Azure, AWS ou GCP.\n\n• Expérience sur des programmes de transformation Data à grande échelle.\n\n• Certification Semarchy.\nSoft Skills\n\n• Leadership technique reconnu.\n\n• Forte capacité à challenger les choix d'architecture.\n\n• Excellent relationnel client.\n\n• Esprit de conseil et pragmatisme.\n\n• Capacité à travailler en autonomie.\n\n• Excellentes qualités de communication.\n\n• Goût pour la transmission de connaissances et le coaching.\nLangues\n\n• Français : courant ou natif.\n\n• Anglais : professionnel courant.\n\n• L'allemand constitue un atout.\nLocalisation\n\n• Suisse Romande.\n\n• Basé idéalement dans la région de Genève ou Lausanne.\n\n• Mobilité requise sur les sites clients en Suisse Romande.\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137468618-lead-technique-mdm-semarchy-h-f-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.761Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137468618-lead-technique-mdm-semarchy-h-f-?oga=true",
-      "jobReqId": "744000137468618",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
-        "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland",
-          "tecnica-di-piombo-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "lead-technique-mdm-semarchy-h-f-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T21:56:50.005Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-91c128624c7e",
       "slug": "corso-di-laurea-ingegnere-ia-business-digital-transformation-talan-geneva-ge-switzerland",
       "slugByLocale": {
@@ -590,7 +590,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000139276349-stage-de-fin-d-etudes-ingenieur-e-ia-business-digital-transformation-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.760Z",
+      "crawledAt": "2026-08-20T21:31:16.965Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -640,87 +640,6 @@
       }
     },
     {
-      "id": "talan-3f31476b0496",
-      "slug": "architetto-senior-enterprise-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "architetto-senior-enterprise-talan-geneve-switzerland",
-        "en": "architect-senior-enterprise-talan-geneve-switzerland",
-        "de": "architekt-senior-enterprise-talan-geneve-switzerland",
-        "fr": "architecte-entreprise-senior-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Architecte Entreprise Senior",
-      "titleByLocale": {
-        "it": "Architetto senior Enterprise",
-        "en": "Architect Senior Enterprise",
-        "de": "Architekt Senior Enterprise",
-        "fr": "Architecte Entreprise Senior"
-      },
-      "description": "Dans le cadre d'un important programme de transformation, nous recherchons un Senior Enterprise Functional Architect pour accompagner une institution financière de premier plan basée à Genève.\n Vous rejoindrez une équipe d'Enterprise Architecture et jouerez un rôle central dans la structuration des données, des processus métiers et des flux d'information de l'organisation. Vous contribuerez à garantir la cohérence, la qualité et la gouvernance des données dans un environnement bancaire fortement réglementé.\n Vos responsabilités\n\n• Définir les besoins en données d'entreprise et leur cycle de vie de bout en bout, des systèmes transactionnels aux plateformes analytiques.\n\n• Concevoir et maintenir les modèles de données de référence de l'entreprise.\n\n• Identifier les \"Golden Sources\" pour les principaux concepts métiers et valider les flux de données associés.\n\n• Réaliser et maintenir la cartographie fonctionnelle du système d'information.\n\n• Répartir les capacités fonctionnelles entre les applications en collaboration avec les Business Analysts et les Solution Architects.\n\n• Participer activement à la gouvernance des données critiques conformément aux exigences réglementaires suisses.\n\n• Définir les standards d'architecture d'entreprise et accompagner leur adoption au sein des équipes projets et IT.\n\n• Collaborer étroitement avec les équipes métiers afin d'assurer l'alignement entre les besoins business et les solutions techniques.\n\n• Expérience significative en Enterprise Architecture dans une banque privée, une banque ou un établissement de gestion de fortune.\n\n• Solide expertise en Enterprise Data Modelling et Data Governance.\n\n• Excellente connaissance du cadre réglementaire suisse applicable à la gestion des données bancaires critiques, et capacité à intégrer les exigences de la circulaire FINMA 2023/1 dans les pratiques de gouvernance et d'architecture des données.\n\n• Expérience en cartographie fonctionnelle et modélisation des processus métier (BPMN ou équivalent).\n\n• Bonne compréhension des architectures de données modernes :\n• Data Lake\n\n• Data Warehouse\n\n• Plateformes analytiques\n\n• Maîtrise des principes de Data Quality et Master Data Management (MDM).\n\n• Bonne connaissance des processus métiers de la gestion de fortune :\n• Client Onboarding\n\n• Portfolio Management\n\n• Compliance\n\n• Regulatory Reporting\n\n• Capacité à travailler avec des interlocuteurs métiers et techniques.\n\n• Excellente communication en français et en anglais.\n Certifications souhaitées\n\n• TOGAF (ou certification équivalente en Enterprise Architecture)\n\n• CDMP – Certified Data Management Professional (Practitioner / Level 2)",
-      "descriptionByLocale": {
-        "it": "Nell'ambito di un importante programma di trasformazione, stiamo cercando un Senior Enterprise Functional Architect per sostenere un'istituzione finanziaria leader con sede a Ginevra.\nTi unirai a un team di Enterprise Architecture e svolgerai un ruolo centrale nella strutturazione dei dati, processi aziendali e flussi di informazioni dell'organizzazione. Ti aiuterà a garantire coerenza, qualità e governance dei dati in un ambiente bancario altamente regolamentato.\nLe tue responsabilità\n\n• Definire le esigenze dei dati aziendali e il loro ciclo di vita end-to-end, dai sistemi transazionali alle piattaforme analitiche.\n\n• Progettare e mantenere modelli di dati di riferimento aziendale.\n\n• Identificare \"Golden Sources\" per i concetti chiave di business e convalidare i flussi di dati associati.\n\n• Condurre e mantenere la mappatura funzionale del sistema informativo.\n\n• Distribuisci funzionalità tra applicazioni in collaborazione con Business Analysts e Solution Architects.\n\n• Partecipa attivamente alla governance dei dati critici in conformità con i requisiti normativi svizzeri.\n\n• Definire gli standard di architettura aziendale e sostenere la loro adozione all'interno dei team di progetto e IT.\n\n• Lavorare a stretto contatto con i team aziendali per garantire l'allineamento tra le esigenze aziendali e le soluzioni tecniche.\n\n• Esperienza significativa in Enterprise Architecture in una banca privata, banca o istituzione di gestione della fortuna.\n\n• Forte esperienza nella modellazione dei dati aziendali e nella governance dei dati.\n\n• Ottima conoscenza del quadro normativo svizzero per la gestione dei dati bancari critici e la capacità di integrare i requisiti della FINMA circolare 2023/1 nelle pratiche di governance e architettura dei dati.\n\n• Esperienza nella mappatura funzionale e nella modellazione dei processi aziendali (BPMN o equivalente).\n\n• Buona comprensione delle moderne architetture di dati:\n• Data Lake\n\n• Data Warehouse\n\n• Piattaforme analitiche\n\n• Master of Data Quality and Master Data Management (MDM) principi.\n\n• Buona conoscenza dei processi aziendali di gestione della ricchezza:\n• Invio del cliente\n\n• Gestione del portafoglio\n\n• Rispetto\n\n• Reporting regolamentare\n\n• Capacità di lavorare con il commercio e gli interlocutori tecnici.\n\n• Ottima comunicazione in francese e inglese.\nQualifiche\n\n• TOGAF (o equivalente certificazione Enterprise Architecture)\n\n• CDMP – Certified Data Management Professional (Practitioner / Livello 2)",
-        "en": "As part of a major transformation programme, we are looking for a Senior Enterprise Functional Architect to support a leading financial institution based in Geneva.\nYou will join an Enterprise Architecture team and play a central role in structuring the organization's data, business processes and information flows. You will help ensure consistency, quality and governance of data in a highly regulated banking environment.\nYour Responsibilities\n\n• Define business data needs and their end-to-end life cycle, from transactional systems to analytical platforms.\n\n• Design and maintain company reference data models.\n\n• Identify \"Golden Sources\" for key business concepts and validate associated data streams.\n\n• Conduct and maintain functional mapping of the information system.\n\n• Distribute functional capabilities between applications in collaboration with Business Analysts and Solution Architects.\n\n• Actively participate in critical data governance in accordance with Swiss regulatory requirements.\n\n• Define the standards of enterprise architecture and support their adoption within the project and IT teams.\n\n• Work closely with business teams to ensure alignment between business needs and technical solutions.\n\n• Significant experience in Enterprise Architecture in a private bank, bank or fortune management institution.\n\n• Strong expertise in Enterprise Data Modelling and Data Governance.\n\n• Excellent knowledge of the Swiss regulatory framework for the management of critical banking data, and ability to integrate the requirements of Circular FINMA 2023/1 into governance and data architecture practices.\n\n• Experience in functional mapping and business process modelling (BPMN or equivalent).\n\n• Good understanding of modern data architectures:\n• Data Lake\n\n• Data Warehouse\n\n• Analytical platforms\n\n• Master of Data Quality and Master Data Management (MDM) principles.\n\n• Good knowledge of the business processes of wealth management:\n• Client Onboarding\n\n• Portfolio Management\n\n• Compliance\n\n• Regulatory Reporting\n\n• Ability to work with trade and technical interlocutors.\n\n• Excellent communication in French and English.\nQualifications\n\n• TOGAF (or equivalent Enterprise Architecture certification)\n\n• CDMP – Certified Data Management Professional (Practitioner / Level 2)",
-        "de": "Im Rahmen eines großen Transformationsprogramms suchen wir einen Senior Enterprise Functional Architect zur Unterstützung eines führenden Finanzinstituts mit Sitz in Genf.\nSie treten einem Enterprise Architecture-Team bei und spielen eine zentrale Rolle bei der Strukturierung der Daten, Geschäftsprozesse und Informationsflüsse des Unternehmens. Sie werden dazu beitragen, Konsistenz, Qualität und Governance von Daten in einem stark regulierten Bankenumfeld zu gewährleisten.\nIhre Aufgaben\n\n• Definieren Sie den Bedarf an Geschäftsdaten und ihren End-to-End-Lebenszyklus, von Transaktionssystemen bis hin zu analytischen Plattformen.\n\n• Design und Pflege von Unternehmensreferenzdatenmodellen.\n\n• Identifizieren Sie \"Golden Sources\" für wichtige Geschäftskonzepte und validieren Sie die zugehörigen Datenströme.\n\n• Durchführung und Pflege der funktionalen Zuordnung des Informationssystems.\n\n• Verteilen Sie funktionale Funktionen zwischen Anwendungen in Zusammenarbeit mit Business Analysts und Solution Architects.\n\n• Beteiligen Sie sich aktiv an der kritischen Data Governance gemäß den schweizerischen regulatorischen Anforderungen.\n\n• Definieren Sie die Standards der Unternehmensarchitektur und unterstützen Sie deren Übernahme innerhalb des Projekt- und IT-Teams.\n\n• Arbeiten Sie eng mit Geschäftsteams zusammen, um die Abstimmung zwischen Geschäftsanforderungen und technischen Lösungen sicherzustellen.\n\n• Bedeutende Erfahrung in Enterprise Architecture in einer Privatbank, Bank oder Vermögensverwaltungsinstitution.\n\n• Starke Expertise in Enterprise Data Modelling und Data Governance.\n\n• Ausgezeichnete Kenntnisse des Schweizer Regulierungsrahmens für die Verwaltung kritischer Bankdaten und Fähigkeit, die Anforderungen des Rundschreibens FINMA 2023/1 in Governance- und Datenarchitekturpraktiken zu integrieren.\n\n• Erfahrung im Bereich Functional Mapping und Business Process Modeling (BPMN oder gleichwertig).\n\n• Gutes Verständnis moderner Datenarchitekturen:\n• Data Lake\n\n• Data Warehouse\n\n• Analyseplattformen\n\n• Master of Data Quality und Master Data Management (MDM) Prinzipien.\n\n• Gute Kenntnisse der Geschäftsprozesse der Vermögensverwaltung:\n• Client Onboarding\n\n• Portfolioverwaltung\n\n• Einhaltung der Vorschriften\n\n• Regulatorische Berichterstattung\n\n• Fähigkeit, mit Handel und technischen Gesprächspartnern zu arbeiten.\n\n• Ausgezeichnete Kommunikation in Französisch und Englisch.\nQualifikationen\n\n• TOGAF (oder eine gleichwertige Enterprise Architecture Zertifizierung)\n\n• CDMP – Certified Data Management Professional (Praktiker / Level 2)",
-        "fr": "Dans le cadre d'un important programme de transformation, nous recherchons un Senior Enterprise Functional Architect pour accompagner une institution financière de premier plan basée à Genève.\nVous rejoindrez une équipe d'Enterprise Architecture et jouerez un rôle central dans la structuration des données, des processus métiers et des flux d'information de l'organisation. Vous contribuerez à garantir la cohérence, la qualité et la gouvernance des données dans un environnement bancaire fortement réglementé.\nVos responsabilités\n\n• Définir les besoins en données d'entreprise et leur cycle de vie de bout en bout, des systèmes transactionnels aux plateformes analytiques.\n\n• Concevoir et maintenir les modèles de données de référence de l'entreprise.\n\n• Identifier les \"Golden Sources\" pour les principaux concepts métiers et valider les flux de données associés.\n\n• Réaliser et maintenir la cartographie fonctionnelle du système d'information.\n\n• Répartir les capacités fonctionnelles entre les applications en collaboration avec les Business Analysts et les Solution Architects.\n\n• Participer activement à la gouvernance des données critiques conformément aux exigences réglementaires suisses.\n\n• Définir les standards d'architecture d'entreprise et accompagner leur adoption au sein des équipes projets et IT.\n\n• Collaborer étroitement avec les équipes métiers afin d'assurer l'alignement entre les besoins business et les solutions techniques.\n\n• Expérience significative en Enterprise Architecture dans une banque privée, une banque ou un établissement de gestion de fortune.\n\n• Solide expertise en Enterprise Data Modelling et Data Governance.\n\n• Excellente connaissance du cadre réglementaire suisse applicable à la gestion des données bancaires critiques, et capacité à intégrer les exigences de la circulaire FINMA 2023/1 dans les pratiques de gouvernance et d'architecture des données.\n\n• Expérience en cartographie fonctionnelle et modélisation des processus métier (BPMN ou équivalent).\n\n• Bonne compréhension des architectures de données modernes :\n• Data Lake\n\n• Data Warehouse\n\n• Plateformes analytiques\n\n• Maîtrise des principes de Data Quality et Master Data Management (MDM).\n\n• Bonne connaissance des processus métiers de la gestion de fortune :\n• Client Onboarding\n\n• Portfolio Management\n\n• Compliance\n\n• Regulatory Reporting\n\n• Capacité à travailler avec des interlocuteurs métiers et techniques.\n\n• Excellente communication en français et en anglais.\nCertifications souhaitées\n\n• TOGAF (ou certification équivalente en Enterprise Architecture)\n\n• CDMP – Certified Data Management Professional (Practitioner / Level 2)"
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000140240299-architecte-entreprise-senior?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.758Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000140240299-architecte-entreprise-senior?oga=true",
-      "jobReqId": "744000140240299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "architecte-entreprise-senior-talan-geneve-switzerland",
-        "architetto-senior-enterprise-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "architecte-entreprise-senior-talan-geneve-switzerland",
-          "architetto-senior-enterprise-talan-geneve-switzerland"
-        ],
-        "en": [
-          "architecte-entreprise-senior-talan-geneve-switzerland"
-        ],
-        "de": [
-          "architecte-entreprise-senior-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T22:05:36.951Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-25a8c0adc0e7",
       "slug": "completamento-degli-studi-ingegnere-ia-dati-talan-geneva-ge-switzerland",
       "slugByLocale": {
@@ -752,7 +671,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000139276209-stage-de-fin-d-etudes-ingenieur-e-ia-data-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.747Z",
+      "crawledAt": "2026-08-20T21:31:16.964Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -802,6 +721,161 @@
       }
     },
     {
+      "id": "talan-3f31476b0496",
+      "slug": "architetto-senior-enterprise-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "architetto-senior-enterprise-talan-geneve-switzerland",
+        "en": "architect-senior-enterprise-talan-geneve-switzerland",
+        "de": "architekt-senior-enterprise-talan-geneve-switzerland",
+        "fr": "architecte-entreprise-senior-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Architecte Entreprise Senior",
+      "titleByLocale": {
+        "it": "Architetto senior Enterprise",
+        "en": "Architect Senior Enterprise",
+        "de": "Architekt Senior Enterprise",
+        "fr": "Architecte Entreprise Senior"
+      },
+      "description": "Dans le cadre d'un important programme de transformation, nous recherchons un Senior Enterprise Functional Architect pour accompagner une institution financière de premier plan basée à Genève.\n Vous rejoindrez une équipe d'Enterprise Architecture et jouerez un rôle central dans la structuration des données, des processus métiers et des flux d'information de l'organisation. Vous contribuerez à garantir la cohérence, la qualité et la gouvernance des données dans un environnement bancaire fortement réglementé.\n Vos responsabilités\n\n• Définir les besoins en données d'entreprise et leur cycle de vie de bout en bout, des systèmes transactionnels aux plateformes analytiques.\n\n• Concevoir et maintenir les modèles de données de référence de l'entreprise.\n\n• Identifier les \"Golden Sources\" pour les principaux concepts métiers et valider les flux de données associés.\n\n• Réaliser et maintenir la cartographie fonctionnelle du système d'information.\n\n• Répartir les capacités fonctionnelles entre les applications en collaboration avec les Business Analysts et les Solution Architects.\n\n• Participer activement à la gouvernance des données critiques conformément aux exigences réglementaires suisses.\n\n• Définir les standards d'architecture d'entreprise et accompagner leur adoption au sein des équipes projets et IT.\n\n• Collaborer étroitement avec les équipes métiers afin d'assurer l'alignement entre les besoins business et les solutions techniques.\n\n• Expérience significative en Enterprise Architecture dans une banque privée, une banque ou un établissement de gestion de fortune.\n\n• Solide expertise en Enterprise Data Modelling et Data Governance.\n\n• Excellente connaissance du cadre réglementaire suisse applicable à la gestion des données bancaires critiques, et capacité à intégrer les exigences de la circulaire FINMA 2023/1 dans les pratiques de gouvernance et d'architecture des données.\n\n• Expérience en cartographie fonctionnelle et modélisation des processus métier (BPMN ou équivalent).\n\n• Bonne compréhension des architectures de données modernes :\n• Data Lake\n\n• Data Warehouse\n\n• Plateformes analytiques\n\n• Maîtrise des principes de Data Quality et Master Data Management (MDM).\n\n• Bonne connaissance des processus métiers de la gestion de fortune :\n• Client Onboarding\n\n• Portfolio Management\n\n• Compliance\n\n• Regulatory Reporting\n\n• Capacité à travailler avec des interlocuteurs métiers et techniques.\n\n• Excellente communication en français et en anglais.\n Certifications souhaitées\n\n• TOGAF (ou certification équivalente en Enterprise Architecture)\n\n• CDMP – Certified Data Management Professional (Practitioner / Level 2)",
+      "descriptionByLocale": {
+        "it": "Nell'ambito di un importante programma di trasformazione, stiamo cercando un Senior Enterprise Functional Architect per sostenere un'istituzione finanziaria leader con sede a Ginevra.\nTi unirai a un team di Enterprise Architecture e svolgerai un ruolo centrale nella strutturazione dei dati, processi aziendali e flussi di informazioni dell'organizzazione. Ti aiuterà a garantire coerenza, qualità e governance dei dati in un ambiente bancario altamente regolamentato.\nLe tue responsabilità\n\n• Definire le esigenze dei dati aziendali e il loro ciclo di vita end-to-end, dai sistemi transazionali alle piattaforme analitiche.\n\n• Progettare e mantenere modelli di dati di riferimento aziendale.\n\n• Identificare \"Golden Sources\" per i concetti chiave di business e convalidare i flussi di dati associati.\n\n• Condurre e mantenere la mappatura funzionale del sistema informativo.\n\n• Distribuisci funzionalità tra applicazioni in collaborazione con Business Analysts e Solution Architects.\n\n• Partecipa attivamente alla governance dei dati critici in conformità con i requisiti normativi svizzeri.\n\n• Definire gli standard di architettura aziendale e sostenere la loro adozione all'interno dei team di progetto e IT.\n\n• Lavorare a stretto contatto con i team aziendali per garantire l'allineamento tra le esigenze aziendali e le soluzioni tecniche.\n\n• Esperienza significativa in Enterprise Architecture in una banca privata, banca o istituzione di gestione della fortuna.\n\n• Forte esperienza nella modellazione dei dati aziendali e nella governance dei dati.\n\n• Ottima conoscenza del quadro normativo svizzero per la gestione dei dati bancari critici e la capacità di integrare i requisiti della FINMA circolare 2023/1 nelle pratiche di governance e architettura dei dati.\n\n• Esperienza nella mappatura funzionale e nella modellazione dei processi aziendali (BPMN o equivalente).\n\n• Buona comprensione delle moderne architetture di dati:\n• Data Lake\n\n• Data Warehouse\n\n• Piattaforme analitiche\n\n• Master of Data Quality and Master Data Management (MDM) principi.\n\n• Buona conoscenza dei processi aziendali di gestione della ricchezza:\n• Invio del cliente\n\n• Gestione del portafoglio\n\n• Rispetto\n\n• Reporting regolamentare\n\n• Capacità di lavorare con il commercio e gli interlocutori tecnici.\n\n• Ottima comunicazione in francese e inglese.\nQualifiche\n\n• TOGAF (o equivalente certificazione Enterprise Architecture)\n\n• CDMP – Certified Data Management Professional (Practitioner / Livello 2)",
+        "en": "As part of a major transformation programme, we are looking for a Senior Enterprise Functional Architect to support a leading financial institution based in Geneva.\nYou will join an Enterprise Architecture team and play a central role in structuring the organization's data, business processes and information flows. You will help ensure consistency, quality and governance of data in a highly regulated banking environment.\nYour Responsibilities\n\n• Define business data needs and their end-to-end life cycle, from transactional systems to analytical platforms.\n\n• Design and maintain company reference data models.\n\n• Identify \"Golden Sources\" for key business concepts and validate associated data streams.\n\n• Conduct and maintain functional mapping of the information system.\n\n• Distribute functional capabilities between applications in collaboration with Business Analysts and Solution Architects.\n\n• Actively participate in critical data governance in accordance with Swiss regulatory requirements.\n\n• Define the standards of enterprise architecture and support their adoption within the project and IT teams.\n\n• Work closely with business teams to ensure alignment between business needs and technical solutions.\n\n• Significant experience in Enterprise Architecture in a private bank, bank or fortune management institution.\n\n• Strong expertise in Enterprise Data Modelling and Data Governance.\n\n• Excellent knowledge of the Swiss regulatory framework for the management of critical banking data, and ability to integrate the requirements of Circular FINMA 2023/1 into governance and data architecture practices.\n\n• Experience in functional mapping and business process modelling (BPMN or equivalent).\n\n• Good understanding of modern data architectures:\n• Data Lake\n\n• Data Warehouse\n\n• Analytical platforms\n\n• Master of Data Quality and Master Data Management (MDM) principles.\n\n• Good knowledge of the business processes of wealth management:\n• Client Onboarding\n\n• Portfolio Management\n\n• Compliance\n\n• Regulatory Reporting\n\n• Ability to work with trade and technical interlocutors.\n\n• Excellent communication in French and English.\nQualifications\n\n• TOGAF (or equivalent Enterprise Architecture certification)\n\n• CDMP – Certified Data Management Professional (Practitioner / Level 2)",
+        "de": "Im Rahmen eines großen Transformationsprogramms suchen wir einen Senior Enterprise Functional Architect zur Unterstützung eines führenden Finanzinstituts mit Sitz in Genf.\nSie treten einem Enterprise Architecture-Team bei und spielen eine zentrale Rolle bei der Strukturierung der Daten, Geschäftsprozesse und Informationsflüsse des Unternehmens. Sie werden dazu beitragen, Konsistenz, Qualität und Governance von Daten in einem stark regulierten Bankenumfeld zu gewährleisten.\nIhre Aufgaben\n\n• Definieren Sie den Bedarf an Geschäftsdaten und ihren End-to-End-Lebenszyklus, von Transaktionssystemen bis hin zu analytischen Plattformen.\n\n• Design und Pflege von Unternehmensreferenzdatenmodellen.\n\n• Identifizieren Sie \"Golden Sources\" für wichtige Geschäftskonzepte und validieren Sie die zugehörigen Datenströme.\n\n• Durchführung und Pflege der funktionalen Zuordnung des Informationssystems.\n\n• Verteilen Sie funktionale Funktionen zwischen Anwendungen in Zusammenarbeit mit Business Analysts und Solution Architects.\n\n• Beteiligen Sie sich aktiv an der kritischen Data Governance gemäß den schweizerischen regulatorischen Anforderungen.\n\n• Definieren Sie die Standards der Unternehmensarchitektur und unterstützen Sie deren Übernahme innerhalb des Projekt- und IT-Teams.\n\n• Arbeiten Sie eng mit Geschäftsteams zusammen, um die Abstimmung zwischen Geschäftsanforderungen und technischen Lösungen sicherzustellen.\n\n• Bedeutende Erfahrung in Enterprise Architecture in einer Privatbank, Bank oder Vermögensverwaltungsinstitution.\n\n• Starke Expertise in Enterprise Data Modelling und Data Governance.\n\n• Ausgezeichnete Kenntnisse des Schweizer Regulierungsrahmens für die Verwaltung kritischer Bankdaten und Fähigkeit, die Anforderungen des Rundschreibens FINMA 2023/1 in Governance- und Datenarchitekturpraktiken zu integrieren.\n\n• Erfahrung im Bereich Functional Mapping und Business Process Modeling (BPMN oder gleichwertig).\n\n• Gutes Verständnis moderner Datenarchitekturen:\n• Data Lake\n\n• Data Warehouse\n\n• Analyseplattformen\n\n• Master of Data Quality und Master Data Management (MDM) Prinzipien.\n\n• Gute Kenntnisse der Geschäftsprozesse der Vermögensverwaltung:\n• Client Onboarding\n\n• Portfolioverwaltung\n\n• Einhaltung der Vorschriften\n\n• Regulatorische Berichterstattung\n\n• Fähigkeit, mit Handel und technischen Gesprächspartnern zu arbeiten.\n\n• Ausgezeichnete Kommunikation in Französisch und Englisch.\nQualifikationen\n\n• TOGAF (oder eine gleichwertige Enterprise Architecture Zertifizierung)\n\n• CDMP – Certified Data Management Professional (Praktiker / Level 2)",
+        "fr": "Dans le cadre d'un important programme de transformation, nous recherchons un Senior Enterprise Functional Architect pour accompagner une institution financière de premier plan basée à Genève.\nVous rejoindrez une équipe d'Enterprise Architecture et jouerez un rôle central dans la structuration des données, des processus métiers et des flux d'information de l'organisation. Vous contribuerez à garantir la cohérence, la qualité et la gouvernance des données dans un environnement bancaire fortement réglementé.\nVos responsabilités\n\n• Définir les besoins en données d'entreprise et leur cycle de vie de bout en bout, des systèmes transactionnels aux plateformes analytiques.\n\n• Concevoir et maintenir les modèles de données de référence de l'entreprise.\n\n• Identifier les \"Golden Sources\" pour les principaux concepts métiers et valider les flux de données associés.\n\n• Réaliser et maintenir la cartographie fonctionnelle du système d'information.\n\n• Répartir les capacités fonctionnelles entre les applications en collaboration avec les Business Analysts et les Solution Architects.\n\n• Participer activement à la gouvernance des données critiques conformément aux exigences réglementaires suisses.\n\n• Définir les standards d'architecture d'entreprise et accompagner leur adoption au sein des équipes projets et IT.\n\n• Collaborer étroitement avec les équipes métiers afin d'assurer l'alignement entre les besoins business et les solutions techniques.\n\n• Expérience significative en Enterprise Architecture dans une banque privée, une banque ou un établissement de gestion de fortune.\n\n• Solide expertise en Enterprise Data Modelling et Data Governance.\n\n• Excellente connaissance du cadre réglementaire suisse applicable à la gestion des données bancaires critiques, et capacité à intégrer les exigences de la circulaire FINMA 2023/1 dans les pratiques de gouvernance et d'architecture des données.\n\n• Expérience en cartographie fonctionnelle et modélisation des processus métier (BPMN ou équivalent).\n\n• Bonne compréhension des architectures de données modernes :\n• Data Lake\n\n• Data Warehouse\n\n• Plateformes analytiques\n\n• Maîtrise des principes de Data Quality et Master Data Management (MDM).\n\n• Bonne connaissance des processus métiers de la gestion de fortune :\n• Client Onboarding\n\n• Portfolio Management\n\n• Compliance\n\n• Regulatory Reporting\n\n• Capacité à travailler avec des interlocuteurs métiers et techniques.\n\n• Excellente communication en français et en anglais.\nCertifications souhaitées\n\n• TOGAF (ou certification équivalente en Enterprise Architecture)\n\n• CDMP – Certified Data Management Professional (Practitioner / Level 2)"
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000140240299-architecte-entreprise-senior?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T21:31:16.961Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000140240299-architecte-entreprise-senior?oga=true",
+      "jobReqId": "744000140240299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "architecte-entreprise-senior-talan-geneve-switzerland",
+        "architetto-senior-enterprise-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "architecte-entreprise-senior-talan-geneve-switzerland",
+          "architetto-senior-enterprise-talan-geneve-switzerland"
+        ],
+        "en": [
+          "architecte-entreprise-senior-talan-geneve-switzerland"
+        ],
+        "de": [
+          "architecte-entreprise-senior-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-28T22:05:36.951Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-ac79c0600de2",
+      "slug": "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge",
+      "slugByLocale": {
+        "it": "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge",
+        "en": "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
+        "de": "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
+        "fr": "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst SAP S/4HANA (FI/CO, MM, SD & Fiori)",
+      "titleByLocale": {
+        "it": "Business Analista SAP S/4HANA (FI/CO, MM, SD & Fiori)",
+        "en": "Business Analyst SAP S/4HANA (FI/CO, MM, SD & Fiori)",
+        "de": "Business Analyst SAP S/4HANA (FI/CO, MM, SD & Fiori)",
+        "fr": "Business Analyste SAP S/4HANA (FI/CO, MM, SD & Fiori)"
+      },
+      "description": "Nous recherchons un(e) Senior Technical Business Analyst SAP S/4HANA disposant d'une solide expertise fonctionnelle et techno-fonctionnelle en Finance & Contrôle de gestion (FI/CO), Gestion des articles (MM), Ventes & Distribution (SD) et sur l'écosystème SAP Fiori .\n Responsabilités principales\n\n• Recueillir et analyser les besoins métier des parties prenantes internes et proposer des solutions au plus proche des fonctionnalités standard de SAP S/4HANA.\n\n• Conseiller les utilisateurs sur les bonnes pratiques SAP S/4HANA.\n\n• Contribuer à la définition de solutions répondant aux besoins métier tout en respectant les standards SAP.\n\n• Participer aux projets d'évolution et de transformation SAP S/4HANA.\n\n• Paramétrer et personnaliser les modules FI (GL, AP, AR et AA), CO, MM et SD.\n\n• Soutenir les campagnes de tests d'intégration et de recette utilisateur (UAT) et contribuer aux activités de gestion des versions (release management).\n\n• Garantir la qualité, la pérennité, l'évolutivité et la maintenabilité des solutions, dans le respect des standards produit et des besoins métier définis par le client.\n\n• Maintenir à jour la documentation fonctionnelle et technique.\n\n• Assurer le support applicatif, diagnostiquer les problèmes et résoudre les incidents fonctionnels.\n\n• Diplôme universitaire, EPFL, HEC, HEG ou qualification équivalente.\n\n• Expérience confirmée en tant que Senior Technical Business Analyst SAP S/4HANA avec une expertise en FI/CO, MM et SD.\n\n• Bonne connaissance des applications et de l'architecture SAP Fiori.\n\n• Une expérience avec Esker, SAP Concur et/ou dans le secteur bancaire constitue un atout.\n\n• Solides compétences d'analyse et de résolution de problèmes, avec la capacité de comprendre et de répondre aux enjeux métier.\n\n• Excellentes qualités de communication et relationnelles.\n\n• Anglais : courant, à l'écrit comme à l'oral.\n\n• Français : courant.\n\n• Résidence Suisse",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un Senior Technical Business Analyst SAP S/4HANA con una forte esperienza funzionale e tecnologica in Finance & Management Control (FI/CO), Product Management (MM), Sales & Distribution (SD) e SAP Fiori ecosistema.\nResponsabilità chiave\n\n• Raccogliere e analizzare le esigenze aziendali delle parti interessate interne e proporre soluzioni il più vicino possibile alle caratteristiche standard di SAP S/4HANA.\n\n• Consiglia gli utenti alle buone pratiche SAP S/4HANA.\n\n• Contribuisci alla definizione di soluzioni che soddisfano le esigenze aziendali e soddisfano gli standard SAP.\n\n• Partecipa a progetti di evoluzione e trasformazione SAP S/4HANA.\n\n• Impostare e personalizzare moduli FI (GL, AP, AR e AA), CO, MM e SD.\n\n• Sostenere le campagne UAT e contribuire a rilasciare le attività di gestione.\n\n• Assicurare la qualità, la durata, la scalabilità e la sostenibilità delle soluzioni, rispettando gli standard di prodotto e le esigenze aziendali definite dal cliente.\n\n• Mantenere documentazione funzionale e tecnica.\n\n• Fornire supporto alle applicazioni, diagnosticare problemi e risolvere incidenti funzionali.\n\n• Laurea universitaria, EPFL, HEC, HEG o qualifica equivalente.\n\n• Esperienza confermata come Senior Technical Business Analyst SAP S/4HANA con esperienza in FI/CO, MM e SD.\n\n• Buona conoscenza delle applicazioni e dell'architettura SAP Fiori.\n\n• Un'esperienza con Esker, SAP Concur e/o nel settore bancario è una risorsa.\n\n• Forte capacità analitiche e problem solving, con la capacità di capire e rispondere a problemi aziendali.\n\n• Ottima comunicazione e qualità relazionali.\n\n• Inglese: attuale, sia per iscritto che orale.\n\n• Francese: attuale.\n\n• Residenza svizzera",
+        "en": "We are looking for a Senior Technical Business Analyst SAP S/4HANA with strong functional and techno-functional expertise in Finance & Management Control (FI/CO), Product Management (MM), Sales & Distribution (SD) and the SAP Fiori ecosystem.\nKey responsibilities\n\n• Collect and analyse the business needs of internal stakeholders and propose solutions as close as possible to the standard features of SAP S/4HANA.\n\n• Advise users on SAP S/4HANA good practices.\n\n• Contribute to the definition of solutions that meet business needs while meeting SAP standards.\n\n• Participate in SAP S/4HANA evolution and transformation projects.\n\n• Set and customize FI modules (GL, AP, AR and AA), CO, MM and SD.\n\n• Support UAT campaigns and contribute to release management activities.\n\n• Ensure the quality, durability, scalability and sustainability of the solutions, respecting the product standards and the business needs defined by the customer.\n\n• Maintain functional and technical documentation.\n\n• Provide application support, diagnose problems and resolve functional incidents.\n\n• University degree, EPFL, HEC, HEG or equivalent qualification.\n\n• Experience confirmed as Senior Technical Business Analyst SAP S/4HANA with expertise in FI/CO, MM and SD.\n\n• Good knowledge of SAP Fiori applications and architecture.\n\n• An experience with Esker, SAP Concur and/or in the banking sector is an asset.\n\n• Strong analytical and problem-solving skills, with the ability to understand and respond to business issues.\n\n• Excellent communication and relational qualities.\n\n• English: current, both in writing and oral.\n\n• French: current.\n\n• Swiss Residence",
+        "de": "Wir suchen einen Senior Technical Business Analyst SAP S/4HANA mit starker funktionaler und techno-funktionaler Expertise in den Bereichen Finance & Management Control (FI/CO), Product Management (MM), Sales & Distribution (SD) und dem SAP Fiori Ökosystem.\nWesentliche Zuständigkeiten\n\n• Sammeln und analysieren Sie die Geschäftsanforderungen interner Stakeholder und schlagen Sie Lösungen so nah wie möglich an den Standardfunktionen von SAP S/4HANA vor.\n\n• Beraten Sie Benutzer zu den guten Praktiken von SAP S/4HANA.\n\n• Tragen Sie zur Definition von Lösungen bei, die die Geschäftsanforderungen erfüllen und gleichzeitig die SAP-Standards erfüllen.\n\n• Beteiligen Sie sich an SAP S/4HANA Evolutions- und Transformationsprojekten.\n\n• Setzen und Anpassen von FI-Modulen (GL, AP, AR und AA), CO, MM und SD.\n\n• Unterstützen Sie UAT-Kampagnen und tragen Sie zu Release-Management-Aktivitäten bei.\n\n• Gewährleistung der Qualität, Langlebigkeit, Skalierbarkeit und Nachhaltigkeit der Lösungen unter Einhaltung der Produktstandards und der vom Kunden definierten Geschäftsanforderungen.\n\n• Pflegen Sie die funktionale und technische Dokumentation.\n\n• Bereitstellung von Anwendungsunterstützung, Diagnose von Problemen und Behebung funktionaler Vorfälle.\n\n• Hochschulabschluss, EPFL, HEC, HEG oder gleichwertige Qualifikation.\n\n• Erfahrung bestätigt als Senior Technical Business Analyst SAP S/4HANA mit Expertise in FI/CO, MM und SD.\n\n• Gute Kenntnisse in SAP Fiori Anwendungen und Architektur.\n\n• Eine Erfahrung mit Esker, SAP Concur und/oder im Bankensektor ist ein Gewinn.\n\n• Starke analytische und Problemlösungsfähigkeiten mit der Fähigkeit, Geschäftsprobleme zu verstehen und darauf zu reagieren.\n\n• Ausgezeichnete Kommunikation und relationale Qualitäten.\n\n• Englisch: aktuell, sowohl schriftlich als auch mündlich.\n\n• Französisch: aktuell.\n\n• Schweizer Residenz",
+        "fr": "Nous recherchons un(e) Senior Technical Business Analyst SAP S/4HANA disposant d'une solide expertise fonctionnelle et techno-fonctionnelle en Finance & Contrôle de gestion (FI/CO), Gestion des articles (MM), Ventes & Distribution (SD) et sur l'écosystème SAP Fiori .\nResponsabilités principales\n\n• Recueillir et analyser les besoins métier des parties prenantes internes et proposer des solutions au plus proche des fonctionnalités standard de SAP S/4HANA.\n\n• Conseiller les utilisateurs sur les bonnes pratiques SAP S/4HANA.\n\n• Contribuer à la définition de solutions répondant aux besoins métier tout en respectant les standards SAP.\n\n• Participer aux projets d'évolution et de transformation SAP S/4HANA.\n\n• Paramétrer et personnaliser les modules FI (GL, AP, AR et AA), CO, MM et SD.\n\n• Soutenir les campagnes de tests d'intégration et de recette utilisateur (UAT) et contribuer aux activités de gestion des versions (release management).\n\n• Garantir la qualité, la pérennité, l'évolutivité et la maintenabilité des solutions, dans le respect des standards produit et des besoins métier définis par le client.\n\n• Maintenir à jour la documentation fonctionnelle et technique.\n\n• Assurer le support applicatif, diagnostiquer les problèmes et résoudre les incidents fonctionnels.\n\n• Diplôme universitaire, EPFL, HEC, HEG ou qualification équivalente.\n\n• Expérience confirmée en tant que Senior Technical Business Analyst SAP S/4HANA avec une expertise en FI/CO, MM et SD.\n\n• Bonne connaissance des applications et de l'architecture SAP Fiori.\n\n• Une expérience avec Esker, SAP Concur et/ou dans le secteur bancaire constitue un atout.\n\n• Solides compétences d'analyse et de résolution de problèmes, avec la capacité de comprendre et de répondre aux enjeux métier.\n\n• Excellentes qualités de communication et relationnelles.\n\n• Anglais : courant, à l'écrit comme à l'oral.\n\n• Français : courant.\n\n• Résidence Suisse"
+      },
+      "location": "Carouge, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000140865066-business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T21:31:16.950Z",
+      "addressLocality": "Carouge",
+      "addressRegion": "GE",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000140865066-business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-?oga=true",
+      "jobReqId": "744000140865066",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
+        "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
+          "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T11:36:31.291Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-f08baab9133f",
       "slug": "guida-tecnica-net-talan-geneve-switzerland-4ceb54",
       "slugByLocale": {
@@ -832,7 +906,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000141424994-technical-lead-net?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.744Z",
+      "crawledAt": "2026-08-20T21:31:16.949Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -907,7 +981,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000141418809-consultant-snowflake-dbt?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.724Z",
+      "crawledAt": "2026-08-20T21:31:16.939Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -954,80 +1028,6 @@
       }
     },
     {
-      "id": "talan-ac79c0600de2",
-      "slug": "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge",
-      "slugByLocale": {
-        "it": "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge",
-        "en": "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
-        "de": "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
-        "fr": "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst SAP S/4HANA (FI/CO, MM, SD & Fiori)",
-      "titleByLocale": {
-        "it": "Business Analista SAP S/4HANA (FI/CO, MM, SD & Fiori)",
-        "en": "Business Analyst SAP S/4HANA (FI/CO, MM, SD & Fiori)",
-        "de": "Business Analyst SAP S/4HANA (FI/CO, MM, SD & Fiori)",
-        "fr": "Business Analyste SAP S/4HANA (FI/CO, MM, SD & Fiori)"
-      },
-      "description": "Nous recherchons un(e) Senior Technical Business Analyst SAP S/4HANA disposant d'une solide expertise fonctionnelle et techno-fonctionnelle en Finance & Contrôle de gestion (FI/CO), Gestion des articles (MM), Ventes & Distribution (SD) et sur l'écosystème SAP Fiori .\n Responsabilités principales\n\n• Recueillir et analyser les besoins métier des parties prenantes internes et proposer des solutions au plus proche des fonctionnalités standard de SAP S/4HANA.\n\n• Conseiller les utilisateurs sur les bonnes pratiques SAP S/4HANA.\n\n• Contribuer à la définition de solutions répondant aux besoins métier tout en respectant les standards SAP.\n\n• Participer aux projets d'évolution et de transformation SAP S/4HANA.\n\n• Paramétrer et personnaliser les modules FI (GL, AP, AR et AA), CO, MM et SD.\n\n• Soutenir les campagnes de tests d'intégration et de recette utilisateur (UAT) et contribuer aux activités de gestion des versions (release management).\n\n• Garantir la qualité, la pérennité, l'évolutivité et la maintenabilité des solutions, dans le respect des standards produit et des besoins métier définis par le client.\n\n• Maintenir à jour la documentation fonctionnelle et technique.\n\n• Assurer le support applicatif, diagnostiquer les problèmes et résoudre les incidents fonctionnels.\n\n• Diplôme universitaire, EPFL, HEC, HEG ou qualification équivalente.\n\n• Expérience confirmée en tant que Senior Technical Business Analyst SAP S/4HANA avec une expertise en FI/CO, MM et SD.\n\n• Bonne connaissance des applications et de l'architecture SAP Fiori.\n\n• Une expérience avec Esker, SAP Concur et/ou dans le secteur bancaire constitue un atout.\n\n• Solides compétences d'analyse et de résolution de problèmes, avec la capacité de comprendre et de répondre aux enjeux métier.\n\n• Excellentes qualités de communication et relationnelles.\n\n• Anglais : courant, à l'écrit comme à l'oral.\n\n• Français : courant.\n\n• Résidence Suisse",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un Senior Technical Business Analyst SAP S/4HANA con una forte esperienza funzionale e tecnologica in Finance & Management Control (FI/CO), Product Management (MM), Sales & Distribution (SD) e SAP Fiori ecosistema.\nResponsabilità chiave\n\n• Raccogliere e analizzare le esigenze aziendali delle parti interessate interne e proporre soluzioni il più vicino possibile alle caratteristiche standard di SAP S/4HANA.\n\n• Consiglia gli utenti alle buone pratiche SAP S/4HANA.\n\n• Contribuisci alla definizione di soluzioni che soddisfano le esigenze aziendali e soddisfano gli standard SAP.\n\n• Partecipa a progetti di evoluzione e trasformazione SAP S/4HANA.\n\n• Impostare e personalizzare moduli FI (GL, AP, AR e AA), CO, MM e SD.\n\n• Sostenere le campagne UAT e contribuire a rilasciare le attività di gestione.\n\n• Assicurare la qualità, la durata, la scalabilità e la sostenibilità delle soluzioni, rispettando gli standard di prodotto e le esigenze aziendali definite dal cliente.\n\n• Mantenere documentazione funzionale e tecnica.\n\n• Fornire supporto alle applicazioni, diagnosticare problemi e risolvere incidenti funzionali.\n\n• Laurea universitaria, EPFL, HEC, HEG o qualifica equivalente.\n\n• Esperienza confermata come Senior Technical Business Analyst SAP S/4HANA con esperienza in FI/CO, MM e SD.\n\n• Buona conoscenza delle applicazioni e dell'architettura SAP Fiori.\n\n• Un'esperienza con Esker, SAP Concur e/o nel settore bancario è una risorsa.\n\n• Forte capacità analitiche e problem solving, con la capacità di capire e rispondere a problemi aziendali.\n\n• Ottima comunicazione e qualità relazionali.\n\n• Inglese: attuale, sia per iscritto che orale.\n\n• Francese: attuale.\n\n• Residenza svizzera",
-        "en": "We are looking for a Senior Technical Business Analyst SAP S/4HANA with strong functional and techno-functional expertise in Finance & Management Control (FI/CO), Product Management (MM), Sales & Distribution (SD) and the SAP Fiori ecosystem.\nKey responsibilities\n\n• Collect and analyse the business needs of internal stakeholders and propose solutions as close as possible to the standard features of SAP S/4HANA.\n\n• Advise users on SAP S/4HANA good practices.\n\n• Contribute to the definition of solutions that meet business needs while meeting SAP standards.\n\n• Participate in SAP S/4HANA evolution and transformation projects.\n\n• Set and customize FI modules (GL, AP, AR and AA), CO, MM and SD.\n\n• Support UAT campaigns and contribute to release management activities.\n\n• Ensure the quality, durability, scalability and sustainability of the solutions, respecting the product standards and the business needs defined by the customer.\n\n• Maintain functional and technical documentation.\n\n• Provide application support, diagnose problems and resolve functional incidents.\n\n• University degree, EPFL, HEC, HEG or equivalent qualification.\n\n• Experience confirmed as Senior Technical Business Analyst SAP S/4HANA with expertise in FI/CO, MM and SD.\n\n• Good knowledge of SAP Fiori applications and architecture.\n\n• An experience with Esker, SAP Concur and/or in the banking sector is an asset.\n\n• Strong analytical and problem-solving skills, with the ability to understand and respond to business issues.\n\n• Excellent communication and relational qualities.\n\n• English: current, both in writing and oral.\n\n• French: current.\n\n• Swiss Residence",
-        "de": "Wir suchen einen Senior Technical Business Analyst SAP S/4HANA mit starker funktionaler und techno-funktionaler Expertise in den Bereichen Finance & Management Control (FI/CO), Product Management (MM), Sales & Distribution (SD) und dem SAP Fiori Ökosystem.\nWesentliche Zuständigkeiten\n\n• Sammeln und analysieren Sie die Geschäftsanforderungen interner Stakeholder und schlagen Sie Lösungen so nah wie möglich an den Standardfunktionen von SAP S/4HANA vor.\n\n• Beraten Sie Benutzer zu den guten Praktiken von SAP S/4HANA.\n\n• Tragen Sie zur Definition von Lösungen bei, die die Geschäftsanforderungen erfüllen und gleichzeitig die SAP-Standards erfüllen.\n\n• Beteiligen Sie sich an SAP S/4HANA Evolutions- und Transformationsprojekten.\n\n• Setzen und Anpassen von FI-Modulen (GL, AP, AR und AA), CO, MM und SD.\n\n• Unterstützen Sie UAT-Kampagnen und tragen Sie zu Release-Management-Aktivitäten bei.\n\n• Gewährleistung der Qualität, Langlebigkeit, Skalierbarkeit und Nachhaltigkeit der Lösungen unter Einhaltung der Produktstandards und der vom Kunden definierten Geschäftsanforderungen.\n\n• Pflegen Sie die funktionale und technische Dokumentation.\n\n• Bereitstellung von Anwendungsunterstützung, Diagnose von Problemen und Behebung funktionaler Vorfälle.\n\n• Hochschulabschluss, EPFL, HEC, HEG oder gleichwertige Qualifikation.\n\n• Erfahrung bestätigt als Senior Technical Business Analyst SAP S/4HANA mit Expertise in FI/CO, MM und SD.\n\n• Gute Kenntnisse in SAP Fiori Anwendungen und Architektur.\n\n• Eine Erfahrung mit Esker, SAP Concur und/oder im Bankensektor ist ein Gewinn.\n\n• Starke analytische und Problemlösungsfähigkeiten mit der Fähigkeit, Geschäftsprobleme zu verstehen und darauf zu reagieren.\n\n• Ausgezeichnete Kommunikation und relationale Qualitäten.\n\n• Englisch: aktuell, sowohl schriftlich als auch mündlich.\n\n• Französisch: aktuell.\n\n• Schweizer Residenz",
-        "fr": "Nous recherchons un(e) Senior Technical Business Analyst SAP S/4HANA disposant d'une solide expertise fonctionnelle et techno-fonctionnelle en Finance & Contrôle de gestion (FI/CO), Gestion des articles (MM), Ventes & Distribution (SD) et sur l'écosystème SAP Fiori .\nResponsabilités principales\n\n• Recueillir et analyser les besoins métier des parties prenantes internes et proposer des solutions au plus proche des fonctionnalités standard de SAP S/4HANA.\n\n• Conseiller les utilisateurs sur les bonnes pratiques SAP S/4HANA.\n\n• Contribuer à la définition de solutions répondant aux besoins métier tout en respectant les standards SAP.\n\n• Participer aux projets d'évolution et de transformation SAP S/4HANA.\n\n• Paramétrer et personnaliser les modules FI (GL, AP, AR et AA), CO, MM et SD.\n\n• Soutenir les campagnes de tests d'intégration et de recette utilisateur (UAT) et contribuer aux activités de gestion des versions (release management).\n\n• Garantir la qualité, la pérennité, l'évolutivité et la maintenabilité des solutions, dans le respect des standards produit et des besoins métier définis par le client.\n\n• Maintenir à jour la documentation fonctionnelle et technique.\n\n• Assurer le support applicatif, diagnostiquer les problèmes et résoudre les incidents fonctionnels.\n\n• Diplôme universitaire, EPFL, HEC, HEG ou qualification équivalente.\n\n• Expérience confirmée en tant que Senior Technical Business Analyst SAP S/4HANA avec une expertise en FI/CO, MM et SD.\n\n• Bonne connaissance des applications et de l'architecture SAP Fiori.\n\n• Une expérience avec Esker, SAP Concur et/ou dans le secteur bancaire constitue un atout.\n\n• Solides compétences d'analyse et de résolution de problèmes, avec la capacité de comprendre et de répondre aux enjeux métier.\n\n• Excellentes qualités de communication et relationnelles.\n\n• Anglais : courant, à l'écrit comme à l'oral.\n\n• Français : courant.\n\n• Résidence Suisse"
-      },
-      "location": "Carouge, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000140865066-business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.723Z",
-      "addressLocality": "Carouge",
-      "addressRegion": "GE",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000140865066-business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-?oga=true",
-      "jobReqId": "744000140865066",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
-        "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge-switzerland",
-          "business-analista-sap-s-4hana-fi-co-mm-sd-fiori-talan-carouge"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T11:36:31.291Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-f6c3a5eb7b9e",
       "slug": "data-ingegnere-talan-lausanne-switzerland",
       "slugByLocale": {
@@ -1058,7 +1058,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000143785891-data-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-20T09:45:01.720Z",
+      "crawledAt": "2026-08-20T21:31:16.938Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "",
@@ -1100,6 +1100,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "talan-826f7a6c7eb5",
+      "slug": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+      "slugByLocale": {
+        "fr": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "it": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "en": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+        "de": "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Power BI / Microsoft Fabric",
+      "titleByLocale": {
+        "fr": "Consultant Power BI / Microsoft Fabric",
+        "en": "Power BI Consultant / Microsoft Fabric",
+        "it": "Consulente Power BI / Microsoft Fabric",
+        "de": "Berater Power BI / Microsoft Fabric"
+      },
+      "description": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
+      "descriptionByLocale": {
+        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu.",
+        "it": "• Partecipa alla migrazione di report e ambienti Tableau a Power BI / Microsoft Fabric .\n\n• Analizzare l'esistente e contribuire alla definizione delle strategie di migrazione.\n\n• Concentrati sull'utilizzo di Direct Lake per limitare la duplicazione e ottimizzare le prestazioni.\n\n• Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n\n• Progettare ed evolvere i modelli semantici Power BI / Fabric.\n\n• Lavorare con sorgenti e ambienti SQL / Data Warehouse esistenti.\n\n• Assicurare la qualità, le prestazioni e la manutenzione di soluzioni sviluppate.\n\n• Applicare buone pratiche di Git, versionning, CI/CD e gestione dello sviluppo.\n\n• Contribuisci a migliorare le pratiche di collaborazione e governance all'interno del team.\n\n• Partecipa alle fasi di test, validazione e produzione.\n\n• Accompagna gradualmente la migrazione dei vari perimetri funzionali.\n\n• Esperienza significativa come Data Analyst / Power BI Expert .\n\n• Forte esperienza su Microsoft Power BI e Microsoft Fabric.\n\n• Ottima padronanza dei modelli Semantic e dell'architettura Power BI.\n\n• Esperienza concreta di Direct Lake e scenari di migrazione ideale per Fabric.\n\n• Buona conoscenza di SQL / Data Warehouse .\n\n• Mastering buone pratiche Git e versionning .\n\n• Esperienza in ambienti in cui le questioni di governance e collaborazione sono importanti.\n\n• Un'esperienza di migrazione Tableau → Power BI è un vero bene.\n\n• Capacità di lavorare in modo indipendente in un ambiente complesso e che richiede tempo.\n\n• Eccellente postura professionale, capacità di comunicare con persone diverse e lavorare come squadra.\n\n• Livello di esperienza confermata prevista.",
+        "en": "• Participate in the migration of reports and environments Tableau to Power BI / Microsoft Fabric .\n\n• Analyze existing and contribute to the definition of migration strategies.\n\n• Focus on using Direct Lake to limit duplication and optimize performance.\n\n• Use Import mode when technical constraints require an alternative approach.\n\n• Design and evolve the Power BI / Fabric semantic models.\n\n• Work with existing SQL / Data Warehouse sources and environments.\n\n• Ensure the quality, performance and maintenance of developed solutions.\n\n• Apply good practices of Git, versionning, CI/CD and development management .\n\n• Contribute to improving collaborative and governance practices within the team.\n\n• Participate in testing, validation and production phases.\n\n• Gradually accompany the migration of the various functional perimeters.\n\n• Significant experience as Data Analyst / Power BI Expert .\n\n• Strong experience on Microsoft Power BI and Microsoft Fabric.\n\n• Very good mastery of Semantic models and Power BI architecture.\n\n• Concrete experience of Direct Lake and ideally migration scenarios to Fabric.\n\n• Good knowledge of SQL / Data Warehouse .\n\n• Mastering good practices Git and versionning .\n\n• Experience in environments where governance and collaboration issues are important.\n\n• A migration experience Tableau → Power BI is a real asset.\n\n• Ability to work independently in a complex and time-consuming environment.\n\n• Excellent professional posture, ability to communicate with different people and work as a team.\n\n• Level of confirmed expertise expected.",
+        "de": "• Beteiligen Sie sich an der Migration von Berichten und Umgebungen Tableau zu Power BI / Microsoft Fabric .\n\n• Analysieren Sie bestehende und tragen Sie zur Definition von Migrationsstrategien bei.\n\n• Konzentrieren Sie sich auf Direct Lake, um die Duplizierung zu begrenzen und die Leistung zu optimieren.\n\n• Verwenden Sie den Import-Modus, wenn technische Einschränkungen einen alternativen Ansatz erfordern.\n\n• Entwerfen und entwickeln Sie die semantischen Power BI / Fabric-Modelle.\n\n• Arbeiten Sie mit vorhandenen SQL / Data Warehouse Quellen und Umgebungen.\n\n• Gewährleistung der Qualität, Leistung und Wartung der entwickelten Lösungen.\n\n• Wenden Sie gute Praktiken von Git, Versionierung, CI / CD und Entwicklungsmanagement an.\n\n• Beitrag zur Verbesserung der Zusammenarbeit und Governance-Praktiken innerhalb des Teams.\n\n• Beteiligen Sie sich an Test-, Validierungs- und Produktionsphasen.\n\n• Schrittweise begleiten die Migration der verschiedenen funktionellen Perimeter.\n\n• Bedeutende Erfahrung als Data Analyst / Power BI Expert.\n\n• Starke Erfahrung mit Microsoft Power BI und Microsoft Fabric.\n\n• Sehr gute Beherrschung von semantischen Modellen und Power BI Architektur.\n\n• Konkrete Erfahrung von Direct Lake und idealerweise Migrationsszenarien zu Fabric.\n\n• Gute Kenntnisse von SQL / Data Warehouse .\n\n• Beherrschung guter Praktiken Git und Versionierung.\n\n• Erfahrung in Umgebungen, in denen Governance- und Kollaborationsfragen wichtig sind.\n\n• Eine Migrationserfahrung Tableau → Power BI ist ein echtes Asset.\n\n• Fähigkeit, unabhängig in einer komplexen und zeitaufwendigen Umgebung zu arbeiten.\n\n• Ausgezeichnete professionelle Haltung, Fähigkeit, mit verschiedenen Menschen zu kommunizieren und als Team zu arbeiten.\n\n• Erwartetes Niveau bestätigter Fachkenntnisse."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144599424-consultant-power-bi-microsoft-fabric?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-20T21:31:16.935Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Consulenza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144599424-consultant-power-bi-microsoft-fabric?oga=true",
+      "jobReqId": "744000144599424",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T21:31:16.935Z"
     }
   ]
 }

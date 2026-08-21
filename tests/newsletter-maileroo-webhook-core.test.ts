@@ -399,3 +399,48 @@ describe('newsletterMailerooWebhookCore — malformed "Name <email>" recipient (
     expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
   });
 });
+
+/**
+ * The array-tags twin (follow-up to #6195). `isJobAlertEvent` had the same
+ * `!Array.isArray` guard that extractCampaignId had, so the array shape was
+ * read as "not a job alert" and the event was routed to the newsletter
+ * subscriber document instead of the job-alert one. Only reachable when the
+ * maileroo_refs lookup does not resolve, which is why it stayed dormant.
+ */
+describe('newsletterMailerooWebhookCore — job-alert routing without a lookup record', () => {
+  const routedCollections = (db: any) =>
+    db.__adds.filter((a: any) => a.collection.endsWith('/events')).map((a: any) => a.collection);
+
+  it('routes to job_alert_subscribers when the type tag arrives in the array shape', async () => {
+    const db = createFakeDb();
+    await persistMailerooEvent(db as any, {
+      event_type: 'accepted',
+      message_id: 'mr-1',
+      event_data: { to: 'seeker@example.com' },
+      tags: [{ name: 'type', value: 'job-alert' }, { name: 'locale', value: 'it' }],
+    } as any);
+    expect(routedCollections(db).join()).toContain('job_alert_subscribers');
+  });
+
+  it('still routes the object shape, which already worked', async () => {
+    const db = createFakeDb();
+    await persistMailerooEvent(db as any, {
+      event_type: 'accepted',
+      message_id: 'mr-2',
+      event_data: { to: 'seeker@example.com' },
+      tags: { type: 'job-alert-retry' },
+    } as any);
+    expect(routedCollections(db).join()).toContain('job_alert_subscribers');
+  });
+
+  it('leaves a non-job-alert event on the newsletter side', async () => {
+    const db = createFakeDb();
+    await persistMailerooEvent(db as any, {
+      event_type: 'accepted',
+      message_id: 'mr-3',
+      event_data: { to: 'seeker@example.com' },
+      tags: [{ name: 'type', value: 'lifecycle' }],
+    } as any);
+    expect(routedCollections(db).join()).toContain('newsletter_subscribers');
+  });
+});

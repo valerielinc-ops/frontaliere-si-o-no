@@ -6,8 +6,9 @@
  * data/events.json to main, so a malformed agenda parse can never poison the
  * dataset / turn main red (AGENTS.md: data-refresh = same gate as a PR).
  */
-import { describe, it, expect, vi } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import {
@@ -28,6 +29,7 @@ import {
   groupByComune,
   loadCantonComuni,
 } from '../scripts/lib/events-utils.mjs';
+import { pruneFailedImageRefs } from '../scripts/push-mirrored-event-images-cdn.mjs';
 import { eventLd, zurichOffset } from '../build-plugins/eventsSeoPagesPlugin';
 import { CANTON_CODES } from '../services/cantonList';
 
@@ -516,5 +518,119 @@ describe('assembled dataset integrity (data/events.json)', () => {
       // on the canton hub only — crawl-myswitzerland-events.mjs:370/413/505).
       expect(e.canton === '' || CANTON_CODES.includes(e.canton)).toBe(true);
     }
+  });
+});
+
+// ── #6163: un upload CDN fallito deve ripulire ANCHE il dataset ─────────────
+//
+// Ordine di crawl-events.yml: assemble → gate → push CDN → commit. Quando il
+// push arriva, l'evento la cui immagine fallisce e' gia' dentro le slice e
+// dentro events.json con `imageUrl: "/images/events/<id>.<ext>"`. Potare solo
+// il manifest committerebbe quel riferimento verso una chiave CDN che fa 404 —
+// e niente lo riparerebbe: le immagini non sono piu' in git, quindi il
+// ri-push idempotente del deploy da `public/images/<dir>` non esiste piu', e
+// il crawl di domani ri-mirrora l'immagine ma non riscrive un evento gia'
+// emesso.
+describe('pruneFailedImageRefs (#6163 — dataset e manifest si potano insieme)', () => {
+  let dir: string;
+
+  beforeEach(() => {
+    dir = mkdtempSync(path.join(tmpdir(), 'events-prune-'));
+  });
+
+  afterEach(() => {
+    rmSync(dir, { recursive: true, force: true });
+  });
+
+  const write = (name: string, doc: unknown) => {
+    const file = path.join(dir, name);
+    writeFileSync(file, `${JSON.stringify(doc, null, 2)}\n`);
+    return file;
+  };
+
+  it('toglie imageUrl solo agli eventi falliti, in ogni file, e lascia il resto intatto', () => {
+    const slice = write('tio-agenda.json', {
+      sourceKey: 'tio-agenda',
+      events: [
+        { id: 'tio-agenda:1', title: 'ko', imageUrl: '/images/events/tio-agenda-1.webp' },
+        { id: 'tio-agenda:2', title: 'ok', imageUrl: '/images/events/tio-agenda-2.webp' },
+        { id: 'tio-agenda:3', title: 'senza immagine' },
+      ],
+    });
+    const dataset = write('events.json', {
+      schemaVersion: 1,
+      events: [
+        { id: 'tio-agenda:1', title: 'ko', imageUrl: '/images/events/tio-agenda-1.webp' },
+        { id: 'tio-agenda:2', title: 'ok', imageUrl: '/images/events/tio-agenda-2.webp' },
+      ],
+    });
+
+    const cleaned = pruneFailedImageRefs(['tio-agenda-1.webp'], [slice, dataset]);
+
+    expect(cleaned.map((c) => c.count)).toEqual([1, 1]);
+    for (const file of [slice, dataset]) {
+      const doc = JSON.parse(readFileSync(file, 'utf8'));
+      expect(doc.events[0]).not.toHaveProperty('imageUrl');
+      // L'evento resta pubblicato: perde la foto, non la riga.
+      expect(doc.events[0].title).toBe('ko');
+      expect(doc.events[1].imageUrl).toBe('/images/events/tio-agenda-2.webp');
+    }
+    // I campi di testa (sourceKey, schemaVersion) sopravvivono alla riscrittura.
+    expect(JSON.parse(readFileSync(slice, 'utf8')).sourceKey).toBe('tio-agenda');
+  });
+
+  it('l’estensione fa parte del confronto: stesso id, estensione diversa, non si tocca', () => {
+    // `mirrorEventImage` costruisce nome file e `imageUrl` dallo stesso safeId
+    // + estensione, quindi il confronto e' sull'URL finito e non su un id
+    // ri-derivato: e' cio' che impedisce di potare l'immagine sbagliata quando
+    // un evento e' stato ri-mirrorato in un formato diverso.
+    const f = write('events.json', {
+      events: [{ id: 'x', imageUrl: '/images/events/foo.jpg' }],
+    });
+    expect(pruneFailedImageRefs(['foo.webp'], [f])).toEqual([]);
+    expect(JSON.parse(readFileSync(f, 'utf8')).events[0].imageUrl).toBe('/images/events/foo.jpg');
+  });
+
+  it('un file assente o malformato viene saltato, e gli altri si potano lo stesso', () => {
+    // La copia sotto public/ puo' legittimamente non esistere ancora; rifiutare
+    // di potare le altre lascerebbe PIU' riferimenti rotti, non meno.
+    const broken = path.join(dir, 'malformed.json');
+    writeFileSync(broken, 'not json at all');
+    const absent = path.join(dir, 'nope.json');
+    const good = write('events.json', {
+      events: [{ id: 'x', imageUrl: '/images/events/foo.webp' }],
+    });
+
+    const cleaned = pruneFailedImageRefs(['foo.webp'], [absent, broken, good]);
+
+    expect(cleaned).toHaveLength(1);
+    expect(cleaned[0].file).toBe(good);
+    expect(JSON.parse(readFileSync(good, 'utf8')).events[0]).not.toHaveProperty('imageUrl');
+    expect(readFileSync(broken, 'utf8')).toBe('not json at all');
+  });
+
+  it('non riscrive niente quando non c’e’ niente da potare', () => {
+    const f = write('events.json', { events: [{ id: 'x', imageUrl: '/images/events/ok.webp' }] });
+    const before = readFileSync(f, 'utf8');
+    expect(pruneFailedImageRefs(['altro.webp'], [f])).toEqual([]);
+    expect(readFileSync(f, 'utf8')).toBe(before);
+  });
+
+  it('serializza come i writer del dataset: due spazi e newline finale', () => {
+    // I file sono committati ogni notte: una serializzazione diversa da quella
+    // di crawl-*.mjs / assemble-events-dataset.mjs farebbe un diff di 9 MB per
+    // una potatura di un evento.
+    const f = write('events.json', {
+      events: [
+        { id: 'a', imageUrl: '/images/events/ko.webp' },
+        { id: 'b', imageUrl: '/images/events/ok.webp' },
+      ],
+    });
+    pruneFailedImageRefs(['ko.webp'], [f]);
+    const raw = readFileSync(f, 'utf8');
+    expect(raw.endsWith('}\n')).toBe(true);
+    expect(raw).toBe(
+      `${JSON.stringify({ events: [{ id: 'a' }, { id: 'b', imageUrl: '/images/events/ok.webp' }] }, null, 2)}\n`,
+    );
   });
 });

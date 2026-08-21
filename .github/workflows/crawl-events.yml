@@ -9,8 +9,10 @@ name: Crawl Ticino + nationwide + Genève pilot events (tio.ch, guidle, myswitze
 # Each writes its own per-source slice
 # (data/events/by-source/<key>.json); scripts/assemble-events-dataset.mjs
 # merges them (by-id, then a cross-source fuzzy dedup pass) into
-# data/events.json. Commits data/events.json + every per-source slice +
-# mirrored event images straight to main; the events test runs BEFORE commit
+# data/events.json. Commits data/events.json + every per-source slice + the
+# mirrored-image INDEX (data/events-image-manifest.json — the images
+# themselves are pushed to the CDN by this job and are NOT tracked since
+# #6163) straight to main; the events test runs BEFORE commit
 # as a gate so a malformed dataset can never turn main red (AGENTS.md:
 # "data-refresh che committa su main = stesso gate test di una PR").
 #
@@ -210,6 +212,47 @@ jobs:
         id: gate
         run: npx vitest run tests/events-pipeline.test.ts tests/blog-body-typescript-syntax.test.ts
 
+      # ── The mirrored images now live on the CDN, not in git (#6163) ────────
+      #
+      # public/images/events used to be COMMITTED: 5'568 files, 4'108 MB, 59%
+      # of the whole tracked tree, and the deploy pushed them to R2 from that
+      # git-tracked copy (deploy-it-pages-prep.sh step_push_cdn, which no
+      # longer lists `events` for exactly this reason). Untracking them left
+      # the push without a source, because a deploy checkout and a crawl run
+      # are different runs on different runners — the bytes only ever exist
+      # here, in the run that downloaded them. So this job pushes them.
+      #
+      # ORDER MATTERS AND ONLY GOES ONE WAY: upload here, commit the manifest
+      # in the NEXT step. mirrorEventImage records each image into
+      # data/events-image-manifest.json the moment it writes it, so the
+      # manifest on disk already claims images that are not on the CDN yet.
+      # Committing it first would publish an index pointing at keys that 404;
+      # a failed upload instead prunes its own entry (see the script) so the
+      # committed manifest is always a subset of what actually landed.
+      #
+      # Deliberately NOT added to the two "survives downstream failures"
+      # persist steps above: those run mid-crawl, before any upload. If a
+      # timeout-minutes kill lands between mirroring and this step the manifest
+      # is simply never committed and tomorrow re-mirrors those images — wasted
+      # bandwidth, never a broken image. That is the safe direction of failure.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        # Non-fatal like every other caller: without R2_* the push script
+        # reports the miss, prunes the manifest back and the images are
+        # re-mirrored next run. Nothing is committed that claims otherwise.
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+
+      - name: Push this run's mirrored event images to the CDN
+        run: node scripts/push-mirrored-event-images-cdn.mjs
+
       - name: Commit dataset (rebase-retry pattern)
         id: commit
         # Best-effort: a permanently-exhausted push (heavy concurrent-push
@@ -254,12 +297,17 @@ jobs:
           # commit of tio/guidle/myswitzerland's data too on a day geneve.ch's
           # crawl transiently fails before ever having produced a slice.
           [ -f data/events/by-source/ge-agenda.json ] && git add data/events/by-source/ge-agenda.json || true
-          # No-hotlink mirrored event images (scripts/lib/events-utils.mjs
-          # mirrorEventImage → public/images/events/): guarded, unlike the
-          # slice files above, because the dir only exists once a crawler has
-          # actually mirrored at least one image this run — `git add` on a
-          # missing path errors under `set -e` and would abort the commit.
-          [ -d public/images/events ] && git add public/images/events/ || true
+          # The no-hotlink mirrored images themselves are NOT committed any
+          # more (#6163): public/images/events is gitignored and the bytes are
+          # served from cdn.frontaliereticino.ch, pushed by the step above.
+          # What IS committed is the index of them — without it
+          # mirrorEventImage has nothing to dedup against (the on-disk probe it
+          # used to run only ever sees this run's own downloads now), so every
+          # scheduled run would re-download the entire back catalogue and
+          # re-create the directory this issue deleted.
+          # Unguarded, like the fixed list above: the manifest is tracked, so
+          # it is always present in the checkout.
+          git add data/events-image-manifest.json
           # Cross-run cursors for the checkpointed nationwide crawlers
           # (scripts/lib/crawl-checkpoint.mjs) — must persist between
           # scheduled runs so guidle/myswitzerland resume instead of
