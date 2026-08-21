@@ -185,7 +185,7 @@ export default function SaveSignInPromptModal({ locale, onDismiss }: SaveSignInP
 
             <p className="flex items-start gap-1.5 text-xs text-muted leading-relaxed">
               <Shield className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
-              <ConsentNotice consentKey="communicationsOptIn" locale={locale} />
+              <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="text-[10px] text-muted leading-snug block" />
             </p>
           </div>
         )}
