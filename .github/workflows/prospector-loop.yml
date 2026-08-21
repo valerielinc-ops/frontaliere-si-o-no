@@ -16,6 +16,12 @@ name: prospector-loop
 # graded crawler into production stays a separate, human-initiated step.
 
 on:
+  # Temporaneo, solo per verificare che il loop giri davvero sul runner prima
+  # del merge: `workflow_dispatch` non e' invocabile finche' il file non sta sul
+  # branch di default. Rimosso nel commit successivo.
+  push:
+    branches:
+      - prospector-loop
   schedule:
     # 03:17 UTC — outside the crawler waves, and outside Swiss business hours,
     # since TRACE knocks on several hundred small employers' web servers.
