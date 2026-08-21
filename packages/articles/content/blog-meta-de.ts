@@ -10317,6 +10317,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caronno-varesino-frontaliere-ticino.title': 'Caronno Varesino-Ticino: das Steuersystem 2024',
     'blog.article.caronno-varesino-frontaliere-ticino.excerpt': 'Was Sie über Quellensteuer, AHV und KVG wissen sollten, wenn Sie in Caronno Varesino leben und im Tessin arbeiten. Die Regeln aus der Neuen Vereinbarung 2024.',
     'blog.article.caronno-varesino-frontaliere-ticino.imageAlt': 'Wohnstraße in Caronno Varesino mit Blick auf die Alpen im Hintergrund',
+    'blog.article.vivere-castronno-lavorare-ticino.title': 'Wohnen in Castronno und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-castronno-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die sich für Castronno entscheiden: Besteuerung, neues Grenzgängerabkommen, Vorsorge und die Vorteile des Pendelns in den Kanton Tessin.',
+    'blog.article.vivere-castronno-lavorare-ticino.imageAlt': 'Hügellandschaft zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

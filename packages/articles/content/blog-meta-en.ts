@@ -10318,6 +10318,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caronno-varesino-frontaliere-ticino.title': 'Caronno Varesino-Ticino: the 2024 tax regime',
     'blog.article.caronno-varesino-frontaliere-ticino.excerpt': 'What to know about tax at source, AVS and LAMal when you live in Caronno Varesino and work in Ticino. The rules from the 2024 New Deal.',
     'blog.article.caronno-varesino-frontaliere-ticino.imageAlt': 'Residential street in Caronno Varesino, Varese province, with the Alps visible',
+    'blog.article.vivere-castronno-lavorare-ticino.title': 'Living in Castronno and working in Ticino as a border worker',
+    'blog.article.vivere-castronno-lavorare-ticino.excerpt': 'Practical guide for those who choose Castronno: taxation, new border agreements, social security and the advantages of commuting to the Canton of Ticino.',
+    'blog.article.vivere-castronno-lavorare-ticino.imageAlt': 'Hilly landscape between Italy and Switzerland',
 };
 
 export default blogMetaEn;
