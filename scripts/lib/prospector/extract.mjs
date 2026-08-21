@@ -18,6 +18,7 @@
  * a page with no repeated template yields nothing rather than yielding noise.
  */
 import { normalizeHost } from './registrable.mjs';
+import { decodeEntities } from './entities.mjs';
 
 /** Tokens that mark a URL path or heading as vacancy-related, all four locales. */
 const VACANCY_PATH_RX =
@@ -55,8 +56,19 @@ export function jsonLdBlocks(html = '') {
   const rx = /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = rx.exec(html))) {
+    const raw = m[1].trim().replace(/^\uFEFF/, '');
+    if (!raw) continue;
     let parsed;
-    try { parsed = JSON.parse(m[1].trim().replace(/^﻿/, '')); } catch { continue; }
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      // Second chance on entity-escaped JSON-LD, which CMS-generated pages emit
+      // routinely. Taken from the retry in scripts/lib/shared-jobs-crawler.mjs,
+      // whose extractor is module-private: without it a whole employer's
+      // structured data is silently discarded and the cascade falls back to
+      // link-shape inference on a page that had perfectly good data.
+      try { parsed = JSON.parse(decodeEntities(raw)); } catch { continue; }
+    }
     const push = (node) => {
       if (!node || typeof node !== 'object') return;
       if (Array.isArray(node)) { node.forEach(push); return; }

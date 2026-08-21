@@ -149,6 +149,11 @@ describe('vacancy extraction', () => {
     expect(job).toMatchObject({ title: 'Autista CE', company: 'Trasporti SA', location: 'Chiasso', via: 'jsonld' });
   });
 
+  it('recovers JSON-LD that a CMS entity-escaped', () => {
+    const escaped = '<script type="application/ld+json">{&quot;@type&quot;:&quot;JobPosting&quot;,&quot;title&quot;:&quot;Autista CE&quot;}</script>';
+    expect(extractJsonLd(escaped, 'https://x.example/')).toHaveLength(1);
+  });
+
   it('scores a page with no vacancy signal at zero', () => {
     const { score } = scoreVacancyPage('<html><body><p>Certificazioni e qualita</p></body></html>', 'https://sgs.example/', []);
     expect(score).toBe(0);
