@@ -3718,6 +3718,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.compra-casa-zurigo-mutuo.title': 'Acheter une maison à Zurich : hypothèque et impôts',
     'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Achat immobilier à Zurich : hypothèque, fonds propres, droits de passage et frais de notaire. Procédure et coûts pour la vente dans le canton de Zurich.',
     'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Immeuble résidentiel moderne en Suisse représentant le marché immobilier et l\'achat de propriété',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Droit de la location en Suisse : guide de dépôt et contestations',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Caution, résiliation, contestation de la redevance : voici comment fonctionne le droit fédéral de la location en Suisse et les procédures auprès de l\'autorité de conciliation.',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Immeuble résidentiel suisse avec balcons en bois et lumière naturelle du matin',
 };
 
 export default blogMetaChFr;

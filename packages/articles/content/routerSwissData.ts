@@ -1265,6 +1265,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'diritto-locazione-norme-svizzera': { it: 'diritto-locazione-norme-svizzera', en: 'tenancy-law-rules-switzerland', de: 'mietrecht-regeln-schweiz', fr: 'droit-bail-regles-suisse' },
  'finanziamento-studi-zurigo': { it: 'finanziamento-studi-zurigo', en: 'zurich-scholarships-funding', de: 'stipendien-zuerich', fr: 'bourses-etudes-zurich' },
  'compra-casa-zurigo-mutuo': { it: 'compra-casa-zurigo-mutuo', en: 'buy-property-zurich-mortgage', de: 'haus-kauf-zurich-hypothek', fr: 'achat-maison-zurich-hypotheque' },
+ 'diritto-locazione-svizzera-affitti-procedura': { it: 'diritto-locazione-svizzera-affitti-procedura', en: 'swiss-tenancy-law-rental-procedures', de: 'schweizer-mietrecht-verfahren-kaution', fr: 'droit-locatif-suisse-procedures-cautionnement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -48224,6 +48224,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diritto-locazione-svizzera-affitti-procedura': {
+    title: 'Diritto di locazione in Svizzera: guida a deposito e contestazioni',
+    description: 'Guida completa al diritto federale della locazione in Svizzera: deposito cauzionale massimo 3 mesi, contestazione canone entro 30 giorni, disdetta con modulo',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, deposito, contestazioni',
+    ogTitle: 'Diritto di locazione Svizzera: guida a deposito e contestazioni',
+    ogDescription: 'Affitti e diritto di locazione in Svizzera: scopri il deposito cauzionale, come contestare il canone entro 30 giorni, regole di disdetta e il ruolo dell\'autorità di conciliazione cantonale.',
+    canonicalPath: '/articoli-svizzera/diritto-locazione-svizzera-affitti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto di locazione in Svizzera: guida a deposito e contestazioni",
+      "description": "Guida completa al diritto federale della locazione in Svizzera: deposito cauzionale massimo 3 mesi, contestazione canone entro 30 giorni, disdetta con modulo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diritto-locazione-svizzera-affitti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo residenziale svizzero con balconate in legno e ampia luminosità naturale"
+      },
+      "datePublished": "2026-08-21T15:24:24+00:00",
+      "dateModified": "2026-08-21T15:24:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritto-locazione-svizzera-affitti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

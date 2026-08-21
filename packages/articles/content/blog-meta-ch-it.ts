@@ -3718,6 +3718,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.compra-casa-zurigo-mutuo.title': 'Comprare casa a Zurigo: mutuo ipotecario e imposte',
     'blog.article.compra-casa-zurigo-mutuo.excerpt': 'Acquisto immobiliare a Zurigo: mutuo, fondi propri, imposte sui trapassi e spese notarili. Procedura e costi per la compravendita nel Canton Zurigo.',
     'blog.article.compra-casa-zurigo-mutuo.imageAlt': 'Edificio residenziale moderno in Svizzera, rappresenta il mercato immobiliare e l\'acquisto di proprietà',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Diritto di locazione in Svizzera: guida a deposito e contestazioni',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Deposito cauzionale, disdetta, contestazione del canone: ecco come funziona il diritto federale della locazione in Svizzera e le procedure presso l\'autorità di conciliazione.',
+    'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Palazzo residenziale svizzero con balconate in legno e ampia luminosità naturale',
 };
 
 export default blogMetaChIt;
