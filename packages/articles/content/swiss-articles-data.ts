@@ -10864,6 +10864,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-appenzello-esterno',
+    category: 'pratico',
+    date: '2026-08-21T00:16:38.270Z',
+    image: '/images/blog/permesso-dimora-b-appenzello-esterno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

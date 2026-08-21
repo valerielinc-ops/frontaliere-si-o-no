@@ -3622,6 +3622,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-franchigie-appenzello-esterno.title': 'Sick pay premiums Appenzello Esterno: deductibles and subsidies',
     'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'How health insurance works in Appenzello Esterno: available deductibles, coverage models and procedures to access premium subsidies.',
     'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Swiss cantonal administrative building representing regional healthcare services',
+    'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Residence Permit B External Appenzel: Requirements and Renewal',
+    'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Complete guide to the Swiss B permit: characteristics, necessary documents, duration and renewal procedure at the cantonal migration office.',
+    'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Swiss cantonal migration office desk with staff processing a residence permit application.',
 };
 
 export default blogMetaChEn;

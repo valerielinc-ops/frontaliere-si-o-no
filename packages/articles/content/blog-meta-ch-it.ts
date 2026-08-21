@@ -3622,6 +3622,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-franchigie-appenzello-esterno.title': 'Premi cassa malati Appenzello Esterno: franchigie e sussidi',
     'blog.article.premi-franchigie-appenzello-esterno.excerpt': 'Come funziona l\'assicurazione malattia in Appenzello Esterno: franchigie disponibili, modelli di copertura e procedure per accedere ai sussidi sui premi.',
     'blog.article.premi-franchigie-appenzello-esterno.imageAlt': 'Edificio amministrativo cantonale svizzero che rappresenta i servizi sanitari regionali',
+    'blog.article.permesso-dimora-b-appenzello-esterno.title': 'Permesso di dimora B Appenzello Esterno: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-appenzello-esterno.excerpt': 'Guida completa al permesso B svizzero: caratteristiche, documenti necessari, durata e procedura di rinnovo presso l\'ufficio della migrazione cantonale.',
+    'blog.article.permesso-dimora-b-appenzello-esterno.imageAlt': 'Ufficio della migrazione cantonale svizzero: sportello con personale che assiste un richiedente con documentazione per il permesso di dimora.',
 };
 
 export default blogMetaChIt;
