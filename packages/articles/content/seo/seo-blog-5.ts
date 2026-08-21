@@ -73235,6 +73235,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cremia-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cremia e lavorare in Ticino: frontaliere conviene?',
+    description: 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cremia, lavorare, conviene',
+    ogTitle: 'Vivere a Cremia e lavorare in Ticino: frontaliere',
+    ogDescription: 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
+    canonicalPath: '/articoli-frontaliere/vivere-cremia-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cremia e lavorare in Ticino: frontaliere conviene?",
+      "description": "Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cremia-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como da Cremia con le Alpi sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-08-21T09:37:23+00:00",
+      "dateModified": "2026-08-21T09:37:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cremia-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

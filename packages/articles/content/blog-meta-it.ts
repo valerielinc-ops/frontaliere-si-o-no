@@ -10372,6 +10372,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalieri che lavorano in Ticino',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivere a Cremia e lavorare in Ticino: frontaliere conviene?',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
+    'blog.article.vivere-cremia-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago di Como da Cremia con le Alpi sullo sfondo al tramonto',
 };
 
 export default blogMetaIt;
