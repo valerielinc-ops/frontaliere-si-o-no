@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-08-21T09:50:33.179Z",
+  "generatedAt": "2026-08-21T21:46:53.248Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5129,
-  "avgDurationMs": 5129,
+  "durationMs": 5232,
+  "avgDurationMs": 5232,
   "durationHistory": [
-    5129
+    5232
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -229,11 +229,11 @@
       "postalCode": "6850",
       "firstSeenAt": "2026-07-24T11:12:56.301Z",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     }
