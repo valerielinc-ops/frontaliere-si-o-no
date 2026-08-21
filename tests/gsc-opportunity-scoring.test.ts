@@ -27,6 +27,24 @@ describe('gsc-opportunity-scoring', () => {
     const c = withGaps.find((p) => p.page === '/c');
     expect(a.ctrGap).toBeGreaterThan(0.5);
     expect(c.ctrGap).toBe(0);
+    expect(withGaps.every((p) => p.ctrGapLowConfidence === false)).toBe(true);
+  });
+
+  it('computeCtrGaps widens the peer band to +/-10 (not the whole dataset) when +/-3 has fewer than 3 peers, and flags low confidence', () => {
+    const pages = [
+      { page: '/target', ctr: 1, position: 10 },
+      // only 1 peer within +/-3 (position 12), but 3 more appear within +/-10
+      { page: '/near', ctr: 6, position: 12 },
+      { page: '/mid1', ctr: 6, position: 18 },
+      { page: '/mid2', ctr: 6, position: 19 },
+      { page: '/mid3', ctr: 6, position: 20 },
+      // a distant outlier that must NOT be pulled in once the wide band suffices
+      { page: '/far', ctr: 0.1, position: 90 },
+    ];
+    const withGaps = computeCtrGaps(pages);
+    const target = withGaps.find((p) => p.page === '/target');
+    expect(target.ctrGapLowConfidence).toBe(true);
+    expect(target.peerMedianCtr).toBe(6);
   });
 
   it('computeOpportunityScore combines the five weighted signals and clamps out-of-range inputs', () => {

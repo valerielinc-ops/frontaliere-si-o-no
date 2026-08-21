@@ -18,6 +18,10 @@
 const POSITION_OPPORTUNITY_MIN = 4;
 const POSITION_OPPORTUNITY_MAX = 20;
 
+const CTR_GAP_PEER_BAND = 3;
+const CTR_GAP_PEER_BAND_WIDE = 10;
+const CTR_GAP_MIN_PEERS = 3;
+
 /**
  * 0 outside the "near page 1" band [4,20], ramping toward 1 as position
  * approaches 4 — a query at position 5 needs a much smaller push to reach
@@ -33,20 +37,35 @@ export function computePositionOpportunity(position) {
 
 /**
  * Self-referential CTR gap: how far a page's CTR sits below the median CTR
- * of its peers (other pages in the same dataset within +/-3 positions).
+ * of its peers (other pages in the same dataset within +/-3 positions,
+ * widened to +/-10 when that band is too thin — see CTR_GAP_MIN_PEERS).
  * Deliberately self-referential — an invented industry CTR-by-position
  * curve would be an unverifiable claim; comparing a page against its own
  * peer set needs no external benchmark and can't go stale.
  */
 export function computeCtrGaps(pages) {
   const withNumbers = pages.map((p) => ({ ...p, ctr: Number(p.ctr) || 0, position: Number(p.position) || 0 }));
+  const peersWithinBand = (page, band) =>
+    withNumbers.filter((p) => p !== page && Math.abs(p.position - page.position) <= band);
   return withNumbers.map((page) => {
-    const peers = withNumbers.filter((p) => p !== page && Math.abs(p.position - page.position) <= 3);
-    const pool = peers.length >= 3 ? peers : withNumbers;
+    let peers = peersWithinBand(page, CTR_GAP_PEER_BAND);
+    let lowConfidence = false;
+    if (peers.length < CTR_GAP_MIN_PEERS) {
+      peers = peersWithinBand(page, CTR_GAP_PEER_BAND_WIDE);
+      lowConfidence = true;
+    }
+    // Still too thin even at the wide band: fall back to the full dataset,
+    // but keep the low-confidence flag since distant peers are a weak signal.
+    const pool = peers.length >= CTR_GAP_MIN_PEERS ? peers : withNumbers;
     const sortedCtrs = pool.map((p) => p.ctr).sort((a, b) => a - b);
     const median = sortedCtrs.length ? sortedCtrs[Math.floor(sortedCtrs.length / 2)] : 0;
     const gap = median > 0 ? (median - page.ctr) / median : 0;
-    return { ...page, ctrGap: Math.min(1, Math.max(0, gap)), peerMedianCtr: Number(median.toFixed(2)) };
+    return {
+      ...page,
+      ctrGap: Math.min(1, Math.max(0, gap)),
+      peerMedianCtr: Number(median.toFixed(2)),
+      ctrGapLowConfidence: lowConfidence,
+    };
   });
 }
 

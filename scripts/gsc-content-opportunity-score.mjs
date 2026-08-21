@@ -168,7 +168,7 @@ async function main() {
     '| # | Pagina | Score | Impressioni | Click | CTR | Pos. media | CTR gap vs peer |',
     '|---|---|---|---|---|---|---|---|',
     ...candidates.map((c, i) =>
-      `| ${i + 1} | \`${c.page}\` | ${c.opportunityScore} | ${c.impressions} | ${c.clicks} | ${c.ctr}% | ${c.position} | ${(c.ctrGap * 100).toFixed(0)}% |`
+      `| ${i + 1} | \`${c.page}\` | ${c.opportunityScore} | ${c.impressions} | ${c.clicks} | ${c.ctr}% | ${c.position} | ${(c.ctrGap * 100).toFixed(0)}%${c.ctrGapLowConfidence ? ' ⚠️ bassa confidenza (peer scarsi)' : ''} |`
     ),
   ].join('\n') + '\n';
   writeFileSync(mdOut, md);
