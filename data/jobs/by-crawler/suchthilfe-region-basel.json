@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suchthilfe-region-basel",
-  "assembledAt": "2026-08-21T09:49:23.615Z",
+  "assembledAt": "2026-08-21T21:42:27.853Z",
   "jobs": [
     {
       "id": "suchthilfe-region-basel-7919dba2884a",
@@ -34,7 +34,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/07/Coach_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:49:20.123Z",
+      "crawledAt": "2026-08-21T21:42:24.306Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:49:19.371Z",
+      "crawledAt": "2026-08-21T21:42:23.515Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:49:18.580Z",
+      "crawledAt": "2026-08-21T21:42:22.742Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -238,15 +238,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T00:25:07.039Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "salaryMin": 70400,
+      "salaryMax": 98400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 70400,
+          "maxValue": 98400,
           "unitText": "YEAR"
         }
       }
