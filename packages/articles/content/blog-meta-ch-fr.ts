@@ -3688,6 +3688,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-appenzello-interno.title': 'Bourses Appenzell Interne : guide de financement',
     'blog.article.borse-studio-appenzello-interno.excerpt': 'Dans le canton d\'Appenzell, des bourses et des prêts d\'études sont disponibles pour ceux qui poursuivent leur formation après la scolarité obligatoire. Découvrez comment postuler.',
     'blog.article.borse-studio-appenzello-interno.imageAlt': 'Salle de classe d\'une école suisse en montagne avec des étudiants étudiant, lumière naturelle et pics alpins visibles par les fenêtres',
+    'blog.article.stadler-rail-friburgo-117-milioni.title': 'Fribourg : 117 millions pour 13 nouveaux trains Flirt',
+    'blog.article.stadler-rail-friburgo-117-milioni.excerpt': 'Stadler Rail fournira 13 nouveaux trains Flirt Evo aux Transports publics fribourgeois pour CHF 117 millions. Premières livraisons en décembre 2028.',
+    'blog.article.stadler-rail-friburgo-117-milioni.imageAlt': 'Nouveau train Flirt Evo pour les transports fribourgois',
 };
 
 export default blogMetaChFr;
