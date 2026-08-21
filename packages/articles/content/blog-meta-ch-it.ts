@@ -3721,6 +3721,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Diritto di locazione in Svizzera: guida a deposito e contestazioni',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Deposito cauzionale, disdetta, contestazione del canone: ecco come funziona il diritto federale della locazione in Svizzera e le procedure presso l\'autorità di conciliazione.',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Palazzo residenziale svizzero con balconate in legno e ampia luminosità naturale',
+    'blog.article.costi-psichiatria-svizzera-2024.title': 'Psicoterapia coperta dalla cassa malati? Solo con una diagnosi di uno psichiatra',
+    'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'I costi delle cure di salute mentale a carico delle casse malattia sono aumentati del 6,1% nel 2024 e ammontavano a circa 3,2 miliardi di franchi, pari al 7,5% dei costi totali dell\'assicurazione obbligatoria.',
+    'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Immagine della psichiatria in Svizzera',
 };
 
 export default blogMetaChIt;

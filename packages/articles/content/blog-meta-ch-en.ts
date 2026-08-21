@@ -3721,6 +3721,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-svizzera-affitti-procedura.title': 'Lease Law in Switzerland: Deposit Guide and Disputes',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.excerpt': 'Security deposit, cancellation, dispute of the rent: this is how the federal lease law in Switzerland works and the procedures with the conciliation authority.',
     'blog.article.diritto-locazione-svizzera-affitti-procedura.imageAlt': 'Swiss residential building with wooden balconies and natural morning light',
+    'blog.article.costi-psichiatria-svizzera-2024.title': 'Psychiatrist diagnosis required for sick fund coverage',
+    'blog.article.costi-psichiatria-svizzera-2024.excerpt': 'The costs of mental health care borne by sickness funds increased by 6.1% in 2024 and amounted to about CHF 3.2 billion, equivalent to 7.5% of the total costs of compulsory insurance.',
+    'blog.article.costi-psichiatria-svizzera-2024.imageAlt': 'Image of mental health care in Switzerland',
 };
 
 export default blogMetaChEn;
