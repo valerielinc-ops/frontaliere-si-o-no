@@ -3748,6 +3748,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'Revenu AVS à Zurich : comment fonctionne le premier pilier',
     'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Guide du système AVS dans le canton de Zurich : caisse de compensation, calcul de la rente, lacunes contributives et prestations complémentaires pour le minimum vital.',
     'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Bureau administratif suisse avec guichet d\'assurances sociales et caisse de compensation AVS',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AVS et prestations complémentaires à Zurich',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Caisse de compensation, rente AVS et prestations complémentaires dans le canton de Zurich. Guide complet du premier pilier : calcul, lacunes contributives, minimum vital.',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Bureau de caisse de compensation à Zurich avec documents de rente AVS sur bureau',
 };
 
 export default blogMetaChFr;

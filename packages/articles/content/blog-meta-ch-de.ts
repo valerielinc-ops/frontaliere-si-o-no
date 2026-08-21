@@ -3748,6 +3748,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.primo-pilastro-zurigo-minimo-vitale.title': 'AHV-Rente in Zürich: So funktioniert die erste Säule',
     'blog.article.primo-pilastro-zurigo-minimo-vitale.excerpt': 'Leitfaden zum AHV-System im Kanton Zürich: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.primo-pilastro-zurigo-minimo-vitale.imageAlt': 'Schweizer Verwaltungsgebäude mit Schalter für Sozialversicherung und AVS-Ausgleichskasse',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.title': 'AHV und Ergänzungsleistungen in Zürich',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.excerpt': 'Ausgleichskasse, AHV-Rente und Ergänzungsleistungen im Kanton Zürich. Vollständiger Leitfaden zur ersten Säule: Berechnung, Beitragslücken, Existenzminimum.',
+    'blog.article.cassa-compensazione-zurigo-rendita-avs.imageAlt': 'Büroraum einer Ausgleichskasse in Zürich mit AVS-Rentendokumenten und Unterlagen auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;
