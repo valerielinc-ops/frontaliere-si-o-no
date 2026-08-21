@@ -3628,6 +3628,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-appenzello-esterno-domanda.title': 'Permis C Appenzello Externe : exigences et demande',
     'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Résidence minimale, intégration linguistique et procédure de permis de séjour C dans le canton du Nord-Est : délais, documents et étape par étape.',
     'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Bureau administratif suisse traitant une demande de permis de résidence C',
+    'blog.article.permesso-l-cantone-appenzello-validita.title': 'Permis L Appenzell Extérieur : validité et renouvellement',
+    'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Permis L courte durée en Appenzell Extérieur : durée 12 mois, critères de renouvellement, passage au permis B, contraintes liées à l\'employeur. Guide pratique.',
+    'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'Bureau SEM traitant les permis de courte durée L pour travailleurs étrangers à Appenzell Rhodes-Extérieures',
 };
 
 export default blogMetaChFr;

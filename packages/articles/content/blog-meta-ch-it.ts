@@ -3628,6 +3628,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-appenzello-esterno-domanda.title': 'Permesso C Appenzello Esterno: requisiti e domanda',
     'blog.article.permesso-c-appenzello-esterno-domanda.excerpt': 'Residenza minima, integrazione linguistica e procedura per il permesso di domicilio C nel cantone nord-orientale: tempi, documenti e step-by-step.',
     'blog.article.permesso-c-appenzello-esterno-domanda.imageAlt': 'Ufficio amministrativo svizzero durante l\'elaborazione di una domanda di permesso di residenza C',
+    'blog.article.permesso-l-cantone-appenzello-validita.title': 'Permesso L Appenzello Esterno: validità e rinnovo',
+    'blog.article.permesso-l-cantone-appenzello-validita.excerpt': 'Permesso L breve durata in Appenzello Esterno: durata 12 mesi, criteri di rinnovo, passaggio a permesso B, vincoli legati al datore di lavoro. Guida pratica.',
+    'blog.article.permesso-l-cantone-appenzello-validita.imageAlt': 'Ufficio SEM per la gestione di permessi L di breve durata per lavoratori stranieri in Appenzello Esterno',
 };
 
 export default blogMetaChIt;
