@@ -10396,6 +10396,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lierna-lavorare-ticino.title': 'Vivere a Lierna e lavorare in Ticino: guida pratica per frontalieri',
     'blog.article.vivere-lierna-lavorare-ticino.excerpt': 'Analisi completa per chi sceglie di vivere a Lierna e lavorare in Ticino: collegamenti, imposta alla fonte, costi e vantaggi.',
     'blog.article.vivere-lierna-lavorare-ticino.imageAlt': 'Panorama sul lago e montagne vicino al confine tra Italia e Svizzera',
+    'blog.article.baceno-ticino-frontaliere.title': 'Vivere a Baceno e lavorare in Ticino: guida frontaliere',
+    'blog.article.baceno-ticino-frontaliere.excerpt': 'Vantaggi fiscali, procedure, costi e normativa per chi vive nella Valle Ossola e commuta verso il Canton Ticino come frontaliere.',
+    'blog.article.baceno-ticino-frontaliere.imageAlt': 'Panorama della Valle Ossola verso il Ticino: paesaggio alpino di confine dove percorrono i valichi giornalieri i frontalieri.',
 };
 
 export default blogMetaIt;

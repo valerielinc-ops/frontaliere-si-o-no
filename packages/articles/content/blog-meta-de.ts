@@ -10394,6 +10394,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lierna-lavorare-ticino.title': 'Leben in Lierna und Arbeiten im Tessin: Praktischer Leitfaden für Grenzgänger',
     'blog.article.vivere-lierna-lavorare-ticino.excerpt': 'Vollständige Analyse für diejenigen, die sich entscheiden, in Lierna zu leben und im Tessin zu arbeiten: Verbindungen, Quellensteuer, Kosten und Nutzen.',
     'blog.article.vivere-lierna-lavorare-ticino.imageAlt': 'Malerischer Blick auf den See und die Berge in Grenznot',
+    'blog.article.baceno-ticino-frontaliere.title': 'Leben in Baceno und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.baceno-ticino-frontaliere.excerpt': 'Steuervorteile, Verfahren, Kosten und Vorschriften für diejenigen, die im Ossolatal leben und als Grenzgänger in den Kanton Tessin wechseln.',
+    'blog.article.baceno-ticino-frontaliere.imageAlt': 'Aussicht auf das Ossola-Tal in Richtung Tessin: Alpine Grenzlandschaft mit täglichem Pendelverkehr.',
 };
 
 export default blogMetaDe;

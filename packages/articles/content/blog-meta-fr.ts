@@ -10397,6 +10397,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lierna-lavorare-ticino.title': 'Vivre à Lierna et travailler au Tessin : guide pratique pour les frontaliers',
     'blog.article.vivere-lierna-lavorare-ticino.excerpt': 'Analyse complète pour ceux qui choisissent de vivre à Lierna et de travailler au Tessin : liens, impôt à la source, coûts et avantages.',
     'blog.article.vivere-lierna-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac et les montagnes près de la frontière',
+    'blog.article.baceno-ticino-frontaliere.title': 'Vivre à Baceno et travailler au Tessin : guide frontalier',
+    'blog.article.baceno-ticino-frontaliere.excerpt': 'Avantages fiscaux, procédures, coûts et réglementation pour ceux qui vivent dans la vallée de l\'Ossola et passent au canton du Tessin en tant que frontalier.',
+    'blog.article.baceno-ticino-frontaliere.imageAlt': 'Vue de la Vallée d\'Ossola vers le Tessin : paysage alpin frontalier des trajets quotidiens des travailleurs.',
 };
 
 export default blogMetaFr;

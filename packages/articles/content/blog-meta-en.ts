@@ -10395,6 +10395,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lierna-lavorare-ticino.title': 'Living in Lierna and working in Ticino: a practical guide for border workers',
     'blog.article.vivere-lierna-lavorare-ticino.excerpt': 'Comprehensive analysis for those who choose to live in Lierna and work in Ticino: connections, tax at source, costs and benefits.',
     'blog.article.vivere-lierna-lavorare-ticino.imageAlt': 'Scenic view of the lake and mountains near the border',
+    'blog.article.baceno-ticino-frontaliere.title': 'Living in Baceno and working in Ticino: border guide',
+    'blog.article.baceno-ticino-frontaliere.excerpt': 'Tax advantages, procedures, costs and regulations for those who live in the Ossola Valley and commute to the Canton of Ticino as a border worker.',
+    'blog.article.baceno-ticino-frontaliere.imageAlt': 'View of the Ossola Valley towards Ticino: Alpine border landscape with daily cross-border worker commutes.',
 };
 
 export default blogMetaEn;
