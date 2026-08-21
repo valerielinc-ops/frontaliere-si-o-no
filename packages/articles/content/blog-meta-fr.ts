@@ -10421,6 +10421,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-tubre-grigioni-guida.title': 'Frontière Tubre-Grigioni : fiscalité et permis G',
     'blog.article.frontaliere-tubre-grigioni-guida.excerpt': 'Guide complet pour ceux qui vivent à Tubre et travaillent dans les Grisons : taxation à la source, restaurations, LAMal, AVS et procédures administratives pour les frontaliers.',
     'blog.article.frontaliere-tubre-grigioni-guida.imageAlt': 'Route frontalière entre l\'Italie et la Suisse dans la région Tessin-Grisons avec panneaux douaniers et paysage alpin',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.title': 'Vivre Valdisotto, travailler Grisons : procureur frontalier',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.excerpt': 'Impôt à la source, AVS et LAMal : ce qu\'il faut savoir sur la fiscalité et la prévoyance pour ceux qui vivent à Valdisotto et travaillent dans les Grisons en tant que frontalier',
+    'blog.article.valdisotto-grigioni-frontaliere-fiscal.imageAlt': 'Paysage alpin frontiere Tessin-Grisons, vallee de Locarno',
 };
 
 export default blogMetaFr;

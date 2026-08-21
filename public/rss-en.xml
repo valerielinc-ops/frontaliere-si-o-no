@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Aug 2026 18:17:22 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 18:57:16 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,64 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Living Valdisotto, working in Graubünden: border taxation</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/live-valdisotto-work-grigioni-fiscal/</link>
+      <description><![CDATA[Tax at source, AVS and LAMal: what to know about taxation and social security for those who live in Valdisotto and work in Graubünden as a border worker]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Tax at source withheld only in Switzerland for Valdisotto border workers
+- New 2024 Agreement: €10,000 deductible for new frontier workers
+- AVS mandatory, LPP from 25 years, LAMal recommended
+
+## Key facts
+- **Chi**: Frontier category G resident Valdisotto (Italy), employee Graubünden (Switzerland)
+- What: Withholding taxes only from Switzerland; Italy applies tax credit via model 730 EC framework
+- When: From 1 January 2024 (New Frontier Agreement)
+- Where: Valdisotto (province of Sondrio, Italy); employers Cantone Grigioni bordering Ticino
+- Amount: Deductible 10,000 EUR per year (new frontier workers); AVS/AI/IPG 5.3%; AD/AC 1.1%
+- Regulations: Italy-Switzerland double taxation agreement (9 December 1976)
+
+### The new tax regime from 2024
+
+On 23 December 2020, the New Frontier Agreement between Italy and Switzerland was signed, which entered into force on 1 January 2024. For those who live in Valdisotto and work in Graubünden, the main change concerns the taxation of income from employment. Withholding of the tax at source takes place exclusively in Switzerland, at the employer's expense. Italy does not apply taxes directly on frontier labour income, but recognises a tax credit through form 730, EC framework, to avoid double taxation regulated by the Italian-Swiss Convention of 9 December 1976.
+
+The main advantage and the deductible: the new frontier workers (who registered after 17 July 2023)
+### The Swiss compulsory pension scheme
+
+Those who work in Switzerland and reside in Valdisotto and are subject to Swiss social security obligations. The AVS (Old Age and Survivors Insurance) provides for a contribution of 5.3% of the gross salary, withheld by the employer. The obligation is triggered when the annual income exceeds CHF 2,300. The AVS contribution starts to count towards the Swiss pension entitlement from the age of 21.
+
+AI (Invalid Insurance) and IPG (Pregnancy Indemnity) are included in the same 5.3%, not constituting separate costs. AD (Unemployment Insurance) and AC (Municipal Excise) add a further 1.1% of salary up to CHF 148,200 per annum. LAINF (accident insurance) is paid by the employer at 0.7-1.5% and does not directly impact the employee's net salary.
+
+### The second pillar: LPP
+
+The LPP (Compulsory Insurance for Old Age, Survivors and Invalidity) and the Swiss compulsory pension fund. It starts from the age of 25. The contribution varies between 7% and 18% of the salary according to the age group: young people pay less (7%), middle-aged adults between 12-15%, the over-50s even more (15-18%). Employee and employer are normally paid in equal parts in the calculation of the total cost of labour.
+
+Concrete example: a 40-year-old border worker with a gross salary of CHF 60,000 per year contributes approximately CHF 7,200 to the second pillar (at 12%), divided equally between
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Concrete procedure to move to Valdisotto
+
+If you decide to move to Valdisotto and start working in Graubünden, here are the essential steps. First, register with the municipality of Valdisotto as an Italian resident. The identity document, the previous residence certificate, and possibly the marital extract will be used.
+
+Second, the employer in Graubünden requests your G (Border) Permit from the Swiss cantonal authorities. The G Permit is the status for those who permanently reside in a neighbouring state (such as Italy) and regularly work in Switzerland. You do not have to request it personally; the procedure is managed by the employer.
+
+Third, the employer assigns you an AVS number if you don't already have one. This number is essential for Swiss social security contributions. You will receive an official communication from your local AVS Centre.
+
+Fourth, choose a Swiss LAMal by January 1 of the business year. Contact directly an operating insurer in the canton of Graubünden and enter into the contract. Premiums are charged monthly.
+
+Fifth, at the end of the year (31 December), the employer issues you the Swiss withholding tax certificate. Keep it for the Italian declaration.
+
+Sixth, in March of the following year, presents the model 730 at a CAF or professional. In the EC framework, it shows the taxes paid in Switzerland. The Revenue Agency calculates the tax credit and, if necessary, reimburses the difference.
+
+### Checklist
+
+Check [tax deadlines](nav:calendar) for cross-border workers: returns, Swiss declarations, rebates — all dates in one interactive calendar.]]></content:encoded>
+      <pubDate>Fri, 21 Aug 2026 18:57:16 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/valdisotto-grigioni-frontaliere-fiscal</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/valdisotto-grigioni-frontaliere-fiscal.webp" medium="image"/>
+    </item>
     <item>
       <title>Frontier ships Tubre-Grisioni: taxation and G permit</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-worker-tubre-grisons-guide/</link>
@@ -3133,61 +3191,6 @@ To calculate your net monthly salary taking into account Swiss withholding taxes
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-barasso-lavorare-ticino-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-barasso-lavorare-ticino-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Switzerland: a 13th also for the pension fund</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/switzerland-a-13th-for-the-pension-fund/</link>
-      <description><![CDATA[Switzerland will pay a thirteenth starting in December and the Swiss Trade Union Union will ask to increase second-pillar rents by 2027.]]></description>
-      <content:encoded><![CDATA[The percentages of contribution to the Swiss pension fund have been renewed, with effect from 1 January 2024. The new contribution rates for workers have been set at different percentages depending on their nationality and the type of employment contract. The official source of the percentages is the Federal Department of Labour (FDL) and the Social Benefits Statistics Service (SST).
-
-source percentages: 15%, 18%, 3%, 2%, 1.25%, 8.5%, 2.6%
-AVS (Swiss Social Insurance)
-USS (Universal Swiss Social Insurance)
-
-These contribution rates are applied to workers resident in Switzerland and to non-residents working in the country. Swiss workers contribute based on their annual income, while non-Swiss workers contribute based on their monthly income.
-
-Here are some concrete examples of how these contribution percentages translate into real figures:
-
-* A Swiss worker with an annual income of CHF 60,000 contributes 15% of his income, or CHF9,000 per year. * A non-Swiss worker with a monthly income of CHF 4,500 contributes 18% of his monthly income, or CHF 810 per month.
-
-Here are some examples of specific municipalities in Ticino and their contribution rates:
-
-* Lugano: 15% for Swiss workers and 18% for non-Swiss workers. * Bellinzona: 15% for Swiss workers and 18% for non-Swiss workers
-The percentages of the Swiss pension fund, including the AVS (old-age and disability insurance) and the USS (universal support insurance), have been the subject of discussion in recent years. According to the latest statistics, Swiss taxpayers are divided into different contribution bands, with percentages ranging from 1.25% to 18%.
-
-Source percentages: 15%, 18%, 3%, 2%, 1.25%, 8.5%, 2.6%
-AVS
-USS
-
-In particular, taxpayers with higher incomes are subject to a higher contribution, which can reach 18% of their income. Instead, taxpayers with lower incomes are subject to a lower contribution, which can reach 3% of their income.
-
-Under current rules, Swiss taxpayers are obliged to contribute to the pension fund for a total of 30 years. The Pensions Act was amended in 2013, when the “Pensions Act of 2013” (LP 2013) was introduced, which increased the contribution of taxpayers with higher incomes.
-
-Concrete examples can be seen in the city of Lugano, where taxpayers with higher incomes are subject to a higher contribution. For example, a taxpayer with an income of CHF 150,000 per year is subject to a contribution of 15% of their income, equal to CHF22,500 per year.
-
-Below is a checklist of the main information related to the Swiss pension fund:
-
-- Compulsory contribution: 30 years
-- Maximum contribution: 18%
-- Contribution
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-The Swiss Union of Trade Unions (USS) will ask to increase second-pillar rents by 2027, with a minimum interest rate of 3% on old-age assets. This request is motivated by the fact that people insured at coffers that are particularly tight-lipped should be encouraged to ask for a change of coffers.
-
-But why is it important to increase the income of the second pillar? The USS argues that those who receive a lower interest rate on their old age assets also receive a lower income. The difference could easily amount to a thousand francs or more per year. For example, if a worker has a pension of CHF 100,000 and receives an interest rate of 1.25%, the annual annuity would be CHF1,250. If, on the other hand, the interest rate were 3%, the annual rent would be CHF 3,000, an increase of CHF1,750.
-
-Switzerland will provide a thirteenth, starting in December. This measure was announced by the Federal Council to help workers cope with the high expenses of the last period. However, the USS argues that a thirteenth is not enough to cover the needs of all workers.
-
-The USS will ask to increase second pillar rents by 2027. 3% interest on old age assets is the minimum rate the USS asks for. This means that people insured at coffers that are particularly tight-lipped should be encouraged to apply for a
-
-Compare [LAMal health insurance premiums](nav:health): up to CHF 200 monthly difference between providers for the same canton and deductible.
-
-*Source: [cdt.ch](https://www.cdt.ch/news/una-13esima-anche-per-la-cassa-pensione-437142)*]]></content:encoded>
-      <pubDate>Thu, 20 Aug 2026 15:39:07 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/svizzera-una-13esima-per-la-cassa-pensione</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/svizzera-una-13esima-per-la-cassa-pensione.webp" medium="image"/>
     </item>
   </channel>
 </rss>
