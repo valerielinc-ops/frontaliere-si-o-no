@@ -10380,6 +10380,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.title': 'Living in Jerago with Orago and working in Ticino as a border worker',
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.excerpt': 'Know the rules and procedures for border workers living in Ticino and working in the neighbouring country.',
     'blog.article.vivere-jerago-orago-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere living in Jerago con Orago and working in Ticino, who needs to know about the new fiscal agreement and its implications.',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.title': 'Living in Casale Litta and working in Ticino',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.excerpt': 'Casale Litta and border work in Ticino: permits, taxation, living costs and practical transfer guide.',
+    'blog.article.vivere-casale-litta-ticino-frontaliere.imageAlt': 'Casale Litta with Swiss border mountains in the distance, representing cross-border commuting landscape',
 };
 
 export default blogMetaEn;
