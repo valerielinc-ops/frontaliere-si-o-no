@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-30T06:30:42.397Z",
-    "label": "before",
-    "total": 25034,
-    "needsRetranslation": 9566,
-    "suppressed": 36,
-    "incomplete": 168,
-    "complete": 24866,
-    "missingByLocale": {
-      "it": 108,
-      "en": 60,
-      "de": 60,
-      "fr": 86
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 37
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 8
-      },
-      {
-        "company": "UFA-Samen",
-        "pending": 7
-      },
-      {
-        "company": "Sulzer",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-30T06:40:53.366Z",
-    "label": "after",
-    "total": 25034,
-    "needsRetranslation": 723,
-    "suppressed": 36,
-    "incomplete": 168,
-    "complete": 24866,
-    "missingByLocale": {
-      "it": 108,
-      "en": 60,
-      "de": 60,
-      "fr": 86
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 37
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 8
-      },
-      {
-        "company": "UFA-Samen",
-        "pending": 7
-      },
-      {
-        "company": "Sulzer",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-30T11:20:08.759Z",
     "label": "before",
     "total": 24888,
@@ -12510,6 +12396,162 @@
       {
         "company": "Interdiscount",
         "pending": 197
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-21T09:50:22.261Z",
+    "label": "before",
+    "total": 27511,
+    "needsRetranslation": 10690,
+    "suppressed": 52,
+    "incomplete": 11868,
+    "complete": 15643,
+    "slotsPresent": 15643,
+    "flaggedAmongSlotsPresent": 11,
+    "verifiedTranslated": 15632,
+    "sourceCopyExcused": 594,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 67,
+      "en": 41,
+      "de": 64,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 10690,
+      "withTimestamp": 10690,
+      "oldestAgeDays": 130,
+      "p50AgeDays": 20.5,
+      "p90AgeDays": 71.9,
+      "buckets": {
+        "0-7d": 1913,
+        "7-30d": 4976,
+        "30-90d": 3288,
+        "90-180d": 513,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2055
+      },
+      {
+        "company": "Roche",
+        "pending": 552
+      },
+      {
+        "company": "ACTIV FITNESS",
+        "pending": 480
+      },
+      {
+        "company": "LANDI",
+        "pending": 282
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 260
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 253
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 242
+      },
+      {
+        "company": "BKW",
+        "pending": 228
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 195
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-21T12:28:02.504Z",
+    "label": "after",
+    "total": 27511,
+    "needsRetranslation": 10664,
+    "suppressed": 52,
+    "incomplete": 11851,
+    "complete": 15660,
+    "slotsPresent": 15660,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15660,
+    "sourceCopyExcused": 594,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 67,
+      "en": 41,
+      "de": 63,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 10664,
+      "withTimestamp": 10664,
+      "oldestAgeDays": 130.1,
+      "p50AgeDays": 20.6,
+      "p90AgeDays": 72,
+      "buckets": {
+        "0-7d": 1812,
+        "7-30d": 5005,
+        "30-90d": 3333,
+        "90-180d": 514,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2054
+      },
+      {
+        "company": "Roche",
+        "pending": 552
+      },
+      {
+        "company": "ACTIV FITNESS",
+        "pending": 480
+      },
+      {
+        "company": "LANDI",
+        "pending": 282
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 260
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 253
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 242
+      },
+      {
+        "company": "BKW",
+        "pending": 228
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 195
       }
     ]
   }

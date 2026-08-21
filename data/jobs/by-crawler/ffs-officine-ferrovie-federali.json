@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-08-21T09:57:33.819Z",
+  "assembledAt": "2026-08-21T08:28:52.314Z",
   "jobs": [
     {
       "id": "sbb-95bbc0ce6ad1",
@@ -4056,7 +4056,30 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "tecnico-della-qualita-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+          "qualitatstechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
+          "quality-technician-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+          "technicien-qualite-m-f-j-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "en": [
+          "quality-technician-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "de": [
+          "qualitatstechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "fr": [
+          "technicien-qualite-m-f-j-ffs-officine-ferrovie-federali-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "tecnico-della-qualita-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+        "qualitatstechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
+        "quality-technician-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+        "technicien-qualite-m-f-j-ffs-officine-ferrovie-federali-bellinzona"
+      ]
     },
     {
       "id": "sbb-342ac1a0e99c",

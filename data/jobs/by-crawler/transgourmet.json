@@ -1,6 +1,6 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-08-21T09:46:20.925Z",
+  "assembledAt": "2026-08-21T09:18:39.026Z",
   "jobs": [
     {
       "id": "transgourmet-02920716-191",
@@ -2839,22 +2839,31 @@
       },
       "previousSlugs": [
         "collaboratrice-collaborateur-des-arrivages-transgourmet-gals",
-        "collaboratore-collaboratore-di-arrivi-transgourmet-gals-337469"
+        "collaboratore-collaboratore-di-arrivi-transgourmet-gals-337469",
+        "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
+        "collaborator-collaborator-of-arrivals-transgourmet-gals",
+        "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals",
+        "collaboratrice-collaborateur-des-arrivages-transgourmet-gals-sppzt9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratrice-collaborateur-des-arrivages-transgourmet-gals",
-          "collaboratore-collaboratore-di-arrivi-transgourmet-gals-337469"
+          "collaboratore-collaboratore-di-arrivi-transgourmet-gals-337469",
+          "collaboratore-collaboratore-di-arrivi-transgourmet-gals",
+          "collaborator-collaborator-of-arrivals-transgourmet-gals",
+          "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals",
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals-sppzt9"
         ],
         "en": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals",
+          "collaborator-collaborator-of-arrivals-transgourmet-gals"
         ],
         "de": [
-          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals"
+          "collaboratrice-collaborateur-des-arrivages-transgourmet-gals",
+          "mitarbeiter-mitarbeiter-von-arrivals-transgourmet-gals"
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:32.302Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2866,7 +2875,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-21T09:58:07.591Z",
+  "assembledAt": "2026-08-21T08:32:21.380Z",
   "jobs": [
     {
       "id": "company-jmszvl",
@@ -650,6 +650,8 @@
         "prozesstechnologe-in-panofina-coop-genossenschaft-schafisheim-aargau",
         "prozesstechnologe-in-panofina-coop-genossenschaft-schafisheim-aargau-3hbqrh"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -662,9 +664,7 @@
       },
       "addressLocality": "Schafisheim, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-vygimb",
@@ -756,6 +756,8 @@
         "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim-6t41tw",
         "operateur-de-machines-en-production-boulangerie-panofina-coop-genossenschaft-schafisheim-6t41tw"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -768,9 +770,7 @@
       },
       "addressLocality": "Schafisheim, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-mpybz9",
@@ -826,6 +826,8 @@
         "leiter-in-regulatory-management-80-100-coop-genossenschaft-winterthur-zurich-mpybz9",
         "leiter-in-regulatory-management-80-100-steinfels-swiss-winterthur-zurich"
       ],
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -838,9 +840,7 @@
       },
       "addressLocality": "Winterthur, Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 101500,
-      "salaryMax": 154000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-ynow2l",
@@ -903,6 +903,8 @@
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern",
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-burgdorf-bern-ynow2l"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -915,9 +917,7 @@
       },
       "addressLocality": "Burgdorf, Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-rcnhdl",
@@ -980,6 +980,8 @@
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen",
         "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen-rcnhdl"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -992,9 +994,7 @@
       },
       "addressLocality": "Oberbüren, Sankt Gallen",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-kmiea3",
@@ -1042,7 +1042,8 @@
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-kmiea3",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-kmiea3",
-          "fiteria-sanitaria-in-cucine-e-bagni-fust-burgdorf-bern"
+          "fiteria-sanitaria-in-cucine-e-bagni-fust-burgdorf-bern",
+          "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-kmiea3",
@@ -1065,7 +1066,8 @@
         "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-kmiea3",
         "fiteria-sanitaria-in-cucine-e-bagni-fust-burgdorf-bern",
         "sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
-        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern"
+        "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+        "carpenter-fitter-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1220,22 +1222,54 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis",
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch"
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310",
+          "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+          "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+          "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-oberburen",
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+          "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+          "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis-fb5zch",
-          "sales-consultant-in-electrical-household-multimedia-80-100-fust-visp-wallis"
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-visp-wallis",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "sales-consultant-in-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
         ],
         "de": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-wallisellen-zurich-p0wx27",
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis-fb5zch",
-          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-visp-wallis"
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-visp-wallis",
+          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+          "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-oberburen",
+          "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
         ]
       },
       "previousSlugs": [
@@ -1245,7 +1279,36 @@
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp-wallis-fb5zch",
         "sales-consultant-in-electrical-household-multimedia-80-100-fust-visp-wallis",
-        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-visp-wallis"
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-visp-wallis",
+        "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310",
+        "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+        "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+        "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-oberburen",
+        "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+        "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27",
+        "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
+        "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+        "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+        "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen",
+        "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
+        "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
+        "sales-consultant-in-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+        "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-oberburen-sankt-gallen-n31lw0",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-wallisellen-zurich-p0wx27",
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -6555,19 +6618,28 @@
           "disponent-in-kuchen-bader-fust-burgdorf-bern",
           "distribuzione-in-cucine-e-bagni-fust-burgdorf-bern",
           "dispone-di-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
-          "distribuzione-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf"
+          "distribuzione-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
+          "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf",
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
+          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
+          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op"
         ],
         "en": [
           "disponent-in-kuchen-bader-fust-burgdorf-bern-u2afby",
           "dispatch-in-kitchens-bathrooms-fust-burgdorf-bern",
           "disponent-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-bern",
-          "dispatch-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf"
+          "dispatch-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
+          "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op"
         ],
         "fr": [
           "disponent-in-kuchen-bader-fust-burgdorf-bern-u2afby",
           "expedition-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
           "disposant-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
-          "expedition-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+          "expedition-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+          "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op"
+        ],
+        "de": [
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op"
         ]
       },
       "previousSlugs": [
@@ -6581,7 +6653,11 @@
         "disposant-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
         "distribuzione-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
         "dispatch-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
-        "expedition-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf"
+        "expedition-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
+        "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf",
+        "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
+        "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
+        "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8218,7 +8294,8 @@
           "ladendetektiv-in-coop-schafisheim-aargau",
           "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
           "negozio-detective-in-coop-genossenschaft-schafisheim",
-          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau"
+          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
+          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim"
         ],
         "en": [
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw"
@@ -8236,7 +8313,8 @@
         "negozio-detective-in-coop-genossenschaft-schafisheim",
         "inspecteur-coop-genossenschaft-schafisheim",
         "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
-        "detective-magasin-coop-genossenschaft-schafisheim-aargau"
+        "detective-magasin-coop-genossenschaft-schafisheim-aargau",
+        "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9705,7 +9783,8 @@
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern",
           "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da",
-          "venditore-in-cassa-servizi-coop-genossenschaft-biel-bern"
+          "venditore-in-cassa-servizi-coop-genossenschaft-biel-bern",
+          "verkaufer-in-kassen-services-coop-genossenschaft-bern"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da",
@@ -9721,7 +9800,8 @@
         "verkaufer-in-kassen-services-coop-genossenschaft-biel-bern-ory6da",
         "seller-in-cash-registers-services-coop-genossenschaft-biel-bern",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-biel-bern",
-        "venditore-in-cassa-servizi-coop-genossenschaft-biel-bern"
+        "venditore-in-cassa-servizi-coop-genossenschaft-biel-bern",
+        "verkaufer-in-kassen-services-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -14880,7 +14960,8 @@
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-          "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich"
+          "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
+          "venditore-a-coop-genossenschaft-winterthur-zurich"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -14904,7 +14985,8 @@
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
         "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
+        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich",
+        "venditore-a-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15421,19 +15503,32 @@
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich-xazbfx",
-          "verkaufer-in-kassen-services-coop-zurich"
+          "verkaufer-in-kassen-services-coop-zurich",
+          "addetto-a-alle-vendite-cassa-servizi-coop-genossenschaft-dietlikon",
+          "verkaufer-in-kassen-services-coop-genossenschaft-dietlikon-zurich-tc8umo",
+          "sales-assistant-cashier-services-coop-genossenschaft-dietlikon-tc8umo",
+          "vendeur-vendeuse-caisse-services-coop-genossenschaft-dietlikon-tc8umo"
         ],
         "en": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-xazbfx"
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-xazbfx",
+          "sales-assistant-cashier-services-coop-genossenschaft-dietlikon-tc8umo"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-xazbfx"
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-xazbfx",
+          "vendeur-vendeuse-caisse-services-coop-genossenschaft-dietlikon-tc8umo"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-dietlikon-zurich-tc8umo"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
         "verkaufer-in-kassen-services-coop-genossenschaft-zurich-xazbfx",
-        "verkaufer-in-kassen-services-coop-zurich"
+        "verkaufer-in-kassen-services-coop-zurich",
+        "addetto-a-alle-vendite-cassa-servizi-coop-genossenschaft-dietlikon",
+        "verkaufer-in-kassen-services-coop-genossenschaft-dietlikon-zurich-tc8umo",
+        "sales-assistant-cashier-services-coop-genossenschaft-dietlikon-tc8umo",
+        "vendeur-vendeuse-caisse-services-coop-genossenschaft-dietlikon-tc8umo"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -25399,7 +25494,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -25408,7 +25504,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
