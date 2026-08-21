@@ -122,6 +122,73 @@ const LBL_PARKED = 'fu-parked';
 // qui, indipendente da età/inattività.
 const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
+// --- STADIO DI DECOMPOSIZIONE (2026-08-21) -----------------------------------
+// Prima di questo stadio, ogni issue "troppo grande" usciva dal ciclo autonomo:
+// `max-turns` al 1° tentativo → `fu-parked`+`needs-human` (stato assorbente:
+// nessun meccanismo le riprendeva), e i detector epic/backlog parcheggiavano con
+// un commento che CHIEDEVA lo scorporo in issue singole senza che nessuno lo
+// facesse. Misurato sulla finestra 07→21/08: esito finale delle issue lavorate
+// 11 `pr-created` contro 11 `max-turns` — metà dei run bruciata su issue che il
+// turn-budget non può contenere, e 47 issue aperte in `needs-human`.
+//
+// Il rimedio è lo stesso che il commento del park prescriveva a mano: scorporare.
+// `agent:decompose-queued` → (promozione qui sotto, 1 per tick, slot proprio) →
+// `agent:decompose` → `issue-decompose.yml` (run planner che NON implementa:
+// produce ≤6 sub-issue atomiche con scheda verificabile, marca il padre con
+// `decomposed:1` + marker `<!-- DECOMPOSED_INTO: n1 n2 ... -->`). Le figlie
+// (`from-decompose`) entrano nella coda fix normale via triage; il padre resta
+// aperto e viene chiuso dal pass PARENT-CLOSE quando TUTTE le figlie sono chiuse.
+//
+// Anti-ricorsione by-construction: un padre `decomposed:1` non è mai ri-decomposto,
+// una figlia `from-decompose` è atomica per costruzione e non è mai decomposta.
+// L'unica eccezione voluta è la issue-contenitore residua che il planner crea
+// quando le unità superano il cap (SENZA `from-decompose`): ri-entra nel ciclo e
+// converge perché ogni giro chiude ≥ (cap-1) unità atomiche.
+// `DECOMPOSE_ENABLED=false` spegne routing e promozione (kill-switch, default on).
+const LBL_DECOMP_QUEUED = 'agent:decompose-queued';
+const LBL_DECOMP = 'agent:decompose';
+const LBL_DECOMPOSED = 'decomposed:1';
+const LBL_FROM_DECOMP = 'from-decompose';
+const LBL_DECOMP_RETRIED = 'decompose-retried';
+const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
+const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
+const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN || 5);
+
+/**
+ * La issue può entrare nello stadio di decomposizione? Pura (solo label) →
+ * testabile. Esclude i padri già decomposti (`decomposed:1`), le figlie
+ * (`from-decompose`, atomiche by-construction) e chi è già dentro lo stadio.
+ * NON esclude `needs-human`: i call-site di routing agiscono PRIMA che quel
+ * label venga applicato, e un'issue grande già marcata a mano resta comunque
+ * decomponibile se qualcuno la ri-accoda.
+ * @param {{labels?: Array<{name:string}>}} iss
+ */
+export function isDecomposeEligible(iss) {
+  const ls = names(iss);
+  return !ls.includes(LBL_DECOMPOSED) && !ls.includes(LBL_FROM_DECOMP)
+    && !ls.includes(LBL_DECOMP_QUEUED) && !ls.includes(LBL_DECOMP);
+}
+
+/**
+ * Numeri delle sub-issue dichiarate dall'ULTIMO marker `DECOMPOSED_INTO` nei
+ * commenti (l'ultimo vince: una decomposizione corretta a mano sovrascrive la
+ * precedente). Dedup, ordina, ignora garbage. Pura → testabile.
+ * @param {Array<{body?: string}>} comments
+ * @returns {number[]}
+ */
+export function decomposedChildNumbers(comments) {
+  let nums = null;
+  for (const c of comments || []) {
+    const m = DECOMPOSED_INTO_RE.exec(String(c?.body || ''));
+    if (!m) continue;
+    const parsed = [...new Set(
+      (m[1].match(/\d+/g) || []).map(Number).filter((n) => Number.isInteger(n) && n > 0),
+    )].sort((a, b) => a - b);
+    if (parsed.length) nums = parsed;
+  }
+  return nums || [];
+}
+
 // Age-out close: il post-merge-followup apre 1 follow-up per PR mergiata e
 // NESSUN workflow le chiude mai → ratchet monotòno (osservate 41 aperte). Un
 // follow-up vecchio, inattivo e NON in lavorazione (né agent:fix né
@@ -234,11 +301,11 @@ export function latestFixOutcomeFromComments(comments) {
 //    è un'issue aggregata che manca del template FOLLOWUP.md (nessuna sezione
 //    ## Origine / ### N. item). Il fixer non trova contesto, gira in tondo, muore.
 //
-// 2. NETWORK-AUDIT (#2224-class): il `## Suggested action` dice esplicitamente
-//    "network-enabled audit" (phrase canonica FOLLOWUP.md) o "audit curl": il fix
-//    richiede una verifica HTTP su URL esterni PRIMA di poter toccare il codice.
-//    Il fixer ha solo `Bash(node:*)` in allowedTools (no `curl` diretto): deve
-//    scrivere script node inline → multi-turno → error_max_turns deterministico.
+// 2. NETWORK-AUDIT (#2224-class) — RIMOSSA il 2026-08-21: la premessa (fixer
+//    confinato a `Bash(node:*)`, niente `curl`) è falsa dal 2026-07-02, quando
+//    `--dangerously-skip-permissions` ha sostituito gli allowedTools scoped in
+//    issue-fix.yml. Il detector parcheggiava con `needs-human` (assorbente)
+//    issue perfettamente lavorabili.
 //
 // Pattern: pre-flight CONSERVATIVO (bias a PROMUOVERE) — stessa filosofia di
 // detectWorkflowScoped. Park con `needs-human` per evitare ri-accodo (parked-retry
@@ -262,21 +329,11 @@ export function detectMalformedBody(title, body) {
   return false;
 }
 
-/**
- * Vero se il `## Suggested action` della follow-up richiede esplicitamente un
- * audit HTTP/curl su URL esterni come PREREQUISITO al fix del codice. Il fixer
- * non ha `curl` in allowedTools (solo `Bash(node:*)`); deve scrivere inline
- * node HTTP → molti turni → error_max_turns deterministico. Pura → testabile.
- * @param {string} title
- * @param {string} body
- */
-export function detectExplicitNetworkAudit(title, body) {
-  const s = String(title || '') + '\n' + String(body || '');
-  // Segnali espliciti: "network-enabled audit" (phrase canonica FOLLOWUP.md) o
-  // "audit curl" (phrasing italiano comune). Entrambi indicano che la fase di
-  // verifica HTTP PRECEDE qualsiasi modifica al codice sorgente.
-  return /network-enabled\s+audit|audit\s+curl/i.test(s);
-}
+// (detectExplicitNetworkAudit è stata rimossa il 2026-08-21 insieme al suo
+// call-site: la premessa — fixer confinato a `Bash(node:*)` — è falsa dal
+// 2026-07-02, quando `--dangerously-skip-permissions` ha sostituito gli
+// allowedTools scoped in issue-fix.yml. Vedi il commento al posto del
+// call-site nel DRAIN qui sotto.)
 
 // --- EPIC-TRACKER PRE-FLIGHT (escalation #4517) -----------------------------
 // `fix-outcome:revenue-tracker-manual` ricorre 10×/14gg (dal 2026-07-18): un
@@ -535,6 +592,11 @@ export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   const ls = (iss?.labels || []).map((l) => l.name);
   if (isPermanentTracker(iss)) return false; // issue-contatore/tracker permanente, mai eleggibile
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
+  // Lo stadio di decomposizione è "in lavorazione" quanto la coda fix: una
+  // issue in coda decompose, in decomposizione, o un padre decomposto in attesa
+  // delle figlie NON vanno chiusi per inattività — il PARENT-CLOSE li chiude
+  // quando le figlie sono chiuse, che è l'esito giusto.
+  if (ls.includes(LBL_DECOMP_QUEUED) || ls.includes(LBL_DECOMP) || ls.includes(LBL_DECOMPOSED)) return false;
   const created = Date.parse(iss?.createdAt);
   const updated = Date.parse(iss?.updatedAt);
   if (Number.isNaN(created) || Number.isNaN(updated)) return false; // date illeggibili → non chiudere
@@ -708,6 +770,26 @@ function listIssues(label) {
   }
 }
 
+/** Quante run issue-decompose sono in volo (queued|in_progress). Gemello di
+ * `inFlightFixCount` per lo stadio di decomposizione: serve al rescue per non
+ * yankare `agent:decompose` da una run VIVA (una run planner può durare
+ * decine di minuti, ben oltre ORPHAN_MIN_AGE_MIN). Conservativo su errore. */
+function inFlightDecomposeCount() {
+  let n = 0;
+  for (const status of ['queued', 'in_progress']) {
+    try {
+      const runs = gh([
+        'run', 'list', '--workflow', 'issue-decompose.yml',
+        '--status', status, '--json', 'databaseId', '--limit', '20',
+      ]);
+      n += Array.isArray(runs) ? runs.length : 0;
+    } catch {
+      return Number.POSITIVE_INFINITY;
+    }
+  }
+  return n;
+}
+
 // Age-out scorre TUTTE le categorie queue-managed (non solo `follow-up`, dal
 // 2026-07-05), quindi non può più filtrare lato-API su una singola label:
 // serve l'elenco open completo, poi isAgeOutEligible/isQueueManaged filtrano
@@ -791,6 +873,7 @@ const reparkGenOf = (iss) => {
 export function isReparkableCandidate(iss) {
   if (!isQueueManaged(iss)) return false;
   if (has(iss, LBL_FIX) || has(iss, LBL_QUEUED)) return false; // già in lavoro/coda
+  if (has(iss, LBL_DECOMP_QUEUED) || has(iss, LBL_DECOMP) || has(iss, LBL_DECOMPOSED)) return false; // nello stadio decompose
   if (has(iss, 'needs-human')) return false;                   // già escalato (too-large)
   if (isPermanentTracker(iss)) return false;                   // tracker permanente (#5615/#5544)
   return reparkGenOf(iss) < MAX_REPARK_GEN;                    // generation-cap
@@ -908,6 +991,20 @@ function edit(num, { add = [], remove = [] }) {
   if (DRY) { console.log(`[dry] edit #${num} +[${add}] -[${remove}]`); return; }
   try { gh(args, { json: false }); }
   catch (e) { console.log(`::warning::edit #${num} fallito: ${String(e).slice(0, 120)}`); }
+}
+
+/** Instrada una issue allo stadio di decomposizione: commento esplicativo +
+ * `agent:decompose-queued`. Il commento NON porta un marker FIX_OUTCOME di
+ * proposito: la issue esce dalla coda fix (label diversa), quindi i pass di
+ * rescue non la guardano più, e un verdetto "fermo" qui sarebbe falso — la
+ * lavorazione continua, in un'altra forma. */
+function routeToDecompose(num, { remove = [], note }) {
+  if (DRY) { console.log(`[dry] decompose-route #${num}`); return; }
+  if (note) {
+    try { gh(['issue', 'comment', String(num), '--repo', REPO, '--body', note], { json: false }); }
+    catch (e) { console.log(`::warning::comment #${num} fallito: ${String(e).slice(0, 120)}`); }
+  }
+  edit(num, { add: [LBL_DECOMP_QUEUED], remove });
 }
 
 /** Esiste una PR fix APERTA per questa issue? (head fix/issue-N).
@@ -1181,6 +1278,44 @@ export function runDrain() {
     }
   }
 
+  // --- PARENT-CLOSE: chiudi i padri decomposti a figlie tutte chiuse ----------
+  // Ortogonale allo slot (chiudere non tocca il fixer) → gira sempre. Il padre
+  // è il tracker della decomposizione: si chiude SOLO quando ogni sub-issue
+  // dichiarata dall'ultimo marker DECOMPOSED_INTO è chiusa. Bounded: al più
+  // PARENT_CLOSE_MAX_PER_RUN padri esaminati per tick (1 view commenti + K view
+  // di stato ciascuno), i restanti al tick successivo (no silent cap).
+  if (DECOMPOSE_ENABLED) {
+    const parents = listIssues(LBL_DECOMPOSED);
+    let examined = 0;
+    for (const p of parents) {
+      if (examined >= PARENT_CLOSE_MAX_PER_RUN) {
+        console.log(`parent-close: cap ${PARENT_CLOSE_MAX_PER_RUN}/run raggiunto, ${parents.length - examined} padri rinviati al prossimo tick (no silent cap).`);
+        break;
+      }
+      if (!budget.take(`#${p.number} (parent-close)`, ITEM_COST_MS)) break;
+      examined++;
+      const kids = decomposedChildNumbers(issueComments(p.number) || []);
+      if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
+      let allClosed = true;
+      for (const k of kids) {
+        try {
+          const st = gh(['issue', 'view', String(k), '--repo', REPO, '--json', 'state']);
+          if (String(st?.state || '').toUpperCase() !== 'CLOSED') { allClosed = false; break; }
+        } catch { allClosed = false; break; } // stato illeggibile → non chiudere
+      }
+      if (!allClosed) continue;
+      if (DRY) { console.log(`[dry] parent-close #${p.number} (figlie ${kids.join(', ')} tutte chiuse)`); continue; }
+      try {
+        gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
+          `✅ Auto-chiusa dal followup-drainer (PARENT-CLOSE): tutte le sub-issue della decomposizione (${kids.map((n) => `#${n}`).join(', ')}) risultano chiuse. Riapri se una parte dello scope originario non è coperta dalle figlie.`], { json: false });
+        gh(['issue', 'close', String(p.number), '--repo', REPO], { json: false });
+        console.log(`PARENT-CLOSE #${p.number} (figlie tutte chiuse: ${kids.join(', ')}) — "${p.title?.slice(0, 50)}"`);
+      } catch (e) {
+        console.log(`parent-close: #${p.number} fallita (${e.message}) — continuo col batch.`);
+      }
+    }
+  }
+
   // --- TOO-LARGE ESCALATION (no cooldown) ------------------------------------
   // Un follow-up parkato che ha GIÀ avuto un giro di parked-retry (reparkGen≥1)
   // col fixer migliorato e NON ha MAI prodotto una PR = pure-run-death
@@ -1200,11 +1335,24 @@ export function runDrain() {
       .filter((iss) => !hasFixPREver(iss.number));
     for (const iss of tooLarge) {
       if (!budget.take(`#${iss.number} (too-large)`, ITEM_COST_MS)) break;
+      // Too-large con lo stadio di decomposizione attivo NON è più un vicolo
+      // cieco: "troppo grande per un run" è esattamente il caso d'uso dello
+      // scorporo. `needs-human` resta il fallback per chi non è eleggibile
+      // (già decomposta una volta, o figlia di una decomposizione: lì il
+      // ri-scorporo non è la risposta e serve davvero una persona).
+      if (DECOMPOSE_ENABLED && isDecomposeEligible(iss)) {
+        console.log(`TOO-LARGE #${iss.number} → agent:decompose-queued (gen ${reparkGenOf(iss)}, mai una PR = too-large: si scorpora invece di escalare) — "${iss.title?.slice(0, 45)}"`);
+        routeToDecompose(iss.number, {
+          remove: [LBL_PARKED],
+          note: `🧩 **Escalation too-large → decomposizione**: ${reparkGenOf(iss)} generazione/i di retry senza che il fixer abbia MAI prodotto una PR = la issue non sta in un turn-budget. Instradata allo stadio di decomposizione (\`agent:decompose-queued\`): un run planner la scorporerà in sub-issue atomiche con scheda verificabile, che il fixer chiude una a una. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.`,
+        });
+        continue;
+      }
       if (DRY) { console.log(`[dry] too-large #${iss.number} (gen ${reparkGenOf(iss)}, 0 PR) → needs-human`); continue; }
       edit(iss.number, { add: ['needs-human'], remove: [] });
-      console.log(`TOO-LARGE #${iss.number} → needs-human (gen ${reparkGenOf(iss)}, mai una PR = error_max_turns/too-large; stop al burn opus) — "${iss.title?.slice(0, 45)}"`);
+      console.log(`TOO-LARGE #${iss.number} → needs-human (gen ${reparkGenOf(iss)}, mai una PR = error_max_turns/too-large; non eleggibile alla decomposizione) — "${iss.title?.slice(0, 45)}"`);
     }
-    if (tooLarge.length) console.log(`too-large escalation: ${tooLarge.length} → needs-human (no re-queue, no cooldown).`);
+    if (tooLarge.length) console.log(`too-large escalation: ${tooLarge.length} processate (decompose se eleggibili, altrimenti needs-human).`);
   }
 
   // --- PARKED-RETRY: ri-accoda i parked ritentabili --------------------------
@@ -1232,7 +1380,17 @@ export function runDrain() {
     let scanCapped = 0;
     let unreadable = 0;
     const eligible = [];
-    for (const iss of pool) {
+    // Rotazione dell'offset di scansione (2026-08-21): col cap fisso a
+    // RETRY_COMMENT_SCAN_MAX e un pool più grande, le ECCEDENTI erano SEMPRE le
+    // stesse — misurato «25/44 valutate, 17 non valutate» identico a ogni tick:
+    // le ultime del pool non venivano rivalutate MAI, un silent-cap di fatto
+    // dietro un log onesto. L'offset ruota col tick (~20min), deterministico e
+    // senza stato: in ⌈pool/cap⌉ tick ogni candidata viene valutata almeno una
+    // volta. L'ordine di priorità non c'entra: il sort avviene DOPO, su
+    // `eligible`.
+    const scanOffset = pool.length ? Math.floor(now / 1_200_000) % pool.length : 0;
+    const rotatedPool = pool.slice(scanOffset).concat(pool.slice(0, scanOffset));
+    for (const iss of rotatedPool) {
       if (minutesSince(iss.updatedAt) >= cooldownMin) {
         // Quieto anche sul campo grezzo → eleggibile senza chiamate extra. La
         // chiave d'ordine è `updatedAt`, che sovrastima la staleness reale: chi
@@ -1369,6 +1527,9 @@ export function runDrain() {
   let quotaBackoffUntil = null;
   const quotaScanPool = [
     ...allFix,
+    // Anche le issue in decomposizione: una run di issue-decompose morta su 429
+    // lascia lo stesso beacon QUOTA_RESETS_AT, e la quota è la stessa.
+    ...listIssues(LBL_DECOMP),
     ...listIssues(LBL_QUEUED)
       .filter((i) => !has(i, LBL_PARKED))
       .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
@@ -1385,6 +1546,35 @@ export function runDrain() {
   if (quotaBackoffUntil !== null) {
     const when = new Date(quotaBackoffUntil * 1000).toISOString();
     console.log(`QUOTA BACKOFF attivo fino a ${when} — nessuna promozione e nessun tentativo consumato in questo tick.`);
+  }
+
+  // --- FAIRNESS DI QUOTA (peer repo, opt-in via env) --------------------------
+  // La quota Claude è UNA per i due repo, e il beacon peer è a senso unico: il
+  // corpus cede al sito, mai il contrario. Misurato (2026-08-21): il sito
+  // consuma ogni finestra di reset (anche due consecutive nella stessa notte) e
+  // il corpus è passato da 40 success/giorno a 1, con la coda ferma a 37.
+  // Rimedio deterministico, zero-Claude: nelle ore UTC dichiarate in
+  // FAIRNESS_HOURS_UTC (tipicamente l'ora dopo un reset di quota), se la coda
+  // `agent:fix-queued` del peer supera FAIRNESS_PEER_QUEUE_MIN, QUESTO repo non
+  // promuove (né fix né decompose) e lascia la finestra al peer. Rescue,
+  // age-out, park e parent-close girano comunque: non consumano quota.
+  // Env solo nel followup-drainer.yml del repo che deve cedere (il sito);
+  // senza env il blocco è inerte — il file resta identical fra i due repo.
+  let fairnessHold = false;
+  {
+    const fairnessPeer = process.env.FAIRNESS_PEER_REPO || '';
+    const fairnessHours = String(process.env.FAIRNESS_HOURS_UTC || '')
+      .split(',').map((s) => parseInt(s, 10)).filter(Number.isInteger);
+    if (fairnessPeer && quotaBackoffUntil === null && fairnessHours.includes(new Date().getUTCHours())) {
+      try {
+        const pq = gh(['issue', 'list', '--repo', fairnessPeer, '--state', 'open', '--label', LBL_QUEUED, '--json', 'number', '--limit', '50']);
+        const minQ = Number(process.env.FAIRNESS_PEER_QUEUE_MIN || 10);
+        if (Array.isArray(pq) && pq.length >= minQ) {
+          fairnessHold = true;
+          console.log(`FAIRNESS: ora UTC ${new Date().getUTCHours()} riservata al peer ${fairnessPeer} (coda peer=${pq.length} ≥ ${minQ}) → nessuna promozione (fix né decompose) in questo tick.`);
+        }
+      } catch { /* peer illeggibile → non trattenere (bias a promuovere) */ }
+    }
   }
 
   for (const iss of stuckFix) {
@@ -1455,7 +1645,22 @@ export function runDrain() {
     // falsa escalation). Boundary: già fissato dal too-large-escalation pass
     // (reparkGen≥1, 0 PR) — questa path abbrevia il percorso al primo colpo.
     if (outcome === 'max-turns') {
-      console.log(`PARK #${iss.number} → needs-human (error_max_turns al 1° attempt = too-large deterministico; stop al 2° attempt sprecato)`);
+      // error_max_turns è deterministico sul turn-budget: ri-tentare TAL QUALE
+      // riproduce l'esito. Ma da quando esiste lo stadio di decomposizione, la
+      // risposta giusta non è più l'uscita dal ciclo (`needs-human` assorbente,
+      // 47 issue accumulate al 2026-08-21): è lo scorporo in unità che nel
+      // budget ci stanno. Il run bruciato resta bruciato; il prossimo lavora
+      // su sub-issue con scheda, dove il fixer ha la resa più alta (misurato:
+      // le fix piccole/medie mergiano, le too-large muoiono a max-turns).
+      if (DECOMPOSE_ENABLED && isDecomposeEligible(iss)) {
+        console.log(`DECOMPOSE-ROUTE #${iss.number} (error_max_turns al 1° attempt = too-large deterministico) → agent:decompose-queued`);
+        routeToDecompose(iss.number, {
+          remove: [LBL_FIX, LBL_QUEUED],
+          note: `🧩 **max-turns → decomposizione**: il fixer ha esaurito il turn-budget senza produrre una PR (esito deterministico: la issue non sta in un run). Instradata allo stadio di decomposizione (\`agent:decompose-queued\`): un run planner la scorporerà in sub-issue atomiche con scheda verificabile. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.`,
+        });
+        continue;
+      }
+      console.log(`PARK #${iss.number} → needs-human (error_max_turns, non eleggibile alla decomposizione: già decomposta o figlia di una decomposizione)`);
       edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_FIX, LBL_QUEUED] });
       continue;
     }
@@ -1534,6 +1739,57 @@ export function runDrain() {
     });
   }
 
+  // --- DECOMPOSE-RESCUE + DECOMPOSE-DRAIN -------------------------------------
+  // Lo stadio di decomposizione ha slot proprio (`concurrency: issue-decompose`)
+  // ma condivide la quota Claude: per questo sta QUI, dopo il gate dello slot
+  // issue-fix e la scansione del beacon — promuovere un decompose mentre un fix
+  // gira raddoppierebbe il ritmo di consumo della quota, che è LA risorsa
+  // scarsa. Serializzare (al più un run Claude del ciclo alla volta) è voluto.
+  //
+  // RESCUE: una run issue-decompose morta (sfratto in coda concurrency, crash,
+  // 429) lascia `agent:decompose` senza esito né figlie — lo stesso stato
+  // orfano di `agent:fix` (#5514). Ri-arma UNA volta (`decompose-retried`),
+  // alla seconda morte park+needs-human: bounded, niente loop. Il guard
+  // `inFlightDecomposeCount()==0` impedisce di yankare la label da una run VIVA.
+  if (DECOMPOSE_ENABLED && quotaBackoffUntil === null && !fairnessHold) {
+    const decompInFlight = inFlightDecomposeCount();
+    if (decompInFlight === 0) {
+      const decomposing = listIssues(LBL_DECOMP);
+      for (const iss of decomposing) {
+        if (!budget.take(`#${iss.number} (decompose-rescue)`, ITEM_COST_MS)) break;
+        const ageMin = minutesSince(iss.updatedAt);
+        if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // run appena partita/registrata → aspetta
+        if (has(iss, LBL_DECOMP_RETRIED)) {
+          console.log(`PARK DECOMPOSE #${iss.number} (seconda run morta senza esito) → fu-parked + needs-human`);
+          edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_DECOMP] });
+          continue;
+        }
+        console.log(`RE-ARM DECOMPOSE #${iss.number} (run morta senza esito) → agent:decompose-queued + decompose-retried`);
+        edit(iss.number, { add: [LBL_DECOMP_QUEUED, LBL_DECOMP_RETRIED], remove: [LBL_DECOMP] });
+      }
+      // DRAIN decompose: 1 promozione per tick, e SOLO se nessuna promozione
+      // recente sta ancora "assestando" (label `agent:decompose` fresca la cui
+      // run non è ancora visibile in `gh run list` — stessa race-visibilità del
+      // settling di issue-fix, #1339). Le label vecchie le ha già smaltite il
+      // rescue sopra (re-queue o park); qui restano solo le fresche, che
+      // bloccano il tick per non creare due pending nello stesso gruppo.
+      const settling = decomposing.filter((i) => minutesSince(i.updatedAt) < ORPHAN_MIN_AGE_MIN);
+      if (settling.length) {
+        console.log(`decompose: promozione in assestamento (${settling.map((i) => `#${i.number}`).join(', ')}) → nessuna promozione decompose in questo tick.`);
+      } else {
+        const dq = listIssues(LBL_DECOMP_QUEUED)
+          .filter((i) => !has(i, LBL_PARKED))
+          .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
+        if (dq.length && budget.take(`#${dq[0].number} (decompose-drain)`, ITEM_COST_MS)) {
+          console.log(`PROMUOVO DECOMPOSE #${dq[0].number} (${has(dq[0], 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_DECOMP} — "${dq[0].title?.slice(0, 50)}"`);
+          edit(dq[0].number, { add: [LBL_DECOMP], remove: [LBL_DECOMP_QUEUED] });
+        }
+      }
+    } else if (decompInFlight !== Number.POSITIVE_INFINITY) {
+      console.log(`decompose in volo (${decompInFlight}) → nessun rescue/promozione decompose in questo tick.`);
+    }
+  }
+
   // --- DRAIN: promuovi 1 queued a agent:fix (slot già verificato libero) -------
   // Guard QUOTA (misurato 2026-08-05): lo slot può essere libero e la coda piena
   // e comunque promuovere è dannoso, perché il collo di bottiglia non è lo slot
@@ -1561,6 +1817,9 @@ export function runDrain() {
     console.log(`promozione in assestamento (settling=${settlingPromotions}, run non ancora visibile) → drain rinviato per evitare doppia-promozione/supersession.`);
     return;
   }
+  // Finestra riservata al peer (vedi FAIRNESS più su): il log è già stato
+  // stampato al momento della decisione, qui si onora e basta.
+  if (fairnessHold) return;
 
   const queued = listIssues(LBL_QUEUED)
     .filter((i) => !has(i, LBL_PARKED))
@@ -1612,18 +1871,12 @@ export function runDrain() {
       continue; // prova il prossimo in coda
     }
 
-    // Check: explicit network audit (escalation #2291) — "network-enabled audit" / "audit curl"
-    // indica che il fix richiede verifica HTTP su URL esterni come prerequisito.
-    // Il fixer ha solo Bash(node:*) (no curl diretto); scripting node inline multi-turno → max-turns.
-    if (detectExplicitNetworkAudit(cand.title, body)) {
-      console.log(`PARK #${cand.number} (explicit network audit) → no promozione, allowedTools non include curl`);
-      const note = `⛔ **Pre-flight drainer (zero-Claude, #2291)**: questa follow-up richiede un audit HTTP su URL esterni ("network-enabled audit" / "audit curl") come prerequisito al fix del codice. Il fixer CI ha solo \`Bash(node:*)\` in allowedTools (no \`curl\` diretto): implementare la verifica HTTP in node inline richiede molti turni → finisce \`error_max_turns\` deterministicamente.\n\n**Non promuovo**: serve un script autonomo per l'audit curl, o esecuzione manuale con curl. Parko con \`needs-human\`.\n\n<!-- FIX_OUTCOME: no-root-cause -->`;
-      if (DRY) { console.log(`[dry] park #${cand.number} (network audit)`); continue; }
-      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
-      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
-      edit(cand.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_QUEUED, LBL_FIX] });
-      continue; // prova il prossimo in coda
-    }
+    // (Il park "explicit network audit" — escalation #2291 — è stato RIMOSSO il
+    // 2026-08-21: si fondava sulla premessa che il fixer avesse solo
+    // `Bash(node:*)` in allowedTools, ma dal 2026-07-02 `issue-fix.yml` usa
+    // `--dangerously-skip-permissions` e il fixer ha `curl` e ogni altro tool.
+    // Il park era diventato un'esclusione a premessa falsa: parcheggiava con
+    // `needs-human` — stato assorbente — issue perfettamente lavorabili.)
 
     // Check: epic-tracker (escalation #4517) — `[EPIC] ...` che delega tutto lo
     // scope a `## Sub-issues` già in coda propria. Promuoverla brucia un run
@@ -1646,8 +1899,21 @@ export function runDrain() {
     // esaurisce i turni, sempre.
     if (detectBacklogTracker(cand.title, body)) {
       const itemCount = countBacklogItems(body);
-      console.log(`PARK #${cand.number} (backlog-tracker: ${itemCount} voci enumerate) → no promozione, nessun difetto singolo`);
-      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5312)**: questa issue è un **contenitore di lavoro residuo** (handoff di sessione), non un difetto singolo — il body enumera **${itemCount} voci distinte**, eterogenee e in parte già tracciate altrove. Non ha una root cause comune né un target-file proprio: promuoverla a \`agent:fix\` produce un fix parziale su UNA delle voci, o un run che esaurisce i turni. **Non promuovo**: le voci vanno scorporate in issue singole (una root cause ciascuna), che il loop instrada normalmente. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+      // Fino al 2026-08-21 questo ramo parcheggiava con un commento che CHIEDEVA
+      // lo scorporo («le voci vanno scorporate in issue singole») senza che
+      // nessun automatismo lo facesse: il park era terminale. Ora lo scorporo
+      // esiste ed è esattamente questo caso d'uso. Il fallback park resta per
+      // chi non è eleggibile (già decomposta / figlia).
+      if (DECOMPOSE_ENABLED && isDecomposeEligible(cand)) {
+        console.log(`DECOMPOSE-ROUTE #${cand.number} (backlog-tracker: ${itemCount} voci enumerate) → agent:decompose-queued`);
+        routeToDecompose(cand.number, {
+          remove: [LBL_QUEUED, LBL_FIX],
+          note: `🧩 **Pre-flight drainer → decomposizione**: questa issue è un **contenitore di lavoro residuo** (${itemCount} voci enumerate, nessuna root cause comune). Promuoverla a \`agent:fix\` produrrebbe un fix parziale o un run a vuoto. Instradata allo stadio di decomposizione (\`agent:decompose-queued\`): un run planner scorpora le voci in sub-issue atomiche con scheda verificabile, che il loop instrada normalmente. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.`,
+        });
+        continue; // prova il prossimo in coda
+      }
+      console.log(`PARK #${cand.number} (backlog-tracker: ${itemCount} voci, non eleggibile alla decomposizione) → fu-parked`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #5312)**: questa issue è un **contenitore di lavoro residuo** (handoff di sessione), non un difetto singolo — il body enumera **${itemCount} voci distinte**, eterogenee e in parte già tracciate altrove. Non ha una root cause comune né un target-file proprio: promuoverla a \`agent:fix\` produce un fix parziale su UNA delle voci, o un run che esaurisce i turni. **Non promuovo**: già decomposta in precedenza (o figlia di una decomposizione), quindi non ri-scorporabile in automatico. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (backlog-tracker)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
