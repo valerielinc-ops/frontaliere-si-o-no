@@ -30945,6 +30945,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-biandronno-lavorare-ticino-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-21T03:17:50.470Z',
+ image: '/images/blog/vivere-biandronno-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

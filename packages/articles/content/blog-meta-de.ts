@@ -10332,6 +10332,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.title': 'Leben in Pusiano und Arbeiten im Tessin: Der Grenzgängerführer',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.excerpt': 'Vom Neuen Grenzgängerabkommen über die Quellensteuer, die AHV/BVG-Beiträge bis hin zur WAHL des KVG: Alles, was Sie wissen müssen, um nach Pusiano zu ziehen und im Tessin zu arbeiten.',
     'blog.article.vivere-pusiano-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Pusiano, Gemeinde in der Provinz Como, mit Tessiner Alpen im Hintergrund',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.title': 'In Biandronno leben und als Grenzgänger im Tessin arbeiten: Was ändert sich?',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.excerpt': 'Mit dem neuen Abkommen zwischen der Schweiz und Italien wurden einige Änderungen für Grenzgänger eingeführt. Das bedeutet es für Grenzgänger, die in Biandronno leben und im Tessin arbeiten.',
+    'blog.article.vivere-biandronno-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Biandronno lebt und in Ticino arbeitet',
 };
 
 export default blogMetaDe;

@@ -72767,6 +72767,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-biandronno-lavorare-ticino-da-frontaliere': {
+    title: 'Vivere a Biandronno e lavorare in Ticino da frontaliere: cosa cambia?',
+    description: 'Il nuovo accordo tra Svizzera e Italia ha introdotto alcune modifiche per i lavoratori frontalieri. Ecco cosa significa per i frontaliere che vivono',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, biandronno, lavorare, cosa',
+    ogTitle: 'Vivere a Biandronno e lavorare in Ticino da frontaliere: cosa cambia?',
+    ogDescription: 'Il nuovo accordo tra Svizzera e Italia ha introdotto alcune modifiche per i lavoratori frontalieri. Ecco cosa significa per i frontaliere che vivono a Biandronno e lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-biandronno-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Biandronno e lavorare in Ticino da frontaliere: cosa cambia?",
+      "description": "Il nuovo accordo tra Svizzera e Italia ha introdotto alcune modifiche per i lavoratori frontalieri. Ecco cosa significa per i frontaliere che vivono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-biandronno-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che vive a Biandronno e lavora in Ticino"
+      },
+      "datePublished": "2026-08-21T03:17:50+00:00",
+      "dateModified": "2026-08-21T03:17:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-biandronno-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
