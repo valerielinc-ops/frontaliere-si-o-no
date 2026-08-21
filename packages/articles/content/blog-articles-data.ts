@@ -31179,6 +31179,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-sernio-lavorare-grigioni-frontaliere',
+ category: 'pratico',
+ date: '2026-08-21T17:56:39.501Z',
+ image: '/images/blog/vivere-sernio-lavorare-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

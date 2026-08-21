@@ -10413,6 +10413,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.beura-cardezza-frontaliere-ticino.title': 'Beura-Cardezza: living and working as a border worker Ticino',
     'blog.article.beura-cardezza-frontaliere-ticino.excerpt': 'Living in Beura-Cardezza and working as a border worker in Ticino: tax rules, G permit, AVS, social security rights and what to know before moving.',
     'blog.article.beura-cardezza-frontaliere-ticino.imageAlt': 'View of Ticino in the Verbano region at the Swiss-Italian border, showing traditional architecture and mountain landscape',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.title': 'Living in Sernio, working in Grisons: advantages and disadvantages',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.excerpt': 'Connections with the Graubünden, journey times, cost of living in Sernio and Graubünden, recommended areas, advantages and disadvantages of transfer for border crossers.',
+    'blog.article.vivere-sernio-lavorare-grigioni-frontaliere.imageAlt': 'A border worker living in Sernio works in the Grisons and must take into account the Swiss and Italian tax system.',
 };
 
 export default blogMetaEn;
