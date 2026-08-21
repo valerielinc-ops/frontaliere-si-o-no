@@ -11215,6 +11215,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'permesso-b-berna-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-21T20:18:13.610Z',
+    image: '/images/blog/permesso-b-berna-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

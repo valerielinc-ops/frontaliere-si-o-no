@@ -3739,6 +3739,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-zurigo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Zürich',
     'blog.article.avs-prestazioni-complementari-zurigo-cassa.excerpt': 'So funktioniert die erste AHV-Säule im Kanton Zürich: Ausgleichskasse, Rentenberechnung, Lücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-prestazioni-complementari-zurigo-cassa.imageAlt': 'Ausgleichskasse des Kantons Zuerich bei der Bearbeitung von AVS-Rentenantraegen',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.title': 'Ausweis B Bern: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.excerpt': 'Aufenthaltsbewilligung B Kanton Bern: Voraussetzungen, Unterlagen, Dauer und Erneuerungsverfahren. Komplette Anleitung und Schritt-für-Schritt-Anleitung durch die SEM-Behörde.',
+    'blog.article.permesso-b-berna-requisiti-rinnovo.imageAlt': 'Kantonales Verwaltungsbüro in Bern mit Migrationsdokumenten und Pass am Schreibtisch',
 };
 
 export default blogMetaChDe;
