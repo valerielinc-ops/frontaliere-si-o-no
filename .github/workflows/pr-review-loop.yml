@@ -391,76 +391,17 @@ jobs:
             echo "max_turns=$3" >> "$GITHUB_OUTPUT"
             echo "Review tier: $1 ($2, max-turns $3)"
           }
-          # `gh pr view --json files` passa da GraphQL, che su una PR con
-          # migliaia di file cambiati risponde `{"files":null}` invece di un
-          # errore. Misurato su #6175 (5.576 file, una cancellazione di massa):
-          # `--jq '.files[].path'` moriva con «cannot iterate over: null» e
-          # sotto `set -e` lo step usciva 1 PRIMA di qualunque guard qui sotto.
-          # Nessuna review postata → nessun `## LGTM` → nessun auto-merge, su
-          # una PR con la CI tutta verde. E un re-run non lo risolve: la
-          # nullità è deterministica nella taglia, non transitoria — la PR
-          # sarebbe restata ferma per sempre (l'autorebase la ricicla, `tests`
-          # torna verde, la review rimuore allo stesso punto).
-          #
-          # `.files // []` da solo non basta: toglie il crash ma lascia una
-          # lista vuota, cioè il tier deciso al buio proprio sulla PR più
-          # grande. Ma il `null` è solo UNA delle due modalità degradate, e la
-          # #6190 keyava il fallback sulla sola lista vuota. `--json files`
-          # chiede la connection `files(first: 100)` e NON pagina, quindi:
-          #
-          #   <= 100     completa
-          #   101..N     TRONCATA a 100, alfabetica, exit 0, NON vuota
-          #   oversize   `.files: null`
-          #
-          # Misurato il 2026-08-20: #6121 changedFiles=183 → GraphQL 100, REST
-          # `--paginate` 183/183 con header `Link`; #6175 → GraphQL null, REST
-          # 100 senza `Link`. Nella banda di mezzo la REST è COMPLETA: il
-          # campione non è un male necessario, era una chiamata non fatta. E il
-          # taglio è alfabetico, quindi cade la coda (`scripts/`, `services/`,
-          # `src/`, `tests/`) — quasi tutto il funnel-critical.
-          #
-          # `changedFiles` è l'oracolo che dice se l'elenco è completo, e separa
-          # una PR rebase-only (0 file davvero) da un diff oversize (0
-          # dichiarato, file veri): `.files // []` li appiattisce entrambi su
-          # lista vuota.
-          #
-          # Il `|| echo 0` conflava due stati opposti: «PR oversize, 0 file
-          # dichiarati» e «`gh` non ha risposto». Il primo e' un dato, il
-          # secondo e' un buco, e siccome tutte e tre le chiamate qui sotto
-          # usano lo stesso token sulla stessa API, un'avaria le spegne
-          # insieme e il risultato passava per una PR rebase-only.
-          if ! expected=$(gh pr view "$PR_NUMBER" --json changedFiles --jq '.changedFiles // 0' 2>/dev/null); then
-            expected=0
-            echo "::warning::gh pr view --json changedFiles FALLITO → oracolo assente, non «PR oversize». Il tier puo' scendere a normal su una PR che meriterebbe high."
-          fi
-          # `expected` alimenta confronti aritmetici: un valore non numerico
-          # (gh muto, campo assente) farebbe fallire `[ -gt ]` e, sotto `set -e`,
-          # rimetterebbe lo step esattamente nello stallo che la #6190 chiudeva.
-          case "$expected" in ''|*[!0-9]*) expected=0 ;; esac
-          files=$(gh pr view "$PR_NUMBER" --json files --jq '.files // [] | .[].path' 2>/dev/null || true)
-          count=$(printf '%s\n' "$files" | grep -c . || true)
-          rest_confirmed=0
-          if [ -z "$files" ] || [ "$count" -ge 100 ] || [ "$count" -lt "$expected" ]; then
-            rest=$(gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' 2>/dev/null || true)
-            rest_count=$(printf '%s\n' "$rest" | grep -c . || true)
-            # Conferma vuol dire CONSEGNA, non «ha risposto»: una REST che rende
-            # meno file della GraphQL non scioglie l'ambiguita' del cap.
-            if [ "$rest_count" -ge "$count" ]; then rest_confirmed=1; fi
-            if [ "$rest_count" -gt "$count" ]; then
-              files="$rest"; count="$rest_count"
-              echo "GraphQL tronca/nulla → fallback REST: $count file (attesi $expected)."
-            fi
-          fi
-          files_complete=1
-          if [ "$expected" -gt 0 ] && [ "$count" -lt "$expected" ]; then files_complete=0; fi
-          if [ "$expected" -eq 0 ] && [ "$count" -gt 0 ]; then files_complete=0; fi
-          # Esattamente al cap e senza conferma dalla REST, «100» e' ambiguo per
-          # costruzione: puo' essere una PR da 100 file o il troncamento di una
-          # da 250. `expected` non scioglie il dubbio quando e' piu' basso del
-          # cap — succede se la PR cresce fra la lettura dell'oracolo e questa
-          # fetch — e in quel caso nessuna delle due regole qui sopra scatta.
-          # Stessa clausola di `scripts/ci/pr-collision-detector.mjs`.
-          if [ "$count" -eq 100 ] && [ "$rest_confirmed" != "1" ]; then files_complete=0; fi
+          # File cambiati dalla PR (per tier). Fallback GraphQL→REST/cap-100 +
+          # `expected`/`files_complete` sono nel CLI condiviso
+          # `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano una
+          # reimplementazione shell inline, tenuta allineata a mano alla
+          # stessa logica in `scripts/ci/pr-collision-detector.mjs` e nel
+          # gemello `pr-redflag-fixer.yml`).
+          result=$(node scripts/ci/fetch-pr-files.mjs --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
+          expected=$(echo "$result" | jq -r '.expected // 0')
+          count=$(echo "$result" | jq -r '.count // 0')
+          files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          files=$(echo "$result" | jq -r '(.files // [])[]')
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
           # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
           # scatta.
