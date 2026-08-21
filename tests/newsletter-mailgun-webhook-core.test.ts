@@ -226,4 +226,22 @@ describe('newsletterMailgunWebhookCore — campaign attribution', () => {
     } as any);
     expect(campaignOf(db)).toBe('mg-message-id');
   });
+
+  // Shape verified against independent real-world Events API consumers
+  // (django-anymail's `anymail/webhooks/mailgun.py` reads
+  // `event_data.get("user-variables", {})`): the hyphenated key sits flat on
+  // the `event-data` object, exactly as in this trimmed real example — not
+  // nested under a namespaced key, and not the underscored form.
+  it('reads the campaign from the documented hyphenated event shape', async () => {
+    const db = createFakeDb();
+    await persistMailgunEvent(db as any, {
+      event: 'delivered',
+      timestamp: 1700000400,
+      id: 'AbCdEfGhIjKlMnOpQrStUv',
+      recipient: docId,
+      'user-variables': { campaign_id: 'weekly_2026-08-17' },
+      tags: ['weekly_2026-08-17'],
+    } as any);
+    expect(campaignOf(db)).toBe('weekly_2026-08-17');
+  });
 });
