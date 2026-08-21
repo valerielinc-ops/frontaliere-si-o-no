@@ -1,0 +1,135 @@
+name: Growth report (Claude, weekly)
+
+# Il loop di CRESCITA del ciclo autonomo (2026-08-21): una volta a settimana un
+# run Claude legge i dati di prodotto già presenti nel repo (GSC rolling,
+# campaign goal, loop-health, famiglie di issue ricorrenti) e produce AL
+# MASSIMO 2 proposte di crescita misurate, instradate nel ciclo come qualunque
+# altro lavoro (issue con `## Scheda`, coda decompose per le feature grandi).
+#
+# Perché esiste: prima, «pensare a nuove funzionalità basandosi sui dati» era
+# lavoro che solo una sessione umana faceva. I monitor esistenti APRONO issue su
+# ciò che si rompe; nessun meccanismo proponeva ciò che manca. Questo run è la
+# sintesi: legge ciò che i monitor misurano e propone la leva col miglior
+# rapporto valore/rischio, dentro i driver di VISION.md.
+#
+# Guardrail (VISION D4: ogni consumer di quota nasce con cap e kill-switch):
+#  - 1 run/settimana (mercoledì 06:07Z), max-turns 50;
+#  - massimo 2 proposte/run, SOLO se sorrette da una misura citata;
+#  - dedup sul titolo prima di creare; label `growth-proposal`;
+#  - mai proposte che tocchino la lista «Sempre umano» di VISION.md
+#    (espansioni di scope prodotto comprese: quelle vanno nel digest);
+#  - kill-switch: disabilitare il workflow da Actions UI.
+
+on:
+  schedule:
+    - cron: '7 6 * * 3' # mercoledì 06:07Z
+  workflow_dispatch:
+
+concurrency:
+  group: growth-report
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+        timeout-minutes: 24
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Mint GitHub App token (zero-Claude, pre-npm)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Run Claude growth report
+        id: claude_growth
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ env.APP_TOKEN }}
+          show_full_output: true
+          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
+          claude_args: "--max-turns 50 --model claude-sonnet-5 --dangerously-skip-permissions"
+          prompt: |
+            Sei il growth report settimanale di frontaliereticino.ch. Il tuo compito: leggere i dati di prodotto DISPONIBILI e proporre al massimo 2 leve di crescita misurate, instradate nel ciclo autonomo. NON implementi nulla.
+
+            **Bootstrap:**
+            1. Leggi `VISION.md` PER INTERO: missione, north-star, ordine di valore, driver, «Sempre umano».
+            2. Dati nel repo (leggi ciò che esiste, salta ciò che manca): `data/gsc-position-rolling.json` (posizioni GSC 7gg), `data/jobs-stats-history.json`, i file `data/*campaign*`/`data/*goal*` se presenti.
+            3. Segnali dal ciclo: `gh issue list --state open --label seo --limit 20`; `gh issue list --state open --label campaign-goal --limit 10`; l'ultima issue "Loop health report" (`gh issue list --state open --search "Loop health report in:title" --limit 1` + ultimi 3 commenti); le famiglie ricorrenti (issue con titoli simili chiuse di recente: `gh issue list --state closed --limit 60 --json title` e conta i prefissi ripetuti).
+
+            **Analisi (che cosa cerchi):**
+            - Il GAP più grande fra traffico potenziale e reale (query/pagine con posizione 8-20 ad alto volume: salire di 3 posizioni lì vale più di una feature nuova).
+            - La famiglia di issue ricorrente più costosa (VISION D6): se il ciclo spende N run/settimana sulla stessa classe, la proposta è la fix di famiglia.
+            - Un funnel step misurabilmente rotto o sotto-performante (conversione email, CWV su pagine ad alto traffico).
+
+            **Output — al massimo 2 proposte, e SOLO se sorrette da una misura:**
+            Per ciascuna: dedup prima (`gh issue list --state open --search "<discriminante> in:title" --limit 5` — se esiste, commenta lì la misura nuova invece di duplicare). Poi `gh issue create` (SEMPRE `--body-file` con heredoc quotato) con label `growth-proposal` + `fu-prio:high`, titolo col discriminante in testa, body:
+               ```
+               ## Proposta
+               <cosa e perché, con la MISURA che la giustifica citata testualmente (fonte + numero)>
+
+               ## Scheda
+               - CAUSA: <il gap misurato, verificabile>
+               - FIX: <la leva proposta, file/area target>
+               - METRICA: prima=<n> atteso=<n> | COMANDO: <come si rimisura>
+               - OSSERVATORE: <come si vede se la leva funziona (report/gate)>
+               ```
+            Una proposta GRANDE (più cause/più target) riceve anche `agent:decompose-queued` (lo stadio la scorpora); una piccola e atomica riceve `agent:fix-queued` + `from-decompose`. Una proposta che richiede una decisione del proprietario (VISION «Sempre umano», spese incluse) NON diventa una issue di lavoro: aggiungila come domanda decidibile al digest `🧭 Decisioni del proprietario — digest` (commento).
+
+            **Se i dati non sorreggono NESSUNA proposta questa settimana, va bene: dillo e basta.** Una proposta debole costa più di nessuna proposta (brucia run del fixer a valle).
+
+            **Chiusura (sempre):** posta un commento sull'issue "Loop health report" (se esiste, altrimenti crea un'issue `📈 Growth report` con label `automation,agent:no-age-out`) con: le 2-0 proposte filate (numeri), i 3 gap principali osservati con le misure, e in fondo su riga propria: `<!-- GROWTH_OUTCOME: proposals=<n> -->`.
+
+      - name: Claude usage metrics
+        if: always()
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_growth.outputs.execution_file }}" "growth-report"
+
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLAUDE_OUTCOME: ${{ steps.claude_growth.outcome }}
+        run: |
+          set -uo pipefail
+          N=$(gh search issues --repo "$GITHUB_REPOSITORY" --match title "Loop health report" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          HAS=0
+          if [ -n "${N:-}" ]; then
+            HAS=$(gh issue view "$N" --json comments --jq '[.comments[].body | select(test("<!-- GROWTH_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+          fi
+          if [ "${HAS:-0}" = "0" ]; then
+            M=$(gh search issues --repo "$GITHUB_REPOSITORY" --match title "📈 Growth report" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+            if [ -n "${M:-}" ]; then
+              HAS=$(gh issue view "$M" --json comments --jq '[.comments[].body | select(test("<!-- GROWTH_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+            fi
+          fi
+          echo "growth-markers=$HAS claude=$CLAUDE_OUTCOME"
+          if [ "${HAS:-0}" != "0" ]; then echo "✓ marker GROWTH_OUTCOME presente → run SUCCESS."; exit 0; fi
+          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            echo "::error::growth-report: CLI fallita senza marker → non-delivery. Il prossimo run settimanale (o un dispatch) recupera: il report è idempotente."
+            exit 1
+          fi
+          echo "CLI pulita senza marker → verde (nessuna proposta questa settimana è un esito legittimo, ma il commento di chiusura era comunque atteso: verifica il log)."
