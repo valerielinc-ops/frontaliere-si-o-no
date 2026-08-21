@@ -74,8 +74,25 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      # Stesso gate di issue-fix (review #6228, 🔴): il beacon-scan del drainer
+      # copre la PROMOZIONE, ma una finestra 429 può aprirsi fra la promozione e
+      # questa run — misurato su issue-fix: l'80% delle run bruciate (49/61)
+      # cadeva dentro una finestra GIÀ nota. Qui la coppia di label è quella
+      # dello stadio decompose: su blocco, la issue torna in coda senza
+      # consumare il ri-arma del rescue.
+      - name: Pre-flight — quota backoff gate (zero-Claude)
+        id: quota
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          QUOTA_LBL_ACTIVE: agent:decompose
+          QUOTA_LBL_REQUEUE: agent:decompose-queued
+        run: node scripts/ci/check-quota-backoff.mjs
+
       - name: Run Claude decompose
         id: claude_decompose
+        if: steps.quota.outputs.quota_blocked != 'true'
         # Come issue-fix: il colore del job lo decide `Classify outcome` sotto,
         # in base al LAVORO reale (marker sulla issue), non all'exit della CLI.
         continue-on-error: true
@@ -135,7 +152,7 @@ jobs:
             - L'ULTIMO commento che posti sul padre deve SEMPRE contenere un marker `<!-- DECOMPOSE_OUTCOME: <code> -->` con `<code>` ∈ `decomposed-K` · `atomic-requeue` · `needs-human-decision` · `already-resolved`.
 
       - name: Claude usage metrics
-        if: always()
+        if: always() && steps.quota.outputs.quota_blocked != 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_decompose.outputs.execution_file }}" "issue-decompose"
 
       # Stesso rilevatore granulare di issue-fix: una run morta su 429 lascia il
@@ -144,7 +161,7 @@ jobs:
       # lascia il marker FIX_OUTCOME: max-turns — innocuo qui (i pass di rescue
       # fix non guardano le issue di questo stadio) ma utile come telemetria.
       - name: Mark Claude terminal outcome (granular telemetry)
-        if: always() && steps.claude_decompose.outcome == 'failure'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_decompose.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -159,7 +176,7 @@ jobs:
       # postare il proprio. Il drainer NON legge questo marker per decidere
       # (il rescue decompose ragiona su età+label), ma la telemetria sì.
       - name: Emit DECOMPOSE_OUTCOME telemetry (deterministic backstop)
-        if: always()
+        if: always() && steps.quota.outputs.quota_blocked != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -177,7 +194,7 @@ jobs:
       # morta senza produrre nulla (segnale per loop-health; il recupero è del
       # rescue decompose nel drainer).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always()
+        if: always() && steps.quota.outputs.quota_blocked != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}

@@ -1751,9 +1751,16 @@ export function runDrain() {
   // orfano di `agent:fix` (#5514). Ri-arma UNA volta (`decompose-retried`),
   // alla seconda morte park+needs-human: bounded, niente loop. Il guard
   // `inFlightDecomposeCount()==0` impedisce di yankare la label da una run VIVA.
-  if (DECOMPOSE_ENABLED && quotaBackoffUntil === null && !fairnessHold) {
+  if (DECOMPOSE_ENABLED && quotaBackoffUntil === null) {
     const decompInFlight = inFlightDecomposeCount();
     if (decompInFlight === 0) {
+      // Il RESCUE gira anche sotto fairness-hold: non consuma quota (sole
+      // mutazioni di label) e trattenerlo contraddirebbe l'invariante
+      // dichiarato al blocco FAIRNESS più su («rescue, age-out, park e
+      // parent-close girano comunque»). Resta invece dentro il gate di QUOTA:
+      // una issue `agent:decompose` morta su 429 è il portatore del beacon
+      // (quotaScanPool la include), e ri-accodarla durante la finestra
+      // toglierebbe la label su cui il beacon viene cercato.
       const decomposing = listIssues(LBL_DECOMP);
       for (const iss of decomposing) {
         if (!budget.take(`#${iss.number} (decompose-rescue)`, ITEM_COST_MS)) break;
@@ -1767,22 +1774,27 @@ export function runDrain() {
         console.log(`RE-ARM DECOMPOSE #${iss.number} (run morta senza esito) → agent:decompose-queued + decompose-retried`);
         edit(iss.number, { add: [LBL_DECOMP_QUEUED, LBL_DECOMP_RETRIED], remove: [LBL_DECOMP] });
       }
-      // DRAIN decompose: 1 promozione per tick, e SOLO se nessuna promozione
-      // recente sta ancora "assestando" (label `agent:decompose` fresca la cui
-      // run non è ancora visibile in `gh run list` — stessa race-visibilità del
-      // settling di issue-fix, #1339). Le label vecchie le ha già smaltite il
-      // rescue sopra (re-queue o park); qui restano solo le fresche, che
-      // bloccano il tick per non creare due pending nello stesso gruppo.
-      const settling = decomposing.filter((i) => minutesSince(i.updatedAt) < ORPHAN_MIN_AGE_MIN);
-      if (settling.length) {
-        console.log(`decompose: promozione in assestamento (${settling.map((i) => `#${i.number}`).join(', ')}) → nessuna promozione decompose in questo tick.`);
+      // La PROMOZIONE invece onora la finestra riservata al peer.
+      if (fairnessHold) {
+        console.log('decompose: promozione trattenuta (finestra fairness del peer) — il rescue sopra è comunque girato.');
       } else {
-        const dq = listIssues(LBL_DECOMP_QUEUED)
-          .filter((i) => !has(i, LBL_PARKED))
-          .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
-        if (dq.length && budget.take(`#${dq[0].number} (decompose-drain)`, ITEM_COST_MS)) {
-          console.log(`PROMUOVO DECOMPOSE #${dq[0].number} (${has(dq[0], 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_DECOMP} — "${dq[0].title?.slice(0, 50)}"`);
-          edit(dq[0].number, { add: [LBL_DECOMP], remove: [LBL_DECOMP_QUEUED] });
+        // DRAIN decompose: 1 promozione per tick, e SOLO se nessuna promozione
+        // recente sta ancora "assestando" (label `agent:decompose` fresca la cui
+        // run non è ancora visibile in `gh run list` — stessa race-visibilità del
+        // settling di issue-fix, #1339). Le label vecchie le ha già smaltite il
+        // rescue sopra (re-queue o park); qui restano solo le fresche, che
+        // bloccano il tick per non creare due pending nello stesso gruppo.
+        const settling = decomposing.filter((i) => minutesSince(i.updatedAt) < ORPHAN_MIN_AGE_MIN);
+        if (settling.length) {
+          console.log(`decompose: promozione in assestamento (${settling.map((i) => `#${i.number}`).join(', ')}) → nessuna promozione decompose in questo tick.`);
+        } else {
+          const dq = listIssues(LBL_DECOMP_QUEUED)
+            .filter((i) => !has(i, LBL_PARKED))
+            .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
+          if (dq.length && budget.take(`#${dq[0].number} (decompose-drain)`, ITEM_COST_MS)) {
+            console.log(`PROMUOVO DECOMPOSE #${dq[0].number} (${has(dq[0], 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_DECOMP} — "${dq[0].title?.slice(0, 50)}"`);
+            edit(dq[0].number, { add: [LBL_DECOMP], remove: [LBL_DECOMP_QUEUED] });
+          }
         }
       }
     } else if (decompInFlight !== Number.POSITIVE_INFINITY) {
