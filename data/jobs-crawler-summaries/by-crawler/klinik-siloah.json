@@ -1,18 +1,19 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-08-20T21:35:38.572Z",
+  "generatedAt": "2026-08-21T10:05:13.013Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7822,
-  "avgDurationMs": 7822,
+  "durationMs": 8370,
+  "avgDurationMs": 8370,
   "durationHistory": [
-    7822
+    8370
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-siloah-146d521c9987",
       "slug": "versorgungsassistent-in-op-logistik-100-klinik-siloah",
@@ -27,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144548559-versorgungsassistent-in-op-logistik-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:35:31.798Z",
+      "crawledAt": "2026-08-21T10:05:05.846Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-08-20",
       "datePosted": "2026-08-20",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-08-20T21:35:31.798Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-siloah-541765e2c813",
       "slug": "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142787529-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:35:31.794Z",
+      "crawledAt": "2026-08-21T10:05:05.848Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139054259-case-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:35:31.796Z",
+      "crawledAt": "2026-08-21T10:05:05.844Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
