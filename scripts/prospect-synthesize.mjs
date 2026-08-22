@@ -79,7 +79,7 @@ for (const c of queue) {
     if (expected) {
       console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${message.slice(0, 70)}`);
     } else {
-      console.error(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore INATTESO: ${err.stack || err.message}`);
+      console.error(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore INATTESO: ${err?.stack || message}`);
     }
     continue;
   }
