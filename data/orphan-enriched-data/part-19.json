@@ -31593,10 +31593,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "gardener-pemsa-bellinzona",
+        "it": "giardiniere-pemsa-bellinzona",
         "en": "gardener-pemsa-bellinzona",
-        "de": "gardener-pemsa-bellinzona",
-        "fr": "gardener-pemsa-bellinzona"
+        "de": "garten-pemsa-bellinzona",
+        "fr": "jardinier-pemsa-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/gardener-pemsa-bellinzona",
@@ -31604,12 +31604,13 @@
         "de": "/de/jobs-im-tessin/gardener-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/gardener-pemsa-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/giardiniere-2688897",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
