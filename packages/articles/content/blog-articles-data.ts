@@ -31323,6 +31323,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-gressan-lavorare-vallese-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-22T03:23:40.233Z',
+ image: '/images/blog/vivere-gressan-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

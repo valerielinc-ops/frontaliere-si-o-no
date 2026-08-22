@@ -10461,6 +10461,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.silandro-grigioni-tassazione-permesso-g.title': 'Living in Silandro and working in Graubünden: a tax guide',
     'blog.article.silandro-grigioni-tassazione-permesso-g.excerpt': 'New Frontier Agreement from 1 January 2024: exemption €7,500 for old frontier workers, €10,000 for new ones. Tax at source in Switzerland, tax credit in Italy. AVS and LPP paid only in Switzerland.',
     'blog.article.silandro-grigioni-tassazione-permesso-g.imageAlt': 'Alpine landscape of Swiss Graubünden region with mountain valleys and conifer forests',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.title': 'Living in Gressan and working in Valais: border taxation',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.excerpt': 'New agreement 2024: source tax in Switzerland, deductibles CHF 7,500/10,000, model 730 and tax credit. Everything you need to know.',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.imageAlt': 'Alpine valley with green meadows at the border between Valais and Aosta Valley, mountain landscape at dawn.',
 };
 
 export default blogMetaEn;
