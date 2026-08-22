@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-08-21T21:25:01.216Z",
+  "generatedAt": "2026-08-22T09:34:01.990Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9915,
-  "avgDurationMs": 9915,
+  "durationMs": 11191,
+  "avgDurationMs": 11191,
   "durationHistory": [
-    9915
+    11191
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -257,13 +257,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 15
       }
@@ -293,13 +293,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -649,17 +649,17 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 101500,
       "salaryMax": 169000,
       "currency": "CHF",
-      "_qualityScore": 80,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -689,7 +689,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
@@ -697,10 +697,10 @@
       "salaryMax": 110500,
       "currency": "CHF",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
