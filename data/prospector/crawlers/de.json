@@ -1,0 +1,18 @@
+{
+  "companyKey": "de",
+  "companyName": "MPI AGE",
+  "companyHost": "mpi-age.de.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://mpi-age.de.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
+    "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:04.829Z"
+}

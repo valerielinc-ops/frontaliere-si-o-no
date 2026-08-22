@@ -1,0 +1,21 @@
+{
+  "companyKey": "gkb-jobservice",
+  "companyName": "GKB JobService",
+  "companyHost": "recruitingapp-2607.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2607.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Assistent:in Hypotheken Thusis (40%)",
+    "Immobilienbewirtschafter:in (100%)",
+    "Assistent:in Hypotheken Lenzerheide (80%)",
+    "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
+    "Studentenstelle Marketing (60%)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:28:52.915Z"
+}
