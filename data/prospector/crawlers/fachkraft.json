@@ -1,0 +1,22 @@
+{
+  "companyKey": "fachkraft",
+  "companyName": "fachkraft.ch GmbH",
+  "companyHost": "fachkraft.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.fachkraft.ch/stellen/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "sampleVacancyCount": 3440,
+  "sampleTitles": [
+    "Allrounder/in Ausbaugewerbe für einen 5 Tage Einsatz im Raum Sursee",
+    "Allrounder/in Ausbaugewerbe mit Metallbau und Schweisserfahrung",
+    "Allrounder/in Ausbaugewerbe mit vielseitiger Erfahrung",
+    "Anlagen- und Apparatebauer/in - Aluschweisser - Ziel Festanstellung",
+    "Anlagen- und Apparatebauer/in - Maschinenoperateur Laser-Stanz, Biegmaschine und Wasserstrahlanlage"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:55.665Z"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "eoc-candidati-posizioni",
+  "companyName": "EOC candiDati Posizioni",
+  "companyHost": "recruitingapp-2761.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2761.umantis.com/Jobs/4?lang=ita&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/4",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Candidato/a medico - Clinica di Radiologia",
+    "Addetto/a alla manutenzione",
+    "Impiegato/a amministrativo/a",
+    "Impiegata/o economia domestica",
+    "Responsabile Segretariati medici"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-08-22T04:28:57.568Z"
+}
