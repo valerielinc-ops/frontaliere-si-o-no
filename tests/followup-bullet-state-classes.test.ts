@@ -82,6 +82,10 @@ describe('stato letterale dei bullet: classificazione', () => {
     expect(bulletState(NO_STATE)).toBe(null);
   });
 
+  it('`falso positivo` e\' un sinonimo accettato di `per scelta` (stesso stato by-choice)', () => {
+    expect(bulletState('falso positivo — check: motivo')).toBe('by-choice');
+  });
+
   it('`PR concatenata` senza numero non conta come stato', () => {
     // Senza #N non e' tracciabile: sarebbe una scappatoia travestita da stato.
     expect(bulletState('Roba — PR concatenata (in arrivo)')).toBe(null);
