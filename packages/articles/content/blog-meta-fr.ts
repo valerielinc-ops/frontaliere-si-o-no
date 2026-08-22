@@ -10534,6 +10534,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Accident de trajet : protection LAA pour les frontaliers',
     'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'Que couvre la LAA en cas d\'accident pendant le trajet domicile-travail à la frontière ? Guide pratique pour les frontaliers Tessin-Italie.',
     'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Travailleurs frontaliers aux passages frontaliers Suisse-Italie lors de leur trajet quotidien',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Travail à distance étranger : la fiscalité du frontalier',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Travailler à distance depuis un pays tiers pendant les vacances implique des questions fiscales, LAMal et une communication à l\'employeur. Découvrez comment gérer les impôts, les frais de restauration et la couverture d\'assurance avec le nouvel accord 2024.',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Frontalier travaillant à distance avec ordinateur portable face au paysage alpin',
 };
 
 export default blogMetaFr;

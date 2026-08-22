@@ -75302,6 +75302,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-remoto-terzo-paese-fiscale': {
+    title: 'Lavoro remoto estero: la fiscalità del frontaliere',
+    description: 'Lavoro remoto da terzo paese: come funziona la fiscalità frontaliere, il nuovo accordo 2024, la LAMal e cosa comunicare al datore di lavoro per conformità',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, remoto, estero, fiscalità',
+    ogTitle: 'Lavoro remoto estero: la fiscalità del frontaliere',
+    ogDescription: 'Lavorare in remoto da un terzo paese durante le ferie? Scopri le implicazioni fiscali per il frontaliere Ticino-Italia: come viene tassato il reddito, il nuovo accordo frontalieri 2024, la copertura LAMal e cosa comunicare al datore di lavoro.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-remoto-terzo-paese-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro remoto estero: la fiscalità del frontaliere",
+      "description": "Lavoro remoto da terzo paese: come funziona la fiscalità frontaliere, il nuovo accordo 2024, la LAMal e cosa comunicare al datore di lavoro per conformità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-remoto-terzo-paese-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che lavora da remoto con laptop affacciato sul paesaggio alpino"
+      },
+      "datePublished": "2026-08-22T19:53:28+00:00",
+      "dateModified": "2026-08-22T19:53:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-remoto-terzo-paese-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

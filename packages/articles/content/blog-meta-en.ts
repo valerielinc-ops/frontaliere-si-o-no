@@ -10532,6 +10532,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Travelling accident: LAINF protection for border workers',
     'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'What does the LAINF cover in the event of an accident on the way home from work at the border? Practical guide for border workers Ticino-Italy.',
     'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Frontalier workers commuting at Swiss-Italian border crossing during morning routine',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Remote work abroad: border taxation',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Working remotely from a third country during the holidays involves tax issues, LAMal and communication to the employer. Learn how to manage taxes, refunds, and insurance coverage with the new 2024 agreement.',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Frontalier working remotely with laptop overlooking alpine landscape',
 };
 
 export default blogMetaEn;

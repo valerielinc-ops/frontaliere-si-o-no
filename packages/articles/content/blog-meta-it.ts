@@ -10533,6 +10533,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Infortunio in itinere: protezione LAINF per frontalieri',
     'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'Cosa copre la LAINF in caso di incidente durante il tragitto casa-lavoro al confine? Guida pratica per frontalieri Ticino-Italia.',
     'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Frontalieri al valico di confine durante il tragitto giornaliero verso il lavoro in Ticino',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Lavoro remoto estero: la fiscalità del frontaliere',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Lavorare in remoto da un terzo paese durante le ferie comporta questioni fiscali, LAMal e comunicazione al datore. Scopri come gestire imposte, ristorni e copertura assicurativa con il nuovo accordo 2024.',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Frontaliere che lavora da remoto con laptop affacciato sul paesaggio alpino',
 };
 
 export default blogMetaIt;

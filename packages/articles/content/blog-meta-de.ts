@@ -10531,6 +10531,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Wegunfall: UVG-Schutz für Grenzgänger',
     'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'Was deckt das UVG bei einem Unfall auf dem Arbeitsweg zur Grenze? Praktischer Leitfaden für Grenzgänger Tessin-Italien.',
     'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Grenzgänger beim Grenzübergang während des täglichen Arbeitswegs',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Fernarbeit im Ausland: Besteuerung von Grenzgängern',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Fernarbeit aus einem Drittland während des Urlaubs beinhaltet Steuer-, KVG- und Arbeitgeberkommunikation. Erfahren Sie, wie Sie mit dem neuen Vertrag 2024 Steuern, Erstattungen und Versicherungsschutz verwalten können.',
+    'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Grenzgänger arbeitet remote mit Laptop über Alpenpanorama',
 };
 
 export default blogMetaDe;

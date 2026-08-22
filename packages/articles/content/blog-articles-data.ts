@@ -31530,6 +31530,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-remoto-terzo-paese-fiscale',
+ category: 'fiscale',
+ date: '2026-08-22T19:53:28.705Z',
+ image: '/images/blog/frontaliere-remoto-terzo-paese-fiscale.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
