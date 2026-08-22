@@ -3817,6 +3817,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.title': 'Aprire un\'attività a Lucerna: guida registro commercio',
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.excerpt': 'Aprire attività a Lucerna: forme giuridiche, iscrizione al registro di commercio, capitali minimi, tasse e obblighi assicurativi. Procedura step-by-step.',
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.imageAlt': 'Vista del Lago di Lugano con montagne sullo sfondo — paesaggio svizzero',
+    'blog.article.impresa-lucerna-forma-giuridica.title': 'Aprire attività canton Lucerna: forme giuridiche e costi',
+    'blog.article.impresa-lucerna-forma-giuridica.excerpt': 'Dalla scelta della forma giuridica all\'iscrizione al Registro: guida pratica ai passi, requisiti, tasse di registrazione e obblighi assicurativi in Lucerna.',
+    'blog.article.impresa-lucerna-forma-giuridica.imageAlt': 'Imprenditore che esamina documenti di registrazione presso l\'ufficio del Registro di commercio in Lucerna',
 };
 
 export default blogMetaChIt;

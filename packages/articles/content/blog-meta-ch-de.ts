@@ -3817,6 +3817,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.title': 'Geschäft in Luzern eröffnen: Handelsregister-Führer',
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.excerpt': 'Geschäftstätigkeit in Luzern eröffnen: Rechtsformen, Handelsregistereintrag, Mindestkapital, Steuern und Versicherungspflichten. Schritt-für-Schritt-Verfahren.',
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.imageAlt': 'Blick auf den Luganersee mit Bergen im Hintergrund — Schweizer Landschaft',
+    'blog.article.impresa-lucerna-forma-giuridica.title': 'Aktivitäten Kanton Luzern eröffnen: Rechtsformen und Kosten',
+    'blog.article.impresa-lucerna-forma-giuridica.excerpt': 'Von der Wahl der Rechtsform bis zur Eintragung ins Register: Praktischer Leitfaden zu Schritten, Anforderungen, Eintragungsgebühren und Versicherungspflichten in Luzern.',
+    'blog.article.impresa-lucerna-forma-giuridica.imageAlt': 'Unternehmer prüft Geschäftsregistrierungsdokumente bei der Handelsregistrierungsstelle Luzern',
 };
 
 export default blogMetaChDe;
