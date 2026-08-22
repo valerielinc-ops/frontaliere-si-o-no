@@ -10462,6 +10462,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.silandro-grigioni-tassazione-permesso-g.title': 'Vivere a Silandro e lavorare in Grigioni: guida fiscale',
     'blog.article.silandro-grigioni-tassazione-permesso-g.excerpt': 'Nuovo Accordo Frontalieri dal 1° gennaio 2024: esenzione €7.500 per vecchi frontalieri, €10.000 per nuovi. Imposta alla fonte in Svizzera, credito d\'imposta in Italia. AVS e LPP versati solo in Svizzera.',
     'blog.article.silandro-grigioni-tassazione-permesso-g.imageAlt': 'Paesaggio alpino dei Grigioni svizzeri, vista sulle valli con prati e boschi di conifere',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.title': 'Vivere a Gressan e lavorare nel Vallese: fiscalità da frontaliere',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.excerpt': 'Nuovo accordo 2024: imposta alla fonte in Svizzera, franchigie CHF 7.500/10.000, modello 730 e credito d\'imposta. Tutto ciò che serve sapere.',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.imageAlt': 'Valle alpina con prati verdi al confine tra Vallese e Valle d\'Aosta, paesaggio montano al mattino.',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Vivere a Charvensod e lavorare in Vallese da frontaliere: cosa cambia',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Il nuovo accordo fiscale tra Italia e Svizzera: come influisce sulla vita dei frontalieri',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Un frontaliere che vive a Charvensod e lavora in Vallese',
 };
 
 export default blogMetaIt;

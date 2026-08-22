@@ -2502,16 +2502,11 @@
       },
       "addressRegion": "GR",
       "firstSeenAt": "2026-08-21T09:47:08.547Z",
-      "previousSlugs": [
-        "koch-kochin-weisse-arena-ch",
-        "cook-chef-weisse-arena-gruppe-laax",
-        "cucina-chef-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-weisse-arena-ch",
-          "cucina-chef-weisse-arena-gruppe-laax"
+          "cucina-chef-weisse-arena-gruppe-laax",
+          "cucina-kochin-weisse-arena-gruppe-laax"
         ],
         "en": [
           "koch-kochin-weisse-arena-ch",
@@ -2521,7 +2516,14 @@
         "fr": [
           "koch-kochin-weisse-arena-ch"
         ]
-      }
+      },
+      "previousSlugs": [
+        "koch-kochin-weisse-arena-ch",
+        "cook-chef-weisse-arena-gruppe-laax",
+        "cucina-chef-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "cucina-kochin-weisse-arena-gruppe-laax"
+      ]
     },
     {
       "id": "weisse-arena-c21a4cbba5d7",
@@ -2671,16 +2673,11 @@
       },
       "addressRegion": "GR",
       "firstSeenAt": "2026-08-21T09:47:08.545Z",
-      "previousSlugs": [
-        "hilfskoch-hilfskochin-weisse-arena-ch",
-        "auxiliary-cook-weisse-arena-gruppe-laax",
-        "cuoco-ausiliario-weisse-arena-gruppe-laax",
-        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
-          "cuoco-ausiliario-weisse-arena-gruppe-laax"
+          "cuoco-ausiliario-weisse-arena-gruppe-laax",
+          "cuisiniere-kochin-weisse-arena-gruppe-laax"
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
@@ -2690,7 +2687,14 @@
         "fr": [
           "hilfskoch-hilfskochin-weisse-arena-ch"
         ]
-      }
+      },
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-weisse-arena-ch",
+        "auxiliary-cook-weisse-arena-gruppe-laax",
+        "cuoco-ausiliario-weisse-arena-gruppe-laax",
+        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "cuisiniere-kochin-weisse-arena-gruppe-laax"
+      ]
     }
   ]
 }

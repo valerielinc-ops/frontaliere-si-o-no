@@ -10460,6 +10460,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.silandro-grigioni-tassazione-permesso-g.title': 'Wohnen in Schlanders und Arbeiten in Graubünden: Steuerleitfaden',
     'blog.article.silandro-grigioni-tassazione-permesso-g.excerpt': 'Neue Grenzgängervereinbarung ab 1. Januar 2024: Freistellung € 7.500 für alte Grenzgänger, € 10.000 für neue Grenzgänger. Quellensteuer in der Schweiz, Steuergutschrift in Italien. AHV und BVG werden nur in der Schweiz ausbezahlt.',
     'blog.article.silandro-grigioni-tassazione-permesso-g.imageAlt': 'Alpenlandschaft Bündner Täler mit Wiesen und Nadelwäldern',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.title': 'Wohnen in Gressan und Arbeiten im Wallis: Grenzgängerbesteuerung',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.excerpt': 'Neues Abkommen 2024: Quellensteuer in der Schweiz, Franchisen CHF 7 \'500.10\' 000, Vordruck 730 und Steuergutschrift. Alles, was Sie wissen müssen.',
+    'blog.article.vivere-gressan-lavorare-vallese-frontaliere.imageAlt': 'Alpental mit grünen Wiesen an der Grenze zwischen Wallis und Aostatal, Berglandschaft am Morgen.',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Wohnen in Charvensod und Arbeiten im Wallis als Grenzgänger: Was ändert sich',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Das neue Steuerabkommen zwischen Italien und der Schweiz: Wie es sich auf das Leben der Grenzgänger auswirkt',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Frontalier, der in Charvensod lebt und in Wallis arbeitet',
 };
 
 export default blogMetaDe;

@@ -1532,7 +1532,8 @@
           "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-des-soins-infirmiers-praticien-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-          "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur"
+          "pratique-infirmiere-praticien-infirmier-kantonsspital-winterthur-ksw-winterthur",
+          "infermieristica-medico-curante-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "nursing-practitioner-nursing-practitioner-kantonsspital-winterthur-ksw-winterthur"
@@ -2190,7 +2191,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-ksw-ch"
+          "neuropsychologin-neuropsychologe-ksw-ch",
+          "neuropsicologo-neuropsicologo-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "neuropsychologist-neuropsychologist-kantonsspital-winterthur-ksw-winterthur"
@@ -3355,7 +3357,8 @@
         "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
         "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
         "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur",
+        "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3365,7 +3368,8 @@
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
           "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
           "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
-          "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+          "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur",
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -4103,8 +4107,7 @@
         "lead-med-practice-assistant-lead-med-practical-assistants-kantonsspital-winterthur-ksw-winterthur",
         "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch",
         "medecin-chef-adjoint-a-la-pratique-medecin-chef-adjoint-a-la-pratique-kantonsspital-winterthur-ksw-winterthur",
-        "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch",
-        "med-assistente-in-coordinatore-in-pratica-kantonsspital-winterthur-ksw-winterthur"
+        "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4116,19 +4119,18 @@
           "lead-med-practice-assistant-lead-med-practical-assistants-kantonsspital-winterthur-ksw-winterthur",
           "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch",
           "medecin-chef-adjoint-a-la-pratique-medecin-chef-adjoint-a-la-pratique-kantonsspital-winterthur-ksw-winterthur",
-          "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch",
-          "med-assistente-in-coordinatore-in-pratica-kantonsspital-winterthur-ksw-winterthur"
+          "leitende-med-praxisassistentin-leitender-med-praxisassistenten-ksw-ch"
         ],
         "en": [
           "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
           "lead-med-practice-assistant-lead-med-practical-assistants-kantonsspital-winterthur-ksw-winterthur"
         ],
+        "de": [
+          "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch"
+        ],
         "fr": [
           "med-praxisassistent-in-praxiskoordinator-in-ksw-ch",
           "medecin-chef-adjoint-a-la-pratique-medecin-chef-adjoint-a-la-pratique-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "de": [
-          "leitende-med-praxisassistentin-leitender-med-praxisassistent-ksw-ch"
         ]
       },
       "needsRetranslation": true,

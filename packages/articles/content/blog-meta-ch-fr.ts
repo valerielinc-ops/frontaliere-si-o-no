@@ -3781,6 +3781,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esercito-bilancio-misure-violenza.title': 'Armée suisse : bilan sur les mesures contre la violence',
     'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 mesures supplémentaires contre la discrimination et la violence sexualisée : rapport intermédiaire 2026 montre 8 mises en œuvre, 7 en cours de mise en œuvre. Près de 20 000 recrues ont suivi la formation obligatoire.',
     'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Personnel militaire suisse lors d\'une formation en cadre professionnel',
+    'blog.article.dimissioni-fondazione-beloved.title': 'Démission en cascade à la Fondation Beloved',
+    'blog.article.dimissioni-fondazione-beloved.excerpt': 'La Fondation qui gère 24 millions de francs pour les victimes de Crans-Montana fait face à une crise de gouvernance. La démission de membres suisses, français et italiens suscite des doutes sur la transparence de la distribution de l\'aide.',
+    'blog.article.dimissioni-fondazione-beloved.imageAlt': 'Salle de réunion dans un bâtiment administratif suisse, symbole de la gouvernance publique',
+    'blog.article.berna-avviare-attivita-commercio.title': 'Ouvrir une entreprise à Berne : registre et coûts',
+    'blog.article.berna-avviare-attivita-commercio.excerpt': 'Formes juridiques, inscription au registre du commerce, frais administratifs et obligations de prévoyance dans le canton de Berne',
+    'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Immeuble de bureaux moderne au centre de Berne avec drapeau suisse, symbole de création d\'activité',
 };
 
 export default blogMetaChFr;

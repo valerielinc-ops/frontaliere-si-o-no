@@ -1,0 +1,21 @@
+{
+  "companyKey": "burgenstock-collection",
+  "companyName": "Bürgenstock Collection",
+  "companyHost": "recruitingapp-2850.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2850.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn",
+    "Assistant Restaurant Manager 100% (w/m/i)",
+    "Restaurant Manager 100 % (w/m/i)",
+    "Bankett Supervisor 100% (w/m/i)",
+    "Assistant Banqueting Manager 100% (w/m/i)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:28:58.504Z"
+}

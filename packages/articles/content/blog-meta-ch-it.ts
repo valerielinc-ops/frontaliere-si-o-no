@@ -3781,6 +3781,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.esercito-bilancio-misure-violenza.title': 'Esercito svizzero: bilancio sulle misure contro la violenza',
     'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 misure supplementari contro discriminazione e violenza sessualizzata: rapporto intermedio 2026 mostra 8 implementate, 7 in attuazione. Quasi 20mila reclute hanno completato il training obbligatorio.',
     'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Soldati dell\'Esercito svizzero durante una lezione di formazione, ambiente professionale e istituzionale',
+    'blog.article.dimissioni-fondazione-beloved.title': 'Dimissioni in cascata alla Fondazione Beloved',
+    'blog.article.dimissioni-fondazione-beloved.excerpt': 'La Fondazione che gestisce 24 milioni di franchi per le vittime di Crans-Montana affronta una crisi di governance. Dimissioni di member svizzeri, francesi e italiani suscitano dubbi sulla trasparenza della distribuzione degli aiuti.',
+    'blog.article.dimissioni-fondazione-beloved.imageAlt': 'Sala riunioni di un edificio amministrativo svizzero, simbolo della governance di enti pubblici',
+    'blog.article.berna-avviare-attivita-commercio.title': 'Aprire un\'attività in Berna: registro e costi',
+    'blog.article.berna-avviare-attivita-commercio.excerpt': 'Forme giuridiche, iscrizione al registro commercio, costi amministrativi e obblighi di previdenza nel Cantone di Berna',
+    'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Edificio per uffici moderno nel centro di Berna con bandiera svizzera, simbolo di apertura attività commerciale',
 };
 
 export default blogMetaChIt;

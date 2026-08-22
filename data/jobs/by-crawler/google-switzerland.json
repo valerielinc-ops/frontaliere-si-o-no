@@ -707,18 +707,6 @@
           "2 years of experience with software development or 1 year of experience with an advanced degree in an industry setting."
         ]
       },
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
       "firstSeenAt": "2026-08-21T09:46:45.788Z",
       "previousSlugsByLocale": {
         "it": [
@@ -733,7 +721,19 @@
       },
       "previousSlugs": [
         "software-engineer-iii-infrastructure-account-and-device-integrity-google-switzerland"
-      ]
+      ],
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "google-switzerland-2313455c33fd",
@@ -1104,6 +1104,7 @@
           "Experience integrating generative AI tools or LLM interfaces into workflows."
         ]
       },
+      "firstSeenAt": "2026-08-21T09:46:43.135Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -1115,8 +1116,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:46:43.135Z"
+      }
     },
     {
       "id": "google-switzerland-12f30a3750e0",
@@ -1867,7 +1867,28 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-full-stack-google-switzerland-zurich",
+          "leitender-softwareentwickler-full-stack-google-switzerland-zurich",
+          "ingenieur-logiciel-senior-full-stack-google-switzerland-zurich"
+        ],
+        "en": [
+          "senior-software-engineer-full-stack-google-switzerland-zurich"
+        ],
+        "de": [
+          "leitender-softwareentwickler-full-stack-google-switzerland-zurich"
+        ],
+        "fr": [
+          "ingenieur-logiciel-senior-full-stack-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-engineer-full-stack-google-switzerland-zurich",
+        "leitender-softwareentwickler-full-stack-google-switzerland-zurich",
+        "ingenieur-logiciel-senior-full-stack-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-719eec413e79",

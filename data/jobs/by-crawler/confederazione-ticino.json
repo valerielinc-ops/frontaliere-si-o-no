@@ -19507,8 +19507,8 @@
         }
       },
       "firstSeenAt": "2026-08-20T09:48:58.216Z",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Fachspezialist/-in Arbeitslosenkassen",
@@ -22170,11 +22170,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "safety-officer-confederazione-bern"
+          "safety-officer-confederazione-bern",
+          "safety-officer-confederazione-svizzera-bern"
+        ],
+        "fr": [
+          "safety-officer-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "safety-officer-confederazione-bern"
+        "safety-officer-confederazione-bern",
+        "safety-officer-confederazione-svizzera-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,

@@ -173,8 +173,7 @@
         "specialista-hr-specialista-payroll-f-m-d-solothurner-spitaler-soh-solothurn",
         "hr-specialist-specialist-payroll-f-m-d-solothurner-spitaler-soh-solothurn",
         "hr-spezialistin-spezialist-payroll-w-m-d-soh-ch",
-        "hr-spezialistin-spezialist-payroll-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn"
+        "hr-spezialistin-spezialist-payroll-w-m-d-soh-solothurner-spitaeler-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -183,8 +182,7 @@
           "specialista-hr-specialista-payroll-f-m-d-solothurner-spitaler-soh-solothurn",
           "hr-specialist-specialist-payroll-f-m-d-solothurner-spitaler-soh-solothurn",
           "hr-spezialistin-spezialist-payroll-w-m-d-soh-ch",
-          "hr-spezialistin-spezialist-payroll-w-m-d-soh-solothurner-spitaeler-solothurn",
-          "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn"
+          "hr-spezialistin-spezialist-payroll-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "en": [
           "radiology-fachfrau-radiology-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn",
@@ -1486,12 +1484,14 @@
         "pflegefachfrau-pflegefachmann-hf-medizinw-m-d-solothurner-spitaler-soh-olten",
         "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-solothurner-spitaeler-olten",
         "dipl-consultant-principal-m-j-solothurner-spitaler-soh-olten",
-        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-soh-olten"
+        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-soh-olten",
+        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-m-w-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-soh-olten",
+          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-m-w-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
           "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-olten"
@@ -9424,13 +9424,15 @@
         "impiegato-a-di-supporto-drg-m-f-d-solothurner-spitaler-soh-solothurn",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7cbfb7",
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7cbfb7",
-        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn"
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn",
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
           "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
-          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn"
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn",
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
           "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
@@ -9771,25 +9773,25 @@
       "slugByLocale": {
         "de": "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
         "it": "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "projekt-management-support-arztliche-direktion-m-w-d-solothurner-spitaler-soh-solothurn",
-        "fr": "projekt-management-support-arztliche-direktion-m-w-d-solothurner-spitaler-soh-solothurn"
+        "en": "medical-project-manager-medical-project-manager-and-data-manager-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "responsable-de-projet-medical-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
       "companyDomain": "solothurnerspitaeler.ch",
       "title": "Projekt & Management Support Ärztliche Direktion (w/m/d)",
       "titleByLocale": {
-        "it": "Projekt & Management Support Ärztliche Direktion (w/m/d)",
-        "en": "Manager / Manager medical projects (m/f/d)",
         "de": "Projekt & Management Support Ärztliche Direktion (w/m/d)",
-        "fr": "Projekt & Management Support Ärztliche Direktion (w/m/d)"
+        "en": "Project & Management Support Medical Directorate (m/f/d)",
+        "it": "Project & Management Support Medical Direzione (m/f/d)",
+        "fr": "Soutien au projet et à la gestion Direction médicale (h/f/d)"
       },
       "description": "Aufgaben\n• Mitarbeit an strategischen und medizinischen Projekten der Ärztlichen Direktion mit eigener Projektverantwortung\n• Analyse medizinischer, qualitativer und betrieblicher Daten zur Unterstützung fundierter Führungs- und Managemententscheidungen\n• Mitwirkung bei der Entwicklung neuer Versorgungsmodelle, Qualitätsinitiativen und organisationsübergreifender Prozesse\n• Unterstützung der Ärztlichen Direktion bei strategischen Fragestellungen, Präsentationen, Berichten und Entscheidungsgrundlagen\n• Zusammenarbeit mit Medizin, Pflege, Administration und weiteren interdisziplinären Partnern\n• Mitgestaltung von Führungs-, Governance- und Entscheidungsprozesse eines grossen Spitals\n\nProfil\n• Medizinstudium, Studium in BWL, Wirtschaftswissenschaften oder einer ähnlichen Fachrichtung\n• Berufserfahrung in einem Spital und Kenntnisse des Schweizer Gesundheitssystems von Vorteil\n• Interesse an Führung, Strategie, Qualitätsentwicklung und Spitalmanagement\n• Analytisches Denkvermögen sowie Freude am Umgang mit Daten und komplexen Fragestellungen\n• Strukturierte und selbständige Arbeitsweise sowie ausgeprägte Kommunikations- und Teamfähigkeit\n• Hohe Eigeninitiative, Neugier und Bereitschaft, Verantwortung zu übernehmen\n\n• Bereich: Administration und Betriebe\n• Standort: Bürgerspital Solothurn\n• Abteilung: Ärztliche Direktion\n• Pensum: 70% - 100%",
       "descriptionByLocale": {
         "de": "Aufgaben\n• Mitarbeit an strategischen und medizinischen Projekten der Ärztlichen Direktion mit eigener Projektverantwortung\n• Analyse medizinischer, qualitativer und betrieblicher Daten zur Unterstützung fundierter Führungs- und Managemententscheidungen\n• Mitwirkung bei der Entwicklung neuer Versorgungsmodelle, Qualitätsinitiativen und organisationsübergreifender Prozesse\n• Unterstützung der Ärztlichen Direktion bei strategischen Fragestellungen, Präsentationen, Berichten und Entscheidungsgrundlagen\n• Zusammenarbeit mit Medizin, Pflege, Administration und weiteren interdisziplinären Partnern\n• Mitgestaltung von Führungs-, Governance- und Entscheidungsprozesse eines grossen Spitals\n\nProfil\n• Medizinstudium, Studium in BWL, Wirtschaftswissenschaften oder einer ähnlichen Fachrichtung\n• Berufserfahrung in einem Spital und Kenntnisse des Schweizer Gesundheitssystems von Vorteil\n• Interesse an Führung, Strategie, Qualitätsentwicklung und Spitalmanagement\n• Analytisches Denkvermögen sowie Freude am Umgang mit Daten und komplexen Fragestellungen\n• Strukturierte und selbständige Arbeitsweise sowie ausgeprägte Kommunikations- und Teamfähigkeit\n• Hohe Eigeninitiative, Neugier und Bereitschaft, Verantwortung zu übernehmen\n\n• Bereich: Administration und Betriebe\n• Standort: Bürgerspital Solothurn\n• Abteilung: Ärztliche Direktion\n• Pensum: 70% - 100%",
-        "it": "Aufgaben\n• Mitarbeit an strategischen und medizinischen Projekten der Ärztlichen Direktion mit eigener Projektverantwortung\n• Analyse medizinischer, qualitativer und betrieblicher Daten zur Unterstützung fundierter Führungs- und Managemententscheidungen\n• Mitwirkung bei der Entwicklung neuer Versorgungsmodelle, Qualitätsinitiativen und organisationsübergreifender Prozesse\n• Unterstützung der Ärztlichen Direktion bei strategischen Fragestellungen, Präsentationen, Berichten und Entscheidungsgrundlagen\n• Zusammenarbeit mit Medizin, Pflege, Administration und weiteren interdisziplinären Partnern\n• Mitgestaltung von Führungs-, Governance- und Entscheidungsprozesse eines grossen Spitals\n\nProfil\n• Medizinstudium, Studium in BWL, Wirtschaftswissenschaften oder einer ähnlichen Fachrichtung\n• Berufserfahrung in einem Spital und Kenntnisse des Schweizer Gesundheitssystems von Vorteil\n• Interesse an Führung, Strategie, Qualitätsentwicklung und Spitalmanagement\n• Analytisches Denkvermögen sowie Freude am Umgang mit Daten und komplexen Fragestellungen\n• Strukturierte und selbständige Arbeitsweise sowie ausgeprägte Kommunikations- und Teamfähigkeit\n• Hohe Eigeninitiative, Neugier und Bereitschaft, Verantwortung zu übernehmen\n\n• Bereich: Administration und Betriebe\n• Standort: Bürgerspital Solothurn\n• Abteilung: Ärztliche Direktion\n• Pensum: 70% - 100%",
-        "en": "Aufgaben\n• Mitarbeit an strategischen und medizinischen Projekten der Ärztlichen Direktion mit eigener Projektverantwortung\n• Analyse medizinischer, qualitativer und betrieblicher Daten zur Unterstützung fundierter Führungs- und Managemententscheidungen\n• Mitwirkung bei der Entwicklung neuer Versorgungsmodelle, Qualitätsinitiativen und organisationsübergreifender Prozesse\n• Unterstützung der Ärztlichen Direktion bei strategischen Fragestellungen, Präsentationen, Berichten und Entscheidungsgrundlagen\n• Zusammenarbeit mit Medizin, Pflege, Administration und weiteren interdisziplinären Partnern\n• Mitgestaltung von Führungs-, Governance- und Entscheidungsprozesse eines grossen Spitals\n\nProfil\n• Medizinstudium, Studium in BWL, Wirtschaftswissenschaften oder einer ähnlichen Fachrichtung\n• Berufserfahrung in einem Spital und Kenntnisse des Schweizer Gesundheitssystems von Vorteil\n• Interesse an Führung, Strategie, Qualitätsentwicklung und Spitalmanagement\n• Analytisches Denkvermögen sowie Freude am Umgang mit Daten und komplexen Fragestellungen\n• Strukturierte und selbständige Arbeitsweise sowie ausgeprägte Kommunikations- und Teamfähigkeit\n• Hohe Eigeninitiative, Neugier und Bereitschaft, Verantwortung zu übernehmen\n\n• Bereich: Administration und Betriebe\n• Standort: Bürgerspital Solothurn\n• Abteilung: Ärztliche Direktion\n• Pensum: 70% - 100%",
-        "fr": "Aufgaben\n• Mitarbeit an strategischen und medizinischen Projekten der Ärztlichen Direktion mit eigener Projektverantwortung\n• Analyse medizinischer, qualitativer und betrieblicher Daten zur Unterstützung fundierter Führungs- und Managemententscheidungen\n• Mitwirkung bei der Entwicklung neuer Versorgungsmodelle, Qualitätsinitiativen und organisationsübergreifender Prozesse\n• Unterstützung der Ärztlichen Direktion bei strategischen Fragestellungen, Präsentationen, Berichten und Entscheidungsgrundlagen\n• Zusammenarbeit mit Medizin, Pflege, Administration und weiteren interdisziplinären Partnern\n• Mitgestaltung von Führungs-, Governance- und Entscheidungsprozesse eines grossen Spitals\n\nProfil\n• Medizinstudium, Studium in BWL, Wirtschaftswissenschaften oder einer ähnlichen Fachrichtung\n• Berufserfahrung in einem Spital und Kenntnisse des Schweizer Gesundheitssystems von Vorteil\n• Interesse an Führung, Strategie, Qualitätsentwicklung und Spitalmanagement\n• Analytisches Denkvermögen sowie Freude am Umgang mit Daten und komplexen Fragestellungen\n• Strukturierte und selbständige Arbeitsweise sowie ausgeprägte Kommunikations- und Teamfähigkeit\n• Hohe Eigeninitiative, Neugier und Bereitschaft, Verantwortung zu übernehmen\n\n• Bereich: Administration und Betriebe\n• Standort: Bürgerspital Solothurn\n• Abteilung: Ärztliche Direktion\n• Pensum: 70% - 100%"
+        "it": "Compiti\n• Cooperazione in progetti strategici e medici della Direzione Medica con responsabilità del proprio progetto\n• Analisi dei dati medici, qualitativi e operativi per supportare le decisioni di leadership e gestione informate\n• Partecipazione allo sviluppo di nuovi modelli di cura, iniziative di qualità e processi cross-organisazionali\n• Sostegno della Direzione Medica in questioni strategiche, presentazioni, relazioni e basi decisionali\n• Collaborazione con medicina, cura, amministrazione e altri partner interdisciplinari\n• Co-creazione di processi di gestione, governance e decisionali in un grande ospedale\n\nProfilo\n• Studi medici, studi in amministrazione aziendale, economia o una disciplina simile\n• Esperienza professionale in ospedale e conoscenza del sistema sanitario svizzero\n• Interessato a leadership, strategia, sviluppo della qualità e gestione ospedaliera\n• competenze di pensiero analitico e piacere nel trattare i dati e le domande complesse\n• Metodi di lavoro strutturati e indipendenti, nonché forti capacità di comunicazione e di squadra\n• Alta iniziativa, curiosità e volontà di assumersi la responsabilità\n\n• Area: Amministrazione e imprese\n• Posizione: Bürgerspital Solothurn\n• Dipartimento: Direzione medica\n• Pensum: 70% - 100%",
+        "en": "Tasks\n• Cooperation in strategic and medical projects of the Medical Directorate with own project responsibility\n• Analysis of medical, qualitative and operational data to support informed leadership and management decisions\n• Participation in the development of new care models, quality initiatives and cross-organisational processes\n• Support of the Medical Directorate in strategic issues, presentations, reports and decision-making basis\n• Collaboration with medicine, care, administration and other interdisciplinary partners\n• Co-creation of management, governance and decision-making processes in a large hospital\n\nProfile\n• Medical studies, studies in business administration, economics or a similar discipline\n• Professional experience in a hospital and knowledge of the Swiss health system\n• Interested in leadership, strategy, quality development and hospital management\n• Analytical thinking skills as well as pleasure in dealing with data and complex questions\n• Structured and independent working methods as well as strong communication and team skills\n• High initiative, curiosity and willingness to take on responsibility\n\n• Area: Administration and enterprises\n• Location: Bürgerspital Solothurn\n• Department: Medical Directorate\n• Pensum: 70% - 100%",
+        "fr": "Tâche\n• Coopération dans les projets stratégiques et médicaux de la Direction médicale avec responsabilité propre du projet\n• Analyse des données médicales, qualitatives et opérationnelles à l'appui de décisions éclairées en matière de direction et de gestion\n• Participation à l'élaboration de nouveaux modèles de soins, d'initiatives de qualité et de processus interorganisations\n• Appui de la Direction médicale aux questions stratégiques, aux présentations, aux rapports et à la prise de décisions\n• Collaboration avec la médecine, les soins, l'administration et d'autres partenaires interdisciplinaires\n• Co-création de processus de gestion, de gouvernance et de prise de décisions dans un grand hôpital\n\nProfil\n• Études médicales, études en administration des affaires, en économie ou dans une discipline similaire\n• Expérience professionnelle dans un hôpital et connaissance du système de santé suisse\n• Intéressé par le leadership, la stratégie, le développement de la qualité et la gestion des hôpitaux\n• Compétences analytiques et plaisir à traiter des données et des questions complexes\n• Méthodes de travail structurées et indépendantes ainsi que compétences solides en communication et en équipe\n• Haute initiative, curiosité et volonté de prendre des responsabilités\n\n• Domaine: Administration et entreprises\n• Lieu: Bürgerspital Solothurn\n• Département : Direction médicale\n• Pensum: 70% - 100%"
       },
       "location": "Solothurn",
       "canton": "SO",
@@ -9846,24 +9848,24 @@
         "de": [
           "medizinische-projektleiterin-medizinischer-projektleiter-w-m-d-soh-ch",
           "managerin-manager-medizinische-projekte-w-m-d-soh-ch",
-          "projekt-management-support-arztliche-direktion-w-m-d-soh-ch",
-          "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w"
+          "projekt-management-support-arztliche-direktion-w-m-d-soh-ch"
         ],
         "it": [
           "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
           "responsabile-del-progetto-medico-responsabile-del-progetto-medico-e-responsabile-dei-dati-w-m-d-solothurner-spitaler-soh",
           "managerin-manager-medizinische-projekte-w-m-d-soh-ch",
-          "projekt-management-support-arztliche-direktion-w-m-d-soh-ch",
-          "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn"
+          "projekt-management-support-arztliche-direktion-w-m-d-soh-ch"
         ],
         "en": [
           "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
-          "medical-project-manager-medical-project-manager-and-data-manager-w-m-d-solothurner-spitaler-soh-solothurn"
+          "medical-project-manager-medical-project-manager-and-data-manager-w-m-d-solothurner-spitaler-soh-solothurn",
+          "projekt-management-support-arztliche-direktion-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
           "medizinische-projektleiterin-medizinischer-projektleiter-und-datenmanagerin-datenmanager-w",
           "gestionnaire-de-projet-medical-gestionnaire-de-projet-medical-et-gestionnaire-de-donnees-p-m-j-solothurner-spitaler-soh-",
-          "responsable-de-projet-medical-h-f-solothurner-spitaler-soh-solothurn"
+          "responsable-de-projet-medical-h-f-solothurner-spitaler-soh-solothurn",
+          "projekt-management-support-arztliche-direktion-m-w-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "previousSlugs": [
@@ -9875,7 +9877,8 @@
         "projekt-management-support-arztliche-direktion-w-m-d-soh-ch",
         "medical-project-manager-medical-project-manager-and-data-manager-w-m-d-solothurner-spitaler-soh-solothurn",
         "responsable-de-projet-medical-h-f-solothurner-spitaler-soh-solothurn",
-        "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn"
+        "medizinische-projektleiterin-medizinischer-projektleiter-e-datenmanagerin-datenmanager-m-w-d-solothurner-spitaler-soh-solothurn",
+        "projekt-management-support-arztliche-direktion-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-10T22:25:06.392Z",
       "salaryMin": 68500,
@@ -14094,7 +14097,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-w-m-d-soh-ch"
+          "neuropsychologin-neuropsychologe-w-m-d-soh-ch",
+          "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
           "neuropsychologist-neuropsychologist-m-f-d-solothurner-spitaler-soh-olten"

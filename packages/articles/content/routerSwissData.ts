@@ -1286,6 +1286,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'richiamo-uova-salmonella-migros': { it: 'richiamo-uova-salmonella-migros', en: 'egg-recall-salmonella-migros', de: 'eier-rueckruf-salmonellen-migros', fr: 'rappel-oeufs-salmonelle-migros' },
  'avs-berna-rendita-lacune-contributive': { it: 'avs-berna-rendita-lacune-contributive', en: 'avs-bern-pension-contribution-gaps', de: 'avs-bern-rente-beitragslucken', fr: 'avs-berne-rente-lacunes-cotisations' },
  'esercito-bilancio-misure-violenza': { it: 'esercito-bilancio-misure-violenza', en: 'swiss-army-violence-prevention-interim-report', de: 'schweizer-armee-gewaltpraevention-bilanz', fr: 'armee-suisse-rapport-mesures-violence' },
+ 'dimissioni-fondazione-beloved': { it: 'dimissioni-fondazione-beloved', en: 'beloved-foundation-resignations', de: 'beloved-stiftung-ruecktritt', fr: 'fondation-beloved-demissions' },
+ 'berna-avviare-attivita-commercio': { it: 'berna-avviare-attivita-commercio', en: 'starting-business-bern-switzerland', de: 'geschaeftsgruendung-bern-schweiz', fr: 'demarrer-activite-berne-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
