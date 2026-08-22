@@ -10463,6 +10463,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-gressan-lavorare-vallese-frontaliere.title': 'Wohnen in Gressan und Arbeiten im Wallis: Grenzgängerbesteuerung',
     'blog.article.vivere-gressan-lavorare-vallese-frontaliere.excerpt': 'Neues Abkommen 2024: Quellensteuer in der Schweiz, Franchisen CHF 7 \'500.10\' 000, Vordruck 730 und Steuergutschrift. Alles, was Sie wissen müssen.',
     'blog.article.vivere-gressan-lavorare-vallese-frontaliere.imageAlt': 'Alpental mit grünen Wiesen an der Grenze zwischen Wallis und Aostatal, Berglandschaft am Morgen.',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Wohnen in Charvensod und Arbeiten im Wallis als Grenzgänger: Was ändert sich',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Das neue Steuerabkommen zwischen Italien und der Schweiz: Wie es sich auf das Leben der Grenzgänger auswirkt',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Frontalier, der in Charvensod lebt und in Wallis arbeitet',
 };
 
 export default blogMetaDe;
