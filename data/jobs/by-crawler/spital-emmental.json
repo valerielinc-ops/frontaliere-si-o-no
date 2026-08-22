@@ -3696,7 +3696,8 @@
         "medico-senior-radiologia-medico-senior-spital-emmental-burgdorf",
         "senior-physician-senior-physician-radiology-spital-emmental-burgdorf",
         "oberarztin-oberarzt-radiologie-spital-emmental-burgdorf",
-        "medecin-ou-radiologie-spital-emmental-burgdorf"
+        "medecin-ou-radiologie-spital-emmental-burgdorf",
+        "medico-senior-gastroenterologia-medico-senior-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3708,7 +3709,8 @@
           "medico-senior-radiologia-medico-senior-spital-emmental-burgdorf",
           "senior-physician-senior-physician-radiology-spital-emmental-burgdorf",
           "oberarztin-oberarzt-radiologie-spital-emmental-burgdorf",
-          "medecin-ou-radiologie-spital-emmental-burgdorf"
+          "medecin-ou-radiologie-spital-emmental-burgdorf",
+          "medico-senior-gastroenterologia-medico-senior-spital-emmental-burgdorf"
         ],
         "en": [
           "oberarztin-oberarzt-gastroenterologie-spital-emmental-burgdorf",
@@ -3883,7 +3885,8 @@
         "dipl-infermiera-a-triage-emergenza-spital-emmental-burgdorf",
         "dipl-nurse-a-triage-emergency-spital-emmental-burgdorf",
         "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
-        "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf"
+        "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf",
+        "infermiera-a-spital-emmental-burgdorf-722030"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3891,7 +3894,8 @@
           "dipl-infermiera-a-triage-emergenza-spital-emmental-burgdorf",
           "dipl-nurse-a-triage-emergency-spital-emmental-burgdorf",
           "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
-          "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf"
+          "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf",
+          "infermiera-a-spital-emmental-burgdorf-722030"
         ],
         "en": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf",
@@ -4217,19 +4221,27 @@
       "pensumMax": 60,
       "pensum": "60%",
       "contractDuration": "permanent",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-20T21:32:32.881Z",
+      "previousSlugs": [
+        "sekretar-in-a-spital-emmental-burgdorf",
+        "a-spital-emmental-burgdorf-langnau",
+        "ceo-a-spital-emmental-burgdorf-langnau",
+        "intern-in-a-spital-emmental-burgdorf-langnau",
+        "interno-a-spital-emmental-burgdorf-langnau",
+        "praktikant-in-a-spital-emmental-burgdorf",
+        "stagiaire-en-a-spital-emmental-burgdorf-langnau",
+        "internship-a-spital-emmental-burgdorf-langnau",
+        "stage-a-spital-emmental-burgdorf-langnau",
+        "tirocinio-a-spital-emmental-burgdorf-langnau",
+        "a-spital-emmental-burgdorf",
+        "endoscopia-a-spital-emmental-burgdorf",
+        "farmacista-a-spital-emmental-burgdorf",
+        "tecnico-r-assistente-di-sterilizzazione-in-a-spital-emmental-burgdorf",
+        "technical-r-sterilization-assistant-in-a-spital-emmental-burgdorf",
+        "technische-r-sterilisationsassistent-in-a-spital-emmental-burgdorf",
+        "assistant-technique-a-la-sterilisation-en-a-spital-emmental-burgdorf",
+        "ict-supporter-in-a-spital-emmental-burgdorf",
+        "soutien-aux-tic-en-a-spital-emmental-burgdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sekretar-in-a-spital-emmental-burgdorf",
@@ -4257,39 +4269,31 @@
           "intern-in-a-spital-emmental-burgdorf-langnau",
           "technical-r-sterilization-assistant-in-a-spital-emmental-burgdorf"
         ],
+        "de": [
+          "praktikant-in-a-spital-emmental-burgdorf",
+          "technische-r-sterilisationsassistent-in-a-spital-emmental-burgdorf",
+          "ict-supporter-in-a-spital-emmental-burgdorf"
+        ],
         "fr": [
           "sekretar-in-a-spital-emmental-burgdorf",
           "stagiaire-en-a-spital-emmental-burgdorf-langnau",
           "assistant-technique-a-la-sterilisation-en-a-spital-emmental-burgdorf",
           "soutien-aux-tic-en-a-spital-emmental-burgdorf"
-        ],
-        "de": [
-          "praktikant-in-a-spital-emmental-burgdorf",
-          "technische-r-sterilisationsassistent-in-a-spital-emmental-burgdorf",
-          "ict-supporter-in-a-spital-emmental-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "sekretar-in-a-spital-emmental-burgdorf",
-        "a-spital-emmental-burgdorf-langnau",
-        "ceo-a-spital-emmental-burgdorf-langnau",
-        "intern-in-a-spital-emmental-burgdorf-langnau",
-        "interno-a-spital-emmental-burgdorf-langnau",
-        "praktikant-in-a-spital-emmental-burgdorf",
-        "stagiaire-en-a-spital-emmental-burgdorf-langnau",
-        "internship-a-spital-emmental-burgdorf-langnau",
-        "stage-a-spital-emmental-burgdorf-langnau",
-        "tirocinio-a-spital-emmental-burgdorf-langnau",
-        "a-spital-emmental-burgdorf",
-        "endoscopia-a-spital-emmental-burgdorf",
-        "farmacista-a-spital-emmental-burgdorf",
-        "tecnico-r-assistente-di-sterilizzazione-in-a-spital-emmental-burgdorf",
-        "technical-r-sterilization-assistant-in-a-spital-emmental-burgdorf",
-        "technische-r-sterilisationsassistent-in-a-spital-emmental-burgdorf",
-        "assistant-technique-a-la-sterilisation-en-a-spital-emmental-burgdorf",
-        "ict-supporter-in-a-spital-emmental-burgdorf",
-        "soutien-aux-tic-en-a-spital-emmental-burgdorf"
-      ]
+      "firstSeenAt": "2026-08-20T21:32:32.881Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spital-emmental-99d79baa9bbc",

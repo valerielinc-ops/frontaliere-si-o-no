@@ -2998,16 +2998,19 @@
       "previousSlugsByLocale": {
         "en": [
           "mason-carpenter-pemsa-bellinzona",
-          "mason-carpenter-pemsa-locarno"
+          "mason-carpenter-pemsa-locarno",
+          "murder-pemsa-locarno"
         ],
         "de": [
           "maurer-zimmerer-pemsa-bellinzona",
-          "maurer-schreiner-pemsa-locarno"
+          "maurer-schreiner-pemsa-locarno",
+          "mord-pemsa-locarno"
         ],
         "fr": [
           "macon-pemsa-locarno",
           "macon-charpentier-pemsa-bellinzona",
-          "macon-menuisier-pemsa-locarno"
+          "macon-menuisier-pemsa-locarno",
+          "murder-pemsa-locarno"
         ],
         "it": [
           "macon-pemsa-locarno",
@@ -3025,7 +3028,9 @@
         "macon-charpentier-pemsa-bellinzona",
         "mason-carpenter-pemsa-locarno",
         "maurer-schreiner-pemsa-locarno",
-        "macon-menuisier-pemsa-locarno"
+        "macon-menuisier-pemsa-locarno",
+        "murder-pemsa-locarno",
+        "mord-pemsa-locarno"
       ]
     },
     {
@@ -3369,7 +3374,9 @@
       },
       "previousSlugs": [
         "maler-pemsa-riddes",
-        "peintre-pemsa-riddes"
+        "peintre-pemsa-riddes",
+        "aufhellung-pemsa-riddes",
+        "blanchiment-pemsa-riddes"
       ],
       "needsRetranslation": true
     },
@@ -5827,7 +5834,9 @@
           "idraulico-impianti-sanitari-pemsa-lugano",
           "hydraulic-health-plants-pemsa-lugano",
           "hydraulische-heilpflanzen-pemsa-lugano",
-          "installations-sanitaires-hydrauliques-pemsa-lugano"
+          "installations-sanitaires-hydrauliques-pemsa-lugano",
+          "heating-systems-plumber-pemsa-lugano",
+          "plumber-heating-systems-specialist-pemsa-lugano"
         ],
         "en": [
           "plumber-heating-systems-specialist-pemsa-lugano-m1dbsv",
@@ -5856,7 +5865,10 @@
         "hydraulische-heilpflanzen-pemsa-lugano",
         "installations-sanitaires-hydrauliques-pemsa-lugano",
         "heizanlagen-mechaniker-pemsa-lugano",
-        "heizungsinstallateur-pemsa-lugano"
+        "heizungsinstallateur-pemsa-lugano",
+        "hydraulische-anlagen-heizung-pemsa-lugano",
+        "heating-systems-plumber-pemsa-lugano",
+        "plumber-heating-systems-specialist-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
