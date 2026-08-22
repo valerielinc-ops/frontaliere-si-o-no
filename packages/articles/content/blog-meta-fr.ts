@@ -10498,6 +10498,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'Comment calculer l\'impôt à la source au Tessin',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Impôt à la source Tessin : taux fédéraux 2026, exonérations frontalières € 7\'500–€ 10\'000, crédit d\'impôt italien et simulateur pas à pas.',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Calculatrice et documents fiscaux pour calculer l\'impôt à la source, vue sur le lac de Lugano en arrière-plan',
+    'blog.article.varcare-confine-documenti-frontalieri.title': 'Documents pour entrer en Suisse : le guide du frontalier',
+    'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Passeport, carte d\'identité et permis G : les documents essentiels pour franchir quotidiennement la frontière Tessin-Italie en tant que travailleur frontalier.',
+    'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Travailleur frontalier avec passeport et permis à la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

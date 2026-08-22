@@ -74834,6 +74834,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varcare-confine-documenti-frontalieri': {
+    title: 'Documenti per entrare in Svizzera: la guida del frontaliere',
+    description: 'Passaporto, carta d\'identità e Permesso G: i documenti essenziali per varcare il confine Ticino-Italia quotidianamente come lavoratore frontaliere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, documenti, entrare, passaporto, carta',
+    ogTitle: 'Documenti per entrare in Svizzera: la guida',
+    ogDescription: 'Passaporto, carta d\'identità e Permesso G: i documenti essenziali per varcare il confine Ticino-Italia quotidianamente come lavoratore frontaliere.',
+    canonicalPath: '/articoli-frontaliere/varcare-confine-documenti-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Documenti per entrare in Svizzera: la guida del frontaliere",
+      "description": "Passaporto, carta d'identità e Permesso G: i documenti essenziali per varcare il confine Ticino-Italia quotidianamente come lavoratore frontaliere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varcare-confine-documenti-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con passaporto e permesso G al valico di confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-22T09:21:11+00:00",
+      "dateModified": "2026-08-22T09:21:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varcare-confine-documenti-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
