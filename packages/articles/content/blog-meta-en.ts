@@ -10517,6 +10517,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spesa-alimentare-frontaliere-2024.title': 'Border food expenditure 2024: the customs exemption',
     'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'From 2024, the new agreement introduces different deductibles for border workers: €7,500 for old members, €10,000 for new ones. How to do food shopping between Switzerland and Italy.',
     'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Frontier worker with shopping bags at the Swiss-Italian border crossing in Ticino',
+    'blog.article.pagamento-multa-stradale-svizzera.title': 'Swiss road fine: procedure for Italian residents',
+    'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Do you receive a traffic fine in Switzerland as an Italian resident? Discover notification, payment, appeals and consequences of the non-payment on vignette and insurance.',
+    'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'A Ticino road at dusk with clear road markings and a car approaching a Swiss border checkpoint, documentary style.',
 };
 
 export default blogMetaEn;

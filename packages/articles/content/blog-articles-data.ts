@@ -31485,6 +31485,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pagamento-multa-stradale-svizzera',
+ category: 'pratico',
+ date: '2026-08-22T13:43:12.637Z',
+ image: '/images/blog/pagamento-multa-stradale-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
