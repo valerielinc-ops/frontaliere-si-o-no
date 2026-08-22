@@ -10507,6 +10507,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-6-anni.title': 'Construction Tessin : accord pour 6 ans',
     'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'L\'indemnité de chantier passe à 6,5 CHF à partir de janvier 2027, puis 9 CHF en 2028. Salaires minimums adaptés à la vie et temps de voyage intégralement rémunéré. Accord OCST signé en mai 2026.',
     'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Chantier de construction au Tessin avec ouvriers et échafaudages au coucher du soleil',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'Numéro de TVA de frontalier en Suisse : exigences, taxes et prévoyance',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Ouvrir une entreprise indépendante au Tessin en tant que frontalière : exigences légales, différences fiscales avec le travail salarié et obligations de sécurité sociale. Guide pratique avec des données vérifiées.',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Pigiste travaillant dans un espace de coworking à Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;
