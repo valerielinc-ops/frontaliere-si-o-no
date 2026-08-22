@@ -31521,6 +31521,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'infortunio-itinere-frontaliere-lainf',
+ category: 'pratico',
+ date: '2026-08-22T17:18:45.818Z',
+ image: '/images/blog/infortunio-itinere-frontaliere-lainf.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
