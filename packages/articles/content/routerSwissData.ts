@@ -1309,6 +1309,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-affitti-uri-locazione': { it: 'guida-affitti-uri-locazione', en: 'uri-rental-guide-tenancy-rights', de: 'mietleitfaden-uri-schutzbestimmungen', fr: 'guide-location-uri-droits-locataires' },
  'radiologi-premi-aumenti-2027': { it: 'radiologi-premi-aumenti-2027', en: 'radiologists-premiums-increases-2027', de: 'radiologen-praemien-erhoehungen-2027', fr: 'radiologues-primes-augmentations-2027' },
  'keller-sutter-ministri-finanze-germanofoni': { it: 'keller-sutter-ministri-finanze-germanofoni', en: 'keller-sutter-finance-ministers-germanic-countries', de: 'keller-sutter-finanzminister-deutschsprachige-laender', fr: 'keller-sutter-ministres-finances-pays-germanophones' },
+ 'irlanda-dublinanti-asilo-italia': { it: 'irlanda-dublinanti-asilo-italia', en: 'ireland-asylum-dubliners-italy', de: 'irland-dubliner-asyl-italien', fr: 'irlande-dublins-asile-italie' },
+ 'avs-prestazioni-uri-cassa': { it: 'avs-prestazioni-uri-cassa', en: 'ahv-benefits-uri-compensation', de: 'ahv-ergaenzungsleistungen-uri', fr: 'avs-prestazioni-uri-caisse' },
+ 'avs-prestazioni-complementari-uri': { it: 'avs-prestazioni-complementari-uri', en: 'avs-complementary-benefits-canton-uri', de: 'avs-zusatzleistungen-kanton-uri', fr: 'avs-prestations-complementaires-canton-uri' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

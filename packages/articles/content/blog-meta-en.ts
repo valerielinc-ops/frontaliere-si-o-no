@@ -10529,6 +10529,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Injury on routes: LAINF coverage for border workers',
     'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'When a border crosser suffers an accident on the way home from work: how LAINF coverage works, legal differences and the reporting procedure',
     'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Morning traffic at the Switzerland-Italy border crossing in Ticino, with vehicles queuing at the toll booth',
+    'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Travelling accident: LAINF protection for border workers',
+    'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'What does the LAINF cover in the event of an accident on the way home from work at the border? Practical guide for border workers Ticino-Italy.',
+    'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Frontalier workers commuting at Swiss-Italian border crossing during morning routine',
 };
 
 export default blogMetaEn;

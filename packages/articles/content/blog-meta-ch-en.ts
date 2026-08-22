@@ -3850,6 +3850,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Finance ministers: Keller-Sutter in Vaduz for European economy',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'On 24 August, the Federal Councillor will attend the annual meeting with German-speaking colleagues in Liechtenstein to discuss finances, climate and stability.',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'Karin Keller-Sutter meets German-speaking finance ministers to discuss European economic policy',
+    'blog.article.irlanda-dublinanti-asilo-italia.title': 'Ireland also sends Dubliners back to Italy',
+    'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'Ireland adheres to the policy of repatriation of asylum seekers. Seventh European country, after Switzerland, to adopt this strategy.',
+    'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'View of Lake Lugano with Swiss Alps in the background, representing Switzerland\'s geographical position in Europe.',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AVS and complementary services in canton Uri',
+    'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Compensation fund, pension calculation and contribution gaps in the first pillar: how URI supplementary benefits work',
+    'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Uri cantonal compensation fund office managing AVS pensions and complementary benefits',
+    'blog.article.avs-prestazioni-complementari-uri.title': 'AVS and complementary services in Canton Uri',
+    'blog.article.avs-prestazioni-complementari-uri.excerpt': 'How the first pillar works in Canton Uri: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Swiss Alps landscape featuring regional administrative building, symbolizing pension system stability in the first pillar.',
 };
 
 export default blogMetaChEn;

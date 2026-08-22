@@ -49940,6 +49940,122 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-irlanda-dublinanti-asilo-italia': {
+    title: 'Anche l\'Irlanda rimanda i dublinanti in Italia',
+    description: 'L\'Irlanda adotta politica di rimpatrio dei dublinanti verso l\'Italia. Settimo Paese europeo dopo Svizzera, Germania, Austria. AMMR vigente dal 12 giugno 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, anche, irlanda, rimanda, dublinanti',
+    ogTitle: 'Anche l\'Irlanda rimanda i dublinanti in Italia',
+    ogDescription: 'L\'Irlanda aderisce alla politica di rimpatrio dei richiedenti asilo verso l\'Italia. Settimo Paese europeo, dopo Svizzera, Germania, Austria, Svezia, Finlandia e Paesi Bassi, a implementare questa strategia. Dal 12 giugno 2026, il Regolamento AMMR',
+    canonicalPath: '/articoli-svizzera/irlanda-dublinanti-asilo-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Anche l'Irlanda rimanda i dublinanti in Italia",
+      "description": "L'Irlanda adotta politica di rimpatrio dei dublinanti verso l'Italia. Settimo Paese europeo dopo Svizzera, Germania, Austria. AMMR vigente dal 12 giugno 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/irlanda-dublinanti-asilo-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano sullo sfondo delle Alpi svizzere, simbolo della posizione geografica della Svizzera in Europa."
+      },
+      "datePublished": "2026-08-22T17:06:46+00:00",
+      "dateModified": "2026-08-22T17:06:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/irlanda-dublinanti-asilo-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-uri-cassa': {
+    title: 'AVS e prestazioni complementari nel canton Uri',
+    description: 'Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, cassa',
+    ogTitle: 'AVS e prestazioni complementari nel canton Uri',
+    ogDescription: 'Scopri come la cassa di compensazione del canton Uri calcola la tua rendita AVS, come le lacune contributive influiscono sulla pensione, e come accedere alle prestazioni complementari per garantire il minimo vitale della tua famiglia.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-uri-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel canton Uri",
+      "description": "Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-uri-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione cantonale Uri: gestione rendite AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-08-22T17:57:19+00:00",
+      "dateModified": "2026-08-22T17:57:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-uri-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-uri': {
+    title: 'AVS e prestazioni complementari nel Canton Uri',
+    description: 'Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, funziona',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Uri',
+    ogDescription: 'Scopri come funziona il primo pilastro della previdenza nel Canton Uri: dalla cassa di compensazione al calcolo della rendita AVS, dalle lacune contributive alle prestazioni complementari che garantiscono il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-uri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Uri",
+      "description": "Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-uri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino con edificio amministrativo cantonale, simbolo della stabilità del sistema pensionistico del primo pilastro."
+      },
+      "datePublished": "2026-08-22T18:37:21+00:00",
+      "dateModified": "2026-08-22T18:37:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-uri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

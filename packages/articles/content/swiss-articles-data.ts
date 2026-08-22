@@ -11548,6 +11548,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'irlanda-dublinanti-asilo-italia',
+    category: 'novita',
+    date: '2026-08-22T17:06:46.260Z',
+    image: '/images/blog/irlanda-dublinanti-asilo-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'avs-prestazioni-uri-cassa',
+    category: 'pensione',
+    date: '2026-08-22T17:57:19.704Z',
+    image: '/images/blog/avs-prestazioni-uri-cassa.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'avs-prestazioni-complementari-uri',
+    category: 'pensione',
+    date: '2026-08-22T18:37:21.319Z',
+    image: '/images/blog/avs-prestazioni-complementari-uri.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3850,6 +3850,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Finanzminister: Keller-Sutter in Vaduz für europäische Wirtschaft',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'Am 24. August wird die Bundesrätin in Liechtenstein am jährlichen Treffen mit deutschsprachigen Kollegen teilnehmen, um über Finanzen, Klima und Stabilität zu diskutieren.',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'Karin Keller-Sutter trifft deutschsprachige Finanzminister zur Diskussion der europäischen Wirtschaftspolitik',
+    'blog.article.irlanda-dublinanti-asilo-italia.title': 'Auch Irland schickt die Dublinanten nach Italien',
+    'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'Irland hält an der Rückkehrpolitik für Asylbewerber fest. Siebtes europäisches Land nach der Schweiz, das diese Strategie anwendet.',
+    'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'Blick auf den Luganersee mit den Schweizer Alpen im Hintergrund, ein Symbol für die geografische Position der Schweiz in Europa.',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Uri',
+    'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Ausgleichskasse, Rentenberechnung und Beitragslücken in der ersten Säule: So funktionieren die URI-Zusatzleistungen',
+    'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Ausgleichskasse Uri: Verwaltung von AHV-Renten und Ergänzungsleistungen',
+    'blog.article.avs-prestazioni-complementari-uri.title': 'AHV und Ergänzungsleistungen im Kanton Uri',
+    'blog.article.avs-prestazioni-complementari-uri.excerpt': 'Wie funktioniert die erste Säule im Kanton Uri: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Existenzminimum.',
+    'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Schweizer Alpenpanorama mit Verwaltungsgebäude, Symbol für die Stabilität des kantonalen Rentensystems im ersten Pfeiler.',
 };
 
 export default blogMetaChDe;

@@ -3850,6 +3850,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Ministri finanze: Keller-Sutter a Vaduz per economia europea',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'Il 24 agosto la consigliera federale parteciperà a Liechtenstein all\'incontro annuale con colleghi germanofoni per discutere di finanze, clima e stabilità.',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'Incontro tra Karin Keller-Sutter e ministri finanze germanofoni per discutere politica economica europea',
+    'blog.article.irlanda-dublinanti-asilo-italia.title': 'Anche l\'Irlanda rimanda i dublinanti in Italia',
+    'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'L\'Irlanda aderisce alla politica di rimpatrio dei richiedenti asilo. Settimo Paese europeo, dopo Svizzera, a adottare questa strategia.',
+    'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'Vista del lago di Lugano sullo sfondo delle Alpi svizzere, simbolo della posizione geografica della Svizzera in Europa.',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AVS e prestazioni complementari nel canton Uri',
+    'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Cassa di compensazione, calcolo della rendita e lacune contributive nel primo pilastro: come funzionano le prestazioni complementari a Uri',
+    'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Ufficio della cassa di compensazione cantonale Uri: gestione rendite AVS e prestazioni complementari',
+    'blog.article.avs-prestazioni-complementari-uri.title': 'AVS e prestazioni complementari nel Canton Uri',
+    'blog.article.avs-prestazioni-complementari-uri.excerpt': 'Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Paesaggio alpino con edificio amministrativo cantonale, simbolo della stabilità del sistema pensionistico del primo pilastro.',
 };
 
 export default blogMetaChIt;
