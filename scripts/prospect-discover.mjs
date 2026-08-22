@@ -100,7 +100,16 @@ if (sources.includes('own')) {
 /* ── SECO ─────────────────────────────────────────────────────── */
 if (sources.includes('seco')) {
   for (const canton of cantons) {
-    const { employers, adCount, hostHistogram } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days });
+    // Una sorgente esterna che cade non deve azzerare il giro: con 26 cantoni,
+    // un timeout sul quinto butterebbe via i quattro gia' raccolti e i venti
+    // ancora da fare.
+    let employers; let adCount; let hostHistogram;
+    try {
+      ({ employers, adCount, hostHistogram } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days }));
+    } catch (err) {
+      console.log(`SECO ${canton}: non raggiungibile — ${String(err.message).slice(0, 90)}`);
+      continue;
+    }
     console.log(`SECO ${canton}: ${adCount} annunci, ${employers.length} datori distinti`);
     for (const e of employers) {
       file({
@@ -165,7 +174,13 @@ if (sources.includes('osm')) {
     console.log(`OSM : fetta a rotazione ${osmCantons.join(',')} (di ${cantons.length} cantoni)`);
   }
   for (const canton of osmCantons) {
-    const businesses = await fetchOsmBusinesses(canton);
+    let businesses;
+    try {
+      businesses = await fetchOsmBusinesses(canton);
+    } catch (err) {
+      console.log(`OSM  ${canton}: non raggiungibile — ${String(err.message).slice(0, 90)}`);
+      continue;
+    }
     console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio`);
     for (const b of businesses) {
       file({ name: b.name, domain: b.domain, city: b.city, canton, country: 'CH', osmTags: b.tags }, 'osm');
@@ -175,7 +190,12 @@ if (sources.includes('osm')) {
 
 /* ── The Swiss web's own careers pages, via the crawl index ───── */
 if (sources.includes('web')) {
-  const sweep = await sweepSwissCareerPages({ pages });
+  let sweep = { collection: null, pagesRead: [], totalPages: 0, employers: [] };
+  try {
+    sweep = await sweepSwissCareerPages({ pages });
+  } catch (err) {
+    console.log(`WEB : indice non raggiungibile — ${String(err.message).slice(0, 90)}`);
+  }
   console.log(`WEB : ${sweep.collection} · ${sweep.pagesRead.length}/${sweep.totalPages} pagine d'indice → ${sweep.employers.length} datori con pagina carriere`);
   for (const e of sweep.employers) {
     // The careers URL is already known, so these skip domain resolution

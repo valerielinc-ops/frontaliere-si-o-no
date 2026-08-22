@@ -65,8 +65,25 @@ const reports = [];
 const tally = { good: 0, weak: 0, bad: 0, insufficient: 0 };
 
 for (const spec of specs) {
-  const { vacancies, errors } = await runSpec(spec);
-  const report = await gradeExtraction(spec, vacancies, { sampleSize });
+  // Stessa ragione dello stadio di sintesi: qui si rende di nuovo il DOM di
+  // siti arbitrari, e perdere il giudizio di tutte le spec per colpa di una
+  // significherebbe anche non far avanzare lo STORICO su cui il gate di
+  // promozione decide — cioe' rimandare ogni promozione di un giorno.
+  let vacancies;
+  let errors;
+  try {
+    ({ vacancies, errors } = await runSpec(spec));
+  } catch (err) {
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${String(err.message).slice(0, 60)}`);
+    continue;
+  }
+  let report;
+  try {
+    report = await gradeExtraction(spec, vacancies, { sampleSize });
+  } catch (err) {
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore nel giudizio: ${String(err.message).slice(0, 60)}`);
+    continue;
+  }
   report.companyName = spec.companyName;
   report.companyHost = spec.companyHost;
   report.platform = spec.platform || null;
