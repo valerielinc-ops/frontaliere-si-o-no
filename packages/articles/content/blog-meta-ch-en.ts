@@ -3862,6 +3862,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uri-settori-assunzione-retribuzioni.title': 'Wages and labour market in URIs',
     'blog.article.uri-settori-assunzione-retribuzioni.excerpt': 'How are salaries determined in URIs? Discover sectors, levels of training, collective agreements, taxation and social security in the Swiss Alpine canton.',
     'blog.article.uri-settori-assunzione-retribuzioni.imageAlt': 'Professionals working at modern office desks in a Swiss alpine canton, reviewing employment contracts.',
+    'blog.article.premi-lamal-svitto-riduzione.title': 'LAMal Unwinding Rewards: deductibles and premium reductions',
+    'blog.article.premi-lamal-svitto-riduzione.excerpt': 'How the compulsory health insurance premiums work in the Canton of Schwyz, the deductibles available and how to claim the reduction via subsidy.',
+    'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Insurance consultation office with health insurance premium documents and subsidy calculator',
 };
 
 export default blogMetaChEn;

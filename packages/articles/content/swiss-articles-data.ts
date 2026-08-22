@@ -11584,6 +11584,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-lamal-svitto-riduzione',
+    category: 'pratico',
+    date: '2026-08-22T23:40:49.373Z',
+    image: '/images/blog/premi-lamal-svitto-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -50096,6 +50096,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-svitto-riduzione': {
+    title: 'Premi LAMal in Svitto: franchigie e riduzione premi',
+    description: 'Guida ai premi dell\'assicurazione malattia obbligatoria nel Cantone di Svitto: franchigie, modelli alternativi e procedura per ottenere la riduzione tramite',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, svitto, franchigie',
+    ogTitle: 'Premi LAMal in Svitto: franchigie e riduzione premi',
+    ogDescription: 'Scopri come funzionano i premi dell\'assicurazione malattia nel Cantone di Svitto, le franchigie disponibili (CHF 300-2500), i modelli alternativi di copertura e come richiedere la riduzione dei premi tramite sussidio cantonale. Procedura passo-passo',
+    canonicalPath: '/articoli-svizzera/premi-lamal-svitto-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal in Svitto: franchigie e riduzione premi",
+      "description": "Guida ai premi dell'assicurazione malattia obbligatoria nel Cantone di Svitto: franchigie, modelli alternativi e procedura per ottenere la riduzione tramite",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-svitto-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di consulenza assicurativa con documenti su premi cassa malati e calcolatore di sussidi"
+      },
+      "datePublished": "2026-08-22T23:40:49+00:00",
+      "dateModified": "2026-08-22T23:40:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-svitto-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

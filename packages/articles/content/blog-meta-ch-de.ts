@@ -3862,6 +3862,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uri-settori-assunzione-retribuzioni.title': 'Löhne und Arbeitsmarkt in Uri',
     'blog.article.uri-settori-assunzione-retribuzioni.excerpt': 'Wie werden die Gehälter in Uri ermittelt? Entdecken Sie Branchen, Ausbildungsniveaus, Tarifverträge, Besteuerung und Vorsorge im Schweizer Alpenkanton.',
     'blog.article.uri-settori-assunzione-retribuzioni.imageAlt': 'Fachleute an modernen Bürotischen in einem Schweizer Alpenkanon, Arbeitsverträge prüfend.',
+    'blog.article.premi-lamal-svitto-riduzione.title': 'KVG-Prämien in Schwyz: Franchisen und Prämienverbilligung',
+    'blog.article.premi-lamal-svitto-riduzione.excerpt': 'Wie die Prämien der obligatorischen Krankenversicherung im Kanton Schwyz funktionieren, welche Franchisen zur Verfügung stehen und wie Sie die Reduktion mittels Subvention beantragen können.',
+    'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Versicherungsberatung mit Krankenkassenprämien-Dokumenten und Subventionsrechner',
 };
 
 export default blogMetaChDe;
