@@ -53,6 +53,14 @@
 # On success writes $RUNNER_TEMP/shard-ok-<section>-<locale> (consumed by the
 # strip step) and exits 0. SKIP (no key / subtree absent) exits 0 without the
 # marker. Real failure exits non-zero (the caller is continue-on-error).
+#
+# Also writes $RUNNER_TEMP/shard-srcn-<section>-<locale> right after staging,
+# holding the staged subtree's file count at THIS moment (issue #6283): the
+# caller's "Pack section shard dist" step (deploy.yml) reads it back as an
+# independent baseline to detect the staged tree shrinking between this push
+# and that later pack step — a shrink that would otherwise be invisible to
+# the pack step's own packed_n-vs-recount check, since both of those derive
+# from the SAME already-reduced directory.
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
@@ -128,6 +136,7 @@ push_section_shard() {
     || echo "::warning::offload on $loc $section subtree returned non-zero (offload is fail-safe/exit-0; continuing)"
 
   src_n="$(find "$stage_src/dist/$sub" -type f | wc -l)"
+  printf '%s' "$src_n" > "$RUNNER_TEMP/shard-srcn-$section-$loc"
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
