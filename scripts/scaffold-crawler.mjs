@@ -47,6 +47,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { constPrefix, pascalIdentifier } from './lib/crawler-identifier.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -212,9 +213,8 @@ const careerUrl =
   marquee?.careerUrl ||
   `https://${companyDomain}/careers`;
 
-const CONST_PREFIX = companyKey.toUpperCase().replace(/-/g, '_');
-const camelKey = companyKey.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-const pascalKey = camelKey.charAt(0).toUpperCase() + camelKey.slice(1);
+const CONST_PREFIX = constPrefix(companyKey);
+const pascalKey = pascalIdentifier(companyKey);
 
 if (marquee) {
   console.log(
