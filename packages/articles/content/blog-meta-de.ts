@@ -10525,6 +10525,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Reiseunfall: Grenzüberschreitender Schutz und Meldung',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Erfahren Sie, wie das UVG (0,7-1,5%) Arbeitsunfälle für Grenzgänger mit Bewilligung G zwischen Tessin und Italien deckt: Beschwerdeverfahren, Garantien und Rechte.',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Auto im Transit an der Grenzübergangsstelle Tessin-Italien auf der Autobahn am frühen Morgen',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Verkehrsunfall: UVG-Deckung für Grenzgänger',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'Wenn ein Grenzgänger auf dem Weg zur Arbeit einen Unfall erleidet: Wie funktioniert die UVG-Versicherung, die rechtlichen Unterschiede und das Meldeverfahren',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Morgenverkehr am Schweiz-Italien-Grenzübergang im Tessin, Fahrzeuge in der Warteschlange',
 };
 
 export default blogMetaDe;

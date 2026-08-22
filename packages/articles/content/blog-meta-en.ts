@@ -10526,6 +10526,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Travelling accident: border protection and reporting',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Find out how the LAINF (0.7-1.5%) covers accidents during the journey to work for border workers with a G permit between Ticino and Italy: complaint procedure, guarantees and rights.',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Car in transit at Ticino-Italy border checkpoint on highway during early morning',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Injury on routes: LAINF coverage for border workers',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'When a border crosser suffers an accident on the way home from work: how LAINF coverage works, legal differences and the reporting procedure',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Morning traffic at the Switzerland-Italy border crossing in Ticino, with vehicles queuing at the toll booth',
 };
 
 export default blogMetaEn;

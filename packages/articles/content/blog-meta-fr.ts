@@ -10528,6 +10528,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Accident de trajet : protection et signalement frontalier',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Découvrez comment la LAA (0,7-1,5 %) couvre les accidents du travail pour les frontaliers titulaires d\'un permis G entre le Tessin et l\'Italie : procédure de plainte, garanties et droits.',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Voiture en transit au point de passage frontalier Tessin-Italie sur l\'autoroute tôt le matin',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Accident de trajet : couverture LAAF pour les frontaliers',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'Lorsqu\'un frontalier est victime d\'un accident pendant le trajet domicile-travail : comment fonctionne la couverture LAA, les différences juridiques et la procédure de plainte',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Trafic matinal au passage frontalier Suisse-Italie au Tessin, avec files d\'attente au péage',
 };
 
 export default blogMetaFr;
