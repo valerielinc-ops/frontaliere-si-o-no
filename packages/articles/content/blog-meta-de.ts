@@ -10442,6 +10442,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Vivere a Malonno, lavorare in Grigioni: cosa sapere',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Grenzgänger Tessin: Informationen zu Steuern, Genehmigungen und Versicherungen',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno und Grigioni',
+    'blog.article.vivere-sonico-lavorare-grigioni.title': 'Wohnen in Sonico und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Leitfaden für Grenzgänger: Besteuerung, neues Abkommen und praktische Aspekte der Arbeit im Kanton Graubünden.',
+    'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Panoramablick auf die Schweizer Alpen in Richtung Graubünden',
 };
 
 export default blogMetaDe;

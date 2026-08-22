@@ -10445,6 +10445,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Frontalier en Grisons, vivre à Malonno',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Frontalier Tessin : informations sur la fiscalité, les permis et les assurances',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno et Grigioni',
+    'blog.article.vivere-sonico-lavorare-grigioni.title': 'Vivre à Sonico et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Guide opérationnel pour les frontaliers : fiscalité, nouvel accord et aspects pratiques du travail dans le canton des Grisons.',
+    'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Vue panoramique des Alpes suisses vers les Grisons',
 };
 
 export default blogMetaFr;
