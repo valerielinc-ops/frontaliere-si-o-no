@@ -74,7 +74,7 @@ for (const platform of targets) {
   try {
     res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });
   } catch (err) {
-    console.log(`${platform.domain}: enumerazione fallita — ${String(err.message).slice(0, 120)}`);
+    console.log(`${platform.domain}: enumerazione fallita — ${(err instanceof Error ? err.message : String(err)).slice(0, 120)}`);
     continue;
   }
   const live = res.live;

@@ -509,7 +509,7 @@ async function main() {
         mode: entry.mode,
         state: 'check-failed',
         actionable: false,
-        headline: `verifica fallita: ${String(e.message).slice(0, 80)}`,
+        headline: `verifica fallita: ${(e instanceof Error ? e.message : String(e)).slice(0, 80)}`,
       };
     }
 
