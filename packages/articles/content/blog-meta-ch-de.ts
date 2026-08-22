@@ -3763,6 +3763,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-maghreb-reati-80-percento.title': 'Asylsuchende aus dem Maghreb, 80% sind an Straftaten beteiligt',
     'blog.article.asilo-maghreb-reati-80-percento.excerpt': '80,5% der Antragsteller aus dem Maghreb wurden wegen Straftaten angeklagt. Das sem beschleunigt die Verfahren und schließt Vereinbarungen mit Marokko über schnellere Rückführungen.',
     'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Luftaufnahme des Bundespalastes in Bern, Sitz der Schweizer Regierung.',
+    'blog.article.discriminazioni-esercito-piano.title': 'Diskriminierung in der Armee: Der Schweizer Plan 2027',
+    'blog.article.discriminazioni-esercito-piano.excerpt': 'Die Schweizer Armee hat 8 von 16 Antidiskriminierungsmassnahmen umgesetzt. Vollständiger Plan bis 2027. Für 2028 geplante Folgenabschätzung.',
+    'blog.article.discriminazioni-esercito-piano.imageAlt': 'Schweizer Kaserne mit Rekruten im Training, inklusives und diszipliniertes Umfeld.',
 };
 
 export default blogMetaChDe;

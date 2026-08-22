@@ -3763,6 +3763,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-maghreb-reati-80-percento.title': 'Asylum seekers from the Maghreb, 80% are involved in crimes',
     'blog.article.asilo-maghreb-reati-80-percento.excerpt': '80.5% of applicants from the Maghreb were charged with crimes. The SEM accelerates procedures and makes agreements with Morocco for faster repatriations.',
     'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Aerial view of the Swiss federal palace in Bern, the seat of the Swiss government.',
+    'blog.article.discriminazioni-esercito-piano.title': 'Discrimination in the army: the Swiss 2027 plan',
+    'blog.article.discriminazioni-esercito-piano.excerpt': 'The Swiss army implemented 8 out of 16 anti-discrimination measures. Complete plan by 2027. Impact assessment planned for 2028.',
+    'blog.article.discriminazioni-esercito-piano.imageAlt': 'Swiss military barracks with recruits training, inclusive and disciplined environment.',
 };
 
 export default blogMetaChEn;

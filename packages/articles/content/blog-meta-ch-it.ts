@@ -3763,6 +3763,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-maghreb-reati-80-percento.title': 'Richiedenti l\'asilo dal Maghreb, l\'80% è coinvolto in reati',
     'blog.article.asilo-maghreb-reati-80-percento.excerpt': 'L\'80,5% dei richiedenti dal Maghreb è stato accusato di reati. La SEM accelera le procedure e stringe accordi con il Marocco per più veloci rimpatri.',
     'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Veduta aerea del palazzo federale di Berna, sede del governo svizzero, in un paesaggio nazionale.',
+    'blog.article.discriminazioni-esercito-piano.title': 'Discriminazioni in esercito: il piano svizzero 2027',
+    'blog.article.discriminazioni-esercito-piano.excerpt': 'L\'esercito svizzero ha attuato 8 su 16 misure anti-discriminazione. Piano completo entro 2027. Valutazione d\'impatto prevista per il 2028.',
+    'blog.article.discriminazioni-esercito-piano.imageAlt': 'Caserma svizzera con reclute in addestramento, ambiente inclusivo e disciplinato.',
 };
 
 export default blogMetaChIt;

@@ -48809,6 +48809,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-discriminazioni-esercito-piano': {
+    title: 'Discriminazioni in esercito: il piano svizzero 2027',
+    description: 'L\'esercito svizzero implementa 8 delle 16 misure del piano d\'azione contro discriminazioni e violenze sessualizzate. Attuazione totale entro fine 2027',
+    keywords: 'frontalieri, ticino, svizzera, italia, discriminazioni, esercito, piano, svizzero',
+    ogTitle: 'Discriminazioni in esercito: il piano svizzero 2027',
+    ogDescription: 'L\'esercito svizzero implementa 8 delle 16 misure del suo piano d\'azione contro discriminazioni e violenze sessualizzate. Il programma risponde a uno studio del 2024 che coinvolse 1.100 militari. Attuazione completa entro fine 2027, valutazione',
+    canonicalPath: '/articoli-svizzera/discriminazioni-esercito-piano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Discriminazioni in esercito: il piano svizzero 2027",
+      "description": "L'esercito svizzero implementa 8 delle 16 misure del piano d'azione contro discriminazioni e violenze sessualizzate. Attuazione totale entro fine 2027",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/discriminazioni-esercito-piano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Caserma svizzera con reclute in addestramento, ambiente inclusivo e disciplinato."
+      },
+      "datePublished": "2026-08-22T00:26:46+00:00",
+      "dateModified": "2026-08-22T00:26:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/discriminazioni-esercito-piano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
