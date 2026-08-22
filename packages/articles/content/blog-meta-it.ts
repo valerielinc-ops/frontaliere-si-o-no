@@ -10476,6 +10476,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'I numeri del giorno per i frontalieri – 22 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Bollettino frontalieri del 22 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'I numeri del 22 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'Quanto costa l\'auto per il pendolare Ticino',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Tutti i costi dell\'auto per il pendolare Ticino-Italia: benzina, vignette, parcheggio, usura, assicurazione. Scopri come calcolare la spesa totale e confronta con treno e bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Auto moderna che percorre una strada di montagna in Ticino verso il confine italiano in una valle alpina nebbiosa.',
 };
 
 export default blogMetaIt;

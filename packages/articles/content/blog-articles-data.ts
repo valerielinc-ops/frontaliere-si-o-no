@@ -31359,6 +31359,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'calcolo-costo-auto-frontaliere',
+ category: 'pratico',
+ date: '2026-08-22T05:49:01.344Z',
+ image: '/images/blog/calcolo-costo-auto-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

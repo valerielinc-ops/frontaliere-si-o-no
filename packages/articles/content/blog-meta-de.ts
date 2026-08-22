@@ -10474,6 +10474,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 22. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Grenzgänger-Bulletin vom 22. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'Die Zahlen vom 22. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'Was kostet das Auto für den Pendler Tessin',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Alle Kosten für das Auto für den Pendler Tessin-Italien: Benzin, Vignetten, Parken, Verschleiß, Versicherung. Finden Sie heraus, wie Sie die Gesamtausgaben berechnen und vergleichen Sie sie mit Zug und Bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Modernes Auto auf einer Bergstrasse im Tessin in Richtung italienische Grenze durch ein nebelhaftes Tal.',
 };
 
 export default blogMetaDe;
