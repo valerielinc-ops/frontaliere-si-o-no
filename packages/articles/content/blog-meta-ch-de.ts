@@ -3772,6 +3772,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.digitalizzazione-processi-competenze.title': 'Wenn Digitalisierung mit Improvisation reimt',
     'blog.article.digitalizzazione-processi-competenze.excerpt': 'Digitalisieren bedeutet nicht, Papier durch Bildschirm zu ersetzen: Es erfordert ein Umdenken der Prozesse, angemessene Fähigkeiten und ein bewusstes Management des organisatorischen Wandels.',
     'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Modernes Schweizer Verwaltungsbüro mit digitalen Arbeitsplätzen während der Digitalisierung',
+    'blog.article.richiamo-uova-salmonella-migros.title': 'Rückruf Migros-Eier: Verdacht auf Salmonellenkontamination',
+    'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Die Migros ruft die Eier Nostrani del Ticino, Code 1-CH-603, wegen Salmonellengefahr zurück. Hier sind die Rückerstattungsverfahren für Verbraucher.',
+    'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Eierpackungen in einem Schweizer Supermarkt',
 };
 
 export default blogMetaChDe;

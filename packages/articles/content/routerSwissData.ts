@@ -1283,6 +1283,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'discriminazioni-esercito-piano': { it: 'discriminazioni-esercito-piano', en: 'discrimination-military-action-plan', de: 'diskriminierung-armee-aktionsplan', fr: 'discriminations-armee-plan' },
  'acquistare-abitazione-berna-ipotecario': { it: 'acquistare-abitazione-berna-ipotecario', en: 'buy-property-bern-mortgage', de: 'haus-kaufen-bern-hypothek', fr: 'acheter-propriete-berne-hypotheque' },
  'digitalizzazione-processi-competenze': { it: 'digitalizzazione-processi-competenze', en: 'digitalization-processes-skills', de: 'digitalisierung-prozesse-kompetenzen', fr: 'numerisation-processus-competences' },
+ 'richiamo-uova-salmonella-migros': { it: 'richiamo-uova-salmonella-migros', en: 'egg-recall-salmonella-migros', de: 'eier-rueckruf-salmonellen-migros', fr: 'rappel-oeufs-salmonelle-migros' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

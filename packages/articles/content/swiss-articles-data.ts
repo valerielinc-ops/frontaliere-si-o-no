@@ -11314,6 +11314,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'richiamo-uova-salmonella-migros',
+    category: 'pratico',
+    date: '2026-08-22T01:28:58.724Z',
+    image: '/images/blog/richiamo-uova-salmonella-migros.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

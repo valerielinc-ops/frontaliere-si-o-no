@@ -3772,6 +3772,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.digitalizzazione-processi-competenze.title': 'Quando digitalizzazione rima con improvvisazione',
     'blog.article.digitalizzazione-processi-competenze.excerpt': 'Digitalizzare non significa sostituire carta con schermo: richiede ripensamento dei processi, competenze adeguate e gestione consapevole del cambiamento organizzativo.',
     'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Ufficio amministrativo svizzero moderno con postazioni digitali e spazi collaborativi durante la trasformazione',
+    'blog.article.richiamo-uova-salmonella-migros.title': 'Richiamo uova Migros: sospetta contaminazione salmonella',
+    'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Migros richiama le uova Nostrani del Ticino, codice 1-CH-603, per rischio salmonella. Ecco le procedure di rimborso per i consumatori.',
+    'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Confezioni di uova presso un supermercato svizzero',
 };
 
 export default blogMetaChIt;

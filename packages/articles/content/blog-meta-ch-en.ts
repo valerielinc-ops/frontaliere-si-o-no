@@ -3772,6 +3772,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.digitalizzazione-processi-competenze.title': 'When digitization rhymes with improvisation',
     'blog.article.digitalizzazione-processi-competenze.excerpt': 'Digitizing does not mean replacing paper with a screen: it requires rethinking processes, adequate skills and conscious management of organizational change.',
     'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Modern Swiss administrative office with digital workstations and collaborative spaces during digital transformation',
+    'blog.article.richiamo-uova-salmonella-migros.title': 'Migros egg recall: suspected salmonella contamination',
+    'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Migros recalls Nostrani del Ticino eggs, code 1-CH-603, for salmonella risk. Here are the refund procedures for consumers.',
+    'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Egg cartons at a Swiss supermarket',
 };
 
 export default blogMetaChEn;
