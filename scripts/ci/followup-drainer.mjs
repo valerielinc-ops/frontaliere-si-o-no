@@ -150,6 +150,7 @@ const LBL_DECOMP = 'agent:decompose';
 const LBL_DECOMPOSED = 'decomposed:1';
 const LBL_FROM_DECOMP = 'from-decompose';
 const LBL_DECOMP_RETRIED = 'decompose-retried';
+const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
 const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
 const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN || 5);
@@ -157,7 +158,12 @@ const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PE
 /**
  * La issue può entrare nello stadio di decomposizione? Pura (solo label) →
  * testabile. Esclude i padri già decomposti (`decomposed:1`), le figlie
- * (`from-decompose`, atomiche by-construction) e chi è già dentro lo stadio.
+ * (`from-decompose`, atomiche by-construction), chi è già dentro lo stadio, e
+ * chi è già stato triagiato `already-resolved` da un run decompose precedente
+ * (`maybe-resolved`, applicata da `check-issue-already-resolved.mjs` /
+ * `reconcile-followups.mjs`) — altrimenti la rimozione di `agent:decompose`
+ * che accompagna quell'esito la rende di nuovo eleggibile al giro successivo
+ * (#6275: re-queue infinito).
  * NON esclude `needs-human`: i call-site di routing agiscono PRIMA che quel
  * label venga applicato, e un'issue grande già marcata a mano resta comunque
  * decomponibile se qualcuno la ri-accoda.
@@ -166,7 +172,8 @@ const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PE
 export function isDecomposeEligible(iss) {
   const ls = names(iss);
   return !ls.includes(LBL_DECOMPOSED) && !ls.includes(LBL_FROM_DECOMP)
-    && !ls.includes(LBL_DECOMP_QUEUED) && !ls.includes(LBL_DECOMP);
+    && !ls.includes(LBL_DECOMP_QUEUED) && !ls.includes(LBL_DECOMP)
+    && !ls.includes(LBL_MAYBE_RESOLVED);
 }
 
 /**

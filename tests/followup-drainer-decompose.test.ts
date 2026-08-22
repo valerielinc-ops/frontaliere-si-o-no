@@ -52,6 +52,10 @@ describe('isDecomposeEligible — anti-ricorsione by-construction', () => {
     expect(isDecomposeEligible(iss(['needs-human']))).toBe(true);
   });
 
+  it('NON eleggibile: già triagiata already-resolved (maybe-resolved, #6275)', () => {
+    expect(isDecomposeEligible(iss(['maybe-resolved']))).toBe(false);
+  });
+
   it('input vuoto/null senza throw', () => {
     expect(isDecomposeEligible({})).toBe(true);
     expect(isDecomposeEligible({ labels: undefined })).toBe(true);
