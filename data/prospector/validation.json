@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-22T09:27:13.638Z",
+  "generatedAt": "2026-08-22T16:24:12.006Z",
   "tally": {
-    "good": 31,
-    "weak": 4,
+    "good": 30,
+    "weak": 6,
     "bad": 1,
-    "insufficient": 4
+    "insufficient": 3
   },
-  "promotedVacancies": 3946,
+  "promotedVacancies": 3857,
   "reports": [
     {
       "companyKey": "albergo-gardenia",
@@ -45,12 +45,12 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 221,
+      "vacancyCount": 218,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.326,
+      "distinctRate": 0.33,
       "score": 0.933,
       "verdict": "good",
       "problems": [
@@ -66,19 +66,19 @@
           "status": 200
         },
         {
-          "url": "https://anker-swiss.ch/stellen/maler-1182527/",
+          "url": "https://anker-swiss.ch/stellen/maler-1183518/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 586,
+          "words": 614,
           "status": 200
         },
         {
-          "url": "https://anker-swiss.ch/stellen/malerpraktiker-1046853/",
+          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1117232/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 594,
+          "words": 580,
           "status": 200
         }
       ],
@@ -176,7 +176,7 @@
     },
     {
       "companyKey": "bewerbermanagement-stellen",
-      "vacancyCount": 15,
+      "vacancyCount": 13,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
@@ -203,11 +203,11 @@
           "status": 200
         },
         {
-          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1381/Description/1",
+          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 391,
+          "words": 191,
           "status": 200
         }
       ],
@@ -327,6 +327,80 @@
       "companyName": "Bürgenstock Collection",
       "companyHost": "recruitingapp-2850.umantis.com",
       "platform": "umantis.com",
+      "mode": "template",
+      "runErrors": []
+    },
+    {
+      "companyKey": "capannaalzasca",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.194,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 0.718,
+      "verdict": "weak",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/Digital_Content_Creator_80-100_.pdf",
+          "reachable": true,
+          "titleMatch": 0.16666666666666666,
+          "contentful": true,
+          "words": 6531,
+          "status": 200
+        },
+        {
+          "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/LeiterIn_Value_Stream_Marketing_100__DE.pdf",
+          "reachable": true,
+          "titleMatch": 0.2222222222222222,
+          "contentful": true,
+          "words": 7575,
+          "status": 200
+        }
+      ],
+      "companyName": "Capanna Alzasca",
+      "companyHost": "sac-cas.ch",
+      "platform": "sac-cas.ch",
+      "mode": "template",
+      "runErrors": []
+    },
+    {
+      "companyKey": "capannabasodino",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.194,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 0.718,
+      "verdict": "weak",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/Digital_Content_Creator_80-100_.pdf",
+          "reachable": true,
+          "titleMatch": 0.16666666666666666,
+          "contentful": true,
+          "words": 6531,
+          "status": 200
+        },
+        {
+          "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/LeiterIn_Value_Stream_Marketing_100__DE.pdf",
+          "reachable": true,
+          "titleMatch": 0.2222222222222222,
+          "contentful": true,
+          "words": 7575,
+          "status": 200
+        }
+      ],
+      "companyName": "Capanna Basodino CAS",
+      "companyHost": "sac-cas.ch",
+      "platform": "sac-cas.ch",
       "mode": "template",
       "runErrors": []
     },
@@ -503,7 +577,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1689,
+          "words": 1687,
           "status": 200
         },
         {
@@ -523,12 +597,12 @@
     },
     {
       "companyKey": "fachkraft",
-      "vacancyCount": 3440,
+      "vacancyCount": 3362,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.901,
+      "distinctRate": 0.902,
       "score": 0.99,
       "verdict": "good",
       "problems": [],
@@ -550,11 +624,11 @@
           "status": 200
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/18380-stazh/",
+          "url": "https://www.fachkraft.ch/stellen/43120-staof/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 524,
+          "words": 510,
           "status": 200
         }
       ],
@@ -1215,7 +1289,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1438,
+          "words": 1441,
           "status": 200
         },
         {
@@ -1278,38 +1352,38 @@
     },
     {
       "companyKey": "okjob",
-      "vacancyCount": 15,
+      "vacancyCount": 13,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.855,
+      "titleMatchRate": 0.897,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.949,
+      "score": 0.964,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-gesundheit-spitex-m-w-d-basel/?ref=42078",
+          "url": "https://www.okjob.ch/de/jobangebote/lastwagenchauffeur-ce-100-m-w-d-bern/?ref=41633",
           "reachable": true,
-          "titleMatch": 0.875,
+          "titleMatch": 1,
           "contentful": true,
-          "words": 730,
+          "words": 475,
           "status": 200
         },
         {
-          "url": "https://www.okjob.ch/de/jobangebote/automatikerin-80-100-m-w-d-bern/?ref=41642",
-          "reachable": true,
-          "titleMatch": 0.8333333333333334,
-          "contentful": true,
-          "words": 683,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/servicemonteurin-sonnenschutz-100-m-w-d-bern/?ref=41654",
+          "url": "https://www.okjob.ch/de/jobangebote/walzenfuehrer-asphalteinbau-100-m-w-d-bern/?ref=41645",
           "reachable": true,
           "titleMatch": 0.8571428571428571,
           "contentful": true,
-          "words": 701,
+          "words": 699,
+          "status": 200
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/mechanikerin-80-100-m-w-d-bern/?ref=41641",
+          "reachable": true,
+          "titleMatch": 0.8333333333333334,
+          "contentful": true,
+          "words": 655,
           "status": 200
         }
       ],
@@ -1367,23 +1441,38 @@
     },
     {
       "companyKey": "parkhoteldelta",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "distinctRate": 0,
-      "score": 0,
-      "verdict": "insufficient",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
       "problems": [],
-      "samples": [],
+      "samples": [
+        {
+          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-barista-e-cameriere-a-ore-3965168?rltr=comp",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 676,
+          "status": 200
+        },
+        {
+          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-ad-ascona-cerca-cameriere-a-3970443?rltr=comp",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 640,
+          "status": 200
+        }
+      ],
       "companyName": "Parkhotel Delta",
       "companyHost": "hotelcareer.ch",
       "platform": "hotelcareer.ch",
       "mode": "template",
-      "runErrors": [
-        "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822: HTTP 403"
-      ]
+      "runErrors": []
     },
     {
       "companyKey": "physioswiss",
@@ -1510,84 +1599,6 @@
       ],
       "companyName": "SGKB Bewerbermanagement Stellen",
       "companyHost": "recruitingapp-1154.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-2563",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-2563.umantis.com/Vacancies/547/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 754,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 852,
-          "status": 200
-        }
-      ],
-      "companyName": "Switch Bewerbermanagement Stellen",
-      "companyHost": "recruitingapp-2563.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-2649",
-      "vacancyCount": 4,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 574,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 682,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 555,
-          "status": 200
-        }
-      ],
-      "companyName": "Alexander von Humboldt-Stiftung Stellen",
-      "companyHost": "recruitingapp-2649.umantis.com",
       "platform": "umantis.com",
       "mode": "template",
       "runErrors": []
