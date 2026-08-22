@@ -20,7 +20,7 @@ import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/cover
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
-import { commonUrlTemplate, crawlerKeyFor, detectPageLang } from '../scripts/lib/prospector/synthesize.mjs';
+import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
@@ -318,6 +318,12 @@ describe('crawler synthesis', () => {
   it('reads the page language', () => {
     expect(detectPageLang('<html lang="it"><body>x</body></html>')).toBe('it');
     expect(detectPageLang('<html><body>Wir suchen und bieten für die neue Stellen mit unsere Arbeit bei der das</body></html>')).toBe('de');
+  });
+
+  it('tells expected decode noise apart from a genuine programming bug', () => {
+    expect(isExpectedSynthesisError(new URIError('URI malformed'))).toBe(true);
+    expect(isExpectedSynthesisError(new TypeError('Cannot read properties of undefined'))).toBe(false);
+    expect(isExpectedSynthesisError(new Error('boom'))).toBe(false);
   });
 });
 
