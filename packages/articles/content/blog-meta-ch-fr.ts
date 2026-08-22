@@ -3823,6 +3823,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.udc-referendum-accordi-ue.title': 'L\'UDC prépare un référendum contre les accords de l\'UE',
     'blog.article.udc-referendum-accordi-ue.excerpt': 'L\'UDC se prépare à lancer un référendum contre les prochains accords entre la Suisse et l\'UE. Marcel Dettling déclare la volonté du parti de combattre tout accord. Collecte des signatures en cours.',
     'blog.article.udc-referendum-accordi-ue.imageAlt': 'Assemblée politique suisse avec délégués débattant des référendums et accords internationaux avec l\'UE',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Ouvrir une entreprise à Lucerne : registre du commerce et des coûts',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Exigences pour SÀRL, SA et les entreprises individuelles : capital minimum, frais d\'enregistrement (CHF 200–500), taxes et assurances obligatoires.',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Bureaux modernes à Lucerne avec le Chapel Bridge en arrière-plan',
 };
 
 export default blogMetaChFr;
