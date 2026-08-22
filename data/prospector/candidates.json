@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-22T16:24:12.007Z",
+  "updatedAt": "2026-08-22T19:07:47.511Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -147,7 +147,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.368Z",
-      "updatedAt": "2026-08-22T16:21:16.180Z",
+      "updatedAt": "2026-08-22T19:03:53.658Z",
       "name": "Anker Swiss Ticino AG",
       "city": "Mendrisio",
       "zip": "6850",
@@ -231,6 +231,17 @@
         },
         {
           "at": "2026-08-22T16:21:16.180Z",
+          "score": 0.933,
+          "verdict": "good",
+          "vacancyCount": 218,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.33
+        },
+        {
+          "at": "2026-08-22T19:03:53.658Z",
           "score": 0.933,
           "verdict": "good",
           "vacancyCount": 218,
@@ -773,7 +784,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.369Z",
-      "updatedAt": "2026-08-22T16:23:33.513Z",
+      "updatedAt": "2026-08-22T19:07:07.614Z",
       "name": "Michael Page",
       "city": "",
       "zip": "",
@@ -862,6 +873,17 @@
         },
         {
           "at": "2026-08-22T16:23:33.513Z",
+          "score": 0.995,
+          "verdict": "good",
+          "vacancyCount": 20,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.95
+        },
+        {
+          "at": "2026-08-22T19:07:07.614Z",
           "score": 0.995,
           "verdict": "good",
           "vacancyCount": 20,
@@ -3659,7 +3681,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.378Z",
-      "updatedAt": "2026-08-22T16:23:24.238Z",
+      "updatedAt": "2026-08-22T19:06:58.778Z",
       "name": "MediPersonal",
       "city": "Wallisellen",
       "zip": "8304",
@@ -3754,6 +3776,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:06:58.778Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 15,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -3821,7 +3854,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.379Z",
-      "updatedAt": "2026-08-22T16:23:46.472Z",
+      "updatedAt": "2026-08-22T19:07:23.062Z",
       "name": "OK Job SA, succursale di Mendrisio",
       "city": "Mendrisio",
       "zip": "6850",
@@ -3850,7 +3883,7 @@
       ],
       "platform": null,
       "tenantHost": null,
-      "vacancyCount": 13,
+      "vacancyCount": 14,
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
@@ -3858,7 +3891,7 @@
       "crawlerKey": "okjob",
       "mode": "template",
       "sourceLang": "fr",
-      "qualityScore": 0.964,
+      "qualityScore": 0.947,
       "qualityVerdict": "good",
       "qualityProblems": [],
       "validationHistory": [
@@ -3914,6 +3947,17 @@
           "sampled": 3,
           "reachableRate": 1,
           "titleMatchRate": 0.897,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:23.062Z",
+          "score": 0.947,
+          "verdict": "good",
+          "vacancyCount": 14,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0.847,
           "contentfulRate": 1,
           "distinctRate": 1
         }
@@ -5190,7 +5234,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.223Z",
-      "updatedAt": "2026-08-22T16:21:32.417Z",
+      "updatedAt": "2026-08-22T19:04:09.007Z",
       "name": "Basilese",
       "domain": "baloise.ch",
       "city": "Mendrisio",
@@ -5269,6 +5313,17 @@
         },
         {
           "at": "2026-08-22T16:21:32.417Z",
+          "score": 0.846,
+          "verdict": "good",
+          "vacancyCount": 3,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0.56,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:09.007Z",
           "score": 0.846,
           "verdict": "good",
           "vacancyCount": 3,
@@ -5426,7 +5481,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.225Z",
-      "updatedAt": "2026-08-22T16:23:27.353Z",
+      "updatedAt": "2026-08-22T19:07:02.047Z",
       "name": "Casa Comunale Meride",
       "domain": "mendrisio.ch",
       "city": "",
@@ -5490,6 +5545,17 @@
         },
         {
           "at": "2026-08-22T16:23:27.353Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:02.047Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -6979,7 +7045,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.285Z",
-      "updatedAt": "2026-08-22T16:22:44.292Z",
+      "updatedAt": "2026-08-22T19:05:24.620Z",
       "name": "Gruppo Multi",
       "domain": "gruppomulti.ch",
       "city": "",
@@ -7043,6 +7109,17 @@
         },
         {
           "at": "2026-08-22T16:22:44.292Z",
+          "score": 0.817,
+          "verdict": "good",
+          "vacancyCount": 3,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0.667,
+          "contentfulRate": 1,
+          "distinctRate": 0.333
+        },
+        {
+          "at": "2026-08-22T19:05:24.620Z",
           "score": 0.817,
           "verdict": "good",
           "vacancyCount": 3,
@@ -8719,7 +8796,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.307Z",
-      "updatedAt": "2026-08-22T16:24:02.513Z",
+      "updatedAt": "2026-08-22T19:07:37.699Z",
       "name": "Physio swiss",
       "domain": "physioswiss.ch",
       "city": "Minusio",
@@ -8771,6 +8848,17 @@
         },
         {
           "at": "2026-08-22T16:24:02.513Z",
+          "score": 0.874,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0.639,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:37.699Z",
           "score": 0.874,
           "verdict": "good",
           "vacancyCount": 10,
@@ -8843,7 +8931,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.308Z",
-      "updatedAt": "2026-08-22T16:23:37.766Z",
+      "updatedAt": "2026-08-22T19:07:12.230Z",
       "name": "OCST",
       "domain": "ocst.ch",
       "city": "Locarno",
@@ -8894,6 +8982,17 @@
         },
         {
           "at": "2026-08-22T16:23:37.766Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:12.230Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -9431,7 +9530,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.314Z",
-      "updatedAt": "2026-08-22T16:22:17.235Z",
+      "updatedAt": "2026-08-22T19:04:56.695Z",
       "name": "Emil Egger AG",
       "domain": "ete.ch",
       "city": "",
@@ -9484,6 +9583,17 @@
         },
         {
           "at": "2026-08-22T16:22:17.235Z",
+          "score": 0.986,
+          "verdict": "good",
+          "vacancyCount": 28,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.857
+        },
+        {
+          "at": "2026-08-22T19:04:56.695Z",
           "score": 0.986,
           "verdict": "good",
           "vacancyCount": 28,
@@ -11593,7 +11703,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.609Z",
-      "updatedAt": "2026-08-22T16:22:21.513Z",
+      "updatedAt": "2026-08-22T19:05:01.129Z",
       "name": "fachkraft.ch GmbH",
       "city": "Luzern",
       "zip": "6003",
@@ -11656,6 +11766,17 @@
         },
         {
           "at": "2026-08-22T16:22:21.513Z",
+          "score": 0.99,
+          "verdict": "good",
+          "vacancyCount": 3362,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.902
+        },
+        {
+          "at": "2026-08-22T19:05:01.129Z",
           "score": 0.99,
           "verdict": "good",
           "vacancyCount": 3362,
@@ -17598,12 +17719,12 @@
     },
     "ipersonal.ch": {
       "key": "ipersonal.ch",
-      "status": "promoted",
+      "status": "rejected",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.643Z",
-      "updatedAt": "2026-08-22T16:22:58.484Z",
+      "updatedAt": "2026-08-22T19:06:28.008Z",
       "name": "iPersonal AG",
       "city": "Wallisellen",
       "zip": "8304",
@@ -17641,9 +17762,13 @@
       "crawlerKey": "ipersonal",
       "mode": "template",
       "sourceLang": "de",
-      "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityScore": 0.1,
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "100% degli URL non risolve",
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
       "validationHistory": [
         {
           "at": "2026-08-21T18:41:39.894Z",
@@ -17687,6 +17812,17 @@
           "reachableRate": 1,
           "titleMatchRate": 1,
           "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:06:28.008Z",
+          "score": 0.1,
+          "verdict": "bad",
+          "vacancyCount": 15,
+          "sampled": 3,
+          "reachableRate": 0,
+          "titleMatchRate": 0,
+          "contentfulRate": 0,
           "distinctRate": 1
         }
       ]
@@ -136244,7 +136380,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.403Z",
-      "updatedAt": "2026-08-22T16:22:05.440Z",
+      "updatedAt": "2026-08-22T19:04:45.030Z",
       "name": "MPI AGE",
       "tenantHost": "mpi-age.de.umantis.com",
       "platform": "umantis.com",
@@ -136287,6 +136423,17 @@
         },
         {
           "at": "2026-08-22T16:22:05.440Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:45.030Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -136947,7 +137094,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-22T16:24:11.999Z",
+      "updatedAt": "2026-08-22T19:07:47.506Z",
       "name": "SGKB Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-1154.umantis.com",
       "platform": "umantis.com",
@@ -137012,6 +137159,17 @@
         },
         {
           "at": "2026-08-22T16:24:11.999Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 7,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:47.506Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 7,
@@ -137645,7 +137803,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-22T16:24:07.203Z",
+      "updatedAt": "2026-08-22T19:07:42.621Z",
       "name": "BIG & ARE Stellen",
       "tenantHost": "recruitingapp-1123.umantis.com",
       "platform": "umantis.com",
@@ -137710,6 +137868,17 @@
         },
         {
           "at": "2026-08-22T16:24:07.203Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:42.621Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 10,
@@ -137918,7 +138087,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.416Z",
-      "updatedAt": "2026-08-22T16:23:07.155Z",
+      "updatedAt": "2026-08-22T19:06:40.266Z",
       "name": "J. Safra Sarasin",
       "tenantHost": "jsafrasarasin.umantis.com",
       "platform": "umantis.com",
@@ -137982,6 +138151,17 @@
         },
         {
           "at": "2026-08-22T16:23:07.155Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 14,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:06:40.266Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 14,
@@ -138149,7 +138329,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.566Z",
-      "updatedAt": "2026-08-22T16:22:49.991Z",
+      "updatedAt": "2026-08-22T19:05:30.394Z",
       "name": "Hotel International au Lac",
       "domain": "hotel-international.ch",
       "city": "Lugano",
@@ -138187,6 +138367,17 @@
         },
         {
           "at": "2026-08-22T16:22:49.991Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 5,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:05:30.394Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 5,
@@ -139137,7 +139328,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.589Z",
-      "updatedAt": "2026-08-22T16:21:51.381Z",
+      "updatedAt": "2026-08-22T19:04:30.191Z",
       "name": "Capanna Alzasca",
       "domain": "capannaalzasca.ch",
       "city": "",
@@ -139174,6 +139365,17 @@
           "titleMatchRate": 0.194,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:30.191Z",
+          "score": 0.718,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0.194,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -139184,7 +139386,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.590Z",
-      "updatedAt": "2026-08-22T16:21:54.885Z",
+      "updatedAt": "2026-08-22T19:04:33.676Z",
       "name": "Capanna Basodino CAS",
       "domain": "capannabasodino.ch",
       "city": "",
@@ -139213,6 +139415,17 @@
       "validationHistory": [
         {
           "at": "2026-08-22T16:21:54.885Z",
+          "score": 0.718,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0.194,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:33.676Z",
           "score": 0.718,
           "verdict": "weak",
           "vacancyCount": 2,
@@ -139299,7 +139512,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.591Z",
-      "updatedAt": "2026-08-22T16:21:05.288Z",
+      "updatedAt": "2026-08-22T19:03:40.713Z",
       "name": "Albergo Gardenia",
       "domain": "albergo-gardenia.ch",
       "city": "",
@@ -139374,6 +139587,17 @@
         },
         {
           "at": "2026-08-22T16:21:05.288Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:03:40.712Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -140573,7 +140797,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.609Z",
-      "updatedAt": "2026-08-22T16:23:57.094Z",
+      "updatedAt": "2026-08-22T19:07:31.374Z",
       "name": "Parkhotel Delta",
       "domain": "parkhoteldelta.ch",
       "city": "",
@@ -140648,6 +140872,17 @@
         },
         {
           "at": "2026-08-22T16:23:57.094Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:07:31.374Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -142458,12 +142693,12 @@
     },
     "pizzastyle.ch": {
       "key": "pizzastyle.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.637Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:35.727Z",
       "name": "Pizza Style",
       "domain": "pizzastyle.ch",
       "city": "",
@@ -142482,7 +142717,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "grottosantamargherita.ch": {
       "key": "grottosantamargherita.ch",
@@ -142558,12 +142794,12 @@
     },
     "marnin.ch": {
       "key": "marnin.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.639Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:36.962Z",
       "name": "Panetteria Pasticceria Marnin",
       "domain": "marnin.ch",
       "city": "",
@@ -142580,7 +142816,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "casa-martinelli.ch": {
       "key": "casa-martinelli.ch",
@@ -142616,12 +142853,12 @@
     },
     "museoascona.ch": {
       "key": "museoascona.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.639Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:39.134Z",
       "name": "Museo Comunale d'Arte Moderna",
       "domain": "museoascona.ch",
       "city": "Ascona",
@@ -142638,16 +142875,17 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "balu.ch": {
       "key": "balu.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.640Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:39.901Z",
       "name": "Balu Glam",
       "domain": "balu.ch",
       "city": "",
@@ -142664,7 +142902,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "hotelannita.ch": {
       "key": "hotelannita.ch",
@@ -142702,12 +142941,12 @@
     },
     "sasso-sangottardo.ch": {
       "key": "sasso-sangottardo.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.640Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:40.923Z",
       "name": "Sasso San Gottardo",
       "domain": "sasso-sangottardo.ch",
       "city": "",
@@ -142724,16 +142963,17 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "lagomaggiorehotel.ch": {
       "key": "lagomaggiorehotel.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.641Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:42.252Z",
       "name": "Hotel & Lounge Lago Maggiore",
       "domain": "lagomaggiorehotel.ch",
       "city": "Muralto",
@@ -142750,7 +142990,8 @@
       "selfHosted": true,
       "trailVia": [
         "sitemap"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "hotelgeranio.ch": {
       "key": "hotelgeranio.ch",
@@ -142822,12 +143063,12 @@
     },
     "ristorantedelponte.ch": {
       "key": "ristorantedelponte.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.642Z",
-      "updatedAt": "2026-08-21T09:45:25.735Z",
+      "updatedAt": "2026-08-22T19:02:45.233Z",
       "name": "Ristorante del Ponte",
       "domain": "ristorantedelponte.ch",
       "city": "Minusio",
@@ -142848,7 +143089,8 @@
       "selfHosted": true,
       "trailVia": [
         "sitemap"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "aipiee.ch": {
       "key": "aipiee.ch",
@@ -142940,12 +143182,12 @@
     },
     "hotelgarnicentro.com": {
       "key": "hotelgarnicentro.com",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.644Z",
-      "updatedAt": "2026-08-21T09:45:25.736Z",
+      "updatedAt": "2026-08-22T19:02:46.419Z",
       "name": "Hotel Art-Garni Centro",
       "domain": "hotelgarnicentro.com",
       "city": "",
@@ -142962,7 +143204,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "pompierimendrisiotto.ch": {
       "key": "pompierimendrisiotto.ch",
@@ -143038,12 +143281,12 @@
     },
     "tamoil.ch": {
       "key": "tamoil.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.645Z",
-      "updatedAt": "2026-08-21T09:45:25.736Z",
+      "updatedAt": "2026-08-22T19:02:47.307Z",
       "name": "Tamoil",
       "domain": "tamoil.ch",
       "city": "Balerna",
@@ -143062,7 +143305,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "casinomendrisio.ch": {
       "key": "casinomendrisio.ch",
@@ -143242,12 +143486,12 @@
     },
     "kkiosk.ch": {
       "key": "kkiosk.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.648Z",
-      "updatedAt": "2026-08-21T09:45:25.736Z",
+      "updatedAt": "2026-08-22T19:02:48.312Z",
       "name": "k kiosk",
       "domain": "kkiosk.ch",
       "city": "",
@@ -143264,7 +143508,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "bsibank.com": {
       "key": "bsibank.com",
@@ -143476,12 +143721,12 @@
     },
     "casaberno.ch": {
       "key": "casaberno.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.652Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:48.827Z",
       "name": "Albergo Casa Berno",
       "domain": "casaberno.ch",
       "city": "",
@@ -143498,16 +143743,17 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: seed irraggiungibile (403)"
     },
     "vanini-dolce-caffe.ch": {
       "key": "vanini-dolce-caffe.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.653Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:50.258Z",
       "name": "Vanini",
       "domain": "vanini-dolce-caffe.ch",
       "city": "Lugano",
@@ -143526,7 +143772,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "negresco.info": {
       "key": "negresco.info",
@@ -143566,12 +143813,12 @@
     },
     "ilcalicanto.ch": {
       "key": "ilcalicanto.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.653Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:51.301Z",
       "name": "B&B Il Calicanto",
       "domain": "ilcalicanto.ch",
       "city": "",
@@ -143588,16 +143835,17 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "bancastato.ch": {
       "key": "bancastato.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.653Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:53.098Z",
       "name": "Banca dello Stato",
       "domain": "bancastato.ch",
       "city": "Airolo",
@@ -143616,7 +143864,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "libreriaalponte.ch": {
       "key": "libreriaalponte.ch",
@@ -143652,12 +143901,12 @@
     },
     "wix.com": {
       "key": "wix.com",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.654Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:56.912Z",
       "name": "Pizza E Sfizi",
       "domain": "wix.com",
       "city": "",
@@ -143678,7 +143927,8 @@
       "selfHosted": true,
       "trailVia": [
         "sitemap"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "angolino.ch": {
       "key": "angolino.ch",
@@ -143734,12 +143984,12 @@
     },
     "ilboccalino.ch": {
       "key": "ilboccalino.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.655Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:57.408Z",
       "name": "Il Boccalino",
       "domain": "ilboccalino.ch",
       "city": "Locarno",
@@ -143758,7 +144008,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "groundzeroshop.ch": {
       "key": "groundzeroshop.ch",
@@ -143796,12 +144047,12 @@
     },
     "carpisa.it": {
       "key": "carpisa.it",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.656Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:02:58.476Z",
       "name": "Carpisa",
       "domain": "carpisa.it",
       "city": "Locarno",
@@ -143818,7 +144069,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "mobilezone.ch": {
       "key": "mobilezone.ch",
@@ -143854,12 +144106,12 @@
     },
     "boutiquecicala.ch": {
       "key": "boutiquecicala.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.657Z",
-      "updatedAt": "2026-08-21T09:45:25.737Z",
+      "updatedAt": "2026-08-22T19:03:05.833Z",
       "name": "BOUTIQUE CICALA",
       "domain": "boutiquecicala.ch",
       "city": "Locarno",
@@ -143876,7 +144128,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "tettamanti-arteor.ch": {
       "key": "tettamanti-arteor.ch",
@@ -143944,12 +144197,12 @@
     },
     "ticino.ch": {
       "key": "ticino.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.659Z",
-      "updatedAt": "2026-08-21T09:45:25.738Z",
+      "updatedAt": "2026-08-22T19:03:07.979Z",
       "name": "GranRex",
       "domain": "ticino.ch",
       "city": "Locarno",
@@ -143970,16 +144223,17 @@
       "selfHosted": true,
       "trailVia": [
         "sitemap"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "info-femminis.ch": {
       "key": "info-femminis.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.659Z",
-      "updatedAt": "2026-08-21T09:45:25.738Z",
+      "updatedAt": "2026-08-22T19:03:09.388Z",
       "name": "Macelleria Femminis",
       "domain": "info-femminis.ch",
       "city": "Locarno",
@@ -143996,7 +144250,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "homeoutlet.ch": {
       "key": "homeoutlet.ch",
@@ -144328,12 +144583,12 @@
     },
     "stile-libero.ch": {
       "key": "stile-libero.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.664Z",
-      "updatedAt": "2026-08-22T04:26:04.067Z",
+      "updatedAt": "2026-08-22T19:03:10.153Z",
       "name": "Stile Libero Arredamenti",
       "domain": "stile-libero.ch",
       "city": "",
@@ -144350,7 +144605,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "animalservice.ch": {
       "key": "animalservice.ch",
@@ -144386,12 +144642,12 @@
     },
     "museo-vela.ch": {
       "key": "museo-vela.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.664Z",
-      "updatedAt": "2026-08-22T04:26:04.068Z",
+      "updatedAt": "2026-08-22T19:03:11.441Z",
       "name": "Museo Vincenzo Vela",
       "domain": "museo-vela.ch",
       "city": "Ligornetto",
@@ -144408,7 +144664,8 @@
       "selfHosted": true,
       "trailVia": [
         "sitemap"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "laposta.ch": {
       "key": "laposta.ch",
@@ -144446,12 +144703,12 @@
     },
     "bbmotta.ch": {
       "key": "bbmotta.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.665Z",
-      "updatedAt": "2026-08-22T04:26:04.068Z",
+      "updatedAt": "2026-08-22T19:03:14.208Z",
       "name": "Albergo Motta",
       "domain": "bbmotta.ch",
       "city": "Airolo",
@@ -144468,7 +144725,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "hoteldesalpes-airolo.ch": {
       "key": "hoteldesalpes-airolo.ch",
@@ -144540,12 +144798,12 @@
     },
     "ballinariveterinario.ch": {
       "key": "ballinariveterinario.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.666Z",
-      "updatedAt": "2026-08-22T04:26:04.069Z",
+      "updatedAt": "2026-08-22T19:03:15.150Z",
       "name": "Ballinari Veterinario",
       "domain": "ballinariveterinario.ch",
       "city": "",
@@ -144564,16 +144822,17 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "webnode.com": {
       "key": "webnode.com",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.667Z",
-      "updatedAt": "2026-08-22T04:26:04.069Z",
+      "updatedAt": "2026-08-22T19:03:16.758Z",
       "name": "Karoubian Tappeti",
       "domain": "webnode.com",
       "city": "Morbio Inferiore",
@@ -144591,7 +144850,8 @@
       "trailVia": [
         "homepage",
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "jeans-shop.net": {
       "key": "jeans-shop.net",
@@ -144643,12 +144903,12 @@
     },
     "etnic.ch": {
       "key": "etnic.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.668Z",
-      "updatedAt": "2026-08-22T04:26:04.069Z",
+      "updatedAt": "2026-08-22T19:03:20.883Z",
       "name": "Ristorante Etnic",
       "domain": "etnic.ch",
       "city": "Lugano",
@@ -144667,7 +144927,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "davertour.com": {
       "key": "davertour.com",
@@ -144833,12 +145094,12 @@
     },
     "maiocchi.ch": {
       "key": "maiocchi.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.670Z",
-      "updatedAt": "2026-08-22T04:26:04.069Z",
+      "updatedAt": "2026-08-22T19:03:22.880Z",
       "name": "Maiocchi",
       "domain": "maiocchi.ch",
       "city": "",
@@ -144855,7 +145116,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "cartoleriacentrale.ch": {
       "key": "cartoleriacentrale.ch",
@@ -145071,12 +145333,12 @@
     },
     "scp94.com": {
       "key": "scp94.com",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.673Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:23.020Z",
       "name": "Special Cars C&M",
       "domain": "scp94.com",
       "city": "",
@@ -145093,7 +145355,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "linkem.ch": {
       "key": "linkem.ch",
@@ -145147,12 +145410,12 @@
     },
     "panetteriapeverelli.ch": {
       "key": "panetteriapeverelli.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.675Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:24.444Z",
       "name": "Tea Room Peverelli",
       "domain": "panetteriapeverelli.ch",
       "city": "Bellinzona",
@@ -145171,7 +145434,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "algaggio.ch": {
       "key": "algaggio.ch",
@@ -145211,12 +145475,12 @@
     },
     "locandadeimulini.ch": {
       "key": "locandadeimulini.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.675Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:26.495Z",
       "name": "Locanda dei Mulini",
       "domain": "locandadeimulini.ch",
       "city": "",
@@ -145235,7 +145499,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "feniceviaggi.com": {
       "key": "feniceviaggi.com",
@@ -145305,12 +145570,12 @@
     },
     "bricofaidate.ch": {
       "key": "bricofaidate.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.677Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:28.071Z",
       "name": "Brico",
       "domain": "bricofaidate.ch",
       "city": "Mendrisio",
@@ -145327,16 +145592,17 @@
       "selfHosted": true,
       "trailVia": [
         "sitemap"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "foce.ch": {
       "key": "foce.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.677Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:28.870Z",
       "name": "Teatro Foce",
       "domain": "foce.ch",
       "city": "Lugano",
@@ -145355,7 +145621,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "danesi.ch": {
       "key": "danesi.ch",
@@ -145375,12 +145642,12 @@
     },
     "crocerossaticino.ch": {
       "key": "crocerossaticino.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.677Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:29.364Z",
       "name": "Croce Rossa Svizzera",
       "domain": "crocerossaticino.ch",
       "city": "Mendrisio",
@@ -145398,7 +145665,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "orafo.ch": {
       "key": "orafo.ch",
@@ -145454,12 +145722,12 @@
     },
     "raffaellagioielli.com": {
       "key": "raffaellagioielli.com",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.679Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:31.292Z",
       "name": "Raffaella",
       "domain": "raffaellagioielli.com",
       "city": "",
@@ -145476,16 +145744,17 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "ideaviaggi.ch": {
       "key": "ideaviaggi.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.679Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:31.859Z",
       "name": "Idea Viaggi",
       "domain": "ideaviaggi.ch",
       "city": "Mendrisio",
@@ -145502,7 +145771,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "reginella.ch": {
       "key": "reginella.ch",
@@ -145716,12 +145986,12 @@
     },
     "capannagorda-sanda.ch": {
       "key": "capannagorda-sanda.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.683Z",
-      "updatedAt": "2026-08-22T04:26:04.070Z",
+      "updatedAt": "2026-08-22T19:03:32.288Z",
       "name": "Capanna Gorda",
       "domain": "capannagorda-sanda.ch",
       "city": "",
@@ -145738,16 +146008,17 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "odro.ch": {
       "key": "odro.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.683Z",
-      "updatedAt": "2026-08-22T04:26:04.071Z",
+      "updatedAt": "2026-08-22T19:03:33.857Z",
       "name": "Nucleo di Odro",
       "domain": "odro.ch",
       "city": "",
@@ -145764,7 +146035,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "capannapiansecco.ch": {
       "key": "capannapiansecco.ch",
@@ -145902,12 +146174,12 @@
     },
     "youthhostel.ch": {
       "key": "youthhostel.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.687Z",
-      "updatedAt": "2026-08-22T04:26:04.071Z",
+      "updatedAt": "2026-08-22T19:03:34.486Z",
       "name": "Ostello della gioventù Lugano",
       "domain": "youthhostel.ch",
       "city": "Savosa",
@@ -145924,7 +146196,8 @@
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "oasibellezza.ch": {
       "key": "oasibellezza.ch",
@@ -146216,12 +146489,12 @@
     },
     "hotel-rinascente.ch": {
       "key": "hotel-rinascente.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.693Z",
-      "updatedAt": "2026-08-22T04:26:04.071Z",
+      "updatedAt": "2026-08-22T19:03:34.581Z",
       "name": "Boutique Hotel La Rinascente",
       "domain": "hotel-rinascente.ch",
       "city": "Locarno",
@@ -146238,16 +146511,17 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "belottisport.ch": {
       "key": "belottisport.ch",
-      "status": "traced",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.693Z",
-      "updatedAt": "2026-08-22T04:26:04.071Z",
+      "updatedAt": "2026-08-22T19:03:36.453Z",
       "name": "Belotti Sport Bici",
       "domain": "belottisport.ch",
       "city": "Locarno",
@@ -146264,7 +146538,8 @@
       "selfHosted": true,
       "trailVia": [
         "path-probe"
-      ]
+      ],
+      "reason": "sintesi fallita: nessun annuncio estratto dal seed"
     },
     "negromante.com": {
       "key": "negromante.com",
@@ -147257,48 +147532,51 @@
     },
     "garagecremona.ch": {
       "key": "garagecremona.ch",
-      "status": "new",
+      "status": "dead",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.707Z",
-      "updatedAt": "2026-08-21T09:16:16.707Z",
+      "updatedAt": "2026-08-22T19:02:33.371Z",
       "name": "Garage Cremona SA",
       "domain": "garagecremona.ch",
       "city": "Melano",
       "canton": "TI",
       "country": "CH",
-      "osmTags": {}
+      "osmTags": {},
+      "reason": "nessuna pagina carriere"
     },
     "ostello-scudellate.ch": {
       "key": "ostello-scudellate.ch",
-      "status": "new",
+      "status": "dead",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.707Z",
-      "updatedAt": "2026-08-21T09:16:16.707Z",
+      "updatedAt": "2026-08-22T19:02:33.371Z",
       "name": "Ostello di Scudellate",
       "domain": "ostello-scudellate.ch",
       "city": "",
       "canton": "TI",
       "country": "CH",
-      "osmTags": {}
+      "osmTags": {},
+      "reason": "nessuna pagina carriere"
     },
     "castelsanpietro.ch": {
       "key": "castelsanpietro.ch",
-      "status": "new",
+      "status": "dead",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.708Z",
-      "updatedAt": "2026-08-21T09:16:16.708Z",
+      "updatedAt": "2026-08-22T19:02:33.371Z",
       "name": "Informazioni Castel San Pietro",
       "domain": "castelsanpietro.ch",
       "city": "",
       "canton": "TI",
       "country": "CH",
-      "osmTags": {}
+      "osmTags": {},
+      "reason": "nessuna pagina carriere"
     },
     "ortodossia.eu": {
       "key": "ortodossia.eu",
@@ -158945,7 +159223,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.278Z",
-      "updatedAt": "2026-08-22T16:21:43.595Z",
+      "updatedAt": "2026-08-22T19:04:20.865Z",
       "name": "buersten-technik",
       "domain": "buersten-technik.ch",
       "careersUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
@@ -159029,6 +159307,17 @@
         },
         {
           "at": "2026-08-22T16:21:43.595Z",
+          "score": 1,
+          "verdict": "insufficient",
+          "vacancyCount": 1,
+          "sampled": 1,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:20.865Z",
           "score": 1,
           "verdict": "insufficient",
           "vacancyCount": 1,
@@ -159442,7 +159731,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.288Z",
-      "updatedAt": "2026-08-22T16:22:29.695Z",
+      "updatedAt": "2026-08-22T19:05:09.602Z",
       "name": "glueckskette",
       "domain": "glueckskette.ch",
       "careersUrl": "https://www.swiss-solidarity.org/about-us/open-positions",
@@ -159535,6 +159824,17 @@
           "titleMatchRate": 0,
           "contentfulRate": 1,
           "distinctRate": 0.5
+        },
+        {
+          "at": "2026-08-22T19:05:09.602Z",
+          "score": 0.6,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 0.5
         }
       ]
     },
@@ -159545,7 +159845,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.288Z",
-      "updatedAt": "2026-08-22T16:22:34.326Z",
+      "updatedAt": "2026-08-22T19:05:14.529Z",
       "name": "gmo",
       "domain": "gmo.ch",
       "careersUrl": "https://www.arsante.ch/emploi",
@@ -159618,6 +159918,17 @@
         },
         {
           "at": "2026-08-22T16:22:34.326Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:05:14.529Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 10,
@@ -159719,7 +160030,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.289Z",
-      "updatedAt": "2026-08-22T16:23:19.674Z",
+      "updatedAt": "2026-08-22T19:06:54.341Z",
       "name": "lenk-simmental",
       "domain": "lenk-simmental.ch",
       "careersUrl": "https://www.adelboden-lenk.ch/jobs",
@@ -159805,6 +160116,17 @@
         },
         {
           "at": "2026-08-22T16:23:19.674Z",
+          "score": 0.65,
+          "verdict": "weak",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:06:54.341Z",
           "score": 0.65,
           "verdict": "weak",
           "vacancyCount": 10,
@@ -159984,7 +160306,7 @@
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.292Z",
-      "updatedAt": "2026-08-22T16:21:58.340Z",
+      "updatedAt": "2026-08-22T19:04:37.360Z",
       "name": "lepatron",
       "domain": "lepatron.ch",
       "careersUrl": "https://careers.orior.ch/go/Le-Patron/4574301/",
@@ -160056,6 +160378,17 @@
         },
         {
           "at": "2026-08-22T16:21:58.340Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:37.360Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -161912,7 +162245,7 @@
         "tenant:altamiraweb.com"
       ],
       "firstSeenAt": "2026-08-21T11:13:18.075Z",
-      "updatedAt": "2026-08-22T16:22:02.070Z",
+      "updatedAt": "2026-08-22T19:04:41.237Z",
       "name": "Cippà Trasporti S.A.",
       "tenantHost": "cippatrasporti.altamiraweb.com",
       "platform": "altamiraweb.com",
@@ -161977,6 +162310,17 @@
         },
         {
           "at": "2026-08-22T16:22:02.070Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:41.237Z",
           "score": 1,
           "verdict": "good",
           "vacancyCount": 2,
@@ -207739,7 +208083,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.141Z",
-      "updatedAt": "2026-08-22T16:23:10.385Z",
+      "updatedAt": "2026-08-22T19:06:44.135Z",
       "name": "Kinderspital Zürich",
       "tenantHost": "recruitingapp-2316.umantis.com",
       "platform": "umantis.com",
@@ -207789,6 +208133,17 @@
           "titleMatchRate": 0.5,
           "contentfulRate": 0.5,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:06:44.135Z",
+          "score": 0.725,
+          "verdict": "weak",
+          "vacancyCount": 2,
+          "sampled": 2,
+          "reachableRate": 1,
+          "titleMatchRate": 0.5,
+          "contentfulRate": 0.5,
+          "distinctRate": 1
         }
       ]
     },
@@ -207799,7 +208154,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.142Z",
-      "updatedAt": "2026-08-22T16:22:09.840Z",
+      "updatedAt": "2026-08-22T19:04:49.331Z",
       "name": "EOC candiDati Posizioni",
       "tenantHost": "recruitingapp-2761.umantis.com",
       "platform": "umantis.com",
@@ -207849,6 +208204,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:49.331Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -207859,7 +208225,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.143Z",
-      "updatedAt": "2026-08-22T16:21:37.094Z",
+      "updatedAt": "2026-08-22T19:04:13.719Z",
       "name": "Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-2904.umantis.com",
       "platform": "umantis.com",
@@ -207909,6 +208275,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:13.719Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 13,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -207942,7 +208319,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.143Z",
-      "updatedAt": "2026-08-22T16:21:48.111Z",
+      "updatedAt": "2026-08-22T19:04:25.440Z",
       "name": "Bürgenstock Collection",
       "tenantHost": "recruitingapp-2850.umantis.com",
       "platform": "umantis.com",
@@ -207992,6 +208369,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:25.440Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -208002,7 +208390,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.144Z",
-      "updatedAt": "2026-08-22T16:22:26.265Z",
+      "updatedAt": "2026-08-22T19:05:06.067Z",
       "name": "GKB JobService",
       "tenantHost": "recruitingapp-2607.umantis.com",
       "platform": "umantis.com",
@@ -208052,6 +208440,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:05:06.067Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 25,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -208084,7 +208483,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.145Z",
-      "updatedAt": "2026-08-22T16:21:41.585Z",
+      "updatedAt": "2026-08-22T19:04:18.607Z",
       "name": "Bewerbungsmanagement Spital Davos",
       "tenantHost": "recruitingapp-2966.umantis.com",
       "platform": "umantis.com",
@@ -208135,6 +208534,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:04:18.607Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -208145,7 +208555,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.145Z",
-      "updatedAt": "2026-08-22T16:22:52.023Z",
+      "updatedAt": "2026-08-22T19:05:32.519Z",
       "name": "& im Bethesda Spital",
       "tenantHost": "recruitingapp-2998.umantis.com",
       "platform": "umantis.com",
@@ -208196,6 +208606,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:05:32.519Z",
+          "score": 1,
+          "verdict": "insufficient",
+          "vacancyCount": 1,
+          "sampled": 1,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -208206,7 +208627,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.145Z",
-      "updatedAt": "2026-08-22T16:23:53.740Z",
+      "updatedAt": "2026-08-22T19:07:27.922Z",
       "name": "Ostschweizer Kinderspital",
       "tenantHost": "recruitingapp-2979.umantis.com",
       "platform": "umantis.com",
@@ -208261,6 +208682,17 @@
           "titleMatchRate": 0.333,
           "contentfulRate": 1,
           "distinctRate": 0.111
+        },
+        {
+          "at": "2026-08-22T19:07:27.922Z",
+          "score": 0.678,
+          "verdict": "weak",
+          "vacancyCount": 9,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 0.333,
+          "contentfulRate": 1,
+          "distinctRate": 0.111
         }
       ]
     },
@@ -208271,7 +208703,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-22T16:23:15.066Z",
+      "updatedAt": "2026-08-22T19:06:49.425Z",
       "name": "KZU Recruiting",
       "tenantHost": "recruitingapp-1251.umantis.com",
       "platform": "umantis.com",
@@ -208321,6 +208753,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 1
+        },
+        {
+          "at": "2026-08-22T19:06:49.425Z",
+          "score": 1,
+          "verdict": "good",
+          "vacancyCount": 8,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 1
         }
       ]
     },
@@ -208350,7 +208793,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-22T16:21:20.692Z",
+      "updatedAt": "2026-08-22T19:03:58.398Z",
       "name": "Apleona Schweiz AG",
       "tenantHost": "recruitingapp-2765.umantis.com",
       "platform": "umantis.com",
@@ -208401,6 +208844,17 @@
           "titleMatchRate": 1,
           "contentfulRate": 1,
           "distinctRate": 0.7
+        },
+        {
+          "at": "2026-08-22T19:03:58.398Z",
+          "score": 0.97,
+          "verdict": "good",
+          "vacancyCount": 10,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.7
         }
       ]
     },
@@ -208411,7 +208865,7 @@
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-22T16:22:38.812Z",
+      "updatedAt": "2026-08-22T19:05:19.258Z",
       "name": "Griesser",
       "tenantHost": "recruitingapp-2690.umantis.com",
       "platform": "umantis.com",
@@ -208454,6 +208908,17 @@
         },
         {
           "at": "2026-08-22T16:22:38.812Z",
+          "score": 0.967,
+          "verdict": "good",
+          "vacancyCount": 24,
+          "sampled": 3,
+          "reachableRate": 1,
+          "titleMatchRate": 1,
+          "contentfulRate": 1,
+          "distinctRate": 0.667
+        },
+        {
+          "at": "2026-08-22T19:05:19.258Z",
           "score": 0.967,
           "verdict": "good",
           "vacancyCount": 24,
