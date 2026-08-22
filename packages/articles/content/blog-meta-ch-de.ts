@@ -3802,6 +3802,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-lucerna-guida.title': 'Niederlassungsbewilligung C Luzern: Komplette Anleitung',
     'blog.article.permesso-c-lucerna-guida.excerpt': 'Voraussetzungen, Integrationskriterien und Antragsverfahren für die Niederlassungsbewilligung C im Kanton Luzern. Komplette Schritt-für-Schritt-Anleitung.',
     'blog.article.permesso-c-lucerna-guida.imageAlt': 'Moderner Eingang eines Schweizer Kantonal Amts für Aufenthaltserlaubnisse',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Erlaubnis Luzern: Erneuerung nach einem Jahr',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'Der kurzfristige L-Ausweis ist bis zu 12 Monate gültig und kann erneuert werden. Erfahren Sie, wie es in Luzern funktioniert, welche Verlängerungsmöglichkeiten es gibt und wie Sie auf eine Aufenthaltsbewilligung umsteigen.',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Schweizer Verwaltungsbüro bearbeitet Arbeitserlaubnisse und Aufenthaltsgenehmigungen für ausländische Arbeitnehmer',
 };
 
 export default blogMetaChDe;

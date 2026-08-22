@@ -3802,6 +3802,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-lucerna-guida.title': 'Permis domicile C Lucerne : guide complet',
     'blog.article.permesso-c-lucerna-guida.excerpt': 'Exigences, critères d\'intégration et procédure de demande du permis de séjour C dans le canton de Lucerne. Guide complet étape par étape.',
     'blog.article.permesso-c-lucerna-guida.imageAlt': 'Entrée moderne d\'un bureau cantonal suisse pour les demandes de permis de résidence',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Permis L Lucerne : renouvellement après un an',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'Le permis L de courte durée est valable jusqu\'à 12 mois et peut être renouvelé. Découvrez comment cela fonctionne à Lucerne, les options de prolongation et le passage au permis de séjour.',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Bureau administratif suisse traitant les demandes de permis de travail et d\'autorisation de séjour pour travailleurs étrangers',
 };
 
 export default blogMetaChFr;

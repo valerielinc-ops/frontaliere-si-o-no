@@ -3802,6 +3802,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-lucerna-guida.title': 'Permesso di domicilio C Lucerna: guida completa',
     'blog.article.permesso-c-lucerna-guida.excerpt': 'Requisiti, criteri di integrazione e procedura di richiesta per il permesso di domicilio C nel Cantone di Lucerna. Guida completa step-by-step.',
     'blog.article.permesso-c-lucerna-guida.imageAlt': 'Ingresso moderno di un ufficio cantonale svizzero per richieste di permesso di domicilio',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Permesso L Lucerna: rinnovo dopo un anno',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'Il permesso L di breve durata vale fino a 12 mesi e può essere rinnovato. Scopri come funziona a Lucerna, le opzioni di proroga e il passaggio a permesso di dimora.',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Ufficio amministrativo svizzero dove si processano le richieste di permesso L e autorizzazioni di soggiorno per lavoratori stranieri',
 };
 
 export default blogMetaChIt;
