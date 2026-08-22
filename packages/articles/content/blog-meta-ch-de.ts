@@ -3844,6 +3844,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-affitti-uri-locazione.title': 'Mieten in Uri: Durchschnittsmieten und Mietrecht',
     'blog.article.guida-affitti-uri-locazione.excerpt': 'Bundesregeln über Kaution, Gebührenbeanstandung und Kündigung im Kanton Uri. Praktischer Leitfaden zum Mietrecht.',
     'blog.article.guida-affitti-uri-locazione.imageAlt': 'Typische Schweizer Wohngebäudefassade für Mietwohnungen im Kanton Uri, Straßenansicht',
+    'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologen: Gehälter und Kosten werden geprüft',
+    'blog.article.radiologi-premi-aumenti-2027.excerpt': 'Das Schweizerische Bundesparlament stellt sich der Kostendebatte im Gesundheitswesen: Radiologen erhalten Gehälter über 300 \'000 Franken, Prämien werden 2027 um 3,7 Prozent steigen.',
+    'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Bundeshaus in Bern während einer Plenarsitzung zur Gesundheitsreform',
 };
 
 export default blogMetaChDe;

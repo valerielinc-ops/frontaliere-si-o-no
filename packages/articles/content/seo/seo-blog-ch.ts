@@ -49862,6 +49862,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-radiologi-premi-aumenti-2027': {
+    title: 'Radiologi: stipendi e costi sotto esame | Frontaliere Ticino',
+    description: 'Il Parlamento svizzero vuole frenare i costi della sanità: stipendi radiologi oltre 300.000 franchi e aumento premi 2027 del 3,7% alimentano tre proposte',
+    keywords: 'frontalieri, ticino, svizzera, italia, radiologi, stipendi, costi, sotto',
+    ogTitle: 'Stipendi radiologi e costi sanità: le proposte',
+    ogDescription: 'Aumento premi cassa malati del 3,7% nel 2027 secondo Comparis. Il Parlamento federale svizzero affronta il dibattito sui costi della sanità, con focus sugli stipendi dei radiologi (oltre 300.000 franchi). Tre proposte in discussione: separazione',
+    canonicalPath: '/articoli-svizzera/radiologi-premi-aumenti-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radiologi: stipendi e costi sotto esame",
+      "description": "Il Parlamento svizzero vuole frenare i costi della sanità: stipendi radiologi oltre 300.000 franchi e aumento premi 2027 del 3,7% alimentano tre proposte",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/radiologi-premi-aumenti-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero a Berna durante una sessione plenaria sulla riforma della sanità"
+      },
+      "datePublished": "2026-08-22T14:46:32+00:00",
+      "dateModified": "2026-08-22T14:46:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/radiologi-premi-aumenti-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

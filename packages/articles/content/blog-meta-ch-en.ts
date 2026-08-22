@@ -3844,6 +3844,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-affitti-uri-locazione.title': 'Rentals in Uri: average fees and rental rights',
     'blog.article.guida-affitti-uri-locazione.excerpt': 'Federal Rules on Security Deposit, Rent Dispute and Cancellation in Canton Uri. Practical guide to lease law.',
     'blog.article.guida-affitti-uri-locazione.imageAlt': 'Typical Swiss residential rental building facade in Uri canton, street-level perspective',
+    'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologists: salaries and costs under review',
+    'blog.article.radiologi-premi-aumenti-2027.excerpt': 'The Swiss Federal Parliament is facing the debate on healthcare costs: radiologists receive salaries over CHF 300,000, premiums will increase by 3.7% in 2027.',
+    'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Swiss Federal Parliament building in Bern during a plenary session on healthcare policy reform',
 };
 
 export default blogMetaChEn;
