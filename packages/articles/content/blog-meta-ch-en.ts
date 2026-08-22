@@ -3847,6 +3847,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologists: salaries and costs under review',
     'blog.article.radiologi-premi-aumenti-2027.excerpt': 'The Swiss Federal Parliament is facing the debate on healthcare costs: radiologists receive salaries over CHF 300,000, premiums will increase by 3.7% in 2027.',
     'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Swiss Federal Parliament building in Bern during a plenary session on healthcare policy reform',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Finance ministers: Keller-Sutter in Vaduz for European economy',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'On 24 August, the Federal Councillor will attend the annual meeting with German-speaking colleagues in Liechtenstein to discuss finances, climate and stability.',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'Karin Keller-Sutter meets German-speaking finance ministers to discuss European economic policy',
 };
 
 export default blogMetaChEn;

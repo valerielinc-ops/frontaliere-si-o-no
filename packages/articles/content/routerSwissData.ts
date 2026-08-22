@@ -1308,6 +1308,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-uri-diritto-locazione': { it: 'affitti-uri-diritto-locazione', en: 'uri-rental-law-tenants-rights', de: 'mietmarkt-uri-mietrecht-kautionsvertrag', fr: 'location-uri-droit-locataire-depot-garantie' },
  'guida-affitti-uri-locazione': { it: 'guida-affitti-uri-locazione', en: 'uri-rental-guide-tenancy-rights', de: 'mietleitfaden-uri-schutzbestimmungen', fr: 'guide-location-uri-droits-locataires' },
  'radiologi-premi-aumenti-2027': { it: 'radiologi-premi-aumenti-2027', en: 'radiologists-premiums-increases-2027', de: 'radiologen-praemien-erhoehungen-2027', fr: 'radiologues-primes-augmentations-2027' },
+ 'keller-sutter-ministri-finanze-germanofoni': { it: 'keller-sutter-ministri-finanze-germanofoni', en: 'keller-sutter-finance-ministers-germanic-countries', de: 'keller-sutter-finanzminister-deutschsprachige-laender', fr: 'keller-sutter-ministres-finances-pays-germanophones' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
