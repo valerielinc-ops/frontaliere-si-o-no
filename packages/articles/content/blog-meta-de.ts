@@ -10492,6 +10492,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calcolare-imposta-fonte-ticino.title': 'So berechnen Sie die Quellensteuer Tessin',
     'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Praktischer Leitfaden zur Berechnung der Quellensteuer für Grenzgänger Tessin-Italien: Sätze, Franchisen 2024, Steuergutschrift im Jahr 730 und interaktiver Simulator.',
     'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Grenzgänger mit Tablet zeigt Steuerrechner, Lugano und Seeblick im Hintergrund',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'So berechnen Sie die Quellensteuer im Tessin',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Quellensteuer Tessin: Bundessätze 2026, Grenzbefreiungen € 7\'500–€ 10\'000, italienische Steuergutschrift und Schritt-für-Schritt-Simulator.',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Taschenrechner und Steuerdokumente zur Berechnung der Quellensteuer, Blick auf den Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 08:37:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 08:50:53 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,74 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>How to calculate source tax in Ticino</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/payslip-simulator-ticino-cross-border/</link>
+      <description><![CDATA[Tax at source Ticino: federal rates 2026, border exemptions €7,500- €10,000, Italian tax credit and step-by-step simulator.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Tax at source in Switzerland is withheld by the employer, not in both countries
+- From 1 January 2024, the exemptions change: €7,500 for old border guards, €10,000 for new ones
+- Old frontier workers: transitional regime until 2033
+- The Italian tax credit in 730 avoids double taxation
+
+## Key facts
+- **What**: Calculation of the tax at source on the Swiss border workers' paycheck
+- When: From 1 January 2024 (new agreement signed 23 December 2020)
+- Where: Ticino Canton, Brogeda, Chiasso, Gaggiolo passes and CH-Italy border
+- Who: Employed border workers working in Switzerland
+- Base rate: AVS/AI/IPG 5.3% + AD/AC 1.1% + LAINF 0.7–1.5% + LPP 7–18%
+- Old-age exemption: €7,500 per year (transitory until 2033)
+- New exemption: €10,000 per year (permanent)
+
+The tax at source in Switzerland affects the incomes of border workers who pass every day from the passes of Brogeda, Chiasso and Gaggiolo to reach the companies of Ticino and Lombardy. But how exactly is it calculated? And what was new about the new agreement ratified on 1 January 2024?
+
+The tax is withheld directly by the employer and represents a percentage of your gross. Let's dispel a myth right away: it is not paid in both countries, but ONLY in Switzerland. Italy avoids double taxation through the tax credit, which you fill out in the EC framework of declaration 730.
+
+The new December 2020 agreement (effective January 1, 2024)
+### The Tax Credit Rule
+
+This is where the Convention between Italy and Switzerland of 9 December 1976 comes into play, confirmed by the new agreement: you pay the tax ONLY in Switzerland. To avoid double taxation, Italy applies the tax credit. How does it work?
+
+In your Italian 730, fill in the CE table reporting: the Swiss source tax actually paid during the year; the days of work in Switzerland; the gross income from cross-border work. The Revenue Agency calculates the credit based on the Italian rate you are entitled to (23%, 35% or 43% depending on your tier) and compares it with what you have already paid in Switzerland. If you have paid less, pay the difference; if you have paid more than due in Italy, you recover it as a credit. Refer to [nostra guida alla dichiarazione 730](nav:tax-return) for details on compiling the CE Framework.
+
+Warning: this mechanism only works if your employer has correctly withheld the tax from you in Switzerland. If they did not do so by mistake, you are still liable to the Swiss tax authorities.
+
+### Difference between old and new frontier workers
+
+Here the novelty of 2024 is decisive. If you were already a border worker before 17 July 2023, you must apply: exemption of €7,500 per year (transitional regime until 2033). It means that the first part of your salary up to €7,500 is not subject to tax at source, the rest is normally calculated according to the rates. If you became frontier workers after that date:
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Step 1: Gather your documents
+
+From your December payslip (or your employer's annual statement), download: gross annual salary; withheld withholding tax (specific line item on the certificate); detailed OASI/IV/EO, ALV, UVG, BVG contributions; days of actual work (needed for the Italian tax return 'Modello 730').
+
+### Step 2: Check the applied exemption
+
+Ask your employer or your employer's tax advisor if the €7'500 (old cross-border commuters) or €10'000 (new cross-border commuters) exemption has been applied correctly. If you fall right on the border between the two regimes (which is rare), keep written confirmation of the date you officially became a cross-border worker. This document is required by the Italian tax authority in case of an audit.
+
+### Step 3: Use the simulator
+
+Access our [tax calculator](nav:calculator): enter your gross annual salary, select 'Ticino–Italy cross-border commuter', indicate the year (2026), and the system will show you the calculated withholding tax; detailed contributions for each item; estimated monthly net salary; amount to recover or pay in your '730' tax return.
+
+### Step 4: Fill out the Italian 730 tax return
+
+In Section CE ('quadro CE'), report the tax withheld from your Swiss payslip. If the amount is lower than the Italian tax due according to your tax bracket (23–43%), you pay the difference; if it is higher, you recover it as a tax credit in the same section.
+
+### Step 5: Keep everything
+
+Archive in a single folder: monthly payslips (originals or PDFs from the company portal); annual tax certificate (if provided by the employer); receipts of tax payments from Switzerland (available via ESTV or Swiss portal); submitted '730' tax return and receipt from the Italian Revenue Agency ('Agenzia delle Entrate').
+
+### Who to contact
+
+If the numbers do not add up or you have doubts: contact your employer (HR/payroll office) to check if the exemption is applied correctly; consult an Italian tax advisor for your '730' and tax credit; visit the FTA/ESTV website (estv.admin.ch) for details on Swiss taxes; check our [payslip simulator](nav:calculator) to verify calculations and the [border crossing comparator](nav:border-map) for waiting times at the borders. For questions on OASI and supplementary pension schemes, read [our pension guide](nav:pension).
+
+Subscribe to the Frontaliere Ticino weekly newsletter to receive monthly updates on 2026 tax rates, new tax regulations, and updated simulators directly in your inbox.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 08:50:53 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/simulatore-busta-paga-ticino-frontalieri</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/simulatore-busta-paga-ticino-frontalieri.webp" medium="image"/>
+    </item>
     <item>
       <title>How to calculate Ticino source tax</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/calculate-withholding-tax-ticino/</link>
@@ -3217,101 +3285,6 @@ For those deciding to settle in Rogeno and pursue a career across the border, th
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-rogeno-lavorare-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-rogeno-lavorare-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Santa Maria Maggiore as a border crossing Ticino</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/live-santa-maria-maggiore-cross-border-worker-ticino/</link>
-      <description><![CDATA[Complete guide to moving: G permit, new 2024 tax agreement, savings calculation, administrative procedures and journey times at crossings.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Frontier: reside in Italy, work in Ticino with G permit, taxes withheld in Switzerland
-- New agreement from 1 January 2024: exemption € 7,500 (old border guards) or € 10,000 (new)
-- Santa Maria Maggiore: access via the Brogeda and Gaggiolo passes, times 45 min–1.5 hours to reach Lugano
-- Swiss source tax, no double taxation
-
-## Key facts
-- **What**: G Permit for border workers Ticino-Italy
-- When: Agreement in force from 1 January 2024 (IT ratification: Law 83/2023)
-- Where: Santa Maria Maggiore (Verbano-Cusio-Ossola), crosses Brogeda/Gaggiolo towards Ticino
-- Who: Worker resident in Italy, employee in Switzerland
-- Exemption: € 7,500 per year (border crossers pre-17.7.2023) or € 10,000 (new)
-
-Living in Santa Maria Maggiore and working in Ticino as a border worker is a cost-effective choice for those looking for a salary in Swiss francs with an Italian cost of living. The municipality of the province of Verbano-Cusio-Ossola has become in recent years the preferred base for cross-border workers who wish to reconcile high income and low expenses.
-
-### What is the G permit and who is entitled to it
-
-A frontier worker is a worker resident in Italy who is employed in Switzerland. The residence and work permit, referred to as the “G permit”, is the document that allows this activity. According to the Italian-Swiss Convention signed on 9 December 1976, the border crossing is subject to taxation
-## Costs of living: the economic advantage
-
-The economic engine of the frontier is the spread between the Swiss salary and the Italian cost of living. A gross salary of CHF 5,500-6,000 per month is frequent in Ticino for roles in industry, healthcare, ICT or construction. After all taxes and contributions (AVS 5.3%, AI 5.3%, IPG 1.1%, insurance 0.7–1.5%, LPP 7–18% by age group), the net falls to CHF 4,100-4,300 per month.
-
-In Italy, a family can live in Santa Maria Maggiore with about € 1,800-2,000 per month: rents € 600–700, groceries € 400, cars € 300, utilities € 200, health and education € 200. Converted at the CHF/EUR exchange rate, the cost is CHF 1,950-2,150. The saving margin reaches CHF 2,000-2,200 per month, equivalent to over CHF 24,000 per year.
-
-### Transfer Benefits
-
-1. ** Fast capital accumulation **: CHF 24,000-30,000 per year savings allow you to buy a home or build assets in 10–15 years.
-2. Swiss wages, moderate taxation: The Swiss source tax (20–25% total with AVS/AI/IPG/LPP) is lower than the Italian IRPEF (23–43% depending on income).
-3. Linguistic and cultural familiarity: Staying in Italy with a Swiss salary allows you to maintain your family roots and community.
-4. Proximity to cross-border services: Malpensa (Varese, 1.5 hour drive) and Swiss airports are within easy reach.
-
-### Disadvantages and hidden costs
-
-Commuting and traffic: CHF
-
-## Useful tools for your case
-To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
-## Before Transfer: Checklist and Documents
-
-Moving to Santa Maria Maggiore as a border worker requires meticulous administrative preparation. Here are the essential steps.
-
-### Step 1: Requesting the G Permit
-
-The G permit is requested at the cantonal migration division (SEM) in Ticino, usually online or at regional counters. The necessary documents include:
-
-- G permit application (cantonally issued form)
-- Copy of Swiss employment contract or job offer letter
-- Certificate of liability insurance (civil responsibility)
-- Declaration of resources (bank statement and pay slip)
-- Certificate of good conduct from Italy (required by Prefecture or Questura)
-
-Approval times vary from 2 to 4 weeks after receiving complete documentation. Once issued, the G permit is valid for 1–5 years and can be automatically renewed if the employment relationship continues.
-
-### Step 2: Anagraphic and Fiscal Registration in Italy
-
-In Italy, register with the Municipality of Santa Maria Maggiore for anagraphic registration and obtain a tax code from the Revenue Agency. The border worker must declare Swiss income in the Italian 730 model, filling in the CE section (foreign tax credits) to avoid double taxation. The first declaration is critical: errors in the CE section generate payment notices.
-
-### Step 3: Italo-Swiss Bank Account
-
-Opening an Italian bank account facilitates local payments (rent, utilities, groceries). Meanwhile, maintain a Swiss account with the employer or a Swiss bank. Some Italo-Swiss institutions offer convenient exchange services (CHF→EUR) reducing costs from 1–2% to 0.3–0.5%.
-
-### Step 4: Health Insurance
-
-If you opt for Swiss LAMal, contact a recognized insurance company (CSS, Helsana, SWICA) and subscribe to a policy with an adult deductible of CHF 300–2,500. If you prefer to remain in Italy, register with the INPS as a foreign worker (the Swiss employer often handles this directly).
-
-### Fiscal Deadlines: The Border Worker's Calendar
-
-**January–February**: Receipt of Swiss income certification (CertRed) from the pay slip and preparation of the Italian 730 model.
-
-30 April: Deadline for submitting the 730 model to the Italian Revenue Agency (possible extension to 31 May with a delay).
-
-June–July: Any Swiss tax rectifications and communications from the cantonal administration (DFE/DSS).
-
-November–December: Annual AVS/AI/LPP reporting to the employer and verification of the taxable base for the following year.
-
-### Practical Tools: Calculator and Comparators
-
-To plan the transfer and savings, use the [salary calculator](nav:calculator) on Frontaliere Ticino: enter the Swiss gross, age range, canton, and receive an estimate of the net, source taxes, impact of the € 10,000 deductible, and potential annual savings.
-
-The [cost of living comparator](nav:cost-of-living) allows you to compare rents, food, transportation, healthcare between Santa Maria Maggiore and Lugano/Bellinzona, calculating the actual spending differential.
-
-Consult the guide "[G Permit vs B](nav:permit-compare)" to understand the differences between the border worker (G) and resident (B) status, evaluating which is more convenient in your personal situation.
-
-### First Concrete Step: Finding the Job
-
-If you don't already have a job offer in Ticino, consult the [Border Workers' Jobs](nav:jobs) portal, where you'll find announcements from Ticinese companies hiring border workers in sectors like metalworking, healthcare, construction, and ICT. Most contracts include automatic affiliation to AVS/LPP and provide administrative support in requesting the G permit from SEM. Once employed, the employer will provide necessary documentation, and the transfer to Santa Maria Maggiore will become a matter of a few weeks.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 04:08:25 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-santa-maria-maggiore-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-santa-maria-maggiore-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

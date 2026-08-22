@@ -10495,6 +10495,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcolare-imposta-fonte-ticino.title': 'Comment calculer l\'impôt source Tessin',
     'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Guide pratique pour le calcul de l\'impôt à la source pour les frontaliers Tessin-Italie : taux, franchises 2024, crédit d\'impôt en 730 et simulateur interactif.',
     'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Frontalier avec tablette affichant la calculatrice fiscale, vue de Lugano et du lac en arrière-plan',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'Comment calculer l\'impôt à la source au Tessin',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Impôt à la source Tessin : taux fédéraux 2026, exonérations frontalières € 7\'500–€ 10\'000, crédit d\'impôt italien et simulateur pas à pas.',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Calculatrice et documents fiscaux pour calculer l\'impôt à la source, vue sur le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

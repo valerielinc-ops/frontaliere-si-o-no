@@ -31413,6 +31413,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'simulatore-busta-paga-ticino-frontalieri',
+ category: 'fiscale',
+ date: '2026-08-22T08:50:53.328Z',
+ image: '/images/blog/simulatore-busta-paga-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
