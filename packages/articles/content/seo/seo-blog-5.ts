@@ -75263,6 +75263,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortunio-itinere-frontaliere-lainf': {
+    title: 'Infortunio in itinere: protezione LAINF per frontalieri',
+    description: 'Infortunio tragitto casa-lavoro al confine? LAINF copre l\'infortunio in itinere per frontalieri Ticino-Italia. Guida alla denuncia e risarcimento SUVA.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infortunio, itinere, protezione, lainf',
+    ogTitle: 'Infortunio in itinere: protezione LAINF per frontalieri',
+    ogDescription: 'Coperto da LAINF durante il tragitto verso il lavoro al confine? Scopri come SUVA protegge il frontaliere, quali documenti servono per la denuncia, e come ottenere il rimborso completo delle spese mediche.',
+    canonicalPath: '/articoli-frontaliere/infortunio-itinere-frontaliere-lainf',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infortunio in itinere: protezione LAINF per frontalieri",
+      "description": "Infortunio tragitto casa-lavoro al confine? LAINF copre l'infortunio in itinere per frontalieri Ticino-Italia. Guida alla denuncia e risarcimento SUVA.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infortunio-itinere-frontaliere-lainf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri al valico di confine durante il tragitto giornaliero verso il lavoro in Ticino"
+      },
+      "datePublished": "2026-08-22T17:18:45+00:00",
+      "dateModified": "2026-08-22T17:18:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortunio-itinere-frontaliere-lainf/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

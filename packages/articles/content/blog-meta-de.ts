@@ -10528,6 +10528,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Verkehrsunfall: UVG-Deckung für Grenzgänger',
     'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'Wenn ein Grenzgänger auf dem Weg zur Arbeit einen Unfall erleidet: Wie funktioniert die UVG-Versicherung, die rechtlichen Unterschiede und das Meldeverfahren',
     'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Morgenverkehr am Schweiz-Italien-Grenzübergang im Tessin, Fahrzeuge in der Warteschlange',
+    'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Wegunfall: UVG-Schutz für Grenzgänger',
+    'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'Was deckt das UVG bei einem Unfall auf dem Arbeitsweg zur Grenze? Praktischer Leitfaden für Grenzgänger Tessin-Italien.',
+    'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Grenzgänger beim Grenzübergang während des täglichen Arbeitswegs',
 };
 
 export default blogMetaDe;

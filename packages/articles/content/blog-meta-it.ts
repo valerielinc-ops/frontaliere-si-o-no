@@ -10530,6 +10530,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Infortunio in itinerie: copertura LAINF per frontalieri',
     'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'Quando un frontaliere subisce un incidente durante il tragitto casa-lavoro: come funziona la copertura LAINF, le differenze legali e la procedura di denuncia',
     'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Traffico mattutino al valico di confine Svizzera-Italia in Ticino, con automobili in coda al casello',
+    'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Infortunio in itinere: protezione LAINF per frontalieri',
+    'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'Cosa copre la LAINF in caso di incidente durante il tragitto casa-lavoro al confine? Guida pratica per frontalieri Ticino-Italia.',
+    'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Frontalieri al valico di confine durante il tragitto giornaliero verso il lavoro in Ticino',
 };
 
 export default blogMetaIt;

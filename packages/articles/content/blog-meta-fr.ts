@@ -10531,6 +10531,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Accident de trajet : couverture LAAF pour les frontaliers',
     'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'Lorsqu\'un frontalier est victime d\'un accident pendant le trajet domicile-travail : comment fonctionne la couverture LAA, les différences juridiques et la procédure de plainte',
     'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Trafic matinal au passage frontalier Suisse-Italie au Tessin, avec files d\'attente au péage',
+    'blog.article.infortunio-itinere-frontaliere-lainf.title': 'Accident de trajet : protection LAA pour les frontaliers',
+    'blog.article.infortunio-itinere-frontaliere-lainf.excerpt': 'Que couvre la LAA en cas d\'accident pendant le trajet domicile-travail à la frontière ? Guide pratique pour les frontaliers Tessin-Italie.',
+    'blog.article.infortunio-itinere-frontaliere-lainf.imageAlt': 'Travailleurs frontaliers aux passages frontaliers Suisse-Italie lors de leur trajet quotidien',
 };
 
 export default blogMetaFr;
