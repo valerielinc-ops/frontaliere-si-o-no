@@ -10454,6 +10454,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-berzo-demo-lavorare-grigioni.title': 'Berzo Demo und Graubünden: Grenzgänger leben an der Grenze',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.excerpt': 'Vollständiger Leitfaden für diejenigen, die in Berzo Demo leben und in Graubünden arbeiten: Schweizer Steuervorschriften, G-Bewilligung, AHV/KVG, Franchisen, Beiträge und Verfahren.',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.imageAlt': 'Gandria, Dorf im Tessin an der italienisch-schweizerischen Grenze',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Wohnen in Samolach und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Hier erfährst du alles über die Bewilligungen, die Besteuerung und den Alltag als Grenzgänger im Tessin.',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Grisons arbeitet und in Samolaco wohnt',
 };
 
 export default blogMetaDe;

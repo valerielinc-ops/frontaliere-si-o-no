@@ -31305,6 +31305,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-samolaco-lavorare-grigioni-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-22T01:47:52.494Z',
+ image: '/images/blog/vivere-samolaco-lavorare-grigioni-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
