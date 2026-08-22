@@ -1,70 +1,7 @@
 {
   "crawlerKey": "cs-bregaglia",
-  "assembledAt": "2026-08-22T09:37:18.934Z",
+  "assembledAt": "2026-08-22T21:26:28.091Z",
   "jobs": [
-    {
-      "id": "cs-bregaglia-98393ca40498",
-      "slug": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
-      "slugByLocale": {
-        "it": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
-        "en": "general-internal-medicine-physician-centro-sanitario-bregaglia-promontogno",
-        "de": "allgemeinmediziner-in-fur-innere-medizin-centro-sanitario-bregaglia-promontogno",
-        "fr": "medecin-generaliste-en-medecine-interne-centro-sanitario-bregaglia-promontogno"
-      },
-      "company": "Centro Sanitario Bregaglia",
-      "companyKey": "cs-bregaglia",
-      "companyDomain": "csbregaglia.ch",
-      "title": "medico di medicina interna generale",
-      "titleByLocale": {
-        "it": "medico di medicina interna generale",
-        "en": "General Internal Medicine Physician",
-        "de": "Allgemeinmediziner/in für Innere Medizin",
-        "fr": "Médecin généraliste en médecine interne"
-      },
-      "description": "Offerta di lavoro in breve:\n• Azienda: Centro Sanitario Bregaglia\n• Tipo di contratto: a tempo indeterminato\n• Disponibilità: tempo pieno o parziale\n• Sede di lavoro: Flin 5, 7606 Promontogno, e Strada Cantonale 370, 7516 Maloja, Svizzera\n• Contatto: info@csbregaglia.ch",
-      "descriptionByLocale": {
-        "it": "Offerta di lavoro in breve:\n• Azienda: Centro Sanitario Bregaglia\n• Tipo di contratto: a tempo indeterminato\n• Disponibilità: tempo pieno o parziale\n• Sede di lavoro: Flin 5, 7606 Promontogno, e Strada Cantonale 370, 7516 Maloja, Svizzera\n• Contatto: info@csbregaglia.ch",
-        "en": "Job Offer in Brief Company Centro Sanitario Bregaglia Contract Type Indefinite Availability Full-time or part-time Work Location Flin 5, 7606 Promontogno, and Strada Cantonale 370, 7516 Maloja, Switzerland Contact info@csbregaglia.ch",
-        "de": "Stellenangebot in Kürze Unternehmen Centro Sanitario Bregaglia Vertragsart Unbefristet Verfügbarkeit Vollzeit oder Teilzeit Arbeitsort Flin 5, 7606 Promontogno und Strada Cantonale 370, 7516 Maloja, Schweiz Kontakt info@csbregaglia.ch",
-        "fr": "Offre d'emploi en bref Entreprise Centro Sanitario Bregaglia Type de contrat Indéterminé Disponibilité Temps plein ou temps partiel Lieu de travail Flin 5, 7606 Promontogno, et Strada Cantonale 370, 7516 Maloja, Suisse Contact info@csbregaglia.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Promontogno",
-      "canton": "GR",
-      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
-      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-22T09:37:15.885Z",
-      "addressLocality": "Promontogno",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7606",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-07-28",
-      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-19T09:59:27.433Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "cs-bregaglia-d03ecc06dc84",
       "slug": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
@@ -97,7 +34,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-22T09:37:15.885Z",
+      "crawledAt": "2026-08-22T21:26:25.515Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -124,6 +61,69 @@
           "@type": "QuantitativeValue",
           "minValue": 73000,
           "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cs-bregaglia-98393ca40498",
+      "slug": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
+      "slugByLocale": {
+        "it": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
+        "en": "general-internal-medicine-physician-centro-sanitario-bregaglia-promontogno",
+        "de": "allgemeinmediziner-in-fur-innere-medizin-centro-sanitario-bregaglia-promontogno",
+        "fr": "medecin-generaliste-en-medecine-interne-centro-sanitario-bregaglia-promontogno"
+      },
+      "company": "Centro Sanitario Bregaglia",
+      "companyKey": "cs-bregaglia",
+      "companyDomain": "csbregaglia.ch",
+      "title": "medico di medicina interna generale",
+      "titleByLocale": {
+        "it": "medico di medicina interna generale",
+        "en": "General Internal Medicine Physician",
+        "de": "Allgemeinmediziner/in für Innere Medizin",
+        "fr": "Médecin généraliste en médecine interne"
+      },
+      "description": "Offerta di lavoro in breve:\n• Azienda: Centro Sanitario Bregaglia\n• Tipo di contratto: a tempo indeterminato\n• Disponibilità: tempo pieno o parziale\n• Sede di lavoro: Flin 5, 7606 Promontogno, e Strada Cantonale 370, 7516 Maloja, Svizzera\n• Contatto: info@csbregaglia.ch",
+      "descriptionByLocale": {
+        "it": "Offerta di lavoro in breve:\n• Azienda: Centro Sanitario Bregaglia\n• Tipo di contratto: a tempo indeterminato\n• Disponibilità: tempo pieno o parziale\n• Sede di lavoro: Flin 5, 7606 Promontogno, e Strada Cantonale 370, 7516 Maloja, Svizzera\n• Contatto: info@csbregaglia.ch",
+        "en": "Job Offer in Brief Company Centro Sanitario Bregaglia Contract Type Indefinite Availability Full-time or part-time Work Location Flin 5, 7606 Promontogno, and Strada Cantonale 370, 7516 Maloja, Switzerland Contact info@csbregaglia.ch",
+        "de": "Stellenangebot in Kürze Unternehmen Centro Sanitario Bregaglia Vertragsart Unbefristet Verfügbarkeit Vollzeit oder Teilzeit Arbeitsort Flin 5, 7606 Promontogno und Strada Cantonale 370, 7516 Maloja, Schweiz Kontakt info@csbregaglia.ch",
+        "fr": "Offre d'emploi en bref Entreprise Centro Sanitario Bregaglia Type de contrat Indéterminé Disponibilité Temps plein ou temps partiel Lieu de travail Flin 5, 7606 Promontogno, et Strada Cantonale 370, 7516 Maloja, Suisse Contact info@csbregaglia.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Promontogno",
+      "canton": "GR",
+      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
+      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-22T21:26:25.514Z",
+      "addressLocality": "Promontogno",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7606",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-07-28",
+      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-05-19T09:59:27.433Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -160,7 +160,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/459-offerta-di-lavoro-responsabile-delle-cure-spitex-80",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-22T09:37:15.884Z",
+      "crawledAt": "2026-08-22T21:26:25.513Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
