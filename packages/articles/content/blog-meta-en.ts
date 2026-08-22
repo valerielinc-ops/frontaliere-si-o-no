@@ -10440,6 +10440,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.title': 'From Caiolo to Graubünden: Switzerland-Italy border life',
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.excerpt': 'Living in Caiolo and working in Graubünden: practical guide to taxation, G Permit, AVS-LPP, LAMal and refreshments for the CH-IT border crossing.',
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.imageAlt': 'View from Monte Generoso towards Grisons, Switzerland-Italy border',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Living in Malonno and working in Graubünden as a border worker: what to know',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Border Ticino: information on taxation, permits and insurance',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno and Grigioni',
 };
 
 export default blogMetaEn;

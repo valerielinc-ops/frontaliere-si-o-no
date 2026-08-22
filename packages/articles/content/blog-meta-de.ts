@@ -10439,6 +10439,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.title': 'Von Caiolo nach Graubünden: Grenzgängerleben Schweiz-Italien',
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.excerpt': 'Wohnen in Caiolo und Arbeiten in Graubünden: Praktischer Leitfaden zur Besteuerung, Bewilligung G, AHV-LPG, KVG und Rückerstattungen für Grenzgänger CH-IT.',
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.imageAlt': 'Aussicht vom Monte Generoso in Richtung Graubünden, Grenze zwischen Schweiz und Italien',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Vivere a Malonno, lavorare in Grigioni: cosa sapere',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Grenzgänger Tessin: Informationen zu Steuern, Genehmigungen und Versicherungen',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno und Grigioni',
 };
 
 export default blogMetaDe;
