@@ -3766,6 +3766,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.discriminazioni-esercito-piano.title': 'Diskriminierung in der Armee: Der Schweizer Plan 2027',
     'blog.article.discriminazioni-esercito-piano.excerpt': 'Die Schweizer Armee hat 8 von 16 Antidiskriminierungsmassnahmen umgesetzt. Vollständiger Plan bis 2027. Für 2028 geplante Folgenabschätzung.',
     'blog.article.discriminazioni-esercito-piano.imageAlt': 'Schweizer Kaserne mit Rekruten im Training, inklusives und diszipliniertes Umfeld.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Haus kaufen in Bern: Ratgeber zu Hypotheken und Kosten',
+    'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Erfahren Sie, wie Sie ein Haus im Kanton Bern kaufen: Hypothekenfinanzierung, Steuern von Bund und Kantonen, Ablösesummen, Notarkosten und das komplette Kaufverfahren.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Modernes Wohnhaus im Kanton Bern mit Schweizer Wohnarchitektur und Landschaft',
 };
 
 export default blogMetaChDe;

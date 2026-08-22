@@ -48848,6 +48848,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquistare-abitazione-berna-ipotecario': {
+    title: 'Acquistare casa a Berna: guida ai mutui e costi',
+    description: 'Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario, tasse federali e cantonali, imposta sui trapassi, spese notarili, e procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquistare, casa, berna, mutui',
+    ogTitle: 'Acquistare casa a Berna: guida ai mutui e costi',
+    ogDescription: 'Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario svizzero, tasse, imposta sui trapassi, spese notarili, procedura d\'acquisto, e strategie di pianificazione finanziaria per investire in proprietà immobiliari nel Canton Berna.',
+    canonicalPath: '/articoli-svizzera/acquistare-abitazione-berna-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquistare casa a Berna: guida ai mutui e costi",
+      "description": "Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario, tasse federali e cantonali, imposta sui trapassi, spese notarili, e procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-abitazione-berna-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna nel Canton Berna con architettura residenziale svizzera e paesaggio"
+      },
+      "datePublished": "2026-08-22T00:59:56+00:00",
+      "dateModified": "2026-08-22T00:59:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-abitazione-berna-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

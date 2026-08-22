@@ -1281,6 +1281,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cherosene-sintetico-aviazione': { it: 'cherosene-sintetico-aviazione', en: 'synthetic-kerosene-aviation', de: 'synthesekerosin-luftfahrt', fr: 'carburant-synthetique-aviation' },
  'asilo-maghreb-reati-80-percento': { it: 'asilo-maghreb-reati-80-percento', en: 'asylum-maghreb-crimes-80-percent', de: 'asyl-maghreb-straftaten-80-prozent', fr: 'asile-maghreb-crimes-80-pour-cent' },
  'discriminazioni-esercito-piano': { it: 'discriminazioni-esercito-piano', en: 'discrimination-military-action-plan', de: 'diskriminierung-armee-aktionsplan', fr: 'discriminations-armee-plan' },
+ 'acquistare-abitazione-berna-ipotecario': { it: 'acquistare-abitazione-berna-ipotecario', en: 'buy-property-bern-mortgage', de: 'haus-kaufen-bern-hypothek', fr: 'acheter-propriete-berne-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

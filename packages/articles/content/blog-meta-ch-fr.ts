@@ -3766,6 +3766,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.discriminazioni-esercito-piano.title': 'Discriminations dans l\'armée : le plan suisse 2027',
     'blog.article.discriminazioni-esercito-piano.excerpt': 'L\'armée suisse a mis en œuvre 8 des 16 mesures anti-discrimination. Plan complet d\'ici 2027. Analyse d\'impact prévue pour 2028.',
     'blog.article.discriminazioni-esercito-piano.imageAlt': 'Caserne suisse avec des recrues en formation, environnement inclusif et discipliné.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Acheter une maison à Berne : guide des prêts et des coûts',
+    'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Découvrez comment acheter une maison dans le canton de Berne : financement hypothécaire, taxes fédérales et cantonales, taxe de passage, frais de notaire, et procédure complète d\'achat.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Maison moderne dans le canton de Berne avec architecture résidentielle suisse',
 };
 
 export default blogMetaChFr;
