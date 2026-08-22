@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 10:53:52 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 11:22:17 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,71 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>VAT number for Swiss border workers: requirements, taxes, social security</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/self-employment-cross-border-worker-switzerland-requirements/</link>
+      <description><![CDATA[Opening a self-employed business in Ticino as a border worker: legal requirements, tax differences with employees and social security obligations. Practical guide with verified data.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Border workers with a VAT number in Switzerland are subject to the **new 2020 Agreement ** (in force since 2024)
+- Autonomous income taxed only in Switzerland with Italian tax credit
+- Swiss social contributions: AVS/AI/IPG (5.3%), AD/AC (1.1%) and LPP (7-18%)
+- LAMal health insurance obligation with option right for Italy
+
+## Key facts
+- What: Ticino border VAT registration requirements
+- When: New Frontier Agreement active from 1 January 2024
+- Where: Canton Ticino, Switzerland
+- Who: Cantonal tax administrations and AFC/ESTV
+- Amount: New frontier deductible €10,000 (old €7,500 transitory)
+
+Freelance cross-border work in Switzerland requires careful planning. Unlike employee work, where withholdings are automatic, VAT holders must directly manage tax and social security. With the entry into force of the new Frontier Agreement (ratified by Italy with Law 83/2023), exemptions and tax coordination change from 2024.
+
+### Taxation: tax at source and double taxation
+Income from self-employment of frontier workers is subject to Swiss source tax, withheld directly from the canton of work (Ticino). The rate depends on the income and the reference municipality of Ticino. Thanks to the Italy-Switzerland Double Taxation Convention (1976), Italy recognizes a tax credit for taxes paid in Switzerland, avoiding duplicate taxation. I
+## Differences with employee work: what changes?
+The tax and social security system for self-employed frontier workers has significant differences compared to employees:
+
+### Comparison of taxation
+- **Employee**: Tax at source automatically withheld by the Swiss employer. Default rates based on gross salary.
+- Self-employed: Annual income tax return to the AFC/ESTV. Calculation of taxes based on net income (revenues - deductible expenses). Obligation to make quarterly advance payments.
+
+### Social Security: more responsibilities for the self-employed
+Employees benefit from social contributions divided between employer and worker (e.g. AVS/AI/IPG 5.3% total: 50% to be paid by the employer). The self-employed support the entire contribution burden (5.3% AVS/AI/IPG + 1.1% AD/AC). The second pillar (LPP) is often more generous to employees, with corporate contributions supplementing the personal share.
+
+### Practical scenario: when is the VAT number convenient?
+Consider a border crossing that invoices CHF 120,000 per year. After deductions (business expenses 20%), the taxable income is CHF 96'000. Ticino source tax (average rate 12%) amounts to CHF 11,520. In Italy, the tax credit will offset this sum. Swiss social contributions: AVS/AI/IPG (5.3% on CHF 96'000 = CHF 5'088) + AD/AC (1.1% = CHF 1'056). Total social security charges:CHF 6,144. An employee with the same gross income would see social contributions split with the employer.
+
+### Lamal:
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+## Operational steps to open a VAT number in Ticino
+### 1. Registration with the Trade Register
+Submit the application to the Ticino Trade Register with: identity document, valid G permit, deed of incorporation (if company) and proof of professional domicile in Switzerland. Cost: CHF 150-300.
+
+### 2. VAT number request to AFC/ESTV
+Fill in the VAT application form (available at [ESTV.admin.ch](https://www.estv.admin.ch)). Mandatory if turnover exceeds CHF 100,000/year.
+
+### 3. Social insurance enrollment
+- **AVS/AI**: Automatic with registration in the Commercial Register.
+- LPP: Choose a pension fund within 3 months of starting business.
+- LAINF: Contract with a recognized insurer (e.g. [SUVA](https://www.suva.ch)).
+- LAMal: Take out insurance within 3 months (list on [BAG.admin.ch](https://www.bag.admin.ch)).
+
+### 4. Accounting and reporting
+Ordinary accounting obligation (revenues/costs, VAT, salaries). The use of certified software or tax consultants is recommended. Annual income tax return by 31 March of the following year.
+
+## Essential tools for self-employed border workers
+- Tax at source calculator: Simulate Ticino withholdings on [FrontaliereTicino.ch/calcolatore](nav:calculator)
+- LAMal comparator: Find the most convenient health insurance in Ticino
+- Permit checklist: Check validity of Permit G and customs documents
+
+⚠️ Attention: The Swiss tax deadlines (31 March) differ from the Italian ones (30]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 11:22:17 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/partita-iva-frontaliere-svizzera-requisiti-fiscalita</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/partita-iva-frontaliere-svizzera-requisiti-fiscalita.webp" medium="image"/>
+    </item>
     <item>
       <title>Ticino construction: agreement for 6 years</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/construction-agreement-ticino-6-years/</link>
@@ -3293,61 +3358,6 @@ Finally, before deciding on the transfer, consult a specialized tax consultant i
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-cazzago-brabbia-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-cazzago-brabbia-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Cantello and working in Ticino as a border worker</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/living-cantello-working-ticino-as-frontalier/</link>
-      <description><![CDATA[The advantages and disadvantages of living in Cantello and working in Ticino as border workers, practical and procedural considerations.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- On 23 December 2020, the New Frontier Agreement between Italy and Switzerland was signed.
-- On 1 January 2024, the New Frontier Agreement entered into force.
-- Border workers who were already in Switzerland before 17 July 2023 are exempt from the tax at source for an amount of €7,500.
-- New frontier workers are exempt from tax at source for an amount of €10,000.
-
-## Who are the frontiersmen?
-Border workers are those who reside in one country and work in the other, in this case, Italians who reside in Switzerland and work in Ticino. The New Frontier Agreement has been signed to simplify the rules related to cross-border work and reduce bureaucratic burdens.
-
-## Here's some important information
-- **Residence**: to be considered border workers, you must reside in Switzerland and work in Ticino.
-- Work: the work can be carried out in one of the Ticino provinces, such as Lugano, Bellinzona or Locarno.
-- Tax at source: Exempt or deductible amounts are determined by the New Frontier Agreement and may vary depending on the individual situation.
-
-## Concrete examples
-- Exempt frontier worker: an Italian who resides in Lugano and works in a company in Bellinzona may be exempt from tax at source for an amount of €7,500, if he resides in Switzerland before 17 July 2023.
-- Franchised frontier worker: an Italian who resides in Locarno and works in a company in Lugano can
-Border workers who are in Ticino have the right of option for health insurance (LAMal) and can choose to pay the excess for adult border workers, which varies between CHF 300 and CHF 2,500. This means that they could pay CHF 1,200 per year, as a concrete example, if they opted for the higher deductible. It is important to note that the deductible is not a fixed expense and may vary based on individual choices.
-
-- Border workers in Ticino are subject to source tax in Switzerland and are not subject to source tax in Italy thanks to the double taxation tax credit. This means that they will not have to pay taxes twice, as would happen if they worked in Italy and were resident in Switzerland.
-
-- Border workers in Ticino can benefit from the transitional regime for tax at source until 2033. This regime was set up to help frontier workers navigate the complex Swiss tax system. It is important to note that the transitional regime is not an automatic guarantee and may be subject to change in the future.
-
-- Border workers in Ticino can access the assistance services for border workers provided by the State of Ticino. These services may include tax advice, health care, and job search support.
-
-Some concrete examples of how these services can be useful are:
-
-* A border worker who works in Lugano and has a sick daughter may require
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-If you are a cross-border worker living in Cantello, in the municipality of Brusino Arsizio, and working in the canton of Ticino, it is important to understand your tax rights and obligations. The AFC/ESTV is the single point of contact to request information about your tax rights and obligations.
-
-To estimate your taxes and fees, you can use the salary calculator provided by the AFC/ESTV. This tool will help you understand how your taxes and fees will be calculated, taking into account your salary and work commitments.
-
-In addition, you can access the consultancy services for border workers provided by the State of Ticino. These services will help you better understand your tax rights and obligations and resolve any issues or concerns.
-
-## Your tax rights and obligations
-
-As a border worker, you are entitled to a number of tax benefits. For example, you can claim an allowance for border workers, which is a subsidy provided by the State of Ticino to help cross-border workers cover the costs of travelling between their place of residence and their place of work.
-
-In addition, you can claim a child frontier allowance, which is a subsidy provided by the State of Ticino to help cross-border workers cover the costs of educating and caring for their children.
-
-## The Direct Tax Act of 1 January 2019
-
-The direct tax law was introduced from 1 January 2019 and stipulates that the amounts for allowances for]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 05:43:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-cantello-lavorare-ticino-da-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-cantello-lavorare-ticino-da-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

@@ -10505,6 +10505,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-6-anni.title': 'Ticino construction: agreement for 6 years',
     'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'Construction site allowance increases to CHF 6.5 from January 2027, then CHF 9 in 2028. Minimum wages appropriate to the standard of living and travel time paid in full. OCST Agreement signed in May 2026.',
     'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Construction site in Ticino with workers and scaffolding at sunset in alpine valleys',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'VAT number for Swiss border workers: requirements, taxes, social security',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Opening a self-employed business in Ticino as a border worker: legal requirements, tax differences with employees and social security obligations. Practical guide with verified data.',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Freelancer working in a Lugano coworking space with lake view',
 };
 
 export default blogMetaEn;

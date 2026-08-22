@@ -74951,6 +74951,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-partita-iva-frontaliere-svizzera-requisiti-fiscalita': {
+    title: 'Partita IVA da frontaliere in Svizzera: requisiti, tasse e previdenza',
+    description: 'Guida completa per aprire partita IVA in Ticino da frontaliere: requisiti legali, tasse svizzere, previdenza AVS/LPP e assicurazione malattia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, partita, requisiti, tasse, previdenza',
+    ogTitle: 'Partita IVA da Frontaliere in Svizzera: Tutto Ciò che Devi Sapere',
+    ogDescription: 'Aprire un\'attività autonoma in Ticino da frontaliere: requisiti, fiscalità svizzera, previdenza sociale e assicurazione malattia. Guida pratica con dati verificati post-Accordo 2024.',
+    canonicalPath: '/articoli-frontaliere/partita-iva-frontaliere-svizzera-requisiti-fiscalita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Partita IVA da frontaliere in Svizzera: requisiti, tasse e previdenza",
+      "description": "Guida completa per aprire partita IVA in Ticino da frontaliere: requisiti legali, tasse svizzere, previdenza AVS/LPP e assicurazione malattia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/partita-iva-frontaliere-svizzera-requisiti-fiscalita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Freelance al lavoro in un coworking di Lugano con vista sul lago"
+      },
+      "datePublished": "2026-08-22T11:22:17+00:00",
+      "dateModified": "2026-08-22T11:22:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/partita-iva-frontaliere-svizzera-requisiti-fiscalita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

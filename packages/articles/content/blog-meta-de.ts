@@ -10504,6 +10504,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-6-anni.title': 'Bau Tessin: Vereinbarung für 6 Jahre',
     'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'Die Baustellenentschädigung steigt ab Januar 2027 auf 6,5 CHF, ab 2028 auf 9 CHF. Teuerungsadäquate Mindestlöhne und voll bezahlte Reisezeit. OCST-Vereinbarung unterzeichnet im Mai 2026.',
     'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Baustelle im Tessin mit Arbeitern und Gerüsten bei Sonnenuntergang',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'USt-IdNr. für Grenzgänger: Steuern, Vorsorge & Voraussetzungen',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Als Grenzgänger eine selbständige Tätigkeit im Tessin aufnehmen: gesetzliche Anforderungen, steuerliche Unterschiede zur unselbständigen Erwerbstätigkeit und Vorsorgepflichten. Praktische Anleitung mit verifizierten Daten.',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Freiberufler arbeitet in einem Coworking-Space in Lugano mit Seeblick',
 };
 
 export default blogMetaDe;
