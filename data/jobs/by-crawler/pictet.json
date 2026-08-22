@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-08-21T21:39:56.202Z",
+  "assembledAt": "2026-08-22T09:51:51.048Z",
   "jobs": [
     {
       "id": "pictet-5d303e0d3780",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=123105&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:52.546Z",
+      "crawledAt": "2026-08-22T09:51:47.449Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-pictet-geneva"
+        "software-engineer-pictet-geneva",
+        "software-ingegnere-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-pictet-geneva"
+          "software-engineer-pictet-geneva",
+          "software-ingegnere-pictet-group-geneva"
         ],
         "de": [
           "software-engineer-pictet-geneva"
@@ -109,7 +111,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124810&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:52.054Z",
+      "crawledAt": "2026-08-22T09:51:46.880Z",
       "addressLocality": "Frankfurt",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -127,11 +129,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet"
+        "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet",
+        "lavoro-student-financial-risk-management-m-f-d-in-loco-a-francoforte-sul-meno-pictet-group-frankfurt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet"
+          "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet",
+          "lavoro-student-financial-risk-management-m-f-d-in-loco-a-francoforte-sul-meno-pictet-group-frankfurt"
         ],
         "de": [
           "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet"
@@ -186,7 +190,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124884&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:51.477Z",
+      "crawledAt": "2026-08-22T09:51:46.294Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -204,11 +208,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg"
+        "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg",
+        "funzionamento-bancario-trasferimenti-in-contanti-contratto-a-scadenza-12-mesi-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg"
+          "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg",
+          "funzionamento-bancario-trasferimenti-in-contanti-contratto-a-scadenza-12-mesi-pictet-group-luxembourg"
         ],
         "de": [
           "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg"
@@ -218,6 +224,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:50:00.964Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -262,7 +269,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124893&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:50.893Z",
+      "crawledAt": "2026-08-22T09:51:45.828Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -280,11 +287,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-publishing-12-months-pictet-luxembourg"
+        "internship-publishing-12-months-pictet-luxembourg",
+        "stage-pubblicazione-12-mesi-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-publishing-12-months-pictet-luxembourg"
+          "internship-publishing-12-months-pictet-luxembourg",
+          "stage-pubblicazione-12-mesi-pictet-group-luxembourg"
         ],
         "de": [
           "internship-publishing-12-months-pictet-luxembourg"
@@ -294,6 +303,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:29:35.863Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -338,7 +348,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124531&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:50.343Z",
+      "crawledAt": "2026-08-22T09:51:45.316Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -356,11 +366,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg"
+        "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg",
+        "quality-control-mobile-team-officer-contratto-a-termine-24-mesi-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg"
+          "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg",
+          "quality-control-mobile-team-officer-contratto-a-termine-24-mesi-pictet-group-luxembourg"
         ]
       },
       "needsRetranslation": true,
@@ -409,7 +421,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124390&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:49.691Z",
+      "crawledAt": "2026-08-22T09:51:44.782Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -427,11 +439,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "publishing-officer-pictet-luxembourg"
+        "publishing-officer-pictet-luxembourg",
+        "ufficiale-editoriale-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "publishing-officer-pictet-luxembourg"
+          "publishing-officer-pictet-luxembourg",
+          "ufficiale-editoriale-pictet-group-luxembourg"
         ],
         "de": [
           "publishing-officer-pictet-luxembourg"
@@ -485,7 +499,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124917&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:49.046Z",
+      "crawledAt": "2026-08-22T09:51:44.192Z",
       "addressLocality": "Singapore",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -503,11 +517,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-hedge-funds-analyst-pictet-singapore"
+        "senior-hedge-funds-analyst-pictet-singapore",
+        "senior-hedge-funds-analista-pictet-group-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-hedge-funds-analyst-pictet-singapore"
+          "senior-hedge-funds-analyst-pictet-singapore",
+          "senior-hedge-funds-analista-pictet-group-singapore"
         ],
         "fr": [
           "senior-hedge-funds-analyst-pictet-singapore"
@@ -559,7 +575,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124925&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:48.346Z",
+      "crawledAt": "2026-08-22T09:51:43.560Z",
       "addressLocality": "London",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -612,8 +628,8 @@
       },
       "description": "Your team\n\nPictet Wealth Management (PWM) has an opening for a temporary internal communications specialist (maternity leave cover), starting on 1 October 2026, reporting to the Head of Internal Communications and based in Geneva.\n\nThe team’s mission is to help foster an informed and engaged workforce dedicated to delivering an exceptional client experience, across PWM offices in Switzerland and abroad. This role will suit a highly organised, precise, creative and adaptable professional capable of conveying ideas with clarity and thriving in a fast-paced and dynamic environment.\n\nYour role\n\nManage the monthly business newsletter compilation, design and distribution\n\n• Together with the Head of Internal Communications, manage the monthly editorial committee, send the invitations, reminders, and run the meetings;\n\n• Ensure coordination with each contributor and produce the monthly newsletter: headlines, teasers, design;\n\n• Distribute the newsletter to all colleagues and ensure successful amplification through local ambassador network abroad;\n\n• Manage the analytics.\n\nCoordinate smaller-scale internal communication initiatives\n\n• Help prepare concept proposals, stakeholder briefs, and change management/communications plans;\n\n• Coordinate execution across relevant departments and stakeholders.\n\nHelp orchestrate the high-quality delivery of PWM Townhalls, seminars and other internal events\n\n• Actively participate with the Head of Internal Communications in the organisation of internal events, from planning, to invitations and logistics;\n\n• Coordinate with the various internal and external stakeholders and manage invoices;\n\n• On the day of the event, ensure tight onsite management of timings and flow according to the run of play, acting as the director (“régie”) in close coordination with the technical teams.\n\nPerform daily updates of the PWM intranet and manage email distribution for executive voice messages\n\n• Collaborate with other departments to support their intranet content production and promote their news stories;\n\n• Edit and post content on the PWM intranet homepage;\n\n• Perform ad hoc access management;\n\n• Manage analytics and prepare regular reports;\n\n• Ensure clean formatting of email communications via the JungleMail template;\n\n• Validate recipient lists before distribution.\n\nYour profile\n\n• At least 5 years’ professional experience, including a minimum of 18 months in a private bank and within a communications team\n\n• Functionally bilingual in English and French\n\n• Comfortable writing effective messages and coordinating events\n\n• Track record in managing projects from start to finish, while taking a proactive approach and focusing on the essential steps with strong attention to detail and professionalism\n\n• Autonomous, a team player, willing to take initiative and adapt\n\n• Good ability to work under pressure, prioritise, think creatively and deliver well-organised plans\n\n• Excellent command of Microsoft Office tools and good working knowledge of Adobe Suite (InDesign, Photoshop).\n\nRef: ICS/CC/LA\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "en": "Your team\n\nPictet Wealth Management (PWM) has an opening for a temporary internal communications specialist (maternity leave cover), starting on 1 October 2026, reporting to the Head of Internal Communications and based in Geneva.\n\nThe team’s mission is to help foster an informed and engaged workforce dedicated to delivering an exceptional client experience, across PWM offices in Switzerland and abroad. This role will suit a highly organised, precise, creative and adaptable professional capable of conveying ideas with clarity and thriving in a fast-paced and dynamic environment.\n\nYour role\n\nManage the monthly business newsletter compilation, design and distribution\n\n• Together with the Head of Internal Communications, manage the monthly editorial committee, send the invitations, reminders, and run the meetings;\n\n• Ensure coordination with each contributor and produce the monthly newsletter: headlines, teasers, design;\n\n• Distribute the newsletter to all colleagues and ensure successful amplification through local ambassador network abroad;\n\n• Manage the analytics.\n\nCoordinate smaller-scale internal communication initiatives\n\n• Help prepare concept proposals, stakeholder briefs, and change management/communications plans;\n\n• Coordinate execution across relevant departments and stakeholders.\n\nHelp orchestrate the high-quality delivery of PWM Townhalls, seminars and other internal events\n\n• Actively participate with the Head of Internal Communications in the organisation of internal events, from planning, to invitations and logistics;\n\n• Coordinate with the various internal and external stakeholders and manage invoices;\n\n• On the day of the event, ensure tight onsite management of timings and flow according to the run of play, acting as the director (“régie”) in close coordination with the technical teams.\n\nPerform daily updates of the PWM intranet and manage email distribution for executive voice messages\n\n• Collaborate with other departments to support their intranet content production and promote their news stories;\n\n• Edit and post content on the PWM intranet homepage;\n\n• Perform ad hoc access management;\n\n• Manage analytics and prepare regular reports;\n\n• Ensure clean formatting of email communications via the JungleMail template;\n\n• Validate recipient lists before distribution.\n\nYour profile\n\n• At least 5 years’ professional experience, including a minimum of 18 months in a private bank and within a communications team\n\n• Functionally bilingual in English and French\n\n• Comfortable writing effective messages and coordinating events\n\n• Track record in managing projects from start to finish, while taking a proactive approach and focusing on the essential steps with strong attention to detail and professionalism\n\n• Autonomous, a team player, willing to take initiative and adapt\n\n• Good ability to work under pressure, prioritise, think creatively and deliver well-organised plans\n\n• Excellent command of Microsoft Office tools and good working knowledge of Adobe Suite (InDesign, Photoshop).\n\nRef: ICS/CC/LA\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "it": "La tua squadra\n\nPictet Wealth Management (PWM) ha un'apertura per uno specialista di comunicazioni interne temporanee (copertina di congedo di maternità), a partire dal 1 ° ottobre 2026, segnalando al capo delle comunicazioni interne e con sede a Ginevra.\n\nLa missione del team è quella di contribuire a promuovere una forza lavoro informata e impegnata dedicata a fornire un'esperienza clienti eccezionale, attraverso gli uffici PWM in Svizzera e all'estero. Questo ruolo si adatta ad un professionista altamente organizzato, preciso, creativo e adattabile in grado di trasmettere idee con chiarezza e prosperare in un ambiente veloce e dinamico.\n\nIl tuo ruolo\n\nGestire la compilazione, la progettazione e la distribuzione di newsletter aziendali mensili\n\n• Insieme con il capo delle comunicazioni interne, gestire il comitato editoriale mensile, inviare gli inviti, i promemoria e gestire gli incontri;\n\n• Assicurare il coordinamento con ogni collaboratore e produrre la newsletter mensile: titoli, teaser, design;\n\n• Distribuire la newsletter a tutti i colleghi e garantire l'amplificazione di successo attraverso la rete di ambasciatori locali all'estero;\n\n• Gestisci l'analisi.\n\nCoordinare iniziative di comunicazione interna su scala ridotta\n\n• Aiutare a preparare proposte di concetto, slip di stakeholder e piani di gestione/comunicazione dei cambiamenti;\n\n• Coordinare l'esecuzione nei reparti e nelle parti interessate.\n\nAiuta a orchestrare la consegna di alta qualità di PWM Townhalls, seminari e altri eventi interni\n\n• Partecipa attivamente al Capo delle Comunicazioni Interne nell'organizzazione di eventi interni, dalla pianificazione, agli inviti e alla logistica;\n\n• coordinare con i vari stakeholder interni ed esterni e gestire le fatture;\n\n• Il giorno dell'evento, assicurarsi una stretta gestione in loco dei tempi e del flusso secondo la corsa del gioco, agendo come direttore (“régie”) in stretto coordinamento con i team tecnici.\n\nEseguire gli aggiornamenti giornalieri del PWM intranet e gestire la distribuzione e-mail per i messaggi vocali esecutivi\n\n• Collabora con altri dipartimenti per sostenere la loro produzione di contenuti intranet e promuovere le loro storie di notizie;\n\n• Modificare e pubblicare contenuti sulla homepage intranet PWM;\n\n• Eseguire la gestione degli accessi ad hoc;\n\n• Gestire analisi e preparare rapporti regolari;\n\n• Assicurare la formattazione pulita delle comunicazioni e-mail tramite il modello JungleMail;\n\n• Convalida gli elenchi dei destinatari prima della distribuzione.\n\nIl tuo profilo\n\n• Almeno 5 anni di esperienza professionale, tra cui un minimo di 18 mesi in una banca privata e in un team di comunicazione\n\n• Funzionalmente bilingue in inglese e francese\n\n• Confortevole scrittura messaggi efficaci e coordinare eventi\n\n• Tracciare il record nella gestione dei progetti dall'inizio alla fine, prendendo un approccio proattivo e concentrandosi sui passi essenziali con forte attenzione ai dettagli e professionalità\n\n• Autonomo, un giocatore di squadra, disposto a prendere iniziativa e adattarsi\n\n• Buona capacità di lavorare sotto pressione, priorità, pensare in modo creativo e fornire piani ben organizzati\n\n• Ottimo comando di strumenti Microsoft Office e buona conoscenza di lavoro di Adobe Suite (InDesign, Photoshop).\n\nRef: ICS/CC/LA\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n•\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "en": "Your team\n\nPictet Wealth Management (PWM) has an opening for a temporary internal communications specialist (maternity leave cover), starting on 1 October 2026, reporting to the Head of Internal Communications and based in Geneva.\n\nThe team’s mission is to help foster an informed and engaged workforce dedicated to delivering an exceptional client experience, across PWM offices in Switzerland and abroad. This role will suit a highly organised, precise, creative and adaptable professional capable of conveying ideas with clarity and thriving in a fast-paced and dynamic environment.\n\nYour role\n\nManage the monthly business newsletter compilation, design and distribution\n\n• Together with the Head of Internal Communications, manage the monthly editorial committee, send the invitations, reminders, and run the meetings;\n\n• Ensure coordination with each contributor and produce the monthly newsletter: headlines, teasers, design;\n\n• Distribute the newsletter to all colleagues and ensure successful amplification through local ambassador network abroad;\n\n• Manage the analytics.\n\nCoordinate smaller-scale internal communication initiatives\n\n• Help prepare concept proposals, stakeholder briefs, and change management/communications plans;\n\n• Coordinate execution across relevant departments and stakeholders.\n\nHelp orchestrate the high-quality delivery of PWM Townhalls, seminars and other internal events\n\n• Actively participate with the Head of Internal Communications in the organisation of internal events, from planning, to invitations and logistics;\n\n• Coordinate with the various internal and external stakeholders and manage invoices;\n\n• On the day of the event, ensure tight onsite management of timings and flow according to the run of play, acting as the director (“régie”) in close coordination with the technical teams.\n\nPerform daily updates of the PWM intranet and manage email distribution for executive voice messages\n\n• Collaborate with other departments to support their intranet content production and promote their news stories;\n\n• Edit and post content on the PWM intranet homepage;\n\n• Perform ad hoc access management;\n\n• Manage analytics and prepare regular reports;\n\n• Ensure clean formatting of email communications via the JungleMail template;\n\n• Validate recipient lists before distribution.\n\nYour profile\n\n• At least 5 years’ professional experience, including a minimum of 18 months in a private bank and within a communications team\n\n• Functionally bilingual in English and French\n\n• Comfortable writing effective messages and coordinating events\n\n• Track record in managing projects from start to finish, while taking a proactive approach and focusing on the essential steps with strong attention to detail and professionalism\n\n• Autonomous, a team player, willing to take initiative and adapt\n\n• Good ability to work under pressure, prioritise, think creatively and deliver well-organised plans\n\n• Excellent command of Microsoft Office tools and good working knowledge of Adobe Suite (InDesign, Photoshop).\n\nRef: ICS/CC/LA\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "de": "Dein Team\n\nPictet Wealth Management (PWM) hat ab 1. Oktober 2026 eine Eröffnung für einen temporären internen Kommunikationsspezialisten (Mutterschutz), der an den Leiter der internen Kommunikation mit Sitz in Genf berichtet.\n\nDie Mission des Teams ist es, eine informierte und engagierte Belegschaft zu fördern, die sich für eine außergewöhnliche Kundenerfahrung in PWM-Büros in der Schweiz und im Ausland einsetzt. Diese Rolle passt zu einem hoch organisierten, präzisen, kreativen und anpassungsfähigen Fachmann, der in der Lage ist, Ideen klar zu vermitteln und in einem schnelllebigen und dynamischen Umfeld zu gedeihen.\n\nDeine Rolle\n\nVerwalten Sie die monatliche Zusammenstellung, Gestaltung und Verteilung des Business Newsletters\n\n• Verwalten Sie zusammen mit dem Leiter der internen Kommunikation die monatliche Redaktion, senden Sie die Einladungen, Erinnerungen und leiten Sie die Sitzungen;\n\n• Gewährleistung der Koordination mit jedem Mitwirkenden und Erstellung des monatlichen Newsletters: Schlagzeilen, Teaser, Design;\n\n• Verteilen Sie den Newsletter an alle Kollegen und sorgen Sie für eine erfolgreiche Verstärkung durch das lokale Botschafternetzwerk im Ausland;\n\n• Verwalten Sie die Analytics.\n\nKoordination kleinerer interner Kommunikationsinitiativen\n\n• Unterstützung bei der Vorbereitung von Konzeptvorschlägen, Stakeholder-Briefs und Change Management/Kommunikationsplänen;\n\n• Koordinieren Sie die Ausführung über relevante Abteilungen und Stakeholder hinweg.\n\nHelfen Sie bei der Orchestrierung der qualitativ hochwertigen Bereitstellung von PWM Townhalls, Seminaren und anderen internen Veranstaltungen\n\n• Aktive Teilnahme mit dem Leiter der internen Kommunikation an der Organisation interner Veranstaltungen, von der Planung bis hin zu Einladungen und Logistik;\n\n• Koordination mit den verschiedenen internen und externen Stakeholdern und Verwaltung der Rechnungen;\n\n• Sorgen Sie am Veranstaltungstag für eine straffe Verwaltung der Timings und des Ablaufs vor Ort, indem Sie als Direktor („régie) in enger Abstimmung mit den technischen Teams auftreten.\n\nFühren Sie tägliche Updates des PWM-Intranets durch und verwalten Sie die E-Mail-Verteilung für Executive Voice Messages\n\n• Zusammenarbeit mit anderen Abteilungen, um ihre Intranet-Inhalteproduktion zu unterstützen und ihre Nachrichten zu fördern;\n\n• Bearbeiten und Posten von Inhalten auf der PWM Intranet-Homepage;\n\n• Durchführung von Ad-hoc-Zugriffsmanagement;\n\n• Verwalten Sie Analysen und erstellen Sie regelmäßige Berichte;\n\n• Sicherstellen einer sauberen Formatierung der E-Mail-Kommunikation über die JungleMail-Vorlage;\n\n• Validieren Sie die Empfängerlisten vor der Verteilung.\n\nDein Profil\n\n• Mindestens 5 Jahre Berufserfahrung, davon mindestens 18 Monate in einer Privatbank und in einem Kommunikationsteam\n\n• Funktionell bilingual in Englisch und Französisch\n\n• Komfortables Schreiben effektiver Nachrichten und Koordination von Ereignissen\n\n• Erfolgsbilanz bei der Verwaltung von Projekten von Anfang bis Ende, während Sie einen proaktiven Ansatz verfolgen und sich mit viel Liebe zum Detail und Professionalität auf die wesentlichen Schritte konzentrieren\n\n• Autonom, ein Teamplayer, bereit, Initiative zu ergreifen und sich anzupassen\n\n• Gute Fähigkeit, unter Druck zu arbeiten, Prioritäten zu setzen, kreativ zu denken und gut organisierte Pläne zu liefern\n\n• Ausgezeichnete Beherrschung von Microsoft Office-Tools und gute Kenntnisse der Adobe Suite (InDesign, Photoshop).\n\nRef.: ICS/CC/LA\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
         "fr": "Votre équipe\n\nPictet Wealth Management (PWM) a une ouverture pour un spécialiste temporaire des communications internes (couverture de congé de maternité), à partir du 1er octobre 2026, relevant du chef des communications internes et basé à Genève.\n\nLa mission de l'équipe est d'aider à développer une main-d'œuvre informée et engagée, dédiée à offrir une expérience client exceptionnelle, dans les bureaux PWM en Suisse et à l'étranger. Ce rôle conviendra à un professionnel hautement organisé, précis, créatif et adaptable capable de transmettre des idées avec clarté et florissant dans un environnement rapide et dynamique.\n\nVotre rôle\n\nGérer la compilation, la conception et la distribution mensuelle de bulletins d'affaires\n\n• En collaboration avec le chef des communications internes, gérer le comité de rédaction mensuel, envoyer les invitations, les rappels et diriger les réunions;\n\n• Assurer la coordination avec chaque contributeur et produire le bulletin mensuel: manchettes, teasers, design;\n\n• Distribuer le bulletin à tous les collègues et assurer une amplification réussie par l'intermédiaire du réseau d'ambassadeurs locaux à l'étranger;\n\n• Gérer l'analyse.\n\nCoordonner les initiatives de communication interne à petite échelle\n\n• Aider à préparer des propositions conceptuelles, des mémoires aux intervenants et des plans de gestion et de communication du changement;\n\n• Coordonner l'exécution entre les ministères et les intervenants concernés.\n\nAider à orchestrer la livraison de haute qualité des mairies, séminaires et autres événements internes de PWM\n\n• Participer activement avec le chef des communications internes à l'organisation d'événements internes, de la planification aux invitations et à la logistique;\n\n• Coordonner avec les différents intervenants internes et externes et gérer les factures;\n\n• Le jour de l'événement, assurer une gestion serrée sur place des chronométrages et des flux selon le déroulement du jeu, en agissant en tant que directeur (-) en étroite coordination avec les équipes techniques.\n\nEffectuer des mises à jour quotidiennes de l'intranet PWM et gérer la distribution de courriels pour les messages vocaux exécutifs\n\n• Collaborer avec d'autres ministères pour appuyer leur production de contenu intranet et promouvoir leurs nouvelles;\n\n• Modifier et afficher le contenu sur la page d'accueil de PWM intranet;\n\n• Assurer une gestion ad hoc de l'accès;\n\n• Gérer les analyses et préparer des rapports réguliers;\n\n• Assurer le formatage propre des communications par courriel via le modèle JungleMail;\n\n• Valider les listes de destinataires avant distribution.\n\nVotre profil\n\n• Au moins 5 ans d'expérience professionnelle, y compris un minimum de 18 mois dans une banque privée et au sein d'une équipe de communication\n\n• Fonctionnellement bilingue en français et en anglais\n\n• L'écriture confortable des messages efficaces et la coordination des événements\n\n• Faire le bilan de la gestion des projets du début à la fin, tout en adoptant une approche proactive et en se concentrant sur les étapes essentielles avec une grande attention aux détails et au professionnalisme\n\n• Autonome, joueur d'équipe, prêt à prendre des initiatives et à s'adapter\n\n• Bonne capacité de travailler sous pression, priorité, réflexion créative et réalisation de plans bien organisés\n\n• Excellente maîtrise des outils Microsoft Office et bonne connaissance pratique d'Adobe Suite (InDesign, Photoshop).\n\nRéf: ICS/CC/LA\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n•\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
       },
@@ -622,7 +638,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124756&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:39:47.669Z",
+      "crawledAt": "2026-08-22T09:51:42.843Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -639,6 +655,7 @@
       "jobReqId": "124756",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-21T10:05:13.676Z",
       "salaryMin": 61500,
       "salaryMax": 109000,
       "baseSalary": {
@@ -651,40 +668,40 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T10:05:13.676Z"
+      "needsRetranslation": true
     },
     {
       "id": "pictet-17b56359b502",
       "slug": "it-operations-pilot-pictet-geneva",
       "slugByLocale": {
-        "fr": "it-operations-pilot-pictet-geneva",
         "it": "it-operations-pilot-pictet-geneva",
         "en": "it-operations-pilot-pictet-geneva",
-        "de": "it-betriebspilot-pictet-group-geneva"
+        "de": "it-betriebspilot-pictet-group-geneva",
+        "fr": "it-operations-pilot-pictet-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
       "companyDomain": "pictet.com",
       "title": "IT Operations Pilot",
       "titleByLocale": {
-        "fr": "IT Operations Pilot",
-        "en": "IT Operations Pilot",
         "it": "IT Operations Pilot",
-        "de": "IT-Betriebspilot"
+        "en": "IT Operations Pilot",
+        "de": "IT-Betriebspilot",
+        "fr": "IT Operations Pilot"
       },
       "description": "Your team\n\nLa division Pictet Tech assure la conception et l’intégration d’une grande diversité de solutions informatiques, allant des systèmes de gestion de portefeuille aux plateformes de trading, en passant par les applications bancaires et les outils de gestion d’entreprise. À l’origine de quelques-unes des plus grandes innovations du Groupe, la division est également responsable du bon fonctionnement opérationnel ainsi que du développement des services de banque dépositaire et d’administration de fonds.\n\nAu sein du service Infrastructure & Production , l’équipe Production Monitoring & Control (PMC) a pour mission d’assurer en permanence la surveillance de l'ensemble des ressources informatiques et leur gestion opérationnelle, dans le respect des niveaux de service requis.\n\nL’évolution des visions et pratiques de la Production Informatique est au centre de nos préoccupations et est prise en compte dans l’ensemble de nos interventions. En tant qu’ IT Operations Shift Leader , vous ferez partie d’une équipe qui joue un rôle clé pour garantir le bon fonctionnement des infrastructures, du monitoring et de la disponibilité du système d’information (SI), tout en apportant une vision innovante basée sur les nouvelles technologies.\n\nYour role\n\n• Assurer la production en garantissant le niveau et les engagements de service, la surveillance des alertes, le déblocage, le suivi du plan de production et l’ouverture des incidents ;\n\n• Analyser les messages reçus à l’unité de pilotage et effectuer toutes les opérations courantes nécessaires au démarrage et au bon fonctionnement des infrastructures informatiques, selon les procédures définies ;\n\n• Proposer et implémenter des solutions méthodologiques et techniques permettant d’optimiser la production informatique ;\n\n• Alimenter la base des incidents et assurer la maintenance de la documentation de pilotage ;\n\n• Fournir un support de service adapté aux applications sous notre responsabilité, en collaborant efficacement avec les différentes équipes concernées ;\n\n• Identifier des opportunités d’amélioration liées aux nouvelles technologies dans le but d’adapter les outils/processus utilisés ;\n\n• Assurer la maintenance des conditions générales de production et suivre notre plan en horaire 3x8, 7j/7.\n\nYour profile\n\n• CFC ou diplôme de technicien ES en informatique, ou titre jugé équivalent ;\n\n• Expérience en activité de pilotage (un plus) ;\n\n• Connaissances des environnements Windows, Unix et Linux, Control-M, Kibana, Jira et Grafana (un plus) ;\n\n• Très bonnes capacités d’analyse et de communication ;\n\n• Maîtrise du français parlé et écrit ; bonne connaissance de l’anglais ;\n\n• Domicile en Suisse requis.\n\nDoté/e d’une bonne capacité d’écoute, disponible et flexible, vous souhaitez rejoindre une équipe dynamique au sein de laquelle vous pourrez mettre en valeur votre esprit de collaboration, et qui saura apprécier votre efficacité. Votre sens de l’analyse, votre pragmatisme et votre solide résistance au stress constitueront autant d’atouts précieux qui vous permettront de mener à bien les missions dont vous aurez la charge.\n\nNote\n\nIOP / NVT / RS\n\nAucun CVs d'agence ne sera accepté.\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "fr": "Your team\n\nLa division Pictet Tech assure la conception et l’intégration d’une grande diversité de solutions informatiques, allant des systèmes de gestion de portefeuille aux plateformes de trading, en passant par les applications bancaires et les outils de gestion d’entreprise. À l’origine de quelques-unes des plus grandes innovations du Groupe, la division est également responsable du bon fonctionnement opérationnel ainsi que du développement des services de banque dépositaire et d’administration de fonds.\n\nAu sein du service Infrastructure & Production , l’équipe Production Monitoring & Control (PMC) a pour mission d’assurer en permanence la surveillance de l'ensemble des ressources informatiques et leur gestion opérationnelle, dans le respect des niveaux de service requis.\n\nL’évolution des visions et pratiques de la Production Informatique est au centre de nos préoccupations et est prise en compte dans l’ensemble de nos interventions. En tant qu’ IT Operations Shift Leader , vous ferez partie d’une équipe qui joue un rôle clé pour garantir le bon fonctionnement des infrastructures, du monitoring et de la disponibilité du système d’information (SI), tout en apportant une vision innovante basée sur les nouvelles technologies.\n\nYour role\n\n• Assurer la production en garantissant le niveau et les engagements de service, la surveillance des alertes, le déblocage, le suivi du plan de production et l’ouverture des incidents ;\n\n• Analyser les messages reçus à l’unité de pilotage et effectuer toutes les opérations courantes nécessaires au démarrage et au bon fonctionnement des infrastructures informatiques, selon les procédures définies ;\n\n• Proposer et implémenter des solutions méthodologiques et techniques permettant d’optimiser la production informatique ;\n\n• Alimenter la base des incidents et assurer la maintenance de la documentation de pilotage ;\n\n• Fournir un support de service adapté aux applications sous notre responsabilité, en collaborant efficacement avec les différentes équipes concernées ;\n\n• Identifier des opportunités d’amélioration liées aux nouvelles technologies dans le but d’adapter les outils/processus utilisés ;\n\n• Assurer la maintenance des conditions générales de production et suivre notre plan en horaire 3x8, 7j/7.\n\nYour profile\n\n• CFC ou diplôme de technicien ES en informatique, ou titre jugé équivalent ;\n\n• Expérience en activité de pilotage (un plus) ;\n\n• Connaissances des environnements Windows, Unix et Linux, Control-M, Kibana, Jira et Grafana (un plus) ;\n\n• Très bonnes capacités d’analyse et de communication ;\n\n• Maîtrise du français parlé et écrit ; bonne connaissance de l’anglais ;\n\n• Domicile en Suisse requis.\n\nDoté/e d’une bonne capacité d’écoute, disponible et flexible, vous souhaitez rejoindre une équipe dynamique au sein de laquelle vous pourrez mettre en valeur votre esprit de collaboration, et qui saura apprécier votre efficacité. Votre sens de l’analyse, votre pragmatisme et votre solide résistance au stress constitueront autant d’atouts précieux qui vous permettront de mener à bien les missions dont vous aurez la charge.\n\nNote\n\nIOP / NVT / RS\n\nAucun CVs d'agence ne sera accepté.\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
         "it": "La tua squadra\n\nLa divisione Pictet Tech garantisce la progettazione e l'integrazione di una vasta gamma di soluzioni IT, dai sistemi di gestione del portafoglio alle piattaforme di trading, alle applicazioni bancarie e agli strumenti di gestione aziendale. All'origine di alcune delle innovazioni più importanti del Gruppo, la divisione è anche responsabile del corretto funzionamento delle operazioni e dello sviluppo dei servizi di deposito bancario e di gestione dei fondi.\n\nAll'interno del reparto Infrastructure & Production, il team di monitoraggio e controllo della produzione (PMC) è responsabile del monitoraggio continuo di tutte le risorse IT e della loro gestione operativa, entro i livelli di servizio richiesti.\n\nL'evoluzione delle visioni e delle pratiche di Computer Production è al centro delle nostre preoccupazioni e viene tenuto in considerazione in tutti i nostri interventi. In qualità di IT Operations Shift Leader, sarai parte di un team che svolge un ruolo chiave nel garantire il corretto funzionamento dell'infrastruttura, il monitoraggio e la disponibilità del sistema informativo (IS), fornendo una visione innovativa basata sulle nuove tecnologie.\n\nIl tuo ruolo\n\n• Assicurare la produzione garantendo il livello e l'impegno del servizio, il monitoraggio degli avvisi, lo sblocco, il monitoraggio del piano di produzione e l'apertura degli incidenti;\n\n• Analizzare i messaggi ricevuti all'unità pilotaggio e eseguire tutte le operazioni di routine necessarie per l'avvio e il corretto funzionamento dell'infrastruttura IT, secondo le procedure definite;\n\n• Proporre e implementare soluzioni metodologiche e tecniche per ottimizzare la produzione di computer;\n\n• Potere la base di incidenti e garantire la manutenzione della documentazione del pilotaggio;\n\n• Fornire assistenza su misura per le applicazioni sotto la nostra responsabilità, lavorando efficacemente con le varie squadre coinvolte;\n\n• Identificare le opportunità di miglioramento relative alle nuove tecnologie per adattare gli strumenti/processi utilizzati;\n\n• Assicurare il mantenimento delle condizioni generali di produzione e seguire il nostro piano in programma 3x8, 7j/7.\n\nIl tuo profilo\n\n• CFC o ES laureato in informatica, o equivalente;\n\n• Esperienza nell'attività di volo (uno più);\n\n• Conoscenza di ambienti Windows, Unix e Linux, Control-M, Kibana, Jira e Grafana (uno più);\n\n• Molto buone capacità analitiche e di comunicazione;\n\n• Mastery di francese parlato e scritto; buona conoscenza dell'inglese;\n\n• Casa in Svizzera richiesta.\n\nCon una buona capacità di ascolto, disponibile e flessibile, si desidera unire un team dinamico in cui è possibile mostrare il vostro spirito di collaborazione e apprezzare la vostra efficienza. Il vostro senso di analisi, il vostro pragmatismo e la vostra forte resistenza allo stress sarà come beni preziosi che vi permetterà di svolgere le missioni che sarete responsabili.\n\nNota\n\nIOP / NVT / RS\n\nNessun curriculum agenzia sarà accettato.\n\nDiversità e inclusione\n\nPictet è una pari opportunità di lavoro e si impegna a creare un ambiente diverso. Rispettiamo ogni individuo e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n•\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
         "en": "Your team\n\nThe Pictet Tech division ensures the design and integration of a wide range of IT solutions, from portfolio management systems to trading platforms, banking applications and business management tools. At the origin of some of the Group's most important innovations, the division is also responsible for the proper functioning of operations and the development of depository banking and fund administration services.\n\nWithin the Infrastructure & Production department, the Production Monitoring & Control (PMC) team is responsible for the ongoing monitoring of all IT resources and their operational management, within the required service levels.\n\nThe evolution of the visions and practices of Computer Production is at the centre of our concerns and is taken into account in all our interventions. As IT Operations Shift Leader, you will be part of a team that plays a key role in ensuring the proper functioning of the infrastructure, monitoring and availability of the information system (IS), while providing an innovative vision based on new technologies.\n\nYour role\n\n• Ensure production by guaranteeing the level and commitment of service, monitoring of alerts, unlocking, monitoring of production plan and opening of incidents;\n\n• Analyze messages received at the pilotage unit and perform all routine operations necessary for the start-up and proper functioning of the IT infrastructure, according to the procedures defined;\n\n• Propose and implement methodological and technical solutions to optimize computer production;\n\n• Power the base of incidents and ensure maintenance of pilotage documentation;\n\n• Provide service support tailored to applications under our responsibility, working effectively with the various teams involved;\n\n• Identify opportunities for improvement related to new technologies in order to adapt the tools/processes used;\n\n• Ensure the maintenance of the general conditions of production and follow our plan on schedule 3x8, 7j/7.\n\nYour profile\n\n• CFC or ES computer technician degree, or equivalent;\n\n• Experience in flying activity (one plus);\n\n• Knowledge of Windows, Unix and Linux environments, Control-M, Kibana, Jira and Grafana (one plus);\n\n• Very good analytical and communication skills;\n\n• Mastery of spoken and written French; good knowledge of English;\n\n• Home in Switzerland required.\n\nWith a good listening capacity, available and flexible, you want to join a dynamic team where you can showcase your spirit of collaboration and appreciate your efficiency. Your sense of analysis, your pragmatism and your strong stress resistance will be as valuable assets that will enable you to carry out the missions you will be responsible for.\n\nNote\n\nIOP / NVT / RS\n\nNo agency resumes will be accepted.\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employ and is committed to creating a diverse environment. We respect all individual and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nDie Division Pictet Tech gewährleistet die Gestaltung und Integration einer breiten Palette von IT-Lösungen, von Portfolio-Management-Systemen über Handelsplattformen, Bankanwendungen und Business-Management-Tools. Als Ursprung einiger der wichtigsten Innovationen der Gruppe ist die Division auch für den ordnungsgemäßen Betrieb und die Entwicklung von Depotbank- und Fondsverwaltungsdienstleistungen verantwortlich.\n\nInnerhalb der Abteilung Infrastructure & Production ist das Team Production Monitoring & Control (PMC) für die laufende Überwachung aller IT-Ressourcen und deren operatives Management innerhalb der erforderlichen Service-Levels verantwortlich.\n\nDie Entwicklung der Visionen und Praktiken der Computerproduktion steht im Mittelpunkt unserer Anliegen und wird in allen unseren Interventionen berücksichtigt. Als IT Operations Shift Leader sind Sie Teil eines Teams, das eine Schlüsselrolle bei der Sicherstellung des ordnungsgemäßen Funktionierens der Infrastruktur, der Überwachung und Verfügbarkeit des Informationssystems (IS) spielt und gleichzeitig eine innovative Vision auf der Grundlage neuer Technologien bietet.\n\nDeine Rolle\n\n• Gewährleistung der Produktion durch Gewährleistung des Niveaus und der Verpflichtung des Dienstes, Überwachung von Warnungen, Entsperrung, Überwachung des Produktionsplans und Eröffnung von Vorfällen;\n\n• Analysieren Sie die an der Lotsenstelle empfangenen Nachrichten und führen Sie alle Routineoperationen durch, die für die Inbetriebnahme und den ordnungsgemäßen Betrieb der IT-Infrastruktur gemäß den festgelegten Verfahren erforderlich sind;\n\n• Vorschlag und Umsetzung methodischer und technischer Lösungen zur Optimierung der Computerproduktion;\n\n• Macht die Basis von Vorfällen und die Pflege der Lotsendokumentation;\n\n• Bereitstellung von Service-Support, der auf Anwendungen unter unserer Verantwortung zugeschnitten ist und effektiv mit den verschiedenen beteiligten Teams zusammenarbeitet;\n\n• Ermittlung von Verbesserungsmöglichkeiten im Zusammenhang mit neuen Technologien zur Anpassung der verwendeten Werkzeuge/Prozesse;\n\n• Sorgen Sie für die Einhaltung der allgemeinen Produktionsbedingungen und folgen Sie unserem Plan nach Zeitplan 3x8, 7j/7.\n\nDein Profil\n\n• CFC oder ES Computertechniker Grad oder gleichwertige;\n\n• Erfahrung in der Flugtätigkeit (ein Plus);\n\n• Kenntnisse in Windows-, Unix- und Linux-Umgebungen, Control-M, Kibana, Jira und Grafana (ein Plus);\n\n• Sehr gute analytische und kommunikative Fähigkeiten;\n\n• Beherrschung von gesprochenem und geschriebenem Französisch; gute Englischkenntnisse;\n\n• Heimat in der Schweiz erforderlich.\n\nMit einer guten Hörfähigkeit, verfügbar und flexibel, möchten Sie sich einem dynamischen Team anschließen, in dem Sie Ihren Geist der Zusammenarbeit präsentieren und Ihre Effizienz schätzen können. Ihr Sinn für Analyse, Ihr Pragmatismus und Ihre starke Stressresistenz sind wertvolle Ressourcen, die es Ihnen ermöglichen, die Missionen durchzuführen, für die Sie verantwortlich sind.\n\nAnmerkung:\n\nIOP/NVT/RS\n\nKeine Lebensläufe der Agentur werden akzeptiert.\n\nVielfalt & Inklusion\n\nPictet ist eine Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren jeden Einzelnen und suchen seine Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:"
+        "de": "Dein Team\n\nDie Division Pictet Tech gewährleistet die Gestaltung und Integration einer breiten Palette von IT-Lösungen, von Portfolio-Management-Systemen über Handelsplattformen, Bankanwendungen und Business-Management-Tools. Als Ursprung einiger der wichtigsten Innovationen der Gruppe ist die Division auch für den ordnungsgemäßen Betrieb und die Entwicklung von Depotbank- und Fondsverwaltungsdienstleistungen verantwortlich.\n\nInnerhalb der Abteilung Infrastructure & Production ist das Team Production Monitoring & Control (PMC) für die laufende Überwachung aller IT-Ressourcen und deren operatives Management innerhalb der erforderlichen Service-Levels verantwortlich.\n\nDie Entwicklung der Visionen und Praktiken der Computerproduktion steht im Mittelpunkt unserer Anliegen und wird in allen unseren Interventionen berücksichtigt. Als IT Operations Shift Leader sind Sie Teil eines Teams, das eine Schlüsselrolle bei der Sicherstellung des ordnungsgemäßen Funktionierens der Infrastruktur, der Überwachung und Verfügbarkeit des Informationssystems (IS) spielt und gleichzeitig eine innovative Vision auf der Grundlage neuer Technologien bietet.\n\nDeine Rolle\n\n• Gewährleistung der Produktion durch Gewährleistung des Niveaus und der Verpflichtung des Dienstes, Überwachung von Warnungen, Entsperrung, Überwachung des Produktionsplans und Eröffnung von Vorfällen;\n\n• Analysieren Sie die an der Lotsenstelle empfangenen Nachrichten und führen Sie alle Routineoperationen durch, die für die Inbetriebnahme und den ordnungsgemäßen Betrieb der IT-Infrastruktur gemäß den festgelegten Verfahren erforderlich sind;\n\n• Vorschlag und Umsetzung methodischer und technischer Lösungen zur Optimierung der Computerproduktion;\n\n• Macht die Basis von Vorfällen und die Pflege der Lotsendokumentation;\n\n• Bereitstellung von Service-Support, der auf Anwendungen unter unserer Verantwortung zugeschnitten ist und effektiv mit den verschiedenen beteiligten Teams zusammenarbeitet;\n\n• Ermittlung von Verbesserungsmöglichkeiten im Zusammenhang mit neuen Technologien zur Anpassung der verwendeten Werkzeuge/Prozesse;\n\n• Sorgen Sie für die Einhaltung der allgemeinen Produktionsbedingungen und folgen Sie unserem Plan nach Zeitplan 3x8, 7j/7.\n\nDein Profil\n\n• CFC oder ES Computertechniker Grad oder gleichwertige;\n\n• Erfahrung in der Flugtätigkeit (ein Plus);\n\n• Kenntnisse in Windows-, Unix- und Linux-Umgebungen, Control-M, Kibana, Jira und Grafana (ein Plus);\n\n• Sehr gute analytische und kommunikative Fähigkeiten;\n\n• Beherrschung von gesprochenem und geschriebenem Französisch; gute Englischkenntnisse;\n\n• Heimat in der Schweiz erforderlich.\n\nMit einer guten Hörfähigkeit, verfügbar und flexibel, möchten Sie sich einem dynamischen Team anschließen, in dem Sie Ihren Geist der Zusammenarbeit präsentieren und Ihre Effizienz schätzen können. Ihr Sinn für Analyse, Ihr Pragmatismus und Ihre starke Stressresistenz sind wertvolle Ressourcen, die es Ihnen ermöglichen, die Missionen durchzuführen, für die Sie verantwortlich sind.\n\nAnmerkung:\n\nIOP/NVT/RS\n\nKeine Lebensläufe der Agentur werden akzeptiert.\n\nVielfalt & Inklusion\n\nPictet ist eine Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren jeden Einzelnen und suchen seine Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
+        "fr": "Your team\n\nLa division Pictet Tech assure la conception et l’intégration d’une grande diversité de solutions informatiques, allant des systèmes de gestion de portefeuille aux plateformes de trading, en passant par les applications bancaires et les outils de gestion d’entreprise. À l’origine de quelques-unes des plus grandes innovations du Groupe, la division est également responsable du bon fonctionnement opérationnel ainsi que du développement des services de banque dépositaire et d’administration de fonds.\n\nAu sein du service Infrastructure & Production , l’équipe Production Monitoring & Control (PMC) a pour mission d’assurer en permanence la surveillance de l'ensemble des ressources informatiques et leur gestion opérationnelle, dans le respect des niveaux de service requis.\n\nL’évolution des visions et pratiques de la Production Informatique est au centre de nos préoccupations et est prise en compte dans l’ensemble de nos interventions. En tant qu’ IT Operations Shift Leader , vous ferez partie d’une équipe qui joue un rôle clé pour garantir le bon fonctionnement des infrastructures, du monitoring et de la disponibilité du système d’information (SI), tout en apportant une vision innovante basée sur les nouvelles technologies.\n\nYour role\n\n• Assurer la production en garantissant le niveau et les engagements de service, la surveillance des alertes, le déblocage, le suivi du plan de production et l’ouverture des incidents ;\n\n• Analyser les messages reçus à l’unité de pilotage et effectuer toutes les opérations courantes nécessaires au démarrage et au bon fonctionnement des infrastructures informatiques, selon les procédures définies ;\n\n• Proposer et implémenter des solutions méthodologiques et techniques permettant d’optimiser la production informatique ;\n\n• Alimenter la base des incidents et assurer la maintenance de la documentation de pilotage ;\n\n• Fournir un support de service adapté aux applications sous notre responsabilité, en collaborant efficacement avec les différentes équipes concernées ;\n\n• Identifier des opportunités d’amélioration liées aux nouvelles technologies dans le but d’adapter les outils/processus utilisés ;\n\n• Assurer la maintenance des conditions générales de production et suivre notre plan en horaire 3x8, 7j/7.\n\nYour profile\n\n• CFC ou diplôme de technicien ES en informatique, ou titre jugé équivalent ;\n\n• Expérience en activité de pilotage (un plus) ;\n\n• Connaissances des environnements Windows, Unix et Linux, Control-M, Kibana, Jira et Grafana (un plus) ;\n\n• Très bonnes capacités d’analyse et de communication ;\n\n• Maîtrise du français parlé et écrit ; bonne connaissance de l’anglais ;\n\n• Domicile en Suisse requis.\n\nDoté/e d’une bonne capacité d’écoute, disponible et flexible, vous souhaitez rejoindre une équipe dynamique au sein de laquelle vous pourrez mettre en valeur votre esprit de collaboration, et qui saura apprécier votre efficacité. Votre sens de l’analyse, votre pragmatisme et votre solide résistance au stress constitueront autant d’atouts précieux qui vous permettront de mener à bien les missions dont vous aurez la charge.\n\nNote\n\nIOP / NVT / RS\n\nAucun CVs d'agence ne sera accepté.\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
       },
       "location": "Geneva",
       "canton": "GE",
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124437&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T21:39:46.567Z",
+      "crawledAt": "2026-08-22T09:51:41.825Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -700,10 +717,9 @@
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124437&selected_lang=en_GB",
       "jobReqId": "124437",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T21:39:46.567Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -715,8 +731,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T21:39:46.567Z"
+      }
     },
     {
       "id": "pictet-0b117ac9bb40",
@@ -790,82 +805,6 @@
           "@type": "QuantitativeValue",
           "minValue": 83500,
           "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "pictet-06f66c434084",
-      "slug": "assistente-di-conformita-aziendale-7-mesi-pictet-group-hong-kong",
-      "slugByLocale": {
-        "it": "assistente-di-conformita-aziendale-7-mesi-pictet-group-hong-kong",
-        "en": "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-        "de": "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-        "fr": "assistant-a-la-conformite-operationnelle-contrat-de-7-mois-pictet-group-hong-kong"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Business Compliance Assistant (7-month contract)",
-      "titleByLocale": {
-        "it": "Assistente di conformità aziendale (7 mesi)",
-        "en": "Business Compliance Assistant (7-month contract)",
-        "de": "Business Compliance Assistent (7-month contract)",
-        "fr": "Assistant à la conformité opérationnelle (contrat de 7 mois)"
-      },
-      "description": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented in 30 offices in financial centres worldwide, currently employing over 5000 people. Pictet has been present in Hong Kong for 40 years where it employs around 200 people.\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nYour role\n\n• Perform name screening/transaction monitoring against applicable policies and standards.\n\n• Perform daily review on automated name screening/transaction monitoring alerts.\n\n• Contribute to audits or inspections that covers AML activities.\n\n• Support the Client Business Compliance - AML team in embedding robust risk awareness throughout Hong Kong Branch.\n\n• Perform any required remedial efforts identified from risk assessment or audit findings.\n\n• Prepare metrics relating to the Client Business Compliance activity.\n\n• Maintain key internal relationships to foster a positive compliance culture through communications, trainings and to provide colleagues with timely and pragmatic advice on day-to-day issues.\n\n• Provide administrative and ad-hoc support to the team.\n\n• Undertake any other duties as assigned.\n\nYour profile\n\n• At least one year of relevant experience in banking/finance/audit\n\n• Bachelor’s degree in Business Administration/Economics/Accounting\n\n• Proficiency in English and Chinese\n\n• Organized and attentive to details\n\n• Self-motivated\n\n• IT skills and relevant software proficiency\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nIl Gruppo Pictet è uno dei principali asset manager indipendenti al mondo. Fondato nel 1805 e con sede a Ginevra, in Svizzera, il Gruppo è rappresentato in 30 uffici nei centri finanziari di tutto il mondo, attualmente impiegando oltre 5000 persone. Pictet è presente a Hong Kong da 40 anni dove impiega circa 200 persone.\n\nPictet Wealth Management combina oltre 200 anni di patrimonio bancario svizzero con competenze di investimento globali. Il gruppo di servizi finanziari di proprietà dei partner offre un servizio completo per persone ricche e famiglie, tra cui soluzioni di investimento discrezionali e consultive e servizi di ufficio familiare.\n\nIl tuo ruolo\n\n• Eseguire lo screening dei nomi / monitoraggio delle transazioni contro le politiche e gli standard applicabili.\n\n• Eseguire la revisione giornaliera sugli avvisi di screening automatico dei nomi/controllo delle transazioni.\n\n• Contribuisci a audit o ispezioni che coprono le attività AML.\n\n• Supporta il Customer Business Compliance - team AML nell'integrazione di una solida consapevolezza del rischio in tutta la filiale di Hong Kong.\n\n• Eseguire gli sforzi correttivi richiesti identificati dalla valutazione del rischio o dai risultati dell'audit.\n\n• Prepara le metriche relative all'attività di Customer Business Compliance.\n\n• Mantenere relazioni interne chiave per promuovere una cultura di conformità positiva attraverso le comunicazioni, le formazioni e per fornire ai colleghi consigli tempestivi e pragmatici su questioni quotidiane.\n\n• Fornire supporto amministrativo e ad-hoc alla squadra.\n\n• Assumere qualsiasi altro dovere come assegnato.\n\nIl tuo profilo\n\n• Almeno un anno di esperienza rilevante nel settore bancario/finanza/audit\n\n• Corso di laurea in Business Administration / Economia / Contabilità\n\n• Proficienza in inglese e cinese\n\n• Organizzato e attento ai dettagli\n\n• Automotivata\n\n• Competenze informatiche e competenze software rilevanti\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione sul posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n•\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nThe Pictet Group is one of the world’s leading independent wealth and asset managers. Founded in 1805 and headquartered in Geneva, Switzerland, the Group is represented in 30 offices in financial centres worldwide, currently employing over 5000 people. Pictet has been present in Hong Kong for 40 years where it employs around 200 people.\n\nPictet Wealth Management combines more than 200 years of Swiss banking heritage with global investment expertise. The Partner-owned financial service group offers a comprehensive service for wealthy individuals and families including discretionary and advisory investment solutions and family office services.\n\nYour role\n\n• Perform name screening/transaction monitoring against applicable policies and standards.\n\n• Perform daily review on automated name screening/transaction monitoring alerts.\n\n• Contribute to audits or inspections that covers AML activities.\n\n• Support the Client Business Compliance - AML team in embedding robust risk awareness throughout Hong Kong Branch.\n\n• Perform any required remedial efforts identified from risk assessment or audit findings.\n\n• Prepare metrics relating to the Client Business Compliance activity.\n\n• Maintain key internal relationships to foster a positive compliance culture through communications, trainings and to provide colleagues with timely and pragmatic advice on day-to-day issues.\n\n• Provide administrative and ad-hoc support to the team.\n\n• Undertake any other duties as assigned.\n\nYour profile\n\n• At least one year of relevant experience in banking/finance/audit\n\n• Bachelor’s degree in Business Administration/Economics/Accounting\n\n• Proficiency in English and Chinese\n\n• Organized and attentive to details\n\n• Self-motivated\n\n• IT skills and relevant software proficiency\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nDie Pictet Group ist einer der weltweit führenden unabhängigen Vermögensverwalter. Die 1805 gegründete Gruppe mit Hauptsitz in Genf, Schweiz, ist in 30 Büros in Finanzzentren weltweit vertreten und beschäftigt derzeit über 5000 Mitarbeiter. Pictet ist seit 40 Jahren in Hongkong tätig und beschäftigt dort rund 200 Mitarbeiter.\n\nPictet Wealth Management verbindet mehr als 200 Jahre Schweizer Bankerbe mit globaler Investmentexpertise. Die Partner-eigene Finanzdienstleistungsgruppe bietet einen umfassenden Service für wohlhabende Einzelpersonen und Familien, einschließlich diskretionärer und beratender Anlagelösungen und Family Office-Services.\n\nDeine Rolle\n\n• Führen Sie ein Namens-Screening/Transaktions-Monitoring nach geltenden Richtlinien und Standards durch.\n\n• Führen Sie eine tägliche Überprüfung der automatisierten Namens-Screening- / Transaktionsüberwachungswarnungen durch.\n\n• Beitrag zu Audits oder Inspektionen, die AML-Aktivitäten abdecken.\n\n• Unterstützen Sie das Client Business Compliance - AML-Team bei der Einbettung eines robusten Risikobewusstseins in der gesamten Niederlassung in Hongkong.\n\n• Durchführung aller erforderlichen Abhilfemaßnahmen, die aus der Risikobewertung oder den Prüfungsergebnissen hervorgehen.\n\n• Bereiten Sie Metriken in Bezug auf die Client Business Compliance-Aktivität vor.\n\n• Pflegen Sie wichtige interne Beziehungen, um eine positive Compliance-Kultur durch Kommunikation und Schulungen zu fördern und Kollegen zeitnah und pragmatisch zu alltäglichen Themen zu beraten.\n\n• Bieten Sie administrative und Ad-hoc-Unterstützung für das Team.\n\n• Alle anderen Aufgaben als zugewiesen übernehmen.\n\nDein Profil\n\n• Mindestens ein Jahr einschlägige Erfahrung im Bankwesen/Finanzwesen/Audit\n\n• Bachelor-Abschluss in Betriebswirtschaft / Wirtschaft / Rechnungswesen\n\n• Kenntnisse in Englisch und Chinesisch\n\n• Organisiert und aufmerksam auf Details\n\n• Selbstmotivation\n\n• IT-Kenntnisse und relevante Softwarekenntnisse\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nLe groupe Pictet est l'un des leaders mondiaux des gestionnaires de patrimoine et d'actifs indépendants. Fondé en 1805 et ayant son siège social à Genève, le Groupe est représenté dans 30 bureaux dans les centres financiers du monde entier, employant actuellement plus de 5000 personnes. Pictet est présent à Hong Kong depuis 40 ans, où il emploie environ 200 personnes.\n\nPictet Wealth Management combine plus de 200 ans d'héritage bancaire suisse avec une expertise en investissement mondial. Le groupe de services financiers appartenant à des partenaires offre un service complet aux personnes et aux familles riches, y compris des solutions d'investissement discrétionnaires et consultatives et des services de bureau familial.\n\nVotre rôle\n\n• Effectuer un contrôle des noms et des transactions par rapport aux politiques et aux normes applicables.\n\n• Effectuer un examen quotidien des alertes automatisées de contrôle des noms et des transactions.\n\n• Contribuer à des vérifications ou des inspections portant sur les activités de lutte contre la LAM.\n\n• Soutenir la conformité des entreprises clientes - l'équipe de la LMA en intégrant une solide sensibilisation aux risques dans l'ensemble de la Direction générale de Hong Kong.\n\n• Effectuer tous les efforts correctifs requis identifiés à partir de l'évaluation des risques ou des constatations de la vérification.\n\n• Préparer des mesures relatives à l'activité de conformité des entreprises clientes.\n\n• Maintenir des relations internes clés pour favoriser une culture de conformité positive au moyen de communications, de formations et de conseils opportuns et pragmatiques sur les questions courantes.\n\n• Fournir un soutien administratif et ad hoc à l'équipe.\n\n• Entreprendre toutes les autres tâches assignées.\n\nVotre profil\n\n• Au moins un an d'expérience pertinente en matière bancaire/finance/audit\n\n• Licence en administration des affaires/économie/comptabilité\n\n• Compétence en anglais et en chinois\n\n• Organisé et attentif aux détails\n\n• Automotivé\n\n• Compétences en TI et compétences logicielles pertinentes\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n•\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
-      },
-      "location": "Hong Kong",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124890&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:35:43.917Z",
-      "addressLocality": "Hong Kong",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124890&selected_lang=en_GB",
-      "jobReqId": "124890",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-        "business-compliance-assistant-7-month-contract-pictet-group-hong-kong"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-compliance-assistant-7-month-contract-pictet-hong-kong"
-        ],
-        "fr": [
-          "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-          "business-compliance-assistant-7-month-contract-pictet-group-hong-kong"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T10:19:17.183Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
