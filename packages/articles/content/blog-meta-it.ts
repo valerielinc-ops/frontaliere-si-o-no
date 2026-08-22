@@ -10453,6 +10453,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.title': 'Vivere a Vezza d\'Oglio e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.excerpt': 'Il nuovo accordo frontalieri del 23 dicembre 2020 apre nuove opportunità per i frontalieri che vivono a Vezza d\'Oglio e lavorano in Grigioni.',
     'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere che vive a Vezza d\'Oglio e lavora in Grigioni può godere di una vita equilibrata e ricca di opportunità.',
+    'blog.article.vivere-berzo-demo-lavorare-grigioni.title': 'Berzo Demo e Grigioni: vivere da frontaliere al confine',
+    'blog.article.vivere-berzo-demo-lavorare-grigioni.excerpt': 'Guida completa per chi vive a Berzo Demo e lavora in Grigioni: normative fiscali svizzere, Permesso G, AVS/LAMal, franchigie, contributi e procedure.',
+    'blog.article.vivere-berzo-demo-lavorare-grigioni.imageAlt': 'Gandria, villaggio nel Ticino sul confine italo-svizzero, con paesaggio alpino',
 };
 
 export default blogMetaIt;

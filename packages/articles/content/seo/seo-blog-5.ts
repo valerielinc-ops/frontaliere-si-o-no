@@ -74288,6 +74288,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-berzo-demo-lavorare-grigioni': {
+    title: 'Berzo Demo e Grigioni: vivere da frontaliere al confine',
+    description: 'Guida completa per chi vive a Berzo Demo e lavora in Grigioni: normative fiscali svizzere, Permesso G, AVS/LAMal, franchigie, contributi e procedure.',
+    keywords: 'frontalieri, ticino, svizzera, italia, berzo, demo, grigioni, vivere',
+    ogTitle: 'Berzo Demo e Grigioni: vivere da frontaliere al confine',
+    ogDescription: 'Trasferirsi a Berzo Demo per lavorare in Grigioni come frontaliere: tutto su imposte, contributi AVS, opzione LAMal, Permesso G e scadenze fiscali. Step-by-step da prima della partenza ai primi mesi di lavoro.',
+    canonicalPath: '/articoli-frontaliere/vivere-berzo-demo-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berzo Demo e Grigioni: vivere da frontaliere al confine",
+      "description": "Guida completa per chi vive a Berzo Demo e lavora in Grigioni: normative fiscali svizzere, Permesso G, AVS/LAMal, franchigie, contributi e procedure.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-berzo-demo-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gandria, villaggio nel Ticino sul confine italo-svizzero, con paesaggio alpino"
+      },
+      "datePublished": "2026-08-22T01:23:08+00:00",
+      "dateModified": "2026-08-22T01:23:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-berzo-demo-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
