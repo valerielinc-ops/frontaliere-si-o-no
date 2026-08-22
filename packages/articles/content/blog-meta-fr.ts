@@ -10519,6 +10519,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spesa-alimentare-frontaliere-2024.title': 'Dépenses alimentaires frontalières 2024 : la franchise douanière',
     'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'Depuis 2024, le nouvel accord introduit différentes franchises pour les frontaliers : 7 500 € pour les anciens inscrits, 10 000 € pour les nouveaux. Comme il convient de faire les achats alimentaires entre la Suisse et l\'Italie.',
     'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Travailleur frontalier avec des sacs de courses au passage frontalier Suisse-Italie au Tessin',
+    'blog.article.pagamento-multa-stradale-svizzera.title': 'Amende routière suisse : procédure pour les résidents italiens',
+    'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Recevez-vous une amende routière en Suisse en tant que résident italien ? Découvrez la notification, le paiement, les recours et les conséquences de l\'absence de solde sur la vignette et l\'assurance.',
+    'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'Une route du Tessin au crépuscule avec marquages routiers et automobile s\'approchant d\'un poste frontière suisse.',
 };
 
 export default blogMetaFr;

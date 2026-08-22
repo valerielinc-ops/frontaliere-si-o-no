@@ -10516,6 +10516,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spesa-alimentare-frontaliere-2024.title': 'Grenzüberschreitende Lebensmittelausgaben 2024: die Zollbefreiung',
     'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'Ab 2024 führt das neue Abkommen unterschiedliche Selbstbehalte für Grenzgänger ein: € 7.500 für alte Mitglieder, € 10.000 für neue. Wie lohnt es sich, Lebensmittel zwischen der Schweiz und Italien einzukaufen?',
     'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Grenzgänger mit Einkaufstaschen am Schweizer-Italienischen Grenzübergang im Tessin',
+    'blog.article.pagamento-multa-stradale-svizzera.title': 'Schweizer Bußgeld: Verfahren für italienische Einwohner',
+    'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Bekommen Sie als italienischer Einwohner ein Bußgeld in der Schweiz? Entdecken Sie Benachrichtigung, Zahlung, Rechtsbehelfe und die Folgen von Nichtzahlung auf Vignette und Versicherung.',
+    'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'Eine Straße im Tessin bei Dämmerung mit Straßenmarkierungen und Auto bei Annäherung an einen Schweizer Grenzposten.',
 };
 
 export default blogMetaDe;

@@ -10518,6 +10518,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spesa-alimentare-frontaliere-2024.title': 'Spesa alimentare frontaliere 2024: la franchigia doganale',
     'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'Dal 2024 il nuovo accordo introduce franchigie diverse per frontalieri: €7.500 per vecchi iscritti, €10.000 per i nuovi. Come conviene fare la spesa alimentare tra Svizzera e Italia.',
     'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Frontaliere con buste della spesa al valico svizzero-italiano di confine in Ticino',
+    'blog.article.pagamento-multa-stradale-svizzera.title': 'Multa stradale svizzera: procedura per residenti italiani',
+    'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Ricevi una multa stradale in Svizzera come residente italiano? Scopri notifica, pagamento, ricorsi e conseguenze del mancato saldo su vignetta e assicurazione.',
+    'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'Una strada del Ticino al crepuscolo con segnaletica stradale e automobile che si avvicina a un valico di confine svizzero.',
 };
 
 export default blogMetaIt;
