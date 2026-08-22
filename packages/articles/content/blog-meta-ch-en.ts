@@ -3799,6 +3799,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.udc-verdi-iniziativa-neutralita.title': 'UDC and Green Assemblies, the neutrality initiative is discussed',
     'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'UDC and Green delegates meet today to discuss the neutrality initiative and the food initiative',
     'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'UDC and Green delegates in assembly',
+    'blog.article.permesso-c-lucerna-guida.title': 'Residence permit C Lucerne: complete guide',
+    'blog.article.permesso-c-lucerna-guida.excerpt': 'Requirements, integration criteria and application procedure for residence permit C in the Canton of Lucerne. Complete step-by-step guide.',
+    'blog.article.permesso-c-lucerna-guida.imageAlt': 'Modern entrance of a Swiss cantonal office for residence permit applications',
 };
 
 export default blogMetaChEn;

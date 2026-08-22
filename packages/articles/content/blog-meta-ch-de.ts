@@ -3799,6 +3799,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.udc-verdi-iniziativa-neutralita.title': 'SVP- und Grünen-Versammlungen, Neutralitätsinitiative diskutiert',
     'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'Die Delegierten der SVP und der Grünen kommen heute zusammen, um die Neutralitäts- und Ernährungsinitiative zu diskutieren',
     'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Delegierte UDC und Grüne in einer Versammlung',
+    'blog.article.permesso-c-lucerna-guida.title': 'Niederlassungsbewilligung C Luzern: Komplette Anleitung',
+    'blog.article.permesso-c-lucerna-guida.excerpt': 'Voraussetzungen, Integrationskriterien und Antragsverfahren für die Niederlassungsbewilligung C im Kanton Luzern. Komplette Schritt-für-Schritt-Anleitung.',
+    'blog.article.permesso-c-lucerna-guida.imageAlt': 'Moderner Eingang eines Schweizer Kantonal Amts für Aufenthaltserlaubnisse',
 };
 
 export default blogMetaChDe;
