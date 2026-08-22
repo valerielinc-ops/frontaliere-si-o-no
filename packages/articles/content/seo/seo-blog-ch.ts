@@ -48614,6 +48614,435 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassa-compensazione-zurigo-rendita-avs': {
+    title: 'AVS e prestazioni complementari a Zurigo | Frontaliere Ticino',
+    description: 'Cassa di compensazione, rendita AVS e prestazioni complementari nel Cantone di Zurigo. Guida completa al primo pilastro: calcolo, lacune contributive, minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, zurigo, cassa',
+    ogTitle: 'AVS e prestazioni complementari nel Cantone di Zurigo',
+    ogDescription: 'Scopri come funziona il primo pilastro nel Cantone di Zurigo. La cassa di compensazione gestisce la rendita AVS. Le prestazioni complementari garantiscono il minimo vitale. Procedura, documenti, scadenze e contatti per accedere alle prestazioni.',
+    canonicalPath: '/articoli-svizzera/cassa-compensazione-zurigo-rendita-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari a Zurigo",
+      "description": "Cassa di compensazione, rendita AVS e prestazioni complementari nel Cantone di Zurigo. Guida completa al primo pilastro: calcolo, lacune contributive, minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassa-compensazione-zurigo-rendita-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un ufficio della cassa di compensazione a Zurigo con documenti di rendita AVS su scrivania"
+      },
+      "datePublished": "2026-08-21T22:38:24+00:00",
+      "dateModified": "2026-08-21T22:38:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cassa-compensazione-zurigo-rendita-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-richiesta-permesso-dimora-berna': {
+    title: 'Permesso di dimora B Berna: requisiti e rinnovo',
+    description: 'Il permesso B è rinnovabile ogni anno. Guida completa a requisiti, documenti necessari e procedura di rinnovo presso gli uffici cantonali della migrazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, berna, requisiti',
+    ogTitle: 'Permesso di dimora B Berna: requisiti e rinnovo',
+    ogDescription: 'Il permesso B è rinnovabile ogni anno. Guida completa a requisiti, documenti necessari e procedura di rinnovo presso gli uffici cantonali della migrazione.',
+    canonicalPath: '/articoli-svizzera/richiesta-permesso-dimora-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B Berna: requisiti e rinnovo",
+      "description": "Il permesso B è rinnovabile ogni anno. Guida completa a requisiti, documenti necessari e procedura di rinnovo presso gli uffici cantonali della migrazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiesta-permesso-dimora-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con impiegato che assiste un residente nella compilazione di documenti per rinnovo permesso di dimora"
+      },
+      "datePublished": "2026-08-21T23:12:39+00:00",
+      "dateModified": "2026-08-21T23:12:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/richiesta-permesso-dimora-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-cina-accordo-tariffe': {
+    title: 'Svizzera-Cina: intesa per eliminare i dazi doganali',
+    description: 'Accordo tra Svizzera e Cina per eliminare i dazi sul 99,8% delle esportazioni svizzere. Risparmi stimati per le aziende elvetiche di 244 milioni di franchi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-cina, intesa, eliminare, dazi',
+    ogTitle: 'Svizzera-Cina: intesa per eliminare i dazi doganali',
+    ogDescription: 'Il consigliere federale Guy Parmelin ha annunciato un accordo che esenta il 99,8% dell\'export svizzero dai dazi cinesi, con risparmi annui di 244 milioni di CHF e nuove tutele sociali.',
+    canonicalPath: '/articoli-svizzera/svizzera-cina-accordo-tariffe/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera-Cina: intesa per eliminare i dazi doganali",
+      "description": "Accordo tra Svizzera e Cina per eliminare i dazi sul 99,8% delle esportazioni svizzere. Risparmi stimati per le aziende elvetiche di 244 milioni di franchi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-cina-accordo-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle decisioni economiche svizzere."
+      },
+      "datePublished": "2026-08-21T23:35:19+00:00",
+      "dateModified": "2026-08-21T23:35:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-cina-accordo-tariffe/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cherosene-sintetico-aviazione': {
+    title: 'Aviazione: CO2 e acqua diventano cherosene sintetico',
+    description: 'PSI Argovia inaugura central dimostrativa produce cherosene sintetico. Compagnie aeree mescolano il 2% di carburante sostenibile (oggi) e 6% nel 2030. Impianto',
+    keywords: 'frontalieri, ticino, svizzera, italia, aviazione, acqua, diventano, cherosene',
+    ogTitle: 'Aviazione: CO2 e acqua diventano cherosene sintetico',
+    ogDescription: 'PSI Argovia: central dimostrativa produce cherosene sintetico da acqua, CO2 ed elettricità. Compagnie aeree svizzere devono mescolare il 2% di carburante sostenibile (oggi) → 6% (2030). Impianto commerciale dal 2030 nei Paesi Bassi. Obiettivo',
+    canonicalPath: '/articoli-svizzera/cherosene-sintetico-aviazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aviazione: CO2 e acqua diventano cherosene sintetico",
+      "description": "PSI Argovia inaugura central dimostrativa produce cherosene sintetico. Compagnie aeree mescolano il 2% di carburante sostenibile (oggi) e 6% nel 2030. Impianto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cherosene-sintetico-aviazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centrale dimostrativa del Paul Scherrer Institut per la produzione di cherosene sintetico sostenibile in Argovia"
+      },
+      "datePublished": "2026-08-21T23:59:56+00:00",
+      "dateModified": "2026-08-21T23:59:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cherosene-sintetico-aviazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-maghreb-reati-80-percento': {
+    title: 'Richiedenti l\'asilo dal Maghreb, l\'80% è coinvolto in reati',
+    description: 'L\'80,5% dei richiedenti dal Maghreb è stato accusato di reati. La SEM accelera le procedure e stringe accordi con il Marocco per più veloci rimpatri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiedenti, asilo, maghreb, coinvolto',
+    ogTitle: 'Richiedenti l\'asilo dal Maghreb, l\'80% è coinvolto in reati',
+    ogDescription: 'L\'80,5% dei richiedenti dal Maghreb accusato di reati durante la procedura d\'asilo. La Confederazione accelera rimpatri, stringe accordi con il Marocco e rafforza la collaborazione con i cantoni per garantire security e efficienza amministrativa.',
+    canonicalPath: '/articoli-svizzera/asilo-maghreb-reati-80-percento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiedenti l'asilo dal Maghreb, l'80% è coinvolto in reati",
+      "description": "L'80,5% dei richiedenti dal Maghreb è stato accusato di reati. La SEM accelera le procedure e stringe accordi con il Marocco per più veloci rimpatri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-maghreb-reati-80-percento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del palazzo federale di Berna, sede del governo svizzero, in un paesaggio nazionale."
+      },
+      "datePublished": "2026-08-22T00:14:33+00:00",
+      "dateModified": "2026-08-22T00:14:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-maghreb-reati-80-percento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-discriminazioni-esercito-piano': {
+    title: 'Discriminazioni in esercito: il piano svizzero 2027',
+    description: 'L\'esercito svizzero implementa 8 delle 16 misure del piano d\'azione contro discriminazioni e violenze sessualizzate. Attuazione totale entro fine 2027',
+    keywords: 'frontalieri, ticino, svizzera, italia, discriminazioni, esercito, piano, svizzero',
+    ogTitle: 'Discriminazioni in esercito: il piano svizzero 2027',
+    ogDescription: 'L\'esercito svizzero implementa 8 delle 16 misure del suo piano d\'azione contro discriminazioni e violenze sessualizzate. Il programma risponde a uno studio del 2024 che coinvolse 1.100 militari. Attuazione completa entro fine 2027, valutazione',
+    canonicalPath: '/articoli-svizzera/discriminazioni-esercito-piano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Discriminazioni in esercito: il piano svizzero 2027",
+      "description": "L'esercito svizzero implementa 8 delle 16 misure del piano d'azione contro discriminazioni e violenze sessualizzate. Attuazione totale entro fine 2027",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/discriminazioni-esercito-piano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Caserma svizzera con reclute in addestramento, ambiente inclusivo e disciplinato."
+      },
+      "datePublished": "2026-08-22T00:26:46+00:00",
+      "dateModified": "2026-08-22T00:26:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/discriminazioni-esercito-piano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquistare-abitazione-berna-ipotecario': {
+    title: 'Acquistare casa a Berna: guida ai mutui e costi',
+    description: 'Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario, tasse federali e cantonali, imposta sui trapassi, spese notarili, e procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquistare, casa, berna, mutui',
+    ogTitle: 'Acquistare casa a Berna: guida ai mutui e costi',
+    ogDescription: 'Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario svizzero, tasse, imposta sui trapassi, spese notarili, procedura d\'acquisto, e strategie di pianificazione finanziaria per investire in proprietà immobiliari nel Canton Berna.',
+    canonicalPath: '/articoli-svizzera/acquistare-abitazione-berna-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquistare casa a Berna: guida ai mutui e costi",
+      "description": "Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario, tasse federali e cantonali, imposta sui trapassi, spese notarili, e procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-abitazione-berna-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna nel Canton Berna con architettura residenziale svizzera e paesaggio"
+      },
+      "datePublished": "2026-08-22T00:59:56+00:00",
+      "dateModified": "2026-08-22T00:59:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-abitazione-berna-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-digitalizzazione-processi-competenze': {
+    title: 'Quando digitalizzazione rima con improvvisazione',
+    description: 'Digitalizzare richiede ripensamento dei processi, non solo cambio tecnologico. Guide per gestire competenze, cambiamento organizzativo e razionalizzazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, quando, digitalizzazione, rima, improvvisazione',
+    ogTitle: 'Quando digitalizzazione rima con improvvisazione',
+    ogDescription: 'La digitalizzazione non è semplice cambio carta-schermo: richiede ripensamento processi, competenze multidisciplinari e gestione consapevole del cambiamento organizzativo nelle amministrazioni e aziende svizzere.',
+    canonicalPath: '/articoli-svizzera/digitalizzazione-processi-competenze/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quando digitalizzazione rima con improvvisazione",
+      "description": "Digitalizzare richiede ripensamento dei processi, non solo cambio tecnologico. Guide per gestire competenze, cambiamento organizzativo e razionalizzazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/digitalizzazione-processi-competenze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero moderno con postazioni digitali e spazi collaborativi durante la trasformazione"
+      },
+      "datePublished": "2026-08-22T01:15:09+00:00",
+      "dateModified": "2026-08-22T01:15:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/digitalizzazione-processi-competenze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-richiamo-uova-salmonella-migros': {
+    title: 'Richiamo uova Migros: sospetta contaminazione salmonella',
+    description: 'Migros richiama le uova Nostrani del Ticino, codice 1-CH-603, per rischio salmonella. Scopri come procedere al rimborso e cosa fare in caso di consumo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiamo, uova, migros, sospetta',
+    ogTitle: 'Richiamo uova Migros: sospetta contaminazione salmonella',
+    ogDescription: 'Migros ha emesso un avviso di richiamo per le uova Nostrani del Ticino con codice 1-CH-603 a causa di una sospetta contaminazione da salmonella. I consumatori possono richiedere il rimborso presso le filiali.',
+    canonicalPath: '/articoli-svizzera/richiamo-uova-salmonella-migros/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiamo uova Migros: sospetta contaminazione salmonella",
+      "description": "Migros richiama le uova Nostrani del Ticino, codice 1-CH-603, per rischio salmonella. Scopri come procedere al rimborso e cosa fare in caso di consumo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiamo-uova-salmonella-migros.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confezioni di uova presso un supermercato svizzero"
+      },
+      "datePublished": "2026-08-22T01:28:58+00:00",
+      "dateModified": "2026-08-22T01:28:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/richiamo-uova-salmonella-migros/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-berna-rendita-lacune-contributive': {
+    title: 'AVS Cantone Berna: rendita, lacune e prestazioni',
+    description: 'Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantone, berna, rendita, lacune',
+    ogTitle: 'AVS Cantone Berna: rendita, lacune e prestazioni',
+    ogDescription: 'Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-berna-rendita-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS Cantone Berna: rendita, lacune e prestazioni",
+      "description": "Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-berna-rendita-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo del Cantone di Berna sede della cassa di compensazione del primo pilastro AVS."
+      },
+      "datePublished": "2026-08-22T02:05:16+00:00",
+      "dateModified": "2026-08-22T02:05:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-berna-rendita-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-esercito-bilancio-misure-violenza': {
+    title: 'Esercito svizzero: bilancio sulle misure contro la violenza',
+    description: 'Il Comando dell\'esercito presenta il rapporto 2026 sulle 16 misure contro discriminazione e violenza sessualizzata. 8 implementate, 7 in attuazione, indagine',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, svizzero, bilancio, sulle',
+    ogTitle: 'Esercito svizzero: bilancio misure contro la violenza',
+    ogDescription: 'Rapporto intermedio 2026 sulle 16 misure contro discriminazione nell\'Esercito. 19.500 reclute hanno completato training obbligatorio. Verifica efficacia prevista nel 2028 con confronto ai dati 2024.',
+    canonicalPath: '/articoli-svizzera/esercito-bilancio-misure-violenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercito svizzero: bilancio sulle misure contro la violenza",
+      "description": "Il Comando dell'esercito presenta il rapporto 2026 sulle 16 misure contro discriminazione e violenza sessualizzata. 8 implementate, 7 in attuazione, indagine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esercito-bilancio-misure-violenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soldati dell'Esercito svizzero durante una lezione di formazione, ambiente professionale e istituzionale"
+      },
+      "datePublished": "2026-08-22T02:23:53+00:00",
+      "dateModified": "2026-08-22T02:23:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esercito-bilancio-misure-violenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

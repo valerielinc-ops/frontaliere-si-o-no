@@ -1275,6 +1275,17 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-b-berna-requisiti-rinnovo': { it: 'permesso-b-berna-requisiti-rinnovo', en: 'permit-b-berna-requirements-renewal', de: 'aufenthaltsbewilligung-b-bern-voraussetzungen-verlaengerung', fr: 'permis-b-berne-conditions-renouvellement' },
  'prestazioni-complementari-zurigo-minimo': { it: 'prestazioni-complementari-zurigo-minimo', en: 'supplementary-benefits-zurich-minimum-living', de: 'zusatzleistungen-zurich-existenzminimum', fr: 'prestations-complementaires-zurich-minimum-vital' },
  'primo-pilastro-zurigo-minimo-vitale': { it: 'primo-pilastro-zurigo-minimo-vitale', en: 'first-pillar-zurich-minimum-living-standard', de: 'erste-saule-zuerich-existenzminimum', fr: 'premier-pilier-zurich-minimum-vital' },
+ 'cassa-compensazione-zurigo-rendita-avs': { it: 'cassa-compensazione-zurigo-rendita-avs', en: 'zurich-aof-benefits-compensation-fund', de: 'zuericher-avs-ergaenzungsleistungen-rente', fr: 'zurich-avs-prestations-complementaires' },
+ 'richiesta-permesso-dimora-berna': { it: 'richiesta-permesso-dimora-berna', en: 'bern-residence-permit-b-request', de: 'bern-aufenthaltserlaubnis-b-antrag', fr: 'berne-demande-permis-sejour-b' },
+ 'svizzera-cina-accordo-tariffe': { it: 'svizzera-cina-accordo-tariffe', en: 'switzerland-china-tariff-deal', de: 'schweiz-china-zollabkommen', fr: 'suisse-chine-accord-tarifaire' },
+ 'cherosene-sintetico-aviazione': { it: 'cherosene-sintetico-aviazione', en: 'synthetic-kerosene-aviation', de: 'synthesekerosin-luftfahrt', fr: 'carburant-synthetique-aviation' },
+ 'asilo-maghreb-reati-80-percento': { it: 'asilo-maghreb-reati-80-percento', en: 'asylum-maghreb-crimes-80-percent', de: 'asyl-maghreb-straftaten-80-prozent', fr: 'asile-maghreb-crimes-80-pour-cent' },
+ 'discriminazioni-esercito-piano': { it: 'discriminazioni-esercito-piano', en: 'discrimination-military-action-plan', de: 'diskriminierung-armee-aktionsplan', fr: 'discriminations-armee-plan' },
+ 'acquistare-abitazione-berna-ipotecario': { it: 'acquistare-abitazione-berna-ipotecario', en: 'buy-property-bern-mortgage', de: 'haus-kaufen-bern-hypothek', fr: 'acheter-propriete-berne-hypotheque' },
+ 'digitalizzazione-processi-competenze': { it: 'digitalizzazione-processi-competenze', en: 'digitalization-processes-skills', de: 'digitalisierung-prozesse-kompetenzen', fr: 'numerisation-processus-competences' },
+ 'richiamo-uova-salmonella-migros': { it: 'richiamo-uova-salmonella-migros', en: 'egg-recall-salmonella-migros', de: 'eier-rueckruf-salmonellen-migros', fr: 'rappel-oeufs-salmonelle-migros' },
+ 'avs-berna-rendita-lacune-contributive': { it: 'avs-berna-rendita-lacune-contributive', en: 'avs-bern-pension-contribution-gaps', de: 'avs-bern-rente-beitragslucken', fr: 'avs-berne-rente-lacunes-cotisations' },
+ 'esercito-bilancio-misure-violenza': { it: 'esercito-bilancio-misure-violenza', en: 'swiss-army-violence-prevention-interim-report', de: 'schweizer-armee-gewaltpraevention-bilanz', fr: 'armee-suisse-rapport-mesures-violence' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
