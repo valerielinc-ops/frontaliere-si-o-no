@@ -75029,6 +75029,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spesa-alimentare-confronto-frontaliere-ticino': {
+    title: 'Spesa alimentare: Svizzera o Italia conviene per il frontaliere?',
+    description: 'Confronto prezzi alimentari, franchigia doganale €10\'000 e strategie d\'acquisto per frontalieri Ticino. Calcola risparmi con i ristorni e i costi reali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, spesa, alimentare, conviene, confronto',
+    ogTitle: 'Dove conviene fare la spesa per un frontaliere del Ticino?',
+    ogDescription: 'Analisi completa su costi, franchigia doganale e abitudini d\'acquisto tra Svizzera e Italia. Scopri come ottimizzare il budget familiare post-accordo 2024.',
+    canonicalPath: '/articoli-frontaliere/spesa-alimentare-confronto-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spesa alimentare: Svizzera o Italia conviene per il frontaliere?",
+      "description": "Confronto prezzi alimentari, franchigia doganale €10'000 e strategie d'acquisto per frontalieri Ticino. Calcola risparmi con i ristorni e i costi reali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spesa-alimentare-confronto-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere confronta scontrini spesa al confine Mendrisio"
+      },
+      "datePublished": "2026-08-22T12:23:18+00:00",
+      "dateModified": "2026-08-22T12:23:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spesa-alimentare-confronto-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10510,6 +10510,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Grenzgänger USt-ID-Nr.: Steuern, AHV & Doppelbesteuerung',
     'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'Ab 2024 neue Regeln für selbstständige Grenzgänger: unterschiedliche Franchisen, Quellensteuer nur in der Schweiz, obligatorische AHV/BVG-Beiträge und Vermeidung von Doppelbesteuerung.',
     'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Frontalier-Arbeitsplatz zwischen der Schweiz und Italien: Laptop, Steuerdokumente und Grenzlandschaft im Hintergrund',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Lebensmittelausgaben: Lohnt sich die Schweiz oder Italien für den Grenzgänger?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Praktischer Vergleich von Preisen, Zollfreiheit und Einkaufsgewohnheiten für diejenigen, die im Tessin arbeiten. Was ändert sich mit dem neuen Grenzabkommen 2024?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Grenzgänger vergleicht Einkaufsbelege an der Grenze Mendrisio',
 };
 
 export default blogMetaDe;

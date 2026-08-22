@@ -31467,6 +31467,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'spesa-alimentare-confronto-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-22T12:23:18.071Z',
+ image: '/images/blog/spesa-alimentare-confronto-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
