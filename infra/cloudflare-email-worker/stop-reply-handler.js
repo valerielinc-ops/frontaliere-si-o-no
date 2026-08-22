@@ -185,13 +185,26 @@ const DSN_SENDER_LOCALPARTS = [
 const DSN_SUBJECT_RE = /(delivery\s+status\s+notification|undeliverable|delivery\s+(?:has\s+)?failed|delivery\s+failure|returned\s+mail|mail\s+delivery\s+failed|failure\s+notice|unzustellbar|unzustellbare|nachricht\s+konnte\s+nicht\s+zugestellt|messaggio\s+non\s+(?:recapitato|consegnato)|mancata\s+consegna|avis\s+de\s+non[\s-]remise|[ée]chec\s+de\s+(?:la\s+)?remise)/i;
 
 /**
- * Is this inbound message a delivery report about mail WE sent?
+ * How confident, from headers alone, that this inbound message is a delivery
+ * report about mail WE sent:
+ *   - 'confirmed': RFC 6522 multipart/report, or a known daemon local-part
+ *     with a bounce subject — the only two shapes measured in real traffic
+ *     (Swisscom/Bluewin report, 2026-08-21).
+ *   - 'ambiguous': ONLY the empty-envelope-sender + subject heuristic
+ *     matched. Cloudflare surfaces `MAIL FROM: <>` as an empty `from`, which
+ *     is the other RFC-mandated bounce marker, but a non-conformant relay
+ *     (some corporate forwarders) can ALSO blank the envelope sender on a
+ *     genuine human reply — so a coincidental subject match here is not
+ *     proof. See parseDeliveryStatusReport's requireExplicitRecipient for how
+ *     this is kept from mis-suppressing that reply (#6264).
+ *   - 'none': not a delivery report.
  *
  * @param {{ get?: (name: string) => string | null | undefined } | null | undefined} headers
  * @param {string} [from]
  * @param {string} [subject]
+ * @returns {'confirmed' | 'ambiguous' | 'none'}
  */
-export function isDeliveryStatusReport(headers, from = '', subject = '') {
+export function classifyDeliveryStatusReport(headers, from = '', subject = '') {
   const header = (name) => {
     try { return String(headers?.get?.(name) ?? '').trim().toLowerCase(); }
     catch { return ''; }
@@ -202,15 +215,28 @@ export function isDeliveryStatusReport(headers, from = '', subject = '') {
   // report measured on 2026-08-21 sends a bare
   // `Content-Type: multipart/report; boundary="…"` — so matching on the media
   // type alone is what actually catches real traffic.
-  if (/multipart\/report/i.test(header('content-type'))) return true;
+  if (/multipart\/report/i.test(header('content-type'))) return 'confirmed';
 
   const sender = extractSenderEmail(from);
   const localPart = sender.split('@')[0];
-  // An empty envelope sender (`MAIL FROM: <>`) is the other RFC-mandated
-  // marker for a report, but Cloudflare surfaces it as an empty `from`, which
-  // carries no local part — hence the subject test standing on its own there.
-  if (!sender) return DSN_SUBJECT_RE.test(String(subject || ''));
-  return DSN_SENDER_LOCALPARTS.includes(localPart) && DSN_SUBJECT_RE.test(String(subject || ''));
+  if (!sender) return DSN_SUBJECT_RE.test(String(subject || '')) ? 'ambiguous' : 'none';
+  return DSN_SENDER_LOCALPARTS.includes(localPart) && DSN_SUBJECT_RE.test(String(subject || ''))
+    ? 'confirmed'
+    : 'none';
+}
+
+/**
+ * Is this inbound message a delivery report about mail WE sent? Boolean
+ * convenience wrapper over classifyDeliveryStatusReport — callers that need
+ * to distinguish 'confirmed' from 'ambiguous' (to decide how much to trust
+ * the extracted recipient) should call that directly instead.
+ *
+ * @param {{ get?: (name: string) => string | null | undefined } | null | undefined} headers
+ * @param {string} [from]
+ * @param {string} [subject]
+ */
+export function isDeliveryStatusReport(headers, from = '', subject = '') {
+  return classifyDeliveryStatusReport(headers, from, subject) !== 'none';
 }
 
 // The report quotes the original message's headers in a `text/rfc822-headers`
@@ -239,8 +265,19 @@ function fieldIn(text, name) {
  *
  * @param {string} raw the report's raw source (headers + body)
  * @param {string} [ownDomain] our domain, never a valid bounce subject
+ * @param {{ requireExplicitRecipient?: boolean }} [opts] when
+ *   `requireExplicitRecipient` is true, the quoted-headers `To:` fallback is
+ *   ignored and only the explicit RFC 3464 Final-Recipient/Original-Recipient
+ *   field is trusted. Set this for reports classified only 'ambiguous' by
+ *   classifyDeliveryStatusReport: a human forward that attaches the original
+ *   message (many mail clients' "forward as attachment" produces a
+ *   message/rfc822 part) would otherwise have ITS `To:` read as a bounced
+ *   recipient and get silently suppressed instead of reaching a human
+ *   (#6264) — a line literally reading `Final-Recipient: rfc822; …` is not
+ *   something genuine correspondence produces by coincidence.
  */
-export function parseDeliveryStatusReport(raw, ownDomain = 'frontaliereticino.ch') {
+export function parseDeliveryStatusReport(raw, ownDomain = 'frontaliereticino.ch', opts = {}) {
+  const { requireExplicitRecipient = false } = opts || {};
   const text = String(raw || '');
   const empty = {
     recipient: '', status: '', action: '', diagnosticCode: '',
@@ -253,11 +290,13 @@ export function parseDeliveryStatusReport(raw, ownDomain = 'frontaliereticino.ch
 
   // 1. RFC 3464 message/delivery-status — the authoritative field.
   // 2. The quoted original `To:` — needed because that part is allowed to be,
-  //    and in the measured Swisscom report actually is, EMPTY.
+  //    and in the measured Swisscom report actually is, EMPTY. Skipped when
+  //    requireExplicitRecipient (see opts doc above).
   const finalRecipient = fieldIn(text, 'Final-Recipient') || fieldIn(text, 'Original-Recipient');
   const quotedTo = quoted ? fieldIn(quoted, 'To') : '';
+  const recipientSource = requireExplicitRecipient ? finalRecipient : (finalRecipient || quotedTo);
   const recipient = extractSenderEmail(
-    (finalRecipient || quotedTo).replace(/^[a-z0-9-]+\s*;\s*/i, ''),
+    recipientSource.replace(/^[a-z0-9-]+\s*;\s*/i, ''),
   );
 
   // A report naming one of our own addresses is either a loop or a forgery.
@@ -374,8 +413,11 @@ async function handleOutreachReply({ from, subject, message, env, ctx }) {
  * the ONLY case where the message is not forwarded: an attributed bounce is
  * machine-handled noise. Anything unparseable is forwarded untouched, so a
  * report we cannot read is still a report a human can read.
+ *
+ * @param {{ requireExplicitRecipient?: boolean }} [opts] forwarded to
+ *   parseDeliveryStatusReport — see its doc.
  */
-async function handleBounceReport({ message, env }) {
+async function handleBounceReport({ message, env }, opts = {}) {
   if (!env.BOUNCE_REPORT_FN_URL || !env.STOP_SECRET) return false;
 
   // The prose preamble of a real report is long — the Swisscom one repeats
@@ -383,7 +425,7 @@ async function handleBounceReport({ message, env }) {
   // used for STOP detection would cut the quoted headers off. This path reads
   // far enough to reach them and no further.
   const raw = await readBodyPrefix(message.raw, 64 * 1024);
-  const report = parseDeliveryStatusReport(raw);
+  const report = parseDeliveryStatusReport(raw, undefined, opts);
   if (!report.recipient) return false;
 
   try {
@@ -462,12 +504,17 @@ export default {
 
     // A delivery report is examined BEFORE the auto-reply filter, because many
     // reports set Auto-Submitted and would otherwise be dropped unread — see
-    // isDeliveryStatusReport. A report that was attributed and accepted is
-    // fully handled, so it is not forwarded; anything else falls through.
-    if (readOk && isDeliveryStatusReport(message.headers, from, subject)) {
+    // classifyDeliveryStatusReport. A report that was attributed and accepted
+    // is fully handled, so it is not forwarded; anything else falls through.
+    const dsnConfidence = readOk ? classifyDeliveryStatusReport(message.headers, from, subject) : 'none';
+    if (dsnConfidence !== 'none') {
       let handled = false;
       try {
-        handled = await handleBounceReport({ message, env });
+        // 'ambiguous' (empty envelope sender + coincidental subject match,
+        // no multipart/report structure and no known daemon sender) does not
+        // trust the quoted-headers `To:` fallback — see
+        // parseDeliveryStatusReport's requireExplicitRecipient doc (#6264).
+        handled = await handleBounceReport({ message, env }, { requireExplicitRecipient: dsnConfidence === 'ambiguous' });
       } catch {
         // Never let a malformed report cost the forward below.
       }
