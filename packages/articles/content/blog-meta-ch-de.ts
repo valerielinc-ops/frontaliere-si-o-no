@@ -3811,6 +3811,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-ordinaria-lucerna.title': 'Ordentliche Einbürgerung in Luzern: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-ordinaria-lucerna.excerpt': 'Schweizer Staatsbürger in Luzern werden: 10 Jahre Aufenthalt mit Bewilligung C, Integrationstest und Sprache, Gemeindesteuern und Zeiten des ordentlichen Verfahrens.',
     'blog.article.naturalizzazione-ordinaria-lucerna.imageAlt': 'Schweizer Gemeindehaus mit Schweizer Flagge, Symbol des Naturalisierungsverfahrens',
+    'blog.article.naturalizzazione-lucerna-procedura.title': 'Einbürgerung in Luzern: Voraussetzungen und Ablauf',
+    'blog.article.naturalizzazione-lucerna-procedura.excerpt': 'Zehn Jahre Aufenthalt, C-Bewilligung und Integrationstest: Alle eidgenössischen und kantonalen Voraussetzungen für die ordentliche Einbürgerung im Kanton Luzern.',
+    'blog.article.naturalizzazione-lucerna-procedura.imageAlt': 'Verwaltungsgebäude im Kanton Luzern mit Schweizer und Kantonsflaggen',
 };
 
 export default blogMetaChDe;

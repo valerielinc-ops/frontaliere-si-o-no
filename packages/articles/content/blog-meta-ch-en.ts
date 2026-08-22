@@ -3811,6 +3811,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-ordinaria-lucerna.title': 'Ordinary naturalisation in Lucerne: requirements and procedures',
     'blog.article.naturalizzazione-ordinaria-lucerna.excerpt': 'Becoming a Swiss citizen in Lucerne: 10 years of residence with C permit, integration and language tests, municipal taxes and time of the ordinary procedure.',
     'blog.article.naturalizzazione-ordinaria-lucerna.imageAlt': 'Swiss municipal building with national flag, symbol of the administrative naturalization procedure',
+    'blog.article.naturalizzazione-lucerna-procedura.title': 'Naturalization in Lucerne: requirements and procedure',
+    'blog.article.naturalizzazione-lucerna-procedura.excerpt': 'Ten years of residence, C permit and integration test: all federal and cantonal requirements for ordinary naturalization in the Canton of Lucerne.',
+    'blog.article.naturalizzazione-lucerna-procedura.imageAlt': 'Administrative building in Lucerne canton with Swiss and cantonal flags',
 };
 
 export default blogMetaChEn;

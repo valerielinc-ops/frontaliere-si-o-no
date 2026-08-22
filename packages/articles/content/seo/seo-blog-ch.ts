@@ -49433,6 +49433,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-lucerna-procedura': {
+    title: 'Naturalizzazione in Lucerna: requisiti e procedura',
+    description: 'Naturalizzazione ordinaria nel Canton Lucerna: 10 anni residenza, permesso C, test lingua e integrazione. Procedura, costi e tempi completi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, lucerna, requisiti, procedura',
+    ogTitle: 'Naturalizzazione Lucerna: requisiti e procedura',
+    ogDescription: 'Come diventare cittadino svizzero a Lucerna: 10 anni residenza, permesso C, test di lingua e integrazione. Guida alle procedure, costi e tempi della naturalizzazione ordinaria nel Canton Lucerna.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-lucerna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione in Lucerna: requisiti e procedura",
+      "description": "Naturalizzazione ordinaria nel Canton Lucerna: 10 anni residenza, permesso C, test lingua e integrazione. Procedura, costi e tempi completi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-lucerna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo nel Canton Lucerna con bandiere svizzere e cantonali"
+      },
+      "datePublished": "2026-08-22T08:42:29+00:00",
+      "dateModified": "2026-08-22T08:42:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-lucerna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
