@@ -3823,6 +3823,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.udc-referendum-accordi-ue.title': 'UDC prepares referendum against EU agreements',
     'blog.article.udc-referendum-accordi-ue.excerpt': 'The UDC is preparing to launch referendums against the upcoming agreements between Switzerland and the EU. Marcel Dettling declares the will of the party to fight any agreement. Collecting signatures.',
     'blog.article.udc-referendum-accordi-ue.imageAlt': 'Swiss political assembly with delegates debating referendums and international agreements with the EU',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Opening a business in Lucerne: trade register and costs',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Requirements for SAGL, SA and sole proprietorships: minimum capital, registration costs (CHF 200–500), taxes and compulsory insurance.',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Modern offices in Lucerne with Chapel Bridge in the background',
 };
 
 export default blogMetaChEn;
