@@ -10527,6 +10527,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Infortunio in itinere: protezione e denuncia frontaliere',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Scopri come la LAINF (0,7–1,5%) copre gli infortuni durante il tragitto al lavoro per i frontalieri con permesso G tra Ticino e Italia: procedura denuncia, garanzie e diritti.',
     'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Auto in transito al valico di confine Ticino-Italia su autostrada durante la mattina presto',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.title': 'Infortunio in itinerie: copertura LAINF per frontalieri',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.excerpt': 'Quando un frontaliere subisce un incidente durante il tragitto casa-lavoro: come funziona la copertura LAINF, le differenze legali e la procedura di denuncia',
+    'blog.article.lainf-infortunio-itinerie-frontaliere.imageAlt': 'Traffico mattutino al valico di confine Svizzera-Italia in Ticino, con automobili in coda al casello',
 };
 
 export default blogMetaIt;
