@@ -10483,6 +10483,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Saisonarbeit Tessin: Regeln, Erlaubnis G und Rechte',
     'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Ab 2024 reformiert das neue Steuerabkommen Steuern und Erstattungen für Grenzgänger. Regeln für G-Genehmigung, Besteuerung und Rechte bei Saisonarbeit im Tessin.',
     'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Grenzpendler beim Überqueren des Grenzübergangs zwischen der Schweiz und Italien im Tessin am Morgen',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Saisonarbeit im Tessin: Steuerleitfaden 2024–2026',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'Ab dem 1. Januar 2024 ändert das Neue Abkommen die Besteuerung: Schweizer Quellensteuer und italienische Rückerstattungen. So funktioniert es bei Saisonarbeitern.',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Lugano-Tal an der Schweizer-italienischen Grenze, typisches Umfeld für saisonale Grenzgänger',
 };
 
 export default blogMetaDe;

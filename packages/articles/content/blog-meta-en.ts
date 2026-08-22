@@ -10484,6 +10484,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Ticino Seasonal Work: Rules, G Permit and Rights',
     'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'From 2024, the new tax agreement reforms taxes and refunds for border workers. Rules for G leave, taxation and rights in seasonal work in Ticino.',
     'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Commuters crossing the Swiss-Italian border checkpoint in Ticino during morning rush hours',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Seasonal work in Ticino: tax guide 2024–2026',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'From 1 January 2024 the New Agreement changes the taxation: Swiss source tax and Italian refunds. Here\'s how it works for seasonal workers.',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Lugano valley near the Swiss-Italian border, typical setting for seasonal frontalier workers',
 };
 
 export default blogMetaEn;

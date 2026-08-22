@@ -74678,6 +74678,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-stagionale-diritti-fiscali': {
+    title: 'Lavoro stagionale in Ticino: guida fiscale 2024–2026',
+    description: 'Scopri le regole fiscali e i diritti per chi lavora stagionalmente in Ticino. Imposta alla fonte, ristorni, AVS e LPP: guida completa dal 2024. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, stagionale, fiscale, gennaio',
+    ogTitle: 'Lavoro stagionale in Ticino: guida fiscale 2024–2026',
+    ogDescription: 'Il Nuovo Accordo Frontalieri 2024 cambia tutto. Imposta alla fonte svizzera, ristorni con credito d\'imposta italiano, contributi AVS e LPP. Scopri come funziona il lavoro stagionale in Ticino: permessi, diritti, fiscalità.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-stagionale-diritti-fiscali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro stagionale in Ticino: guida fiscale 2024–2026",
+      "description": "Scopri le regole fiscali e i diritti per chi lavora stagionalmente in Ticino. Imposta alla fonte, ristorni, AVS e LPP: guida completa dal 2024. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-stagionale-diritti-fiscali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle di Lugano al confine italo-svizzero, scenario tipico per lavoratori stagionali frontalieri"
+      },
+      "datePublished": "2026-08-22T07:34:37+00:00",
+      "dateModified": "2026-08-22T07:34:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-stagionale-diritti-fiscali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
