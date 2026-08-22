@@ -3805,6 +3805,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Permesso L Lucerna: rinnovo dopo un anno',
     'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'Il permesso L di breve durata vale fino a 12 mesi e può essere rinnovato. Scopri come funziona a Lucerna, le opzioni di proroga e il passaggio a permesso di dimora.',
     'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Ufficio amministrativo svizzero dove si processano le richieste di permesso L e autorizzazioni di soggiorno per lavoratori stranieri',
+    'blog.article.mutuo-ipotecario-lucerna-guida.title': 'Comprare casa a Lucerna: guida a mutuo e costi',
+    'blog.article.mutuo-ipotecario-lucerna-guida.excerpt': 'Acquistare nel Cantone di Lucerna richiede pianificazione: fondi propri, sostenibilità mutuo ipotecario, imposta sui trapassi e spese notarili. Ecco gli aspetti chiave.',
+    'blog.article.mutuo-ipotecario-lucerna-guida.imageAlt': 'Vista di una proprietà residenziale svizzera in valle alpina con paesaggio montano sullo sfondo',
 };
 
 export default blogMetaChIt;

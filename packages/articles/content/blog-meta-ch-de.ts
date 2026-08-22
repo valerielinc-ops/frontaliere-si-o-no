@@ -3805,6 +3805,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Erlaubnis Luzern: Erneuerung nach einem Jahr',
     'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'Der kurzfristige L-Ausweis ist bis zu 12 Monate gültig und kann erneuert werden. Erfahren Sie, wie es in Luzern funktioniert, welche Verlängerungsmöglichkeiten es gibt und wie Sie auf eine Aufenthaltsbewilligung umsteigen.',
     'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Schweizer Verwaltungsbüro bearbeitet Arbeitserlaubnisse und Aufenthaltsgenehmigungen für ausländische Arbeitnehmer',
+    'blog.article.mutuo-ipotecario-lucerna-guida.title': 'Haus kaufen in Luzern: Ratgeber zu Hypotheken und Kosten',
+    'blog.article.mutuo-ipotecario-lucerna-guida.excerpt': 'Der Einkauf im Kanton Luzern erfordert Planung: Eigenmittel, Tragbarkeit Hypothekendarlehen, Ablösesteuer und Notarkosten. Das sind die wichtigsten Punkte.',
+    'blog.article.mutuo-ipotecario-lucerna-guida.imageAlt': 'Schweizer Wohnimmobilie in einem Alpental mit Berglandschaft im Hintergrund',
 };
 
 export default blogMetaChDe;

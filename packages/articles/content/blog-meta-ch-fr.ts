@@ -3805,6 +3805,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Permis L Lucerne : renouvellement après un an',
     'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'Le permis L de courte durée est valable jusqu\'à 12 mois et peut être renouvelé. Découvrez comment cela fonctionne à Lucerne, les options de prolongation et le passage au permis de séjour.',
     'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Bureau administratif suisse traitant les demandes de permis de travail et d\'autorisation de séjour pour travailleurs étrangers',
+    'blog.article.mutuo-ipotecario-lucerna-guida.title': 'Acheter une maison à Lucerne : guide hypothécaire et coûts',
+    'blog.article.mutuo-ipotecario-lucerna-guida.excerpt': 'L\'achat dans le canton de Lucerne nécessite une planification : fonds propres, viabilité hypothécaire, taxe de passage et frais de notaire. Voici les aspects clés.',
+    'blog.article.mutuo-ipotecario-lucerna-guida.imageAlt': 'Propriété résidentielle suisse dans une vallée alpine avec paysage montagneux en arrière-plan',
 };
 
 export default blogMetaChFr;
