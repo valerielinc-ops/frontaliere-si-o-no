@@ -16278,15 +16278,13 @@
         "rayon-conductor-in-do-it-incl-deputy-management-jumbo-eyholz",
         "conducteur-de-rayon-en-do-it-incl-gestion-adjointe-jumbo-eyholz",
         "direttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-eyholz",
-        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
-        "direttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-division-der-coop-genossenschaft-eyholz"
+        "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
           "direttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-eyholz",
-          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz",
-          "direttore-rayon-in-do-it-incl-gestione-aggiunto-jumbo-division-der-coop-genossenschaft-eyholz"
+          "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-eyholz"
         ],
         "en": [
           "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
@@ -19578,9 +19576,9 @@
       "slug": "consulente-vendite-in-garden-jumbo-schanis",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-schanis",
-        "it": "consulente-vendite-in-garden-jumbo-schanis",
-        "en": "sales-advisor-in-garden-jumbo-schanis",
-        "fr": "conseiller-commercial-a-garden-jumbo-schanis"
+        "it": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-nyvsor",
+        "en": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-nyvsor",
+        "fr": "verkaufsberater-dans-le-jardin-jumbo-schanis-sankt-gallen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19655,14 +19653,18 @@
           "verkaufsberater-in-garden-jumbo-schanis"
         ],
         "en": [
-          "verkaufsberater-in-garden-jumbo-schanis"
+          "verkaufsberater-in-garden-jumbo-schanis",
+          "sales-advisor-in-garden-jumbo-schanis"
         ],
         "fr": [
-          "verkaufsberater-in-garden-jumbo-schanis"
+          "verkaufsberater-in-garden-jumbo-schanis",
+          "conseiller-commercial-a-garden-jumbo-schanis"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-schanis"
+        "verkaufsberater-in-garden-jumbo-schanis",
+        "sales-advisor-in-garden-jumbo-schanis",
+        "conseiller-commercial-a-garden-jumbo-schanis"
       ]
     },
     {
@@ -19923,9 +19925,9 @@
       "slug": "acquisizione-product-manager-garden-technology-jumbo-dietlikon",
       "slugByLocale": {
         "de": "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
-        "it": "acquisizione-product-manager-garden-technology-jumbo-dietlikon",
-        "en": "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
-        "fr": "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon"
+        "it": "acquisizione-product-manager-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon",
+        "en": "purchasing-product-manager-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon",
+        "fr": "gestionnaire-de-produits-d-achat-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19997,21 +19999,26 @@
           "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
         ],
         "fr": [
+          "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
+          "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon"
+        ],
+        "en": [
           "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
         ]
       },
       "previousSlugs": [
-        "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
+        "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
+        "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon"
       ]
     },
     {
       "id": "jumbo-0e0c3392-aae",
-      "slug": "verkaufberater-in-kassen-services-jumbo-sissach",
+      "slug": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
       "slugByLocale": {
         "de": "verkaufberater-in-kassen-services-jumbo-sissach",
-        "it": "verkaufberater-in-kassen-services-jumbo-sissach",
-        "en": "verkaufberater-in-kassen-services-jumbo-sissach",
-        "fr": "verkaufberater-in-kassen-services-jumbo-sissach"
+        "it": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
+        "en": "sales-consultants-in-cash-registers-services-jumbo-sissach",
+        "fr": "consultants-en-vente-en-caisse-services-jumbo-sissach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -20079,16 +20086,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:31:47.868Z"
+      "firstSeenAt": "2026-08-21T21:31:47.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufberater-in-kassen-services-jumbo-sissach"
+        ],
+        "en": [
+          "verkaufberater-in-kassen-services-jumbo-sissach"
+        ],
+        "fr": [
+          "verkaufberater-in-kassen-services-jumbo-sissach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufberater-in-kassen-services-jumbo-sissach"
+      ]
     },
     {
       "id": "jumbo-0d04671d-fe0",
       "slug": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
-        "it": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
-        "en": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
-        "fr": "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona",
+        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona",
+        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",

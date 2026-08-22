@@ -278,9 +278,9 @@
       "slug": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
       "slugByLocale": {
         "it": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
-        "en": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+        "en": "head-in-customer-care-corporate-customer-mass-market-postfinance-bern",
         "de": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
-        "fr": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
+        "fr": "responsable-dans-customer-care-corporate-customer-mass-market-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -345,9 +345,9 @@
       "slug": "hr-businesspartner-in-postfinance",
       "slugByLocale": {
         "it": "hr-businesspartner-in-postfinance",
-        "en": "hr-businesspartner-in-postfinance-bern",
+        "en": "hr-business-partner-in-postfinance-bern",
         "de": "hr-businesspartner-in-postfinance-bern",
-        "fr": "hr-businesspartner-in-postfinance-bern"
+        "fr": "ressources-humaines-businesspartner-in-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -385,7 +385,18 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-21T21:43:00.013Z"
+      "firstSeenAt": "2026-08-21T21:43:00.013Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "hr-businesspartner-in-postfinance-bern"
+        ],
+        "fr": [
+          "hr-businesspartner-in-postfinance-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hr-businesspartner-in-postfinance-bern"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",

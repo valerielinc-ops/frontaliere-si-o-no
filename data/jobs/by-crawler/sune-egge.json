@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sune-egge-affdfbd381b4",
-      "slug": "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich",
+      "slug": "trainee-health-professional-trainee-health-professional-fachspital-sune-egge-zurich",
       "slugByLocale": {
         "de": "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich",
-        "it": "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich",
+        "it": "trainee-health-professional-trainee-health-professional-fachspital-sune-egge-zurich",
         "en": "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich",
-        "fr": "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich"
+        "fr": "professionnels-de-la-sante-des-stagiaires-professionnels-de-la-sante-des-stagiaires-fachspital-sune-egge-zurich"
       },
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T22:11:08.964Z"
+      "firstSeenAt": "2026-08-21T22:11:08.964Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich"
+        ],
+        "fr": [
+          "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich"
+      ]
     },
     {
       "id": "sune-egge-2edb83155533",
@@ -271,13 +282,11 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
-        "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich",
-        "infermiere-a-dipl-hf-60-100-turno-diurno-fachspital-sune-egge-zurich"
+        "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
-          "infermiere-a-dipl-hf-60-100-turno-diurno-fachspital-sune-egge-zurich"
+          "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:29.945Z",
@@ -344,13 +353,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-nachtdienst-sune-egge-zurich",
-        "infermiere-infermiera-professionale-efz-60-100-per-servizio-diurno-fachspital-sune-egge-zurich"
+        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-nachtdienst-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-nachtdienst-sune-egge-zurich",
-          "infermiere-infermiera-professionale-efz-60-100-per-servizio-diurno-fachspital-sune-egge-zurich"
+          "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-nachtdienst-sune-egge-zurich"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-nachtdienst-sune-egge-zurich"

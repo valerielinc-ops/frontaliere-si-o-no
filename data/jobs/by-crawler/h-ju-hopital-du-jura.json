@@ -432,12 +432,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-84e59edefc43",
-      "slug": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont",
+      "slug": "apprendistato-in-assistenza-e-supporto-asa-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont",
-        "it": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont",
-        "en": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont",
-        "de": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
+        "it": "apprendistato-in-assistenza-e-supporto-asa-hopital-du-jura-h-ju-delemont",
+        "en": "apprenticeship-in-care-and-support-asa-hopital-du-jura-h-ju-delemont",
+        "de": "ausbildung-in-pflege-und-unterstutzung-asa-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -493,16 +493,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:31:20.863Z"
+      "firstSeenAt": "2026-08-21T21:31:20.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-9d037c2171a2",
-      "slug": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont",
+      "slug": "cucina-apprendista-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont",
-        "it": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont",
-        "en": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont",
-        "de": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
+        "it": "cucina-apprendista-hopital-du-jura-h-ju-delemont",
+        "en": "apprentice-cook-hopital-du-jura-h-ju-delemont",
+        "de": "auszubildender-koch-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -558,16 +572,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:31:20.243Z"
+      "firstSeenAt": "2026-08-21T21:31:20.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-5cd63da12a23",
-      "slug": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
+      "slug": "apprendistato-logisticista-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
-        "it": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
-        "en": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
-        "de": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
+        "it": "apprendistato-logisticista-hopital-du-jura-h-ju-delemont",
+        "en": "logistician-apprenticeship-hopital-du-jura-h-ju-delemont",
+        "de": "auszubildender-logistiker-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -626,21 +654,29 @@
       "firstSeenAt": "2026-08-21T21:31:19.628Z",
       "previousSlugsByLocale": {
         "it": [
-          "logisticien-ne-hopital-du-jura-h-ju-delemont"
+          "logisticien-ne-hopital-du-jura-h-ju-delemont",
+          "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
         ]
       },
       "previousSlugs": [
-        "logisticien-ne-hopital-du-jura-h-ju-delemont"
+        "logisticien-ne-hopital-du-jura-h-ju-delemont",
+        "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
       ]
     },
     {
       "id": "h-ju-hopital-du-jura-18d08a3d67b2",
-      "slug": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont",
+      "slug": "tecnologo-del-dispositivo-medico-mdt-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont",
-        "it": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont",
-        "en": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont",
-        "de": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
+        "it": "tecnologo-del-dispositivo-medico-mdt-hopital-du-jura-h-ju-delemont",
+        "en": "medical-device-technologist-mdt-hopital-du-jura-h-ju-delemont",
+        "de": "medizintechnik-technologe-mdt-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -696,15 +732,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:31:19.006Z"
+      "firstSeenAt": "2026-08-21T21:31:19.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-caacd651317a",
-      "slug": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura",
+      "slug": "apprendistato-nella-cura-e-nella-salute-della-comunita-chs-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
       "slugByLocale": {
         "fr": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura",
-        "it": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura",
-        "en": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura",
+        "it": "apprendistato-nella-cura-e-nella-salute-della-comunita-chs-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
+        "en": "apprenticeship-in-community-care-and-health-chs-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
         "de": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
       },
       "company": "Hôpital du Jura (H-JU)",
@@ -762,16 +812,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:31:18.359Z"
+      "firstSeenAt": "2026-08-21T21:31:18.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+        ],
+        "en": [
+          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-478034f521f5",
-      "slug": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier",
+      "slug": "apprendisti-impiegati-nel-commercio-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
       "slugByLocale": {
         "fr": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier",
-        "it": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier",
-        "en": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier",
-        "de": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
+        "it": "apprendisti-impiegati-nel-commercio-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
+        "en": "apprentices-employed-in-trade-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
+        "de": "auszubildende-im-handel-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -827,7 +888,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:31:17.709Z"
+      "firstSeenAt": "2026-08-21T21:31:17.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
+        ],
+        "en": [
+          "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
+        ],
+        "de": [
+          "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
+      ]
     }
   ]
 }

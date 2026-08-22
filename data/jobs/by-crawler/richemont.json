@@ -2509,11 +2509,7 @@
           "responsabile-progetti-r-i-qualita-richemont-neuchatel",
           "chef-de-progetto-r-i-qualita-richemont-neuchatel",
           "responsabile-progetto-r-i-qualita-richemont-neuchatel",
-          "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
-          "chef-de-projet-r-i-qualite-richemont-neuchatel"
-        ],
-        "en": [
-          "chef-de-projet-r-i-qualite-richemont-neuchatel"
+          "responsabile-di-progetto-r-i-qualita-richemont-neuchatel"
         ],
         "de": [
           "projektleiter-r-i-qualitat-richemont-neuchatel"
@@ -2525,9 +2521,7 @@
         "chef-de-progetto-r-i-qualita-richemont-neuchatel",
         "responsabile-progetto-r-i-qualita-richemont-neuchatel",
         "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
-        "projektleiter-r-i-qualitat-richemont-neuchatel",
-        "r-i-qualitatsprojektleiter-richemont-neuchatel",
-        "chef-de-projet-r-i-qualite-richemont-neuchatel"
+        "projektleiter-r-i-qualitat-richemont-neuchatel"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
       "salaryMin": 60500,
@@ -5191,14 +5185,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -12372,12 +12364,12 @@
     },
     {
       "id": "richemont-a25b3e11b131",
-      "slug": "client-advisor-richemont-schaffhausen",
+      "slug": "client-consulente-iwc-schaffhausen",
       "slugByLocale": {
-        "en": "client-advisor-richemont-schaffhausen",
-        "it": "client-advisor-richemont-schaffhausen",
+        "en": "client-advisors-iwc-schaffhausen",
+        "it": "client-consulente-iwc-schaffhausen",
         "de": "client-advisor-richemont-schaffhausen",
-        "fr": "client-advisor-richemont-schaffhausen"
+        "fr": "client-conseiller-iwc-schaffhausen"
       },
       "company": "IWC",
       "companyKey": "richemont",
@@ -12432,7 +12424,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:40:58.766Z"
+      "firstSeenAt": "2026-08-21T21:40:58.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-richemont-schaffhausen"
+        ],
+        "en": [
+          "client-advisor-richemont-schaffhausen"
+        ],
+        "fr": [
+          "client-advisor-richemont-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-richemont-schaffhausen"
+      ]
     },
     {
       "id": "richemont-8cafda8e4897",
@@ -13868,20 +13874,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "en": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "de": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
       "salaryMin": 60500,
       "salaryMax": 91500,

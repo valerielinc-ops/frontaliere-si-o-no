@@ -2404,16 +2404,13 @@
         "it": [
           "lehrstelle-als-fachperson-reinigungstechnik-efz-kssg-ch",
           "institut-d-informatique-efz-hoch-health-ostschweiz-st-gallen",
-          "institute-for-logistics-in-efz-hoch-health-ostschweiz-st-gallen",
-          "apprendistato-come-fachperson-reinigungstechnik-cfc-hoch-health-ostschweiz-st-gallen"
+          "institute-for-logistics-in-efz-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "lehrstelle-als-fachperson-reinigungstechnik-efz-kssg-ch",
         "institut-d-informatique-efz-hoch-health-ostschweiz-st-gallen",
-        "institute-for-logistics-in-efz-hoch-health-ostschweiz-st-gallen",
-        "lehrstelle-als-fachperson-reinigungstechnik-efz-hoch-health-st-gallen",
-        "apprendistato-come-fachperson-reinigungstechnik-cfc-hoch-health-ostschweiz-st-gallen"
+        "institute-for-logistics-in-efz-hoch-health-ostschweiz-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:28:08.090Z",
@@ -6875,18 +6872,14 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
         ],
         "de": [
-          "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
       ],
       "salaryMin": 57500,
@@ -6967,8 +6960,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-experte-expertin-intensivpflege-80-100-kssg-ch",
-          "dipl-expert-expert-cure-intensive-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "dipl-expert-expert-cure-intensive-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "fr": [
           "dipl-experte-expertin-intensivpflege-80-100-kssg-ch"
@@ -6976,8 +6968,7 @@
       },
       "previousSlugs": [
         "dipl-experte-expertin-intensivpflege-80-100-kssg-ch",
-        "dipl-expert-expert-cure-intensive-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-expert-expert-cure-intensive-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ]
     },
     {
@@ -7872,13 +7863,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "landmaschinenmechaniker-in-100-kssg-ch",
-          "landmaschinenmechaniker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "landmaschinenmechaniker-in-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "landmaschinenmechaniker-in-100-kssg-ch",
-        "landmaschinenmechaniker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "landmaschinenmechaniker-in-100-kssg-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7896,12 +7885,12 @@
     },
     {
       "id": "kssg-157a3096f603",
-      "slug": "datamanager-in-40-kssg-ch",
+      "slug": "data-manager-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "datamanager-in-40-kssg-ch",
-        "it": "datamanager-in-40-kssg-ch",
+        "it": "data-manager-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "datamanager-in-40-kssg-ch",
-        "fr": "datamanager-in-40-kssg-ch"
+        "fr": "gestionnaire-de-donnees-dans-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7957,7 +7946,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T22:12:12.221Z"
+      "firstSeenAt": "2026-08-21T22:12:12.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "datamanager-in-40-kssg-ch"
+        ],
+        "fr": [
+          "datamanager-in-40-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "datamanager-in-40-kssg-ch"
+      ]
     },
     {
       "id": "kssg-a3385aef1cdf",
@@ -8088,13 +8088,11 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-experte-expertin-notfallpflege-50-100-kssg-ch",
-          "dipl-expert-emergency-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-expert-expert-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
         "dipl-experte-expertin-notfallpflege-50-100-kssg-ch",
-        "dipl-expert-emergency-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "dipl-expert-expert-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
@@ -8161,13 +8159,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-operationspflege-100-kssg-ch",
-          "gruppo-leader-in-chirurgia-cura-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "gruppenleiter-in-operationspflege-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "gruppenleiter-in-operationspflege-100-kssg-ch",
-        "gruppo-leader-in-chirurgia-cura-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "gruppenleiter-in-operationspflege-100-kssg-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 64500,
@@ -8234,13 +8230,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch",
-          "dipl-tecnica-chirurgica-professionale-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch",
-        "dipl-tecnica-chirurgica-professionale-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -8307,13 +8301,11 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-60-100-kssg-ch",
-          "salute-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "salute-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-60-100-kssg-ch",
-        "salute-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "salute-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
@@ -8381,7 +8373,6 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpert-in-apn-70-kssg-ch",
-          "professionista-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "esperto-infermieristico-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "professionista-della-salute-40-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "professionista-della-salute-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -8389,7 +8380,6 @@
       },
       "previousSlugs": [
         "pflegeexpert-in-apn-70-kssg-ch",
-        "professionista-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "esperto-infermieristico-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "professionista-della-salute-40-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "professionista-della-salute-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -8459,13 +8449,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "strukturiertes-praxisjahr-fur-die-zulassung-zum-studiengang-bachelor-of-science-in-pflege",
-          "anno-pratico-strutturato-per-l-ammissione-al-programma-di-laurea-in-scienze-infermieristiche-hoch-health-ostschweiz-st"
+          "strukturiertes-praxisjahr-fur-die-zulassung-zum-studiengang-bachelor-of-science-in-pflege"
         ]
       },
       "previousSlugs": [
-        "strukturiertes-praxisjahr-fur-die-zulassung-zum-studiengang-bachelor-of-science-in-pflege",
-        "anno-pratico-strutturato-per-l-ammissione-al-programma-di-laurea-in-scienze-infermieristiche-hoch-health-ostschweiz-st"
+        "strukturiertes-praxisjahr-fur-die-zulassung-zum-studiengang-bachelor-of-science-in-pflege"
       ],
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -8533,18 +8521,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-80-100-kssg-ch",
-          "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-5d80d4",
           "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen-5"
         ],
         "de": [
-          "fachfrau-mann-gesundheit-80-100-kssg-ch",
-          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen"
+          "fachfrau-mann-gesundheit-80-100-kssg-ch"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-80-100-kssg-ch",
-        "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
-        "salute-professionale-80-100-hoch-health-ostschweiz-st-gallen-5d80d4",
         "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen-5"
       ],
       "salaryMin": 57500,
@@ -8611,18 +8595,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "unterassistent-in-kssg-ch",
-          "unterassistent-in-hoch-health-wil"
+          "unterassistent-in-kssg-ch"
         ],
         "it": [
-          "unterassistent-in-kssg-ch",
-          "assistente-secondario-hoch-health-ostschweiz-wil"
+          "unterassistent-in-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "unterassistent-in-kssg-ch",
-        "unterassistent-in-hoch-health-wil",
-        "assistente-secondario-hoch-health-ostschweiz-wil"
+        "unterassistent-in-kssg-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8688,18 +8668,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "unterassistent-in-kssg-ch",
-          "unterassistent-in-hoch-health-uznach"
+          "unterassistent-in-kssg-ch"
         ],
         "it": [
-          "unterassistent-in-kssg-ch",
-          "assistente-secondario-hoch-health-ostschweiz-uznach"
+          "unterassistent-in-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "unterassistent-in-kssg-ch",
-        "unterassistent-in-hoch-health-uznach",
-        "assistente-secondario-hoch-health-ostschweiz-uznach"
+        "unterassistent-in-kssg-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

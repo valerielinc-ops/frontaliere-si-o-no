@@ -179,7 +179,8 @@
         ],
         "en": [
           "abteilungsleiter-in-hartwaren-coop-genossenschaft-basel-stadt-golu97",
-          "head-of-department-in-hartwaren-coop-genossenschaft-basel-basel-stadt"
+          "head-of-department-in-hartwaren-coop-genossenschaft-basel-basel-stadt",
+          "abteilungsleiter-in-hartwaren-coop-city-basel-stadt-golu97"
         ],
         "fr": [
           "abteilungsleiter-in-hartwaren-coop-genossenschaft-basel-stadt-golu97",
@@ -194,7 +195,8 @@
         "abteilungsleiter-in-hartwaren-coop-genossenschaft-basel-stadt-golu97",
         "capo-dipartimento-in-hartwaren-coop-genossenschaft-basel-basel-stadt",
         "head-of-department-in-hartwaren-coop-genossenschaft-basel-basel-stadt",
-        "chef-de-departement-a-hartwaren-coop-genossenschaft-basel-basel-stadt"
+        "chef-de-departement-a-hartwaren-coop-genossenschaft-basel-basel-stadt",
+        "abteilungsleiter-in-hartwaren-coop-city-basel-stadt-golu97"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -248,9 +250,9 @@
       },
       "slugByLocale": {
         "it": "abteilungsleiter-in-damenober-e-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje",
-        "en": "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje",
+        "en": "head-of-department-in-women-s-upper-and-underwear-and-accessories-coop-genossenschaft-zurich",
         "de": "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje",
-        "fr": "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje"
+        "fr": "chef-de-departement-en-haut-et-sous-vetements-et-accessoires-pour-femmes-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -264,10 +266,17 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich"
+        ],
+        "en": [
+          "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje"
+        ],
+        "fr": [
+          "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich"
+        "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich",
+        "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -395,19 +404,26 @@
       },
       "slugByLocale": {
         "it": "ladenuberwacher-in-kanton-st-gallen-glarus-e-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc",
-        "en": "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc",
+        "en": "store-supervisor-in-canton-of-st-gallen-glarus-and-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen",
         "de": "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc",
-        "fr": "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc"
+        "fr": "superviseur-de-magasin-a-canton-de-st-gallen-glarus-et-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen"
+        ],
+        "en": [
+          "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc"
+        ],
+        "fr": [
+          "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc"
         ]
       },
       "previousSlugs": [
-        "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen"
+        "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen",
+        "ladenuberwacher-in-kanton-st-gallen-glarus-und-graubunden-20-50-coop-genossenschaft-gossau-sankt-gallen-krz2fc"
       ],
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -512,7 +528,7 @@
     },
     {
       "id": "company-5ofuu2",
-      "slug": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+      "slug": "consulenti-di-vendita-in-casse-servizi-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufberater: in Kassen/Services",
       "location": "Sissach, Basel-Landschaft",
@@ -546,10 +562,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-        "en": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+        "it": "consulenti-di-vendita-in-casse-servizi-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+        "en": "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
         "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-        "fr": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+        "fr": "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
       },
       "requirementsByLocale": {
         "it": [],
@@ -562,11 +578,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+        ],
+        "en": [
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+        ],
+        "fr": [
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
         ]
       },
       "previousSlugs": [
-        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
+        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -586,7 +610,7 @@
     },
     {
       "id": "company-bmcqql",
-      "slug": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql",
+      "slug": "conduttore-rayon-in-frutta-verdura-coop-genossenschaft-luzern",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Früchte / Gemüse",
       "location": "Luzern",
@@ -620,10 +644,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql",
-        "en": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql",
+        "it": "conduttore-rayon-in-frutta-verdura-coop-genossenschaft-luzern",
+        "en": "rayon-conductor-in-fruits-vegetables-coop-genossenschaft-luzern",
         "de": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql",
-        "fr": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql"
+        "fr": "conducteur-de-rayon-en-fruits-legumes-coop-genossenschaft-luzern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -636,11 +660,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern"
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern",
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql"
+        ],
+        "en": [
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql"
+        ],
+        "fr": [
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql"
         ]
       },
       "previousSlugs": [
-        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern"
+        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern",
+        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-luzern-bmcqql"
       ],
       "salaryMin": 107500,
       "salaryMax": 188500,
@@ -8038,11 +8070,13 @@
         "it": [
           "verkaufer-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
           "verkaufer-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9",
-          "venditore-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen"
+          "venditore-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
+          "verkaufer-in-food-kiosk-coop-uzwil-sankt-gallen-24wds9"
         ],
         "en": [
           "verkaufer-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9",
-          "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen"
+          "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
+          "verkaufer-in-food-kiosk-coop-uzwil-sankt-gallen-24wds9"
         ],
         "fr": [
           "verkaufer-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9",
@@ -9010,9 +9044,7 @@
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
           "ladendetektiv-in-coop-schafisheim-aargau",
           "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
-          "negozio-detective-in-coop-genossenschaft-schafisheim",
-          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
-          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau"
+          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim"
         ],
         "en": [
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw"
@@ -9027,10 +9059,7 @@
         "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
         "ladendetektiv-in-coop-schafisheim-aargau",
         "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
-        "negozio-detective-in-coop-genossenschaft-schafisheim",
-        "inspecteur-coop-genossenschaft-schafisheim",
         "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
-        "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
         "detective-magasin-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 62000,
@@ -12197,9 +12226,7 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
+          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
@@ -12214,11 +12241,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
-        "chef-chef-h-f-d-coop-genossenschaft-oftringen",
-        "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
+        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -12452,9 +12475,7 @@
         "it": [
           "kommissionierer-in-coop-genossenschaft-bern",
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
-          "kommissionierer-in-coop-bern",
-          "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
-          "addetto-a-al-picking-coop-genossenschaft-bern"
+          "kommissionierer-in-coop-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -12474,9 +12495,7 @@
         "kommissionierer-in-coop-bern",
         "order-picker-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
-        "commandeur-in-coop-genossenschaft-bern-65fc45",
-        "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
-        "addetto-a-al-picking-coop-genossenschaft-bern"
+        "commandeur-in-coop-genossenschaft-bern-65fc45"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15685,9 +15704,6 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-        "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "venditore-a-coop-genossenschaft-winterthur-zurich",
         "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
@@ -22982,9 +22998,7 @@
           "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
           "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
-          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-          "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-          "chef-m-w-d-coop-genossenschaft-chur-graubunden"
+          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
@@ -23015,9 +23029,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
         "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
-        "chef-m-w-d-coop-genossenschaft-chur-graubunden"
+        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
       ]
     },
     {

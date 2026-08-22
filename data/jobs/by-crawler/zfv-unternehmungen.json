@@ -5218,12 +5218,12 @@
     },
     {
       "id": "zfv-unternehmungen-e8941c0832ad",
-      "slug": "kuchenchef-in-zfv-unternehmungen-zurich",
+      "slug": "chef-in-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "kuchenchef-in-zfv-unternehmungen-zurich",
-        "it": "kuchenchef-in-zfv-unternehmungen-zurich",
+        "it": "chef-in-zfv-unternehmungen-zurich",
         "en": "kuchenchef-in-zfv-unternehmungen-zurich",
-        "fr": "kuchenchef-in-zfv-unternehmungen-zurich"
+        "fr": "chef-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -5279,7 +5279,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:34:33.188Z"
+      "firstSeenAt": "2026-08-21T21:34:33.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchef-in-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "kuchenchef-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenchef-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-96b5d4f753ea",

@@ -370,8 +370,8 @@
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
         "it": "fachexpertin-fachexperte-pflege-ksa-ch-2",
-        "en": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "fr": "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
+        "en": "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -420,16 +420,15 @@
           "fachexpertin-fachexperte-pflege-ksa-ch"
         ],
         "en": [
-          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau"
+          "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
+          "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6037,8 +6036,7 @@
         "it": [
           "med-praxisassistent-in-ksa-ch",
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr",
-          "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr"
         ],
         "en": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
@@ -6050,9 +6048,7 @@
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
-        "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
@@ -7534,12 +7530,12 @@
     },
     {
       "id": "ksa-4724a0578fdf",
-      "slug": "oberarztin-oberarzt-ksa-ch-2",
+      "slug": "medico-senior-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-ksa-ch",
-        "it": "oberarztin-oberarzt-ksa-ch-2",
-        "en": "oberarztin-oberarzt-ksa-ch-2",
-        "fr": "oberarztin-oberarzt-ksa-ch-2"
+        "it": "medico-senior-kantonsspital-aarau-ksa-aarau",
+        "en": "senior-physician-kantonsspital-aarau-ksa-aarau",
+        "fr": "medecin-principal-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7598,11 +7594,19 @@
       "firstSeenAt": "2026-08-21T21:48:21.990Z",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-ksa-ch"
+          "oberarztin-oberarzt-ksa-ch",
+          "oberarztin-oberarzt-ksa-ch-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ksa-ch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ksa-ch-2"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-ksa-ch"
+        "oberarztin-oberarzt-ksa-ch",
+        "oberarztin-oberarzt-ksa-ch-2"
       ]
     },
     {
@@ -7919,8 +7923,8 @@
       "slugByLocale": {
         "de": "senior-ict-projektleiter-in-ksa-ch",
         "it": "senior-ict-responsabile-di-progetto-kantonsspital-aarau-ksa-aarau",
-        "en": "senior-ict-projektleiter-in-ksa-ch",
-        "fr": "senior-ict-projektleiter-in-ksa-ch"
+        "en": "senior-ict-project-manager-kantonsspital-aarau-ksa-aarau",
+        "fr": "senior-ict-chef-de-projet-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7966,6 +7970,12 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
+          "senior-ict-projektleiter-in-ksa-ch"
+        ],
+        "en": [
+          "senior-ict-projektleiter-in-ksa-ch"
+        ],
+        "fr": [
           "senior-ict-projektleiter-in-ksa-ch"
         ]
       },

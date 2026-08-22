@@ -4671,12 +4671,12 @@
     },
     {
       "id": "decathlon-d92f61fdadda",
-      "slug": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-baar",
+      "slug": "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-baar",
-        "en": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch"
+        "it": "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar",
+        "en": "sport-leader-sales-advisor-m-f-d-temporary-60-100-ski-rental-baar-decathlon-baar",
+        "fr": "sport-leader-sales-advisor-h-f-d-temporaire-60-100-location-de-ski-baar-decathlon-baar"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4720,11 +4720,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-baar"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-baar"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -4742,12 +4750,12 @@
     },
     {
       "id": "decathlon-3fb74b261a4d",
-      "slug": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch",
+      "slug": "fitness-trainee-running-sport-collettivi-m-f-stage-6-mesi-martigny-decathlon-martigny",
       "slugByLocale": {
         "fr": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch",
-        "it": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch",
-        "en": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch",
-        "de": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
+        "it": "fitness-trainee-running-sport-collettivi-m-f-stage-6-mesi-martigny-decathlon-martigny",
+        "en": "fitness-trainee-running-sports-collectives-m-f-stage-6-months-martigny-decathlon-martigny",
+        "de": "fitness-trainee-laufen-sportkollektive-m-w-stage-6-monate-martigny-decathlon-martigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4801,15 +4809,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T22:08:45.629Z"
+      "firstSeenAt": "2026-08-21T22:08:45.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
+        ],
+        "en": [
+          "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
+        ],
+        "de": [
+          "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-0a301e864f55",
-      "slug": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch",
+      "slug": "stage-peche-m-f-stage-6-mesi-martigny-decathlon-martigny",
       "slugByLocale": {
-        "it": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch",
-        "en": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch",
-        "de": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch",
+        "it": "stage-peche-m-f-stage-6-mesi-martigny-decathlon-martigny",
+        "en": "internship-peche-m-f-stage-6-months-martigny-decathlon-martigny",
+        "de": "praktikum-peche-m-w-stage-6-monate-martigny-decathlon-martigny",
         "fr": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4864,7 +4886,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T22:08:45.291Z"
+      "firstSeenAt": "2026-08-21T22:08:45.291Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
+        ],
+        "en": [
+          "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
+        ],
+        "de": [
+          "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-18c39b46f60e",

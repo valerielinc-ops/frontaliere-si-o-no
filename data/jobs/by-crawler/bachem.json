@@ -578,12 +578,12 @@
     },
     {
       "id": "bachem-ffc6cc962c31",
-      "slug": "scientist-qc-early-phase-a-100-bachem-bubendorf",
+      "slug": "scienziato-qc-fase-precoce-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "scientist-qc-early-phase-a-100-bachem-bubendorf",
-        "it": "scientist-qc-early-phase-a-100-bachem-bubendorf",
+        "it": "scienziato-qc-fase-precoce-a-100-bachem-ag-bubendorf",
         "en": "scientist-qc-early-phase-a-100-bachem-bubendorf",
-        "fr": "scientist-qc-early-phase-a-100-bachem-bubendorf"
+        "fr": "scientifique-qc-premiere-phase-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -639,7 +639,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:56:32.779Z"
+      "firstSeenAt": "2026-08-21T21:56:32.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-qc-early-phase-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "scientist-qc-early-phase-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-qc-early-phase-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-3386d30da4f6",

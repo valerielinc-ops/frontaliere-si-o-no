@@ -15031,13 +15031,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch",
-        "fachperson-gesundheit-cfc-hamato-onkologie-60-100-universitatsspital-zurich-usz-campus"
+        "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch",
-          "fachperson-gesundheit-cfc-hamato-onkologie-60-100-universitatsspital-zurich-usz-campus"
+          "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -15493,8 +15491,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "clinical-nurse-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch",
-          "clinical-nurse-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus"
+          "clinical-nurse-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch"
         ],
         "en": [
           "clinical-nurse-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch"
@@ -15504,8 +15501,7 @@
         ]
       },
       "previousSlugs": [
-        "clinical-nurse-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch",
-        "clinical-nurse-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus"
+        "clinical-nurse-fur-die-klinik-fur-gefasschirurgie-80-100-usz-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15573,7 +15569,6 @@
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-w-m-d-mit-schwerpunkt-komplexe-aortenchirurgie-fur-die",
-          "leitende-arztin-leitender-arzt-m-w-d-con-schwerpunkt-komplexe-aortenchirurgie-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus",
           "leitende-arztin-leitender-arzt-w-m-d-mit-schwerpunkt-komplexe-aortenchirurgie-fur-die-klin",
           "leitende-arztin-leitender-arzt-w-m-d-mit-schwerpunkt-komplexe-aortenchirurgie-fur-die-klinik-fur-gefasschirurgie-80-100-"
         ],
@@ -15586,7 +15581,6 @@
       },
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-w-m-d-mit-schwerpunkt-komplexe-aortenchirurgie-fur-die",
-        "leitende-arztin-leitender-arzt-m-w-d-con-schwerpunkt-komplexe-aortenchirurgie-per-la-klinik-per-gefasschirurgie-80-100-universitatsspital-zurich-usz-campus",
         "leitende-arztin-leitender-arzt-w-m-d-mit-schwerpunkt-komplexe-aortenchirurgie-fur-die-klin",
         "leitende-arztin-leitender-arzt-w-m-d-mit-schwerpunkt-komplexe-aortenchirurgie-fur-die-klinik-fur-gefasschirurgie-80-100-"
       ],
@@ -15763,8 +15757,8 @@
       "slugByLocale": {
         "de": "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt",
         "it": "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-e-hno-con-dem-schwerpunkt-robotische-chirurgie-80-100-mo-fr-universitatsspital-zurich-usz-campus",
-        "en": "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt",
-        "fr": "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt"
+        "en": "special-care-specialist-surgical-technology-hf-vis-tho-uro-and-ent-with-focus-on-robotic-surgery-80-100-mo-fr",
+        "fr": "soins-speciaux-technologie-chirurgicale-specialisee-hf-vis-tho-uro-et-ent-avec-un-accent-sur-la-chirurgie-robotique-80"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15813,6 +15807,12 @@
           "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt",
           "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt-robo",
           "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt-robotische-chirurgie-80-100-mo-fr-"
+        ],
+        "en": [
+          "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt"
+        ],
+        "fr": [
+          "spezialpflege-fachperson-operationstechnik-hf-vis-tho-uro-und-hno-mit-dem-schwerpunkt"
         ]
       },
       "previousSlugs": [
@@ -15913,12 +15913,12 @@
     },
     {
       "id": "usz-196de5c436ec",
-      "slug": "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
+      "slug": "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
-        "it": "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
-        "en": "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
-        "fr": "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60"
+        "it": "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-campus",
+        "en": "nursing-specialist-mba-in-vocational-training-care-bed-station-nephrology-angiology-60-100-universitatsspital-zurich-usz",
+        "fr": "specialiste-des-soins-infirmiers-en-formation-professionnelle-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15973,7 +15973,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:58:38.378Z"
+      "firstSeenAt": "2026-08-21T21:58:38.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60"
+        ],
+        "en": [
+          "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60"
+        ],
+        "fr": [
+          "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60"
+      ]
     },
     {
       "id": "usz-f6a7161568c2",

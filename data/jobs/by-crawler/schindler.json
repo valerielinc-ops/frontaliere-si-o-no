@@ -4348,8 +4348,8 @@
       "slugByLocale": {
         "de": "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler",
         "it": "servicetechniker-in-con-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-        "en": "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler",
-        "fr": "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
+        "en": "service-technician-with-jumper-function-in-the-zurich-region-m-f-d-80-100-schindler-zurich",
+        "fr": "technicien-de-service-avec-fonction-sauteur-dans-la-region-de-zurich-h-f-d-80-100-schindler-zurich"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4395,6 +4395,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
+        ],
+        "en": [
+          "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
+        ],
+        "fr": [
           "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
         ]
       },
@@ -5810,8 +5816,7 @@
         "cookie-consent-manager-schindler-sion",
         "cookie-einwilligungsmanager-schindler-sion",
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr",
-        "cookie-consent-manager-schindler-bussigny"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5819,8 +5824,7 @@
           "cookie-consent-manager-schindler-bussigny-qcnbsr"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr",
-          "cookie-consent-manager-schindler-bussigny"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr"
         ],
         "de": [
           "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
