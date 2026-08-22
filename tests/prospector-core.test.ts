@@ -22,6 +22,7 @@ import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validat
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -440,5 +441,36 @@ describe('production spec runtime', () => {
   it('honours a numeric placeholder', () => {
     expect(templateToRegex('/job/#').test('/job/12345')).toBe(true);
     expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
+  });
+});
+
+describe('identificatori del crawler generato', () => {
+  it('non lascia un trattino dentro il nome di funzione', () => {
+    // Il difetto: `replace(/-([a-z])/g, ...)` toglieva il trattino solo davanti
+    // a una lettera MINUSCOLA, quindi `recruitingapp-2862` generava
+    // `isRecruitingapp-2862Job` — non JavaScript. Nessun crawler scritto a mano
+    // l'aveva colpito, perche' le loro chiavi non hanno cifre dopo un trattino;
+    // le chiavi che arrivano dai tenant di un ATS ce l'hanno quasi sempre.
+    expect(pascalIdentifier('recruitingapp-2862')).toBe('Recruitingapp2862');
+    expect(`is${pascalIdentifier('recruitingapp-2862')}Job`).toMatch(/^[A-Za-z_$][A-Za-z0-9_$]*$/);
+  });
+
+  it('resta compatibile con le chiavi scritte a mano', () => {
+    expect(pascalIdentifier('a-plus-plus-group')).toBe('APlusPlusGroup');
+    expect(constPrefix('a-plus-plus-group')).toBe('A_PLUS_PLUS_GROUP');
+  });
+
+  it('non produce un identificatore che inizia con una cifra', () => {
+    expect(pascalIdentifier('2862-tenant')).toBe('C2862Tenant');
+    expect(pascalIdentifier('2862-tenant')).toMatch(/^[A-Za-z_$]/);
+  });
+
+  it('preferisce il nome dell`azienda quando il tenant id e` opaco', () => {
+    // `recruitingapp-2862` non dice di chi e' il crawler, e finisce nei nomi
+    // dei file, nel manifest e nei gruppi di workflow.
+    expect(crawlerKeyFor({ tenantHost: 'recruitingapp-2862.umantis.com', name: 'Mammut eRecruiting' }))
+      .toBe('mammut-erecruiting');
+    // Un tenant leggibile resta la chiave migliore: e' stabile e unico.
+    expect(crawlerKeyFor({ tenantHost: 'vaudoise.softgarden.io', name: 'Vaudoise Assurances' })).toBe('vaudoise');
   });
 });
