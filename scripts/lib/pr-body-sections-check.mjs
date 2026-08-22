@@ -163,7 +163,9 @@ export function hasNessuno(rawContent) {
 export const STATE_PATTERNS = Object.freeze({
   inThisPr: /\bin\s+questa\s+PR\b/i,
   chainedPr: /\bPR\s+concatenat[ao]\s*#\s*\d+/i,
-  byChoice: /\bper\s+scelta\b/i,
+  // «falso positivo» è un sinonimo accettato dello stesso stato `by-choice`
+  // (stesso significato: nessuna azione dovuta) — non una classe nuova.
+  byChoice: /\b(?:per\s+scelta|falso\s+positivo)\b/i,
   byConstruction: /\bby\s+construction\b/i,
   // «decisione del proprietario» (o «owner») → non è lavoro sospeso, è un no.
   blockedByOwner: /\bblocked\s*:\s*[^\n]*\b(decision[ei]\s+del\s+proprietario|owner\s+decision|scelta\s+del\s+proprietario)\b/i,
