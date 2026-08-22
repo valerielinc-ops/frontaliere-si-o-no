@@ -11,7 +11,7 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-21T21:29:05.041Z",
+  "updatedAt": "2026-08-22T09:36:33.249Z",
   "seedMetaByUrl": {
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-APS-&-ADC-Rated-%28ATCO%29-Instructor-%28100%29/1418247333/": {
       "location": "Wangen b. Dübendorf",
@@ -31,9 +31,9 @@
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
-    "https://jobs.skyguide.ch/job/Gen%C3%A8ve-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Gen%C3%A8ve/1140871001/": {
-      "location": "Genève",
-      "canton": "GE",
+    "https://jobs.skyguide.ch/job/Payerne-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Payerne/1140873301/": {
+      "location": "Payerne",
+      "canton": "VD",
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
@@ -43,9 +43,9 @@
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
-    "https://jobs.skyguide.ch/job/Payerne-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Payerne/1140873301/": {
-      "location": "Payerne",
-      "canton": "VD",
+    "https://jobs.skyguide.ch/job/Gen%C3%A8ve-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Gen%C3%A8ve/1140871001/": {
+      "location": "Genève",
+      "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
@@ -61,8 +61,8 @@
       "company": "Skyguide",
       "postedDate": "2026-08-17"
     },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&oder-Genf-Head-of-Corporate-Audit-%28100%29/1424690433/": {
-      "location": "Wangen b. Düb. &/oder Genf",
+    "https://jobs.skyguide.ch/job/Geneva-Physical-Security-Officer-Intrusion-and-Surveillance-%2880-100%29/1424925333/": {
+      "location": "Geneva",
       "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-10"
@@ -73,8 +73,8 @@
       "company": "Skyguide",
       "postedDate": "2026-08-10"
     },
-    "https://jobs.skyguide.ch/job/Geneva-Physical-Security-Officer-Intrusion-and-Surveillance-%2880-100%29/1424925333/": {
-      "location": "Geneva",
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&oder-Genf-Head-of-Corporate-Audit-%28100%29/1424690433/": {
+      "location": "Wangen b. Düb. &/oder Genf",
       "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-10"
