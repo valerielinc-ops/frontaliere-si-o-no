@@ -49043,6 +49043,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dimissioni-fondazione-beloved': {
+    title: 'Dimissioni in cascata alla Fondazione Beloved | Frontaliere Ticino',
+    description: 'Crisi di governance alla Fondazione Beloved: dimissioni di member svizzeri, francesi e italiani. Gestisce 24 milioni CHF per le 41 vittime di Crans-Montana',
+    keywords: 'frontalieri, ticino, svizzera, italia, dimissioni, cascata, alla, fondazione',
+    ogTitle: 'Fondazione Beloved in crisi: dimissioni in cascata',
+    ogDescription: 'Crisi di governance alla Fondazione Beloved per le vittime di Crans-Montana. Dimissioni di member svizzeri, francesi e italiani scuotono l\'ente che gestisce 24 milioni CHF. Le famiglie chiedono trasparenza sulla distribuzione degli aiuti.',
+    canonicalPath: '/articoli-svizzera/dimissioni-fondazione-beloved/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dimissioni in cascata alla Fondazione Beloved",
+      "description": "Crisi di governance alla Fondazione Beloved: dimissioni di member svizzeri, francesi e italiani. Gestisce 24 milioni CHF per le 41 vittime di Crans-Montana",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dimissioni-fondazione-beloved.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala riunioni di un edificio amministrativo svizzero, simbolo della governance di enti pubblici"
+      },
+      "datePublished": "2026-08-22T03:29:07+00:00",
+      "dateModified": "2026-08-22T03:29:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dimissioni-fondazione-beloved/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
