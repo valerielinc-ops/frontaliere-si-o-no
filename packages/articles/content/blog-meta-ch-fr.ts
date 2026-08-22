@@ -3772,6 +3772,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.digitalizzazione-processi-competenze.title': 'Quand numérisation rime avec improvisation',
     'blog.article.digitalizzazione-processi-competenze.excerpt': 'Numériser ne signifie pas remplacer le papier par un écran : cela nécessite une refonte des processus, des compétences appropriées et une gestion consciente du changement organisationnel.',
     'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Bureau administratif suisse moderne avec postes numériques lors de la transformation digitale',
+    'blog.article.richiamo-uova-salmonella-migros.title': 'Rappel d\'œufs Migros : soupçon de contamination par des salmonelles',
+    'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Migros rappelle les œufs Nostrani du Tessin, code 1-CH-603, pour risque de salmonelle. Voici les procédures de remboursement pour les consommateurs.',
+    'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Cartons d\'œufs dans un supermarché suisse',
 };
 
 export default blogMetaChFr;
