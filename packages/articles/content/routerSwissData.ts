@@ -1285,6 +1285,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'digitalizzazione-processi-competenze': { it: 'digitalizzazione-processi-competenze', en: 'digitalization-processes-skills', de: 'digitalisierung-prozesse-kompetenzen', fr: 'numerisation-processus-competences' },
  'richiamo-uova-salmonella-migros': { it: 'richiamo-uova-salmonella-migros', en: 'egg-recall-salmonella-migros', de: 'eier-rueckruf-salmonellen-migros', fr: 'rappel-oeufs-salmonelle-migros' },
  'avs-berna-rendita-lacune-contributive': { it: 'avs-berna-rendita-lacune-contributive', en: 'avs-bern-pension-contribution-gaps', de: 'avs-bern-rente-beitragslucken', fr: 'avs-berne-rente-lacunes-cotisations' },
+ 'esercito-bilancio-misure-violenza': { it: 'esercito-bilancio-misure-violenza', en: 'swiss-army-violence-prevention-interim-report', de: 'schweizer-armee-gewaltpraevention-bilanz', fr: 'armee-suisse-rapport-mesures-violence' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

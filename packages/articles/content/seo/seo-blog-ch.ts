@@ -49004,6 +49004,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esercito-bilancio-misure-violenza': {
+    title: 'Esercito svizzero: bilancio sulle misure contro la violenza',
+    description: 'Il Comando dell\'esercito presenta il rapporto 2026 sulle 16 misure contro discriminazione e violenza sessualizzata. 8 implementate, 7 in attuazione, indagine',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, svizzero, bilancio, sulle',
+    ogTitle: 'Esercito svizzero: bilancio misure contro la violenza',
+    ogDescription: 'Rapporto intermedio 2026 sulle 16 misure contro discriminazione nell\'Esercito. 19.500 reclute hanno completato training obbligatorio. Verifica efficacia prevista nel 2028 con confronto ai dati 2024.',
+    canonicalPath: '/articoli-svizzera/esercito-bilancio-misure-violenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercito svizzero: bilancio sulle misure contro la violenza",
+      "description": "Il Comando dell'esercito presenta il rapporto 2026 sulle 16 misure contro discriminazione e violenza sessualizzata. 8 implementate, 7 in attuazione, indagine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esercito-bilancio-misure-violenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soldati dell'Esercito svizzero durante una lezione di formazione, ambiente professionale e istituzionale"
+      },
+      "datePublished": "2026-08-22T02:23:53+00:00",
+      "dateModified": "2026-08-22T02:23:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esercito-bilancio-misure-violenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

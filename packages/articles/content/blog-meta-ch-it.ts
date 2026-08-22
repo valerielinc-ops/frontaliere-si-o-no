@@ -3778,6 +3778,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-berna-rendita-lacune-contributive.title': 'AVS Cantone Berna: rendita, lacune e prestazioni',
     'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo vitale.',
     'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Edificio amministrativo del Cantone di Berna sede della cassa di compensazione del primo pilastro AVS.',
+    'blog.article.esercito-bilancio-misure-violenza.title': 'Esercito svizzero: bilancio sulle misure contro la violenza',
+    'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 misure supplementari contro discriminazione e violenza sessualizzata: rapporto intermedio 2026 mostra 8 implementate, 7 in attuazione. Quasi 20mila reclute hanno completato il training obbligatorio.',
+    'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Soldati dell\'Esercito svizzero durante una lezione di formazione, ambiente professionale e istituzionale',
 };
 
 export default blogMetaChIt;

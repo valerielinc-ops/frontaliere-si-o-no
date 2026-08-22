@@ -11332,6 +11332,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'esercito-bilancio-misure-violenza',
+    category: 'novita',
+    date: '2026-08-22T02:23:53.057Z',
+    image: '/images/blog/esercito-bilancio-misure-violenza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
