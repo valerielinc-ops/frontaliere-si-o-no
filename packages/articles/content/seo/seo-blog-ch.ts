@@ -49628,6 +49628,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mazzone-clima-consiglio-federale': {
+    title: 'Consiglio federale muto sul clima: Mazzone chiede rotta',
+    description: 'Critiche dei Verdi al Consiglio federale: immobilità climatica. Mazzone chiede cambio rotta, tolga DATEC a Rösti, 900M per esercito vs. zero per clima.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, muto, clima',
+    ogTitle: 'Mazzone: Consiglio federale tolga clima a Rösti',
+    ogDescription: 'Lisa Mazzone, presidente dei Verdi, interviene davanti ai delegati a Friburgo. Chiede cambio rotta federale: tolta DATEC a Rösti, investimenti concreti per il clima, uscita dalla dipendenza dai combustibili fossili. Governo: 900M per difesa, zero',
+    canonicalPath: '/articoli-svizzera/mazzone-clima-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale muto sul clima: Mazzone chiede rotta",
+      "description": "Critiche dei Verdi al Consiglio federale: immobilità climatica. Mazzone chiede cambio rotta, tolga DATEC a Rösti, 900M per esercito vs. zero per clima.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mazzone-clima-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano che simboleggia il dibattito climatico nazionale svizzero"
+      },
+      "datePublished": "2026-08-22T11:07:34+00:00",
+      "dateModified": "2026-08-22T11:07:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mazzone-clima-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
