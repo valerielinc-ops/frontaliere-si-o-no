@@ -286,6 +286,13 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // `expected_n` from the tar's own listing BEFORE relying on the
     // extracted directory, and gate the "accept this tar" branch on
     // `actual_n` meeting `expected_n` — not merely on the directory existing.
+    // Match EXACT, not "at least" (issue #6260): a tar that is itself
+    // truncated stops `tar -tf`'s listing early, so `expected_n` undercounts
+    // and `-ge` read the short extraction as complete. `-eq` is the only
+    // comparison that catches drift in either direction, and this suite is
+    // the THIRD place that pins the same line — the two per-script suites
+    // are the other two — so it has to move with them or it pins the form
+    // the fix just removed.
     // The section loop's tar filename is `$section-dist-$loc.tar` (a shell
     // variable, not a literal per-section name) since rehydrate_section()
     // covers ticino/svizzera/zurigo through the same code path.
@@ -301,7 +308,7 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
       const re = new RegExp(
         `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
         `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
-        `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -ge "\\$expected_n" \\]`,
+        `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
       );
       expect(text, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
     }

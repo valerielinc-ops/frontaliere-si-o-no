@@ -187,4 +187,16 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
   it('never introduces a working-tree file check on a --no-checkout clone (same class as defect A/B)', () => {
     expect(script).not.toMatch(/\[\s+-f\s+"\$tmp\//);
   });
+
+  it('the tar-completeness check requires an EXACT file-count match, not "at least" (issue #6260)', () => {
+    // `-ge` let a tar that is itself truncated (a short/corrupt header stops
+    // `tar -tf`'s listing early, undercounting expected_n) still read as
+    // "rehydrated" whenever extraction happened to land >= that undercount —
+    // observed in production as "rehydrated vallese en from tar artifact:
+    // 1012 files (tar listed 316)", shipping an incomplete dist/$sub into
+    // gate:seo-source with no fallback. Only `-eq` catches a drift in either
+    // direction.
+    expect(script).toMatch(/\[ "\$actual_n" -eq "\$expected_n" \]/);
+    expect(script).not.toMatch(/\[ "\$actual_n" -ge "\$expected_n" \]/);
+  });
 });

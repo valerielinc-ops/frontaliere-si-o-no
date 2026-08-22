@@ -121,4 +121,9 @@ describe('rehydrate-locale-shards.sh — cross-job clone cache (issue #4881 defe
     expect(script).not.toMatch(/--filter=blob:none/);
     expect(script).not.toMatch(/--no-checkout/);
   });
+
+  it('the tar-completeness check requires an EXACT file-count match, not "at least" (issue #6260, sibling of rehydrate-section-shards.sh)', () => {
+    expect(script).toMatch(/\[ "\$actual_n" -eq "\$expected_n" \]/);
+    expect(script).not.toMatch(/\[ "\$actual_n" -ge "\$expected_n" \]/);
+  });
 });
