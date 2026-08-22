@@ -86,6 +86,15 @@ describe('stato letterale dei bullet: classificazione', () => {
     expect(bulletState('falso positivo — check: motivo')).toBe('by-choice');
   });
 
+  it('`non e\' un falso positivo` dichiara l\'opposto: resta lavoro dovuto, non by-choice (#3367)', () => {
+    // Stessa frase gia' testata come rifiuto esplicito in
+    // tests/sibling-check-gate.test.ts — la naive substring-match leggeva la
+    // negazione come un'affermazione. Vedi scripts/ci/lib/false-positive-declaration.mjs.
+    expect(bulletState(
+      'scripts/foo-parser.mjs — non è un falso positivo, va sistemato in follow-up',
+    )).toBe(null);
+  });
+
   it('`PR concatenata` senza numero non conta come stato', () => {
     // Senza #N non e' tracciabile: sarebbe una scappatoia travestita da stato.
     expect(bulletState('Roba — PR concatenata (in arrivo)')).toBe(null);
