@@ -3838,6 +3838,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-canton-uri.title': 'Right of lease in Uri: rent and security deposit',
     'blog.article.diritto-locazione-canton-uri.excerpt': 'In the canton of Uri, the right to rent follows the Federal Obligations Code. Max 3 months deposit, chargeback within 30 days, cancellation and arbitration: here\'s how it works.',
     'blog.article.diritto-locazione-canton-uri.imageAlt': 'Swiss residential building facade with numbered apartment entrances and mailboxes',
+    'blog.article.affitti-uri-diritto-locazione.title': 'Uri Rentals: Right of Lease and Dispute',
+    'blog.article.affitti-uri-diritto-locazione.excerpt': 'Security deposit, fee dispute, cancellation and conciliation authority: federal rules on leasing in canton Uri.',
+    'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Rental agreement with house keys and pen on desk, professional photography',
 };
 
 export default blogMetaChEn;

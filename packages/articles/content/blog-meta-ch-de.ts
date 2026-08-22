@@ -3838,6 +3838,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-canton-uri.title': 'Mietrecht in Uri: Mieten und Kaution',
     'blog.article.diritto-locazione-canton-uri.excerpt': 'Im Kanton Uri richtet sich das Mietrecht nach dem Bundesobligationenrecht. Maximale Anzahlung von 3 Monaten, Einspruch gegen die Gebühr innerhalb von 30 Tagen, Kündigung und Schiedsverfahren: So funktioniert es.',
     'blog.article.diritto-locazione-canton-uri.imageAlt': 'Fassade eines Schweizer Wohnhauses mit nummerierten Eingängen und Briefkästen',
+    'blog.article.affitti-uri-diritto-locazione.title': 'Vermietung Uri: Mietrecht und Anfechtung',
+    'blog.article.affitti-uri-diritto-locazione.excerpt': 'Kaution, Gebührenbeanstandung, Kündigung und Schlichtungsstelle: Bundesmietordnung im Kanton Uri.',
+    'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Mietvertrag mit Hausschlüsseln und Stift auf Schreibtisch, professionelle Fotografie',
 };
 
 export default blogMetaChDe;

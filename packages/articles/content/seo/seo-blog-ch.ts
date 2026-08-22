@@ -49784,6 +49784,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-uri-diritto-locazione': {
+    title: 'Affitti Uri: diritto di locazione e contestazione',
+    description: 'Guida completa al diritto svizzero di locazione nel cantone Uri: deposito cauzionale, contestazione canone, disdetta, autorità di conciliazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, diritto, locazione, contestazione',
+    ogTitle: 'Affitti Uri: diritto di locazione e contestazione',
+    ogDescription: 'Scopri le regole federali sulla locazione a Uri: come contestare il canone, proteggere il deposito cauzionale, gestire la disdetta e ricorrere all\'autorità di conciliazione cantonale.',
+    canonicalPath: '/articoli-svizzera/affitti-uri-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Uri: diritto di locazione e contestazione",
+      "description": "Guida completa al diritto svizzero di locazione nel cantone Uri: deposito cauzionale, contestazione canone, disdetta, autorità di conciliazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-uri-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contratto di locazione con chiavi di casa e penna su scrivania, fotografia professionale"
+      },
+      "datePublished": "2026-08-22T13:21:52+00:00",
+      "dateModified": "2026-08-22T13:21:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-uri-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
