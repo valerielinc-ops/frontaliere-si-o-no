@@ -10489,6 +10489,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Travail saisonnier au Tessin : guide fiscal 2024–2026',
     'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'À partir du 1er janvier 2024, le Nouvel Accord modifie la fiscalité : impôt à la source suisse et restauration italienne. Voici comment cela fonctionne pour les travailleurs saisonniers.',
     'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Vallée de Lugano près de la frontière suisse-italienne, cadre typique pour les travailleurs saisonniers frontaliers',
+    'blog.article.permesso-g-richiesta-completa.title': 'Demande de permis G : procédure complète étape par étape',
+    'blog.article.permesso-g-richiesta-completa.excerpt': 'Guide pratique pour demander le permis G : les personnes impliquées, les documents requis, les temps d\'attente et les implications fiscales et de sécurité sociale pour le frontalier Tessin-Italie.',
+    'blog.article.permesso-g-richiesta-completa.imageAlt': 'Poste frontière de Chiasso entre le Tessin et la Lombardie, principal accès quotidien des travailleurs transfrontaliers',
 };
 
 export default blogMetaFr;

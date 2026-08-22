@@ -10488,6 +10488,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Lavoro stagionale in Ticino: guida fiscale 2024–2026',
     'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo cambia la fiscalità: imposta alla fonte svizzera e ristorni italiano. Ecco come funziona per i lavoratori stagionali.',
     'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Valle di Lugano al confine italo-svizzero, scenario tipico per lavoratori stagionali frontalieri',
+    'blog.article.permesso-g-richiesta-completa.title': 'Richiesta Permesso G: procedura completa step-by-step',
+    'blog.article.permesso-g-richiesta-completa.excerpt': 'Guida pratica alla richiesta del Permesso G: i soggetti coinvolti, documenti richiesti, tempi di attesa, e le implicazioni fiscali e previdenziali per il frontaliere Ticino-Italia.',
+    'blog.article.permesso-g-richiesta-completa.imageAlt': 'Valico di Chiasso, principale confine del Ticino con la Lombardia, dove i frontalieri transitano quotidianamente per il lavoro',
 };
 
 export default blogMetaIt;

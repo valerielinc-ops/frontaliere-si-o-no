@@ -10486,6 +10486,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Saisonarbeit im Tessin: Steuerleitfaden 2024–2026',
     'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'Ab dem 1. Januar 2024 ändert das Neue Abkommen die Besteuerung: Schweizer Quellensteuer und italienische Rückerstattungen. So funktioniert es bei Saisonarbeitern.',
     'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Lugano-Tal an der Schweizer-italienischen Grenze, typisches Umfeld für saisonale Grenzgänger',
+    'blog.article.permesso-g-richiesta-completa.title': 'Antrag auf Genehmigung G: vollständiges Verfahren Schritt-für-Schritt',
+    'blog.article.permesso-g-richiesta-completa.excerpt': 'Praktischer Leitfaden für die Beantragung der Genehmigung G: die beteiligten Personen, angeforderte Dokumente, Wartezeiten und die steuerlichen und sozialen Auswirkungen für den Grenzgänger Tessin-Italien.',
+    'blog.article.permesso-g-richiesta-completa.imageAlt': 'Grenzübergang Chiasso zwischen Tessin und Lombardei, Haupteingang für Grenzgänger zum Arbeitsplatz',
 };
 
 export default blogMetaDe;
