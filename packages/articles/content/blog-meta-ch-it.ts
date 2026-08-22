@@ -3799,6 +3799,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.udc-verdi-iniziativa-neutralita.title': 'Assemblee UDC e Verdi, si discute dell\'iniziativa sulla neutralità',
     'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'I delegati di UDC e dei Verdi si riuniscono oggi per discutere l\'iniziativa sulla neutralità e sull\'iniziativa sull\'alimentazione',
     'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Delegati UDC e Verdi in assemblea',
+    'blog.article.permesso-c-lucerna-guida.title': 'Permesso di domicilio C Lucerna: guida completa',
+    'blog.article.permesso-c-lucerna-guida.excerpt': 'Requisiti, criteri di integrazione e procedura di richiesta per il permesso di domicilio C nel Cantone di Lucerna. Guida completa step-by-step.',
+    'blog.article.permesso-c-lucerna-guida.imageAlt': 'Ingresso moderno di un ufficio cantonale svizzero per richieste di permesso di domicilio',
 };
 
 export default blogMetaChIt;
