@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-22T09:55:59.639Z",
+  "generatedAt": "2026-08-22T21:43:17.607Z",
   "total": 26,
   "newCount": 0,
   "updatedCount": 26,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 41862,
-  "avgDurationMs": 41862,
+  "durationMs": 40571,
+  "avgDurationMs": 40571,
   "durationHistory": [
-    41862
+    40571
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -966,45 +966,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Modern Workplace Specialist - Messaging, Identity & Device Management",
-      "slug": "modern-workplace-specialist-messaging-identity-device-management-agie-charmilles-meyrin",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-modern-workplace-specialist-messaging-identity-device-management/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/306d81b025c5b65b465430116ac8196eb175d244a889a4c2d6b07343adf69416fdb98e9b5bd7c1df133ea662e42f0c80eebb99c54712fe5801c37b2cbae91d",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Meyrin",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-67aba1600ff2",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "postalCode": "1204",
-      "firstSeenAt": "2026-06-28T10:23:00.911Z",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
