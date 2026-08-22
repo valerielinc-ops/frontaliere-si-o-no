@@ -10511,6 +10511,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Border VAT number: taxation, AVS and double taxation',
     'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'From 2024 new rules for self-employed border workers: differentiated deductibles, tax at source only in Switzerland, mandatory AVS/LPP contributions and how to avoid double taxation.',
     'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Freelancer workspace between Switzerland and Italy: laptop, tax documents and border landscape in background',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Food expenditure: Is Switzerland or Italy suitable for the border crossing?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Practical comparison on prices, customs exemption and purchasing habits for those who work in Ticino. What changes with the new 2024 border agreement?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Cross-border worker comparing grocery receipts at Mendrisio border',
 };
 
 export default blogMetaEn;
