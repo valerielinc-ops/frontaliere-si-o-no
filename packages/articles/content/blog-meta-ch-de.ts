@@ -3784,6 +3784,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dimissioni-fondazione-beloved.title': 'Rücktritte in Kaskade bei der Beloved-Stiftung',
     'blog.article.dimissioni-fondazione-beloved.excerpt': 'Die Stiftung, die 24 Millionen Franken für die Opfer von Crans-Montana verwaltet, steht vor einer Governance-Krise. Rücktritte von Mitgliedern aus der Schweiz, Frankreich und Italien lassen Zweifel an der Transparenz der Verteilung der Hilfe aufkommen.',
     'blog.article.dimissioni-fondazione-beloved.imageAlt': 'Sitzungssaal in einem Schweizer Regierungsgebäude, Symbol der Governance von Stiftungen',
+    'blog.article.berna-avviare-attivita-commercio.title': 'Geschäft in Bern eröffnen: Register und Kosten',
+    'blog.article.berna-avviare-attivita-commercio.excerpt': 'Rechtsformen, Handelsregistereintragung, Verwaltungskosten und Vorsorgepflichten im Kanton Bern',
+    'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Modernes Bürogebäude im Zentrum von Bern mit Schweizer Flagge, Symbol für Geschäftsgründung',
 };
 
 export default blogMetaChDe;
