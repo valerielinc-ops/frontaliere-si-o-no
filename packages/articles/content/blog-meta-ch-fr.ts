@@ -3787,6 +3787,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Ouvrir une entreprise à Berne : registre et coûts',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Formes juridiques, inscription au registre du commerce, frais administratifs et obligations de prévoyance dans le canton de Berne',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Immeuble de bureaux moderne au centre de Berne avec drapeau suisse, symbole de création d\'activité',
+    'blog.article.mercato-berna-salari-formazione.title': 'Marché du travail Berne : salaires, formation et prévoyance',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'Pas de salaire minimum fédéral suisse. Découvrez les horaires, les cotisations AVS/LPP, les niveaux de salaire pour la formation et les conventions collectives dans le canton de Berne.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'District financier de Berne avec des professionnels entre immeubles modernes',
 };
 
 export default blogMetaChFr;

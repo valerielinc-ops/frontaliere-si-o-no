@@ -3787,6 +3787,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Geschäft in Bern eröffnen: Register und Kosten',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Rechtsformen, Handelsregistereintragung, Verwaltungskosten und Vorsorgepflichten im Kanton Bern',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Modernes Bürogebäude im Zentrum von Bern mit Schweizer Flagge, Symbol für Geschäftsgründung',
+    'blog.article.mercato-berna-salari-formazione.title': 'Arbeitsmarkt Bern: Löhne, Ausbildung und Vorsorge',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'Kein schweizerischer Bundesmindestlohn. Entdecken Sie Fahrpläne, AHV/BVG-Beiträge, Bildungslohnniveaus und Kollektivverträge im Kanton Bern.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'Geschäftsviertel von Bern mit Profis und modernen Bürogebäuden',
 };
 
 export default blogMetaChDe;

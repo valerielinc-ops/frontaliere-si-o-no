@@ -3787,6 +3787,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Opening a business in Bern: registration and costs',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Legal forms, registration in the commercial register, administrative costs and social security obligations in the Canton of Bern',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Modern office building in central Bern with Swiss flag, representing business opening in Switzerland',
+    'blog.article.mercato-berna-salari-formazione.title': 'Labour market Bern: wages, training and social security',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'No Swiss federal minimum wage. Discover timetables, AVS/LPP contributions, salary levels for training and collective agreements in the Canton of Bern.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'Bern\'s financial district with professionals and modern office buildings',
 };
 
 export default blogMetaChEn;

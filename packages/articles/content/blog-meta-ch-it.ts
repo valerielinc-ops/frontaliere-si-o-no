@@ -3787,6 +3787,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Aprire un\'attività in Berna: registro e costi',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Forme giuridiche, iscrizione al registro commercio, costi amministrativi e obblighi di previdenza nel Cantone di Berna',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Edificio per uffici moderno nel centro di Berna con bandiera svizzera, simbolo di apertura attività commerciale',
+    'blog.article.mercato-berna-salari-formazione.title': 'Mercato del lavoro Berna: salari, formazione e previdenza',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'Nessun salario minimo federale svizzero. Scopri orari, contributi AVS/LPP, livelli salariali per formazione e contratti collettivi nel Canton Berna.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'Quartiere finanziario di Berna con professionisti e moderni edifici per uffici',
 };
 
 export default blogMetaChIt;
