@@ -10510,6 +10510,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'Numéro de TVA de frontalier en Suisse : exigences, taxes et prévoyance',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Ouvrir une entreprise indépendante au Tessin en tant que frontalière : exigences légales, différences fiscales avec le travail salarié et obligations de sécurité sociale. Guide pratique avec des données vérifiées.',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Pigiste travaillant dans un espace de coworking à Lugano avec vue sur le lac',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Numéro de TVA frontalier : fiscalité, AVS et double imposition',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'À partir de 2024, de nouvelles règles pour les travailleurs frontaliers indépendants : franchises différentes, imposition à la source uniquement en Suisse, cotisations AVS/LPP obligatoires et comment éviter la double imposition.',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Espace de travail de frontalier entre la Suisse et l\'Italie: ordinateur portable, documents fiscaux et paysage frontalier en arrière-plan',
 };
 
 export default blogMetaFr;

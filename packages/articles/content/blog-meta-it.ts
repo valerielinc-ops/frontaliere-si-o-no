@@ -10509,6 +10509,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'Partita IVA da frontaliere in Svizzera: requisiti, tasse e previdenza',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Aprire un\'attività autonoma in Ticino da frontaliere: requisiti legali, differenze fiscali col lavoro dipendente e obblighi previdenziali. Guida pratica con dati verificati.',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Freelance al lavoro in un coworking di Lugano con vista sul lago',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Partita IVA frontaliere: tassazione, AVS e doppia imposizione',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'Dal 2024 nuove regole per autonomi frontalieri: franchigie differentiate, imposta alla fonte solo in Svizzera, contributi AVS/LPP obbligatori e come evitare doppia tassazione.',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Ambiente di lavoro frontaliere tra Svizzera e Italia: laptop, documenti fiscali e paesaggio di confine sullo sfondo',
 };
 
 export default blogMetaIt;
