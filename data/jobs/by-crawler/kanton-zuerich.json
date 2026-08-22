@@ -1472,8 +1472,7 @@
           "head-of-digitalization-business-service-kantonale-verwaltung-zurich-zurich",
           "leiter-in-digitalisierung-business-service-kanton-zuerich-zurich",
           "chef-du-service-digitalisation-business-kantonale-verwaltung-zurich-zurich",
-          "leiter-in-digitalisierung-business-service-kantonale-verwaltung-zurich-zurich",
-          "responsabile-del-servizio-sanitario-kantonale-verwaltung-zurich-zurich"
+          "leiter-in-digitalisierung-business-service-kantonale-verwaltung-zurich-zurich"
         ],
         "en": [
           "leitung-gesundheitsdienst-kantonale-verwaltung-zurich-zurich",
@@ -8543,12 +8542,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4057953",
-      "previousSlugs": [
-        "schnupperlehrstelle-bei-der-baudirektion-und-beim-strickhof-kanton-zuerich-zurich",
-        "schnupperlehrstelle-bei-der-baudirektion-e-beim-strickhof-kantonale-verwaltung-zuri-0873mp",
-        "schnupperlehrstelle-bei-der-baudirektion-und-beim-strickhof-kantonale-verwaltung-zurich-zurich",
-        "schnupperlehrstelle-bei-der-baudirektion-e-beim-strickhof-kantonale-verwaltung-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehrstelle-bei-der-baudirektion-und-beim-strickhof-kanton-zuerich-zurich",
@@ -8562,7 +8555,12 @@
           "schnupperlehrstelle-bei-der-baudirektion-und-beim-strickhof-kantonale-verwaltung-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-21T10:08:54.291Z",
+      "previousSlugs": [
+        "schnupperlehrstelle-bei-der-baudirektion-und-beim-strickhof-kanton-zuerich-zurich",
+        "schnupperlehrstelle-bei-der-baudirektion-e-beim-strickhof-kantonale-verwaltung-zuri-0873mp",
+        "schnupperlehrstelle-bei-der-baudirektion-und-beim-strickhof-kantonale-verwaltung-zurich-zurich",
+        "schnupperlehrstelle-bei-der-baudirektion-e-beim-strickhof-kantonale-verwaltung-zurich"
+      ],
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -8574,7 +8572,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T10:08:54.291Z"
     },
     {
       "id": "kanton-zuerich-d9ff3d618aa7",
@@ -8824,9 +8823,9 @@
       "id": "kanton-zuerich-1f8b09a25f7e",
       "slug": "settore-amministrativa-in-temporaneo-fino-alla-fine-del-marzo-2027-kantonale-verwaltung-zurich-hinwil",
       "slugByLocale": {
+        "de": "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kanton-zuerich-hinwil",
         "it": "settore-amministrativa-in-temporaneo-fino-alla-fine-del-marzo-2027-kantonale-verwaltung-zurich-hinwil",
         "en": "administrative-secretar-in-temporary-until-the-end-of-march-2027-kantonale-verwaltung-zurich-hinwil",
-        "de": "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kanton-zuerich-hinwil",
         "fr": "secretaire-administratif-in-temporaire-jusqu-a-la-fin-de-mars-2027-kantonale-verwaltung-zurich-hinwil"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -8873,11 +8872,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kanton-zuerich-hinwil",
-        "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kantonale-verwaltung-zurich-hinwil",
-        "settore-amministrativa-in-temporaneo-fino-alla-fine-del-marzo-2027-kantonale-verwaltung-zurich-hinwil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kanton-zuerich-hinwil",
@@ -8891,7 +8885,11 @@
           "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kantonale-verwaltung-zurich-hinwil"
         ]
       },
-      "firstSeenAt": "2026-08-21T22:00:39.677Z",
+      "previousSlugs": [
+        "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kanton-zuerich-hinwil",
+        "verwaltungssekretar-in-befristet-bis-ende-marz-2027-kantonale-verwaltung-zurich-hinwil",
+        "settore-amministrativa-in-temporaneo-fino-alla-fine-del-marzo-2027-kantonale-verwaltung-zurich-hinwil"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8903,7 +8901,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T22:00:39.677Z"
     },
     {
       "id": "kanton-zuerich-918bfa94f88f",
@@ -12324,9 +12323,9 @@
       "id": "kanton-zuerich-e794be3da992",
       "slug": "architekt-in-come-bauberater-in-kantonale-verwaltung-zurich",
       "slugByLocale": {
+        "de": "architekt-in-als-bauberater-in-kanton-zuerich-zurich",
         "it": "architekt-in-come-bauberater-in-kantonale-verwaltung-zurich",
         "en": "architect-as-construction-consultant-kantonale-verwaltung-zurich-zurich",
-        "de": "architekt-in-als-bauberater-in-kanton-zuerich-zurich",
         "fr": "architecte-consultant-en-construction-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -12373,10 +12372,6 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "previousSlugs": [
-        "architekt-in-als-bauberater-in-kanton-zuerich-zurich",
-        "architekt-in-come-bauberater-in-kantonale-verwaltung-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "architekt-in-als-bauberater-in-kanton-zuerich-zurich",
@@ -12389,7 +12384,10 @@
           "architekt-in-als-bauberater-in-kanton-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-21T22:00:19.568Z",
+      "previousSlugs": [
+        "architekt-in-als-bauberater-in-kanton-zuerich-zurich",
+        "architekt-in-come-bauberater-in-kantonale-verwaltung-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12401,7 +12399,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T22:00:19.568Z"
     },
     {
       "id": "kanton-zuerich-4bd39c8d3a54",

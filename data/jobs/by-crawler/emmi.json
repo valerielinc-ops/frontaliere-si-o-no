@@ -9279,9 +9279,9 @@
       "id": "emmi-c0878be9ff66",
       "slug": "test-leader-in-microbiologia-emmi-emmen-luzern",
       "slugByLocale": {
+        "de": "prufleiter-in-mikrobiologie-emmi-ch",
         "it": "test-leader-in-microbiologia-emmi-emmen-luzern",
         "en": "test-leader-in-microbiology-emmi-emmen-luzern",
-        "de": "prufleiter-in-mikrobiologie-emmi-ch",
         "fr": "leader-du-test-en-microbiologie-emmi-emmen-luzern"
       },
       "company": "Emmi",
@@ -9337,12 +9337,20 @@
           "• Einen sicheren Umgang mit MS Office und bestenfalls auch SAP."
         ]
       },
-      "previousSlugs": [
-        "leader-du-test-en-microbiologie-emmi-emmen-luzern",
-        "test-leader-in-microbiology-emmi-emmen-luzern",
-        "prufleiter-in-mikrobiologie-emmi-ch",
-        "test-leader-in-microbiologia-emmi-emmen-luzern"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:43:25.976Z",
       "previousSlugsByLocale": {
         "it": [
           "leader-du-test-en-microbiologie-emmi-emmen-luzern",
@@ -9357,20 +9365,12 @@
           "prufleiter-in-mikrobiologie-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:43:25.976Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "leader-du-test-en-microbiologie-emmi-emmen-luzern",
+        "test-leader-in-microbiology-emmi-emmen-luzern",
+        "prufleiter-in-mikrobiologie-emmi-ch",
+        "test-leader-in-microbiologia-emmi-emmen-luzern"
+      ]
     },
     {
       "id": "emmi-77526ccf1041",

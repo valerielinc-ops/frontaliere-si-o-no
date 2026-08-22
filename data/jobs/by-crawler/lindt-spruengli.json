@@ -1927,8 +1927,8 @@
       "id": "lindt-spruengli-d3ee7be6713c",
       "slug": "group-communications-manager-con-focus-sulla-sostenibilita-lindt-sprungli-kilchberg",
       "slugByLocale": {
-        "it": "group-communications-manager-con-focus-sulla-sostenibilita-lindt-sprungli-kilchberg",
         "en": "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg",
+        "it": "group-communications-manager-con-focus-sulla-sostenibilita-lindt-sprungli-kilchberg",
         "de": "group-communications-manager-mit-fokus-auf-nachhaltigkeit-lindt-sprungli-kilchberg",
         "fr": "gestionnaire-de-communications-de-groupe-avec-l-accent-sur-la-durabilite-lindt-sprungli-kilchberg"
       },
@@ -1973,16 +1973,6 @@
       "jobReqId": "JR102846",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-21T21:58:39.091Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg"
-        ]
-      },
-      "previousSlugs": [
-        "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg"
-      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1994,7 +1984,17 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:58:39.091Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "group-communications-manager-with-focus-on-sustainability-lindt-spruengli-kilchberg"
+      ]
     }
   ]
 }

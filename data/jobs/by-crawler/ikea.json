@@ -3816,9 +3816,9 @@
       "id": "ikea-26b7a062ee04",
       "slug": "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach",
       "slugByLocale": {
+        "de": "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
         "it": "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach",
         "en": "associate-sales-schlafzimmerabteilung-60-ikea-spreitenbach-aargau-switzerland",
-        "de": "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
         "fr": "collaborateur-trice-vente-schlafzimmerabteilung-60-ikea-spreitenbach-aargau-switzerland"
       },
       "company": "IKEA",
@@ -3860,10 +3860,7 @@
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-schlafzimmerabteilung-60/24107/99541250736",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
-        "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
@@ -3876,8 +3873,10 @@
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:28:05.167Z",
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
+        "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach"
+      ],
       "salaryMin": 44400,
       "salaryMax": 68100,
       "baseSalary": {
@@ -3889,7 +3888,8 @@
           "maxValue": 68100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:28:05.167Z"
     }
   ]
 }

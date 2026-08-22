@@ -96,7 +96,7 @@
         "it": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100",
         "en": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100",
         "de": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100",
-        "fr": "assistent-in-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
+        "fr": "assistance-au-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
       },
       "titleByLocale": {
         "it": "Assistent*in Restaurant 100%",
@@ -105,18 +105,9 @@
         "fr": "Assistent*in Restaurant 100%"
       },
       "sourceLang": "it",
-      "id": "manor-5320e97f289d",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:57:07.922Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "fr": [
-          "assistance-au-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
-        ]
-      },
-      "previousSlugs": [
-        "assistance-au-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
-      ],
+      "needsRetranslation": true,
+      "id": "manor-5320e97f289d",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -132,7 +123,18 @@
       },
       "addressLocality": "Emmen Assistentin Restaurant 100",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-21T21:57:07.922Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistance-au-restaurant-100-manor-ag-emmen-assistentin-restaurant-100",
+          "assistent-in-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
+        ]
+      },
+      "previousSlugs": [
+        "assistance-au-restaurant-100-manor-ag-emmen-assistentin-restaurant-100",
+        "assistent-in-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
+      ]
     },
     {
       "title": "Mitarbeiter*in Kasse 60%",
@@ -167,26 +169,9 @@
         "fr": "Employé* en espèces 60%"
       },
       "sourceLang": "de",
-      "id": "manor-2f28c85db923",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
-        "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
-          "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:57:07.922Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-2f28c85db923",
       "salaryMin": 44400,
       "salaryMax": 68100,
       "currency": "CHF",
@@ -202,7 +187,24 @@
       },
       "addressLocality": "Basel Mitarbeiterin Kasse 60",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-21T21:57:07.922Z",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
+        "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
+          "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+        ]
+      }
     },
     {
       "title": "Lehrstelle Detailhandelsfachfrau/mann EFZ Herrenkonfektion 100%",
@@ -237,18 +239,9 @@
         "fr": "Apprentissage détail professionnel spécialiste / homme EFZ vêtements pour hommes 100%"
       },
       "sourceLang": "de",
-      "id": "manor-b7c4e51adb7e",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:57:07.922Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz"
-        ]
-      },
-      "previousSlugs": [
-        "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz"
-      ],
+      "needsRetranslation": true,
+      "id": "manor-b7c4e51adb7e",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "currency": "CHF",
@@ -264,7 +257,16 @@
       },
       "addressLocality": "Basel Lehrstelle Detailhandelsfachfraumann EFZ",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-21T21:57:07.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz"
+        ]
+      },
+      "previousSlugs": [
+        "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz"
+      ]
     },
     {
       "title": "Mitarbeiter*in Service 100%",
@@ -300,11 +302,6 @@
       },
       "sourceLang": "de",
       "id": "manor-b1e9c5988dbd",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100",
-        "manor-mitarbeiter-in-service-100-luzern-mitarbeiterin-service-100",
-        "collaboratore-trice-in-service-100-manor-ag-luzern-mitarbeiterin-service-100"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100",
@@ -318,6 +315,11 @@
           "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100"
         ]
       },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100",
+        "manor-mitarbeiter-in-service-100-luzern-mitarbeiterin-service-100",
+        "collaboratore-trice-in-service-100-manor-ag-luzern-mitarbeiterin-service-100"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:59:16.015Z",
       "crawledAt": "",
@@ -371,26 +373,9 @@
         "fr": "Employé* dans la caisse enregistreuse 20%"
       },
       "sourceLang": "de",
-      "id": "manor-7268bd527ff3",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
-        "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
-          "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:57:07.922Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-7268bd527ff3",
       "salaryMin": 14800,
       "salaryMax": 22700,
       "currency": "CHF",
@@ -406,7 +391,24 @@
       },
       "addressLocality": "Basel Mitarbeiterin Kasse 20",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-21T21:57:07.922Z",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
+        "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
+          "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+        ]
+      }
     },
     {
       "title": "Mitarbeiter*in Visual Merchandising 30%",
@@ -752,7 +754,6 @@
       },
       "firstSeenAt": "2026-08-19T10:25:28.531Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94800,
       "currency": "CHF",
@@ -768,7 +769,8 @@
       },
       "addressLocality": "Fribourg Collaborateurtrice vente (Bijouterie)",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice supermarché (Charcuterie & Fromages) 50%",
@@ -984,7 +986,6 @@
       },
       "firstSeenAt": "2026-08-19T10:25:28.531Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88400,
       "currency": "CHF",
@@ -1000,7 +1001,8 @@
       },
       "addressLocality": "Delémont Collaborateurtrice vente (Confection",
       "addressRegion": "JU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf Bijouterie 70%",
@@ -1729,7 +1731,6 @@
       },
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -1745,7 +1746,8 @@
       },
       "addressLocality": "Nyon Collaborateurtrice caisse (Food)",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 30%",

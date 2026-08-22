@@ -307,17 +307,8 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "id": "postfinance-0ecc8812c887",
-      "firstSeenAt": "2026-08-21T21:43:00.013Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
-        ]
-      },
-      "previousSlugs": [
-        "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
-      ],
+      "id": "postfinance-0ecc8812c887",
       "salaryMin": 109000,
       "salaryMax": 167000,
       "currency": "CHF",
@@ -332,7 +323,16 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-21T21:43:00.013Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
@@ -382,20 +382,8 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "id": "postfinance-778d2920ef6b",
-      "previousSlugs": [
-        "hr-businesspartner-in-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "hr-businesspartner-in-postfinance-bern"
-        ],
-        "fr": [
-          "hr-businesspartner-in-postfinance-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:43:00.013Z",
       "crawledAt": "",
+      "id": "postfinance-778d2920ef6b",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -410,7 +398,19 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-08-21T21:43:00.013Z",
+      "previousSlugs": [
+        "hr-businesspartner-in-postfinance-bern"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "hr-businesspartner-in-postfinance-bern"
+        ],
+        "fr": [
+          "hr-businesspartner-in-postfinance-bern"
+        ]
+      }
     },
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",

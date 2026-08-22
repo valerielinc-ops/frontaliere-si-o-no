@@ -58,6 +58,8 @@
         "verkaufer-in-a-40-60-in-der-region-limmattal-jysk-schlieren",
         "verkaufer-in-a-40-60-in-der-region-limmattal-jysk-schlieren-1myfng"
       ],
+      "salaryMin": 44100,
+      "salaryMax": 66900,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -70,9 +72,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "salaryMin": 44100,
-      "salaryMax": 66900
+      "addressRegion": "ZH"
     },
     {
       "id": "company-w5jmuw",

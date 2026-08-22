@@ -2990,8 +2990,7 @@
         "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel",
         "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
         "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
-        "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel",
-        "administrative-r-collaboratore-trice-in-universitatsspital-basel"
+        "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3014,18 +3013,19 @@
           "professional-hr-administration-universitatsspital-basel-basel",
           "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel",
           "intern-intern-amministrazione-paziente-universitatsspital-basel-basel",
-          "administrative-r-collaboratore-trice-in-universitatsspital-basel"
+          "administrative-r-collaboratore-trice-in-universitatsspital-basel",
+          "intern-intern-patient-administration-universitatsspital-basel-basel"
         ],
         "en": [
           "administrative-staff-universitatsspital-basel-basel"
         ],
-        "de": [
-          "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
-          "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
-        ],
         "fr": [
           "administrative-r-mitarbeiter-in-universitatsspital-basel",
           "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
+          "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch"
         ]
       },
       "needsRetranslation": true,
@@ -4948,7 +4948,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4960,7 +4959,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-e59dc314cad5",
@@ -7536,7 +7536,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7548,7 +7547,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-89b5ee6186dd",
@@ -9880,15 +9880,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
-        "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
         "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
-          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
+          "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch"
         ],
         "fr": [
           "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
@@ -10076,9 +10072,9 @@
       "id": "unispital-basel-e462a29d6f0c",
       "slug": "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel",
       "slugByLocale": {
+        "de": "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
         "it": "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel",
         "en": "assistant-in-health-and-social-affairs-heart-center-universitatsspital-basel-basel",
-        "de": "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
         "fr": "assistant-en-sante-et-affaires-sociales-centre-cardiaque-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -10120,10 +10116,7 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27783",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
-        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
@@ -10136,8 +10129,10 @@
           "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:44:34.151Z",
+      "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-herzzentrum-unispital-basel-ch",
+        "assistent-in-gesundheit-e-soziales-herzzentrum-universitatsspital-basel"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -10149,7 +10144,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:44:34.151Z"
     }
   ]
 }

@@ -7156,9 +7156,9 @@
       "id": "equans-e6ec6f838c41",
       "slug": "team-leader-in-ventilazione-clima-equans-switzerland-luzern-5dfdc6",
       "slugByLocale": {
+        "de": "teamleiter-in-luftung-klima-equans-luzern",
         "it": "team-leader-in-ventilazione-clima-equans-switzerland-luzern-5dfdc6",
         "en": "team-leader-in-ventilation-climate-equans-switzerland-luzern-5dfdc6",
-        "de": "teamleiter-in-luftung-klima-equans-luzern",
         "fr": "chef-d-equipe-ventilation-climat-equans-switzerland-luzern-5dfdc6"
       },
       "company": "Equans Switzerland",
@@ -7202,6 +7202,20 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 78500,
+      "salaryMax": 119000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 78500,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:38:36.454Z",
       "previousSlugs": [
         "teamleiter-in-luftung-klima-equans-luzern",
         "teamleiter-in-luftung-klima-equans-luzern-e6ec6f",
@@ -7219,29 +7233,15 @@
         "fr": [
           "teamleiter-in-luftung-klima-equans-luzern"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:36.454Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "equans-0d43b8501b80",
       "slug": "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern",
       "slugByLocale": {
+        "de": "senior-projektleiter-in-sanitar-80-100-equans-luzern-0d43b8",
         "it": "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern",
         "en": "senior-project-manager-sanitar-80-100-equans-switzerland-luzern",
-        "de": "senior-projektleiter-in-sanitar-80-100-equans-luzern-0d43b8",
         "fr": "senior-chef-de-projet-sanitar-80-100-equans-switzerland-luzern"
       },
       "company": "Equans Switzerland",
@@ -7285,10 +7285,7 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-projektleiter-in-sanitar-80-100-equans-luzern-0d43b8",
-        "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "senior-projektleiter-in-sanitar-80-100-equans-luzern-0d43b8",
@@ -7301,8 +7298,10 @@
           "senior-projektleiter-in-sanitar-80-100-equans-luzern-0d43b8"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:36.436Z",
+      "previousSlugs": [
+        "senior-projektleiter-in-sanitar-80-100-equans-luzern-0d43b8",
+        "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern"
+      ],
       "salaryMin": 107000,
       "salaryMax": 162500,
       "baseSalary": {
@@ -7314,15 +7313,16 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:38:36.436Z"
     },
     {
       "id": "equans-65a5fb71894e",
       "slug": "team-leader-in-ventilazione-clima-equans-switzerland-luzern-455494",
       "slugByLocale": {
+        "de": "teamleiter-in-luftung-klima-equans-luzern-65a5fb",
         "it": "team-leader-in-ventilazione-clima-equans-switzerland-luzern-455494",
         "en": "team-leader-in-ventilation-climate-equans-switzerland-luzern",
-        "de": "teamleiter-in-luftung-klima-equans-luzern-65a5fb",
         "fr": "chef-d-equipe-ventilation-climat-equans-switzerland-luzern"
       },
       "company": "Equans Switzerland",
@@ -7366,6 +7366,20 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 78500,
+      "salaryMax": 119000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 78500,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:38:36.475Z",
       "previousSlugs": [
         "teamleiter-in-luftung-klima-equans-luzern-65a5fb",
         "teamleiter-in-luftung-klima-equans-luzern",
@@ -7383,29 +7397,15 @@
         "fr": [
           "teamleiter-in-luftung-klima-equans-luzern-65a5fb"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:36.475Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "equans-9a93ce4a04c9",
       "slug": "responsabile-di-progetto-e-direttore-trice-lavori-innenausbau-equans-switzerland-schlieren",
       "slugByLocale": {
+        "de": "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren",
         "it": "responsabile-di-progetto-e-direttore-trice-lavori-innenausbau-equans-switzerland-schlieren",
         "en": "project-manager-und-bauleiter-in-innenausbau-equans-switzerland-schlieren",
-        "de": "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren",
         "fr": "chef-de-projet-und-bauleiter-in-innenausbau-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
@@ -7449,10 +7449,7 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren",
-        "responsabile-di-progetto-e-direttore-trice-lavori-innenausbau-equans-switzerland-schlieren"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren",
@@ -7465,8 +7462,10 @@
           "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:36.415Z",
+      "previousSlugs": [
+        "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren",
+        "responsabile-di-progetto-e-direttore-trice-lavori-innenausbau-equans-switzerland-schlieren"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7478,15 +7477,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:38:36.415Z"
     },
     {
       "id": "equans-d171d1ffae06",
       "slug": "meccanica-operativa-in-manutenzione-100-equans-switzerland-sisseln",
       "slugByLocale": {
+        "de": "betriebsmechaniker-in-instandhaltung-100-equans-sisseln",
         "it": "meccanica-operativa-in-manutenzione-100-equans-switzerland-sisseln",
         "en": "operational-mechanic-in-maintenance-100-equans-switzerland-sisseln",
-        "de": "betriebsmechaniker-in-instandhaltung-100-equans-sisseln",
         "fr": "mecanicien-operationnel-en-maintenance-100-equans-switzerland-sisseln"
       },
       "company": "Equans Switzerland",
@@ -7530,6 +7530,20 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:38:36.233Z",
       "previousSlugs": [
         "betriebsmechaniker-in-instandhaltung-100-equans-sisseln",
         "meccanica-operativa-in-manutenzione-100-equans-switzerland-sisseln"
@@ -7545,29 +7559,15 @@
         "fr": [
           "betriebsmechaniker-in-instandhaltung-100-equans-sisseln"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:36.233Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "equans-d2dd2b049ed8",
       "slug": "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug",
       "slugByLocale": {
+        "de": "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug",
         "it": "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug",
         "en": "housekeeper-in-focus-on-maintenance-cleaning-equans-switzerland-zug",
-        "de": "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug",
         "fr": "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug"
       },
       "company": "Equans Switzerland",
@@ -7611,6 +7611,20 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 53000,
+      "salaryMax": 71500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53000,
+          "maxValue": 71500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:38:36.043Z",
       "previousSlugs": [
         "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug",
         "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug"
@@ -7626,20 +7640,6 @@
         "fr": [
           "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:36.043Z",
-      "salaryMin": 53000,
-      "salaryMax": 71500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53000,
-          "maxValue": 71500,
-          "unitText": "YEAR"
-        }
       }
     },
     {

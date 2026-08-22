@@ -3764,16 +3764,14 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
-        "lernender-detailhandel-m-w-d-aldi-suisse-31",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dietikon"
+        "lernender-detailhandel-m-w-d-aldi-suisse-31"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-29",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-30",
-          "lernender-detailhandel-m-w-d-aldi-suisse-31",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dietikon"
+          "lernender-detailhandel-m-w-d-aldi-suisse-31"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3786,7 +3784,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:45:14.293Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 100500,
       "baseSalary": {
@@ -3798,7 +3795,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-99405ea92560",
@@ -4909,6 +4907,20 @@
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-22T10:11:33.486Z",
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:58:09.799Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse",
         "aushilfe-vendita-m-w-d-aldi-suisse-zweisimmen"
@@ -4924,20 +4936,6 @@
         "fr": [
           "aushilfe-verkauf-m-w-d-aldi-suisse"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:58:09.799Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -4999,14 +4997,12 @@
       "crawledAt": "2026-08-22T10:11:32.037Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse",
-        "aushilfe-verkauf-m-w-d-aldi-suisse-2",
-        "aushilfe-vendita-m-w-d-aldi-suisse-oberentfelden"
+        "aushilfe-verkauf-m-w-d-aldi-suisse-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkauf-m-w-d-aldi-suisse",
-          "aushilfe-verkauf-m-w-d-aldi-suisse-2",
-          "aushilfe-vendita-m-w-d-aldi-suisse-oberentfelden"
+          "aushilfe-verkauf-m-w-d-aldi-suisse-2"
         ],
         "en": [
           "aushilfe-verkauf-m-w-d-aldi-suisse"

@@ -6,8 +6,8 @@
       "id": "gavi-b02c416d7edd",
       "slug": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
       "slugByLocale": {
-        "it": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
         "en": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
+        "it": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
         "de": "aktivitaten-in-der-nahe-von-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-the-vaccine-alliance-le",
         "fr": "gestionnaire-principal-accelerateur-de-fabrication-de-vaccins-en-afrique-avma-gavi-the-vaccine-alliance-le-grand"
       },
@@ -53,7 +53,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:31:21.445Z",
       "salaryMin": 116500,
       "salaryMax": 162500,
       "baseSalary": {
@@ -65,7 +64,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:31:21.445Z"
     },
     {
       "id": "gavi-f73d2990abc8",
@@ -118,13 +118,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
-        "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex"
+        "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
-          "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex"
+          "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
         ],
         "de": [
           "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
@@ -134,7 +132,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:36:32.939Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -146,7 +143,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gavi-c05f6ddca435",
@@ -199,13 +197,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
-        "gestione-progettazione-e-consegna-di-strategia-gavi-the-vaccine-alliance-le-grand-saconnex"
+        "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
-          "gestione-progettazione-e-consegna-di-strategia-gavi-the-vaccine-alliance-le-grand-saconnex"
+          "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
         ],
         "de": [
           "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
@@ -215,7 +211,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:37:03.167Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -227,7 +222,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

@@ -276,7 +276,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "en": "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "en": "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-brig-mtf0hy"
       },
@@ -289,14 +289,18 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
+          "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
+        "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
+      "salaryMin": 24200,
+      "salaryMax": 36600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -310,9 +314,7 @@
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 24200,
-      "salaryMax": 36600
+      "needsRetranslation": true
     },
     {
       "id": "company-ygychn",
@@ -353,7 +355,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
-        "en": "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon",
+        "en": "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-dietikon-ygychn"
       },
@@ -366,14 +368,18 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
-          "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon"
+          "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
+          "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
-        "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon"
+        "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
+        "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
       ],
+      "salaryMin": 29400,
+      "salaryMax": 44600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -387,9 +393,7 @@
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 29400,
-      "salaryMax": 44600
+      "needsRetranslation": true
     },
     {
       "id": "company-b35n2n",
@@ -430,7 +434,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
-        "en": "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren",
+        "en": "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n"
       },
@@ -446,7 +450,8 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
-          "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren"
+          "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
+          "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren"
         ]
       },
       "previousSlugs": [
@@ -455,8 +460,11 @@
         "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren-6a5258",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
-        "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren"
+        "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
+        "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren"
       ],
+      "salaryMin": 29400,
+      "salaryMax": 44600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -470,9 +478,7 @@
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 29400,
-      "salaryMax": 44600
+      "needsRetranslation": true
     },
     {
       "id": "company-w6qqwb",
@@ -513,7 +519,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-        "en": "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
+        "en": "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb"
       },
@@ -526,14 +532,18 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-          "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
+          "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
+          "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-        "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
+        "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
+        "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
       ],
+      "salaryMin": 24800,
+      "salaryMax": 37600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -547,9 +557,7 @@
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 24800,
-      "salaryMax": 37600
+      "needsRetranslation": true
     },
     {
       "id": "company-xmq9ao",
@@ -590,7 +598,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
-        "en": "allrounder-verkauf-m-w-d-20-40-st-gallen-lidl-svizzera-st-gallen",
+        "en": "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao"
       },
@@ -603,14 +611,18 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
-          "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen"
+          "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen",
+          "allrounder-verkauf-m-w-d-20-40-st-gallen-lidl-svizzera-st-gallen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
-        "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen"
+        "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen",
+        "allrounder-verkauf-m-w-d-20-40-st-gallen-lidl-svizzera-st-gallen"
       ],
+      "salaryMin": 23000,
+      "salaryMax": 34800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -624,9 +636,7 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 23000,
-      "salaryMax": 34800
+      "needsRetranslation": true
     },
     {
       "id": "company-gg2tuc",
@@ -763,6 +773,8 @@
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dietikon",
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-dietikon-8ik90z"
       ],
+      "salaryMin": 58800,
+      "salaryMax": 89200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -775,9 +787,7 @@
       },
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 58800,
-      "salaryMax": 89200
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-yd208x",
@@ -841,6 +851,8 @@
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-schlieren",
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-schlieren-yd208x"
       ],
+      "salaryMin": 58800,
+      "salaryMax": 89200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -853,9 +865,7 @@
       },
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 58800,
-      "salaryMax": 89200
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-61mpqu",
@@ -896,9 +906,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu",
-        "en": "seller-with-shift-responsibility-m-f-d-60-80-dietikon-lidl-svizzera-dietikon",
+        "en": "sales-associate-with-shift-responsibility-m-f-d-60-80-dietikon-lidl-svizzera-dietikon",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu",
-        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-dietikon-lidl-svizzera-dietikon"
+        "fr": "vendeur-vendeuse-avec-responsabilite-de-quart-m-f-d-60-80-dietikon-lidl-svizzera-dietikon"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -908,15 +918,19 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu",
+          "seller-with-shift-responsibility-m-f-d-60-80-dietikon-lidl-svizzera-dietikon"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu",
+          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-dietikon-lidl-svizzera-dietikon"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-dietikon-61mpqu",
+        "seller-with-shift-responsibility-m-f-d-60-80-dietikon-lidl-svizzera-dietikon",
+        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-dietikon-lidl-svizzera-dietikon"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -973,9 +987,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom",
-        "en": "seller-with-shift-responsibility-m-f-d-60-80-schlieren-lidl-svizzera-schlieren",
+        "en": "sales-associate-with-shift-responsibility-m-f-d-60-80-schlieren-lidl-svizzera-schlieren",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom",
-        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-schlieren-lidl-svizzera-schlieren"
+        "fr": "vendeur-vendeuse-avec-responsabilite-d-equipe-m-f-d-60-80-schlieren-lidl-svizzera-schlieren"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -985,15 +999,19 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom",
+          "seller-with-shift-responsibility-m-f-d-60-80-schlieren-lidl-svizzera-schlieren"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom",
+          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-schlieren-lidl-svizzera-schlieren"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-schlieren-bgqfom",
+        "seller-with-shift-responsibility-m-f-d-60-80-schlieren-lidl-svizzera-schlieren",
+        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-schlieren-lidl-svizzera-schlieren"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -1050,9 +1068,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr",
-        "en": "seller-with-shift-responsibility-m-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach",
+        "en": "sales-associate-with-shift-responsibility-m-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr",
-        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach"
+        "fr": "vendeur-vendeuse-avec-responsabilite-de-quart-h-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1062,15 +1080,19 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach"
         ],
         "en": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr",
+          "seller-with-shift-responsibility-m-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach"
         ],
         "fr": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr",
+          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-spreitenbach-ctysnr",
+        "seller-with-shift-responsibility-m-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach",
+        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-spreitenbach-lidl-svizzera-spreitenbach"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,

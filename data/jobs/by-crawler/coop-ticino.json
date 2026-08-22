@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-08-22T12:38:52.868Z",
+  "assembledAt": "2026-08-22T08:09:55.408Z",
   "jobs": [
     {
       "id": "company-voc0xk",
@@ -3367,8 +3367,8 @@
       "crawledAt": "2026-08-22T12:15:58.286Z",
       "firstSeenAt": "2026-08-20T00:25:19.205Z",
       "titleByLocale": {
-        "it": "Polydesigner: in 3D",
-        "en": "Polydesigner: in 3D",
+        "it": "Polydesigner 3D",
+        "en": "Polydesigner 3D",
         "de": "Polydesigner:in 3D",
         "fr": "Polydesigner: en 3D"
       },
@@ -178358,7 +178358,7 @@
         "it": "Risorse Umane Business Partner (w/m/d)",
         "en": "HR Business Partner (f/m/d)",
         "de": "Personalwesen Business Partner (w/m/d)",
-        "fr": "HR Business Partner (w/m/d)"
+        "fr": "Partenaire RH (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "## HR Business Partner (f/m/d)\n\nCoop Cooperative — Gossau, Sankt Gallen, Svizzera\n\n## Compiti\n- Responsabilità per il supporto operativo delle risorse umane (dall'ingresso all'uscita) dei dipendenti nell'area di responsabilità (punti di vendita op)\n- Consulenza di supervisori e dipendenti su tutte le questioni HR\n- Sostenere la linea nel reclutare nuovi dipendenti\n- Sostegno ai superiori nel diritto del lavoro e alle questioni specifiche del personale\n- Collaborazione e partecipazione a vari progetti HR e scambio vivace con interfacce interne ed esterne\n\n## Requisiti\n- Esperienza sonora in un ruolo paragonabile in HR\n- Formazione come specialista HR o studi HR\n- Divertimento al lavoro in una grande squadra e contatto quotidiano con persone diverse\n- Lavoro autonomo e forte capacità organizzativa, combinato con il godimento di una versatile attività di viaggio nella propria area di cura (la patente di guida obbligatoria)\n- Personalità positiva, dinamica ed empatica e partner sparring con mentalità hands-on\n- Perchi: fino al 20% di sconto su vari servizi assicurativi\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop\n- Ore lavorative: 6 settimane\n- Formazione: sostegno all'istruzione esterna e formazione\n- Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nThomas Maurer\nHR Marketing\n\nTipo: A tempo pieno\nGossau.",
@@ -210189,6 +210189,8 @@
       },
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -210212,9 +210214,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "retranslationAttempts": 2
     },
     {
       "id": "company-w9huxu",
@@ -210658,6 +210658,8 @@
       },
       "addressLocality": "Kleinandelfingen",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -210673,9 +210675,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "retranslationAttempts": 2
     },
     {
       "id": "company-gbddsp",
@@ -212372,6 +212372,8 @@
       },
       "addressLocality": "Bellach",
       "addressRegion": "SO",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -212393,9 +212395,7 @@
         "seller-in-food-coop-bellach-solothurn-lxkx8f",
         "food-sales-associate-coop-bellach-solothurn-lxkx8f"
       ],
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "sourceLang": "de"
     },
     {
       "id": "company-btvhsn",
@@ -212832,6 +212832,8 @@
       "addressLocality": "Rapperswil-Jona",
       "sourceLang": "de",
       "addressRegion": "SG",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -212859,14 +212861,14 @@
           "butcher-coop-genossenschaft-rapperswil-jona",
           "butcher-meat-specialist-coop-genossenschaft-rapperswil-jona-169gi8"
         ],
-        "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona-v4wxf6",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-rapperswil-jona-sankt-gallen-169gi8"
-        ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-rapperswil-jona-sankt-gallen-v4wxf6",
           "boucher-ere-coop-genossenschaft-rapperswil-jona",
           "boucher-ere-specialiste-de-la-boucherie-coop-genossenschaft-rapperswil-jona-169gi8"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona-v4wxf6",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-rapperswil-jona-sankt-gallen-169gi8"
         ]
       },
       "previousSlugs": [
@@ -212882,9 +212884,7 @@
         "butcher-meat-specialist-coop-genossenschaft-rapperswil-jona-169gi8",
         "boucher-ere-specialiste-de-la-boucherie-coop-genossenschaft-rapperswil-jona-169gi8",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      ]
     },
     {
       "id": "company-f79xg7",
@@ -212941,6 +212941,8 @@
       },
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -212962,9 +212964,7 @@
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "retranslationAttempts": 2
     },
     {
       "id": "company-a0b5qf",
@@ -213022,6 +213022,8 @@
       "addressLocality": "Solothurn",
       "sourceLang": "de",
       "addressRegion": "SO",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -213054,14 +213056,14 @@
           "food-sales-associate-coop-genossenschaft-solothurn",
           "seller-in-food-coop-genossenschaft-solothurn"
         ],
-        "de": [
-          "verkaufer-in-food-coop-genossenschaft-solothurn-a0b5qf",
-          "verkaufer-in-food-coop-solothurn-jlp951"
-        ],
         "fr": [
           "verkaufer-in-food-coop-solothurn-a0b5qf",
           "vendeur-vendeuse-food-coop-genossenschaft-solothurn",
           "vendeur-dans-la-nourriture-coop-genossenschaft-solothurn"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-solothurn-a0b5qf",
+          "verkaufer-in-food-coop-solothurn-jlp951"
         ]
       },
       "previousSlugs": [
@@ -213085,9 +213087,7 @@
         "seller-in-food-coop-genossenschaft-solothurn",
         "verkaufer-in-food-coop-solothurn-jlp951",
         "vendeur-dans-la-nourriture-coop-genossenschaft-solothurn"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-e90qes",
@@ -213213,7 +213213,7 @@
       "firstSeenAt": "2026-08-20T13:08:20.789Z",
       "titleByLocale": {
         "it": "Conduttore Rayon: in casa panificio",
-        "en": "Rayonleiter: in Hausbäckerei",
+        "en": "District Manager Home Bakery",
         "de": "Rayonleiter:in Hausbäckerei",
         "fr": "Rayonleiter: à Hausbäckerei"
       },
@@ -213233,7 +213233,7 @@
       },
       "slugByLocale": {
         "it": "conduttore-rayon-in-casa-panificio-coop-genossenschaft-burgdorf-1f0c2f",
-        "en": "rayonleiter-in-hausbackerei-coop-burgdorf-bern-actrop",
+        "en": "district-manager-home-bakery-coop-genossenschaft-burgdorf-bern",
         "de": "rayonleiter-in-hausbackerei-coop-burgdorf-bern-actrop",
         "fr": "rayonleiter-in-hausbackerei-coop-burgdorf-bern-actrop"
       },
@@ -213255,6 +213255,9 @@
         "it": [
           "rayonleiter-in-hausbackerei-coop-burgdorf-bern-actrop",
           "rayonleiter-in-hausbackerei-coop-burgdorf-bern"
+        ],
+        "en": [
+          "rayonleiter-in-hausbackerei-coop-burgdorf-bern-actrop"
         ]
       },
       "previousSlugs": [
@@ -216311,13 +216314,15 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-mels",
-        "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels",
+        "it": "consulente-di-vendita-in-do-it-jumbo-mels",
+        "en": "sales-consultant-in-do-it-jumbo-mels-88f5b6",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-        "fr": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
+        "fr": "consultant-en-ventes-a-do-it-jumbo-mels"
       },
       "addressLocality": "Mels",
       "addressRegion": "SG",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -216336,7 +216341,8 @@
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-        "verkaufsberater-in-do-it-jumbo-mels-sankt-gallen"
+        "verkaufsberater-in-do-it-jumbo-mels-sankt-gallen",
+        "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -216345,13 +216351,15 @@
           "verkaufsberater-in-do-it-jumbo-mels-sankt-gallen"
         ],
         "en": [
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels"
+        ],
+        "fr": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
         ]
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "needsRetranslation": true
     },
     {
       "id": "company-esobko",
@@ -217212,6 +217220,8 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217225,14 +217235,14 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "fr": [
+          "verkaufer-in-food-abends-coop-genossenschaft-zurich-503mxk"
+        ],
         "it": [
           "verkaufer-in-food-abends-coop-genossenschaft-zurich-503mxk",
           "verkaufer-in-food-abends-coop-genossenschaft-zurich"
         ],
         "en": [
-          "verkaufer-in-food-abends-coop-genossenschaft-zurich-503mxk"
-        ],
-        "fr": [
           "verkaufer-in-food-abends-coop-genossenschaft-zurich-503mxk"
         ]
       },
@@ -217244,9 +217254,7 @@
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-r2az4m",
@@ -217613,6 +217621,8 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217640,9 +217650,7 @@
       "previousSlugs": [
         "verkaufer-in-food-getranke-coop-zurich-xtgfiu",
         "verkaufer-in-food-getranke-coop-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-axis90",
@@ -217699,6 +217707,8 @@
       },
       "addressLocality": "Stäfa",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217712,23 +217722,21 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "fr": [
+          "rayonleiter-in-convenience-fleisch-coop-stafa-zurich-axis90"
+        ],
         "it": [
           "rayonleiter-in-convenience-fleisch-coop-stafa-zurich-axis90",
           "rayonleiter-in-convenience-fleisch-coop-stafa-zurich"
         ],
         "en": [
           "rayonleiter-in-convenience-fleisch-coop-stafa-zurich-axis90"
-        ],
-        "fr": [
-          "rayonleiter-in-convenience-fleisch-coop-stafa-zurich-axis90"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-convenience-fleisch-coop-stafa-zurich-axis90",
         "rayonleiter-in-convenience-fleisch-coop-stafa-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-lu9paj",
@@ -217785,6 +217793,8 @@
       },
       "addressLocality": "Uster",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217812,9 +217822,7 @@
       "previousSlugs": [
         "rayonleiter-in-wein-getranke-coop-uster-zurich-lu9paj",
         "rayonleiter-in-wein-getranke-coop-uster-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-kfvidt",
@@ -217939,6 +217947,8 @@
       },
       "addressLocality": "Reinach AG",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -217981,9 +217991,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-reinach-ag",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-reinach-ag-aargau-at35ky",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-reinach-ag-aargau"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-xqf7do",
@@ -218293,6 +218301,8 @@
       },
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -218320,9 +218330,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-uzwil-sankt-gallen-vtjaag",
         "verkaufer-in-frischprodukte-coop-uzwil-sankt-gallen"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      ]
     },
     {
       "id": "company-i6oyd0",
@@ -218412,7 +218420,7 @@
     },
     {
       "id": "company-ogqh8h",
-      "slug": "venditore-in-fiori-kiosk-coop-genossenschaft-frauenfeld-82f65c",
+      "slug": "venditore-in-fiori-kiosk-coop-genossenschaft-frauenfeld",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Blumen/Kiosk",
       "location": "Frauenfeld, Thurgau",
@@ -218458,10 +218466,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-fiori-kiosk-coop-genossenschaft-frauenfeld-82f65c",
-        "en": "seller-in-flowers-kiosk-coop-genossenschaft-frauenfeld-82f65c",
+        "it": "venditore-in-fiori-kiosk-coop-genossenschaft-frauenfeld",
+        "en": "seller-in-flowers-kiosk-coop-genossenschaft-frauenfeld",
         "de": "verkaufer-in-blumen-kiosk-coop-frauenfeld-thurgau-ogqh8h",
-        "fr": "vendeur-en-fleurs-kiosque-coop-genossenschaft-frauenfeld-82f65c"
+        "fr": "vendeur-en-fleurs-kiosque-coop-genossenschaft-frauenfeld"
       },
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -218487,15 +218495,18 @@
           "verkaufer-in-blumen-kiosk-coop-frauenfeld-thurgau-h3hqcz",
           "flower-kiosk-salesperson-coop-genossenschaft-frauenfeld-h3hqcz",
           "vendeur-de-fleurs-kiosque-coop-genossenschaft-frauenfeld-h3hqcz",
-          "verkaufer-in-blumen-kiosk-coop-genossenschaft-frauenfeld"
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-frauenfeld",
+          "venditore-in-fiori-kiosk-coop-genossenschaft-frauenfeld-82f65c"
         ],
         "en": [
           "verkaufer-in-blumen-kiosk-coop-frauenfeld-thurgau-ogqh8h",
-          "flower-kiosk-salesperson-coop-genossenschaft-frauenfeld-h3hqcz"
+          "flower-kiosk-salesperson-coop-genossenschaft-frauenfeld-h3hqcz",
+          "seller-in-flowers-kiosk-coop-genossenschaft-frauenfeld-82f65c"
         ],
         "fr": [
           "verkaufer-in-blumen-kiosk-coop-frauenfeld-thurgau-ogqh8h",
-          "vendeur-de-fleurs-kiosque-coop-genossenschaft-frauenfeld-h3hqcz"
+          "vendeur-de-fleurs-kiosque-coop-genossenschaft-frauenfeld-h3hqcz",
+          "vendeur-en-fleurs-kiosque-coop-genossenschaft-frauenfeld-82f65c"
         ],
         "de": [
           "verkaufer-in-blumen-kiosk-coop-frauenfeld-thurgau-h3hqcz"
@@ -218508,12 +218519,15 @@
         "verkaufer-in-blumen-kiosk-coop-frauenfeld-thurgau-h3hqcz",
         "flower-kiosk-salesperson-coop-genossenschaft-frauenfeld-h3hqcz",
         "vendeur-de-fleurs-kiosque-coop-genossenschaft-frauenfeld-h3hqcz",
-        "verkaufer-in-blumen-kiosk-coop-genossenschaft-frauenfeld"
+        "verkaufer-in-blumen-kiosk-coop-genossenschaft-frauenfeld",
+        "venditore-in-fiori-kiosk-coop-genossenschaft-frauenfeld-82f65c",
+        "seller-in-flowers-kiosk-coop-genossenschaft-frauenfeld-82f65c",
+        "vendeur-en-fleurs-kiosque-coop-genossenschaft-frauenfeld-82f65c"
       ]
     },
     {
       "id": "company-jz3mo7",
-      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel-00717c",
+      "slug": "macellaio-a-specialista-di-carne-regione-sciaffusa-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann) Raum Schaffhausen",
       "location": "Basel",
@@ -218550,10 +218564,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel-00717c",
-        "en": "metzger-in-meat-specialist-meat-specialist-room-schaffhausen-coop-genossenschaft-basel-00717c",
+        "it": "macellaio-a-specialista-di-carne-regione-sciaffusa-coop-genossenschaft-basel",
+        "en": "butcher-meat-specialist-schaffhausen-region-coop-genossenschaft-basel",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-basel-jz3mo7",
-        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-salle-schaffhausen-coop-genossenschaft-basel-00717c"
+        "fr": "specialiste-de-la-viande-coop-genossenschaft-basel"
       },
       "addressLocality": "Basel",
       "addressRegion": "SH",
@@ -218579,15 +218593,18 @@
           "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-basel-s0xub6",
           "butcher-meat-specialist-coop-genossenschaft-basel-s0xub6",
           "boucher-bouchere-specialiste-de-la-viande-coop-genossenschaft-basel-s0xub6",
-          "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel"
+          "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel-00717c"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-basel-jz3mo7",
-          "butcher-meat-specialist-coop-genossenschaft-basel-s0xub6"
+          "butcher-meat-specialist-coop-genossenschaft-basel-s0xub6",
+          "metzger-in-meat-specialist-meat-specialist-room-schaffhausen-coop-genossenschaft-basel-00717c"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-basel-jz3mo7",
-          "boucher-bouchere-specialiste-de-la-viande-coop-genossenschaft-basel-s0xub6"
+          "boucher-bouchere-specialiste-de-la-viande-coop-genossenschaft-basel-s0xub6",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-salle-schaffhausen-coop-genossenschaft-basel-00717c"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-basel-s0xub6"
@@ -218600,7 +218617,10 @@
         "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-basel-s0xub6",
         "butcher-meat-specialist-coop-genossenschaft-basel-s0xub6",
         "boucher-bouchere-specialiste-de-la-viande-coop-genossenschaft-basel-s0xub6",
-        "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel"
+        "metzger-in-fleischfachfrau-fleischfachmann-raum-schaffhausen-coop-genossenschaft-basel",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel-00717c",
+        "metzger-in-meat-specialist-meat-specialist-room-schaffhausen-coop-genossenschaft-basel-00717c",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-salle-schaffhausen-coop-genossenschaft-basel-00717c"
       ],
       "retranslationAttempts": 1
     },
@@ -218650,6 +218670,8 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -218677,9 +218699,7 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-72e571",
         "verkaufer-in-kassen-services-coop-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-fpywde",
@@ -218738,6 +218758,8 @@
       },
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -218767,9 +218789,7 @@
         "verkaufer-in-kassen-services-coop-genossenschaft-winterthur",
         "verkaufer-in-kassen-services-coop-winterthur-zurich-fpywde",
         "verkaufer-in-kassen-services-coop-winterthur-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-fgteq9",
@@ -218826,6 +218846,8 @@
       },
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -218867,9 +218889,7 @@
         "responsable-du-rayon-des-produits-de-base-coop-genossenschaft-schaffhausen-0gpqwr",
         "rayonleiter-in-grundnahrungsmittel-coop-schaffhausen-fgteq9",
         "rayonleiter-in-grundnahrungsmittel-coop-schaffhausen"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      ]
     },
     {
       "id": "company-n63k8x",
@@ -219100,6 +219120,8 @@
       },
       "addressLocality": "Biberist",
       "addressRegion": "SO",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -219127,9 +219149,7 @@
       "previousSlugs": [
         "backer-in-konditor-in-coop-biberist-solothurn-tf5ndd",
         "backer-in-konditor-in-coop-biberist-solothurn"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-nyvsor",
@@ -219218,7 +219238,7 @@
     },
     {
       "id": "company-pwaqpg",
-      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-koniz-5ffaef",
+      "slug": "macellaio-a-operaio-a-specializzato-a-in-carni-coop-genossenschaft-koniz",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Köniz, Bern",
@@ -219255,10 +219275,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-koniz-5ffaef",
-        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-koniz-5ffaef",
+        "it": "macellaio-a-operaio-a-specializzato-a-in-carni-coop-genossenschaft-koniz",
+        "en": "butcher-meat-specialist-coop-genossenschaft-koniz",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg",
-        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-koniz-5ffaef"
+        "fr": "boucher-bouchere-specialiste-en-viande-coop-genossenschaft-koniz"
       },
       "addressLocality": "Köniz",
       "addressRegion": "BE",
@@ -219279,18 +219299,24 @@
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-koniz-5ffaef"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-koniz-5ffaef"
         ],
         "fr": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-koniz-5ffaef"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern-pwaqpg",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-koniz-bern",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-koniz-5ffaef",
+        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-koniz-5ffaef",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-koniz-5ffaef"
       ],
       "retranslationAttempts": 1
     },
@@ -219586,7 +219612,7 @@
     },
     {
       "id": "company-n63hcu",
-      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-toffen-c97c94",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-toffen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Toffen",
@@ -219634,10 +219660,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-toffen-c97c94",
-        "en": "seller-in-cash-registers-services-coop-genossenschaft-toffen-c97c94",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-toffen",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-toffen",
         "de": "verkaufer-in-kassen-services-coop-toffen-bern-n63hcu",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-toffen-c97c94"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-toffen"
       },
       "addressLocality": "Toffen",
       "addressRegion": "BE",
@@ -219662,15 +219688,18 @@
           "commesso-a-alle-casse-servizi-coop-genossenschaft-toffen",
           "verkaufer-in-kassen-services-coop-toffen-bern-qle4a3",
           "sales-assistant-cashier-services-coop-genossenschaft-toffen-qle4a3",
-          "vendeur-euse-caisses-services-coop-genossenschaft-toffen-qle4a3"
+          "vendeur-euse-caisses-services-coop-genossenschaft-toffen-qle4a3",
+          "venditore-in-cassa-servizi-coop-genossenschaft-toffen-c97c94"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-toffen-bern-n63hcu",
-          "sales-assistant-cashier-services-coop-genossenschaft-toffen-qle4a3"
+          "sales-assistant-cashier-services-coop-genossenschaft-toffen-qle4a3",
+          "seller-in-cash-registers-services-coop-genossenschaft-toffen-c97c94"
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-toffen-bern-n63hcu",
-          "vendeur-euse-caisses-services-coop-genossenschaft-toffen-qle4a3"
+          "vendeur-euse-caisses-services-coop-genossenschaft-toffen-qle4a3",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-toffen-c97c94"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-toffen-bern-qle4a3"
@@ -219682,7 +219711,10 @@
         "commesso-a-alle-casse-servizi-coop-genossenschaft-toffen",
         "verkaufer-in-kassen-services-coop-toffen-bern-qle4a3",
         "sales-assistant-cashier-services-coop-genossenschaft-toffen-qle4a3",
-        "vendeur-euse-caisses-services-coop-genossenschaft-toffen-qle4a3"
+        "vendeur-euse-caisses-services-coop-genossenschaft-toffen-qle4a3",
+        "venditore-in-cassa-servizi-coop-genossenschaft-toffen-c97c94",
+        "seller-in-cash-registers-services-coop-genossenschaft-toffen-c97c94",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-toffen-c97c94"
       ]
     },
     {
@@ -219986,6 +220018,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220022,9 +220056,7 @@
         "vendeur-produits-frais-coop-genossenschaft-opfikon-u1n2rs",
         "verkaufer-in-frischprodukte-coop-opfikon-zurich-45bwpo",
         "verkaufer-in-frischprodukte-coop-opfikon-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-vcqy26",
@@ -220110,7 +220142,7 @@
     },
     {
       "id": "company-172wz6",
-      "slug": "chef-chef-m-f-d-coop-genossenschaft-kriens",
+      "slug": "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Kriens, Luzern",
@@ -220151,10 +220183,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chef-chef-m-f-d-coop-genossenschaft-kriens",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
+        "it": "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-kriens",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
-        "fr": "chef-chef-h-f-d-coop-genossenschaft-kriens"
+        "fr": "cuisiniere-cuisinier-f-m-d-coop-genossenschaft-kriens"
       },
       "needsRetranslation": true,
       "addressLocality": "Kriens",
@@ -220178,12 +220210,17 @@
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern"
         ],
         "fr": [
+          "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
+          "chef-chef-h-f-d-coop-genossenschaft-kriens"
+        ],
+        "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
-        "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern"
+        "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern",
+        "chef-chef-h-f-d-coop-genossenschaft-kriens"
       ],
       "retranslationAttempts": 1,
       "_targetScope": {
@@ -220194,7 +220231,7 @@
     },
     {
       "id": "company-92z0a4",
-      "slug": "picker-d-ordine-in-coop-genossenschaft-schafisheim",
+      "slug": "commissionista-coop-genossenschaft-schafisheim",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in",
       "location": "Schafisheim, Aargau",
@@ -220235,10 +220272,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "picker-d-ordine-in-coop-genossenschaft-schafisheim",
-        "en": "order-picker-in-coop-genossenschaft-schafisheim",
+        "it": "commissionista-coop-genossenschaft-schafisheim",
+        "en": "order-picker-coop-genossenschaft-schafisheim",
         "de": "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
-        "fr": "commandeur-in-coop-genossenschaft-schafisheim"
+        "fr": "preparateur-de-commandes-coop-genossenschaft-schafisheim"
       },
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
@@ -220258,18 +220295,24 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
-          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau"
+          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau",
+          "picker-d-ordine-in-coop-genossenschaft-schafisheim"
         ],
         "en": [
-          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4"
+          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
+          "order-picker-in-coop-genossenschaft-schafisheim"
         ],
         "fr": [
-          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4"
+          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
+          "commandeur-in-coop-genossenschaft-schafisheim"
         ]
       },
       "previousSlugs": [
         "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
-        "kommissionierer-in-coop-genossenschaft-schafisheim-aargau"
+        "kommissionierer-in-coop-genossenschaft-schafisheim-aargau",
+        "picker-d-ordine-in-coop-genossenschaft-schafisheim",
+        "order-picker-in-coop-genossenschaft-schafisheim",
+        "commandeur-in-coop-genossenschaft-schafisheim"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -220279,7 +220322,7 @@
     },
     {
       "id": "company-gvrbqk",
-      "slug": "operatore-macchina-in-produzione-panificio-panofina-coop-genossenschaft-schafisheim",
+      "slug": "addetto-a-alla-macchina-produzione-panificio-panofina-coop-genossenschaft-schafisheim",
       "company": "Coop Genossenschaft",
       "title": "Maschinenführer:in Produktion Bäckerei Panofina",
       "location": "Schafisheim, Aargau",
@@ -220320,10 +220363,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "operatore-macchina-in-produzione-panificio-panofina-coop-genossenschaft-schafisheim",
-        "en": "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim",
+        "it": "addetto-a-alla-macchina-produzione-panificio-panofina-coop-genossenschaft-schafisheim",
+        "en": "machine-operator-production-bakery-panofina-coop-genossenschaft-schafisheim",
         "de": "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk",
-        "fr": "machine-operateur-en-production-boulangerie-panofina-coop-genossenschaft-schafisheim"
+        "fr": "operateur-operatrice-de-machine-production-boulangerie-panofina-coop-genossenschaft-schafisheim"
       },
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
@@ -220344,18 +220387,24 @@
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk",
-          "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau"
+          "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau",
+          "operatore-macchina-in-produzione-panificio-panofina-coop-genossenschaft-schafisheim"
         ],
         "en": [
-          "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk"
+          "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk",
+          "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim"
         ],
         "fr": [
-          "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk"
+          "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk",
+          "machine-operateur-en-production-boulangerie-panofina-coop-genossenschaft-schafisheim"
         ]
       },
       "previousSlugs": [
         "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau-gvrbqk",
-        "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau"
+        "maschinenfuhrer-in-produktion-backerei-panofina-coop-genossenschaft-schafisheim-aargau",
+        "operatore-macchina-in-produzione-panificio-panofina-coop-genossenschaft-schafisheim",
+        "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim",
+        "machine-operateur-en-production-boulangerie-panofina-coop-genossenschaft-schafisheim"
       ],
       "retranslationAttempts": 1,
       "_targetScope": {
@@ -220416,6 +220465,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "LU",
+      "salaryMin": 107500,
+      "salaryMax": 188500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220446,9 +220497,7 @@
         "type": "adapter_seed_meta",
         "location": "Lucerna",
         "canton": "LU"
-      },
-      "salaryMin": 107500,
-      "salaryMax": 188500
+      }
     },
     {
       "id": "company-yoe9vn",
@@ -220502,6 +220551,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220532,9 +220583,7 @@
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-m0bmje",
@@ -220833,6 +220882,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220865,9 +220916,7 @@
         "type": "adapter_seed_meta",
         "location": "Argovia",
         "canton": "AG"
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-5ofuu2",
@@ -220912,15 +220961,17 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulenti-di-vendita-in-casse-servizi-jumbo-division-der-coop-genossenschaft-sissach",
-        "en": "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach",
+        "it": "verkaufberater-in-kassen-services-jumbo-sissach",
+        "en": "verkaufberater-in-kassen-services-jumbo-sissach",
         "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-        "fr": "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach"
+        "fr": "verkaufberater-in-kassen-services-jumbo-sissach"
       },
       "addressLocality": "Sissach",
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BS",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220937,27 +220988,29 @@
           "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
         ],
         "en": [
-          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+          "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach"
         ],
         "fr": [
-          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+          "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach"
         ]
       },
       "previousSlugs": [
         "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
+        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+        "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach",
+        "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Regione di Basilea",
         "canton": "BL"
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-yjd50j",
-      "slug": "chef-chef-m-f-d-coop-genossenschaft-seewen",
+      "slug": "cuoca-cuoco-coop-genossenschaft-seewen",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Seewen, Schwyz",
@@ -220998,10 +221051,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chef-chef-m-f-d-coop-genossenschaft-seewen",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
+        "it": "cuoca-cuoco-coop-genossenschaft-seewen",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-seewen",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
-        "fr": "chef-chef-h-f-d-coop-genossenschaft-seewen"
+        "fr": "cuisinier-cuisiniere-coop-genossenschaft-seewen"
       },
       "needsRetranslation": true,
       "addressLocality": "Seewen",
@@ -221025,12 +221078,17 @@
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz"
         ],
         "fr": [
+          "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
+          "chef-chef-h-f-d-coop-genossenschaft-seewen"
+        ],
+        "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
-        "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz"
+        "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz",
+        "chef-chef-h-f-d-coop-genossenschaft-seewen"
       ],
       "retranslationAttempts": 1,
       "_targetScope": {
@@ -221087,6 +221145,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221109,9 +221169,7 @@
       "previousSlugs": [
         "teamleiter-in-e-shop-logistik-coop-langenthal-bern-lpvjul",
         "teamleiter-in-e-shop-logistik-coop-langenthal-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-s8936v",
@@ -221161,6 +221219,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221186,9 +221246,7 @@
       "previousSlugs": [
         "sachbearbeiter-in-wareneingang-80-100-coop-langenthal-bern-s8936v",
         "sachbearbeiter-in-wareneingang-80-100-coop-langenthal-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-6oeca8",
@@ -221238,6 +221296,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221263,9 +221323,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-ins-bern-6oeca8",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-ins-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-dfspt",
@@ -221496,6 +221554,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221521,9 +221581,7 @@
       "previousSlugs": [
         "rayonleiter-in-molkerei-eier-kase-coop-matten-bei-interlaken-bern-a0tjsq",
         "rayonleiter-in-molkerei-eier-kase-coop-matten-bei-interlaken-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-63buxe",
@@ -221660,6 +221718,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221685,9 +221745,7 @@
       "previousSlugs": [
         "verkaufer-in-food-studentenaushilfe-coop-zurich-9kcy76",
         "verkaufer-in-food-studentenaushilfe-coop-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-chl1p4",
@@ -221746,6 +221804,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BL",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221771,9 +221831,7 @@
       "previousSlugs": [
         "verkaufer-in-food-studentenaushilfe-getranke-coop-frenkendorf-basel-landschaft-chl1p4",
         "verkaufer-in-food-studentenaushilfe-getranke-coop-frenkendorf-basel-landschaft"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-p085qs",
@@ -221834,6 +221892,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221859,9 +221919,7 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-p085qs",
         "verkaufer-in-kassen-services-coop-zurich-2"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-gehyc3",
@@ -221920,6 +221978,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BS",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221947,9 +222007,7 @@
         "verkaufer-in-food-coop-city-basel-stadt-2",
         "verkaufer-in-food-coop-basel-stadt-gehyc3",
         "verkaufer-in-food-coop-basel-stadt"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-a5vr7u",
@@ -222008,6 +222066,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -222033,9 +222093,7 @@
       "previousSlugs": [
         "verkaufer-in-food-getranke-coop-magden-aargau-a5vr7u",
         "verkaufer-in-food-getranke-coop-magden-aargau"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-eg82mb",
@@ -222094,6 +222152,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -222132,9 +222192,7 @@
         "vendeur-euse-en-alimentation-coop-genossenschaft-uster-024n45",
         "verkaufer-in-food-coop-uster-zurich-eg82mb",
         "verkaufer-in-food-coop-uster-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-k6v8va",
@@ -222270,6 +222328,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "LU",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -222295,9 +222355,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-hitzkirch-luzern-tfr485",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-hitzkirch-luzern"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      ]
     },
     {
       "id": "company-j2alsx",
@@ -222555,7 +222613,7 @@
     },
     {
       "id": "company-5pacr8",
-      "slug": "venditore-in-food-coop-genossenschaft-triengen-856c51",
+      "slug": "venditore-in-food-coop-genossenschaft-triengen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Triengen, Luzern",
@@ -222601,15 +222659,17 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-triengen-856c51",
-        "en": "seller-in-food-coop-genossenschaft-triengen-856c51",
+        "it": "venditore-in-food-coop-genossenschaft-triengen",
+        "en": "seller-in-food-coop-genossenschaft-triengen",
         "de": "verkaufer-in-food-coop-triengen-luzern-5pacr8",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-triengen-856c51"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-triengen"
       },
       "addressLocality": "Triengen",
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "LU",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -222623,25 +222683,29 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-triengen-luzern-5pacr8",
-          "verkaufer-in-food-coop-triengen-luzern"
+          "verkaufer-in-food-coop-triengen-luzern",
+          "venditore-in-food-coop-genossenschaft-triengen-856c51"
         ],
         "en": [
-          "verkaufer-in-food-coop-triengen-luzern-5pacr8"
+          "verkaufer-in-food-coop-triengen-luzern-5pacr8",
+          "seller-in-food-coop-genossenschaft-triengen-856c51"
         ],
         "fr": [
-          "verkaufer-in-food-coop-triengen-luzern-5pacr8"
+          "verkaufer-in-food-coop-triengen-luzern-5pacr8",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-triengen-856c51"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-triengen-luzern-5pacr8",
-        "verkaufer-in-food-coop-triengen-luzern"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000
+        "verkaufer-in-food-coop-triengen-luzern",
+        "venditore-in-food-coop-genossenschaft-triengen-856c51",
+        "seller-in-food-coop-genossenschaft-triengen-856c51",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-triengen-856c51"
+      ]
     },
     {
       "id": "company-s46a0",
-      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-root-f6ef65",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-root",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Root, Luzern",
@@ -222689,10 +222753,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-root-f6ef65",
-        "en": "seller-in-cash-registers-services-coop-genossenschaft-root-f6ef65",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-root",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-root",
         "de": "verkaufer-in-kassen-services-coop-root-luzern-0s46a0",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-root-f6ef65"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-root"
       },
       "addressLocality": "Root",
       "sourceLang": "de",
@@ -222717,15 +222781,18 @@
           "venditore-kasse-service-coop-genossenschaft-root",
           "verkaufer-in-kassen-services-coop-root-luzern-m56ayf",
           "salesperson-cashier-coop-genossenschaft-root-m56ayf",
-          "vendeur-caisse-services-coop-genossenschaft-root-m56ayf"
+          "vendeur-caisse-services-coop-genossenschaft-root-m56ayf",
+          "venditore-in-cassa-servizi-coop-genossenschaft-root-f6ef65"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-root-luzern-0s46a0",
-          "salesperson-cashier-coop-genossenschaft-root-m56ayf"
+          "salesperson-cashier-coop-genossenschaft-root-m56ayf",
+          "seller-in-cash-registers-services-coop-genossenschaft-root-f6ef65"
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-root-luzern-0s46a0",
-          "vendeur-caisse-services-coop-genossenschaft-root-m56ayf"
+          "vendeur-caisse-services-coop-genossenschaft-root-m56ayf",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-root-f6ef65"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-root-luzern-m56ayf"
@@ -222737,12 +222804,15 @@
         "venditore-kasse-service-coop-genossenschaft-root",
         "verkaufer-in-kassen-services-coop-root-luzern-m56ayf",
         "salesperson-cashier-coop-genossenschaft-root-m56ayf",
-        "vendeur-caisse-services-coop-genossenschaft-root-m56ayf"
+        "vendeur-caisse-services-coop-genossenschaft-root-m56ayf",
+        "venditore-in-cassa-servizi-coop-genossenschaft-root-f6ef65",
+        "seller-in-cash-registers-services-coop-genossenschaft-root-f6ef65",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-root-f6ef65"
       ]
     },
     {
       "id": "company-64kcgp",
-      "slug": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-chur-a879dc",
+      "slug": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Grundnahrungsmittel",
       "location": "Chur, Graubünden",
@@ -222788,10 +222858,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-chur-a879dc",
-        "en": "rayon-conductor-in-staple-food-coop-genossenschaft-chur-a879dc",
+        "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-chur",
+        "en": "rayon-conductor-in-staple-food-coop-genossenschaft-chur",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-chur-graubunden-64kcgp",
-        "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-chur-a879dc"
+        "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -222816,15 +222886,18 @@
           "responsabile-reparto-alimentari-di-base-coop-genossenschaft-chur",
           "rayonleiter-in-grundnahrungsmittel-coop-chur-graubunden-ygs6mc",
           "department-manager-basic-foodstuffs-coop-genossenschaft-chur-ygs6mc",
-          "responsable-rayon-denrees-alimentaires-de-base-coop-genossenschaft-chur-ygs6mc"
+          "responsable-rayon-denrees-alimentaires-de-base-coop-genossenschaft-chur-ygs6mc",
+          "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-chur-a879dc"
         ],
         "en": [
           "rayonleiter-in-grundnahrungsmittel-coop-chur-graubunden-64kcgp",
-          "department-manager-basic-foodstuffs-coop-genossenschaft-chur-ygs6mc"
+          "department-manager-basic-foodstuffs-coop-genossenschaft-chur-ygs6mc",
+          "rayon-conductor-in-staple-food-coop-genossenschaft-chur-a879dc"
         ],
         "fr": [
           "rayonleiter-in-grundnahrungsmittel-coop-chur-graubunden-64kcgp",
-          "responsable-rayon-denrees-alimentaires-de-base-coop-genossenschaft-chur-ygs6mc"
+          "responsable-rayon-denrees-alimentaires-de-base-coop-genossenschaft-chur-ygs6mc",
+          "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-chur-a879dc"
         ],
         "de": [
           "rayonleiter-in-grundnahrungsmittel-coop-chur-graubunden-ygs6mc"
@@ -222836,12 +222909,15 @@
         "responsabile-reparto-alimentari-di-base-coop-genossenschaft-chur",
         "rayonleiter-in-grundnahrungsmittel-coop-chur-graubunden-ygs6mc",
         "department-manager-basic-foodstuffs-coop-genossenschaft-chur-ygs6mc",
-        "responsable-rayon-denrees-alimentaires-de-base-coop-genossenschaft-chur-ygs6mc"
+        "responsable-rayon-denrees-alimentaires-de-base-coop-genossenschaft-chur-ygs6mc",
+        "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-chur-a879dc",
+        "rayon-conductor-in-staple-food-coop-genossenschaft-chur-a879dc",
+        "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-chur-a879dc"
       ]
     },
     {
       "id": "company-vh3kds",
-      "slug": "chauffeur-in-cat-ce-coop-genossenschaft-chur",
+      "slug": "autista-cat-ce-coop-genossenschaft-chur-7dfee0",
       "company": "Coop Genossenschaft",
       "title": "Chauffeur:in Kat. CE",
       "location": "Chur, Graubünden",
@@ -222887,10 +222963,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chauffeur-in-cat-ce-coop-genossenschaft-chur",
-        "en": "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
+        "it": "autista-cat-ce-coop-genossenschaft-chur-7dfee0",
+        "en": "driver-category-ce-coop-genossenschaft-chur",
         "de": "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
-        "fr": "chauffeur-en-cat-ce-coop-genossenschaft-chur"
+        "fr": "chauffeur-cat-ce-coop-genossenschaft-chur-7dfee0"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -222911,15 +222987,22 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
-          "chauffeur-in-kat-ce-coop-chur-graubunden"
+          "chauffeur-in-kat-ce-coop-chur-graubunden",
+          "chauffeur-in-cat-ce-coop-genossenschaft-chur"
         ],
         "fr": [
+          "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
+          "chauffeur-en-cat-ce-coop-genossenschaft-chur"
+        ],
+        "en": [
           "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
-        "chauffeur-in-kat-ce-coop-chur-graubunden"
+        "chauffeur-in-kat-ce-coop-chur-graubunden",
+        "chauffeur-in-cat-ce-coop-genossenschaft-chur",
+        "chauffeur-en-cat-ce-coop-genossenschaft-chur"
       ],
       "retranslationAttempts": 1
     },
@@ -222980,6 +223063,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223005,9 +223090,7 @@
       "previousSlugs": [
         "verkaufer-in-food-studentenaushilfe-coop-zurich-hsjet8",
         "verkaufer-in-food-studentenaushilfe-coop-zurich-2"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-rk4kjt",
@@ -223109,7 +223192,7 @@
     },
     {
       "id": "company-xqnwfn",
-      "slug": "venditore-in-nonfood-coop-genossenschaft-herrliberg-cb5b18",
+      "slug": "venditore-in-nonfood-coop-genossenschaft-herrliberg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood",
       "location": "Herrliberg",
@@ -223155,10 +223238,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-nonfood-coop-genossenschaft-herrliberg-cb5b18",
-        "en": "seller-in-nonfood-coop-genossenschaft-herrliberg-cb5b18",
+        "it": "venditore-in-nonfood-coop-genossenschaft-herrliberg",
+        "en": "seller-in-nonfood-coop-genossenschaft-herrliberg",
         "de": "verkaufer-in-nonfood-coop-herrliberg-zurich-xqnwfn",
-        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg-cb5b18"
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg"
       },
       "addressLocality": "Herrliberg",
       "sourceLang": "de",
@@ -223184,15 +223267,18 @@
           "seller-in-nonfood-coop-genossenschaft-herrliberg",
           "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich-f1rro3",
           "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg",
-          "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich"
+          "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich",
+          "venditore-in-nonfood-coop-genossenschaft-herrliberg-cb5b18"
         ],
         "en": [
           "verkaufer-in-nonfood-coop-herrliberg-zurich-xqnwfn",
-          "seller-in-nonfood-coop-genossenschaft-herrliberg"
+          "seller-in-nonfood-coop-genossenschaft-herrliberg",
+          "seller-in-nonfood-coop-genossenschaft-herrliberg-cb5b18"
         ],
         "fr": [
           "verkaufer-in-nonfood-coop-herrliberg-zurich-xqnwfn",
-          "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg"
+          "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg",
+          "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg-cb5b18"
         ],
         "de": [
           "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich-f1rro3"
@@ -223205,7 +223291,10 @@
         "seller-in-nonfood-coop-genossenschaft-herrliberg",
         "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich-f1rro3",
         "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg",
-        "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich"
+        "verkaufer-in-nonfood-coop-genossenschaft-herrliberg-zurich",
+        "venditore-in-nonfood-coop-genossenschaft-herrliberg-cb5b18",
+        "seller-in-nonfood-coop-genossenschaft-herrliberg-cb5b18",
+        "vendeur-dans-non-alimentaire-coop-genossenschaft-herrliberg-cb5b18"
       ]
     },
     {
@@ -223267,6 +223356,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "SO",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223305,9 +223396,7 @@
         "vendeur-se-caisses-services-etudiant-coop-genossenschaft-biberist-nmbw2e",
         "verkaufer-in-kassen-services-coop-biberist-solothurn-wr2een",
         "verkaufer-in-kassen-services-coop-biberist-solothurn"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-6wcumt",
@@ -223465,6 +223554,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223490,9 +223581,7 @@
       "previousSlugs": [
         "rayonleiter-in-molkerei-eier-kase-coop-horgen-zurich-9reqi8",
         "rayonleiter-in-molkerei-eier-kase-coop-horgen-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-qh9rcv",
@@ -223575,7 +223664,7 @@
     },
     {
       "id": "company-2wxany",
-      "slug": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-da6892",
+      "slug": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services Studentenaushilfe",
       "location": "Zürich",
@@ -223623,15 +223712,17 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-da6892",
-        "en": "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-da6892",
+        "it": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich",
+        "en": "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich",
         "de": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-da6892"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223646,22 +223737,26 @@
         "it": [
           "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-s11tdf",
           "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany",
-          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich"
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich",
+          "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-da6892"
         ],
         "en": [
-          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany"
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany",
+          "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-da6892"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany"
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany",
+          "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-da6892"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-s11tdf",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2wxany",
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich",
+        "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-da6892",
+        "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-da6892",
+        "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-zurich-da6892"
+      ]
     },
     {
       "id": "company-pyq6ti",
@@ -223720,6 +223815,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BL",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223745,9 +223842,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-allschwil-basel-landschaft-pyq6ti",
         "verkaufer-in-food-coop-allschwil-basel-landschaft"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-qkonfk",
@@ -223806,6 +223901,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BS",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223846,9 +223943,7 @@
         "verkaufer-in-food-coop-reinach-basel-landschaft-2",
         "verkaufer-in-food-coop-basel-landschaft-qkonfk",
         "verkaufer-in-food-coop-basel-landschaft"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-iup284",
@@ -223907,6 +224002,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BL",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223932,13 +224029,11 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-bockten-basel-landschaft-iup284",
         "verkaufer-in-food-coop-bockten-basel-landschaft"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-3ei1ly",
-      "slug": "vendita-prodotti-freschi-coop-genossenschaft-wurenlingen-996995",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-wurenlingen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Würenlingen, Aargau",
@@ -223984,10 +224079,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "vendita-prodotti-freschi-coop-genossenschaft-wurenlingen-996995",
-        "en": "seller-fresh-products-coop-genossenschaft-wurenlingen-996995",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-wurenlingen",
+        "en": "seller-fresh-products-coop-genossenschaft-wurenlingen",
         "de": "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-3ei1ly",
-        "fr": "vendeur-produits-frais-coop-genossenschaft-wurenlingen-996995"
+        "fr": "vendeur-produits-frais-coop-genossenschaft-wurenlingen"
       },
       "addressLocality": "Würenlingen",
       "sourceLang": "de",
@@ -224013,15 +224108,18 @@
           "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-6527c2",
           "salesperson-fresh-products-coop-genossenschaft-wurenlingen-6527c2",
           "vendeur-euse-produits-frais-coop-genossenschaft-wurenlingen-6527c2",
-          "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-2"
+          "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-2",
+          "vendita-prodotti-freschi-coop-genossenschaft-wurenlingen-996995"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-3ei1ly",
-          "salesperson-fresh-products-coop-genossenschaft-wurenlingen-6527c2"
+          "salesperson-fresh-products-coop-genossenschaft-wurenlingen-6527c2",
+          "seller-fresh-products-coop-genossenschaft-wurenlingen-996995"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-3ei1ly",
-          "vendeur-euse-produits-frais-coop-genossenschaft-wurenlingen-6527c2"
+          "vendeur-euse-produits-frais-coop-genossenschaft-wurenlingen-6527c2",
+          "vendeur-produits-frais-coop-genossenschaft-wurenlingen-996995"
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-6527c2"
@@ -224034,12 +224132,15 @@
         "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-6527c2",
         "salesperson-fresh-products-coop-genossenschaft-wurenlingen-6527c2",
         "vendeur-euse-produits-frais-coop-genossenschaft-wurenlingen-6527c2",
-        "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-2"
+        "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-2",
+        "vendita-prodotti-freschi-coop-genossenschaft-wurenlingen-996995",
+        "seller-fresh-products-coop-genossenschaft-wurenlingen-996995",
+        "vendeur-produits-frais-coop-genossenschaft-wurenlingen-996995"
       ]
     },
     {
       "id": "company-bm1jvk",
-      "slug": "venditore-in-fiori-kiosk-coop-genossenschaft-egerkingen-06e1ba",
+      "slug": "venditore-in-fiori-kiosk-coop-genossenschaft-egerkingen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Blumen/Kiosk",
       "location": "Egerkingen, Solothurn",
@@ -224085,10 +224186,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-fiori-kiosk-coop-genossenschaft-egerkingen-06e1ba",
-        "en": "seller-in-flowers-kiosk-coop-genossenschaft-egerkingen-06e1ba",
+        "it": "venditore-in-fiori-kiosk-coop-genossenschaft-egerkingen",
+        "en": "seller-in-flowers-kiosk-coop-genossenschaft-egerkingen",
         "de": "verkaufer-in-blumen-kiosk-coop-egerkingen-solothurn-bm1jvk",
-        "fr": "vendeur-en-fleurs-kiosque-coop-genossenschaft-egerkingen-06e1ba"
+        "fr": "vendeur-en-fleurs-kiosque-coop-genossenschaft-egerkingen"
       },
       "addressLocality": "Egerkingen",
       "sourceLang": "de",
@@ -224114,15 +224215,18 @@
           "verkaufer-in-blumen-kiosk-coop-egerkingen-solothurn-lk31jm",
           "sales-assistant-flowers-kiosk-coop-genossenschaft-egerkingen-lk31jm",
           "vendeur-euse-fleurs-kiosque-coop-genossenschaft-egerkingen-lk31jm",
-          "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen"
+          "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen",
+          "venditore-in-fiori-kiosk-coop-genossenschaft-egerkingen-06e1ba"
         ],
         "en": [
           "verkaufer-in-blumen-kiosk-coop-egerkingen-solothurn-bm1jvk",
-          "sales-assistant-flowers-kiosk-coop-genossenschaft-egerkingen-lk31jm"
+          "sales-assistant-flowers-kiosk-coop-genossenschaft-egerkingen-lk31jm",
+          "seller-in-flowers-kiosk-coop-genossenschaft-egerkingen-06e1ba"
         ],
         "fr": [
           "verkaufer-in-blumen-kiosk-coop-egerkingen-solothurn-bm1jvk",
-          "vendeur-euse-fleurs-kiosque-coop-genossenschaft-egerkingen-lk31jm"
+          "vendeur-euse-fleurs-kiosque-coop-genossenschaft-egerkingen-lk31jm",
+          "vendeur-en-fleurs-kiosque-coop-genossenschaft-egerkingen-06e1ba"
         ],
         "de": [
           "verkaufer-in-blumen-kiosk-coop-egerkingen-solothurn-lk31jm"
@@ -224135,7 +224239,10 @@
         "verkaufer-in-blumen-kiosk-coop-egerkingen-solothurn-lk31jm",
         "sales-assistant-flowers-kiosk-coop-genossenschaft-egerkingen-lk31jm",
         "vendeur-euse-fleurs-kiosque-coop-genossenschaft-egerkingen-lk31jm",
-        "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen"
+        "verkaufer-in-blumen-kiosk-coop-genossenschaft-egerkingen",
+        "venditore-in-fiori-kiosk-coop-genossenschaft-egerkingen-06e1ba",
+        "seller-in-flowers-kiosk-coop-genossenschaft-egerkingen-06e1ba",
+        "vendeur-en-fleurs-kiosque-coop-genossenschaft-egerkingen-06e1ba"
       ]
     },
     {

@@ -8951,14 +8951,12 @@
       "previousSlugsByLocale": {
         "de": [
           "aide-de-bloc-operatoire-cdi-100-hirslanden-geneve",
-          "aide-de-bloc-operatoire-cdi-80-hirslanden-geneve",
-          "100-cdi-operating-block-hilfe-hirslanden-klinik-geneve"
+          "aide-de-bloc-operatoire-cdi-80-hirslanden-geneve"
         ],
         "it": [
           "aide-de-bloc-operatoire-hirslanden-klinik-geneve",
           "aide-de-bloc-operatoire-cdi-100-hirslanden-geneve",
-          "aide-de-bloc-operatoire-cdi-80-hirslanden-geneve",
-          "100-cdi-guida-del-blocco-operativo-hirslanden-klinik-geneve"
+          "aide-de-bloc-operatoire-cdi-80-hirslanden-geneve"
         ],
         "en": [
           "aide-de-bloc-operatoire-cdi-100-hirslanden-geneve"
@@ -8967,12 +8965,9 @@
       "previousSlugs": [
         "aide-de-bloc-operatoire-hirslanden-klinik-geneve",
         "aide-de-bloc-operatoire-cdi-100-hirslanden-geneve",
-        "aide-de-bloc-operatoire-cdi-80-hirslanden-geneve",
-        "100-cdi-operating-block-hilfe-hirslanden-klinik-geneve",
-        "100-cdi-guida-del-blocco-operativo-hirslanden-klinik-geneve"
+        "aide-de-bloc-operatoire-cdi-80-hirslanden-geneve"
       ],
       "firstSeenAt": "2026-08-05T11:42:02.086Z",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "baseSalary": {
@@ -8984,7 +8979,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-45ae9de16268",
@@ -13023,16 +13019,14 @@
         "dipl-physiotherapeutin-physiotherapeut-a-20-fur-wochenendeinsatze-hirslanden-aarau",
         "deine-aufgaben-hirslanden-search",
         "dipl-physical-therapist-a-20-for-weekend-assignments-hirslanden-klinik-aarau",
-        "dipl-physiotherapeutin-physiotherapeut-a-40-hirslanden-aarau",
-        "mansioni-richieste-hirslanden-klinik-search-bf9a0a"
+        "dipl-physiotherapeutin-physiotherapeut-a-40-hirslanden-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "deine-aufgaben-hirslanden-search-6",
           "deine-aufgaben-hirslanden-search-2",
           "dipl-physiotherapeutin-physiotherapeut-a-20-fur-wochenendeinsatze-hirslanden-aarau",
-          "dipl-physiotherapeutin-physiotherapeut-a-40-hirslanden-aarau",
-          "mansioni-richieste-hirslanden-klinik-search-bf9a0a"
+          "dipl-physiotherapeutin-physiotherapeut-a-40-hirslanden-aarau"
         ],
         "en": [
           "deine-aufgaben-hirslanden-search-6"
@@ -13045,7 +13039,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:27:34.330Z",
-      "needsRetranslation": true,
       "salaryMin": 35200,
       "salaryMax": 49200,
       "baseSalary": {
@@ -13057,7 +13050,8 @@
           "maxValue": 49200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-e816bb53fdb2",
@@ -16088,7 +16082,6 @@
       "crawledAt": "2026-08-22T09:43:56.695Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "betreuer-hirslanden-klinik-geneve",
@@ -16121,7 +16114,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-8fe6e65d0ab3",
@@ -17371,7 +17365,6 @@
       "crawledAt": "2026-08-22T09:43:15.374Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "80-anasthesisten-hirslanden-klinik-lausanne",
@@ -17412,7 +17405,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-b89443776836",
@@ -23785,7 +23779,6 @@
       "crawledAt": "2026-08-22T09:40:39.988Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "erwachsene-notfallkrankenschwester-hirslanden-klinik-geneve",
@@ -23826,7 +23819,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-0764d3217388",
@@ -24472,7 +24466,6 @@
       "crawledAt": "2026-08-22T09:40:31.561Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "medizinisch-technischer-radiologieassistent-m-w-d-kardiale-mrt-hirslanden-klinik-geneve",
@@ -24515,7 +24508,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-78a6f1c52445",
@@ -29776,11 +29770,9 @@
       "crawledAt": "2026-08-22T09:37:59.993Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "aide-soignant-au-bloc-operatoire-a-80-hirslanden-geneve",
-          "80-unterstutzung-fur-den-operationssaal-hirslanden-klinik-geneve",
           "aide-soignant-e-au-bloc-operatoire-a-80-hirslanden-geneve"
         ],
         "it": [
@@ -29816,7 +29808,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-1f67383e9d8c",
@@ -31197,9 +31190,9 @@
       "id": "hirslanden-e6a4110982f8",
       "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-diagnostica-a-80-100-hirslanden-klinik-luzern",
       "slugByLocale": {
+        "de": "dipl-radiologiefachfrau-radiologiefachmann-diagnostik-a-80-100-hirslanden-luzern",
         "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-diagnostica-a-80-100-hirslanden-klinik-luzern",
         "en": "dipl-radiology-specialist-radiology-specialist-diagnostics-a-80-100-hirslanden-klinik-luzern",
-        "de": "dipl-radiologiefachfrau-radiologiefachmann-diagnostik-a-80-100-hirslanden-luzern",
         "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-diagnostic-a-80-100-hirslanden-klinik-luzern"
       },
       "company": "Hirslanden Klinik",
@@ -31241,6 +31234,19 @@
       "crawledAt": "2026-08-22T09:37:38.206Z",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:00.065Z",
       "previousSlugs": [
         "dipl-radiologiefachfrau-radiologiefachmann-diagnostik-a-80-100-hirslanden-luzern",
         "dipl-specialista-di-radiologia-specialista-di-radiologia-diagnostica-a-80-100-hirslanden-klinik-luzern"
@@ -31257,28 +31263,15 @@
           "dipl-radiologiefachfrau-radiologiefachmann-diagnostik-a-80-100-hirslanden-luzern"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:31:00.065Z",
-      "needsRetranslation": true,
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-d5edb6052358",
       "slug": "specialista-tecnologia-chirurgica-hf-a-80-100-hirslanden-klinik-munchenstein-kt",
       "slugByLocale": {
+        "de": "fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-munchenstein-kt-basel-land",
         "it": "specialista-tecnologia-chirurgica-hf-a-80-100-hirslanden-klinik-munchenstein-kt",
         "en": "specialist-surgical-technology-hf-a-80-100-hirslanden-klinik-munchenstein-kt",
-        "de": "fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-munchenstein-kt-basel-land",
         "fr": "specialiste-technologie-chirurgicale-hf-a-80-100-hirslanden-klinik-munchenstein-kt"
       },
       "company": "Hirslanden Klinik",
@@ -31320,6 +31313,19 @@
       "crawledAt": "2026-08-22T09:37:36.996Z",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:02.439Z",
       "previousSlugs": [
         "fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-munchenstein-kt-basel-land",
         "specialista-tecnologia-chirurgica-hf-a-80-100-hirslanden-klinik-munchenstein-kt"
@@ -31335,28 +31341,15 @@
         "fr": [
           "fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-munchenstein-kt-basel-land"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:31:02.439Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "hirslanden-f593938f6e9f",
       "slug": "stv-leiterin-leiter-guest-services-80-100-hirslanden-klinik-st-gallen",
       "slugByLocale": {
+        "de": "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen",
         "it": "stv-leiterin-leiter-guest-services-80-100-hirslanden-klinik-st-gallen",
         "en": "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen",
-        "de": "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen",
         "fr": "stv-chef-des-services-aux-clients-80-100-hirslanden-klinik-st-gallen"
       },
       "company": "Hirslanden Klinik",
@@ -31398,9 +31391,7 @@
       "crawledAt": "2026-08-22T09:37:35.537Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen"
@@ -31409,8 +31400,9 @@
           "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:30:58.898Z",
+      "previousSlugs": [
+        "stv-leiterin-leiter-guest-services-80-100-hirslanden-st-gallen"
+      ],
       "salaryMin": 110500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -31422,15 +31414,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:30:58.898Z"
     },
     {
       "id": "hirslanden-cf7108ef85f3",
       "slug": "pharmaassistentin-pharmaassistent-o-fachfrau-fachmann-apotheke-a-80-100-hirslanden-klinik-luzern",
       "slugByLocale": {
+        "de": "pharmaassistentin-pharmaassistent-oder-fachfrau-fachmann-apotheke-a-80-100-hirslanden",
         "it": "pharmaassistentin-pharmaassistent-o-fachfrau-fachmann-apotheke-a-80-100-hirslanden-klinik-luzern",
         "en": "pharmaceutical-assistant-or-specialist-pharmacy-a-80-100-hirslanden-klinik-luzern",
-        "de": "pharmaassistentin-pharmaassistent-oder-fachfrau-fachmann-apotheke-a-80-100-hirslanden",
         "fr": "assistant-pharmaceutique-ou-pharmacie-specialisee-a-80-100-hirslanden-klinik-luzern"
       },
       "company": "Hirslanden Klinik",
@@ -31472,9 +31465,7 @@
       "crawledAt": "2026-08-22T09:37:34.392Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "pharmaassistentin-pharmaassistent-oder-fachfrau-fachmann-apotheke-a-80-100-hirslanden"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "pharmaassistentin-pharmaassistent-oder-fachfrau-fachmann-apotheke-a-80-100-hirslanden"
@@ -31486,8 +31477,9 @@
           "pharmaassistentin-pharmaassistent-oder-fachfrau-fachmann-apotheke-a-80-100-hirslanden"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:31:01.244Z",
+      "previousSlugs": [
+        "pharmaassistentin-pharmaassistent-oder-fachfrau-fachmann-apotheke-a-80-100-hirslanden"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -31499,7 +31491,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:31:01.244Z"
     },
     {
       "id": "hirslanden-1721d47633a5",

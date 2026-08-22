@@ -1331,9 +1331,9 @@
       "id": "sanatorium-kilchberg-13bb72ccc9a6",
       "slug": "sachbearbeiter-in-risorse-umane-administration-e-lohn-sanatorium-kilchberg",
       "slugByLocale": {
+        "de": "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg",
         "it": "sachbearbeiter-in-risorse-umane-administration-e-lohn-sanatorium-kilchberg",
         "en": "personnel-in-hr-administration-and-wages-sanatorium-kilchberg-kilchberg",
-        "de": "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg",
         "fr": "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
@@ -1376,9 +1376,6 @@
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/664/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg"
@@ -1387,7 +1384,9 @@
           "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:42:23.150Z",
+      "previousSlugs": [
+        "sachbearbeiter-in-hr-administration-und-lohn-sanatorium-kilchberg-kilchberg"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1399,7 +1398,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:42:23.150Z"
     },
     {
       "id": "sanatorium-kilchberg-76a62d567f93",

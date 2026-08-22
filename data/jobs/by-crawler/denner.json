@@ -70,8 +70,7 @@
         "verkaufer-in-denner-ag-winterthur-ylequg",
         "verkaufer-in-denner-ag-winterthur",
         "seller-denner-winterthur",
-        "venditore-denner-winterthur",
-        "venditore-denner-ag-winterthur-bf71e1"
+        "venditore-denner-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -79,8 +78,7 @@
           "verkaufer-in-denner-ag-winterthur-ylequg",
           "verkaufer-in-denner-ag-winterthur",
           "seller-denner-winterthur",
-          "venditore-denner-winterthur",
-          "venditore-denner-ag-winterthur-bf71e1"
+          "venditore-denner-winterthur"
         ],
         "en": [
           "verkaufer-in-denner-ag-winterthur-ylequg",
@@ -95,7 +93,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:15:39.602Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -107,7 +104,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-6187dafe27dd",
@@ -1887,8 +1885,7 @@
         "seller-denner-ag-interlaken-075a65",
         "vendeur-denner-ag-interlaken-c59906",
         "venditore-denner-interlaken",
-        "verkaufer-in-denner-ag-interlaken-hchfj3",
-        "venditore-denner-ag-interlaken"
+        "verkaufer-in-denner-ag-interlaken-hchfj3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1899,12 +1896,10 @@
           "seller-denner-ag-interlaken-075a65",
           "vendeur-denner-ag-interlaken-c59906",
           "venditore-denner-interlaken",
-          "verkaufer-in-denner-ag-interlaken-hchfj3",
-          "venditore-denner-ag-interlaken"
+          "verkaufer-in-denner-ag-interlaken-hchfj3"
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:28.453Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1916,7 +1911,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-2d24f10a56ab",
@@ -1984,18 +1980,15 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-herzogenbuchsee",
-        "venditore-denner-herzogenbuchsee",
-        "venditore-denner-ag-herzogenbuchsee-e869da"
+        "venditore-denner-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-denner-herzogenbuchsee",
-          "venditore-denner-ag-herzogenbuchsee-e869da"
+          "venditore-denner-herzogenbuchsee"
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:28.449Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -2007,7 +2000,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-61d78d0ddeb9",
@@ -2373,14 +2367,12 @@
       "crawledAt": "2026-08-22T09:38:57.225Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-training-denner-oensingen",
-        "stv-branch-manager-in-denner-ag-oensingen-bd9d6c"
+        "stv-branch-manager-in-training-denner-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-training-denner-oensingen",
-          "stv-branch-manager-in-denner-ag-oensingen-bd9d6c"
+          "stv-branch-manager-in-training-denner-oensingen"
         ]
       },
       "needsRetranslation": true,
@@ -2460,30 +2452,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
       "crawledAt": "2026-08-22T09:38:57.220Z",
-      "previousSlugs": [
-        "vendeur-vendeuse-denner",
-        "vendeur-vendeuse-denner-renens-vd",
-        "seller-seller-denner-renens-vd",
-        "verkaufer-verkaufer-denner-renens-vd",
-        "vendeur-vendeuse-denner-sa-renens-vd"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vendeur-vendeuse-denner",
-          "vendeur-vendeuse-denner-sa-renens-vd"
-        ],
-        "en": [
-          "seller-seller-denner-renens-vd"
-        ],
-        "de": [
-          "verkaufer-verkaufer-denner-renens-vd"
-        ],
-        "fr": [
-          "vendeur-vendeuse-denner-renens-vd"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:40:17.113Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2495,7 +2463,29 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-20T21:40:17.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vendeur-vendeuse-denner"
+        ],
+        "en": [
+          "seller-seller-denner-renens-vd"
+        ],
+        "de": [
+          "verkaufer-verkaufer-denner-renens-vd"
+        ],
+        "fr": [
+          "vendeur-vendeuse-denner-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-renens-vd",
+        "seller-seller-denner-renens-vd",
+        "verkaufer-verkaufer-denner-renens-vd"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "denner-9824be52af5e",
@@ -2666,28 +2656,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-22T09:38:56.421Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-4",
-        "verkaufer-in-denner-5",
-        "verkaufer-in-denner-6",
-        "verkaufer-in-denner-ag-basel-xf6s8h",
-        "verkaufer-in-denner-zug",
-        "verkaufer-in-denner-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-4",
-          "verkaufer-in-denner-5",
-          "verkaufer-in-denner-6",
-          "verkaufer-in-denner-ag-basel-xf6s8h",
-          "verkaufer-in-denner-zug",
-          "verkaufer-in-denner-basel"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T09:47:00.105Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2699,15 +2667,36 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:47:00.105Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-4",
+          "verkaufer-in-denner-5",
+          "verkaufer-in-denner-6",
+          "verkaufer-in-denner-ag-basel-xf6s8h",
+          "verkaufer-in-denner-zug",
+          "verkaufer-in-denner-basel"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-4",
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-6",
+        "verkaufer-in-denner-ag-basel-xf6s8h",
+        "verkaufer-in-denner-zug"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "denner-751a0da56ab4",
       "slug": "venditore-denner-ag-embrach",
       "slugByLocale": {
         "it": "venditore-denner-ag-embrach",
-        "en": "seller-denner-ag-embrach",
         "de": "verkaufer-in-denner-ag-embrach",
+        "en": "seller-denner-ag-embrach",
         "fr": "vendeur-denner-ag-embrach"
       },
       "company": "Denner",
@@ -2764,18 +2753,16 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-22T09:38:56.418Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-embrach"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-embrach"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:32:28.359Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-embrach"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2787,7 +2774,9 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:32:28.359Z",
+      "needsRetranslation": true
     },
     {
       "id": "denner-eec4d78e7a22",
@@ -2958,22 +2947,19 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-22T09:38:55.632Z",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-frauenfeld",
-        "sales-associate-denner-ag-frauenfeld"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner"
         ],
         "en": [
           "sales-associate-denner-ag-frauenfeld"
         ]
       },
-      "firstSeenAt": "2026-08-21T09:46:58.709Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-frauenfeld",
+        "sales-associate-denner-ag-frauenfeld"
+      ],
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2985,7 +2971,9 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:46:58.709Z",
+      "needsRetranslation": true
     },
     {
       "id": "denner-b45da71ac05e",
@@ -3050,18 +3038,15 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-22T09:38:55.630Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner"
+        ]
+      },
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-sulgen"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-sulgen"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T09:46:58.707Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -3073,7 +3058,9 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:46:58.707Z",
+      "needsRetranslation": true
     },
     {
       "id": "denner-f03b57b6e01a",
@@ -3138,12 +3125,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-22T09:38:55.624Z",
-      "previousSlugs": [
-        "verkaufer-in-denner-2",
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-glis",
-        "venditore-denner-glis"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
@@ -3157,8 +3138,12 @@
           "verkaufer-in-denner-glis"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:32:27.681Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-denner-2",
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-glis",
+        "venditore-denner-glis"
+      ],
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -3170,7 +3155,9 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:32:27.681Z",
+      "needsRetranslation": true
     }
   ]
 }
