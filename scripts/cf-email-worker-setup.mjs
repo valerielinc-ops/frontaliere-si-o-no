@@ -31,9 +31,10 @@
  */
 
 import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+import { BOUNCE_ADDRESS, MAIL_DOMAIN, EMAIL_WORKER_NAME } from './lib/bounce-return-path.mjs';
 
-const ZONE_NAME = 'frontaliereticino.ch';
-const WORKER_NAME = 'frontaliere-stop-reply-handler';
+const ZONE_NAME = MAIL_DOMAIN;
+const WORKER_NAME = EMAIL_WORKER_NAME;
 // Recipient addresses that must route to the worker, and the routing-rule name
 // for each. stop-reply-handler.js branches on `message.to` against the
 // OUTREACH_ADDRESS / NEWSLETTER_ADDRESS vars in wrangler.toml (keep the two
@@ -63,7 +64,19 @@ const NEWSLETTER_ADDRESS = 'newsletter@frontaliereticino.ch';
 // Deliberately NOT bound: the *-bot@ addresses (git commit identities in
 // workflows, they never receive mail) and preview@/qa-preview@ (local
 // newsletter preview/QA placeholders, never a real recipient).
+//
+// `bounce@` is different in kind from the addresses below: nothing is sent FROM
+// it. It exists to be the Maileroo return_path, i.e. the envelope sender our
+// outbound mail carries, so the delivery reports an ISP sends back land on an
+// address bound to the worker instead of on abuse@ (a role mailbox meant for
+// complaints, RFC 2142). The rule must exist BEFORE the return_path is moved
+// there — a report arriving at an unbound address falls into the zone
+// catch-all, which forwards straight to the inbox WITHOUT passing through the
+// worker, and the bounce would silently stop being recorded again.
+// `scripts/set-maileroo-return-path.mjs` enforces that order: it refuses to
+// move the field until this rule is live.
 const AUTO_REPLY_SINK_ADDRESSES = [
+  BOUNCE_ADDRESS,
   'alerts@frontaliereticino.ch',
   'abuse@frontaliereticino.ch',
   'confirmation@frontaliereticino.ch',
