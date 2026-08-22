@@ -10455,6 +10455,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-berzo-demo-lavorare-grigioni.title': 'Berzo Demo and Grisons: living as frontiersmen at the border',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.excerpt': 'Complete guide for those who live in Berzo Demo and work in Grisons: Swiss tax regulations, G Permit, AVS/LAMal, deductibles, contributions and procedures.',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.imageAlt': 'Gandria village in Ticino on the Swiss-Italian border with alpine landscape',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Living in Samolaco and working in Graubünden as a border worker',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Here\'s what you need to know about permits, taxation and daily life as a border worker in Ticino.',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'A frontier worker who works in Grisons and resides in Samolaco',
 };
 
 export default blogMetaEn;

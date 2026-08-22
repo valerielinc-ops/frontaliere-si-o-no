@@ -10457,6 +10457,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-berzo-demo-lavorare-grigioni.title': 'Berzo Demo et Grisons : vivre en frontalier à la frontière',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.excerpt': 'Guide complet pour ceux qui vivent à Berzo Demo et travaillent dans les Grisons : réglementations fiscales suisses, permis G, AVS/LAMal, franchises, cotisations et procédures.',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.imageAlt': 'Gandria, village du Tessin à la frontière suisse-italienne',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Vivre à Samolaco et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Voici ce que vous devez savoir sur les permis, la fiscalité et la vie quotidienne en tant que frontalier au Tessin.',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'Un travailleur frontalier qui travaille en Grisons et réside à Samolaco',
 };
 
 export default blogMetaFr;

@@ -10456,6 +10456,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-berzo-demo-lavorare-grigioni.title': 'Berzo Demo e Grigioni: vivere da frontaliere al confine',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.excerpt': 'Guida completa per chi vive a Berzo Demo e lavora in Grigioni: normative fiscali svizzere, Permesso G, AVS/LAMal, franchigie, contributi e procedure.',
     'blog.article.vivere-berzo-demo-lavorare-grigioni.imageAlt': 'Gandria, villaggio nel Ticino sul confine italo-svizzero, con paesaggio alpino',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Vivere a Samolaco e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Ecco cosa devi sapere sui permessi, la fiscalità e la vita quotidiana come frontaliere in Ticino.',
+    'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Grigioni e risiede a Samolaco',
 };
 
 export default blogMetaIt;
