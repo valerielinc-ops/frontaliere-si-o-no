@@ -74,14 +74,14 @@ for (const spec of specs) {
   try {
     ({ vacancies, errors } = await runSpec(spec));
   } catch (err) {
-    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${String(err.message).slice(0, 60)}`);
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
     continue;
   }
   let report;
   try {
     report = await gradeExtraction(spec, vacancies, { sampleSize });
   } catch (err) {
-    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore nel giudizio: ${String(err.message).slice(0, 60)}`);
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore nel giudizio: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
     continue;
   }
   report.companyName = spec.companyName;
