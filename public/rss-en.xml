@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 07:15:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 07:34:37 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,55 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Seasonal work in Ticino: tax guide 2024–2026</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/seasonal-worker-ticino-fiscal-guide/</link>
+      <description><![CDATA[From 1 January 2024 the New Agreement changes the taxation: Swiss source tax and Italian refunds. Here's how it works for seasonal workers.]]></description>
+      <content:encoded><![CDATA[## Briefly
+- New Frontier Agreement in effect from January 1, 2024
+- Income tax withheld only in Switzerland
+- Refunds in Italy through 730 declaration with tax credit
+- AVS/LPP contributions calculated on gross Swiss income
+
+## Key Facts
+- **When**: From January 1, 2024 (New Frontier Agreement)
+- Where: Ticino and bordering cantons with Italy
+- Income tax: Switzerland (only country withholding tax)
+- Refunds: Italy with tax credit (CE frame of 730)
+- Old border workers: exemption of € 7,500, transitional regime 2024–2033
+- New border workers: exemption of € 10,000
+- AVS/AI/IPG rates: 5.3% dependent
+
+With the New Frontier Agreement entering into force on January 1, 2024, the tax situation for those working seasonally in Ticino has changed significantly. Signed on December 23, 2020, and ratified by Italy with Law 83 of June 13, 2023, this agreement completely redraws the tax treatment of border workers. The key element? Income tax is withheld exclusively in Switzerland. Italy, to avoid double taxation, recognizes the tax credit in the income tax return (CE frame of 730). For seasonal workers, this means a more transparent procedure and easier recovery of excess taxes paid, thanks to the Convention on Double Taxation signed on December 9, 1976.
+
+### The regime for old and new border workers
+
+The distinction is crucial: those who were already border workers before July 17, 2023, fall under the transitional regime. For these workers, the exemption is € 7,500 per year, and the new regime applies progressively until 2033. Those who start border work from July 17, 2023, onwards are entitled to an exemption of € 10,000. This difference is not a bureaucratic detail: for a seasonal worker who works only a few months a year, the higher exemption can make a significant difference between no tax withheld and a significant withholding. The [Work Permit](nav:permits) remains the legal tool to regularize seasonal work, with administrative procedures and times managed by SEM (State Secretariat for Migration) and Ticino cantonal authorities.
+### Taxes and contributions: how much you really pay
+
+For those who work seasonally in Switzerland, the calculation of taxes and mandatory contributions follows precise rules. Gross income tax at source is withheld by the employer: there is no single federal rate, but it depends on the canton, municipality and income level. At the same time, mandatory contributions are taken: AVS (old-age and survivors' insurance), AI (disability) and IPG (loss of earnings) together amount to 5.3% of the gross for the employee. Add AD (unemployment insurance) and AC (non-occupational accident insurance) for 1.1% (cap CHF 148,200), plus LAINF (accident insurance) between 0.7% and 1.5%. If you are over 25, you also contribute to LPP (second pension pillar) with rates from 7% to 18% depending on the age group: it is a direct investment for future income.
+
+In Italy, meanwhile, the IRPEF is taken on income not covered by the deductible: 23% up to € 28,000, 35% between € 28,001 and € 50,000, 43% over. But thanks to the EC 730 tax credit, taxes already paid in Switzerland are recognised, thus avoiding double taxation. [AVS e LPP per stagionali](nav:pension) deserve special attention: every month of contributions counts towards your future income, even if you only work three months a year.
+
+### Concrete scenario: two experiences compared
+
+An old border worker who starts in July and works until September in Ticino (12
+### How to move: practical checklist for the first seasonal job
+
+If you are about to start a seasonal experience in Ticino, preparation is essential. First, make sure you have the [G Permit](nav:permits) regularly registered with SEM: it is the document that legitimizes your presence and work activity in Switzerland for the indicated seasonal period. Your employer must be registered with the cantonal tax authorities (AFC/ESTV at federal level, cantonal administration at local level) and is obliged to pay AVS/AI/IPG, AD/AC and LAINF contributions according to the applicable rates.
+
+When you receive your paycheck, check that it clearly indicates the withheld source tax, gross, net, and contribution details. Keep all documents: payment receipts, AVS contribution certificates, letters from tax authorities. If the employer does not regularly pay contributions or withhold tax, report it to SECO (State Secretariat for Economic Affairs) or cantonal authorities: worker protection is a priority.
+
+At the end of the season (and especially if the assignment ends before the end of the year), obtain from the employer a certificate of income (salary statement) that shows the gross, source tax paid, and contributions paid. This document is essential for the Italian tax return: correctly completing the CE box of the 730 form means obtaining the tax credit on taxes already paid in Switzerland.
+
+### Next steps: tax return and refunds
+
+By April of the following year (variable term according to the provisions of the Revenue Agency), you will submit [the 730 tax return](nav:tax-return) in Italy. In the CE box, you will declare foreign work income (Switzerland), tax paid there, and obtain the credit up to the Italian IRPEF due. If you have paid more taxes in Switzerland than in Italy, you will receive a refund (rebate). If instead the Italian IRPEF is higher, you will have to pay the difference. Use the [salary calculator](nav:calculator) to estimate in advance the net paycheck and approximately predict what the final declaration will cost: it is a useful tool for planning seasonal income and not being surprised at the time of declaration.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 07:34:37 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/frontaliere-stagionale-diritti-fiscali</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-stagionale-diritti-fiscali.webp" medium="image"/>
+    </item>
     <item>
       <title>Ticino Seasonal Work: Rules, G Permit and Rights</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/seasonal-ticino-rights-permit-g/</link>
@@ -3234,61 +3283,6 @@ For an updated estimate, use the [net salary calculator](nav:calculator) and the
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-biandronno-lavorare-ticino-da-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-biandronno-lavorare-ticino-da-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Pusiano and working in Ticino: the frontier guide</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/live-pusiano-work-ticino-frontier-worker/</link>
-      <description><![CDATA[From the New Frontier Agreement to the tax at source, from AVS/LPP contributions to the choice of LAMal: everything you need to know to move to Pusiano and work in Ticino.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Pusiano offers lower living costs than Ticino, while maintaining easy access to Swiss work
-- The New Frontier Agreement (in force from 1 January 2024) tax rule: source tax only in Switzerland, tax credit in Italy
-- Excess for new frontier workers: CHF 10,000 per year; pre-17 July 2023: CHF7,500 with transitional regime 2024-2033
-- AVS, LPP, LAMal: essential pillars; check option and deductible rights before moving
-
-## Key facts
-- **What**: New Italy-Switzerland Border Agreement
-- When: Signed December 23, 2020, effective January 1, 2024
-- Where: Italy-Switzerland Frontier (province Como/Canton Ticino)
-- Who: Italian and Swiss governments (IT Ratification: Law 83 of 13 June 2023)
-- Tax at source: Withheld only in Switzerland; tax credit in Italy (EC framework 730)
-- Italian-Swiss Convention: Signed 9 December 1976
-- AVS/AI/IPG contributions: 5.3% employee; AD/AC 1.1% (cap CHF 148'200)
-
-### Why Pusiano for the Ticino border crossing
-
-Pusiano is a small town in the province of Como (Lombardy), located a short distance from the Ticino crossings Chiasso and Brogeda. For those who work in Ticino, living in Pusiano means benefiting from a lower cost of living than in Switzerland, while maintaining proximity to the workplace. The border worker who chooses this geographical location has access to consolidated Italian services and reasonable commuting times to the Canton of Ticino.
-
-The New
-## Social security and coverage: AVS, LPP, LAMal
-
-### AVS/AI and unemployment insurance contributions
-
-The border worker working in Ticino pays the AVS/AI/IPG contributions to the competent Swiss body, not to the Italian INPS. The years of contribution in Switzerland count for the AVS annuity, not for the Italian pension. It is a crucial aspect: those who accumulate a career in Switzerland benefit from the Swiss calculation rules, generally more favorable than the Italian ones for those who have mixed contributions.
-
-AVS/AI/IPG employee contribution: **5.3%** of gross salary
-Unemployment insurance (AD) and continuous allowance (AC) contribution: 1.1% (with cap CHF 148'200 of taxable income)
-Accident insurance (LAINF): 0.7-1.5% (generally borne by the employer)
-
-These contributions are automatically withheld in the paycheck. The border worker receives a statement documenting the contributions paid. It is essential to retain these documents for the duration of use and beyond.
-
-### Second pillar: LPP (Pension Fund)
-
-The LPP is the second Swiss pillar and is mandatory for employees with a gross annual salary above CHF 21,570 (figure 2024, subject to annual variation). Employer and employee pay age-varying contributions:
-
-- Years 25–34: ~7% of salary
-- Years 35–44: ~10%
-- Years 45–54: ~15%
-- Years 55–64: ~18% (maximum range)
-
-The LPP accumulates paid-in capital as an annuity upon reaching retirement age
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-## Practical procedure: step-by-step for the transfer # ## Step 1: Find job offer and check the G Permit Before moving to Pusiano, it is essential to have a job offer written by a Swiss employer in the Canton of Ticino. The G Permit is not obtained independently: the employer submits the application to the canton (SEM-State Secretariat migration office) upon a binding offer. In the application, the employer specifies: - Data of the border worker (name, date of birth, nationality) - Professional qualification and RAL (gross annual salary) - Duration of the contract (at least 1 year, preferably indeterminate) - Description of the position The canton examines the dossier in 2–4 weeks and issues the G Permit valid for 1 year (renewable). Once received, the border agent takes him to the municipality of Pusiano (registry office) for registration as a Swiss resident in Italy. The procedure is free. # ## Step 2: Swiss bank account opening and currency management Once hired, the employer will indicate an affiliated bank for salary. If the border agent wants to choose the institution, the main Ticino options are Banca Cantonale del Ticino, UBS, and Raiffeisen. The account must allow the salary to be credited in CHF and the withdrawal in EUR with minimum exchange fee. Many cross-border workers open two accounts: one in CHF at the Swiss bank (for CH payments) and one in EUR at an Italian bank or an online transfer provider ✓ Verification of residence permits: Permit G provided to the municipality of Pusiano ✓ Communication to Italian services: utilities, car insurance, change of address ## Calculate your net before moving Before accepting the job offer, use [calcolatore stipendio frontaliere](nav:calculator) to estimate your monthly net income in EUR. Enter RAL, canton Ticino and deductible (CHF 10,000 if you are a new frontier worker), and you will get a forecast of taxes at source, AVS/LPP contributions and net in the paycheck. It is a crucial tool to assess whether the transfer to Pusiano is economically convenient compared to your current situation.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 02:57:16 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-pusiano-lavorare-ticino-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-pusiano-lavorare-ticino-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

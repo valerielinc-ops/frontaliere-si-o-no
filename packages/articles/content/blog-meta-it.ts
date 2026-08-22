@@ -10485,6 +10485,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Lavoro stagionale Ticino: regole, permesso G e diritti',
     'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
     'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Frontalieri che attraversano il valico di confine Ticino-Italia al mattino presto durante l\'orario di lavoro',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Lavoro stagionale in Ticino: guida fiscale 2024–2026',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo cambia la fiscalità: imposta alla fonte svizzera e ristorni italiano. Ecco come funziona per i lavoratori stagionali.',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Valle di Lugano al confine italo-svizzero, scenario tipico per lavoratori stagionali frontalieri',
 };
 
 export default blogMetaIt;

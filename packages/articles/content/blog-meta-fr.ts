@@ -10486,6 +10486,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Travail saisonnier Tessin : règles, permis G et droits',
     'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Depuis 2024, le nouvel accord fiscal réforme les taxes et les redevances pour les frontaliers. Règles pour le permis G, la fiscalité et les droits au travail saisonnier au Tessin.',
     'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Travailleurs frontaliers traversant le point de passage frontière Suisse-Italie au Tessin tôt le matin',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.title': 'Travail saisonnier au Tessin : guide fiscal 2024–2026',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.excerpt': 'À partir du 1er janvier 2024, le Nouvel Accord modifie la fiscalité : impôt à la source suisse et restauration italienne. Voici comment cela fonctionne pour les travailleurs saisonniers.',
+    'blog.article.frontaliere-stagionale-diritti-fiscali.imageAlt': 'Vallée de Lugano près de la frontière suisse-italienne, cadre typique pour les travailleurs saisonniers frontaliers',
 };
 
 export default blogMetaFr;
