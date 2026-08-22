@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 22 Aug 2026 08:20:12 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 08:37:30 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -16,6 +16,83 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Comment calculer l&apos;impôt source Tessin</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/calculer-impot-source-ticino/</link>
+      <description><![CDATA[Guide pratique pour le calcul de l'impôt à la source pour les frontaliers Tessin-Italie : taux, franchises 2024, crédit d'impôt en 730 et simulateur interactif.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Impôt à la source retenu UNIQUEMENT par l'employeur suisse (pas dans les deux pays)
+- Nouvel accord frontalier : à partir du 1er janvier 2024, franchise € 7'500 (anciens) ou € 10'000 (nouveaux)
+- Crédit d'impôt italien : recouvrement en 730 (cadre CE), évite la double imposition
+- Taux SVizzere : AVS/AI/APG 5,3%, AD/AC 1,1%, LPP 7–18% par tranche d'âge
+
+## Faits clés
+- **Quoi** : Impôt à la source sur le revenu salarié
+- Quand : en vigueur à partir du 1er janvier 2024 (nouvel accord frontalier)
+- Où : Suisse (retenue à la source) ; Italie (crédit en 730)
+- Qui : frontaliers avec permis G (classés en anciens ou nouveaux depuis le 17 juillet 2023)
+- Montant : Franchise 7'500 € ( anciens frontaliers, 2024–2033) ou 10'000 € ( nouveaux)
+- Entrée en vigueur : 1er janvier 2024, puis signature le 23 décembre 2020
+- Convention de base : Italie-Suisse du 9 décembre 1976
+
+Le nouvel accord frontalier, signé le 23 décembre 2020 et entré en vigueur le 1er janvier 2024, a redessiné les règles de la taxe à la source pour ceux qui franchissent quotidiennement les frontières entre le Tessin et l'Italie. Pour le frontalier qui travaille en Suisse et réside en Italie, l'impôt à la source n'est retenu QUE par l'employeur suisse. Ce n'est pas le cas, contrairement à ce que l'on croit parfois, dans les deux pays.
+
+La Convention entre l'Italie et la Suisse, signée le 9 décembre 1976, prévoit que la Suisse a le droit exclusif d'imposer le revenu salarié de ceux qui résident en Italie mais travaillent sur le territoire
+### Comment on calcule : taux et cotisations suisses
+
+L'impôt à la source en Suisse n'est pas un impôt unique, mais un agrégat de cotisations et d'impôts versés par le salarié sur la masse salariale. Les taux fédéraux en vigueur sont :
+
+- **AVS/AI/APG** (sécurité sociale, assurance invalidité) : 5,3% du salaire brut
+- AD/AC (assurance chômage et accumulation de compétences) : 1,1% jusqu'à un revenu maximum de CHF 148'200
+- LAA (assurance-accidents) : 0,7–1,5% selon le secteur d'activité
+- LPP (fonds de pension d'entreprise) : 7–18% selon la tranche d'âge (à partir de 25 ans)
+
+L'ensemble de ces versements constitue la retenue à la source figurant sur la fiche de paie suisse du frontalier. Le calcul est brut : le salaire brut est réduit de ces cotisations avant toute déduction fiscale cantonale ou communale. La Suisse, en effet, utilise un système de retenue à la source qui extrait directement les cotisations et laisse au sujet le net d'éventuelles dettes fiscales cantonales supplémentaires.
+
+Le [calcolatore dedicato](nav:calculator) de notre site permet de simuler ces montants en fonction du salaire brut, de la tranche d'âge et des franchises (7'500 € ou 10'000 € ) appliquées à partir de 2024. Les taux indiqués sont basés sur les réglementations fédérales ; vérifiez toujours avec l'employeur suisse les montants spécifiques retenus, car les taux cantonaux Tessin peuvent subir des variations annuelles.
+
+### Scénario de comparaison : avant vs après le Nouvel Accord 2024
+
+Avant le 1er janvier 2024, le
+
+## Outils utiles pour votre cas
+Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
+### Procedura dichiarativa et scadenzes
+Chaque année fiscale, le frontalier a l'obligation de déclarer le revenu du travail suisse à l'Agenzia delle Entrate italienne. Les étapes sont simples:
+
+1. Demander au donneur de salaire suisse le certificat de salaire (Jahreslohnausweis ou documentatio équivalente) qui indique le brut, les retenues, les cotisations et la franchise éventuellement appliquée.
+2. Remplir le modèle 730 italien dans la section dédiée aux revenus étrangers (cadre CE). Déclarer le revenu brut annuel et l'import des impôts étrangers retenus.
+3. Communiquer les données lors de la présentation du 730 auprès du CAF/patronato italien ou via agenzia telematica.
+4. L'Agenzia delle Entrate reconnaît le crédit d'impôt et calcule le remboursement ou le versement dû.
+
+La scadenza pour la présentation du modèle 730 est le **30 avril** de l'année suivante par rapport au période de revenu. Par exemple, les revenus du travail suisse de 2025 doivent être déclarés avant le 30 avril 2026. Le certificat de salaire suisse représente la documentatio de support principal; conservez-le en cas de contrôle de l'Agenzia.
+
+### L'utilisation du simulateur
+Sur notre site, le calculateur interactif est conçu pour simuler l'impôt à la source en fonction de données réelles ou hypothétiques. L'outil permet d'insérer :
+
+- Salaire brut annuel (en CHF)
+- Canton de travail (Ticino)
+- Catégorie d'âge (pour le calcul LPP à partir de 25 ans)
+- Franchise applicable (7'500 € pour les frontaliers anciens, 10'000 € pour les nouveaux à partir de 2024)
+
+Le simulateur restitue une estimation de la retenue suisse effective et le correspondant scaglione d'IRPEF italienne. De là, vous pouvez déduire une prévision sur le remboursement ou le versement probable dans le 730. N'oubliez pas que l'outil est indicatif : les taux cantonaux Ticino peuvent varier d'année en année, et le donneur de salaire suisse peut appliquer des détails spécifiques. Utilisez le résultat comme guide préliminaire et comparez-le toujours avec la paie réelle.
+
+### Consultations et soutien
+Si le calcul dans le 730 se révèle complexe ou le remboursement ne correspond pas aux attentes, le frontalier a plusieurs options :
+
+- Contacter le CAF/patronato italien de référence spécialisé dans les revenus étrangers;
+- Vérifier avec le donneur de salaire suisse la correcte des retenues appliquées dans la paie;
+- Se rapprocher d'un comptable spécialisé dans la fiscalité transfrontalière CH-IT;
+- Consulter l'help desk de l'Agenzia delle Entrate italienne pour les doutes sur le crédit d'impôt.
+
+N'oubliez pas l'importance de conserver toute la documentatio suisse (certificat de salaire, paies) pendant au moins cinq ans : en cas de contrôle fiscal italien, ces documents sont la preuve de la retenue suisse et de votre droit au crédit d'impôt.
+
+Utilisez notre [calculateur interactif](nav:calculator) ici en dessous pour une estimation immédiate de la retenue et du probable remboursement dans le 730. Inserer votre salaire brut annuel et découvrez combien vous pouvez récupérer en déclaration.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 08:37:30 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/calcolare-imposta-fonte-ticino</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/calcolare-imposta-fonte-ticino.webp" medium="image"/>
+    </item>
     <item>
       <title>Demande de permis G : procédure complète étape par étape</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/permis-g-demande-procedure-complete/</link>
@@ -3295,102 +3372,6 @@ Si vous n'avez pas encore une offre d'emploi en Ticino, consultez le portail [La
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/vivere-santa-maria-maggiore-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-santa-maria-maggiore-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Vivre à Carnago, travailler au Tessin : guide frontalier</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/carnago-frontalier-tessin-guide/</link>
-      <description><![CDATA[Comment vivre à Carnago et travailler au Tessin en tant que frontalier : permis G, impôt à la source, LAMal, ristournes fiscales, checklist administrative.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Frontières G soumises à un nouveau régime à compter du 1er janvier 2024
-- Impôt suisse : 5.3% AVS/AI + 0.7-1.5% LAA (retenue en Suisse)
-- Franchise annuelle de 10 000 € pour les nouveaux frontaliers ; date limite de déclaration : 31 mai
-
-## Faits clés
-- **Quoi** : Travail salarié au Tessin avec résidence stable à Carnago (Italie)
-- Quand : Nouvel accord en vigueur depuis le 1er janvier 2024 (L. 83/2023)
-- Où : Province de Varèse, accès via Brogeda/Chiasso, frontière sud du Tessin
-- Qui : Travailleur italien avec permis G frontalier
-- Taux : 5,3 % AVS/AI/APG + 0,7-1,5 % LAA + LPP 7-18 % (à partir de la masse salariale)
-
-### Le Permis G : accès quotidien au marché du travail tessinois
-
-Vivre à Carnago et travailler au Tessin signifie opérer selon le régime frontalier, régi par le permis G — l'autorisation délivrée par les autorités cantonales de Suisse aux travailleurs subordonnés italiens qui traversent quotidiennement la frontière pour l'activité salariée. Le permis G n'est pas un visa touristique, mais un document administratif attestant l'existence d'un contrat de travail valable en Suisse et la résidence stable en Italie. [Consulta la guida al Permesso G per dettagli su tempi di rilascio e rinnovo](nav:permits).
-
-La géolocalisation de Carnago offre des avantages stratégiques : elle est située à environ 30–40 km de la zone de Chiasso et Brogeda, les deux points de passage frontaliers les plus importants de l'axe sud-ouest du Tessin. Cette distance, tout en n'excluant pas les temps de trajet importants pendant les heures de pointe, permet un accès quotidien réalisable au
-## Il nuovo regime fiscale 2024: imposta alla fonte svizzera et crédit d'imposta italien
-
-A partir du **1er janvier 2024**, le nouveau Accord entre l'Italie et la Suisse sur les frontaliers (signé le 23 décembre 2020 et ratifié par l'Italie avec Loi 83 du 13 juin 2023) a introduit des modifications substantielles au régime fiscal. La principale innovation est l'introduction de la franchise rédactionnelle annuelle de 10 000 € pour les nouveaux frontaliers (celui qui ont commencé le contrat de travail après le 17 juillet 2023).
-
-Les frontaliers précédents au 17 juillet 2023 bénéficient d'une exonération de 7 500 € avec un régime transitoire valable jusqu'au 31 décembre 2033. Cette distinction est rélevante pour le calcul de l'imposition italienne et peut comporter des différentiels significatifs au cours du période d'occupation.
-
-### Impòte à la source en Suisse : mécanique de la rétention
-
-L'imposition à la source sur le revenu du travail est retenue exclusivement en Suisse. L'employeur tessinois s'occupe directement à retenir de la paie mensuelle :
-- 5,3 % pour AVS (Assurance pour la Vieillesse et les Survivants) + AI (Assurance Invalidité) + IPG (Indemnité Perte de Gain en cas de chômage)
-- 0,7-1,5 % pour LAINF (Assurance contre les accidents professionnels et non professionnels)
-- 7-18 % pour LPP (Caisse pension obligeante, avec une taux qui varie pour le groupe d'âge à partir de 25 ans)
-
-Ces retenues sont déduites automatiquement du brut de la paie suisse ; le net mensuel est calculé après la déduction de ces montants. [Si vous avez besoin de clarifications sur le crédit d'imposition et les rétors, utilisez le simulateur de paie](nav:payslip).
-
-### Éviter la double imposition : le crédit d'imposition italien
-
-L'Italie n'applique pas une imposition à la source séparée sur les frontaliers. Cependant, le revenu est soumis à l'IRPEF (Impôt sur le Revenu des Personnes Physiques) selon les taux ordinaires :
-- 23 % jusqu'à 28 000 €
-- 35 % de 28 001 à 50 000 €
-- 43 % au-delà de 50 000 €
-
-Pour éviter une double imposition, le frontalier utilise le crédit d'imposition dans le modèle 730 italien. Le crédit correspond à la somme d'imposition à la source déjà payée en Suisse ; il est déclaré dans le Cadre CE de la déclaration des revenus et abat directement l'IRPEF italienne due. Si le crédit dépasse l'imposition italienne calculée, le frontalier obtient un rétour (remboursement) dans les délais de liquidation de la déclaration.
-
-### LAMal, AVS et LPP : la prévoyance à deux vitesses
-
-Un aspect souvent sous-estimé est le droit d'option sur la LAMal (assurance maladie suisse). Les frontaliers Permiso G ne sont pas automatiquement obligés à adhérer à LAMal suisse ; ils peuvent choisir de se maintenir inscrits au Service Sanitaire National italien (continuité de soins) ou passer au système suisse. La choix doit être effectué dans les 30 jours suivant le début du contrat de travail et est définitif pour la période d'occupation. Les franchises de LAMal suisse oscillent entre CHF 300 et CHF 2 500 annuels, selon la police.
-
-Pour ce qui concerne la prévoyance complémentaire (LPP), l'employeur suisse obligeamment inscrit le frontalier dans une caisse pension reconnue. Le taux de contribution varie pour le groupe d'âge : 7 % entre 25 et 34 ans, 10 % jusqu'à 44 ans et 18 % au-delà de 55 ans. Ces contributions LPP sont accumulées dans un compte individuel auprès de la caisse et constituent le deuxième pilier suisse (obligatoire), distinct de l'AVS (premier pilier) et du pilier 3a (épargne privée). Un frontalier à Carnago qui travaille en Tessin pendant deux ou trois décennies accumulera des droits à la retraite dans les deux systèmes : AVS suisse (par les contributions versées) et système italien (si précédemment occupé ou si maintient des positions assuratives parallèles). Les deux systèmes NE sont pas automatiquement coordonnés au niveau de la rente finale ; la Convention des doubles impositions Italie-Suisse (signée le 9 décembre 1976) régule la taxation mais pas le cumul retraitaire.
-
-## Outils utiles pour votre cas
-Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
-## Checklist pratica: les étapes administratives fondamentales
-
-### Étape 1 : Demander le permis G auprès des autorités cantonales
-
-La procédure ne commence pas à Carnago, mais implique l'employeur suisse. C'est lui qui doit adresser la demande de permis G au Secrétariat d'État pour la Migration (SEM) dans la section cantonale compétente (pour le Tessin, le SEM a une représentation à Bellinzone).
-
-Documents requis:
-- Contrat de travail original ou copie certifiée
-- Certificat de résidence municipal de Carnago (délivré par la commune)
-- Document d'identité italien (passeport ou carte d'identité valable)
-- Déclaration sur la résidence stable en Italie (formulaire SEM)
-- Preuve de l'adresse de résidence à Carnago (facture, contrat de location)
-
-La procédure dure en général 2-4 semaines. Une fois accordé, le permis G a une validité annuelle et est renouvelable à condition que le rapport de travail persiste et que la résidence italienne soit maintenue.
-
-### Étape 2 : Enregistrement auprès de l'INPS et communication au fisc italien
-
-Parallèlement, le frontalier doit communiquer à son employeur italien (si il a d'autres activités) et à l'**INPS** son nouveau statut de frontalier. Même si ce n'est pas obligatoire par la loi, cette communication évite les incohérences dans les registres contributifs. L'Agenzia delle Entrate italienne reçoit automatiquement une notification de la Suisse par l'échange de données bilatéral ; cependant, une communication explicite à l'INPS (par le formulaire SR163 ou équivalent) accélère l'allignment administratif.
-
-### Étape 3 : Déclaration fiscale annuelle et date limite du 31 mai
-
-Avant le 31 mai de chaque année, le frontalier présente le modèle 730 italien ou le modèle Unico (si plus pratique, compte tenu du revenu étranger). La déclaration doit indiquer :
-- Revenu brut gagné au Tessin (montant annuel déclaré par l'employeur)
-- Impôt à la source payé en Suisse (détail des retenues mensuelles : AVS/AI/IPG, LAINF, LPP)
-- Franchissement appliqué : 10 000 € pour de nouveaux frontaliers ou 7 500 € pour frontaliers précédents (jusqu'à la fin de 2033)
-- Crédit d'impôt dans le cadre du CE (équivalent à l'impôt suisse, pour annuler la double imposition)
-
-Le système italien calcule automatiquement si le frontalier a droit à un ristorno (remboursement) ou s'il est dû un intégrale d'impôt. Les ristornos sont liquidés généralement au cours de l'été (juin-août) ou, si le 730 est présenté via CAF, avant les délais de liquidation de l'Agenzia.
-
-### Étape 4 : Coordonnement LAMal et souscription de la choix
-
-Avant 30 jours de l'entame du rapport de travail, le frontalier communique officiellement à l'employeur suisse et à l'assureur s'il entend maintenir LAMal italien (considéré si il a une continuité de soin avec des structures italiennes) ou passer à LAMal suisse (considéré si il entend accéder à des réseaux de soin tessinois/suisses). Une fois choisie, cette option n'est pas facilement réversible pendant le même contrat de travail. Il s'agit d'une décision qui doit être pesée en considérant la familiarité avec des structures publiques et les coûts de poche prévus.
-
-### Étape 5 : Suivi mensuel et suivi des cotisations
-
-[Utilisez le calculateur de salaire pour frontaliers](nav:calculator) pour simuler le netto mensuel, vérifier les retenues appliquées et prévoir l'impact sur la déclaration annuelle. Ce outil vous aide à estimer le crédit d'impôt italien sur la base des retenues suisses, à prévoir si vous aurez un ristorno ou un intégrale dû, et à suivre l'accumulation de droits AVS/LPP pendant l'année.
-
-Conservez toujours les bulletins de salaire mensuels et le résumé annuel fourni par l'employeur suisse : ils servent comme preuve de soutien pendant des contrôles fiscaux. Maintenez de manière ordonnée une copie de la réception de la présentation du 730 italien et des avertissements de liquidation de l'Agenzia delle Entrate, en particulier si ils sont émis des ristornos ou des intégrales.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 03:42:55 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/carnago-frontaliere-ticino-guida</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/carnago-frontaliere-ticino-guida.webp" medium="image"/>
     </item>
   </channel>
 </rss>
