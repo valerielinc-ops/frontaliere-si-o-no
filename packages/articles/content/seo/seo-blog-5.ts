@@ -74366,6 +74366,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-silandro-grigioni-tassazione-permesso-g': {
+    title: 'Vivere a Silandro e lavorare in Grigioni: guida fiscale',
+    description: 'Nuovo Accordo Frontalieri dal 1° gennaio 2024: esenzione €7.500 per vecchi frontalieri, €10.000 per nuovi. Imposta alla fonte in Svizzera, credito d\'imposta',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, silandro, lavorare, grigioni',
+    ogTitle: 'Vivere a Silandro e lavorare in Grigioni: guida fiscale',
+    ogDescription: 'Nuovo Accordo Frontalieri dal 1° gennaio 2024: esenzione €7.500 per vecchi frontalieri, €10.000 per nuovi. Imposta alla fonte in Svizzera, credito d\'imposta in Italia. AVS e LPP versati solo in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/silandro-grigioni-tassazione-permesso-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Silandro e lavorare in Grigioni: guida fiscale",
+      "description": "Nuovo Accordo Frontalieri dal 1° gennaio 2024: esenzione €7.500 per vecchi frontalieri, €10.000 per nuovi. Imposta alla fonte in Svizzera, credito d'imposta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/silandro-grigioni-tassazione-permesso-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino dei Grigioni svizzeri, vista sulle valli con prati e boschi di conifere"
+      },
+      "datePublished": "2026-08-22T02:15:34+00:00",
+      "dateModified": "2026-08-22T02:15:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/silandro-grigioni-tassazione-permesso-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
