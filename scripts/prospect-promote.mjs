@@ -171,7 +171,18 @@ for (const c of promotable) {
   try {
     execFileSync('node', args, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
   } catch (err) {
-    console.log(`  ✗ ${spec.companyKey}: scaffold fallito — ${String(err.stderr || err.message).slice(0, 160)}`);
+    // Prima riga utile invece dei primi 160 caratteri: uno stack di Node inizia
+    // con il path del modulo interno e la riga di `throw`, quindi il troncamento
+    // mostrava tre righe di rumore e nascondeva la causa. Nel primo giro
+    // autonomo l'errore leggibile era `ERR_MODULE_NOT_FOUND: yaml` e nel log si
+    // vedeva solo `Error [ERR_MODULE_NOT_FOUND]:`.
+    const raw = String(err.stderr || err.message || '');
+    const cause = raw.split('\n')
+      .map((l) => l.trim())
+      .find((l) => /^(Error|[A-Za-z]*Error:)/.test(l) && l.length > 12) || raw.split('\n')[0] || 'causa ignota';
+    const named = /Cannot find package '([^']+)'/.exec(raw)?.[1];
+    const missing = named || (/ERR_MODULE_NOT_FOUND/.test(raw) ? 'dipendenza npm' : '');
+    console.log(`  ✗ ${spec.companyKey}: scaffold fallito — ${cause}${missing ? ` (manca: ${missing})` : ''}`);
     continue;
   }
   // NIENTE cambio di stato qui.
@@ -191,9 +202,20 @@ for (const c of promotable) {
   console.log(`  ✓ ${spec.companyKey.padEnd(28)} ${String(c.vacancyCount).padStart(3)} annunci  qualita' ${Number(c.qualityScore).toFixed(2)}`);
 }
 
-if (!shipped.length || dryRun) {
-  if (dryRun) console.log('\n--dry-run: niente scritto.');
+if (dryRun) {
+  console.log('\n--dry-run: niente scritto.');
   process.exit(0);
+}
+
+if (!shipped.length) {
+  // Il gate si e' aperto e non e' uscito NIENTE: non e' un giro tranquillo, e'
+  // un guasto. Uscire 0 lo rendeva invisibile — il primo giro autonomo ha
+  // promosso 10 crawler, ne ha scaffoldati zero per una dipendenza mancante, e
+  // il workflow e' finito verde. Con nessuno che guarda, un fallimento totale
+  // silenzioso e' l'esito peggiore possibile.
+  console.error(`\n❌ ${promotable.length} candidati hanno superato il gate e NESSUNO e' stato scaffoldato.`);
+  console.error('   Le cause sono nelle righe ✗ qui sopra.');
+  process.exit(1);
 }
 
 // Fold the new crawlers into a group workflow, so they actually get scheduled.
