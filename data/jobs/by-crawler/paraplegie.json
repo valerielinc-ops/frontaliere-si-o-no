@@ -1,6 +1,6 @@
 {
   "crawlerKey": "paraplegie",
-  "assembledAt": "2026-08-22T09:42:37.635Z",
+  "assembledAt": "2026-08-22T08:42:53.440Z",
   "jobs": [
     {
       "id": "paraplegie-d369f62b4e68",
@@ -3064,28 +3064,35 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-steinhausen",
+          "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+          "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen",
+          "apprenticeship-businesswoman-man-efz-working-place-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen",
+          "apprentissage-entreprise-homme-efz-lieu-de-travail-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen"
+        ],
         "de": [
           "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-steinhausen",
           "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-spz-steinhausen"
         ],
-        "it": [
-          "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-steinhausen",
-          "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen"
-        ],
         "en": [
-          "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen"
+          "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+          "apprenticeship-businesswoman-man-efz-working-place-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen"
         ],
         "fr": [
-          "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen"
+          "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+          "apprentissage-entreprise-homme-efz-lieu-de-travail-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen"
         ]
       },
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-steinhausen",
         "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
         "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-spz-steinhausen",
-        "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen"
+        "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+        "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen",
+        "apprenticeship-businesswoman-man-efz-working-place-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen",
+        "apprentissage-entreprise-homme-efz-lieu-de-travail-steinhausen-schweizer-paraplegiker-zentrum-spz-steinhausen"
       ],
-      "firstSeenAt": "2026-08-21T10:00:48.839Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "baseSalary": {
@@ -3097,7 +3104,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T10:00:48.839Z"
     },
     {
       "id": "paraplegie-c8c721400c59",
