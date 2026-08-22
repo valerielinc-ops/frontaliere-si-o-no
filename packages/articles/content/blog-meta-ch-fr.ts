@@ -3847,6 +3847,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologues : salaires et coûts à l\'étude',
     'blog.article.radiologi-premi-aumenti-2027.excerpt': 'Le Parlement fédéral suisse aborde le débat sur les coûts de la santé : les radiologues perçoivent des salaires supérieurs à 300 000 francs, les primes augmenteront de 3,7% en 2027.',
     'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Palais fédéral suisse à Berne lors d\'une session plénière sur la réforme de la politique sanitaire',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Ministres des finances : Keller-Sutter à Vaduz pour l\'économie européenne',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'Le 24 août, la conseillère fédérale participera au Liechtenstein à la réunion annuelle avec des collègues germanophones pour discuter des finances, du climat et de la stabilité.',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'La conseillère fédérale rencontre ministres finances germanophones pour discuter politique économique européenne',
 };
 
 export default blogMetaChFr;

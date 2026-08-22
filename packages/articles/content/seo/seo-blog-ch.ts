@@ -49901,6 +49901,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-keller-sutter-ministri-finanze-germanofoni': {
+    title: 'Ministri finanze: Keller-Sutter a Vaduz per economia europea',
+    description: 'Il 24 agosto Keller-Sutter partecipa all\'incontro ministri finanze germanofoni a Liechtenstein per discutere sfide economiche e stabilità finanziaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ministri, finanze, keller-sutter, vaduz',
+    ogTitle: 'Ministri finanze: Keller-Sutter a Vaduz per economia europea',
+    ogDescription: 'Il 24 agosto la consigliera federale Keller-Sutter si reca a Liechtenstein per l\'incontro dei ministri finanze germanofoni, affrontando sfide di invecchiamento, sanità, clima e resilienza finanziaria europea.',
+    canonicalPath: '/articoli-svizzera/keller-sutter-ministri-finanze-germanofoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ministri finanze: Keller-Sutter a Vaduz per economia europea",
+      "description": "Il 24 agosto Keller-Sutter partecipa all'incontro ministri finanze germanofoni a Liechtenstein per discutere sfide economiche e stabilità finanziaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/keller-sutter-ministri-finanze-germanofoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro tra Karin Keller-Sutter e ministri finanze germanofoni per discutere politica economica europea"
+      },
+      "datePublished": "2026-08-22T16:12:01+00:00",
+      "dateModified": "2026-08-22T16:12:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/keller-sutter-ministri-finanze-germanofoni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

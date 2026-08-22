@@ -3847,6 +3847,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologen: Gehälter und Kosten werden geprüft',
     'blog.article.radiologi-premi-aumenti-2027.excerpt': 'Das Schweizerische Bundesparlament stellt sich der Kostendebatte im Gesundheitswesen: Radiologen erhalten Gehälter über 300 \'000 Franken, Prämien werden 2027 um 3,7 Prozent steigen.',
     'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Bundeshaus in Bern während einer Plenarsitzung zur Gesundheitsreform',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Finanzminister: Keller-Sutter in Vaduz für europäische Wirtschaft',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'Am 24. August wird die Bundesrätin in Liechtenstein am jährlichen Treffen mit deutschsprachigen Kollegen teilnehmen, um über Finanzen, Klima und Stabilität zu diskutieren.',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'Karin Keller-Sutter trifft deutschsprachige Finanzminister zur Diskussion der europäischen Wirtschaftspolitik',
 };
 
 export default blogMetaChDe;

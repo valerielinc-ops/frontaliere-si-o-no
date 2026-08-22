@@ -3847,6 +3847,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologi: stipendi e costi sotto esame',
     'blog.article.radiologi-premi-aumenti-2027.excerpt': 'Il Parlamento federale svizzero affronta il dibattito sui costi della sanità: radiologi percepiscono stipendi oltre 300.000 franchi, premi aumenteranno del 3,7% nel 2027.',
     'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Palazzo federale svizzero a Berna durante una sessione plenaria sulla riforma della sanità',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Ministri finanze: Keller-Sutter a Vaduz per economia europea',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'Il 24 agosto la consigliera federale parteciperà a Liechtenstein all\'incontro annuale con colleghi germanofoni per discutere di finanze, clima e stabilità.',
+    'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'Incontro tra Karin Keller-Sutter e ministri finanze germanofoni per discutere politica economica europea',
 };
 
 export default blogMetaChIt;
