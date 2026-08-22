@@ -31503,6 +31503,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'infortunio-tragitto-lavoro-frontaliere',
+ category: 'pratico',
+ date: '2026-08-22T16:02:00.802Z',
+ image: '/images/blog/infortunio-tragitto-lavoro-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10525,6 +10525,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.notifica-multa-residente-italiano.title': 'Amende routière en Suisse : comment le résident italien paie',
     'blog.article.notifica-multa-residente-italiano.excerpt': 'Si vous êtes un résident italien, vous recevez une amende routière en Suisse : comment fonctionnent la notification, le paiement en CHF et les droits de recours administratif.',
     'blog.article.notifica-multa-residente-italiano.imageAlt': 'Route tessinoise avec signalisation routière et trafic frontalier dans le canton du Tessin',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Accident de trajet : protection et signalement frontalier',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Découvrez comment la LAA (0,7-1,5 %) couvre les accidents du travail pour les frontaliers titulaires d\'un permis G entre le Tessin et l\'Italie : procédure de plainte, garanties et droits.',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Voiture en transit au point de passage frontalier Tessin-Italie sur l\'autoroute tôt le matin',
 };
 
 export default blogMetaFr;
