@@ -601,7 +601,8 @@
       },
       "addressLocality": "Schafisheim, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "id": "company-golu97",
@@ -693,7 +694,8 @@
       },
       "addressLocality": "Basel, Basel-Stadt",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "id": "company-m0bmje",
@@ -8684,7 +8686,8 @@
       },
       "addressLocality": "Rapperswil-Jona, Sankt Gallen",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "id": "company-24wds9",
@@ -16043,23 +16046,27 @@
           "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-murten",
           "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
           "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-engelberg",
-          "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-pfaffikon"
+          "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-pfaffikon",
+          "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-wurenlingen"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-57i3h4",
           "seller-fresh-products-coop-genossenschaft-zurich-61021d",
           "salesperson-fresh-products-coop-genossenschaft-niederrohrdorf-mhw80v",
-          "sales-associate-fresh-products-coop-genossenschaft-pfaffikon-itq4w3"
+          "sales-associate-fresh-products-coop-genossenschaft-pfaffikon-itq4w3",
+          "salesperson-fresh-products-coop-genossenschaft-wurenlingen-6527c2"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-57i3h4",
           "vendeur-produits-frais-coop-genossenschaft-zurich-61021d",
           "vendeur-euse-produits-frais-coop-genossenschaft-niederrohrdorf-mhw80v",
-          "vendeur-euse-produits-frais-coop-genossenschaft-pfaffikon-itq4w3"
+          "vendeur-euse-produits-frais-coop-genossenschaft-pfaffikon-itq4w3",
+          "vendeur-euse-produits-frais-coop-genossenschaft-wurenlingen-6527c2"
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-niederrohrdorf-aargau-mhw80v",
-          "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3"
+          "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3",
+          "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-6527c2"
         ]
       },
       "previousSlugs": [
@@ -16098,7 +16105,11 @@
         "verkaufer-in-frischprodukte-coop-niederrohrdorf-aargau-mhw80v",
         "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3",
         "vendeur-euse-produits-frais-coop-genossenschaft-niederrohrdorf-mhw80v",
-        "vendeur-euse-produits-frais-coop-genossenschaft-pfaffikon-itq4w3"
+        "vendeur-euse-produits-frais-coop-genossenschaft-pfaffikon-itq4w3",
+        "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-wurenlingen",
+        "salesperson-fresh-products-coop-genossenschaft-wurenlingen-6527c2",
+        "verkaufer-in-frischprodukte-coop-wurenlingen-aargau-6527c2",
+        "vendeur-euse-produits-frais-coop-genossenschaft-wurenlingen-6527c2"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

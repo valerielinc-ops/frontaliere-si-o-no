@@ -2541,14 +2541,15 @@
           "chef-de-progetto-r-i-qualita-richemont-neuchatel",
           "responsabile-progetto-r-i-qualita-richemont-neuchatel",
           "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
-          "project-leader-r-i-qualita-richemont-neuchatel"
-        ],
-        "en": [
-          "r-i-quality-project-manager-richemont-neuchatel"
+          "project-leader-r-i-qualita-richemont-neuchatel",
+          "chef-de-projet-r-i-qualite-richemont-neuchatel"
         ],
         "de": [
           "projektleiter-r-i-qualitat-richemont-neuchatel",
           "r-i-qualitatsprojektleiter-richemont-neuchatel"
+        ],
+        "en": [
+          "r-i-quality-project-manager-richemont-neuchatel"
         ]
       },
       "previousSlugs": [
@@ -2560,7 +2561,8 @@
         "projektleiter-r-i-qualitat-richemont-neuchatel",
         "project-leader-r-i-qualita-richemont-neuchatel",
         "r-i-quality-project-manager-richemont-neuchatel",
-        "r-i-qualitatsprojektleiter-richemont-neuchatel"
+        "r-i-qualitatsprojektleiter-richemont-neuchatel",
+        "chef-de-projet-r-i-qualite-richemont-neuchatel"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
       "salaryMin": 60500,
@@ -14407,22 +14409,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "analisi-dei-materiali-specialistici-richemont-glovelier"
-        ],
-        "en": [
-          "specialist-materials-analysis-richemont-glovelier"
-        ],
-        "de": [
-          "spezialisierte-materialanalyse-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "analisi-dei-materiali-specialistici-richemont-glovelier",
-        "specialist-materials-analysis-richemont-glovelier",
-        "spezialisierte-materialanalyse-richemont-glovelier"
-      ],
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -14436,6 +14422,24 @@
           "unitText": "YEAR"
         }
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "analisi-dei-materiali-specialistici-richemont-glovelier",
+          "specialiste-analyses-materiaux-richemont-glovelier"
+        ],
+        "en": [
+          "specialist-materials-analysis-richemont-glovelier"
+        ],
+        "de": [
+          "spezialisierte-materialanalyse-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "analisi-dei-materiali-specialistici-richemont-glovelier",
+        "specialist-materials-analysis-richemont-glovelier",
+        "spezialisierte-materialanalyse-richemont-glovelier",
+        "specialiste-analyses-materiaux-richemont-glovelier"
+      ],
       "needsRetranslation": true
     },
     {
