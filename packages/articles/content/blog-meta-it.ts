@@ -10512,6 +10512,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Partita IVA frontaliere: tassazione, AVS e doppia imposizione',
     'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'Dal 2024 nuove regole per autonomi frontalieri: franchigie differentiate, imposta alla fonte solo in Svizzera, contributi AVS/LPP obbligatori e come evitare doppia tassazione.',
     'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Ambiente di lavoro frontaliere tra Svizzera e Italia: laptop, documenti fiscali e paesaggio di confine sullo sfondo',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Spesa alimentare: Svizzera o Italia conviene per il frontaliere?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Confronto pratico su prezzi, franchigia doganale e abitudini d\'acquisto per chi lavora in Ticino. Cosa cambia con il nuovo accordo frontalieri 2024?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Frontaliere confronta scontrini spesa al confine Mendrisio',
 };
 
 export default blogMetaIt;

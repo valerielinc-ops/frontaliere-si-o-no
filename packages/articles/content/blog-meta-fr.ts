@@ -10513,6 +10513,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Numéro de TVA frontalier : fiscalité, AVS et double imposition',
     'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'À partir de 2024, de nouvelles règles pour les travailleurs frontaliers indépendants : franchises différentes, imposition à la source uniquement en Suisse, cotisations AVS/LPP obligatoires et comment éviter la double imposition.',
     'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Espace de travail de frontalier entre la Suisse et l\'Italie: ordinateur portable, documents fiscaux et paysage frontalier en arrière-plan',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Frais alimentaires : la Suisse ou l\'Italie convient-elle au frontalier ?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Comparaison pratique des prix, des franchises douanières et des habitudes d\'achat pour ceux qui travaillent au Tessin. Qu\'est-ce qui change avec le nouvel accord frontalier 2024 ?',
+    'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Frontalier comparant les tickets de caisse à la frontière de Mendrisio',
 };
 
 export default blogMetaFr;
