@@ -10448,6 +10448,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sonico-lavorare-grigioni.title': 'Vivre à Sonico et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Guide opérationnel pour les frontaliers : fiscalité, nouvel accord et aspects pratiques du travail dans le canton des Grisons.',
     'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Vue panoramique des Alpes suisses vers les Grisons',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Vivre à Valbondione, travailler dans les Grisons : guide frontalier',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Se déplacer à Valbondione et se rendre dans les Grisons : cols, horaires, taxes, franchise de 10 000 € , LAMal, documents Permis G.',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Paysage alpin avec route de montagne reliant les villages italiens aux Grisons, brume sur les pics enneigés.',
 };
 
 export default blogMetaFr;
