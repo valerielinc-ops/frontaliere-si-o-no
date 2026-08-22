@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 04:09:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 04:38:04 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,51 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Labour market Bern: wages, training and social security</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/bern-labour-market-salaries-training/</link>
+      <description><![CDATA[No Swiss federal minimum wage. Discover timetables, AVS/LPP contributions, salary levels for training and collective agreements in the Canton of Bern.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- No federal minimum wage; some cantons have their own
+- Maximum hours 45–50 hours per week according to work sector
+- AVS/AI/IPG contributions: 5.3% employee salary (10.6% total)
+- Minimum holiday 4 weeks per year (5 under 20 years)
+
+## Key facts
+- **What**: Regulatory and social security framework of the labour market in the Canton of Bern
+- When: Federal and cantonal regulations in force 2026
+- Where: Canton Bern, central Switzerland
+- Who: SECO, UST/BFS, cantonal authority Bern, pension funds
+- Contributions: AVS/AI/IPG 5.3%, AD/AC 1.1%, LAINF/LAA 0.7–1.5%
+- Hours: 45 hours industry/offices; 50 hours other sectors
+- Holidays: Minimum 4 weeks; 5 under 20 years
+
+The labour market in the Canton of Bern operates according to Swiss federal regulations, with cantonal and municipal specifications affecting wages, social security and taxation. Switzerland does not have a federal minimum wage, but some cantons, potentially including Bern, have established one for certain sectors. Job seekers in Bern need to understand how wage levels relate to vocational training, what mandatory contributions are paid and how the local tax system reduces the monthly net.
+
+The Swiss training system is divided into three paths: vocational training (Federal Certificate of Competence, AFC), general training (cantonal or Swiss maturity) and tertiary training (universities, vocational colleges). Each
+The final tax burden on a Bern employee's salary depends on three levels of taxation: the federal direct tax (IFD), the cantonal tax, and the municipal tax. The IFD is collected by the Federal Administration; the cantonal and municipal taxes are managed by the local authorities in Bern according to their own rates. The municipal tax multiplier applies a coefficient to the cantonal tax rate, so the final tax burden varies depending on the place of residence within the Canton of Bern. These amounts do not appear as 'pension contributions' but as 'source tax' (PPC), withheld directly from the salary every month by the employer. 
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Procedure for Job Seekers in Bern
+If you are looking for work in the Canton of Bern, the first step is to identify the professional sector and the level of qualification you are looking for. The SECO publishes a national portal with job postings; in addition, national and local Bernese private portals offer opportunities. Once you receive a job offer, negotiate the salary taking into account your level of training, accumulated experience, and, crucially, the applicable CCL for your sector (if any). Ask the employer what salary ranges are for your position and compare them with what is provided for in the collective contract. If there is no applicable CCL, the salary is free but must still respect any written commitments.
+
+Before signing a employment contract, carefully read all the conditions: working hours, holiday days, public holidays, shift supplements, and if the contract falls under a registered CCL. Verify that the proposed salary respects the minimum of the collective contract for your role and your level of experience. If the contract does not mention a CCL, the salary is negotiable but the minimum federal conditions (45-50 hours, 4 weeks of holiday, maternity/paternity) remain always valid.
+
+### Calculation of Net Salary
+The gross salary you see in the job offer is NOT what you will receive: various mandatory deductions reduce it monthly. In addition to the mandatory federal contributions (AVS/AI/IPG 5.3%, AD/AC 1.1%, LAINF/LAA 0.7-1.5%), the professional pension (LPP) further reduces the amount paid. Furthermore, the federal direct tax (IFD) and the cantonal and municipal taxes of the Canton of Bern are applied through the withholding tax system (PPC). To quickly calculate the net, use the [salary calculator](nav:calculator): enter the gross, the canton (Bern), the place of residence, age, and marital status, and you will get an accurate estimate of the monthly net, as well as a detailed breakdown of all federal, cantonal, and municipal deductions.
+
+### Deadlines, Documents, and Mandatory Registrations
+When you accept a job offer, the employer will provide you with a contract and guide you through the administrative registration. You must declare your definitive address in the Canton of Bern, as the municipalities calculate the payroll tax (PPC) from there. Make sure you have a mandatory health insurance (LAMal) within 3 months of starting work. If you don't have one yet, contact a health insurance company directly or contact the Bernese cantonal social welfare office, which can indicate the options with reduced premiums thanks to cantonal subsidies. The LAMal premium is your personal responsibility: the employer does not pay it nor deduct it from your payroll.
+The company pension fund (LPP) automatically registers eligible employees and will provide documentation on the fund and pension rights. You will receive an annual pension account extract showing the accumulated reserve value. If you want to verify the contributions and accrued interests.
+
+### Support Tools and Next Steps
+Don't look for it alone: use the [salary calculator](nav:calculator) to simulate your monthly net for months, national portals for [job search](nav:jobs), and consult the Bernese cantonal labor office for up-to-date information on sectoral minimum wages and collective contracts. If you have specific questions about the AVS pension, the company pension fund (LPP), or the third pillar, contact the SECO or the Federal Office of Social Insurance (UFAS).]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 04:38:04 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/mercato-berna-salari-formazione</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/mercato-berna-salari-formazione.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in Bern: registration and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/starting-business-bern-switzerland/</link>
@@ -2829,75 +2874,6 @@ Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter g
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/comprare-casa-appenzello-esterno-mutui-tasse</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/comprare-casa-appenzello-esterno-mutui-tasse.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Buying a house in Appenzello Esterno: mortgage, prices and taxes</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/buy-house-appenzello-esterno-mortgage/</link>
-      <description><![CDATA[Guide to buying real estate in Appenzell Ausserrhoden: affordability of the mortgage, minimum capital adequacy, transfer tax, notary fees and step-by-step procedure.]]></description>
-      <content:encoded><![CDATA[## Briefly
-- In Switzerland, the property tax system has 3 levels: federal, cantonal, and communal.
-- A mortgage usually requires a down payment of 20% and a valuation of sustainability.
-- Appenzello Esterno applies its own transfer tax on immovable property.
-
-## Key Facts
-- **What**: Purchase of immovable property in Switzerland
-- Where: Appenzello Esterno Canton (North-East)
-- Who: Purchaser, bank, notary, cantonal administration
-- System: Federal + Cantonal + Communal
-- Requirement: Down payment (usually 20% of the price)
-
-Buying a home in Appenzello Esterno Canton follows standard Swiss procedures, with specific fiscal and administrative features of the canton. In Switzerland, the property tax system is structured on three levels: federal, cantonal, and communal. Each canton, including Appenzello Esterno, applies its own rates on transfer taxation and has administrative competence on urban planning and building permits.
-
-At the federal level, there is no nationwide property tax. However, each canton and each municipality applies its own taxes on transfers (transfer tax) and annual property taxation. The Appenzello Esterno cantonal administration has jurisdiction over transfer tax rates, building permit criteria, and, if applicable, tax deductions for homeowners.
-
-### Role of the bank and financing
-
-Mortgage financing is the most common solution in Switzerland to buy a home. Banks assess the sustainability of the mortgage with their own criteria, checking that the mortgage burden (annual mortgage rate) does not exceed a percentage of net income. A buyer must generally have funds available of at least 20% of the purchase price; this percentage is a widely followed standard by Swiss banks.
-
-The LAMal (obligatory health insurance for residents) is a fixed expense that the bank considers in the calculation of the ability to pay. LAMal premiums vary by canton and age group. Buying a property in Switzerland is a formal process, supervised by the notary, which ensures the legality of the transaction according to federal and cantonal laws. Understanding the mortgage sustainability criteria, cantonal taxes, and procedural expenses is essential for planning a responsible property purchase. For more information on your ability to pay, consult our [mortgage calculator](nav:calculator).
-### Assessment of ability to pay
-
-Once the property is identified, the bank makes a thorough assessment of the buyer's ability to pay. This process includes analysis of net income (monthly salary net of federal, cantonal, municipal taxes), current fixed charges (rents, LPP retirements, insurance, debts), and a conservative stress test with higher interest rates than the current ones.
-
-The sustainability of the mortgage is calculated with a formula that varies slightly between banks, but the principle is constant: the annual installment of the mortgage must not exceed a percentage (typically 30-35%) of the annual net income. If the income is low or the fixed charges are high, the bank may refuse the loan or propose a loan of a lower amount. Fixed charges include LAMal. A buyer resident in Appenzello Esterno will pay LAMal premiums according to the regional rates of the canton. Unlike a salary contribution (such as the AVS/AI at 5.3% for the employee), LAMal is a private insurance at per capita premiums, not linked to salary.
-
-### Tax Impact of Real Estate
-
-In addition to the mortgage, the buyer must consider the tax impact. There is no property tax at the federal level. However, at cantonal and municipal level, every homeowner pays annual property taxes (municipal property tax). Furthermore, at the time of the transfer of the
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Notary fees and purchase procedure
-
-Notary fees are a significant component of the purchase cost. A notary registered in the canton of Appenzell Ausserrhoden draws up the deed of sale, verifies the real rights to the property via the Land Registry, ensures that the transaction complies with federal and cantonal laws, and coordinates the registration of the property in the name of the buyer. Notary fees follow a schedule calculated on the basis of the value of the property and vary according to the cantonal fee.
-
-### Step-by-step towards purchase
-
-**1. Research and preliminary evaluation**
-Identify the desired property. Consult the cadastral plans on the cantonal land registry website and request an independent estimate of the value of the property.
-
-2. Mortgage pre-approval
-Contact local banks for a preliminary sustainability check. Prepare: pay slips for the last 12 months, VAT return (if self-employed), bank account statement.
-
-3. Negotiation and preliminary contract
-Once you have identified the property, negotiate the terms of purchase. A preliminary contract is not required by law, but is recommended to protect both parties.
-
-4. Consult the notary
-Contact a notary registered in the canton of Appenzell Ausserrhoden. The notary draws up the deed of sale, verifies the rights to the property and registers the mortgage in the land registry.
-
-5. Payment of the transfer fee
-The cantonal administration of Appenzell Ausserrhoden will require payment of the transfer tax within specific deadlines (usually 30–60 days after signing the deed). Check the deadlines at the cantonal tax office.
-
-6. Registration in the Land Registry
-Once the formalities are completed, the property is officially registered in the name of the buyer.
-
-### Practical tools
-
-For a preliminary estimate of mortgage affordability based on your income, available funds and mortgage rate, use our [calcolatore](nav:calculator). This tool allows you to simulate different financing scenarios and plan your purchase budget with greater awareness.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 02:05:16 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/casa-appenzello-esterno-acquisto-mutuo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/casa-appenzello-esterno-acquisto-mutuo.webp" medium="image"/>
     </item>
   </channel>
 </rss>

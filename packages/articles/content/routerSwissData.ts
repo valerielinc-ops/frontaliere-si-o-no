@@ -1288,6 +1288,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esercito-bilancio-misure-violenza': { it: 'esercito-bilancio-misure-violenza', en: 'swiss-army-violence-prevention-interim-report', de: 'schweizer-armee-gewaltpraevention-bilanz', fr: 'armee-suisse-rapport-mesures-violence' },
  'dimissioni-fondazione-beloved': { it: 'dimissioni-fondazione-beloved', en: 'beloved-foundation-resignations', de: 'beloved-stiftung-ruecktritt', fr: 'fondation-beloved-demissions' },
  'berna-avviare-attivita-commercio': { it: 'berna-avviare-attivita-commercio', en: 'starting-business-bern-switzerland', de: 'geschaeftsgruendung-bern-schweiz', fr: 'demarrer-activite-berne-suisse' },
+ 'mercato-berna-salari-formazione': { it: 'mercato-berna-salari-formazione', en: 'bern-labour-market-salaries-training', de: 'arbeitsmarkt-bern-loehne-ausbildung', fr: 'marche-travail-berne-salaires-formation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
