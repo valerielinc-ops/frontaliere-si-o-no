@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-22T09:37:31.469Z",
-  "total": 20,
+  "generatedAt": "2026-08-22T21:25:42.671Z",
+  "total": 19,
   "newCount": 0,
-  "updatedCount": 20,
+  "updatedCount": 19,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 41768,
-  "avgDurationMs": 41768,
+  "durationMs": 31327,
+  "avgDurationMs": 31327,
   "durationHistory": [
-    41768
+    31327
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -145,7 +145,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+      "slug": "responsabile-customer-care-firmenkunden-massenmarkt-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Verkauf und Kundenberatung"
@@ -733,52 +733,6 @@
       "currency": "CHF",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
-      "title": "Fachspezialist:in Fondsmanagement",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "specialista-in-gestione-del-fondo-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "03.08.26",
-      "validThrough": "02.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-d61f5a277b5f",
-      "firstSeenAt": "2026-08-03T22:14:08.925Z",
-      "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
       "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -832,46 +786,47 @@
   ],
   "removedJobs": [
     {
-      "url": "https://jobs.postfinance.ch/job/Teamlead-Customer-Center-%28wmd%29-Topsharing-m%C3%B6glich%21/74310-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Teamlead-Customer-Center-%28wmd%29-Topsharing-m%C3%B6glich%21/74310-de_DE",
-      "title": "Teamlead Customer Center (w/m/d) - Topsharing möglich!",
+      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
+      "title": "Fachspezialist:in Fondsmanagement",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Biel/Bienne",
+      "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "teamlead-customer-center-w-m-d-topsharing-moglich-postfinance",
+      "slug": "specialista-in-gestione-del-fondo-postfinance-bern",
       "sourceLang": "de",
       "department": [
-        "Verkauf und Kundenberatung"
+        "Büro-Finanzen und Revision"
       ],
       "category": [
-        "Verkauf und Kundenberatung"
+        "Büro-Finanzen und Revision"
       ],
-      "datePosted": "20.07.26",
-      "validThrough": "20.08.26",
+      "datePosted": "03.08.26",
+      "validThrough": "02.09.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
-      "workload": "60-100%",
+      "workload": "80-100%",
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
-        "location": "Biel/Bienne"
+        "location": "Bern"
       },
-      "id": "postfinance-32e4aa77a438",
-      "firstSeenAt": "2026-07-27T22:10:24.138Z",
+      "id": "postfinance-d61f5a277b5f",
+      "firstSeenAt": "2026-08-03T22:14:08.925Z",
       "crawledAt": "",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
-      "addressLocality": "Biel/Bienne",
+      "addressLocality": "Bern",
       "addressRegion": "BE",
       "crawlerMissStreak": 2,
-      "_qualityScore": 82,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 14
       }
