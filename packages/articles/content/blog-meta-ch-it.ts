@@ -3757,6 +3757,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-tariffe.title': 'Svizzera-Cina: intesa per eliminare i dazi doganali',
     'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accordo per l\'esenzione doganale sul 99,8% dell\'export svizzero verso la Cina: risparmi annui stimati di 244 milioni di CHF per le imprese elvetiche.',
     'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palazzo federale a Berna, sede delle decisioni economiche svizzere.',
+    'blog.article.cherosene-sintetico-aviazione.title': 'Aviazione: CO2 e acqua diventano cherosene sintetico',
+    'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Argovia inaugura centrale dimostrativa di cherosene sintetico. Compagnie aeree svizzere devono mescolare il 2% di carburante sostenibile oggi, salendo al 6% nel 2030.',
+    'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Centrale dimostrativa del Paul Scherrer Institut per la produzione di cherosene sintetico sostenibile in Argovia',
 };
 
 export default blogMetaChIt;

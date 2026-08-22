@@ -3757,6 +3757,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-tariffe.title': 'Suisse-Chine : accord pour éliminer les droits de douane',
     'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accord d\'exonération douanière sur 99,8 % des exportations suisses vers la Chine : économies annuelles estimées à 244 millions de CHF pour les entreprises suisses.',
     'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palais fédéral à Berne, centre des décisions économiques suisses.',
+    'blog.article.cherosene-sintetico-aviazione.title': 'Aviation : le CO2 et l\'eau deviennent du kérosène synthétique',
+    'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Argovie inaugure la centrale de démonstration de kérosène synthétique. Les compagnies aériennes suisses doivent aujourd\'hui mélanger 2 % de carburant durable, pour atteindre 6 % en 2030.',
+    'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Centrale de démonstration à l\'Institut Paul Scherrer produisant du carburant synthétique durable en Argovie',
 };
 
 export default blogMetaChFr;

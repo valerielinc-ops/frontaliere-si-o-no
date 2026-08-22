@@ -3757,6 +3757,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-tariffe.title': 'Schweiz-China: Vereinbarung zur Abschaffung der Zölle',
     'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Vereinbarung über die Zollbefreiung von 99,8% der Schweizer Exporte nach China: geschätzte jährliche Einsparungen von CHF 244 Mio. für Schweizer Unternehmen.',
     'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Bundeshaus in Bern, Zentrum schweizerischer wirtschaftspolitischer Entscheidungen.',
+    'blog.article.cherosene-sintetico-aviazione.title': 'Luftfahrt: CO2 und Wasser werden zu synthetischem Kerosin',
+    'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Aargau eröffnet Demonstrationszentrum für synthetisches Kerosin. Schweizer Fluggesellschaften müssen heute 2% nachhaltigen Treibstoff mischen und bis 2030 auf 6% ansteigen.',
+    'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Demonstrationsanlage am Paul Scherrer Institut zur Herstellung von nachhaltigem Synthesekerosin im Aargau',
 };
 
 export default blogMetaChDe;
