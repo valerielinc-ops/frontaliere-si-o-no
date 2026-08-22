@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-21T21:34:00.711Z",
+  "generatedAt": "2026-08-22T09:41:41.012Z",
   "total": 135,
   "newCount": 0,
   "updatedCount": 85,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 3399,
-  "avgDurationMs": 3399,
+  "durationMs": 3439,
+  "avgDurationMs": 3439,
   "durationHistory": [
-    3399
+    3439
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -568,7 +568,6 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -639,7 +638,6 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1374,6 +1372,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-17T22:05:45.953Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1411,6 +1410,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-08T22:21:17.082Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
