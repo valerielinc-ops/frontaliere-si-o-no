@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-22T16:24:12.006Z",
+  "generatedAt": "2026-08-22T19:07:47.511Z",
   "tally": {
-    "good": 30,
-    "weak": 6,
-    "bad": 1,
-    "insufficient": 3
+    "good": 29,
+    "weak": 7,
+    "bad": 2,
+    "insufficient": 2
   },
-  "promotedVacancies": 3857,
+  "promotedVacancies": 3843,
   "reports": [
     {
       "companyKey": "albergo-gardenia",
@@ -569,7 +569,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1705,
+          "words": 1706,
           "status": 200
         },
         {
@@ -923,37 +923,41 @@
       "companyKey": "ipersonal",
       "vacancyCount": 15,
       "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
       "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
+      "score": 0.1,
+      "verdict": "bad",
+      "problems": [
+        "100% degli URL non risolve",
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
       "samples": [
         {
           "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-heerbrugg-gesucht-medizinische-fuehrung-mit-verantwortung/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1321,
-          "status": 200
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "words": 0,
+          "status": 0
         },
         {
           "url": "https://med-ipersonal.ch/jobs/pflegedienstleiter-pflegedienstleiterin-80-100-in-gelterkinden-gesucht-ihre-fuehrungsstaerke-fuer-eine-exzellente-pflege/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1249,
-          "status": 200
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "words": 0,
+          "status": 0
         },
         {
           "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-herisau-gesucht-medizinische-fuehrung-mit-verantwortung/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1314,
-          "status": 200
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "words": 0,
+          "status": 0
         }
       ],
       "companyName": "iPersonal AG",
@@ -964,23 +968,40 @@
     },
     {
       "companyKey": "itunes",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "distinctRate": 0,
-      "score": 0,
-      "verdict": "insufficient",
-      "problems": [],
-      "samples": [],
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.028,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 0.66,
+      "verdict": "weak",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381?platform=iphone",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "words": 380,
+          "status": 200
+        },
+        {
+          "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381",
+          "reachable": true,
+          "titleMatch": 0.05555555555555555,
+          "contentful": true,
+          "words": 380,
+          "status": 200
+        }
+      ],
       "companyName": "Jobup",
       "companyHost": "apps.apple.com",
       "platform": "apple.com",
       "mode": "template",
-      "runErrors": [
-        "https://apps.apple.com/ch/app/jobup-ch-emplois-en-romandie/id456238167: HTTP 429"
-      ]
+      "runErrors": []
     },
     {
       "companyKey": "jobs",
@@ -1352,30 +1373,22 @@
     },
     {
       "companyKey": "okjob",
-      "vacancyCount": 13,
+      "vacancyCount": 14,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.897,
+      "titleMatchRate": 0.847,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.964,
+      "score": 0.947,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/de/jobangebote/lastwagenchauffeur-ce-100-m-w-d-bern/?ref=41633",
+          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-gesundheit-spitex-m-w-d-basel/?ref=42078",
           "reachable": true,
-          "titleMatch": 1,
+          "titleMatch": 0.875,
           "contentful": true,
-          "words": 475,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/walzenfuehrer-asphalteinbau-100-m-w-d-bern/?ref=41645",
-          "reachable": true,
-          "titleMatch": 0.8571428571428571,
-          "contentful": true,
-          "words": 699,
+          "words": 721,
           "status": 200
         },
         {
@@ -1383,7 +1396,15 @@
           "reachable": true,
           "titleMatch": 0.8333333333333334,
           "contentful": true,
-          "words": 655,
+          "words": 675,
+          "status": 200
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/maurerin-80-100-m-w-d-bern/?ref=41647",
+          "reachable": true,
+          "titleMatch": 0.8333333333333334,
+          "contentful": true,
+          "words": 646,
           "status": 200
         }
       ],
