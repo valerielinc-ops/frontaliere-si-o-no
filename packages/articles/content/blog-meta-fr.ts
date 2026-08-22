@@ -10504,6 +10504,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Impôt à la source 2026 : taux Tessin',
     'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'Comment fonctionne la quellensteuer dans le canton du Tessin ? Découvrez les taux 2026, les bonifications, la franchise du Nouvel Accord et le seuil NOV de CHF 120\'000.',
     'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'Vue de Bellinzona, capitale du canton du Tessin où travaillent des milliers de frontaliers',
+    'blog.article.accordo-edilizia-ticino-6-anni.title': 'Construction Tessin : accord pour 6 ans',
+    'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'L\'indemnité de chantier passe à 6,5 CHF à partir de janvier 2027, puis 9 CHF en 2028. Salaires minimums adaptés à la vie et temps de voyage intégralement rémunéré. Accord OCST signé en mai 2026.',
+    'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Chantier de construction au Tessin avec ouvriers et échafaudages au coucher du soleil',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'Numéro de TVA de frontalier en Suisse : exigences, taxes et prévoyance',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Ouvrir une entreprise indépendante au Tessin en tant que frontalière : exigences légales, différences fiscales avec le travail salarié et obligations de sécurité sociale. Guide pratique avec des données vérifiées.',
+    'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Pigiste travaillant dans un espace de coworking à Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;
