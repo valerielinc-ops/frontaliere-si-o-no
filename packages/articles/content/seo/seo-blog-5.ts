@@ -75146,6 +75146,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-notifica-multa-residente-italiano': {
+    title: 'Multa stradale in Svizzera: come paga il residente italiano',
+    description: 'Se residente italiano ricevi multa stradale in Svizzera: scopri la procedura di notifica, le modalità di pagamento, i tempi e come ricorrere',
+    keywords: 'frontalieri, ticino, svizzera, italia, multa, stradale, paga, residente',
+    ogTitle: 'Multa stradale svizzera: pagamento da residente italiano',
+    ogDescription: 'Guida pratica per frontalieri italiani: ricevi multa stradale in Svizzera? Scopri come funziona la notifica, il pagamento in CHF, i termini, il ricorso amministrativo e le conseguenze del mancato pagamento.',
+    canonicalPath: '/articoli-frontaliere/notifica-multa-residente-italiano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Multa stradale in Svizzera: come paga il residente italiano",
+      "description": "Se residente italiano ricevi multa stradale in Svizzera: scopri la procedura di notifica, le modalità di pagamento, i tempi e come ricorrere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/notifica-multa-residente-italiano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada ticinese con segnaletica stradale e traffico frontaliero nel Cantone Ticino"
+      },
+      "datePublished": "2026-08-22T14:57:42+00:00",
+      "dateModified": "2026-08-22T14:57:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notifica-multa-residente-italiano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

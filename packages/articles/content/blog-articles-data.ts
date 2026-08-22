@@ -31494,6 +31494,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'notifica-multa-residente-italiano',
+ category: 'pratico',
+ date: '2026-08-22T14:57:42.890Z',
+ image: '/images/blog/notifica-multa-residente-italiano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
