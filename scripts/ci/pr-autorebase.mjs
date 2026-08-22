@@ -291,9 +291,7 @@ function reopenStateFingerprint(num, vitestConclusion) {
  * concurrency non è un verdetto sul codice e non deve valere come `failure`
  * per la precondizione (altrimenti bloccherebbe PR sane). */
 function normalizedVitestConclusion(head) {
-  const out = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
-    { json: true, allowFail: true });
-  const runs = (out && out.check_runs) || [];
+  const runs = checkRunsOf(head);
   if (vitestVerdictIsTransientCancellation(runs)) return 'transient';
   return latestCompletedVitestConclusion(runs) || '';
 }
@@ -390,17 +388,33 @@ function headPushedMinutesAgo(head) {
   return (Date.now() - t) / 60000;
 }
 
+/** I check-run di un head, fetchati UNA volta e memoizzati per head.
+ *
+ * Quattro funzioni qui sotto (`headHasVitestCheck`, `vitestConclusion`,
+ * `vitestVerdictIsTransient`, `stuckRedRescueReason`) ponevano quattro domande
+ * diverse allo STESSO identico endpoint, e dal 2026-08-22 la stuck-red si
+ * valuta per ogni PR con vitest rosso (non più solo per le non-near-merge):
+ * senza memoizzazione quel cambio avrebbe moltiplicato le chiamate invece di
+ * lasciarle invariate. La cache è per-head e vive quanto il processo — un run
+ * dell'autorebase dura secondi e un head è immutabile, quindi non può servire
+ * un dato stantio per il codice che sta esaminando. */
+const _checkRuns = new Map();
+function checkRunsOf(head) {
+  if (_checkRuns.has(head)) return _checkRuns.get(head);
+  const out = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
+    { json: true, allowFail: true });
+  const runs = (out && out.check_runs) || [];
+  _checkRuns.set(head, runs);
+  return runs;
+}
+
 /** Esiste già un check-run `vitest (unit + integration)` sull'head (qualunque
  * stato: queued/in_progress/completed)? Serve a (a) non ri-dispatchare se vitest
  * sta già girando o è concluso, e (b) rilevare gli head "orfani" a 0 check-run
  * lasciati da un push PAT che non ha ri-triggerato `pull_request` o da un
  * autorebase pre-#1597 che pushava senza dispatchare. */
 function headHasVitestCheck(head) {
-  const out = gh(
-    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
-      '--jq', `[.check_runs[] | select(.name == ${JSON.stringify(VITEST_CHECK_NAME)})] | length`],
-    { json: false, allowFail: true });
-  return (parseInt((out || '0').trim(), 10) || 0) > 0;
+  return checkRunsOf(head).some((c) => c && c.name === VITEST_CHECK_NAME);
 }
 
 /** Conclusion del check-run `vitest (unit + integration)` sull'head (''
@@ -413,10 +427,7 @@ function headHasVitestCheck(head) {
  * workflow_dispatch manuale cancellato sullo stesso SHA non avvelena il verdetto
  * (stessa classe del bug #2394). Vedi lib/vitestCheck.mjs. */
 function vitestConclusion(head) {
-  const out = gh(
-    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
-    { json: true, allowFail: true });
-  return latestCompletedVitestConclusion(out && out.check_runs);
+  return latestCompletedVitestConclusion(checkRunsOf(head));
 }
 
 /** Il verdetto vitest rosso sull'head è una cancellazione transient da
@@ -426,10 +437,7 @@ function vitestConclusion(head) {
  * al ramo behind===0: senza, una PR LGTM+behind=0 con un rosso transient restava
  * ferma (heal solo su check ASSENTE). Vedi lib/vitestCheck.mjs. */
 function vitestVerdictIsTransient(head) {
-  const out = gh(
-    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
-    { json: true, allowFail: true });
-  return vitestVerdictIsTransientCancellation(out && out.check_runs);
+  return vitestVerdictIsTransientCancellation(checkRunsOf(head));
 }
 
 /** Ultimi run COMPLETATI di `tests.yml` sul branch main, per stabilire se main è
@@ -452,11 +460,8 @@ function mainTestsRuns() {
  * del test e poi tornato verde, oppure rosso stantio da >24h = infra)? Ritorna
  * la `reason` (`'red-main'`/`'stale'`) o '' . Vedi lib/vitestCheck.mjs. */
 function stuckRedRescueReason(head) {
-  const out = gh(
-    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
-    { json: true, allowFail: true });
   const { rescue, reason } = vitestFailureIsNotAttributableToPr({
-    checkRuns: (out && out.check_runs) || [],
+    checkRuns: checkRunsOf(head),
     mainTestsRuns: mainTestsRuns(),
     staleHours: STUCK_RED_STALE_H,
   });
@@ -734,10 +739,55 @@ async function processPR(pr) {
   const head = pr.headRefOid;
   const labels = (pr.labels || []).map((l) => l.name);
 
+  // `behind` serve allo stuck-red, al gate `needs-human` e al flusso normale:
+  // memoizzato per non pagare tre volte la compare API.
+  let _behind = null;
+  const behindOf = () => (_behind ??= behindMain(head));
+
+  // ── STUCK-RED: si valuta PRIMA di ogni gate, e per QUALUNQUE label ─────────
+  //
+  // Un vitest rosso EREDITATO da main non è un verdetto sulla PR, e il solo
+  // rimedio è `merge origin/main` + ri-test (AGENTS.md → «main rosso blocca a
+  // cascata: ogni branch lo eredita finché non fa merge origin/main»). Questa
+  // valutazione stava DUE gate più in basso, dietro `!nearMerge`, e dopo il
+  // `return` di `skip-idle` del ramo `needs-human`. Entrambi la rendevano
+  // irraggiungibile proprio per le PR che ne avevano bisogno:
+  //
+  //  - dietro `!nearMerge`: `stale-pr-rescuer` etichetta `stale-review` una PR
+  //    ferma >2h e le PROMETTE nel commento che «pr-autorebase ora la considera
+  //    near-merge e la rebasa». Quella label la rendeva near-merge, e near-merge
+  //    escludeva lo stuck-red. Il segnale di stallo disattivava il rimedio allo
+  //    stallo, e i due meccanismi si contraddicevano nero su bianco.
+  //  - dietro il `return` di `needs-human`: l'impronta che decide «lo stato è
+  //    cambiato?» (additions/deletions/changedFiles/vitest/review) è fatta di
+  //    soli fatti INTERNI alla PR. Quando il rosso viene dalla base, nessuno dei
+  //    cinque si muove — e il vitest non può tornare verde da sé, perché il
+  //    check è pinnato all'ultimo run sull'head. Stato assorbente: la PR non
+  //    rientra MAI.
+  //
+  // Misurato il 2026-08-22 su #6253/#6254/#6255: tre PR con diff disgiunti,
+  // tutte rosse sullo stesso test estraneo (`pre-flight-headline-check`, che
+  // leggeva il registro VIVO degli articoli), tutte `needs-human`, ferme ~12h.
+  // main era stato riparato alle 20:58 del giorno prima. Un `gh pr update-branch`
+  // a mano le ha portate verdi tutte e tre e il ciclo le ha mergiate da solo in
+  // ~2 minuti: il lavoro era già fatto, mancava solo chi rimettesse in coda.
+  //
+  // La frugalità che il gate `needs-human` protegge resta intatta: il rescue è
+  // ONE-SHOT per PR via `STUCK_RED_MARKER`, quindi costa al massimo UNA vitest,
+  // non una per tick. Se dopo il rebase è ancora rossa, il rosso è suo.
+  let stuckRedReason = '';
+  if (behindOf() > 0) {
+    stuckRedReason = stuckRedRescueReason(head);
+    if (stuckRedReason && hasCommentMarker(num, STUCK_RED_MARKER)) {
+      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — skip: il rosso è suo.`);
+      stuckRedReason = '';
+    }
+  }
+
   // GATE `needs-human`: una passata SOLO se lo stato è cambiato.
   //
-  // Deve stare QUI, prima di tutto il resto, e non sul `dispatchTests` del ramo
-  // needs-human più sotto. Quel ramo viene DOPO `pushBranch`, e il push del
+  // Deve stare QUI — subito dopo il solo stuck-red, e prima di tutto il resto —
+  // e non sul `dispatchTests` del ramo needs-human più sotto. Quel ramo viene DOPO `pushBranch`, e il push del
   // rebase — autenticato App/PAT — ri-triggera da sé i workflow `pull_request`
   // (#3038, vedi header): togliere il solo dispatch lascerebbe in piedi sia la
   // vitest sia `pr-review-loop`, cioè quota Claude, su una PR che aspetta una
@@ -753,7 +803,13 @@ async function processPR(pr) {
     const body = readReopenBudgetBody(num);
     const prior = parseReopenBudget(body);
     const d = decideNeedsHumanPass({ fingerprint: fp, prior });
-    if (d.action === 'skip-idle') {
+    // Lo stuck-red BATTE `skip-idle`, e deve: l'impronta è cieca alla base
+    // (vedi il blocco sopra), quindi qui «stato invariato» significa solo
+    // «nulla è cambiato DENTRO la PR» — che è vero e irrilevante quando il
+    // rosso viene da fuori. Senza questa riga il rescue resta irraggiungibile
+    // per ogni PR `needs-human`, cioè per tutte quelle che il breaker ha già
+    // escalato. Resta one-shot: al giro dopo il marker lo spegne.
+    if (d.action === 'skip-idle' && !stuckRedReason) {
       console.log(`PR #${num}: ${d.reason}`);
       return;
     }
@@ -793,25 +849,11 @@ async function processPR(pr) {
   // #5074 #5085), ferme 1-4 giorni con `vitest (unit + integration)` come UNICO
   // check rosso (`detect` e `contract` verdi su tutte, mergeable=MERGEABLE: non
   // erano conflitti né il body-contract).
-  // Rompiamo il ciclo SOLO con prova positiva che il rosso non è della PR
-  // (vitestFailureIsNotAttributableToPr: main tornato verde dopo il test, o rosso
-  // stantio >24h = infra) e SOLO se la PR è behind — se è già allineata a main
-  // non c'è nulla di nuovo da ereditare e il rosso è suo. One-shot via marker.
-  // `behind` serve sia allo stuck-red sia al flusso normale: memoizzato per non
-  // pagare due volte la compare API (l'unica chiamata IN PIÙ rispetto a prima è
-  // per le PR non-near-merge, dove prima si usciva subito).
-  let _behind = null;
-  const behindOf = () => (_behind ??= behindMain(head));
-
-  let stuckRedReason = '';
-  if (!nearMerge && behindOf() > 0) {
-    stuckRedReason = stuckRedRescueReason(head);
-    if (stuckRedReason && hasCommentMarker(num, STUCK_RED_MARKER)) {
-      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — skip: il rosso è suo.`);
-      stuckRedReason = '';
-    }
-    if (stuckRedReason) nearMerge = true;
-  }
+  // Il verdetto è calcolato IN CIMA alla funzione (vedi il blocco STUCK-RED):
+  // deve precedere sia questo gate sia il `return` di `needs-human`, che
+  // altrimenti lo rendono irraggiungibile. Qui resta solo l'effetto: un rescue
+  // valido rende la PR near-merge anche senza LGTM né label.
+  if (stuckRedReason) nearMerge = true;
 
   if (!nearMerge) {
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip.`);
