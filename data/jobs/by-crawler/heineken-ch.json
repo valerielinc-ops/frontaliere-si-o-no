@@ -60,7 +60,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:39:33.117Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "currency": "CHF",
@@ -358,23 +357,30 @@
       "previousSlugs": [
         "agent-customer-service-heineken-ch-luzern",
         "mitarbeiter-in-kundenservice-heineken-ch-luzern",
-        "servizio-clienti-agente-heineken-switzerland-luzern"
+        "servizio-clienti-agente-heineken-switzerland-luzern",
+        "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
+        "agent-customer-support-heineken-ch-winterthur",
+        "agent-service-a-la-clientele-heineken-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "agent-customer-service-heineken-ch-luzern",
           "mitarbeiter-in-kundenservice-heineken-ch-luzern",
-          "servizio-clienti-agente-heineken-switzerland-luzern"
+          "servizio-clienti-agente-heineken-switzerland-luzern",
+          "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
+          "agent-customer-support-heineken-ch-winterthur",
+          "agent-service-a-la-clientele-heineken-switzerland-winterthur"
         ],
         "de": [
-          "agent-customer-service-heineken-ch-luzern"
+          "agent-customer-service-heineken-ch-luzern",
+          "agent-customer-support-heineken-ch-winterthur"
         ],
         "fr": [
-          "agent-customer-service-heineken-ch-luzern"
+          "agent-customer-service-heineken-ch-luzern",
+          "agent-service-a-la-clientele-heineken-switzerland-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -466,7 +472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -642,8 +647,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

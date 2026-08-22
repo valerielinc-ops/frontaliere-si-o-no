@@ -594,10 +594,10 @@
       "id": "h-ju-hopital-du-jura-5cd63da12a23",
       "slug": "apprendistato-logisticista-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
+        "fr": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
         "it": "apprendistato-logisticista-hopital-du-jura-h-ju-delemont",
         "en": "logistician-apprenticeship-hopital-du-jura-h-ju-delemont",
-        "de": "auszubildender-logistiker-hopital-du-jura-h-ju-delemont",
-        "fr": "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
+        "de": "auszubildender-logistiker-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -616,7 +616,6 @@
         "de": "Das Jura-Krankenhaus arbeitet an den Standorten Delémont, Porrentruy, der Residence des Franches-Montagnes und der Residence la Promenade und stellt beim Wettbewerb für den Monat August 2027 einen Platz d-\n\n• Während Ihrer Ausbildung werden Sie geführt zu:\n• · Bereitstellung interner und externer Dienstleistungen und Kunden.\n• · Bestellung, Empfang, Kontrolle und Lagerung von Waren.\n• · Liefern Sie Produkte innerhalb der angegebenen Fristen.\n• · Externe Lieferungen auf Rechnung.\n• · Strenge und Sinn für Arbeitsorganisation entwickeln.\n\nDein Profil\n• · Sie schließen Ihre Schulpflicht im Jahr 2027 ab oder sind ein Erwachsener, der sich einer beruflichen Umschulung im Gesundheitsbereich unterzieht.\n• Sie sind motiviert, dynamisch, neugierig.\n• · Sie arbeiten gerne als Team.\n• · Sie genießen es, Verantwortung zu übernehmen.\n• · Sie fühlen sich in einer strukturierten und anspruchsvollen Umgebung wohl.\n• · Sie fühlen sich wohl mit Informatik.\n\nWas wir anbieten\n• ✔️ Travail varié en équipe.\n• ✔️ Formation complète sur 3 ans.\n• Attraktives Gehalt mit Beteiligung an Ausbildungskosten.\n• Ein Caféteria-Restaurant mit aktuellen Preisen.\n• Eine Möglichkeit der Unterkunft (Zimmer verfügbar).\n• Menschliche und professionelle Unterstützung.\n\nInteressiert?\nSenden Sie uns bis zum 13. September 2026 Ihr vollständiges Dossier (Motivationsschreiben, Lebenslauf, Newsletter der letzten 3 Semester, mögliche Praktikumszertifikate) über unsere Online-Plattform.\n\nInformation\nTel. : + 41 32 421 20 47, E-Mail: secretariat.formation@h-ju.ch",
         "fr": "L’Hôpital du Jura déploie ses activités sur les sites de Delémont, Porrentruy, la Résidence des Franches-Montagnes et la Résidence la Promenade et met au concours pour le mois d’août 2027 , une place d’\n\n• Au cours de ton apprentissage, tu seras amené·e à :\n• · Assurer l’approvisionnement des services et clients internes et externes.\n• · Commander, réceptionner, contrôler et stocker les marchandises.\n• · Effectuer les livraisons des produits dans les délais définis.\n• · Facturer les livraisons externes.\n• · Développer rigueur et sens d l’organisation du travail.\n\nTon profil\n• · Tu termines ta scolarité obligatoire en 2027 ou tu es un·e adulte en reconversion professionnelle dans le domaine de la santé.\n• · Tu es motivé·e, dynamique, curieux·se.\n• · Tu aimes travailler en équipe.\n• · Tu apprécies prendre des responsabilités.\n• · Tu es à l’aise dans un environnement structuré et exigeant.\n• · Tu es à l’aise avec l’informatique.\n\nCe que nous offrons\n• ✔️ Travail varié en équipe.\n• ✔️ Formation complète sur 3 ans.\n• ✔️ Salaire attractif avec participation aux frais de formation.\n• ✔️ Un restaurant cafétéria avec des tarifs présentiels.\n• ✔️ Une possibilité de logement (chambres à disposition).\n• ✔️ Un accompagnement humain et professionnel.\n\nIntéressé.e ?\nEnvoie-nous ton dossier complet (lettre de motivation, CV, bulletin des 3 derniers semestres, éventuels certificats de stage) via notre plateforme en ligne d’ici au 13 septembre 2026.\n\nRenseignements\nTél. : + 41 32 421 20 47, courriel : secretariat.formation@h-ju.ch"
       },
-      "needsRetranslation": false,
       "location": "Delémont",
       "canton": "JU",
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4438/apprentie-logisticienne",
@@ -640,12 +639,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4438",
-      "previousSlugs": [
-        "logisticien-ne-hopital-du-jura-h-ju-delemont",
-        "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
-        "apprendistato-logisticista-hopital-du-jura-h-ju-delemont",
-        "logisticista-hopital-du-jura-h-ju-delemont"
-      ],
+      "salaryMin": 50500,
+      "salaryMax": 77000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50500,
+          "maxValue": 77000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:19.628Z",
       "previousSlugsByLocale": {
         "it": [
           "logisticien-ne-hopital-du-jura-h-ju-delemont",
@@ -660,19 +666,13 @@
           "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:31:19.628Z",
-      "salaryMin": 50500,
-      "salaryMax": 77000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 50500,
-          "maxValue": 77000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "logisticien-ne-hopital-du-jura-h-ju-delemont",
+        "apprenti-e-logisticien-ne-h-ju-hopital-du-jura-delemont",
+        "apprendistato-logisticista-hopital-du-jura-h-ju-delemont",
+        "logisticista-hopital-du-jura-h-ju-delemont"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "h-ju-hopital-du-jura-18d08a3d67b2",
@@ -723,6 +723,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4437",
+      "salaryMin": 51000,
+      "salaryMax": 94500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 94500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:19.006Z",
       "previousSlugs": [
         "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
       ],
@@ -736,19 +749,6 @@
         "de": [
           "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:31:19.006Z",
-      "salaryMin": 51000,
-      "salaryMax": 94500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 94500,
-          "unitText": "YEAR"
-        }
       }
     },
     {

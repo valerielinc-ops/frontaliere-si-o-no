@@ -101,7 +101,7 @@
       "title": "Dipl. Physiotherapeut/ Physiotherapeutin",
       "titleByLocale": {
         "it": "Dipl. Fisioterapia/-in",
-        "en": "Dipl. Physiotherapeut/ Physiotherapeutin",
+        "en": "Dipl. Physiotherapist/physiotherapist",
         "de": "Dipl. Physiotherapeut/ Physiotherapeutin",
         "fr": "Dipl. Physiothérapeute/-in"
       },
@@ -378,7 +378,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Privatstation)",
       "titleByLocale": {
         "it": "Dipl. Specialista infermieristico HF/FH (privato reparto)",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Privatstation)",
+        "en": "Dipl. Nursing specialist HF/FH (private ward)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Privatstation)",
         "fr": "Dipl. Spécialiste des soins infirmiers HF/FH (service privé)"
       },
@@ -442,8 +442,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-52a46b27f39c",
@@ -459,7 +458,7 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Infermiera / Infermiera specialista HF",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -526,8 +525,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-35e9f8c11f46",
@@ -543,7 +541,7 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Infermiera / Infermiera specialista HF",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -608,8 +606,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-374981c1eec2",
@@ -625,7 +622,7 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Infermiera / Infermiera specialista HF",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -692,8 +689,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-bdf3187d4fe6",
@@ -776,8 +772,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-6a5eb9651586",
@@ -858,8 +853,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-5d822bebaba6",

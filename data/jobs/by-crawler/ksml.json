@@ -928,7 +928,7 @@
       "title": "Teilpensenlehrperson Zyklus II - 3. Klasse, 13 Lektionen",
       "titleByLocale": {
         "it": "Insegnante partecipante Ciclo II - 3° grado, 13 lezioni",
-        "en": "Teilpensenlehrperson Zyklus II - 3. Klasse, 13 Lektionen",
+        "en": "Participant teacher Cycle II - 3rd grade, 13 lessons",
         "de": "Teilpensenlehrperson Zyklus II - 3. Klasse, 13 Lektionen",
         "fr": "Professeur participant Cycle II - 3ème année, 13 leçons"
       },
@@ -998,8 +998,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-2d70f13f92f6",
@@ -1185,7 +1184,7 @@
       "title": "Teilpensenlehrperson 1./2. Klasse, Gotthelf Thun, 11-13 Lektionen in der Ganztagesschule",
       "titleByLocale": {
         "it": "Partecipare 1 ° / 2 ° grado, Gotthelf Thun, 11-13 lezioni a scuola",
-        "en": "Teilpensenlehrperson 1./2. Klasse, Gotthelf Thun, 11-13 Lektionen in der Ganztagesschule",
+        "en": "Participant 1st / 2nd grade, Gotthelf Thun, 11-13 lessons in the full-day school",
         "de": "Teilpensenlehrperson 1./2. Klasse, Gotthelf Thun, 11-13 Lektionen in der Ganztagesschule",
         "fr": "Participant 1ère / 2ème année, Gotthelf Thun, 11-13 leçons dans l'école toute la journée"
       },
@@ -1250,8 +1249,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-98f76a3dab77",
@@ -1485,7 +1483,7 @@
       "title": "Stv. Klassenlehrperson Kindergarten, 15.12.2026-09.04.2027, 15-25 Lektionen",
       "titleByLocale": {
         "it": "Stv. scuola materna, 15.12.2026-09.04.2027, 15-25 lezioni",
-        "en": "Stv. Klassenlehrperson Kindergarten, 15.12.2026-09.04.2027, 15-25 Lektionen",
+        "en": "Stv. class teacher kindergarten, 15.12.2026-09.04.2027, 15-25 lessons",
         "de": "Stv. Klassenlehrperson Kindergarten, 15.12.2026-09.04.2027, 15-25 Lektionen",
         "fr": "École maternelle Stv., 15.12.2026-09.04.2027, 15-25 leçons"
       },
@@ -1901,8 +1899,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-d749c7525394",
@@ -1920,7 +1917,7 @@
       "title": "Stv. Klassenlehrperson 2. Klasse, 24 Lektionen, 11.01. bis 09.04.2027",
       "titleByLocale": {
         "it": "Stv. insegnante di classe 2a classe, 24 lezioni, 11.01. fino 09.04.2027",
-        "en": "Stv. Klassenlehrperson 2. Klasse, 24 Lektionen, 11.01. bis 09.04.2027",
+        "en": "Stv. class teacher 2nd class, 24 lessons, 11.01. until 09.04.2027",
         "de": "Stv. Klassenlehrperson 2. Klasse, 24 Lektionen, 11.01. bis 09.04.2027",
         "fr": "Professeur Stv. 2ème classe, 24 leçons, 11.01. jusqu'au 09.04.2027"
       },
@@ -2250,7 +2247,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Klassenlehrperson Basisstufe (Pensum: 21 Lektionen Unterricht + 5% KLP + Fr. 300.--)",
       "titleByLocale": {
-        "it": "Stellvertretung Klassenlehrperson Basisstufe (Pensum: 21 Lektionen Unterricht + 5% KLP + Fr. 300.--)",
+        "it": "Livello di base degli insegnanti di classe aggiunto (pensum: 21 lezioni + 5% KLP + p. 300.--)",
         "en": "Deputy class teacher base level (pensum: 21 lessons lessons + 5% KLP + Fr. 300.--)",
         "de": "Stellvertretung Klassenlehrperson Basisstufe (Pensum: 21 Lektionen Unterricht + 5% KLP + Fr. 300.--)",
         "fr": "Niveau de base des enseignants adjoints (pensum: 21 leçons + 5% KLP + Fr. 300.--)"
@@ -2315,8 +2312,7 @@
           "maxValue": 5400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-20a0ffa24f4e",
@@ -2333,7 +2329,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Klassenlehrperson 5./6. Klasse 19 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Klassenlehrperson 5./6. Klasse 19 Lektionen",
+        "it": "Professore di classe aggiunto 5./6. Class 19 Lezioni",
         "en": "Deputy class teacher 5./6. Class 19 Lessons",
         "de": "Stellvertretung Klassenlehrperson 5./6. Klasse 19 Lektionen",
         "fr": "Professeur adjoint 5./6. Cours 19"
@@ -2388,7 +2384,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:20:07.751Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -2417,7 +2412,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Fachlehrperson mehrere Klassen, 16 - 21 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Fachlehrperson mehrere Klassen, 16 - 21 Lektionen",
+        "it": "Professore aggiunto diverse classi, 16 - 21 lezioni",
         "en": "Deputy teacher several classes, 16 - 21 lessons",
         "de": "Stellvertretung Fachlehrperson mehrere Klassen, 16 - 21 Lektionen",
         "fr": "Professeur adjoint plusieurs classes, 16 - 21 leçons"
@@ -2472,7 +2467,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:31:36.247Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -2576,7 +2570,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
       "titleByLocale": {
-        "it": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
+        "it": "Vice Classe Honor Person Intermediate (24.33 lezioni)",
         "en": "Deputy Class Honor Person Intermediate (24.33 lessons)",
         "de": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
         "fr": "Vice-classe Personne d'honneur Intermédiaire (24,33 leçons)"
@@ -2635,7 +2629,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.851Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -3267,7 +3260,6 @@
         "deputato-in-3-4-grado-2-trimestre-8-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-langnau"
       ],
       "firstSeenAt": "2026-08-20T22:10:05.758Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -3881,8 +3873,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-75cdbb1e5fae",
@@ -4486,7 +4477,7 @@
       "title": "Psychomotoriktherapeut/in 8 - 10 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 8 - 10 Lektionen",
+        "en": "Psychomotor therapist/in 8 - 10 lessons",
         "de": "Psychomotoriktherapeut/in 8 - 10 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -4718,8 +4709,7 @@
           "maxValue": 113800,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-af03903ef586",
@@ -5122,8 +5112,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-7077a799119a",
@@ -5318,16 +5307,16 @@
       "title": "Mutterschaftsvertretung Klassenlehrperson 1.-3. Klasse (24 Lektionen)",
       "titleByLocale": {
         "de": "Mutterschaftsvertretung Klassenlehrperson 1.-3. Klasse (24 Lektionen)",
-        "it": "Mutterschaftsvertretung Klassenlehrperson 1.-3. Klasse (24 Lektionen)",
-        "en": "Mutterschaftsvertretung Klassenlehrperson 1.-3. Klasse (24 Lektionen)",
-        "fr": "Mutterschaftsvertretung Klassenlehrperson 1.-3. Klasse (24 Lektionen)"
+        "it": "Maternità Rappresentanza Insegnante Classe 1-3 ° grado (24 lezioni)",
+        "en": "Maternity Representation Class Teacher 1st-3rd grade (24 lessons)",
+        "fr": "Classe de représentation de la maternité Enseignant de première à troisième année (24 leçons)"
       },
       "description": "Porträt\nDie Gemeinde Reichenbach im Kandertal ist flächenmässig recht gross und besteht neben dem Dorfkern aus zahlreichen Weilern. Die ca. 450 Kinder und Jugendlichen werden in 4 Kindergärten, 12 Primarklassen und 6 Oberstufenklassen geführt. Vom Kindergarten bis zur 6. Klasse werden die Kinder in fünf dezentral gelegenen, kleinen Schulhäusern unterrichtet. Im Zyklus 3 besuchen alle das Oberstufenzentrum Müli. Reichenbach stellt ein attraktives Bildungsangebot zur Verfügung.\nAn unserer Schule arbeiten wir weitgehend ohne Regeln und Strafen. Es gilt für alle ganz schlicht und einfach das Prinzip: „Mir häbe Sorg!“\n\nAufgaben\nAls Co-Klassenlehrperson unterrichten Sie eine altersdurchmischte 1.–3. Klasse im Schulhaus Scharnachtal. Ihr Unterricht findet von Montag bis Freitag statt (Montagvormittag, Mittwoch- und Freitagnachmittag unterrichtsfrei). Sie begleiten die Schüler*innen in ihrem Lernprozess und unterstützen sie gemäss den Vorgaben des Lehrplans 21.\n\nAnforderungen\nUnsere ideale Klassenlehrperson der 1.-3. Klasse verfügt über nötige Ausbildungen und fachliche Qualifikationen. Trotzdem möchten wir engagierte, zukünftige Lehrpersonen nicht zurückweisen.\n\nKönnen Sie sich in ein kleines Team einfügen und ihre eigenen Anliegen positionieren? Ist Ihre Stärke im positiven und bestärkenden Umgang mit den Schülern und Schülerinnen, sowie den Eltern? Sind Sie an Coaching-Gesprächen mit den Schülern und Schülerinnen interessiert?\n\nWir bieten\nDas Schulhaus Scharnachtal ist eines der kleinen Schulhäuser, welche die Schulstruktur von Reichenbach ausmacht. Sie können von einem guten Arbeitsklima und einem unterstützenden Team profitieren.",
       "descriptionByLocale": {
         "de": "Porträt\nDie Gemeinde Reichenbach im Kandertal ist flächenmässig recht gross und besteht neben dem Dorfkern aus zahlreichen Weilern. Die ca. 450 Kinder und Jugendlichen werden in 4 Kindergärten, 12 Primarklassen und 6 Oberstufenklassen geführt. Vom Kindergarten bis zur 6. Klasse werden die Kinder in fünf dezentral gelegenen, kleinen Schulhäusern unterrichtet. Im Zyklus 3 besuchen alle das Oberstufenzentrum Müli. Reichenbach stellt ein attraktives Bildungsangebot zur Verfügung.\nAn unserer Schule arbeiten wir weitgehend ohne Regeln und Strafen. Es gilt für alle ganz schlicht und einfach das Prinzip: „Mir häbe Sorg!“\n\nAufgaben\nAls Co-Klassenlehrperson unterrichten Sie eine altersdurchmischte 1.–3. Klasse im Schulhaus Scharnachtal. Ihr Unterricht findet von Montag bis Freitag statt (Montagvormittag, Mittwoch- und Freitagnachmittag unterrichtsfrei). Sie begleiten die Schüler*innen in ihrem Lernprozess und unterstützen sie gemäss den Vorgaben des Lehrplans 21.\n\nAnforderungen\nUnsere ideale Klassenlehrperson der 1.-3. Klasse verfügt über nötige Ausbildungen und fachliche Qualifikationen. Trotzdem möchten wir engagierte, zukünftige Lehrpersonen nicht zurückweisen.\n\nKönnen Sie sich in ein kleines Team einfügen und ihre eigenen Anliegen positionieren? Ist Ihre Stärke im positiven und bestärkenden Umgang mit den Schülern und Schülerinnen, sowie den Eltern? Sind Sie an Coaching-Gesprächen mit den Schülern und Schülerinnen interessiert?\n\nWir bieten\nDas Schulhaus Scharnachtal ist eines der kleinen Schulhäuser, welche die Schulstruktur von Reichenbach ausmacht. Sie können von einem guten Arbeitsklima und einem unterstützenden Team profitieren.",
-        "it": "Porträt\nDie Gemeinde Reichenbach im Kandertal ist flächenmässig recht gross und besteht neben dem Dorfkern aus zahlreichen Weilern. Die ca. 450 Kinder und Jugendlichen werden in 4 Kindergärten, 12 Primarklassen und 6 Oberstufenklassen geführt. Vom Kindergarten bis zur 6. Klasse werden die Kinder in fünf dezentral gelegenen, kleinen Schulhäusern unterrichtet. Im Zyklus 3 besuchen alle das Oberstufenzentrum Müli. Reichenbach stellt ein attraktives Bildungsangebot zur Verfügung.\nAn unserer Schule arbeiten wir weitgehend ohne Regeln und Strafen. Es gilt für alle ganz schlicht und einfach das Prinzip: „Mir häbe Sorg!“\n\nAufgaben\nAls Co-Klassenlehrperson unterrichten Sie eine altersdurchmischte 1.–3. Klasse im Schulhaus Scharnachtal. Ihr Unterricht findet von Montag bis Freitag statt (Montagvormittag, Mittwoch- und Freitagnachmittag unterrichtsfrei). Sie begleiten die Schüler*innen in ihrem Lernprozess und unterstützen sie gemäss den Vorgaben des Lehrplans 21.\n\nAnforderungen\nUnsere ideale Klassenlehrperson der 1.-3. Klasse verfügt über nötige Ausbildungen und fachliche Qualifikationen. Trotzdem möchten wir engagierte, zukünftige Lehrpersonen nicht zurückweisen.\n\nKönnen Sie sich in ein kleines Team einfügen und ihre eigenen Anliegen positionieren? Ist Ihre Stärke im positiven und bestärkenden Umgang mit den Schülern und Schülerinnen, sowie den Eltern? Sind Sie an Coaching-Gesprächen mit den Schülern und Schülerinnen interessiert?\n\nWir bieten\nDas Schulhaus Scharnachtal ist eines der kleinen Schulhäuser, welche die Schulstruktur von Reichenbach ausmacht. Sie können von einem guten Arbeitsklima und einem unterstützenden Team profitieren.",
-        "en": "Porträt\nDie Gemeinde Reichenbach im Kandertal ist flächenmässig recht gross und besteht neben dem Dorfkern aus zahlreichen Weilern. Die ca. 450 Kinder und Jugendlichen werden in 4 Kindergärten, 12 Primarklassen und 6 Oberstufenklassen geführt. Vom Kindergarten bis zur 6. Klasse werden die Kinder in fünf dezentral gelegenen, kleinen Schulhäusern unterrichtet. Im Zyklus 3 besuchen alle das Oberstufenzentrum Müli. Reichenbach stellt ein attraktives Bildungsangebot zur Verfügung.\nAn unserer Schule arbeiten wir weitgehend ohne Regeln und Strafen. Es gilt für alle ganz schlicht und einfach das Prinzip: „Mir häbe Sorg!“\n\nAufgaben\nAls Co-Klassenlehrperson unterrichten Sie eine altersdurchmischte 1.–3. Klasse im Schulhaus Scharnachtal. Ihr Unterricht findet von Montag bis Freitag statt (Montagvormittag, Mittwoch- und Freitagnachmittag unterrichtsfrei). Sie begleiten die Schüler*innen in ihrem Lernprozess und unterstützen sie gemäss den Vorgaben des Lehrplans 21.\n\nAnforderungen\nUnsere ideale Klassenlehrperson der 1.-3. Klasse verfügt über nötige Ausbildungen und fachliche Qualifikationen. Trotzdem möchten wir engagierte, zukünftige Lehrpersonen nicht zurückweisen.\n\nKönnen Sie sich in ein kleines Team einfügen und ihre eigenen Anliegen positionieren? Ist Ihre Stärke im positiven und bestärkenden Umgang mit den Schülern und Schülerinnen, sowie den Eltern? Sind Sie an Coaching-Gesprächen mit den Schülern und Schülerinnen interessiert?\n\nWir bieten\nDas Schulhaus Scharnachtal ist eines der kleinen Schulhäuser, welche die Schulstruktur von Reichenbach ausmacht. Sie können von einem guten Arbeitsklima und einem unterstützenden Team profitieren.",
-        "fr": "Porträt\nDie Gemeinde Reichenbach im Kandertal ist flächenmässig recht gross und besteht neben dem Dorfkern aus zahlreichen Weilern. Die ca. 450 Kinder und Jugendlichen werden in 4 Kindergärten, 12 Primarklassen und 6 Oberstufenklassen geführt. Vom Kindergarten bis zur 6. Klasse werden die Kinder in fünf dezentral gelegenen, kleinen Schulhäusern unterrichtet. Im Zyklus 3 besuchen alle das Oberstufenzentrum Müli. Reichenbach stellt ein attraktives Bildungsangebot zur Verfügung.\nAn unserer Schule arbeiten wir weitgehend ohne Regeln und Strafen. Es gilt für alle ganz schlicht und einfach das Prinzip: „Mir häbe Sorg!“\n\nAufgaben\nAls Co-Klassenlehrperson unterrichten Sie eine altersdurchmischte 1.–3. Klasse im Schulhaus Scharnachtal. Ihr Unterricht findet von Montag bis Freitag statt (Montagvormittag, Mittwoch- und Freitagnachmittag unterrichtsfrei). Sie begleiten die Schüler*innen in ihrem Lernprozess und unterstützen sie gemäss den Vorgaben des Lehrplans 21.\n\nAnforderungen\nUnsere ideale Klassenlehrperson der 1.-3. Klasse verfügt über nötige Ausbildungen und fachliche Qualifikationen. Trotzdem möchten wir engagierte, zukünftige Lehrpersonen nicht zurückweisen.\n\nKönnen Sie sich in ein kleines Team einfügen und ihre eigenen Anliegen positionieren? Ist Ihre Stärke im positiven und bestärkenden Umgang mit den Schülern und Schülerinnen, sowie den Eltern? Sind Sie an Coaching-Gesprächen mit den Schülern und Schülerinnen interessiert?\n\nWir bieten\nDas Schulhaus Scharnachtal ist eines der kleinen Schulhäuser, welche die Schulstruktur von Reichenbach ausmacht. Sie können von einem guten Arbeitsklima und einem unterstützenden Team profitieren."
+        "it": "Ritratto\nIl comune di Reichenbach nel Kandertal è abbastanza grande in zona e si compone di numerose frazioni vicino al centro del paese. I circa 450 bambini e adolescenti sono guidati in 4 asili, 12 classi primarie e 6 classi superiori. Dall'asilo alle 6. I bambini vengono insegnati in cinque centri scolastici decentrati. Nel ciclo 3, tutti visitano il centro di livello superiore Müli. Reichenbach offre un'offerta educativa attraente.\nNella nostra scuola lavoriamo in gran parte senza regole e sanzioni. Si applica a tutti abbastanza semplicemente e semplicemente il principio: “Devo preoccuparmi!”\n\nCompiti\nCome insegnante di co-classe, insegni un'età mista da 1 a 3 ° grado nella Scharnachtal School House. Le lezioni si svolgono dal lunedì al venerdì (lunedì mattina, mercoledì e venerdì pomeriggio gratuitamente). Essi accompagnano gli studenti nel loro processo di apprendimento e li sostengono secondo le specifiche del curriculum 21.\n\nRequisiti\nIl nostro insegnante di classe ideale del 1.-3. La classe ha la formazione necessaria e le qualifiche professionali. Tuttavia, non vogliamo rifiutare gli insegnanti impegnati, futuri.\n\nPuoi entrare in una piccola squadra e posizionare le tue preoccupazioni? La vostra forza è in un rapporto positivo e rafforzante con studenti e genitori? Ti interessa allenare le conversazioni con gli studenti?\n\nOffriamo\nLa Scharnachtal School House è uno dei piccoli edifici scolastici che compongono la struttura scolastica di Reichenbach. È possibile beneficiare di una buona atmosfera di lavoro e di un team di supporto.",
+        "en": "Portrait\nThe municipality of Reichenbach in the Kandertal is quite large in area and consists of numerous hamlets next to the village centre. The approximately 450 children and adolescents are led in 4 kindergartens, 12 primary classes and 6 upper school classes. From kindergarten to 6. The children are taught in five decentralized, small schoolhouses. In cycle 3, everyone visits the upper level center Müli. Reichenbach provides an attractive educational offer.\nAt our school we work largely without rules and penalties. It applies to everyone quite simply and simply the principle: “I have to worry!”\n\nTasks\nAs a co-class teacher, you teach a mixed-age 1st to 3rd grade in the Scharnachtal School House. Your lessons take place from Monday to Friday (Monday morning, Wednesday and Friday afternoon free of charge). They accompany the students in their learning process and support them according to the specifications of the curriculum 21.\n\nRequirements\nOur ideal class teacher of the 1.-3. The class has the necessary training and professional qualifications. Nevertheless, we do not want to reject committed, future teachers.\n\nCan you fit into a small team and position your own concerns? Is your strength in a positive and empowering relationship with students and parents? Are you interested in coaching conversations with the students?\n\nWe offer\nThe Scharnachtal School House is one of the small school buildings that make up the school structure of Reichenbach. You can benefit from a good working atmosphere and a supportive team.",
+        "fr": "Portrait\nLa municipalité de Reichenbach dans le Kandertal est assez grande dans la région et se compose de nombreux hameaux à côté du centre du village. Environ 450 enfants et adolescents sont dirigés dans 4 maternelles, 12 classes primaires et 6 classes supérieures. De la maternelle à la 6. Les enfants sont enseignés dans cinq petites écoles décentralisées. Dans le cycle 3, tout le monde visite le centre de niveau supérieur Müli. Reichenbach offre une offre éducative attrayante.\nDans notre école, nous travaillons en grande partie sans règles et sans sanctions. Il s'applique à tout le monde tout simplement et simplement le principe: -Je dois m'inquiéter!\n\nTâches\nEn tant que co-enseignant, vous enseignez une classe mixte de 1re à 3e année à la Scharnachtal School House. Vos cours ont lieu du lundi au vendredi (lundi matin, mercredi et vendredi après-midi gratuits). Ils accompagnent les étudiants dans leur processus d'apprentissage et les soutiennent selon les spécifications du programme 21.\n\nExigences\nNotre professeur de classe idéal du 1.-3. La classe possède la formation et les qualifications professionnelles nécessaires. Néanmoins, nous ne voulons pas rejeter les futurs enseignants engagés.\n\nPouvez-vous intégrer une petite équipe et positionner vos propres préoccupations? Votre force dans une relation positive et habilitante avec les élèves et les parents? Êtes-vous intéressé par l'encadrement des conversations avec les étudiants?\n\nNous offrons\nLe Scharnachtal School House est l'un des petits bâtiments scolaires qui composent la structure scolaire de Reichenbach. Vous pouvez bénéficier d'une bonne ambiance de travail et d'une équipe de soutien."
       },
       "location": "Reichenbach",
       "canton": "BE",
@@ -5383,7 +5372,6 @@
           "classe-de-representation-de-la-maternite-enseignant-de-premiere-a-troisieme-annee-24-lecons-ksml-kantonaler-39762"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -5957,7 +5945,6 @@
         "mr-lp-da-sj-2026-27-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
       ],
       "firstSeenAt": "2026-08-13T10:41:32.761Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -6575,7 +6562,7 @@
       "title": "Lehrperson Vorlehre",
       "titleByLocale": {
         "it": "Maestro pre-insegnante",
-        "en": "Lehrperson Vorlehre",
+        "en": "Teacher pre-teacher",
         "de": "Lehrperson Vorlehre",
         "fr": "Pré-enseignant"
       },
@@ -6632,7 +6619,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:05.750Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -7318,7 +7304,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -7430,7 +7415,7 @@
       "title": "Lehrperson 5&6 Klasse inkl. KLP befristet Februar bis Juli 27",
       "titleByLocale": {
         "it": "Insegnante 5&6 classe incl. KLP temporaneo da febbraio a luglio 27",
-        "en": "Lehrperson 5&6 Klasse inkl. KLP befristet Februar bis Juli 27",
+        "en": "Teacher 5&6 class incl. KLP temporary February to July 27",
         "de": "Lehrperson 5&6 Klasse inkl. KLP befristet Februar bis Juli 27",
         "fr": "Enseignant 5 et 6 classes y compris KLP temporaire février au 27 juillet"
       },
@@ -7496,8 +7481,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-224de24ed7a0",
@@ -7674,8 +7658,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-f7ca2272c35f",
@@ -8050,7 +8033,7 @@
       "title": "Klassenlehrperson 1./2. Klasse",
       "titleByLocale": {
         "it": "Insegnante di classe 1./2. Categoria",
-        "en": "Klassenlehrperson 1./2. Klasse",
+        "en": "Class teacher 1./2. Category",
         "de": "Klassenlehrperson 1./2. Klasse",
         "fr": "Enseignant 1./2. Catégorie"
       },
@@ -8139,8 +8122,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-f861f034675d",
@@ -8234,8 +8216,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-b1e802a424be",
@@ -8434,7 +8415,7 @@
       "title": "Kindergartenlehrperson 8-12 Lektionen",
       "titleByLocale": {
         "it": "Scuola materna insegnante 8-12 lezioni",
-        "en": "Kindergartenlehrperson 8-12 Lektionen",
+        "en": "Kindergarten teacher 8-12 lessons",
         "de": "Kindergartenlehrperson 8-12 Lektionen",
         "fr": "Professeur de maternelle 8-12 leçons"
       },
@@ -8513,8 +8494,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-6b3d4e6680b8",
@@ -8697,7 +8677,7 @@
       "title": "Klassenlehrperson",
       "titleByLocale": {
         "it": "Istruttore di classe",
-        "en": "Klassenlehrperson",
+        "en": "Class instructor",
         "de": "Klassenlehrperson",
         "fr": "instructeur de classe"
       },
@@ -8756,7 +8736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:19.500Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -9032,7 +9011,7 @@
       "title": "IF-Lehrperson Sek 1, ab 12.10. bis Ende Schuljahr 2026/2027 (17 L)",
       "titleByLocale": {
         "it": "IF insegnante Sek 1, dal 12.10. alla fine dell'anno scolastico 2026/2027 (17 L)",
-        "en": "IF-Lehrperson Sek 1, ab 12.10. bis Ende Schuljahr 2026/2027 (17 L)",
+        "en": "IF teacher Sek 1, from 12.10. to the end of school year 2026/2027 (17 L)",
         "de": "IF-Lehrperson Sek 1, ab 12.10. bis Ende Schuljahr 2026/2027 (17 L)",
         "fr": "IF enseignant Sek 1, du 12.10. à la fin de l'année scolaire 2026/2027 (17 L)"
       },
@@ -9099,8 +9078,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-e379b0ecde18",
@@ -9725,7 +9703,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Professeur flexible, créatif et polyvalent (Z2/3) 50 %"
       },
@@ -10118,8 +10096,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-dfc0fd74104d",
@@ -10513,7 +10490,7 @@
       "title": "Co - Klassenlehrperson Kindergarten 23 - 28 Lektionen",
       "titleByLocale": {
         "it": "Co - Insegnante di classe Kindergarten 23 - 28 lezioni",
-        "en": "Co - Klassenlehrperson Kindergarten 23 - 28 Lektionen",
+        "en": "Co - Class teacher Kindergarten 23 - 28 lessons",
         "de": "Co - Klassenlehrperson Kindergarten 23 - 28 Lektionen",
         "fr": "Co - Professeur de classe Jardin d'enfants 23 - 28 leçons"
       },
@@ -10579,8 +10556,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-ff3d25eb2530",
@@ -10755,8 +10731,7 @@
           "maxValue": 146300,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-7d0502d8e6c3",
@@ -10963,7 +10938,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -12181,7 +12156,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "3. Klasslehrperson Stellvertretung Herbst - Weihnachtsferien",
       "titleByLocale": {
-        "it": "3. Klasslehrperson Stellvertretung Herbst - Weihnachtsferien",
+        "it": "3. Professore di classe Autunno Vice - Vacanze di Natale",
         "en": "3. Class teacher Deputy Autumn - Christmas holidays",
         "de": "3. Klasslehrperson Stellvertretung Herbst - Weihnachtsferien",
         "fr": "3. Professeur adjoint Automne - Fêtes de Noël"
@@ -12236,7 +12211,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:36:59.373Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -12427,8 +12401,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-eb5e7ef44267",
@@ -12601,8 +12574,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-b2bda02e551e",
@@ -12689,8 +12661,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-14caf05d5305",
@@ -13281,7 +13252,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.450Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -13382,8 +13352,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-c1f2f7d19961",
@@ -13727,7 +13696,7 @@
       "title": "Sportlehrperson, 91.28 %",
       "titleByLocale": {
         "it": "Istruttore sportivo, 91,28 %",
-        "en": "Sportlehrperson, 91.28 %",
+        "en": "Sports instructor, 91.28 %",
         "de": "Sportlehrperson, 91.28 %",
         "fr": "instructeur sportif, 91,28 %"
       },
@@ -13766,13 +13735,15 @@
         "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
         "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
         "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
-        "sports-instructor-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984"
+        "sports-instructor-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
+        "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportlehrperson-91-28-bff-bern-39984",
           "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-          "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984"
+          "istruttore-sportivo-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
+          "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
         ],
         "en": [
           "sportlehrperson-91-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39984",
@@ -13796,8 +13767,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-4b079a3c87a3",

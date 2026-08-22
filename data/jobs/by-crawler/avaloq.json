@@ -45,7 +45,6 @@
         "fr": "gestionnaire-de-projet-principal-paas-cloud-automation-avaloq-bioggio"
       },
       "id": "avaloq-7223289ddbce",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
@@ -119,8 +118,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-20T10:27:38.455Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-20T10:27:38.455Z"
     },
     {
       "title": "German speaking Senior Project Manager",
@@ -251,8 +249,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-20T10:27:38.455Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-20T10:27:38.455Z"
     },
     {
       "title": "AI Software Engineer",
@@ -397,8 +394,7 @@
       "previousSlugs": [
         "software-engineer-pl-sql-operazioni-di-cassa-pagamenti-avaloq-bioggio",
         "software-ingegnere-pl-sql-cash-operations-payments-avaloq-bioggio"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Offering Manager & Client Administrator",
@@ -528,7 +524,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-08-07T10:30:12.762Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Project Manager – PMO & Governance (12-month fixed term contract)",
@@ -762,7 +759,7 @@
       "titleByLocale": {
         "it": "Leader Tecnico IT – Infrastrutture e Platform Delivery",
         "en": "Technical Leader IT – Infrastructure & Platform Delivery",
-        "de": "Technical Leader IT – Infrastructure & Platform Delivery",
+        "de": "Technischer Leiter IT – Infrastruktur & Plattformbereitstellung",
         "fr": "Leader technique IT – Infrastructure et livraison des plateformes"
       },
       "descriptionByLocale": {
@@ -774,7 +771,7 @@
       "slugByLocale": {
         "it": "leader-tecnico-it-infrastrutture-e-platform-delivery-avaloq-bioggio",
         "en": "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
-        "de": "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
+        "de": "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
         "fr": "leader-technique-it-infrastructure-et-livraison-des-plateformes-avaloq-bioggio"
       },
       "id": "avaloq-7731b5d0591f",
@@ -810,8 +807,7 @@
         "technical-leader-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
         "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
         "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Software Developer – Output Management specialist for Archive and Infrastructure",

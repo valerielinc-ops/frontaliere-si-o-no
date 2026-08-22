@@ -806,6 +806,19 @@
       "applyUrl": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-XH88AO1H",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 70400,
+      "salaryMax": 98400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70400,
+          "maxValue": 98400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T12:20:46.884Z",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden",
         "infermiera-infermiera-hf-80-klinik-schutzen-rheinfelden-rheinfelden",
@@ -825,19 +838,6 @@
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-80-klinik-schuetzen-rheinfelden"
         ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:46.884Z",
-      "salaryMin": 70400,
-      "salaryMax": 98400,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70400,
-          "maxValue": 98400,
-          "unitText": "YEAR"
-        }
       }
     }
   ]

@@ -50,10 +50,6 @@
       "jobReqId": "860910501",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "logisticien-h-f-x-temporaire-liebherr-bulle",
-        "logisticien-m-w-d-temporaire-liebherr-bulle"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "logisticien-h-f-x-temporaire-liebherr-bulle",
@@ -66,7 +62,10 @@
           "logisticien-h-f-x-temporaire-liebherr-bulle"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:29:40.999Z",
+      "previousSlugs": [
+        "logisticien-h-f-x-temporaire-liebherr-bulle",
+        "logisticien-m-w-d-temporaire-liebherr-bulle"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -78,7 +77,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:29:40.999Z"
     },
     {
       "id": "liebherr-2fa417fcfecc",
@@ -390,7 +390,7 @@
       "title": "Senior Process-/Org.-Developer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Process-/Org.-Sviluppatore (m/w/d)",
-        "en": "Senior Process/Org. -Developer (m/f/d)",
+        "en": "Senior Process-/Org. -Developer (m/f/d)",
         "de": "Senior Process-/Org.-Entwickler (m/w/d)",
         "fr": "Développeur principal (m/f/d)"
       },
@@ -2075,15 +2075,15 @@
       "jobReqId": "1428340633",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "team-leader-logistique-h-f-x-projets-packaging-et-formation-liebherr-bulle"
-      ],
+      "firstSeenAt": "2026-08-20T21:32:27.423Z",
       "previousSlugsByLocale": {
         "it": [
           "team-leader-logistique-h-f-x-projets-packaging-et-formation-liebherr-bulle"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:32:27.423Z",
+      "previousSlugs": [
+        "team-leader-logistique-h-f-x-projets-packaging-et-formation-liebherr-bulle"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

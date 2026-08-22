@@ -118,7 +118,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:23.007Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -283,7 +282,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:20.889Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -424,7 +422,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:19.844Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -471,13 +468,32 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
-        "dipl-infermiere-re-notturno-see-spital-horgen"
+        "dipl-infermiere-re-notturno-see-spital-horgen",
+        "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen",
+        "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
+        "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
+        "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen",
+        "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
-          "dipl-infermiere-re-notturno-see-spital-horgen"
+          "dipl-infermiere-re-notturno-see-spital-horgen",
+          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen",
+          "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
+          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
+          "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen",
+          "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen"
+        ],
+        "en": [
+          "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
+        ],
+        "fr": [
+          "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -526,7 +542,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:18.806Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -623,7 +638,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:17.785Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -725,7 +739,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:16.749Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -835,7 +848,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:15.718Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -953,7 +965,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:14.625Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1139,7 +1150,7 @@
       "title": "Dipl. Expert*in Anästhesiepflege",
       "titleByLocale": {
         "it": "Esperto/a di Anestesia",
-        "en": "Dipl. Expert*in Anästhesiepflege",
+        "en": "Dipl. Expert* in anesthesia care",
         "de": "Dipl. Expert*in Anästhesiepflege",
         "fr": "Expert en Anesthésie"
       },
@@ -1261,7 +1272,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:11.424Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1588,7 +1598,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:08.243Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1685,7 +1694,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:07.223Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1795,7 +1803,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:06.142Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2006,7 +2013,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:04.032Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2110,7 +2116,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:02.994Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2197,7 +2202,7 @@
       "title": "Klinische*r Fachspezialist*in / Physician Associate",
       "titleByLocale": {
         "it": "Fachspezialist*in Clinico / Physician Associate",
-        "en": "Klinische*r Fachspezialist*in / Physician Associate",
+        "en": "Clinical Specialist / Physician Associate",
         "de": "Klinische*r Fachspezialist*in / Physician Associate",
         "fr": "Spécialiste Clinique / Associé Médecin"
       },
@@ -2304,7 +2309,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Radiologiefachfrau*mann HF",
+        "it": "Specialista di radiologia* HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
@@ -2321,7 +2326,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:54:00.779Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2427,7 +2431,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-08-22T09:53:59.666Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
