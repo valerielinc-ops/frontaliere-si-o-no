@@ -74249,6 +74249,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-vezza-d-oglio-lavorare-grigioni-frontaliere': {
+    title: 'Vivere a Vezza d\'Oglio e lavorare in Grigioni da frontaliere',
+    description: 'Il nuovo accordo frontalieri del 23 dicembre 2020 apre nuove opportunità per i frontalieri che vivono a Vezza d\'Oglio e lavorano in Grigioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, vezza, oglio, lavorare',
+    ogTitle: 'Vivere a Vezza d\'Oglio e lavorare in Grigioni da frontaliere',
+    ogDescription: 'Il nuovo accordo frontalieri del 23 dicembre 2020 apre nuove opportunità per i frontalieri che vivono a Vezza d\'Oglio e lavorano in Grigioni.',
+    canonicalPath: '/articoli-frontaliere/vivere-vezza-d-oglio-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Vezza d'Oglio e lavorare in Grigioni da frontaliere",
+      "description": "Il nuovo accordo frontalieri del 23 dicembre 2020 apre nuove opportunità per i frontalieri che vivono a Vezza d'Oglio e lavorano in Grigioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che vive a Vezza d'Oglio e lavora in Grigioni può godere di una vita equilibrata e ricca di opportunità."
+      },
+      "datePublished": "2026-08-22T01:08:28+00:00",
+      "dateModified": "2026-08-22T01:08:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-vezza-d-oglio-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

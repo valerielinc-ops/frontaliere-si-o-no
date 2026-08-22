@@ -10449,6 +10449,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Living in Valbondione, working in Graubünden: border guide',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Move to Valbondione and commute to the Graubünden: crossings, times, taxes, deductible €10,000, LAMal, documents Permit G.',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Alpine valley landscape with mountain road connecting Italian and Swiss villages, mist on snow-covered peaks.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.title': 'Living in Vezza d \'Oglio and working in Graubünden as a border worker',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.excerpt': 'The new border agreement of 23 December 2020 opens up new opportunities for border workers living in Vezza d \'Oglio and working in Graubünden.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.imageAlt': 'A frontaliere living in Vezza d\'Oglio and working in Grigioni can enjoy a balanced and rich life.',
 };
 
 export default blogMetaEn;

@@ -10448,6 +10448,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Wohnen in Valbondione, arbeiten in Graubünden: Grenzführer',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Umzug nach Valbondione und Pendeln nach Graubünden: Pässe, Zeiten, Steuern, Selbstbehalt € 10.000, KVG, Dokumente Genehmigung G.',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Alpental mit Bergstraße, die italienische und Schweizer Dörfer verbindet, Nebel über schneebedeckten Gipfeln.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.title': 'Wohnen in Vezza d \'Oglio und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.excerpt': 'Das neue Grenzgängerabkommen vom 23. Dezember 2020 eröffnet neue Möglichkeiten für Grenzgänger, die in Vezza d \'Oglio leben und in Graubünden arbeiten.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.imageAlt': 'Ein Frontalier, der in Vezza d\'Oglio lebt und in Grigioni arbeitet, kann eine ausgewogene und reiche Lebensweise genießen.',
 };
 
 export default blogMetaDe;

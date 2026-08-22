@@ -10450,6 +10450,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Vivere a Valbondione, lavorare in Grigioni: guida frontaliere',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Trasferirsi a Valbondione e pendolare verso i Grigioni: valichi, tempi, imposte, franchigia €10.000, LAMal, documenti Permesso G.',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Paesaggio alpino con strada di montagna che collega Valbondione ai Grigioni, nebbia sui picchi innevati.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.title': 'Vivere a Vezza d\'Oglio e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.excerpt': 'Il nuovo accordo frontalieri del 23 dicembre 2020 apre nuove opportunità per i frontalieri che vivono a Vezza d\'Oglio e lavorano in Grigioni.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere che vive a Vezza d\'Oglio e lavora in Grigioni può godere di una vita equilibrata e ricca di opportunità.',
 };
 
 export default blogMetaIt;
