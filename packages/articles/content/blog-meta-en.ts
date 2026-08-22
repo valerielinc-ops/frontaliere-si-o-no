@@ -10458,6 +10458,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Living in Samolaco and working in Graubünden as a border worker',
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Here\'s what you need to know about permits, taxation and daily life as a border worker in Ticino.',
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'A frontier worker who works in Grisons and resides in Samolaco',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.title': 'Living in Silandro and working in Graubünden: a tax guide',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.excerpt': 'New Frontier Agreement from 1 January 2024: exemption €7,500 for old frontier workers, €10,000 for new ones. Tax at source in Switzerland, tax credit in Italy. AVS and LPP paid only in Switzerland.',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.imageAlt': 'Alpine landscape of Swiss Graubünden region with mountain valleys and conifer forests',
 };
 
 export default blogMetaEn;

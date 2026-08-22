@@ -31314,6 +31314,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'silandro-grigioni-tassazione-permesso-g',
+ category: 'fiscale',
+ date: '2026-08-22T02:15:33.938Z',
+ image: '/images/blog/silandro-grigioni-tassazione-permesso-g.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

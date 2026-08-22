@@ -10460,6 +10460,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Vivre à Samolaco et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Voici ce que vous devez savoir sur les permis, la fiscalité et la vie quotidienne en tant que frontalier au Tessin.',
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'Un travailleur frontalier qui travaille en Grisons et réside à Samolaco',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.title': 'Vivre à Silandro et travailler dans les Grisons : guide fiscal',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.excerpt': 'Nouvel accord frontalier à compter du 1er janvier 2024 : exemption de 7 500 € pour les anciens frontaliers, de 10 000 € pour les nouveaux. Impôt à la source en Suisse, crédit d\'impôt en Italie. AVS et LPP payés uniquement en Suisse.',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.imageAlt': 'Paysage alpin des Grisons suisses avec vallées et forêts de conifères',
 };
 
 export default blogMetaFr;

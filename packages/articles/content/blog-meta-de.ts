@@ -10457,6 +10457,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.title': 'Wohnen in Samolach und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.excerpt': 'Hier erfährst du alles über die Bewilligungen, die Besteuerung und den Alltag als Grenzgänger im Tessin.',
     'blog.article.vivere-samolaco-lavorare-grigioni-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Grisons arbeitet und in Samolaco wohnt',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.title': 'Wohnen in Schlanders und Arbeiten in Graubünden: Steuerleitfaden',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.excerpt': 'Neue Grenzgängervereinbarung ab 1. Januar 2024: Freistellung € 7.500 für alte Grenzgänger, € 10.000 für neue Grenzgänger. Quellensteuer in der Schweiz, Steuergutschrift in Italien. AHV und BVG werden nur in der Schweiz ausbezahlt.',
+    'blog.article.silandro-grigioni-tassazione-permesso-g.imageAlt': 'Alpenlandschaft Bündner Täler mit Wiesen und Nadelwäldern',
 };
 
 export default blogMetaDe;
