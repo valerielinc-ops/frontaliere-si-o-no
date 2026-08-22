@@ -3781,6 +3781,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercito-bilancio-misure-violenza.title': 'Schweizer Armee: Bilanz zu Massnahmen gegen Gewalt',
     'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 zusätzliche Massnahmen gegen Diskriminierung und sexualisierte Gewalt: Zwischenbericht 2026 zeigt 8 umgesetzt, 7 in Umsetzung. Fast 20.000 Rekruten haben die obligatorische Ausbildung abgeschlossen.',
     'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Schweizer Soldaten während einer Schulung in professioneller institutioneller Umgebung',
+    'blog.article.dimissioni-fondazione-beloved.title': 'Rücktritte in Kaskade bei der Beloved-Stiftung',
+    'blog.article.dimissioni-fondazione-beloved.excerpt': 'Die Stiftung, die 24 Millionen Franken für die Opfer von Crans-Montana verwaltet, steht vor einer Governance-Krise. Rücktritte von Mitgliedern aus der Schweiz, Frankreich und Italien lassen Zweifel an der Transparenz der Verteilung der Hilfe aufkommen.',
+    'blog.article.dimissioni-fondazione-beloved.imageAlt': 'Sitzungssaal in einem Schweizer Regierungsgebäude, Symbol der Governance von Stiftungen',
 };
 
 export default blogMetaChDe;

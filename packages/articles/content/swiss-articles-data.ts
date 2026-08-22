@@ -11341,6 +11341,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dimissioni-fondazione-beloved',
+    category: 'novita',
+    date: '2026-08-22T03:29:07.464Z',
+    image: '/images/blog/dimissioni-fondazione-beloved.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

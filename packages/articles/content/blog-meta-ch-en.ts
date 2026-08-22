@@ -3781,6 +3781,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esercito-bilancio-misure-violenza.title': 'Swiss Army: Assessment of anti-violence measures',
     'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 additional measures against discrimination and sexualized violence: interim report 2026 shows 8 implemented, 7 in implementation. Nearly 20,000 recruits have completed mandatory training.',
     'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Swiss military personnel during training in professional institutional setting',
+    'blog.article.dimissioni-fondazione-beloved.title': 'Cascading resignation to the Beloved Foundation',
+    'blog.article.dimissioni-fondazione-beloved.excerpt': 'The Foundation that manages 24 million francs for the victims of Crans-Montana is facing a governance crisis. Resignations of Swiss, French and Italian members raise questions about the transparency of aid distribution.',
+    'blog.article.dimissioni-fondazione-beloved.imageAlt': 'Meeting room in a Swiss government building representing governance and public administration',
 };
 
 export default blogMetaChEn;
