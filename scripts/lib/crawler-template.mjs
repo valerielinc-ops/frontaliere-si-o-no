@@ -811,7 +811,15 @@ export async function runStandardCrawlerPipeline(config) {
 
   // ─── Step 0: Init ───────────────────────────────────────────
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(companyKey, companyLabel);
+  // `counts.discovered` (issue #5945, mirrors update-baronie-jobs.mjs) lets a
+  // fetchJobs() that attaches an optional `.discoveredCount` property to its
+  // returned array report the pre-filter candidate count — even on the
+  // "0 jobs after filtering" early return below — so check-crawler-health can
+  // classify "found candidates, filtered to 0" as healthy instead of broken,
+  // without a human adding the slug to EMPTY_OK_CRAWLERS. Parsers that don't
+  // set `.discoveredCount` leave counts.discovered null — unchanged behaviour.
+  const counts = { discovered: null };
+  registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
   console.log('═══════════════════════════════════════════════\n');
@@ -862,6 +870,10 @@ export async function runStandardCrawlerPipeline(config) {
       return;
     }
     throw err;
+  }
+
+  if (Number.isFinite(parsedJobs?.discoveredCount)) {
+    counts.discovered = parsedJobs.discoveredCount;
   }
 
   if (!parsedJobs || parsedJobs.length === 0) {
@@ -965,6 +977,8 @@ export async function runStandardCrawlerPipeline(config) {
     label: companyLabel,
     generatedAt: new Date().toISOString(),
     total: sliceJobs.length,
+    discovered: counts.discovered,
+    written: sliceJobs.length,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
