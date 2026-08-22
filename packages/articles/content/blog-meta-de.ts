@@ -10498,6 +10498,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varcare-confine-documenti-frontalieri.title': 'Dokumente für die Einreise in die Schweiz: Der Grenzgängerführer',
     'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Pass, Personalausweis und G-Ausweis: die wesentlichen Dokumente, um als Grenzgänger täglich die Grenze Tessin-Italien zu überqueren.',
     'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Grenzgänger mit Pass und Permis an der Schweiz-Italien Grenze',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Quellensteuer 2026: Tessiner Steuersätze',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'Wie funktioniert die quellensteuer im Kanton Tessin? Entdecken Sie die Sätze 2026, die Rabatte, die Franchise des Neuen Abkommens und den NOV-SCHWELLENWERT von CHF 120\'000.',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'Blick auf Bellinzona, Hauptstadt des Kantons Tessin, wo Tausende Grenzgänger arbeiten',
 };
 
 export default blogMetaDe;

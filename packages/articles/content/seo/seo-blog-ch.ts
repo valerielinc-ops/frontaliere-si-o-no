@@ -49550,6 +49550,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-udc-referendum-accordi-ue': {
+    title: 'UDC prepara referendum contro accordi UE | Frontaliere Ticino',
+    description: 'L\'UDC si prepara a lanciare referendum contro i futuri accordi tra Svizzera e UE. Marcel Dettling dichiara la determinazione del partito. Raccolta firme',
+    keywords: 'frontalieri, ticino, svizzera, italia, prepara, referendum, contro, accordi',
+    ogTitle: 'UDC prepara referendum contro accordi UE',
+    ogDescription: 'L\'UDC si prepara a lanciare referendum contro gli accordi tra la Svizzera e l\'UE. Durante l\'assemblea dei delegati a Baar, il presidente Marcel Dettling dichiara che il partito contrastará ogni accordo singolarmente tramite referendum. Raccolta',
+    canonicalPath: '/articoli-svizzera/udc-referendum-accordi-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UDC prepara referendum contro accordi UE",
+      "description": "L'UDC si prepara a lanciare referendum contro i futuri accordi tra Svizzera e UE. Marcel Dettling dichiara la determinazione del partito. Raccolta firme",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/udc-referendum-accordi-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assemblea politica svizzera con delegati durante dibattito su referendum e accordi internazionali con l'UE"
+      },
+      "datePublished": "2026-08-22T09:51:20+00:00",
+      "dateModified": "2026-08-22T09:51:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/udc-referendum-accordi-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

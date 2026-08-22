@@ -1299,6 +1299,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-lucerna-procedura': { it: 'naturalizzazione-lucerna-procedura', en: 'naturalization-lucerne-procedure', de: 'einbuergerung-luzern-verfahren', fr: 'naturalisation-lucerne-procedure' },
  'aprire-attivita-lucerna-forme-giuridiche': { it: 'aprire-attivita-lucerna-forme-giuridiche', en: 'start-business-lucerne-legal-forms', de: 'geschaeft-eroeffnen-luzern-rechtformen', fr: 'ouvrir-activite-lucerne-formes-juridiques' },
  'impresa-lucerna-forma-giuridica': { it: 'impresa-lucerna-forma-giuridica', en: 'start-business-lucerna-legal-form', de: 'unternehmen-luzern-rechtsform', fr: 'entreprise-lucerne-forme-juridique' },
+ 'udc-referendum-accordi-ue': { it: 'udc-referendum-accordi-ue', en: 'udc-referendum-eu-agreements', de: 'udc-referendum-eu-abkommen', fr: 'udc-referendum-accords-ue' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

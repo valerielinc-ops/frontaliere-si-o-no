@@ -10499,6 +10499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varcare-confine-documenti-frontalieri.title': 'Documents to enter Switzerland: the border guide',
     'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Passport, identity card and G Permit: the essential documents to cross the Ticino-Italy border on a daily basis as a border worker.',
     'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Frontalier with passport and permit G at Swiss-Italian border checkpoint in Ticino',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Tax at source 2026: Ticino rates',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'How does the quellensteuer work in the Canton of Ticino? Discover the 2026 rates, the rebates, the New Deal deductible and the NOV threshold of CHF 120\'000.',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'View of Bellinzona, capital of Canton Ticino where thousands of cross-border workers live',
 };
 
 export default blogMetaEn;
