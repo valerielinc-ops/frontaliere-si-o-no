@@ -10516,6 +10516,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Frais alimentaires : la Suisse ou l\'Italie convient-elle au frontalier ?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Comparaison pratique des prix, des franchises douanières et des habitudes d\'achat pour ceux qui travaillent au Tessin. Qu\'est-ce qui change avec le nouvel accord frontalier 2024 ?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Frontalier comparant les tickets de caisse à la frontière de Mendrisio',
+    'blog.article.spesa-alimentare-frontaliere-2024.title': 'Dépenses alimentaires frontalières 2024 : la franchise douanière',
+    'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'Depuis 2024, le nouvel accord introduit différentes franchises pour les frontaliers : 7 500 € pour les anciens inscrits, 10 000 € pour les nouveaux. Comme il convient de faire les achats alimentaires entre la Suisse et l\'Italie.',
+    'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Travailleur frontalier avec des sacs de courses au passage frontalier Suisse-Italie au Tessin',
 };
 
 export default blogMetaFr;
