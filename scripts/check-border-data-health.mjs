@@ -263,6 +263,16 @@ export function collectWebcamUrls(crossings) {
 // scripts/analyze-webcam-frame.mjs.
 
 const WEBCAM_TINY_BODY_RETRY_DELAY_MS = 5000;
+// A single tiny-body retry (one extra 5s-delayed read) is not always enough:
+// issue #5431 recurred TWICE on the same slow-refresh feed (webcamdtl.it,
+// refreshIntervalMs 300000) with a tiny body surviving both the first read AND
+// the one retry (4344 bytes on 2026-08-09, 8688 bytes on 2026-08-22), while a
+// direct re-fetch immediately after each incident confirmed the feed healthy
+// (200, ~200KB+). The upstream file-replacement window on a slow-refresh
+// source can outlast a single 5s-delayed retry. Two retries (three total
+// reads) meaningfully lowers the odds of hitting that window on every attempt
+// while staying well inside the shared run budget below.
+const WEBCAM_TINY_BODY_MAX_RETRIES = 2;
 // Hard cap on the TOTAL extra time this run will spend on tiny-body retries,
 // tracked as a MUTABLE remaining-ms budget shared across the whole webcam loop
 // (see `retryBudget` in `main()`), decremented only when a retry actually
@@ -305,7 +315,13 @@ async function fetchWebcam(url, minBytes = MIN_WEBCAM_BYTES, retryBudget = { rem
   // (4xx/5xx) IS a definitive signal and is returned immediately.
   let lastErr = null;
   let tinyResult = null;
-  for (let attempt = 0; attempt < 2; attempt++) {
+  let connectionAttempts = 0;
+  let tinyBodyRetries = 0;
+  // Connection-level failures get exactly one retry; a tiny body can
+  // separately consume up to WEBCAM_TINY_BODY_MAX_RETRIES retries of its own
+  // — the two counters are independent so a tiny-body retry never eats into
+  // the connection-failure retry allowance or vice versa.
+  for (;;) {
     try {
       const cookieHeader = buildCookieHeader();
       const res = await fetch(url, {
@@ -330,11 +346,16 @@ async function fetchWebcam(url, minBytes = MIN_WEBCAM_BYTES, retryBudget = { rem
       const result = { ok: true, status: res.status, bytes: buf.byteLength };
       // A live camera feed can transiently serve a blank/corrupt tiny frame mid-
       // capture (the same single-vantage-point ambiguity as a connection-level
-      // error above) and recover on the very next fetch. Give it one more chance
-      // before treating a tiny body as confirmed-broken, instead of paging on a
-      // single unlucky read.
-      if (result.bytes < minBytes && attempt === 0 && retryBudget.remainingMs >= WEBCAM_TINY_BODY_RETRY_DELAY_MS) {
+      // error above) and recover on a later fetch. Give it a few more chances
+      // (WEBCAM_TINY_BODY_MAX_RETRIES) before treating a tiny body as
+      // confirmed-broken, instead of paging on unlucky reads.
+      if (
+        result.bytes < minBytes &&
+        tinyBodyRetries < WEBCAM_TINY_BODY_MAX_RETRIES &&
+        retryBudget.remainingMs >= WEBCAM_TINY_BODY_RETRY_DELAY_MS
+      ) {
         tinyResult = result;
+        tinyBodyRetries++;
         retryBudget.remainingMs -= WEBCAM_TINY_BODY_RETRY_DELAY_MS;
         await new Promise((resolve) => setTimeout(resolve, WEBCAM_TINY_BODY_RETRY_DELAY_MS));
         continue;
@@ -342,12 +363,14 @@ async function fetchWebcam(url, minBytes = MIN_WEBCAM_BYTES, retryBudget = { rem
       return result;
     } catch (err) {
       lastErr = err;
+      connectionAttempts++;
+      if (connectionAttempts >= 2) break;
     }
   }
   // A retried tiny body still counts as a real (if unlucky) result, not a
   // connection failure — prefer it over the generic networkError fallback.
   if (tinyResult) return tinyResult;
-  // Both attempts hit a connection-level error → indeterminate, not confirmed broken.
+  // Ran out of connection-level retries → indeterminate, not confirmed broken.
   return { ok: false, status: `error: ${lastErr?.message ?? 'network'}`, bytes: 0, networkError: true };
 }
 
