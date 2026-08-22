@@ -3820,6 +3820,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.impresa-lucerna-forma-giuridica.title': 'Aktivitäten Kanton Luzern eröffnen: Rechtsformen und Kosten',
     'blog.article.impresa-lucerna-forma-giuridica.excerpt': 'Von der Wahl der Rechtsform bis zur Eintragung ins Register: Praktischer Leitfaden zu Schritten, Anforderungen, Eintragungsgebühren und Versicherungspflichten in Luzern.',
     'blog.article.impresa-lucerna-forma-giuridica.imageAlt': 'Unternehmer prüft Geschäftsregistrierungsdokumente bei der Handelsregistrierungsstelle Luzern',
+    'blog.article.udc-referendum-accordi-ue.title': 'SVP bereitet Referendum gegen EU-Abkommen vor',
+    'blog.article.udc-referendum-accordi-ue.excerpt': 'Die SVP bereitet sich auf Referenden gegen die nächsten Abkommen zwischen der Schweiz und der EU vor. Marcel Dettling erklärt den Willen der Partei, jedes Abkommen zu bekämpfen. Unterschriftensammlung läuft.',
+    'blog.article.udc-referendum-accordi-ue.imageAlt': 'Schweizer Politische Versammlung mit Delegaten, die über Referenden und internationale Abkommen mit der EU debattieren',
 };
 
 export default blogMetaChDe;

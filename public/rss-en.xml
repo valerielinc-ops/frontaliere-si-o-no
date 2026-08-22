@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 09:21:11 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 09:44:56 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Tax at source 2026: Ticino rates</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/withholding-tax-rates-ticino-2026/</link>
+      <description><![CDATA[How does the quellensteuer work in the Canton of Ticino? Discover the 2026 rates, the rebates, the New Deal deductible and the NOV threshold of CHF 120'000.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Quellensteuer: Swiss source tax withheld ONLY at the time of salary payment
+- New Agreement Deductible: €7,500 per year (old frontier workers until 2033) or €10,000 (new frontier workers)
+- Threshold NOV CHF 120'000: below this amount, Swiss withholding tax is sufficient in Italy
+- Recognised vouchers: AVS/AI/IPG 5.3%, LPP 7-18% by age group, LAMal, commuting expenses
+
+## Key facts
+- **What**: Tax at source (Quellensteuer) on employee income in Switzerland
+- When: Applied continuously from 1 January 2024 (New Agreement in force)
+- Where: Canton Ticino, Graubünden, Valais, Bern (with own rates)
+- Who: Border workers resident in Italy who work in Switzerland
+- Exemption: €7,500 (frontier workers active before 17/7/2023) or €10,000 (new)
+- Legal basis: Italian-Swiss double taxation agreement (9 December 1976), New Frontier Agreement (23 December 2020)
+
+The quellensteuer is the tax on the source of employment income applied in Switzerland at the time of remuneration. For the Ticino-Italy border crossing, this is the crucial moment: Switzerland withholds directly from the paycheck; Italy does not apply any withholding tax and subsequently recognizes the tax credit in declaration 730 (EC framework) to avoid double taxation, in accordance with the Italian-Swiss Convention of 9 December 1976.
+
+The New Frontier Agreement, signed on 23 December 2020 and entered into force on 1 January
+## Calculation of quellensteuer and franchise mechanism
+
+The quellensteuer is calculated every month (or per pay period) on the basis of the gross salary, after deducting the subsidies recognised and, from the validity of the New Agreement (1 January 2024), the annual deductible divided into monthly instalments. A border worker with a gross annual salary of CHF 80,000 and a deductible of €7,500 (about CHF 8,000) has the calculation applied by the employer on a basis (CHF80,000 - CHF 8,000 = CHF72,000), then submitted to the Ticino steuer according to the cantonal rates in force.
+
+The annual gross amount, the monthly allowances, and the deductible applied appear in the Lohnausweis (annual pay slip document) that the employer delivers by February 28 of the following year. This document is fundamental for the Italian declaration 730, because the Revenue Agency uses the total of the annual quellensteuer paid to calculate the tax credit.
+
+### The NOV Threshold: CHF 120,000 and what changes beyond this amount
+
+NOV stands for "Notation Ohne Voranmeldung" (communication without notice). This Swiss technical term indicates an income limit within which withholding tax is considered final and does not require further fulfillment at the time of declaration. When a frontier earns less than CHF 120,000 gross per annum, the quellensteuer paid in Switzerland fully covers the tax due; in Italy, the frontier applies
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+## Practical procedure: how to check withholdings and prepare declaration 730
+
+Each frontier worker should receive a monthly paycheck (Lohnausweis) where they are detailed: gross, withholding, bonuses, contributions, and net. The first thing is to check that they are correct:
+
+1. ** Declared gross **: Is it consistent with the contract?
+2. Subsidies: have AVS/AI/IPG (5.3%), LPP (7-18% according to age), LAMal, commuting expenses been recognised?
+3. New Agreement Deductible: Has it been applied? You should see a reduction of about €625 per month (€7,500 ÷ 12) or €833 per month (€10,000 ÷ 12) if you are an eligible frontier worker.
+4. Net: Is the difference between gross, withholding and allowances correct?
+
+If you notice discrepancies, report it immediately to your employer's personnel office in Switzerland. If the problem persists, you can contact the AFC (Federal Tax Administration), which oversees procedures at the Swiss federal level.
+
+### Italian declaration 730 and tax credit
+
+Every year between May and June, the border worker must complete the Italian declaration 730. In the EC framework (Income from other States), it declares the total income received in Switzerland during the previous year (you will find it in the Lohnausweis of December) and the total quellensteuer paid. The Revenue Agency automatically recognizes the tax credit to avoid double taxation.
+
+The reimbursement depends on the comparison between what was paid in Switzerland and what was due in
+
+Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter gross salary, marital status and municipality for a detailed breakdown.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 09:44:56 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/aliquote-imposta-fonte-ticino-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aliquote-imposta-fonte-ticino-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Documents to enter Switzerland: the border guide</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/cross-border-documents-frontaliers/</link>
@@ -3269,52 +3325,6 @@ None of the numbers above come from an agency feed — they are our own monitori
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bollettino-frontaliere-2026-08-21</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-08-21.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Bardello and working in Ticino as a border worker</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/living-bardello-working-ticino-cross-border/</link>
-      <description><![CDATA[Frontier category G: New Agreement 2024, tax at source only Switzerland, tax exemptions, Permit G, AVS/LPP, LAMal, declaration 730.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- New Frontier Agreement in force from 1 January 2024
-- Tax at source: withheld only in Switzerland, no double taxation
-- Old frontier workers: annual exemption €7,500 until 2033
-- Mandatory G leave with annual tax return
-
-## Key facts
-- **What**: Access to the Ticino labour market as border worker category G
-- When: From 1 January 2024 (New Frontier Agreement)
-- Where: Canton Ticino, Chiasso, Brogeda, Gaggiolo, Ponte Tresa passes
-- Who: Residents of the province of Varese with permanent residence
-- Tax: Federal/cantonal withholding tax only in Switzerland, Italian tax credit avoids double taxation
-
-Those who reside in Bardello with Malgesso and Bregano and work in Canton Ticino enter the Swiss labour market with the status of G category border worker. The New Frontier Agreement, which entered into force on 1 January 2024, regulates the tax and contribution regime for all frontier workers between Italy and Switzerland. A crucial aspect concerns the place of withholding tax: the tax at source is withheld exclusively in Switzerland on the worker's paycheck, not in Italy. This mechanism avoids double taxation thanks to the tax credit in the Italian model 730 (CE framework), where the declared income can benefit from an offsetting compared to the taxes already paid in Switzerland. Italy recognizes Swiss taxation as primary for income from work carried out in Swiss territory.
-
-### Regime
-### Frontier Paycheck: What's Changing
-
-The paycheck of a frontier worker in Ticino includes withholdings for Swiss contributions that are unparalleled in Italian wages. The AVS/AI/IPG contributions (pension, disability, unemployment) amount to 5.3% borne by the employee, while the employer pays additional contributions. In addition to these, contributions for accident insurance (LAINF) are added in the amount of 0.7-1.5% and, for employees aged 25 and over, contributions for the second pillar (LPP) ranging from 7% to 18% depending on the age group. The total withholding on the Swiss paycheck is significant, but must be understood in the context of the Italian tax credit right. When the border worker completes the Italian 730 form declaring the gross income received in Switzerland (converted into EUR at the average annual exchange rate), he applies Italian federal taxes on the basis of the IRPEF progression (23% up to €28,000, 35% between €28,001 and €50,000, 43% over €50,000 for the first national tier). However, thanks to the tax credit in the EC framework, taxes already paid in Switzerland are deducted from the Italian tax due, effectively eliminating double taxation.
-
-### Practical scenario: check impact
-
-Let's imagine a hypothetical scenario: a border worker with a gross salary of CHF 5,000 per month in Ticino suffers Swiss withholdings for about CHF 400–450 per month (AVS/AI, LAINF, LPP, insurance),
-
-## Useful tools for your case
-To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
-### Procedure: how to start working as a border worker
-
-Step 1: Enter into an employment contract with a Ticino company. Before any administrative step, you must have a binding offer of employment from a Swiss employer in Ticino. The contract must specify tasks, remuneration, duration (determined or indeterminate) and start of work. This document is essential for applying for the G Leave at the SEM.
-
-Step 2: Apply for G Permit. The Ticino employer submits an application for authorization to the SEM attaching the employment contract, the border worker's master extract, passport/ID, and documentation on the economic stability of the company. Processing times vary, but typically the SEM communicates the outcome within 4-8 weeks. While waiting, the border worker CANNOT start work in Switzerland.
-
-Step 3: AVS registration and LAMal registration. Once the G Permit has been obtained, the employer proceeds with the mandatory registration with the Federal Statistical Office (BFS) for the issue of the AVS number (Swiss social insurance number), and the choice of health insurance (Swiss option or maintenance of Italian coverage). The AVS number is communicated to the border agent within a few days and must be provided to the employer for payroll processing.
-
-Step 4: Communication to the Italian INPS. Before the first payment of salary, the border worker communicates the new activity to INPS
-
-First day as a cross-border worker? Our [practical guide](nav:first-day) walks you from cantonal registration to your first paycheck.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 05:10:11 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-bardello-lavorare-ticino-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-bardello-lavorare-ticino-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

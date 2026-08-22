@@ -10500,6 +10500,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varcare-confine-documenti-frontalieri.title': 'Documenti per entrare in Svizzera: la guida del frontaliere',
     'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Passaporto, carta d\'identità e Permesso G: i documenti essenziali per varcare il confine Ticino-Italia quotidianamente come lavoratore frontaliere.',
     'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Frontaliere con passaporto e permesso G al valico di confine Ticino-Italia',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Imposta alla fonte 2026: aliquote Ticino',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'Come funziona la quellensteuer nel Cantone Ticino? Scopri le aliquote 2026, gli abbuoni, la franchigia del Nuovo Accordo e la soglia NOV di CHF 120\'000.',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'Veduta di Bellinzona, capoluogo del Canton Ticino dove lavorano migliaia di frontalieri',
 };
 
 export default blogMetaIt;

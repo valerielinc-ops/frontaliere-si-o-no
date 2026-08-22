@@ -74873,6 +74873,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aliquote-imposta-fonte-ticino-2026': {
+    title: 'Imposta alla fonte 2026: aliquote Ticino | Frontaliere Ticino',
+    description: 'Quellensteuer nel Cantone Ticino 2026: aliquote, franchigia Nuovo Accordo €7\'500-€10\'000, abbuoni e soglia NOV CHF 120\'000 per frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, alla, fonte, aliquote',
+    ogTitle: 'Imposta alla fonte 2026: aliquote Ticino',
+    ogDescription: 'Scopri come funziona la quellensteuer nel Cantone Ticino: aliquote 2026, franchigia del Nuovo Accordo Frontalieri (€7\'500 o €10\'000 annui), abbuoni riconosciuti, soglia NOV CHF 120\'000, e come calcolare il tuo netto.',
+    canonicalPath: '/articoli-frontaliere/aliquote-imposta-fonte-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta alla fonte 2026: aliquote Ticino",
+      "description": "Quellensteuer nel Cantone Ticino 2026: aliquote, franchigia Nuovo Accordo €7'500-€10'000, abbuoni e soglia NOV CHF 120'000 per frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aliquote-imposta-fonte-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona, capoluogo del Canton Ticino dove lavorano migliaia di frontalieri"
+      },
+      "datePublished": "2026-08-22T09:44:56+00:00",
+      "dateModified": "2026-08-22T09:44:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aliquote-imposta-fonte-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

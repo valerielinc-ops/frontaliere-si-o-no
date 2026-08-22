@@ -10501,6 +10501,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varcare-confine-documenti-frontalieri.title': 'Documents pour entrer en Suisse : le guide du frontalier',
     'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Passeport, carte d\'identité et permis G : les documents essentiels pour franchir quotidiennement la frontière Tessin-Italie en tant que travailleur frontalier.',
     'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Travailleur frontalier avec passeport et permis à la frontière suisse-italienne',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Impôt à la source 2026 : taux Tessin',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'Comment fonctionne la quellensteuer dans le canton du Tessin ? Découvrez les taux 2026, les bonifications, la franchise du Nouvel Accord et le seuil NOV de CHF 120\'000.',
+    'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'Vue de Bellinzona, capitale du canton du Tessin où travaillent des milliers de frontaliers',
 };
 
 export default blogMetaFr;

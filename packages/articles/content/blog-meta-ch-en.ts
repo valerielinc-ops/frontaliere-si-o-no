@@ -3820,6 +3820,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.impresa-lucerna-forma-giuridica.title': 'Opening activities in the canton of Lucerne: legal forms and costs',
     'blog.article.impresa-lucerna-forma-giuridica.excerpt': 'From the choice of legal form to registration in the Register: practical guide to the steps, requirements, registration fees and insurance obligations in Lucerne.',
     'blog.article.impresa-lucerna-forma-giuridica.imageAlt': 'Entrepreneur reviewing business registration documents at the commerce registry office desk',
+    'blog.article.udc-referendum-accordi-ue.title': 'UDC prepares referendum against EU agreements',
+    'blog.article.udc-referendum-accordi-ue.excerpt': 'The UDC is preparing to launch referendums against the upcoming agreements between Switzerland and the EU. Marcel Dettling declares the will of the party to fight any agreement. Collecting signatures.',
+    'blog.article.udc-referendum-accordi-ue.imageAlt': 'Swiss political assembly with delegates debating referendums and international agreements with the EU',
 };
 
 export default blogMetaChEn;
