@@ -3760,6 +3760,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cherosene-sintetico-aviazione.title': 'Aviation : le CO2 et l\'eau deviennent du kérosène synthétique',
     'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Argovie inaugure la centrale de démonstration de kérosène synthétique. Les compagnies aériennes suisses doivent aujourd\'hui mélanger 2 % de carburant durable, pour atteindre 6 % en 2030.',
     'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Centrale de démonstration à l\'Institut Paul Scherrer produisant du carburant synthétique durable en Argovie',
+    'blog.article.asilo-maghreb-reati-80-percento.title': 'Demandeurs d\'asile du Maghreb, 80 % sont impliqués dans des délits',
+    'blog.article.asilo-maghreb-reati-80-percento.excerpt': '80,5 % des requérants du Maghreb ont été inculpés de délits. Le SEM accélère les procédures et conclut des accords avec le Maroc pour des retours plus rapides.',
+    'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Vue aérienne du palais fédéral de Berne, siège du gouvernement suisse.',
 };
 
 export default blogMetaChFr;
