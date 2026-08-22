@@ -10477,6 +10477,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calcolo-costo-auto-frontaliere.title': 'Was kostet das Auto für den Pendler Tessin',
     'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Alle Kosten für das Auto für den Pendler Tessin-Italien: Benzin, Vignetten, Parken, Verschleiß, Versicherung. Finden Sie heraus, wie Sie die Gesamtausgaben berechnen und vergleichen Sie sie mit Zug und Bus.',
     'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Modernes Auto auf einer Bergstrasse im Tessin in Richtung italienische Grenze durch ein nebelhaftes Tal.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Medizinische Abzüge für Grenzgänger in Italien',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Gesundheitskosten Schweiz-Italien: KVG-Franchise, INPS-Rückerstattung, IRPEF-Abzüge. Praktische Verfahren und jährliche Grenzwerte für Grenzgänger.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Medizinisches Rezept und Krankenversicherungskarte auf einem Schreibtisch mit Stethoskop, Schweizer Kantonslandschaft im Hintergrund',
 };
 
 export default blogMetaDe;

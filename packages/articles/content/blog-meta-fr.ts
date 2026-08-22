@@ -10480,6 +10480,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcolo-costo-auto-frontaliere.title': 'Combien coûte la voiture pour la navette Tessin',
     'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Tous les coûts de la voiture pour la navette Tessin-Italie : essence, vignettes, parking, usure, assurance. Découvrez comment calculer la dépense totale et comparez avec le train et le bus.',
     'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Voiture moderne circulant sur une route de montagne du Tessin vers la frontière italienne dans une vallée alpine brumeuse.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Déductions médicales pour les frontaliers en Italie',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Frais de santé Suisse-Italie : franchise LAMal, remboursement INPS, déductions IRPEF. Procédures pratiques et limites annuelles pour les frontaliers.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Prescription médicale et carte d\'assurance-maladie sur un bureau avec stéthoscope, paysage du canton suisse visible à travers la fenêtre',
 };
 
 export default blogMetaFr;
