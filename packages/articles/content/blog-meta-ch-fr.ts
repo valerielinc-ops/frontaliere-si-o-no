@@ -3796,6 +3796,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permis B Lucerne : exigences et renouvellement',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Guide pratique du permis de séjour B dans le canton de Lucerne : caractéristiques, procédure de demande, documents nécessaires, durée et renouvellement. Instructions étape par étape.',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Bureau de migration avec documents pour permis de séjour B au canton de Lucerne',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'Assemblées UDC et Verts, on discute de l\'initiative sur la neutralité',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'Les délégués de l\'UDC et des Verts se réunissent aujourd\'hui pour discuter de l\'initiative sur la neutralité et l\'initiative sur l\'alimentation',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Délégués UDC et Verts en assemblée',
 };
 
 export default blogMetaChFr;

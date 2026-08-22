@@ -3796,6 +3796,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permesso B Lucerna: requisiti e rinnovo',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Guida pratica al permesso di dimora B nel cantone di Lucerna: caratteristiche, procedura di richiesta, documenti necessari, durata e rinnovo. Istruzioni step-by-step.',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Ufficio della migrazione con documenti per il permesso di dimora B nel cantone di Lucerna',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'Assemblee UDC e Verdi, si discute dell\'iniziativa sulla neutralità',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'I delegati di UDC e dei Verdi si riuniscono oggi per discutere l\'iniziativa sulla neutralità e sull\'iniziativa sull\'alimentazione',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Delegati UDC e Verdi in assemblea',
 };
 
 export default blogMetaChIt;

@@ -3796,6 +3796,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Ausweis B Luzern: Voraussetzungen und Erneuerung',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton Luzern: Eigenschaften, Antragsverfahren, erforderliche Unterlagen, Dauer und Erneuerung. Schritt-für-Schritt-Anleitung.',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Migrationsamt mit Dokumenten für B-Aufenthaltserlaubnis im Kanton Luzern',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'SVP- und Grünen-Versammlungen, Neutralitätsinitiative diskutiert',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'Die Delegierten der SVP und der Grünen kommen heute zusammen, um die Neutralitäts- und Ernährungsinitiative zu diskutieren',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Delegierte UDC und Grüne in einer Versammlung',
 };
 
 export default blogMetaChDe;
