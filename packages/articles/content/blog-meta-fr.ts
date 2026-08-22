@@ -10469,6 +10469,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Vivre à Charvensod et travailler en Valais comme frontalier : ce qui change',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Le nouvel accord fiscal entre l\'Italie et la Suisse : comment il affecte la vie des frontaliers',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Un frontalière qui vit à Charvensod et travaille dans le Valais',
+    'blog.article.doppio-sistema-pensione-frontaliere.title': 'Calcul pension frontalière : AVS + INPS',
+    'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'Comment fonctionne la retraite pour ceux qui travaillent en Suisse et résident en Italie : totalisation des cotisations, droits acquis, nouvel accord 2024.',
+    'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'Vue de Lugano avec les Alpes en arrière-plan, symbole du contexte transfrontalier tessinois',
 };
 
 export default blogMetaFr;

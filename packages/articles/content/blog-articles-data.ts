@@ -31341,6 +31341,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'doppio-sistema-pensione-frontaliere',
+ category: 'pensione',
+ date: '2026-08-22T05:04:10.489Z',
+ image: '/images/blog/doppio-sistema-pensione-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
