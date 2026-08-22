@@ -10464,6 +10464,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gressan-lavorare-vallese-frontaliere.title': 'Living in Gressan and working in Valais: border taxation',
     'blog.article.vivere-gressan-lavorare-vallese-frontaliere.excerpt': 'New agreement 2024: source tax in Switzerland, deductibles CHF 7,500/10,000, model 730 and tax credit. Everything you need to know.',
     'blog.article.vivere-gressan-lavorare-vallese-frontaliere.imageAlt': 'Alpine valley with green meadows at the border between Valais and Aosta Valley, mountain landscape at dawn.',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Living in Charvensod and working in Valais as a border worker: what changes',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'The new tax agreement between Italy and Switzerland: how it affects the lives of border workers',
+    'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'A frontaliere living in Charvensod and working in Valais',
 };
 
 export default blogMetaEn;
