@@ -1,16 +1,18 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-08-22T09:52:36.743Z",
+  "generatedAt": "2026-08-22T21:36:48.568Z",
   "total": 1,
+  "discovered": null,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2907,
-  "avgDurationMs": 2907,
+  "durationMs": 4097,
+  "avgDurationMs": 4097,
   "durationHistory": [
-    2907
+    4097
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +41,7 @@
       "applyUrl": "https://www.moncucco.ch/infermiere_capo_reparto_area_internistica.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-22T09:52:34.981Z",
+      "crawledAt": "2026-08-22T21:36:46.004Z",
       "firstSeenAt": "2026-08-05T11:36:52.216Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
