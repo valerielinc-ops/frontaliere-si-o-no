@@ -49472,6 +49472,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-lucerna-forme-giuridiche': {
+    title: 'Aprire un\'attività a Lucerna: guida registro commercio',
+    description: 'Aprire attività a Lucerna: forme giuridiche, iscrizione al registro di commercio, capitali minimi, tasse di registrazione e obblighi assicurativi AVS/LPP.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, lucerna, registro',
+    ogTitle: 'Aprire attività a Lucerna: registrazione e costi',
+    ogDescription: 'Aprire attività a Lucerna: forme giuridiche, iscrizione al registro di commercio, capitali minimi, tasse di registrazione e obblighi assicurativi (AVS, LPP, LAMal). Procedura step-by-step.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-lucerna-forme-giuridiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Lucerna: guida registro commercio",
+      "description": "Aprire attività a Lucerna: forme giuridiche, iscrizione al registro di commercio, capitali minimi, tasse di registrazione e obblighi assicurativi AVS/LPP.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-lucerna-forme-giuridiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con montagne sullo sfondo — paesaggio svizzero"
+      },
+      "datePublished": "2026-08-22T08:58:43+00:00",
+      "dateModified": "2026-08-22T08:58:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-lucerna-forme-giuridiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

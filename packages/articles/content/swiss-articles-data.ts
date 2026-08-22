@@ -11440,6 +11440,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-lucerna-forme-giuridiche',
+    category: 'pratico',
+    date: '2026-08-22T08:58:43.172Z',
+    image: '/images/blog/aprire-attivita-lucerna-forme-giuridiche.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
