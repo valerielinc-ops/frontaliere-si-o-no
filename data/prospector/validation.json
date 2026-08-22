@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-22T04:33:30.689Z",
+  "generatedAt": "2026-08-22T09:27:13.638Z",
   "tally": {
-    "good": 30,
-    "weak": 5,
+    "good": 31,
+    "weak": 4,
     "bad": 1,
     "insufficient": 4
   },
-  "promotedVacancies": 3942,
+  "promotedVacancies": 3946,
   "reports": [
     {
       "companyKey": "albergo-gardenia",
@@ -45,13 +45,13 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 230,
+      "vacancyCount": 221,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.317,
-      "score": 0.932,
+      "distinctRate": 0.326,
+      "score": 0.933,
       "verdict": "good",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
@@ -66,19 +66,19 @@
           "status": 200
         },
         {
-          "url": "https://anker-swiss.ch/stellen/flachdachbauer-1181744/",
+          "url": "https://anker-swiss.ch/stellen/maler-1182527/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 553,
+          "words": 586,
           "status": 200
         },
         {
-          "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1106417/",
+          "url": "https://anker-swiss.ch/stellen/malerpraktiker-1046853/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 580,
+          "words": 594,
           "status": 200
         }
       ],
@@ -495,7 +495,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1706,
+          "words": 1705,
           "status": 200
         },
         {
@@ -503,7 +503,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1688,
+          "words": 1689,
           "status": 200
         },
         {
@@ -511,7 +511,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1628,
+          "words": 1627,
           "status": 200
         }
       ],
@@ -776,6 +776,49 @@
       "runErrors": []
     },
     {
+      "companyKey": "hotel-international",
+      "vacancyCount": 5,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.hotel-international.ch/it/offerte/perche-prenotare-direttamente/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 565,
+          "status": 200
+        },
+        {
+          "url": "https://www.hotel-international.ch/it/offerte/alla-scoperta-delle-camere-rinnovate-a-superprezzi/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 355,
+          "status": 200
+        },
+        {
+          "url": "https://www.hotel-international.ch/it/offerte/offerta-speciale-3-notti/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 427,
+          "status": 200
+        }
+      ],
+      "companyName": "Hotel International au Lac",
+      "companyHost": "hotel-international.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": []
+    },
+    {
       "companyKey": "im-bethesda-spital",
       "vacancyCount": 1,
       "sampled": 1,
@@ -804,23 +847,46 @@
     },
     {
       "companyKey": "ipersonal",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "distinctRate": 0,
-      "score": 0,
-      "verdict": "insufficient",
+      "vacancyCount": 15,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
       "problems": [],
-      "samples": [],
+      "samples": [
+        {
+          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-heerbrugg-gesucht-medizinische-fuehrung-mit-verantwortung/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1321,
+          "status": 200
+        },
+        {
+          "url": "https://med-ipersonal.ch/jobs/pflegedienstleiter-pflegedienstleiterin-80-100-in-gelterkinden-gesucht-ihre-fuehrungsstaerke-fuer-eine-exzellente-pflege/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1249,
+          "status": 200
+        },
+        {
+          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-herisau-gesucht-medizinische-fuehrung-mit-verantwortung/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1314,
+          "status": 200
+        }
+      ],
       "companyName": "iPersonal AG",
       "companyHost": "med-ipersonal.ch",
       "platform": "med-ipersonal.ch",
       "mode": "template",
-      "runErrors": [
-        "https://med-ipersonal.ch/: HTTP 0"
-      ]
+      "runErrors": []
     },
     {
       "companyKey": "itunes",
@@ -1058,23 +1124,21 @@
       "companyKey": "med-ipersonal",
       "vacancyCount": 15,
       "sampled": 3,
-      "reachableRate": 0.667,
-      "titleMatchRate": 0.667,
-      "contentfulRate": 0.667,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.7,
-      "verdict": "weak",
-      "problems": [
-        "33% degli URL non risolve"
-      ],
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
       "samples": [
         {
           "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
-          "reachable": false,
-          "titleMatch": 0,
-          "contentful": false,
-          "words": 0,
-          "status": 0
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1361,
+          "status": 200
         },
         {
           "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
@@ -1214,38 +1278,38 @@
     },
     {
       "companyKey": "okjob",
-      "vacancyCount": 14,
+      "vacancyCount": 15,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.911,
+      "titleMatchRate": 0.855,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.969,
+      "score": 0.949,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/de/jobangebote/walzenfuehrer-asphalteinbau-100-m-w-d-bern/?ref=41645",
-          "reachable": true,
-          "titleMatch": 0.8571428571428571,
-          "contentful": true,
-          "words": 699,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/lastwagenchauffeur-ce-100-m-w-d-bern/?ref=41633",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 475,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/technische-r-sachbearbeiter-in-auftragsbearbeitung-60100-m-w-d-bern/?ref=41643",
+          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-gesundheit-spitex-m-w-d-basel/?ref=42078",
           "reachable": true,
           "titleMatch": 0.875,
           "contentful": true,
-          "words": 725,
+          "words": 730,
+          "status": 200
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/automatikerin-80-100-m-w-d-bern/?ref=41642",
+          "reachable": true,
+          "titleMatch": 0.8333333333333334,
+          "contentful": true,
+          "words": 683,
+          "status": 200
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/servicemonteurin-sonnenschutz-100-m-w-d-bern/?ref=41654",
+          "reachable": true,
+          "titleMatch": 0.8571428571428571,
+          "contentful": true,
+          "words": 701,
           "status": 200
         }
       ],
@@ -1303,48 +1367,33 @@
     },
     {
       "companyKey": "parkhoteldelta",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
+      "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-barista-e-cameriere-a-ore-3965168?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 676,
-          "status": 200
-        },
-        {
-          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-ad-ascona-cerca-cameriere-a-3970443?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 640,
-          "status": 200
-        }
-      ],
+      "samples": [],
       "companyName": "Parkhotel Delta",
       "companyHost": "hotelcareer.ch",
       "platform": "hotelcareer.ch",
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822: HTTP 403"
+      ]
     },
     {
       "companyKey": "physioswiss",
       "vacancyCount": 10,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.633,
+      "titleMatchRate": 0.639,
       "contentfulRate": 1,
-      "distinctRate": 0.9,
-      "score": 0.862,
+      "distinctRate": 1,
+      "score": 0.874,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -1357,19 +1406,19 @@
           "status": 200
         },
         {
-          "url": "https://physioswiss.ch/stelleninserate/151493/physio-gesucht-frauenfeld/",
+          "url": "https://physioswiss.ch/stelleninserate/151477/physiotherapeutin-40-100-fuer-zentrum-in-olten-gesucht/",
           "reachable": true,
-          "titleMatch": 0.6,
+          "titleMatch": 0.75,
           "contentful": true,
-          "words": 708,
+          "words": 695,
           "status": 200
         },
         {
-          "url": "https://physioswiss.ch/stelleninserate/152646/top1-gehalt-viel-flexibilitaet-domizil-physiotherapie-60-100-in-zuerich/",
+          "url": "https://physioswiss.ch/stelleninserate/152635/mobile-r-physiotherapeut-in-in-zuerich-40-100/",
           "reachable": true,
-          "titleMatch": 0.8,
+          "titleMatch": 0.6666666666666666,
           "contentful": true,
-          "words": 807,
+          "words": 592,
           "status": 200
         }
       ],
@@ -1539,49 +1588,6 @@
       ],
       "companyName": "Alexander von Humboldt-Stiftung Stellen",
       "companyHost": "recruitingapp-2649.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-2677",
-      "vacancyCount": 21,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1986/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 315,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1980/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 409,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1966/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 427,
-          "status": 200
-        }
-      ],
-      "companyName": "E-Recruiting LLB-Gruppe Stellen",
-      "companyHost": "recruitingapp-2677.umantis.com",
       "platform": "umantis.com",
       "mode": "template",
       "runErrors": []
