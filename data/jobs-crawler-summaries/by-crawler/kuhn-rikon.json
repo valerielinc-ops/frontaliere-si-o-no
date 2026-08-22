@@ -1,16 +1,16 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-08-21T22:03:08.920Z",
-  "total": 3,
+  "generatedAt": "2026-08-22T10:05:18.154Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4972,
-  "avgDurationMs": 4972,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5186,
+  "avgDurationMs": 5186,
   "durationHistory": [
-    4972
+    5186
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T22:03:05.738Z",
+      "crawledAt": "2026-08-22T10:05:14.292Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -68,7 +68,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T22:03:05.277Z",
+      "crawledAt": "2026-08-22T10:05:13.865Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -96,8 +96,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kuhn-rikon-a57d53d6f98a",
       "slug": "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen",
@@ -132,7 +131,6 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -141,5 +139,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
