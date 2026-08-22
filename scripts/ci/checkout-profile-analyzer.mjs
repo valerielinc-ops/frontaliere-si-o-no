@@ -88,6 +88,17 @@ const OPAQUE_RULES = [
   ['build', /\bnpm\s+run\s+build/], ['build', /\bvite\s+build\b/],
   ['vitest', /\bnpx\s+vitest\b/], ['vitest', /\bnpm\s+(?:run\s+)?test\b/], ['vitest', /\bvitest\s+run\b/],
   ['playwright-test', /\bplaywright\s+test\b/], ['audit', /\bnpm\s+run\s+audit/],
+  // `npm run "$script"` / `npm run $SCRIPT` / `npm run ${{ inputs.x }}`: il nome
+  // dello script e' una variabile shell risolta solo a runtime (tipicamente un
+  // input di workflow_dispatch), quindi nessuna profondita' di follow di
+  // `resolveNpmRunBodies` puo' vederci dentro — non e' un nome mancante da
+  // seguire, e' un nome che non esiste ancora quando gira questa analisi (#6249,
+  // stessa classe del blind-spot #6234 ma non risolvibile con quel meccanismo:
+  // li' il nome era letterale e raggiungibile via package.json, qui puo' essere
+  // uno qualsiasi). Trattato come opaco per costruzione, non per un pattern
+  // testuale specifico: e' l'unico modo sicuro di trattare un'invocazione che
+  // puo' eseguire qualunque script npm del repo.
+  ['dynamic-npm-run', /\bnpm\s+run\s+(?:"\$|'\$|\$\{?)/],
 ];
 
 /**
