@@ -10444,6 +10444,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Vivere a Malonno e lavorare in Grigioni da frontaliere: cosa sapere',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Frontaliere Ticino: informazioni sulla fiscalità, permessi e assicurazioni',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno e Grigioni',
+    'blog.article.vivere-sonico-lavorare-grigioni.title': 'Vivere a Sonico e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Guida operativa per i frontalieri: fiscalità, nuovo accordo e aspetti pratici del lavoro nel Cantone dei Grigioni.',
+    'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Vista panoramica delle Alpi svizzere verso il Grigioni',
 };
 
 export default blogMetaIt;

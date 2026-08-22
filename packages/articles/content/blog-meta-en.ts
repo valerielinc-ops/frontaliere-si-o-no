@@ -10443,6 +10443,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Living in Malonno and working in Graubünden as a border worker: what to know',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Border Ticino: information on taxation, permits and insurance',
     'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno and Grigioni',
+    'blog.article.vivere-sonico-lavorare-grigioni.title': 'Living in Sonico and working in Graubünden as a border worker',
+    'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Operational guide for border workers: taxation, new agreement and practical aspects of work in the Canton of Graubünden.',
+    'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Panoramic view of the Swiss Alps towards Grisons',
 };
 
 export default blogMetaEn;

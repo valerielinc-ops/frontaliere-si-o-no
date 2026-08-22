@@ -74171,6 +74171,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-sonico-lavorare-grigioni': {
+    title: 'Vivere a Sonico e lavorare in Grigioni da frontaliere',
+    description: 'Guida per frontalieri: fiscalità, nuovo accordo 2024, franchigie e previdenza per chi vive a Sonico e lavora nel Canton Grigioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, sonico, lavorare, grigioni',
+    ogTitle: 'Vivere a Sonico e lavorare in Grigioni da frontaliere',
+    ogDescription: 'Tutto quello che devi sapere se vivi a Sonico e lavori nel Canton Grigioni: accordo 2024, tasse e previdenza.',
+    canonicalPath: '/articoli-frontaliere/vivere-sonico-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Sonico e lavorare in Grigioni da frontaliere",
+      "description": "Guida per frontalieri: fiscalità, nuovo accordo 2024, franchigie e previdenza per chi vive a Sonico e lavora nel Canton Grigioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-sonico-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica delle Alpi svizzere verso il Grigioni"
+      },
+      "datePublished": "2026-08-22T00:20:29+00:00",
+      "dateModified": "2026-08-22T00:20:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-sonico-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
