@@ -10494,6 +10494,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcolare-imposta-fonte-ticino.title': 'Come calcolare imposta fonte Ticino',
     'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Guida pratica al calcolo dell\'imposta alla fonte per frontalieri Ticino-Italia: aliquote, franchigie 2024, credito d\'imposta nel 730 e simulatore interattivo.',
     'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Frontaliere con tablet mostra calcolatore imposta alla fonte, vista di Lugano e lago sullo sfondo',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'Come calcolare l\'imposta alla fonte in Ticino',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Imposta alla fonte Ticino: aliquote federali 2026, esenzioni frontalieri €7\'500–€10\'000, credito d\'imposta italiano e simulatore passo passo.',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Calcolatore e documenti fiscali per il calcolo dell\'imposta alla fonte, vista sul lago Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

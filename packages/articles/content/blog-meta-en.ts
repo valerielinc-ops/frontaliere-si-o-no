@@ -10493,6 +10493,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcolare-imposta-fonte-ticino.title': 'How to calculate Ticino source tax',
     'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Practical guide to the calculation of the tax at source for border workers Ticino-Italy: rates, 2024 deductibles, tax credit in 730 and interactive simulator.',
     'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Frontalier with tablet showing tax calculator interface, Lugano and lake view in background',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'How to calculate source tax in Ticino',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Tax at source Ticino: federal rates 2026, border exemptions €7,500- €10,000, Italian tax credit and step-by-step simulator.',
+    'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Calculator and tax documents for calculating tax at source, Lake Lugano view in background',
 };
 
 export default blogMetaEn;

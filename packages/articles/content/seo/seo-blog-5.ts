@@ -74795,6 +74795,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-simulatore-busta-paga-ticino-frontalieri': {
+    title: 'Come calcolare l\'imposta alla fonte in Ticino | Frontaliere Ticino',
+    description: 'Imposta alla fonte Ticino: aliquote federali 2026, esenzioni frontalieri €7\'500–€10\'000, credito d\'imposta italiano e simulatore passo passo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolare, imposta, alla, fonte',
+    ogTitle: 'Come calcolare l\'imposta alla fonte in Ticino',
+    ogDescription: 'Frontalieri Ticino–Italia: come calcolare l\'imposta alla fonte sulla busta paga svizzera 2026. Guida con aliquote, esenzioni (€7\'500 vecchi / €10\'000 nuovi), credito d\'imposta e simulatore interattivo. Passo passo per il 730.',
+    canonicalPath: '/articoli-frontaliere/simulatore-busta-paga-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come calcolare l'imposta alla fonte in Ticino",
+      "description": "Imposta alla fonte Ticino: aliquote federali 2026, esenzioni frontalieri €7'500–€10'000, credito d'imposta italiano e simulatore passo passo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/simulatore-busta-paga-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calcolatore e documenti fiscali per il calcolo dell'imposta alla fonte, vista sul lago Lugano sullo sfondo"
+      },
+      "datePublished": "2026-08-22T08:50:53+00:00",
+      "dateModified": "2026-08-22T08:50:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/simulatore-busta-paga-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
