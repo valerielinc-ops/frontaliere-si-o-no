@@ -965,6 +965,7 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
   'OFAS',     // Office fédéral des assurances sociales — French acronym of UFAS/BSV
   'OFT',      // Office fédéral des transports — French acronym of UFT/BAV
   'DETEC',    // French/English acronym of DATEC — uvek.admin.ch
+  'FDF',      // Département fédéral des finances — French acronym of DFF/EFD — admin.ch
   'CFSL',     // Commissione federale di coordinamento per la sicurezza sul lavoro — ekas.admin.ch/it
   'CFST',     // French acronym of the same commission
   'MEBEKO',   // Commissione delle professioni mediche — bag.admin.ch/it
