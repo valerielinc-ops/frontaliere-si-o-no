@@ -1,7 +1,89 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-08-21T21:36:16.654Z",
+  "assembledAt": "2026-08-22T09:47:10.710Z",
   "jobs": [
+    {
+      "id": "apple-retail-switzerland-e8f22ffb06db",
+      "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+      "slugByLocale": {
+        "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+        "en": "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+        "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
+        "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
+      "titleByLocale": {
+        "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
+        "en": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
+        "de": "AIML - Machine Learning Forschung Ingenieur, Generative AI - AFM",
+        "fr": "AIML - Machine Learning Recherche Ingénieur, Generative AI - AFM"
+      },
+      "description": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+      "descriptionByLocale": {
+        "it": "Unisciti al team AI Generativo di Apple a Zurigo come Machine Learning Engineer specializzato nel modello di fondazione post-formazione! Il nostro team avanza l'apprendimento di rinforzo (RL) per l'uso degli strumenti agentici, la pianificazione e il ragionamento per migliorare i modelli di base di Apple. Il nostro lavoro forma direttamente le caratteristiche di Apple Intelligence come Siri, che comporta miliardi di utenti, mentre contribuisce alla ricerca all'avanguardia. Collaborerai con un gruppo dedicato di ricercatori a Zurigo e lavorerai a stretto contatto con le principali squadre di Apple Foundation Model di Cupertino e NY.",
+        "en": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+        "de": "Schließen Sie sich dem Generative AI-Team von Apple in Zürich als Machine Learning Engineer an, der sich auf das Post-Training von Grundlagenmodellen spezialisiert hat! Unser Team erweitert das Reinforcement Learning (RL) für die agentische Werkzeugnutzung, Planung und Argumentation, um Apples Grundlagenmodelle zu verbessern. Unsere Arbeit prägt Apple Intelligence-Funktionen wie Siri, die Milliarden von Benutzern betreffen, und trägt gleichzeitig zu modernster Forschung bei. Sie arbeiten mit einer engagierten Forschergruppe in Zürich zusammen und arbeiten eng mit Apples Kernteams von Foundation Model in Cupertino und NY zusammen.",
+        "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-22T09:47:08.575Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-09-01",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
+        "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+        "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
+          "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+          "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
+        ],
+        "en": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T21:19:38.774Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
       "slug": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich",
@@ -33,7 +115,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.956Z",
+      "crawledAt": "2026-08-22T09:47:08.575Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,37 +168,37 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "apple-retail-switzerland-e8f22ffb06db",
-      "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+      "id": "apple-retail-switzerland-ac101ba22f06",
+      "slug": "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich",
       "slugByLocale": {
-        "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
-        "en": "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
-        "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
-        "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
+        "it": "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich",
+        "en": "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
+        "de": "applied-machine-learning-ingenieur-security-apple-retail-switzerland-zurich",
+        "fr": "applied-machine-learning-ingenieur-security-apple-retail-switzerland-zurich"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
       "companyDomain": "jobs.apple.com",
-      "title": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
+      "title": "Applied Machine Learning Engineer - Security",
       "titleByLocale": {
-        "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
-        "en": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
-        "de": "AIML - Machine Learning Forschung Ingenieur, Generative AI - AFM",
-        "fr": "AIML - Machine Learning Recherche Ingénieur, Generative AI - AFM"
+        "it": "Applied Machine Learning Ingegnere - Security",
+        "en": "Applied Machine Learning Engineer - Security",
+        "de": "Applied Machine Learning Ingenieur - Security",
+        "fr": "Applied Machine Learning Ingénieur - Security"
       },
-      "description": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+      "description": "Apple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first.\n\nOur mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and we believe that ML techniques significantly enhance our ability to do so. We are seeking an Applied Machine Learning Engineer who will help us invent and deliver these new methods and techniques.\n\nThis position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries.\n\nCan you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.",
       "descriptionByLocale": {
-        "it": "Unisciti al team AI Generativo di Apple a Zurigo come Machine Learning Engineer specializzato nel modello di fondazione post-formazione! Il nostro team avanza l'apprendimento di rinforzo (RL) per l'uso degli strumenti agentici, la pianificazione e il ragionamento per migliorare i modelli di base di Apple. Il nostro lavoro forma direttamente le caratteristiche di Apple Intelligence come Siri, che comporta miliardi di utenti, mentre contribuisce alla ricerca all'avanguardia. Collaborerai con un gruppo dedicato di ricercatori a Zurigo e lavorerai a stretto contatto con le principali squadre di Apple Foundation Model di Cupertino e NY.",
-        "en": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
-        "de": "Schließen Sie sich dem Generative AI-Team von Apple in Zürich als Machine Learning Engineer an, der sich auf das Post-Training von Grundlagenmodellen spezialisiert hat! Unser Team erweitert das Reinforcement Learning (RL) für die agentische Werkzeugnutzung, Planung und Argumentation, um Apples Grundlagenmodelle zu verbessern. Unsere Arbeit prägt Apple Intelligence-Funktionen wie Siri, die Milliarden von Benutzern betreffen, und trägt gleichzeitig zu modernster Forschung bei. Sie arbeiten mit einer engagierten Forschergruppe in Zürich zusammen und arbeiten eng mit Apples Kernteams von Foundation Model in Cupertino und NY zusammen.",
-        "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
+        "it": "L'organizzazione di Apple Security Engineering & Architecture è responsabile della sicurezza di tutti i prodotti Apple. Appassionato a salvaguardare gli utenti, crediamo che la migliore difesa richiede una grande offesa. Quando si tratta di garantire più di un miliardo di dispositivi che eseguono i sistemi operativi più sofisticati del mondo, questo significa trovare le vulnerabilità prima. La nostra missione è scoprire, capire e sfruttare le vulnerabilità di tutti gli strati delle piattaforme di Apple, e crediamo che le tecniche ML migliorano significativamente la nostra capacità di farlo.\n• Stiamo cercando un Ingegnere di Apprendimento della Macchina Applicata che ci aiuterà a inventare e fornire questi nuovi metodi e tecniche. Questa posizione fornisce una rara esposizione a una visione completa della sicurezza insieme all'accesso diretto alle conoscenze di esperti, ai dataset unici e all'esperienza cross-domain. I vostri contributi aumenteranno materialmente la sicurezza dei prodotti utilizzati da miliardi e rafforzeranno la capacità di Apple di difendersi dagli avversari. Puoi fare la differenza su questa scala? Unisciti al nostro straordinario gruppo di ricercatori di sicurezza, sviluppatori di strumenti e esperti di machine learning e aiuta a proteggere tutti gli utenti Apple.",
+        "en": "Apple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first.\n\nOur mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and we believe that ML techniques significantly enhance our ability to do so. We are seeking an Applied Machine Learning Engineer who will help us invent and deliver these new methods and techniques.\n\nThis position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries.\n\nCan you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.",
+        "de": "Die Security Engineering & Architecture Organisation von Apple ist für die Sicherheit aller Apple-Produkte verantwortlich. Leidenschaftlich über den Schutz der Benutzer, glauben wir, dass die beste Verteidigung eine große Offensive erfordert. Wenn es darum geht, mehr als eine Milliarde Geräte mit den weltweit anspruchsvollsten Betriebssystemen zu sichern, bedeutet dies, Schwachstellen zuerst zu finden. Unsere Mission ist es, Schwachstellen auf allen Ebenen der Apple-Plattformen zu entdecken, zu verstehen und auszunutzen, und wir glauben, dass ML-Techniken unsere Fähigkeit dazu erheblich verbessern. Wir suchen einen Applied Machine Learning Engineer, der uns helfen wird, diese neuen Methoden und Techniken zu erfinden und zu liefern. Diese Position bietet eine seltene Exposition gegenüber einer Full-Stack-Sicht der Sicherheit zusammen mit direktem Zugriff auf Expertenwissen, einzigartige Datensätze und bereichsübergreifende Erfahrung. Ihre Beiträge werden die Sicherheit von Milliardenprodukten wesentlich erhöhen und die Fähigkeit von Apple stärken, sich gegen Gegner zu verteidigen. Können Sie auf dieser Skala einen Unterschied machen? Schließen Sie sich unserer außergewöhnlichen Gruppe von Sicherheitsforschern, Werkzeugentwicklern und Experten für maschinelles Lernen an und helfen Sie dabei, alle Apple-Benutzer zu schützen.",
+        "fr": "L'organisation d'Apple Security Engineering & Architecture est responsable de la sécurité de tous les produits Apple. Passionné de protéger les utilisateurs, nous croyons que la meilleure défense exige une grande offense. Lorsqu'il s'agit de sécuriser plus d'un milliard d'appareils utilisant les systèmes d'exploitation les plus sophistiqués du monde, cela signifie d'abord trouver des vulnérabilités. Notre mission est de découvrir, comprendre et exploiter les vulnérabilités de toutes les couches de plateformes Apple, et nous croyons que les techniques ML améliorent considérablement notre capacité à le faire. Nous sommes à la recherche d'un ingénieur en apprentissage automatique appliqué qui nous aidera à inventer et à livrer ces nouvelles méthodes et techniques. Ce poste offre une exposition rare à une vue complète de la sécurité ainsi qu'un accès direct aux connaissances d'experts, à des ensembles de données uniques et à une expérience multidomaines. Vos contributions augmenteront matériellement la sécurité des produits utilisés par des milliards et renforceront la capacité d'Apple à se défendre contre les adversaires. Pouvez-vous faire une différence sur cette échelle? Rejoignez notre groupe extraordinaire de chercheurs en sécurité, de développeurs d'outils et d'experts en apprentissage automatique, et aidez à protéger tous les utilisateurs d'Apple."
       },
       "location": "Zurich",
       "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
+      "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.955Z",
+      "crawledAt": "2026-08-22T09:47:08.574Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -127,29 +209,24 @@
       "sector": "Retail",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-09-01",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
+      "postedDate": "2025-11-26",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
-        "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
-        "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
+        "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
+        "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
-          "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
-          "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
-        ],
-        "en": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
+          "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich"
         ],
         "de": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch"
         ],
         "fr": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.774Z",
@@ -165,7 +242,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-51c21d56955d",
@@ -198,7 +276,7 @@
       "url": "https://jobs.apple.com/en-us/details/200623292/aiml-machine-learning-research-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.953Z",
+      "crawledAt": "2026-08-22T09:47:08.574Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,83 +324,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "apple-retail-switzerland-ac101ba22f06",
-      "slug": "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich",
-        "en": "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
-        "de": "applied-machine-learning-ingenieur-security-apple-retail-switzerland-zurich",
-        "fr": "applied-machine-learning-ingenieur-security-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Applied Machine Learning Engineer - Security",
-      "titleByLocale": {
-        "it": "Applied Machine Learning Ingegnere - Security",
-        "en": "Applied Machine Learning Engineer - Security",
-        "de": "Applied Machine Learning Ingenieur - Security",
-        "fr": "Applied Machine Learning Ingénieur - Security"
-      },
-      "description": "Apple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first.\n\nOur mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and we believe that ML techniques significantly enhance our ability to do so. We are seeking an Applied Machine Learning Engineer who will help us invent and deliver these new methods and techniques.\n\nThis position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries.\n\nCan you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.",
-      "descriptionByLocale": {
-        "it": "L'organizzazione di Apple Security Engineering & Architecture è responsabile della sicurezza di tutti i prodotti Apple. Appassionato a salvaguardare gli utenti, crediamo che la migliore difesa richiede una grande offesa. Quando si tratta di garantire più di un miliardo di dispositivi che eseguono i sistemi operativi più sofisticati del mondo, questo significa trovare le vulnerabilità prima. La nostra missione è scoprire, capire e sfruttare le vulnerabilità di tutti gli strati delle piattaforme di Apple, e crediamo che le tecniche ML migliorano significativamente la nostra capacità di farlo.\n• Stiamo cercando un Ingegnere di Apprendimento della Macchina Applicata che ci aiuterà a inventare e fornire questi nuovi metodi e tecniche. Questa posizione fornisce una rara esposizione a una visione completa della sicurezza insieme all'accesso diretto alle conoscenze di esperti, ai dataset unici e all'esperienza cross-domain. I vostri contributi aumenteranno materialmente la sicurezza dei prodotti utilizzati da miliardi e rafforzeranno la capacità di Apple di difendersi dagli avversari. Puoi fare la differenza su questa scala? Unisciti al nostro straordinario gruppo di ricercatori di sicurezza, sviluppatori di strumenti e esperti di machine learning e aiuta a proteggere tutti gli utenti Apple.",
-        "en": "Apple's Security Engineering & Architecture organization is responsible for the security of all Apple products. Passionate about safeguarding users, we believe that the best defense requires a great offense. When it comes to securing more than a billion devices running the world's most sophisticated operating systems, that means finding vulnerabilities first.\n\nOur mission is to discover, understand, and exploit vulnerabilities across all layers of Apple’s platforms, and we believe that ML techniques significantly enhance our ability to do so. We are seeking an Applied Machine Learning Engineer who will help us invent and deliver these new methods and techniques.\n\nThis position provides rare exposure to a full‑stack view of security along with direct access to expert knowledge, unique datasets, and cross‑domain experience. Your contributions will materially raise the security of products used by billions and strengthen Apple’s ability to defend against adversaries.\n\nCan you make a difference on this scale? Join our extraordinary group of security researchers, tool developers, and machine learning experts, and help protect all Apple users.",
-        "de": "Die Security Engineering & Architecture Organisation von Apple ist für die Sicherheit aller Apple-Produkte verantwortlich. Leidenschaftlich über den Schutz der Benutzer, glauben wir, dass die beste Verteidigung eine große Offensive erfordert. Wenn es darum geht, mehr als eine Milliarde Geräte mit den weltweit anspruchsvollsten Betriebssystemen zu sichern, bedeutet dies, Schwachstellen zuerst zu finden. Unsere Mission ist es, Schwachstellen auf allen Ebenen der Apple-Plattformen zu entdecken, zu verstehen und auszunutzen, und wir glauben, dass ML-Techniken unsere Fähigkeit dazu erheblich verbessern. Wir suchen einen Applied Machine Learning Engineer, der uns helfen wird, diese neuen Methoden und Techniken zu erfinden und zu liefern. Diese Position bietet eine seltene Exposition gegenüber einer Full-Stack-Sicht der Sicherheit zusammen mit direktem Zugriff auf Expertenwissen, einzigartige Datensätze und bereichsübergreifende Erfahrung. Ihre Beiträge werden die Sicherheit von Milliardenprodukten wesentlich erhöhen und die Fähigkeit von Apple stärken, sich gegen Gegner zu verteidigen. Können Sie auf dieser Skala einen Unterschied machen? Schließen Sie sich unserer außergewöhnlichen Gruppe von Sicherheitsforschern, Werkzeugentwicklern und Experten für maschinelles Lernen an und helfen Sie dabei, alle Apple-Benutzer zu schützen.",
-        "fr": "L'organisation d'Apple Security Engineering & Architecture est responsable de la sécurité de tous les produits Apple. Passionné de protéger les utilisateurs, nous croyons que la meilleure défense exige une grande offense. Lorsqu'il s'agit de sécuriser plus d'un milliard d'appareils utilisant les systèmes d'exploitation les plus sophistiqués du monde, cela signifie d'abord trouver des vulnérabilités. Notre mission est de découvrir, comprendre et exploiter les vulnérabilités de toutes les couches de plateformes Apple, et nous croyons que les techniques ML améliorent considérablement notre capacité à le faire. Nous sommes à la recherche d'un ingénieur en apprentissage automatique appliqué qui nous aidera à inventer et à livrer ces nouvelles méthodes et techniques. Ce poste offre une exposition rare à une vue complète de la sécurité ainsi qu'un accès direct aux connaissances d'experts, à des ensembles de données uniques et à une expérience multidomaines. Vos contributions augmenteront matériellement la sécurité des produits utilisés par des milliards et renforceront la capacité d'Apple à se défendre contre les adversaires. Pouvez-vous faire une différence sur cette échelle? Rejoignez notre groupe extraordinaire de chercheurs en sécurité, de développeurs d'outils et d'experts en apprentissage automatique, et aidez à protéger tous les utilisateurs d'Apple."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.952Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-26",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
-        "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch",
-          "applied-machine-learning-ingegnere-security-apple-retail-switzerland-zurich"
-        ],
-        "de": [
-          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "applied-machine-learning-engineer-security-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:19:38.774Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "apple-retail-switzerland-a47942b13045",
       "slug": "aiml-senior-ml-rl-training-infrastructure-ingegnere-afm-apple-retail-switzerland-zurich",
       "slugByLocale": {
@@ -353,7 +354,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.951Z",
+      "crawledAt": "2026-08-22T09:47:08.573Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,7 +398,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-99675b310169",
@@ -430,7 +432,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.950Z",
+      "crawledAt": "2026-08-22T09:47:08.572Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,6 +464,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -507,7 +510,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.949Z",
+      "crawledAt": "2026-08-22T09:47:08.571Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -581,7 +584,7 @@
       "url": "https://jobs.apple.com/en-us/details/200666968/sales-business-analyst-for-switzerland-and-austria?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.948Z",
+      "crawledAt": "2026-08-22T09:47:08.570Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -659,7 +662,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.948Z",
+      "crawledAt": "2026-08-22T09:47:08.570Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -691,6 +694,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.767Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -704,85 +708,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "apple-retail-switzerland-61e9c20f047e",
-      "slug": "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "en": "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-        "de": "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "fr": "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Senior Machine Learning Engineer in Human-Centric Computer Vision",
-      "titleByLocale": {
-        "it": "Senior Machine Learning Ingegnere in Human-Centric Computer Vision",
-        "en": "Senior Machine Learning Engineer in Human-Centric Computer Vision",
-        "de": "Senior Machine Learning Ingenieur in Human-Centric Computer Vision",
-        "fr": "Senior Machine Learning Ingénieur in Human-Centric Computer Vision"
-      },
-      "description": "At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide. The European Vision Group (EVG) is dedicated to fundamental and applied research in Computer Vision and Machine Learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a senior Machine Learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative Computer Vision experiences.\n\nApple is an Equal Opportunity Employer that is committed to inclusion and diversity. We also take affirmative action to offer employment and advancement opportunities to all applicants, including minorities, women, protected veterans, and individuals with disabilities. Apple will not discriminate or retaliate against applicants who inquire about, disclose, or discuss their compensation or that of other applicants.",
-      "descriptionByLocale": {
-        "it": "A Apple, le nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Portare la passione per la risoluzione dei problemi e la dedizione al vostro lavoro, e non c'è dire ciò che si potrebbe realizzare. Promuoviamo lo stato dell'arte per migliorare la vita dei nostri clienti in tutto il mondo. L'European Vision Group (EVG) è dedicato alla ricerca fondamentale e applicata in Computer Vision e Machine Learning, con l'obiettivo di arricchire la comunicazione umana. Il nostro team ha fornito tecnologie di visione umana-centrica innovative utilizzate da milioni di persone in tutto il mondo, tra cui Persona per Apple Vision Pro, Modalità Ritratto, FaceTime Eye Contact, Animoji e ARKit. Queste innovazioni sono il risultato della ricerca di livello mondiale unita all'ingegneria di livello mondiale. Siamo alla ricerca di un ingegnere senior Machine Learning che è appassionato di modellare il futuro dei prodotti Apple e entusiasta di contribuire alla prossima ondata di esperienze trasformative Computer Vision. Apple è un Equal Opportunity Employer che si impegna a inclusione e diversità. Facciamo anche un'azione affermativa per offrire opportunità di lavoro e di avanzamento a tutti i candidati, tra cui minoranze, donne, veterani protetti e persone con disabilità. Apple non discrimina o si ritirerà contro i candidati che indagano, divulgano, o discutono la loro compensazione o quella di altri candidati.",
-        "en": "At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide. The European Vision Group (EVG) is dedicated to fundamental and applied research in Computer Vision and Machine Learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a senior Machine Learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative Computer Vision experiences.\n\nApple is an Equal Opportunity Employer that is committed to inclusion and diversity. We also take affirmative action to offer employment and advancement opportunities to all applicants, including minorities, women, protected veterans, and individuals with disabilities. Apple will not discriminate or retaliate against applicants who inquire about, disclose, or discuss their compensation or that of other applicants.",
-        "de": "Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft für Problemlösung und Engagement in Ihren Job, und es ist nicht abzusehen, was Sie erreichen könnten. Wir bringen den Stand der Technik voran, um das Leben unserer Kunden weltweit zu verbessern. Die European Vision Group (EVG) widmet sich der Grundlagen- und angewandten Forschung im Bereich Computer Vision und Machine Learning mit dem Schwerpunkt auf der Bereicherung der menschlichen Kommunikation. Unser Team hat bahnbrechende, menschenzentrierte Vision-Technologien geliefert, die von Millionen weltweit verwendet werden, darunter Persona für Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji und ARKit. Diese Innovationen sind das Ergebnis von Weltklasse-Forschung kombiniert mit Weltklasse-Engineering. Wir suchen einen leitenden Machine Learning-Ingenieur, der sich leidenschaftlich für die Gestaltung der Zukunft von Apple-Produkten einsetzt und begeistert ist, zur nächsten Welle transformativer Computer Vision-Erfahrungen beizutragen. Apple ist ein Arbeitgeber für Chancengleichheit, der sich für Inklusion und Vielfalt einsetzt. Wir ergreifen auch positive Maßnahmen, um allen Bewerbern Beschäftigungs- und Aufstiegsmöglichkeiten zu bieten, einschließlich Minderheiten, Frauen, geschützten Veteranen und Menschen mit Behinderungen. Apple diskriminiert oder rächt sich nicht gegen Bewerber, die sich nach ihrer Entschädigung oder der anderer Bewerber erkundigen, offenlegen oder diskutieren.",
-        "fr": "Chez Apple, de nouvelles idées peuvent devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion pour la résolution de problèmes et le dévouement à votre travail, et il n'y a rien à dire ce que vous pourriez accomplir. Nous faisons progresser l'état de l'art pour améliorer la vie de nos clients dans le monde entier. Le European Vision Group (EVG) est dédié à la recherche fondamentale et appliquée dans le domaine de la vision informatique et de l'apprentissage automatique, l'accent étant mis sur l'enrichissement de la communication humaine. Notre équipe a livré des technologies de vision humaine révolutionnaires utilisées par des millions de personnes dans le monde, notamment Persona pour Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji et ARKit. Ces innovations sont le résultat d'une recherche de calibre mondial combinée à une ingénierie de calibre mondial. Nous sommes à la recherche d'un ingénieur de l'apprentissage automatique senior qui est passionné par la façon de façonner l'avenir des produits Apple et excité de contribuer à la prochaine vague d'expériences de vision informatique transformatrice. Apple est un employeur en égalité des chances qui s'engage à l'inclusion et à la diversité. Nous prenons également des mesures positives pour offrir des possibilités d'emploi et de promotion à tous les candidats, y compris les minorités, les femmes, les anciens combattants protégés et les personnes handicapées. Apple ne fera pas de discrimination ou de représailles à l'encontre des demandeurs qui demandent des renseignements, divulguent ou discutent de leur rémunération ou celle d'autres demandeurs."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=HRDWR",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.947Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=HRDWR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-          "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
-        ],
-        "de": [
-          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
-        ],
-        "fr": [
-          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:19:38.766Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 0
     },
     {
       "id": "apple-retail-switzerland-417e40f20741",
@@ -815,7 +740,7 @@
       "url": "https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.946Z",
+      "crawledAt": "2026-08-22T09:47:08.569Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -862,6 +787,84 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "apple-retail-switzerland-61e9c20f047e",
+      "slug": "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+      "slugByLocale": {
+        "it": "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "en": "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "de": "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "fr": "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Senior Machine Learning Engineer in Human-Centric Computer Vision",
+      "titleByLocale": {
+        "it": "Senior Machine Learning Ingegnere in Human-Centric Computer Vision",
+        "en": "Senior Machine Learning Engineer in Human-Centric Computer Vision",
+        "de": "Senior Machine Learning Ingenieur in Human-Centric Computer Vision",
+        "fr": "Senior Machine Learning Ingénieur in Human-Centric Computer Vision"
+      },
+      "description": "At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide. The European Vision Group (EVG) is dedicated to fundamental and applied research in Computer Vision and Machine Learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a senior Machine Learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative Computer Vision experiences.\n\nApple is an Equal Opportunity Employer that is committed to inclusion and diversity. We also take affirmative action to offer employment and advancement opportunities to all applicants, including minorities, women, protected veterans, and individuals with disabilities. Apple will not discriminate or retaliate against applicants who inquire about, disclose, or discuss their compensation or that of other applicants.",
+      "descriptionByLocale": {
+        "it": "A Apple, le nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Portare la passione per la risoluzione dei problemi e la dedizione al vostro lavoro, e non c'è dire ciò che si potrebbe realizzare. Promuoviamo lo stato dell'arte per migliorare la vita dei nostri clienti in tutto il mondo. L'European Vision Group (EVG) è dedicato alla ricerca fondamentale e applicata in Computer Vision e Machine Learning, con l'obiettivo di arricchire la comunicazione umana. Il nostro team ha fornito tecnologie di visione umana-centrica innovative utilizzate da milioni di persone in tutto il mondo, tra cui Persona per Apple Vision Pro, Modalità Ritratto, FaceTime Eye Contact, Animoji e ARKit. Queste innovazioni sono il risultato della ricerca di livello mondiale unita all'ingegneria di livello mondiale. Siamo alla ricerca di un ingegnere senior Machine Learning che è appassionato di modellare il futuro dei prodotti Apple e entusiasta di contribuire alla prossima ondata di esperienze trasformative Computer Vision. Apple è un Equal Opportunity Employer che si impegna a inclusione e diversità. Facciamo anche un'azione affermativa per offrire opportunità di lavoro e di avanzamento a tutti i candidati, tra cui minoranze, donne, veterani protetti e persone con disabilità. Apple non discrimina o si ritirerà contro i candidati che indagano, divulgano, o discutono la loro compensazione o quella di altri candidati.",
+        "en": "At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide. The European Vision Group (EVG) is dedicated to fundamental and applied research in Computer Vision and Machine Learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a senior Machine Learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative Computer Vision experiences.\n\nApple is an Equal Opportunity Employer that is committed to inclusion and diversity. We also take affirmative action to offer employment and advancement opportunities to all applicants, including minorities, women, protected veterans, and individuals with disabilities. Apple will not discriminate or retaliate against applicants who inquire about, disclose, or discuss their compensation or that of other applicants.",
+        "de": "Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft für Problemlösung und Engagement in Ihren Job, und es ist nicht abzusehen, was Sie erreichen könnten. Wir bringen den Stand der Technik voran, um das Leben unserer Kunden weltweit zu verbessern. Die European Vision Group (EVG) widmet sich der Grundlagen- und angewandten Forschung im Bereich Computer Vision und Machine Learning mit dem Schwerpunkt auf der Bereicherung der menschlichen Kommunikation. Unser Team hat bahnbrechende, menschenzentrierte Vision-Technologien geliefert, die von Millionen weltweit verwendet werden, darunter Persona für Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji und ARKit. Diese Innovationen sind das Ergebnis von Weltklasse-Forschung kombiniert mit Weltklasse-Engineering. Wir suchen einen leitenden Machine Learning-Ingenieur, der sich leidenschaftlich für die Gestaltung der Zukunft von Apple-Produkten einsetzt und begeistert ist, zur nächsten Welle transformativer Computer Vision-Erfahrungen beizutragen. Apple ist ein Arbeitgeber für Chancengleichheit, der sich für Inklusion und Vielfalt einsetzt. Wir ergreifen auch positive Maßnahmen, um allen Bewerbern Beschäftigungs- und Aufstiegsmöglichkeiten zu bieten, einschließlich Minderheiten, Frauen, geschützten Veteranen und Menschen mit Behinderungen. Apple diskriminiert oder rächt sich nicht gegen Bewerber, die sich nach ihrer Entschädigung oder der anderer Bewerber erkundigen, offenlegen oder diskutieren.",
+        "fr": "Chez Apple, de nouvelles idées peuvent devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion pour la résolution de problèmes et le dévouement à votre travail, et il n'y a rien à dire ce que vous pourriez accomplir. Nous faisons progresser l'état de l'art pour améliorer la vie de nos clients dans le monde entier. Le European Vision Group (EVG) est dédié à la recherche fondamentale et appliquée dans le domaine de la vision informatique et de l'apprentissage automatique, l'accent étant mis sur l'enrichissement de la communication humaine. Notre équipe a livré des technologies de vision humaine révolutionnaires utilisées par des millions de personnes dans le monde, notamment Persona pour Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji et ARKit. Ces innovations sont le résultat d'une recherche de calibre mondial combinée à une ingénierie de calibre mondial. Nous sommes à la recherche d'un ingénieur de l'apprentissage automatique senior qui est passionné par la façon de façonner l'avenir des produits Apple et excité de contribuer à la prochaine vague d'expériences de vision informatique transformatrice. Apple est un employeur en égalité des chances qui s'engage à l'inclusion et à la diversité. Nous prenons également des mesures positives pour offrir des possibilités d'emploi et de promotion à tous les candidats, y compris les minorités, les femmes, les anciens combattants protégés et les personnes handicapées. Apple ne fera pas de discrimination ou de représailles à l'encontre des demandeurs qui demandent des renseignements, divulguent ou discutent de leur rémunération ou celle d'autres demandeurs."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=HRDWR",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-22T09:47:08.569Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=HRDWR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+          "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+        ],
+        "de": [
+          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
+        ],
+        "fr": [
+          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
+        ]
+      },
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-07-03T21:19:38.766Z",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
       "id": "apple-retail-switzerland-6fc6bba1b22c",
       "slug": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich-2f5bc0",
       "slugByLocale": {
@@ -892,7 +895,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.945Z",
+      "crawledAt": "2026-08-22T09:47:08.568Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -969,7 +972,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.945Z",
+      "crawledAt": "2026-08-22T09:47:08.568Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1006,6 +1009,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T23:03:17.856Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1051,7 +1055,7 @@
       "url": "https://jobs.apple.com/en-us/details/200678120/aiml-researcher-foundation-model-post-training?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.944Z",
+      "crawledAt": "2026-08-22T09:47:08.567Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1098,6 +1102,83 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "apple-retail-switzerland-336db49a2819",
+      "slug": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
+      "slugByLocale": {
+        "it": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
+        "en": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+        "de": "content-engineering-author-entwickler-publications-apple-retail-switzerland-dietlikon",
+        "fr": "content-engineering-author-developpeur-publications-apple-retail-switzerland-dietlikon"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Content Engineering Author, Developer Publications",
+      "titleByLocale": {
+        "it": "Content Engineering Author, Sviluppatore Publications",
+        "en": "Content Engineering Author, Developer Publications",
+        "de": "Content Engineering Author, Entwickler Publications",
+        "fr": "Content Engineering Author, Développeur Publications"
+      },
+      "description": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
+      "descriptionByLocale": {
+        "it": "Apple è dove le immaginazioni individuali si riuniscono, impegnando i valori che portano al grande lavoro. Ogni nuovo prodotto che costruiamo, il servizio che creiamo, o l'esperienza Apple Store che offriamo è il risultato di noi rendendo le idee l'un l'altro più forte. Questo accade perché ognuno di noi condivide una convinzione che possiamo fare qualcosa di meraviglioso e condividerlo con il mondo, cambiando vite per il meglio. È la diversità della nostra gente e il loro pensiero che ispira l’innovazione che attraversa tutto ciò che facciamo. Quando portiamo tutti dentro, possiamo fare il miglior lavoro della nostra vita. Qui, farai più che unire qualcosa — si aggiungerà qualcosa. Nelle pubblicazioni degli sviluppatori, insegniamo alle persone a progettare e costruire un software incredibile per le piattaforme Apple. Il nostro pubblico include sviluppatori che ottengono la loro prima introduzione a piattaforme Apple, progettisti che utilizzano le nostre linee guida per l'interfaccia umana, e ingegneri avanzati dettagli di apprendimento delle nostre centinaia di framework. Come Software Engineering Author, lavorerai a stretto contatto con editor, ingegneri, progettisti e team di Apple per produrre contenuti chiari, concisi e coinvolgenti. I tuoi articoli, il codice campione e la documentazione di riferimento API raggiungeranno milioni di sviluppatori e li aiuteranno a creare applicazioni che utilizzano le ultime tecnologie Apple per sorprendere e deliziare gli utenti.",
+        "en": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
+        "de": "Apple ist der Ort, an dem sich die individuellen Vorstellungen versammeln und sich zu den Werten bekennen, die zu großartiger Arbeit führen. Jedes neue Produkt, das wir entwickeln, jeder Service, den wir erstellen, oder jedes Apple Store-Erlebnis, das wir liefern, ist das Ergebnis unserer gegenseitigen Ideen. Das passiert, weil jeder von uns den Glauben teilt, dass wir etwas Wunderbares machen und es mit der Welt teilen können, das Leben zum Besseren verändern. Es ist die Vielfalt unserer Mitarbeiter und ihr Denken, die die Innovation inspiriert, die sich durch alles, was wir tun, zieht. Wenn wir alle einbringen, können wir die beste Arbeit unseres Lebens leisten. Hier werden Sie mehr tun, als sich etwas anzuschließen - Sie werden etwas hinzufügen. In Developer Publications bringen wir Menschen bei, unglaubliche Software für Apples Plattformen zu entwerfen und zu bauen. Zu unserem Publikum gehören Entwickler, die ihre erste Einführung in Apple-Plattformen erhalten, Designer, die unsere Human Interface-Richtlinien verwenden, und fortgeschrittene Ingenieure, die Details zu unseren Hunderten von Frameworks erfahren. Als Autor von Software Engineering arbeiten Sie eng mit Redakteuren, Ingenieuren, Designern und Teams in ganz Apple zusammen, um klare, prägnante und ansprechende Inhalte zu erstellen. Ihre Artikel, Ihr Beispielcode und Ihre API-Referenzdokumentation erreichen Millionen von Entwicklern und helfen ihnen, Apps zu erstellen, die die neuesten Apple-Technologien verwenden, um Benutzer zu überraschen und zu begeistern.",
+        "fr": "Apple est l'endroit où les imaginations individuelles se rassemblent, s'engageant aux valeurs qui mènent à un grand travail. Chaque nouveau produit que nous construisons, service que nous créons, ou expérience Apple Store que nous livrons est le résultat de nous rendre les idées les uns les autres plus fortes. Cela arrive parce que chacun d'entre nous partage la conviction que nous pouvons faire quelque chose de merveilleux et le partager avec le monde, changer des vies pour le mieux. C'est la diversité de nos gens et leur pensée qui inspire l'innovation qui traverse tout ce que nous faisons. Quand on amène tout le monde, on peut faire le meilleur travail de notre vie. Ici, vous ferez plus que rejoindre quelque chose — vous ajouterez quelque chose. Dans Developer Publications, nous enseignons aux gens à concevoir et à construire des logiciels incroyables pour les plateformes Apple. Notre public comprend les développeurs qui reçoivent leur première introduction sur les plateformes Apple, les concepteurs utilisant nos lignes directrices pour l'interface humaine et les ingénieurs avancés qui apprennent des détails sur nos centaines de cadres. En tant qu'auteur en génie logiciel, vous travaillerez en étroite collaboration avec les éditeurs, les ingénieurs, les concepteurs et les équipes d'Apple pour produire un contenu clair, concis et stimulant. Vos articles, votre exemple de code et la documentation de référence de l'API toucheront des millions de développeurs et les aideront à créer des applications qui utilisent les dernières technologies Apple pour surprendre et ravir les utilisateurs."
+      },
+      "location": "Dietlikon",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-22T09:47:08.566Z",
+      "addressLocality": "Dietlikon",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+        "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+          "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon"
+        ],
+        "de": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T10:01:12.124Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
       "id": "apple-retail-switzerland-0844f06e9be1",
       "slug": "security-ingegnere-apple-retail-switzerland-zurich",
       "slugByLocale": {
@@ -1128,7 +1209,7 @@
       "url": "https://jobs.apple.com/en-us/details/200677276/security-engineer?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.943Z",
+      "crawledAt": "2026-08-22T09:47:08.566Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1175,81 +1256,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "apple-retail-switzerland-336db49a2819",
-      "slug": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
-      "slugByLocale": {
-        "it": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
-        "en": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-        "de": "content-engineering-author-entwickler-publications-apple-retail-switzerland-dietlikon",
-        "fr": "content-engineering-author-developpeur-publications-apple-retail-switzerland-dietlikon"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Content Engineering Author, Developer Publications",
-      "titleByLocale": {
-        "it": "Content Engineering Author, Sviluppatore Publications",
-        "en": "Content Engineering Author, Developer Publications",
-        "de": "Content Engineering Author, Entwickler Publications",
-        "fr": "Content Engineering Author, Développeur Publications"
-      },
-      "description": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-      "descriptionByLocale": {
-        "en": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-        "it": "Apple è dove le immaginazioni individuali si riuniscono, impegnando i valori che portano al grande lavoro. Ogni nuovo prodotto che costruiamo, il servizio che creiamo, o l'esperienza Apple Store che offriamo è il risultato di noi rendendo le idee l'un l'altro più forte. Questo accade perché ognuno di noi condivide una convinzione che possiamo fare qualcosa di meraviglioso e condividerlo con il mondo, cambiando vite per il meglio. È la diversità della nostra gente e il loro pensiero che ispira l’innovazione che attraversa tutto ciò che facciamo. Quando portiamo tutti dentro, possiamo fare il miglior lavoro della nostra vita. Qui, farai più che unire qualcosa — si aggiungerà qualcosa. Nelle pubblicazioni degli sviluppatori, insegniamo alle persone a progettare e costruire un software incredibile per le piattaforme Apple. Il nostro pubblico include sviluppatori che ottengono la loro prima introduzione a piattaforme Apple, progettisti che utilizzano le nostre linee guida per l'interfaccia umana, e ingegneri avanzati dettagli di apprendimento delle nostre centinaia di framework. Come Software Engineering Author, lavorerai a stretto contatto con editor, ingegneri, progettisti e team di Apple per produrre contenuti chiari, concisi e coinvolgenti. I tuoi articoli, il codice campione e la documentazione di riferimento API raggiungeranno milioni di sviluppatori e li aiuteranno a creare applicazioni che utilizzano le ultime tecnologie Apple per sorprendere e deliziare gli utenti.",
-        "de": "Apple ist der Ort, an dem sich die individuellen Vorstellungen versammeln und sich zu den Werten bekennen, die zu großartiger Arbeit führen. Jedes neue Produkt, das wir entwickeln, jeder Service, den wir erstellen, oder jedes Apple Store-Erlebnis, das wir liefern, ist das Ergebnis unserer gegenseitigen Ideen. Das passiert, weil jeder von uns den Glauben teilt, dass wir etwas Wunderbares machen und es mit der Welt teilen können, das Leben zum Besseren verändern. Es ist die Vielfalt unserer Mitarbeiter und ihr Denken, die die Innovation inspiriert, die sich durch alles, was wir tun, zieht. Wenn wir alle einbringen, können wir die beste Arbeit unseres Lebens leisten. Hier werden Sie mehr tun, als sich etwas anzuschließen - Sie werden etwas hinzufügen. In Developer Publications bringen wir Menschen bei, unglaubliche Software für Apples Plattformen zu entwerfen und zu bauen. Zu unserem Publikum gehören Entwickler, die ihre erste Einführung in Apple-Plattformen erhalten, Designer, die unsere Human Interface-Richtlinien verwenden, und fortgeschrittene Ingenieure, die Details zu unseren Hunderten von Frameworks erfahren. Als Autor von Software Engineering arbeiten Sie eng mit Redakteuren, Ingenieuren, Designern und Teams in ganz Apple zusammen, um klare, prägnante und ansprechende Inhalte zu erstellen. Ihre Artikel, Ihr Beispielcode und Ihre API-Referenzdokumentation erreichen Millionen von Entwicklern und helfen ihnen, Apps zu erstellen, die die neuesten Apple-Technologien verwenden, um Benutzer zu überraschen und zu begeistern.",
-        "fr": "Apple est l'endroit où les imaginations individuelles se rassemblent, s'engageant aux valeurs qui mènent à un grand travail. Chaque nouveau produit que nous construisons, service que nous créons, ou expérience Apple Store que nous livrons est le résultat de nous rendre les idées les uns les autres plus fortes. Cela arrive parce que chacun d'entre nous partage la conviction que nous pouvons faire quelque chose de merveilleux et le partager avec le monde, changer des vies pour le mieux. C'est la diversité de nos gens et leur pensée qui inspire l'innovation qui traverse tout ce que nous faisons. Quand on amène tout le monde, on peut faire le meilleur travail de notre vie. Ici, vous ferez plus que rejoindre quelque chose — vous ajouterez quelque chose. Dans Developer Publications, nous enseignons aux gens à concevoir et à construire des logiciels incroyables pour les plateformes Apple. Notre public comprend les développeurs qui reçoivent leur première introduction sur les plateformes Apple, les concepteurs utilisant nos lignes directrices pour l'interface humaine et les ingénieurs avancés qui apprennent des détails sur nos centaines de cadres. En tant qu'auteur en génie logiciel, vous travaillerez en étroite collaboration avec les éditeurs, les ingénieurs, les concepteurs et les équipes d'Apple pour produire un contenu clair, concis et stimulant. Vos articles, votre exemple de code et la documentation de référence de l'API toucheront des millions de développeurs et les aideront à créer des applications qui utilisent les dernières technologies Apple pour surprendre et ravir les utilisateurs."
-      },
-      "location": "Dietlikon",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.942Z",
-      "addressLocality": "Dietlikon",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-21T10:01:12.124Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
-        ],
-        "de": [
-          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
-        ]
-      },
-      "previousSlugs": [
-        "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
-      ]
-    },
-    {
       "id": "apple-retail-switzerland-3d4b15d6efc3",
       "slug": "ch-technical-specialista-m-f-d-apple-retail-switzerland-switzerland",
       "slugByLocale": {
@@ -1280,7 +1286,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.939Z",
+      "crawledAt": "2026-08-22T09:47:08.564Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1314,6 +1320,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.761Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1359,7 +1366,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.934Z",
+      "crawledAt": "2026-08-22T09:47:08.560Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1387,6 +1394,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1432,7 +1440,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:36:13.894Z",
+      "crawledAt": "2026-08-22T09:47:08.534Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
