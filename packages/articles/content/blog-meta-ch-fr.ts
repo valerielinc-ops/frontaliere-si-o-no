@@ -3808,6 +3808,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mutuo-ipotecario-lucerna-guida.title': 'Acheter une maison à Lucerne : guide hypothécaire et coûts',
     'blog.article.mutuo-ipotecario-lucerna-guida.excerpt': 'L\'achat dans le canton de Lucerne nécessite une planification : fonds propres, viabilité hypothécaire, taxe de passage et frais de notaire. Voici les aspects clés.',
     'blog.article.mutuo-ipotecario-lucerna-guida.imageAlt': 'Propriété résidentielle suisse dans une vallée alpine avec paysage montagneux en arrière-plan',
+    'blog.article.naturalizzazione-ordinaria-lucerna.title': 'Naturalisation ordinaire à Lucerne : exigences et procédures',
+    'blog.article.naturalizzazione-ordinaria-lucerna.excerpt': 'Devenir citoyen suisse à Lucerne : 10 ans de résidence avec permis C, test d\'intégration et de langue, taxes municipales et temps de la procédure ordinaire.',
+    'blog.article.naturalizzazione-ordinaria-lucerna.imageAlt': 'Bâtiment communal suisse avec drapeau national, symbole de la naturalisation',
 };
 
 export default blogMetaChFr;
