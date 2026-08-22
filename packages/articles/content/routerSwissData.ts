@@ -1295,6 +1295,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-c-lucerna-guida': { it: 'permesso-c-lucerna-guida', en: 'permit-c-lucerna-guide', de: 'aufenthalt-c-luzern-anleitung', fr: 'permis-c-lucerne-guide' },
  'permesso-l-lucerna-dopo-un-anno': { it: 'permesso-l-lucerna-dopo-un-anno', en: 'residence-permit-l-lucerne-after-one-year', de: 'aufenthaltserlaubnis-l-luzern-nach-einem-jahr', fr: 'permis-de-sejour-l-lucerne-apres-un-an' },
  'mutuo-ipotecario-lucerna-guida': { it: 'mutuo-ipotecario-lucerna-guida', en: 'lucerne-mortgage-guide', de: 'hypothek-luzern-anleitung', fr: 'hypotheque-lucerne-guide' },
+ 'naturalizzazione-ordinaria-lucerna': { it: 'naturalizzazione-ordinaria-lucerna', en: 'ordinary-naturalization-lucerne', de: 'ordentliche-einbuergerung-luzern', fr: 'naturalisation-ordinaire-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

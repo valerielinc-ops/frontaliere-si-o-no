@@ -3808,6 +3808,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mutuo-ipotecario-lucerna-guida.title': 'Haus kaufen in Luzern: Ratgeber zu Hypotheken und Kosten',
     'blog.article.mutuo-ipotecario-lucerna-guida.excerpt': 'Der Einkauf im Kanton Luzern erfordert Planung: Eigenmittel, Tragbarkeit Hypothekendarlehen, Ablösesteuer und Notarkosten. Das sind die wichtigsten Punkte.',
     'blog.article.mutuo-ipotecario-lucerna-guida.imageAlt': 'Schweizer Wohnimmobilie in einem Alpental mit Berglandschaft im Hintergrund',
+    'blog.article.naturalizzazione-ordinaria-lucerna.title': 'Ordentliche Einbürgerung in Luzern: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-ordinaria-lucerna.excerpt': 'Schweizer Staatsbürger in Luzern werden: 10 Jahre Aufenthalt mit Bewilligung C, Integrationstest und Sprache, Gemeindesteuern und Zeiten des ordentlichen Verfahrens.',
+    'blog.article.naturalizzazione-ordinaria-lucerna.imageAlt': 'Schweizer Gemeindehaus mit Schweizer Flagge, Symbol des Naturalisierungsverfahrens',
 };
 
 export default blogMetaChDe;
