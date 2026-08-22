@@ -144,8 +144,8 @@ jobs:
       # «refusing to allow a GitHub App to create or update workflow».
       #
       # Il repo ha gia' il suo pattern per questo: token di installazione della
-      # App come identita' primaria, `GITHUB_PAT` da Remote Config come
-      # fallback (`secrets.GH_PAT` non esiste — vedi auto-merge-on-lgtm.yml).
+      # App come identita' di push (`secrets.GH_PAT` non esiste — vedi
+      # auto-merge-on-lgtm.yml).
       - name: Mint App token (identita' primaria, PAT di fallback)
         continue-on-error: true
         env:
@@ -159,10 +159,17 @@ jobs:
 
       - name: Promote validated crawlers
         env:
-          # APP_TOKEN e' esportato in GITHUB_ENV dallo step di mint; se il mint
-          # fallisce si ricade su GITHUB_PAT (Remote Config) e, in ultima
-          # istanza, su GITHUB_TOKEN — che pero' non potra' pushare i workflow.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          # APP_TOKEN e' esportato in GITHUB_ENV dallo step di conio; se il conio
+          # fallisce si ricade su GITHUB_TOKEN, che pero' non potra' pushare i
+          # file di workflow — e il gate APP_TOKEN_WORKFLOWS lo sa gia', quindi
+          # in quel caso i gruppi non vengono nemmeno rigenerati.
+          #
+          # Niente fallback a GITHUB_PAT: questo job non carica Remote Config,
+          # quindi quella variabile sarebbe sempre vuota. Un fallback morto che
+          # sembra vivo e' peggio di nessun fallback — nasconde quale identita'
+          # stia davvero pushando, che e' esattamente l'errore diagnostico che
+          # questa PR corregge.
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
           # Il cron non passa mai questo input, quindi resta 2: la leva e'
@@ -174,7 +181,7 @@ jobs:
           # GITHUB_TOKEN), non GH_TOKEN: senza riscrivere il remote, il token
           # coniato sopra varrebbe solo per `gh` e il push resterebbe quello che
           # GitHub rifiuta sui file di workflow.
-          if [ -n "${APP_TOKEN:-}" ] || [ -n "${GITHUB_PAT:-}" ]; then
+          if [ -n "${APP_TOKEN:-}" ]; then
             # L'unset NON e' ridondante, ed e' il motivo per cui il giro
             # precedente e' stato rifiutato NONOSTANTE il remote riscritto:
             # actions/checkout scrive
@@ -186,6 +193,6 @@ jobs:
             # Stessa trappola documentata in issue-fix.yml e pr-redflag-fixer.yml.
             git config --unset-all "http.https://github.com/.extraheader" || true
             git remote set-url origin \
-              "https://x-access-token:${APP_TOKEN:-$GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
+              "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           fi
           node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --min-days="$PROMOTE_MIN_DAYS" --open-pr
