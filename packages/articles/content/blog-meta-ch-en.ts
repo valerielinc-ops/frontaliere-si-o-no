@@ -3766,6 +3766,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.discriminazioni-esercito-piano.title': 'Discrimination in the army: the Swiss 2027 plan',
     'blog.article.discriminazioni-esercito-piano.excerpt': 'The Swiss army implemented 8 out of 16 anti-discrimination measures. Complete plan by 2027. Impact assessment planned for 2028.',
     'blog.article.discriminazioni-esercito-piano.imageAlt': 'Swiss military barracks with recruits training, inclusive and disciplined environment.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Buying a home in Bern: a guide to mortgages and costs',
+    'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Find out how to buy a house in the Canton of Bern: mortgage financing, federal and cantonal taxes, transfer tax, notary fees, and complete purchase procedure.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Modern house in Bern canton with Swiss residential architecture and landscape',
 };
 
 export default blogMetaChEn;

@@ -3766,6 +3766,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.discriminazioni-esercito-piano.title': 'Discriminazioni in esercito: il piano svizzero 2027',
     'blog.article.discriminazioni-esercito-piano.excerpt': 'L\'esercito svizzero ha attuato 8 su 16 misure anti-discriminazione. Piano completo entro 2027. Valutazione d\'impatto prevista per il 2028.',
     'blog.article.discriminazioni-esercito-piano.imageAlt': 'Caserma svizzera con reclute in addestramento, ambiente inclusivo e disciplinato.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Acquistare casa a Berna: guida ai mutui e costi',
+    'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario, tasse federali e cantonali, imposta sui trapassi, spese notarili, e procedura completa d\'acquisto.',
+    'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Casa moderna nel Canton Berna con architettura residenziale svizzera e paesaggio',
 };
 
 export default blogMetaChIt;
