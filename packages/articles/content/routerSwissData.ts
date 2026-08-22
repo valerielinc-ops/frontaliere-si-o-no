@@ -1302,6 +1302,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'udc-referendum-accordi-ue': { it: 'udc-referendum-accordi-ue', en: 'udc-referendum-eu-agreements', de: 'udc-referendum-eu-abkommen', fr: 'udc-referendum-accords-ue' },
  'aprire-attivita-lucerna-registro-commercio-costi': { it: 'aprire-attivita-lucerna-registro-commercio-costi', en: 'starting-business-lucerne-trade-register-costs', de: 'geschaft-grunden-luzern-handelsregister-kosten', fr: 'creer-entreprise-lucerne-registre-commerce-couts' },
  'mazzone-clima-consiglio-federale': { it: 'mazzone-clima-consiglio-federale', en: 'mazzone-climate-federal-council', de: 'mazzone-klima-bundesrat', fr: 'mazzone-climat-conseil-federal' },
+ 'lucerna-salari-formazione': { it: 'lucerna-salari-formazione', en: 'lucerne-wages-education', de: 'luzern-loehne-ausbildung', fr: 'lucerne-salaires-formation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
