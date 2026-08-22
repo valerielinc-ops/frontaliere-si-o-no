@@ -3853,6 +3853,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.irlanda-dublinanti-asilo-italia.title': 'Auch Irland schickt die Dublinanten nach Italien',
     'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'Irland hält an der Rückkehrpolitik für Asylbewerber fest. Siebtes europäisches Land nach der Schweiz, das diese Strategie anwendet.',
     'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'Blick auf den Luganersee mit den Schweizer Alpen im Hintergrund, ein Symbol für die geografische Position der Schweiz in Europa.',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Uri',
+    'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Ausgleichskasse, Rentenberechnung und Beitragslücken in der ersten Säule: So funktionieren die URI-Zusatzleistungen',
+    'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Ausgleichskasse Uri: Verwaltung von AHV-Renten und Ergänzungsleistungen',
 };
 
 export default blogMetaChDe;

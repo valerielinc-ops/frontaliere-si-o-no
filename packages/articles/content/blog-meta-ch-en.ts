@@ -3853,6 +3853,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.irlanda-dublinanti-asilo-italia.title': 'Ireland also sends Dubliners back to Italy',
     'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'Ireland adheres to the policy of repatriation of asylum seekers. Seventh European country, after Switzerland, to adopt this strategy.',
     'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'View of Lake Lugano with Swiss Alps in the background, representing Switzerland\'s geographical position in Europe.',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AVS and complementary services in canton Uri',
+    'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Compensation fund, pension calculation and contribution gaps in the first pillar: how URI supplementary benefits work',
+    'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Uri cantonal compensation fund office managing AVS pensions and complementary benefits',
 };
 
 export default blogMetaChEn;
