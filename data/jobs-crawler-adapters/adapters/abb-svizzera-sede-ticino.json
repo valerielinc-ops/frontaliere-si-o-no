@@ -25,12 +25,9 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038436EXTERNALENGLOBAL/Technical-Service-Specialist---Gearless-Mill-Drive--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038648EXTERNALENGLOBAL/Applied-Physicist--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00040701EXTERNALENGLOBAL/Product-Manager-Mobile-e-Power-Systems--m-w-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040838EXTERNALENGLOBAL/Assistant",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041413EXTERNALENGLOBAL/Power-Generation-Automation---Digitalization-Sales-Switzerland",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041646EXTERNALENGLOBAL/Software-Senior-Engineer---Desktop",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041998EXTERNALENGLOBAL/Software-Senior-Engineer---Mobile-APPs",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042238EXTERNALENGLOBAL/HR-Ops-specialist--m-f-d---80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042511EXTERNALENGLOBAL/Shift-Leader-Test-IPU-B-S--m-f-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042923EXTERNALENGLOBAL/Production-Engineering-Technician--f-m-d--80-100",
@@ -54,42 +51,10 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044401EXTERNALENGLOBAL/HR-Operations-Specialist--80-100----limited-until-May-2027"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-08-21T21:34:12.003Z",
+  "updatedAt": "2026-08-22T09:39:10.126Z",
   "seedMetaByUrl": {
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043670EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043668EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041646EXTERNALENGLOBAL/Software-Senior-Engineer---Desktop": {
-      "location": "Bergamo, Bergamo, Italy",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042238EXTERNALENGLOBAL/HR-Ops-specialist--m-f-d---80--100": {
       "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041998EXTERNALENGLOBAL/Software-Senior-Engineer---Mobile-APPs": {
-      "location": "Bergamo, Bergamo, Italy",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -144,6 +109,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043670EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043393EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Trainer---Power-Electronics": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -160,7 +133,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043462EXTERNALENGLOBAL/Production-Engineering-Specialist--m-f-d---80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -168,7 +141,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043462EXTERNALENGLOBAL/Production-Engineering-Specialist--m-f-d---80-100": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -186,14 +159,6 @@
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00036947EXTERNALENGLOBAL/R-D--Senior--Scientist---Medium-Voltage-High-Power-Magnetics": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00040701EXTERNALENGLOBAL/Product-Manager-Mobile-e-Power-Systems--m-w-d": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -233,6 +198,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00023648EXTERNALENGLOBAL/XMLNAME--Senior--Scientist-in-Converter-Based-Distribution-Systems--80---100": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043668EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
