@@ -175,6 +175,16 @@ jobs:
           # coniato sopra varrebbe solo per `gh` e il push resterebbe quello che
           # GitHub rifiuta sui file di workflow.
           if [ -n "${APP_TOKEN:-}" ] || [ -n "${GITHUB_PAT:-}" ]; then
+            # L'unset NON e' ridondante, ed e' il motivo per cui il giro
+            # precedente e' stato rifiutato NONOSTANTE il remote riscritto:
+            # actions/checkout scrive
+            #   http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>
+            # che ha la PRECEDENZA sullo `x-access-token:` nell'URL. Senza
+            # toglierlo, il push torna silenziosamente al token sbagliato — e
+            # nel log si vede solo «refusing to allow a GitHub App», che sembra
+            # un problema di permessi mentre e' un problema di credenziale.
+            # Stessa trappola documentata in issue-fix.yml e pr-redflag-fixer.yml.
+            git config --unset-all "http.https://github.com/.extraheader" || true
             git remote set-url origin \
               "https://x-access-token:${APP_TOKEN:-$GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
           fi
