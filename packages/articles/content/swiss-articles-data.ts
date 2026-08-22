@@ -11368,6 +11368,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-lucerna-rinnovo-procedura',
+    category: 'pratico',
+    date: '2026-08-22T06:02:17.642Z',
+    image: '/images/blog/permesso-dimora-b-lucerna-rinnovo-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

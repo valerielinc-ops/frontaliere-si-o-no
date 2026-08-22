@@ -3790,6 +3790,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-berna-salari-formazione.title': 'Mercato del lavoro Berna: salari, formazione e previdenza',
     'blog.article.mercato-berna-salari-formazione.excerpt': 'Nessun salario minimo federale svizzero. Scopri orari, contributi AVS/LPP, livelli salariali per formazione e contratti collettivi nel Canton Berna.',
     'blog.article.mercato-berna-salari-formazione.imageAlt': 'Quartiere finanziario di Berna con professionisti e moderni edifici per uffici',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Permesso di dimora B Lucerna: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Guida pratica al permesso di dimora B nel cantone di Lucerna: durata, requisiti, documenti necessari, procedura di rinnovo e contatti dell\'ufficio cantonale della migrazione.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Moduli di richiesta e documenti presso l\'ufficio cantonale della migrazione di Lucerna',
 };
 
 export default blogMetaChIt;

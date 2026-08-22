@@ -3790,6 +3790,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-berna-salari-formazione.title': 'Marché du travail Berne : salaires, formation et prévoyance',
     'blog.article.mercato-berna-salari-formazione.excerpt': 'Pas de salaire minimum fédéral suisse. Découvrez les horaires, les cotisations AVS/LPP, les niveaux de salaire pour la formation et les conventions collectives dans le canton de Berne.',
     'blog.article.mercato-berna-salari-formazione.imageAlt': 'District financier de Berne avec des professionnels entre immeubles modernes',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Permis de séjour B Lucerne : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Guide pratique du permis de séjour B dans le canton de Lucerne : durée, exigences, documents nécessaires, procédure de renouvellement et contacts de l\'office cantonal des migrations.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Formulaires de demande de permis au bureau de migration du canton de Lucerne',
 };
 
 export default blogMetaChFr;

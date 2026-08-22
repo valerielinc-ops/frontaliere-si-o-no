@@ -3790,6 +3790,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-berna-salari-formazione.title': 'Labour market Bern: wages, training and social security',
     'blog.article.mercato-berna-salari-formazione.excerpt': 'No Swiss federal minimum wage. Discover timetables, AVS/LPP contributions, salary levels for training and collective agreements in the Canton of Bern.',
     'blog.article.mercato-berna-salari-formazione.imageAlt': 'Bern\'s financial district with professionals and modern office buildings',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Residence permit B Lucerne: requirements and renewal',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Practical guide to residence permit B in the canton of Lucerne: duration, requirements, necessary documents, renewal procedure and contacts of the cantonal migration office.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Residence permit application forms at Lucerne canton migration office',
 };
 
 export default blogMetaChEn;

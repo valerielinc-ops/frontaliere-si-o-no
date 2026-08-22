@@ -1289,6 +1289,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dimissioni-fondazione-beloved': { it: 'dimissioni-fondazione-beloved', en: 'beloved-foundation-resignations', de: 'beloved-stiftung-ruecktritt', fr: 'fondation-beloved-demissions' },
  'berna-avviare-attivita-commercio': { it: 'berna-avviare-attivita-commercio', en: 'starting-business-bern-switzerland', de: 'geschaeftsgruendung-bern-schweiz', fr: 'demarrer-activite-berne-suisse' },
  'mercato-berna-salari-formazione': { it: 'mercato-berna-salari-formazione', en: 'bern-labour-market-salaries-training', de: 'arbeitsmarkt-bern-loehne-ausbildung', fr: 'marche-travail-berne-salaires-formation' },
+ 'permesso-dimora-b-lucerna-rinnovo-procedura': { it: 'permesso-dimora-b-lucerna-rinnovo-procedura', en: 'residence-permit-b-lucerne-renewal-procedure', de: 'aufenthaltserlaubnis-b-luzern-verlaengerung-verfahren', fr: 'permis-sejour-b-lucerne-renouvellement-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
