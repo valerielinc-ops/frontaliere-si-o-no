@@ -3769,6 +3769,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Haus kaufen in Bern: Ratgeber zu Hypotheken und Kosten',
     'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Erfahren Sie, wie Sie ein Haus im Kanton Bern kaufen: Hypothekenfinanzierung, Steuern von Bund und Kantonen, Ablösesummen, Notarkosten und das komplette Kaufverfahren.',
     'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Modernes Wohnhaus im Kanton Bern mit Schweizer Wohnarchitektur und Landschaft',
+    'blog.article.digitalizzazione-processi-competenze.title': 'Wenn Digitalisierung mit Improvisation reimt',
+    'blog.article.digitalizzazione-processi-competenze.excerpt': 'Digitalisieren bedeutet nicht, Papier durch Bildschirm zu ersetzen: Es erfordert ein Umdenken der Prozesse, angemessene Fähigkeiten und ein bewusstes Management des organisatorischen Wandels.',
+    'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Modernes Schweizer Verwaltungsbüro mit digitalen Arbeitsplätzen während der Digitalisierung',
 };
 
 export default blogMetaChDe;
