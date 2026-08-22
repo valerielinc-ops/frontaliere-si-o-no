@@ -1,16 +1,18 @@
 {
   "key": "salina-reha",
   "label": "Salina Rehaklinik Rheinfelden",
-  "generatedAt": "2026-08-22T09:35:58.186Z",
+  "generatedAt": "2026-08-22T21:25:07.168Z",
   "total": 2,
+  "discovered": null,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13656,
-  "avgDurationMs": 13656,
+  "durationMs": 15436,
+  "avgDurationMs": 15436,
   "durationHistory": [
-    13656
+    15436
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +28,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:35:53.607Z",
+      "crawledAt": "2026-08-22T21:25:02.081Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -63,7 +65,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:35:55.250Z",
+      "crawledAt": "2026-08-22T21:25:03.843Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
