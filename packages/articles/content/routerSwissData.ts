@@ -1311,6 +1311,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'keller-sutter-ministri-finanze-germanofoni': { it: 'keller-sutter-ministri-finanze-germanofoni', en: 'keller-sutter-finance-ministers-germanic-countries', de: 'keller-sutter-finanzminister-deutschsprachige-laender', fr: 'keller-sutter-ministres-finances-pays-germanophones' },
  'irlanda-dublinanti-asilo-italia': { it: 'irlanda-dublinanti-asilo-italia', en: 'ireland-asylum-dubliners-italy', de: 'irland-dubliner-asyl-italien', fr: 'irlande-dublins-asile-italie' },
  'avs-prestazioni-uri-cassa': { it: 'avs-prestazioni-uri-cassa', en: 'ahv-benefits-uri-compensation', de: 'ahv-ergaenzungsleistungen-uri', fr: 'avs-prestazioni-uri-caisse' },
+ 'avs-prestazioni-complementari-uri': { it: 'avs-prestazioni-complementari-uri', en: 'avs-complementary-benefits-canton-uri', de: 'avs-zusatzleistungen-kanton-uri', fr: 'avs-prestations-complementaires-canton-uri' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

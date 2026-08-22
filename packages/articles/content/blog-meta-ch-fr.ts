@@ -3856,6 +3856,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-uri-cassa.title': 'AVS et prestations complémentaires dans le canton d\'Uri',
     'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Caisse de compensation, calcul de la rente et lacunes contributives dans le premier pilier : comment fonctionnent les prestations complémentaires à URI',
     'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Bureau de compensation Uri gérant les rentes AVS et prestations complémentaires',
+    'blog.article.avs-prestazioni-complementari-uri.title': 'AVS et prestations complémentaires dans le canton d\'Uri',
+    'blog.article.avs-prestazioni-complementari-uri.excerpt': 'Comment fonctionne le premier pilier dans le canton d\'Uri : caisse de compensation, calcul de la rente, lacunes de cotisation et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Paysage alpin avec bâtiment administratif cantonal, symbole de la stabilité du système de rente régional du premier pilier.',
 };
 
 export default blogMetaChFr;

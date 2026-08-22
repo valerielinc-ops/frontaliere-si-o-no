@@ -3856,6 +3856,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-uri-cassa.title': 'AVS and complementary services in canton Uri',
     'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Compensation fund, pension calculation and contribution gaps in the first pillar: how URI supplementary benefits work',
     'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Uri cantonal compensation fund office managing AVS pensions and complementary benefits',
+    'blog.article.avs-prestazioni-complementari-uri.title': 'AVS and complementary services in Canton Uri',
+    'blog.article.avs-prestazioni-complementari-uri.excerpt': 'How the first pillar works in Canton Uri: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Swiss Alps landscape featuring regional administrative building, symbolizing pension system stability in the first pillar.',
 };
 
 export default blogMetaChEn;
