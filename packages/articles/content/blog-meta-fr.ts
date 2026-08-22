@@ -10477,6 +10477,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'Les chiffres du jour pour les frontaliers – 22 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Bulletin du frontalier du 22 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'Les chiffres du 22 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'Combien coûte la voiture pour la navette Tessin',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Tous les coûts de la voiture pour la navette Tessin-Italie : essence, vignettes, parking, usure, assurance. Découvrez comment calculer la dépense totale et comparez avec le train et le bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Voiture moderne circulant sur une route de montagne du Tessin vers la frontière italienne dans une vallée alpine brumeuse.',
 };
 
 export default blogMetaFr;

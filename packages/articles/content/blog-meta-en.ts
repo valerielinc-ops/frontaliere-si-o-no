@@ -10475,6 +10475,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'The day\'s numbers for cross-border commuters – August 22, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Cross-border brief, August 22, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'The numbers for August 22, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'How much does the car cost for the Ticino commuter',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'All car costs for the Ticino-Italy commuter: petrol, cartoons, parking, wear and tear, insurance. Learn how to calculate total spend and compare with train and bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Modern car driving on a mountain road in Ticino towards the Italian border through a misty alpine valley.',
 };
 
 export default blogMetaEn;
