@@ -11485,6 +11485,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lucerna-salari-formazione',
+    category: 'pratico',
+    date: '2026-08-22T11:32:42.615Z',
+    image: '/images/blog/lucerna-salari-formazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
