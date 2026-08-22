@@ -11494,6 +11494,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-successione-donazione-lucerna-guida',
+    category: 'fiscale',
+    date: '2026-08-22T12:05:19.300Z',
+    image: '/images/blog/imposta-successione-donazione-lucerna-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3832,6 +3832,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucerna-salari-formazione.title': 'Salari e mercato del lavoro canton Lucerna',
     'blog.article.lucerna-salari-formazione.excerpt': 'Livelli salariali per grado di formazione, settori che assumono, contratti collettivi. Come valutare un\'offerta e calcolare il netto in Svizzera.',
     'blog.article.lucerna-salari-formazione.imageAlt': 'Ambiente di lavoro moderno in Svizzera con professionisti in riunioni e al computer',
+    'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Imposta di successione e donazione Canton Lucerna: aliquote',
+    'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Guida completa all\'imposta di successione e donazione nel Canton Lucerna. Scopri le aliquote per grado di parentela, le esenzioni e come dichiarare l\'eredità.',
+    'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Edificio amministrativo a Lucerna con bandiera svizzera, simbolo dell\'Ufficio delle imposte cantonale',
 };
 
 export default blogMetaChIt;

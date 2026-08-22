@@ -49706,6 +49706,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-donazione-lucerna-guida': {
+    title: 'Imposta di successione e donazione Canton Lucerna: aliquote',
+    description: 'Guida completa all\'imposta di successione e donazione nel Canton Lucerna. Scopri le aliquote per grado di parentela, le esenzioni e come dichiarare l\'eredità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, canton',
+    ogTitle: 'Imposta di successione e donazione Canton Lucerna: aliquote',
+    ogDescription: 'Scopri come funziona l\'imposta di successione e donazione nel Canton Lucerna. Aliquote per coniuge, figli, collaterali. Procedure di dichiarazione, scadenze e documenti necessari.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-lucerna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione Canton Lucerna: aliquote",
+      "description": "Guida completa all'imposta di successione e donazione nel Canton Lucerna. Scopri le aliquote per grado di parentela, le esenzioni e come dichiarare l'eredità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-donazione-lucerna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo a Lucerna con bandiera svizzera, simbolo dell'Ufficio delle imposte cantonale"
+      },
+      "datePublished": "2026-08-22T12:05:19+00:00",
+      "dateModified": "2026-08-22T12:05:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-lucerna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
