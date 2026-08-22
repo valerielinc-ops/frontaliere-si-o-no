@@ -10451,6 +10451,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Vivre à Valbondione, travailler dans les Grisons : guide frontalier',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Se déplacer à Valbondione et se rendre dans les Grisons : cols, horaires, taxes, franchise de 10 000 € , LAMal, documents Permis G.',
     'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Paysage alpin avec route de montagne reliant les villages italiens aux Grisons, brume sur les pics enneigés.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.title': 'Vivre à Vezza d\'Oglio et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.excerpt': 'Le nouvel accord frontalier du 23 décembre 2020 ouvre de nouvelles opportunités pour les frontaliers qui vivent à Vezza d\'Oglio et travaillent dans les Grisons.',
+    'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.imageAlt': 'Un frontalier qui vit à Vezza d\'Oglio et travaille en Grigioni peut apprécier une vie équilibrée et riche en opportunités.',
 };
 
 export default blogMetaFr;
