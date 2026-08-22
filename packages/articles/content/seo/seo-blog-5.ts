@@ -74210,6 +74210,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-valbondione-lavorare-grigioni-frontaliere': {
+    title: 'Vivere a Valbondione, lavorare in Grigioni: guida frontaliere',
+    description: 'Trasferirsi a Valbondione e pendolare verso i Grigioni: valichi Brogeda-Gaggiolo, tempi, imposte, franchigia €10.000, LAMal, Permesso G e procedure 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valbondione, lavorare, grigioni',
+    ogTitle: 'Vivere a Valbondione, lavorare nei Grigioni da frontaliere',
+    ogDescription: 'Guida completa al trasferimento a Valbondione e pendolarismo verso i Grigioni: valichi, tempi, regime fiscale 2024 con franchigia €10.000, LAMal, costi della vita, procedura Permesso G step-by-step.',
+    canonicalPath: '/articoli-frontaliere/vivere-valbondione-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Valbondione, lavorare in Grigioni: guida frontaliere",
+      "description": "Trasferirsi a Valbondione e pendolare verso i Grigioni: valichi Brogeda-Gaggiolo, tempi, imposte, franchigia €10.000, LAMal, Permesso G e procedure 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valbondione-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino con strada di montagna che collega Valbondione ai Grigioni, nebbia sui picchi innevati."
+      },
+      "datePublished": "2026-08-22T00:38:10+00:00",
+      "dateModified": "2026-08-22T00:38:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valbondione-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10445,6 +10445,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-sonico-lavorare-grigioni.title': 'Wohnen in Sonico und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Leitfaden für Grenzgänger: Besteuerung, neues Abkommen und praktische Aspekte der Arbeit im Kanton Graubünden.',
     'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Panoramablick auf die Schweizer Alpen in Richtung Graubünden',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Wohnen in Valbondione, arbeiten in Graubünden: Grenzführer',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Umzug nach Valbondione und Pendeln nach Graubünden: Pässe, Zeiten, Steuern, Selbstbehalt € 10.000, KVG, Dokumente Genehmigung G.',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Alpental mit Bergstraße, die italienische und Schweizer Dörfer verbindet, Nebel über schneebedeckten Gipfeln.',
 };
 
 export default blogMetaDe;

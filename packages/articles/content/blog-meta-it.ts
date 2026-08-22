@@ -10447,6 +10447,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-sonico-lavorare-grigioni.title': 'Vivere a Sonico e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Guida operativa per i frontalieri: fiscalità, nuovo accordo e aspetti pratici del lavoro nel Cantone dei Grigioni.',
     'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Vista panoramica delle Alpi svizzere verso il Grigioni',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Vivere a Valbondione, lavorare in Grigioni: guida frontaliere',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Trasferirsi a Valbondione e pendolare verso i Grigioni: valichi, tempi, imposte, franchigia €10.000, LAMal, documenti Permesso G.',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Paesaggio alpino con strada di montagna che collega Valbondione ai Grigioni, nebbia sui picchi innevati.',
 };
 
 export default blogMetaIt;

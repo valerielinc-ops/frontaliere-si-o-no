@@ -10446,6 +10446,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sonico-lavorare-grigioni.title': 'Living in Sonico and working in Graubünden as a border worker',
     'blog.article.vivere-sonico-lavorare-grigioni.excerpt': 'Operational guide for border workers: taxation, new agreement and practical aspects of work in the Canton of Graubünden.',
     'blog.article.vivere-sonico-lavorare-grigioni.imageAlt': 'Panoramic view of the Swiss Alps towards Grisons',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.title': 'Living in Valbondione, working in Graubünden: border guide',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.excerpt': 'Move to Valbondione and commute to the Graubünden: crossings, times, taxes, deductible €10,000, LAMal, documents Permit G.',
+    'blog.article.vivere-valbondione-lavorare-grigioni-frontaliere.imageAlt': 'Alpine valley landscape with mountain road connecting Italian and Swiss villages, mist on snow-covered peaks.',
 };
 
 export default blogMetaEn;
