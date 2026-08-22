@@ -10451,6 +10451,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.title': 'Wohnen in Vezza d \'Oglio und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.excerpt': 'Das neue Grenzgängerabkommen vom 23. Dezember 2020 eröffnet neue Möglichkeiten für Grenzgänger, die in Vezza d \'Oglio leben und in Graubünden arbeiten.',
     'blog.article.vivere-vezza-d-oglio-lavorare-grigioni-frontaliere.imageAlt': 'Ein Frontalier, der in Vezza d\'Oglio lebt und in Grigioni arbeitet, kann eine ausgewogene und reiche Lebensweise genießen.',
+    'blog.article.vivere-berzo-demo-lavorare-grigioni.title': 'Berzo Demo und Graubünden: Grenzgänger leben an der Grenze',
+    'blog.article.vivere-berzo-demo-lavorare-grigioni.excerpt': 'Vollständiger Leitfaden für diejenigen, die in Berzo Demo leben und in Graubünden arbeiten: Schweizer Steuervorschriften, G-Bewilligung, AHV/KVG, Franchisen, Beiträge und Verfahren.',
+    'blog.article.vivere-berzo-demo-lavorare-grigioni.imageAlt': 'Gandria, Dorf im Tessin an der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;
