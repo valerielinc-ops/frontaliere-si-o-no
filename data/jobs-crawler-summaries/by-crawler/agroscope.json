@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-21T21:31:40.433Z",
-  "total": 13,
+  "generatedAt": "2026-08-22T09:37:49.878Z",
+  "total": 15,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4347,
-  "avgDurationMs": 4347,
+  "durationMs": 4210,
+  "avgDurationMs": 4210,
   "durationHistory": [
-    4347
+    4210
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -261,6 +261,42 @@
       }
     },
     {
+      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
+      "slug": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
+      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ins, Schweiz",
+      "addressLocality": "Ins",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-93b4d74bb39f",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:48:27.772Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
       "title": "Lernende/-r Obstfachmann/frau EFZ",
       "slug": "lernende-r-obstfachmann-frau-efz-agroscope-wadenswil",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-obstfachmann-frau-efz/56514357-7ec5-4e13-b1a3-44d821ed61e7",
@@ -292,42 +328,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
-      "slug": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Ins, Schweiz",
-      "addressLocality": "Ins",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-08-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-93b4d74bb39f",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T09:48:27.772Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
         "completeness": 19
       }
     }
