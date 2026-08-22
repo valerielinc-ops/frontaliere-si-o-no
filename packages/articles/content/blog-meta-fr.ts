@@ -10442,6 +10442,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.title': 'De Caiolo aux Grisons : vie de frontalier Suisse-Italie',
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.excerpt': 'Vivre à Caiolo et travailler dans les Grisons : guide pratique de la fiscalité, permis G, AVS-LPP, LAMal et restauration pour le frontalier CH-IT.',
     'blog.article.vivere-caiolo-lavorare-grigioni-frontaliere.imageAlt': 'Vue depuis le Monte Generoso vers les Grisons, frontière Suisse-Italie',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.title': 'Frontalier en Grisons, vivre à Malonno',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.excerpt': 'Frontalier Tessin : informations sur la fiscalité, les permis et les assurances',
+    'blog.article.vivere-malonno-lavorare-grigioni-frontaliere.imageAlt': 'Frontaliere Ticino: Malonno et Grigioni',
 };
 
 export default blogMetaFr;
