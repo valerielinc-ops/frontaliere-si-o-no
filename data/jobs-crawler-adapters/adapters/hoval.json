@@ -11,67 +11,67 @@
     "https://www.hoval.it/it_IT/jobs"
   ],
   "notes": "Dedicated Hoval crawler uses SAP Hybris JSON API (/jobs/results?q=:sortIndex:country:Switzerland) filtered by country. Extracts description from detail pages. ATS: Umantis (recruitingapp-2710.umantis.com).",
-  "updatedAt": "2026-08-21T21:32:40.661Z",
+  "updatedAt": "2026-08-22T09:39:08.519Z",
   "seedMetaByUrl": {
     "https://www.hoval.it/it_IT/job/3991": {
       "location": "Crissier",
       "canton": "VD",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3925": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3990": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3953": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3982": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3963": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3969": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3981": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3989": {
       "location": "Crissier",
       "canton": "VD",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     },
     "https://www.hoval.it/it_IT/job/3973": {
       "location": "Crissier",
       "canton": "VD",
       "company": "Hoval",
-      "postedDate": "2026-08-21"
+      "postedDate": "2026-08-22"
     }
   }
 }
