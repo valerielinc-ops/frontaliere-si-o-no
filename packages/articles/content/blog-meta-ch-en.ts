@@ -3805,6 +3805,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Licence L Lucerne: renewal after one year',
     'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'The short-term L permit is valid for up to 12 months and can be renewed. Find out how it works in Lucerne, the extension options and the transition to a residence permit.',
     'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Swiss administrative office processing work permits and residence authorization requests for foreign workers',
+    'blog.article.mutuo-ipotecario-lucerna-guida.title': 'Buying a house in Lucerne: a guide to mortgages and costs',
+    'blog.article.mutuo-ipotecario-lucerna-guida.excerpt': 'Buying in the Canton of Lucerne requires planning: own funds, mortgage sustainability, transfer tax and notary fees. Here are the key aspects.',
+    'blog.article.mutuo-ipotecario-lucerna-guida.imageAlt': 'Swiss residential property in an Alpine valley with mountain landscape backdrop',
 };
 
 export default blogMetaChEn;
