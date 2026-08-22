@@ -3814,6 +3814,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-lucerna-procedura.title': 'Naturalization in Lucerne: requirements and procedure',
     'blog.article.naturalizzazione-lucerna-procedura.excerpt': 'Ten years of residence, C permit and integration test: all federal and cantonal requirements for ordinary naturalization in the Canton of Lucerne.',
     'blog.article.naturalizzazione-lucerna-procedura.imageAlt': 'Administrative building in Lucerne canton with Swiss and cantonal flags',
+    'blog.article.aprire-attivita-lucerna-forme-giuridiche.title': 'Opening a business in Lucerne: trade register guide',
+    'blog.article.aprire-attivita-lucerna-forme-giuridiche.excerpt': 'Opening activities in Lucerne: legal forms, registration in the commercial register, minimum capital, taxes and insurance obligations. Step-by-step procedure.',
+    'blog.article.aprire-attivita-lucerna-forme-giuridiche.imageAlt': 'Lake Lugano view with mountains in background — Swiss landscape',
 };
 
 export default blogMetaChEn;

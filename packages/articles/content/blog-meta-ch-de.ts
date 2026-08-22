@@ -3814,6 +3814,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-lucerna-procedura.title': 'Einbürgerung in Luzern: Voraussetzungen und Ablauf',
     'blog.article.naturalizzazione-lucerna-procedura.excerpt': 'Zehn Jahre Aufenthalt, C-Bewilligung und Integrationstest: Alle eidgenössischen und kantonalen Voraussetzungen für die ordentliche Einbürgerung im Kanton Luzern.',
     'blog.article.naturalizzazione-lucerna-procedura.imageAlt': 'Verwaltungsgebäude im Kanton Luzern mit Schweizer und Kantonsflaggen',
+    'blog.article.aprire-attivita-lucerna-forme-giuridiche.title': 'Geschäft in Luzern eröffnen: Handelsregister-Führer',
+    'blog.article.aprire-attivita-lucerna-forme-giuridiche.excerpt': 'Geschäftstätigkeit in Luzern eröffnen: Rechtsformen, Handelsregistereintrag, Mindestkapital, Steuern und Versicherungspflichten. Schritt-für-Schritt-Verfahren.',
+    'blog.article.aprire-attivita-lucerna-forme-giuridiche.imageAlt': 'Blick auf den Luganersee mit Bergen im Hintergrund — Schweizer Landschaft',
 };
 
 export default blogMetaChDe;
