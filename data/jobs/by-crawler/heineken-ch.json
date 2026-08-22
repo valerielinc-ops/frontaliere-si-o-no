@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-08-21T21:59:29.991Z",
+  "assembledAt": "2026-08-22T09:54:09.378Z",
   "jobs": [
     {
       "id": "heineken-ch-3d1c80a02409",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:59:27.102Z",
+      "crawledAt": "2026-08-22T09:54:07.027Z",
       "previousSlugs": [
         "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
         "installatore-trice-elettrico-a-automatiker-chur-m-w-d-heineken-switzerland-chur"
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:39:33.117Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "currency": "CHF",
@@ -120,7 +121,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:59:19.372Z",
+      "crawledAt": "2026-08-22T09:53:58.998Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
         "chauffeur-c-e-heineken-switzerland-fahrweid",
@@ -197,7 +198,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:59:11.894Z",
+      "crawledAt": "2026-08-22T09:53:51.057Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
         "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
@@ -275,7 +276,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:59:03.707Z",
+      "crawledAt": "2026-08-22T09:53:42.480Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "autista-cat-c-e-heineken-switzerland-luzern"
@@ -353,7 +354,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:58:55.810Z",
+      "crawledAt": "2026-08-22T09:53:34.883Z",
       "previousSlugs": [
         "agent-customer-service-heineken-ch-luzern",
         "mitarbeiter-in-kundenservice-heineken-ch-luzern",
@@ -373,6 +374,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -433,7 +435,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:58:48.038Z",
+      "crawledAt": "2026-08-22T09:53:27.883Z",
       "previousSlugs": [
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
         "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
@@ -464,6 +466,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -524,7 +527,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=163082&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:58:40.161Z",
+      "crawledAt": "2026-08-22T09:53:19.078Z",
       "previousSlugs": [
         "betriebsmechaniker-in-heineken-ch-chur",
         "betriebsmechaniker-in-heineken-switzerland-chur",
@@ -639,84 +642,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "heineken-ch-b7ac2b956d7d",
-      "jobReqId": "160678",
-      "slug": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
-      "slugByLocale": {
-        "it": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
-        "en": "agent-customer-support-heineken-ch-winterthur",
-        "de": "agent-customer-support-heineken-ch-winterthur",
-        "fr": "agent-service-a-la-clientele-heineken-switzerland-winterthur"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Agent Customer Support",
-      "titleByLocale": {
-        "it": "Supporto clienti dell'agente",
-        "en": "Agent Customer Support",
-        "de": "Agent Customer Support",
-        "fr": "Agent Service à la clientèle"
-      },
-      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundensupport-Centers in Winterthur nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch sowie einer weiteren Landessprache. In dieser lebhaften und vielseitigen Tätigkeit bist du die erste Ansprechperson für unsere Kunden und stehst täglich mit ihnen im telefonischen Kontakt. Folgende Schwerpunkte werden deinen Tagesablauf prägen: Professionelle Kundenbetreuung und Beziehungspflege Entgegennahme und Bearbeitung aller Kundenkontakte und reklamationen aus allen Kommunikationskanälen (Telefon, E-Mail,Online etc.) Bearbeitung von Kundenreklamationen und Koordination von Beschwerden mit anderen Abteilungen 1st Level Support E-Commerce Erstellung von Rechnungskorrekturen Durchführung von Umfragen zur Kundenzufriedenheit Auftragsprüfung, etc. Das bringst du mit: Abgeschlossene Berufsausbildung Erfahrung im Kundendienst und im Umgang mit Reklamationsmanagement Flair und Affinität für Themen aus dem Rechnungswesen Gewinnbringende Persönlichkeit, Verkaufsgeschick und Einfühlungsvermögen Sorgfältige, selbstständige und verantwortungsbewusste Arbeitsweise gepaart mit Ausdauer und Durchhaltevermögen Gutes vernetztes Denken Versierter Umgang mit den gängigen MS-Office-Applikationen. SAP-Kentnisse sehr von Vorteil. Muttersprache Deutsch, sowie sehr gute Französisch- und/oder Italienischkenntnisse Hast du Interesse, Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità impegnata, flessibile e linguistica come rappresentante del servizio clienti / in tedesco e un'altra lingua nazionale per rafforzare il nostro centro di assistenza clienti a Winterthur. In questa attività vivace e versatile, sei la prima persona di contatto per i nostri clienti e sei in contatto telefonico giornaliero con loro. I seguenti punti focali daranno forma alla tua routine quotidiana: Assistenza clienti professionale e manutenzione delle relazioni Accettazione e elaborazione di tutti i contatti e reclami dei clienti da tutti i canali di comunicazione (telefono, e-mail, online, ecc.) Elaborazione delle lamentele del cliente e coordinamento delle denunce con altri dipartimenti 1 ° livello Supporto E-Commerce Creazione di correzioni di fattura Condurre i sondaggi sulla soddisfazione del cliente Lo portate con voi: Completata esperienza di formazione professionale nel servizio clienti e nel trattare con la gestione dei reclami flair e affinità per argomenti di contabilità personalità proficua, competenze di vendita ed empatia Metodi di lavoro accurati, indipendenti e responsabili accoppiati con perseveranza e perseveranza Buona pensiero in rete Gestione qualificata delle applicazioni di ufficio MS comuni. La conoscenza SAP è molto utile. Lingua madre Tedesco, così come una buona conoscenza del francese e/o italiano Sei interessato a diventare parte della nostra squadra? Attendiamo con ansia la vostra applicazione.",
-        "en": "For our subsidiary Stardrinks AG, we are looking for a committed, flexible and linguistic personality as a customer service representative / in German and another national language to strengthen our customer support center in Winterthur. In this lively and versatile activity, you are the first contact person for our customers and are in daily telephone contact with them. The following focal points will shape your daily routine: Professional customer support and relationship maintenance Acceptance and processing of all customer contacts and complaints from all communication channels (telephone, e-mail, online, etc.) Processing of customer complaints and coordination of complaints with other departments 1st Level Support E-Commerce Creation of invoice corrections Conducting customer satisfaction surveys Order review, etc. You bring this with you: Completed vocational training experience in customer service and in dealing with complaint management flair and affinity for topics from accounting Profitable personality, sales skills and empathy Careful, independent and responsible working methods coupled with perseverance and perseverance Good networked thinking Skilled handling of the common MS office applications. SAP knowledge is very beneficial. Mother tongue German, as well as very good knowledge of French and/or Italian Are you interested in becoming part of our team? We look forward to your application.",
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir zur Stärkung unseres Kundensupport-Centers in Winterthur nach einer engagierten, flexiblen und sprachgewandten Persönlichkeit als Kundendienstmitarbeiter/in Deutsch sowie einer weiteren Landessprache. In dieser lebhaften und vielseitigen Tätigkeit bist du die erste Ansprechperson für unsere Kunden und stehst täglich mit ihnen im telefonischen Kontakt. Folgende Schwerpunkte werden deinen Tagesablauf prägen: Professionelle Kundenbetreuung und Beziehungspflege Entgegennahme und Bearbeitung aller Kundenkontakte und reklamationen aus allen Kommunikationskanälen (Telefon, E-Mail,Online etc.) Bearbeitung von Kundenreklamationen und Koordination von Beschwerden mit anderen Abteilungen 1st Level Support E-Commerce Erstellung von Rechnungskorrekturen Durchführung von Umfragen zur Kundenzufriedenheit Auftragsprüfung, etc. Das bringst du mit: Abgeschlossene Berufsausbildung Erfahrung im Kundendienst und im Umgang mit Reklamationsmanagement Flair und Affinität für Themen aus dem Rechnungswesen Gewinnbringende Persönlichkeit, Verkaufsgeschick und Einfühlungsvermögen Sorgfältige, selbstständige und verantwortungsbewusste Arbeitsweise gepaart mit Ausdauer und Durchhaltevermögen Gutes vernetztes Denken Versierter Umgang mit den gängigen MS-Office-Applikationen. SAP-Kentnisse sehr von Vorteil. Muttersprache Deutsch, sowie sehr gute Französisch- und/oder Italienischkenntnisse Hast du Interesse, Teil unseres Teams zu werden? Dann freuen wir uns auf deine Bewerbung.",
-        "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité engagée, flexible et linguistique en tant que représentant du service à la clientèle / en allemand et une autre langue nationale pour renforcer notre centre de support à la clientèle à Winterthur. Dans cette activité dynamique et polyvalente, vous êtes la première personne de contact pour nos clients et êtes en contact téléphonique quotidien avec eux. Les points focaux suivants façonneront votre routine quotidienne : Assistance client professionnelle et maintenance relationnelle Acceptation et traitement de tous les contacts clients et plaintes de tous les canaux de communication (téléphone, e-mail, en ligne, etc.) Traitement des plaintes des clients et coordination des plaintes avec d'autres ministères Soutien de premier niveau Commerce électronique Création de corrections de factures Réalisation d'enquêtes sur la satisfaction des clients Examen des commandes, etc. Vous apportez ceci avec vous: Expérience de formation professionnelle complète dans le service à la clientèle et dans le traitement de la gestion des plaintes flair et l'affinité pour les sujets de la comptabilité Personnalité rentable, compétences de vente et empathie Méthodes de travail attentives, indépendantes et responsables couplées à la persévérance et la persévérance Bonne pensée en réseau Gestion compétente des applications communes MS Office. Les connaissances SAP sont très bénéfiques. Langue maternelle Allemand, ainsi que très bonne connaissance du français et/ou de l'italien Vous voulez faire partie de notre équipe ? Nous attendons avec impatience votre candidature."
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Winterthur, ZH",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/agent-customer-support?jobid=160678",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:05.678Z",
-      "previousSlugs": [
-        "agent-customer-support-heineken-ch-winterthur",
-        "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "agent-customer-support-heineken-ch-winterthur",
-          "supporto-clienti-dell-agente-heineken-switzerland-winterthur"
-        ],
-        "fr": [
-          "agent-customer-support-heineken-ch-winterthur"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-25T22:27:52.893Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
