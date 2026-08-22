@@ -10468,6 +10468,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Vivere a Charvensod e lavorare in Vallese da frontaliere: cosa cambia',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Il nuovo accordo fiscale tra Italia e Svizzera: come influisce sulla vita dei frontalieri',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Un frontaliere che vive a Charvensod e lavora in Vallese',
+    'blog.article.doppio-sistema-pensione-frontaliere.title': 'Calcolo pensione frontaliere: AVS + INPS',
+    'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'Come funziona la pensione per chi lavora in Svizzera e risiede in Italia: totalizzazione contributi, diritti acquisiti, nuovo accordo 2024.',
+    'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'Vista di Lugano con le Alpi sullo sfondo, che rappresenta il contesto transfrontaliero ticinese',
 };
 
 export default blogMetaIt;

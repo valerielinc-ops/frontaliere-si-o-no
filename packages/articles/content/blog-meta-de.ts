@@ -10466,6 +10466,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Wohnen in Charvensod und Arbeiten im Wallis als Grenzgänger: Was ändert sich',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Das neue Steuerabkommen zwischen Italien und der Schweiz: Wie es sich auf das Leben der Grenzgänger auswirkt',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Frontalier, der in Charvensod lebt und in Wallis arbeitet',
+    'blog.article.doppio-sistema-pensione-frontaliere.title': 'Berechnung Grenzrente: AHV + INPS',
+    'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'Wie funktioniert die Rente für diejenigen, die in der Schweiz arbeiten und in Italien wohnen: Summe der Beiträge, erworbene Rechte, neue Vereinbarung 2024.',
+    'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'Blick auf Lugano mit Alpen im Hintergrund, Symbol des Grenzgänger-Kontextes',
 };
 
 export default blogMetaDe;
