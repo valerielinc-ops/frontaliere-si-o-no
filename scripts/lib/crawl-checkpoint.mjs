@@ -36,6 +36,31 @@ export function saveCursor(sourceKey, nextIndex, updatedAt, checkpointDir = CHEC
 }
 
 /**
+ * Generic cross-run cursor for crawlers whose resume position isn't a single
+ * numeric index — e.g. a Common Crawl sweep needs collection + next page +
+ * the set of pages already swept this pass. `loadCursor`/`saveCursor` above
+ * fix the shape (`{ nextIndex, updatedAt }`) to match the events-slice
+ * checkpoint already in production, so a second source with a richer cursor
+ * can't reuse them without changing that shape. These read/write an
+ * arbitrary JSON-serializable cursor at an explicit path instead, keeping
+ * only the boilerplate (missing/corrupt → fallback, write → mkdir + pretty
+ * JSON) shared, so a new source doesn't reimplement it from scratch.
+ */
+export function loadGenericCursor(filePath, fallback) {
+  if (!existsSync(filePath)) return fallback;
+  try {
+    return JSON.parse(readFileSync(filePath, 'utf-8'));
+  } catch {
+    return fallback;
+  }
+}
+
+export function saveGenericCursor(filePath, cursor) {
+  mkdirSync(path.dirname(filePath), { recursive: true });
+  writeFileSync(filePath, `${JSON.stringify(cursor, null, 2)}\n`, 'utf-8');
+}
+
+/**
  * Upsert `freshEvents` (by stable `id`) into the slice already on disk,
  * drop any id in `goneIds` (events explicitly revisited and confirmed
  * expired/removed this run), and prune anything whose last relevant date

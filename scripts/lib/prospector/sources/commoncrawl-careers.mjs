@@ -32,6 +32,7 @@ import path from 'node:path';
 import { politeFetch } from './../polite-fetch.mjs';
 import { normalizeHost, registrableDomain, safeDecodePath } from './../registrable.mjs';
 import { PROSPECTOR_DIR, WEB_CHANNEL_HEALTH_PATH } from './../config.mjs';
+import { loadGenericCursor, saveGenericCursor } from '../../crawl-checkpoint.mjs';
 
 const INDEX_HOST = 'https://index.commoncrawl.org';
 const CURSOR_PATH = path.join(PROSPECTOR_DIR, 'commoncrawl-cursor.json');
@@ -155,20 +156,27 @@ export function recordChannelHealth(sample, file = WEB_CHANNEL_HEALTH_PATH) {
   fs.writeFileSync(file, `${JSON.stringify(trimmed, null, 2)}\n`);
 }
 
+const EMPTY_CURSOR = { collection: null, nextPage: 0, sweptPages: [] };
+
 /**
+ * Resume position for the `.ch` sweep: collection + next page + the set of
+ * pages already swept this pass. Shares `crawl-checkpoint.mjs`'s generic
+ * read/write boilerplate instead of reimplementing it — the numeric
+ * `loadCursor`/`saveCursor` there fix a different cursor shape (a single
+ * `nextIndex`, matching the events-slice checkpoint in production) that
+ * can't represent this one without changing a format already relied on.
+ *
  * @returns {{ collection: string|null, nextPage: number, sweptPages: number[] }}
  */
 export function loadCursor() {
-  try { return JSON.parse(fs.readFileSync(CURSOR_PATH, 'utf8')); }
-  catch { return { collection: null, nextPage: 0, sweptPages: [] }; }
+  return loadGenericCursor(CURSOR_PATH, EMPTY_CURSOR);
 }
 
 /**
  * @param {{ collection: string|null, nextPage: number, sweptPages: number[] }} cursor
  */
 export function saveCursor(cursor) {
-  fs.mkdirSync(path.dirname(CURSOR_PATH), { recursive: true });
-  fs.writeFileSync(CURSOR_PATH, `${JSON.stringify(cursor, null, 2)}\n`);
+  saveGenericCursor(CURSOR_PATH, cursor);
 }
 
 /**
