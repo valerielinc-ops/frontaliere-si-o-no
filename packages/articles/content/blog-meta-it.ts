@@ -10479,6 +10479,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcolo-costo-auto-frontaliere.title': 'Quanto costa l\'auto per il pendolare Ticino',
     'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Tutti i costi dell\'auto per il pendolare Ticino-Italia: benzina, vignette, parcheggio, usura, assicurazione. Scopri come calcolare la spesa totale e confronta con treno e bus.',
     'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Auto moderna che percorre una strada di montagna in Ticino verso il confine italiano in una valle alpina nebbiosa.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Detrazioni mediche per frontalieri in Italia',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, detrazioni IRPEF. Procedure pratiche e limiti annuali per frontalieri.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Ricetta medica e tessera assicurazione sanitaria su una scrivania con stetoscopio, paesaggio canton Ticino visibile di sfondo',
 };
 
 export default blogMetaIt;

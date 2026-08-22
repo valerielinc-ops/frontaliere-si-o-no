@@ -74600,6 +74600,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-detrazioni-mediche-frontaliere': {
+    title: 'Detrazioni mediche per frontalieri in Italia | Frontaliere Ticino',
+    description: 'Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, limiti detrazioni. Procedure pratiche per frontalieri con permesso G. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, detrazioni, mediche, spese, sanitarie',
+    ogTitle: 'Spese sanitarie frontaliere: rimborsi e detrazioni',
+    ogDescription: 'Scopri come farsi rimborsare le spese mediche sostenute in Svizzera se sei frontaliere residente in Italia: LAMal, franchiga CHF 300–2\'500, detrazioni IRPEF e procedure INPS.',
+    canonicalPath: '/articoli-frontaliere/detrazioni-mediche-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detrazioni mediche per frontalieri in Italia",
+      "description": "Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, limiti detrazioni. Procedure pratiche per frontalieri con permesso G. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/detrazioni-mediche-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ricetta medica e tessera assicurazione sanitaria su una scrivania con stetoscopio, paesaggio canton Ticino visibile di sfondo"
+      },
+      "datePublished": "2026-08-22T06:57:44+00:00",
+      "dateModified": "2026-08-22T06:57:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/detrazioni-mediche-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

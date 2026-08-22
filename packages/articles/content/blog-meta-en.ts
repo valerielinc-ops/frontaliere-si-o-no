@@ -10478,6 +10478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcolo-costo-auto-frontaliere.title': 'How much does the car cost for the Ticino commuter',
     'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'All car costs for the Ticino-Italy commuter: petrol, cartoons, parking, wear and tear, insurance. Learn how to calculate total spend and compare with train and bus.',
     'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Modern car driving on a mountain road in Ticino towards the Italian border through a misty alpine valley.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Medical deductions for border workers in Italy',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Switzerland-Italy health expenses: LAMal deductible, INPS reimbursement, personal income tax deductions. Practical procedures and annual limits for border workers.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Medical prescription and health insurance card on desk with stethoscope, Swiss canton landscape visible through window',
 };
 
 export default blogMetaEn;
