@@ -25,13 +25,22 @@
       "crawledAt": "2026-08-21T21:50:23.689Z",
       "slug": "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur"
+        "de": "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur",
+        "it": "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur",
+        "en": "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur",
+        "fr": "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Fachfrau / Fachmann Apotheke"
+        "de": "Fachfrau / Fachmann Apotheke",
+        "it": "Farmacia professionale / professionale",
+        "en": "Professional / Professional Pharmacy",
+        "fr": "Pharmacie professionnelle"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. November 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du versorgst Stationsapotheken und externe Kunden pharmazeutisch-logistisch und bist Ansprechperson bei logistischen und pharmazeutischen Fragen\n\n• Du verantwortest die Arzneimittel- und Retourenbewirtschaftung im SAP, die Lagerbewirtschaftung sowie die Kontrolle der Verfalldaten und Betäubungsmittel\n\n• Du arbeitest aktiv an Projekten mit\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Apotheke oder Drogist:in EFZ sowie Berufserfahrung, idealerweise im Spitalumfeld\n\n• Eine selbstständige, belastbare Persönlichkeit, die gerne Verantwortung übernimmt\n\n• Freude an der Arbeit in einem interprofessionellen Umfeld und ausgeprägte Team- und Kommunikationskompetenz\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. November 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du versorgst Stationsapotheken und externe Kunden pharmazeutisch-logistisch und bist Ansprechperson bei logistischen und pharmazeutischen Fragen\n\n• Du verantwortest die Arzneimittel- und Retourenbewirtschaftung im SAP, die Lagerbewirtschaftung sowie die Kontrolle der Verfalldaten und Betäubungsmittel\n\n• Du arbeitest aktiv an Projekten mit\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Apotheke oder Drogist:in EFZ sowie Berufserfahrung, idealerweise im Spitalumfeld\n\n• Eine selbstständige, belastbare Persönlichkeit, die gerne Verantwortung übernimmt\n\n• Freude an der Arbeit in einem interprofessionellen Umfeld und ausgeprägte Team- und Kommunikationskompetenz\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare su 1. Novembre 2026 o per accordo\n\nCompiti:\n• Fornire farmacie e clienti esterni con logistica farmaceutica e sono la persona di contatto per domande logistiche e farmaceutiche\n\n• Sei responsabile della gestione del farmaco e dei resi in SAP, della gestione del magazzino e del controllo delle date di scadenza e dei narcotici\n\n• Stai lavorando attivamente sui progetti\n\nRequisiti\n• Formazione completa come farmacia o farmacista specializzato: in EFZ così come esperienza professionale, idealmente in ambiente ospedaliero\n\n• Una personalità indipendente e resiliente che ama prendersi la responsabilità\n\n• Godetevi il lavoro in un ambiente interprofessionale e forti competenze di squadra e comunicazione\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on 1. November 2026 or by arrangement as\n\nTasks:\n• You supply station pharmacies and external customers with pharmaceutical logistics and are the contact person for logistical and pharmaceutical questions\n\n• You are responsible for the drug and returns management in SAP, the warehouse management and the control of the expiration dates and narcotics\n\n• You are actively working on projects\n\nRequirements\n• Completed training as a specialist pharmacy or pharmacist: in EFZ as well as professional experience, ideally in the hospital environment\n\n• An independent, resilient personality who likes to take responsibility\n\n• Enjoy working in an interprofessional environment and strong team and communication skills\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencez par 1. novembre 2026 ou par arrangement\n\nTâches :\n• Vous fournissez des pharmacies de gare et des clients externes avec la logistique pharmaceutique et êtes la personne de contact pour les questions logistiques et pharmaceutiques\n\n• Vous êtes responsable de la gestion des médicaments et des retours dans SAP, de la gestion des entrepôts et du contrôle des dates d'expiration et des stupéfiants\n\n• Vous travaillez activement sur des projets\n\nExigences\n• Achevé la formation en tant que pharmacie spécialisée ou pharmacien: en EFZ ainsi que l'expérience professionnelle, idéalement dans l'environnement hospitalier\n\n• Une personnalité indépendante et résiliente qui aime prendre ses responsabilités\n\n• Profitez de travailler dans un environnement interprofessionnel et de solides compétences en équipe et en communication\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +53,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 114000,

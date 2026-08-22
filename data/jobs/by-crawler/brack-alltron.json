@@ -851,7 +851,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "brack-alltron-d2a06bc950cf",
@@ -1069,7 +1071,7 @@
       "title": "Product Manager:in Coffee, Hot Beverages & Food",
       "titleByLocale": {
         "it": "Product Manager: Food & Hot Beverages",
-        "en": "Product Manager:in Coffee, Hot Beverages & Food",
+        "en": "Product Manager: in Coffee, Hot Beverages & Food",
         "de": "Product Manager:in Coffee, Hot Beverages & Food",
         "fr": "Gestionnaire de produits : Alimentation et boissons chaudes"
       },
@@ -1949,7 +1951,7 @@
       "title": "Product Manager:in Sport",
       "titleByLocale": {
         "it": "Product Manager Sport",
-        "en": "Product Manager:in Sport",
+        "en": "Product Manager: in Sport",
         "de": "Product Manager:in Sport",
         "fr": "Gestionnaire de produit: dans Sport"
       },

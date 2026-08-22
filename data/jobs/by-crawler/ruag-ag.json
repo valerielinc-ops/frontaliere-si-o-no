@@ -3875,7 +3875,7 @@
       "slugByLocale": {
         "it": "avionici-tecnici-80-100-m-f-d-ruag-ag-wilderswil-76eb1f",
         "en": "technician-avionics-80-100-w-m-d-ruag-ag-wilderswil",
-        "de": "techniker-avionics-80-100-w-m-d-ruag-ag-wilderswil",
+        "de": "technician-avionics-80-100-w-m-d-ruag-ag-wilderswil",
         "fr": "technicien-avionics-80-100-w-m-d-ruag-ag-wilderswil"
       },
       "id": "ruag-ag-a7ea2343502c",
@@ -3896,10 +3896,14 @@
       "previousSlugsByLocale": {
         "it": [
           "technician-avionics-80-100-w-m-d-ruag-ag-wilderswil"
+        ],
+        "de": [
+          "techniker-avionics-80-100-w-m-d-ruag-ag-wilderswil"
         ]
       },
       "previousSlugs": [
-        "technician-avionics-80-100-w-m-d-ruag-ag-wilderswil"
+        "technician-avionics-80-100-w-m-d-ruag-ag-wilderswil",
+        "techniker-avionics-80-100-w-m-d-ruag-ag-wilderswil"
       ]
     }
   ]
