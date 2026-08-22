@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-08-21T22:06:27.702Z",
+  "assembledAt": "2026-08-22T10:20:07.354Z",
   "jobs": [
     {
       "id": "omega-32500",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T22:06:24.462Z",
+      "crawledAt": "2026-08-22T10:20:04.105Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -99,6 +99,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "baseSalary": {
@@ -143,7 +144,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32611",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:06:02.772Z",
+      "crawledAt": "2026-08-22T10:19:42.453Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -170,6 +171,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:51:59.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -214,7 +216,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32650",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:05:41.245Z",
+      "crawledAt": "2026-08-22T10:19:20.863Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -273,6 +275,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -317,7 +320,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32651",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:05:19.555Z",
+      "crawledAt": "2026-08-22T10:18:59.263Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -376,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -420,7 +424,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32654",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:04:57.827Z",
+      "crawledAt": "2026-08-22T10:18:37.731Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -470,6 +474,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -514,7 +519,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32653",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:04:36.072Z",
+      "crawledAt": "2026-08-22T10:18:16.109Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -571,6 +576,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -580,6 +586,108 @@
           "@type": "QuantitativeValue",
           "minValue": 77000,
           "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "omega-32652",
+      "slug": "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne",
+      "slugByLocale": {
+        "it": "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne",
+        "en": "urhmacher-efz-template-omega-sa-biel-bienne",
+        "de": "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+        "fr": "template-d-urmacher-efz-omega-sa-biel-bienne"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "LEHRSTELLE ALS URHMACHER/IN EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come URHMACHER/IN CFC",
+        "en": "URHMACHER/EFZ TEMPLATE",
+        "de": "LEHRSTELLE ALS URHMACHER/IN EFZ",
+        "fr": "TEMPLATE D'URMACHER/EFZ"
+      },
+      "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nBIETEN WIR IHNEN DIE MÖGLICHKEIT, IN UNSEREM UNTERNEHMEN IHRE\n\nLEHRSTELLE ALS UHRMACHER/IN EFZ, Industrielle Methoden\n\nFür einen Aufenthalt von 4 Jahren ab August 2027\n\n## Stellenbeschreibung\n• Beherrschen aller Etappen der Demontage und Montage verschiedenster Uhrentypen\n\n• Kontrolle von fertigen Produkten auf Funktionalität und Ästhetik\n\n• Instandstellung, Revision und Reparatur von neuen und alten Uhren (Rhabillage)\n\n• Studie der Produktionstechniken und durchführen praktischer Analysen im Labor\n\n## Profil\n• Obligatorische Schulzeit abgeschlossen\n\n• Gute Kenntnisse in Mathematik und technischem Zeichnen\n\n• Alter zwischen 15 und 25 Jahren\n\n## Berufliche Anforderungen\n• Ausgeprägte Fingerfertigkeit\n\n• Gute Sehschärfe\n\n• Hohe Konzentrationsfähigkeit\n\n• Sinn für Genauigkeit und sorgfältige Arbeitsweise\n\n• Methodische Denkweise und Durchhaltevermögen\n\n• Selbstständig, zuverlässig und initiativ\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch",
+      "descriptionByLocale": {
+        "it": "## Descrizione della Società\nOMEGA è un prestigioso marchio globale che da oltre 170 anni si impegna per la massima qualità, massima precisione e sempre maggiore innovazione. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie che sono leader nell'industria orologiera e sono caratterizzati da un design senza tempo.\n\nNel corso della nostra lunga storia, abbiamo stabilito dei record di precisione, svolto un ruolo decisivo nel cronometraggio sportivo e continuare a svolgere un ruolo pionieristico nell'arte dell'orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a sostenere i nostri team in praticamente ogni continente attraverso i loro talenti, ambizioni e ispirazione.\n\nVi offriamo l'opportunità nella nostra azienda\n\nTEMPLATE AS A TEMPLATE/IN EFZ, Metodi industriali\n\nPer un soggiorno di 4 anni da agosto 2027\n\n## Descrizione del lavoro\n• Padroneggiare tutte le fasi di smontaggio e assemblaggio di diversi tipi di orologi\n\n• Controllo dei prodotti finiti per funzionalità ed estetica\n\n• Riparazione, revisione e riparazione di nuovi e vecchi orologi (Rhabillage)\n\n• Studio delle tecniche di produzione e analisi pratiche in laboratorio\n\n## Profilo\n• Completata la scuola obbligatoria\n\n• Buona conoscenza della matematica e del disegno tecnico\n\n• Età tra i 15 e i 25 anni\n\n## Requisiti professionali\n• Forte destrezza\n\n• Buona visione\n\n• Capacità di concentrazione elevata\n\n• Senso di precisione e lavoro attento\n\n• Pensiero metodologico e perseveranza\n\n• Indipendente, affidabile e proattivo\n\n## Capacità linguistiche\n• Conoscenza molto buona del tedesco o del francese",
+        "en": "## Company description\nOMEGA is a prestigious global brand that has been striving for the highest quality, highest precision and ever-increasing innovation for more than 170 years. Our watches are among the best in the world, they are the result of technologies that are leaders in the watch industry and are characterized by a timeless design.\n\nOver the course of our long history, we have set precision records, played a decisive role in sports timekeeping and continue to play a pioneering role in the art of watchmaking.\n\nAs an international brand, we are always interested in meeting future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\nWe offer you the opportunity in our company\n\nTEMPLATE AS A TEMPLATE/IN EFZ, Industrial Methods\n\nFor a stay of 4 years from August 2027\n\n## Job description\n• Mastering all stages of dismantling and assembling different types of watches\n\n• Control of finished products for functionality and aesthetics\n\n• Repair, revision and repair of new and old watches (Rhabillage)\n\n• Study of production techniques and conduct practical analyses in the laboratory\n\n## Profile\n• Compulsory schooling completed\n\n• Good knowledge of mathematics and technical drawing\n\n• Age between 15 and 25 years\n\n## Professional requirements\n• Strong dexterity\n\n• Good vision\n\n• High concentration capacity\n\n• Sense of accuracy and careful work\n\n• Methodological thinking and perseverance\n\n• Independent, reliable and proactive\n\n## Language skills\n• Very good knowledge of German or French",
+        "de": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nBIETEN WIR IHNEN DIE MÖGLICHKEIT, IN UNSEREM UNTERNEHMEN IHRE\n\nLEHRSTELLE ALS UHRMACHER/IN EFZ, Industrielle Methoden\n\nFür einen Aufenthalt von 4 Jahren ab August 2027\n\n## Stellenbeschreibung\n• Beherrschen aller Etappen der Demontage und Montage verschiedenster Uhrentypen\n\n• Kontrolle von fertigen Produkten auf Funktionalität und Ästhetik\n\n• Instandstellung, Revision und Reparatur von neuen und alten Uhren (Rhabillage)\n\n• Studie der Produktionstechniken und durchführen praktischer Analysen im Labor\n\n## Profil\n• Obligatorische Schulzeit abgeschlossen\n\n• Gute Kenntnisse in Mathematik und technischem Zeichnen\n\n• Alter zwischen 15 und 25 Jahren\n\n## Berufliche Anforderungen\n• Ausgeprägte Fingerfertigkeit\n\n• Gute Sehschärfe\n\n• Hohe Konzentrationsfähigkeit\n\n• Sinn für Genauigkeit und sorgfältige Arbeitsweise\n\n• Methodische Denkweise und Durchhaltevermögen\n\n• Selbstständig, zuverlässig und initiativ\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch",
+        "fr": "## Désignation de l'entreprise\nOMEGA est une marque mondiale prestigieuse qui cherche depuis plus de 170 ans la plus haute qualité, la plus haute précision et l'innovation sans cesse croissante. Nos montres sont parmi les meilleures du monde, elles sont le résultat de technologies qui sont des leaders dans l'industrie horlogère et sont caractérisées par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, joué un rôle décisif dans l'horlogerie sportive et continuons de jouer un rôle pionnier dans l'art horloger.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, ambitions et inspirations.\n\nNous vous offrons l'opportunité dans notre entreprise\n\nTEMPLATE EN TEMPLATE/IN EFZ, Méthodes industrielles\n\nPour un séjour de 4 ans à partir d'août 2027\n\n## Description du poste\n• Maîtriser toutes les étapes du démontage et de l'assemblage de différents types de montres\n\n• Contrôle des produits finis pour la fonctionnalité et l'esthétique\n\n• Réparation, révision et réparation de montres anciennes et neuves (Rhabillage)\n\n• Etude des techniques de production et réalisation d'analyses pratiques en laboratoire\n\n## Profil\n• Enseignement obligatoire achevé\n\n• Bonne connaissance des mathématiques et du dessin technique\n\n• Âge entre 15 et 25 ans\n\n## Exigences professionnelles\n• Forte dextérité\n\n• Bonne vision\n\n• Capacité de concentration élevée\n\n• Sens de précision et de soin\n\n• Pensée méthodologique et persévérance\n\n• Indépendant, fiable et proactif\n\n## Compétences linguistiques\n• Très bonne connaissance de l'allemand ou du français"
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/de/job/32652",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-22T10:17:54.499Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270189&langCode=de_DE&source=swatchgroup.com",
+      "requirements": [
+        "Obligatorische Schulzeit abgeschlossen",
+        "Gute Kenntnisse in Mathematik und technischem Zeichnen",
+        "Alter zwischen 15 und 25 Jahren",
+        "Ausgeprägte Fingerfertigkeit",
+        "Gute Sehschärfe",
+        "Hohe Konzentrationsfähigkeit",
+        "Sinn für Genauigkeit und sorgfältige Arbeitsweise",
+        "Methodische Denkweise und Durchhaltevermögen",
+        "Selbstständig, zuverlässig und initiativ",
+        "Sehr gute Kenntnisse in Deutsch oder Französisch"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Obligatorische Schulzeit abgeschlossen",
+          "Gute Kenntnisse in Mathematik und technischem Zeichnen",
+          "Alter zwischen 15 und 25 Jahren",
+          "Ausgeprägte Fingerfertigkeit",
+          "Gute Sehschärfe",
+          "Hohe Konzentrationsfähigkeit",
+          "Sinn für Genauigkeit und sorgfältige Arbeitsweise",
+          "Methodische Denkweise und Durchhaltevermögen"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+        "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
+          "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        ],
+        "fr": [
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T11:52:06.121Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -615,7 +723,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32655",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:04:14.320Z",
+      "crawledAt": "2026-08-22T10:17:33.022Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -669,6 +777,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:51:44.701Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -713,7 +822,7 @@
       "url": "https://www.swatchgroup.com/de/job/32658",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T22:03:52.746Z",
+      "crawledAt": "2026-08-22T10:17:11.545Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -798,7 +907,7 @@
         "it": "SALES REPRESENTATIVE - OMEGA BOUTIQUE (M/F)",
         "en": "SALES REPRESENTATIVE - OMEGA BOUTIQUE (M/F)",
         "de": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
-        "fr": "REPRÉSENTANT DES VENTES - OMEGA BOUTIQUE (H/F)"
+        "fr": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)"
       },
       "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
       "descriptionByLocale": {
@@ -812,7 +921,7 @@
       "url": "https://www.swatchgroup.com/de/job/32801",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T22:03:31.201Z",
+      "crawledAt": "2026-08-22T10:16:50.128Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -855,6 +964,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:28:22.470Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -883,7 +993,7 @@
       "title": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
       "titleByLocale": {
         "it": "SALES RPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
-        "en": "SALES REPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
+        "en": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
         "de": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
         "fr": "VENTES REPRÉSENTANT (H/F) 80% - OMEGA BOUTIQUE BERN"
       },
@@ -899,7 +1009,7 @@
       "url": "https://www.swatchgroup.com/de/job/32817",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T22:03:09.770Z",
+      "crawledAt": "2026-08-22T10:16:28.448Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -979,7 +1089,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32819",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T22:02:48.119Z",
+      "crawledAt": "2026-08-22T10:16:06.872Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1053,6 +1163,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:54:36.386Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1083,7 +1194,7 @@
         "it": "DEPUTY BOUTIQUE Direttore - OMEGA BOUTIQUE ZURICH",
         "en": "DEPUTY BOUTIQUE DIRECTOR — OMEGA BOUTIQUE ZURICH",
         "de": "DEPUTY BOUTIQUE Direktor - OMEGA BOUTIQUE ZURICH",
-        "fr": "DIRECTEUR BOUTIQUE DE L'OMEGA"
+        "fr": "DEPUTY BOUTIQUE DIRECTOR - OMEGA BOUTIQUE ZURICH"
       },
       "description": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus.",
       "descriptionByLocale": {
@@ -1097,7 +1208,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32829",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T22:02:26.549Z",
+      "crawledAt": "2026-08-22T10:15:44.162Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1141,6 +1252,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:57:22.772Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -1153,109 +1265,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "omega-32652",
-      "slug": "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne",
-      "slugByLocale": {
-        "it": "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne",
-        "en": "urhmacher-efz-template-omega-sa-biel-bienne",
-        "de": "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
-        "fr": "template-d-urmacher-efz-omega-sa-biel-bienne"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "LEHRSTELLE ALS URHMACHER/IN EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come URHMACHER/IN CFC",
-        "en": "URHMACHER/EFZ TEMPLATE",
-        "de": "LEHRSTELLE ALS URHMACHER/IN EFZ",
-        "fr": "TEMPLATE D'URMACHER/EFZ"
-      },
-      "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nBIETEN WIR IHNEN DIE MÖGLICHKEIT, IN UNSEREM UNTERNEHMEN IHRE\n\nLEHRSTELLE ALS UHRMACHER/IN EFZ, Industrielle Methoden\n\nFür einen Aufenthalt von 4 Jahren ab August 2027\n\n## Stellenbeschreibung\n• Beherrschen aller Etappen der Demontage und Montage verschiedenster Uhrentypen\n\n• Kontrolle von fertigen Produkten auf Funktionalität und Ästhetik\n\n• Instandstellung, Revision und Reparatur von neuen und alten Uhren (Rhabillage)\n\n• Studie der Produktionstechniken und durchführen praktischer Analysen im Labor\n\n## Profil\n• Obligatorische Schulzeit abgeschlossen\n\n• Gute Kenntnisse in Mathematik und technischem Zeichnen\n\n• Alter zwischen 15 und 25 Jahren\n\n## Berufliche Anforderungen\n• Ausgeprägte Fingerfertigkeit\n\n• Gute Sehschärfe\n\n• Hohe Konzentrationsfähigkeit\n\n• Sinn für Genauigkeit und sorgfältige Arbeitsweise\n\n• Methodische Denkweise und Durchhaltevermögen\n\n• Selbstständig, zuverlässig und initiativ\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch",
-      "descriptionByLocale": {
-        "it": "## Descrizione della Società\nOMEGA è un prestigioso marchio globale che da oltre 170 anni si impegna per la massima qualità, massima precisione e sempre maggiore innovazione. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie che sono leader nell'industria orologiera e sono caratterizzati da un design senza tempo.\n\nNel corso della nostra lunga storia, abbiamo stabilito dei record di precisione, svolto un ruolo decisivo nel cronometraggio sportivo e continuare a svolgere un ruolo pionieristico nell'arte dell'orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a sostenere i nostri team in praticamente ogni continente attraverso i loro talenti, ambizioni e ispirazione.\n\nVi offriamo l'opportunità nella nostra azienda\n\nTEMPLATE AS A TEMPLATE/IN EFZ, Metodi industriali\n\nPer un soggiorno di 4 anni da agosto 2027\n\n## Descrizione del lavoro\n• Padroneggiare tutte le fasi di smontaggio e assemblaggio di diversi tipi di orologi\n\n• Controllo dei prodotti finiti per funzionalità ed estetica\n\n• Riparazione, revisione e riparazione di nuovi e vecchi orologi (Rhabillage)\n\n• Studio delle tecniche di produzione e analisi pratiche in laboratorio\n\n## Profilo\n• Completata la scuola obbligatoria\n\n• Buona conoscenza della matematica e del disegno tecnico\n\n• Età tra i 15 e i 25 anni\n\n## Requisiti professionali\n• Forte destrezza\n\n• Buona visione\n\n• Capacità di concentrazione elevata\n\n• Senso di precisione e lavoro attento\n\n• Pensiero metodologico e perseveranza\n\n• Indipendente, affidabile e proattivo\n\n## Capacità linguistiche\n• Conoscenza molto buona del tedesco o del francese",
-        "en": "## Company description\nOMEGA is a prestigious global brand that has been striving for the highest quality, highest precision and ever-increasing innovation for more than 170 years. Our watches are among the best in the world, they are the result of technologies that are leaders in the watch industry and are characterized by a timeless design.\n\nOver the course of our long history, we have set precision records, played a decisive role in sports timekeeping and continue to play a pioneering role in the art of watchmaking.\n\nAs an international brand, we are always interested in meeting future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\nWe offer you the opportunity in our company\n\nTEMPLATE AS A TEMPLATE/IN EFZ, Industrial Methods\n\nFor a stay of 4 years from August 2027\n\n## Job description\n• Mastering all stages of dismantling and assembling different types of watches\n\n• Control of finished products for functionality and aesthetics\n\n• Repair, revision and repair of new and old watches (Rhabillage)\n\n• Study of production techniques and conduct practical analyses in the laboratory\n\n## Profile\n• Compulsory schooling completed\n\n• Good knowledge of mathematics and technical drawing\n\n• Age between 15 and 25 years\n\n## Professional requirements\n• Strong dexterity\n\n• Good vision\n\n• High concentration capacity\n\n• Sense of accuracy and careful work\n\n• Methodological thinking and perseverance\n\n• Independent, reliable and proactive\n\n## Language skills\n• Very good knowledge of German or French",
-        "de": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\nBIETEN WIR IHNEN DIE MÖGLICHKEIT, IN UNSEREM UNTERNEHMEN IHRE\n\nLEHRSTELLE ALS UHRMACHER/IN EFZ, Industrielle Methoden\n\nFür einen Aufenthalt von 4 Jahren ab August 2027\n\n## Stellenbeschreibung\n• Beherrschen aller Etappen der Demontage und Montage verschiedenster Uhrentypen\n\n• Kontrolle von fertigen Produkten auf Funktionalität und Ästhetik\n\n• Instandstellung, Revision und Reparatur von neuen und alten Uhren (Rhabillage)\n\n• Studie der Produktionstechniken und durchführen praktischer Analysen im Labor\n\n## Profil\n• Obligatorische Schulzeit abgeschlossen\n\n• Gute Kenntnisse in Mathematik und technischem Zeichnen\n\n• Alter zwischen 15 und 25 Jahren\n\n## Berufliche Anforderungen\n• Ausgeprägte Fingerfertigkeit\n\n• Gute Sehschärfe\n\n• Hohe Konzentrationsfähigkeit\n\n• Sinn für Genauigkeit und sorgfältige Arbeitsweise\n\n• Methodische Denkweise und Durchhaltevermögen\n\n• Selbstständig, zuverlässig und initiativ\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch",
-        "fr": "## Désignation de l'entreprise\nOMEGA est une marque mondiale prestigieuse qui cherche depuis plus de 170 ans la plus haute qualité, la plus haute précision et l'innovation sans cesse croissante. Nos montres sont parmi les meilleures du monde, elles sont le résultat de technologies qui sont des leaders dans l'industrie horlogère et sont caractérisées par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, joué un rôle décisif dans l'horlogerie sportive et continuons de jouer un rôle pionnier dans l'art horloger.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, ambitions et inspirations.\n\nNous vous offrons l'opportunité dans notre entreprise\n\nTEMPLATE EN TEMPLATE/IN EFZ, Méthodes industrielles\n\nPour un séjour de 4 ans à partir d'août 2027\n\n## Description du poste\n• Maîtriser toutes les étapes du démontage et de l'assemblage de différents types de montres\n\n• Contrôle des produits finis pour la fonctionnalité et l'esthétique\n\n• Réparation, révision et réparation de montres anciennes et neuves (Rhabillage)\n\n• Etude des techniques de production et réalisation d'analyses pratiques en laboratoire\n\n## Profil\n• Enseignement obligatoire achevé\n\n• Bonne connaissance des mathématiques et du dessin technique\n\n• Âge entre 15 et 25 ans\n\n## Exigences professionnelles\n• Forte dextérité\n\n• Bonne vision\n\n• Capacité de concentration élevée\n\n• Sens de précision et de soin\n\n• Pensée méthodologique et persévérance\n\n• Indépendant, fiable et proactif\n\n## Compétences linguistiques\n• Très bonne connaissance de l'allemand ou du français"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://www.swatchgroup.com/de/job/32652",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:22:19.707Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-270189&langCode=de_DE&source=swatchgroup.com",
-      "requirements": [
-        "Obligatorische Schulzeit abgeschlossen",
-        "Gute Kenntnisse in Mathematik und technischem Zeichnen",
-        "Alter zwischen 15 und 25 Jahren",
-        "Ausgeprägte Fingerfertigkeit",
-        "Gute Sehschärfe",
-        "Hohe Konzentrationsfähigkeit",
-        "Sinn für Genauigkeit und sorgfältige Arbeitsweise",
-        "Methodische Denkweise und Durchhaltevermögen",
-        "Selbstständig, zuverlässig und initiativ",
-        "Sehr gute Kenntnisse in Deutsch oder Französisch"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Obligatorische Schulzeit abgeschlossen",
-          "Gute Kenntnisse in Mathematik und technischem Zeichnen",
-          "Alter zwischen 15 und 25 Jahren",
-          "Ausgeprägte Fingerfertigkeit",
-          "Gute Sehschärfe",
-          "Hohe Konzentrationsfähigkeit",
-          "Sinn für Genauigkeit und sorgfältige Arbeitsweise",
-          "Methodische Denkweise und Durchhaltevermögen"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
-        "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
-          "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
-        ],
-        "en": [
-          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
-        ],
-        "fr": [
-          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-28T11:52:06.121Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     },
     {
       "id": "omega-32830",
@@ -1359,7 +1368,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "omega-32836",
@@ -1447,7 +1457,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "omega-32837",
@@ -1556,7 +1566,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
