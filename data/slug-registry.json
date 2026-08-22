@@ -9838,7 +9838,8 @@
     "slugByLocale": {
       "fr": "solution-sap-et-responsable-de-la-mise-en-uvre-a-80-100-bachem-ag-stein-ag",
       "it": "responsabile-soluzione-e-implementazione-sap-a-80-100-bachem-ag-stein-ag",
-      "en": "sap-solution-implementation-lead-a-80-100-bachem-stein-ag"
+      "en": "sap-solution-implementation-lead-a-80-100-bachem-stein-ag",
+      "de": "responsabile-soluzione-e-implementazione-sap-a-80-100-bachem-ag-stein-ag"
     }
   },
   "id|bachem.com|1404097333": {
@@ -331385,7 +331386,8 @@
     "slugByLocale": {
       "de": "lab-support-qc-sampling-environmental-monitoring-gmp-a-100-bachem-bubendorf",
       "fr": "soutien-au-laboratoire-qc-echantillonnage-et-surveillance-environnementale-bpf-a-100-bachem-ag-bubendorf",
-      "it": "supporto-del-laboratorio-qc-sampling-environmental-monitoring-gmp-a-100-bachem-ag-bubendorf"
+      "it": "supporto-del-laboratorio-qc-sampling-environmental-monitoring-gmp-a-100-bachem-ag-bubendorf",
+      "en": "lab-support-qc-sampling-environmental-monitoring-gmp-a-100-bachem-ag-bubendorf"
     },
     "createdAt": "2026-07-14",
     "canton": "BL"
@@ -550997,7 +550999,10 @@
   "id|coopjobs.ch|0e0c3392-aaeb-4b0d-89c4-6239454c981e": {
     "canonicalSlug": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
     "slugByLocale": {
-      "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+      "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+      "it": "verkaufberater-in-kassen-services-jumbo-sissach",
+      "en": "verkaufberater-in-kassen-services-jumbo-sissach",
+      "fr": "verkaufberater-in-kassen-services-jumbo-sissach"
     },
     "createdAt": "2026-08-22",
     "canton": "BL"
@@ -551005,7 +551010,10 @@
   "id|coopjobs.ch|cd2d0ab6-207a-446c-87bd-b972615f301b": {
     "canonicalSlug": "verkaufsberater-in-do-it-jumbo-mels-sankt-gallen",
     "slugByLocale": {
-      "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
+      "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
+      "it": "consulente-di-vendita-in-do-it-jumbo-mels",
+      "en": "sales-consultant-in-do-it-jumbo-mels-88f5b6",
+      "fr": "consultant-en-ventes-a-do-it-jumbo-mels"
     },
     "createdAt": "2026-08-22",
     "canton": "SG"
@@ -551916,5 +551924,153 @@
     },
     "createdAt": "2026-08-22",
     "canton": "ZG"
+  },
+  "id|bachem.com|1428709933": {
+    "canonicalSlug": "scientist-qc-early-phase-a-100-bachem-bubendorf",
+    "slugByLocale": {
+      "de": "scientist-qc-early-phase-a-100-bachem-bubendorf"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BL"
+  },
+  "id|bachem.com|1428573833": {
+    "canonicalSlug": "supporto-di-laboratorio-qc-raw-a-a-80-100-bachem-ag-bubendorf",
+    "slugByLocale": {
+      "de": "lab-support-qc-raw-startings-a-80-100-bachem-bubendorf",
+      "it": "supporto-di-laboratorio-qc-raw-a-a-80-100-bachem-ag-bubendorf"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BL"
+  },
+  "id|admin.ch|ec7c96c0-afc8-4203-b9fa-fd1759b0fa50": {
+    "canonicalSlug": "gestione-della-flotta-dell-unita-di-competenza-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "gestione-della-flotta-dell-unita-di-competenza-swiss-armed-forces-vtg-bern",
+      "en": "personnel-in-competence-unit-fleet-management-swiss-armed-forces-vtg-bern",
+      "de": "sachbearbeiter-in-kompetenzstelle-flottensteuerung-swiss-armed-forces-vtg-bern-9fswyc",
+      "fr": "groupe-du-personnel-et-des-competences-gestion-de-la-flotte-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|admin.ch|c8cb4997-4812-4730-88e5-ad7c661b0779": {
+    "canonicalSlug": "meccatronica-automobilistica-ingegneri-in-veicoli-commerciali-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "meccatronica-automobilistica-ingegneri-in-veicoli-commerciali-swiss-armed-forces-vtg-bern",
+      "en": "automotive-mechatronics-engineers-in-commercial-vehicles-swiss-armed-forces-vtg-bern",
+      "de": "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-2p5bb2",
+      "fr": "ingenieurs-mecatroniques-automobiles-dans-les-vehicules-utilitaires-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|admin.ch|babadba1-7f9e-47da-9017-13a90790a95a": {
+    "canonicalSlug": "meccatronica-automobilistica-tecnico-in-facilmente-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "meccatronica-automobilistica-tecnico-in-facilmente-swiss-armed-forces-vtg-bern",
+      "en": "automotive-mechatronics-technician-in-easily-swiss-armed-forces-vtg-bern",
+      "de": "automobilmechatroniker-in-leicht-swiss-armed-forces-vtg-bern-k6tud5",
+      "fr": "technicien-mecatronique-automobile-en-facilement-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|admin.ch|7ae332c4-73aa-4724-9aca-9490c2e968f6": {
+    "canonicalSlug": "cyber-security-consulente-swiss-armed-forces-vtg-bern-50y2rb",
+    "slugByLocale": {
+      "it": "cyber-security-consulente-swiss-armed-forces-vtg-bern-50y2rb",
+      "en": "cyber-security-advisor-swiss-armed-forces-vtg-bern-50y2rb",
+      "de": "cyber-security-berater-swiss-armed-forces-vtg-bern-50y2rb",
+      "fr": "cyber-security-conseiller-swiss-armed-forces-vtg-bern-50y2rb"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|admin.ch|ac05feea-9df3-4495-a462-9d7c2d13b6de": {
+    "canonicalSlug": "sistemi-di-refrigerazione-polimeccanici-manutenzione-clima-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "sistemi-di-refrigerazione-polimeccanici-manutenzione-clima-swiss-armed-forces-vtg-bern",
+      "en": "polymechanic-maintenance-climate-refrigeration-systems-swiss-armed-forces-vtg-bern",
+      "de": "polymechaniker-in-instandhaltung-klima-kaltesysteme-swiss-armed-forces-vtg-bern-8waeni",
+      "fr": "polymecanique-systemes-d-entretien-et-de-refrigeration-du-climat-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|admin.ch|157eea5a-de14-42cc-9faa-1ddf5944b6f8": {
+    "canonicalSlug": "serbatoio-elettrico-swiss-armed-forces-vtg-bern",
+    "slugByLocale": {
+      "it": "serbatoio-elettrico-swiss-armed-forces-vtg-bern",
+      "en": "tank-electrician-swiss-armed-forces-vtg-bern",
+      "de": "panzerelektriker-in-swiss-armed-forces-vtg-bern-38cp3x",
+      "fr": "electricien-citerne-swiss-armed-forces-vtg-bern"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|holcimgroup.com|1369828857": {
+    "canonicalSlug": "tecnico-in-automazione-holcim-group-untervaz",
+    "slugByLocale": {
+      "it": "tecnico-in-automazione-holcim-group-untervaz",
+      "en": "technician-in-automation-holcim-group-untervaz",
+      "de": "techniker-in-automation-holcim-ch",
+      "fr": "technicien-en-automation-holcim-group-untervaz"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "GR"
+  },
+  "id|holcimgroup.com|1369761557": {
+    "canonicalSlug": "driver-del-camion-in-holcim-group-mulligen",
+    "slugByLocale": {
+      "it": "driver-del-camion-in-holcim-group-mulligen",
+      "en": "truck-driver-in-holcim-group-mulligen",
+      "de": "lastwagenfuhrer-in-holcim-ch",
+      "fr": "conducteur-de-camion-en-holcim-group-mulligen"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "AG"
+  },
+  "id|holcimgroup.com|1369947757": {
+    "canonicalSlug": "stellvertretende-r-responsabile-elektrische-instandhaltung-holcim-group-untervaz",
+    "slugByLocale": {
+      "it": "stellvertretende-r-responsabile-elektrische-instandhaltung-holcim-group-untervaz",
+      "en": "deputy-r-head-in-electric-maintenance-holcim-group-untervaz",
+      "de": "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch",
+      "fr": "chef-adjoint-in-entretien-electrique-holcim-group-untervaz"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "GR"
+  },
+  "id|holcimgroup.com|1369717057": {
+    "canonicalSlug": "fornito-in-ingegnere-di-cemento-in-holcim-group-giswil",
+    "slugByLocale": {
+      "it": "fornito-in-ingegnere-di-cemento-in-holcim-group-giswil",
+      "en": "disponent-in-concrete-engineer-in-holcim-group-giswil",
+      "de": "disponent-in-betonmaschinist-in-holcim-ch",
+      "fr": "deposant-in-ingenieur-en-beton-in-holcim-group-giswil"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "OW"
+  },
+  "id|coopjobs.ch|74083118-23c0-4ed8-ad1c-9e18e7de8f55": {
+    "canonicalSlug": "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne",
+    "slugByLocale": {
+      "fr": "cheffe-chef-de-rayon-do-it-f-h-d-jumbo-bienne",
+      "en": "head-of-department-do-it-m-f-d-jumbo-bienne",
+      "de": "abteilungsleiter-do-it-m-w-d-jumbo-bienne"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|de25eb6d-dcd1-4499-bd8a-31dde0471ee3": {
+    "canonicalSlug": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-2",
+    "slugByLocale": {
+      "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-j99zhp",
+      "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-2",
+      "en": "sales-advisor-do-it-m-f-d-jumbo-conthey",
+      "de": "verkaufsberater-do-it-m-w-d-jumbo-conthey"
+    },
+    "createdAt": "2026-08-22",
+    "canton": "VS"
   }
 }

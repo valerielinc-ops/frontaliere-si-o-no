@@ -9895,7 +9895,6 @@
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:47:46.721Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9908,7 +9907,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1466
     },
     {
       "id": "unispital-basel-bb364237261e",

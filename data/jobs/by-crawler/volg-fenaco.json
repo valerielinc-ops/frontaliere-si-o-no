@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-08-22T09:47:32.008Z",
+  "assembledAt": "2026-08-22T09:13:17.181Z",
   "jobs": [
     {
       "title": "Verkäuferin / Verkäufer TopShop (w/m/d)",
@@ -1145,17 +1145,37 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+          "disposizione-di-trasporto-m-f-d-traveco-transporte-ag-nebikon",
+          "transport-disposition-m-f-d-traveco-transporte-ag-nebikon",
+          "transport-disposition-h-f-d-traveco-transporte-ag-nebikon",
+          "disposizioni-di-trasporto-w-m-d-traveco-transporte-ag-nebikon",
+          "transport-disposition-w-m-d-traveco-transporte-ag-nebikon",
+          "disposition-des-transports-m-j-traveco-transporte-ag-nebikon",
+          "transport-dispatcher-f-m-d-traveco-transporte-ag-nebikon",
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-sejttj",
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-qnzut5"
         ],
         "en": [
-          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+          "transport-disposition-m-f-d-traveco-transporte-ag-nebikon"
         ],
         "fr": [
-          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+          "transport-disposition-h-f-d-traveco-transporte-ag-nebikon"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+        "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+        "disposizione-di-trasporto-m-f-d-traveco-transporte-ag-nebikon",
+        "transport-disposition-m-f-d-traveco-transporte-ag-nebikon",
+        "transport-disposition-h-f-d-traveco-transporte-ag-nebikon",
+        "disposizioni-di-trasporto-w-m-d-traveco-transporte-ag-nebikon",
+        "transport-disposition-w-m-d-traveco-transporte-ag-nebikon",
+        "disposition-des-transports-m-j-traveco-transporte-ag-nebikon",
+        "transport-dispatcher-f-m-d-traveco-transporte-ag-nebikon",
+        "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-sejttj",
+        "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-qnzut5"
       ]
     },
     {
@@ -1219,17 +1239,24 @@
       "firstSeenAt": "2026-08-21T21:38:11.418Z",
       "previousSlugsByLocale": {
         "it": [
-          "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf"
+          "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+          "assistente-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+          "shop-assistant-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+          "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf-uclbzo"
         ],
         "en": [
-          "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf"
+          "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+          "shop-assistant-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf"
         ],
         "fr": [
           "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf"
         ]
       },
       "previousSlugs": [
-        "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf"
+        "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+        "assistente-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+        "shop-assistant-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf",
+        "shopmitarbeitende-r-topshop-bassersdorf-w-m-d-landi-zuri-unterland-genossenschaft-bassersdorf-uclbzo"
       ]
     },
     {
@@ -26349,7 +26376,9 @@
       },
       "previousSlugs": [
         "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-anniviers"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",

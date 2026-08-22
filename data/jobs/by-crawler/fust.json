@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-22T09:42:19.954Z",
+  "assembledAt": "2026-08-22T08:19:31.787Z",
   "jobs": [
     {
       "id": "company-gvrbqk",
@@ -11027,15 +11027,24 @@
         "it": [
           "verkaufer-in-food-coop-genossenschaft-aarberg-bern",
           "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
-          "venditore-in-food-coop-genossenschaft-aarberg-bern"
+          "venditore-in-food-coop-genossenschaft-aarberg-bern",
+          "venditore-food-coop-genossenschaft-triengen",
+          "verkaufer-in-food-coop-genossenschaft-triengen-luzern-86b69k",
+          "food-salesperson-coop-genossenschaft-triengen-86b69k",
+          "vendeur-food-coop-genossenschaft-triengen-86b69k"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
-          "seller-in-food-coop-genossenschaft-aarberg-bern"
+          "seller-in-food-coop-genossenschaft-aarberg-bern",
+          "food-salesperson-coop-genossenschaft-triengen-86b69k"
         ],
         "fr": [
           "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-aarberg-bern"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-aarberg-bern",
+          "vendeur-food-coop-genossenschaft-triengen-86b69k"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-triengen-luzern-86b69k"
         ]
       },
       "previousSlugs": [
@@ -11043,7 +11052,11 @@
         "verkaufer-in-food-coop-genossenschaft-aarberg-bern-2dqfxn",
         "seller-in-food-coop-genossenschaft-aarberg-bern",
         "vendeur-dans-la-nourriture-coop-genossenschaft-aarberg-bern",
-        "venditore-in-food-coop-genossenschaft-aarberg-bern"
+        "venditore-in-food-coop-genossenschaft-aarberg-bern",
+        "venditore-food-coop-genossenschaft-triengen",
+        "verkaufer-in-food-coop-genossenschaft-triengen-luzern-86b69k",
+        "food-salesperson-coop-genossenschaft-triengen-86b69k",
+        "vendeur-food-coop-genossenschaft-triengen-86b69k"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12899,7 +12912,9 @@
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen"
+          "chef-chef-m-f-d-coop-genossenschaft-oftringen",
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau",
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
@@ -12919,7 +12934,9 @@
         "chef-chef-m-f-d-coop-genossenschaft-oftringen",
         "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
         "chef-chef-h-f-d-coop-genossenschaft-oftringen",
-        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
+        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
+        "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau",
+        "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -15730,7 +15747,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "food-sales-assistant-coop-genossenschaft-andermatt-096451",
           "food-sales-assistant-coop-genossenschaft-dietikon",
           "food-sales-assistant-coop-genossenschaft-freienbach",
           "food-sales-assistant-coop-genossenschaft-kandersteg",
@@ -15749,24 +15765,28 @@
           "addetto-a-alla-vendita-food-coop-genossenschaft-seuzach",
           "addetto-a-alla-vendita-food-coop-genossenschaft-suhr",
           "vendeur-in-coop-genossenschaft-winterthur",
-          "addetto-a-alle-vendite-food-coop-genossenschaft-winterthur"
+          "addetto-a-alle-vendite-food-coop-genossenschaft-winterthur",
+          "commesso-a-alimentari-coop-genossenschaft-bellach"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-winterthur-zurich-kmw0i5",
           "seller-in-food-coop-genossenschaft-winterthur-zurich",
           "verkaufer-in-food-coop-city-winterthur-zurich-c93u01",
           "sales-assistant-food-coop-genossenschaft-winterthur-zurich",
-          "sales-assistant-food-coop-genossenschaft-cham-pa883x"
+          "sales-assistant-food-coop-genossenschaft-cham-pa883x",
+          "food-sales-assistant-coop-genossenschaft-bellach-bj1alr"
         ],
         "fr": [
           "verkaufer-in-food-coop-genossenschaft-winterthur-zurich-kmw0i5",
           "vendeur-dans-la-nourriture-coop-genossenschaft-winterthur-zurich",
           "vendeur-aliment-coop-genossenschaft-winterthur-zurich",
-          "vendeur-vendeuse-food-coop-genossenschaft-cham-pa883x"
+          "vendeur-vendeuse-food-coop-genossenschaft-cham-pa883x",
+          "vendeur-euse-en-alimentation-coop-genossenschaft-bellach-bj1alr"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-winterthur",
-          "verkaufer-in-food-coop-cham-zug-pa883x"
+          "verkaufer-in-food-coop-cham-zug-pa883x",
+          "verkaufer-in-food-coop-bellach-solothurn-bj1alr"
         ]
       },
       "previousSlugs": [
@@ -15835,7 +15855,11 @@
         "food-sales-assistant-coop-genossenschaft-winterthur",
         "food-sales-assistant-coop-genossenschaft-winterthur-6299ae",
         "verkaufer-in-food-coop-winterthur-zurich",
-        "vendeur-in-coop-genossenschaft-winterthur"
+        "vendeur-in-coop-genossenschaft-winterthur",
+        "commesso-a-alimentari-coop-genossenschaft-bellach",
+        "food-sales-assistant-coop-genossenschaft-bellach-bj1alr",
+        "verkaufer-in-food-coop-bellach-solothurn-bj1alr",
+        "vendeur-euse-en-alimentation-coop-genossenschaft-bellach-bj1alr"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15999,14 +16023,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-57i3h4",
-          "vendita-prodotti-freschi-coop-genossenschaft-zurich-61021d",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-igj8sp",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-pmzyuw",
-          "addetto-a-alle-vendite-prodotti-freschi-produzione-coop-genossenschaft-zurich",
-          "addetto-alle-vendite-alimentari-e-prodotti-freschi-coop-genossenschaft-zurich",
-          "sales-assistant-fresh-products-coop-genossenschaft-zurich-1dc0ee",
           "sales-assistant-fresh-products-coop-genossenschaft-zurich-1ewa3f",
           "sales-assistant-fresh-products-coop-genossenschaft-zurich-2a9663",
           "sales-assistant-fresh-products-coop-genossenschaft-zurich-d8275d",
@@ -16017,15 +16033,32 @@
           "vendeur-se-produits-frais-coop-genossenschaft-zurich-8n19il",
           "vendeur-se-produits-frais-coop-genossenschaft-zurich-cf2d13",
           "vendeur-se-produits-frais-coop-genossenschaft-zurich-ee18aa",
-          "vendeur-se-produits-frais-coop-genossenschaft-zurich-sysm6p"
+          "vendeur-se-produits-frais-coop-genossenschaft-zurich-sysm6p",
+          "addetto-alle-vendite-di-prodotti-freschi-coop-genossenschaft-baar",
+          "addetto-alle-vendite-prodotti-freschi-coop-genossenschaft-alpnach",
+          "addetto-alle-vendite-prodotti-freschi-coop-genossenschaft-bettlach",
+          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-engelberg",
+          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-kleinandelfingen",
+          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-murten",
+          "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+          "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-engelberg",
+          "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-pfaffikon"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-57i3h4",
-          "seller-fresh-products-coop-genossenschaft-zurich-61021d"
+          "seller-fresh-products-coop-genossenschaft-zurich-61021d",
+          "salesperson-fresh-products-coop-genossenschaft-niederrohrdorf-mhw80v",
+          "sales-associate-fresh-products-coop-genossenschaft-pfaffikon-itq4w3"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-57i3h4",
-          "vendeur-produits-frais-coop-genossenschaft-zurich-61021d"
+          "vendeur-produits-frais-coop-genossenschaft-zurich-61021d",
+          "vendeur-euse-produits-frais-coop-genossenschaft-niederrohrdorf-mhw80v",
+          "vendeur-euse-produits-frais-coop-genossenschaft-pfaffikon-itq4w3"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-niederrohrdorf-aargau-mhw80v",
+          "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3"
         ]
       },
       "previousSlugs": [
@@ -16049,7 +16082,22 @@
         "vendeur-se-produits-frais-coop-genossenschaft-zurich-8n19il",
         "vendeur-se-produits-frais-coop-genossenschaft-zurich-cf2d13",
         "vendeur-se-produits-frais-coop-genossenschaft-zurich-ee18aa",
-        "vendeur-se-produits-frais-coop-genossenschaft-zurich-sysm6p"
+        "vendeur-se-produits-frais-coop-genossenschaft-zurich-sysm6p",
+        "addetto-alle-vendite-di-prodotti-freschi-coop-genossenschaft-baar",
+        "addetto-alle-vendite-prodotti-freschi-coop-genossenschaft-alpnach",
+        "addetto-alle-vendite-prodotti-freschi-coop-genossenschaft-bettlach",
+        "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-engelberg",
+        "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-kleinandelfingen",
+        "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-murten",
+        "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-engelberg",
+        "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-pfaffikon",
+        "salesperson-fresh-products-coop-genossenschaft-niederrohrdorf-mhw80v",
+        "sales-associate-fresh-products-coop-genossenschaft-pfaffikon-itq4w3",
+        "verkaufer-in-frischprodukte-coop-niederrohrdorf-aargau-mhw80v",
+        "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3",
+        "vendeur-euse-produits-frais-coop-genossenschaft-niederrohrdorf-mhw80v",
+        "vendeur-euse-produits-frais-coop-genossenschaft-pfaffikon-itq4w3"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -29202,7 +29250,9 @@
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-ded25c",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-qawypd",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-qc29l2",
-          "vendeur-trice-caisses-services-coop-genossenschaft-zurich"
+          "vendeur-trice-caisses-services-coop-genossenschaft-zurich",
+          "venditore-a-cassa-service-coop-genossenschaft-zurich",
+          "venditore-in-casse-servizi-coop-genossenschaft-zurich"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich-gwby3y"
@@ -29229,7 +29279,9 @@
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-ded25c",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-qawypd",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-qc29l2",
-        "vendeur-trice-caisses-services-coop-genossenschaft-zurich"
+        "vendeur-trice-caisses-services-coop-genossenschaft-zurich",
+        "venditore-a-cassa-service-coop-genossenschaft-zurich",
+        "venditore-in-casse-servizi-coop-genossenschaft-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
