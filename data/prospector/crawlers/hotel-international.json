@@ -1,0 +1,22 @@
+{
+  "companyKey": "hotel-international",
+  "companyName": "Hotel International au Lac",
+  "companyHost": "hotel-international.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotel-international.ch/it/jobs/"
+  ],
+  "detailTemplate": "/it/offerte/*/",
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Perché prenotare direttamente",
+    "Alla scoperta delle camere rinnovate a superprezzi",
+    "Offerta speciale 3 notti",
+    "Prenota SENZA carta di credito!",
+    "Top-3-Star-Hotels"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-08-22T09:23:28.298Z"
+}
