@@ -10521,6 +10521,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pagamento-multa-stradale-svizzera.title': 'Multa stradale svizzera: procedura per residenti italiani',
     'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Ricevi una multa stradale in Svizzera come residente italiano? Scopri notifica, pagamento, ricorsi e conseguenze del mancato saldo su vignetta e assicurazione.',
     'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'Una strada del Ticino al crepuscolo con segnaletica stradale e automobile che si avvicina a un valico di confine svizzero.',
+    'blog.article.notifica-multa-residente-italiano.title': 'Multa stradale in Svizzera: come paga il residente italiano',
+    'blog.article.notifica-multa-residente-italiano.excerpt': 'Se residente italiano ricevi multa stradale in Svizzera: come funzionano la notifica, il pagamento in CHF e i diritti di ricorso amministrativo.',
+    'blog.article.notifica-multa-residente-italiano.imageAlt': 'Strada ticinese con segnaletica stradale e traffico frontaliero nel Cantone Ticino',
 };
 
 export default blogMetaIt;

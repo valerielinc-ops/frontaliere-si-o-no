@@ -10522,6 +10522,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pagamento-multa-stradale-svizzera.title': 'Amende routière suisse : procédure pour les résidents italiens',
     'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Recevez-vous une amende routière en Suisse en tant que résident italien ? Découvrez la notification, le paiement, les recours et les conséquences de l\'absence de solde sur la vignette et l\'assurance.',
     'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'Une route du Tessin au crépuscule avec marquages routiers et automobile s\'approchant d\'un poste frontière suisse.',
+    'blog.article.notifica-multa-residente-italiano.title': 'Amende routière en Suisse : comment le résident italien paie',
+    'blog.article.notifica-multa-residente-italiano.excerpt': 'Si vous êtes un résident italien, vous recevez une amende routière en Suisse : comment fonctionnent la notification, le paiement en CHF et les droits de recours administratif.',
+    'blog.article.notifica-multa-residente-italiano.imageAlt': 'Route tessinoise avec signalisation routière et trafic frontalier dans le canton du Tessin',
 };
 
 export default blogMetaFr;

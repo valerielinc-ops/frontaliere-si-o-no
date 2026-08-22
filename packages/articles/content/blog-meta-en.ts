@@ -10520,6 +10520,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pagamento-multa-stradale-svizzera.title': 'Swiss road fine: procedure for Italian residents',
     'blog.article.pagamento-multa-stradale-svizzera.excerpt': 'Do you receive a traffic fine in Switzerland as an Italian resident? Discover notification, payment, appeals and consequences of the non-payment on vignette and insurance.',
     'blog.article.pagamento-multa-stradale-svizzera.imageAlt': 'A Ticino road at dusk with clear road markings and a car approaching a Swiss border checkpoint, documentary style.',
+    'blog.article.notifica-multa-residente-italiano.title': 'Traffic fine in Switzerland: how the Italian resident pays',
+    'blog.article.notifica-multa-residente-italiano.excerpt': 'If you are an Italian resident, you receive a traffic fine in Switzerland: how the notification, payment in CHF and administrative appeal rights work.',
+    'blog.article.notifica-multa-residente-italiano.imageAlt': 'Ticinese road with traffic signs and border traffic in the Ticino Canton',
 };
 
 export default blogMetaEn;
