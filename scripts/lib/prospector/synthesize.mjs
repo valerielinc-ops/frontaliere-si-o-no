@@ -94,6 +94,20 @@ export function crawlerKeyFor(candidate) {
 }
 
 /**
+ * True when `err` is the kind of malformed-input failure SYNTHESIZE is meant
+ * to isolate per-candidate (a `%E9` Latin-1 escape, an unparseable URL) rather
+ * than a genuine programming bug. The caller uses this to decide whether a
+ * rejected candidate is expected noise or a regression that deserves to stay
+ * visible instead of vanishing into "candidato rifiutato".
+ *
+ * @param {unknown} err
+ * @returns {boolean}
+ */
+export function isExpectedSynthesisError(err) {
+  return err instanceof URIError || err?.name === 'URIError';
+}
+
+/**
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate

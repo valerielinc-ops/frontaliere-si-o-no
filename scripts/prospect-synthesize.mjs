@@ -21,7 +21,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadCandidates, saveCandidates, setStatus, byStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
-import { synthesizeSpec } from './lib/prospector/synthesize.mjs';
+import { synthesizeSpec, isExpectedSynthesisError } from './lib/prospector/synthesize.mjs';
 import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 
 const argv = process.argv.slice(2);
@@ -58,8 +58,19 @@ for (const c of queue) {
     synth = await synthesizeSpec(c);
   } catch (err) {
     refused++;
+    // Un URIError/parse su input malformato e' rumore atteso del loop (vedi
+    // commento sopra) e va isolato in silenzio. Qualunque altro errore e' un
+    // possibile bug di programmazione: lo isoliamo comunque (un datore rotto
+    // non deve affondare lo stadio) ma con severita' maggiore, cosi' una
+    // regressione in synthesizeSpec resta visibile invece di sparire dietro
+    // "candidato rifiutato".
+    const expected = isExpectedSynthesisError(err);
     setStatus(store, c.key, 'rejected', { reason: `sintesi in errore: ${String(err.message).slice(0, 120)}` });
-    console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${String(err.message).slice(0, 70)}`);
+    if (expected) {
+      console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${String(err.message).slice(0, 70)}`);
+    } else {
+      console.error(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore INATTESO: ${err.stack || err.message}`);
+    }
     continue;
   }
   const { spec, reason, vacancies: found } = synth;
