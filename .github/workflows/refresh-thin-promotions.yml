@@ -185,7 +185,18 @@ jobs:
           # the single writer of these two files (see comment above), so a real
           # rebase conflict should never occur — the helper's default abort-on-
           # conflict fallback matches this step's previous behavior.
-          bash scripts/lib/git-push-with-retry.sh
+          #
+          # --soft-fail-exhausted (issue #5568, recurring): the retry cap here has
+          # already been raised 4x on the shared helper for this same symptom
+          # (5->10->15->25->40, #3784/#4026/#4190/#4562) without ending the
+          # recurrence — the real defect isn't an insufficient attempt budget, it's
+          # treating an exhausted push as job-fatal for data that is a rolling
+          # window (window-hours=24, re-derived hourly from GA4/GSC/PostHog): a
+          # missed commit during the twice-daily crawler-dispatch convoy just
+          # delays this run's delta by ~1h, the next run's overlapping 24h window
+          # recaptures it. Warn + exit 0 instead of failing the job and reopening
+          # this issue for an expected, self-healing contention blip.
+          bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted
 
       - name: Report failure to GitHub Issues
         if: failure()
