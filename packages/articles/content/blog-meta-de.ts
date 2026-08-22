@@ -10501,6 +10501,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Quellensteuer 2026: Tessiner Steuersätze',
     'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'Wie funktioniert die quellensteuer im Kanton Tessin? Entdecken Sie die Sätze 2026, die Rabatte, die Franchise des Neuen Abkommens und den NOV-SCHWELLENWERT von CHF 120\'000.',
     'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'Blick auf Bellinzona, Hauptstadt des Kantons Tessin, wo Tausende Grenzgänger arbeiten',
+    'blog.article.accordo-edilizia-ticino-6-anni.title': 'Bau Tessin: Vereinbarung für 6 Jahre',
+    'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'Die Baustellenentschädigung steigt ab Januar 2027 auf 6,5 CHF, ab 2028 auf 9 CHF. Teuerungsadäquate Mindestlöhne und voll bezahlte Reisezeit. OCST-Vereinbarung unterzeichnet im Mai 2026.',
+    'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Baustelle im Tessin mit Arbeitern und Gerüsten bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

@@ -10502,6 +10502,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Tax at source 2026: Ticino rates',
     'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'How does the quellensteuer work in the Canton of Ticino? Discover the 2026 rates, the rebates, the New Deal deductible and the NOV threshold of CHF 120\'000.',
     'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'View of Bellinzona, capital of Canton Ticino where thousands of cross-border workers live',
+    'blog.article.accordo-edilizia-ticino-6-anni.title': 'Ticino construction: agreement for 6 years',
+    'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'Construction site allowance increases to CHF 6.5 from January 2027, then CHF 9 in 2028. Minimum wages appropriate to the standard of living and travel time paid in full. OCST Agreement signed in May 2026.',
+    'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Construction site in Ticino with workers and scaffolding at sunset in alpine valleys',
 };
 
 export default blogMetaEn;

@@ -31440,6 +31440,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'accordo-edilizia-ticino-6-anni',
+ category: 'novita',
+ date: '2026-08-22T10:53:52.365Z',
+ image: '/images/blog/accordo-edilizia-ticino-6-anni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10503,6 +10503,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aliquote-imposta-fonte-ticino-2026.title': 'Imposta alla fonte 2026: aliquote Ticino',
     'blog.article.aliquote-imposta-fonte-ticino-2026.excerpt': 'Come funziona la quellensteuer nel Cantone Ticino? Scopri le aliquote 2026, gli abbuoni, la franchigia del Nuovo Accordo e la soglia NOV di CHF 120\'000.',
     'blog.article.aliquote-imposta-fonte-ticino-2026.imageAlt': 'Veduta di Bellinzona, capoluogo del Canton Ticino dove lavorano migliaia di frontalieri',
+    'blog.article.accordo-edilizia-ticino-6-anni.title': 'Edilizia Ticino: accordo per 6 anni',
+    'blog.article.accordo-edilizia-ticino-6-anni.excerpt': 'Indennità di cantiere aumenta a 6,5 CHF dal gennaio 2027, poi 9 CHF nel 2028. Salari minimi adeguati al carovita e tempo di viaggio retribuito integralmente. Accordo OCST sottoscritto maggio 2026.',
+    'blog.article.accordo-edilizia-ticino-6-anni.imageAlt': 'Cantiere edile nel Ticino con lavoratori e ponteggi al tramonto sulle valli alpine',
 };
 
 export default blogMetaIt;
