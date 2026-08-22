@@ -57448,10 +57448,10 @@
         "fr": "sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
-        "en": "/en/find-jobs-bern/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
-        "de": "/de/jobs-in-bern/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
-        "fr": "/fr/trouver-emploi-berne/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern"
+        "it": "/cerca-lavoro-vallese/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "en": "/en/find-jobs-valais/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "de": "/de/jobs-im-wallis/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern",
+        "fr": "/fr/trouver-emploi-valais/sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64242,6 +64242,89 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "staff-cook-giardino-group-st-moritz",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/staff-cook-giardino-group-st-moritz/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/staff-cook-giardino-group-st-moritz/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro canton grigioni",
+          "clicks": 1,
+          "impressions": 3
+        },
+        {
+          "query": "offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lavori ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro st moritz",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "posti di lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 1,
+      "topQuery": "offerte di lavoro canton grigioni",
+      "title": "Staff cook giardino group",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "St. Moritz",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "staff-cook-giardino-group-st-moritz",
+        "en": "staff-cook-giardino-group-st-moritz",
+        "de": "staff-cook-giardino-group-st-moritz",
+        "fr": "staff-cook-giardino-group-st-moritz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/staff-cook-giardino-group-st-moritz",
+        "en": "/en/find-jobs-graubunden/staff-cook-giardino-group-st-moritz",
+        "de": "/de/jobs-im-graubunden/staff-cook-giardino-group-st-moritz",
+        "fr": "/fr/trouver-emploi-grisons/staff-cook-giardino-group-st-moritz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
