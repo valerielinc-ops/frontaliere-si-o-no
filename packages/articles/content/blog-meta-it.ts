@@ -10471,6 +10471,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.doppio-sistema-pensione-frontaliere.title': 'Calcolo pensione frontaliere: AVS + INPS',
     'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'Come funziona la pensione per chi lavora in Svizzera e risiede in Italia: totalizzazione contributi, diritti acquisiti, nuovo accordo 2024.',
     'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'Vista di Lugano con le Alpi sullo sfondo, che rappresenta il contesto transfrontaliero ticinese',
+    'blog.article.bollettino-frontaliere-2026-08-22.title': 'Bollettino del frontaliere – 22 agosto 2026: 781 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-22.excerpt': 'I numeri di oggi, 22 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'I numeri del giorno per i frontalieri – 22 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Bollettino frontalieri del 22 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'I numeri del 22 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
