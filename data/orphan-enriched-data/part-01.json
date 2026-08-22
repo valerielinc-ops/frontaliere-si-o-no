@@ -1076,10 +1076,10 @@
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden",
-        "en": "/en/find-jobs-basel/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden",
+        "it": "/cerca-lavoro-argovia/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden",
+        "en": "/en/find-jobs-aargau/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden",
         "de": "/de/jobs-im-bern/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden",
-        "fr": "/fr/trouver-emploi-bale/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden"
+        "fr": "/fr/trouver-emploi-argovie/addetto-a-alle-vendite-food-coop-genossenschaft-meisterschwanden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37746,7 +37746,7 @@
         {
           "query": "agence pour l emploi locarno",
           "clicks": 0,
-          "impressions": 14
+          "impressions": 15
         },
         {
           "query": "locarno",
@@ -37769,7 +37769,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 30,
+      "totalImpressions": 31,
       "totalClicks": 0,
       "topQuery": "agence pour l emploi locarno",
       "title": "locarno",
@@ -38284,7 +38284,7 @@
         {
           "query": "stellen lugano",
           "clicks": 0,
-          "impressions": 79
+          "impressions": 80
         },
         {
           "query": "stellenangebot lugano",
@@ -38294,7 +38294,7 @@
         {
           "query": "stellenvermittlung lugano",
           "clicks": 0,
-          "impressions": 39
+          "impressions": 40
         },
         {
           "query": "taetigkeitsfelder jobs lugano",
@@ -38337,6 +38337,11 @@
           "impressions": 12
         },
         {
+          "query": "stellen tessin",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
           "query": "werkstudent jobs lugano",
           "clicks": 0,
           "impressions": 12
@@ -38347,17 +38352,17 @@
           "impressions": 11
         },
         {
-          "query": "stellen tessin",
-          "clicks": 0,
-          "impressions": 11
-        },
-        {
           "query": "pharmareferent jobs lugano",
           "clicks": 0,
           "impressions": 10
         },
         {
           "query": "pta jobs lugano",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
+          "query": "stellenangebot tessin",
           "clicks": 0,
           "impressions": 10
         },
@@ -38375,14 +38380,9 @@
           "query": "bestbezahlte jobs lugano",
           "clicks": 0,
           "impressions": 8
-        },
-        {
-          "query": "bäckereifachverkäufer jobs lugano",
-          "clicks": 0,
-          "impressions": 8
         }
       ],
-      "totalImpressions": 668,
+      "totalImpressions": 675,
       "totalClicks": 0,
       "topQuery": "stellen lugano",
       "title": "lugano",
@@ -38426,7 +38426,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 78
+          "impressions": 80
         },
         {
           "query": "stellenangebot lugano",
@@ -38466,7 +38466,7 @@
         {
           "query": "jobs in lugano",
           "clicks": 0,
-          "impressions": 13
+          "impressions": 14
         },
         {
           "query": "offre d'emploi lugano",
@@ -38494,6 +38494,16 @@
           "impressions": 6
         },
         {
+          "query": "i am looking for lugano sales jobs with a base salary and commission and training and italian required.",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "job contact lugano",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "lugano job",
           "clicks": 0,
           "impressions": 6
@@ -38509,22 +38519,12 @@
           "impressions": 5
         },
         {
-          "query": "i am looking for lugano sales jobs with a base salary and commission and training and italian required.",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "job contact lugano",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
           "query": "lavoro lugano",
           "clicks": 0,
           "impressions": 5
         }
       ],
-      "totalImpressions": 523,
+      "totalImpressions": 531,
       "totalClicks": 1,
       "topQuery": "full time jobs near me",
       "title": "lugano",
@@ -51050,10 +51050,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "procurement-coordination-and-it-controlling-confederazione-svizzera-bern",
+        "de": "beschaffungskoordination-und-it-controlling-confederazione-bern",
+        "it": "beschaffungskoordination-e-it-controlling-confederazione-svizzera-bern",
         "en": "procurement-coordination-and-it-controlling-confederazione-svizzera-bern",
-        "de": "procurement-coordination-and-it-controlling-confederazione-svizzera-bern",
-        "fr": "procurement-coordination-and-it-controlling-confederazione-svizzera-bern"
+        "fr": "coordination-des-achats-et-controle-informatique-confederazione-svizzera-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/procurement-coordination-and-it-controlling-confederazione-svizzera-bern",
@@ -51067,6 +51067,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
