@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-08-21T09:52:24.887Z",
+  "generatedAt": "2026-08-21T21:32:41.019Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12910,
-  "avgDurationMs": 12910,
+  "durationMs": 13600,
+  "avgDurationMs": 13600,
   "durationHistory": [
-    12910
+    13600
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T11:43:47.058Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

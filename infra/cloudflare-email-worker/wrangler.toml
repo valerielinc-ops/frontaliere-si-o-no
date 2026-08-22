@@ -26,6 +26,12 @@ STOP_REPLY_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/
 # dashboard). Additive to STOP suppression; same x-stop-secret gate. Outreach
 # reply path only.
 REPLY_TRACK_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachReplyTrack"
+# Cloud Function that records a delivery report (RFC 3464 bounce) arriving as
+# inbound mail. Maileroo's return_path for our domain is a local part on
+# frontaliereticino.ch and our MX are Cloudflare, so an ISP that accepts at SMTP
+# time and rejects afterwards reports here and never to the ESP — without this
+# those bounces never reach the suppression model at all.
+BOUNCE_REPORT_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/inboundBounceReport"
 # One-click unsubscribe endpoint (same one services/newsletterUrls.mjs's
 # makeOneClickUnsubscribeUrl builds for the email footer / List-Unsubscribe
 # header) — newsletter mailbox path only.

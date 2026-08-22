@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-08-21T10:01:15.551Z",
+  "assembledAt": "2026-08-21T21:36:16.654Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.136Z",
+      "crawledAt": "2026-08-21T21:36:13.956Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -116,7 +116,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.135Z",
+      "crawledAt": "2026-08-21T21:36:13.955Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -153,15 +153,15 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.774Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
@@ -198,7 +198,7 @@
       "url": "https://jobs.apple.com/en-us/details/200623292/aiml-machine-learning-research-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.134Z",
+      "crawledAt": "2026-08-21T21:36:13.953Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,7 +276,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.133Z",
+      "crawledAt": "2026-08-21T21:36:13.952Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,94 +308,15 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.774Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
-    },
-    {
-      "id": "apple-retail-switzerland-99675b310169",
-      "slug": "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich",
-        "en": "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch",
-        "de": "ai-forschung-scientist-multimodal-intelligence-apple-retail-switzerland-zurich",
-        "fr": "ai-recherche-scientist-multimodal-intelligence-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "AI Research Scientist - Multimodal Intelligence",
-      "titleByLocale": {
-        "it": "AI Ricerca Scientist - Multimodal Intelligence",
-        "en": "AI Research Scientist - Multimodal Intelligence",
-        "de": "AI Forschung Scientist - Multimodal Intelligence",
-        "fr": "AI Recherche Scientist - Multimodal Intelligence"
-      },
-      "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Multifaceted, amazing people and inspiring, innovative technologies are the norm here. The people who work here have reinvented entire industries with all Apple Hardware products. The same passion for innovation that goes into our products also applies to our practices, strengthening our commitment to leave the world better than we found it. Join us in this truly exciting era of Artificial Intelligence to help deliver the next groundbreaking Apple products & experiences! We are continuously advancing the state of the art in Computer Vision and Machine Learning, touching all aspects of language and multimodal foundation models, from data collection, data curation to modeling, evaluation and deployment.\n\nAs a member of our dynamic group, you will have the unique and rewarding opportunity to craft upcoming research directions in the field of multimodal foundation models that will inspire future Apple products. You will be working alongside highly accomplished and deeply technical scientists and engineers to develop pioneering solutions for challenging problems. This is a unique opportunity to be part of what forms the future of Apple products that will touch the lives of many people. We (Multimodal Intelligence Team) are looking for an AI Research Scientist to work on the field of Generative AI and multimodal foundation models.\n\nOur team has an established track record of shipping features that leverage multiple sensors, such as FaceID, RoomPlan and hand tracking in VisionPro, as well as a strong research presence in the multimodal AI community. Our publications span multimodal pre-training, vision-language models, video-language models, and multimodal alignment. We are focused on building experiences that demonstrate the power of our sensing hardware as well as large foundation models.",
-      "descriptionByLocale": {
-        "it": "Immagina cosa potresti fare qui. A Apple, le nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Porta la passione e la dedizione al tuo lavoro e non c'e' niente da dire a cosa potresti realizzare. Persone sfaccettate e sorprendenti e tecnologie innovative sono la norma qui. Le persone che lavorano qui hanno reinventato interi settori con tutti i prodotti Apple Hardware. La stessa passione per l'innovazione che va nei nostri prodotti si applica anche alle nostre pratiche, rafforzando il nostro impegno a lasciare il mondo meglio di quanto lo abbiamo trovato. Unisciti a noi in questa emozionante era dell'Intelligenza Artificiale per aiutare a fornire i prossimi prodotti e le esperienze di Apple innovative! Promuoviamo continuamente lo stato dell'arte in Computer Vision e Machine Learning, toccando tutti gli aspetti dei modelli di base linguistica e multimodale, dalla raccolta dei dati, dalla cura dei dati alla modellazione, alla valutazione e all'implementazione. Come membro del nostro gruppo dinamico, avrete l'opportunità unica e gratificante di creare le prossime direzioni di ricerca nel campo dei modelli di fondazione multimodali che ispireranno i futuri prodotti Apple. Si lavorerà a fianco di scienziati e ingegneri altamente qualificati e profondamente tecnici per sviluppare soluzioni pionieristiche per problemi impegnativi. Questa è un'opportunità unica per essere parte di ciò che forma il futuro dei prodotti Apple che toccherà la vita di molte persone. Noi (Multimodal Intelligence Team) stiamo cercando uno scienziato di ricerca AI per lavorare sul campo dell'intelligenza genetica e modelli di fondazione multimodale. Il nostro team ha un consolidato track record di funzionalità di spedizione che sfruttano più sensori, come FaceID, RoomPlan e hand tracking in VisionPro, così come una forte presenza di ricerca nella comunità AI multimodale. Le nostre pubblicazioni abbracciano modelli multimodali pre-training, vision-language, modelli in lingua video e allineamento multimodale. Siamo concentrati su esperienze di costruzione che dimostrano la potenza del nostro hardware di rilevamento e grandi modelli di fondazione.",
-        "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Multifaceted, amazing people and inspiring, innovative technologies are the norm here. The people who work here have reinvented entire industries with all Apple Hardware products. The same passion for innovation that goes into our products also applies to our practices, strengthening our commitment to leave the world better than we found it. Join us in this truly exciting era of Artificial Intelligence to help deliver the next groundbreaking Apple products & experiences! We are continuously advancing the state of the art in Computer Vision and Machine Learning, touching all aspects of language and multimodal foundation models, from data collection, data curation to modeling, evaluation and deployment.\n\nAs a member of our dynamic group, you will have the unique and rewarding opportunity to craft upcoming research directions in the field of multimodal foundation models that will inspire future Apple products. You will be working alongside highly accomplished and deeply technical scientists and engineers to develop pioneering solutions for challenging problems. This is a unique opportunity to be part of what forms the future of Apple products that will touch the lives of many people. We (Multimodal Intelligence Team) are looking for an AI Research Scientist to work on the field of Generative AI and multimodal foundation models.\n\nOur team has an established track record of shipping features that leverage multiple sensors, such as FaceID, RoomPlan and hand tracking in VisionPro, as well as a strong research presence in the multimodal AI community. Our publications span multimodal pre-training, vision-language models, video-language models, and multimodal alignment. We are focused on building experiences that demonstrate the power of our sensing hardware as well as large foundation models.",
-        "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten. Facettenreiche, erstaunliche Menschen und inspirierende, innovative Technologien sind hier die Norm. Die Menschen, die hier arbeiten, haben ganze Branchen mit allen Apple Hardware Produkten neu erfunden. Die gleiche Leidenschaft für Innovation, die in unseren Produkten steckt, gilt auch für unsere Praktiken und stärkt unser Engagement, die Welt besser zu verlassen, als wir sie vorgefunden haben. Begleiten Sie uns in dieser wirklich aufregenden Ära der künstlichen Intelligenz, um die nächsten bahnbrechenden Apple-Produkte und -Erlebnisse zu liefern! Wir treiben den Stand der Technik in Computer Vision und Machine Learning kontinuierlich voran und berühren alle Aspekte von Sprach- und multimodalen Grundlagenmodellen, von der Datenerfassung über die Datenkuration bis hin zur Modellierung, Bewertung und Bereitstellung. Als Mitglied unserer dynamischen Gruppe haben Sie die einzigartige und lohnende Gelegenheit, zukünftige Forschungsrichtungen im Bereich multimodaler Stiftungsmodelle zu entwickeln, die zukünftige Apple-Produkte inspirieren werden. Sie werden mit hochqualifizierten und zutiefst technischen Wissenschaftlern und Ingenieuren zusammenarbeiten, um zukunftsweisende Lösungen für anspruchsvolle Probleme zu entwickeln. Dies ist eine einzigartige Gelegenheit, Teil dessen zu sein, was die Zukunft der Apple-Produkte ausmacht, die das Leben vieler Menschen berühren werden. Wir (Multimodal Intelligence Team) suchen einen AI Research Scientist, der sich mit dem Bereich Generative AI und multimodalen Grundlagenmodellen beschäftigt. Unser Team verfügt über eine etablierte Erfolgsbilanz bei Versandfunktionen, die mehrere Sensoren wie FaceID, RoomPlan und Handtracking in VisionPro nutzen, sowie über eine starke Forschungspräsenz in der multimodalen KI-Community. Unsere Publikationen umfassen multimodale Vorschulungen, Vision-Sprachmodelle, Video-Sprachmodelle und multimodale Ausrichtung. Wir konzentrieren uns auf den Aufbau von Erfahrungen, die die Leistungsfähigkeit unserer Sensor-Hardware sowie großer Fundamentmodelle demonstrieren.",
-        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées peuvent devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir. Des personnes multiples, étonnantes et inspirantes, des technologies innovantes sont la norme ici. Les gens qui travaillent ici ont réinventé des industries entières avec tous les produits Apple Hardware. La même passion pour l'innovation qui va dans nos produits s'applique également à nos pratiques, renforçant notre engagement à quitter le monde mieux que nous l'avons trouvé. Rejoignez-nous dans cette ère vraiment passionnante de l'intelligence artificielle pour aider à livrer les prochains produits et expériences Apple révolutionnaires! Nous progressons sans cesse dans l'état de l'art de la vision informatique et de l'apprentissage automatique, touchant tous les aspects des modèles de bases linguistiques et multimodales, de la collecte de données, de la curation des données à la modélisation, l'évaluation et le déploiement. En tant que membre de notre groupe dynamique, vous aurez l'occasion unique et enrichissante d'élaborer des orientations de recherche à venir dans le domaine des modèles de fondations multimodales qui inspireront les futurs produits Apple. Vous travaillerez aux côtés de scientifiques et d'ingénieurs hautement accomplis et hautement techniques pour développer des solutions pionnières pour résoudre des problèmes difficiles. C'est une occasion unique de faire partie de ce qui forme l'avenir des produits Apple qui touchera la vie de nombreuses personnes. Nous (Multimodal Intelligence Team) sommes à la recherche d'un chercheur sur l'IA pour travailler sur le domaine des modèles génériques d'IA et de fondation multimodale. Notre équipe dispose d'un dossier établi de caractéristiques d'expédition qui utilisent plusieurs capteurs, tels que FaceID, RoomPlan et le suivi manuel dans VisionPro, ainsi qu'une forte présence de recherche dans la communauté multimodale de l'IA. Nos publications couvrent la préformation multimodale, les modèles de langage de vision, les modèles de langage vidéo et l'alignement multimodal. Nous nous concentrons sur la construction d'expériences qui démontrent la puissance de notre matériel de détection ainsi que de grands modèles de fondation."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.132Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-03",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch",
-        "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch",
-          "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich"
-        ],
-        "de": [
-          "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:19:38.772Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
@@ -432,7 +353,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.132Z",
+      "crawledAt": "2026-08-21T21:36:13.951Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -464,20 +385,96 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.773Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 113500,
+          "maxValue": 172000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "apple-retail-switzerland-99675b310169",
+      "slug": "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich",
+      "slugByLocale": {
+        "it": "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich",
+        "en": "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch",
+        "de": "ai-forschung-scientist-multimodal-intelligence-apple-retail-switzerland-zurich",
+        "fr": "ai-recherche-scientist-multimodal-intelligence-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "AI Research Scientist - Multimodal Intelligence",
+      "titleByLocale": {
+        "it": "AI Ricerca Scientist - Multimodal Intelligence",
+        "en": "AI Research Scientist - Multimodal Intelligence",
+        "de": "AI Forschung Scientist - Multimodal Intelligence",
+        "fr": "AI Recherche Scientist - Multimodal Intelligence"
+      },
+      "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Multifaceted, amazing people and inspiring, innovative technologies are the norm here. The people who work here have reinvented entire industries with all Apple Hardware products. The same passion for innovation that goes into our products also applies to our practices, strengthening our commitment to leave the world better than we found it. Join us in this truly exciting era of Artificial Intelligence to help deliver the next groundbreaking Apple products & experiences! We are continuously advancing the state of the art in Computer Vision and Machine Learning, touching all aspects of language and multimodal foundation models, from data collection, data curation to modeling, evaluation and deployment.\n\nAs a member of our dynamic group, you will have the unique and rewarding opportunity to craft upcoming research directions in the field of multimodal foundation models that will inspire future Apple products. You will be working alongside highly accomplished and deeply technical scientists and engineers to develop pioneering solutions for challenging problems. This is a unique opportunity to be part of what forms the future of Apple products that will touch the lives of many people. We (Multimodal Intelligence Team) are looking for an AI Research Scientist to work on the field of Generative AI and multimodal foundation models.\n\nOur team has an established track record of shipping features that leverage multiple sensors, such as FaceID, RoomPlan and hand tracking in VisionPro, as well as a strong research presence in the multimodal AI community. Our publications span multimodal pre-training, vision-language models, video-language models, and multimodal alignment. We are focused on building experiences that demonstrate the power of our sensing hardware as well as large foundation models.",
+      "descriptionByLocale": {
+        "it": "Immagina cosa potresti fare qui. A Apple, le nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Porta la passione e la dedizione al tuo lavoro e non c'e' niente da dire a cosa potresti realizzare. Persone sfaccettate e sorprendenti e tecnologie innovative sono la norma qui. Le persone che lavorano qui hanno reinventato interi settori con tutti i prodotti Apple Hardware. La stessa passione per l'innovazione che va nei nostri prodotti si applica anche alle nostre pratiche, rafforzando il nostro impegno a lasciare il mondo meglio di quanto lo abbiamo trovato. Unisciti a noi in questa emozionante era dell'Intelligenza Artificiale per aiutare a fornire i prossimi prodotti e le esperienze di Apple innovative! Promuoviamo continuamente lo stato dell'arte in Computer Vision e Machine Learning, toccando tutti gli aspetti dei modelli di base linguistica e multimodale, dalla raccolta dei dati, dalla cura dei dati alla modellazione, alla valutazione e all'implementazione. Come membro del nostro gruppo dinamico, avrete l'opportunità unica e gratificante di creare le prossime direzioni di ricerca nel campo dei modelli di fondazione multimodali che ispireranno i futuri prodotti Apple. Si lavorerà a fianco di scienziati e ingegneri altamente qualificati e profondamente tecnici per sviluppare soluzioni pionieristiche per problemi impegnativi. Questa è un'opportunità unica per essere parte di ciò che forma il futuro dei prodotti Apple che toccherà la vita di molte persone. Noi (Multimodal Intelligence Team) stiamo cercando uno scienziato di ricerca AI per lavorare sul campo dell'intelligenza genetica e modelli di fondazione multimodale. Il nostro team ha un consolidato track record di funzionalità di spedizione che sfruttano più sensori, come FaceID, RoomPlan e hand tracking in VisionPro, così come una forte presenza di ricerca nella comunità AI multimodale. Le nostre pubblicazioni abbracciano modelli multimodali pre-training, vision-language, modelli in lingua video e allineamento multimodale. Siamo concentrati su esperienze di costruzione che dimostrano la potenza del nostro hardware di rilevamento e grandi modelli di fondazione.",
+        "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Multifaceted, amazing people and inspiring, innovative technologies are the norm here. The people who work here have reinvented entire industries with all Apple Hardware products. The same passion for innovation that goes into our products also applies to our practices, strengthening our commitment to leave the world better than we found it. Join us in this truly exciting era of Artificial Intelligence to help deliver the next groundbreaking Apple products & experiences! We are continuously advancing the state of the art in Computer Vision and Machine Learning, touching all aspects of language and multimodal foundation models, from data collection, data curation to modeling, evaluation and deployment.\n\nAs a member of our dynamic group, you will have the unique and rewarding opportunity to craft upcoming research directions in the field of multimodal foundation models that will inspire future Apple products. You will be working alongside highly accomplished and deeply technical scientists and engineers to develop pioneering solutions for challenging problems. This is a unique opportunity to be part of what forms the future of Apple products that will touch the lives of many people. We (Multimodal Intelligence Team) are looking for an AI Research Scientist to work on the field of Generative AI and multimodal foundation models.\n\nOur team has an established track record of shipping features that leverage multiple sensors, such as FaceID, RoomPlan and hand tracking in VisionPro, as well as a strong research presence in the multimodal AI community. Our publications span multimodal pre-training, vision-language models, video-language models, and multimodal alignment. We are focused on building experiences that demonstrate the power of our sensing hardware as well as large foundation models.",
+        "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten. Facettenreiche, erstaunliche Menschen und inspirierende, innovative Technologien sind hier die Norm. Die Menschen, die hier arbeiten, haben ganze Branchen mit allen Apple Hardware Produkten neu erfunden. Die gleiche Leidenschaft für Innovation, die in unseren Produkten steckt, gilt auch für unsere Praktiken und stärkt unser Engagement, die Welt besser zu verlassen, als wir sie vorgefunden haben. Begleiten Sie uns in dieser wirklich aufregenden Ära der künstlichen Intelligenz, um die nächsten bahnbrechenden Apple-Produkte und -Erlebnisse zu liefern! Wir treiben den Stand der Technik in Computer Vision und Machine Learning kontinuierlich voran und berühren alle Aspekte von Sprach- und multimodalen Grundlagenmodellen, von der Datenerfassung über die Datenkuration bis hin zur Modellierung, Bewertung und Bereitstellung. Als Mitglied unserer dynamischen Gruppe haben Sie die einzigartige und lohnende Gelegenheit, zukünftige Forschungsrichtungen im Bereich multimodaler Stiftungsmodelle zu entwickeln, die zukünftige Apple-Produkte inspirieren werden. Sie werden mit hochqualifizierten und zutiefst technischen Wissenschaftlern und Ingenieuren zusammenarbeiten, um zukunftsweisende Lösungen für anspruchsvolle Probleme zu entwickeln. Dies ist eine einzigartige Gelegenheit, Teil dessen zu sein, was die Zukunft der Apple-Produkte ausmacht, die das Leben vieler Menschen berühren werden. Wir (Multimodal Intelligence Team) suchen einen AI Research Scientist, der sich mit dem Bereich Generative AI und multimodalen Grundlagenmodellen beschäftigt. Unser Team verfügt über eine etablierte Erfolgsbilanz bei Versandfunktionen, die mehrere Sensoren wie FaceID, RoomPlan und Handtracking in VisionPro nutzen, sowie über eine starke Forschungspräsenz in der multimodalen KI-Community. Unsere Publikationen umfassen multimodale Vorschulungen, Vision-Sprachmodelle, Video-Sprachmodelle und multimodale Ausrichtung. Wir konzentrieren uns auf den Aufbau von Erfahrungen, die die Leistungsfähigkeit unserer Sensor-Hardware sowie großer Fundamentmodelle demonstrieren.",
+        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées peuvent devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir. Des personnes multiples, étonnantes et inspirantes, des technologies innovantes sont la norme ici. Les gens qui travaillent ici ont réinventé des industries entières avec tous les produits Apple Hardware. La même passion pour l'innovation qui va dans nos produits s'applique également à nos pratiques, renforçant notre engagement à quitter le monde mieux que nous l'avons trouvé. Rejoignez-nous dans cette ère vraiment passionnante de l'intelligence artificielle pour aider à livrer les prochains produits et expériences Apple révolutionnaires! Nous progressons sans cesse dans l'état de l'art de la vision informatique et de l'apprentissage automatique, touchant tous les aspects des modèles de bases linguistiques et multimodales, de la collecte de données, de la curation des données à la modélisation, l'évaluation et le déploiement. En tant que membre de notre groupe dynamique, vous aurez l'occasion unique et enrichissante d'élaborer des orientations de recherche à venir dans le domaine des modèles de fondations multimodales qui inspireront les futurs produits Apple. Vous travaillerez aux côtés de scientifiques et d'ingénieurs hautement accomplis et hautement techniques pour développer des solutions pionnières pour résoudre des problèmes difficiles. C'est une occasion unique de faire partie de ce qui forme l'avenir des produits Apple qui touchera la vie de nombreuses personnes. Nous (Multimodal Intelligence Team) sommes à la recherche d'un chercheur sur l'IA pour travailler sur le domaine des modèles génériques d'IA et de fondation multimodale. Notre équipe dispose d'un dossier établi de caractéristiques d'expédition qui utilisent plusieurs capteurs, tels que FaceID, RoomPlan et le suivi manuel dans VisionPro, ainsi qu'une forte présence de recherche dans la communauté multimodale de l'IA. Nos publications couvrent la préformation multimodale, les modèles de langage de vision, les modèles de langage vidéo et l'alignement multimodal. Nous nous concentrons sur la construction d'expériences qui démontrent la puissance de notre matériel de détection ainsi que de grands modèles de fondation."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T21:36:13.950Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-03",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch",
+        "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch",
+          "ai-ricerca-scientist-multimodal-intelligence-apple-retail-switzerland-zurich"
+        ],
+        "de": [
+          "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "ai-research-scientist-multimodal-intelligence-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T21:19:38.772Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-3ae00fdfd694",
@@ -510,7 +507,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.131Z",
+      "crawledAt": "2026-08-21T21:36:13.949Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,6 +551,84 @@
       "addressRegion": "VD"
     },
     {
+      "id": "apple-retail-switzerland-368e54d9d7c1",
+      "slug": "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich",
+      "slugByLocale": {
+        "it": "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich",
+        "en": "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch",
+        "de": "sales-business-analyst-fur-die-schweiz-und-osterreich-apple-retail-switzerland-zurich",
+        "fr": "sales-business-analyste-for-switzerland-and-austria-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Sales Business Analyst for Switzerland and Austria",
+      "titleByLocale": {
+        "it": "Sales Business Analista for Switzerland and Austria",
+        "en": "Sales Business Analyst for Switzerland and Austria",
+        "de": "Sales Business Analyst für die Schweiz und Österreich",
+        "fr": "Sales Business Analyste for Switzerland and Austria"
+      },
+      "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming great products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Do you love thinking analytically?\nWe are looking for a professional with high analytical capacity, creativity, attention to detail, and strong social skills to support the Swiss Channel Consumer Business Planning team.",
+      "descriptionByLocale": {
+        "it": "Immagina cosa puoi fare qui. A Apple, nuove idee hanno un modo di diventare grandi prodotti, servizi e esperienze dei clienti molto rapidamente. Porta la passione e la dedizione al tuo lavoro e non c'e' niente da dire a cosa potresti realizzare. Ti piace pensare analiticamente? Siamo alla ricerca di un professionista con elevata capacità analitica, creatività, attenzione ai dettagli e forti competenze sociali per supportare il team di pianificazione aziendale dei consumatori di canale svizzero.",
+        "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming great products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Do you love thinking analytically?\nWe are looking for a professional with high analytical capacity, creativity, attention to detail, and strong social skills to support the Swiss Channel Consumer Business Planning team.",
+        "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu großartigen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten. Lieben Sie es, analytisch zu denken? Wir suchen einen Fachmann mit hoher analytischer Kapazität, Kreativität, Liebe zum Detail und starken sozialen Fähigkeiten, um das Swiss Channel Consumer Business Planning Team zu unterstützen.",
+        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées ont une façon de devenir de grands produits, services et expériences client très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir. Vous aimez la pensée analytique ? Nous sommes à la recherche d'un professionnel avec une grande capacité d'analyse, de créativité, d'attention aux détails et de solides compétences sociales pour soutenir l'équipe Swiss Channel Consumer Business Planning."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200666968/sales-business-analyst-for-switzerland-and-austria?team=SLDEV",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T21:36:13.948Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200666968/sales-business-analyst-for-switzerland-and-austria?team=SLDEV",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch",
+        "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch",
+          "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich"
+        ],
+        "de": [
+          "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:19:38.767Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
       "id": "apple-retail-switzerland-4ca89472c6c0",
       "slug": "aiml-ricerca-scientist-health-apple-retail-switzerland-zurich",
       "slugByLocale": {
@@ -584,7 +659,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.130Z",
+      "crawledAt": "2026-08-21T21:36:13.948Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -616,7 +691,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.767Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -662,7 +736,7 @@
       "url": "https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.129Z",
+      "crawledAt": "2026-08-21T21:36:13.947Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -693,99 +767,22 @@
           "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-07-03T21:19:38.766Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "apple-retail-switzerland-368e54d9d7c1",
-      "slug": "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich",
-        "en": "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch",
-        "de": "sales-business-analyst-fur-die-schweiz-und-osterreich-apple-retail-switzerland-zurich",
-        "fr": "sales-business-analyste-for-switzerland-and-austria-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Sales Business Analyst for Switzerland and Austria",
-      "titleByLocale": {
-        "it": "Sales Business Analista for Switzerland and Austria",
-        "en": "Sales Business Analyst for Switzerland and Austria",
-        "de": "Sales Business Analyst für die Schweiz und Österreich",
-        "fr": "Sales Business Analyste for Switzerland and Austria"
-      },
-      "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming great products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Do you love thinking analytically?\nWe are looking for a professional with high analytical capacity, creativity, attention to detail, and strong social skills to support the Swiss Channel Consumer Business Planning team.",
-      "descriptionByLocale": {
-        "it": "Immagina cosa puoi fare qui. A Apple, nuove idee hanno un modo di diventare grandi prodotti, servizi e esperienze dei clienti molto rapidamente. Porta la passione e la dedizione al tuo lavoro e non c'e' niente da dire a cosa potresti realizzare. Ti piace pensare analiticamente? Siamo alla ricerca di un professionista con elevata capacità analitica, creatività, attenzione ai dettagli e forti competenze sociali per supportare il team di pianificazione aziendale dei consumatori di canale svizzero.",
-        "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming great products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish. Do you love thinking analytically?\nWe are looking for a professional with high analytical capacity, creativity, attention to detail, and strong social skills to support the Swiss Channel Consumer Business Planning team.",
-        "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu großartigen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten. Lieben Sie es, analytisch zu denken? Wir suchen einen Fachmann mit hoher analytischer Kapazität, Kreativität, Liebe zum Detail und starken sozialen Fähigkeiten, um das Swiss Channel Consumer Business Planning Team zu unterstützen.",
-        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées ont une façon de devenir de grands produits, services et expériences client très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir. Vous aimez la pensée analytique ? Nous sommes à la recherche d'un professionnel avec une grande capacité d'analyse, de créativité, d'attention aux détails et de solides compétences sociales pour soutenir l'équipe Swiss Channel Consumer Business Planning."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200666968/sales-business-analyst-for-switzerland-and-austria?team=SLDEV",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.129Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200666968/sales-business-analyst-for-switzerland-and-austria?team=SLDEV",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch",
-        "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch",
-          "sales-business-analista-for-switzerland-and-austria-apple-retail-switzerland-zurich"
-        ],
-        "de": [
-          "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "sales-business-analyst-for-switzerland-and-austria-apple-retail-switzerland-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:19:38.767Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-07-03T21:19:38.766Z",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 113500,
+          "maxValue": 172000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 0
     },
     {
       "id": "apple-retail-switzerland-417e40f20741",
@@ -818,7 +815,7 @@
       "url": "https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.128Z",
+      "crawledAt": "2026-08-21T21:36:13.946Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -850,98 +847,15 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:07:35.026Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "apple-retail-switzerland-42d907712cae",
-      "slug": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich",
-        "en": "research-scientist-llm-efficiency-apple-retail-switzerland-ch",
-        "de": "forschung-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich",
-        "fr": "recherche-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Research Scientist - LLM Efficiency",
-      "titleByLocale": {
-        "it": "Ricerca Scientist/Ingegnere - Special Projects",
-        "en": "Research Scientist - LLM Efficiency",
-        "de": "Forschung Scientist - LLM Efficiency",
-        "fr": "Recherche Scientist/Ingénieur - Special Projects"
-      },
-      "description": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in efficiency of frontier models, including LLMs and diffusion models. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando scienziati e ingegneri di ricerca per creare innovazioni innovative nel machine learning. Siamo particolarmente interessati ai modelli di frontiera (LLM e modelli di diffusione) così come l'interfaccia di AI e scienza. Si lavorerà in un'organizzazione di ricercatori e ingegneri di livello mondiale di machine learning. Il nostro lavoro alimenta tecnologie all'avanguardia in tutto l'ecosistema Apple ed è pubblicato nelle riviste scientifiche e conferenze più selettive.",
-        "en": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in efficiency of frontier models, including LLMs and diffusion models. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
-        "de": "Wir suchen Forscher und Ingenieure, um bahnbrechende Innovationen im maschinellen Lernen zu schaffen. Wir interessieren uns besonders für Grenzmodelle (LLMs und Diffusionsmodelle) sowie die Schnittstelle von KI und Wissenschaft. Sie arbeiten in einer Organisation von Weltklasse-Forschern und Ingenieuren für maschinelles Lernen. Unsere Arbeit unterstützt Spitzentechnologien im gesamten Apple-Ökosystem und wird in den selektivsten wissenschaftlichen Zeitschriften und Konferenzen veröffentlicht.",
-        "fr": "Nous cherchons des chercheurs et des ingénieurs pour créer des innovations révolutionnaires dans l'apprentissage automatique. Nous nous intéressons particulièrement aux modèles frontières (LLM et modèles de diffusion) ainsi qu'à l'interface entre l'IA et la science. Vous travaillerez dans une organisation de classe mondiale de chercheurs et d'ingénieurs en apprentissage automatique. Notre travail alimente les technologies de pointe de l'écosystème Apple et est publié dans les revues et conférences scientifiques les plus sélectives."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.127Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
-        "research-scientist-llm-efficiency-apple-retail-switzerland-ch",
-        "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
-          "research-scientist-llm-efficiency-apple-retail-switzerland-ch",
-          "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich"
-        ],
-        "en": [
-          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
-        ],
-        "de": [
-          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T23:03:17.856Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
@@ -978,7 +892,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.126Z",
+      "crawledAt": "2026-08-21T21:36:13.945Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1010,83 +924,88 @@
         ]
       },
       "firstSeenAt": "2026-07-17T23:04:31.247Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "ZH"
     },
     {
-      "id": "apple-retail-switzerland-0844f06e9be1",
-      "slug": "security-ingegnere-apple-retail-switzerland-zurich",
+      "id": "apple-retail-switzerland-42d907712cae",
+      "slug": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich",
       "slugByLocale": {
-        "it": "security-ingegnere-apple-retail-switzerland-zurich",
-        "en": "security-engineer-apple-retail-switzerland-ch",
-        "de": "security-ingenieur-apple-retail-switzerland-zurich",
-        "fr": "security-ingenieur-apple-retail-switzerland-zurich"
+        "it": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich",
+        "en": "research-scientist-llm-efficiency-apple-retail-switzerland-ch",
+        "de": "forschung-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich",
+        "fr": "recherche-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
       "companyDomain": "jobs.apple.com",
-      "title": "Security Engineer",
+      "title": "Research Scientist - LLM Efficiency",
       "titleByLocale": {
-        "it": "Security Ingegnere",
-        "en": "Security Engineer",
-        "de": "Security Ingenieur",
-        "fr": "Security Ingénieur"
+        "it": "Ricerca Scientist/Ingegnere - Special Projects",
+        "en": "Research Scientist - LLM Efficiency",
+        "de": "Forschung Scientist - LLM Efficiency",
+        "fr": "Recherche Scientist/Ingénieur - Special Projects"
       },
-      "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish.\n\nAs part of our efforts to protect our users, Apple is looking for a world-class security engineer to join a team of threat intelligence analysts and security engineers. This team works together and cross-functionally to drive efforts to solve security engineering challenges, with an emphasis on supporting decisions that provide the greatest long-term security. The success we are striving for is the result of very skilled people working in an environment that cultivates creativity, partnership, and solving old problems in new ways.",
+      "description": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in efficiency of frontier models, including LLMs and diffusion models. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
       "descriptionByLocale": {
-        "it": "Immagina cosa potresti fare qui. A Apple, nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Portate la passione e la dedizione al vostro lavoro e non c'è da dire ciò che potreste realizzare.\n\nNell'ambito dei nostri sforzi per proteggere i nostri utenti, Apple sta cercando un ingegnere di sicurezza di livello mondiale per unirsi a un team di analisti di minacce e ingegneri di sicurezza. Questo team lavora insieme e multifunzionalmente per guidare gli sforzi per risolvere le sfide dell'ingegneria della sicurezza, con l'accento sul sostegno delle decisioni che forniscono la massima sicurezza a lungo termine. Il successo che stiamo cercando è il risultato di persone molto abili che lavorano in un ambiente che coltiva creatività, partnership e risolvendo vecchi problemi in modi nuovi.",
-        "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish.\n\nAs part of our efforts to protect our users, Apple is looking for a world-class security engineer to join a team of threat intelligence analysts and security engineers. This team works together and cross-functionally to drive efforts to solve security engineering challenges, with an emphasis on supporting decisions that provide the greatest long-term security. The success we are striving for is the result of very skilled people working in an environment that cultivates creativity, partnership, and solving old problems in new ways.",
-        "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten.\n\nAls Teil unserer Bemühungen, unsere Benutzer zu schützen, sucht Apple nach einem Weltklasse-Sicherheitsingenieur, der sich einem Team von Threat Intelligence Analysten und Sicherheitsingenieuren anschließt. Dieses Team arbeitet zusammen und funktionsübergreifend, um die Bemühungen zur Lösung von Herausforderungen im Bereich Security Engineering voranzutreiben, wobei der Schwerpunkt auf der Unterstützung von Entscheidungen liegt, die die größte langfristige Sicherheit bieten. Der Erfolg, den wir anstreben, ist das Ergebnis sehr qualifizierter Menschen, die in einem Umfeld arbeiten, das Kreativität, Partnerschaft und die Lösung alter Probleme auf neue Weise fördert.",
-        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées ont une façon de devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir.\n\nDans le cadre de nos efforts pour protéger nos utilisateurs, Apple est à la recherche d'un ingénieur de sécurité de classe mondiale pour rejoindre une équipe d'analystes de renseignement de menace et d'ingénieurs de sécurité. Cette équipe travaille ensemble et interfonctionnellement pour stimuler les efforts visant à résoudre les problèmes d'ingénierie de la sécurité, en mettant l'accent sur le soutien aux décisions qui assurent la plus grande sécurité à long terme. Le succès que nous recherchons est le résultat de personnes très qualifiées travaillant dans un environnement qui cultive la créativité, le partenariat et la résolution de vieux problèmes de nouvelles façons."
+        "it": "Stiamo cercando scienziati e ingegneri di ricerca per creare innovazioni innovative nel machine learning. Siamo particolarmente interessati ai modelli di frontiera (LLM e modelli di diffusione) così come l'interfaccia di AI e scienza. Si lavorerà in un'organizzazione di ricercatori e ingegneri di livello mondiale di machine learning. Il nostro lavoro alimenta tecnologie all'avanguardia in tutto l'ecosistema Apple ed è pubblicato nelle riviste scientifiche e conferenze più selettive.",
+        "en": "We're seeking research scientists and engineers to create breakthrough innovations in machine learning. We are particularly interested in efficiency of frontier models, including LLMs and diffusion models. You will work in an organization of world-class machine learning researchers and engineers. Our work powers cutting-edge technologies across the Apple ecosystem and is published in the most selective scientific journals and conferences.",
+        "de": "Wir suchen Forscher und Ingenieure, um bahnbrechende Innovationen im maschinellen Lernen zu schaffen. Wir interessieren uns besonders für Grenzmodelle (LLMs und Diffusionsmodelle) sowie die Schnittstelle von KI und Wissenschaft. Sie arbeiten in einer Organisation von Weltklasse-Forschern und Ingenieuren für maschinelles Lernen. Unsere Arbeit unterstützt Spitzentechnologien im gesamten Apple-Ökosystem und wird in den selektivsten wissenschaftlichen Zeitschriften und Konferenzen veröffentlicht.",
+        "fr": "Nous cherchons des chercheurs et des ingénieurs pour créer des innovations révolutionnaires dans l'apprentissage automatique. Nous nous intéressons particulièrement aux modèles frontières (LLM et modèles de diffusion) ainsi qu'à l'interface entre l'IA et la science. Vous travaillerez dans une organisation de classe mondiale de chercheurs et d'ingénieurs en apprentissage automatique. Notre travail alimente les technologies de pointe de l'écosystème Apple et est publié dans les revues et conférences scientifiques les plus sélectives."
       },
       "location": "Zurich",
       "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200677276/security-engineer?team=SFTWR",
+      "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.125Z",
+      "crawledAt": "2026-08-21T21:36:13.945Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Ingegneria",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Retail",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200677276/security-engineer?team=SFTWR",
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "security-engineer-apple-retail-switzerland-ch",
-        "security-ingegnere-apple-retail-switzerland-zurich"
+        "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "research-scientist-llm-efficiency-apple-retail-switzerland-ch",
+        "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-engineer-apple-retail-switzerland-ch",
-          "security-ingegnere-apple-retail-switzerland-zurich"
+          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+          "research-scientist-llm-efficiency-apple-retail-switzerland-ch",
+          "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich"
+        ],
+        "en": [
+          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
         ],
         "de": [
-          "security-engineer-apple-retail-switzerland-ch"
+          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
         ],
         "fr": [
-          "security-engineer-apple-retail-switzerland-ch"
+          "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
         ]
       },
-      "firstSeenAt": "2026-08-18T22:00:35.563Z",
+      "firstSeenAt": "2026-07-14T23:03:17.856Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1132,7 +1051,7 @@
       "url": "https://jobs.apple.com/en-us/details/200678120/aiml-researcher-foundation-model-post-training?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.125Z",
+      "crawledAt": "2026-08-21T21:36:13.944Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1179,37 +1098,114 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "apple-retail-switzerland-336db49a2819",
-      "slug": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+      "id": "apple-retail-switzerland-0844f06e9be1",
+      "slug": "security-ingegnere-apple-retail-switzerland-zurich",
       "slugByLocale": {
+        "it": "security-ingegnere-apple-retail-switzerland-zurich",
+        "en": "security-engineer-apple-retail-switzerland-ch",
+        "de": "security-ingenieur-apple-retail-switzerland-zurich",
+        "fr": "security-ingenieur-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Security Engineer",
+      "titleByLocale": {
+        "it": "Security Ingegnere",
+        "en": "Security Engineer",
+        "de": "Security Ingenieur",
+        "fr": "Security Ingénieur"
+      },
+      "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish.\n\nAs part of our efforts to protect our users, Apple is looking for a world-class security engineer to join a team of threat intelligence analysts and security engineers. This team works together and cross-functionally to drive efforts to solve security engineering challenges, with an emphasis on supporting decisions that provide the greatest long-term security. The success we are striving for is the result of very skilled people working in an environment that cultivates creativity, partnership, and solving old problems in new ways.",
+      "descriptionByLocale": {
+        "it": "Immagina cosa potresti fare qui. A Apple, nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Portate la passione e la dedizione al vostro lavoro e non c'è da dire ciò che potreste realizzare.\n\nNell'ambito dei nostri sforzi per proteggere i nostri utenti, Apple sta cercando un ingegnere di sicurezza di livello mondiale per unirsi a un team di analisti di minacce e ingegneri di sicurezza. Questo team lavora insieme e multifunzionalmente per guidare gli sforzi per risolvere le sfide dell'ingegneria della sicurezza, con l'accento sul sostegno delle decisioni che forniscono la massima sicurezza a lungo termine. Il successo che stiamo cercando è il risultato di persone molto abili che lavorano in un ambiente che coltiva creatività, partnership e risolvendo vecchi problemi in modi nuovi.",
+        "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish.\n\nAs part of our efforts to protect our users, Apple is looking for a world-class security engineer to join a team of threat intelligence analysts and security engineers. This team works together and cross-functionally to drive efforts to solve security engineering challenges, with an emphasis on supporting decisions that provide the greatest long-term security. The success we are striving for is the result of very skilled people working in an environment that cultivates creativity, partnership, and solving old problems in new ways.",
+        "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten.\n\nAls Teil unserer Bemühungen, unsere Benutzer zu schützen, sucht Apple nach einem Weltklasse-Sicherheitsingenieur, der sich einem Team von Threat Intelligence Analysten und Sicherheitsingenieuren anschließt. Dieses Team arbeitet zusammen und funktionsübergreifend, um die Bemühungen zur Lösung von Herausforderungen im Bereich Security Engineering voranzutreiben, wobei der Schwerpunkt auf der Unterstützung von Entscheidungen liegt, die die größte langfristige Sicherheit bieten. Der Erfolg, den wir anstreben, ist das Ergebnis sehr qualifizierter Menschen, die in einem Umfeld arbeiten, das Kreativität, Partnerschaft und die Lösung alter Probleme auf neue Weise fördert.",
+        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées ont une façon de devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir.\n\nDans le cadre de nos efforts pour protéger nos utilisateurs, Apple est à la recherche d'un ingénieur de sécurité de classe mondiale pour rejoindre une équipe d'analystes de renseignement de menace et d'ingénieurs de sécurité. Cette équipe travaille ensemble et interfonctionnellement pour stimuler les efforts visant à résoudre les problèmes d'ingénierie de la sécurité, en mettant l'accent sur le soutien aux décisions qui assurent la plus grande sécurité à long terme. Le succès que nous recherchons est le résultat de personnes très qualifiées travaillant dans un environnement qui cultive la créativité, le partenariat et la résolution de vieux problèmes de nouvelles façons."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200677276/security-engineer?team=SFTWR",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T21:36:13.943Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200677276/security-engineer?team=SFTWR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "security-engineer-apple-retail-switzerland-ch",
+        "security-ingegnere-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "security-engineer-apple-retail-switzerland-ch",
+          "security-ingegnere-apple-retail-switzerland-zurich"
+        ],
+        "de": [
+          "security-engineer-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "security-engineer-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-18T22:00:35.563Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "apple-retail-switzerland-336db49a2819",
+      "slug": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
+      "slugByLocale": {
+        "it": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
         "en": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-        "it": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-        "de": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-        "fr": "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        "de": "content-engineering-author-entwickler-publications-apple-retail-switzerland-dietlikon",
+        "fr": "content-engineering-author-developpeur-publications-apple-retail-switzerland-dietlikon"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
       "companyDomain": "jobs.apple.com",
       "title": "Content Engineering Author, Developer Publications",
       "titleByLocale": {
-        "en": "Content Engineering Author, Developer Publications",
         "it": "Content Engineering Author, Sviluppatore Publications",
+        "en": "Content Engineering Author, Developer Publications",
         "de": "Content Engineering Author, Entwickler Publications",
         "fr": "Content Engineering Author, Développeur Publications"
       },
       "description": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
       "descriptionByLocale": {
         "en": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-        "it": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-        "de": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-        "fr": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users."
+        "it": "Apple è dove le immaginazioni individuali si riuniscono, impegnando i valori che portano al grande lavoro. Ogni nuovo prodotto che costruiamo, il servizio che creiamo, o l'esperienza Apple Store che offriamo è il risultato di noi rendendo le idee l'un l'altro più forte. Questo accade perché ognuno di noi condivide una convinzione che possiamo fare qualcosa di meraviglioso e condividerlo con il mondo, cambiando vite per il meglio. È la diversità della nostra gente e il loro pensiero che ispira l’innovazione che attraversa tutto ciò che facciamo. Quando portiamo tutti dentro, possiamo fare il miglior lavoro della nostra vita. Qui, farai più che unire qualcosa — si aggiungerà qualcosa. Nelle pubblicazioni degli sviluppatori, insegniamo alle persone a progettare e costruire un software incredibile per le piattaforme Apple. Il nostro pubblico include sviluppatori che ottengono la loro prima introduzione a piattaforme Apple, progettisti che utilizzano le nostre linee guida per l'interfaccia umana, e ingegneri avanzati dettagli di apprendimento delle nostre centinaia di framework. Come Software Engineering Author, lavorerai a stretto contatto con editor, ingegneri, progettisti e team di Apple per produrre contenuti chiari, concisi e coinvolgenti. I tuoi articoli, il codice campione e la documentazione di riferimento API raggiungeranno milioni di sviluppatori e li aiuteranno a creare applicazioni che utilizzano le ultime tecnologie Apple per sorprendere e deliziare gli utenti.",
+        "de": "Apple ist der Ort, an dem sich die individuellen Vorstellungen versammeln und sich zu den Werten bekennen, die zu großartiger Arbeit führen. Jedes neue Produkt, das wir entwickeln, jeder Service, den wir erstellen, oder jedes Apple Store-Erlebnis, das wir liefern, ist das Ergebnis unserer gegenseitigen Ideen. Das passiert, weil jeder von uns den Glauben teilt, dass wir etwas Wunderbares machen und es mit der Welt teilen können, das Leben zum Besseren verändern. Es ist die Vielfalt unserer Mitarbeiter und ihr Denken, die die Innovation inspiriert, die sich durch alles, was wir tun, zieht. Wenn wir alle einbringen, können wir die beste Arbeit unseres Lebens leisten. Hier werden Sie mehr tun, als sich etwas anzuschließen - Sie werden etwas hinzufügen. In Developer Publications bringen wir Menschen bei, unglaubliche Software für Apples Plattformen zu entwerfen und zu bauen. Zu unserem Publikum gehören Entwickler, die ihre erste Einführung in Apple-Plattformen erhalten, Designer, die unsere Human Interface-Richtlinien verwenden, und fortgeschrittene Ingenieure, die Details zu unseren Hunderten von Frameworks erfahren. Als Autor von Software Engineering arbeiten Sie eng mit Redakteuren, Ingenieuren, Designern und Teams in ganz Apple zusammen, um klare, prägnante und ansprechende Inhalte zu erstellen. Ihre Artikel, Ihr Beispielcode und Ihre API-Referenzdokumentation erreichen Millionen von Entwicklern und helfen ihnen, Apps zu erstellen, die die neuesten Apple-Technologien verwenden, um Benutzer zu überraschen und zu begeistern.",
+        "fr": "Apple est l'endroit où les imaginations individuelles se rassemblent, s'engageant aux valeurs qui mènent à un grand travail. Chaque nouveau produit que nous construisons, service que nous créons, ou expérience Apple Store que nous livrons est le résultat de nous rendre les idées les uns les autres plus fortes. Cela arrive parce que chacun d'entre nous partage la conviction que nous pouvons faire quelque chose de merveilleux et le partager avec le monde, changer des vies pour le mieux. C'est la diversité de nos gens et leur pensée qui inspire l'innovation qui traverse tout ce que nous faisons. Quand on amène tout le monde, on peut faire le meilleur travail de notre vie. Ici, vous ferez plus que rejoindre quelque chose — vous ajouterez quelque chose. Dans Developer Publications, nous enseignons aux gens à concevoir et à construire des logiciels incroyables pour les plateformes Apple. Notre public comprend les développeurs qui reçoivent leur première introduction sur les plateformes Apple, les concepteurs utilisant nos lignes directrices pour l'interface humaine et les ingénieurs avancés qui apprennent des détails sur nos centaines de cadres. En tant qu'auteur en génie logiciel, vous travaillerez en étroite collaboration avec les éditeurs, les ingénieurs, les concepteurs et les équipes d'Apple pour produire un contenu clair, concis et stimulant. Vos articles, votre exemple de code et la documentation de référence de l'API toucheront des millions de développeurs et les aideront à créer des applications qui utilisent les dernières technologies Apple pour surprendre et ravir les utilisateurs."
       },
       "location": "Dietlikon",
       "canton": "ZH",
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.124Z",
+      "crawledAt": "2026-08-21T21:36:13.942Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1223,24 +1219,35 @@
       "postedDate": "2026-08-21",
       "applyUrl": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "requirementsByLocale": {},
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-21T10:01:12.124Z"
+      "firstSeenAt": "2026-08-21T10:01:12.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+      ]
     },
     {
       "id": "apple-retail-switzerland-3d4b15d6efc3",
@@ -1273,7 +1280,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.120Z",
+      "crawledAt": "2026-08-21T21:36:13.939Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1307,16 +1314,15 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.761Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       },
@@ -1353,7 +1359,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.115Z",
+      "crawledAt": "2026-08-21T21:36:13.934Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1381,16 +1387,15 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       },
@@ -1427,7 +1432,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:01:12.073Z",
+      "crawledAt": "2026-08-21T21:36:13.894Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1461,15 +1466,15 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.735Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       },

@@ -49,6 +49,8 @@ import { FieldValue } from 'firebase-admin/firestore';
 // GET from a mail client with no JavaScript.
 import { resolveRequestParams } from './src/lib/privateRequestParams.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
+import { handleInboundBounceReport } from './src/inboundBounceReport.js';
+import { shouldAttemptWelcome } from './src/lib/welcomeTriggerEligibility.js';
 import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
@@ -741,6 +743,60 @@ export const newsletterSendConfirmation = onRequest(
 // remaining minority) never fires for them. Called from
 // services/newsletterSubscribers.ts:upsertNewsletterSubscriber. If this endpoint
 // breaks, most new subscribers silently receive no welcome email at all.
+/**
+ * welcomeOnConfirmation — manda la welcome dal lato SERVER, nell'istante in cui
+ * la conferma compare sul documento dell'iscritto.
+ *
+ * Finora quell'invio partiva da una `fetch` fire-and-forget del browser
+ * (services/newsletterSubscribers.ts → requestWelcomeEmail), e un canale che
+ * dipende dalla pagina viva perde i casi in cui la pagina non lo è. Misurato il
+ * 2026-08-21 sugli iscritti creati dal 29-07: 99,4% di welcome sul canale
+ * Google, 95,0% sugli altri, **57,1% su LinkedIn** — 111 persone, su un flusso
+ * OAuth dove il browser sta seguendo un redirect. Il loro benvenuto arrivava
+ * dallo step 0 del drip, 13-27h dopo.
+ *
+ * Il predicato (functions/src/lib/welcomeTriggerEligibility.js) esce in tre
+ * righe sul traffico che non c'entra — il documento viene riscritto da ogni
+ * evento dei webhook di consegna — e agisce SOLO sulla scrittura che porta la
+ * conferma, mai su una vecchia: nessun ripescaggio a sorpresa, nessun ciclo.
+ *
+ * L'invio vero resta sendNewsletterWelcomeEmail, coi suoi gate (prova del
+ * consenso, finestra 48h, soppressioni, kill switch RC) e il claim idempotente
+ * che rende impossibile il doppio invio se anche il browser ce la fa.
+ * `trigger: 'firestore_trigger'` lascia distinguibile in `welcome_trigger`
+ * quante welcome sono state salvate da questa via.
+ */
+export const welcomeOnConfirmation = onDocumentWritten(
+  {
+    document: 'newsletter_subscribers/{email}',
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+  },
+  async (event) => {
+    const before = event.data?.before?.data() || null;
+    const after = event.data?.after?.data() || null;
+    if (!shouldAttemptWelcome({ before, after })) return;
+
+    const email = String(after.email || event.params?.email || '').trim().toLowerCase();
+    if (!email.includes('@')) return;
+
+    try {
+      const result = await sendNewsletterWelcomeEmail({
+        email,
+        locale: after.locale || after.source_locale || 'it',
+        trigger: 'firestore_trigger',
+      });
+      console.log('[welcomeOnConfirmation] outcome:', result.success ? 'sent' : (result.skipped || result.error || 'unknown'));
+    } catch (error) {
+      // Un errore qui non deve rimettere in coda la scrittura: la welcome ha
+      // già la sua rete (lo step 0 del drip), e un retry infinito su un errore
+      // permanente costerebbe più del messaggio che sta cercando di mandare.
+      console.error('[welcomeOnConfirmation] Error:', error?.message || error);
+    }
+  },
+);
+
 export const newsletterSendWelcome = onRequest(
  {
  region: 'europe-west6',
@@ -1219,6 +1275,50 @@ export const outreachStopReply = onRequest(
  res.status(500).type('text').send('error');
  }
  },
+);
+
+/**
+ * inboundBounceReport — records a delivery report (RFC 3464 bounce) that
+ * arrived as INBOUND MAIL. Maileroo's return_path for our domain is a local
+ * part on frontaliereticino.ch and our MX are Cloudflare, so an ISP that
+ * accepts at SMTP time and rejects afterwards reports to us and never to the
+ * ESP: without this endpoint those bounces are invisible to the suppression
+ * model (measured 2026-08-21 — see functions/src/inboundBounceReport.js).
+ * The Cloudflare Email Worker parses the report and POSTs the extracted fields
+ * with the shared secret in `x-stop-secret`. POST-only, secret-gated.
+ */
+export const inboundBounceReport = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: false,
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).send('Method not allowed');
+      return;
+    }
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      const body = req.body || {};
+      const result = await handleInboundBounceReport({
+        recipient: body.recipient,
+        status: body.status,
+        action: body.action,
+        diagnosticCode: body.diagnosticCode,
+        campaignId: body.campaignId,
+        originalMessageId: body.originalMessageId,
+        reportingMta: body.reportingMta,
+        secret: newsletterSecret,
+        providedSecret: String(req.get('x-stop-secret') || ''),
+      });
+      res.status(result.status).type('text').send(result.body);
+    } catch (error) {
+      console.error('[inboundBounceReport] Error:', error);
+      res.status(500).type('text').send('error');
+    }
+  },
 );
 
 /**

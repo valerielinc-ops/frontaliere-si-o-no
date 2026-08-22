@@ -1,16 +1,16 @@
 {
   "key": "salina-reha",
   "label": "Salina Rehaklinik Rheinfelden",
-  "generatedAt": "2026-08-21T09:47:28.990Z",
-  "total": 3,
+  "generatedAt": "2026-08-21T21:29:03.790Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 17558,
-  "avgDurationMs": 17558,
+  "unchangedCount": 0,
+  "durationMs": 18580,
+  "avgDurationMs": 18580,
   "durationHistory": [
-    17558
+    18580
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:24.858Z",
+      "crawledAt": "2026-08-21T21:28:58.118Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:22.752Z",
+      "crawledAt": "2026-08-21T21:29:00.013Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -90,48 +90,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "salina-reha-10c29626bdde",
-      "slug": "pflegehilfe-assistent-in-gesundheit-e-soziales-60-salina-rehaklinik-rheinfelden",
-      "company": "Salina Rehaklinik Rheinfelden",
-      "companyKey": "salina-reha",
-      "companyDomain": "salina-reha.ch",
-      "title": "Pflegehilfe | Assistent/-in Gesundheit und Soziales 60%",
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
-      "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:36:15.189Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-09",
-      "applyUrl": "https://link.ostendis.com/publication/pflegehilfe-assistent-in-gesundheit-und-soziales/7rzoopncdjwobvfw1kgwm6v7xkc0s6moxl43vvtottwjhjycydxdxp7i5hlfw0g3",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-11T10:21:46.519Z",
-      "salaryMin": 37200,
-      "salaryMax": 56400,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "salina-reha-28a187c1cdab",
       "slug": "apprendistato-come-medizinische-r-praxisassistent-in-mpa-cfc-salina-rehaklinik-rheinfelden",
@@ -172,5 +130,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

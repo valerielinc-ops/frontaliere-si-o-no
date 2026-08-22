@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-08-21T10:07:41.533Z",
+  "generatedAt": "2026-08-21T21:40:14.055Z",
   "total": 99,
   "newCount": 0,
   "updatedCount": 99,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9630,
-  "avgDurationMs": 9630,
+  "durationMs": 11149,
+  "avgDurationMs": 11149,
   "durationHistory": [
-    9630
+    11149
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,6 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -85,7 +84,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -125,7 +123,6 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -316,6 +313,7 @@
       "streetAddress": "",
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -575,6 +573,7 @@
       "salaryMax": 143000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -611,6 +610,7 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -647,6 +647,7 @@
       "salaryMax": 126500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -684,6 +685,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -721,6 +723,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -758,6 +761,7 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -795,6 +799,7 @@
       "currency": "CHF",
       "postalCode": "1204",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -870,6 +875,7 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -907,6 +913,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1054,7 +1061,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1092,7 +1098,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

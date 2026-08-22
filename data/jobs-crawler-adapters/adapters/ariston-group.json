@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-21T09:47:26.658Z",
+  "updatedAt": "2026-08-21T21:28:10.203Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/": {
       "location": "Brig, CH, 1070",
@@ -57,12 +57,6 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-13"
     },
-    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
-      "location": "Brig-Glis, CH, 3902",
-      "canton": "VS",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-29"
-    },
     "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-RE-REGION-GEN%C3%88VE-Gen%C3%A8-1202/1403027133/": {
       "location": "Genève, CH, 1202",
       "canton": "GE",
@@ -80,12 +74,6 @@
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
-    },
-    "https://careers.aristongroup.com/job/Leinfelden-Echterdingen-VERKAUFSBERATER-F%C3%9CR-HEIZTECHNIK-%28MWD%29-IM-VERKAUFSGEBIET-OST-BADEN-W%C3%9CRTTEMBERG-Lein-70771/1388749833/": {
-      "location": "Leinfelden-Echterdingen, DE, 70771",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-25"
     },
     "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
       "location": "Thun, CH, 3600",
@@ -110,6 +98,18 @@
       "canton": "",
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
+      "location": "Brig-Glis, CH, 3902",
+      "canton": "VS",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-29"
+    },
+    "https://careers.aristongroup.com/job/Leinfelden-Echterdingen-VERKAUFSBERATER-HEIZUNG-&-W%C3%84RMEPUMPEN-%28MWD%29-IM-GEBIET-OST-BADEN-W%C3%9CRTTEMBERG-Lein-70771/1388749833/": {
+      "location": "Leinfelden-Echterdingen, DE, 70771",
+      "canton": "",
+      "company": "Ariston Group",
+      "postedDate": "2026-07-25"
     }
   }
 }

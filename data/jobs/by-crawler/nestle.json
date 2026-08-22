@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-08-21T10:10:57.633Z",
+  "assembledAt": "2026-08-21T21:57:12.399Z",
   "jobs": [
     {
       "id": "nestle-1422303233",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Stagiaire Ingenieur.e performance industrielle (f/m/d)",
         "en": "Stagiaire Ingenieur.e performance industrielle (H/F/D)",
-        "de": "Stagiaire Ingenieur.e performance industrielle (H/F/D)",
+        "de": "Stagiaire Ingenieur.e performance industrielle (M/W/D)",
         "fr": "Stagiaire Ingenieur.e performance industrielle (H/F/D)"
       },
       "description": "Stagiaire Ingenieur.e performance industrielle (H/F/D) — Nestlé, Romont.\n\nKey details:\n• Location: Romont, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -33,7 +33,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-Ingenieur_e-performance-industrielle-%28HFD%29/1422303233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:51.736Z",
+      "crawledAt": "2026-08-21T21:57:03.933Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -95,7 +95,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Ing%C3%A9nieur%C2%B7e-R%C3%A9frig%C3%A9ration/1423268533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:51.051Z",
+      "crawledAt": "2026-08-21T21:57:03.139Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -157,7 +157,7 @@
       "titleByLocale": {
         "it": "Capo squadra Maintenance (f/m/d)",
         "en": "Team Leader Maintenance (M/F/D)",
-        "de": "Team Leader Maintenance (H/F/D)",
+        "de": "Teamleiter Wartung (M/W/D)",
         "fr": "Team Leader Maintenance (H/F/D)"
       },
       "description": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir.\n\nInstantané du poste",
@@ -172,7 +172,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Team-Leader-Maintenance-%28HFD%29/1410122633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:50.401Z",
+      "crawledAt": "2026-08-21T21:57:02.332Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +203,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:51:07.292Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -249,7 +248,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-trice-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:49.746Z",
+      "crawledAt": "2026-08-21T21:57:01.527Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -333,7 +332,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Op%C3%A9rateur%C2%B7trice-de-production-5x8/1167106701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:49.043Z",
+      "crawledAt": "2026-08-21T21:57:00.706Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -410,7 +409,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Head-of-AI-&-Digital-Nestl%C3%A9-R&D-Deep-Tech-Center/1409459833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:48.353Z",
+      "crawledAt": "2026-08-21T21:56:59.872Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -454,8 +453,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "nestle-1407549433",
@@ -473,7 +471,7 @@
       "titleByLocale": {
         "it": "Prodotti speciali Anlagenführer/-in",
         "en": "Anlagenführer/-in Special Products",
-        "de": "Anlagenführer/-in Special Products",
+        "de": "Anlagenführer/-in Spezialprodukte",
         "fr": "Anlagenführer/-dans Produits spéciaux"
       },
       "description": "Anlagenführer/-in Special Products — Nestlé, Konolfingen.\n\nKey details:\n• Location: Konolfingen, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -488,7 +486,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products/1407549433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:47.685Z",
+      "crawledAt": "2026-08-21T21:56:59.066Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -568,7 +566,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Operational-Excellence-Coordinator/1427976533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:47.032Z",
+      "crawledAt": "2026-08-21T21:56:58.244Z",
       "addressLocality": "Wangen",
       "addressCountry": "CH",
       "country": "CH",
@@ -597,7 +595,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T22:06:30.168Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "baseSalary": {
@@ -643,7 +640,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Instandhaltungsfachmann-mit-elektrischem-Schwerpunkt-%28mw%29/1220980901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:46.346Z",
+      "crawledAt": "2026-08-21T21:56:57.461Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -705,7 +702,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Planificateur%C2%B7trice-maintenance-&-Superuser-AMM/1427542333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:45.689Z",
+      "crawledAt": "2026-08-21T21:56:56.666Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -784,7 +781,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Instandhaltungsmechanikerin/1269774501/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:45.095Z",
+      "crawledAt": "2026-08-21T21:56:55.848Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -866,7 +863,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:44.464Z",
+      "crawledAt": "2026-08-21T21:56:55.066Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -943,7 +940,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Quality-Specialist/1411192733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:43.806Z",
+      "crawledAt": "2026-08-21T21:56:54.230Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -979,7 +976,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:01:19.971Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1011,7 +1007,7 @@
         "it": "Stagiaire Pré-HES - Tecnologia alimentare (gioventù)",
         "en": "Stagiaire Pré-HES - Food Technology (Youth)",
         "de": "Stagiaire Pré-HES - Lebensmitteltechnologie (Jugend)",
-        "fr": "Stagiaire Pré-HES - Food Technology (Youth)"
+        "fr": "Stagiaire Pré-HES - Technologie alimentaire (Jeunesse)"
       },
       "description": "Stagiaire Pré-HES - Food Technology (Youth) — Nestlé, La Tour-de-Peilz.\n\nKey details:\n• Location: La Tour-de-Peilz, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
@@ -1025,7 +1021,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:43.171Z",
+      "crawledAt": "2026-08-21T21:56:53.443Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1105,7 +1101,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Instandhaltungsplaner-In-%28AMM-Planner%29-100/1405023033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:42.496Z",
+      "crawledAt": "2026-08-21T21:56:52.657Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1180,7 +1176,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:41.847Z",
+      "crawledAt": "2026-08-21T21:56:51.864Z",
       "addressLocality": "Wangen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1238,7 +1234,7 @@
       "titleByLocale": {
         "it": "Operatore/trice di Linea di Imbottigliamento",
         "en": "Anlagenführer/in Abfüllung",
-        "de": "Anlagenführer/in Abfüllung",
+        "de": "Anlagenführer/Abfüllung",
         "fr": "Opérateur/trice de Ligne d'Emballage"
       },
       "description": "Anlagenführer/in Abfüllung — Nestlé, Basel.\n\nKey details:\n• Location: Basel, BS canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -1253,7 +1249,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Anlagenf%C3%BChrerin-Abf%C3%BCllung/1293376401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:41.172Z",
+      "crawledAt": "2026-08-21T21:56:51.047Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1282,7 +1278,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T00:31:12.471Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1328,7 +1323,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Technician-in-Lipids-Analytics/1408503233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:40.500Z",
+      "crawledAt": "2026-08-21T21:56:50.227Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1405,7 +1400,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:39.825Z",
+      "crawledAt": "2026-08-21T21:56:49.445Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1482,7 +1477,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:39.186Z",
+      "crawledAt": "2026-08-21T21:56:48.617Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1559,7 +1554,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:38.529Z",
+      "crawledAt": "2026-08-21T21:56:47.779Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1637,7 +1632,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:37.867Z",
+      "crawledAt": "2026-08-21T21:56:46.983Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1684,6 +1679,81 @@
       "addressRegion": "VD"
     },
     {
+      "id": "nestle-1423875833",
+      "slug": "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch",
+      "slugByLocale": {
+        "it": "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch",
+        "en": "analytics-and-data-science-manager-nestle-ch",
+        "de": "analytics-and-data-science-manager-nestle-ch",
+        "fr": "gestionnaire-d-analyse-et-de-science-des-donnees-nestle-la-tour-de-peilz-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Analytics and Data Science Manager",
+      "titleByLocale": {
+        "it": "Gestione di analisi e dati",
+        "en": "Analytics and Data Science Manager",
+        "de": "Analytics und Data Science Manager",
+        "fr": "Gestionnaire d'analyse et de science des données"
+      },
+      "description": "Analytics and Data Science Manager — Nestlé, La Tour-de-Peilz.\n\nKey details:\n• Location: La Tour-de-Peilz, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Analisi e Gestione della Scienza dei Dati — Nestlé, La Tour-de-Peilz, CH.\n\nDettagli chiave:\n• Ubicazione: La Tour-de-Peilz, CH, VD canton, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale di carriera Nestlé\n\nQuesta lista fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto del team, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
+        "en": "Analytics and Data Science Manager — Nestlé, La Tour-de-Peilz.\n\nKey details:\n• Location: La Tour-de-Peilz, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Analytics and Data Science Manager — Nestlé, La Tour-de-Peilz, CH\n\nWichtigste Angaben:\n• Standort: La Tour-de-Peilz, CH, Kanton VD, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal\n\nDiese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
+        "fr": "Gestionnaire d'analyses et de données — Nestlé, La Tour-de-Peilz, CH.\n\nPrincipaux détails:\n• Lieu: La Tour-de-Peilz, CH, canton VD, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé\n\nCette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement tandis que le portail officiel des carrières maintient la demande active."
+      },
+      "location": "La Tour-de-Peilz",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Analytics-and-Data-Science-Manager/1423875833/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T21:56:46.213Z",
+      "addressLocality": "La Tour-de-Peilz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-06",
+      "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Analytics-and-Data-Science-Manager/1423875833/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "analytics-and-data-science-manager-nestle-ch",
+        "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "analytics-and-data-science-manager-nestle-ch",
+          "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch"
+        ],
+        "fr": [
+          "analytics-and-data-science-manager-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T01:23:20.959Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD"
+    },
+    {
       "id": "nestle-1414846433",
       "slug": "responsabile-del-conto-chiave-regionale-nestle-la-tour-de-peilz-ch",
       "slugByLocale": {
@@ -1714,7 +1784,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Regional-Key-Account-Manager/1414846433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:37.184Z",
+      "crawledAt": "2026-08-21T21:56:45.420Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1786,7 +1856,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager/1413308933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:36.501Z",
+      "crawledAt": "2026-08-21T21:56:44.609Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1858,7 +1928,7 @@
       "title": "Tierarztberater/in / Vet Advisor",
       "titleByLocale": {
         "it": "Tierarztberater/in / Vet Consulente",
-        "en": "Tierarztberater/in / Vet Advisor",
+        "en": "Veterinary Advisor/Vet Advisor",
         "de": "Tierarztberater/in / Vet Berater",
         "fr": "Conseiller vétérinaire / Conseiller vétérinaire"
       },
@@ -1874,7 +1944,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:35.839Z",
+      "crawledAt": "2026-08-21T21:56:43.819Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1949,7 +2019,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Brand-Segment-Lead/1403467433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:35.160Z",
+      "crawledAt": "2026-08-21T21:56:43.016Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1979,81 +2049,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:57:55.563Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
-    },
-    {
-      "id": "nestle-1423875833",
-      "slug": "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch",
-      "slugByLocale": {
-        "it": "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch",
-        "en": "analytics-and-data-science-manager-nestle-ch",
-        "de": "analytics-and-data-science-manager-nestle-ch",
-        "fr": "gestionnaire-d-analyse-et-de-science-des-donnees-nestle-la-tour-de-peilz-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Analytics and Data Science Manager",
-      "titleByLocale": {
-        "it": "Gestione di analisi e dati",
-        "en": "Analytics and Data Science Manager",
-        "de": "Analytics und Data Science Manager",
-        "fr": "Gestionnaire d'analyse et de science des données"
-      },
-      "description": "Analytics and Data Science Manager — Nestlé, La Tour-de-Peilz.\n\nKey details:\n• Location: La Tour-de-Peilz, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Analisi e Gestione della Scienza dei Dati — Nestlé, La Tour-de-Peilz, CH.\n\nDettagli chiave:\n• Ubicazione: La Tour-de-Peilz, CH, VD canton, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale di carriera Nestlé\n\nQuesta lista fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto del team, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
-        "en": "Analytics and Data Science Manager — Nestlé, La Tour-de-Peilz.\n\nKey details:\n• Location: La Tour-de-Peilz, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Analytics and Data Science Manager — Nestlé, La Tour-de-Peilz, CH\n\nWichtigste Angaben:\n• Standort: La Tour-de-Peilz, CH, Kanton VD, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal\n\nDiese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
-        "fr": "Gestionnaire d'analyses et de données — Nestlé, La Tour-de-Peilz, CH.\n\nPrincipaux détails:\n• Lieu: La Tour-de-Peilz, CH, canton VD, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé\n\nCette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement tandis que le portail officiel des carrières maintient la demande active."
-      },
-      "location": "La Tour-de-Peilz",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Analytics-and-Data-Science-Manager/1423875833/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:34.429Z",
-      "addressLocality": "La Tour-de-Peilz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-06",
-      "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Analytics-and-Data-Science-Manager/1423875833/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "analytics-and-data-science-manager-nestle-ch",
-        "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analytics-and-data-science-manager-nestle-ch",
-          "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch"
-        ],
-        "fr": [
-          "analytics-and-data-science-manager-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T01:23:20.959Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2099,7 +2094,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Category-Development-Manager/1418830233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:33.748Z",
+      "crawledAt": "2026-08-21T21:56:42.225Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2174,7 +2169,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Regional-Procurement-Manager-Content-&-Insights/1427693433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:33.074Z",
+      "crawledAt": "2026-08-21T21:56:41.424Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2246,7 +2241,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-Procurement-Manager-Warehousing/1414739633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:32.409Z",
+      "crawledAt": "2026-08-21T21:56:40.606Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2308,7 +2303,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Technical-Coordinator-Nespresso/1413632733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:31.720Z",
+      "crawledAt": "2026-08-21T21:56:39.798Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2385,7 +2380,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager-Horeca-&-Premium-Vending-Nespresso/1402331033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:31.026Z",
+      "crawledAt": "2026-08-21T21:56:38.991Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2455,7 +2450,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-NeStep-in-HR-and-Business-Operations/1426891633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:30.360Z",
+      "crawledAt": "2026-08-21T21:56:38.196Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2471,7 +2466,131 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-17T10:15:59.540Z",
+      "salaryMin": 68000,
+      "salaryMax": 92000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 92000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1292662201",
+      "slug": "coffee-automation-digital-engineer-nestle-ch",
+      "slugByLocale": {
+        "en": "coffee-automation-digital-engineer-nestle-ch",
+        "it": "coffee-automation-digital-engineer-nestle-ch",
+        "de": "coffee-automation-digital-engineer-nestle-ch",
+        "fr": "coffee-automation-digital-engineer-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Coffee Automation Digital Engineer",
+      "titleByLocale": {
+        "en": "Coffee Automation Digital Engineer",
+        "it": "Coffee Automation Digital Ingegnere",
+        "de": "Coffee Automation Digital Ingenieur",
+        "fr": "Coffee Automation Digital Ingénieur"
+      },
+      "description": "The Nestlé Product Technology Centre Coffee (NPTC Coffee) is the leading R&D organization that discovers, develops and deploys coffee and beverage products and technologies for in-home and out-of-home consumption. It consists of units in Konolfingen (CH), Marysville (USA), Orbe (CH) and Singapore and provides new products and processes to all Nestlé markets worldwide.\n\nOur mission – to delight the consumer wherever, whenever, however by delivering moments of genuine pleasure and indulgence - drives the need for us to attract, select and develop the right people for the right jobs throughout the value chain of our business.\n\nPosition Snapshot\n\nLocation: Orbe, Switzerland\n\nCompany: Nestlé Product Technology Centre Coffee\nAct. Rate: Full-Time Act. Rate 100%\nType of contract: Permanent contract\n\nStart date: As soon as possible\n\nDeadline for applications: 28 / 02 /2026\n\nPosition Summary\n\nAs a Coffee Automation Digital Engineer , you will lead and drive digital technology exploration and technology transfer to industrialization within the coffee category, ensuring the integration of innovative solutions that enhance operational efficiency and product development. This is an amazing opportunity to drive innovation and have a direct impact on advancing the digital and automation agenda for the manufacturing technologies of Nestlé at global scale.\n\nA Day in the Life of a Coffee Automation Digital Engineer\n\n• Serve as the technical expert on state of the art digital and automation tools and technologies used in coffee and build organisational capability through the train the trainer approach.\n\n• Lead the exploration and development of digital capabilities in collaboration with IT, Zones, and technology partners to continuously evolve the Digital & Automation roadmap for coffee.\n\n• Oversee the deployment and adoption of the Digital & Automation roadmap across Zones and operations, ensuring effective technology transfer and sustainable implementation.\n\n• Drive and technically evaluate proofs of concept, assessing improvements and supporting the successful scale up of validated technologies.\n\n• Establish and maintain digital and automation technology standards, ensuring alignment across Zones and promoting best practice sharing throughout the coffee manufacturing network.\n\nWhat will make you successful\n\n• Master’s degree in Electronics, Software, Telecommunications engineering, Automation or equivalent\n\n• Extensive experience in R&D, Data Analytics, Automation, Industrial IT, or software engineering\n\n• Advanced technical knowledge in Data Analytics, Software Development, or Automation\n\n• Proven track record of successful project execution and technology implementation, with strong project and change management capabilities\n\n• Experience leading cross-functional teams effectively with excellent communication & interpersonal skills.\n\n• Proficient in user-centered design and agile methodologies, with the ability to adapt to evolving project requirements is a strong plus\n\n• Strong curiosity and passion for innovation with a hands-on attitude\n\n• Courage to challenge the status quo with a strong collaborative mindset\n\n• Languages : Fluency in English, and other language considered a plus\n\nNestlé is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially.\n\nAt Nestlé, we want to help shape a better and healthier world, inspire people to live healthier lives and deliver impact at a scale and pace that makes a difference. We do this by fostering a diverse, friendly, supportive, and collaborative environment, that creates positive disruption, embraces innovation, and empowers people and teams to win. We aim to hire friendly, respectful, inspiring people who care about the people’s lives that we",
+      "descriptionByLocale": {
+        "en": "The Nestlé Product Technology Centre Coffee (NPTC Coffee) is the leading R&D organization that discovers, develops and deploys coffee and beverage products and technologies for in-home and out-of-home consumption. It consists of units in Konolfingen (CH), Marysville (USA), Orbe (CH) and Singapore and provides new products and processes to all Nestlé markets worldwide.\n\nOur mission – to delight the consumer wherever, whenever, however by delivering moments of genuine pleasure and indulgence - drives the need for us to attract, select and develop the right people for the right jobs throughout the value chain of our business.\n\nPosition Snapshot\n\nLocation: Orbe, Switzerland\n\nCompany: Nestlé Product Technology Centre Coffee\nAct. Rate: Full-Time Act. Rate 100%\nType of contract: Permanent contract\n\nStart date: As soon as possible\n\nDeadline for applications: 28 / 02 /2026\n\nPosition Summary\n\nAs a Coffee Automation Digital Engineer , you will lead and drive digital technology exploration and technology transfer to industrialization within the coffee category, ensuring the integration of innovative solutions that enhance operational efficiency and product development. This is an amazing opportunity to drive innovation and have a direct impact on advancing the digital and automation agenda for the manufacturing technologies of Nestlé at global scale.\n\nA Day in the Life of a Coffee Automation Digital Engineer\n\n• Serve as the technical expert on state of the art digital and automation tools and technologies used in coffee and build organisational capability through the train the trainer approach.\n\n• Lead the exploration and development of digital capabilities in collaboration with IT, Zones, and technology partners to continuously evolve the Digital & Automation roadmap for coffee.\n\n• Oversee the deployment and adoption of the Digital & Automation roadmap across Zones and operations, ensuring effective technology transfer and sustainable implementation.\n\n• Drive and technically evaluate proofs of concept, assessing improvements and supporting the successful scale up of validated technologies.\n\n• Establish and maintain digital and automation technology standards, ensuring alignment across Zones and promoting best practice sharing throughout the coffee manufacturing network.\n\nWhat will make you successful\n\n• Master’s degree in Electronics, Software, Telecommunications engineering, Automation or equivalent\n\n• Extensive experience in R&D, Data Analytics, Automation, Industrial IT, or software engineering\n\n• Advanced technical knowledge in Data Analytics, Software Development, or Automation\n\n• Proven track record of successful project execution and technology implementation, with strong project and change management capabilities\n\n• Experience leading cross-functional teams effectively with excellent communication & interpersonal skills.\n\n• Proficient in user-centered design and agile methodologies, with the ability to adapt to evolving project requirements is a strong plus\n\n• Strong curiosity and passion for innovation with a hands-on attitude\n\n• Courage to challenge the status quo with a strong collaborative mindset\n\n• Languages : Fluency in English, and other language considered a plus\n\nNestlé is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially.\n\nAt Nestlé, we want to help shape a better and healthier world, inspire people to live healthier lives and deliver impact at a scale and pace that makes a difference. We do this by fostering a diverse, friendly, supportive, and collaborative environment, that creates positive disruption, embraces innovation, and empowers people and teams to win. We aim to hire friendly, respectful, inspiring people who care about the people’s lives that we",
+        "it": "Il Nestlé Product Technology Centre Coffee (NPTC Coffee) è la principale organizzazione R&D che scopre, sviluppa e distribuisce prodotti di caffè e bevande e tecnologie per il consumo in-home e out-of-home. Si compone di unità a Konolfingen (CH), Marysville (USA), Orbe (CH) e Singapore e fornisce nuovi prodotti e processi a tutti i mercati Nestlé in tutto il mondo.\n\nLa nostra missione – per deliziare il consumatore ovunque, ogni volta che, tuttavia, offrendo momenti di autentico piacere e indulgenza - spinge la necessità per noi di attrarre, selezionare e sviluppare le persone giuste per i posti di lavoro giusti in tutta la catena di valore del nostro business.\n\nPrimo piano\n\nUbicazione: Orbe, Svizzera\n\nAzienda: Nestlé Product Technology Centre Coffee\nAtto. Tariffa: Atto a tempo pieno. Tasso 100%\nTipo di contratto: Contratto permanente\n\nData di inizio: appena possibile\n\nTermine ultimo per le applicazioni: 28 / 02 /2026\n\nPosizione Sommario\n\nIn qualità di Coffee Automation Digital Engineer , guiderai e guiderai l'esplorazione della tecnologia digitale e il trasferimento tecnologico all'industrializzazione all'interno della categoria caffè, garantendo l'integrazione di soluzioni innovative che migliorano l'efficienza operativa e lo sviluppo del prodotto. Questa è una straordinaria opportunità per guidare l'innovazione e avere un impatto diretto sul progresso dell'agenda digitale e dell'automazione per le tecnologie di produzione di Nestlé a livello globale.\n\nUn giorno nella vita di un ingegnere digitale di automazione del caffè\n\n• Servire come esperto tecnico sugli strumenti e le tecnologie digitali e di automazione dell'arte del caffè e costruire capacità organizzative attraverso il treno l'approccio del formatore.\n\n• Guida l'esplorazione e lo sviluppo delle capacità digitali in collaborazione con IT, Zones e partner tecnologici per evolvere continuamente la roadmap Digital & Automation per il caffè.\n\n• Superare l'implementazione e l'adozione della roadmap Digital & Automation in zone e operazioni, garantendo un trasferimento tecnologico efficace e un'implementazione sostenibile.\n\n• Guidare e valutare tecnicamente le prove del concetto, valutare i miglioramenti e sostenere la scala di successo di tecnologie convalidate.\n\n• Stabilire e mantenere gli standard tecnologici digitali e di automazione, assicurando l'allineamento in zone e promuovendo la migliore condivisione pratica in tutta la rete di produzione di caffè.\n\nChe cosa vi farà successo\n\n• Laurea magistrale in elettronica, software, ingegneria delle telecomunicazioni, automazione o equivalente\n\n• Ampia esperienza in R&D, Data Analytics, Automation, Industrial IT o ingegneria software\n\n• Conoscenza tecnica avanzata in Data Analytics, Sviluppo Software o Automazione\n\n• Provato record di successo nell'esecuzione del progetto e nell'implementazione della tecnologia, con forti capacità di project e change management\n\n• Esperienza leader team interfunzionali in modo efficace con eccellente comunicazione e competenze interpersonali.\n\n• Proficiente nel design e nelle metodologie agili orientate all'utente, con la capacità di adattarsi ai requisiti di progetto in evoluzione è un forte plus\n\n• Forte curiosità e passione per l'innovazione con un atteggiamento pratico\n\n• Coraggio per sfidare lo status quo con una forte mentalità collaborativa\n\n• Lingue: fluenza in inglese, e altre lingue considerate più\n\nNestlé si impegna per l'accessibilità del suo processo di reclutamento. Se avete bisogno di un adattamento durante il processo di reclutamento, fatecelo sapere in modo da potervi sostenere efficacemente. Tutte le informazioni saranno trattate con riservatezza.\n\nA Nestlé, vogliamo aiutare a plasmare un mondo migliore e più sano, ispirare le persone a vivere vite più sane e dare impatto a una scala e ritmo che fa la differenza. Lo facciamo promuovendo un ambiente diversificato, amichevole, solidale e collaborativo, che crea interruzioni positive, abbraccia l'innovazione, e consente alle persone e ai team di vincere. Cerchiamo di assumere persone amichevoli, rispettose, ispiratrici che si preoccupano della vita della gente che noi",
+        "de": "Das Nestlé Product Technology Centre Coffee (NPTC Coffee) ist die führende Forschungs- und Entwicklungsorganisation, die Kaffee- und Getränkeprodukte und -technologien für den In-Home- und Out-of-Home-Konsum entdeckt, entwickelt und einsetzt. Es besteht aus Niederlassungen in Konolfingen (CH), Marysville (USA), Orbe (CH) und Singapur und bietet neue Produkte und Verfahren für alle Nestlé-Märkte weltweit.\n\nUnsere Mission – den Verbraucher überall und jederzeit zu erfreuen, aber durch Momente echten Vergnügens und Genusses – treibt uns dazu an, die richtigen Leute für die richtigen Jobs in der gesamten Wertschöpfungskette unseres Unternehmens zu gewinnen, auszuwählen und zu entwickeln.\n\nPosition Snapshot\n\nStandort: Orbe, Schweiz\n\nUnternehmen: Nestlé Product Technology Centre Coffee\nAct. Rate: Vollzeit-Act. Rate 100%\nArt des Vertrags: unbefristeter Vertrag\n\nStartdatum: So schnell wie möglich\n\nBewerbungsfrist: 28 / 02 /2026\n\nPositionsübersicht\n\nAls Coffee Automation Digital Engineer führen und treiben Sie die Erforschung digitaler Technologien und den Technologietransfer zur Industrialisierung in der Kategorie Kaffee voran und stellen die Integration innovativer Lösungen sicher, die die betriebliche Effizienz und Produktentwicklung verbessern. Dies ist eine großartige Gelegenheit, Innovationen voranzutreiben und einen direkten Einfluss auf die Weiterentwicklung der digitalen und Automatisierungsagenda für die Fertigungstechnologien von Nestlé auf globaler Ebene zu haben.\n\nEin Tag im Leben eines digitalen Kaffeeautomatisierungsingenieurs\n\n• Dienen Sie als technischer Experte für modernste digitale und Automatisierungswerkzeuge und -technologien im Kaffee und bauen Sie organisatorische Fähigkeiten durch den Train the Trainer-Ansatz auf.\n\n• Führen Sie die Erkundung und Entwicklung digitaler Fähigkeiten in Zusammenarbeit mit IT, Zonen und Technologiepartnern, um die Digital & Automation-Roadmap für Kaffee kontinuierlich weiterzuentwickeln.\n\n• Beaufsichtigen Sie die Bereitstellung und Annahme der Digital & Automation-Roadmap in allen Zonen und Betrieben, um einen effektiven Technologietransfer und eine nachhaltige Implementierung zu gewährleisten.\n\n• Antrieb und technische Bewertung von Konzeptnachweisen, Bewertung von Verbesserungen und Unterstützung der erfolgreichen Skalierung validierter Technologien.\n\n• Etablieren und pflegen Sie digitale und Automatisierungstechnologiestandards, um die Ausrichtung auf Zonen sicherzustellen und den Austausch bewährter Verfahren im gesamten Kaffeeherstellungsnetzwerk zu fördern.\n\nWas dich erfolgreich macht\n\n• Master-Abschluss in Elektronik, Software, Telekommunikationstechnik, Automatisierung oder gleichwertigem\n\n• Umfangreiche Erfahrung in R&D, Data Analytics, Automation, Industrial IT oder Software Engineering\n\n• Fortgeschrittene technische Kenntnisse in Data Analytics, Softwareentwicklung oder Automatisierung\n\n• Nachgewiesene Erfolgsbilanz bei der erfolgreichen Projektdurchführung und Technologieimplementierung mit starken Projekt- und Change-Management-Fähigkeiten\n\n• Erleben Sie funktionsübergreifende Teams mit hervorragenden Kommunikations- und zwischenmenschlichen Fähigkeiten.\n\n• Proficient in benutzerzentriertem Design und agilen Methoden, mit der Fähigkeit, sich an sich ändernde Projektanforderungen anzupassen, ist ein starkes Plus\n\n• Starke Neugier und Leidenschaft für Innovation mit einer praktischen Einstellung\n\n• Mut, den Status Quo mit einer starken kollaborativen Denkweise herauszufordern\n\n• Sprachen: fließend in Englisch, und andere Sprache als ein Plus\n\nNestlé verpflichtet sich zur Zugänglichkeit seines Rekrutierungsprozesses. Wenn Sie während des Rekrutierungsprozesses eine Anpassung benötigen, lassen Sie es uns bitte wissen, damit wir Sie effektiv unterstützen können. Alle Informationen werden vertraulich behandelt.\n\nBei Nestlé möchten wir dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und Auswirkungen in einem Ausmaß und Tempo zu erzielen, das einen Unterschied macht. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positive Störungen schafft, Innovationen umarmt und Menschen und Teams befähigt, zu gewinnen. Unser ziel ist es, freundliche, respektvolle und inspirierende menschen einzustellen, die sich um das leben der menschen kümmern.",
+        "fr": "Le Nestlé Product Technology Centre Coffee (NPTC Coffee) est le principal organisme de R-D qui découvre, développe et déploie des produits et des technologies de café et de boissons pour la consommation à la maison et à l'extérieur. Il se compose d'unités à Konolfingen (CH), Marysville (USA), Orbe (CH) et Singapour et fournit de nouveaux produits et procédés à tous les marchés de Nestlé dans le monde entier.\n\nNotre mission, qui consiste à ravir le consommateur partout, en lui offrant des moments de plaisir et d'indulgence authentiques, nous oblige à attirer, sélectionner et développer les bonnes personnes pour les bons emplois tout au long de la chaîne de valeur de notre entreprise.\n\nCapture de position\n\nLieu: Orbe, Suisse\n\nEntreprise: Nestlé Product Technology Centre Café\nLoi. Taux: Loi à temps plein. Taux 100%\nType de contrat: Contrat permanent\n\nDate de début: Dès que possible\n\nDate limite de dépôt des candidatures: 28 / 02 /2026\n\nRésumé du poste\n\nEn tant que Coffee Automation Digital Engineer , vous dirigerez et dirigerez l'exploration de technologie numérique et le transfert de technologie à l'industrialisation dans la catégorie café, assurant l'intégration de solutions innovantes qui améliorent l'efficacité opérationnelle et le développement de produits. C'est une occasion incroyable de stimuler l'innovation et d'avoir un impact direct sur la progression du programme numérique et d'automatisation des technologies de fabrication de Nestlé à l'échelle mondiale.\n\nUne journée dans la vie d'un ingénieur numérique d'automatisation de café\n\n• Servir d'expert technique sur les outils et les technologies numériques et d'automatisation de pointe utilisés dans le café et renforcer les capacités organisationnelles grâce à l'approche de formation des formateurs.\n\n• Diriger l'exploration et le développement des capacités numériques en collaboration avec les partenaires TI, zones et technologie pour développer en permanence la feuille de route numérique et d'automatisation pour le café.\n\n• Superviser le déploiement et l'adoption de la feuille de route numérique et d'automatisation dans les zones et les opérations, en assurant un transfert de technologie efficace et une mise en œuvre durable.\n\n• Conduire et évaluer techniquement les preuves de concept, évaluer les améliorations et soutenir l'échelle réussie des technologies validées.\n\n• Établir et maintenir des normes technologiques numériques et d'automatisation, assurer l'alignement entre les zones et promouvoir le partage des meilleures pratiques dans tout le réseau de fabrication du café.\n\nCe qui vous fera réussir\n\n• Maîtrise en électronique, logiciel, ingénierie des télécommunications, automatisation ou équivalent\n\n• Expérience approfondie en R-D, en analyse de données, en automatisation, en informatique industrielle ou en génie logiciel\n\n• Connaissances techniques avancées en analyse de données, développement de logiciels ou automatisation\n\n• Expérience éprouvée de l ' exécution des projets et de la mise en œuvre des technologies, avec de solides capacités de gestion des projets et du changement\n\n• Expérimentez efficacement des équipes interfonctionnelles avec d'excellentes compétences en communication et interpersonnelle.\n\n• Une bonne connaissance de la conception axée sur l'utilisateur et des méthodologies agiles, avec la capacité de s'adapter à l'évolution des besoins du projet est un plus\n\n• Forte curiosité et passion pour l'innovation avec une attitude pratique\n\n• Courage de remettre en question le statu quo avec une solide collaboration\n\n• Langues : Connaissance de l'anglais et autres langues considérées comme un plus\n\nNestlé s'engage dans l'accessibilité de son processus de recrutement. Si vous avez besoin d'une adaptation pendant le processus de recrutement, veuillez nous en informer afin que nous puissions vous soutenir efficacement. Toutes les informations seront traitées de manière confidentielle.\n\nChez Nestlé, nous voulons aider à façonner un monde meilleur et plus sain, inspirer les gens à vivre en meilleure santé et produire un impact à une échelle et à un rythme qui fait la différence. Nous le faisons en favorisant un environnement diversifié, amical, solidaire et collaboratif, qui crée des perturbations positives, embrasse l'innovation et donne aux gens et aux équipes les moyens de gagner. Nous visons à embaucher des personnes amicales, respectueuses, inspirantes qui se soucient de la vie des gens"
+      },
+      "location": "Orbe",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Orbe-Coffee-Automation-Digital-Engineer/1292662201/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T21:56:37.397Z",
+      "addressLocality": "Orbe",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-09",
+      "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Coffee-Automation-Digital-Engineer/1292662201/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-08-21T21:56:37.397Z"
+    },
+    {
+      "id": "nestle-1419813033",
+      "slug": "nestep-talent-acquisition-analytics-operations-nestle-ch",
+      "slugByLocale": {
+        "it": "nestep-talent-acquisition-analytics-operations-nestle-ch",
+        "en": "nestep-talent-acquisition-analytics-operations-nestle-ch",
+        "de": "nestep-talent-acquisition-analytics-operations-nestle-ch",
+        "fr": "nestep-analyse-et-exploitation-d-acquisition-de-talents-nestle-vevey-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "NeStep - Talent Acquisition Analytics & Operations",
+      "titleByLocale": {
+        "it": "NeStep - Talent Acquisition Analytics & Operations",
+        "en": "NeStep - Talent Acquisition Analytics & Operations",
+        "de": "NeStep - Talent Acquisition Analytics & Operations",
+        "fr": "NeStep - Analyse et exploitation d'acquisition de talents"
+      },
+      "description": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey.\n\nKey details:\n• Location: Vevey, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey, CH.\n\nDettagli chiave:\n• Ubicazione: Vevey, CH, Canton VD, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale carriera Nestlé\n\nQuesto elenco fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto di squadra, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
+        "en": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey.\n\nKey details:\n• Location: Vevey, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "NeStep - Talent Acquisition Analytics & Operations - Nestlé, Vevey, CH.\n\nWichtigste Angaben:\n• Standort: Vevey, CH, VD Kanton, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal\n\nDiese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
+        "fr": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey, CH.\n\nPrincipaux détails:\n• Lieu: Vevey, CH, VD canton, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé\n\nCette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement pendant que le portail officiel des carrières maintient la demande active."
+      },
+      "location": "Vevey",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-Acquisition-Analytics-&-Operations/1419813033/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-21T21:56:36.590Z",
+      "addressLocality": "Vevey",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-Acquisition-Analytics-&-Operations/1419813033/",
+      "requirements": [],
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T22:36:52.274Z",
       "salaryMin": 68000,
       "salaryMax": 92000,
       "baseSalary": {
@@ -2517,7 +2636,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:29.691Z",
+      "crawledAt": "2026-08-21T21:56:35.798Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -2594,7 +2713,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-NeStep-Talent-in-Product-Development/1418339733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:29.010Z",
+      "crawledAt": "2026-08-21T21:56:34.991Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -2668,7 +2787,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Creative-Food-Lab-Intern/1418284333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:28.344Z",
+      "crawledAt": "2026-08-21T21:56:34.177Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2745,7 +2864,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Smart-Sensors-Specialist/1398041633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:27.684Z",
+      "crawledAt": "2026-08-21T21:56:33.373Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -2822,7 +2941,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Research-Alliances-&-Science-Insourcing-Lead-Nestl%C3%A9-Research/1424007133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:27.025Z",
+      "crawledAt": "2026-08-21T21:56:32.529Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2866,8 +2985,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "nestle-1424001933",
@@ -2900,7 +3018,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Lab-Data-Technology-Specialist-Nestl%C3%A9-Research/1424001933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:26.348Z",
+      "crawledAt": "2026-08-21T21:56:31.737Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2977,7 +3095,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Recipe-Formulation-Specialist-IF-&-Toddler/1413824133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:25.682Z",
+      "crawledAt": "2026-08-21T21:56:30.921Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3054,7 +3172,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Research-Assistant-in-Fermentation/1423017533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:25.022Z",
+      "crawledAt": "2026-08-21T21:56:30.124Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3083,7 +3201,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:23:36.399Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3129,7 +3246,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Engineering-Specialist/1367415633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:24.365Z",
+      "crawledAt": "2026-08-21T21:56:29.332Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3206,7 +3323,7 @@
       "url": "https://jobdetails.nestle.com/job/Z%C3%BCrich-Coffee-Specialist-Nespresso/1403654933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:23.644Z",
+      "crawledAt": "2026-08-21T21:56:28.548Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3240,7 +3357,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:17:21.885Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3286,7 +3402,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Site-Quality-Assurance-Manager/1416615533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:22.977Z",
+      "crawledAt": "2026-08-21T21:56:27.757Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -3363,7 +3479,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Automaticien_ne-&-Sp%C3%A9cialiste-Digital/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:22.284Z",
+      "crawledAt": "2026-08-21T21:56:26.953Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -3440,7 +3556,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Operations-Strategy-Consultant/1425319133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:21.599Z",
+      "crawledAt": "2026-08-21T21:56:26.147Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -3469,7 +3585,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:09:22.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "baseSalary": {
@@ -3515,7 +3630,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-Quality-Specialist/1415607333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:20.964Z",
+      "crawledAt": "2026-08-21T21:56:25.359Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -3532,16 +3647,27 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-quality-specialist-nestle-ch",
-        "senior-quality-specialista-nestle-orbe-ch"
+        "senior-quality-specialista-nestle-orbe-ch",
+        "senior-quality-specialista-nestle-orbe-ch-bxydsy",
+        "senior-qualitat-spezialist-nestle-orbe-ch-0554aa",
+        "senior-qualite-specialiste-nestle-orbe-ch-0554aa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-quality-specialist-nestle-ch",
-          "senior-quality-specialista-nestle-orbe-ch"
+          "senior-quality-specialista-nestle-orbe-ch",
+          "senior-quality-specialista-nestle-orbe-ch-bxydsy",
+          "senior-qualitat-spezialist-nestle-orbe-ch-0554aa",
+          "senior-qualite-specialiste-nestle-orbe-ch-0554aa"
+        ],
+        "de": [
+          "senior-qualitat-spezialist-nestle-orbe-ch-0554aa"
+        ],
+        "fr": [
+          "senior-qualite-specialiste-nestle-orbe-ch-0554aa"
         ]
       },
       "firstSeenAt": "2026-08-12T10:38:20.315Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3587,7 +3713,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-System-Performance/1416095233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:20.267Z",
+      "crawledAt": "2026-08-21T21:56:24.524Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -3619,7 +3745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:52:26.847Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3651,7 +3776,7 @@
         "it": "Paralegal IP",
         "en": "IP Paralegal",
         "de": "IP Paralegal",
-        "fr": "IP Paralegal"
+        "fr": "Parajuridique en matière de propriété intellectuelle"
       },
       "description": "Location: Vevey, Switzerland\nWork model: Hybrid / Full time 100%\nContract type / duration: Permanent contract\nTarget start date: As soon as possible\n\nDeadline for applications: 6 September 2026\n\nBe a force for good and accelerate change that improves lives and the planet\n\nAs an IP Paralegal at Nestlé, your mission is to support Senior Legal Counsels responsible for trademark portfolios and to independently drive intellectual property projects. To support one of our newly integrated Strategic Business Unit, you will play a key role in ensuring strong portfolio management, efficient ways of working and close collaboration with internal business and legal stakeholders. You will make a difference by helping protect and strengthen Nestlé’s brands through accurate trademark searches, portfolio management and legal research.\n\nHow you’ll make an impact as an IP Paralegal\n\n• Conducting trademark availability searches, analysing results and making clear recommendations to the responsible Counsel(s).\n\n• Managing trademark and industrial design registration processes from filing to grant for specific Business Unit(s), aligned with business roll-out plans.\n\n• Handling objections from IP Authorities, defensive oppositions and related agreements, undertakings and co-existence terms.\n\n• Monitoring competitive trademark publications, supporting oppositions where needed and drafting reports on moderately complex legal matters.\n\n• Keeping internal records accurate by creating and updating files, docketing deadlines and monitoring key portfolio milestones.\n\n• Supporting legal research, evidence gathering and litigation activities by organising information, sales figures and marketing materials for trademark and design matters.\n\nWhat will make you successful\n\n• Bringing solid experience in trademarks within an international environment or a law firm.\n\n• Working confidently with online databases and web-based IP management systems, ideally Memotech, or showing strong digital agility to onboard quickly.\n\n• Combining excellent planning and organisational skills with strong accuracy and attention to detail.\n\n• Being flexible, proactive and collaborative, with the curiosity and agility to work autonomously and take initiative.\n\n• Being curious about innovation and comfortable working with digital tools, data analytics and emerging technologies, including AI-enabled solutions, to help drive operational excellence and support the future development of our IP services.\n\n• Communicating fluently in written and spoken English; good spoken French is desirable.\n\n• Demonstrating courage, collaboration, speed and continuous learning.\n\nAt Société des Produits Nestlé S.A., we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Exciting opportunities to develop your career your way across different brands, businesses, functions and regions.\n\n• Flexible working arrangements that facilitate creativity and collaboration.\n\n• A culture of respect, with diversity, equity and inclusion at its core.\n\n• A dynamic international environment empowering you to learn, develop and grow.\n\nWhat to expect from our hiring process\n\nThe recruitment will be driven by the fit between individual competencies and the requirements of the role. Each candidate whose skills match the requirements of the job will be considered. We are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed.\n\nIf you require an adaptation during the recruitment process, please let us know so we can support you effectively. All information will be treated confidentially.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once",
       "descriptionByLocale": {
@@ -3665,7 +3790,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-IP-Paralegal/1428221633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:19.630Z",
+      "crawledAt": "2026-08-21T21:56:23.727Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -3737,7 +3862,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Specialist-Regenerative-Agriculture/1420192233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:18.987Z",
+      "crawledAt": "2026-08-21T21:56:22.922Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3814,7 +3939,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Edge-AI-&-Connectivity-Specialist/1414613533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:18.313Z",
+      "crawledAt": "2026-08-21T21:56:22.110Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -3891,7 +4016,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Medical-Communication-Lead/1424424033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:17.636Z",
+      "crawledAt": "2026-08-21T21:56:21.290Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -3952,12 +4077,12 @@
         "it": "Talent Acquisizione Partner",
         "en": "Talent Acquisition Partner - Randstad contract for Nestlé",
         "de": "Talent Acquisition Partner",
-        "fr": "Talent Acquisition Partner - Randstad contract for Nestlé"
+        "fr": "Talent Acquisition Partner - Contrat Randstad pour Nestlé"
       },
-      "description": "Location: Vevey, Switzerland\nWork model: Hybrid / Full-time 100%\nContract type / duration: Temporary contract, 12 months via Randstad for Nestlé\nStart date: ASAP\n\nBe a force for good and accelerate change that improves lives and the planet\n\nAs a Talent Acquisition Partner at Nestlé, your mission is to identify and attract the talent that enables business growth, innovation, and performance. You will make a difference by designing data-driven hiring strategies, building strong talent pipelines, championing diversity initiatives, and collaborating closely with HR Business Partners, hiring managers, candidates, and external partners. This is your opportunity to influence hiring decisions, create a positive candidate and stakeholder experience, and contribute to Nestlé’s success in Switzerland.\n\nFor this role, proficiency in French, German and English is mandatory .\n\nHow you’ll make an impact as a Talent Acquisition Partner\n\n• Lead the full-cycle recruitment process, from candidate attraction and selection to interviewing, assessment, and offer management.\n\n• Design and execute sourcing strategies to build strong, diverse talent pipelines for critical roles.\n\n• Build trusted relationships with HRBPs, hiring managers, and external partners to deliver an excellent candidate and stakeholder experience.\n\n• Use data and market insights to inform hiring decisions and translate recruitment trends into actionable strategies.\n\n• Contribute to Talent Acquisition strategies and actively support Diversity, Equity, and Inclusion initiatives.\n\n• Work seamlessly across functions and time zones to create a consistent and high-quality Talent Acquisition experience.\n\nWhat will make you successful\n\n• Previous in-house or agency experience in full-cycle Talent Acquisition, with a strong understanding of recruitment best practices.\n\n• Strong capabilities in active sourcing, pipeline building, and market research.\n\n• Ability to work effectively across cultures and manage relationships with stakeholders across different functions and time zones.\n\n• Analytical mindset, excellent communication and facilitation skills, curiosity, problem-solving abilities, and strong attention to detail.\n\n• Proficiency in English, French and German is essential.\n\n• Demonstrating courage, collaboration, speed and continuous learning.\n\nAt Nestlé, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Exciting opportunities to develop your career your way, across different brands, businesses, functions, and regions.\n\n• Flexible working arrangements that facilitate creativity and collaboration.\n\n• A culture of respect, with diversity, equity, and inclusion at its core.\n\n• A dynamic international environment empowering you to learn, develop, and grow.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and help shape a better and healthier world, inspire people to live healthier lives, and deliver impact at a scale and pace that makes a difference.",
+      "description": "Talent Acquisition Partner - Randstad contract for Nestlé — Nestlé, Vevey.\n\nKey details:\n• Location: Vevey, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
         "it": "Ubicazione: Vevey, Svizzera\nModello di lavoro: ibrido / a tempo pieno 100%\nTipo di contratto / durata: Contratto temporaneo, 12 mesi via Randstad per Nestlé\nData di inizio: ASAP\n\nEssere una forza per un cambiamento buono e accelerato che migliora la vita e il pianeta\n\nIn qualità di Talent Acquisition Partner di Nestlé, la vostra missione è quella di identificare e attrarre il talento che consente la crescita aziendale, l'innovazione e le prestazioni. Farete la differenza progettando strategie di assunzione basate sui dati, costruendo linee di talento forti, sostenendo iniziative di diversità, e collaborando a stretto contatto con HR Business Partners, assumendo manager, candidati e partner esterni. Questa è la vostra occasione per influenzare le decisioni di assunzione, creare un’esperienza positiva di candidati e stakeholder, e contribuire al successo di Nestlé in Svizzera.\n\nPer questo ruolo, la competenza in francese, tedesco e inglese è obbligatoria.\n\nCome farete un impatto come partner Talent Acquisition\n\n• Condurre il processo di reclutamento a ciclo completo, dall'attrazione del candidato e la selezione all'intervista, alla valutazione e alla gestione dell'offerta.\n\n• Progettare ed eseguire strategie di sourcing per costruire linee di talento forti e diversificate per ruoli critici.\n\n• Costruire relazioni di fiducia con HRBP, i manager di assunzione e i partner esterni per offrire un'eccellente esperienza di candidato e stakeholder.\n\n• Utilizzare i dati e le informazioni di mercato per informare le decisioni di assunzione e tradurre le tendenze di reclutamento in strategie attuabili.\n\n• Contribuisci alle strategie di Talent Acquisition e supporta attivamente le iniziative Diversity, Equity e Inclusion.\n\n• Lavorare senza soluzione di continuità attraverso funzioni e fusi orari per creare un'esperienza di Talent Acquisition coerente e di alta qualità.\n\nChe cosa vi farà successo\n\n• Precedente esperienza in-house o agenzia in pieno ciclo Talent Acquisizione, con una forte comprensione delle migliori pratiche di reclutamento.\n\n• Forte capacità di approvvigionamento attivo, costruzione di tubazioni e ricerca di mercato.\n\n• Capacità di lavorare efficacemente attraverso le culture e gestire le relazioni con gli stakeholder attraverso diverse funzioni e fusi orari.\n\n• Mindset analitico, eccellenti capacità di comunicazione e facilitazione, curiosità, capacità di problem solving, e forte attenzione ai dettagli.\n\n• La competenza in inglese, francese e tedesco è essenziale.\n\n• Dimostrare coraggio, collaborazione, velocità e apprendimento continuo.\n\nA Nestlé, mettiamo le persone nel cuore di tutto quello che facciamo\n\nI nostri vantaggi sono progettati per sostenere la crescita e il benessere, in modo da poter prosperare sul lavoro e nella vita:\n\n• Eccitanti opportunità per sviluppare la tua carriera il tuo modo, attraverso diversi marchi, aziende, funzioni e regioni.\n\n• Disposizioni di lavoro flessibili che facilitano la creatività e la collaborazione.\n\n• Una cultura del rispetto, con diversità, equità e inclusione nel suo nucleo.\n\n• Un ambiente dinamico internazionale che ti consente di imparare, sviluppare e crescere.\n\nCosa aspettarsi dal nostro processo di assunzione\n\nSiamo impegnati a un'esperienza di assunzione inclusiva e rispettosa e siamo lieti di fornire alloggi ragionevoli, se necessario. I nostri luoghi di lavoro sono pienamente accessibili e supportati da una forte cultura della sicurezza, con installazioni e procedure moderne per garantire un ambiente sicuro per tutti.\n\nIl processo di assunzione comprende tipicamente un'intervista con Talent Acquisition, un'intervista con il team di assunzione, e una discussione finale e offerta. Rivediamo le domande come vengono ricevute e chiudiamo il ruolo una volta che viene identificata una forte lista di candidati rilevanti, in modo da incoraggiarvi ad applicare presto. Tutte le informazioni sono trattate con riservatezza.\n\nStay vigilant: Nestlé contatterà i candidati solo tramite gli indirizzi e-mail ufficiali della società e non chiederà mai pagamenti o informazioni personali sensibili in qualsiasi fase del processo di assunzione.\n\nPronto a essere una forza per il bene?\n\nApplicare ora e aiutare a plasmare un mondo migliore e più sano, ispirare le persone a vivere la vita più sana, e fornire impatto a una scala e ritmo che fa la differenza.",
-        "en": "Location: Vevey, Switzerland\nWork model: Hybrid / Full-time 100%\nContract type / duration: Temporary contract, 12 months via Randstad for Nestlé\nStart date: ASAP\n\nBe a force for good and accelerate change that improves lives and the planet\n\nAs a Talent Acquisition Partner at Nestlé, your mission is to identify and attract the talent that enables business growth, innovation, and performance. You will make a difference by designing data-driven hiring strategies, building strong talent pipelines, championing diversity initiatives, and collaborating closely with HR Business Partners, hiring managers, candidates, and external partners. This is your opportunity to influence hiring decisions, create a positive candidate and stakeholder experience, and contribute to Nestlé’s success in Switzerland.\n\nFor this role, proficiency in French, German and English is mandatory .\n\nHow you’ll make an impact as a Talent Acquisition Partner\n\n• Lead the full-cycle recruitment process, from candidate attraction and selection to interviewing, assessment, and offer management.\n\n• Design and execute sourcing strategies to build strong, diverse talent pipelines for critical roles.\n\n• Build trusted relationships with HRBPs, hiring managers, and external partners to deliver an excellent candidate and stakeholder experience.\n\n• Use data and market insights to inform hiring decisions and translate recruitment trends into actionable strategies.\n\n• Contribute to Talent Acquisition strategies and actively support Diversity, Equity, and Inclusion initiatives.\n\n• Work seamlessly across functions and time zones to create a consistent and high-quality Talent Acquisition experience.\n\nWhat will make you successful\n\n• Previous in-house or agency experience in full-cycle Talent Acquisition, with a strong understanding of recruitment best practices.\n\n• Strong capabilities in active sourcing, pipeline building, and market research.\n\n• Ability to work effectively across cultures and manage relationships with stakeholders across different functions and time zones.\n\n• Analytical mindset, excellent communication and facilitation skills, curiosity, problem-solving abilities, and strong attention to detail.\n\n• Proficiency in English, French and German is essential.\n\n• Demonstrating courage, collaboration, speed and continuous learning.\n\nAt Nestlé, we place people at the heart of everything we do\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Exciting opportunities to develop your career your way, across different brands, businesses, functions, and regions.\n\n• Flexible working arrangements that facilitate creativity and collaboration.\n\n• A culture of respect, with diversity, equity, and inclusion at its core.\n\n• A dynamic international environment empowering you to learn, develop, and grow.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes an interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and help shape a better and healthier world, inspire people to live healthier lives, and deliver impact at a scale and pace that makes a difference.",
+        "en": "Talent Acquisition Partner - Randstad contract for Nestlé — Nestlé, Vevey.\n\nKey details:\n• Location: Vevey, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
         "de": "Standort: Vevey, Schweiz\nArbeitsmodell: Hybrid / Vollzeit 100%\nVertragsart/Dauer: Befristeter Vertrag, 12 Monate via Randstad für Nestlé\nStartdatum: ASAP\n\nSei eine Kraft für das Gute und beschleunige Veränderungen, die das Leben und den Planeten verbessern\n\nAls Talent Acquisition Partner bei Nestlé ist es Ihre Mission, Talente zu identifizieren und zu gewinnen, die Unternehmenswachstum, Innovation und Leistung ermöglichen. Sie werden einen Unterschied machen, indem Sie datengesteuerte Einstellungsstrategien entwerfen, starke Talent-Pipelines aufbauen, Diversitätsinitiativen fördern und eng mit HR Business Partnern zusammenarbeiten, Manager, Kandidaten und externe Partner einstellen. Dies ist Ihre Chance, Einstellungsentscheidungen zu beeinflussen, eine positive Kandidaten- und Stakeholder-Erfahrung zu schaffen und zum Erfolg von Nestlé in der Schweiz beizutragen.\n\nFür diese Rolle sind Kenntnisse in Französisch, Deutsch und Englisch obligatorisch.\n\nWie Sie als Talent Acquisition Partner etwas bewirken\n\n• Führen Sie den gesamten Rekrutierungsprozess, von der Kandidatenattraktion und -auswahl bis hin zu Interviews, Bewertungen und Angebotsmanagement.\n\n• Design und Umsetzung von Sourcing-Strategien, um starke, vielfältige Talent-Pipelines für kritische Rollen aufzubauen.\n\n• Bauen Sie vertrauensvolle Beziehungen zu HRBPs, Einstellungsmanagern und externen Partnern auf, um eine hervorragende Kandidaten- und Stakeholder-Erfahrung zu bieten.\n\n• Nutzen Sie Daten und Marktinformationen, um Einstellungsentscheidungen zu treffen und Rekrutierungstrends in umsetzbare Strategien umzusetzen.\n\n• Tragen Sie zu Strategien zur Talentgewinnung bei und unterstützen Sie aktiv Initiativen in den Bereichen Diversity, Equity und Inklusion.\n\n• Arbeiten Sie nahtlos über Funktionen und Zeitzonen hinweg, um eine konsistente und qualitativ hochwertige Talent Acquisition-Erfahrung zu schaffen.\n\nWas dich erfolgreich macht\n\n• Vorherige In-House- oder Agenturerfahrung im Full-Cycle-Talent Acquisition, mit einem starken Verständnis der Rekrutierung Best Practices.\n\n• Starke Fähigkeiten im Bereich Active Sourcing, Pipeline Building und Marktforschung.\n\n• Fähigkeit, kulturübergreifend effektiv zu arbeiten und Beziehungen zu Stakeholdern über verschiedene Funktionen und Zeitzonen hinweg zu verwalten.\n\n• Analytische Denkweise, ausgezeichnete Kommunikations- und Erleichterungsfähigkeiten, Neugier, Problemlösungsfähigkeiten und starke Liebe zum Detail.\n\n• Kenntnisse in Englisch, Französisch und Deutsch sind unerlässlich.\n\n• Demonstrieren Sie Mut, Zusammenarbeit, Geschwindigkeit und kontinuierliches Lernen.\n\nBei Nestlé stellen wir Menschen in den Mittelpunkt von allem, was wir tun\n\nUnsere Vorteile sind darauf ausgerichtet, Ihr Wachstum und Wohlbefinden zu unterstützen, damit Sie bei der Arbeit und im Leben gedeihen können:\n\n• Spannende Möglichkeiten, um Ihre Karriere auf Ihre Weise zu entwickeln, über verschiedene Marken, Unternehmen, Funktionen und Regionen hinweg.\n\n• Flexible Arbeitsvereinbarungen, die Kreativität und Zusammenarbeit erleichtern.\n\n• Eine Kultur des Respekts, mit Vielfalt, Gerechtigkeit und Inklusion im Mittelpunkt.\n\n• Ein dynamisches internationales Umfeld, in dem Sie lernen, sich entwickeln und wachsen können.\n\nWas Sie von unserem Einstellungsprozess erwarten können\n\nWir verpflichten uns zu einer inklusiven und respektvollen einstellungserfahrung und freuen uns, bei bedarf angemessene unterkünfte zu bieten. Unsere Arbeitsplätze sind vollständig zugänglich und werden von einer starken Sicherheitskultur mit modernen Installationen und Verfahren unterstützt, um eine sichere Umgebung für alle zu gewährleisten.\n\nDer Einstellungsprozess umfasst in der Regel ein Interview mit Talent Acquisition, ein Interview mit dem Einstellungsteam und eine abschließende Diskussion und ein Angebot. Wir überprüfen Bewerbungen, sobald sie eingegangen sind, und schließen die Rolle, sobald eine starke Liste relevanter Kandidaten identifiziert wurde, daher empfehlen wir Ihnen, sich frühzeitig zu bewerben. Alle Informationen werden vertraulich behandelt.\n\nBleiben Sie wachsam: Nestlé wird die Kandidaten nur über offizielle Firmen-E-Mail-Adressen kontaktieren und zu keinem Zeitpunkt des Einstellungsprozesses Zahlungen oder sensible persönliche Informationen verlangen.\n\nBereit, eine Kraft für das Gute zu sein?\n\nBewerben Sie sich jetzt und helfen Sie, eine bessere und gesündere Welt zu gestalten, inspirieren Sie Menschen zu einem gesünderen Leben und liefern Sie Auswirkungen in einem Umfang und Tempo, das einen Unterschied macht.",
         "fr": "Lieu: Vevey, Suisse\nModèle de travail: Hybride / Temps plein 100%\nType de contrat / durée: Contrat temporaire, 12 mois via Randstad pour Nestlé\nDate de début: le plus tôt possible\n\nÊtre une force pour le bien et accélérer le changement qui améliore les vies et la planète\n\nEn tant que partenaire d'acquisition de talents chez Nestlé, votre mission est d'identifier et d'attirer les talents qui favorisent la croissance, l'innovation et la performance des entreprises. Vous ferez une différence en concevant des stratégies d'embauche axées sur les données, en créant de solides pipelines de talents, en défendant les initiatives en matière de diversité et en collaborant étroitement avec les partenaires des RH, les gestionnaires d'embauche, les candidats et les partenaires externes. C'est l'occasion d'influencer les décisions d'embauche, de créer une expérience positive des candidats et des parties prenantes et de contribuer au succès de Nestlé en Suisse.\n\nPour ce rôle, la maîtrise du français, de l'allemand et de l'anglais est obligatoire.\n\nComment vous aurez un impact en tant que Talent Acquisition Partner\n\n• Diriger le processus de recrutement en cycle complet, de l'attraction et de la sélection des candidats à l'entrevue, à l'évaluation et à la gestion des offres.\n\n• Concevoir et exécuter des stratégies d'approvisionnement pour créer des pipelines de talents solides et diversifiés pour les rôles essentiels.\n\n• Établir des relations de confiance avec les HRBP, les gestionnaires d'embauche et les partenaires externes pour offrir une excellente expérience aux candidats et aux intervenants.\n\n• Utiliser les données et les perspectives du marché pour éclairer les décisions d'embauche et traduire les tendances en stratégies concrètes.\n\n• Contribuer aux stratégies d'acquisition de talents et appuyer activement les initiatives en matière de diversité, d'équité et d'inclusion.\n\n• Travailler de façon transparente entre les fonctions et les fuseaux horaires pour créer une expérience d'acquisition de talents cohérente et de haute qualité.\n\nCe qui vous fera réussir\n\n• Expérience antérieure en interne ou en agence en acquisition de talents à cycle complet, avec une bonne compréhension des meilleures pratiques de recrutement.\n\n• Fortes capacités d'approvisionnement actif, de construction de pipelines et d'études de marché.\n\n• Capacité de travailler efficacement à travers les cultures et de gérer les relations avec les intervenants dans différentes fonctions et fuseaux horaires.\n\n• L'état d'esprit analytique, les excellentes compétences en communication et en facilitation, la curiosité, les capacités de résolution de problèmes et une forte attention aux détails.\n\n• La compétence en anglais, en français et en allemand est essentielle.\n\n• Démontrer courage, collaboration, rapidité et apprentissage continu.\n\nChez Nestlé, on place les gens au cœur de tout ce qu'on fait\n\nNos avantages sont conçus pour soutenir votre croissance et votre bien-être, afin que vous puissiez prospérer au travail et dans la vie:\n\n• Des occasions passionnantes de développer votre carrière à votre manière, entre différentes marques, entreprises, fonctions et régions.\n\n• Des modalités de travail flexibles qui facilitent la créativité et la collaboration.\n\n• Une culture de respect, avec diversité, équité et inclusion au cœur.\n\n• Un environnement international dynamique vous permettant d'apprendre, de se développer et de grandir.\n\nÀ quoi s'attendre de notre processus d'embauche\n\nNous sommes déterminés à offrir une expérience d'embauche inclusive et respectueuse et sommes heureux de fournir des mesures d'adaptation raisonnables au besoin. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de sécurité, avec des installations et des procédures modernes pour assurer un environnement sûr pour tous.\n\nLe processus d'embauche comprend habituellement une entrevue avec Talent Acquisition, une entrevue avec l'équipe d'embauche et une discussion et une offre finales. Nous examinons les candidatures reçues et clôturons le rôle une fois qu'une liste solide de candidats pertinents a été établie. Nous vous encourageons donc à présenter votre candidature tôt. Toutes les informations sont traitées de manière confidentielle.\n\nRestez vigilant : Nestlé ne communiquera qu'avec les candidats par l'intermédiaire des adresses courriel officielles de l'entreprise et ne demandera jamais de paiements ou de renseignements personnels sensibles à aucune étape du processus d'embauche.\n\nPrêt à être une force pour le bien?\n\nAppliquez dès maintenant et aidez à façonner un monde meilleur et plus sain, inspirez les gens à vivre une vie plus saine et produisez un impact à une échelle et à un rythme qui fait la différence."
       },
@@ -3966,7 +4091,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Talent-Acquisition-Partner-Randstad-contract-for-Nestl%C3%A9/1281784801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:16.966Z",
+      "crawledAt": "2026-08-21T21:56:19.891Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -3997,7 +4122,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:54.812Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4043,7 +4167,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sous-Chef/1409872133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:16.287Z",
+      "crawledAt": "2026-08-21T21:55:49.318Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4089,68 +4213,6 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1419813033",
-      "slug": "nestep-talent-acquisition-analytics-operations-nestle-ch",
-      "slugByLocale": {
-        "it": "nestep-talent-acquisition-analytics-operations-nestle-ch",
-        "en": "nestep-talent-acquisition-analytics-operations-nestle-ch",
-        "de": "nestep-talent-acquisition-analytics-operations-nestle-ch",
-        "fr": "nestep-analyse-et-exploitation-d-acquisition-de-talents-nestle-vevey-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "NeStep - Talent Acquisition Analytics & Operations",
-      "titleByLocale": {
-        "it": "NeStep - Talent Acquisition Analytics & Operations",
-        "en": "NeStep - Talent Acquisition Analytics & Operations",
-        "de": "NeStep - Talent Acquisition Analytics & Operations",
-        "fr": "NeStep - Analyse et exploitation d'acquisition de talents"
-      },
-      "description": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey.\n\nKey details:\n• Location: Vevey, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey, CH.\n\nDettagli chiave:\n• Ubicazione: Vevey, CH, Canton VD, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale carriera Nestlé\n\nQuesto elenco fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto di squadra, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
-        "en": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey.\n\nKey details:\n• Location: Vevey, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "NeStep - Talent Acquisition Analytics & Operations - Nestlé, Vevey, CH.\n\nWichtigste Angaben:\n• Standort: Vevey, CH, VD Kanton, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal\n\nDiese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
-        "fr": "NeStep - Talent Acquisition Analytics & Operations — Nestlé, Vevey, CH.\n\nPrincipaux détails:\n• Lieu: Vevey, CH, VD canton, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé\n\nCette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement pendant que le portail officiel des carrières maintient la demande active."
-      },
-      "location": "Vevey",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-Acquisition-Analytics-&-Operations/1419813033/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:15.657Z",
-      "addressLocality": "Vevey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-Acquisition-Analytics-&-Operations/1419813033/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-28T22:36:52.274Z",
-      "salaryMin": 68000,
-      "salaryMax": 92000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 92000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
-    },
-    {
       "id": "nestle-1411944733",
       "slug": "technicien-senior-pilot-plant-technologies-laitieres-et-procedes-alimentaires-nestle",
       "slugByLocale": {
@@ -4181,7 +4243,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Technicien-Senior-Pilot-Plant-Technologies-laiti%C3%A8res-et-proc%C3%A9d%C3%A9s-alimentaires-Nestl%C3%A9-Research/1411944733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:14.980Z",
+      "crawledAt": "2026-08-21T21:55:48.515Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4243,7 +4305,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Packaging-Senior-Specialist-Global-Research-and-Development-Expert-for-PET-%28Polyethylene-Terephtha/1412799633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:14.274Z",
+      "crawledAt": "2026-08-21T21:55:47.707Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -4321,7 +4383,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Group-Manager-Packaging-Liquid/1419061633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:13.607Z",
+      "crawledAt": "2026-08-21T21:55:46.862Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4353,7 +4415,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:45:37.780Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4367,81 +4428,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "nestle-1411925733",
-      "slug": "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch",
-      "slugByLocale": {
-        "it": "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch",
-        "en": "chef-de-partie-cook-nestle-research-nestle-ch",
-        "de": "chef-de-partie-cook-nestle-forschung-nestle-lausanne-ch",
-        "fr": "chef-de-partie-cook-nestle-research-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Chef de Partie / Cook - Nestlé Research",
-      "titleByLocale": {
-        "it": "Chef de Partie / Cook - Nestlé Ricerca",
-        "en": "Chef de Partie / Cook - Nestlé Research",
-        "de": "Chef de Partie / Cook - Nestlé Forschung",
-        "fr": "Chef de Partie / Cook - Nestlé Research"
-      },
-      "description": "Location: Vers-chez-les-Blanc, Switzerland\nWork model: Office-based / Full time\nContract type / duration: Limited contract – 12 months\n\nShape the future through scientific breakthroughs and innovation.\n\nAs a Chef de Partie / Cook at Nestlé Research, your mission is to deliver high-quality food preparation and service within your assigned kitchen section, ensuring consistency, efficiency, hygiene, and excellent standards every day. You’ll make a difference by collaborating closely with the Sous Chef, Head Chef, kitchen team, apprentices, and the wider Food and Beverage community. This is your opportunity to turn ideas into sustainable and innovative solutions for people, pets, and the planet.\n\nHow you’ll make an impact as a Chef de Partie / Cook\n\n• Delivering consistent, high-quality dishes that meet recipe standards, presentation expectations, and portioning guidelines.\n\n• Ensuring smooth service execution by preparing your station efficiently and staying ready throughout service periods.\n\n• Maintaining excellent food safety and hygiene standards through disciplined, clean, and organized daily practices.\n\n• Optimizing ingredients, stock planning, and ordering to reduce waste, respect budgets, and support operational needs.\n\n• Contributing ideas for menu development and kitchen improvements that enhance quality, efficiency, and customer experience.\n\n• Supporting colleagues, apprentices, events, and cross-team activities with reliability, professionalism, and a strong team mindset.\n\nWhat will make you successful\n\n• Bringing at least 6 years of professional kitchen experience in fine dining or luxury environments, with exposure to high-volume operations and banqueting.\n\n• Applying solid food safety, hygiene, and workstation organization practices in a fast-paced kitchen environment.\n\n• Using time management, cost awareness, stock anticipation, and waste reduction practices to support efficient operations.\n\n• Collaborating with a positive, hands-on, and reliable approach while supporting knowledge sharing with junior team members.\n\n• Communicating fluently in French; good command of English.\n\n• Bringing collaboration, fresh thinking, bold questions, respect, and a positive, wellbeing-oriented mindset.\n\nAt Nestlé Research, we place people at the core of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to #BreakthroughTogether?\n\nApply now and shape the future through scientific breakthroughs and innovation.",
-      "descriptionByLocale": {
-        "it": "Ubicazione: Vers-chez-les-Blanc, Svizzera\nModello di lavoro: Office-based / A tempo pieno\nTipo di contratto / durata: Contratto limitato – 12 mesi\n\nFormare il futuro attraverso scoperte scientifiche e innovazione.\n\nCome Chef de Partie / Cook alla Nestlé Research, la vostra missione è quella di fornire una preparazione e un servizio di alta qualità all'interno della vostra sezione cucina assegnata, garantendo coerenza, efficienza, igiene e standard eccellenti ogni giorno. Potrai fare la differenza collaborando a stretto contatto con il Sous Chef, Head Chef, team di cucina, apprendisti e la più ampia comunità Food and Beverage. Questa è la vostra occasione per trasformare le idee in soluzioni sostenibili e innovative per persone, animali domestici e il pianeta.\n\nCome farete un impatto come Chef de Partie / Cook\n\n• Fornire piatti coerenti e di alta qualità che soddisfano gli standard di ricetta, le aspettative di presentazione e le linee guida di porzionatura.\n\n• Assicurare l'esecuzione del servizio regolare preparando la vostra stazione in modo efficiente e rimanendo pronti durante i periodi di servizio.\n\n• Mantenere eccellenti standard di sicurezza e igiene alimentare attraverso pratiche quotidiane disciplinate, pulite e organizzate.\n\n• Ottimizzare gli ingredienti, la pianificazione delle scorte e l'ordine di ridurre i rifiuti, rispettare i budget e sostenere le esigenze operative.\n\n• Contribuire idee per lo sviluppo del menu e miglioramenti della cucina che migliorano la qualità, l'efficienza e l'esperienza del cliente.\n\n• Sostenere colleghi, apprendisti, eventi e attività di cross-team con affidabilità, professionalità e una forte mentalità di squadra.\n\nChe cosa vi farà successo\n\n• Portando almeno 6 anni di esperienza professionale di cucina in ambienti raffinati o di lusso, con esposizione a operazioni ad alto volume e banchetti.\n\n• Applicare la sicurezza alimentare solida, l'igiene e le pratiche di organizzazione workstation in un ambiente cucina veloce.\n\n• Utilizzando la gestione del tempo, la consapevolezza dei costi, l'anticipazione delle scorte e le pratiche di riduzione dei rifiuti per supportare operazioni efficienti.\n\n• Collaborando con un approccio positivo, pratico e affidabile, supportando la condivisione delle conoscenze con i membri del team junior.\n\n• Comunicare fluentemente in francese; buon comando dell'inglese.\n\n• Portare la collaborazione, il pensiero fresco, domande audaci, il rispetto e una mentalità positiva e orientata al benessere.\n\nA Nestlé Research, mettiamo le persone al centro di tutto ciò che facciamo.\n\nI nostri vantaggi sono progettati per sostenere la crescita e il benessere, in modo da poter prosperare sul lavoro e nella vita:\n\n• Vacanze pagate oltre i requisiti legali\n\n• Opportunità di apprendimento e sviluppo per crescere la tua carriera\n\n• Bonus basato sulle prestazioni\n\n• Contributo sanitario e accesso al programma di assistenza ai dipendenti\n\n• Forte contributo del datore di lavoro al vostro piano pensionistico\n\n• Generoso congedo parentale e soluzioni complete di supporto familiare\n\n• Sconti interessanti dei dipendenti su vari prodotti e servizi\n\nCosa aspettarsi dal nostro processo di assunzione\n\nSiamo impegnati a un'esperienza di assunzione inclusiva e rispettosa e siamo lieti di fornire alloggi ragionevoli, se necessario. I nostri luoghi di lavoro sono pienamente accessibili e supportati da una forte cultura della sicurezza, con installazioni e procedure moderne per garantire un ambiente sicuro per tutti.\n\nIl processo di assunzione include tipicamente un video intervista con Talent Acquisition, un'intervista con il team di assunzione, e una discussione finale e offerta. Rivediamo le domande come vengono ricevute e chiudiamo il ruolo una volta che un forte elenco di candidati pertinenti è identificato, in modo da incoraggiarvi ad applicare presto. Tutte le informazioni sono trattate con riservatezza.\n\nRimanere vigili: Nestlé contatterà i candidati solo tramite gli indirizzi e-mail ufficiali della società e non chiederà mai pagamenti o informazioni personali sensibili in qualsiasi fase del processo di assunzione.\n\nPronto a #BreakthroughTogether?\n\nApplicare ora e plasmare il futuro attraverso scoperte scientifiche e innovazione.",
-        "en": "Location: Vers-chez-les-Blanc, Switzerland\nWork model: Office-based / Full time\nContract type / duration: Limited contract – 12 months\n\nShape the future through scientific breakthroughs and innovation.\n\nAs a Chef de Partie / Cook at Nestlé Research, your mission is to deliver high-quality food preparation and service within your assigned kitchen section, ensuring consistency, efficiency, hygiene, and excellent standards every day. You’ll make a difference by collaborating closely with the Sous Chef, Head Chef, kitchen team, apprentices, and the wider Food and Beverage community. This is your opportunity to turn ideas into sustainable and innovative solutions for people, pets, and the planet.\n\nHow you’ll make an impact as a Chef de Partie / Cook\n\n• Delivering consistent, high-quality dishes that meet recipe standards, presentation expectations, and portioning guidelines.\n\n• Ensuring smooth service execution by preparing your station efficiently and staying ready throughout service periods.\n\n• Maintaining excellent food safety and hygiene standards through disciplined, clean, and organized daily practices.\n\n• Optimizing ingredients, stock planning, and ordering to reduce waste, respect budgets, and support operational needs.\n\n• Contributing ideas for menu development and kitchen improvements that enhance quality, efficiency, and customer experience.\n\n• Supporting colleagues, apprentices, events, and cross-team activities with reliability, professionalism, and a strong team mindset.\n\nWhat will make you successful\n\n• Bringing at least 6 years of professional kitchen experience in fine dining or luxury environments, with exposure to high-volume operations and banqueting.\n\n• Applying solid food safety, hygiene, and workstation organization practices in a fast-paced kitchen environment.\n\n• Using time management, cost awareness, stock anticipation, and waste reduction practices to support efficient operations.\n\n• Collaborating with a positive, hands-on, and reliable approach while supporting knowledge sharing with junior team members.\n\n• Communicating fluently in French; good command of English.\n\n• Bringing collaboration, fresh thinking, bold questions, respect, and a positive, wellbeing-oriented mindset.\n\nAt Nestlé Research, we place people at the core of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to #BreakthroughTogether?\n\nApply now and shape the future through scientific breakthroughs and innovation.",
-        "de": "Standort: Vers-chez-les-Blanc, Schweiz\nArbeitsmodell: Office-basiert / Vollzeit\nVertragsart/Dauer: Beschränkter Vertrag – 12 Monate\n\nGestalten Sie die Zukunft durch wissenschaftliche Durchbrüche und Innovationen.\n\nAls Chef de Partie / Cook bei Nestlé Research ist es Ihre Mission, qualitativ hochwertige Lebensmittelzubereitung und -service in Ihrem zugewiesenen Küchenbereich zu liefern und jeden Tag Konsistenz, Effizienz, Hygiene und hervorragende Standards zu gewährleisten. Sie werden einen Unterschied machen, indem Sie eng mit dem Sous Chef, Chefkoch, Küchenteam, Auszubildenden und der breiteren Food and Beverage Community zusammenarbeiten. Dies ist Ihre Chance, Ideen in nachhaltige und innovative Lösungen für Menschen, Haustiere und den Planeten zu verwandeln.\n\nWie Sie als Chef de Partie / Cook etwas bewirken werden\n\n• Liefern Sie konsistente, hochwertige Gerichte, die Rezeptstandards, Präsentationserwartungen und Portionierungsrichtlinien erfüllen.\n\n• Gewährleistung einer reibungslosen Serviceausführung, indem Sie Ihre Station effizient vorbereiten und während der gesamten Servicezeiten bereit bleiben.\n\n• Die Aufrechterhaltung exzellenter Lebensmittelsicherheits- und Hygienestandards durch disziplinierte, saubere und organisierte tägliche Praktiken.\n\n• Optimierung von Zutaten, Lagerplanung und Bestellung, um Abfälle zu reduzieren, Budgets zu respektieren und betriebliche Anforderungen zu unterstützen.\n\n• Mit Ideen für Menüentwicklung und Küchenverbesserungen, die Qualität, Effizienz und Kundenerfahrung verbessern.\n\n• Unterstützung von Kollegen, Auszubildenden, Events und teamübergreifenden Aktivitäten mit Zuverlässigkeit, Professionalität und einer starken Teammentalität.\n\nWas dich erfolgreich macht\n\n• Bringen Sie mindestens 6 Jahre professionelle Küchenerfahrung in feinen Restaurants oder Luxusumgebungen mit, mit Exposition gegenüber hochvolumigen Operationen und Bankett.\n\n• Anwendung solider Lebensmittelsicherheits-, Hygiene- und Arbeitsplatzorganisationspraktiken in einer schnelllebigen Küchenumgebung.\n\n• Nutzung von Zeitmanagement, Kostenbewusstsein, Bestandsvorausschätzung und Abfallreduzierungspraktiken zur Unterstützung effizienter Abläufe.\n\n• Zusammenarbeit mit einem positiven, praktischen und zuverlässigen Ansatz und Unterstützung des Wissensaustauschs mit Junior-Teammitgliedern.\n\n• Fließend Französisch kommunizieren; gute Englischkenntnisse.\n\n• Zusammenarbeit, frisches Denken, mutige Fragen, Respekt und eine positive, auf Wohlbefinden ausgerichtete Denkweise.\n\nBei Nestlé Research stellen wir Menschen in den Mittelpunkt von allem, was wir tun.\n\nUnsere Vorteile sind darauf ausgerichtet, Ihr Wachstum und Wohlbefinden zu unterstützen, damit Sie bei der Arbeit und im Leben gedeihen können:\n\n• Bezahlter Urlaub über die gesetzlichen Anforderungen hinaus\n\n• Lern- und Entwicklungsmöglichkeiten, um Ihre Karriere zu erweitern\n\n• Leistungsbasierter Bonus\n\n• Gesundheitsbeitrag und Zugang zum Employee Assistance Program\n\n• Starker Arbeitgeberbeitrag zu Ihrem Pensionsplan\n\n• Großzügiger Elternurlaub und umfassende Familienunterstützungslösungen\n\n• Attraktive Mitarbeiterrabatte für verschiedene Produkte und Dienstleistungen\n\nWas Sie von unserem Einstellungsprozess erwarten können\n\nWir verpflichten uns zu einer inklusiven und respektvollen einstellungserfahrung und freuen uns, bei bedarf angemessene unterkünfte zu bieten. Unsere Arbeitsplätze sind vollständig zugänglich und werden von einer starken Sicherheitskultur mit modernen Installationen und Verfahren unterstützt, um eine sichere Umgebung für alle zu gewährleisten.\n\nDer Einstellungsprozess umfasst in der Regel ein Videointerview mit Talent Acquisition, ein Interview mit dem Einstellungsteam und eine abschließende Diskussion und ein Angebot. Wir überprüfen Bewerbungen, sobald sie eingegangen sind, und schließen die Rolle, sobald eine starke Liste relevanter Kandidaten identifiziert wurde, daher empfehlen wir Ihnen, sich frühzeitig zu bewerben. Alle Informationen werden vertraulich behandelt.\n\nBleiben Sie wachsam: Nestlé wird Kandidaten nur über offizielle Firmen-E-Mail-Adressen kontaktieren und wird zu keinem Zeitpunkt des Einstellungsprozesses Zahlungen oder sensible persönliche Informationen verlangen.\n\nBereit für #BreakthroughTogether?\n\nBewerben Sie sich jetzt und gestalten Sie die Zukunft durch wissenschaftliche Durchbrüche und Innovationen.",
-        "fr": "Lieu: Vers-chez-les-Blanc, Suisse\nModèle de travail : Bureau / Temps plein\nType / durée du contrat: Contrat limité – 12 mois\n\nFaçonner l'avenir par des percées scientifiques et l'innovation.\n\nEn tant que Chef de Partie / Cook chez Nestlé Research, votre mission est de fournir une préparation et un service alimentaires de haute qualité dans votre section de cuisine, assurant la cohérence, l'efficacité, l'hygiène et d'excellents standards chaque jour. Vous ferez une différence en collaborant étroitement avec le Chef Sous, Chef Chef, équipe de cuisine, apprentis, et l'ensemble de la communauté des aliments et boissons. C'est l'occasion de transformer les idées en solutions durables et innovantes pour les gens, les animaux de compagnie et la planète.\n\nComment vous allez faire un impact en tant que Chef de Partie / Cook\n\n• Fournir des plats cohérents et de haute qualité qui répondent aux normes de recettes, aux attentes en matière de présentation et aux lignes directrices de portionnement.\n\n• Assurer la bonne exécution du service en préparant votre station efficacement et en restant prêt tout au long des périodes de service.\n\n• Maintenir d'excellentes normes de sécurité alimentaire et d'hygiène grâce à des pratiques quotidiennes disciplinées, propres et organisées.\n\n• Optimiser les ingrédients, la planification des stocks et l'ordre pour réduire les déchets, respecter les budgets et répondre aux besoins opérationnels.\n\n• Contribuer aux idées de développement de menus et d'améliorations de cuisine qui améliorent la qualité, l'efficacité et l'expérience client.\n\n• Soutenir les collègues, les apprentis, les événements et les activités inter-équipes avec fiabilité, professionnalisme et une solide mentalité d'équipe.\n\nCe qui vous fera réussir\n\n• Apportant au moins 6 ans d'expérience de cuisine professionnelle dans des environnements gastronomiques ou de luxe, avec une exposition à des opérations de grand volume et banquet.\n\n• Appliquer des pratiques solides en matière de sécurité alimentaire, d'hygiène et d'organisation des postes de travail dans un environnement de cuisine rapide.\n\n• Utiliser la gestion du temps, la sensibilisation aux coûts, l'anticipation des stocks et les pratiques de réduction des déchets pour soutenir des opérations efficaces.\n\n• Collaborer avec une approche positive, pratique et fiable tout en appuyant le partage des connaissances avec les membres de l'équipe junior.\n\n• Communiquer couramment en français; bonne maîtrise de l'anglais.\n\n• Apporter la collaboration, la pensée nouvelle, les questions audacieuses, le respect et un état d'esprit positif et axé sur le bien-être.\n\nÀ Nestlé Research, nous plaçons les gens au cœur de tout ce que nous faisons.\n\nNos avantages sont conçus pour soutenir votre croissance et votre bien-être, afin que vous puissiez prospérer au travail et dans la vie:\n\n• Jours fériés payés au-delà des exigences légales\n\n• Possibilités d'apprentissage et de perfectionnement pour développer votre carrière\n\n• Prime fondée sur les performances\n\n• Contribution en soins de santé et accès au Programme d'aide aux employés\n\n• Une forte contribution de l'employeur à votre régime de retraite\n\n• Un congé parental généreux et des solutions globales de soutien familial\n\n• Réductions attrayantes pour les employés pour divers produits et services\n\nÀ quoi s'attendre de notre processus d'embauche\n\nNous nous engageons à offrir une expérience d'embauche inclusive et respectueuse et sommes heureux de fournir des mesures d'adaptation raisonnables au besoin. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de sécurité, avec des installations et des procédures modernes pour assurer un environnement sûr pour tous.\n\nLe processus d'embauche comprend généralement une entrevue vidéo avec Talent Acquisition, une entrevue avec l'équipe d'embauche et une discussion et une offre finales. Nous examinons les candidatures reçues et clôturons le rôle une fois qu'une liste solide de candidats pertinents a été établie. Nous vous encourageons donc à présenter votre candidature tôt. Toutes les informations sont traitées de façon confidentielle.\n\nRestez vigilant : Nestlé communiquera uniquement avec les candidats par l'intermédiaire des adresses électroniques officielles de l'entreprise et ne demandera jamais de paiements ou de renseignements personnels sensibles à n'importe quelle étape du processus d'embauche.\n\nPrêt à #BreakthroughTogether ?\n\nAppliquer maintenant et façonner l'avenir par des percées scientifiques et l'innovation."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Lausanne-Chef-de-Partie-Cook-Nestl%C3%A9-Research/1411925733/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:12.950Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Chef-de-Partie-Cook-Nestl%C3%A9-Research/1411925733/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-de-partie-cook-nestle-research-nestle-ch",
-        "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-partie-cook-nestle-research-nestle-ch",
-          "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
-        ],
-        "de": [
-          "chef-de-partie-cook-nestle-research-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-13T22:46:27.739Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
     },
     {
       "id": "nestle-1419531533",
@@ -4474,7 +4460,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Specialist-Applied-Mathematics-&-Digital-Biology/1419531533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:12.276Z",
+      "crawledAt": "2026-08-21T21:55:46.058Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4518,8 +4504,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "nestle-1388870033",
@@ -4552,7 +4537,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien_ne-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:11.567Z",
+      "crawledAt": "2026-08-21T21:55:45.259Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -4622,7 +4607,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:10.897Z",
+      "crawledAt": "2026-08-21T21:55:44.465Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -4693,7 +4678,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T10:10:10.213Z",
+      "crawledAt": "2026-08-21T21:55:43.626Z",
       "addressLocality": "Romont",
       "addressCountry": "CH",
       "country": "CH",
@@ -4751,7 +4736,6 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:23.920Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4797,7 +4781,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Aussendienstmitarbeiterin-HORECA-Nestl%C3%A9-Waters/1413813233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:09.543Z",
+      "crawledAt": "2026-08-21T21:55:42.795Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -4872,7 +4856,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Ma%C3%AEtre-d'H%C3%B4tel/1423318433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:08.881Z",
+      "crawledAt": "2026-08-21T21:55:41.982Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4934,7 +4918,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-EngineerSenior-R&D-Specialist-Systems-Innovation/1416630333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:08.236Z",
+      "crawledAt": "2026-08-21T21:55:41.147Z",
       "addressLocality": "Orbe",
       "addressCountry": "CH",
       "country": "CH",
@@ -5011,7 +4995,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-NeStep-Talent-in-Clinical-Research/1419308733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:07.547Z",
+      "crawledAt": "2026-08-21T21:55:40.334Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5088,7 +5072,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Marketing-Operations-Strategy-Lead/1412082233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:06.878Z",
+      "crawledAt": "2026-08-21T21:55:39.534Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -5150,7 +5134,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-InstandhalterIn-Mechanik/1407536233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:06.184Z",
+      "crawledAt": "2026-08-21T21:55:38.720Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5227,7 +5211,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Specialist-Protein/1410105333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:05.467Z",
+      "crawledAt": "2026-08-21T21:55:37.905Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5259,7 +5243,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:47:53.827Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -5291,7 +5274,7 @@
         "it": "NeStep en Diseño Excelencia",
         "en": "NeStep Talent in Design Excellence",
         "de": "NeStep5 in Design Excellence",
-        "fr": "NeStep Talent in Design Excellence"
+        "fr": "NeStep Talent dans l'excellence en design"
       },
       "description": "Location: Switzerland\nWork model: Hybrid\nContract type / duration: NeStep Program – 12 months\n\nStart date: September 2026\n\nBe a force for good and take your NeStep with Nestlé\n\nNeStep is a unique 12-month immersive experience at Nestlé in Switzerland for fresh graduates who want to learn fast, grow with purpose and make an impact. From day one, you spend at least half of your time owning one meaningful project, combined with structured learning and continuous mentoring.\n\nAs a NeStep Talent in Design Excellence at Nestlé, your mission is to help shape a clear, engaging guideline ecosystem that supports how Design Excellence is shared and applied across all our brand teams and partners. You will make a difference by collaborating closely with the Global Design team, agency partners, and NBS Design Solutions, to support the understanding of Design. This is your opportunity to make an impact while gaining hands on experience and mentorship to kick-start your career.\n\nHow you’ll make an impact as a NeStep Talent in Design Excellence\n\n• Support the Global Design team in creating and adapting design-related guidance and training materials, adhering to brand identity and visual guidelines used by marketing teams and agency partners.\n\n• Collaborating with design, marketing and agency stakeholders to bring practical design guidance to life.\n\n• Support in orchestrating and preparing the sharing and internal/external communication of inspiring brand identity and strategic design initiatives for our design community.\n\n• Adapting visual assets and guide adaptation of our internal training materials, ensuring they are visually consistent.\n\n• Collaborate with our design agency partner to ensure up-to date case studies and best practice are available on our internal Design Excellence platform.\n\nWhat will make you successful\n\n• Being a recent graduate in Graphic Design, Communication Design, or a related field\n\n• Interest and first exposure to the fundamentals of Branding, brand Identity and Brand Design\n\n• Portfolio showcasing a range of design projects is highly desirable\n\n• Conceptual thinking and visual storytelling skills, attention to detail, strong sense of Brand Design\n\n• Ability to work independently as well as collaboratively with diverse stakeholders\n\n• Proficiency in using Adobe Creative Suite (especially Illustrator, Photoshop, InDesign) & Microsoft Office Suite (especially PowerPoint)\n\n• High level of fluency in both spoken and written English\n\n• Being curious, agile, adaptable and open to feedback; fluency or strong interest in AI tools is a plus.\n\nEligibility criteria\n\n• Being a recent graduate from a Swiss higher education institution (bachelor's or master's degree completed within last 12 months).\n\n• Swiss nationals, EU/EFTA nationals, or C permit holders only.\n\nAt Nestlé, we place people at the heart of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Flexible working options, including hybrid work possibilities (for office-based roles)\n\n• Learning and development opportunities, including mentoring and coaching\n\n• Paid holidays beyond legal requirements\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Attractive employee discounts across various products and services\n\n• Potential reward for outstanding contribution\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team,",
       "descriptionByLocale": {
@@ -5305,7 +5288,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-Design-Excellence/1413816833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:04.767Z",
+      "crawledAt": "2026-08-21T21:55:37.050Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -5382,7 +5365,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Bioprocess-Engineer-Pilot-Plant-%28Fermentation-&-DSP%29-Nestl%C3%A9-Research/1423996733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:04.092Z",
+      "crawledAt": "2026-08-21T21:55:36.243Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5459,7 +5442,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Digital-Food-Safety-Early-Warning-Specialist/1411239433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:03.423Z",
+      "crawledAt": "2026-08-21T21:55:35.440Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5536,7 +5519,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Regionaler-Verkaufsleiter-Ostschweiz-Nestl%C3%A9-Waters/1416601633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:10:02.732Z",
+      "crawledAt": "2026-08-21T21:55:34.580Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -5568,7 +5551,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:36:51.468Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "baseSalary": {
@@ -5614,7 +5596,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Category-Development-Specialist-Nestl%C3%A9-Waters/1416621333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:02.049Z",
+      "crawledAt": "2026-08-21T21:55:33.743Z",
       "addressLocality": "Henniez",
       "addressCountry": "CH",
       "country": "CH",
@@ -5691,7 +5673,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Neurodevelopment/1419036733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:01.355Z",
+      "crawledAt": "2026-08-21T21:55:32.870Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5756,7 +5738,7 @@
         "it": "Senior Nutrition & Health Assistant",
         "en": "Senior Nutrition & Health Administrative Assistant",
         "de": "Senior Nutrition & Health Administrative Assistent",
-        "fr": "Senior Nutrition & Health Administrative Assistant"
+        "fr": "Assistant administratif principal en nutrition et en santé"
       },
       "description": "Location: Konolfingen, Lausanne or Vevey with flexibility to commute to the other sites (2-4 times/month)\nWork model: On site / Hybrid\n\nActivity rate: 80% -100%\nContract type / duration: Permanent Contract\n\nBe a force for good and accelerate change that improves lives and the planet.\n\nAs a Senior NPTC Nutrition & Health Administrative Assistant at Nestlé Product Technology Centre, your mission will be to maximize the effectiveness of the R&D Centre Head and leadership team by acting as a trusted support partner in a high-exposure position.\n\nYou will play a pivotal role in enabling senior leaders to operate effectively across a complex, multi-site R&D environment, and will bring strong judgment, anticipation, prioritization and stakeholder management skills, while coordinating sensitive operational topics with autonomy and discretion.\n\nHow you’ll make an impact as a Senior NPTC Nutrition & Health Administrative Assistant\n\n• Act as a trusted support partner to the NPTC Head and Leadership Team, enabling strategic focus and effective decision-making.\n\n• Manage complex calendars, priorities and schedules, anticipating conflicts and ensuring timely preparation and follow-up.\n\n• Prepare agendas, minutes, action tracking and key documents with accuracy, structure and confidentiality.\n\n• Coordinate collaboration and information flow across Vevey, Konolfingen and other NPTC units.\n\n• Organize leadership meetings, site events and complex workshops, including logistics, content and follow-up.\n\n• Maintain SharePoint and intranet content, ensuring accurate and accessible information.\n\n• Review and enhance presentations, documents and leadership communications for clarity and impact.\n\n• Handle sensitive information with sound judgment, professionalism and discretion.\n\n• Support newcomer onboarding and communication to help them navigate the organization.\n\n• Provide autonomous support on audits, reporting, follow-ups and ad hoc operational priorities.\n\nWhat will make you successful\n\n• Solid experience in a senior administrative, executive assistant, coordination or project support role within an international, matrixed and fast-moving organization.\n\n• Strong ability to manage complexity, anticipate needs, prioritize competing demands and keep senior stakeholders aligned and informed.\n\n• Proficiency with Microsoft Office tools, especially Outlook, PowerPoint, Excel and Teams, with confidence in preparing high-quality documents, presentations and simple data follow-ups.\n\n• Excellent communication skills in English, with the ability to adapt messages for different senior stakeholders; French and/or German would be an asset in this multi-site environment.\n\n• A proactive, resilient and solutions-oriented mindset, demonstrating courage, collaboration, speed and continuous learning.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and accelerate change that improves lives and the planet.",
       "descriptionByLocale": {
@@ -5770,7 +5752,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Nutrition-&-Health-Administrative-Assistant/1411701033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:10:00.652Z",
+      "crawledAt": "2026-08-21T21:55:32.039Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5831,7 +5813,7 @@
       "titleByLocale": {
         "it": "Laborant:in CFC Chemie (m/w/d)",
         "en": "Laborant:in EFZ Chemie (m/w/d)",
-        "de": "Laborant:in EFZ Chemie (m/w/d)",
+        "de": "Laborant: in EFZ Chemie (m/w/d)",
         "fr": "Travailleur:dans EFZ Chemie (m/w/d)"
       },
       "description": "Laborant:in EFZ Chemie (m/w/d) — Nestlé, Konolfingen.\n\nKey details:\n• Location: Konolfingen, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -5846,7 +5828,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-EFZ-Chemie-%28mwd%29/1411208033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:59.953Z",
+      "crawledAt": "2026-08-21T21:55:31.224Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5931,7 +5913,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Specialist-Metabolic-Health-Hormone-Regulation/1417371033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:59.287Z",
+      "crawledAt": "2026-08-21T21:55:30.332Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6008,7 +5990,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Scientific-Data-Product-Manager-Nestl%C3%A9-Research/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:58.641Z",
+      "crawledAt": "2026-08-21T21:55:29.517Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6076,7 +6058,7 @@
       "titleByLocale": {
         "it": "Operatore/trice di Linea di Produzione 100%",
         "en": "Anlagenführer:in Produktion 100%",
-        "de": "Anlagenführer:in Produktion 100%",
+        "de": "Anlagenführer: in Produktion 100%",
         "fr": "Opérateur/trice de Production 100%"
       },
       "description": "Anlagenführer:in Produktion 100% — Nestlé, Konolfingen.\n\nKey details:\n• Location: Konolfingen, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -6091,7 +6073,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:57.959Z",
+      "crawledAt": "2026-08-21T21:55:28.683Z",
       "addressLocality": "Konolfingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6166,7 +6148,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Group-Statutory-Reporting-Supervisor/1427420433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:57.257Z",
+      "crawledAt": "2026-08-21T21:55:27.855Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -6243,7 +6225,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Litigation-Lead/1409743033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:55.881Z",
+      "crawledAt": "2026-08-21T21:55:26.188Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -6319,7 +6301,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Performance-Acceleration-Senior-Analyst-Nestl%C3%A9-Operations/1417119033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:55.219Z",
+      "crawledAt": "2026-08-21T21:55:25.345Z",
       "addressLocality": "Vevey",
       "addressCountry": "CH",
       "country": "CH",
@@ -6394,7 +6376,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:09:54.565Z",
+      "crawledAt": "2026-08-21T21:55:24.546Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -6426,7 +6408,6 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:40.419Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -6442,93 +6423,80 @@
       "addressRegion": "VD"
     },
     {
-      "id": "nestle-1425644133",
-      "slug": "packaging-materials-tirocinante-nestle-lausanne-ch",
+      "id": "nestle-1411925733",
+      "slug": "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch",
       "slugByLocale": {
-        "it": "packaging-materials-tirocinante-nestle-lausanne-ch",
-        "en": "packaging-materials-intern-nestle-ch",
-        "de": "packaging-materials-praktikant-nestle-lausanne-ch",
-        "fr": "packaging-materials-stagiaire-nestle-lausanne-ch"
+        "it": "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch",
+        "en": "chef-de-partie-cook-nestle-research-nestle-ch",
+        "de": "chef-de-partie-cook-nestle-forschung-nestle-lausanne-ch",
+        "fr": "chef-de-partie-cook-nestle-research-nestle-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
       "companyDomain": "nestle.com",
-      "title": "Packaging Materials Intern",
+      "title": "Chef de Partie / Cook - Nestlé Research",
       "titleByLocale": {
-        "it": "Packaging Materials Tirocinante",
-        "en": "Packaging Materials Intern",
-        "de": "Packaging Materials Praktikant",
-        "fr": "Packaging Materials Stagiaire"
+        "it": "Chef de Partie / Cook - Nestlé Ricerca",
+        "en": "Chef de Partie / Cook - Nestlé Research",
+        "de": "Chef de Partie / Cook - Nestlé Forschung",
+        "fr": "Chef de Partie / Cook - Nestlé Research"
       },
-      "description": "Packaging Materials Intern — Nestlé, Lausanne.\n\nKey details:\n• Location: Lausanne, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "description": "Location: Vers-chez-les-Blanc, Switzerland\nWork model: Office-based / Full time\nContract type / duration: Limited contract – 12 months\n\nShape the future through scientific breakthroughs and innovation.\n\nAs a Chef de Partie / Cook at Nestlé Research, your mission is to deliver high-quality food preparation and service within your assigned kitchen section, ensuring consistency, efficiency, hygiene, and excellent standards every day. You’ll make a difference by collaborating closely with the Sous Chef, Head Chef, kitchen team, apprentices, and the wider Food and Beverage community. This is your opportunity to turn ideas into sustainable and innovative solutions for people, pets, and the planet.\n\nHow you’ll make an impact as a Chef de Partie / Cook\n\n• Delivering consistent, high-quality dishes that meet recipe standards, presentation expectations, and portioning guidelines.\n\n• Ensuring smooth service execution by preparing your station efficiently and staying ready throughout service periods.\n\n• Maintaining excellent food safety and hygiene standards through disciplined, clean, and organized daily practices.\n\n• Optimizing ingredients, stock planning, and ordering to reduce waste, respect budgets, and support operational needs.\n\n• Contributing ideas for menu development and kitchen improvements that enhance quality, efficiency, and customer experience.\n\n• Supporting colleagues, apprentices, events, and cross-team activities with reliability, professionalism, and a strong team mindset.\n\nWhat will make you successful\n\n• Bringing at least 6 years of professional kitchen experience in fine dining or luxury environments, with exposure to high-volume operations and banqueting.\n\n• Applying solid food safety, hygiene, and workstation organization practices in a fast-paced kitchen environment.\n\n• Using time management, cost awareness, stock anticipation, and waste reduction practices to support efficient operations.\n\n• Collaborating with a positive, hands-on, and reliable approach while supporting knowledge sharing with junior team members.\n\n• Communicating fluently in French; good command of English.\n\n• Bringing collaboration, fresh thinking, bold questions, respect, and a positive, wellbeing-oriented mindset.\n\nAt Nestlé Research, we place people at the core of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to #BreakthroughTogether?\n\nApply now and shape the future through scientific breakthroughs and innovation.",
       "descriptionByLocale": {
-        "it": "Materiale di imballaggio Interno — Nestlé, Losanna, CH.\n\nDettagli chiave:\n• Ubicazione: Losanna, CH, Canton VD, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale di carriera Nestlé\n\nQuesta lista fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto del team, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
-        "en": "Packaging Materials Intern — Nestlé, Lausanne.\n\nKey details:\n• Location: Lausanne, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Packaging Materials Intern — Nestlé, Lausanne, CH.\n\nWichtigste Angaben:\n• Standort: Lausanne, CH, VD Kanton, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal\n\nDiese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
-        "fr": "Matériaux d'emballage internes — Nestlé, Lausanne, CH.\n\nPrincipaux détails:\n• Lieu: Lausanne, CH, VD canton, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé\n\nCette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement tandis que le portail officiel des carrières maintient la demande active."
+        "it": "Ubicazione: Vers-chez-les-Blanc, Svizzera\nModello di lavoro: Office-based / A tempo pieno\nTipo di contratto / durata: Contratto limitato – 12 mesi\n\nFormare il futuro attraverso scoperte scientifiche e innovazione.\n\nCome Chef de Partie / Cook alla Nestlé Research, la vostra missione è quella di fornire una preparazione e un servizio di alta qualità all'interno della vostra sezione cucina assegnata, garantendo coerenza, efficienza, igiene e standard eccellenti ogni giorno. Potrai fare la differenza collaborando a stretto contatto con il Sous Chef, Head Chef, team di cucina, apprendisti e la più ampia comunità Food and Beverage. Questa è la vostra occasione per trasformare le idee in soluzioni sostenibili e innovative per persone, animali domestici e il pianeta.\n\nCome farete un impatto come Chef de Partie / Cook\n\n• Fornire piatti coerenti e di alta qualità che soddisfano gli standard di ricetta, le aspettative di presentazione e le linee guida di porzionatura.\n\n• Assicurare l'esecuzione del servizio regolare preparando la vostra stazione in modo efficiente e rimanendo pronti durante i periodi di servizio.\n\n• Mantenere eccellenti standard di sicurezza e igiene alimentare attraverso pratiche quotidiane disciplinate, pulite e organizzate.\n\n• Ottimizzare gli ingredienti, la pianificazione delle scorte e l'ordine di ridurre i rifiuti, rispettare i budget e sostenere le esigenze operative.\n\n• Contribuire idee per lo sviluppo del menu e miglioramenti della cucina che migliorano la qualità, l'efficienza e l'esperienza del cliente.\n\n• Sostenere colleghi, apprendisti, eventi e attività di cross-team con affidabilità, professionalità e una forte mentalità di squadra.\n\nChe cosa vi farà successo\n\n• Portando almeno 6 anni di esperienza professionale di cucina in ambienti raffinati o di lusso, con esposizione a operazioni ad alto volume e banchetti.\n\n• Applicare la sicurezza alimentare solida, l'igiene e le pratiche di organizzazione workstation in un ambiente cucina veloce.\n\n• Utilizzando la gestione del tempo, la consapevolezza dei costi, l'anticipazione delle scorte e le pratiche di riduzione dei rifiuti per supportare operazioni efficienti.\n\n• Collaborando con un approccio positivo, pratico e affidabile, supportando la condivisione delle conoscenze con i membri del team junior.\n\n• Comunicare fluentemente in francese; buon comando dell'inglese.\n\n• Portare la collaborazione, il pensiero fresco, domande audaci, il rispetto e una mentalità positiva e orientata al benessere.\n\nA Nestlé Research, mettiamo le persone al centro di tutto ciò che facciamo.\n\nI nostri vantaggi sono progettati per sostenere la crescita e il benessere, in modo da poter prosperare sul lavoro e nella vita:\n\n• Vacanze pagate oltre i requisiti legali\n\n• Opportunità di apprendimento e sviluppo per crescere la tua carriera\n\n• Bonus basato sulle prestazioni\n\n• Contributo sanitario e accesso al programma di assistenza ai dipendenti\n\n• Forte contributo del datore di lavoro al vostro piano pensionistico\n\n• Generoso congedo parentale e soluzioni complete di supporto familiare\n\n• Sconti interessanti dei dipendenti su vari prodotti e servizi\n\nCosa aspettarsi dal nostro processo di assunzione\n\nSiamo impegnati a un'esperienza di assunzione inclusiva e rispettosa e siamo lieti di fornire alloggi ragionevoli, se necessario. I nostri luoghi di lavoro sono pienamente accessibili e supportati da una forte cultura della sicurezza, con installazioni e procedure moderne per garantire un ambiente sicuro per tutti.\n\nIl processo di assunzione include tipicamente un video intervista con Talent Acquisition, un'intervista con il team di assunzione, e una discussione finale e offerta. Rivediamo le domande come vengono ricevute e chiudiamo il ruolo una volta che un forte elenco di candidati pertinenti è identificato, in modo da incoraggiarvi ad applicare presto. Tutte le informazioni sono trattate con riservatezza.\n\nRimanere vigili: Nestlé contatterà i candidati solo tramite gli indirizzi e-mail ufficiali della società e non chiederà mai pagamenti o informazioni personali sensibili in qualsiasi fase del processo di assunzione.\n\nPronto a #BreakthroughTogether?\n\nApplicare ora e plasmare il futuro attraverso scoperte scientifiche e innovazione.",
+        "en": "Location: Vers-chez-les-Blanc, Switzerland\nWork model: Office-based / Full time\nContract type / duration: Limited contract – 12 months\n\nShape the future through scientific breakthroughs and innovation.\n\nAs a Chef de Partie / Cook at Nestlé Research, your mission is to deliver high-quality food preparation and service within your assigned kitchen section, ensuring consistency, efficiency, hygiene, and excellent standards every day. You’ll make a difference by collaborating closely with the Sous Chef, Head Chef, kitchen team, apprentices, and the wider Food and Beverage community. This is your opportunity to turn ideas into sustainable and innovative solutions for people, pets, and the planet.\n\nHow you’ll make an impact as a Chef de Partie / Cook\n\n• Delivering consistent, high-quality dishes that meet recipe standards, presentation expectations, and portioning guidelines.\n\n• Ensuring smooth service execution by preparing your station efficiently and staying ready throughout service periods.\n\n• Maintaining excellent food safety and hygiene standards through disciplined, clean, and organized daily practices.\n\n• Optimizing ingredients, stock planning, and ordering to reduce waste, respect budgets, and support operational needs.\n\n• Contributing ideas for menu development and kitchen improvements that enhance quality, efficiency, and customer experience.\n\n• Supporting colleagues, apprentices, events, and cross-team activities with reliability, professionalism, and a strong team mindset.\n\nWhat will make you successful\n\n• Bringing at least 6 years of professional kitchen experience in fine dining or luxury environments, with exposure to high-volume operations and banqueting.\n\n• Applying solid food safety, hygiene, and workstation organization practices in a fast-paced kitchen environment.\n\n• Using time management, cost awareness, stock anticipation, and waste reduction practices to support efficient operations.\n\n• Collaborating with a positive, hands-on, and reliable approach while supporting knowledge sharing with junior team members.\n\n• Communicating fluently in French; good command of English.\n\n• Bringing collaboration, fresh thinking, bold questions, respect, and a positive, wellbeing-oriented mindset.\n\nAt Nestlé Research, we place people at the core of everything we do.\n\nOur benefits are designed to support your growth and wellbeing, so you can thrive at work and in life:\n\n• Paid holidays beyond legal requirements\n\n• Learning and development opportunities to grow your career\n\n• Performance based bonus\n\n• Healthcare contribution and access to the Employee Assistance Program\n\n• Strong employer contribution to your pension plan\n\n• Generous parental leave and comprehensive family support solutions\n\n• Attractive employee discounts across various products and services\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to #BreakthroughTogether?\n\nApply now and shape the future through scientific breakthroughs and innovation.",
+        "de": "Standort: Vers-chez-les-Blanc, Schweiz\nArbeitsmodell: Office-basiert / Vollzeit\nVertragsart/Dauer: Beschränkter Vertrag – 12 Monate\n\nGestalten Sie die Zukunft durch wissenschaftliche Durchbrüche und Innovationen.\n\nAls Chef de Partie / Cook bei Nestlé Research ist es Ihre Mission, qualitativ hochwertige Lebensmittelzubereitung und -service in Ihrem zugewiesenen Küchenbereich zu liefern und jeden Tag Konsistenz, Effizienz, Hygiene und hervorragende Standards zu gewährleisten. Sie werden einen Unterschied machen, indem Sie eng mit dem Sous Chef, Chefkoch, Küchenteam, Auszubildenden und der breiteren Food and Beverage Community zusammenarbeiten. Dies ist Ihre Chance, Ideen in nachhaltige und innovative Lösungen für Menschen, Haustiere und den Planeten zu verwandeln.\n\nWie Sie als Chef de Partie / Cook etwas bewirken werden\n\n• Liefern Sie konsistente, hochwertige Gerichte, die Rezeptstandards, Präsentationserwartungen und Portionierungsrichtlinien erfüllen.\n\n• Gewährleistung einer reibungslosen Serviceausführung, indem Sie Ihre Station effizient vorbereiten und während der gesamten Servicezeiten bereit bleiben.\n\n• Die Aufrechterhaltung exzellenter Lebensmittelsicherheits- und Hygienestandards durch disziplinierte, saubere und organisierte tägliche Praktiken.\n\n• Optimierung von Zutaten, Lagerplanung und Bestellung, um Abfälle zu reduzieren, Budgets zu respektieren und betriebliche Anforderungen zu unterstützen.\n\n• Mit Ideen für Menüentwicklung und Küchenverbesserungen, die Qualität, Effizienz und Kundenerfahrung verbessern.\n\n• Unterstützung von Kollegen, Auszubildenden, Events und teamübergreifenden Aktivitäten mit Zuverlässigkeit, Professionalität und einer starken Teammentalität.\n\nWas dich erfolgreich macht\n\n• Bringen Sie mindestens 6 Jahre professionelle Küchenerfahrung in feinen Restaurants oder Luxusumgebungen mit, mit Exposition gegenüber hochvolumigen Operationen und Bankett.\n\n• Anwendung solider Lebensmittelsicherheits-, Hygiene- und Arbeitsplatzorganisationspraktiken in einer schnelllebigen Küchenumgebung.\n\n• Nutzung von Zeitmanagement, Kostenbewusstsein, Bestandsvorausschätzung und Abfallreduzierungspraktiken zur Unterstützung effizienter Abläufe.\n\n• Zusammenarbeit mit einem positiven, praktischen und zuverlässigen Ansatz und Unterstützung des Wissensaustauschs mit Junior-Teammitgliedern.\n\n• Fließend Französisch kommunizieren; gute Englischkenntnisse.\n\n• Zusammenarbeit, frisches Denken, mutige Fragen, Respekt und eine positive, auf Wohlbefinden ausgerichtete Denkweise.\n\nBei Nestlé Research stellen wir Menschen in den Mittelpunkt von allem, was wir tun.\n\nUnsere Vorteile sind darauf ausgerichtet, Ihr Wachstum und Wohlbefinden zu unterstützen, damit Sie bei der Arbeit und im Leben gedeihen können:\n\n• Bezahlter Urlaub über die gesetzlichen Anforderungen hinaus\n\n• Lern- und Entwicklungsmöglichkeiten, um Ihre Karriere zu erweitern\n\n• Leistungsbasierter Bonus\n\n• Gesundheitsbeitrag und Zugang zum Employee Assistance Program\n\n• Starker Arbeitgeberbeitrag zu Ihrem Pensionsplan\n\n• Großzügiger Elternurlaub und umfassende Familienunterstützungslösungen\n\n• Attraktive Mitarbeiterrabatte für verschiedene Produkte und Dienstleistungen\n\nWas Sie von unserem Einstellungsprozess erwarten können\n\nWir verpflichten uns zu einer inklusiven und respektvollen einstellungserfahrung und freuen uns, bei bedarf angemessene unterkünfte zu bieten. Unsere Arbeitsplätze sind vollständig zugänglich und werden von einer starken Sicherheitskultur mit modernen Installationen und Verfahren unterstützt, um eine sichere Umgebung für alle zu gewährleisten.\n\nDer Einstellungsprozess umfasst in der Regel ein Videointerview mit Talent Acquisition, ein Interview mit dem Einstellungsteam und eine abschließende Diskussion und ein Angebot. Wir überprüfen Bewerbungen, sobald sie eingegangen sind, und schließen die Rolle, sobald eine starke Liste relevanter Kandidaten identifiziert wurde, daher empfehlen wir Ihnen, sich frühzeitig zu bewerben. Alle Informationen werden vertraulich behandelt.\n\nBleiben Sie wachsam: Nestlé wird Kandidaten nur über offizielle Firmen-E-Mail-Adressen kontaktieren und wird zu keinem Zeitpunkt des Einstellungsprozesses Zahlungen oder sensible persönliche Informationen verlangen.\n\nBereit für #BreakthroughTogether?\n\nBewerben Sie sich jetzt und gestalten Sie die Zukunft durch wissenschaftliche Durchbrüche und Innovationen.",
+        "fr": "Lieu: Vers-chez-les-Blanc, Suisse\nModèle de travail : Bureau / Temps plein\nType / durée du contrat: Contrat limité – 12 mois\n\nFaçonner l'avenir par des percées scientifiques et l'innovation.\n\nEn tant que Chef de Partie / Cook chez Nestlé Research, votre mission est de fournir une préparation et un service alimentaires de haute qualité dans votre section de cuisine, assurant la cohérence, l'efficacité, l'hygiène et d'excellents standards chaque jour. Vous ferez une différence en collaborant étroitement avec le Chef Sous, Chef Chef, équipe de cuisine, apprentis, et l'ensemble de la communauté des aliments et boissons. C'est l'occasion de transformer les idées en solutions durables et innovantes pour les gens, les animaux de compagnie et la planète.\n\nComment vous allez faire un impact en tant que Chef de Partie / Cook\n\n• Fournir des plats cohérents et de haute qualité qui répondent aux normes de recettes, aux attentes en matière de présentation et aux lignes directrices de portionnement.\n\n• Assurer la bonne exécution du service en préparant votre station efficacement et en restant prêt tout au long des périodes de service.\n\n• Maintenir d'excellentes normes de sécurité alimentaire et d'hygiène grâce à des pratiques quotidiennes disciplinées, propres et organisées.\n\n• Optimiser les ingrédients, la planification des stocks et l'ordre pour réduire les déchets, respecter les budgets et répondre aux besoins opérationnels.\n\n• Contribuer aux idées de développement de menus et d'améliorations de cuisine qui améliorent la qualité, l'efficacité et l'expérience client.\n\n• Soutenir les collègues, les apprentis, les événements et les activités inter-équipes avec fiabilité, professionnalisme et une solide mentalité d'équipe.\n\nCe qui vous fera réussir\n\n• Apportant au moins 6 ans d'expérience de cuisine professionnelle dans des environnements gastronomiques ou de luxe, avec une exposition à des opérations de grand volume et banquet.\n\n• Appliquer des pratiques solides en matière de sécurité alimentaire, d'hygiène et d'organisation des postes de travail dans un environnement de cuisine rapide.\n\n• Utiliser la gestion du temps, la sensibilisation aux coûts, l'anticipation des stocks et les pratiques de réduction des déchets pour soutenir des opérations efficaces.\n\n• Collaborer avec une approche positive, pratique et fiable tout en appuyant le partage des connaissances avec les membres de l'équipe junior.\n\n• Communiquer couramment en français; bonne maîtrise de l'anglais.\n\n• Apporter la collaboration, la pensée nouvelle, les questions audacieuses, le respect et un état d'esprit positif et axé sur le bien-être.\n\nÀ Nestlé Research, nous plaçons les gens au cœur de tout ce que nous faisons.\n\nNos avantages sont conçus pour soutenir votre croissance et votre bien-être, afin que vous puissiez prospérer au travail et dans la vie:\n\n• Jours fériés payés au-delà des exigences légales\n\n• Possibilités d'apprentissage et de perfectionnement pour développer votre carrière\n\n• Prime fondée sur les performances\n\n• Contribution en soins de santé et accès au Programme d'aide aux employés\n\n• Une forte contribution de l'employeur à votre régime de retraite\n\n• Un congé parental généreux et des solutions globales de soutien familial\n\n• Réductions attrayantes pour les employés pour divers produits et services\n\nÀ quoi s'attendre de notre processus d'embauche\n\nNous nous engageons à offrir une expérience d'embauche inclusive et respectueuse et sommes heureux de fournir des mesures d'adaptation raisonnables au besoin. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de sécurité, avec des installations et des procédures modernes pour assurer un environnement sûr pour tous.\n\nLe processus d'embauche comprend généralement une entrevue vidéo avec Talent Acquisition, une entrevue avec l'équipe d'embauche et une discussion et une offre finales. Nous examinons les candidatures reçues et clôturons le rôle une fois qu'une liste solide de candidats pertinents a été établie. Nous vous encourageons donc à présenter votre candidature tôt. Toutes les informations sont traitées de façon confidentielle.\n\nRestez vigilant : Nestlé communiquera uniquement avec les candidats par l'intermédiaire des adresses électroniques officielles de l'entreprise et ne demandera jamais de paiements ou de renseignements personnels sensibles à n'importe quelle étape du processus d'embauche.\n\nPrêt à #BreakthroughTogether ?\n\nAppliquer maintenant et façonner l'avenir par des percées scientifiques et l'innovation."
       },
       "location": "Lausanne",
       "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Materials-Intern/1425644133/",
+      "url": "https://jobdetails.nestle.com/job/Lausanne-Chef-de-Partie-Cook-Nestl%C3%A9-Research/1411925733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-20T09:57:12.550Z",
+      "crawledAt": "2026-08-21T10:10:12.950Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "intern",
+      "experienceLevel": "senior",
       "sector": "Food / Beverage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Materials-Intern/1425644133/",
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Chef-de-Partie-Cook-Nestl%C3%A9-Research/1411925733/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-materials-intern-nestle-ch",
-        "associate-packaging-materials-specialista-nestle-lausanne-ch",
-        "associate-packaging-materials-specialist-nestle-ch",
-        "associate-packaging-materials-spezialist-nestle-lausanne-ch",
-        "associate-packaging-materials-specialiste-nestle-lausanne-ch"
+        "chef-de-partie-cook-nestle-research-nestle-ch",
+        "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-materials-intern-nestle-ch",
-          "associate-packaging-materials-specialista-nestle-lausanne-ch",
-          "associate-packaging-materials-specialist-nestle-ch",
-          "associate-packaging-materials-spezialist-nestle-lausanne-ch",
-          "associate-packaging-materials-specialiste-nestle-lausanne-ch"
-        ],
-        "en": [
-          "associate-packaging-materials-specialist-nestle-ch"
+          "chef-de-partie-cook-nestle-research-nestle-ch",
+          "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
         ],
         "de": [
-          "packaging-materials-intern-nestle-ch",
-          "associate-packaging-materials-spezialist-nestle-lausanne-ch"
-        ],
-        "fr": [
-          "packaging-materials-intern-nestle-ch",
-          "associate-packaging-materials-specialiste-nestle-lausanne-ch"
+          "chef-de-partie-cook-nestle-research-nestle-ch"
         ]
       },
-      "firstSeenAt": "2026-08-12T22:22:29.256Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T22:46:27.739Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
