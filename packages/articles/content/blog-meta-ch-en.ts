@@ -3796,6 +3796,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permit B Lucerne: requirements and renewal',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Practical guide to residence permit B in the canton of Lucerne: characteristics, application procedure, necessary documents, duration and renewal. Step-by-step instructions.',
     'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Migration office with documents for B residence permit in Lucerne canton',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'UDC and Green Assemblies, the neutrality initiative is discussed',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'UDC and Green delegates meet today to discuss the neutrality initiative and the food initiative',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'UDC and Green delegates in assembly',
 };
 
 export default blogMetaChEn;
