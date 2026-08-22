@@ -17,6 +17,7 @@ import { pathTemplate, extractByTemplate, extractJsonLd, scoreVacancyPage, textO
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
+import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang } from '../scripts/lib/prospector/synthesize.mjs';
@@ -239,6 +240,23 @@ describe('coverage', () => {
   it('does not claim an unknown employer', () => {
     const coverage = { keys: new Set(['artisa-group']), names: new Set(['artisa']), domains: new Set(), crawlerCount: 1 };
     expect(isCovered(coverage, { name: 'Polverini Spazzacamino Sagl' }).covered).toBe(false);
+  });
+});
+
+describe('sector signal', () => {
+  it('flags transport/logistics employer names across IT/DE/FR/EN', () => {
+    expect(isTransportLogistics('Autotrasporti Rossi SA')).toBe(true);
+    expect(isTransportLogistics('Spedizioni Ticino Sagl')).toBe(true);
+    expect(isTransportLogistics('Muster Transport AG')).toBe(true);
+    expect(isTransportLogistics('Logistik Schweiz GmbH')).toBe(true);
+    expect(isTransportLogistics('Transports Léman Sàrl')).toBe(true);
+    expect(isTransportLogistics('Acme Freight Forwarding Ltd')).toBe(true);
+  });
+
+  it('does not flag unrelated employer names', () => {
+    expect(isTransportLogistics('Ristorante Centrale')).toBe(false);
+    expect(isTransportLogistics('Studio Legale Bianchi')).toBe(false);
+    expect(isTransportLogistics('')).toBe(false);
   });
 });
 
