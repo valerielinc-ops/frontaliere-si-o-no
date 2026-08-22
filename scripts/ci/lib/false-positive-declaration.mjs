@@ -24,7 +24,7 @@
  * negation is part of their correct affirmative meaning ("is NOT the same
  * construct" = a genuine false-positive declaration, not a negation of one).
  */
-const NEGATION_LOOKBEHIND =
+export const NEGATION_LOOKBEHIND =
   '(?<!\\bnon\\s+(?:è|sono|erano)\\s+(?:un\\s+|una\\s+)?)(?<!\\bnot\\s+(?:a\\s+)?)';
 
 export const FALSE_POSITIVE_DECLARATION_RE = new RegExp(
