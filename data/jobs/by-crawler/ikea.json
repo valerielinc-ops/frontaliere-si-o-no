@@ -3780,8 +3780,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
         "it": "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach",
-        "en": "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
+        "en": "associate-sales-schlafzimmerabteilung-60-ikea-spreitenbach-aargau-switzerland",
+        "fr": "collaborateur-trice-vente-schlafzimmerabteilung-60-ikea-spreitenbach-aargau-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3827,6 +3827,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
         ]
       },

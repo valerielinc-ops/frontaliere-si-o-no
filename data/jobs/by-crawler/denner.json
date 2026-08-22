@@ -70,8 +70,7 @@
         "verkaufer-in-denner-ag-winterthur-ylequg",
         "verkaufer-in-denner-ag-winterthur",
         "seller-denner-winterthur",
-        "venditore-denner-winterthur",
-        "venditore-denner-ag-winterthur-bf71e1"
+        "venditore-denner-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -79,8 +78,7 @@
           "verkaufer-in-denner-ag-winterthur-ylequg",
           "verkaufer-in-denner-ag-winterthur",
           "seller-denner-winterthur",
-          "venditore-denner-winterthur",
-          "venditore-denner-ag-winterthur-bf71e1"
+          "venditore-denner-winterthur"
         ],
         "en": [
           "verkaufer-in-denner-ag-winterthur-ylequg",
@@ -1845,8 +1843,7 @@
         "seller-denner-ag-interlaken-075a65",
         "vendeur-denner-ag-interlaken-c59906",
         "venditore-denner-interlaken",
-        "verkaufer-in-denner-ag-interlaken-hchfj3",
-        "venditore-denner-ag-interlaken"
+        "verkaufer-in-denner-ag-interlaken-hchfj3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1857,8 +1854,7 @@
           "seller-denner-ag-interlaken-075a65",
           "vendeur-denner-ag-interlaken-c59906",
           "venditore-denner-interlaken",
-          "verkaufer-in-denner-ag-interlaken-hchfj3",
-          "venditore-denner-ag-interlaken"
+          "verkaufer-in-denner-ag-interlaken-hchfj3"
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:28.453Z",
@@ -1941,14 +1937,12 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-herzogenbuchsee",
-        "venditore-denner-herzogenbuchsee",
-        "venditore-denner-ag-herzogenbuchsee-e869da"
+        "venditore-denner-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-denner-herzogenbuchsee",
-          "venditore-denner-ag-herzogenbuchsee-e869da"
+          "venditore-denner-herzogenbuchsee"
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:28.449Z",
@@ -2322,14 +2316,12 @@
       "crawledAt": "2026-08-21T21:32:29.007Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-training-denner-oensingen",
-        "stv-branch-manager-in-denner-ag-oensingen-bd9d6c"
+        "stv-branch-manager-in-training-denner-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-training-denner-oensingen",
-          "stv-branch-manager-in-denner-ag-oensingen-bd9d6c"
+          "stv-branch-manager-in-training-denner-oensingen"
         ]
       },
       "needsRetranslation": true,
@@ -2424,8 +2416,7 @@
       "firstSeenAt": "2026-08-20T21:40:17.113Z",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner",
-          "vendeur-vendeuse-denner-sa-renens-vd"
+          "vendeur-vendeuse-denner"
         ],
         "en": [
           "seller-seller-denner-renens-vd"
@@ -2441,8 +2432,7 @@
         "vendeur-vendeuse-denner",
         "vendeur-vendeuse-denner-renens-vd",
         "seller-seller-denner-renens-vd",
-        "verkaufer-verkaufer-denner-renens-vd",
-        "vendeur-vendeuse-denner-sa-renens-vd"
+        "verkaufer-verkaufer-denner-renens-vd"
       ]
     },
     {
@@ -2632,12 +2622,6 @@
           "verkaufer-in-denner-6",
           "verkaufer-in-denner-ag-basel-xf6s8h",
           "verkaufer-in-denner-zug"
-        ],
-        "en": [
-          "verkaufer-in-denner-basel"
-        ],
-        "fr": [
-          "verkaufer-in-denner-basel"
         ]
       },
       "previousSlugs": [
@@ -2646,18 +2630,17 @@
         "verkaufer-in-denner-5",
         "verkaufer-in-denner-6",
         "verkaufer-in-denner-ag-basel-xf6s8h",
-        "verkaufer-in-denner-zug",
-        "verkaufer-in-denner-basel"
+        "verkaufer-in-denner-zug"
       ]
     },
     {
       "id": "denner-751a0da56ab4",
       "slug": "verkaufer-in-denner-embrach",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-embrach",
+        "it": "venditore-denner-ag-embrach",
         "de": "verkaufer-in-denner-ag-embrach",
-        "en": "verkaufer-in-denner-embrach",
-        "fr": "verkaufer-in-denner-embrach"
+        "en": "seller-denner-ag-embrach",
+        "fr": "vendeur-denner-ag-embrach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2717,18 +2700,10 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
-        ],
-        "en": [
-          "seller-denner-ag-embrach"
-        ],
-        "fr": [
-          "vendeur-denner-ag-embrach"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-embrach",
-        "vendeur-denner-ag-embrach"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2913,15 +2888,11 @@
       "crawledAt": "2026-08-21T21:32:27.688Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-frauenfeld"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "sales-associate-denner-ag-frauenfeld",
-        "vendeur-vendeuse-denner-ag-frauenfeld",
-        "verkaufer-in-denner-frauenfeld"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3002,15 +2973,11 @@
       "crawledAt": "2026-08-21T21:32:27.685Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-sulgen"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-sulgen",
-        "vendeur-denner-ag-sulgen",
-        "verkaufer-in-denner-sulgen"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3028,12 +2995,12 @@
     },
     {
       "id": "denner-f03b57b6e01a",
-      "slug": "verkaufer-in-denner",
+      "slug": "venditore-denner-glis",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner-glis",
+        "it": "venditore-denner-glis",
+        "en": "seller-denner-glis",
         "de": "verkaufer-in-denner-glis",
-        "fr": "verkaufer-in-denner-glis"
+        "fr": "vendeur-denner-glis"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -3092,11 +3059,20 @@
       "crawledAt": "2026-08-21T21:32:27.681Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-2"
+          "verkaufer-in-denner-2",
+          "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-glis"
+        ],
+        "fr": [
+          "verkaufer-in-denner-glis"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-2"
+        "verkaufer-in-denner-2",
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-glis"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

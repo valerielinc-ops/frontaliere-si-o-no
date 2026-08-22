@@ -5078,12 +5078,12 @@
     },
     {
       "id": "kanton-basel-landschaft-c257b0269f70",
-      "slug": "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen",
+      "slug": "case-handler-istruzioni-per-il-traffico-kantonale-verwaltung-basel-landschaft-lausen",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kanton-basel-landschaft-lausen",
-        "it": "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen",
-        "en": "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen",
-        "fr": "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen"
+        "it": "case-handler-istruzioni-per-il-traffico-kantonale-verwaltung-basel-landschaft-lausen",
+        "en": "case-handler-traffic-instruction-kantonale-verwaltung-basel-landschaft-lausen",
+        "fr": "instruction-sur-la-circulation-des-personnes-kantonale-verwaltung-basel-landschaft-lausen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5129,11 +5129,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kanton-basel-landschaft-lausen"
+          "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kanton-basel-landschaft-lausen",
+          "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kanton-basel-landschaft-lausen"
+        "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kanton-basel-landschaft-lausen",
+        "sachbearbeiterin-sachbearbeiter-verkehrsinstruktion-kantonale-verwaltung-basel-landschaft-lausen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5155,8 +5163,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal",
         "it": "apprendistato-come-kauffrau-kaufmann-cfc-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
+        "en": "apprenticeship-as-a-merchant-merchant-efz-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "apprentissage-en-tant-que-commercant-commercant-efz-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5203,6 +5211,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
           "lehrstelle-als-kauffrau-kaufmann-efz-kanton-basel-landschaft-liestal"
         ]
       },

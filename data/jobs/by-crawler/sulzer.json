@@ -25171,13 +25171,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machine-diagnostics-engineer-sulzer-ch",
-        "machine-diagnostics-ingegnere-sulzer-winterthur"
+        "machine-diagnostics-engineer-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machine-diagnostics-engineer-sulzer-ch",
-          "machine-diagnostics-ingegnere-sulzer-winterthur"
+          "machine-diagnostics-engineer-sulzer-ch"
         ],
         "de": [
           "machine-diagnostics-engineer-sulzer-ch"
@@ -25640,8 +25638,8 @@
       "slugByLocale": {
         "de": "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch",
         "it": "service-disponent-m-w-d-per-technische-serviceeinsatze-sulzer-bonn",
-        "en": "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch",
-        "fr": "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
+        "en": "service-disponent-m-f-d-for-technical-service-operations-sulzer-bonn",
+        "fr": "service-disposant-h-f-d-pour-les-operations-de-service-technique-sulzer-bonn"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25686,6 +25684,12 @@
       "previousSlugsByLocale": {
         "it": [
           "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
+        ],
+        "en": [
+          "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
+        ],
+        "fr": [
+          "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
         ]
       },
       "previousSlugs": [
@@ -25708,12 +25712,12 @@
     },
     {
       "id": "sulzer-f4db932b5117",
-      "slug": "human-resources-generalist-sulzer-ch",
+      "slug": "risorse-umane-generalist-sulzer-pasadena",
       "slugByLocale": {
         "en": "human-resources-generalist-sulzer-ch",
-        "it": "human-resources-generalist-sulzer-ch",
-        "de": "human-resources-generalist-sulzer-ch",
-        "fr": "human-resources-generalist-sulzer-ch"
+        "it": "risorse-umane-generalist-sulzer-pasadena",
+        "de": "personalwesen-generalist-sulzer-pasadena",
+        "fr": "generaliste-des-ressources-humaines-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25767,14 +25771,28 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-21T21:38:35.494Z"
+      "firstSeenAt": "2026-08-21T21:38:35.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "human-resources-generalist-sulzer-ch"
+        ],
+        "de": [
+          "human-resources-generalist-sulzer-ch"
+        ],
+        "fr": [
+          "human-resources-generalist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "human-resources-generalist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-0ba4019ee69a",
-      "slug": "jr-machinist-sulzer-la-porte",
+      "slug": "jr-macchinista-sulzer-la-porte",
       "slugByLocale": {
         "en": "jr-machinist-sulzer-ch",
-        "it": "jr-machinist-sulzer-la-porte",
+        "it": "jr-macchinista-sulzer-la-porte",
         "de": "jr-machinist-sulzer-ch",
         "fr": "jr-machinist-sulzer-ch"
       },
@@ -25820,11 +25838,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "jr-machinist-sulzer-ch"
+          "jr-machinist-sulzer-ch",
+          "jr-machinist-sulzer-la-porte"
         ]
       },
       "previousSlugs": [
-        "jr-machinist-sulzer-ch"
+        "jr-machinist-sulzer-ch",
+        "jr-machinist-sulzer-la-porte"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -25843,12 +25863,12 @@
     },
     {
       "id": "sulzer-8df90c3d6793",
-      "slug": "utility-sulzer-ch-2",
+      "slug": "utilita-sulzer-la-porte-79c2a9",
       "slugByLocale": {
         "en": "utility-sulzer-ch",
-        "it": "utility-sulzer-ch-2",
-        "de": "utility-sulzer-ch-2",
-        "fr": "utility-sulzer-ch-2"
+        "it": "utilita-sulzer-la-porte-79c2a9",
+        "de": "versorgungsunternehmen-sulzer-la-porte-79c2a9",
+        "fr": "utilitaire-sulzer-la-porte-79c2a9"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25905,11 +25925,19 @@
       "firstSeenAt": "2026-08-21T21:38:33.816Z",
       "previousSlugsByLocale": {
         "it": [
-          "utility-sulzer-ch"
+          "utility-sulzer-ch",
+          "utility-sulzer-ch-2"
+        ],
+        "de": [
+          "utility-sulzer-ch-2"
+        ],
+        "fr": [
+          "utility-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "utility-sulzer-ch"
+        "utility-sulzer-ch",
+        "utility-sulzer-ch-2"
       ]
     },
     {
@@ -25978,12 +26006,12 @@
     },
     {
       "id": "sulzer-73a019459d7d",
-      "slug": "regional-sales-sulzer-ch",
+      "slug": "vendite-regionali-sulzer-santiago",
       "slugByLocale": {
         "en": "regional-sales-sulzer-ch",
-        "it": "regional-sales-sulzer-ch",
-        "de": "regional-sales-sulzer-ch",
-        "fr": "regional-sales-sulzer-ch"
+        "it": "vendite-regionali-sulzer-santiago",
+        "de": "regionalverkauf-sulzer-santiago",
+        "fr": "ventes-regionales-sulzer-santiago"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -26037,7 +26065,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-21T21:38:32.086Z"
+      "firstSeenAt": "2026-08-21T21:38:32.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-sales-sulzer-ch"
+        ],
+        "de": [
+          "regional-sales-sulzer-ch"
+        ],
+        "fr": [
+          "regional-sales-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regional-sales-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-b0c186e88c84",

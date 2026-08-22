@@ -94,7 +94,7 @@
         "it": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100",
         "en": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100",
         "de": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100",
-        "fr": "manor-assistent-in-restaurant-100-emmen-assistentin-restaurant-100"
+        "fr": "assistance-au-restaurant-100-manor-ag-emmen-assistentin-restaurant-100"
       },
       "titleByLocale": {
         "it": "Assistent*in Restaurant 100%",
@@ -211,9 +211,9 @@
       "slug": "collaboratore-trice-in-service-100-manor-ag-luzern-mitarbeiterin-service-100",
       "slugByLocale": {
         "it": "collaboratore-trice-in-service-100-manor-ag-luzern-mitarbeiterin-service-100",
-        "en": "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100",
+        "en": "employee-in-service-100-manor-ag-luzern-mitarbeiterin-service-100",
         "de": "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100",
-        "fr": "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100"
+        "fr": "employe-en-service-100-manor-ag-luzern-mitarbeiterin-service-100"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 100%",
@@ -227,6 +227,12 @@
         "it": [
           "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100",
           "manor-mitarbeiter-in-service-100-luzern-mitarbeiterin-service-100"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-service-100-baden-mitarbeiterin-service-100"
         ]
       },
       "previousSlugs": [
@@ -272,12 +278,12 @@
       },
       "postedDate": "2026-08-21",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
+      "slug": "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
-        "en": "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
+        "it": "collaboratore-trice-in-kasse-60-manor-ag-basel-mitarbeiterin-kasse-60",
+        "en": "employee-in-cash-60-manor-ag-basel-mitarbeiterin-kasse-60",
         "de": "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60",
-        "fr": "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+        "fr": "employe-en-especes-60-manor-ag-basel-mitarbeiterin-kasse-60"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 60%",
@@ -305,7 +311,21 @@
       "addressLocality": "Basel Mitarbeiterin Kasse 60",
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-21T21:57:07.922Z"
+      "firstSeenAt": "2026-08-21T21:57:07.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-60-basel-mitarbeiterin-kasse-60"
+      ]
     },
     {
       "title": "Mitarbeiter*in Kasse 20%",
@@ -326,12 +346,12 @@
       },
       "postedDate": "2026-08-21",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
+      "slug": "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
-        "en": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
+        "it": "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20",
+        "en": "employee-in-cash-register-20-manor-ag-basel-mitarbeiterin-kasse-20",
         "de": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
-        "fr": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+        "fr": "employe-dans-la-caisse-enregistreuse-20-manor-ag-basel-mitarbeiterin-kasse-20"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 20%",
@@ -359,7 +379,21 @@
       "addressLocality": "Basel Mitarbeiterin Kasse 20",
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-21T21:57:07.922Z"
+      "firstSeenAt": "2026-08-21T21:57:07.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
+      ]
     },
     {
       "title": "Lehrstelle Detailhandelsfachfrau/mann EFZ Herrenkonfektion 100%",
@@ -383,9 +417,9 @@
       "slug": "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz",
       "slugByLocale": {
         "it": "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz",
-        "en": "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz",
+        "en": "apprenticeship-detail-trade-specialist-man-efz-men-s-clothing-100-manor-ag-basel-lehrstelle-detailhandelsfachfraumann",
         "de": "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz",
-        "fr": "manor-lehrstelle-detailhandelsfachfrau-mann-efz-herrenkonfektion-100-basel-lehrstelle-detailhandelsfachfraumann-efz"
+        "fr": "apprentissage-detail-professionnel-specialiste-homme-efz-vetements-pour-hommes-100-manor-ag-basel-lehrstelle"
       },
       "titleByLocale": {
         "it": "Apprendistato Detailhandelsfachfrau/mann CFC Herrenkonfektion 100%",
@@ -677,13 +711,11 @@
       "sourceLang": "fr",
       "id": "manor-fb851688f641",
       "previousSlugs": [
-        "manor-collaborateur-trice-vente-bijouterie-80-fribourg-collaborateurtrice-vente-bijouterie",
-        "collaborateur-trice-vente-bijouterie-80-manor-ag-fribourg-collaborateurtrice-vente-bijouterie"
+        "manor-collaborateur-trice-vente-bijouterie-80-fribourg-collaborateurtrice-vente-bijouterie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-vente-bijouterie-80-fribourg-collaborateurtrice-vente-bijouterie",
-          "collaborateur-trice-vente-bijouterie-80-manor-ag-fribourg-collaborateurtrice-vente-bijouterie"
+          "manor-collaborateur-trice-vente-bijouterie-80-fribourg-collaborateurtrice-vente-bijouterie"
         ],
         "en": [
           "manor-collaborateur-trice-vente-bijouterie-80-fribourg-collaborateurtrice-vente-bijouterie"
@@ -908,13 +940,11 @@
       "sourceLang": "fr",
       "id": "manor-13d50d7e4bdc",
       "previousSlugs": [
-        "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection",
-        "collaborateur-trice-vente-confection-enfants-80-manor-ag-delemont-collaborateurtrice-vente-confection"
+        "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection",
-          "collaborateur-trice-vente-confection-enfants-80-manor-ag-delemont-collaborateurtrice-vente-confection"
+          "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
@@ -1640,13 +1670,11 @@
       "sourceLang": "fr",
       "id": "manor-4b2841d3763e",
       "previousSlugs": [
-        "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-        "collaborateur-trice-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
+        "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-          "collaborateur-trice-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
+          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"

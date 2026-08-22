@@ -15936,14 +15936,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-        "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans",
-        "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans"
+        "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-          "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans",
-          "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans"
+          "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
@@ -16999,16 +16997,14 @@
         "studienkoordinatorin-studienkoordinator-60-80-luks-luzern",
         "coordinatore-assistenziale-60-luzerner-kantonsspital-luks-luzern",
         "care-coordinator-60-luks-luzern",
-        "coordinateur-de-soins-60-luzerner-kantonsspital-luks-luzern",
-        "studienkoordinatorin-studienkoordinator-60-80-luzerner-kantonsspital-luks-luzern"
+        "coordinateur-de-soins-60-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studienkoordinatorin-studienkoordinator-60-80-luks-luzern",
           "coordinatore-assistenziale-60-luzerner-kantonsspital-luks-luzern",
           "care-coordinator-60-luks-luzern",
-          "coordinateur-de-soins-60-luzerner-kantonsspital-luks-luzern",
-          "studienkoordinatorin-studienkoordinator-60-80-luzerner-kantonsspital-luks-luzern"
+          "coordinateur-de-soins-60-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "studienkoordinatorin-studienkoordinator-60-80-luks-luzern"
@@ -17685,12 +17681,12 @@
     },
     {
       "id": "luks-bbffc6222651",
-      "slug": "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern",
+      "slug": "medico-senior-medico-senior-ambulatorium-cardiologia-clinica-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern",
-        "it": "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern",
-        "en": "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern",
-        "fr": "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern"
+        "it": "medico-senior-medico-senior-ambulatorium-cardiologia-clinica-100-luzerner-kantonsspital-luks-luzern",
+        "en": "senior-physician-senior-physician-ambulatorium-clinical-cardiology-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "medecin-principal-medecin-principal-cardiologie-clinique-ambulatoire-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17746,7 +17742,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:39:42.181Z"
+      "firstSeenAt": "2026-08-21T21:39:42.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-ambulatorium-klinische-kardiologie-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-d85329ea555b",
@@ -17799,14 +17809,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-in-ausbildung-80-luks",
-          "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern"
+          "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-in-ausbildung-80-luks"
         ],
         "it": [
           "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern",
           "fisico-medico-per-diagnostica-100-luzerner-kantonsspital-luks-luzern",
-          "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-in-ausbildung-80-luks",
-          "fisico-medico-diagnostico-100-luzerner-kantonsspital-luks-luzern"
+          "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-in-ausbildung-80-luks"
         ],
         "en": [
           "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern"
@@ -17820,8 +17828,7 @@
         "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern",
         "fisico-medico-per-diagnostica-100-luzerner-kantonsspital-luks-luzern",
         "physicien-ne-medical-le-en-diagnostic-100-luzerner-kantonsspital-luks-luzern",
-        "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-in-ausbildung-80-luks",
-        "fisico-medico-diagnostico-100-luzerner-kantonsspital-luks-luzern"
+        "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-in-ausbildung-80-luks"
       ],
       "firstSeenAt": "2026-05-21T12:39:26.715Z",
       "salaryMin": 86500,

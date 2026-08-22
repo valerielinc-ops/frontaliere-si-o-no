@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "bauleiterin-oder-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen",
         "it": "bauleiterin-o-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen",
-        "en": "bauleiterin-oder-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen",
-        "fr": "bauleiterin-oder-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen"
+        "en": "construction-manager-electrical-installations-80-100-groupe-e-guin-dudingen",
+        "fr": "gestionnaire-de-construction-installations-electriques-80-100-groupe-e-guin-dudingen"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -55,6 +55,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiterin-oder-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen"
+        ],
+        "en": [
+          "bauleiterin-oder-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen"
+        ],
+        "fr": [
           "bauleiterin-oder-bauleiter-elektroinstallationen-80-100-groupe-e-guin-dudingen"
         ]
       },
@@ -2569,13 +2575,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicienne-ou-technicien-de-maintenance-cvc-100-groupe-e-matran-mad-6",
-        "tecnico-di-manutenzione-hvac-al-100-groupe-e-matran-mad-6"
+        "technicienne-ou-technicien-de-maintenance-cvc-100-groupe-e-matran-mad-6"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicienne-ou-technicien-de-maintenance-cvc-100-groupe-e-matran-mad-6",
-          "tecnico-di-manutenzione-hvac-al-100-groupe-e-matran-mad-6"
+          "technicienne-ou-technicien-de-maintenance-cvc-100-groupe-e-matran-mad-6"
         ],
         "en": [
           "technicienne-ou-technicien-de-maintenance-cvc-100-groupe-e-matran-mad-6"
@@ -3347,9 +3351,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "comptable-h-f-80-cdd-groupe-e-granges-paccot-plexus",
-        "comptable-m-w-d-80-cdd-groupe-e-granges-paccot-plexus",
-        "accountant-m-f-80-csd-groupe-e-granges-paccot-plexus",
-        "contabile-m-f-80-csd-groupe-e-granges-paccot-plexus"
+        "comptable-m-w-d-80-cdd-groupe-e-granges-paccot-plexus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3357,8 +3359,7 @@
         ],
         "en": [
           "comptable-h-f-80-cdd-groupe-e-granges-paccot-plexus",
-          "comptable-m-w-d-80-cdd-groupe-e-granges-paccot-plexus",
-          "accountant-m-f-80-csd-groupe-e-granges-paccot-plexus"
+          "comptable-m-w-d-80-cdd-groupe-e-granges-paccot-plexus"
         ],
         "de": [
           "comptable-h-f-80-cdd-groupe-e-granges-paccot-plexus"

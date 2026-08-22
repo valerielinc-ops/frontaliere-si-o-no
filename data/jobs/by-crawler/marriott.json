@@ -691,14 +691,12 @@
       "previousSlugs": [
         "spa-supervisor-long-term-w-verbier-marriott-verbier",
         "spa-supervisor-langfristig-w-verbier-marriott-international-verbier",
-        "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier",
-        "spa-supervisore-long-term-w-verbier-marriott-international-verbier"
+        "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-supervisor-long-term-w-verbier-marriott-verbier",
-          "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier",
-          "spa-supervisore-long-term-w-verbier-marriott-international-verbier"
+          "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier"
         ],
         "de": [
           "spa-supervisor-langfristig-w-verbier-marriott-international-verbier"
@@ -950,14 +948,12 @@
       },
       "previousSlugs": [
         "reservations-and-revenue-coordinator-marriott-verbier",
-        "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier",
-        "reservations-and-revenue-coordinatore-marriott-international-verbier"
+        "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservations-and-revenue-coordinator-marriott-verbier",
-          "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier",
-          "reservations-and-revenue-coordinatore-marriott-international-verbier"
+          "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier"
         ],
         "de": [
           "reservations-and-revenue-coordinator-marriott-verbier"
@@ -985,10 +981,10 @@
       "id": "marriott-edb9d3c489e2",
       "slug": "prenotazione-agente-marriott-international-verbier",
       "slugByLocale": {
-        "it": "prenotazione-agente-marriott-international-verbier",
+        "it": "commissione-a-la-carte-marriott-international-zurich",
         "en": "reservations-agent-long-term-w-verbier-marriott-international-verbier",
         "de": "reservierung-agent-marriott-international-verbier",
-        "fr": "reservations-agent-long-term-w-verbier-marriott-international-verbier"
+        "fr": "commission-a-la-carte-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1049,9 +1045,7 @@
           "commis-a-la-carte-marriott-zurich",
           "reservations-agent-marriott-international-verbier",
           "reservations-agent-marriott-verbier",
-          "commissione-a-la-carte-marriott-international-zurich",
-          "reservations-agent-long-term-w-verbier-marriott-verbier",
-          "prenotazione-agente-marriott-international-verbier"
+          "reservations-agent-long-term-w-verbier-marriott-verbier"
         ],
         "de": [
           "commis-a-la-carte-marriott-zurich",
@@ -1059,8 +1053,8 @@
         ],
         "fr": [
           "commis-a-la-carte-marriott-zurich",
-          "commission-a-la-carte-marriott-international-zurich",
-          "reservations-agent-marriott-international-verbier"
+          "reservations-agent-marriott-international-verbier",
+          "reservations-agent-long-term-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
@@ -1068,9 +1062,8 @@
         "commissione-a-la-carte-marriott-international-zurich",
         "reservations-agent-marriott-international-verbier",
         "reservations-agent-marriott-verbier",
-        "commission-a-la-carte-marriott-international-zurich",
         "reservations-agent-long-term-w-verbier-marriott-verbier",
-        "prenotazione-agente-marriott-international-verbier"
+        "reservations-agent-long-term-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-08-07T22:02:55.118Z",
       "salaryMin": 104500,
@@ -1342,12 +1335,12 @@
     },
     {
       "id": "marriott-22fcb56da769",
-      "slug": "kitchen-intern-w-verbier-marriott-verbier",
+      "slug": "kitchen-tirocinante-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "kitchen-intern-w-verbier-marriott-verbier",
-        "it": "kitchen-intern-w-verbier-marriott-verbier",
-        "de": "kitchen-intern-w-verbier-marriott-verbier",
-        "fr": "kitchen-intern-w-verbier-marriott-verbier"
+        "it": "kitchen-tirocinante-w-verbier-marriott-international-verbier",
+        "de": "kitchen-praktikant-w-verbier-marriott-international-verbier",
+        "fr": "kitchen-stagiaire-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1412,7 +1405,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-21T21:55:16.466Z"
+      "firstSeenAt": "2026-08-21T21:55:16.466Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kitchen-intern-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "kitchen-intern-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "kitchen-intern-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "kitchen-intern-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-79d0261a5fa1",
