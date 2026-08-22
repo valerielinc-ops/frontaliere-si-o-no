@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-08-21T09:48:18.148Z",
+  "generatedAt": "2026-08-21T21:31:29.246Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5076,
-  "avgDurationMs": 5076,
+  "durationMs": 4699,
+  "avgDurationMs": 4699,
   "durationHistory": [
-    5076
+    4699
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:48:15.498Z",
+      "crawledAt": "2026-08-21T21:31:27.082Z",
       "firstSeenAt": "2026-08-10T21:45:49.906Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:48:15.187Z",
+      "crawledAt": "2026-08-21T21:31:26.747Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -94,7 +94,8 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:48:14.680Z",
+      "crawledAt": "2026-08-21T21:31:26.415Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -127,10 +128,10 @@
       "url": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:48:15.498Z",
+      "crawledAt": "2026-08-21T21:31:27.082Z",
       "firstSeenAt": "2026-08-10T21:45:49.906Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 60000,
+      "salaryMax": 102000,
       "addressRegion": "GR",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -160,10 +161,10 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:48:15.187Z",
+      "crawledAt": "2026-08-21T21:31:26.747Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 60000,
+      "salaryMax": 102000,
       "addressRegion": "GR",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -193,11 +194,11 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T09:48:14.680Z",
-      "firstSeenAt": "2026-04-13T10:12:14.899Z",
+      "crawledAt": "2026-08-21T21:31:26.415Z",
       "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-04-13T10:12:14.899Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
       "addressRegion": "GR",
       "_qualityScore": 85,
       "_qualityBreakdown": {

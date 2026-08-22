@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-08-21T09:52:02.316Z",
+  "assembledAt": "2026-08-21T21:43:51.170Z",
   "jobs": [
     {
       "id": "fondation-domus-a4da05256506",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/71519aea-c081-4704-be57-8a2a6786f33f/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:51:59.830Z",
+      "crawledAt": "2026-08-21T21:43:48.581Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cuisinier-100-fondation-domus-ch",
-        "fornello-100-fondation-domus-ardon"
+        "cuisinier-100-fondation-domus-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuisinier-100-fondation-domus-ch",
-          "fornello-100-fondation-domus-ardon"
+          "cuisinier-100-fondation-domus-ch"
         ],
         "en": [
           "cuisinier-100-fondation-domus-ch"
@@ -85,7 +83,7 @@
       "slug": "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon",
       "slugByLocale": {
         "it": "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon",
-        "en": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ardon",
+        "en": "nurse-in-psychiatry-60-to-80-fondation-domus-ardon",
         "de": "krankenschwester-in-der-psychiatrie-60-bis-80-fondation-domus-ardon",
         "fr": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
       },
@@ -95,7 +93,7 @@
       "title": "Infirmier en psychiatrie (60% à 80%)",
       "titleByLocale": {
         "it": "Infermiera in Psichiatria (60% a 80%)",
-        "en": "Infirmier en psychiatrie (60% à 80%)",
+        "en": "Nurse in Psychiatry (60% to 80%)",
         "de": "Krankenschwester in der Psychiatrie (60% bis 80%)",
         "fr": "Infirmier en psychiatrie (60% à 80%)"
       },
@@ -111,7 +109,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:51:59.338Z",
+      "crawledAt": "2026-08-21T21:43:48.148Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -129,18 +127,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-        "nurse-in-psychiatry-60-to-80-fondation-domus-ardon",
-        "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon",
         "infirmier-en-psychiatrie-60-a-80-fondation-domus-ardon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-          "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon"
+          "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
         ],
         "en": [
           "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-          "nurse-in-psychiatry-60-to-80-fondation-domus-ardon",
           "infirmier-en-psychiatrie-60-a-80-fondation-domus-ardon"
         ],
         "de": [
@@ -148,7 +142,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:51:18.113Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {

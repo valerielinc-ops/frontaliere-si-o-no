@@ -1,0 +1,22 @@
+{
+  "companyKey": "stellenpartner",
+  "companyName": "Stellenpartner AG",
+  "companyHost": "stellenpartner.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.stellenpartner.ch/stellen/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "sampleVacancyCount": 708,
+  "sampleTitles": [
+    "Anlagen- und Apparatebauer/in (Hilfsarbeiter/in) für modernen Metallbau mit Montage",
+    "Anlagen- und Apparatebauer/in für Laserschweiss-Anlagen mit Verantwortung",
+    "Anlagen- und Apparatebauer/in für Lebensmittelindustrie mit Schweisskenntnissen",
+    "Anlagen- und Apparatebauer/in für Montage und Qualitätskontrolle",
+    "Anlagen- und Apparatebauer/in für Pulverbeschichtung und CAD-Entwurf"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:56.601Z"
+}

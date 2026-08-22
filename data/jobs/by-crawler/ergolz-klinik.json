@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ergolz-klinik",
-  "assembledAt": "2026-08-21T09:47:47.764Z",
+  "assembledAt": "2026-08-21T21:38:06.987Z",
   "jobs": [
     {
       "id": "ergolz-klinik-6ec9804c71a1",
@@ -34,7 +34,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/07/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026-1.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:44.565Z",
+      "crawledAt": "2026-08-21T21:38:04.825Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -68,15 +68,15 @@
         ]
       },
       "firstSeenAt": "2026-07-17T10:56:48.617Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -112,7 +112,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:43.741Z",
+      "crawledAt": "2026-08-21T21:38:04.032Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -146,15 +146,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:51:38.840Z",
-      "salaryMin": 49600,
-      "salaryMax": 75200,
+      "salaryMin": 70400,
+      "salaryMax": 98400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49600,
-          "maxValue": 75200,
+          "minValue": 70400,
+          "maxValue": 98400,
           "unitText": "YEAR"
         }
       }

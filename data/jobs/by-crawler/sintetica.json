@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sintetica",
-  "assembledAt": "2026-08-21T09:44:47.069Z",
+  "assembledAt": "2026-08-21T21:25:01.213Z",
   "jobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -596,16 +596,16 @@
       },
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 66500,
+      "salaryMax": 110500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 66500,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       }

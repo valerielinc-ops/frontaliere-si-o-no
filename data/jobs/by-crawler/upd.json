@@ -1,7 +1,85 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-08-20T09:48:40.912Z",
+  "assembledAt": "2026-08-21T21:45:41.737Z",
   "jobs": [
+    {
+      "id": "upd-ee8bfb28ee0d",
+      "slug": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "it": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-psychologist-senior-psychologist-forensics-universitare-psychiatrische-dienste-bern-upd-bern",
+        "de": "oberpsychologin-oberpsychologe-forensik-upd-bern",
+        "fr": "psychologue-principal-psychologue-principal-medico-legal-universitare-psychiatrische-dienste-bern-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Oberpsychologin / Oberpsychologe Forensik",
+      "titleByLocale": {
+        "it": "psicologo senior / psicologo senior forense",
+        "en": "Senior psychologist / Senior psychologist forensics",
+        "de": "Oberpsychologin / Oberpsychologe Forensik",
+        "fr": "Psychologue principal / Psychologue principal médico-légal"
+      },
+      "description": "Oberpsychologin / Oberpsychologe Forensik bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Psychologie\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+      "descriptionByLocale": {
+        "it": "psicologo senior / psicologo senior forense presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Psicologia\n• Tipo: Part-time, tempo pieno possibile\n• Termine: Temporaneo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
+        "en": "Senior psychologist / Senior psychologist forensics at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Psychology\n• Type: Part-time, full-time possible\n• Time limit: Temporary\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
+        "de": "Oberpsychologin / Oberpsychologe Forensik bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Psychologie\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Psychologue senior / Psychologue senior légiste à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Psychologie\n• Type: Temps partiel, temps plein possible\n• Délai: Temporaire\n• Lieu: Berne (BE)\n• Application via le portail Umantis Career des Services Psychiatriques de l'Université de Berne (UPD)"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3357/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T21:45:26.209Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3357/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberpsychologin-oberpsychologe-forensik-upd-bern",
+        "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberpsychologin-oberpsychologe-forensik-upd-bern",
+          "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "oberpsychologin-oberpsychologe-forensik-upd-bern"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologe-forensik-upd-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-18T21:56:43.123Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "upd-bd388d976317",
       "slug": "infermiere-di-laurea-ambulatorium-bern-universitare-psychiatrische-dienste-bern-upd-bern",
@@ -78,7 +156,8 @@
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-ambulatorium-bern-upd-bern"
-      ]
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "upd-3d356f7a5682",
@@ -143,7 +222,7 @@
         }
       },
       "firstSeenAt": "2026-08-19T09:53:47.014Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-im-nachtdienst-icm-upd-bern"
@@ -222,7 +301,7 @@
         }
       },
       "firstSeenAt": "2026-08-19T09:53:26.810Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
@@ -237,168 +316,6 @@
       "previousSlugs": [
         "biomedizinische-analytikerin-biomedizinischer-analytiker-bma-upd-bern"
       ]
-    },
-    {
-      "id": "upd-ee8bfb28ee0d",
-      "slug": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "de": "oberpsychologin-oberpsychologe-forensik-upd-bern",
-        "it": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "senior-psychologist-senior-psychologist-forensics-universitare-psychiatrische-dienste-bern-upd-bern",
-        "fr": "psychologue-principal-psychologue-principal-medico-legal-universitare-psychiatrische-dienste-bern-upd-bern"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Oberpsychologin / Oberpsychologe Forensik",
-      "titleByLocale": {
-        "de": "Oberpsychologin / Oberpsychologe Forensik",
-        "it": "psicologo senior / psicologo senior forense",
-        "en": "Senior psychologist / Senior psychologist forensics",
-        "fr": "Psychologue principal / Psychologue principal médico-légal"
-      },
-      "description": "Oberpsychologin / Oberpsychologe Forensik bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Psychologie\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "Oberpsychologin / Oberpsychologe Forensik bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Psychologie\n• Art: Teilzeit, Vollzeit möglich\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "psicologo senior / psicologo senior forense presso Universitäres Psychiatrisches Zentrum Bern AG a Berna (3000, BE), Svizzera.\n\n• Area: Psicologia\n• Tipo: Part-time, tempo pieno possibile\n• Termine: Temporaneo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "Senior psychologist / Senior psychologist forensics at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Area: Psychology\n• Type: Part-time, full-time possible\n• Time limit: Temporary\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Psychologue senior / Psychologue senior légiste à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: Psychologie\n• Type: Temps partiel, temps plein possible\n• Délai: Temporaire\n• Lieu: Berne (BE)\n• Application via le portail Umantis Career des Services Psychiatriques de l'Université de Berne (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3357/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:56:43.123Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3357/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-18T21:56:43.123Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "oberpsychologin-oberpsychologe-forensik-upd-bern"
-        ],
-        "en": [
-          "oberpsychologin-oberpsychologe-forensik-upd-bern"
-        ],
-        "fr": [
-          "oberpsychologin-oberpsychologe-forensik-upd-bern"
-        ]
-      },
-      "previousSlugs": [
-        "oberpsychologin-oberpsychologe-forensik-upd-bern"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "upd-102acd2a4b35",
-      "slug": "responsabile-del-servizio-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "de": "leiterin-leiter-servicedesk-upd-bern",
-        "it": "responsabile-del-servizio-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "head-of-service-desk-universitare-psychiatrische-dienste-bern-upd-bern",
-        "fr": "chef-du-bureau-de-service-universitare-psychiatrische-dienste-bern-upd-bern"
-      },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Leiterin / Leiter Servicedesk",
-      "titleByLocale": {
-        "de": "Leiterin / Leiter Servicedesk",
-        "it": "Responsabile del Servizio",
-        "en": "Head of Service Desk",
-        "fr": "Chef du bureau de service"
-      },
-      "description": "Leiterin / Leiter Servicedesk bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: ICT\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-      "descriptionByLocale": {
-        "de": "Leiterin / Leiter Servicedesk bei Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Schweiz.\n\n• Bereich: ICT\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Responsabile Servizio presso Universitäres Psychiatrisches Zentrum Bern AG di Berna (3000, BE), Svizzera.\n\n• Dominio: ICT\n• Tipo: Tempo pieno\n• Termine temporaneo: perpetuo\n• Posizione: Berna (BE)\n• Applicazione tramite il Portale Umantis Career dell'Università Psichiatria Servizi Berna (UPD)",
-        "en": "Head of Service Desk at Universitäres Psychiatrisches Zentrum Bern AG in Bern (3000, BE), Switzerland.\n\n• Domain: ICT\n• Type: Full-time\n• Temporary term: perpetual\n• Location: Bern (BE)\n• Application via the Umantis Career Portal of the University Psychiatric Services Bern (UPD)",
-        "fr": "Chef du bureau de service à Universitäres Psychiatrisches Zentrum Bern AG à Berne (3000, BE), Suisse.\n\n• Domaine: TIC\n• Type: Temps plein\n• Terme temporaire : perpétuel\n• Lieu: Berne (BE)\n• Application via le portail Umantis Career des Services Psychiatriques de l'Université de Berne (UPD)"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3355/Description/1",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:56:22.919Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3355/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "leiterin-leiter-servicedesk-upd-bern",
-          "leiterin-leiter-servicedesk-universitare-psychiatrische-dienste-bern-upd-bern",
-          "responsabile-attivazione-universitare-psychiatrische-dienste-bern-upd-bern"
-        ],
-        "en": [
-          "leiterin-leiter-servicedesk-upd-bern"
-        ],
-        "fr": [
-          "leiterin-leiter-servicedesk-upd-bern"
-        ]
-      },
-      "previousSlugs": [
-        "leiterin-leiter-servicedesk-upd-bern",
-        "leiterin-leiter-servicedesk-universitare-psychiatrische-dienste-bern-upd-bern",
-        "responsabile-attivazione-universitare-psychiatrische-dienste-bern-upd-bern"
-      ],
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-18T21:56:22.919Z",
-      "crawlerMissStreak": 2
     }
   ]
 }

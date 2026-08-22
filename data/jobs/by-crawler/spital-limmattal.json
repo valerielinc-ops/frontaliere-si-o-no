@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-08-21T09:46:15.707Z",
+  "assembledAt": "2026-08-21T21:26:21.485Z",
   "jobs": [
     {
       "id": "spital-limmattal-70aa93654f48",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/486538/0841/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:11.873Z",
+      "crawledAt": "2026-08-21T21:26:17.623Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -71,15 +71,15 @@
         ]
       },
       "firstSeenAt": "2026-08-19T09:45:18.974Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -115,7 +115,7 @@
       "url": "https://apply.refline.ch/486538/0814/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:11.398Z",
+      "crawledAt": "2026-08-21T21:26:17.144Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,15 +155,15 @@
         "apprendistato-come-medizinische-praxisassistentin-medizinischer-praxisassistenten-spital-limmattal-schlieren"
       ],
       "firstSeenAt": "2026-08-17T09:53:59.997Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 82000,
+          "maxValue": 114500,
           "unitText": "YEAR"
         }
       }
@@ -200,7 +200,7 @@
       "url": "https://apply.refline.ch/486538/0840/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:10.928Z",
+      "crawledAt": "2026-08-21T21:26:16.666Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,15 +249,15 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:15.932Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -294,7 +294,7 @@
       "url": "https://apply.refline.ch/486538/0838/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:10.458Z",
+      "crawledAt": "2026-08-21T21:26:16.187Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -328,15 +328,15 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:15.509Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 53500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 53500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -373,7 +373,7 @@
       "url": "https://apply.refline.ch/486538/0839/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:09.987Z",
+      "crawledAt": "2026-08-21T21:26:15.709Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -452,7 +452,7 @@
       "url": "https://apply.refline.ch/486538/0833/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:08.939Z",
+      "crawledAt": "2026-08-21T21:26:15.231Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://apply.refline.ch/486538/0834/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:08.467Z",
+      "crawledAt": "2026-08-21T21:26:14.752Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -565,15 +565,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:38.226Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -610,7 +610,7 @@
       "url": "https://apply.refline.ch/486538/0505/pub/10/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:07.993Z",
+      "crawledAt": "2026-08-21T21:26:14.273Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -644,15 +644,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:37.741Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -689,7 +689,7 @@
       "url": "https://apply.refline.ch/486538/0639/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:07.519Z",
+      "crawledAt": "2026-08-21T21:26:13.796Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -721,15 +721,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:37.258Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -766,7 +766,7 @@
       "url": "https://apply.refline.ch/486538/0835/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:07.050Z",
+      "crawledAt": "2026-08-21T21:26:13.317Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -815,15 +815,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:07:42.533Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -860,7 +860,7 @@
       "url": "https://apply.refline.ch/486538/0836/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:06.581Z",
+      "crawledAt": "2026-08-21T21:26:12.839Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -896,15 +896,15 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:07:42.108Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -940,7 +940,7 @@
       "url": "https://apply.refline.ch/486538/0819/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:06.111Z",
+      "crawledAt": "2026-08-21T21:26:12.360Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -978,15 +978,15 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:28:19.994Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 58000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 58000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       }
@@ -1023,7 +1023,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:05.640Z",
+      "crawledAt": "2026-08-21T21:26:11.881Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1065,15 +1065,15 @@
         "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren"
       ],
       "firstSeenAt": "2026-08-10T10:28:19.569Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 58000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 58000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       }
@@ -1109,7 +1109,7 @@
       "url": "https://apply.refline.ch/486538/0832/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:05.170Z",
+      "crawledAt": "2026-08-21T21:26:11.403Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1143,15 +1143,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:42:48.869Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -1188,7 +1188,7 @@
       "url": "https://apply.refline.ch/486538/0831/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:04.696Z",
+      "crawledAt": "2026-08-21T21:26:10.925Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1225,15 +1225,15 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:06:11.765Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
+      "salaryMin": 54900,
+      "salaryMax": 76800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 44100,
-          "maxValue": 66900,
+          "minValue": 54900,
+          "maxValue": 76800,
           "unitText": "YEAR"
         }
       }
@@ -1270,7 +1270,7 @@
       "url": "https://apply.refline.ch/486538/0825/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:04.224Z",
+      "crawledAt": "2026-08-21T21:26:10.436Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1304,15 +1304,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:33:43.713Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -1349,7 +1349,7 @@
       "url": "https://apply.refline.ch/486538/0823/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:03.751Z",
+      "crawledAt": "2026-08-21T21:26:09.087Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1428,7 +1428,7 @@
       "url": "https://apply.refline.ch/486538/0817/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:03.279Z",
+      "crawledAt": "2026-08-21T21:26:08.612Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1468,15 +1468,15 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:33:52.846Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -1513,7 +1513,7 @@
       "url": "https://apply.refline.ch/486538/0824/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:02.806Z",
+      "crawledAt": "2026-08-21T21:26:08.135Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1547,15 +1547,15 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:03:30.064Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 82000,
+          "maxValue": 114500,
           "unitText": "YEAR"
         }
       }
@@ -1592,7 +1592,7 @@
       "url": "https://apply.refline.ch/486538/0818/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:02.335Z",
+      "crawledAt": "2026-08-21T21:26:07.656Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1626,15 +1626,15 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:32.984Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -1671,7 +1671,7 @@
       "url": "https://apply.refline.ch/486538/0796/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:01.864Z",
+      "crawledAt": "2026-08-21T21:26:07.178Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1727,15 +1727,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:40.382Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -1772,7 +1772,7 @@
       "url": "https://apply.refline.ch/486538/0761/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:01.396Z",
+      "crawledAt": "2026-08-21T21:26:06.697Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1829,15 +1829,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:39.893Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -1874,7 +1874,7 @@
       "url": "https://apply.refline.ch/486538/0733/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:00.927Z",
+      "crawledAt": "2026-08-21T21:26:06.212Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1910,15 +1910,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:39.395Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -1955,7 +1955,7 @@
       "url": "https://apply.refline.ch/486538/0730/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:00.459Z",
+      "crawledAt": "2026-08-21T21:26:05.732Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1991,15 +1991,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:38.906Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -2036,7 +2036,7 @@
       "url": "https://apply.refline.ch/486538/0616/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:59.988Z",
+      "crawledAt": "2026-08-21T21:26:05.256Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2084,15 +2084,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:38.420Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -2129,7 +2129,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:58.909Z",
+      "crawledAt": "2026-08-21T21:26:04.779Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2168,15 +2168,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:37.931Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -2213,7 +2213,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:58.436Z",
+      "crawledAt": "2026-08-21T21:26:04.302Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2247,15 +2247,15 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:51:50.247Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -2292,7 +2292,7 @@
       "url": "https://apply.refline.ch/486538/0795/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:57.963Z",
+      "crawledAt": "2026-08-21T21:26:03.824Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2375,7 +2375,7 @@
       "url": "https://apply.refline.ch/486538/0782/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:57.490Z",
+      "crawledAt": "2026-08-21T21:26:03.347Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2426,15 +2426,15 @@
         ]
       },
       "firstSeenAt": "2026-07-15T10:57:41.210Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 82000,
+          "maxValue": 114500,
           "unitText": "YEAR"
         }
       }
@@ -2471,7 +2471,7 @@
       "url": "https://apply.refline.ch/486538/0806/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:57.018Z",
+      "crawledAt": "2026-08-21T21:26:02.864Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2508,15 +2508,15 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:06:58.508Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 97500,
+      "salaryMax": 122500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 97500,
+          "maxValue": 122500,
           "unitText": "YEAR"
         }
       }
@@ -2553,7 +2553,7 @@
       "url": "https://apply.refline.ch/486538/0812/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:56.549Z",
+      "crawledAt": "2026-08-21T21:26:02.387Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2599,15 +2599,15 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:23:10.723Z",
-      "salaryMin": 81200,
-      "salaryMax": 123200,
+      "salaryMin": 99200,
+      "salaryMax": 138400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81200,
-          "maxValue": 123200,
+          "minValue": 99200,
+          "maxValue": 138400,
           "unitText": "YEAR"
         }
       }
@@ -2644,7 +2644,7 @@
       "url": "https://apply.refline.ch/486538/0811/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:56.079Z",
+      "crawledAt": "2026-08-21T21:26:01.907Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2711,15 +2711,15 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:13:22.754Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 73200,
+      "salaryMax": 102400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 73200,
+          "maxValue": 102400,
           "unitText": "YEAR"
         }
       }
@@ -2756,7 +2756,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:55.610Z",
+      "crawledAt": "2026-08-21T21:26:01.430Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2795,15 +2795,15 @@
         ]
       },
       "firstSeenAt": "2026-07-06T00:19:56.848Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -2840,7 +2840,7 @@
       "url": "https://apply.refline.ch/486538/0579/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:55.141Z",
+      "crawledAt": "2026-08-21T21:26:00.947Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2891,15 +2891,15 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:19:47.706Z",
-      "salaryMin": 51500,
-      "salaryMax": 78100,
+      "salaryMin": 64000,
+      "salaryMax": 89600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 78100,
+          "minValue": 64000,
+          "maxValue": 89600,
           "unitText": "YEAR"
         }
       }
@@ -2936,7 +2936,7 @@
       "url": "https://apply.refline.ch/486538/0307/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:54.671Z",
+      "crawledAt": "2026-08-21T21:26:00.470Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2972,15 +2972,15 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:55:30.575Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 53500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 53500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -3017,7 +3017,7 @@
       "url": "https://apply.refline.ch/486538/0803/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:54.200Z",
+      "crawledAt": "2026-08-21T21:25:59.992Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3067,99 +3067,15 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:14:00.141Z",
-      "salaryMin": 60900,
-      "salaryMax": 92400,
+      "salaryMin": 74400,
+      "salaryMax": 103800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60900,
-          "maxValue": 92400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-limmattal-a96083380134",
-      "slug": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
-      "slugByLocale": {
-        "it": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
-        "en": "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-        "de": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-        "fr": "chef-de-la-hand-therapy-ergotherapie-spital-limmattal-schlieren"
-      },
-      "company": "Spital Limmattal",
-      "companyKey": "spital-limmattal",
-      "companyDomain": "spital-limmattal.ch",
-      "title": "Fachleitung Handtherapie / Ergotherapie",
-      "titleByLocale": {
-        "it": "Testa di terapia della mano / Terapia occupazionale",
-        "en": "Head of Hand Therapy / Occupational Therapy",
-        "de": "Fachleitung Handtherapie / Ergotherapie",
-        "fr": "Chef de la Hand Therapy / Ergothérapie"
-      },
-      "description": "• Fachleitung Handtherapie / Ergotherapie\n\n80% - 100%, nach Vereinbarung\n\nJetzt bewerben\n\nUnser breitgefächertes Angebot sowie unser Therapieteam sind interdisziplinär aufgebaut und gewährleisten unseren Patient:innen eine optimale Rehabilitation und reibungslose Rückkehr in die gewohnte Umgebung.\nDas übergeordnete Ziel im umfangreichen Setting von Physiotherapie, Logopädie oder Ergotherapie ist die Lebensqualität unserer Patient:innen zu steigern und ihre Handlungskompetenzen in Alltag, Beruf und Freizeit zu ermöglichen beziehungsweise zu erhalten – sei es nach einer Operation oder wegen einer akuten Erkrankung.\n\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\n\nHier engagieren Sie sich\n\n• Behandlung von Patienten mit Handverletzungen (konservativ und postoperativ) sowie Schienen- und Hilfsmittelversorgung\n• Vertretung bei der Behandlung von Patienten im Fachbereich der Neurologie und Geriatrie\n• Durchführung von klientenzentrierten, alltagsorientierten und funktionellen Behandlungen in Einzeltherapien\n• Selbstständige Planung, Dokumentation und Leistungserfassung in unseren IT-Systemen\n• Möglichkeit in einem dynamischen Team die fachliche Weiterentwicklung der Handtherapie im Spital Limmattal mitgestalten zu können\n• verfügen über eine abgeschlossene Ausbildung als Ergotherapeut/in FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• weisen Erfahrung im Bereich Handtherapie auf\n• haben Interesse am Fachbereich und an der interprofessionellen Zusammenarbeit mit der Handchirurgie\n• sind teamfähig, flexible und eine selbstständige Persönlichkeit\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
-      "descriptionByLocale": {
-        "it": "• Gestione specialistica della terapia della mano/terapia occupazionale 80% - 100%, su appuntamento Richiedi ora La nostra vasta gamma di servizi e il nostro team terapeutico sono interdisciplinari e garantiscono ai nostri pazienti una riabilitazione ottimale e un ritorno tranquillo al loro ambiente familiare. L'obiettivo generale nel vasto contesto della fisioterapia, della logopedia o della terapia occupazionale è quello di aumentare la qualità della vita dei nostri pazienti e di consentire o mantenere la loro capacità di agire nella vita di tutti i giorni, al lavoro e nel tempo libero, sia dopo un'operazione che a causa di una malattia acuta. Qui sarai coinvolto:\n• Trattamento di pazienti con lesioni alla mano (conservativa e postoperatoria), nonché fornitura di stecche e ausili\n• Rappresentanza nel trattamento di pazienti nei campi della neurologia e geriatria\n• Implementazione di trattamenti funzionali incentrati sul cliente, orientati alla vita quotidiana in terapie individuali\n• Pianificazione indipendente, documentazione e registrazione delle prestazioni nei nostri sistemi IT\n• Opportunità di poter contribuire a modellare lo sviluppo professionale della terapia della mano nell'Ospedale Limmattal in un team dinamico\n• Avere completato la formazione come Occupazionale terapista FH o formazione equivalente con riconoscimento SRK\n• hanno esperienza nel campo della terapia della mano\n• sono interessati al settore specialistico e alla collaborazione interprofessionale con la chirurgia della mano\n• sono un giocatore di squadra, flessibile e hanno una personalità indipendente\n• parcheggi scontati per i dipendenti\n• parcheggi per moto, parcheggi per biciclette con serratura\n• Offriamo un interessante abbonamento ai trasporti pubblici per i dipendenti con ZVV-Bonus Pass / Z-Bonus Pass",
-        "en": "• Specialist management of hand therapy / occupational therapy 80% - 100%, by appointment Apply now Our wide range of services and our therapy team are interdisciplinary and ensure our patients optimal rehabilitation and a smooth return to their familiar surroundings. The overarching goal in the extensive setting of physiotherapy, speech therapy or occupational therapy is to increase the quality of life of our patients and to enable or maintain their ability to act in everyday life, at work and in their leisure time - be it after an operation or because of an acute illness. Here you will be involved:\n• Treatment of patients with hand injuries (conservative and postoperative) as well as splint and aid provision\n• Representation in the treatment of patients in the fields of neurology and geriatrics\n• Implementation of client-centered, everyday-oriented and functional treatments in individual therapies\n• Independent planning, documentation and performance recording in our IT systems\n• Opportunity to be able to help shape the professional development of hand therapy in the Limmattal Hospital in a dynamic team\n• Have completed training as Occupational therapist FH or equivalent training with SRK recognition\n• have experience in the field of hand therapy\n• are interested in the specialist area and in interprofessional collaboration with hand surgery\n• are a team player, flexible and have an independent personality\n• discounted employee parking spaces\n• motorcycle parking spaces, lockable bicycle parking spaces\n• We offer an attractive public transport subscription for employees with the ZVV-Bonus Pass / Z-Bonus Pass",
-        "de": "• Fachleitung Handtherapie / Ergotherapie\n\n80% - 100%, nach Vereinbarung\n\nJetzt bewerben\n\nUnser breitgefächertes Angebot sowie unser Therapieteam sind interdisziplinär aufgebaut und gewährleisten unseren Patient:innen eine optimale Rehabilitation und reibungslose Rückkehr in die gewohnte Umgebung.\nDas übergeordnete Ziel im umfangreichen Setting von Physiotherapie, Logopädie oder Ergotherapie ist die Lebensqualität unserer Patient:innen zu steigern und ihre Handlungskompetenzen in Alltag, Beruf und Freizeit zu ermöglichen beziehungsweise zu erhalten – sei es nach einer Operation oder wegen einer akuten Erkrankung.\n\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\n\nHier engagieren Sie sich\n\n• Behandlung von Patienten mit Handverletzungen (konservativ und postoperativ) sowie Schienen- und Hilfsmittelversorgung\n• Vertretung bei der Behandlung von Patienten im Fachbereich der Neurologie und Geriatrie\n• Durchführung von klientenzentrierten, alltagsorientierten und funktionellen Behandlungen in Einzeltherapien\n• Selbstständige Planung, Dokumentation und Leistungserfassung in unseren IT-Systemen\n• Möglichkeit in einem dynamischen Team die fachliche Weiterentwicklung der Handtherapie im Spital Limmattal mitgestalten zu können\n• verfügen über eine abgeschlossene Ausbildung als Ergotherapeut/in FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• weisen Erfahrung im Bereich Handtherapie auf\n• haben Interesse am Fachbereich und an der interprofessionellen Zusammenarbeit mit der Handchirurgie\n• sind teamfähig, flexible und eine selbstständige Persönlichkeit\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
-        "fr": "• Gestion spécialisée en thérapie de la main / ergothérapie 80% - 100%, sur rendez-vous Postulez maintenant Notre large gamme de services et notre équipe thérapeutique sont interdisciplinaires et assurent à nos patients une rééducation optimale et un retour en douceur dans leur environnement familier. L'objectif primordial dans le cadre vaste de la physiothérapie, de l'orthophonie ou de l'ergothérapie est d'augmenter la qualité de vie de nos patients et de permettre ou de maintenir leur capacité d'agir au quotidien, au travail et pendant leurs loisirs - que ce soit après une opération ou en raison d'une maladie aiguë. Ici, vous serez impliqué :\n• Traitement des patients souffrant de blessures à la main (conservatrices et postopératoires) ainsi que fourniture d'attelles et d'aides\n• Représentation dans le traitement des patients dans les domaines de la neurologie et de la gériatrie\n• Mise en œuvre de traitements fonctionnels, axés sur le quotidien et centrés sur le client dans les thérapies individuelles\n• Planification, documentation et enregistrement des performances indépendants dans nos systèmes informatiques\n• Possibilité de contribuer au développement professionnel de la thérapie de la main à l'hôpital de Limmattal au sein d'une équipe dynamique\n• Avoir suivi une formation professionnelle thérapeute FH ou formation équivalente avec reconnaissance SRK\n• avez de l'expérience dans le domaine de la thérapie de la main\n• êtes intéressé par le domaine de spécialisation et la collaboration interprofessionnelle avec la chirurgie de la main\n• êtes un joueur d'équipe, flexible et avez une personnalité indépendante\n• places de stationnement pour les employés à prix réduit\n• places de stationnement pour motos, places de stationnement pour vélos verrouillables\n• Nous proposons un abonnement de transports publics attractif pour les employés avec le ZVV-Bonus Pass / Z-Bonus Pass"
-      },
-      "location": "Schlieren",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/486538/0776/pub/1/index.html",
-      "source": "Spital Limmattal Dedicated Parser (Refline)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:53.729Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://apply.refline.ch/486538/0776/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-        "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-        "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-        "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
-        "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-          "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren"
-        ],
-        "en": [
-          "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
-          "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
-          "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren"
-        ],
-        "fr": [
-          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T12:55:45.188Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 74400,
+          "maxValue": 103800,
           "unitText": "YEAR"
         }
       }
@@ -3196,7 +3112,7 @@
       "url": "https://apply.refline.ch/486538/0772/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:53.257Z",
+      "crawledAt": "2026-08-21T21:25:59.026Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3284,7 +3200,7 @@
       "url": "https://apply.refline.ch/486538/0767/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:52.786Z",
+      "crawledAt": "2026-08-21T21:25:58.545Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3329,15 +3245,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 124000,
+          "maxValue": 173000,
           "unitText": "YEAR"
         }
       }
@@ -3374,7 +3290,7 @@
       "url": "https://apply.refline.ch/486538/0764/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:52.314Z",
+      "crawledAt": "2026-08-21T21:25:58.065Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3392,15 +3308,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3437,7 +3353,7 @@
       "url": "https://apply.refline.ch/486538/0762/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:51.845Z",
+      "crawledAt": "2026-08-21T21:25:57.581Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3465,15 +3381,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:42.271Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3510,7 +3426,7 @@
       "url": "https://apply.refline.ch/486538/0748/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:51.373Z",
+      "crawledAt": "2026-08-21T21:25:57.102Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3538,15 +3454,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3583,7 +3499,7 @@
       "url": "https://apply.refline.ch/486538/0749/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:50.904Z",
+      "crawledAt": "2026-08-21T21:25:56.624Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3623,15 +3539,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3668,7 +3584,7 @@
       "url": "https://apply.refline.ch/486538/0747/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:50.433Z",
+      "crawledAt": "2026-08-21T21:25:56.144Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3704,15 +3620,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:38.932Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -3749,7 +3665,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:48.967Z",
+      "crawledAt": "2026-08-21T21:25:55.664Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3844,7 +3760,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:48.488Z",
+      "crawledAt": "2026-08-21T21:25:55.182Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3895,15 +3811,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:36.415Z",
-      "salaryMin": 60900,
-      "salaryMax": 92400,
+      "salaryMin": 74400,
+      "salaryMax": 103800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60900,
-          "maxValue": 92400,
+          "minValue": 74400,
+          "maxValue": 103800,
           "unitText": "YEAR"
         }
       }
@@ -3940,7 +3856,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:48.012Z",
+      "crawledAt": "2026-08-21T21:25:54.699Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3977,15 +3893,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:35.999Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -4022,7 +3938,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:47.540Z",
+      "crawledAt": "2026-08-21T21:25:54.212Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4071,15 +3987,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:34.748Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 82000,
+          "maxValue": 114500,
           "unitText": "YEAR"
         }
       }
@@ -4116,7 +4032,7 @@
       "url": "https://apply.refline.ch/486538/0664/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:47.069Z",
+      "crawledAt": "2026-08-21T21:25:53.730Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4210,7 +4126,7 @@
       "url": "https://apply.refline.ch/486538/0662/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:46.594Z",
+      "crawledAt": "2026-08-21T21:25:53.250Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4303,7 +4219,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:46.118Z",
+      "crawledAt": "2026-08-21T21:25:52.767Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4352,15 +4268,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:30.153Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -4397,7 +4313,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:45.639Z",
+      "crawledAt": "2026-08-21T21:25:52.284Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4492,7 +4408,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:45.160Z",
+      "crawledAt": "2026-08-21T21:25:51.799Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4568,15 +4484,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:29.316Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -4613,7 +4529,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:44.685Z",
+      "crawledAt": "2026-08-21T21:25:51.313Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4661,15 +4577,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:28.897Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -4706,7 +4622,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:45:44.161Z",
+      "crawledAt": "2026-08-21T21:25:50.768Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4754,6 +4670,90 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:28.478Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-limmattal-a96083380134",
+      "slug": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
+      "slugByLocale": {
+        "it": "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
+        "en": "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+        "de": "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+        "fr": "chef-de-la-hand-therapy-ergotherapie-spital-limmattal-schlieren"
+      },
+      "company": "Spital Limmattal",
+      "companyKey": "spital-limmattal",
+      "companyDomain": "spital-limmattal.ch",
+      "title": "Fachleitung Handtherapie / Ergotherapie",
+      "titleByLocale": {
+        "it": "Testa di terapia della mano / Terapia occupazionale",
+        "en": "Head of Hand Therapy / Occupational Therapy",
+        "de": "Fachleitung Handtherapie / Ergotherapie",
+        "fr": "Chef de la Hand Therapy / Ergothérapie"
+      },
+      "description": "• Fachleitung Handtherapie / Ergotherapie\n\n80% - 100%, nach Vereinbarung\n\nJetzt bewerben\n\nUnser breitgefächertes Angebot sowie unser Therapieteam sind interdisziplinär aufgebaut und gewährleisten unseren Patient:innen eine optimale Rehabilitation und reibungslose Rückkehr in die gewohnte Umgebung.\nDas übergeordnete Ziel im umfangreichen Setting von Physiotherapie, Logopädie oder Ergotherapie ist die Lebensqualität unserer Patient:innen zu steigern und ihre Handlungskompetenzen in Alltag, Beruf und Freizeit zu ermöglichen beziehungsweise zu erhalten – sei es nach einer Operation oder wegen einer akuten Erkrankung.\n\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\n\nHier engagieren Sie sich\n\n• Behandlung von Patienten mit Handverletzungen (konservativ und postoperativ) sowie Schienen- und Hilfsmittelversorgung\n• Vertretung bei der Behandlung von Patienten im Fachbereich der Neurologie und Geriatrie\n• Durchführung von klientenzentrierten, alltagsorientierten und funktionellen Behandlungen in Einzeltherapien\n• Selbstständige Planung, Dokumentation und Leistungserfassung in unseren IT-Systemen\n• Möglichkeit in einem dynamischen Team die fachliche Weiterentwicklung der Handtherapie im Spital Limmattal mitgestalten zu können\n• verfügen über eine abgeschlossene Ausbildung als Ergotherapeut/in FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• weisen Erfahrung im Bereich Handtherapie auf\n• haben Interesse am Fachbereich und an der interprofessionellen Zusammenarbeit mit der Handchirurgie\n• sind teamfähig, flexible und eine selbstständige Persönlichkeit\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
+      "descriptionByLocale": {
+        "it": "• Gestione specialistica della terapia della mano/terapia occupazionale 80% - 100%, su appuntamento Richiedi ora La nostra vasta gamma di servizi e il nostro team terapeutico sono interdisciplinari e garantiscono ai nostri pazienti una riabilitazione ottimale e un ritorno tranquillo al loro ambiente familiare. L'obiettivo generale nel vasto contesto della fisioterapia, della logopedia o della terapia occupazionale è quello di aumentare la qualità della vita dei nostri pazienti e di consentire o mantenere la loro capacità di agire nella vita di tutti i giorni, al lavoro e nel tempo libero, sia dopo un'operazione che a causa di una malattia acuta. Qui sarai coinvolto:\n• Trattamento di pazienti con lesioni alla mano (conservativa e postoperatoria), nonché fornitura di stecche e ausili\n• Rappresentanza nel trattamento di pazienti nei campi della neurologia e geriatria\n• Implementazione di trattamenti funzionali incentrati sul cliente, orientati alla vita quotidiana in terapie individuali\n• Pianificazione indipendente, documentazione e registrazione delle prestazioni nei nostri sistemi IT\n• Opportunità di poter contribuire a modellare lo sviluppo professionale della terapia della mano nell'Ospedale Limmattal in un team dinamico\n• Avere completato la formazione come Occupazionale terapista FH o formazione equivalente con riconoscimento SRK\n• hanno esperienza nel campo della terapia della mano\n• sono interessati al settore specialistico e alla collaborazione interprofessionale con la chirurgia della mano\n• sono un giocatore di squadra, flessibile e hanno una personalità indipendente\n• parcheggi scontati per i dipendenti\n• parcheggi per moto, parcheggi per biciclette con serratura\n• Offriamo un interessante abbonamento ai trasporti pubblici per i dipendenti con ZVV-Bonus Pass / Z-Bonus Pass",
+        "en": "• Specialist management of hand therapy / occupational therapy 80% - 100%, by appointment Apply now Our wide range of services and our therapy team are interdisciplinary and ensure our patients optimal rehabilitation and a smooth return to their familiar surroundings. The overarching goal in the extensive setting of physiotherapy, speech therapy or occupational therapy is to increase the quality of life of our patients and to enable or maintain their ability to act in everyday life, at work and in their leisure time - be it after an operation or because of an acute illness. Here you will be involved:\n• Treatment of patients with hand injuries (conservative and postoperative) as well as splint and aid provision\n• Representation in the treatment of patients in the fields of neurology and geriatrics\n• Implementation of client-centered, everyday-oriented and functional treatments in individual therapies\n• Independent planning, documentation and performance recording in our IT systems\n• Opportunity to be able to help shape the professional development of hand therapy in the Limmattal Hospital in a dynamic team\n• Have completed training as Occupational therapist FH or equivalent training with SRK recognition\n• have experience in the field of hand therapy\n• are interested in the specialist area and in interprofessional collaboration with hand surgery\n• are a team player, flexible and have an independent personality\n• discounted employee parking spaces\n• motorcycle parking spaces, lockable bicycle parking spaces\n• We offer an attractive public transport subscription for employees with the ZVV-Bonus Pass / Z-Bonus Pass",
+        "de": "• Fachleitung Handtherapie / Ergotherapie\n\n80% - 100%, nach Vereinbarung\n\nJetzt bewerben\n\nUnser breitgefächertes Angebot sowie unser Therapieteam sind interdisziplinär aufgebaut und gewährleisten unseren Patient:innen eine optimale Rehabilitation und reibungslose Rückkehr in die gewohnte Umgebung.\nDas übergeordnete Ziel im umfangreichen Setting von Physiotherapie, Logopädie oder Ergotherapie ist die Lebensqualität unserer Patient:innen zu steigern und ihre Handlungskompetenzen in Alltag, Beruf und Freizeit zu ermöglichen beziehungsweise zu erhalten – sei es nach einer Operation oder wegen einer akuten Erkrankung.\n\nDirektbewerbungen werden bevorzugt, externe Stellenvermittlungsbüros werden nicht prioritär behandelt.\n\nHier engagieren Sie sich\n\n• Behandlung von Patienten mit Handverletzungen (konservativ und postoperativ) sowie Schienen- und Hilfsmittelversorgung\n• Vertretung bei der Behandlung von Patienten im Fachbereich der Neurologie und Geriatrie\n• Durchführung von klientenzentrierten, alltagsorientierten und funktionellen Behandlungen in Einzeltherapien\n• Selbstständige Planung, Dokumentation und Leistungserfassung in unseren IT-Systemen\n• Möglichkeit in einem dynamischen Team die fachliche Weiterentwicklung der Handtherapie im Spital Limmattal mitgestalten zu können\n• verfügen über eine abgeschlossene Ausbildung als Ergotherapeut/in FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• weisen Erfahrung im Bereich Handtherapie auf\n• haben Interesse am Fachbereich und an der interprofessionellen Zusammenarbeit mit der Handchirurgie\n• sind teamfähig, flexible und eine selbstständige Persönlichkeit\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
+        "fr": "• Gestion spécialisée en thérapie de la main / ergothérapie 80% - 100%, sur rendez-vous Postulez maintenant Notre large gamme de services et notre équipe thérapeutique sont interdisciplinaires et assurent à nos patients une rééducation optimale et un retour en douceur dans leur environnement familier. L'objectif primordial dans le cadre vaste de la physiothérapie, de l'orthophonie ou de l'ergothérapie est d'augmenter la qualité de vie de nos patients et de permettre ou de maintenir leur capacité d'agir au quotidien, au travail et pendant leurs loisirs - que ce soit après une opération ou en raison d'une maladie aiguë. Ici, vous serez impliqué :\n• Traitement des patients souffrant de blessures à la main (conservatrices et postopératoires) ainsi que fourniture d'attelles et d'aides\n• Représentation dans le traitement des patients dans les domaines de la neurologie et de la gériatrie\n• Mise en œuvre de traitements fonctionnels, axés sur le quotidien et centrés sur le client dans les thérapies individuelles\n• Planification, documentation et enregistrement des performances indépendants dans nos systèmes informatiques\n• Possibilité de contribuer au développement professionnel de la thérapie de la main à l'hôpital de Limmattal au sein d'une équipe dynamique\n• Avoir suivi une formation professionnelle thérapeute FH ou formation équivalente avec reconnaissance SRK\n• avez de l'expérience dans le domaine de la thérapie de la main\n• êtes intéressé par le domaine de spécialisation et la collaboration interprofessionnelle avec la chirurgie de la main\n• êtes un joueur d'équipe, flexible et avez une personnalité indépendante\n• places de stationnement pour les employés à prix réduit\n• places de stationnement pour motos, places de stationnement pour vélos verrouillables\n• Nous proposons un abonnement de transports publics attractif pour les employés avec le ZVV-Bonus Pass / Z-Bonus Pass"
+      },
+      "location": "Schlieren",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/486538/0776/pub/1/index.html",
+      "source": "Spital Limmattal Dedicated Parser (Refline)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-21T09:45:53.729Z",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8952",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://apply.refline.ch/486538/0776/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+        "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+        "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+        "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren",
+        "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+          "testa-di-terapia-della-mano-terapia-occupazionale-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "head-of-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch",
+          "specialist-management-hand-therapy-occupational-therapy-spital-limmattal-schlieren",
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-schlieren"
+        ],
+        "fr": [
+          "fachleitung-handtherapie-ergotherapie-spital-limmattal-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T12:55:45.188Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4765,7 +4765,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

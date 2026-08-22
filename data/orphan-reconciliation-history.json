@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-21T07:31:25.829Z",
+  "generatedAt": "2026-08-22T04:03:26.546Z",
   "entries": [
     {
       "at": "2026-08-06T00:11:36.287Z",
@@ -826,6 +826,28 @@
       "pendingSlugs": 49,
       "pendingImpressions": 10924,
       "pendingClicks": 442
+    },
+    {
+      "at": "2026-08-22T03:50:24.951Z",
+      "orphanRecords": 43340,
+      "orphanSlugs": 43107,
+      "orphanImpressions": 216128,
+      "orphanClicks": 7543,
+      "registrySlugs": 297164,
+      "pendingSlugs": 56,
+      "pendingImpressions": 11083,
+      "pendingClicks": 447
+    },
+    {
+      "at": "2026-08-22T04:03:26.546Z",
+      "orphanRecords": 43340,
+      "orphanSlugs": 43107,
+      "orphanImpressions": 216128,
+      "orphanClicks": 7543,
+      "registrySlugs": 297241,
+      "pendingSlugs": 56,
+      "pendingImpressions": 11083,
+      "pendingClicks": 447
     }
   ]
 }

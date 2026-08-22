@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pole-sante-pays-enhaut",
-  "assembledAt": "2026-08-21T09:45:49.246Z",
+  "assembledAt": "2026-08-21T21:25:55.388Z",
   "jobs": [
     {
       "id": "pole-sante-pays-enhaut-295c404754f0",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:45:45.333Z",
+      "crawledAt": "2026-08-21T21:25:51.705Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -116,15 +116,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:27.739Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -160,7 +160,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e1ea54f6-4075-4446-a248-fa89d3151ccd/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-21T09:45:44.823Z",
+      "crawledAt": "2026-08-21T21:25:51.236Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -198,15 +198,15 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:34:20.994Z",
-      "salaryMin": 42400,
-      "salaryMax": 64000,
+      "salaryMin": 60500,
+      "salaryMax": 84400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 42400,
-          "maxValue": 64000,
+          "minValue": 60500,
+          "maxValue": 84400,
           "unitText": "YEAR"
         }
       }

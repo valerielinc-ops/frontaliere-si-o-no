@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-08-21T10:20:31.811Z",
+  "assembledAt": "2026-08-21T22:03:08.919Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:20:29.125Z",
+      "crawledAt": "2026-08-21T22:03:05.738Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -70,7 +70,11 @@
         "controller-80-100-michel-gruppe-ag-meiringen",
         "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
         "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+        "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d-60-100-klinik",
+        "assistent-in-gesundheit-e-soziales-ags-o-pflegehelfer-in-m-w-d-60-100-klinik-schonberg-ag-gunten",
+        "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-m-w-d-60-100-klinik-schonberg-ag-gunten",
+        "assistant-in-health-and-social-ags-or-nursing-assistant-in-m-w-d-60-100-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -83,7 +87,9 @@
           "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
           "responsabile-controlling-80-100-michel-gruppe-ag-meiringen",
           "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+          "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d-60-100-klinik",
+          "assistent-in-gesundheit-e-soziales-ags-o-pflegehelfer-in-m-w-d-60-100-klinik-schonberg-ag-gunten"
         ],
         "en": [
           "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
@@ -92,13 +98,17 @@
           "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
           "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
           "controller-80-100-michel-gruppe-ag-meiringen",
-          "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
+          "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
+          "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-m-w-d-60-100-klinik-schonberg-ag-gunten",
+          "assistant-in-health-and-social-ags-or-nursing-assistant-in-m-w-d-60-100-klinik-schonberg-ag-gunten"
         ],
         "de": [
           "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
           "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
           "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
+          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
+          "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d-60-100-klinik",
+          "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-m-w-d-60-100-klinik-schonberg-ag-gunten"
         ]
       },
       "firstSeenAt": "2026-07-04T11:54:15.071Z",
@@ -147,7 +157,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:20:28.697Z",
+      "crawledAt": "2026-08-21T22:03:05.277Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -276,8 +286,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

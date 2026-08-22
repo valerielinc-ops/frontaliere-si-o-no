@@ -1,18 +1,19 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-08-21T09:48:22.347Z",
+  "generatedAt": "2026-08-21T21:31:35.130Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3324,
-  "avgDurationMs": 3324,
+  "durationMs": 3282,
+  "avgDurationMs": 3282,
   "durationHistory": [
-    3324
+    3282
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
       "slug": "responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -38,7 +39,8 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:48:20.071Z",
+      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -46,47 +48,7 @@
         "translation": 4,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-      "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:48:20.068Z",
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "citta-di-bellinzona-operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
       "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
@@ -106,13 +68,14 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
+      "postedDate": "2026-06-29",
       "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "pdfUrl": null,
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:48:20.070Z",
+      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,7 +83,10 @@
         "translation": 4,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
       "slug": "responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -146,7 +112,8 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:48:20.071Z",
+      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -180,13 +147,48 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:48:20.068Z",
+      "crawledAt": "2026-08-21T21:31:33.241Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "citta-di-bellinzona-operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+      "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
         "completeness": 20
       }
     }

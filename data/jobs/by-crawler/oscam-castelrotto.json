@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oscam-castelrotto",
-  "assembledAt": "2026-08-21T09:45:25.414Z",
+  "assembledAt": "2026-08-21T21:25:31.309Z",
   "jobs": [
     {
       "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-be80f019a870",
@@ -33,7 +33,7 @@
       "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2025-per-medici-assistenti",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:45:20.544Z",
+      "crawledAt": "2026-08-21T21:25:27.536Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,15 +51,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
@@ -96,7 +96,7 @@
       "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2026",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T09:45:19.483Z",
+      "crawledAt": "2026-08-21T21:25:26.419Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -114,15 +114,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       }
