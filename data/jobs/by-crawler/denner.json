@@ -104,8 +104,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "denner-6187dafe27dd",
@@ -446,7 +445,9 @@
         "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
         "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
         "venditore-nel-salario-orario-denner-ag-breitenbach",
-        "venditore-nel-salario-orario-denner-ag-matzingen"
+        "venditore-nel-salario-orario-denner-ag-matzingen",
+        "seller-in-hourly-wage-denner-ag-cham-3hwpq1",
+        "seller-in-the-hourly-wage-denner-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -454,7 +455,9 @@
           "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
           "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
           "venditore-nel-salario-orario-denner-ag-breitenbach",
-          "venditore-nel-salario-orario-denner-ag-matzingen"
+          "venditore-nel-salario-orario-denner-ag-matzingen",
+          "seller-in-hourly-wage-denner-ag-cham-3hwpq1",
+          "seller-in-the-hourly-wage-denner-stein-ag"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-matzingen"
@@ -553,7 +556,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:31.410Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -643,7 +645,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T09:49:43.212Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -841,7 +842,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:30.950Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1249,7 +1249,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:15:37.615Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -1353,7 +1352,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:15:37.611Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -1536,7 +1534,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:29.287Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -1712,7 +1709,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:50:29.271Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1911,8 +1907,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "denner-2d24f10a56ab",
@@ -2000,8 +1995,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "denner-61d78d0ddeb9",
@@ -2088,7 +2082,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:35:35.880Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2484,8 +2477,7 @@
         "vendeur-vendeuse-denner-renens-vd",
         "seller-seller-denner-renens-vd",
         "verkaufer-verkaufer-denner-renens-vd"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "denner-9824be52af5e",
@@ -2579,7 +2571,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:17.111Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2687,8 +2678,7 @@
         "verkaufer-in-denner-6",
         "verkaufer-in-denner-ag-basel-xf6s8h",
         "verkaufer-in-denner-zug"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "denner-751a0da56ab4",
@@ -2756,12 +2746,14 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-embrach"
+          "verkaufer-in-denner-embrach",
+          "vendeur-denner-embrach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-embrach"
+        "verkaufer-in-denner-embrach",
+        "vendeur-denner-embrach"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2775,8 +2767,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:32:28.359Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-21T21:32:28.359Z"
     },
     {
       "id": "denner-eec4d78e7a22",
@@ -2849,13 +2840,67 @@
         "assistant-in-branch-management-denner-embrach-d2fd9f",
         "assistant-dans-la-gestion-des-succursales-denner-embrach-d2fd9f",
         "assistente-nella-gestione-delle-branche-denner-embrach-d2fd9f",
-        "assistente-nella-gestione-delle-branche-denner-ag-embrach"
+        "assistente-nella-gestione-delle-branche-denner-ag-embrach",
+        "assistant-in-branch-management-denner-buchs-ag",
+        "assistant-in-branch-management-denner-buchs-sg",
+        "assistant-in-branch-management-denner-flawil",
+        "assistant-in-branch-management-denner-langwiesen",
+        "assistant-in-branch-management-denner-lenzburg",
+        "assistant-in-branch-management-denner-luzern",
+        "assistant-in-branch-management-denner-rotkreuz",
+        "assistant-in-branch-management-denner-spreitenbach",
+        "assistant-in-branch-management-denner-steinhausen",
+        "assistant-in-branch-management-denner-wadenswil",
+        "assistant-in-branch-management-denner-zurich",
+        "assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "assistente-nella-gestione-delle-branche-denner-buchs-ag",
+        "assistente-nella-gestione-delle-branche-denner-buchs-sg",
+        "assistente-nella-gestione-delle-branche-denner-langwiesen",
+        "assistente-nella-gestione-delle-branche-denner-luzern",
+        "assistente-nella-gestione-delle-branche-denner-rotkreuz",
+        "assistente-nella-gestione-delle-branche-denner-steinhausen",
+        "assistente-nella-gestione-delle-branche-denner-wadenswil",
+        "assistente-nella-gestione-delle-branche-denner-zurich",
+        "assistant-dans-la-gestion-des-succursales-denner-bellach",
+        "assistant-dans-la-gestion-des-succursales-denner-biberist",
+        "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
+        "assistant-dans-la-gestion-des-succursales-denner-buchs-sg",
+        "assistant-dans-la-gestion-des-succursales-denner-ebikon",
+        "assistant-dans-la-gestion-des-succursales-denner-flawil",
+        "assistant-dans-la-gestion-des-succursales-denner-langwiesen",
+        "assistant-dans-la-gestion-des-succursales-denner-lenzburg",
+        "assistant-dans-la-gestion-des-succursales-denner-luzern",
+        "assistant-dans-la-gestion-des-succursales-denner-rotkreuz",
+        "assistant-dans-la-gestion-des-succursales-denner-spreitenbach",
+        "assistant-dans-la-gestion-des-succursales-denner-wadenswil",
+        "assistant-dans-la-gestion-des-succursales-denner-wilderswil",
+        "assistant-dans-la-gestion-des-succursales-denner-zurich",
+        "assistant-in-branch-management-denner-arlesheim",
+        "assistant-in-branch-management-denner-bellach",
+        "assistant-in-branch-management-denner-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner-2",
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-embrach"
+          "assistente-nella-gestione-delle-branche-denner-steinhausen",
+          "assistente-nella-gestione-delle-branche-denner-wadenswil",
+          "assistente-nella-gestione-delle-branche-denner-zurich",
+          "assistant-dans-la-gestion-des-succursales-denner-bellach",
+          "assistant-dans-la-gestion-des-succursales-denner-biberist",
+          "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
+          "assistant-dans-la-gestion-des-succursales-denner-buchs-sg",
+          "assistant-dans-la-gestion-des-succursales-denner-ebikon",
+          "assistant-dans-la-gestion-des-succursales-denner-flawil",
+          "assistant-dans-la-gestion-des-succursales-denner-langwiesen",
+          "assistant-dans-la-gestion-des-succursales-denner-lenzburg",
+          "assistant-dans-la-gestion-des-succursales-denner-luzern",
+          "assistant-dans-la-gestion-des-succursales-denner-rotkreuz",
+          "assistant-dans-la-gestion-des-succursales-denner-spreitenbach",
+          "assistant-dans-la-gestion-des-succursales-denner-wadenswil",
+          "assistant-dans-la-gestion-des-succursales-denner-wilderswil",
+          "assistant-dans-la-gestion-des-succursales-denner-zurich",
+          "assistant-in-branch-management-denner-arlesheim",
+          "assistant-in-branch-management-denner-bellach",
+          "assistant-in-branch-management-denner-bubendorf"
         ],
         "en": [
           "assistent-in-filialleitung-denner",
@@ -2949,7 +2994,8 @@
       "crawledAt": "2026-08-22T09:38:55.632Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-ag-frauenfeld-m4pjdx"
         ],
         "en": [
           "sales-associate-denner-ag-frauenfeld"
@@ -2958,7 +3004,8 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-frauenfeld",
-        "sales-associate-denner-ag-frauenfeld"
+        "sales-associate-denner-ag-frauenfeld",
+        "verkaufer-in-denner-ag-frauenfeld-m4pjdx"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2972,8 +3019,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:46:58.709Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-21T09:46:58.709Z"
     },
     {
       "id": "denner-b45da71ac05e",
@@ -3040,12 +3086,14 @@
       "crawledAt": "2026-08-22T09:38:55.630Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-a-denner-ag-sulgen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-sulgen"
+        "verkaufer-in-denner-sulgen",
+        "venditore-a-denner-ag-sulgen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3059,8 +3107,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T09:46:58.707Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-21T09:46:58.707Z"
     },
     {
       "id": "denner-f03b57b6e01a",
@@ -3156,8 +3203,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-21T21:32:27.681Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-21T21:32:27.681Z"
     }
   ]
 }
