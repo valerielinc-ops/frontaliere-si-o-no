@@ -31440,6 +31440,24 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'accordo-edilizia-ticino-6-anni',
+ category: 'novita',
+ date: '2026-08-22T10:53:52.365Z',
+ image: '/images/blog/accordo-edilizia-ticino-6-anni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'partita-iva-frontaliere-svizzera-requisiti-fiscalita',
+ category: 'fiscale',
+ date: '2026-08-22T11:22:17.895Z',
+ image: '/images/blog/partita-iva-frontaliere-svizzera-requisiti-fiscalita.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

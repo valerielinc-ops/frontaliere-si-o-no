@@ -3826,6 +3826,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Geschäft in Luzern eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Voraussetzungen für GMBH, AG und Einzelfirmen: Mindestkapital, Registerkosten (CHF 200–500), Steuern und Pflichtversicherungen.',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Moderne Büros in Luzern mit der Kapellbrücke im Hintergrund',
+    'blog.article.mazzone-clima-consiglio-federale.title': 'Stummer Bundesrat zum Klima: Mazzone fordert Kurs',
+    'blog.article.mazzone-clima-consiglio-federale.excerpt': 'Kritische Grüne: Die Regierung hat 900 Millionen für die Armee ausgegeben, null für das Klima. Lisa Mazzone bittet Rösti um Entfernung des UVEK und um dringende Priorität.',
+    'blog.article.mazzone-clima-consiglio-federale.imageAlt': 'Panoramablick auf Lugano widerspiegelt die Schweizer Klimadebatten',
+    'blog.article.lucerna-salari-formazione.title': 'Löhne und Arbeitsmarkt Kanton Luzern',
+    'blog.article.lucerna-salari-formazione.excerpt': 'Lohnniveaus nach Bildungsabschluss, Bereiche, die sie übernehmen, Tarifverträge. Wie bewerte ich ein Angebot und berechne das Netto in der Schweiz.',
+    'blog.article.lucerna-salari-formazione.imageAlt': 'Moderner Arbeitsplatz in der Schweiz mit Fachleuten in Meetings und am Schreibtisch',
 };
 
 export default blogMetaChDe;

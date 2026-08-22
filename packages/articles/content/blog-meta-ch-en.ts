@@ -3826,6 +3826,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Opening a business in Lucerne: trade register and costs',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Requirements for SAGL, SA and sole proprietorships: minimum capital, registration costs (CHF 200–500), taxes and compulsory insurance.',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Modern offices in Lucerne with Chapel Bridge in the background',
+    'blog.article.mazzone-clima-consiglio-federale.title': 'Mute Federal Council on Climate: Mazzone calls for a course',
+    'blog.article.mazzone-clima-consiglio-federale.excerpt': 'Critical greens: the government has spent 900M on the army, zero on climate. Lisa Mazzone asks for DATEC to be removed from Rösti and an urgent priority.',
+    'blog.article.mazzone-clima-consiglio-federale.imageAlt': 'Panoramic view of Lugano reflecting Switzerland\'s national climate debate',
+    'blog.article.lucerna-salari-formazione.title': 'Wages and labour market canton Lucerne',
+    'blog.article.lucerna-salari-formazione.excerpt': 'Wage levels by level of training, sectors they hire, collective agreements. How to evaluate an offer and calculate the net in Switzerland.',
+    'blog.article.lucerna-salari-formazione.imageAlt': 'Modern Swiss workplace with professionals in meetings and at computer workstations',
 };
 
 export default blogMetaChEn;

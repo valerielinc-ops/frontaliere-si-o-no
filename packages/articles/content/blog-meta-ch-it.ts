@@ -3826,6 +3826,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Aprire un\'attività a Lucerna: registro di commercio e costi',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Requisiti per SAGL, SA e ditte individuali: capitale minimo, costi registro (CHF 200–500), tasse e assicurazioni obbligatorie.',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Uffici moderni a Lucerna con il Cappella Ponte sullo sfondo',
+    'blog.article.mazzone-clima-consiglio-federale.title': 'Consiglio federale muto sul clima: Mazzone chiede rotta',
+    'blog.article.mazzone-clima-consiglio-federale.excerpt': 'Verdi critici: governo ha speso 900M per esercito, zero per climatica. Lisa Mazzone chiede tolta DATEC a Rösti e priorità urgente.',
+    'blog.article.mazzone-clima-consiglio-federale.imageAlt': 'Vista panoramica di Lugano che simboleggia il dibattito climatico nazionale svizzero',
+    'blog.article.lucerna-salari-formazione.title': 'Salari e mercato del lavoro canton Lucerna',
+    'blog.article.lucerna-salari-formazione.excerpt': 'Livelli salariali per grado di formazione, settori che assumono, contratti collettivi. Come valutare un\'offerta e calcolare il netto in Svizzera.',
+    'blog.article.lucerna-salari-formazione.imageAlt': 'Ambiente di lavoro moderno in Svizzera con professionisti in riunioni e al computer',
 };
 
 export default blogMetaChIt;
