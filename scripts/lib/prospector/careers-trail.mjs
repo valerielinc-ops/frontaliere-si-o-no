@@ -18,7 +18,7 @@
  */
 import { politeFetch } from './polite-fetch.mjs';
 import { CAREER_TOKEN_RX, CAREER_PATH_HINTS } from './config.mjs';
-import { normalizeHost, registrableDomain, sameOrg } from './registrable.mjs';
+import { normalizeHost, registrableDomain, sameOrg, safeDecodePath } from './registrable.mjs';
 import { isPlatformEligible } from './platform-registry.mjs';
 import { decodeEntities } from './entities.mjs';
 import { scoreVacancyPage } from './extract.mjs';
@@ -90,7 +90,7 @@ export function extractLinks(html = '', baseUrl = '') {
  */
 export function isCareerLink(link) {
   let pathPart = '';
-  try { pathPart = decodeURIComponent(new URL(link.url).pathname); } catch { pathPart = link.url; }
+  pathPart = safeDecodePath(link.url) || link.url;
   return CAREER_TOKEN_RX.test(link.text) || CAREER_TOKEN_RX.test(pathPart);
 }
 
@@ -120,7 +120,8 @@ export async function careersFromSitemap(origin) {
         continue;
       }
       let p = '';
-      try { p = decodeURIComponent(new URL(loc).pathname); } catch { continue; }
+      p = safeDecodePath(loc);
+      if (!p) continue;
       if (CAREER_TOKEN_RX.test(p)) found.push(loc);
     }
   };

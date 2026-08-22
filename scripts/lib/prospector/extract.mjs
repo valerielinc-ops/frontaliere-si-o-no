@@ -17,7 +17,7 @@
  * the listing without knowing anything about the vendor. It degrades honestly:
  * a page with no repeated template yields nothing rather than yielding noise.
  */
-import { normalizeHost } from './registrable.mjs';
+import { normalizeHost, safeDecodePath } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
 
 /** Tokens that mark a URL path or heading as vacancy-related, all four locales. */
@@ -211,7 +211,7 @@ export function extractByTemplate(links, pageUrl) {
     let u;
     try { u = new URL(l.url); } catch { continue; }
     if (normalizeHost(u.hostname) !== host) continue;
-    const path = decodeURIComponent(u.pathname);
+    const path = safeDecodePath(u);
     if (path === '/' || path.length < 4) continue;
     const tpl = pathTemplate(path);
     // A template with no variable part is navigation, not a listing.
@@ -260,7 +260,7 @@ export function scoreVacancyPage(html, pageUrl, links = []) {
   const text = textOf(html);
   if (VACANCY_TEXT_RX.test(text)) { score += 2; signals.push('vacancy-copy'); }
   let p = '';
-  try { p = decodeURIComponent(new URL(pageUrl).pathname); } catch { /* ignore */ }
+  p = safeDecodePath(pageUrl);
   if (VACANCY_PATH_RX.test(p)) { score += 1; signals.push('vacancy-path'); }
   if (/<form\b[^>]*>[\s\S]{0,4000}?(cv|curriculum|bewerbung|candidatur|resume)/i.test(html)) {
     score += 1; signals.push('apply-form');

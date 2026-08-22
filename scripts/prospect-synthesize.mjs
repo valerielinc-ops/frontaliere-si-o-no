@@ -49,7 +49,20 @@ let refused = 0;
 let vacancies = 0;
 
 for (const c of queue) {
-  const { spec, reason, vacancies: found } = await synthesizeSpec(c);
+  // Un datore rotto non deve affondare lo stadio. Il loop visita migliaia di
+  // siti di sconosciuti e uno malformato ci sara' sempre: in produzione e'
+  // bastato un `%E9` Latin-1 in un link perche' `URIError: URI malformed`
+  // uccidesse l'intera sintesi, buttando via anche i candidati gia' riusciti.
+  let synth;
+  try {
+    synth = await synthesizeSpec(c);
+  } catch (err) {
+    refused++;
+    setStatus(store, c.key, 'rejected', { reason: `sintesi in errore: ${String(err.message).slice(0, 120)}` });
+    console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${String(err.message).slice(0, 70)}`);
+    continue;
+  }
+  const { spec, reason, vacancies: found } = synth;
   if (!spec) {
     refused++;
     setStatus(store, c.key, 'rejected', { reason: `sintesi fallita: ${reason}` });

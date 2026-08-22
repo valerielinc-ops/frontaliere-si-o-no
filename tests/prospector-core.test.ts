@@ -7,7 +7,7 @@
  * thousands of wrong candidates or drops a whole vendor's tenant base.
  */
 import { describe, expect, it } from 'vitest';
-import { registrableDomain, tenantLabel, sameOrg, normalizeHost } from '../scripts/lib/prospector/registrable.mjs';
+import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath } from '../scripts/lib/prospector/registrable.mjs';
 import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
@@ -46,6 +46,26 @@ describe('registrable domains', () => {
     // Short brands must NOT collapse, or unrelated employers merge.
     expect(sameOrg('abc.ch', 'abcdefg.com')).toBe(false);
     expect(sameOrg('cippatrasporti.ch', 'altamiraweb.com')).toBe(false);
+  });
+});
+
+describe('decodifica dei path', () => {
+  it('non lancia su un escape percentuale non valido', () => {
+    // `decodeURIComponent` LANCIA su `%E9` (Latin-1), e i siti che il loop
+    // visita ne sono pieni. In produzione un solo link cosi', su un solo
+    // datore, ha ucciso l'intero stadio SYNTHESIZE.
+    expect(() => safeDecodePath('https://x.ch/offre-d%E9taill%E9e/')).not.toThrow();
+    expect(safeDecodePath('https://x.ch/offre-d%E9taill%E9e/')).toBe('/offre-d%E9taill%E9e/');
+  });
+
+  it('decodifica quando puo`', () => {
+    expect(safeDecodePath('https://x.ch/lavora%20con%20noi')).toBe('/lavora con noi');
+    expect(safeDecodePath('https://x.ch/lavora-con-noi/')).toBe('/lavora-con-noi/');
+  });
+
+  it('sopravvive a un input che non e` un URL', () => {
+    expect(safeDecodePath('/annunci/%E9')).toBe('/annunci/%E9');
+    expect(safeDecodePath('')).toBe('');
   });
 });
 

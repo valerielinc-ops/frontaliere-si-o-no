@@ -30,7 +30,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { politeFetch } from './../polite-fetch.mjs';
-import { normalizeHost, registrableDomain } from './../registrable.mjs';
+import { normalizeHost, registrableDomain, safeDecodePath } from './../registrable.mjs';
 import { PROSPECTOR_DIR, WEB_CHANNEL_HEALTH_PATH } from './../config.mjs';
 
 const INDEX_HOST = 'https://index.commoncrawl.org';
@@ -99,8 +99,7 @@ export async function careerPagesOnIndexPage(collection, page) {
     try { url = JSON.parse(line).url; } catch { continue; }
     let u;
     try { u = new URL(url); } catch { continue; }
-    let p;
-    try { p = decodeURIComponent(u.pathname); } catch { p = u.pathname; }
+    const p = safeDecodePath(u);
     if (!CAREER_PATH_RX.test(p)) continue;
     const host = normalizeHost(u.hostname);
     const domain = registrableDomain(host);
