@@ -3838,6 +3838,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-canton-uri.title': 'Diritto di locazione in Uri: affitti e deposito cauzionale',
     'blog.article.diritto-locazione-canton-uri.excerpt': 'Nel canton Uri il diritto di locazione segue il Codice obbligazioni federale. Deposito max 3 mesi, contestazione canone entro 30 giorni, disdetta e arbitrato: ecco come funziona.',
     'blog.article.diritto-locazione-canton-uri.imageAlt': 'Facciata di un edificio residenziale svizzero con ingressi numerati e cassette postali',
+    'blog.article.affitti-uri-diritto-locazione.title': 'Affitti Uri: diritto di locazione e contestazione',
+    'blog.article.affitti-uri-diritto-locazione.excerpt': 'Deposito cauzionale, contestazione canone, disdetta e autorità di conciliazione: regole federali sulla locazione nel cantone Uri.',
+    'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Contratto di locazione con chiavi di casa e penna su scrivania, fotografia professionale',
 };
 
 export default blogMetaChIt;

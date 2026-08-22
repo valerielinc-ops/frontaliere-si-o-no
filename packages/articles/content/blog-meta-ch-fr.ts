@@ -3838,6 +3838,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-canton-uri.title': 'Droit de location à Uri : loyers et dépôt de garantie',
     'blog.article.diritto-locazione-canton-uri.excerpt': 'Dans le canton d\'Uri, le droit de location suit le Code fédéral des obligations. Dépôt max 3 mois, contestation de la redevance dans les 30 jours, résiliation et arbitrage : voici comment cela fonctionne.',
     'blog.article.diritto-locazione-canton-uri.imageAlt': 'Façade d\'un immeuble résidentiel suisse avec entrées numérotées et boîtes aux lettres',
+    'blog.article.affitti-uri-diritto-locazione.title': 'Location Uri : droit de location et contestation',
+    'blog.article.affitti-uri-diritto-locazione.excerpt': 'Caution, contestation de redevance, résiliation et autorité de conciliation : règles fédérales sur la location dans le canton d\'Uri.',
+    'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Contrat de location avec clés de maison et stylo sur le bureau, photographie professionnelle',
 };
 
 export default blogMetaChFr;
