@@ -1300,6 +1300,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-lucerna-forme-giuridiche': { it: 'aprire-attivita-lucerna-forme-giuridiche', en: 'start-business-lucerne-legal-forms', de: 'geschaeft-eroeffnen-luzern-rechtformen', fr: 'ouvrir-activite-lucerne-formes-juridiques' },
  'impresa-lucerna-forma-giuridica': { it: 'impresa-lucerna-forma-giuridica', en: 'start-business-lucerna-legal-form', de: 'unternehmen-luzern-rechtsform', fr: 'entreprise-lucerne-forme-juridique' },
  'udc-referendum-accordi-ue': { it: 'udc-referendum-accordi-ue', en: 'udc-referendum-eu-agreements', de: 'udc-referendum-eu-abkommen', fr: 'udc-referendum-accords-ue' },
+ 'aprire-attivita-lucerna-registro-commercio-costi': { it: 'aprire-attivita-lucerna-registro-commercio-costi', en: 'starting-business-lucerne-trade-register-costs', de: 'geschaft-grunden-luzern-handelsregister-kosten', fr: 'creer-entreprise-lucerne-registre-commerce-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

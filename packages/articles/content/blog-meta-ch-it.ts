@@ -3823,6 +3823,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.udc-referendum-accordi-ue.title': 'UDC prepara referendum contro accordi UE',
     'blog.article.udc-referendum-accordi-ue.excerpt': 'L\'UDC si prepara a lanciare referendum contro i prossimi accordi tra la Svizzera e l\'UE. Marcel Dettling dichiara la volontà del partito di combattere ogni accordo. Raccolta firme in corso.',
     'blog.article.udc-referendum-accordi-ue.imageAlt': 'Assemblea politica svizzera con delegati durante dibattito su referendum e accordi internazionali con l\'UE',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Aprire un\'attività a Lucerna: registro di commercio e costi',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Requisiti per SAGL, SA e ditte individuali: capitale minimo, costi registro (CHF 200–500), tasse e assicurazioni obbligatorie.',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Uffici moderni a Lucerna con il Cappella Ponte sullo sfondo',
 };
 
 export default blogMetaChIt;

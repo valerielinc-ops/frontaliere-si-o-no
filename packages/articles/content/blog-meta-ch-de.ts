@@ -3823,6 +3823,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.udc-referendum-accordi-ue.title': 'SVP bereitet Referendum gegen EU-Abkommen vor',
     'blog.article.udc-referendum-accordi-ue.excerpt': 'Die SVP bereitet sich auf Referenden gegen die nächsten Abkommen zwischen der Schweiz und der EU vor. Marcel Dettling erklärt den Willen der Partei, jedes Abkommen zu bekämpfen. Unterschriftensammlung läuft.',
     'blog.article.udc-referendum-accordi-ue.imageAlt': 'Schweizer Politische Versammlung mit Delegaten, die über Referenden und internationale Abkommen mit der EU debattieren',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Geschäft in Luzern eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Voraussetzungen für GMBH, AG und Einzelfirmen: Mindestkapital, Registerkosten (CHF 200–500), Steuern und Pflichtversicherungen.',
+    'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Moderne Büros in Luzern mit der Kapellbrücke im Hintergrund',
 };
 
 export default blogMetaChDe;
