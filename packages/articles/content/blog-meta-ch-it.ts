@@ -3856,6 +3856,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-uri-cassa.title': 'AVS e prestazioni complementari nel canton Uri',
     'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Cassa di compensazione, calcolo della rendita e lacune contributive nel primo pilastro: come funzionano le prestazioni complementari a Uri',
     'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Ufficio della cassa di compensazione cantonale Uri: gestione rendite AVS e prestazioni complementari',
+    'blog.article.avs-prestazioni-complementari-uri.title': 'AVS e prestazioni complementari nel Canton Uri',
+    'blog.article.avs-prestazioni-complementari-uri.excerpt': 'Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Paesaggio alpino con edificio amministrativo cantonale, simbolo della stabilità del sistema pensionistico del primo pilastro.',
 };
 
 export default blogMetaChIt;

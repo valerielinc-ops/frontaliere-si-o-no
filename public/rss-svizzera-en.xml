@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 17:57:19 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 18:37:21 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,78 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS and complementary services in Canton Uri</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/avs-complementary-benefits-canton-uri/</link>
+      <description><![CDATA[How the first pillar works in Canton Uri: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Mandatory first pillar: 5.3% employee salary contributions
+- Uri Compensation Fund collects payments and calculates AVH annuities
+- Contribution gaps: recoverable through additional payments
+- Supplementary benefits cover the minimum living allowance if insufficient income
+
+## Key facts
+- **What**: First pillar (AVS) managed by cantonal clearing house
+- When: Contributions paid throughout the working life; reference age pension
+- Where: Canton Uri; UFAS offices for federal matters
+- Who: Employees, employers, freelancers (each contributes their own %)
+- Rate: 5.3% of salary for employees; 5.3% employers; 10.6% self-employed
+- Protection: Complementary services for those who do not reach a vital minimum
+- Institution: BSV (Federal Office of Social Insurance) coordinates at federal level
+
+### The first pillar in Canton Uri
+
+In Canton Uri, as in all Swiss cantons, the first pillar of social security (AVS) represents the basis of the protection system for old age and disability. The cantonal compensation fund, a federal body at regional level, is responsible for the collection of compulsory contributions and the calculation of annuities.
+
+AVS contributions follow a precise pattern: employees pay 5.3% of their salary, employers an identical percentage (5.3%), while the self-employed pay 10.6% of their income. This structure ensures that funding
+## Complementary services: the role in the protection of the vital minimum
+
+In Canton Uri, the supplementary benefit system (CCP) acts as a safety net for policyholders whose AVS annuity is not sufficient to cover basic living expenses: housing, food, healthcare, utilities. CCPs are paid in conjunction with the AVS annuity, to supplement it up to the level of the vital minimum. The amount varies depending on the personal situation (single person, couple, households with children) and the actual regional costs in the canton.
+
+It is not a fixed amount universal benefit: each case is evaluated on the basis of concrete need. Those who receive an AVS annuity close to the limit but still insufficient can apply for CCPs to bridge the gap. The recognition is automatic if the application is submitted correctly and the documents are complete.
+
+### Combination AVS + LPP + complementary performance
+
+The first pillar (AVS) is flanked by the [secondo pilastro (LPP, Cassa pensioni)](nav:pension), which collects contributions from employees and employers in proportion to the coordinated salary. LPP contributions vary by age group:
+- 25–34 years: 7%
+- 35–44 years: 10%
+- 45–54 years: 15%
+- 55 years and over: 18% (up to the reference age)
+
+When the first and second pillars together do not reach the ** vital minimum **, the CCPs intervene. Those who have integrated with a third pillar (3a) further strengthen their protection, even if it is not mandatory.
+
+### Practical procedure in the Canton
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+## How to verify your contributions and request supplementary benefits
+
+The first step is to verify your contribution record with the compensation fund of Canton Uri. You can obtain an extract (contribution account) by presenting yourself directly at the counters or by requesting the documentation by mail. The extract shows year by year the registered payments, any gaps, and the number of accumulated contribution years.
+
+If there are gaps in the extract, the fund informs about the deadlines for recovery. The retroactive payment of missing contributions must be accompanied by an invoice from the fund itself with an amount indexed according to federal directives. The terms for recovery are limited: it is not possible to recover gaps of more than five years without proven reasons of force majeure.
+
+### Application for supplementary benefits: step-by-step
+
+**1. Verify eligibility**: The AVS pension (plus any other pension from LPP, third pillar, or private policies) must not cover the minimum cost of living in Canton Uri. If the sum is lower, you have the right to submit an application.
+
+2. Gather documents: Extract your UFAS account from the federal portal (e-service authentication), obtain your AVS pension certificate from the Uri cantonal fund, and prepare a detailed statement of monthly expenses (rent with contract, health insurance premiums, utilities, food).
+
+3. Complete the application: Download the application form from the Canton Uri administration website. There are no unified federal forms; each canton has its own administrative procedure.
+
+4. Submit: Send the application by mail or deliver it to the competent counter. Check the deadline: usually the application must arrive before December 31st for recognition of the previous year.
+
+5. Settlement: Within 30–60 days from the complete application, if everything is in order, the benefit is recognized and monthly payment begins.
+
+### Online tools for calculation and monitoring
+
+The [salary and tax calculator](nav:calculator) allows you to simulate social deductions (including AVS/AI/IPG), but for an accurate estimate of your future pension, it is advisable to contact the compensation fund of Canton Uri directly. UFAS also offers on the federal portal (www.ufas.admin.ch) an online contribution data extraction service through e-service authentication with a Swiss digital certificate. This is the quickest way to obtain your contribution account without having to travel.
+
+For questions about the contribution recovery procedure, specific gaps, or your future pension situation, the compensation fund remains the main point of contact: it understands local dynamics and can advise on the best completion strategy. Consult the [AVS and pension calculator](nav:pension) for an initial estimate of your expected pension.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 18:37:21 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avs-prestazioni-complementari-uri</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-uri.webp" medium="image"/>
+    </item>
     <item>
       <title>AVS and complementary services in canton Uri</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/ahv-benefits-uri-compensation/</link>
@@ -3024,79 +3096,6 @@ The procedure for managing a rental agreement requires documentary rigor. If you
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/diritto-locazione-norme-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/diritto-locazione-norme-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Buying a house in Appenzello Interno: mortgages and taxes</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/buy-house-appenzello-interno/</link>
-      <description><![CDATA[Operational guide for the purchase of real estate in Appenzello Interno. Learn about transfer taxes, notary fees, mortgage sustainability, and registration procedures.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Buying a house in Switzerland involves three levels of taxation: federal, cantonal, municipal
-- Transfer taxes and notary fees vary by canton and represent significant costs
-- Mortgage sustainability is calculated on net income after federal and cantonal taxes
-
-## Key facts
-- **What**: Acquisition of property in Appenzello Interno
-- Tax levels: Federal, cantonal, municipal (three separate authorities)
-- Passage taxes: Established by cantonal law and municipal regulations
-- Sustainability: Evaluated by the bank according to federal criteria
-- Registration: In the cantonal Grundbuch (land register)
-
-### The Swiss property purchase tax system
-
-Buying a house in Appenzello Interno means interacting with a tax system divided into three distinct levels: federal, cantonal and municipal. Each level has its own competences and specific financial impacts on the purchase and sale operation.
-
-At the federal level, direct taxation follows rates set by Parliament. However, taxation on transfer of ownership — commonly referred to as transfer tax — is not a federal matter. It is a purely cantonal and municipal competence: each Swiss canton applies different laws, different multipliers, and variable exemption thresholds. Appenzello Interno has its own regulations, distinct from those of Zurich, Bern, Geneva or other cantons.
-
-In the same canton, notary fees follow rates
-### Transfer taxes and notary fees
-
-The transfer tax is applied at the time of the transfer of ownership of a property from one person to another. Each Swiss canton has its own law on the taxation of trespasses: Appenzello Interno is no exception. There is no single federal rate; the tax is purely cantonal and municipal, calculated according to local regulations.
-
-Some cantons provide for the tax to be paid by the seller, others by the buyer, still others in a breakdown. This responsibility varies by canton and is decisive in the calculation of the net cost of the purchase.
-
-Notary fees, on the other hand, are public fees that cover the certification of the deed of sale, the authentication of signatures, and the official transmission of documents to the cantonal real estate registers. Notary fees are established by cantonal (not federal) law in official tables. They are not true taxes, but fees for authorized public services.
-
-When bidding on a property, both of these costs — transfer tax plus notary fees — must be calculated in advance. Their total amount can represent a significant percentage of the purchase price and directly reduces the capital available for the payment of the first installment of the mortgage.
-
-### Administrative procedures and cantonal registration
-
-In Switzerland, the transfer of ownership of a property requires three sequential steps well
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-### Checklist operativa e prossimi passi
-
-Acquiring a house in Inner Appenzell requires a structured and methodical process:
-
-**Phase 1: Preliminary Financial Assessment**
-Consult a Swiss bank to assess the maximum mortgage capacity. Provide net income (last 2 years), current account statements, tax returns, and a list of existing debts (credit cards, personal loans, leasing). The bank will approach sustainability considering federal and cantonal taxes that reduce available income.
-
-Phase 2: Property Search and Valuation
-Once the maximum mortgage is approved, proceed with property research. When finding an interesting property, have it appraised by the local market. Consult the cantonal land registry office in Appenzell to verify that the property is free from mortgages, seizures, or third-party rights.
-
-Phase 3: Offer and Negotiation
-Present an offer to the seller. Negotiate the price, taking into account additional costs: transfer tax (variable for Appenzell), notarial fees, registration fees, property insurance, and potential renovation costs.
-
-Phase 4: Notary Appointment and Definitive Contract Signing
-Once an agreement is reached, consult a public notary authorized in the canton of Appenzell. The notary will prepare the definitive contract, authenticate signatures, and transmit documents to the cantonal administration for registration in the land register.
-
-Phase 5: Mortgage Approval and Registration
-In parallel, the bank will complete the property valuation and final mortgage approval. Once registered in the cantonal land register, the mortgage is entered as a guarantee for the bank.
-
-Phase 6: Tax Declaration
-In the first year of ownership, declare the property in the federal (IFD) and cantonal tax returns. The imputed income from the property is considered income for calculating federal and cantonal direct taxes.
-
-### Resources and Support
-
-For specific cantonal information (exact notarial fees, precise transfer tax rates, land registers), contact the Appenzell cantonal administration directly.
-
-To calculate mortgage sustainability and estimate federal tax burden, [use the dedicated online calculator](nav:calculator).
-
-Consult an independent tax consultant (accountant, financial advisor) for tailored planning. Cantons have very different tax structures: even small details can save thousands of CHF.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 13:00:50 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/acquistare-casa-appenzello-interno</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/acquistare-casa-appenzello-interno.webp" medium="image"/>
     </item>
   </channel>
 </rss>
