@@ -10537,6 +10537,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Travail à distance étranger : la fiscalité du frontalier',
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Travailler à distance depuis un pays tiers pendant les vacances implique des questions fiscales, LAMal et une communication à l\'employeur. Découvrez comment gérer les impôts, les frais de restauration et la couverture d\'assurance avec le nouvel accord 2024.',
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Frontalier travaillant à distance avec ordinateur portable face au paysage alpin',
+    'blog.article.blevio-frontaliere-ticino.title': 'Vivre à Blevio et travailler au Tessin : Guide frontalier',
+    'blog.article.blevio-frontaliere-ticino.excerpt': 'Comment se déplacer à Blevio en tant que frontalier du Tessin : permis G, fiscalité, AVS, coût de la vie et délais administratifs.',
+    'blog.article.blevio-frontaliere-ticino.imageAlt': 'Vue lacustre de Blevio pres de la frontiere du Tessin, avec montagnes et villages italiens en arriere-plan',
 };
 
 export default blogMetaFr;

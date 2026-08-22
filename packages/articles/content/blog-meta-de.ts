@@ -10534,6 +10534,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Fernarbeit im Ausland: Besteuerung von Grenzgängern',
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Fernarbeit aus einem Drittland während des Urlaubs beinhaltet Steuer-, KVG- und Arbeitgeberkommunikation. Erfahren Sie, wie Sie mit dem neuen Vertrag 2024 Steuern, Erstattungen und Versicherungsschutz verwalten können.',
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Grenzgänger arbeitet remote mit Laptop über Alpenpanorama',
+    'blog.article.blevio-frontaliere-ticino.title': 'Leben in Blevio und Arbeiten im Tessin: Grenzführer',
+    'blog.article.blevio-frontaliere-ticino.excerpt': 'Wie man als Grenzgänger des Tessins nach Blevio zieht: G-Genehmigung, Steuern, AHV, Lebenshaltungskosten und administrative Fristen.',
+    'blog.article.blevio-frontaliere-ticino.imageAlt': 'Seeblick von Blevio an der Grenze zum Tessin mit italienischen Bergen und Doerfern im Hintergrund',
 };
 
 export default blogMetaDe;
