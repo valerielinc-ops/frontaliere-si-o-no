@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-wyss",
-  "assembledAt": "2026-08-21T09:44:54.031Z",
+  "assembledAt": "2026-08-21T21:25:09.547Z",
   "jobs": [
     {
       "id": "privatklinik-wyss-53276e49b5c3",
@@ -33,7 +33,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/ausbildung-praktika/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:49.765Z",
+      "crawledAt": "2026-08-21T21:25:05.132Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/administration/medizinische-r-sekretaer-in-m-w-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:49.061Z",
+      "crawledAt": "2026-08-21T21:25:04.328Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -169,15 +169,15 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:35:50.766Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -215,7 +215,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-spezialtherapie/stv-musiktherapeut-in-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:48.368Z",
+      "crawledAt": "2026-08-21T21:25:03.596Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -265,15 +265,15 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:36:14.843Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -310,7 +310,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-medizin/oberaerztin-oberarzt-w-m-d-2",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:47.704Z",
+      "crawledAt": "2026-08-21T21:25:02.860Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -357,15 +357,15 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:16:28.579Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       },
@@ -403,7 +403,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-medizin/leitende-aerztin-leitender-arzt-psychiatrie-und-psychotherapie-w-m-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:46.341Z",
+      "crawledAt": "2026-08-21T21:25:01.452Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -437,15 +437,15 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:50.695Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       },
@@ -483,7 +483,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/zusatz-modul-b-zmb-in-der-psychiatrischen-pflege",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:45.660Z",
+      "crawledAt": "2026-08-21T21:25:00.752Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -511,15 +511,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:10.914Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -556,7 +556,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:44.987Z",
+      "crawledAt": "2026-08-21T21:25:00.071Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -623,15 +623,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:10.286Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       },
@@ -668,7 +668,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-w-m-d-auf-der-akutabteilung-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:44.305Z",
+      "crawledAt": "2026-08-21T21:24:59.390Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -738,15 +738,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:09.669Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -783,7 +783,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/try-and-hire-deine-flexible-anstellungsloesung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:43.606Z",
+      "crawledAt": "2026-08-21T21:24:58.719Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -836,15 +836,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:09.039Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -881,7 +881,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/pflegedirektor-in-m-w-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:42.218Z",
+      "crawledAt": "2026-08-21T21:24:57.314Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -933,15 +933,15 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:02:55.484Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       },
@@ -979,7 +979,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-fuer-die-privatabteilung-w-m-d-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:41.529Z",
+      "crawledAt": "2026-08-21T21:24:56.629Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -1015,15 +1015,15 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:00:14.444Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -1061,7 +1061,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/fachfrau-fachmann-gesundheit-efz-w-m-d-fuer-die-privatabteilung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:44:40.967Z",
+      "crawledAt": "2026-08-21T21:24:55.939Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",

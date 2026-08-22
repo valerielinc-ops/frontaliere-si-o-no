@@ -1,16 +1,16 @@
 {
   "key": "klinik-arlesheim",
   "label": "Klinik Arlesheim",
-  "generatedAt": "2026-08-21T10:08:01.013Z",
-  "total": 5,
+  "generatedAt": "2026-08-21T22:01:04.089Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5613,
-  "avgDurationMs": 5613,
+  "unchangedCount": 0,
+  "durationMs": 4906,
+  "avgDurationMs": 4906,
   "durationHistory": [
-    5613
+    4906
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:07:56.622Z",
+      "crawledAt": "2026-08-21T22:01:00.387Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/67b062dc-16f8-45a9-9956-955827d888fe/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:07:57.064Z",
+      "crawledAt": "2026-08-21T22:01:00.867Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:07:57.507Z",
+      "crawledAt": "2026-08-21T22:01:01.341Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:07:57.927Z",
+      "crawledAt": "2026-08-21T22:01:01.836Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -164,46 +164,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "klinik-arlesheim-fe5b826200df",
-      "slug": "segretario-medico-in-mpa-60-klinik-arlesheim-arlesheim",
-      "company": "Klinik Arlesheim",
-      "companyKey": "klinik-arlesheim",
-      "companyDomain": "klinik-arlesheim.ch",
-      "title": "Arztsekretär:in / MPA 60%",
-      "needsRetranslation": true,
-      "location": "Arlesheim",
-      "canton": "BL",
-      "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
-      "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:26.208Z",
-      "addressLocality": "Arlesheim",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4144",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-06",
-      "applyUrl": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
-      "firstSeenAt": "2026-08-06T11:42:13.480Z",
-      "salaryMin": 37200,
-      "salaryMax": 56400,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

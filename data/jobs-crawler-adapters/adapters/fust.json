@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/trainee-category-management/5f56c1d2-2270-4585-9c9c-dd2aa1ded1aa",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/a5623d67-1422-451e-b5b5-f3525fc175c1",
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/74305ad8-0a25-4a74-93a8-12eb7c309808",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/7038c668-ad58-40e3-b474-618e43f64dbc",
@@ -91,6 +92,12 @@
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/334cbd70-7c82-47c9-a3a0-31f1fe77caae"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/trainee-category-management/5f56c1d2-2270-4585-9c9c-dd2aa1ded1aa": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo determinato"
+    },
     "https://jobs.fust.ch/offene-stellen/sachbearbeiter-in-kundendienst-kuechen-baeder/a5623d67-1422-451e-b5b5-f3525fc175c1": {
       "location": "San Gallo",
       "canton": "SG",
@@ -567,5 +574,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-21T09:47:16.152Z"
+  "updatedAt": "2026-08-21T21:27:04.921Z"
 }

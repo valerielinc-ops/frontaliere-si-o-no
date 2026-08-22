@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinica-holistica-engiadina",
-  "assembledAt": "2026-08-21T09:47:38.357Z",
+  "assembledAt": "2026-08-21T21:27:27.576Z",
   "jobs": [
     {
       "id": "clinica-holistica-engiadina-72c9c3974d19",
@@ -47,7 +47,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:35.388Z",
+      "crawledAt": "2026-08-21T21:27:24.716Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
@@ -72,15 +72,15 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:21:17.104Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -130,7 +130,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:32.574Z",
+      "crawledAt": "2026-08-21T21:27:21.913Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als",
@@ -213,7 +213,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:30.311Z",
+      "crawledAt": "2026-08-21T21:27:19.511Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
@@ -238,15 +238,15 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:21:08.070Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -296,7 +296,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:27.755Z",
+      "crawledAt": "2026-08-21T21:27:17.071Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch",
@@ -381,7 +381,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/raumpflegerin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:25.215Z",
+      "crawledAt": "2026-08-21T21:27:14.349Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "raumpfleger-in-clinica-holistica-engiadina-susch",
@@ -458,7 +458,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:47:22.775Z",
+      "crawledAt": "2026-08-21T21:27:11.942Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch",
@@ -477,15 +477,15 @@
         ]
       },
       "firstSeenAt": "2026-08-03T13:10:25.665Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 110500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }

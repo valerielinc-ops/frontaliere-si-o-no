@@ -33,7 +33,12 @@ import { inferInterest, resolveDripSegment } from './lib/newsletterSegments.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
-const RECENCY_WINDOW_MS = 48 * 60 * 60 * 1000; // 48h
+// Esportata perché il trigger Firestore (functions/src/lib/welcomeTriggerEligibility.js)
+// deve fermarsi sulla STESSA finestra: due literal divergenti significherebbero
+// un trigger che tenta su documenti che questo modulo poi scarta come `too_old`,
+// cioè invocazioni sicure ma inutili — o, se il trigger fosse il più largo dei
+// due, una welcome a un iscritto confermato mesi fa.
+export const RECENCY_WINDOW_MS = 48 * 60 * 60 * 1000; // 48h
 const KILL_SWITCH_DISABLED_VALUES = new Set(['0', 'false', 'off']);
 
 /**
@@ -169,7 +174,7 @@ function evaluateWelcomeEligibility(data, isPreview) {
 }
 
 /**
- * @param {{email: string, locale?: string, db?: unknown, trigger: 'confirm'|'presigned'|'preview'}} params
+ * @param {{email: string, locale?: string, db?: unknown, trigger: 'confirm'|'presigned'|'preview'|'firestore_trigger'}} params
  * @returns {Promise<{success: boolean, error?: string, skipped?: string, messageId?: string, segment?: string}>}
  */
 export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb, trigger }) {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fnz",
-  "assembledAt": "2026-08-21T10:08:43.725Z",
+  "assembledAt": "2026-08-21T21:40:52.685Z",
   "jobs": [
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Geneva---Switzerland/Apprentie-IT--CFC-Exploitation-et-Infrastructure-_REQ-16873",
@@ -62,16 +62,16 @@
       },
       "firstSeenAt": "2026-07-06T13:46:18.840Z",
       "crawledAt": "",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
+      "salaryMin": 57000,
+      "salaryMax": 97000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
+          "minValue": 57000,
+          "maxValue": 97000,
           "unitText": "YEAR"
         }
       },

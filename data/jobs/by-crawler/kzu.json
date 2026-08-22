@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kzu",
-  "assembledAt": "2026-08-21T09:46:20.308Z",
+  "assembledAt": "2026-08-21T21:26:10.004Z",
   "jobs": [
     {
       "id": "kzu-bd9b969abcfa",
@@ -16,7 +16,7 @@
       "companyDomain": "kzu.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF 40-60% (Spitex Winkel)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann HF 40-60% (Spitex Winkel)",
+        "it": "Dipl. Infermieristica professionale HF 40-60% (angolo di picco)",
         "en": "Dipl. Nursing professional HF 40-60% (Spitex angle)",
         "de": "Dipl. Pflegefachfrau/-mann HF 40-60% (Spitex Winkel)",
         "fr": "Pflegefachfrau/-mann HF 40-60% (Spitex Winkel)"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:17.267Z",
+      "crawledAt": "2026-08-21T21:26:05.842Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,15 +63,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:30:04.101Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
+      "salaryMin": 54900,
+      "salaryMax": 76800,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 44100,
-          "maxValue": 66900,
+          "minValue": 54900,
+          "maxValue": 76800,
           "unitText": "YEAR"
         }
       }
@@ -108,7 +108,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:16.344Z",
+      "crawledAt": "2026-08-21T21:26:04.953Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,15 +155,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:35.795Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 73200,
+      "salaryMax": 102400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 73200,
+          "maxValue": 102400,
           "unitText": "YEAR"
         }
       }
@@ -182,7 +182,7 @@
       "companyDomain": "kzu.ch",
       "title": "Dipl. Pflegefachmann/- frau HF/FH 30-100% (Spitex)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/- frau HF/FH 30-100% (Spitex)",
+        "it": "Dipl. Specialista in allattamento HF/FH 30-100% (Spitex)",
         "en": "Dipl. Care specialist HF/FH 30-100% (Spitex)",
         "de": "Dipl. Pflegefachmann/- frau HF/FH 30-100% (Spitex)",
         "fr": "Dipl. Spécialiste des soins HF/FH 30-100% (Spitex)"
@@ -194,13 +194,12 @@
         "de": "Dipl. Pflegefachmann/- frau HF/FH 30-100% (Spitex) bei KZU Kompetenzzentrum Pflege und Gesundheit in Embrach (8424, ZH), Schweiz.\n\n• Art: Voll- oder Teilzeit\n• Befristung: Festanstellung\n• Standort: Embrach (ZH)\n• Bewerbung über das Umantis-Karriereportal von KZU Kompetenzzentrum Pflege und Gesundheit",
         "fr": "KZU Competence Center Soins et santé en ligne depuis : 28.05.2026 Numéro de référence : 2067 Le KZU-Spitex permet aux gens de se sentir en sécurité et bien soignés chez eux. Avec cœur, expertise et engagement, vous apportez une contribution précieuse. Nous vous proposons une petite équipe familiale, un large éventail d'applications et un environnement de travail dans lequel les gens sont au centre. Vos devoirs\n• Soins aux travailleurs indépendants et indépendants et soins aux clients à domicile\n• Type: plein temps ou à temps partiel\n• Licenciement : emploi permanent"
       },
-      "needsRetranslation": true,
       "location": "Embrach",
       "canton": "ZH",
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2067/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:15.427Z",
+      "crawledAt": "2026-08-21T21:26:04.087Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -235,15 +234,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:15:55.731Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -280,7 +279,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:14.518Z",
+      "crawledAt": "2026-08-21T21:26:03.186Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -316,15 +315,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:24.883Z",
-      "salaryMin": 29400,
-      "salaryMax": 44600,
+      "salaryMin": 36600,
+      "salaryMax": 51200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 29400,
-          "maxValue": 44600,
+          "minValue": 36600,
+          "maxValue": 51200,
           "unitText": "YEAR"
         }
       }
@@ -361,7 +360,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2085/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:13.565Z",
+      "crawledAt": "2026-08-21T21:26:02.296Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -397,15 +396,15 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:07:23.765Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -442,7 +441,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2090/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:12.628Z",
+      "crawledAt": "2026-08-21T21:26:01.356Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -476,15 +475,15 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:15:30.000Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -503,7 +502,7 @@
       "companyDomain": "kzu.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
+        "it": "Dipl. Infermieristica professionale HF/FH 40-100 %",
         "en": "Dipl. HF/FH 40-100% (Palliative Care)",
         "de": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
         "fr": "Diplômé(e) en soins infirmiers HF/FH 40-100% (Soins palliatifs)"
@@ -515,13 +514,12 @@
         "de": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100% bei KZU Kompetenzzentrum Pflege und Gesundheit in Embrach (8424, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: Festanstellung\n• Standort: Embrach (ZH)\n• Bewerbung über das Umantis-Karriereportal von KZU Kompetenzzentrum Pflege und Gesundheit",
         "fr": "KZU Centre de compétence en soins infirmiers et santé | en ligne depuis : 20/02/2026 Numéro de référence : 2029 Descrizione Immédiatement ou sur rendez-vous Mansioni - Responsabilité du processus pour les soins centrés sur la personne et la prise en charge de nos résidents Dettagli - Type : temps partiel - Durée : emploi fixe"
       },
-      "needsRetranslation": true,
       "location": "Embrach",
       "canton": "ZH",
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:11.709Z",
+      "crawledAt": "2026-08-21T21:26:00.453Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -559,15 +557,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:37.539Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       }
@@ -586,7 +584,7 @@
       "companyDomain": "kzu.ch",
       "title": "Dipl. Pflegefachfrau-/mann HF/FH 40-80% (Spitex)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau-/mann HF/FH 40-80% (Spitex)",
+        "it": "Dipl. HF/FH 40-80% (Spitex)",
         "en": "Dipl. Nursing Professional HF/FH 40-80% (Spitex)",
         "de": "Dipl. Pflegefachfrau-/mann HF/FH 40-80% (Spitex)",
         "fr": "Dipl. Infirmier/ère HF/FH 40-80% (Spitex)"
@@ -598,13 +596,12 @@
         "de": "Dipl. Pflegefachfrau-/mann HF/FH 40-80% (Spitex) bei KZU Kompetenzzentrum Pflege und Gesundheit in Embrach (8424, ZH), Schweiz.\n\n• Art: Voll- oder Teilzeit\n• Befristung: Festanstellung\n• Standort: Embrach (ZH)\n• Bewerbung über das Umantis-Karriereportal von KZU Kompetenzzentrum Pflege und Gesundheit",
         "fr": "Centre de compétences en soins infirmiers et santé KZU | en ligne depuis : 04/05/2026 Numéro de référence : 2011 Avec effet immédiat ou sur rendez-vous Vos tâches\n• Soins et prise en charge indépendants et professionnels des clients dans leur domicile Type : à temps plein ou à temps partiel Durée : emploi fixe"
       },
-      "needsRetranslation": true,
       "location": "Embrach",
       "canton": "ZH",
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:46:10.778Z",
+      "crawledAt": "2026-08-21T21:25:59.534Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -638,15 +635,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:34.023Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "salaryMin": 73200,
+      "salaryMax": 102400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 73200,
+          "maxValue": 102400,
           "unitText": "YEAR"
         }
       }
