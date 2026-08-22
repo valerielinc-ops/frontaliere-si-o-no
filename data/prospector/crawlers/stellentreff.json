@@ -1,0 +1,22 @@
+{
+  "companyKey": "stellentreff",
+  "companyName": "Stellentreff AG",
+  "companyHost": "stellentreff.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.stellentreff.ch/stellen/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "sampleVacancyCount": 993,
+  "sampleTitles": [
+    "Allrounder/in Ausbaugewerbe mit vielseitiger Erfahrung",
+    "Anlagen- und Apparatebauer/in - Aluschweisser - Ziel Festanstellung",
+    "Anlagen- und Apparatebauer/in - Maschinenoperateur Laser-Stanz, Biegmaschine und Wasserstrahlanlage",
+    "Anlagen- und Apparatebauer/in - Schweissarbeiten und kleinere Montagen",
+    "Anlagen- und Apparatebauer/in (Abkanter)"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T09:22:50.597Z"
+}

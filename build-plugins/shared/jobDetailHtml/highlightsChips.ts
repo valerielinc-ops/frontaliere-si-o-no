@@ -14,6 +14,7 @@
  *   ("highlights chips below Panoramica")
  */
 import type { JobDetailLocale, JobDetailRenderContext } from './context';
+import { MARKDOWN_CHUNK_HEADING_RE } from '../../../services/jobs/plainTextMarkdown';
 
 const ARIA_LABEL: Record<JobDetailLocale, string> = {
   it: 'Competenze chiave',
@@ -52,7 +53,7 @@ function stripChipMarkdown(value: string): string {
     // Asterisks have no semantic role inside a chip label anyway, so
     // nuke any remaining `*` run wholesale.
     .replace(/\*+/g, '')
-    .replace(/^#+\s*/, '')
+    .replace(MARKDOWN_CHUNK_HEADING_RE, '')
     .replace(/[_=~]{3,}/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();

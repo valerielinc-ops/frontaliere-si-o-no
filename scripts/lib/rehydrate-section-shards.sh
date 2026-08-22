@@ -140,7 +140,20 @@ rehydrate_section() {
       if [ -d "dist/$sub" ]; then
         actual_n=$(find "dist/$sub" -type f | wc -l)
       fi
-      if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+      # Exact match, not "at least" (issue #6260): `-ge` let a tar that is
+      # ITSELF truncated (a corrupt/short header stops `tar -tf`'s listing
+      # early, so `expected_n` undercounts) still read as complete whenever
+      # extraction happened to land >= that undercount — observed as
+      # "rehydrated vallese en from tar artifact: 1012 files (tar listed
+      # 316)", 208+ sitemap URLs silently missing their HTML. The upstream
+      # pack-side guard (deploy.yml's "Pack section shard dist" step,
+      # `packed_n -ne src_n`) cannot catch this either: it compares the tar
+      # against the SAME already-short source directory it was packed from,
+      # so a short source and its tar always agree with each other. `-eq` is
+      # the only check here that treats "extraction produced a different
+      # count than the archive claims to hold" as a mismatch instead of a
+      # pass, forcing the git-clone fallback below.
+      if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         trunk_replace_end "$section-$loc"
         continue

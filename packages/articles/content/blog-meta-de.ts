@@ -10495,6 +10495,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'So berechnen Sie die Quellensteuer im Tessin',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Quellensteuer Tessin: Bundessätze 2026, Grenzbefreiungen € 7\'500–€ 10\'000, italienische Steuergutschrift und Schritt-für-Schritt-Simulator.',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Taschenrechner und Steuerdokumente zur Berechnung der Quellensteuer, Blick auf den Luganersee im Hintergrund',
+    'blog.article.varcare-confine-documenti-frontalieri.title': 'Dokumente für die Einreise in die Schweiz: Der Grenzgängerführer',
+    'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Pass, Personalausweis und G-Ausweis: die wesentlichen Dokumente, um als Grenzgänger täglich die Grenze Tessin-Italien zu überqueren.',
+    'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Grenzgänger mit Pass und Permis an der Schweiz-Italien Grenze',
 };
 
 export default blogMetaDe;

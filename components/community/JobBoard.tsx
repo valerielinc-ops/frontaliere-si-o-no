@@ -85,6 +85,7 @@ import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
+import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -7802,7 +7803,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // shifts frame-to-frame — preserving the CLS guard below.
  const previewBoxClass =
  '[@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]';
- const descriptionPreview = String(
+ // stripMarkdownMarkers runs BEFORE the HTML strip, not after: `<[^>]+>`
+ // below would otherwise have already eaten the `(url)` half of a markdown
+ // link and left the `[testo]` brackets stranded. Measured on the live
+ // corpus, ~30% of descriptions carry a heading marker and ~19% a `**` pair;
+ // this teaser prints its input verbatim into a `whitespace-pre-line`
+ // paragraph, so both were reaching the reader as literal characters.
+ const descriptionPreview = stripMarkdownMarkers(
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
  )
  .replace(/<br\s*\/?>/gi, '\n')

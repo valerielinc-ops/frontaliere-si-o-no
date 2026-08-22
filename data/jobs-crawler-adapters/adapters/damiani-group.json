@@ -11,8 +11,20 @@
     "https://careers.damianigroup.com/search/?locale=it_IT"
   ],
   "notes": "Dedicated Damiani Group crawler parses SuccessFactors search pages and keeps TI + GR jobs from the Damiani careers portal.",
-  "updatedAt": "2026-08-21T21:46:52.994Z",
+  "updatedAt": "2026-08-22T09:46:24.170Z",
   "seedMetaByUrl": {
+    "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Damiani Group",
+      "postedDate": "2026-08-22"
+    },
+    "https://careers.damianigroup.com/job/Mendrisio-IT-Support-&-Junior-System-Administrator/1362036255/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Damiani Group",
+      "postedDate": "2026-08-22"
+    },
     "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-German-Speaking/1355847255/": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -42,18 +54,6 @@
       "canton": "TI",
       "company": "Damiani Group",
       "postedDate": "2026-07-27"
-    },
-    "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "company": "Damiani Group",
-      "postedDate": "2026-07-24"
-    },
-    "https://careers.damianigroup.com/job/Mendrisio-IT-Support-&-Junior-System-Administrator/1362036255/": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "company": "Damiani Group",
-      "postedDate": "2026-07-24"
     }
   }
 }

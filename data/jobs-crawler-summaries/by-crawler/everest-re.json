@@ -1,16 +1,16 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-08-21T22:09:39.427Z",
+  "generatedAt": "2026-08-22T09:43:05.995Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6102,
-  "avgDurationMs": 6102,
+  "durationMs": 5694,
+  "avgDurationMs": 5694,
   "durationHistory": [
-    6102
+    5694
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T22:09:36.980Z",
+      "crawledAt": "2026-08-22T09:43:03.708Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,6 @@
       "companyKey": "everest-re",
       "companyDomain": "everestre.com",
       "title": "Underwriter I, Reinsurance",
-      "needsRetranslation": true,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriter-I--Reinsurance_R7228",
@@ -85,7 +84,7 @@
       "firstSeenAt": "2026-07-03T21:59:52.543Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

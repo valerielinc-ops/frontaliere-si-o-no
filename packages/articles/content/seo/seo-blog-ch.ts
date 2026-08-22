@@ -49511,6 +49511,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-impresa-lucerna-forma-giuridica': {
+    title: 'Aprire attività canton Lucerna: forme giuridiche e costi',
+    description: 'Guida completa all\'avviamento di un\'impresa nel cantone Lucerna: scelta della forma giuridica, iscrizione al Registro di commercio, obblighi previdenziali',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, lucerna',
+    ogTitle: 'Aprire attività canton Lucerna: forme giuridiche e costi',
+    ogDescription: 'Come avviare legalmente un\'attività economica in Lucerna: forme giuridiche, procedura di registrazione, contributi AVS/LPP, assicurazioni obbligatorie (LAMal, SUVA) e tassazione a tre livelli.',
+    canonicalPath: '/articoli-svizzera/impresa-lucerna-forma-giuridica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività canton Lucerna: forme giuridiche e costi",
+      "description": "Guida completa all'avviamento di un'impresa nel cantone Lucerna: scelta della forma giuridica, iscrizione al Registro di commercio, obblighi previdenziali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/impresa-lucerna-forma-giuridica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprenditore che esamina documenti di registrazione presso l'ufficio del Registro di commercio in Lucerna"
+      },
+      "datePublished": "2026-08-22T09:27:05+00:00",
+      "dateModified": "2026-08-22T09:27:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/impresa-lucerna-forma-giuridica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

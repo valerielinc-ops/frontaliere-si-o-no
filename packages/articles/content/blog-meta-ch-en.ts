@@ -3817,6 +3817,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.title': 'Opening a business in Lucerne: trade register guide',
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.excerpt': 'Opening activities in Lucerne: legal forms, registration in the commercial register, minimum capital, taxes and insurance obligations. Step-by-step procedure.',
     'blog.article.aprire-attivita-lucerna-forme-giuridiche.imageAlt': 'Lake Lugano view with mountains in background — Swiss landscape',
+    'blog.article.impresa-lucerna-forma-giuridica.title': 'Opening activities in the canton of Lucerne: legal forms and costs',
+    'blog.article.impresa-lucerna-forma-giuridica.excerpt': 'From the choice of legal form to registration in the Register: practical guide to the steps, requirements, registration fees and insurance obligations in Lucerne.',
+    'blog.article.impresa-lucerna-forma-giuridica.imageAlt': 'Entrepreneur reviewing business registration documents at the commerce registry office desk',
 };
 
 export default blogMetaChEn;

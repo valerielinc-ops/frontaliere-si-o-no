@@ -31422,6 +31422,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'varcare-confine-documenti-frontalieri',
+ category: 'pratico',
+ date: '2026-08-22T09:21:11.530Z',
+ image: '/images/blog/varcare-confine-documenti-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

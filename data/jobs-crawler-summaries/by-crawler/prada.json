@@ -1,18 +1,48 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-08-21T21:35:16.793Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-08-22T09:42:14.833Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7743,
-  "avgDurationMs": 7743,
+  "durationMs": 8087,
+  "avgDurationMs": 8087,
   "durationHistory": [
-    7743
+    8087
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "prada-e59d538b6dce",
+      "slug": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "Addetto/a Laboratorio Abbigliamento",
+      "location": "Levanella Buresta Addettoa Laboratorio Abbigliamento",
+      "canton": "TI",
+      "addressLocality": "Levanella Buresta Addettoa Laboratorio Abbigliamento",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-22",
+      "url": "https://jobs.pradagroup.com/job/Levanella-Buresta-Addettoa-Laboratorio-Abbigliamento/1280349901/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-22T09:42:10.107Z",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "prada-6c4e57745113",
@@ -34,8 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:35:11.226Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-22T09:42:08.340Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -48,6 +77,39 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "prada-e59d538b6dce",
+      "slug": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "Addetto/a Laboratorio Abbigliamento",
+      "location": "Levanella Buresta Addettoa Laboratorio Abbigliamento",
+      "canton": "TI",
+      "addressLocality": "Levanella Buresta Addettoa Laboratorio Abbigliamento",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-22",
+      "url": "https://jobs.pradagroup.com/job/Levanella-Buresta-Addettoa-Laboratorio-Abbigliamento/1280349901/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-22T09:42:10.107Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressRegion": "TI",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 19
+      }
+    },
     {
       "id": "prada-6c4e57745113",
       "slug": "runner-prada-sankt-moritz-prada-group-saint-moritz",
@@ -68,9 +130,9 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:35:11.226Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-22T09:42:08.340Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "addressRegion": "GR",

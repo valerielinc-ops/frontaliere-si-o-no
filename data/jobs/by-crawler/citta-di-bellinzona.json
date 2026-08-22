@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-08-21T21:31:35.129Z",
+  "assembledAt": "2026-08-22T09:37:44.529Z",
   "jobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -25,7 +25,7 @@
       "descriptionByLocale": {
         "it": "## Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Responsabile del Servizio Risorse Umane presso l'Azienda Multiservizi Bellinzona. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
         "en": "## Head of Human Resources Service at the Bellinzona Multi-Service Company\n\nCity of Bellinzona — public competition in Bellinzona (TI), Switzerland.\n\nPublic competition at the City of Bellinzona for the position of Head of Human Resources Service at the Bellinzona Multiservice Company. Consult the competition notice for full requirements.\n\nSector:* Public Administration\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Switzerland",
-        "de": "## Head of Human Resources Service bei der Bellinzona Multi-Service Company\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona für die Position des Leiters des Personaldienstes bei der Bellinzona Multiservice Company. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
+        "de": "## Head of Human Resources Service bei der Bellinzona Multi-Service Company\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona für die Position des Leiters des Personaldienstes bei der Bellinzona Multiservice Company. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige \n• Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
         "fr": "## Chef du service des ressources humaines à la Bellinzona Multi-Service Company\n\nVille de Bellinzona — concours public à Bellinzona (TI), Suisse.\n\nConcours public à la Ville de Bellinzona pour le poste de chef du Service des ressources humaines à la Bellinzona Multiservice Company. Consultez l'avis de concours pour connaître toutes les exigences.\n\nSecteur:* Administration publique\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Suisse"
       },
       "requirements": [],
@@ -48,7 +48,8 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "crawledAt": "2026-08-22T09:37:42.903Z",
+      "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -60,8 +61,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:48:20.071Z"
+      }
     },
     {
       "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
@@ -109,7 +109,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.241Z",
+      "crawledAt": "2026-08-22T09:37:42.902Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -147,7 +147,7 @@
       "descriptionByLocale": {
         "it": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
         "en": "## Operaio/a (Giardiniere/a AFC) at the Public Works Sector\n\nCity of Bellinzona — public competition in Bellinzona (TI), Switzerland.\n\nPublic competition at the City of Bellinzona for the position of Operaio/a (Giardiniere/a AFC) at the Public Works Sector. Consult the competition notice for full requirements.\n\nSector:* Public Administration\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Switzerland",
-        "de": "## Operaio/a (Giardiniere/a AFC) im öffentlichen Bausektor\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona für die Position von Operaio/a (Giardiniere/a AFC) im Sektor Öffentliche Arbeiten. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
+        "de": "## Operaio/a (Giardiniere/a AFC) im öffentlichen Bausektor\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona für die Position von Operaio/a (Giardiniere/a AFC) im Sektor Öffentliche Arbeiten. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige \n• Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
         "fr": "## Operaio/a (Giardiniere/a AFC) au Secteur des Travaux Publics\n\nVille de Bellinzona — concours public à Bellinzona (TI), Suisse.\n\nConcours public à la Ville de Bellinzona pour le poste de Operaio/a (Giardiniere/a AFC) au Secteur des travaux publics. Consultez l'avis de concours pour connaître toutes les exigences.\n\nSecteur:* Administration publique\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Suisse"
       },
       "requirements": [],
@@ -170,7 +170,9 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "crawledAt": "2026-08-22T09:37:42.903Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -183,7 +185,6 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "previousSlugsByLocale": {
         "en": [
           "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona"
