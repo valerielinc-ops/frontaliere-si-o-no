@@ -126,6 +126,17 @@ jobs:
       # Ship dei crawler che hanno superato il gate: nessun passo umano. Gira
       # DOPO il commit dello stato, cosi' la PR di promozione parte da un main
       # che gia' contiene lo storico di validazione su cui il gate ha deciso.
+      # Le dipendenze servono SOLO qui. I cinque stadi precedenti girano su
+      # builtin Node e `fetch`, e installare per loro sarebbe minuti sprecati
+      # ogni notte; `scaffold-crawler.mjs` invece importa `yaml`, e senza
+      # install fallisce con ERR_MODULE_NOT_FOUND — misurato: il primo giro
+      # autonomo ha aperto il gate per 10 crawler e ne ha scaffoldati zero.
+      #
+      # `--ignore-scripts`: il postinstall del repo non serve a generare un
+      # parser, e in questo job sarebbe solo altro tempo e altra superficie.
+      - name: Install dependencies (solo per lo scaffolding)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
       - name: Promote validated crawlers
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
