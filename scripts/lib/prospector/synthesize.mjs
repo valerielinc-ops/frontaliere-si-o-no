@@ -94,6 +94,27 @@ export function crawlerKeyFor(candidate) {
 }
 
 /**
+ * True when `err` is the kind of malformed-input failure SYNTHESIZE is meant
+ * to isolate per-candidate (a `%E9` Latin-1 escape, an unparseable URL) rather
+ * than a genuine programming bug. The caller uses this to decide whether a
+ * rejected candidate is expected noise or a regression that deserves to stay
+ * visible instead of vanishing into "candidato rifiutato".
+ *
+ * @param {unknown} err
+ * @returns {boolean}
+ */
+export function isExpectedSynthesisError(err) {
+  // `instanceof` da solo non basta: un URIError attraversato da un realm o
+  // ri-lanciato da una lib puo' perderlo. Ma il solo `.name` e' troppo largo —
+  // una libreria che sovrascrive `.name` su un errore qualsiasi verrebbe
+  // riassorbita come rumore atteso, cioe' proprio il bug che questa distinzione
+  // vuole rendere visibile. Quindi: instanceof, oppure un vero Error il cui
+  // nome E' URIError.
+  if (err instanceof URIError) return true;
+  return err instanceof Error && err.name === 'URIError';
+}
+
+/**
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate
