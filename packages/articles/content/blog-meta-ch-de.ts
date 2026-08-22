@@ -3841,6 +3841,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-uri-diritto-locazione.title': 'Vermietung Uri: Mietrecht und Anfechtung',
     'blog.article.affitti-uri-diritto-locazione.excerpt': 'Kaution, Gebührenbeanstandung, Kündigung und Schlichtungsstelle: Bundesmietordnung im Kanton Uri.',
     'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Mietvertrag mit Hausschlüsseln und Stift auf Schreibtisch, professionelle Fotografie',
+    'blog.article.guida-affitti-uri-locazione.title': 'Mieten in Uri: Durchschnittsmieten und Mietrecht',
+    'blog.article.guida-affitti-uri-locazione.excerpt': 'Bundesregeln über Kaution, Gebührenbeanstandung und Kündigung im Kanton Uri. Praktischer Leitfaden zum Mietrecht.',
+    'blog.article.guida-affitti-uri-locazione.imageAlt': 'Typische Schweizer Wohngebäudefassade für Mietwohnungen im Kanton Uri, Straßenansicht',
 };
 
 export default blogMetaChDe;
