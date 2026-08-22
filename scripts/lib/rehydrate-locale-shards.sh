@@ -104,7 +104,15 @@ rehydrate_locale() {
         actual_n=$(find "dist/$loc" -type f | wc -l)
         [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
       fi
-      if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+      # Exact match, not "at least" (issue #6260, sibling fix to
+      # rehydrate-section-shards.sh): `-ge` let a tar that is ITSELF
+      # truncated (a corrupt/short header stops `tar -tf`'s listing early, so
+      # `expected_n` undercounts) still read as complete whenever extraction
+      # happened to land >= that undercount, silently shipping an incomplete
+      # dist/$loc into validation. `-eq` treats any drift between what the
+      # archive claims and what extraction produced as a mismatch, forcing
+      # the git-clone fallback below.
+      if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         trunk_replace_end "locale-$loc"
         continue
