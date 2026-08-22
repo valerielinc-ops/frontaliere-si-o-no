@@ -326,5 +326,11 @@ export async function fetchAllKudelskiNagraJobs() {
   }
 
   console.log(`\n📋 Total Kudelski NAGRA jobs discovered: ${jobs.length}`);
+  // Pre-filter candidate count (issue #6271, mirrors update-baronie-jobs.mjs)
+  // — lets the crawler-template pipeline report "found N listings, 0 Swiss
+  // after filtering" as healthy instead of broken (check-crawler-health.mjs
+  // autoFilteredEmpty, issue #5945). All 11 current listings are Spain/
+  // Germany/France; that is the source's genuine state, not a selector break.
+  jobs.discoveredCount = listings.length;
   return jobs;
 }
