@@ -3835,6 +3835,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Imposta di successione e donazione Canton Lucerna: aliquote',
     'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Guida completa all\'imposta di successione e donazione nel Canton Lucerna. Scopri le aliquote per grado di parentela, le esenzioni e come dichiarare l\'eredità.',
     'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Edificio amministrativo a Lucerna con bandiera svizzera, simbolo dell\'Ufficio delle imposte cantonale',
+    'blog.article.diritto-locazione-canton-uri.title': 'Diritto di locazione in Uri: affitti e deposito cauzionale',
+    'blog.article.diritto-locazione-canton-uri.excerpt': 'Nel canton Uri il diritto di locazione segue il Codice obbligazioni federale. Deposito max 3 mesi, contestazione canone entro 30 giorni, disdetta e arbitrato: ecco come funziona.',
+    'blog.article.diritto-locazione-canton-uri.imageAlt': 'Facciata di un edificio residenziale svizzero con ingressi numerati e cassette postali',
 };
 
 export default blogMetaChIt;

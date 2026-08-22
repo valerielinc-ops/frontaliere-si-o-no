@@ -3835,6 +3835,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Droits de succession et de donation Canton de Lucerne : taux',
     'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Guide complet de l\'impôt sur les successions et les donations dans le canton de Lucerne. Découvrez les taux par degré de parenté, les exemptions et comment déclarer l\'héritage.',
     'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Bâtiment administratif à Lucerne avec drapeau suisse, représentant l\'office cantonal des finances',
+    'blog.article.diritto-locazione-canton-uri.title': 'Droit de location à Uri : loyers et dépôt de garantie',
+    'blog.article.diritto-locazione-canton-uri.excerpt': 'Dans le canton d\'Uri, le droit de location suit le Code fédéral des obligations. Dépôt max 3 mois, contestation de la redevance dans les 30 jours, résiliation et arbitrage : voici comment cela fonctionne.',
+    'blog.article.diritto-locazione-canton-uri.imageAlt': 'Façade d\'un immeuble résidentiel suisse avec entrées numérotées et boîtes aux lettres',
 };
 
 export default blogMetaChFr;

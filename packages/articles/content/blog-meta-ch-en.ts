@@ -3835,6 +3835,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Inheritance and gift tax Canton Lucerne: rates',
     'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Complete guide to inheritance and gift tax in the Canton of Lucerne. Learn about kinship rates, exemptions, and how to declare inheritance.',
     'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Administrative building in Lucerne with Swiss flag, representing cantonal tax office',
+    'blog.article.diritto-locazione-canton-uri.title': 'Right of lease in Uri: rent and security deposit',
+    'blog.article.diritto-locazione-canton-uri.excerpt': 'In the canton of Uri, the right to rent follows the Federal Obligations Code. Max 3 months deposit, chargeback within 30 days, cancellation and arbitration: here\'s how it works.',
+    'blog.article.diritto-locazione-canton-uri.imageAlt': 'Swiss residential building facade with numbered apartment entrances and mailboxes',
 };
 
 export default blogMetaChEn;
