@@ -3844,6 +3844,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-affitti-uri-locazione.title': 'Affitti a Uri: canoni medi e diritto di locazione',
     'blog.article.guida-affitti-uri-locazione.excerpt': 'Regole federali su deposito di garanzia, contestazione del canone e disdetta nel cantone Uri. Guida pratica al diritto di locazione.',
     'blog.article.guida-affitti-uri-locazione.imageAlt': 'Facciata di edificio residenziale svizzero per affitti nel cantone Uri, vista dalla strada',
+    'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologi: stipendi e costi sotto esame',
+    'blog.article.radiologi-premi-aumenti-2027.excerpt': 'Il Parlamento federale svizzero affronta il dibattito sui costi della sanità: radiologi percepiscono stipendi oltre 300.000 franchi, premi aumenteranno del 3,7% nel 2027.',
+    'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Palazzo federale svizzero a Berna durante una sessione plenaria sulla riforma della sanità',
 };
 
 export default blogMetaChIt;

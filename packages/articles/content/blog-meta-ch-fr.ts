@@ -3844,6 +3844,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-affitti-uri-locazione.title': 'Location à Uri : loyers moyens et droit de location',
     'blog.article.guida-affitti-uri-locazione.excerpt': 'Règles fédérales sur le dépôt de garantie, la contestation de la redevance et la résiliation dans le canton d\'Uri. Guide pratique du droit locatif.',
     'blog.article.guida-affitti-uri-locazione.imageAlt': 'Façade d\'immeuble résidentiel suisse pour locations dans le canton Uri, vue de rue',
+    'blog.article.radiologi-premi-aumenti-2027.title': 'Radiologues : salaires et coûts à l\'étude',
+    'blog.article.radiologi-premi-aumenti-2027.excerpt': 'Le Parlement fédéral suisse aborde le débat sur les coûts de la santé : les radiologues perçoivent des salaires supérieurs à 300 000 francs, les primes augmenteront de 3,7% en 2027.',
+    'blog.article.radiologi-premi-aumenti-2027.imageAlt': 'Palais fédéral suisse à Berne lors d\'une session plénière sur la réforme de la politique sanitaire',
 };
 
 export default blogMetaChFr;

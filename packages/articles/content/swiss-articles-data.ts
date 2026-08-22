@@ -11530,6 +11530,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'radiologi-premi-aumenti-2027',
+    category: 'novita',
+    date: '2026-08-22T14:46:32.416Z',
+    image: '/images/blog/radiologi-premi-aumenti-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
