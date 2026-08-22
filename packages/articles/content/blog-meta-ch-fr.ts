@@ -3778,6 +3778,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-berna-rendita-lacune-contributive.title': 'AVS Canton de Berne : rente, lacunes et prestations',
     'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'Premier pilier AVS dans le canton de Berne : caisse de compensation cantonale, calcul de la rente, lacunes contributives et prestations complémentaires au minimum vital.',
     'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Bâtiment administratif du canton de Berne abritant la caisse de compensation de l\'AVS.',
+    'blog.article.esercito-bilancio-misure-violenza.title': 'Armée suisse : bilan sur les mesures contre la violence',
+    'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 mesures supplémentaires contre la discrimination et la violence sexualisée : rapport intermédiaire 2026 montre 8 mises en œuvre, 7 en cours de mise en œuvre. Près de 20 000 recrues ont suivi la formation obligatoire.',
+    'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Personnel militaire suisse lors d\'une formation en cadre professionnel',
 };
 
 export default blogMetaChFr;

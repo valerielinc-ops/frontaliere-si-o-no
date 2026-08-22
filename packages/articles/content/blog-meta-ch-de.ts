@@ -3778,6 +3778,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-berna-rendita-lacune-contributive.title': 'AHV Kanton Bern: Rente, Lücken und Leistungen',
     'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'Erste AHV-Säule im Kanton Bern: kantonale Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen zum Lebensminimum.',
     'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Verwaltungsgebäude des Kantons Bern mit der Ausgleichskasse für das erste Säulenrentensystem AHV.',
+    'blog.article.esercito-bilancio-misure-violenza.title': 'Schweizer Armee: Bilanz zu Massnahmen gegen Gewalt',
+    'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 zusätzliche Massnahmen gegen Diskriminierung und sexualisierte Gewalt: Zwischenbericht 2026 zeigt 8 umgesetzt, 7 in Umsetzung. Fast 20.000 Rekruten haben die obligatorische Ausbildung abgeschlossen.',
+    'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Schweizer Soldaten während einer Schulung in professioneller institutioneller Umgebung',
 };
 
 export default blogMetaChDe;

@@ -3778,6 +3778,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-berna-rendita-lacune-contributive.title': 'AVS Canton Bern: annuity, gaps and benefits',
     'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'First AVS pillar in the Canton of Bern: cantonal compensation fund, pension calculation, contribution gaps and benefits complementary to the minimum living allowance.',
     'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Bern cantonal government office building housing the first pillar AVS compensation fund.',
+    'blog.article.esercito-bilancio-misure-violenza.title': 'Swiss Army: Assessment of anti-violence measures',
+    'blog.article.esercito-bilancio-misure-violenza.excerpt': '16 additional measures against discrimination and sexualized violence: interim report 2026 shows 8 implemented, 7 in implementation. Nearly 20,000 recruits have completed mandatory training.',
+    'blog.article.esercito-bilancio-misure-violenza.imageAlt': 'Swiss military personnel during training in professional institutional setting',
 };
 
 export default blogMetaChEn;
