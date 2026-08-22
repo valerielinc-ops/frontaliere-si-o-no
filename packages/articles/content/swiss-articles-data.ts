@@ -11404,6 +11404,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-lucerna-dopo-un-anno',
+    category: 'pratico',
+    date: '2026-08-22T07:45:47.895Z',
+    image: '/images/blog/permesso-l-lucerna-dopo-un-anno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

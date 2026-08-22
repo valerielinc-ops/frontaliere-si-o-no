@@ -3802,6 +3802,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-lucerna-guida.title': 'Residence permit C Lucerne: complete guide',
     'blog.article.permesso-c-lucerna-guida.excerpt': 'Requirements, integration criteria and application procedure for residence permit C in the Canton of Lucerne. Complete step-by-step guide.',
     'blog.article.permesso-c-lucerna-guida.imageAlt': 'Modern entrance of a Swiss cantonal office for residence permit applications',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.title': 'Licence L Lucerne: renewal after one year',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.excerpt': 'The short-term L permit is valid for up to 12 months and can be renewed. Find out how it works in Lucerne, the extension options and the transition to a residence permit.',
+    'blog.article.permesso-l-lucerna-dopo-un-anno.imageAlt': 'Swiss administrative office processing work permits and residence authorization requests for foreign workers',
 };
 
 export default blogMetaChEn;
