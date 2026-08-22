@@ -3835,6 +3835,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Erbschafts- und Schenkungssteuer Kanton Luzern: Steuersätze',
     'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Vollständiger Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Luzern. Entdecken Sie die Sätze nach Verwandtschaftsgrad, die Ausnahmen und wie Sie die Erbschaft erklären können.',
     'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Verwaltungsgebäude in Luzern mit Schweizer Flagge, Symbol der Kantonalen Finanzverwaltung',
+    'blog.article.diritto-locazione-canton-uri.title': 'Mietrecht in Uri: Mieten und Kaution',
+    'blog.article.diritto-locazione-canton-uri.excerpt': 'Im Kanton Uri richtet sich das Mietrecht nach dem Bundesobligationenrecht. Maximale Anzahlung von 3 Monaten, Einspruch gegen die Gebühr innerhalb von 30 Tagen, Kündigung und Schiedsverfahren: So funktioniert es.',
+    'blog.article.diritto-locazione-canton-uri.imageAlt': 'Fassade eines Schweizer Wohnhauses mit nummerierten Eingängen und Briefkästen',
 };
 
 export default blogMetaChDe;

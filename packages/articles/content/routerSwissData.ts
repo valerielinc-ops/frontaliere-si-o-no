@@ -1304,6 +1304,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mazzone-clima-consiglio-federale': { it: 'mazzone-clima-consiglio-federale', en: 'mazzone-climate-federal-council', de: 'mazzone-klima-bundesrat', fr: 'mazzone-climat-conseil-federal' },
  'lucerna-salari-formazione': { it: 'lucerna-salari-formazione', en: 'lucerne-wages-education', de: 'luzern-loehne-ausbildung', fr: 'lucerne-salaires-formation' },
  'imposta-successione-donazione-lucerna-guida': { it: 'imposta-successione-donazione-lucerna-guida', en: 'succession-donation-tax-lucerne-guide', de: 'erbschaftssteuer-schenkungssteuer-luzern-leitfaden', fr: 'impot-succession-donation-lucerne-guide' },
+ 'diritto-locazione-canton-uri': { it: 'diritto-locazione-canton-uri', en: 'tenant-rights-canton-uri', de: 'mietrecht-kanton-uri', fr: 'droit-du-logement-canton-uri' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
