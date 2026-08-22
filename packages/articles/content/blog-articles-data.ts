@@ -31476,6 +31476,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'spesa-alimentare-frontaliere-2024',
+ category: 'pratico',
+ date: '2026-08-22T13:06:07.557Z',
+ image: '/images/blog/spesa-alimentare-frontaliere-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

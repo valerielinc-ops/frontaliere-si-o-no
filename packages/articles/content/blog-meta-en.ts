@@ -10514,6 +10514,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Food expenditure: Is Switzerland or Italy suitable for the border crossing?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Practical comparison on prices, customs exemption and purchasing habits for those who work in Ticino. What changes with the new 2024 border agreement?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Cross-border worker comparing grocery receipts at Mendrisio border',
+    'blog.article.spesa-alimentare-frontaliere-2024.title': 'Border food expenditure 2024: the customs exemption',
+    'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'From 2024, the new agreement introduces different deductibles for border workers: €7,500 for old members, €10,000 for new ones. How to do food shopping between Switzerland and Italy.',
+    'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Frontier worker with shopping bags at the Swiss-Italian border crossing in Ticino',
 };
 
 export default blogMetaEn;

@@ -10515,6 +10515,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Spesa alimentare: Svizzera o Italia conviene per il frontaliere?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Confronto pratico su prezzi, franchigia doganale e abitudini d\'acquisto per chi lavora in Ticino. Cosa cambia con il nuovo accordo frontalieri 2024?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Frontaliere confronta scontrini spesa al confine Mendrisio',
+    'blog.article.spesa-alimentare-frontaliere-2024.title': 'Spesa alimentare frontaliere 2024: la franchigia doganale',
+    'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'Dal 2024 il nuovo accordo introduce franchigie diverse per frontalieri: €7.500 per vecchi iscritti, €10.000 per i nuovi. Come conviene fare la spesa alimentare tra Svizzera e Italia.',
+    'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Frontaliere con buste della spesa al valico svizzero-italiano di confine in Ticino',
 };
 
 export default blogMetaIt;

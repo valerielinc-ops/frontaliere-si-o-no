@@ -10513,6 +10513,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.title': 'Lebensmittelausgaben: Lohnt sich die Schweiz oder Italien für den Grenzgänger?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.excerpt': 'Praktischer Vergleich von Preisen, Zollfreiheit und Einkaufsgewohnheiten für diejenigen, die im Tessin arbeiten. Was ändert sich mit dem neuen Grenzabkommen 2024?',
     'blog.article.spesa-alimentare-confronto-frontaliere-ticino.imageAlt': 'Grenzgänger vergleicht Einkaufsbelege an der Grenze Mendrisio',
+    'blog.article.spesa-alimentare-frontaliere-2024.title': 'Grenzüberschreitende Lebensmittelausgaben 2024: die Zollbefreiung',
+    'blog.article.spesa-alimentare-frontaliere-2024.excerpt': 'Ab 2024 führt das neue Abkommen unterschiedliche Selbstbehalte für Grenzgänger ein: € 7.500 für alte Mitglieder, € 10.000 für neue. Wie lohnt es sich, Lebensmittel zwischen der Schweiz und Italien einzukaufen?',
+    'blog.article.spesa-alimentare-frontaliere-2024.imageAlt': 'Grenzgänger mit Einkaufstaschen am Schweizer-Italienischen Grenzübergang im Tessin',
 };
 
 export default blogMetaDe;
