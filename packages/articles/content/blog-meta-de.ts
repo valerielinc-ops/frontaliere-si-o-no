@@ -10489,6 +10489,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-richiesta-completa.title': 'Antrag auf Genehmigung G: vollständiges Verfahren Schritt-für-Schritt',
     'blog.article.permesso-g-richiesta-completa.excerpt': 'Praktischer Leitfaden für die Beantragung der Genehmigung G: die beteiligten Personen, angeforderte Dokumente, Wartezeiten und die steuerlichen und sozialen Auswirkungen für den Grenzgänger Tessin-Italien.',
     'blog.article.permesso-g-richiesta-completa.imageAlt': 'Grenzübergang Chiasso zwischen Tessin und Lombardei, Haupteingang für Grenzgänger zum Arbeitsplatz',
+    'blog.article.calcolare-imposta-fonte-ticino.title': 'So berechnen Sie die Quellensteuer Tessin',
+    'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Praktischer Leitfaden zur Berechnung der Quellensteuer für Grenzgänger Tessin-Italien: Sätze, Franchisen 2024, Steuergutschrift im Jahr 730 und interaktiver Simulator.',
+    'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Grenzgänger mit Tablet zeigt Steuerrechner, Lugano und Seeblick im Hintergrund',
 };
 
 export default blogMetaDe;

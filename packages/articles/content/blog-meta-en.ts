@@ -10490,6 +10490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-richiesta-completa.title': 'Permit Request G: complete step-by-step procedure',
     'blog.article.permesso-g-richiesta-completa.excerpt': 'Practical guide to applying for the G Permit: the subjects involved, documents required, waiting times, and the tax and social security implications for the Ticino-Italy border crossing.',
     'blog.article.permesso-g-richiesta-completa.imageAlt': 'Chiasso border crossing between Ticino and Lombardy, main entry point for daily cross-border workers',
+    'blog.article.calcolare-imposta-fonte-ticino.title': 'How to calculate Ticino source tax',
+    'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Practical guide to the calculation of the tax at source for border workers Ticino-Italy: rates, 2024 deductibles, tax credit in 730 and interactive simulator.',
+    'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Frontalier with tablet showing tax calculator interface, Lugano and lake view in background',
 };
 
 export default blogMetaEn;

@@ -10492,6 +10492,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permesso-g-richiesta-completa.title': 'Demande de permis G : procédure complète étape par étape',
     'blog.article.permesso-g-richiesta-completa.excerpt': 'Guide pratique pour demander le permis G : les personnes impliquées, les documents requis, les temps d\'attente et les implications fiscales et de sécurité sociale pour le frontalier Tessin-Italie.',
     'blog.article.permesso-g-richiesta-completa.imageAlt': 'Poste frontière de Chiasso entre le Tessin et la Lombardie, principal accès quotidien des travailleurs transfrontaliers',
+    'blog.article.calcolare-imposta-fonte-ticino.title': 'Comment calculer l\'impôt source Tessin',
+    'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Guide pratique pour le calcul de l\'impôt à la source pour les frontaliers Tessin-Italie : taux, franchises 2024, crédit d\'impôt en 730 et simulateur interactif.',
+    'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Frontalier avec tablette affichant la calculatrice fiscale, vue de Lugano et du lac en arrière-plan',
 };
 
 export default blogMetaFr;

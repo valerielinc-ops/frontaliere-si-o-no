@@ -10491,6 +10491,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-richiesta-completa.title': 'Richiesta Permesso G: procedura completa step-by-step',
     'blog.article.permesso-g-richiesta-completa.excerpt': 'Guida pratica alla richiesta del Permesso G: i soggetti coinvolti, documenti richiesti, tempi di attesa, e le implicazioni fiscali e previdenziali per il frontaliere Ticino-Italia.',
     'blog.article.permesso-g-richiesta-completa.imageAlt': 'Valico di Chiasso, principale confine del Ticino con la Lombardia, dove i frontalieri transitano quotidianamente per il lavoro',
+    'blog.article.calcolare-imposta-fonte-ticino.title': 'Come calcolare imposta fonte Ticino',
+    'blog.article.calcolare-imposta-fonte-ticino.excerpt': 'Guida pratica al calcolo dell\'imposta alla fonte per frontalieri Ticino-Italia: aliquote, franchigie 2024, credito d\'imposta nel 730 e simulatore interattivo.',
+    'blog.article.calcolare-imposta-fonte-ticino.imageAlt': 'Frontaliere con tablet mostra calcolatore imposta alla fonte, vista di Lugano e lago sullo sfondo',
 };
 
 export default blogMetaIt;

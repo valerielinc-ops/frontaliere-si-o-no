@@ -31404,6 +31404,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'calcolare-imposta-fonte-ticino',
+ category: 'fiscale',
+ date: '2026-08-22T08:37:30.365Z',
+ image: '/images/blog/calcolare-imposta-fonte-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
