@@ -16,7 +16,7 @@ import admin from 'firebase-admin';
 export const SOFT_ESCALATION_THRESHOLD = 3;
 
 /**
- * @param {{ provider: 'mailjet'|'maileroo'|'mailtrap'|'mailgun'|'resend', rawEvent: string, eventData: object }} args
+ * @param {{ provider: 'mailjet'|'maileroo'|'mailtrap'|'mailgun'|'resend'|'dsn', rawEvent: string, eventData: object }} args
  * @returns {'hard'|'soft'}
  */
 export function classifyBounceSeverity({ provider, rawEvent, eventData }) {
@@ -38,6 +38,32 @@ export function classifyBounceSeverity({ provider, rawEvent, eventData }) {
       if (severity === 'permanent') return 'hard';
       // No severity captured (e.g. a pre-send `rejected`) — treat as soft, conservative.
       return raw === 'rejected' ? 'soft' : 'hard';
+    }
+    case 'dsn': {
+      // An RFC 3464 delivery report that arrived as INBOUND MAIL rather than as
+      // a provider event. Maileroo's return_path for frontaliereticino.ch is a
+      // local part on OUR domain (measured 2026-08-21: `"return_path": "abuse"`),
+      // and our MX are Cloudflare Email Routing — so an ISP that accepts at SMTP
+      // time and rejects afterwards reports to us and NEVER to the ESP. See
+      // functions/src/inboundBounceReport.js for the whole path.
+      //
+      // `eventData.status` is the RFC 3463 enhanced status code,
+      // `eventData.diagnostic_code` the raw SMTP reply the reporting MTA quoted.
+      const enhanced = String(eventData?.status || '').trim();
+      if (/^5\./.test(enhanced)) return 'hard';
+      if (/^4\./.test(enhanced)) return 'soft';
+      const diagnostic = String(eventData?.diagnostic_code || '');
+      if (/(^|\D)5\d\d(\D|$)/.test(diagnostic)) return 'hard';
+      if (/(^|\D)4\d\d(\D|$)/.test(diagnostic)) return 'soft';
+      // No machine-readable code anywhere. This is the COMMON case, not the
+      // exotic one: the Swisscom/Bluewin report measured on 2026-08-21 sends an
+      // EMPTY message/delivery-status part and states the three possible causes
+      // as alternatives in prose ("indirizzo scorretto, un account e-mail non
+      // esistente, una casella di posta piena oppure un errore temporaneo"), so
+      // the report itself cannot tell us which one happened. Soft: let
+      // SOFT_ESCALATION_THRESHOLD consecutive reports do the suppressing rather
+      // than guess permanence from a sentence that explicitly refuses to say.
+      return 'soft';
     }
     case 'resend': {
       const bounceType = String(eventData?.bounce?.type || eventData?.bounce_type || '').toLowerCase();

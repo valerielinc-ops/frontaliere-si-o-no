@@ -49,6 +49,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 // GET from a mail client with no JavaScript.
 import { resolveRequestParams } from './src/lib/privateRequestParams.js';
 import { handleOutreachStopReply } from './src/outreachStopReply.js';
+import { handleInboundBounceReport } from './src/inboundBounceReport.js';
 import { handleOutreachReplyTrack } from './src/outreachReplyTrack.js';
 import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
@@ -1219,6 +1220,50 @@ export const outreachStopReply = onRequest(
  res.status(500).type('text').send('error');
  }
  },
+);
+
+/**
+ * inboundBounceReport — records a delivery report (RFC 3464 bounce) that
+ * arrived as INBOUND MAIL. Maileroo's return_path for our domain is a local
+ * part on frontaliereticino.ch and our MX are Cloudflare, so an ISP that
+ * accepts at SMTP time and rejects afterwards reports to us and never to the
+ * ESP: without this endpoint those bounces are invisible to the suppression
+ * model (measured 2026-08-21 — see functions/src/inboundBounceReport.js).
+ * The Cloudflare Email Worker parses the report and POSTs the extracted fields
+ * with the shared secret in `x-stop-secret`. POST-only, secret-gated.
+ */
+export const inboundBounceReport = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: false,
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).send('Method not allowed');
+      return;
+    }
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      const body = req.body || {};
+      const result = await handleInboundBounceReport({
+        recipient: body.recipient,
+        status: body.status,
+        action: body.action,
+        diagnosticCode: body.diagnosticCode,
+        campaignId: body.campaignId,
+        originalMessageId: body.originalMessageId,
+        reportingMta: body.reportingMta,
+        secret: newsletterSecret,
+        providedSecret: String(req.get('x-stop-secret') || ''),
+      });
+      res.status(result.status).type('text').send(result.body);
+    } catch (error) {
+      console.error('[inboundBounceReport] Error:', error);
+      res.status(500).type('text').send('error');
+    }
+  },
 );
 
 /**
