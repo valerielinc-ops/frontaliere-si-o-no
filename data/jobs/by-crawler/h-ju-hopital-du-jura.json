@@ -438,10 +438,10 @@
       "id": "h-ju-hopital-du-jura-84e59edefc43",
       "slug": "apprendistato-in-assistenza-e-supporto-asa-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
+        "fr": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont",
         "it": "apprendistato-in-assistenza-e-supporto-asa-hopital-du-jura-h-ju-delemont",
         "en": "apprenticeship-in-care-and-support-asa-hopital-du-jura-h-ju-delemont",
-        "de": "ausbildung-in-pflege-und-unterstutzung-asa-hopital-du-jura-h-ju-delemont",
-        "fr": "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
+        "de": "ausbildung-in-pflege-und-unterstutzung-asa-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -460,7 +460,6 @@
         "de": "Das Jura-Krankenhaus arbeitet an den Standorten Delémont, Porrentruy, der Residence des Franches-Montagnes und der Residence la Promenade und stellt beim Wettbewerb für den Monat August 2027 einen Platz d-\n\nUmfassende und diversifizierte Ausbildung in 2 Jahren an mehreren Standorten\n\n• Ihre täglichen Aufgaben unter Aufsicht des Gesundheitsteams\n• · Begleiten und unterstützen Sie die Bewohner bei täglichen Aktivitäten.\n• · Aktiv an Aktivitäten mit Bewohnern teilnehmen.\n• · Bereitstellung von Logistik und Wartung in einer Pflegeeinheit.\n• · Arbeiten Sie als Team in Langzeitpflegeeinheiten.\n\nDein Profil\n• · Sie schließen Ihre Schulpflicht im Jahr 2027 ab oder sind ein Erwachsener, der sich einer beruflichen Umschulung im Gesundheitsbereich unterzieht.\n• Sie sind motiviert, dynamisch, neugierig.\n• · Sie arbeiten gerne als Team und Kontakt mit den Bewohnern.\n• · Sie fühlen sich in einer anspruchsvollen Umgebung wohl.\n\nWas wir anbieten\n• ✔️ Travail varié en équipe.\n• ✔️ Formation complète sur 3 ans .\n• Attraktives Gehalt mit Beteiligung an Ausbildungskosten.\n• Ein Caféteria-Restaurant mit aktuellen Preisen.\n• Eine Möglichkeit der Unterkunft (Zimmer verfügbar).\n• Menschliche und professionelle Aufsicht.\n\nInteressiert?\nSenden Sie uns bis zum 13. September 2026 Ihr vollständiges Dossier (Motivationsschreiben, Lebenslauf, Newsletter der letzten 3 Semester, mögliche Praktikumszertifikate) über unsere Online-Plattform.\n\nInformation\nTel. : + 41 32 421 20 47, E-Mail: secretariat.formation@h-ju.ch",
         "fr": "L’Hôpital du Jura déploie ses activités sur les sites de Delémont, Porrentruy, la Résidence des Franches-Montagnes et la Résidence la Promenade et met au concours pour le mois d’août 2027 , une place d’\n\nUne formation complète et diversifiée en 2 ans sur plusieurs sites\n\n• Tes tâches au quotidien, sous supervision de l’équipe soignante\n• · Accompagner et soutenir les résident·e·s dans les activités quotidiennes.\n• · Participer activement aux animations auprès des résident·e·s.\n• · Assurer la logistique et l’entretien en unité de soins.\n• · Travailler en équipe dans des unités de soins de longue durée.\n\nTon profil\n• · Tu termines ta scolarité obligatoire en 2027 ou tu es un·e adulte en reconversion professionnelle dans le domaine de la santé.\n• · Tu es motivé·e, dynamique, curieux·se.\n• · Tu aimes travailler en équipe et le contact avec les résident·e·s.\n• · Tu es à l’aise dans un environnement exigeant.\n\nCe que nous offrons\n• ✔️ Travail varié en équipe.\n• ✔️ Formation complète sur 3 ans .\n• ✔️ Salaire attractif avec participation aux frais de formation.\n• ✔️ Un restaurant cafétéria avec des tarifs présentiels.\n• ✔️ Une possibilité de logement (chambres à disposition).\n• ✔️ Un encadrement humain et professionnel.\n\nIntéressé.e ?\nEnvoie-nous ton dossier complet (lettre de motivation, CV, bulletin des 3 derniers semestres, éventuels certificats de stage) via notre plateforme en ligne d’ici au 13 septembre 2026.\n\nRenseignements\nTél. : + 41 32 421 20 47, courriel : secretariat.formation@h-ju.ch"
       },
-      "needsRetranslation": false,
       "location": "Delémont",
       "canton": "JU",
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4440/apprenties-aide-en-soins-et-accompagnement-asa",
@@ -484,6 +483,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4440",
+      "salaryMin": 77000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:20.863Z",
+      "needsRetranslation": false,
       "previousSlugs": [
         "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
       ],
@@ -497,29 +510,16 @@
         "de": [
           "apprenti-e-s-aide-en-soins-et-accompagnement-asa-h-ju-hopital-du-jura-delemont"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:31:20.863Z",
-      "salaryMin": 77000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "h-ju-hopital-du-jura-9d037c2171a2",
       "slug": "cucina-apprendista-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
+        "fr": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont",
         "it": "cucina-apprendista-hopital-du-jura-h-ju-delemont",
         "en": "apprentice-cook-hopital-du-jura-h-ju-delemont",
-        "de": "auszubildender-koch-hopital-du-jura-h-ju-delemont",
-        "fr": "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
+        "de": "auszubildender-koch-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -538,7 +538,6 @@
         "de": "Das Krankenhaus Jura befindet sich auf den Standorten Delémont, Porrentruy, der Résidence des Franches-Montagnes und der Résidence la Promenade sowie auf Plätzen für den Monat August 2027.\n\n1 Platz in Delémont und 1 Platz in Porrentruy\n\n• Während Ihrer Ausbildung werden Sie geführt zu:\n• · Entdecken Sie das Handwerk des Kochens in einer anregenden Umgebung, neben leidenschaftlichen Profis.\n• · Bereiten Sie verschiedene Gerichte für Mitarbeiter, Patienten und Bewohner von H-JU vor.\n• · Machen Sie warme, kalte und gebäckige Gerichte.\n• · Beginnen Sie mit diätetische Küche.\n• · Strenge, Hygiene und Arbeitsorganisation entwickeln.\n\nDein Profil\n• · Sie schließen Ihre Schulpflicht im Jahr 2027 ab oder sind ein Erwachsener, der sich einer beruflichen Umschulung im Gesundheitsbereich unterzieht.\n• Sie sind motiviert, dynamisch, neugierig.\n• · Sie arbeiten gerne als Team.\n• · Du machst gerne Geschirr.\n• · Sie fühlen sich in einer strukturierten und anspruchsvollen Umgebung wohl.\n\nWas wir anbieten\n• ✔️ Travail varié en équipe.\n• ✔️ Formation complète sur 3 ans.\n• Attraktives Gehalt mit Beteiligung an Ausbildungskosten.\n• Ein Caféteria-Restaurant mit aktuellen Preisen.\n• Eine Möglichkeit der Unterkunft (Zimmer verfügbar).\n• Menschliche und professionelle Unterstützung.\n\nInteressiert?\nSenden Sie uns bis zum 13. September 2026 Ihr vollständiges Dossier (Motivationsschreiben, Lebenslauf, Newsletter der letzten 3 Semester, mögliche Praktikumszertifikate) über unsere Online-Plattform.\n\nInformation\nTel. : + 41 32 421 20 47, E-Mail: secretariat.formation@h-ju.ch",
         "fr": "L’Hôpital du Jura déploie ses activités sur les sites de Delémont, Porrentruy, la Résidence des Franches-Montagnes et la Résidence la Promenade et met au concours pour le mois d’août 2027 , des places d’\n\n1 place à Delémont et 1 place à Porrentruy\n\n• Au cours de ton apprentissage, tu seras amené·e à :\n• · Découvrir le métier de cuisinier·ère dans un environnement stimulant, aux côtés de professionnels passionnés.\n• · Préparer et confectionner des mets variés pour les employés, les patients et les résidents de l’H-JU.\n• · Réaliser des plats chauds, froids et de la pâtisserie.\n• · T’initier à la cuisine diététique.\n• · Développer rigueur, sens de l’hygiène et organisation du travail.\n\nTon profil\n• · Tu termines ta scolarité obligatoire en 2027 ou tu es un·e adulte en reconversion professionnelle dans le domaine de la santé.\n• · Tu es motivé·e, dynamique, curieux·se.\n• · Tu aimes travailler en équipe.\n• · Tu apprécies confectionner des mets.\n• · Tu es à l’aise dans un environnement structuré et exigeant.\n\nCe que nous offrons\n• ✔️ Travail varié en équipe.\n• ✔️ Formation complète sur 3 ans.\n• ✔️ Salaire attractif avec participation aux frais de formation.\n• ✔️ Un restaurant cafétéria avec des tarifs présentiels.\n• ✔️ Une possibilité de logement (chambres à disposition).\n• ✔️ Un accompagnement humain et professionnel.\n\nIntéressé.e ?\nEnvoie-nous ton dossier complet (lettre de motivation, CV, bulletin des 3 derniers semestres, éventuels certificats de stage) via notre plateforme en ligne d’ici au 13 septembre 2026.\n\nRenseignements\nTél. : + 41 32 421 20 47, courriel : secretariat.formation@h-ju.ch"
       },
-      "needsRetranslation": false,
       "location": "Delémont",
       "canton": "JU",
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4439/apprentie-cuisinierere",
@@ -562,6 +561,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4439",
+      "salaryMin": 44500,
+      "salaryMax": 80000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44500,
+          "maxValue": 80000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:20.243Z",
+      "needsRetranslation": false,
       "previousSlugs": [
         "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
       ],
@@ -575,19 +588,6 @@
         "de": [
           "apprenti-e-cuisinier-ere-h-ju-hopital-du-jura-delemont"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:31:20.243Z",
-      "salaryMin": 44500,
-      "salaryMax": 80000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44500,
-          "maxValue": 80000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -678,10 +678,10 @@
       "id": "h-ju-hopital-du-jura-18d08a3d67b2",
       "slug": "tecnologo-del-dispositivo-medico-mdt-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
+        "fr": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont",
         "it": "tecnologo-del-dispositivo-medico-mdt-hopital-du-jura-h-ju-delemont",
         "en": "medical-device-technologist-mdt-hopital-du-jura-h-ju-delemont",
-        "de": "medizintechnik-technologe-mdt-hopital-du-jura-h-ju-delemont",
-        "fr": "apprenti-e-technologue-en-dispositifs-medicaux-tdm-h-ju-hopital-du-jura-delemont"
+        "de": "medizintechnik-technologe-mdt-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -755,10 +755,10 @@
       "id": "h-ju-hopital-du-jura-caacd651317a",
       "slug": "apprendistato-nella-cura-e-nella-salute-della-comunita-chs-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
       "slugByLocale": {
+        "fr": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura",
         "it": "apprendistato-nella-cura-e-nella-salute-della-comunita-chs-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
         "en": "apprenticeship-in-community-care-and-health-chs-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
-        "de": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura",
-        "fr": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+        "de": "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -801,18 +801,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4436",
-      "previousSlugs": [
-        "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
-        ],
-        "en": [
-          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:31:18.359Z",
       "salaryMin": 77000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -824,16 +812,28 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-08-21T21:31:18.359Z",
+      "previousSlugs": [
+        "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+        ],
+        "en": [
+          "apprenti-e-s-assistant-e-s-en-soins-et-sante-communautaire-assc-h-ju-hopital-du-jura"
+        ]
       }
     },
     {
       "id": "h-ju-hopital-du-jura-478034f521f5",
       "slug": "apprendisti-impiegati-nel-commercio-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
       "slugByLocale": {
+        "fr": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier",
         "it": "apprendisti-impiegati-nel-commercio-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
         "en": "apprentices-employed-in-trade-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
-        "de": "auszubildende-im-handel-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier",
-        "fr": "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
+        "de": "auszubildende-im-handel-hopital-du-jura-h-ju-delemont-porrentruy-saignelegier"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -852,7 +852,6 @@
         "de": "Das Jura-Krankenhaus arbeitet auf den Seiten von Delémont, Porrentruy, der Residence des Franches-Montagnes und der Residence la Promenade und stellt in den Wettbewerb für den Monat August 2027, Orte von\n\nEine Vielzahl von Schulungen in 3 Jahren an den verschiedenen Standorten der H-JU\n\n• Während Ihrer Ausbildung werden Sie mehrere Dienstleistungen entdecken:\n• · Personal: Vorbereitung von Arbeitsverträgen, Zertifikate, Verwaltung von Löhnen und Unfallberichten, verschiedene Briefe.\n• · Zulassungen: Patientenempfang, Erstellung und Verwaltung von Verwaltungsunterlagen.\n• · Abrechnung: Beschlagnahme von medizinischen Leistungen und Erstellung von Rechnungen.\n• · Management: Teilnahme an der Organisation von Sitzungen, Marketingaktivitäten, ausführliche Berichterstattung und Korrespondenz.\n• · Rekrutierung: Entsendung von Stellenangeboten und Bearbeitung von Bewerbungen.\n• · Training: Management von Bewerbungen für Praktika und Koordination von internen Schulungen.\n\nDein Profil\n• · Sie schließen Ihre Schulpflicht im Jahr 2027 ab oder sind ein Erwachsener, der sich einer beruflichen Umschulung im Gesundheitsbereich unterzieht.\n• Sie sind motiviert, neugierig und organisiert.\n• · Sie haben gute Kommunikation und Computerkenntnisse.\n• · Sie schätzen Teamarbeit und wissen, wie man Diskretion ausübt.\n\nWas wir anbieten\n• Qualitätstraining in einem fürsorglichen und dynamischen professionellen Umfeld.\n• Menschliche und professionelle Unterstützung.\n• Die Möglichkeit, verschiedene Bereiche zu entdecken und Ihre Autonomie zu entwickeln.\n• Attraktive Lohnkonditionen mit Beteiligung an Ausbildungskosten.\n• Ein Caféteria-Restaurant mit aktuellen Preisen.\n• Eine Möglichkeit der Unterkunft (Zimmer verfügbar).\n\nInteressiert?\nSenden Sie uns Ihr vollständiges Dossier (Motivationsschreiben, Lebenslauf, Newsletter der letzten 3 Semester, mögliche Praktikumszertifikate) bis zum 11. September 2026 über unsere Online-Plattform.\n\nInformation\n\nTel. : + 41 32 421 20 47, E-Mail: secretariat.formation@h-ju.ch",
         "fr": "L’Hôpital du Jura déploie ses activités sur les sites de Delémont, Porrentruy, la Résidence des Franches-Montagnes et la Résidence la Promenade et met au concours pour le mois d’août 2027, des places d’\n\nUne formation variée en 3 ans sur les différents sites de l’H-JU\n\n• Au cours de ton apprentissage, tu seras amené·e à découvrir plusieurs services :\n• · Ressources humaines : élaboration de contrats de travail, attestations, gestion des salaires et déclarations d’accident, divers courriers.\n• · Admissions : accueil des patients, création et gestion des dossiers administratifs.\n• · Facturation : saisie des prestations médicales et établissement des factures.\n• · Direction : participation à l’organisation de séances, activités marketing, rédaction de procès-verbaux et courriers.\n• · Recrutement : mise en ligne des offres d’emploi et traitement des candidatures.\n• · Formation : gestion des demandes de stages et coordination des formations internes.\n\nTon profil\n• · Tu termines ta scolarité obligatoire en 2027 ou tu es un·e adulte en reconversion professionnelle dans le domaine de la santé.\n• · Tu es motivé·e, curieux·se et organisé·e.\n• · Tu as de bonnes aptitudes en communication et en informatique.\n• · Tu apprécies le travail en équipe et sais faire preuve de discrétion.\n\nCe que nous offrons\n• ✔️ Une formation de qualité dans un cadre professionnel bienveillant et dynamique.\n• ✔️ Un accompagnement humain et professionnel.\n• ✔️ La possibilité de découvrir des domaines variés et de développer ton autonomie.\n• ✔️ Des conditions salariales attractives avec participation aux frais de formation.\n• ✔️ Un restaurant cafétéria avec des tarifs présentiels.\n• ✔️ Une possibilité de logement (chambres à disposition).\n\nIntéressé.e ?\nEnvoie-nous ton dossier complet (lettre de motivation, CV, bulletin des 3 derniers semestres, éventuels certificats de stage) via notre plateforme en ligne d’ici au 11 septembre 2026.\n\nRenseignements\n\nTél. : + 41 32 421 20 47, courriel : secretariat.formation@h-ju.ch"
       },
-      "needsRetranslation": false,
       "location": "Delémont, Porrentruy, Saignelégier",
       "canton": "JU",
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4435/apprentie-employee-de-commerce",
@@ -876,6 +875,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4435",
+      "salaryMin": 44500,
+      "salaryMax": 80000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44500,
+          "maxValue": 80000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:31:17.709Z",
+      "needsRetranslation": false,
       "previousSlugs": [
         "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
       ],
@@ -889,19 +902,6 @@
         "de": [
           "apprenti-e-employe-e-de-commerce-h-ju-hopital-du-jura-delemont-porrentruy-saignelegier"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:31:17.709Z",
-      "salaryMin": 44500,
-      "salaryMax": 80000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44500,
-          "maxValue": 80000,
-          "unitText": "YEAR"
-        }
       }
     }
   ]

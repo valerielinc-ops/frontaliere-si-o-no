@@ -6,10 +6,10 @@
       "id": "liebherr-3b249de087a0",
       "slug": "logistica-m-f-x-temporaneo-liebherr-bulle",
       "slugByLocale": {
+        "fr": "logisticien-h-f-x-temporaire-liebherr-bulle",
         "it": "logistica-m-f-x-temporaneo-liebherr-bulle",
         "en": "logisticsian-m-f-x-temporary-liebherr-bulle",
-        "de": "logistiker-m-w-x-vorubergehend-liebherr-bulle",
-        "fr": "logisticien-h-f-x-temporaire-liebherr-bulle"
+        "de": "logistiker-m-w-x-vorubergehend-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -771,10 +771,10 @@
       "id": "liebherr-250751af3911",
       "slug": "consigliere-tecnico-sav-earthworks-m-f-liebherr-daillens",
       "slugByLocale": {
+        "fr": "conseiller-technique-sav-terrassement-h-f-liebherr-daillens",
         "it": "consigliere-tecnico-sav-earthworks-m-f-liebherr-daillens",
         "en": "technical-advisor-sav-earthworks-m-f-liebherr-daillens",
-        "de": "technischer-berater-sav-erdarbeiten-m-w-liebherr-daillens",
-        "fr": "conseiller-technique-sav-terrassement-h-f-liebherr-daillens"
+        "de": "technischer-berater-sav-erdarbeiten-m-w-liebherr-daillens"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -815,6 +815,19 @@
       "jobReqId": "1428742133",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:29:41.392Z",
       "previousSlugs": [
         "conseiller-technique-sav-terrassement-h-f-liebherr-daillens"
       ],
@@ -828,19 +841,6 @@
         "de": [
           "conseiller-technique-sav-terrassement-h-f-liebherr-daillens"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:29:41.392Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
