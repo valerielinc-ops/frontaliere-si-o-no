@@ -754,12 +754,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-48cc84c1fe42",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-cura-professionale-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "dipl-cura-professionale-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-care-professional-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-soins-professionnels-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -818,11 +818,19 @@
       "firstSeenAt": "2026-08-21T21:25:58.187Z",
       "previousSlugsByLocale": {
         "it": [
-          "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-80-100-m-w-d-svar-spitalverbund-ar"
+          "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-80-100-m-w-d-svar-spitalverbund-ar",
+          "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-80-100-m-w-d-svar-spitalverbund-ar"
+        "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-80-100-m-w-d-svar-spitalverbund-ar",
+        "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
       ]
     },
     {
