@@ -31458,6 +31458,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'partita-iva-frontaliere-svizzera-2024',
+ category: 'fiscale',
+ date: '2026-08-22T11:51:10.034Z',
+ image: '/images/blog/partita-iva-frontaliere-svizzera-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
