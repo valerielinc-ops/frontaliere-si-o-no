@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-08-21T21:31:35.130Z",
+  "generatedAt": "2026-08-22T09:37:44.529Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3282,
-  "avgDurationMs": 3282,
+  "durationMs": 2586,
+  "avgDurationMs": 2586,
   "durationHistory": [
-    3282
+    2586
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,13 +39,13 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "crawledAt": "2026-08-22T09:37:42.903Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -74,13 +74,13 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "crawledAt": "2026-08-22T09:37:42.903Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
@@ -112,13 +112,13 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "crawledAt": "2026-08-22T09:37:42.903Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -147,7 +147,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.241Z",
+      "crawledAt": "2026-08-22T09:37:42.902Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -182,13 +182,14 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:31:33.242Z",
+      "crawledAt": "2026-08-22T09:37:42.903Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
