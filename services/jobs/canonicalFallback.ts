@@ -23,7 +23,7 @@ import type { Locale } from '../i18n';
 import { cleanCanonicalItems } from '../relatedSearchClusters.ts';
 // Relative, not `@/`: this module is reachable from vite.config.ts, which Vite
 // bundles with esbuild BEFORE its own aliases exist (tests/vite-config-import-graph).
-import { MARKDOWN_CHUNK_HEADING_RE } from './plainTextMarkdown';
+import { MARKDOWN_CHUNK_HEADING_RE } from './plainTextMarkdown.ts';
 
 export type CanonicalLocaleContent = {
  summary: string[];

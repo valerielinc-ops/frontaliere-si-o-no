@@ -11,7 +11,7 @@ import {
  SEARCH_QUERY_BOILERPLATE_TOKENS,
  stripSearchQueryBoilerplate,
 } from './searchQueryBoilerplate.mjs';
-import { MARKDOWN_CHUNK_HEADING_RE } from './jobs/plainTextMarkdown';
+import { MARKDOWN_CHUNK_HEADING_RE } from './jobs/plainTextMarkdown.ts';
 
 export { RELATED_SEARCH_JUNK_TERMS, isJunkSearchKeyword };
 export {
