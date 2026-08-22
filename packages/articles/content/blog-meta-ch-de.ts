@@ -3859,6 +3859,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-uri.title': 'AHV und Ergänzungsleistungen im Kanton Uri',
     'blog.article.avs-prestazioni-complementari-uri.excerpt': 'Wie funktioniert die erste Säule im Kanton Uri: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Existenzminimum.',
     'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Schweizer Alpenpanorama mit Verwaltungsgebäude, Symbol für die Stabilität des kantonalen Rentensystems im ersten Pfeiler.',
+    'blog.article.uri-settori-assunzione-retribuzioni.title': 'Löhne und Arbeitsmarkt in Uri',
+    'blog.article.uri-settori-assunzione-retribuzioni.excerpt': 'Wie werden die Gehälter in Uri ermittelt? Entdecken Sie Branchen, Ausbildungsniveaus, Tarifverträge, Besteuerung und Vorsorge im Schweizer Alpenkanton.',
+    'blog.article.uri-settori-assunzione-retribuzioni.imageAlt': 'Fachleute an modernen Bürotischen in einem Schweizer Alpenkanon, Arbeitsverträge prüfend.',
 };
 
 export default blogMetaChDe;
