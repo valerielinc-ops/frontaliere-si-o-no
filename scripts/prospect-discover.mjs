@@ -107,7 +107,7 @@ if (sources.includes('seco')) {
     try {
       ({ employers, adCount, hostHistogram } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days }));
     } catch (err) {
-      console.log(`SECO ${canton}: non raggiungibile — ${String(err.message).slice(0, 90)}`);
+      console.log(`SECO ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
     console.log(`SECO ${canton}: ${adCount} annunci, ${employers.length} datori distinti`);
@@ -178,7 +178,7 @@ if (sources.includes('osm')) {
     try {
       businesses = await fetchOsmBusinesses(canton);
     } catch (err) {
-      console.log(`OSM  ${canton}: non raggiungibile — ${String(err.message).slice(0, 90)}`);
+      console.log(`OSM  ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
     console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio`);
@@ -194,7 +194,7 @@ if (sources.includes('web')) {
   try {
     sweep = await sweepSwissCareerPages({ pages });
   } catch (err) {
-    console.log(`WEB : indice non raggiungibile — ${String(err.message).slice(0, 90)}`);
+    console.log(`WEB : indice non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
   }
   console.log(`WEB : ${sweep.collection} · ${sweep.pagesRead.length}/${sweep.totalPages} pagine d'indice → ${sweep.employers.length} datori con pagina carriere`);
   for (const e of sweep.employers) {
