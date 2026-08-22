@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 11:22:17 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 11:51:10 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,78 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Border VAT number: taxation, AVS and double taxation</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/partita-iva-self-employed-switzerland-2024/</link>
+      <description><![CDATA[From 2024 new rules for self-employed border workers: differentiated deductibles, tax at source only in Switzerland, mandatory AVS/LPP contributions and how to avoid double taxation.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- From 1 January 2024: deductible €10,000 new frontier workers, €7,500 + transitory (2024–2033) previous frontier workers
+- Tax at source collected only in Switzerland; tax credit in Italy through CE 730 framework
+- AVS/AI 5.3%, LPP 7–18% by age group: mandatory contributions for self-employed Swiss
+
+## Key facts
+- **What**: Self-employment (VAT number) by border workers in Switzerland
+- When: From 1 January 2024 (entry into force of the New Frontier Agreement)
+- Where: Canton of Ticino and Italy-Switzerland border crossers with G Permit
+- Who: Self-employed persons registered with Swiss tax authorities (AFC/ESTV)
+- Deductibles: €10,000 new frontier workers; €7,500 (+transitional 2024-2033) previous frontier workers
+- Convention: Double taxation signed 9 December 1976
+
+January 1, 2024 marked a crucial date for freelance border workers in Switzerland. The New Frontier Agreement, signed on 23 December 2020 and ratified by Italy with Law 83 of 13 June 2023, revolutionised the taxation of self-employed workers resident in Italy but operating across borders. For those who manage a VAT number in Switzerland, the tax and social security implications are profound and require careful planning.
+
+The central challenge: avoiding double taxation. The Italian-Swiss Convention signed on 9 December 1976 provides the legal framework, but the new agreement introduces more favourable mechanisms. The tax at source on
+### Mandatory Social Security Contributions: Swiss vs. Italian System
+
+Opening a VAT number in Switzerland as a cross-border worker means not only dealing with income taxation, but also integrating into the Swiss social security system. Unlike employees, whose contributions are withheld by employers, self-employed workers must pay mandatory contributions independently, calculated on declared net income.
+
+The AVS (Old-Age and Survivors' Insurance) and AI (Disability Insurance) represent the first pillar of the Swiss pension system: self-employed cross-border workers pay 5.3% of net income for these contributions. Unemployment benefits (AD) and non-occupational accident insurance (LAINF) add a further 0.7–1.5%. For occupational accidents, direct registration with SUVA is required.
+
+The second Swiss pillar, the LPP (mandatory occupational pension scheme), represents the greatest economic challenge. Rates vary significantly by age group: 25–34 years (~7%), 35–44 years (10%), 45–54 years (15%), and 55+ until retirement (18%). This system is considerably more expensive than contributions managed by Italy's INPS (approximately 20% gross for a VAT number in Italy, but distributed differently).
+
+[Explore Swiss pension details with our AVS/LPP calculator](nav:pension)
+
+### LAMal: Mandatory Health Insurance
+
+Often underestimated by the self-employed: cross-border workers in Switzerland are legally required to take out health insurance (LAMal) with a cantonally recognized insurer. Unlike Italy's INPS, LAMal is a genuine insurance contract covering medical and hospital services. Deductibles for adults range from CHF 300 to CHF 2,500 annually, with the option to choose coverage levels based on acceptable risk and budget.
+
+Cross-border workers with a Permesso G have the right to choose ('diritto d'opzione'): they may retain enrollment in the Italian healthcare system (via INPS) or switch entirely to the Swiss LAMal system. This choice has significant implications, both economic (monthly CHF premiums vs. EUR INPS contributions) and for access to medical/hospital services in both countries. [Learn more about LAMal and available deductibles](nav:health)
+
+### Comparative Scenario: Gross/Net at Different Income Levels
+
+To illustrate the impact, consider a new cross-border worker (EUR 10,000 exemption) with annual net income of EUR 40,000. The tax-free portion is EUR 10,000. On the remaining EUR 30,000, Italian IRPEF applies 35%, generating EUR 10,500 in taxes. In Switzerland, cantonal and federal taxes add further costs (variable by canton, estimated at 20–25% net). AVS/AI contributions (5.3%) and LPP (average ~10% for 35–45 age group) further reduce income. The result: a total tax-contribution burden of around 42–48%, significantly higher than for equivalent income earned as a self-employed worker in Italy.
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+### Step-by-step: Opening a VAT number as a cross-border worker
+
+The procedure requires coordination between Swiss and Italian authorities and is divided into sequential steps. Here are the key steps:
+
+**1. Valid Permit G.** If not already held, the cross-border worker must register with the competent authorities to obtain Permit G, a prerequisite for legally operating as a self-employed individual in Switzerland. [Check your rights and permit procedures](nav:permits)
+
+2. Registration with Swiss tax authorities (AFC/ESTV). The cross-border worker registers their self-employed activity with the Federal Tax Administration and the competent cantonal administrations. Here, they declare the legal form (sole proprietorship, partnership, etc.), expected income, and access information on cantonal taxation and withholding tax.
+
+3. Registration with the Italian Revenue Agency. In parallel, the cross-border worker informs the Italian Revenue Agency of their self-employed activity in Switzerland. This ensures correct taxation in Italy and access to tax credits in the CE section of the 730 declaration.
+
+4. Mandatory LAMal registration. As soon as operations begin in Switzerland, registration for health insurance becomes mandatory. The cross-border worker contacts a cantonally recognized insurer and chooses their preferred coverage model and deductible.
+
+5. SUVA registration for occupational accidents. If the activity involves risks, SUVA requires direct registration. Some sectors are excluded (pure liberal professions), while others are mandatory (crafts, trade).
+
+6. Annual declaration: CE section of the 730 in Italy. Each year, the cross-border worker declares the income earned in Switzerland, the Swiss withholding tax paid, and requests the credit in the CE section. This avoids double taxation and is the concluding moment of reconciliation between the two tax systems.
+
+### Deadlines and essential documents
+
+The tax calendar follows the calendar year: the income tax return in Italy generally expires at the end of May/June for the previous year. In Switzerland, the deadline for cantonal taxes varies by canton, but is typically by the end of the calendar year. LAMal requires immediate registration and cannot be postponed, under penalty of administrative sanctions.
+
+Required documents: copy of Permit G, Swiss residence certificate, business certificate (registration in the Swiss commercial register or equivalent), withholding tax form completed by the cantonal authorities, LAMal and SUVA registration receipts.
+
+### Practical tools: the cross-border salary calculator
+
+To calculate the exact net amount of your situation as a self-employed cross-border worker in Switzerland, [use our specialized tax calculator](nav:calculator). Enter the annual gross income, select the applicable deduction (€7,500 or €10,000 depending on registration and date), age (for correct LPP calculation), canton of operation, and chosen LAMal model: the tool estimates federal and cantonal taxes, AVS/LPP/AD/AC contributions, LAMal premiums, and final monthly net amount. This allows you to plan your annual budget realistically.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 11:51:10 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/partita-iva-frontaliere-svizzera-2024</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/partita-iva-frontaliere-svizzera-2024.webp" medium="image"/>
+    </item>
     <item>
       <title>VAT number for Swiss border workers: requirements, taxes, social security</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/self-employment-cross-border-worker-switzerland-requirements/</link>
@@ -3264,100 +3336,6 @@ To simulate your net salary and understand your monthly tax balance, use [our sa
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-galliate-lavorare-ticino-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-galliate-lavorare-ticino-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Cazzago Brabbia, working in Ticino</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/living-cazzago-brabbia-commuter/</link>
-      <description><![CDATA[Transfer to Cazzago Brabbia from border crossing Ticino: G permit, taxes, AVS/LPP, LAMal, costs and essential procedures.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Cazzago Brabbia in provincia di Varese offre una location strategica per i frontalieri Ticino-Italia
-- Nuovo accordo 2024: esenzione €7'500 (vecchi frontalieri) o €10'000 (nuovi frontalieri) sulla base imponibile italiana
-- Imposta alla fonte trattenuta unicamente in Svizzera; credito d'imposta italiano evita doppia imposizione
-- Permesso G essenziale per pendolarismo legale verso il Ticino
-
-## Fatti chiave
-- **Cosa**: Trasferimento abitativo a Cazzago Brabbia per lavoro transfrontaliero in Ticino
-- Quando: Applicabile da gennaio 2024 con nuovo accordo fiscale
-- Dove: Cazzago Brabbia (Varese, Lombardia) verso Ticino (Svizzera)
-- Chi: Frontalieri con permesso G dipendenti da datori di lavoro svizzeri
-- Importo esenzione: €7'500 (pre-17/7/2023) oppure €10'000 (post-17/7/2023)
-
-Cazzago Brabbia, in provincia di Varese, rappresenta una scelta abitativa strategica per chi decide di lavorare in Ticino da frontaliere. Situata tra il paesaggio lombardo e i confini ticinesi, la cittadina offre una posizione intermedia che merita analisi attenta prima del trasferimento. Il nuovo accordo fiscale entrato in vigore il 1° gennaio 2024 ha modificato le regole per i frontalieri con permesso G, introducendo una franchigia annuale che varia in base allo status anagrafico al 17 luglio 2023.
-
-### Permesso G: la base legale del frontaliere
-
-La prima considerazione per chi vuole lavorare in Ticino da residente a Cazzago Brabbia riguarda il permesso G. Questo documento consente legalmente il lavoro transfrontaliero ed è il fondamento della tua attività di frontaliere. La domanda va presentata alle autorità svizzere competenti con una documentazione che deve includere il contratto di lavoro con datore di lavoro svizzero, i documenti di identità validi e i certificati fiscali italiani.
-
-Il permesso G consente di varcare regolarmente i valichi (Brogeda, Chiasso, Gaggiolo) per recarsi al lavoro in Ticino. La validità del permesso dipende dalla continuità dell'occupazione svizzera, pertanto la perdita del lavoro comporta la necessità di rinnovamento o decadenza.
-
-### Tassazione: il nuovo regime di franchigia
-
-Uno dei temi più rilevanti per chi vive in Lombardia e lavora in Svizzera è il trattamento fiscale del reddito. La norma fondamentale: l'imposta alla fonte è trattenuta in Svizzera sul reddito di lavoro dei frontalieri. Non vi è doppia imposizione perché l'Italia riconosce un credito d'imposta attraverso il quadro CE del modulo 730 nella dichiarazione annuale.
-
-Il nuovo accordo del gennaio 2024 ha introdotto una franchigia annuale che rappresenta un vantaggio significativo:
-
-Vecchi frontalieri (già attivi prima del 17 luglio 2023): esenzione fino a €7'500 nel regime transitorio 2024–2033. Nuovi frontalieri (da quella data in poi): franchigia di €10'000. Questa esenzione riduce la base imponibile italiana e può comportare risparmi fiscali sostanziali.
-
-Per verificare l'impatto sulla tua busta paga, [utilizza il calcolatore di stipendio](nav:calculator) che simula salario lordo, ritenute fiscali e reddito netto considerando la franchigia annuale.
-## Cost of living and housing choice
-
-The cost of living in Cazzago Brabbia is generally lower compared to Ticino centers like Lugano, Bellinzona or Locarno. Although we don't have specific detailed figures, it's known that Lombardy offers lower prices for rentals and real estate compared to Swiss Italian territory. This represents a tangible economic advantage: savings on housing can partially compensate for Swiss cantonal and federal taxes and commuting costs.
-
-Finding a home in Cazzago Brabbia must consider proximity to main border crossings and connection to public transportation to Ticino work centers. Some areas of the town offer reasonable access to border crossings and A2/A9 highways, while others require longer trips to the border.
-
-### Health insurance (LAMal) and pension system
-
-Those working in Ticino must subscribe to a mandatory health insurance policy with a Swiss provider. Frontiersmen with a G permit have the option to choose: they can insure themselves in Switzerland according to LAMal rules or remain in the Italian INPS system. Swiss adult franchises vary from CHF 300 to CHF 2,500 per year depending on the chosen coverage.
-
-It's essential to evaluate both options based on your health situation, medical visits frequency and expected costs. [Compare health insurance options](nav:health) available for frontiersmen.
-
-In addition, AVS (Pension and Survivors Insurance) contributions are directly deducted from the Swiss payroll, with a 5.3% withholding from the employee's salary. The LPP (Professional Pension Fund) is mandatory for those working in Switzerland, with rates varying based on age: from 7% to 18% of the salary mass for workers aged 25 or over. These contributions build up your old-age pension and pre-retirement wealth.
-
-[Deepen the AVS, LPP and pension calculation](nav:pension) with dedicated tools.
-
-### Transportation and daily commuting
-
-Travel times from Cazzago Brabbia to main Ticino work centers (Mendrisio, Lugano, Bellinzona, Locarno) depend on the specific location of your workplace and available transportation routes. Border infrastructure – A2 highway north, A9 east, and transfrontier railways – represent the main commuting routes for frontiersmen.
-
-Many frontiersmen use public transport (buses, regional trains) or their private car. The choice depends on travel costs, service frequency and total available time. Border crossings like Brogeda (rail and road) and Chiasso (highway) are the main transit points to southern Ticino.
-
-## Useful tools for your case
-To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
-## Procedure for Transfer: Essential Steps
-
-Before transferring to Cazzago Brabbia and starting work in Ticino, follow these fundamental steps to regularize your position as a frontier worker.
-
-Step 1: Request Permit G
-
-Address the competent Swiss authorities in matters of migration (Ticino cantonal office) with a request for Permit G. Attach: Swiss employment contract signed by the employer, valid passport or ID document, Italian fiscal certificates (CUD or Unique Certification), letter of references from the Swiss employer.
-
-Step 2: Tax Registration in Italy
-
-Inform the Italian Revenue Agency of your frontier worker status. Declare the CE form of the 730 module for tax credit and annual exemption (€7,500 or €10,000 based on your status as of July 17, 2023).
-
-Step 3: LAMal Subscription in Switzerland
-
-Once you have obtained Permit G, choose a Swiss insurance provider and activate LAMal coverage. Keep the contract and policy documentation for potential tax checks.
-
-Step 4: Opening a Swiss Bank Account
-
-Many Swiss employers require a bank account in a Swiss bank for salary payment. Contact cross-border banking institutions to simplify operations.
-
-Step 5: Verification of Salary and Contributions
-
-After the first month of work, receive your salary. Verify that AVS (5.3% employee), AD/AC (approximately 1.1%), LAINF (0.7-1.5%), and LPP (7-18% based on age) contributions are correctly calculated and withheld.
-
-### Available Tools and Resources
-
-Before transferring, consult the [salary net calculator](nav:calculator) to simulate your Swiss gross salary, tax withholdings, and net income after taxes and contributions, including the effects of the annual exemption.
-
-If your tax situation changes over time or you have overpaid taxes, check the procedure for [refunds and recoveries](nav:ristorni) to request the return of amounts to the Italian Revenue Agency.
-
-Finally, before deciding on the transfer, consult a specialized tax consultant in Ticino-Italy frontier law. A professional can confirm your specific tax position, calculating the benefits of the annual exemption and implications on AVS, LPP, and LAMal in a personalized manner.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 06:21:39 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-cazzago-brabbia-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-cazzago-brabbia-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

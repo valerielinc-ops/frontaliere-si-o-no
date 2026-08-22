@@ -10508,6 +10508,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'VAT number for Swiss border workers: requirements, taxes, social security',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Opening a self-employed business in Ticino as a border worker: legal requirements, tax differences with employees and social security obligations. Practical guide with verified data.',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Freelancer working in a Lugano coworking space with lake view',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Border VAT number: taxation, AVS and double taxation',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'From 2024 new rules for self-employed border workers: differentiated deductibles, tax at source only in Switzerland, mandatory AVS/LPP contributions and how to avoid double taxation.',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Freelancer workspace between Switzerland and Italy: laptop, tax documents and border landscape in background',
 };
 
 export default blogMetaEn;

@@ -74990,6 +74990,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-partita-iva-frontaliere-svizzera-2024': {
+    title: 'Partita IVA frontaliere: tassazione, AVS e doppia imposizione',
+    description: 'Dal 2024 nuove regole per autonomi frontalieri: franchigie differentiate, imposta alla fonte solo in Svizzera, contributi AVS/LPP obbligatori e come evitare',
+    keywords: 'frontalieri, ticino, svizzera, italia, partita, tassazione, doppia, imposizione',
+    ogTitle: 'Partita IVA frontaliere: tassazione, AVS e doppia',
+    ogDescription: 'Dal 2024 nuove regole per autonomi frontalieri: franchigie differentiate, imposta alla fonte solo in Svizzera, contributi AVS/LPP obbligatori e come evitare doppia tassazione.',
+    canonicalPath: '/articoli-frontaliere/partita-iva-frontaliere-svizzera-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Partita IVA frontaliere: tassazione, AVS e doppia imposizione",
+      "description": "Dal 2024 nuove regole per autonomi frontalieri: franchigie differentiate, imposta alla fonte solo in Svizzera, contributi AVS/LPP obbligatori e come evitare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/partita-iva-frontaliere-svizzera-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro frontaliere tra Svizzera e Italia: laptop, documenti fiscali e paesaggio di confine sullo sfondo"
+      },
+      "datePublished": "2026-08-22T11:51:10+00:00",
+      "dateModified": "2026-08-22T11:51:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/partita-iva-frontaliere-svizzera-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
