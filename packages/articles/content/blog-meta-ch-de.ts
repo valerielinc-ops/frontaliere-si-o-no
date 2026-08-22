@@ -3790,6 +3790,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-berna-salari-formazione.title': 'Arbeitsmarkt Bern: Löhne, Ausbildung und Vorsorge',
     'blog.article.mercato-berna-salari-formazione.excerpt': 'Kein schweizerischer Bundesmindestlohn. Entdecken Sie Fahrpläne, AHV/BVG-Beiträge, Bildungslohnniveaus und Kollektivverträge im Kanton Bern.',
     'blog.article.mercato-berna-salari-formazione.imageAlt': 'Geschäftsviertel von Bern mit Profis und modernen Bürogebäuden',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Aufenthaltsbewilligung B Luzern: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton Luzern: Dauer, Voraussetzungen, erforderliche Unterlagen, Erneuerungsverfahren und Kontakte der kantonalen Migrationsstelle.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Aufenthaltserlaubnisformulare beim Migrationsamt Luzern',
 };
 
 export default blogMetaChDe;
