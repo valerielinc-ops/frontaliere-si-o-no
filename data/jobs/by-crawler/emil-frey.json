@@ -5402,9 +5402,9 @@
       "id": "emil-frey-97dd0ae905d4",
       "slug": "consulente-del-servizio-clienti-in-mercedes-benz-emil-frey-altendorf",
       "slugByLocale": {
+        "de": "kundendienstberater-in-mercedes-benz-emil-frey-altendorf",
         "it": "consulente-del-servizio-clienti-in-mercedes-benz-emil-frey-altendorf",
         "en": "customer-service-consultant-in-mercedes-benz-emil-frey-altendorf",
-        "de": "kundendienstberater-in-mercedes-benz-emil-frey-altendorf",
         "fr": "consultant-en-service-a-la-clientele-en-mercedes-benz-emil-frey-altendorf"
       },
       "company": "Emil Frey",
@@ -5447,6 +5447,20 @@
       "hiringOrganizationName": "Emil Frey Altendorf",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:38:48.060Z",
       "previousSlugs": [
         "kundendienstberater-in-mercedes-benz-emil-frey-altendorf",
         "consulente-del-servizio-clienti-in-mercedes-benz-emil-frey-altendorf"
@@ -5462,29 +5476,15 @@
         "fr": [
           "kundendienstberater-in-mercedes-benz-emil-frey-altendorf"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:48.060Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "emil-frey-d4f6b59faba2",
       "slug": "voice-e-network-administrator-emil-frey-safenwil",
       "slugByLocale": {
+        "de": "voice-und-network-administrator-emil-frey-safenwil",
         "it": "voice-e-network-administrator-emil-frey-safenwil",
         "en": "voice-und-network-administrator-emil-frey-safenwil",
-        "de": "voice-und-network-administrator-emil-frey-safenwil",
         "fr": "administrateur-de-la-voix-et-du-reseau-emil-frey-safenwil"
       },
       "company": "Emil Frey",
@@ -5527,9 +5527,6 @@
       "hiringOrganizationName": "Emil Frey IT Solutions AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "voice-und-network-administrator-emil-frey-safenwil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "voice-und-network-administrator-emil-frey-safenwil"
@@ -5538,8 +5535,9 @@
           "voice-und-network-administrator-emil-frey-safenwil"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:38:48.033Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "voice-und-network-administrator-emil-frey-safenwil"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5551,15 +5549,17 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:38:48.033Z",
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-c7add16750b0",
-      "slug": "koordinator-in-flotten-emil-frey-zurich",
+      "slug": "coordinatore-in-flotte-emil-frey-zurich",
       "slugByLocale": {
-        "it": "koordinator-in-flotten-emil-frey-zurich",
-        "en": "coordinator-in-fleets-emil-frey-zurich",
         "de": "koordinator-in-flotten-emil-frey-zurich",
+        "it": "coordinatore-in-flotte-emil-frey-zurich",
+        "en": "coordinator-in-fleets-emil-frey-zurich",
         "fr": "coordonnateur-dans-les-flottes-emil-frey-zurich"
       },
       "company": "Emil Frey",
@@ -5602,6 +5602,20 @@
       "hiringOrganizationName": "Filialleitung",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:38:48.025Z",
       "previousSlugs": [
         "coordinatore-in-flotte-emil-frey-zurich",
         "koordinator-in-flotten-emil-frey-zurich"
@@ -5617,20 +5631,6 @@
         "fr": [
           "koordinator-in-flotten-emil-frey-zurich"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:38:48.025Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
       }
     },
     {

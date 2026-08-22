@@ -2598,9 +2598,9 @@
       "id": "schindler-3d02bceb11b4",
       "slug": "servicetechniker-in-con-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
       "slugByLocale": {
+        "de": "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler",
         "it": "servicetechniker-in-con-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "en": "service-technician-with-jumper-function-in-the-zurich-region-m-f-d-80-100-schindler-zurich",
-        "de": "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler",
         "fr": "technicien-de-service-avec-fonction-sauteur-dans-la-region-de-zurich-h-f-d-80-100-schindler-zurich"
       },
       "company": "Schindler",
@@ -2642,9 +2642,7 @@
       "jobReqId": "1428769533",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
@@ -2656,8 +2654,9 @@
           "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:31:38.336Z",
+      "previousSlugs": [
+        "servicetechniker-in-mit-springerfunktion-in-der-region-zurich-m-w-d-80-100-schindler"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2669,7 +2668,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:31:38.336Z"
     },
     {
       "id": "schindler-db2f56e4dfd8",
@@ -5942,7 +5942,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -5954,7 +5953,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",

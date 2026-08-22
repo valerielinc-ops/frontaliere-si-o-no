@@ -8640,9 +8640,9 @@
       "id": "ottos-9bf162cb3e59",
       "slug": "aiuto-venditore-in-food-non-food-otto-s-ag-schattdorf",
       "slugByLocale": {
+        "de": "aushilfe-verkaufer-in-food-non-food-ottos-schattdorf",
         "it": "aiuto-venditore-in-food-non-food-otto-s-ag-schattdorf",
         "en": "help-seller-in-food-non-food-otto-s-ag-schattdorf",
-        "de": "aushilfe-verkaufer-in-food-non-food-ottos-schattdorf",
         "fr": "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-schattdorf"
       },
       "company": "OTTO'S AG",
@@ -8690,6 +8690,19 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T22:02:14.394Z",
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-schattdorf",
         "aiuto-venditore-in-food-non-food-otto-s-ag-schattdorf"
@@ -8705,19 +8718,6 @@
         "fr": [
           "aushilfe-verkaufer-in-food-non-food-ottos-schattdorf"
         ]
-      },
-      "firstSeenAt": "2026-08-21T22:02:14.394Z",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -12680,17 +12680,14 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss",
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss",
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-lyss"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss"
         ]
       },
-      "firstSeenAt": "2026-08-21T10:01:31.416Z",
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss"
+      ],
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -12702,7 +12699,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T10:01:31.416Z"
     },
     {
       "id": "ottos-6d1adb90408a",

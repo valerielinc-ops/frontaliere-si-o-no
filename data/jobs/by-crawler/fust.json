@@ -545,7 +545,6 @@
           "chef-de-ligne-boulangerie-equipe-de-nuit-permanente-coop-genossenschaft-schafisheim-p79a3d",
           "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim",
           "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim-p79a3d",
-          "guida-lineare-in-panificio-turno-notturno-permanente-coop-genossenschaft-schafisheim-aargau",
           "bakery-line-leader-permanent-night-shift-coop-genossenschaft-schafisheim",
           "bakery-line-leader-permanent-night-shift-coop-genossenschaft-schafisheim-p79a3d",
           "line-driver-bakery-permanent-night-shift-coop-genossenschaft-schafisheim",
@@ -559,13 +558,13 @@
           "line-leader-bakery-permanent-night-shift-coop-genossenschaft-schafisheim-p79a3d",
           "line-guide-in-bakery-permanent-night-shift-coop-genossenschaft-schafisheim-aargau"
         ],
-        "de": [
-          "linienfuhrer-in-backerei-dauernachtschicht-coop-schafisheim-aargau-p79a3d"
-        ],
         "fr": [
           "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim-aargau-jmszvl",
           "chef-de-ligne-boulangerie-equipe-de-nuit-permanente-coop-genossenschaft-schafisheim-p79a3d",
           "guide-de-ligne-en-service-de-nuit-permanent-de-boulangerie-coop-genossenschaft-schafisheim-aargau"
+        ],
+        "de": [
+          "linienfuhrer-in-backerei-dauernachtschicht-coop-schafisheim-aargau-p79a3d"
         ]
       },
       "previousSlugs": [
@@ -577,7 +576,6 @@
         "chef-de-ligne-boulangerie-equipe-de-nuit-permanente-coop-genossenschaft-schafisheim-p79a3d",
         "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim",
         "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim-p79a3d",
-        "guida-lineare-in-panificio-turno-notturno-permanente-coop-genossenschaft-schafisheim-aargau",
         "line-guide-in-bakery-permanent-night-shift-coop-genossenschaft-schafisheim-aargau",
         "guide-de-ligne-en-service-de-nuit-permanent-de-boulangerie-coop-genossenschaft-schafisheim-aargau",
         "bakery-line-leader-permanent-night-shift-coop-genossenschaft-schafisheim",
@@ -586,8 +584,11 @@
         "line-driver-bakery-permanent-night-shift-coop-genossenschaft-schafisheim-p79a3d",
         "line-guide-in-bakery-permanent-night-shift-coop-genossenschaft-schafisheim-p79a3d",
         "line-leader-bakery-permanent-night-shift-coop-genossenschaft-schafisheim",
-        "linienfuhrer-in-backerei-dauernachtschicht-coop-schafisheim-aargau"
+        "linienfuhrer-in-backerei-dauernachtschicht-coop-schafisheim-aargau",
+        "guida-lineare-in-panificio-turno-notturno-permanente-coop-genossenschaft-schafisheim-aargau"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -600,9 +601,7 @@
       },
       "addressLocality": "Schafisheim, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-golu97",
@@ -680,6 +679,8 @@
         "abteilungsleiter-in-hartwaren-coop-genossenschaft-basel-stadt-golu97",
         "head-of-department-in-hartwaren-coop-genossenschaft-basel-basel-stadt"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -692,9 +693,7 @@
       },
       "addressLocality": "Basel, Basel-Stadt",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-m0bmje",
@@ -760,6 +759,8 @@
         "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich",
         "abteilungsleiter-in-damenober-und-unterbekleidung-sowie-accessoires-coop-genossenschaft-zurich-m0bmje"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -773,8 +774,6 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
       "needsRetranslation": true
     },
     {
@@ -829,21 +828,15 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen-0hydvo",
           "verkaufsberater-in-garden-jumbo-rapperswil-jona-sankt-gallen"
-        ],
-        "en": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen-0hydvo"
-        ],
-        "fr": [
-          "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen-0hydvo"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen",
-        "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen-0hydvo",
         "verkaufsberater-in-garden-jumbo-rapperswil-jona-sankt-gallen"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -856,9 +849,7 @@
       },
       "addressLocality": "Rapperswil-Jona, Sankt Gallen",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-jktz8a",
@@ -7914,10 +7905,10 @@
         "fr": "## Consultants en vente: en caisse/services\n\n**Jumbo, Division de la coopérative Coop** — Sissach, Basel-Landschaft, Svizzera\n\n## Tâche\n- Toujours amical, toujours avec un engagement total: C'est ainsi que vous servez nos clients exigeants à la caisse.\n- Quand vous êtes en action, la caisse a raison.\n- Vous êtes en contact direct avec nos clients et êtes heureux de fournir des informations avec des questions.\n- Vous aidez avec les ventes lorsque nécessaire.\n\n## Exigences\n- Formation sur les ventes terminée? Parfait.\n- Tu sais comment fonctionne le travail à la caisse.\n- Vous pouvez bien parler allemand – verbalement et par écrit.\n- Y a-t-il un temps (de Mo à Sa) ? Vous êtes flexible, bien sûr.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nPamela Padovano\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Seuil"
       },
       "slugByLocale": {
-        "it": "consulenti-di-vendita-in-casse-servizi-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
-        "en": "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+        "it": "verkaufberater-in-kassen-services-jumbo-sissach",
+        "en": "verkaufberater-in-kassen-services-jumbo-sissach",
         "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-        "fr": "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
+        "fr": "verkaufberater-in-kassen-services-jumbo-sissach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7934,15 +7925,19 @@
           "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
         ],
         "en": [
-          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+          "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
         ],
         "fr": [
-          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+          "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
         ]
       },
       "previousSlugs": [
         "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
-        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2"
+        "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
+        "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+        "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8276,9 +8271,9 @@
       },
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-thayngen-schaffhausen",
-        "en": "seller-fresh-products-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
+        "en": "seller-fresh-products-coop-genossenschaft-thayngen-schaffhausen",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
-        "fr": "vendeur-produits-frais-coop-genossenschaft-thayngen-schaffhausen-6l9tqg"
+        "fr": "vendeur-produits-frais-coop-genossenschaft-thayngen-schaffhausen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8292,16 +8287,15 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
-          "vendita-prodotti-freschi-coop-genossenschaft-thayngen-schaffhausen"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen-6l9tqg"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
-          "seller-fresh-products-coop-genossenschaft-thayngen-schaffhausen"
+          "seller-fresh-products-coop-genossenschaft-thayngen-schaffhausen-6l9tqg"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
-          "vendeur-produits-frais-coop-genossenschaft-thayngen-schaffhausen"
+          "vendeur-produits-frais-coop-genossenschaft-thayngen-schaffhausen-6l9tqg"
         ]
       },
       "previousSlugs": [
@@ -8309,7 +8303,9 @@
         "verkaufer-in-frischprodukte-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
         "seller-fresh-products-coop-genossenschaft-thayngen-schaffhausen",
         "vendeur-produits-frais-coop-genossenschaft-thayngen-schaffhausen",
-        "vendita-prodotti-freschi-coop-genossenschaft-thayngen-schaffhausen"
+        "vendita-prodotti-freschi-coop-genossenschaft-thayngen-schaffhausen",
+        "seller-fresh-products-coop-genossenschaft-thayngen-schaffhausen-6l9tqg",
+        "vendeur-produits-frais-coop-genossenschaft-thayngen-schaffhausen-6l9tqg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8363,9 +8359,9 @@
       },
       "slugByLocale": {
         "it": "venditore-in-prodotti-freschi-bassa-temperatura-coop-genossenschaft-kloten-zurich",
-        "en": "vendor-in-fresh-products-low-temperature-coop-genossenschaft-kloten-zurich-nsgv4n",
+        "en": "vendor-in-fresh-products-low-temperature-coop-genossenschaft-kloten-zurich",
         "de": "verkaufer-in-frischprodukte-tiefkuhl-coop-genossenschaft-kloten-zurich-nsgv4n",
-        "fr": "fournisseur-en-produits-frais-faible-temperature-coop-genossenschaft-kloten-zurich-nsgv4n"
+        "fr": "fournisseur-en-produits-frais-faible-temperature-coop-genossenschaft-kloten-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8385,11 +8381,11 @@
         ],
         "en": [
           "verkaufer-in-frischprodukte-tiefkuhl-coop-genossenschaft-kloten-zurich-nsgv4n",
-          "vendor-in-fresh-products-low-temperature-coop-genossenschaft-kloten-zurich"
+          "vendor-in-fresh-products-low-temperature-coop-genossenschaft-kloten-zurich-nsgv4n"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-tiefkuhl-coop-genossenschaft-kloten-zurich-nsgv4n",
-          "fournisseur-en-produits-frais-faible-temperature-coop-genossenschaft-kloten-zurich"
+          "fournisseur-en-produits-frais-faible-temperature-coop-genossenschaft-kloten-zurich-nsgv4n"
         ]
       },
       "previousSlugs": [
@@ -8398,7 +8394,9 @@
         "vendor-in-fresh-products-low-temperature-coop-genossenschaft-kloten-zurich",
         "fournisseur-en-produits-frais-faible-temperature-coop-genossenschaft-kloten-zurich",
         "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
-        "venditore-in-prodotti-freschi-bassa-temperatura-coop-genossenschaft-kloten-zurich"
+        "venditore-in-prodotti-freschi-bassa-temperatura-coop-genossenschaft-kloten-zurich",
+        "vendor-in-fresh-products-low-temperature-coop-genossenschaft-kloten-zurich-nsgv4n",
+        "fournisseur-en-produits-frais-faible-temperature-coop-genossenschaft-kloten-zurich-nsgv4n"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8451,10 +8449,10 @@
         "fr": "Aufgaben\n\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n\n- Du hältst dich an die internan Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n\n- Bestandes-, Verkaufs- sowie inventurpersonente Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\nLa Commission européenne\n\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? C'est le cas de Perfekt.\n\n- Du sprichst mouchesend Deutsch, du hast Verkaufserfahrung und idéalerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier riftig.\n\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. C'est le cas de Gehört für dich im Verkauf dazu.\n\n- Im Bereich Do-it kennst du dich aus ? Damit kannst du bei dieser Star besonders punkten.\n\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\nÉtait plus bieten\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile,\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Altersjahr, attraktive Anstellungsbedingungen\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Gesundheit: Mise à jour-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nSuzana Jovanovic\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
-        "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
+        "it": "consulente-di-vendita-in-do-it-jumbo-mels",
+        "en": "sales-consultant-in-do-it-jumbo-mels-88f5b6",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-        "fr": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
+        "fr": "consultant-en-ventes-a-do-it-jumbo-mels"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8468,12 +8466,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
-          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen"
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen"
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
         ],
         "fr": [
           "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
@@ -8485,7 +8483,8 @@
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
         "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
         "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
+        "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8723,7 +8722,7 @@
       },
       "slugByLocale": {
         "it": "venditore-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
-        "en": "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9",
+        "en": "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
         "de": "verkaufer-in-food-kiosk-coop-uzwil-sankt-gallen-24wds9",
         "fr": "verkaufer-dans-la-nourriture-kiosk-coop-uzwil-sankt-gallen"
       },
@@ -8746,7 +8745,8 @@
         "en": [
           "verkaufer-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9",
           "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
-          "verkaufer-in-food-kiosk-coop-uzwil-sankt-gallen-24wds9"
+          "verkaufer-in-food-kiosk-coop-uzwil-sankt-gallen-24wds9",
+          "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9"
         ],
         "fr": [
           "verkaufer-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9",
@@ -8763,7 +8763,8 @@
         "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
         "vendeur-dans-la-nourriture-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
         "verkaufer-in-food-kiosk-coop-uzwil-sankt-gallen-24wds9",
-        "venditore-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen"
+        "venditore-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen",
+        "seller-in-food-kiosk-coop-genossenschaft-uzwil-sankt-gallen-24wds9"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16454,9 +16455,6 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-        "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "venditore-a-coop-genossenschaft-winterthur-zurich",
         "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,

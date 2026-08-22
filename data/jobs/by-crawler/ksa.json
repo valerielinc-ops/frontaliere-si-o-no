@@ -1133,8 +1133,7 @@
         "it": [
           "med-praxisassistent-in-ksa-ch",
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr",
-          "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr"
         ],
         "en": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
@@ -1146,12 +1145,9 @@
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
-        "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztixr"
       ],
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -1163,7 +1159,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b17df214a77f",
@@ -2961,12 +2958,10 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -2978,7 +2973,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -7912,9 +7908,9 @@
       "id": "ksa-4724a0578fdf",
       "slug": "medico-senior-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
+        "de": "oberarztin-oberarzt-ksa-ch",
         "it": "medico-senior-kantonsspital-aarau-ksa-aarau",
         "en": "senior-physician-kantonsspital-aarau-ksa-aarau",
-        "de": "oberarztin-oberarzt-ksa-ch",
         "fr": "medecin-principal-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -7957,11 +7953,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "oberarztin-oberarzt-ksa-ch",
-        "oberarztin-oberarzt-ksa-ch-2",
-        "medico-senior-kantonsspital-aarau-ksa-aarau"
-      ],
+      "salaryMin": 119000,
+      "salaryMax": 166000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 119000,
+          "maxValue": 166000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:48:21.990Z",
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-ksa-ch",
@@ -7975,20 +7979,12 @@
           "oberarztin-oberarzt-ksa-ch-2"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:48:21.990Z",
-      "needsRetranslation": true,
-      "salaryMin": 119000,
-      "salaryMax": 166000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 119000,
-          "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "oberarztin-oberarzt-ksa-ch",
+        "oberarztin-oberarzt-ksa-ch-2",
+        "medico-senior-kantonsspital-aarau-ksa-aarau"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e64a36808add",
@@ -8126,11 +8122,13 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "salaryMin": 88000,
@@ -8152,9 +8150,9 @@
       "id": "ksa-3a7eb38213c2",
       "slug": "senior-ict-responsabile-di-progetto-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
+        "de": "senior-ict-projektleiter-in-ksa-ch",
         "it": "senior-ict-responsabile-di-progetto-kantonsspital-aarau-ksa-aarau",
         "en": "senior-ict-project-manager-kantonsspital-aarau-ksa-aarau",
-        "de": "senior-ict-projektleiter-in-ksa-ch",
         "fr": "senior-ict-chef-de-projet-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -8197,10 +8195,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "senior-ict-projektleiter-in-ksa-ch",
-        "senior-ict-responsabile-di-progetto-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-ict-projektleiter-in-ksa-ch",
@@ -8213,7 +8207,10 @@
           "senior-ict-projektleiter-in-ksa-ch"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:48:21.989Z",
+      "previousSlugs": [
+        "senior-ict-projektleiter-in-ksa-ch",
+        "senior-ict-responsabile-di-progetto-kantonsspital-aarau-ksa-aarau"
+      ],
       "salaryMin": 119000,
       "salaryMax": 166000,
       "baseSalary": {
@@ -8225,7 +8222,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:48:21.989Z"
     },
     {
       "id": "ksa-a12ffcf3c070",

@@ -125,7 +125,23 @@
       },
       "sourceLang": "de",
       "jobReqId": "R-0006109",
+      "crawledAt": "",
       "id": "swisscom-sede-ticino-a6373d12c923",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-21T21:50:50.414Z",
       "previousSlugs": [
         "data-platform-engineer-swisscom-zurich-drxgr7",
         "data-platform-ingegnere-swisscom-sede-ticino-zurich"
@@ -141,23 +157,7 @@
         "fr": [
           "data-platform-engineer-swisscom-zurich-drxgr7"
         ]
-      },
-      "firstSeenAt": "2026-08-21T21:50:50.414Z",
-      "crawledAt": "",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
+      }
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Solution-Sales-B2B_R-0005699",

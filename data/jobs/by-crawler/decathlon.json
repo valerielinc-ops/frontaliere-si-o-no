@@ -4813,9 +4813,9 @@
       "id": "decathlon-d92f61fdadda",
       "slug": "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar",
       "slugByLocale": {
+        "de": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
         "it": "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar",
         "en": "sport-leader-sales-advisor-m-f-d-temporary-60-100-ski-rental-baar-decathlon-baar",
-        "de": "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
         "fr": "sport-leader-sales-advisor-h-f-d-temporaire-60-100-location-de-ski-baar-decathlon-baar"
       },
       "company": "Decathlon",
@@ -4856,11 +4856,6 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4559091-sport-leader-verkaufsberater-mwd-befristet-60-100-skiverleih-baar-6340-baar",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
-        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-baar",
-        "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
@@ -4874,8 +4869,11 @@
           "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch"
         ]
       },
-      "firstSeenAt": "2026-08-21T22:08:45.871Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-baar",
+        "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar"
+      ],
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -4887,16 +4885,18 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T22:08:45.871Z",
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-3fb74b261a4d",
       "slug": "fitness-trainee-running-sport-collettivi-m-f-stage-6-mesi-martigny-decathlon-martigny",
       "slugByLocale": {
+        "fr": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch",
         "it": "fitness-trainee-running-sport-collettivi-m-f-stage-6-mesi-martigny-decathlon-martigny",
         "en": "fitness-trainee-running-sports-collectives-m-f-stage-6-months-martigny-decathlon-martigny",
-        "de": "fitness-trainee-laufen-sportkollektive-m-w-stage-6-monate-martigny-decathlon-martigny",
-        "fr": "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
+        "de": "fitness-trainee-laufen-sportkollektive-m-w-stage-6-monate-martigny-decathlon-martigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4936,6 +4936,19 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4559383-stagiaire-fitness-running-sports-collectifs-hf-stage-6-mois-martigny-1920-martigny",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T22:08:45.629Z",
       "previousSlugs": [
         "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch",
         "fitness-trainee-running-sport-collettivi-m-f-stage-6-mesi-martigny-decathlon-martigny"
@@ -4951,26 +4964,13 @@
         "de": [
           "stagiaire-fitness-running-sports-collectifs-h-f-stage-6-mois-martigny-decathlon-ch"
         ]
-      },
-      "firstSeenAt": "2026-08-21T22:08:45.629Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
       "id": "decathlon-0a301e864f55",
-      "slug": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch",
+      "slug": "stage-peche-m-f-stage-6-mesi-martigny-decathlon-martigny",
       "slugByLocale": {
-        "it": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch",
+        "it": "stage-peche-m-f-stage-6-mesi-martigny-decathlon-martigny",
         "en": "internship-peche-m-f-stage-6-months-martigny-decathlon-martigny",
         "de": "praktikum-peche-m-w-stage-6-monate-martigny-decathlon-martigny",
         "fr": "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
@@ -5013,6 +5013,19 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4559475-stagiaire-peche-hf-stage-6-mois-martigny-1920-martigny",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T22:08:45.291Z",
       "previousSlugsByLocale": {
         "it": [
           "stage-peche-m-f-stage-6-mesi-martigny-decathlon-martigny",
@@ -5029,20 +5042,7 @@
         "stage-peche-m-f-stage-6-mesi-martigny-decathlon-martigny",
         "stagiaire-peche-h-f-stage-6-mois-martigny-decathlon-ch"
       ],
-      "firstSeenAt": "2026-08-21T22:08:45.291Z",
-      "needsRetranslation": true,
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-18c39b46f60e",

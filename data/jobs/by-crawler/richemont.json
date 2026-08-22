@@ -2534,7 +2534,6 @@
           "Fähigkeit, Communities zu animieren und um gemeinsame Ziele zusammenzuführen"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "project-manager-r-i-qualita-richemont-neuchatel",
@@ -2544,12 +2543,12 @@
           "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
           "project-leader-r-i-qualita-richemont-neuchatel"
         ],
+        "en": [
+          "r-i-quality-project-manager-richemont-neuchatel"
+        ],
         "de": [
           "projektleiter-r-i-qualitat-richemont-neuchatel",
           "r-i-qualitatsprojektleiter-richemont-neuchatel"
-        ],
-        "en": [
-          "r-i-quality-project-manager-richemont-neuchatel"
         ]
       },
       "previousSlugs": [
@@ -2575,7 +2574,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-b5f35146a037",
@@ -4996,7 +4996,6 @@
       "jobReqId": "jr130115",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
         "procurement-category-manager-richemont-plan-les-ouates",
@@ -5026,7 +5025,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-d82582a2cf6f",
@@ -12376,8 +12376,8 @@
       "id": "richemont-a25b3e11b131",
       "slug": "client-consulente-iwc-schaffhausen",
       "slugByLocale": {
+        "en": "client-advisors-iwc-schaffhausen",
         "it": "client-consulente-iwc-schaffhausen",
-        "en": "client-advisor-richemont-schaffhausen",
         "de": "client-advisor-richemont-schaffhausen",
         "fr": "client-conseiller-iwc-schaffhausen"
       },
@@ -12420,6 +12420,19 @@
       "jobReqId": "jr132391",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:40:58.766Z",
       "previousSlugsByLocale": {
         "en": [
           "client-advisors-iwc-schaffhausen",
@@ -12438,20 +12451,7 @@
         "client-advisors-iwc-schaffhausen",
         "client-consulente-iwc-schaffhausen"
       ],
-      "firstSeenAt": "2026-08-21T21:40:58.766Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "richemont-0caccdc4329f",
@@ -14407,7 +14407,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "analisi-dei-materiali-specialistici-richemont-glovelier"
@@ -14436,7 +14435,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-beb532d93689",

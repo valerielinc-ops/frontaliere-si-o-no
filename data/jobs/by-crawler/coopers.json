@@ -3838,14 +3838,9 @@
           "Projektmanagement, Infrastruktur"
         ]
       },
-      "previousSlugs": [
-        "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
-        "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
-          "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
+          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
@@ -3854,8 +3849,9 @@
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
         ]
       },
-      "firstSeenAt": "2026-08-21T09:53:46.212Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
+      ],
       "salaryMin": 22600,
       "salaryMax": 38400,
       "baseSalary": {
@@ -3867,7 +3863,9 @@
           "maxValue": 38400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:53:46.212Z",
+      "needsRetranslation": true
     },
     {
       "id": "coopers-0cac3d32ce1f",
@@ -3931,21 +3929,18 @@
           "Apache, SQL, Python, AWS"
         ]
       },
-      "previousSlugs": [
-        "senior-data-engineer-aws-m-w-d-coopers-bern",
-        "senior-data-ingegnere-aws-m-w-d-coopers-group-ag-bern"
-      ],
+      "firstSeenAt": "2026-08-20T21:46:57.329Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-engineer-aws-m-w-d-coopers-bern",
-          "senior-data-ingegnere-aws-m-w-d-coopers-group-ag-bern"
+          "senior-data-engineer-aws-m-w-d-coopers-bern"
         ],
         "fr": [
           "senior-data-engineer-aws-m-w-d-coopers-bern"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:46:57.329Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "senior-data-engineer-aws-m-w-d-coopers-bern"
+      ],
       "salaryMin": 105500,
       "salaryMax": 160000,
       "baseSalary": {
@@ -3957,7 +3952,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-09f02839ee27",
@@ -4021,14 +4017,10 @@
           "IT Project Management, GxP, German, English"
         ]
       },
-      "previousSlugs": [
-        "it-infrastructure-project-coordinator-m-f-d-coopers-wallis",
-        "it-infrastructure-project-coordinatore-m-f-d-coopers-group-ag-wallis"
-      ],
+      "firstSeenAt": "2026-08-20T21:46:55.422Z",
       "previousSlugsByLocale": {
         "it": [
-          "it-infrastructure-project-coordinator-m-f-d-coopers-wallis",
-          "it-infrastructure-project-coordinatore-m-f-d-coopers-group-ag-wallis"
+          "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
         ],
         "de": [
           "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
@@ -4037,8 +4029,9 @@
           "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:46:55.422Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
+      ],
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -4050,7 +4043,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-0732f02c2230",
@@ -4333,8 +4327,8 @@
       "id": "coopers-17c9aefcf795",
       "slug": "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
-        "it": "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft",
         "en": "project-manager-product-development-m-f-d-coopers-basel-landschaft",
+        "it": "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft",
         "de": "projektmanager-produktentwicklung-m-w-d-coopers-group-ag-basel-landschaft",
         "fr": "gestionnaire-de-projet-developpement-de-produits-h-f-d-coopers-group-ag-basel-landschaft"
       },
@@ -4392,6 +4386,19 @@
           "Process Management, Product Management, Product development"
         ]
       },
+      "salaryMin": 99500,
+      "salaryMax": 169500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 169500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T21:52:02.749Z",
       "previousSlugs": [
         "project-manager-product-development-m-f-d-coopers-basel-landschaft",
         "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft"
@@ -4408,20 +4415,7 @@
           "project-manager-product-development-m-f-d-coopers-basel-landschaft"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:52:02.749Z",
-      "needsRetranslation": true,
-      "salaryMin": 99500,
-      "salaryMax": 169500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99500,
-          "maxValue": 169500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "coopers-3e1194239f3a",

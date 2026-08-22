@@ -4979,8 +4979,7 @@
         "apprendistato-kauffrau-mann-cfc-d-a-privatversicherung-2027-swiss-re-zurich-ch",
         "apprenticeship-businesswoman-mann-efz-d-a-private-insurance-2027-swiss-re-zurich-ch",
         "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch",
-        "apprentissage-businesswoman-mann-efz-d-a-assurance-privee-2027-swiss-re-zurich-ch",
-        "apprendistato-mediamatiker-in-cfc-2027-swiss-re-zurich-ch"
+        "apprentissage-businesswoman-mann-efz-d-a-assurance-privee-2027-swiss-re-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4988,19 +4987,18 @@
           "apprendistato-kauffrau-mann-cfc-d-a-privatversicherung-2027-swiss-re-zurich-ch",
           "apprenticeship-businesswoman-mann-efz-d-a-private-insurance-2027-swiss-re-zurich-ch",
           "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch",
-          "apprentissage-businesswoman-mann-efz-d-a-assurance-privee-2027-swiss-re-zurich-ch",
-          "apprendistato-mediamatiker-in-cfc-2027-swiss-re-zurich-ch"
+          "apprentissage-businesswoman-mann-efz-d-a-assurance-privee-2027-swiss-re-zurich-ch"
         ],
         "en": [
           "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch",
           "apprenticeship-businesswoman-mann-efz-d-a-private-insurance-2027-swiss-re-zurich-ch"
         ],
-        "de": [
-          "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
-        ],
         "fr": [
           "lehrstelle-mediamatiker-in-efz-2027-swiss-re-ch",
           "apprentissage-businesswoman-mann-efz-d-a-assurance-privee-2027-swiss-re-zurich-ch"
+        ],
+        "de": [
+          "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
         ]
       },
       "needsRetranslation": true,
@@ -21511,13 +21509,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-agentic-engineering-swiss-re-ch",
-        "software-ingegnere-agentic-engineering-swiss-re-bratislava-sk"
+        "software-engineer-agentic-engineering-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-agentic-engineering-swiss-re-ch",
-          "software-ingegnere-agentic-engineering-swiss-re-bratislava-sk"
+          "software-engineer-agentic-engineering-swiss-re-ch"
         ],
         "de": [
           "software-engineer-agentic-engineering-swiss-re-ch"
@@ -22023,14 +22019,10 @@
       "applyUrl": "https://www.swissre.com/careers/job/Financial-Reporting-Intern-temporary-student-job-/1428375133",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "financial-reporting-intern-temporary-student-job-swiss-re-ch",
-        "financial-reporting-tirocinante-temporary-student-job-swiss-re-bratislava-sk"
-      ],
+      "firstSeenAt": "2026-08-20T21:36:07.563Z",
       "previousSlugsByLocale": {
         "it": [
-          "financial-reporting-intern-temporary-student-job-swiss-re-ch",
-          "financial-reporting-tirocinante-temporary-student-job-swiss-re-bratislava-sk"
+          "financial-reporting-intern-temporary-student-job-swiss-re-ch"
         ],
         "de": [
           "financial-reporting-intern-temporary-student-job-swiss-re-ch"
@@ -22039,8 +22031,9 @@
           "financial-reporting-intern-temporary-student-job-swiss-re-ch"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:36:07.563Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "financial-reporting-intern-temporary-student-job-swiss-re-ch"
+      ],
       "salaryMin": 79000,
       "salaryMax": 138500,
       "baseSalary": {
@@ -22053,7 +22046,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-re-b6a4b0fbb465",
@@ -23124,8 +23118,8 @@
       "id": "swiss-re-6a8683cdc973",
       "slug": "ingegneria-underwriter-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
       "slugByLocale": {
-        "it": "ingegneria-underwriter-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
         "en": "engineering-underwriter-hybrid-m-f-x-d-80-100-swiss-re-ch",
+        "it": "ingegneria-underwriter-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
         "de": "engineering-underwriter-hybrid-m-f-x-d-80-100-swiss-re-ch",
         "fr": "ingenieur-adjoint-hybrid-m-f-x-j-80-100-swiss-re-zurich-ch"
       },
@@ -23166,16 +23160,6 @@
       "applyUrl": "https://www.swissre.com/careers/job/Engineering-Underwriter-Hybrid-m-f-x-d-80-100-/1428807233",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-21T21:40:28.570Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "engineering-underwriter-hybrid-m-f-x-d-80-100-swiss-re-ch"
-        ]
-      },
-      "previousSlugs": [
-        "engineering-underwriter-hybrid-m-f-x-d-80-100-swiss-re-ch"
-      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -23188,7 +23172,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-21T21:40:28.570Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-underwriter-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-underwriter-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-d1c08fd9a2c7",
@@ -23404,14 +23398,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "underwriting-associate-swiss-re-ch",
-        "underwriting-associate-swiss-re-ch-2",
-        "sottoscrizione-associate-swiss-re-tokyo-jp"
+        "underwriting-associate-swiss-re-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "underwriting-associate-swiss-re-ch",
-          "underwriting-associate-swiss-re-ch-2",
-          "sottoscrizione-associate-swiss-re-tokyo-jp"
+          "underwriting-associate-swiss-re-ch-2"
         ],
         "fr": [
           "underwriting-associate-swiss-re-ch"

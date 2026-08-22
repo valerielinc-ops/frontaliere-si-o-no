@@ -1276,10 +1276,10 @@
       "id": "privatklinik-bethanien-a7e4e6cad4f4",
       "slug": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-swiss-medical-network",
       "slugByLocale": {
+        "de": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-privatklinik-bethanien",
         "it": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-swiss-medical-network",
         "en": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-swiss-medical-network",
-        "de": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-privatklinik-bethanien",
-        "fr": "directeur-adjoint-et-chef-des-operations-et-des-finances-swiss-medical-network-zurich"
+        "fr": "directeur-adjoint-et-chef-des-operations-et-des-finances-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -1322,11 +1322,6 @@
       "datePosted": "2026-08-21",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-privatklinik-bethanien",
-        "stellvertretende-r-direktor-in-e-leitung-operative-betriebe-e-finanzen-privatklinik-bethanien-zurich",
-        "directeur-adjoint-et-chef-des-operations-et-des-finances-privatklinik-bethanien-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-privatklinik-bethanien",
@@ -1337,10 +1332,16 @@
         ],
         "fr": [
           "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-privatklinik-bethanien",
-          "directeur-adjoint-et-chef-des-operations-et-des-finances-privatklinik-bethanien-zurich"
+          "directeur-adjoint-et-chef-des-operations-et-des-finances-privatklinik-bethanien-zurich",
+          "directeur-adjoint-et-chef-des-operations-et-des-finances-swiss-medical-network-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:32:15.186Z",
+      "previousSlugs": [
+        "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-privatklinik-bethanien",
+        "stellvertretende-r-direktor-in-e-leitung-operative-betriebe-e-finanzen-privatklinik-bethanien-zurich",
+        "directeur-adjoint-et-chef-des-operations-et-des-finances-privatklinik-bethanien-zurich",
+        "directeur-adjoint-et-chef-des-operations-et-des-finances-swiss-medical-network-zurich"
+      ],
       "salaryMin": 124000,
       "salaryMax": 173000,
       "baseSalary": {
@@ -1352,7 +1353,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:32:15.186Z"
     }
   ]
 }
