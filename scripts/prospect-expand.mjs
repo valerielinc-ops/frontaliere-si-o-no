@@ -66,7 +66,17 @@ let filed = 0;
 let covered = 0;
 
 for (const platform of targets) {
-  const res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });
+  // Una piattaforma che esplode non deve costare le altre, ne' il lavoro gia'
+  // fatto in questo giro: l'enumerazione parla con vendor arbitrari e con due
+  // servizi esterni (indice web, log dei certificati) che rispondono come
+  // vogliono.
+  let res;
+  try {
+    res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });
+  } catch (err) {
+    console.log(`${platform.domain}: enumerazione fallita — ${String(err.message).slice(0, 120)}`);
+    continue;
+  }
   const live = res.live;
   platform.tenantCount = Math.max(platform.tenantCount || 0, live.length);
   console.log(`${platform.domain}: ${res.discovered.length} host candidati (${JSON.stringify(res.byMethod)}) → ${live.length} tenant VIVI`);
