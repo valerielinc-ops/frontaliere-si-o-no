@@ -65,9 +65,19 @@ for (const c of queue) {
     // regressione in synthesizeSpec resta visibile invece di sparire dietro
     // "candidato rifiutato".
     const expected = isExpectedSynthesisError(err);
-    setStatus(store, c.key, 'rejected', { reason: `sintesi in errore: ${String(err.message).slice(0, 120)}` });
+    // `err.message` senza guard esplode su `throw null`: sarebbe un'eccezione
+    // DENTRO il catch, che abortisce lo stadio invece di isolare il candidato —
+    // esattamente cio' che questo catch esiste per impedire.
+    const message = String(err?.message ?? err ?? 'errore senza messaggio');
+    // La distinzione va anche nello STORE, non solo nel canale di log: senza,
+    // una regressione genuina finisce `rejected` identica al rumore atteso e
+    // viene ri-scartata allo stesso ritmo, invisibile a `prospect-report.mjs`.
+    setStatus(store, c.key, 'rejected', {
+      reason: `sintesi in errore: ${message.slice(0, 120)}`,
+      errorClass: expected ? 'expected' : 'unexpected',
+    });
     if (expected) {
-      console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${String(err.message).slice(0, 70)}`);
+      console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${message.slice(0, 70)}`);
     } else {
       console.error(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore INATTESO: ${err.stack || err.message}`);
     }

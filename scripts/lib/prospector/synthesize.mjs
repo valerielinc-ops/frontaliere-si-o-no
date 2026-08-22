@@ -104,7 +104,14 @@ export function crawlerKeyFor(candidate) {
  * @returns {boolean}
  */
 export function isExpectedSynthesisError(err) {
-  return err instanceof URIError || err?.name === 'URIError';
+  // `instanceof` da solo non basta: un URIError attraversato da un realm o
+  // ri-lanciato da una lib puo' perderlo. Ma il solo `.name` e' troppo largo —
+  // una libreria che sovrascrive `.name` su un errore qualsiasi verrebbe
+  // riassorbita come rumore atteso, cioe' proprio il bug che questa distinzione
+  // vuole rendere visibile. Quindi: instanceof, oppure un vero Error il cui
+  // nome E' URIError.
+  if (err instanceof URIError) return true;
+  return err instanceof Error && err.name === 'URIError';
 }
 
 /**

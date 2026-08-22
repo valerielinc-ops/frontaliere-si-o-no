@@ -488,6 +488,29 @@ describe('production spec runtime', () => {
   });
 });
 
+describe('classificazione degli errori di sintesi', () => {
+  it('non riassorbe un errore qualsiasi col nome sovrascritto', () => {
+    // Il duck-typing sul solo `.name` avrebbe fatto passare per «rumore
+    // atteso» un errore di tutt'altra natura — cioe' esattamente il bug che la
+    // distinzione vuole rendere visibile.
+    const spoofed = { name: 'URIError', message: 'non sono un Error' };
+    expect(isExpectedSynthesisError(spoofed)).toBe(false);
+  });
+
+  it('riconosce un URIError vero, anche ri-lanciato', () => {
+    expect(isExpectedSynthesisError(new URIError('URI malformed'))).toBe(true);
+    const rethrown = new Error('URI malformed');
+    rethrown.name = 'URIError';
+    expect(isExpectedSynthesisError(rethrown)).toBe(true);
+  });
+
+  it('non scambia un bug di programmazione per rumore', () => {
+    expect(isExpectedSynthesisError(new TypeError('x is not a function'))).toBe(false);
+    expect(isExpectedSynthesisError(new Error('boom'))).toBe(false);
+    expect(isExpectedSynthesisError(null)).toBe(false);
+  });
+});
+
 describe('identificatori del crawler generato', () => {
   it('non lascia un trattino dentro il nome di funzione', () => {
     // Il difetto: `replace(/-([a-z])/g, ...)` toglieva il trattino solo davanti
