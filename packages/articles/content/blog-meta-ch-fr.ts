@@ -3850,6 +3850,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.keller-sutter-ministri-finanze-germanofoni.title': 'Ministres des finances : Keller-Sutter à Vaduz pour l\'économie européenne',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.excerpt': 'Le 24 août, la conseillère fédérale participera au Liechtenstein à la réunion annuelle avec des collègues germanophones pour discuter des finances, du climat et de la stabilité.',
     'blog.article.keller-sutter-ministri-finanze-germanofoni.imageAlt': 'La conseillère fédérale rencontre ministres finances germanophones pour discuter politique économique européenne',
+    'blog.article.irlanda-dublinanti-asilo-italia.title': 'L\'Irlande renvoie également les Dubliners en Italie',
+    'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'L\'Irlande adhère à la politique de retour des demandeurs d\'asile. Septième pays européen, après la Suisse, à adopter cette stratégie.',
+    'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'Vue du lac de Lugano avec les Alpes suisses en arrière-plan, symbolisant la position géographique de la Suisse en Europe.',
 };
 
 export default blogMetaChFr;
