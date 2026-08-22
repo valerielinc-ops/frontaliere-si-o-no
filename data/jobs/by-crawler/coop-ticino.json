@@ -221069,10 +221069,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufberater-in-kassen-services-jumbo-sissach",
-        "en": "verkaufberater-in-kassen-services-jumbo-sissach",
+        "it": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
+        "en": "sales-consultants-in-cash-registers-services-jumbo-sissach",
         "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-        "fr": "verkaufberater-in-kassen-services-jumbo-sissach"
+        "fr": "consultants-en-vente-en-caisse-services-jumbo-sissach"
       },
       "addressLocality": "Sissach",
       "sourceLang": "de",
@@ -221093,7 +221093,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
-          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft"
+          "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
+          "verkaufberater-in-kassen-services-jumbo-sissach"
         ],
         "en": [
           "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
@@ -221108,7 +221109,8 @@
         "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
         "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft",
         "sales-consultants-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-sissach",
-        "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach"
+        "consultants-en-vente-en-caisse-services-jumbo-division-der-coop-genossenschaft-sissach",
+        "verkaufberater-in-kassen-services-jumbo-sissach"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -223094,7 +223096,7 @@
       },
       "slugByLocale": {
         "it": "autista-cat-ce-coop-genossenschaft-chur-7dfee0",
-        "en": "driver-category-ce-coop-genossenschaft-chur",
+        "en": "driver-cat-ce-coop-genossenschaft-chur-7dfee0",
         "de": "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
         "fr": "chauffeur-cat-ce-coop-genossenschaft-chur-7dfee0"
       },
@@ -223125,14 +223127,16 @@
           "chauffeur-en-cat-ce-coop-genossenschaft-chur"
         ],
         "en": [
-          "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds"
+          "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
+          "driver-category-ce-coop-genossenschaft-chur"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-kat-ce-coop-chur-graubunden-vh3kds",
         "chauffeur-in-kat-ce-coop-chur-graubunden",
         "chauffeur-in-cat-ce-coop-genossenschaft-chur",
-        "chauffeur-en-cat-ce-coop-genossenschaft-chur"
+        "chauffeur-en-cat-ce-coop-genossenschaft-chur",
+        "driver-category-ce-coop-genossenschaft-chur"
       ],
       "retranslationAttempts": 1
     },

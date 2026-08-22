@@ -423,7 +423,7 @@
     },
     {
       "id": "company-i2gsds",
-      "slug": "insegnante-di-romancio-vallader-w-m-d-ks-zurigo-altstetten-klubschule-migros-altstetten",
+      "slug": "insegnante-di-vallader-m-f-d-ks-zurigo-altstetten-klubschule-migros-altstetten",
       "company": "Klubschule Migros",
       "title": "Lehrperson Rätoromanisch Vallader (w/m/d) – KS Zürich-Altstetten",
       "location": "Altstetten",
@@ -480,10 +480,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "insegnante-di-romancio-vallader-w-m-d-ks-zurigo-altstetten-klubschule-migros-altstetten",
-        "en": "rhaeto-romanic-vallader-language-instructor-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten",
+        "it": "insegnante-di-vallader-m-f-d-ks-zurigo-altstetten-klubschule-migros-altstetten",
+        "en": "vallader-language-instructor-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten",
         "de": "lehrperson-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
-        "fr": "enseignant-e-romanche-vallader-h-f-d-ks-zurich-altstetten-klubschule-migros-altstetten"
+        "fr": "enseignant-de-vallader-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten"
       },
       "requirementsByLocale": {
         "it": [],
@@ -504,15 +504,18 @@
         "it": [
           "lehrperson-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten",
           "lehrperson-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
-          "maestro-ratoromanisch-vallader-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten"
+          "maestro-ratoromanisch-vallader-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten",
+          "insegnante-di-romancio-vallader-w-m-d-ks-zurigo-altstetten-klubschule-migros-altstetten"
         ],
         "en": [
           "lehrperson-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
-          "teacher-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds"
+          "teacher-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
+          "rhaeto-romanic-vallader-language-instructor-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten"
         ],
         "fr": [
           "lehrperson-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
-          "professeur-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds"
+          "professeur-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
+          "enseignant-e-romanche-vallader-h-f-d-ks-zurich-altstetten-klubschule-migros-altstetten"
         ]
       },
       "previousSlugs": [
@@ -520,7 +523,10 @@
         "lehrperson-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
         "maestro-ratoromanisch-vallader-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten",
         "teacher-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
-        "professeur-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds"
+        "professeur-ratoromanisch-vallader-m-w-d-ks-zurich-altstetten-klubschule-migros-altstetten-i2gsds",
+        "insegnante-di-romancio-vallader-w-m-d-ks-zurigo-altstetten-klubschule-migros-altstetten",
+        "rhaeto-romanic-vallader-language-instructor-m-f-d-ks-zurich-altstetten-klubschule-migros-altstetten",
+        "enseignant-e-romanche-vallader-h-f-d-ks-zurich-altstetten-klubschule-migros-altstetten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9875,7 +9881,7 @@
     },
     {
       "id": "company-du2s44",
-      "slug": "hostess-cassa-subito-m-f-d-societe-cooperative-migros-vaud-crissier",
+      "slug": "addetto-a-cassa-subito-societe-cooperative-migros-vaud-crissier",
       "company": "Société coopérative Migros Vaud",
       "title": "Hôte Caisse Subito (H/F/D)",
       "location": "Crissier",
@@ -9946,7 +9952,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "hostess-cassa-subito-m-f-d-societe-cooperative-migros-vaud-crissier",
+        "it": "addetto-a-cassa-subito-societe-cooperative-migros-vaud-crissier",
         "en": "host-caisse-subito-m-f-d-societe-cooperative-migros-vaud-crissier",
         "de": "host-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier",
         "fr": "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier-du2s44"
@@ -9955,12 +9961,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier",
-          "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier-du2s44"
+          "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier-du2s44",
+          "hostess-cassa-subito-m-f-d-societe-cooperative-migros-vaud-crissier"
         ]
       },
       "previousSlugs": [
         "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier",
-        "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier-du2s44"
+        "hote-caisse-subito-m-w-d-societe-cooperative-migros-vaud-crissier-du2s44",
+        "hostess-cassa-subito-m-f-d-societe-cooperative-migros-vaud-crissier"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
