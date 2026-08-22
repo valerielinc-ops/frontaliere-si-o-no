@@ -195,6 +195,18 @@ jobs:
           MODIFIED=${{ steps.count.outputs.modified_count }}
           git commit -m "❓ Auto-generated FAQ for ${MODIFIED} blog articles"
 
+          # L'unset NON e' ridondante: `actions/checkout` (senza
+          # `persist-credentials: false`) lascia
+          #   http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>
+          # che ha la PRECEDENZA sullo `x-access-token:` qui sotto. Senza
+          # toglierlo il push si autentica come GITHUB_TOKEN e il commit su main
+          # NON ri-triggera il deploy — che e' l'unica ragione per cui questo
+          # step conia il token della App (vedi il commento piu' sopra). Il
+          # fallimento e' silenzioso: il push riesce, e manca solo il deploy.
+          # Stessa causa e stesso rimedio in issue-fix.yml, pr-redflag-fixer.yml
+          # e prospector-loop.yml.
+          git config --unset-all "http.https://github.com/.extraheader" || true
+
           # Push with retry (handles concurrent pushes from other workflows)
           REMOTE_URL="https://x-access-token:${APP_TOKEN:-$GITHUB_PAT}@github.com/${{ github.repository }}.git"
           for attempt in 1 2 3; do
