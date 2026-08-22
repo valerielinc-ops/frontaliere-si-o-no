@@ -1,70 +1,7 @@
 {
   "crawlerKey": "cs-bregaglia",
-  "assembledAt": "2026-08-21T21:45:18.967Z",
+  "assembledAt": "2026-08-22T09:37:18.934Z",
   "jobs": [
-    {
-      "id": "cs-bregaglia-d03ecc06dc84",
-      "slug": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
-      "slugByLocale": {
-        "it": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
-        "en": "entrepreneurship-at-csb-opening-call-2027-centro-sanitario-bregaglia-promontogno",
-        "de": "entrepreneurship-bei-csb-eroffnungsausschreibung-2027-centro-sanitario-bregaglia-promontogno",
-        "fr": "entrepreneurship-chez-csb-appel-d-ouverture-2027-centro-sanitario-bregaglia-promontogno"
-      },
-      "company": "Centro Sanitario Bregaglia",
-      "companyKey": "cs-bregaglia",
-      "companyDomain": "csbregaglia.ch",
-      "title": "Apprendistato al CSB: apertura bando 2027",
-      "titleByLocale": {
-        "it": "Apprendistato al CSB: apertura bando 2027",
-        "en": "Entrepreneurship at CSB: opening call 2027",
-        "de": "Entrepreneurship bei CSB: Eröffnungsausschreibung 2027",
-        "fr": "Entrepreneurship chez CSB: appel d'ouverture 2027"
-      },
-      "description": "Il Centro Sanitario Bregaglia ha aperto i bandi per candidarsi ai percorsi di apprendistato che prenderanno il via nell’agosto 2027. I giovani sono invitati, qualora fossero interessati alle professioni sanitarie, a prenderne visione e a sottomettere le loro candidature. Le posizioni aperte riguardano la formazione come Operatrice/tore sociosanitaria/o AFC e assistente di studio medico AFC.",
-      "descriptionByLocale": {
-        "it": "Il Centro Sanitario Bregaglia ha aperto i bandi per candidarsi ai percorsi di apprendistato che prenderanno il via nell’agosto 2027. I giovani sono invitati, qualora fossero interessati alle professioni sanitarie, a prenderne visione e a sottomettere le loro candidature. Le posizioni aperte riguardano la formazione come Operatrice/tore sociosanitaria/o AFC e assistente di studio medico AFC.",
-        "en": "The Bregaglia Health Centre opened the call for apprenticeships that will start in August 2027. Young people are invited, if they are interested in health professions, to take a look at them and submit their applications. Open positions include training as a sociosanitary/or AFC Operator and AFC Medical Study Assistant.",
-        "de": "Das Bregaglia Health Center eröffnete den Aufruf für Ausbildungsplätze, der im August 2027 beginnen wird. Junge Menschen werden eingeladen, wenn sie sich für Gesundheitsberufe interessieren, sich diese anzusehen und ihre Bewerbungen einzureichen. Offene Positionen umfassen die Ausbildung als Soziosanitär / AFC-Operator und AFC Medical Study Assistant.",
-        "fr": "Le Bregaglia Health Centre a ouvert l'appel à l'apprentissage qui débutera en août 2027. Les jeunes sont invités, s'ils s'intéressent aux professions de la santé, à les examiner et à présenter leur candidature. Les postes ouverts comprennent la formation en tant qu'opérateur socio-sanitaire ou AFC et assistant d'étude médicale AFC."
-      },
-      "needsRetranslation": false,
-      "location": "Promontogno",
-      "canton": "GR",
-      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
-      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:45:16.659Z",
-      "addressLocality": "Promontogno",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7606",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2023-07-24",
-      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-04T11:35:05.054Z",
-      "salaryMin": 73000,
-      "salaryMax": 102000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "cs-bregaglia-98393ca40498",
       "slug": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
@@ -97,7 +34,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:45:16.658Z",
+      "crawledAt": "2026-08-22T09:37:15.885Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -124,6 +61,69 @@
           "@type": "QuantitativeValue",
           "minValue": 81500,
           "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cs-bregaglia-d03ecc06dc84",
+      "slug": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
+      "slugByLocale": {
+        "it": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
+        "en": "entrepreneurship-at-csb-opening-call-2027-centro-sanitario-bregaglia-promontogno",
+        "de": "entrepreneurship-bei-csb-eroffnungsausschreibung-2027-centro-sanitario-bregaglia-promontogno",
+        "fr": "entrepreneurship-chez-csb-appel-d-ouverture-2027-centro-sanitario-bregaglia-promontogno"
+      },
+      "company": "Centro Sanitario Bregaglia",
+      "companyKey": "cs-bregaglia",
+      "companyDomain": "csbregaglia.ch",
+      "title": "Apprendistato al CSB: apertura bando 2027",
+      "titleByLocale": {
+        "it": "Apprendistato al CSB: apertura bando 2027",
+        "en": "Entrepreneurship at CSB: opening call 2027",
+        "de": "Entrepreneurship bei CSB: Eröffnungsausschreibung 2027",
+        "fr": "Entrepreneurship chez CSB: appel d'ouverture 2027"
+      },
+      "description": "Il Centro Sanitario Bregaglia ha aperto i bandi per candidarsi ai percorsi di apprendistato che prenderanno il via nell’agosto 2027. I giovani sono invitati, qualora fossero interessati alle professioni sanitarie, a prenderne visione e a sottomettere le loro candidature. Le posizioni aperte riguardano la formazione come Operatrice/tore sociosanitaria/o AFC e assistente di studio medico AFC.",
+      "descriptionByLocale": {
+        "it": "Il Centro Sanitario Bregaglia ha aperto i bandi per candidarsi ai percorsi di apprendistato che prenderanno il via nell’agosto 2027. I giovani sono invitati, qualora fossero interessati alle professioni sanitarie, a prenderne visione e a sottomettere le loro candidature. Le posizioni aperte riguardano la formazione come Operatrice/tore sociosanitaria/o AFC e assistente di studio medico AFC.",
+        "en": "The Bregaglia Health Centre opened the call for apprenticeships that will start in August 2027. Young people are invited, if they are interested in health professions, to take a look at them and submit their applications. Open positions include training as a sociosanitary/or AFC Operator and AFC Medical Study Assistant.",
+        "de": "Das Bregaglia Health Center eröffnete den Aufruf für Ausbildungsplätze, der im August 2027 beginnen wird. Junge Menschen werden eingeladen, wenn sie sich für Gesundheitsberufe interessieren, sich diese anzusehen und ihre Bewerbungen einzureichen. Offene Positionen umfassen die Ausbildung als Soziosanitär / AFC-Operator und AFC Medical Study Assistant.",
+        "fr": "Le Bregaglia Health Centre a ouvert l'appel à l'apprentissage qui débutera en août 2027. Les jeunes sont invités, s'ils s'intéressent aux professions de la santé, à les examiner et à présenter leur candidature. Les postes ouverts comprennent la formation en tant qu'opérateur socio-sanitaire ou AFC et assistant d'étude médicale AFC."
+      },
+      "needsRetranslation": false,
+      "location": "Promontogno",
+      "canton": "GR",
+      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
+      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-22T09:37:15.885Z",
+      "addressLocality": "Promontogno",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7606",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2023-07-24",
+      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-04T11:35:05.054Z",
+      "salaryMin": 73000,
+      "salaryMax": 102000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -160,7 +160,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/459-offerta-di-lavoro-responsabile-delle-cure-spitex-80",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:45:16.657Z",
+      "crawledAt": "2026-08-22T09:37:15.884Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
