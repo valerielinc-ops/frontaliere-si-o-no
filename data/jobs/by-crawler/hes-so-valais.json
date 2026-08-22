@@ -25,12 +25,12 @@
         "en": "Employee or employee cleaning 80",
         "de": "Mitarbeiter oder Mitarbeiter Reinigung 80"
       },
-      "slug": "employe-ou-employee-de-nettoyage-80-hes-so-valais",
+      "slug": "pulizia-dei-dipendenti-o-dei-dipendenti-80-hes-so-valais-wallis-sion",
       "slugByLocale": {
         "fr": "employe-ou-employee-de-nettoyage-80-hes-so-valais",
-        "it": "employe-ou-employee-de-nettoyage-80-hes-so-valais",
-        "en": "employe-ou-employee-de-nettoyage-80-hes-so-valais",
-        "de": "employe-ou-employee-de-nettoyage-80-hes-so-valais"
+        "it": "pulizia-dei-dipendenti-o-dei-dipendenti-80-hes-so-valais-wallis-sion",
+        "en": "employee-or-employee-cleaning-80-hes-so-valais-wallis-sion",
+        "de": "mitarbeiter-oder-mitarbeiter-reinigung-80-hes-so-valais-wallis-sion"
       },
       "category": "general",
       "datePosted": "2026-08-22",
@@ -65,7 +65,21 @@
       },
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-22T09:45:37.111Z"
+      "firstSeenAt": "2026-08-22T09:45:37.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-ou-employee-de-nettoyage-80-hes-so-valais"
+        ],
+        "en": [
+          "employe-ou-employee-de-nettoyage-80-hes-so-valais"
+        ],
+        "de": [
+          "employe-ou-employee-de-nettoyage-80-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "employe-ou-employee-de-nettoyage-80-hes-so-valais"
+      ]
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/civiliste-100-214963",
@@ -90,12 +104,12 @@
         "en": "Civilist 100",
         "de": "Zivilist 100"
       },
-      "slug": "civiliste-100-hes-so-valais",
+      "slug": "civile-100-hes-so-valais-wallis-sion",
       "slugByLocale": {
         "fr": "civiliste-100-hes-so-valais",
-        "it": "civiliste-100-hes-so-valais",
-        "en": "civiliste-100-hes-so-valais",
-        "de": "civiliste-100-hes-so-valais"
+        "it": "civile-100-hes-so-valais-wallis-sion",
+        "en": "civilist-100-hes-so-valais-wallis-sion",
+        "de": "zivilist-100-hes-so-valais-wallis-sion"
       },
       "category": "general",
       "datePosted": "2026-08-22",
@@ -130,7 +144,21 @@
       },
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-22T09:45:37.111Z"
+      "firstSeenAt": "2026-08-22T09:45:37.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "civiliste-100-hes-so-valais"
+        ],
+        "en": [
+          "civiliste-100-hes-so-valais"
+        ],
+        "de": [
+          "civiliste-100-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "civiliste-100-hes-so-valais"
+      ]
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/professor-uas-in-food-chemistry-80-100-214646",
@@ -155,10 +183,10 @@
         "en": "Professor Uas In Food Chemistry 80 100",
         "de": "Professor Uas in der Lebensmittelchemie 80 100"
       },
-      "slug": "professor-uas-in-food-chemistry-80-100-hes-so-valais",
+      "slug": "professore-uas-in-chimica-alimentare-80-100-hes-so-valais-wallis-sion",
       "slugByLocale": {
         "fr": "professor-uas-in-food-chemistry-80-100-hes-so-valais",
-        "it": "professor-uas-in-food-chemistry-80-100-hes-so-valais",
+        "it": "professore-uas-in-chimica-alimentare-80-100-hes-so-valais-wallis-sion",
         "en": "professor-uas-in-food-chemistry-80-100-hes-so-valais",
         "de": "professor-uas-in-food-chemistry-80-100-hes-so-valais"
       },
@@ -196,7 +224,15 @@
       },
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-22T09:45:37.111Z"
+      "firstSeenAt": "2026-08-22T09:45:37.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professor-uas-in-food-chemistry-80-100-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "professor-uas-in-food-chemistry-80-100-hes-so-valais"
+      ]
     }
   ]
 }
