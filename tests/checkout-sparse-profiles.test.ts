@@ -21,6 +21,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy, importedDataOrPublicPathsIn } from '../scripts/ci/verify-checkout-profiles.mjs';
 import { BUCKETS, BASELINE_MB, TREE_MB, CROSSOVER_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
+import { computeProfiledText } from '../scripts/ci/apply-checkout-profiles.mjs';
 
 const WF_DIR = path.join(process.cwd(), '.github/workflows');
 const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
@@ -133,5 +134,28 @@ describe('profili di sparse-checkout', () => {
       }
     }
     expect(bad).toEqual([]);
+  }, TIMEOUT);
+
+  it('nessun workflow e in ritardo su cio che l analizzatore calcolerebbe oggi (issue #6249)', () => {
+    // `verifyCheckoutProfiles()` sopra vieta solo di escludere PIU' del calcolato.
+    // Non basta: un workflow appena aggiunto (o una libreria che ha smesso di
+    // usare una catena `npm run` indiretta) puo' restare a checkout pieno senza
+    // che nulla lo segnali, perche' "pieno" e' sempre un sovrainsieme sicuro —
+    // solo lento. Osservato reale su questo repo: 4 workflow del loop
+    // "prospector" (#6245/#6252/#6267) non erano mai stati passati da
+    // `apply-checkout-profiles.mjs` e sono rimasti senza sparse-checkout.
+    // Questo test rigira il generatore su ogni workflow e pretende che il
+    // risultato sia gia' quello committato: se differisce, qualcuno ha
+    // aggiunto/cambiato un workflow senza rigenerare i profili, oppure
+    // l'analizzatore ha imparato a vedere una catena che prima gli sfuggiva —
+    // in entrambi i casi va rigenerato con
+    // `node scripts/ci/apply-checkout-profiles.mjs` prima di mergiare.
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    const stale: string[] = [];
+    for (const f of workflowFiles) {
+      const { text, before } = computeProfiledText(path.join(WF_DIR, f), pkg.scripts);
+      if (text !== before) stale.push(f);
+    }
+    expect(stale).toEqual([]);
   }, TIMEOUT);
 });
