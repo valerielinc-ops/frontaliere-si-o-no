@@ -10496,6 +10496,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'How to calculate source tax in Ticino',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Tax at source Ticino: federal rates 2026, border exemptions €7,500- €10,000, Italian tax credit and step-by-step simulator.',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Calculator and tax documents for calculating tax at source, Lake Lugano view in background',
+    'blog.article.varcare-confine-documenti-frontalieri.title': 'Documents to enter Switzerland: the border guide',
+    'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Passport, identity card and G Permit: the essential documents to cross the Ticino-Italy border on a daily basis as a border worker.',
+    'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Frontalier with passport and permit G at Swiss-Italian border checkpoint in Ticino',
 };
 
 export default blogMetaEn;

@@ -10497,6 +10497,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.simulatore-busta-paga-ticino-frontalieri.title': 'Come calcolare l\'imposta alla fonte in Ticino',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.excerpt': 'Imposta alla fonte Ticino: aliquote federali 2026, esenzioni frontalieri €7\'500–€10\'000, credito d\'imposta italiano e simulatore passo passo.',
     'blog.article.simulatore-busta-paga-ticino-frontalieri.imageAlt': 'Calcolatore e documenti fiscali per il calcolo dell\'imposta alla fonte, vista sul lago Lugano sullo sfondo',
+    'blog.article.varcare-confine-documenti-frontalieri.title': 'Documenti per entrare in Svizzera: la guida del frontaliere',
+    'blog.article.varcare-confine-documenti-frontalieri.excerpt': 'Passaporto, carta d\'identità e Permesso G: i documenti essenziali per varcare il confine Ticino-Italia quotidianamente come lavoratore frontaliere.',
+    'blog.article.varcare-confine-documenti-frontalieri.imageAlt': 'Frontaliere con passaporto e permesso G al valico di confine Ticino-Italia',
 };
 
 export default blogMetaIt;
