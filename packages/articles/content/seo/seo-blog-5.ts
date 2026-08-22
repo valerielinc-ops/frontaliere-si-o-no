@@ -74405,6 +74405,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-gressan-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Gressan e lavorare nel Vallese: fiscalità da frontaliere',
+    description: 'Nuovo accordo 2024: imposta alla fonte in Svizzera, franchigie CHF 7.500/10.000, modello 730 e credito d\'imposta. Tutto ciò che serve sapere. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, gressan, lavorare, vallese',
+    ogTitle: 'Vivere a Gressan e lavorare nel Vallese: fiscalità',
+    ogDescription: 'Nuovo accordo 2024: imposta alla fonte in Svizzera, franchigie CHF 7.500/10.000, modello 730 e credito d\'imposta. Tutto ciò che serve sapere.',
+    canonicalPath: '/articoli-frontaliere/vivere-gressan-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Gressan e lavorare nel Vallese: fiscalità da frontaliere",
+      "description": "Nuovo accordo 2024: imposta alla fonte in Svizzera, franchigie CHF 7.500/10.000, modello 730 e credito d'imposta. Tutto ciò che serve sapere. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-gressan-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle alpina con prati verdi al confine tra Vallese e Valle d'Aosta, paesaggio montano al mattino."
+      },
+      "datePublished": "2026-08-22T03:23:40+00:00",
+      "dateModified": "2026-08-22T03:23:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-gressan-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
