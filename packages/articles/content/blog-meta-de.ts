@@ -10507,6 +10507,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.title': 'USt-IdNr. für Grenzgänger: Steuern, Vorsorge & Voraussetzungen',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.excerpt': 'Als Grenzgänger eine selbständige Tätigkeit im Tessin aufnehmen: gesetzliche Anforderungen, steuerliche Unterschiede zur unselbständigen Erwerbstätigkeit und Vorsorgepflichten. Praktische Anleitung mit verifizierten Daten.',
     'blog.article.partita-iva-frontaliere-svizzera-requisiti-fiscalita.imageAlt': 'Freiberufler arbeitet in einem Coworking-Space in Lugano mit Seeblick',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.title': 'Grenzgänger USt-ID-Nr.: Steuern, AHV & Doppelbesteuerung',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.excerpt': 'Ab 2024 neue Regeln für selbstständige Grenzgänger: unterschiedliche Franchisen, Quellensteuer nur in der Schweiz, obligatorische AHV/BVG-Beiträge und Vermeidung von Doppelbesteuerung.',
+    'blog.article.partita-iva-frontaliere-svizzera-2024.imageAlt': 'Frontalier-Arbeitsplatz zwischen der Schweiz und Italien: Laptop, Steuerdokumente und Grenzlandschaft im Hintergrund',
 };
 
 export default blogMetaDe;

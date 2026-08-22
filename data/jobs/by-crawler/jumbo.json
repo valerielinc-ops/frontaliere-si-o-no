@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-22T09:36:59.727Z",
+  "assembledAt": "2026-08-22T08:28:42.184Z",
   "jobs": [
     {
       "id": "jumbo-3909bd54-ab1",
@@ -19539,7 +19539,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:08:24.041Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "baseSalary": {
@@ -19551,7 +19550,8 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-c021c19c-5b0",
@@ -19673,9 +19673,9 @@
       "id": "jumbo-180b0a73-210",
       "slug": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-nyvsor",
       "slugByLocale": {
+        "de": "verkaufsberater-im-garten-jumbo-schanis-sankt-gallen",
         "it": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-nyvsor",
         "en": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-nyvsor",
-        "de": "verkaufsberater-im-garten-jumbo-schanis-sankt-gallen",
         "fr": "verkaufsberater-dans-le-jardin-jumbo-schanis-sankt-gallen"
       },
       "company": "JUMBO",
@@ -19732,12 +19732,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-schanis",
-        "sales-advisor-in-garden-jumbo-schanis",
-        "conseiller-commercial-a-garden-jumbo-schanis",
-        "consulente-vendite-in-garden-jumbo-schanis"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-21T09:46:26.296Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-schanis",
@@ -19755,20 +19763,12 @@
           "verkaufsberater-in-garden-jumbo-schanis"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T09:46:26.296Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-schanis",
+        "sales-advisor-in-garden-jumbo-schanis",
+        "conseiller-commercial-a-garden-jumbo-schanis",
+        "consulente-vendite-in-garden-jumbo-schanis"
+      ]
     },
     {
       "id": "jumbo-de25eb6d-dcd",
@@ -19831,19 +19831,6 @@
           "• Vous êtes de bonne constitution physique et la manutention ne vous pose aucun problème"
         ]
       },
-      "previousSlugs": [
-        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey"
-        ],
-        "fr": [
-          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T09:46:26.292Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -19855,7 +19842,29 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:46:26.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
+          "do-it-sales-advisor-f-h-d-jumbo-conthey",
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-delemont",
+          "do-it-sales-advisor-f-h-d-jumbo-delemont"
+        ],
+        "fr": [
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey"
+        ],
+        "en": [
+          "do-it-sales-advisor-f-h-d-jumbo-conthey"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
+        "do-it-sales-advisor-f-h-d-jumbo-conthey",
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-delemont",
+        "do-it-sales-advisor-f-h-d-jumbo-delemont"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-74083118-23c",
@@ -19937,9 +19946,9 @@
       "id": "jumbo-bdbc78ea-9cf",
       "slug": "acquisizione-product-manager-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon",
       "slugByLocale": {
+        "de": "purchasing-product-manager-gartentechnik-jumbo-dietlikon-zurich-xqf7do",
         "it": "acquisizione-product-manager-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon",
         "en": "purchasing-product-manager-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon",
-        "de": "purchasing-product-manager-gartentechnik-jumbo-dietlikon-zurich-xqf7do",
         "fr": "gestionnaire-de-produits-d-achat-garden-technology-jumbo-division-der-coop-genossenschaft-dietlikon"
       },
       "company": "JUMBO",
@@ -19994,29 +20003,6 @@
           "• Stilsichere Deutschkenntnisse in Wort und Schrift sowie gute Französisch- und Englischkenntnisse"
         ]
       },
-      "previousSlugs": [
-        "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
-        "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon",
-        "acquisizione-product-manager-garden-technology-jumbo-dietlikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
-          "acquisizione-product-manager-garden-technology-jumbo-dietlikon"
-        ],
-        "en": [
-          "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
-        ],
-        "fr": [
-          "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
-          "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon"
-        ],
-        "de": [
-          "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T09:46:26.280Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "baseSalary": {
@@ -20028,15 +20014,38 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:46:26.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
+          "acquisizione-product-manager-garden-technology-jumbo-dietlikon"
+        ],
+        "fr": [
+          "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
+          "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon"
+        ],
+        "en": [
+          "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
+        ],
+        "de": [
+          "purchasing-product-manager-gartentechnik-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "purchasing-product-manager-gartentechnik-jumbo-dietlikon",
+        "gestionnaire-de-produits-d-achat-garden-technology-jumbo-dietlikon",
+        "acquisizione-product-manager-garden-technology-jumbo-dietlikon"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-cd2d0ab6-207",
       "slug": "consulente-di-vendita-in-do-it-jumbo-mels",
       "slugByLocale": {
+        "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
         "it": "consulente-di-vendita-in-do-it-jumbo-mels",
         "en": "sales-consultant-in-do-it-jumbo-mels-88f5b6",
-        "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
         "fr": "consultant-en-ventes-a-do-it-jumbo-mels"
       },
       "company": "JUMBO",
@@ -20094,26 +20103,6 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T09:46:26.291Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-do-it-jumbo-mels",
-          "consulente-di-vendita-in-do-it-jumbo-mels"
-        ],
-        "de": [
-          "verkaufsberater-in-do-it-jumbo-mels"
-        ],
-        "en": [
-          "verkaufsberater-in-do-it-jumbo-mels"
-        ],
-        "fr": [
-          "verkaufsberater-in-do-it-jumbo-mels"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-mels",
-        "consulente-di-vendita-in-do-it-jumbo-mels"
-      ],
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -20125,15 +20114,35 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T09:46:26.291Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-mels",
+          "consulente-di-vendita-in-do-it-jumbo-mels"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-mels"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-mels"
+        ],
+        "de": [
+          "verkaufsberater-in-do-it-jumbo-mels"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-mels",
+        "consulente-di-vendita-in-do-it-jumbo-mels"
+      ]
     },
     {
       "id": "jumbo-0e0c3392-aae",
       "slug": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
       "slugByLocale": {
+        "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
         "it": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
         "en": "sales-consultants-in-cash-registers-services-jumbo-sissach",
-        "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
         "fr": "consultants-en-vente-en-caisse-services-jumbo-sissach"
       },
       "company": "JUMBO",
@@ -20190,6 +20199,18 @@
         ]
       },
       "needsRetranslation": true,
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74000,
+          "maxValue": 113500,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-08-21T21:31:47.868Z",
       "previousSlugsByLocale": {
         "it": [
@@ -20209,27 +20230,15 @@
       "previousSlugs": [
         "verkaufberater-in-kassen-services-jumbo-sissach",
         "consulenti-di-vendita-in-casse-servizi-jumbo-sissach"
-      ],
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "jumbo-0d04671d-fe0",
       "slug": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona",
       "slugByLocale": {
+        "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen-0hydvo",
         "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona",
         "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona",
-        "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona-sankt-gallen-0hydvo",
         "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-rapperswil-jona"
       },
       "company": "JUMBO",
@@ -20287,18 +20296,6 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:31:47.866Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
-        ],
-        "de": [
-          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-rapperswil-jona"
-      ],
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -20310,7 +20307,25 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:31:47.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ],
+        "de": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+      ]
     }
   ]
 }
