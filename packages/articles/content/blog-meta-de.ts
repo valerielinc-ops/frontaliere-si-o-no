@@ -10480,6 +10480,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.detrazioni-mediche-frontaliere.title': 'Medizinische Abzüge für Grenzgänger in Italien',
     'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Gesundheitskosten Schweiz-Italien: KVG-Franchise, INPS-Rückerstattung, IRPEF-Abzüge. Praktische Verfahren und jährliche Grenzwerte für Grenzgänger.',
     'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Medizinisches Rezept und Krankenversicherungskarte auf einem Schreibtisch mit Stethoskop, Schweizer Kantonslandschaft im Hintergrund',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Saisonarbeit Tessin: Regeln, Erlaubnis G und Rechte',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Ab 2024 reformiert das neue Steuerabkommen Steuern und Erstattungen für Grenzgänger. Regeln für G-Genehmigung, Besteuerung und Rechte bei Saisonarbeit im Tessin.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Grenzpendler beim Überqueren des Grenzübergangs zwischen der Schweiz und Italien im Tessin am Morgen',
 };
 
 export default blogMetaDe;

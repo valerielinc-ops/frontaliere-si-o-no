@@ -10482,6 +10482,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.detrazioni-mediche-frontaliere.title': 'Detrazioni mediche per frontalieri in Italia',
     'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, detrazioni IRPEF. Procedure pratiche e limiti annuali per frontalieri.',
     'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Ricetta medica e tessera assicurazione sanitaria su una scrivania con stetoscopio, paesaggio canton Ticino visibile di sfondo',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Lavoro stagionale Ticino: regole, permesso G e diritti',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Frontalieri che attraversano il valico di confine Ticino-Italia al mattino presto durante l\'orario di lavoro',
 };
 
 export default blogMetaIt;

@@ -31377,6 +31377,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stagionale-ticino-diritti-permesso-g',
+ category: 'pratico',
+ date: '2026-08-22T07:15:30.890Z',
+ image: '/images/blog/stagionale-ticino-diritti-permesso-g.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
