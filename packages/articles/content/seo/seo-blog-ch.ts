@@ -49979,6 +49979,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-uri-cassa': {
+    title: 'AVS e prestazioni complementari nel canton Uri',
+    description: 'Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, cassa',
+    ogTitle: 'AVS e prestazioni complementari nel canton Uri',
+    ogDescription: 'Scopri come la cassa di compensazione del canton Uri calcola la tua rendita AVS, come le lacune contributive influiscono sulla pensione, e come accedere alle prestazioni complementari per garantire il minimo vitale della tua famiglia.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-uri-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel canton Uri",
+      "description": "Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-uri-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione cantonale Uri: gestione rendite AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-08-22T17:57:19+00:00",
+      "dateModified": "2026-08-22T17:57:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-uri-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

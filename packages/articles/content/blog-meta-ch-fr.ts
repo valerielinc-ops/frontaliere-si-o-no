@@ -3853,6 +3853,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.irlanda-dublinanti-asilo-italia.title': 'L\'Irlande renvoie également les Dubliners en Italie',
     'blog.article.irlanda-dublinanti-asilo-italia.excerpt': 'L\'Irlande adhère à la politique de retour des demandeurs d\'asile. Septième pays européen, après la Suisse, à adopter cette stratégie.',
     'blog.article.irlanda-dublinanti-asilo-italia.imageAlt': 'Vue du lac de Lugano avec les Alpes suisses en arrière-plan, symbolisant la position géographique de la Suisse en Europe.',
+    'blog.article.avs-prestazioni-uri-cassa.title': 'AVS et prestations complémentaires dans le canton d\'Uri',
+    'blog.article.avs-prestazioni-uri-cassa.excerpt': 'Caisse de compensation, calcul de la rente et lacunes contributives dans le premier pilier : comment fonctionnent les prestations complémentaires à URI',
+    'blog.article.avs-prestazioni-uri-cassa.imageAlt': 'Bureau de compensation Uri gérant les rentes AVS et prestations complémentaires',
 };
 
 export default blogMetaChFr;
