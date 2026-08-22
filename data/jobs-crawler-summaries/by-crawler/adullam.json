@@ -1,16 +1,18 @@
 {
   "key": "adullam",
   "label": "Adullam-Stiftung",
-  "generatedAt": "2026-08-22T09:43:18.495Z",
-  "total": 11,
+  "generatedAt": "2026-08-22T21:38:15.805Z",
+  "total": 10,
+  "discovered": null,
+  "written": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12445,
-  "avgDurationMs": 12445,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8202,
+  "avgDurationMs": 8202,
   "durationHistory": [
-    12445
+    8202
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +29,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4058459",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:16.319Z",
+      "crawledAt": "2026-08-22T21:38:13.540Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -69,7 +71,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052120",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:07.570Z",
+      "crawledAt": "2026-08-22T21:38:08.536Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -111,7 +113,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052086",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:12.606Z",
+      "crawledAt": "2026-08-22T21:38:11.369Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -153,7 +155,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4049813",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:09.797Z",
+      "crawledAt": "2026-08-22T21:38:09.628Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -195,7 +197,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044764",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:10.668Z",
+      "crawledAt": "2026-08-22T21:38:10.272Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -237,7 +239,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044685",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:11.389Z",
+      "crawledAt": "2026-08-22T21:38:10.825Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -279,7 +281,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029980",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:14.593Z",
+      "crawledAt": "2026-08-22T21:38:12.452Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -321,7 +323,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4019248",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:13.607Z",
+      "crawledAt": "2026-08-22T21:38:11.911Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -363,7 +365,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3868124",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:08.740Z",
+      "crawledAt": "2026-08-22T21:38:09.086Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -405,7 +407,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4009855",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:43:15.726Z",
+      "crawledAt": "2026-08-22T21:38:12.994Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -435,8 +437,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "adullam-5d822bebaba6",
       "slug": "dietitian-diet-chef-lavoro-significativo-nella-sanita-adullam-stiftung-riehen",
@@ -482,5 +483,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
