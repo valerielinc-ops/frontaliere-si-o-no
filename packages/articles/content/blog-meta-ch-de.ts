@@ -3832,6 +3832,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-salari-formazione.title': 'Löhne und Arbeitsmarkt Kanton Luzern',
     'blog.article.lucerna-salari-formazione.excerpt': 'Lohnniveaus nach Bildungsabschluss, Bereiche, die sie übernehmen, Tarifverträge. Wie bewerte ich ein Angebot und berechne das Netto in der Schweiz.',
     'blog.article.lucerna-salari-formazione.imageAlt': 'Moderner Arbeitsplatz in der Schweiz mit Fachleuten in Meetings und am Schreibtisch',
+    'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Erbschafts- und Schenkungssteuer Kanton Luzern: Steuersätze',
+    'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Vollständiger Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Luzern. Entdecken Sie die Sätze nach Verwandtschaftsgrad, die Ausnahmen und wie Sie die Erbschaft erklären können.',
+    'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Verwaltungsgebäude in Luzern mit Schweizer Flagge, Symbol der Kantonalen Finanzverwaltung',
 };
 
 export default blogMetaChDe;

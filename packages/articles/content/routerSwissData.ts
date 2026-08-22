@@ -1303,6 +1303,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-lucerna-registro-commercio-costi': { it: 'aprire-attivita-lucerna-registro-commercio-costi', en: 'starting-business-lucerne-trade-register-costs', de: 'geschaft-grunden-luzern-handelsregister-kosten', fr: 'creer-entreprise-lucerne-registre-commerce-couts' },
  'mazzone-clima-consiglio-federale': { it: 'mazzone-clima-consiglio-federale', en: 'mazzone-climate-federal-council', de: 'mazzone-klima-bundesrat', fr: 'mazzone-climat-conseil-federal' },
  'lucerna-salari-formazione': { it: 'lucerna-salari-formazione', en: 'lucerne-wages-education', de: 'luzern-loehne-ausbildung', fr: 'lucerne-salaires-formation' },
+ 'imposta-successione-donazione-lucerna-guida': { it: 'imposta-successione-donazione-lucerna-guida', en: 'succession-donation-tax-lucerne-guide', de: 'erbschaftssteuer-schenkungssteuer-luzern-leitfaden', fr: 'impot-succession-donation-lucerne-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
