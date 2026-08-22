@@ -17100,10 +17100,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "construction-pemsa-bellinzona",
+        "it": "manovale-edile-pemsa-bellinzona",
         "en": "construction-pemsa-bellinzona",
-        "de": "construction-pemsa-bellinzona",
-        "fr": "construction-pemsa-bellinzona"
+        "de": "bauarbeiten-pemsa-bellinzona",
+        "fr": "batiment-pemsa-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/construction-pemsa-bellinzona",
@@ -17111,12 +17111,13 @@
         "de": "/de/jobs-im-tessin/construction-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/construction-pemsa-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/manovale-edile-2688872",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -46161,19 +46162,29 @@
           "impressions": 59
         },
         {
-          "query": "oss ticino offerte lavoro",
+          "query": "offerte di lavoro canton ticino per frontalieri",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 16
         },
         {
           "query": "offerte lavoro svizzera per italiani",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 13
         },
         {
-          "query": "offerte di lavoro canton ticino per frontalieri",
+          "query": "oss ticino offerte lavoro",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 12
+        },
+        {
+          "query": "offerte di lavoro",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 0,
+          "impressions": 9
         },
         {
           "query": "lavoro svizzera",
@@ -46192,6 +46203,11 @@
         },
         {
           "query": "offerte di lavoro casa di riposo svizzera",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "lavoro ticino",
           "clicks": 0,
           "impressions": 5
         },
@@ -46231,32 +46247,17 @@
           "impressions": 4
         },
         {
+          "query": "offerte lavoro",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "cerco lavoro come oss in svizzera",
           "clicks": 0,
           "impressions": 4
-        },
-        {
-          "query": "oss in svizzera",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "oss lavoro",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "oss svizzera",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "lavorare come oss in svizzera",
-          "clicks": 0,
-          "impressions": 3
         }
       ],
-      "totalImpressions": 359,
+      "totalImpressions": 401,
       "totalClicks": 5,
       "topQuery": "offerte lavoro svizzera per italiani",
       "title": "Operatori socio sanitari",

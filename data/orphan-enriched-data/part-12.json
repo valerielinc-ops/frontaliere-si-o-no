@@ -20768,9 +20768,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "coordination-des-achats-et-controle-informatique-confederazione-svizzera-bern",
-        "en": "coordination-des-achats-et-controle-informatique-confederazione-svizzera-bern",
-        "de": "coordination-des-achats-et-controle-informatique-confederazione-svizzera-bern",
+        "de": "beschaffungskoordination-und-it-controlling-confederazione-bern",
+        "it": "beschaffungskoordination-e-it-controlling-confederazione-svizzera-bern",
+        "en": "procurement-coordination-and-it-controlling-confederazione-svizzera-bern",
         "fr": "coordination-des-achats-et-controle-informatique-confederazione-svizzera-bern"
       },
       "localePaths": {
@@ -20785,6 +20785,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -56598,6 +56599,63 @@
       ]
     },
     {
+      "slug": "responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+      "locale": "it",
+      "path": "/cerca-lavoro-svitto/responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-svitto/responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln/"
+      },
+      "queries": [
+        {
+          "query": "psicologo italiano online einsiedeln",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "psicologo italiano online einsiedeln",
+      "title": "Responsabile psicologia ameos schweiz einsiedeln",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+        "de": "responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "/en/find-jobs-schwyz/responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+        "de": "/de/jobs-im-schwyz/responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln",
+        "fr": "/fr/trouver-emploi-schwytz/responsabile-psicologia-m-f-d-ameos-schweiz-einsiedeln"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "responsabile-qualitaetssicherung-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/responsabile-qualitaetssicherung-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino/",
@@ -76079,13 +76137,15 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
-        "fr": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel-a6vk9v"
+        "fr": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel-a6vk9v",
+        "en": "multipurpose-seller-seller-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
+        "de": "mehrzweckverkaufer-societe-cooperative-migros-neuchatel-fribourg-neuchatel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
-        "en": "/en/find-jobs-fribourg/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
+        "it": "/cerca-lavoro-neuchatel/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
+        "en": "/en/find-jobs-neuchatel/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
         "de": "/de/jobs-im-neuenburg/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
-        "fr": "/fr/trouver-emploi-fribourg/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel"
+        "fr": "/fr/trouver-emploi-neuchatel/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
