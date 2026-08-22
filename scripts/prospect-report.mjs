@@ -16,6 +16,7 @@ import { loadCandidates, statusCounts } from './lib/prospector/candidate-store.m
 import { loadRegistry, enumerablePlatforms, sharedHostPlatforms } from './lib/prospector/platform-registry.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { VALIDATION_PATH } from './lib/prospector/config.mjs';
+import { loadChannelHealth } from './lib/prospector/sources/commoncrawl-careers.mjs';
 
 const md = process.argv.includes('--markdown');
 const store = loadCandidates();
@@ -86,5 +87,22 @@ for (const c of all) for (const s of c.sources || []) bySource[s] = (bySource[s]
 out.push(h('Resa per sorgente'));
 out.push(tableHead('sorgente', 'datori'));
 for (const [k, v] of Object.entries(bySource).sort((a, b) => b[1] - a[1])) out.push(row(k, v));
+
+const webHealth = loadChannelHealth();
+if (webHealth.length) {
+  // Common Crawl is a shared volunteer index and goes dark for stretches
+  // (measured: a full hour of `status 0`); a single run's zero yield looks
+  // identical whether the index is down or the `.ch` range legitimately had
+  // nothing new, so the signal that matters is the outage RATE over recent
+  // runs, not any one run's number.
+  const recent = webHealth.slice(-14);
+  const outages = recent.filter((r) => r.outage).length;
+  out.push(h('Salute canale web (Common Crawl)'));
+  out.push(tableHead('metrica', 'valore'));
+  out.push(row('run in storico', webHealth.length));
+  out.push(row(`interruzioni indice, ultimi ${recent.length} run`, outages));
+  const last = webHealth[webHealth.length - 1];
+  out.push(row('ultimo run', `${last.pagesRead} pagine → ${last.employers} datori${last.outage ? ' (indice non raggiungibile)' : ''}`));
+}
 
 console.log(out.join('\n'));
