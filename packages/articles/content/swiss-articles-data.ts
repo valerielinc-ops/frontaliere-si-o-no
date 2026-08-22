@@ -11377,6 +11377,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-b-lucerna-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-22T06:47:41.905Z',
+    image: '/images/blog/permesso-b-lucerna-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

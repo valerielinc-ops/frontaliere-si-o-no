@@ -3793,6 +3793,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Residence permit B Lucerne: requirements and renewal',
     'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Practical guide to residence permit B in the canton of Lucerne: duration, requirements, necessary documents, renewal procedure and contacts of the cantonal migration office.',
     'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Residence permit application forms at Lucerne canton migration office',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permit B Lucerne: requirements and renewal',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Practical guide to residence permit B in the canton of Lucerne: characteristics, application procedure, necessary documents, duration and renewal. Step-by-step instructions.',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Migration office with documents for B residence permit in Lucerne canton',
 };
 
 export default blogMetaChEn;
