@@ -3793,6 +3793,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Permis de séjour B Lucerne : exigences et renouvellement',
     'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Guide pratique du permis de séjour B dans le canton de Lucerne : durée, exigences, documents nécessaires, procédure de renouvellement et contacts de l\'office cantonal des migrations.',
     'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Formulaires de demande de permis au bureau de migration du canton de Lucerne',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permis B Lucerne : exigences et renouvellement',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Guide pratique du permis de séjour B dans le canton de Lucerne : caractéristiques, procédure de demande, documents nécessaires, durée et renouvellement. Instructions étape par étape.',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Bureau de migration avec documents pour permis de séjour B au canton de Lucerne',
 };
 
 export default blogMetaChFr;

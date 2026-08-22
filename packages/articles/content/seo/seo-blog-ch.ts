@@ -49199,6 +49199,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-b-lucerna-requisiti-rinnovo': {
+    title: 'Permesso B Lucerna: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Guida pratica al permesso di dimora B nel cantone di Lucerna: caratteristiche, procedura di richiesta, documenti necessari, durata e rinnovo. Istruzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, lucerna, requisiti, rinnovo',
+    ogTitle: 'Permesso B Lucerna: guida a requisiti e rinnovo',
+    ogDescription: 'Scopri come ottenere e rinnovare il permesso di dimora B nel cantone di Lucerna. Procedura federale e cantonale, documenti richiesti, scadenze e istruzioni pratiche per lavoratori stranieri in Svizzera.',
+    canonicalPath: '/articoli-svizzera/permesso-b-lucerna-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Lucerna: requisiti e rinnovo",
+      "description": "Guida pratica al permesso di dimora B nel cantone di Lucerna: caratteristiche, procedura di richiesta, documenti necessari, durata e rinnovo. Istruzioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-lucerna-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione con documenti per il permesso di dimora B nel cantone di Lucerna"
+      },
+      "datePublished": "2026-08-22T06:47:41+00:00",
+      "dateModified": "2026-08-22T06:47:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-lucerna-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
