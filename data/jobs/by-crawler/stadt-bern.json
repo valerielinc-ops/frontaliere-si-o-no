@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-08-22T09:38:11.830Z",
+  "assembledAt": "2026-08-22T08:59:55.724Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -2779,23 +2779,51 @@
       "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-koch-koechin-efz/17f7899d-0a94-4b51-99df-ea71ee9eba7b",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-koch-kochin-efz-stadt-bern-bern",
-        "apprendistato-come-koch-kochin-cfc-stadt-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-koch-kochin-efz-stadt-bern-bern",
-          "apprendistato-come-koch-kochin-cfc-stadt-bern"
+          "apprendistato-come-koch-kochin-cfc-stadt-bern",
+          "cucinare-cucinare-stadt-bern-bern",
+          "koch-kochin-stadt-bern",
+          "koch-kochin-stadt-bern-bern",
+          "cuire-faire-cuire-stadt-bern-bern-563762",
+          "cook-cook-stadt-bern-bern-563762",
+          "cucinare-cucinare-stadt-bern-bern-563762",
+          "cucinare-cucinare-stadt-bern-bern-e7xp98",
+          "cuire-faire-cuire-stadt-bern-bern",
+          "koch-kochin-stadt-bern-bern-e7xp98",
+          "cook-cook-stadt-bern-bern",
+          "koch-kochin-stadt-bern-bd84qc",
+          "cuisinier-cuisiniere-stadt-bern"
         ],
         "en": [
-          "lehrstelle-als-koch-kochin-efz-stadt-bern-bern"
+          "lehrstelle-als-koch-kochin-efz-stadt-bern-bern",
+          "koch-kochin-stadt-bern"
         ],
         "fr": [
-          "lehrstelle-als-koch-kochin-efz-stadt-bern-bern"
+          "lehrstelle-als-koch-kochin-efz-stadt-bern-bern",
+          "cuire-faire-cuire-stadt-bern-bern-563762"
+        ],
+        "de": [
+          "koch-kochin-stadt-bern-bern"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:25:06.562Z",
+      "previousSlugs": [
+        "lehrstelle-als-koch-kochin-efz-stadt-bern-bern",
+        "apprendistato-come-koch-kochin-cfc-stadt-bern",
+        "cucinare-cucinare-stadt-bern-bern",
+        "koch-kochin-stadt-bern",
+        "koch-kochin-stadt-bern-bern",
+        "cuire-faire-cuire-stadt-bern-bern-563762",
+        "cook-cook-stadt-bern-bern-563762",
+        "cucinare-cucinare-stadt-bern-bern-563762",
+        "cucinare-cucinare-stadt-bern-bern-e7xp98",
+        "cuire-faire-cuire-stadt-bern-bern",
+        "koch-kochin-stadt-bern-bern-e7xp98",
+        "cook-cook-stadt-bern-bern",
+        "koch-kochin-stadt-bern-bd84qc",
+        "cuisinier-cuisiniere-stadt-bern"
+      ],
       "salaryMin": 54000,
       "salaryMax": 68000,
       "baseSalary": {
@@ -2807,7 +2835,8 @@
           "maxValue": 68000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:25:06.562Z"
     },
     {
       "id": "stadt-bern-9da587b91751",

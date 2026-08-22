@@ -3832,6 +3832,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-salari-formazione.title': 'Wages and labour market canton Lucerne',
     'blog.article.lucerna-salari-formazione.excerpt': 'Wage levels by level of training, sectors they hire, collective agreements. How to evaluate an offer and calculate the net in Switzerland.',
     'blog.article.lucerna-salari-formazione.imageAlt': 'Modern Swiss workplace with professionals in meetings and at computer workstations',
+    'blog.article.imposta-successione-donazione-lucerna-guida.title': 'Inheritance and gift tax Canton Lucerne: rates',
+    'blog.article.imposta-successione-donazione-lucerna-guida.excerpt': 'Complete guide to inheritance and gift tax in the Canton of Lucerne. Learn about kinship rates, exemptions, and how to declare inheritance.',
+    'blog.article.imposta-successione-donazione-lucerna-guida.imageAlt': 'Administrative building in Lucerne with Swiss flag, representing cantonal tax office',
 };
 
 export default blogMetaChEn;
