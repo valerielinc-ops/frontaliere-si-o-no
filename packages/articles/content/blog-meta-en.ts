@@ -10535,6 +10535,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.title': 'Remote work abroad: border taxation',
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.excerpt': 'Working remotely from a third country during the holidays involves tax issues, LAMal and communication to the employer. Learn how to manage taxes, refunds, and insurance coverage with the new 2024 agreement.',
     'blog.article.frontaliere-remoto-terzo-paese-fiscale.imageAlt': 'Frontalier working remotely with laptop overlooking alpine landscape',
+    'blog.article.blevio-frontaliere-ticino.title': 'Living in Blevio and working in Ticino: Border Guide',
+    'blog.article.blevio-frontaliere-ticino.excerpt': 'How to move to Blevio from Ticino border crossings: G permit, taxation, AVS, cost of living and administrative deadlines.',
+    'blog.article.blevio-frontaliere-ticino.imageAlt': 'Lakeside view of Blevio near Ticino border, with Italian mountains and villages in background',
 };
 
 export default blogMetaEn;
