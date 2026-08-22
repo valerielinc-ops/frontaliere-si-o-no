@@ -129,9 +129,9 @@
       "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
       "slugByLocale": {
         "it": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
-        "en": "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona",
-        "de": "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona",
-        "fr": "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
+        "en": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+        "de": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+        "fr": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona"
       },
       "company": "Città di Bellinzona",
       "companyKey": "citta-di-bellinzona",
@@ -183,7 +183,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-29T21:52:24.302Z"
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona"
+        ],
+        "de": [
+          "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona"
+        ],
+        "fr": [
+          "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona",
+        "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona",
+        "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
+      ]
     }
   ]
 }
