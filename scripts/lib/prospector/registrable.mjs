@@ -71,6 +71,31 @@ export function tenantLabel(raw = '') {
 }
 
 /**
+ * Il pathname di un URL, decodificato quando si puo'.
+ *
+ * `decodeURIComponent` LANCIA su un escape percentuale non valido, e i siti che
+ * il loop visita ne sono pieni: un `%E9` Latin-1 su una pagina qualsiasi basta.
+ * Misurato in produzione: un solo link malformato su un solo datore ha ucciso
+ * l'intero stadio SYNTHESIZE con `URIError: URI malformed`.
+ *
+ * Il ripiego e' il path grezzo, non una stringa vuota: per riconoscere un
+ * percorso di carriera va benissimo, e perdere il path renderebbe invisibile il
+ * datore invece che solo un po' meno leggibile.
+ *
+ * @param {string|URL} urlOrPath
+ * @returns {string}
+ */
+export function safeDecodePath(urlOrPath) {
+  let raw = '';
+  try {
+    raw = typeof urlOrPath === 'string' ? new URL(urlOrPath).pathname : urlOrPath.pathname;
+  } catch {
+    raw = String(urlOrPath ?? '');
+  }
+  try { return decodeURIComponent(raw); } catch { return raw; }
+}
+
+/**
  * True when two hosts belong to the same organisation.
  *
  * @param {string} a
