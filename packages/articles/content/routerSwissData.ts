@@ -1312,6 +1312,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'irlanda-dublinanti-asilo-italia': { it: 'irlanda-dublinanti-asilo-italia', en: 'ireland-asylum-dubliners-italy', de: 'irland-dubliner-asyl-italien', fr: 'irlande-dublins-asile-italie' },
  'avs-prestazioni-uri-cassa': { it: 'avs-prestazioni-uri-cassa', en: 'ahv-benefits-uri-compensation', de: 'ahv-ergaenzungsleistungen-uri', fr: 'avs-prestazioni-uri-caisse' },
  'avs-prestazioni-complementari-uri': { it: 'avs-prestazioni-complementari-uri', en: 'avs-complementary-benefits-canton-uri', de: 'avs-zusatzleistungen-kanton-uri', fr: 'avs-prestations-complementaires-canton-uri' },
+ 'uri-settori-assunzione-retribuzioni': { it: 'uri-settori-assunzione-retribuzioni', en: 'uri-sectors-employment-compensation', de: 'uri-sektoren-beschaeftigung-verguetung', fr: 'uri-secteurs-emploi-remuneration' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

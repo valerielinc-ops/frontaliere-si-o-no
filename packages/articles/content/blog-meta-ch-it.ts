@@ -3859,6 +3859,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-uri.title': 'AVS e prestazioni complementari nel Canton Uri',
     'blog.article.avs-prestazioni-complementari-uri.excerpt': 'Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-uri.imageAlt': 'Paesaggio alpino con edificio amministrativo cantonale, simbolo della stabilità del sistema pensionistico del primo pilastro.',
+    'blog.article.uri-settori-assunzione-retribuzioni.title': 'Salari e mercato del lavoro in Uri',
+    'blog.article.uri-settori-assunzione-retribuzioni.excerpt': 'Come si determinano gli stipendi in Uri? Scopri settori, livelli di formazione, contratti collettivi, tassazione e previdenza nel cantone alpino svizzero.',
+    'blog.article.uri-settori-assunzione-retribuzioni.imageAlt': 'Professionisti al lavoro in un moderno ufficio alpino svizzero, con documenti di contratti di lavoro.',
 };
 
 export default blogMetaChIt;

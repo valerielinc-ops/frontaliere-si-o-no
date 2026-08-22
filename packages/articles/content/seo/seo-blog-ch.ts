@@ -50056,6 +50056,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-uri-settori-assunzione-retribuzioni': {
+    title: 'Salari e mercato del lavoro in Uri | Frontaliere Ticino',
+    description: 'Scopri come si determinano i salari in Uri: fattori economici, salari settoriali, tassazione, previdenza e contratti collettivi. Guida pratica per lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, determinano',
+    ogTitle: 'Salari e mercato del lavoro in Uri',
+    ogDescription: 'Guida completa al mercato del lavoro di Uri: scopri i fattori che determinano i salari, i settori occupazionali, come calcolare il netto da lordo, tassazione, previdenza e diritti. Informazioni pratiche per lavoratori e imprenditori.',
+    canonicalPath: '/articoli-svizzera/uri-settori-assunzione-retribuzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro in Uri",
+      "description": "Scopri come si determinano i salari in Uri: fattori economici, salari settoriali, tassazione, previdenza e contratti collettivi. Guida pratica per lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uri-settori-assunzione-retribuzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti al lavoro in un moderno ufficio alpino svizzero, con documenti di contratti di lavoro."
+      },
+      "datePublished": "2026-08-22T20:41:32+00:00",
+      "dateModified": "2026-08-22T20:41:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-settori-assunzione-retribuzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
