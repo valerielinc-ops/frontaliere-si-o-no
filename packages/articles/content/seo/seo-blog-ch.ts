@@ -48965,6 +48965,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-berna-rendita-lacune-contributive': {
+    title: 'AVS Cantone Berna: rendita, lacune e prestazioni',
+    description: 'Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantone, berna, rendita, lacune',
+    ogTitle: 'AVS Cantone Berna: rendita, lacune e prestazioni',
+    ogDescription: 'Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-berna-rendita-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS Cantone Berna: rendita, lacune e prestazioni",
+      "description": "Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-berna-rendita-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo del Cantone di Berna sede della cassa di compensazione del primo pilastro AVS."
+      },
+      "datePublished": "2026-08-22T02:05:16+00:00",
+      "dateModified": "2026-08-22T02:05:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-berna-rendita-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
