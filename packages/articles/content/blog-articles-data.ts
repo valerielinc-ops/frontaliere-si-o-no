@@ -31395,6 +31395,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'permesso-g-richiesta-completa',
+ category: 'pratico',
+ date: '2026-08-22T08:20:12.142Z',
+ image: '/images/blog/permesso-g-richiesta-completa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
