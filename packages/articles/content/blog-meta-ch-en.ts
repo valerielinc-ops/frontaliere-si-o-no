@@ -3784,6 +3784,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dimissioni-fondazione-beloved.title': 'Cascading resignation to the Beloved Foundation',
     'blog.article.dimissioni-fondazione-beloved.excerpt': 'The Foundation that manages 24 million francs for the victims of Crans-Montana is facing a governance crisis. Resignations of Swiss, French and Italian members raise questions about the transparency of aid distribution.',
     'blog.article.dimissioni-fondazione-beloved.imageAlt': 'Meeting room in a Swiss government building representing governance and public administration',
+    'blog.article.berna-avviare-attivita-commercio.title': 'Opening a business in Bern: registration and costs',
+    'blog.article.berna-avviare-attivita-commercio.excerpt': 'Legal forms, registration in the commercial register, administrative costs and social security obligations in the Canton of Bern',
+    'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Modern office building in central Bern with Swiss flag, representing business opening in Switzerland',
 };
 
 export default blogMetaChEn;
