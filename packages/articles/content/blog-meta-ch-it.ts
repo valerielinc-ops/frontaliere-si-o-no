@@ -3787,6 +3787,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Aprire un\'attività in Berna: registro e costi',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Forme giuridiche, iscrizione al registro commercio, costi amministrativi e obblighi di previdenza nel Cantone di Berna',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Edificio per uffici moderno nel centro di Berna con bandiera svizzera, simbolo di apertura attività commerciale',
+    'blog.article.mercato-berna-salari-formazione.title': 'Mercato del lavoro Berna: salari, formazione e previdenza',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'Nessun salario minimo federale svizzero. Scopri orari, contributi AVS/LPP, livelli salariali per formazione e contratti collettivi nel Canton Berna.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'Quartiere finanziario di Berna con professionisti e moderni edifici per uffici',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Permesso di dimora B Lucerna: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Guida pratica al permesso di dimora B nel cantone di Lucerna: durata, requisiti, documenti necessari, procedura di rinnovo e contatti dell\'ufficio cantonale della migrazione.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Moduli di richiesta e documenti presso l\'ufficio cantonale della migrazione di Lucerna',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permesso B Lucerna: requisiti e rinnovo',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Guida pratica al permesso di dimora B nel cantone di Lucerna: caratteristiche, procedura di richiesta, documenti necessari, durata e rinnovo. Istruzioni step-by-step.',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Ufficio della migrazione con documenti per il permesso di dimora B nel cantone di Lucerna',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'Assemblee UDC e Verdi, si discute dell\'iniziativa sulla neutralità',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'I delegati di UDC e dei Verdi si riuniscono oggi per discutere l\'iniziativa sulla neutralità e sull\'iniziativa sull\'alimentazione',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Delegati UDC e Verdi in assemblea',
 };
 
 export default blogMetaChIt;

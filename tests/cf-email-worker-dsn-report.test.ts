@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 // @ts-expect-error — Cloudflare Worker module, no types
-import worker, { isDeliveryStatusReport, parseDeliveryStatusReport } from '../infra/cloudflare-email-worker/stop-reply-handler.js';
+import worker, { isDeliveryStatusReport, classifyDeliveryStatusReport, parseDeliveryStatusReport } from '../infra/cloudflare-email-worker/stop-reply-handler.js';
 
 // Delivery reports (RFC 3464 bounces) arriving as INBOUND MAIL.
 //
@@ -92,6 +92,40 @@ const RFC3464_REPORT = [
   '--b1--',
 ].join('\n');
 
+// Adversarial case flagged by review on #6256 (tracked as #6264): a human
+// reply relayed through a non-conformant gateway that blanks the envelope
+// sender (Return-Path: <>), with a subject that happens to read like a
+// bounce, AND — the concrete way the quoted-headers fallback could be
+// tricked — a "forward as attachment" (message/rfc822) of the original
+// outreach mail, whose own `To:` is the company's real inbox. Top-level
+// Content-Type is multipart/mixed, never multipart/report, so this must
+// classify as 'ambiguous', not 'confirmed'.
+const HUMAN_FORWARD_WITH_ATTACHMENT = [
+  'Return-Path: <>',
+  'From: assistente@azienda.ch',
+  'To: abuse@frontaliereticino.ch',
+  'Subject: Mancata consegna del pacco, vi preghiamo di rimuoverci dalla lista',
+  'MIME-Version: 1.0',
+  `Content-Type: multipart/mixed; boundary="${BOUNDARY.slice(2)}"`,
+  '',
+  `--${BOUNDARY.slice(2)}`,
+  'Content-Type: text/plain; charset=UTF-8',
+  '',
+  'Buongiorno, in allegato la mail che ci era arrivata per errore. Non contattateci più.',
+  '',
+  `--${BOUNDARY.slice(2)}`,
+  'Content-Type: message/rfc822',
+  'Content-Disposition: attachment',
+  '',
+  'From: Frontaliere Ticino <valerie@frontaliereticino.ch>',
+  'To: info@azienda.ch',
+  'Subject: Collaborazione con Frontaliere Ticino',
+  '',
+  'Testo originale della nostra mail di outreach.',
+  '',
+  `--${BOUNDARY.slice(2)}--`,
+].join('\n');
+
 function fakeMessage({ from, to, subject, rawText = '', headers = {} }: { from: string; to: string; subject: string; rawText?: string; headers?: Record<string, string> }) {
   const bytes = new TextEncoder().encode(rawText);
   const headerMap = new Map(Object.entries({ subject, ...headers }).map(([k, v]) => [k.toLowerCase(), v]));
@@ -173,6 +207,42 @@ describe('isDeliveryStatusReport', () => {
   });
 });
 
+describe('classifyDeliveryStatusReport', () => {
+  const headers = (h: Record<string, string>) => ({ get: (name: string) => h[name.toLowerCase()] });
+
+  it('is confirmed for multipart/report and for a daemon sender with a bounce subject', () => {
+    expect(classifyDeliveryStatusReport(
+      headers({ 'content-type': 'multipart/report; boundary="x"' }),
+      '',
+      'Delivery Status Notification',
+    )).toBe('confirmed');
+    expect(classifyDeliveryStatusReport(
+      headers({ 'content-type': 'text/plain' }),
+      'MAILER-DAEMON@mx.example.net',
+      'Undeliverable: your message',
+    )).toBe('confirmed');
+  });
+
+  it('is only ambiguous for an empty envelope sender with a coincidental subject match', () => {
+    // The exact adversarial case from review on #6256 (#6264): blank
+    // Return-Path (non-conformant relay) + a subject that merely happens to
+    // read like a bounce, no multipart/report structure.
+    expect(classifyDeliveryStatusReport(
+      headers({ 'content-type': 'multipart/mixed; boundary="x"' }),
+      '',
+      'Mancata consegna del pacco, vi preghiamo di rimuoverci dalla lista',
+    )).toBe('ambiguous');
+  });
+
+  it('is none for an empty sender whose subject does not match', () => {
+    expect(classifyDeliveryStatusReport(
+      headers({ 'content-type': 'text/plain' }),
+      '',
+      'Ciao, possiamo sentirci domani?',
+    )).toBe('none');
+  });
+});
+
 describe('parseDeliveryStatusReport', () => {
   it('reads the bounced address from the quoted headers when delivery-status is empty', () => {
     const report = parseDeliveryStatusReport(SWISSCOM_REPORT);
@@ -210,6 +280,21 @@ describe('parseDeliveryStatusReport', () => {
     // caller must forward to a human instead of suppressing someone.
     const withoutQuoted = SWISSCOM_REPORT.split('Content-Type: text/rfc822-headers')[0];
     expect(parseDeliveryStatusReport(withoutQuoted).recipient).toBe('');
+  });
+
+  it('requireExplicitRecipient ignores the quoted-headers To: fallback', () => {
+    // Without the guard, a "forward as attachment" of our own outreach mail
+    // would have ITS To: read as a bounced recipient — the exact gap flagged
+    // by review on #6256 (#6264).
+    expect(parseDeliveryStatusReport(HUMAN_FORWARD_WITH_ATTACHMENT).recipient).toBe('info@azienda.ch');
+    expect(parseDeliveryStatusReport(
+      HUMAN_FORWARD_WITH_ATTACHMENT, undefined, { requireExplicitRecipient: true },
+    ).recipient).toBe('');
+    // A genuine explicit Final-Recipient field is still trusted even under
+    // the stricter mode — real RFC 3464 reports use it.
+    expect(parseDeliveryStatusReport(
+      RFC3464_REPORT, undefined, { requireExplicitRecipient: true },
+    ).recipient).toBe('mario.rossi@example.net');
   });
 });
 
@@ -292,6 +377,27 @@ describe('worker email() — delivery report branch', () => {
     await worker.email(message, ENV, fakeCtx());
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(message.forward).toHaveBeenCalledWith(ENV.FORWARD_TO);
+  });
+
+  it('forwards a human forward-as-attachment reply instead of mis-suppressing its attached recipient', async () => {
+    // Ambiguous DSN classification (blank envelope sender + coincidental
+    // subject) must NOT let the quoted message/rfc822 attachment's own To:
+    // be read as a bounced address and swallowed (#6264).
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal('fetch', fetchMock);
+    const message = fakeMessage({
+      from: '',
+      to: 'abuse@frontaliereticino.ch',
+      subject: 'Mancata consegna del pacco, vi preghiamo di rimuoverci dalla lista',
+      rawText: HUMAN_FORWARD_WITH_ATTACHMENT,
+      headers: { 'content-type': 'multipart/mixed; boundary="x"' },
+    });
+
+    await worker.email(message, ENV, fakeCtx());
+
+    const urls = fetchMock.mock.calls.map((c) => c[0]);
+    expect(urls).not.toContain(ENV.BOUNCE_REPORT_FN_URL);
     expect(message.forward).toHaveBeenCalledWith(ENV.FORWARD_TO);
   });
 

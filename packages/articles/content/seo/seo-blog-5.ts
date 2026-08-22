@@ -74483,6 +74483,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-doppio-sistema-pensione-frontaliere': {
+    title: 'Calcolo pensione frontaliere: AVS + INPS | Frontaliere Ticino',
+    description: 'Come funziona la pensione per chi lavora in Svizzera e risiede in Italia: totalizzazione contributi, diritti acquisiti, nuovo accordo 2024. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, pensione, inps, funziona',
+    ogTitle: 'Calcolo pensione frontaliere: doppio sistema AVS+INPS',
+    ogDescription: 'La pensione del frontaliere combina AVS svizzero e INPS italiano tramite totalizzazione. Scopri come funziona il calcolo, i contributi, il nuovo accordo 2024 e le procedure per richiedere la pensione tra Svizzera e Italia.',
+    canonicalPath: '/articoli-frontaliere/doppio-sistema-pensione-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolo pensione frontaliere: AVS + INPS",
+      "description": "Come funziona la pensione per chi lavora in Svizzera e risiede in Italia: totalizzazione contributi, diritti acquisiti, nuovo accordo 2024. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/doppio-sistema-pensione-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con le Alpi sullo sfondo, che rappresenta il contesto transfrontaliero ticinese"
+      },
+      "datePublished": "2026-08-22T05:04:10+00:00",
+      "dateModified": "2026-08-22T05:04:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/doppio-sistema-pensione-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-22': {
+    title: 'Bollettino del frontaliere – 22 agosto 2026: 781 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 22 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 22 agosto 2026: 781 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 22 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-22',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 22 agosto 2026: 781 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 22 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-22.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 22 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-22T05:31:05+00:00",
+      "dateModified": "2026-08-22T05:31:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-22/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcolo-costo-auto-frontaliere': {
+    title: 'Quanto costa l\'auto per il pendolare Ticino | Frontaliere Ticino',
+    description: 'Costi auto pendolare Ticino-Italia: benzina, vignette, parcheggio, usura. Scopri come calcolare la spesa e confronta con treno e autobus. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, costa, auto, pendolare',
+    ogTitle: 'Quanto costa l\'auto per il pendolare Ticino',
+    ogDescription: 'Il pendolare Ticino che usa l\'auto affronta costi mensili per benzina, vignette, parcheggio e usura. Scopri come calcolare il totale, confronta scenari, e valuta se conviene il treno. Guida pratica con calcolatore.',
+    canonicalPath: '/articoli-frontaliere/calcolo-costo-auto-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto costa l'auto per il pendolare Ticino",
+      "description": "Costi auto pendolare Ticino-Italia: benzina, vignette, parcheggio, usura. Scopri come calcolare la spesa e confronta con treno e autobus. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-costo-auto-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto moderna che percorre una strada di montagna in Ticino verso il confine italiano in una valle alpina nebbiosa."
+      },
+      "datePublished": "2026-08-22T05:49:01+00:00",
+      "dateModified": "2026-08-22T05:49:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcolo-costo-auto-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-detrazioni-mediche-frontaliere': {
+    title: 'Detrazioni mediche per frontalieri in Italia | Frontaliere Ticino',
+    description: 'Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, limiti detrazioni. Procedure pratiche per frontalieri con permesso G. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, detrazioni, mediche, spese, sanitarie',
+    ogTitle: 'Spese sanitarie frontaliere: rimborsi e detrazioni',
+    ogDescription: 'Scopri come farsi rimborsare le spese mediche sostenute in Svizzera se sei frontaliere residente in Italia: LAMal, franchiga CHF 300–2\'500, detrazioni IRPEF e procedure INPS.',
+    canonicalPath: '/articoli-frontaliere/detrazioni-mediche-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detrazioni mediche per frontalieri in Italia",
+      "description": "Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, limiti detrazioni. Procedure pratiche per frontalieri con permesso G. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/detrazioni-mediche-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ricetta medica e tessera assicurazione sanitaria su una scrivania con stetoscopio, paesaggio canton Ticino visibile di sfondo"
+      },
+      "datePublished": "2026-08-22T06:57:44+00:00",
+      "dateModified": "2026-08-22T06:57:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/detrazioni-mediche-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stagionale-ticino-diritti-permesso-g': {
+    title: 'Lavoro stagionale Ticino: regole, permesso G e diritti',
+    description: 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, stagionale, regole, permesso',
+    ogTitle: 'Lavoro stagionale Ticino: regole, permesso G e diritti',
+    ogDescription: 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
+    canonicalPath: '/articoli-frontaliere/stagionale-ticino-diritti-permesso-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro stagionale Ticino: regole, permesso G e diritti",
+      "description": "Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stagionale-ticino-diritti-permesso-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che attraversano il valico di confine Ticino-Italia al mattino presto durante l'orario di lavoro"
+      },
+      "datePublished": "2026-08-22T07:15:30+00:00",
+      "dateModified": "2026-08-22T07:15:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stagionale-ticino-diritti-permesso-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

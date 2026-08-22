@@ -10468,6 +10468,23 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Vivere a Charvensod e lavorare in Vallese da frontaliere: cosa cambia',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Il nuovo accordo fiscale tra Italia e Svizzera: come influisce sulla vita dei frontalieri',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Un frontaliere che vive a Charvensod e lavora in Vallese',
+    'blog.article.doppio-sistema-pensione-frontaliere.title': 'Calcolo pensione frontaliere: AVS + INPS',
+    'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'Come funziona la pensione per chi lavora in Svizzera e risiede in Italia: totalizzazione contributi, diritti acquisiti, nuovo accordo 2024.',
+    'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'Vista di Lugano con le Alpi sullo sfondo, che rappresenta il contesto transfrontaliero ticinese',
+    'blog.article.bollettino-frontaliere-2026-08-22.title': 'Bollettino del frontaliere – 22 agosto 2026: 781 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-22.excerpt': 'I numeri di oggi, 22 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'I numeri del giorno per i frontalieri – 22 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Bollettino frontalieri del 22 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'I numeri del 22 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'Quanto costa l\'auto per il pendolare Ticino',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Tutti i costi dell\'auto per il pendolare Ticino-Italia: benzina, vignette, parcheggio, usura, assicurazione. Scopri come calcolare la spesa totale e confronta con treno e bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Auto moderna che percorre una strada di montagna in Ticino verso il confine italiano in una valle alpina nebbiosa.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Detrazioni mediche per frontalieri in Italia',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Spese sanitarie Svizzera-Italia: franchiga LAMal, rimborso INPS, detrazioni IRPEF. Procedure pratiche e limiti annuali per frontalieri.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Ricetta medica e tessera assicurazione sanitaria su una scrivania con stetoscopio, paesaggio canton Ticino visibile di sfondo',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Lavoro stagionale Ticino: regole, permesso G e diritti',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Frontalieri che attraversano il valico di confine Ticino-Italia al mattino presto durante l\'orario di lavoro',
 };
 
 export default blogMetaIt;

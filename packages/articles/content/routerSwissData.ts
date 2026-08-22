@@ -1288,6 +1288,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esercito-bilancio-misure-violenza': { it: 'esercito-bilancio-misure-violenza', en: 'swiss-army-violence-prevention-interim-report', de: 'schweizer-armee-gewaltpraevention-bilanz', fr: 'armee-suisse-rapport-mesures-violence' },
  'dimissioni-fondazione-beloved': { it: 'dimissioni-fondazione-beloved', en: 'beloved-foundation-resignations', de: 'beloved-stiftung-ruecktritt', fr: 'fondation-beloved-demissions' },
  'berna-avviare-attivita-commercio': { it: 'berna-avviare-attivita-commercio', en: 'starting-business-bern-switzerland', de: 'geschaeftsgruendung-bern-schweiz', fr: 'demarrer-activite-berne-suisse' },
+ 'mercato-berna-salari-formazione': { it: 'mercato-berna-salari-formazione', en: 'bern-labour-market-salaries-training', de: 'arbeitsmarkt-bern-loehne-ausbildung', fr: 'marche-travail-berne-salaires-formation' },
+ 'permesso-dimora-b-lucerna-rinnovo-procedura': { it: 'permesso-dimora-b-lucerna-rinnovo-procedura', en: 'residence-permit-b-lucerne-renewal-procedure', de: 'aufenthaltserlaubnis-b-luzern-verlaengerung-verfahren', fr: 'permis-sejour-b-lucerne-renouvellement-procedure' },
+ 'permesso-b-lucerna-requisiti-rinnovo': { it: 'permesso-b-lucerna-requisiti-rinnovo', en: 'lucerne-residence-permit-b-requirements-renewal', de: 'aufenthaltserlaubnis-b-luzern-anforderungen-verlaengerung', fr: 'permis-de-sejour-b-lucerne-conditions-renouvellement' },
+ 'udc-verdi-iniziativa-neutralita': { it: 'udc-verdi-iniziativa-neutralita', en: 'udc-verdi-iniziativa-neutralita-en', de: 'udc-gruene-iniziativa-neutralita-de', fr: 'udc-verdi-iniziativa-neutralita-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

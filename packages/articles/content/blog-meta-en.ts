@@ -10467,6 +10467,23 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Living in Charvensod and working in Valais as a border worker: what changes',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'The new tax agreement between Italy and Switzerland: how it affects the lives of border workers',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'A frontaliere living in Charvensod and working in Valais',
+    'blog.article.doppio-sistema-pensione-frontaliere.title': 'Border pension calculation: AVS + INPS',
+    'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'How the pension works for those who work in Switzerland and reside in Italy: total contributions, acquired rights, new 2024 agreement.',
+    'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'View of Lugano with Alps in the background, representing the cross-border Ticino context',
+    'blog.article.bollettino-frontaliere-2026-08-22.title': 'Cross-border daily brief – August 22, 2026: 781 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-22.excerpt': 'Today\'s numbers, August 22, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'The day\'s numbers for cross-border commuters – August 22, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Cross-border brief, August 22, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'The numbers for August 22, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'How much does the car cost for the Ticino commuter',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'All car costs for the Ticino-Italy commuter: petrol, cartoons, parking, wear and tear, insurance. Learn how to calculate total spend and compare with train and bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Modern car driving on a mountain road in Ticino towards the Italian border through a misty alpine valley.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Medical deductions for border workers in Italy',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Switzerland-Italy health expenses: LAMal deductible, INPS reimbursement, personal income tax deductions. Practical procedures and annual limits for border workers.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Medical prescription and health insurance card on desk with stethoscope, Swiss canton landscape visible through window',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Ticino Seasonal Work: Rules, G Permit and Rights',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'From 2024, the new tax agreement reforms taxes and refunds for border workers. Rules for G leave, taxation and rights in seasonal work in Ticino.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Commuters crossing the Swiss-Italian border checkpoint in Ticino during morning rush hours',
 };
 
 export default blogMetaEn;

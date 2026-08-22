@@ -3787,6 +3787,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Ouvrir une entreprise à Berne : registre et coûts',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Formes juridiques, inscription au registre du commerce, frais administratifs et obligations de prévoyance dans le canton de Berne',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Immeuble de bureaux moderne au centre de Berne avec drapeau suisse, symbole de création d\'activité',
+    'blog.article.mercato-berna-salari-formazione.title': 'Marché du travail Berne : salaires, formation et prévoyance',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'Pas de salaire minimum fédéral suisse. Découvrez les horaires, les cotisations AVS/LPP, les niveaux de salaire pour la formation et les conventions collectives dans le canton de Berne.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'District financier de Berne avec des professionnels entre immeubles modernes',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Permis de séjour B Lucerne : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Guide pratique du permis de séjour B dans le canton de Lucerne : durée, exigences, documents nécessaires, procédure de renouvellement et contacts de l\'office cantonal des migrations.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Formulaires de demande de permis au bureau de migration du canton de Lucerne',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permis B Lucerne : exigences et renouvellement',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Guide pratique du permis de séjour B dans le canton de Lucerne : caractéristiques, procédure de demande, documents nécessaires, durée et renouvellement. Instructions étape par étape.',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Bureau de migration avec documents pour permis de séjour B au canton de Lucerne',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'Assemblées UDC et Verts, on discute de l\'initiative sur la neutralité',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'Les délégués de l\'UDC et des Verts se réunissent aujourd\'hui pour discuter de l\'initiative sur la neutralité et l\'initiative sur l\'alimentation',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Délégués UDC et Verts en assemblée',
 };
 
 export default blogMetaChFr;

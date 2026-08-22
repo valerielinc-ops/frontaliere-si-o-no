@@ -3787,6 +3787,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Opening a business in Bern: registration and costs',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Legal forms, registration in the commercial register, administrative costs and social security obligations in the Canton of Bern',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Modern office building in central Bern with Swiss flag, representing business opening in Switzerland',
+    'blog.article.mercato-berna-salari-formazione.title': 'Labour market Bern: wages, training and social security',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'No Swiss federal minimum wage. Discover timetables, AVS/LPP contributions, salary levels for training and collective agreements in the Canton of Bern.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'Bern\'s financial district with professionals and modern office buildings',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Residence permit B Lucerne: requirements and renewal',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Practical guide to residence permit B in the canton of Lucerne: duration, requirements, necessary documents, renewal procedure and contacts of the cantonal migration office.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Residence permit application forms at Lucerne canton migration office',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Permit B Lucerne: requirements and renewal',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Practical guide to residence permit B in the canton of Lucerne: characteristics, application procedure, necessary documents, duration and renewal. Step-by-step instructions.',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Migration office with documents for B residence permit in Lucerne canton',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'UDC and Green Assemblies, the neutrality initiative is discussed',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'UDC and Green delegates meet today to discuss the neutrality initiative and the food initiative',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'UDC and Green delegates in assembly',
 };
 
 export default blogMetaChEn;

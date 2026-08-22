@@ -10466,6 +10466,23 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.title': 'Wohnen in Charvensod und Arbeiten im Wallis als Grenzgänger: Was ändert sich',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.excerpt': 'Das neue Steuerabkommen zwischen Italien und der Schweiz: Wie es sich auf das Leben der Grenzgänger auswirkt',
     'blog.article.vivere-charvensod-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Frontalier, der in Charvensod lebt und in Wallis arbeitet',
+    'blog.article.doppio-sistema-pensione-frontaliere.title': 'Berechnung Grenzrente: AHV + INPS',
+    'blog.article.doppio-sistema-pensione-frontaliere.excerpt': 'Wie funktioniert die Rente für diejenigen, die in der Schweiz arbeiten und in Italien wohnen: Summe der Beiträge, erworbene Rechte, neue Vereinbarung 2024.',
+    'blog.article.doppio-sistema-pensione-frontaliere.imageAlt': 'Blick auf Lugano mit Alpen im Hintergrund, Symbol des Grenzgänger-Kontextes',
+    'blog.article.bollettino-frontaliere-2026-08-22.title': 'Grenzgänger-Tagesbulletin – 22. August 2026: 781 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-22.excerpt': 'Die Zahlen von heute, 22. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-22.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 22. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-22.seoDescription': 'Grenzgänger-Bulletin vom 22. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-22.ogDescription': 'Die Zahlen vom 22. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.calcolo-costo-auto-frontaliere.title': 'Was kostet das Auto für den Pendler Tessin',
+    'blog.article.calcolo-costo-auto-frontaliere.excerpt': 'Alle Kosten für das Auto für den Pendler Tessin-Italien: Benzin, Vignetten, Parken, Verschleiß, Versicherung. Finden Sie heraus, wie Sie die Gesamtausgaben berechnen und vergleichen Sie sie mit Zug und Bus.',
+    'blog.article.calcolo-costo-auto-frontaliere.imageAlt': 'Modernes Auto auf einer Bergstrasse im Tessin in Richtung italienische Grenze durch ein nebelhaftes Tal.',
+    'blog.article.detrazioni-mediche-frontaliere.title': 'Medizinische Abzüge für Grenzgänger in Italien',
+    'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Gesundheitskosten Schweiz-Italien: KVG-Franchise, INPS-Rückerstattung, IRPEF-Abzüge. Praktische Verfahren und jährliche Grenzwerte für Grenzgänger.',
+    'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Medizinisches Rezept und Krankenversicherungskarte auf einem Schreibtisch mit Stethoskop, Schweizer Kantonslandschaft im Hintergrund',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Saisonarbeit Tessin: Regeln, Erlaubnis G und Rechte',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Ab 2024 reformiert das neue Steuerabkommen Steuern und Erstattungen für Grenzgänger. Regeln für G-Genehmigung, Besteuerung und Rechte bei Saisonarbeit im Tessin.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Grenzpendler beim Überqueren des Grenzübergangs zwischen der Schweiz und Italien im Tessin am Morgen',
 };
 
 export default blogMetaDe;

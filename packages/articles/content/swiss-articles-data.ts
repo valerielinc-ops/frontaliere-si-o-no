@@ -11359,6 +11359,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-berna-salari-formazione',
+    category: 'pratico',
+    date: '2026-08-22T04:38:04.511Z',
+    image: '/images/blog/mercato-berna-salari-formazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'permesso-dimora-b-lucerna-rinnovo-procedura',
+    category: 'pratico',
+    date: '2026-08-22T06:02:17.642Z',
+    image: '/images/blog/permesso-dimora-b-lucerna-rinnovo-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'permesso-b-lucerna-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-22T06:47:41.905Z',
+    image: '/images/blog/permesso-b-lucerna-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'udc-verdi-iniziativa-neutralita',
+    category: 'fiscale',
+    date: '2026-08-22T07:06:10.468Z',
+    image: '/images/blog/udc-verdi-iniziativa-neutralita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

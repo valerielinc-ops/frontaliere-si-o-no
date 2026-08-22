@@ -3787,6 +3787,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.berna-avviare-attivita-commercio.title': 'Geschäft in Bern eröffnen: Register und Kosten',
     'blog.article.berna-avviare-attivita-commercio.excerpt': 'Rechtsformen, Handelsregistereintragung, Verwaltungskosten und Vorsorgepflichten im Kanton Bern',
     'blog.article.berna-avviare-attivita-commercio.imageAlt': 'Modernes Bürogebäude im Zentrum von Bern mit Schweizer Flagge, Symbol für Geschäftsgründung',
+    'blog.article.mercato-berna-salari-formazione.title': 'Arbeitsmarkt Bern: Löhne, Ausbildung und Vorsorge',
+    'blog.article.mercato-berna-salari-formazione.excerpt': 'Kein schweizerischer Bundesmindestlohn. Entdecken Sie Fahrpläne, AHV/BVG-Beiträge, Bildungslohnniveaus und Kollektivverträge im Kanton Bern.',
+    'blog.article.mercato-berna-salari-formazione.imageAlt': 'Geschäftsviertel von Bern mit Profis und modernen Bürogebäuden',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.title': 'Aufenthaltsbewilligung B Luzern: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton Luzern: Dauer, Voraussetzungen, erforderliche Unterlagen, Erneuerungsverfahren und Kontakte der kantonalen Migrationsstelle.',
+    'blog.article.permesso-dimora-b-lucerna-rinnovo-procedura.imageAlt': 'Aufenthaltserlaubnisformulare beim Migrationsamt Luzern',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.title': 'Ausweis B Luzern: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton Luzern: Eigenschaften, Antragsverfahren, erforderliche Unterlagen, Dauer und Erneuerung. Schritt-für-Schritt-Anleitung.',
+    'blog.article.permesso-b-lucerna-requisiti-rinnovo.imageAlt': 'Migrationsamt mit Dokumenten für B-Aufenthaltserlaubnis im Kanton Luzern',
+    'blog.article.udc-verdi-iniziativa-neutralita.title': 'SVP- und Grünen-Versammlungen, Neutralitätsinitiative diskutiert',
+    'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'Die Delegierten der SVP und der Grünen kommen heute zusammen, um die Neutralitäts- und Ernährungsinitiative zu diskutieren',
+    'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Delegierte UDC und Grüne in einer Versammlung',
 };
 
 export default blogMetaChDe;
