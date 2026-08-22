@@ -3826,6 +3826,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.title': 'Ouvrir une entreprise à Lucerne : registre du commerce et des coûts',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.excerpt': 'Exigences pour SÀRL, SA et les entreprises individuelles : capital minimum, frais d\'enregistrement (CHF 200–500), taxes et assurances obligatoires.',
     'blog.article.aprire-attivita-lucerna-registro-commercio-costi.imageAlt': 'Bureaux modernes à Lucerne avec le Chapel Bridge en arrière-plan',
+    'blog.article.mazzone-clima-consiglio-federale.title': 'Conseil fédéral muet sur le climat : Mazzone demande un cap',
+    'blog.article.mazzone-clima-consiglio-federale.excerpt': 'Verts critiques : le gouvernement a dépensé 900M pour l\'armée, zéro pour le climat. Lisa Mazzone demande la suppression du DETEC à Rösti et une priorité urgente.',
+    'blog.article.mazzone-clima-consiglio-federale.imageAlt': 'Vue panoramique de Lugano, symbole du débat climatique suisse',
 };
 
 export default blogMetaChFr;
