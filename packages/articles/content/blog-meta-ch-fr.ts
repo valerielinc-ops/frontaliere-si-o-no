@@ -3763,6 +3763,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-maghreb-reati-80-percento.title': 'Demandeurs d\'asile du Maghreb, 80 % sont impliqués dans des délits',
     'blog.article.asilo-maghreb-reati-80-percento.excerpt': '80,5 % des requérants du Maghreb ont été inculpés de délits. Le SEM accélère les procédures et conclut des accords avec le Maroc pour des retours plus rapides.',
     'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Vue aérienne du palais fédéral de Berne, siège du gouvernement suisse.',
+    'blog.article.discriminazioni-esercito-piano.title': 'Discriminations dans l\'armée : le plan suisse 2027',
+    'blog.article.discriminazioni-esercito-piano.excerpt': 'L\'armée suisse a mis en œuvre 8 des 16 mesures anti-discrimination. Plan complet d\'ici 2027. Analyse d\'impact prévue pour 2028.',
+    'blog.article.discriminazioni-esercito-piano.imageAlt': 'Caserne suisse avec des recrues en formation, environnement inclusif et discipliné.',
 };
 
 export default blogMetaChFr;
