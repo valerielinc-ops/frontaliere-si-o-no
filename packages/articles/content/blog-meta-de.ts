@@ -10522,6 +10522,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.notifica-multa-residente-italiano.title': 'Bußgeld in der Schweiz: So zahlt der italienische Einwohner',
     'blog.article.notifica-multa-residente-italiano.excerpt': 'Wenn Sie in Italien wohnhaft sind, erhalten Sie in der Schweiz ein Bußgeld: Wie funktioniert die Benachrichtigung, die Zahlung in CHF und die administrativen Rechtsbehelfe.',
     'blog.article.notifica-multa-residente-italiano.imageAlt': 'Strasse in Tessin mit Verkehrsschildern und Grenzverkehr im Kanton Tessin',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Reiseunfall: Grenzüberschreitender Schutz und Meldung',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Erfahren Sie, wie das UVG (0,7-1,5%) Arbeitsunfälle für Grenzgänger mit Bewilligung G zwischen Tessin und Italien deckt: Beschwerdeverfahren, Garantien und Rechte.',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Auto im Transit an der Grenzübergangsstelle Tessin-Italien auf der Autobahn am frühen Morgen',
 };
 
 export default blogMetaDe;

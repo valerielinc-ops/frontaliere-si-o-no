@@ -10523,6 +10523,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.notifica-multa-residente-italiano.title': 'Traffic fine in Switzerland: how the Italian resident pays',
     'blog.article.notifica-multa-residente-italiano.excerpt': 'If you are an Italian resident, you receive a traffic fine in Switzerland: how the notification, payment in CHF and administrative appeal rights work.',
     'blog.article.notifica-multa-residente-italiano.imageAlt': 'Ticinese road with traffic signs and border traffic in the Ticino Canton',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Travelling accident: border protection and reporting',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Find out how the LAINF (0.7-1.5%) covers accidents during the journey to work for border workers with a G permit between Ticino and Italy: complaint procedure, guarantees and rights.',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Car in transit at Ticino-Italy border checkpoint on highway during early morning',
 };
 
 export default blogMetaEn;

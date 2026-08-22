@@ -10524,6 +10524,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.notifica-multa-residente-italiano.title': 'Multa stradale in Svizzera: come paga il residente italiano',
     'blog.article.notifica-multa-residente-italiano.excerpt': 'Se residente italiano ricevi multa stradale in Svizzera: come funzionano la notifica, il pagamento in CHF e i diritti di ricorso amministrativo.',
     'blog.article.notifica-multa-residente-italiano.imageAlt': 'Strada ticinese con segnaletica stradale e traffico frontaliero nel Cantone Ticino',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.title': 'Infortunio in itinere: protezione e denuncia frontaliere',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.excerpt': 'Scopri come la LAINF (0,7–1,5%) copre gli infortuni durante il tragitto al lavoro per i frontalieri con permesso G tra Ticino e Italia: procedura denuncia, garanzie e diritti.',
+    'blog.article.infortunio-tragitto-lavoro-frontaliere.imageAlt': 'Auto in transito al valico di confine Ticino-Italia su autostrada durante la mattina presto',
 };
 
 export default blogMetaIt;
