@@ -3775,6 +3775,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.richiamo-uova-salmonella-migros.title': 'Migros egg recall: suspected salmonella contamination',
     'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Migros recalls Nostrani del Ticino eggs, code 1-CH-603, for salmonella risk. Here are the refund procedures for consumers.',
     'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Egg cartons at a Swiss supermarket',
+    'blog.article.avs-berna-rendita-lacune-contributive.title': 'AVS Canton Bern: annuity, gaps and benefits',
+    'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'First AVS pillar in the Canton of Bern: cantonal compensation fund, pension calculation, contribution gaps and benefits complementary to the minimum living allowance.',
+    'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Bern cantonal government office building housing the first pillar AVS compensation fund.',
 };
 
 export default blogMetaChEn;

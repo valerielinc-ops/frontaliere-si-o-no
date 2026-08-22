@@ -3775,6 +3775,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.richiamo-uova-salmonella-migros.title': 'Richiamo uova Migros: sospetta contaminazione salmonella',
     'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Migros richiama le uova Nostrani del Ticino, codice 1-CH-603, per rischio salmonella. Ecco le procedure di rimborso per i consumatori.',
     'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Confezioni di uova presso un supermercato svizzero',
+    'blog.article.avs-berna-rendita-lacune-contributive.title': 'AVS Cantone Berna: rendita, lacune e prestazioni',
+    'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'Primo pilastro AVS nel Cantone di Berna: cassa di compensazione cantonale, calcolo della rendita, lacune contributive e prestazioni complementari al minimo vitale.',
+    'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Edificio amministrativo del Cantone di Berna sede della cassa di compensazione del primo pilastro AVS.',
 };
 
 export default blogMetaChIt;

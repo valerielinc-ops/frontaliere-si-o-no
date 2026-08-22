@@ -3775,6 +3775,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.richiamo-uova-salmonella-migros.title': 'Rückruf Migros-Eier: Verdacht auf Salmonellenkontamination',
     'blog.article.richiamo-uova-salmonella-migros.excerpt': 'Die Migros ruft die Eier Nostrani del Ticino, Code 1-CH-603, wegen Salmonellengefahr zurück. Hier sind die Rückerstattungsverfahren für Verbraucher.',
     'blog.article.richiamo-uova-salmonella-migros.imageAlt': 'Eierpackungen in einem Schweizer Supermarkt',
+    'blog.article.avs-berna-rendita-lacune-contributive.title': 'AHV Kanton Bern: Rente, Lücken und Leistungen',
+    'blog.article.avs-berna-rendita-lacune-contributive.excerpt': 'Erste AHV-Säule im Kanton Bern: kantonale Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen zum Lebensminimum.',
+    'blog.article.avs-berna-rendita-lacune-contributive.imageAlt': 'Verwaltungsgebäude des Kantons Bern mit der Ausgleichskasse für das erste Säulenrentensystem AHV.',
 };
 
 export default blogMetaChDe;

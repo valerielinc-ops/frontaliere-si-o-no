@@ -1284,6 +1284,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'acquistare-abitazione-berna-ipotecario': { it: 'acquistare-abitazione-berna-ipotecario', en: 'buy-property-bern-mortgage', de: 'haus-kaufen-bern-hypothek', fr: 'acheter-propriete-berne-hypotheque' },
  'digitalizzazione-processi-competenze': { it: 'digitalizzazione-processi-competenze', en: 'digitalization-processes-skills', de: 'digitalisierung-prozesse-kompetenzen', fr: 'numerisation-processus-competences' },
  'richiamo-uova-salmonella-migros': { it: 'richiamo-uova-salmonella-migros', en: 'egg-recall-salmonella-migros', de: 'eier-rueckruf-salmonellen-migros', fr: 'rappel-oeufs-salmonelle-migros' },
+ 'avs-berna-rendita-lacune-contributive': { it: 'avs-berna-rendita-lacune-contributive', en: 'avs-bern-pension-contribution-gaps', de: 'avs-bern-rente-beitragslucken', fr: 'avs-berne-rente-lacunes-cotisations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

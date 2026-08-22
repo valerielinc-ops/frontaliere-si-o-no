@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 22 Aug 2026 01:28:58 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 02:05:16 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,66 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS Canton Bern: annuity, gaps and benefits</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/avs-bern-pension-contribution-gaps/</link>
+      <description><![CDATA[First AVS pillar in the Canton of Bern: cantonal compensation fund, pension calculation, contribution gaps and benefits complementary to the minimum living allowance.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- The cantonal clearing house manages the first AVS pillar in the Canton of Bern
+- Contribution gaps reduce the final income, but can be partially recovered
+- Supplementary benefits guarantee the minimum life for beneficiaries below the threshold
+- AVS/AI/IPG contributions: 5.3% paid by the employee, 10.6% total with employer
+
+## Key facts
+- **What**: Cantonal Compensation Fund that manages the first AVS pillar
+- Who: UFAS/BSV (federal) coordinates, Cassa Cantonale Bern administers
+- When: From insurance registration until the reference age (65 years)
+- Where: Canton of Bern, Switzerland
+- Amount: 5.3% of contribution paid by the employee on each salary
+
+The first pillar of old-age and survivors' insurance (AVS) is the foundation of Swiss social security. In the Canton of Bern, as in all Swiss cantons, a cantonal compensation fund collects contributions from employers and employees, records them in the individual insurance account, and calculates pensions upon reaching the reference age.
+
+The UFAS (Federal Office of Social Insurance, designated as BSV in the official Germanic nomenclature) coordinates the system at the national level according to uniform regulations, while the cantonal fund of Bern manages the local administration and the payment of benefits. For each franc of salary, the employee pays 5.3% and the employer pays the same
+### The calculation of the annuity and the impact of contribution gaps
+
+When an insured reaches the reference age and submits a pension application to the cantonal bank of Bern, it makes a precise calculation based on two key elements: the average income of the insured during the entire working life and the total number of years of full contribution.
+
+Contribution gaps do not clear spontaneously. If a specific year is missing a contribution, that gap remains permanently in the insurance account. The compensation fund counts the gaps and subtracts them from the total of the considerable years of insurance. A person who has paid contributions for 40 years without interruption will receive a higher annuity than someone who has the same average income but only has 35 full years of contributions: the 5-year difference directly translates into a reduction in the monthly amount.
+
+There are, however, compensation mechanisms provided for by federal law. For example, periods of training after the age of 20 can be counted as years of contribution even without actual payment. Unemployment insurance benefit periods are fully recognised. Periods of illness or injury, under certain conditions, do not generate gaps. The cantonal bank of Bern evaluates each situation according to federal provisions, since the AVS is federally regulated insurance: each canton applies the
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+Complementary benefits: when the pension is not enough to cover the minimum vital needs
+
+The AVS provides the first pillar of protection, but the pension may not always be enough to cover the minimum vital needs determined by the canton. This is where complementary benefits (CB) come in, also known as income supplements. If the AVS pension of a person falls below the threshold of need set by the Canton of Bern, the latter, in coordination with the compensation fund, provides complementary benefits. It is not social assistance in the traditional sense: it is a legal right for those who do not reach the minimum vital needs with the sole AVS pension, derived from federal legislation.
+
+Complementary benefits cover three distinct areas: ordinary living expenses (housing, food, clothing, essential items), uncovered medical expenses (for example, uncompensated health insurance deductibles not covered by the pension), and other specific needs related to disabilities or complex health situations.
+
+### Step-by-step procedure to access the benefits
+
+There is no automatic entitlement: those who are entitled must submit an explicit application. The operational steps are:
+
+1. Contact the compensation fund of the Canton of Bern as soon as you receive the final decision on your AVS pension. If the amount is particularly low, report it explicitly to the staff at the counter.
+
+2. Collect the required documentation: extract of the AVS insurance account (provided free of charge by the fund), official decision on the pension, copy of the residence permit or identity card if you are a foreign citizen, documentation of other income or assets if present.
+
+3. Submit the application to the Canton of Bern, usually to the regional office of complementary benefits. The address, forms, and instructions are available on the official website of the canton. Invite the office to download the documents from the compensation fund to streamline the process.
+
+4. Wait for the administrative investigation: the cantonal authorities verify the total income (AVS pension plus any other sources), calculate the threshold of need according to the official cantonal parameters, and determine the amount of the complementary benefit to which you are entitled.
+
+5. Receive the payment: if eligible, the complementary benefit is paid monthly, usually through automatic bank transfer.
+
+The entire process is not instantaneous: it usually takes 2-4 months from the submission of the application to the first payment. If the situation is urgent or difficult, you can request an advance on the estimated payments.
+
+### Tools and resources available
+
+To check the status of your AVS account before retirement, or to calculate a projection of your pension, the UFAS website offers an interactive pension calculator. It is free and allows you to understand if you will be eligible for complementary benefits before reaching the reference age. In addition, the Canton of Bern makes available expert consultants who can guide you step by step through the application process. The official guide to Swiss social security explains the mechanisms in detail and refers to local contacts specific to Bern. Do not delay the request: the sooner you move, the sooner you will receive the benefits that are legally yours.]]></content:encoded>
+      <pubDate>Sat, 22 Aug 2026 02:05:16 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avs-berna-rendita-lacune-contributive</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-berna-rendita-lacune-contributive.webp" medium="image"/>
+    </item>
     <item>
       <title>Migros egg recall: suspected salmonella contamination</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/egg-recall-salmonella-migros/</link>
@@ -2922,78 +2982,6 @@ The employer is responsible for regular contributions and withholding taxes. To 
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/permesso-l-cantone-appenzello-validita</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/permesso-l-cantone-appenzello-validita.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Permit C External Appenzello: requirements and application</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/residence-permit-c-appenzell-outer-rhodes-requirements/</link>
-      <description><![CDATA[Minimum residence, language integration and procedure for residence permit C in the north-eastern canton: time, documents and step-by-step.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Permit C requires 10 years residence (5 for EU/EFTA)
-- Main criterion: cultural integration and employment stability
-- Application to the cantonal migration office with complete documentation
-- Early release in exceptional cases (marriage, startup, public service)
-
-## Key facts
-- **What**: Residence permit C (permanent establishment)
-- Time requirement: 10 years (non-EU); 5 years (EU/EFTA)
-- Where: Canton of Outer Appenzell, Amt für Migration
-- Who: Resident foreigners, employees, self-employed, spouses of CH citizens
-- Integration: Employment stability, German language skills, criminal absence
-
-Residence permit C is the most stable residence permit for those who decide to reside permanently in Switzerland. In the canton of Appenzello Esterno, as in the other cantons, the release follows uniform federal criteria defined by the Secretariat of State for Migration (SEM), although administrative procedures remain cantonal competence.
-
-Unlike permit B (residence, renewable), permit C offers long-term legal stability as it is not subject to annual or biennial renewal. Those who reside permanently and meet the integration requirements can request a transfer from B to C at the cantonal migration office.
-
-### Minimum Duration of Residence
-
-The stay required varies depending on nationality:
-- Citizens of non-EU/EFTA States: normally 10 years of residence
-### The administrative procedure in the canton of Appenzello Esterno
-
-The application for a C permit must be submitted to the cantonal migration office (Departement Inneres, Amt für Migration). There is no federal procedure online: the application is paper or digital according to cantonal methods. The cantonal office instructs the file, acquires verification reports from the judicial police, the municipality of residence and the employer, then transmits the file to the SEM for opinion and formal approval.
-
-### Full documentation required
-
-The application typically includes: official cantonal form (available at the migration office or cantonal website), certificate of historical residence with certification of years of stay, copies of previous B permits, employment contract and pay slips or income certificate (last 2-3 years), certificate of the Swiss and foreign judicial police (no convictions), certificates of good conduct from abroad if applicable, letter of references from the employer, copy of passport or travel document, copy of current health insurance (LAMal).
-
-The cantonal office may request additional documentation (certificates of attendance at language courses, references from neighbours, extracts from foreign registries, asset declarations).
-
-### Examination times and accelerators
-
-The exam usually takes 3-6 months. There is no predefined federal legal term, so times vary
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-## How to submit the application: step-by-step procedure
-
-**Phase 1: Document collection** (2-3 weeks)
-Gather all the documentation listed. Check the precise list on the Appenzello Esterno migration office website, as administrative changes may occur. Requesting certificates in advance (police record, employer, place of residence) involves waiting but no cost. The Swiss police record certificate is requested from the cantonal police office of residence; the foreign one from the competent authorities of the country of citizenship (the Swiss consulate can assist).
-
-Phase 2: Filling out the form (1 week)
-The form must be filled out in German (official language of the canton). If you don't speak the language, you can request assistance from the migration office or a specialized consultant. A lawyer is not mandatory, but consulting can speed up the process and avoid formal errors.
-
-Phase 3: Submitting the application (1 day)
-The application must be submitted in person at the Amt für Migration (offices in Herisau or Teufen according to the place of residence) or sent by certified mail with return receipt. Check the opening hours on the official website of the canton. Keep the delivery receipt and the file number.
-
-Phase 4: Instructory phase (3-6 months)
-The office acquires information from the police, the municipality, the employer. The applicant may be summoned for an interview to verify integration criteria (interview conducted in German to verify language skills). It is advisable to maintain a stable address and contact during the investigation.
-
-Phase 5: Notification of the decision
-The decision is notified in writing. In case of approval, the C permit is issued within a few working days (usually 5-10 days). In case of motivated rejection, it is possible to appeal to the cantonal administration within 30 days of notification.
-
-## Practical tools for workers and residents
-
-For those who work or plan to settle permanently in Switzerland:
-- Salary calculator: Consult the [calculator](nav:calculator) to simulate the net income in the canton, compare taxation and social contributions (AVS/AHV, LPP/BVG, LAMal/KVG). This is useful for evaluating the economic sustainability of residence and preparing the tax declaration.
-- Health insurance: LAMal is mandatory for all residents. Subscribing to a [Swiss health fund](nav:health) within 3 months of arrival is essential: lack of coverage exposes to fines and retroactive costs.
-- Job search: Consult [job announcements](nav:jobs) in Switzerland to verify opportunities in the canton and desired sector.
-- Tax declaration: Prepare the [annual tax return](nav:tax-return) of federal, cantonal, and municipal taxes is essential to demonstrate fiscal and income stability during the examination of the C permit application.
-
-All information is available free of charge at the cantonal migration office, the SEM website (www.sem.admin.ch) and the official portals of the cantons. It is not necessary to resort to paid intermediaries.]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 00:38:18 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/permesso-c-appenzello-esterno-domanda</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/permesso-c-appenzello-esterno-domanda.webp" medium="image"/>
     </item>
   </channel>
 </rss>
