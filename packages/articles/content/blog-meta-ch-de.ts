@@ -3760,6 +3760,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cherosene-sintetico-aviazione.title': 'Luftfahrt: CO2 und Wasser werden zu synthetischem Kerosin',
     'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Aargau eröffnet Demonstrationszentrum für synthetisches Kerosin. Schweizer Fluggesellschaften müssen heute 2% nachhaltigen Treibstoff mischen und bis 2030 auf 6% ansteigen.',
     'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Demonstrationsanlage am Paul Scherrer Institut zur Herstellung von nachhaltigem Synthesekerosin im Aargau',
+    'blog.article.asilo-maghreb-reati-80-percento.title': 'Asylsuchende aus dem Maghreb, 80% sind an Straftaten beteiligt',
+    'blog.article.asilo-maghreb-reati-80-percento.excerpt': '80,5% der Antragsteller aus dem Maghreb wurden wegen Straftaten angeklagt. Das sem beschleunigt die Verfahren und schließt Vereinbarungen mit Marokko über schnellere Rückführungen.',
+    'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Luftaufnahme des Bundespalastes in Bern, Sitz der Schweizer Regierung.',
 };
 
 export default blogMetaChDe;

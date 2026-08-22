@@ -1279,6 +1279,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'richiesta-permesso-dimora-berna': { it: 'richiesta-permesso-dimora-berna', en: 'bern-residence-permit-b-request', de: 'bern-aufenthaltserlaubnis-b-antrag', fr: 'berne-demande-permis-sejour-b' },
  'svizzera-cina-accordo-tariffe': { it: 'svizzera-cina-accordo-tariffe', en: 'switzerland-china-tariff-deal', de: 'schweiz-china-zollabkommen', fr: 'suisse-chine-accord-tarifaire' },
  'cherosene-sintetico-aviazione': { it: 'cherosene-sintetico-aviazione', en: 'synthetic-kerosene-aviation', de: 'synthesekerosin-luftfahrt', fr: 'carburant-synthetique-aviation' },
+ 'asilo-maghreb-reati-80-percento': { it: 'asilo-maghreb-reati-80-percento', en: 'asylum-maghreb-crimes-80-percent', de: 'asyl-maghreb-straftaten-80-prozent', fr: 'asile-maghreb-crimes-80-pour-cent' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
