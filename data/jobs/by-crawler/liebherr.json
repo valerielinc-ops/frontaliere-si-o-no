@@ -6,10 +6,10 @@
       "id": "liebherr-3b249de087a0",
       "slug": "logistica-m-f-x-temporaneo-liebherr-bulle",
       "slugByLocale": {
-        "fr": "logisticien-h-f-x-temporaire-liebherr-bulle",
         "it": "logistica-m-f-x-temporaneo-liebherr-bulle",
         "en": "logisticsian-m-f-x-temporary-liebherr-bulle",
-        "de": "logistiker-m-w-x-vorubergehend-liebherr-bulle"
+        "de": "logistiker-m-w-x-vorubergehend-liebherr-bulle",
+        "fr": "logisticien-h-f-x-temporaire-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -50,6 +50,11 @@
       "jobReqId": "860910501",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "logisticien-h-f-x-temporaire-liebherr-bulle",
+        "logisticien-m-w-d-temporaire-liebherr-bulle",
+        "logistica-m-f-x-temporaneo-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "logisticien-h-f-x-temporaire-liebherr-bulle",
@@ -63,11 +68,7 @@
           "logisticien-h-f-x-temporaire-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "logisticien-h-f-x-temporaire-liebherr-bulle",
-        "logisticien-m-w-d-temporaire-liebherr-bulle",
-        "logistica-m-f-x-temporaneo-liebherr-bulle"
-      ],
+      "firstSeenAt": "2026-08-21T21:29:40.999Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -79,9 +80,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T21:29:40.999Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "liebherr-2fa417fcfecc",
@@ -100,7 +99,7 @@
         "it": "Junior Group Controller (m/f/d) 100%",
         "en": "Junior Group Controller (m/f/d) 100%",
         "de": "Junior Group Controller (m/w/d) 100%",
-        "fr": "Junior Group Controller (m/w/d) 100%"
+        "fr": "Contrôleur de groupe junior (h/f/d) 100%"
       },
       "description": "Aufgaben:\n• Fachlicher Prozessverantwortlicher für die systemseitige Abwicklung von Investitionsanträgen in der Liebherr – Investitionsprozess Applikation (LIP)\n• Unterstützung bei der Einhaltung der Investitionsrichtlinie hinsichtlich der Datenpflege weltweiter Investitionsanträge\n• Unterstützung bei der Erarbeitung von Präsentationen an das Top Management\n• Begleitung und Koordination des Finanzplanungsprozesses und Betreuung des Systems\n• Aktive Mitarbeit in Projekten, um Controlling-Prozesse, -Systeme und -Instrumente weiter zu entwickeln und konzernweit zu harmonisieren\n• Beteiligungscontrolling auf Basis von strategischen Kennzahlen\n• Durchführung von Abweichungsanalysen und Benchmarking Qualifikationen:\n• Erfolgreich abgeschlossenes Studium der Wirtschaftswissenschaften / Betriebsökonomie oder vergleichbares Studium an einer Universität / Fachhochschule\n• Idealerweise 1-3 Jahre Berufserfahrung im Controlling eines international ausgerichteten Konzerns oder in einer Wirtschaftsprüfungsgesellschaft\n• Sehr gute EDV-Kenntnisse, insbesondere Anwendungserfahrungen mit modernen BI-Tools\n• Systematische, eigenständige Arbeitsweise und Hands-on Mentalität\n• Analytische und konzeptionelle Denkweise sowie zielorientierter Arbeitsstil\n• Hohe Zahlenaffinität und ausgeprägtes Prozessverständnis\n• Sehr gute Englischkenntnisse; weitere Fremdsprachen wie z.B. Französisch, Spanisch wünschenswert\n• Teamplayer und sehr gute Kommunikationsfähigkeiten\n• Fähigkeit zur interkulturellen Zusammenarbeit und Kommunikation\n• Flexibilität und internationale Reisebereitschaft Unser Angebot: Können wir Sie begeistern, in einem dynamischen und unabhängigen Familienunternehmen eine verantwortungsvolle Aufgabe zu übernehmen? Wir bieten Ihnen Freiräume für Ideen, einen sicheren Arbeitsplatz, fortschrittliche und familienfreundliche Anstellungsbedingungen wie flexible Arbeitszeiten, Homeoffice sowie Weiterbildungsmöglichkeiten. Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Regina Abou el Naga. One Passion. Many Opportunities. Das Unternehmen ​ Die Liebherr-International AG mit Sitz in Bulle ist die Dachgesellschaft der Firmengruppe Liebherr und nimmt vielfältige Funktionen in den Bereichen Finanzen, Steuern, Revision, Recht, Versicherungswesen, Personal und Unternehmenskommunikation wahr. Die Firmengruppe Liebherr beschäftigt weltweit mehr als 55.000 Mitarbeitende in über 150 Gesellschaften. Standort Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Schweiz (CH) Kontakt Regina Abou el Naga Regina.abouelnaga@liebherr.com",
       "descriptionByLocale": {
@@ -132,7 +131,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-24T22:06:48.393Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 129000,
       "baseSalary": {
@@ -160,7 +158,7 @@
       "companyDomain": "liebherr.com",
       "title": "Operator Trainer (m/w/d)",
       "titleByLocale": {
-        "it": "Operator Trainer (m/w/d)",
+        "it": "Allenatore operatore (m/f/d)",
         "en": "Operator Trainer (m/f/d)",
         "de": "Operator Trainer (m/w/d)",
         "fr": "Opérateur Trainer (m/w/d)"
@@ -208,7 +206,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:47.736Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -373,7 +370,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.400Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -402,7 +398,7 @@
       "title": "Senior Process-/Org.-Developer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Process-/Org.-Sviluppatore (m/w/d)",
-        "en": "Senior Process-/Org.-Developer (m/w/d)",
+        "en": "Senior Process/Org. -Developer (m/f/d)",
         "de": "Senior Process-/Org.-Entwickler (m/w/d)",
         "fr": "Développeur principal (m/f/d)"
       },
@@ -455,7 +451,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.382Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -540,7 +535,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.401Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -569,7 +563,7 @@
       "title": "Candidature spontanée",
       "titleByLocale": {
         "it": "Applicazione spontanea",
-        "en": "Candidature spontanée",
+        "en": "Spontaneous application",
         "de": "Spontane Anwendung",
         "fr": "Candidature spontanée"
       },
@@ -624,7 +618,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.376Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -730,7 +723,7 @@
       "companyDomain": "liebherr.com",
       "title": "Group Senior Internal Auditor (m/w/d)",
       "titleByLocale": {
-        "it": "Group Senior Internal Auditor (m/w/d)",
+        "it": "Auditore interno senior di gruppo (m/f/d)",
         "en": "Group Senior Internal Auditor (m/f/d)",
         "de": "Group Senior Internal Auditor (m/w/d)",
         "fr": "Auditeur interne principal du groupe (m/f/d)"
@@ -948,7 +941,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.388Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1256,8 +1248,7 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "liebherr-7210a0d1b0c8",
@@ -1338,7 +1329,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.408Z",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
       "baseSalary": {
@@ -1591,7 +1581,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.367Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -1748,7 +1737,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1825,7 +1813,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.390Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -2103,7 +2090,7 @@
       "title": "Team Leader Logistique (h/f/x) - Projets, Packaging et Formation",
       "titleByLocale": {
         "it": "Capo squadra Logistique (h/f/x) - Projets, Packaging et Formation",
-        "en": "Team Leader Logistique (h/f/x) - Projets, Packaging et Formation",
+        "en": "Team Leader Logistics (m/f/x) - Projects, Packaging and Training",
         "de": "Teamleiter Logistik (m/w/x) - Projekte, Verpackung und Schulung",
         "fr": "Team Leader Logistique (h/f/x) - Projets, Packaging et Formation"
       },
@@ -2136,15 +2123,15 @@
       "jobReqId": "1428340633",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-20T21:32:27.423Z",
+      "previousSlugs": [
+        "team-leader-logistique-h-f-x-projets-packaging-et-formation-liebherr-bulle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "team-leader-logistique-h-f-x-projets-packaging-et-formation-liebherr-bulle"
         ]
       },
-      "previousSlugs": [
-        "team-leader-logistique-h-f-x-projets-packaging-et-formation-liebherr-bulle"
-      ],
+      "firstSeenAt": "2026-08-20T21:32:27.423Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2156,8 +2143,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "liebherr-60c62f20ed95",
@@ -2422,7 +2408,7 @@
         "it": "Risorse Umane Business Partner (m/w/d)",
         "en": "HR Business Partner (f/m/d)",
         "de": "Personalwesen Business Partner (m/w/d)",
-        "fr": "HR Business Partner (m/w/d)"
+        "fr": "Partenaire d'affaires RH (h/f/d)"
       },
       "description": "Aufgaben:\n• Als Sparring Partner für Führungskräfte in allen personalrelevanten Themen fungieren\n• Eigenverantwortlich den Recruiting-Prozess von Fachkräften steuern, inkl. der Korrespondenz mit den Bewerbern, Führen der Vorstellungsgespräche bis hin zur Einstellung und dem Onboarding der gewonnenen Talente\n• Professionelle Onboarding- und Offboarding-Prozesse sicherstellen\n• Personalentwicklungsthemen für einen bestimmten Betreuungsbereich vorantreiben und umsetzen\n• Administrative Tätigkeiten übernehmen, wie die Erstellung von Arbeitsverträgen, Bescheinigungen, Zeugnissen sowie Statistiken\n• Mitverantwortung für die monatliche Payroll\n• Sich aktiv in HR-Projekte und die Weiterentwicklung von HR-Instrumenten und Prozessen einbringen Qualifikation:\n• Fundierte HR-Ausbildung zum/zur HR-Fachfrau/HR-Fachmann mit eidg. Fachausweis sowie kaufmännischer Berufsabschluss\n• Mehrjährige HR-Erfahrung, idealerweise als HR Business Partner\n• Fundierte Kenntnisse im Schweizer Arbeitsrecht und Sozialversicherungswesen\n• Deutsch auf Muttersprachenniveau und sehr gute Englischkenntnisse erforderlich\n• sehr gute MS-Office Kenntnisse und erste Erfahrungen mit SuccessFactors\n• Erfahrung mit Social Media, Linkedin und Active Sourcing von Vorteil\n• Payroll Erfahrung von Vorteil\n• Kommunikative, offene Art, Empathie sowie eine von der Personalarbeit begeisterte Persönlichkeit\n• Sie arbeiten proaktiv, selbständig und sind gerne Teil eines motivierten Teams Unser Angebot: Können wir Sie begeistern, in einem dynamischen und unabhängigen Familienunternehmen eine verantwortungsvolle Aufgabe zu übernehmen? Wir bieten Ihnen Freiräume für Ideen, einen sicheren Arbeitsplatz, fortschrittliche und familienfreundliche Anstellungsbedingungen wie flexible Arbeitszeiten, Homeoffice sowie Weiterbildungsmöglichkeiten. Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Regina Abou el Naga. One Passion. Many Opportunities. Das Unternehmen ​ Die Liebherr-International AG mit Sitz in Bulle ist die Dachgesellschaft der Firmengruppe Liebherr und nimmt vielfältige Funktionen in den Bereichen Finanzen, Steuern, Revision, Recht, Versicherungswesen, Personal und Unternehmenskommunikation wahr. Die Firmengruppe Liebherr beschäftigt weltweit mehr als 55.000 Mitarbeitende in über 150 Gesellschaften. Standort Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Schweiz (CH) Kontakt Regina Abou el Naga regina.abouelnaga@liebherr.com",
       "descriptionByLocale": {
@@ -2487,7 +2473,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:32:53.595Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2650,7 +2635,6 @@
         "meccanico-diagnostico-m-f-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-07-01T22:41:15.857Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2755,7 +2739,7 @@
       "title": "Bid & Capture Manager Defense (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile Offerte e Acquisizioni Difesa (m/f/d)",
-        "en": "Bid & Capture Manager Defense (m/w/d)",
+        "en": "Bid and Capture Manager Defense (m/f/d)",
         "de": "Bid & Capture Manager Defense (m/w/d)",
         "fr": "Responsable Offres & Capture Défense (h/f/d)"
       },
@@ -2805,7 +2789,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:13:10.991Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2900,7 +2883,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.372Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -2983,7 +2965,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.406Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "baseSalary": {
@@ -3240,7 +3221,7 @@
       "title": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
       "titleByLocale": {
         "it": "Key Account Manager Area Rinnovabili/Energia Eolica (m/w/d)",
-        "en": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
+        "en": "Key Account Manager Renewable Energy/Wind Energy (m/f/d)",
         "de": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
         "fr": "Gestionnaire de comptes clé Énergie renouvelable/Energie éolienne (m/w/d)"
       },
@@ -3294,7 +3275,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.418Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3543,7 +3523,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.373Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -3627,7 +3606,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.372Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -3712,7 +3690,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -3883,7 +3860,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.378Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -3978,7 +3954,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.382Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "baseSalary": {
@@ -4064,7 +4039,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.407Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4169,7 +4143,7 @@
       "title": "Teamleader (h/f/x) Commodities",
       "titleByLocale": {
         "it": "Teamleader (h/f/x) Commodità",
-        "en": "Teamleader (h/f/x) Commodities",
+        "en": "Teamleader (m/f/x) Commodities",
         "de": "Teamleader (h/f/x) Rohstoffe",
         "fr": "Teamleader (h/f/x) Commodities"
       },
@@ -4217,7 +4191,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T23:02:06.674Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4310,7 +4283,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T23:02:06.608Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4633,7 +4605,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.365Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4707,8 +4678,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "liebherr-c44657dce6ee",
@@ -4724,7 +4694,7 @@
       "companyDomain": "liebherr.com",
       "title": "Operator Trainer (m/f/x)",
       "titleByLocale": {
-        "it": "Operator Trainer (m/f/x)",
+        "it": "Allenatore operatore (m/f/x)",
         "en": "Operator Trainer (m/f/x)",
         "de": "Operator Trainer (m/w/x)",
         "fr": "Opérateur Trainer (m/f/x)"
@@ -4772,7 +4742,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:06:23.724Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -4851,7 +4820,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:32:13.231Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5163,7 +5131,6 @@
         "specialista-tecnico-m-f-x-sicurezza-dei-prodotti-difesa-temporaneo-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.366Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -5249,7 +5216,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.364Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5323,8 +5289,7 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "liebherr-50d7814bbe0c",
@@ -5399,7 +5364,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.374Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -5427,7 +5391,7 @@
       "companyDomain": "liebherr.com",
       "title": "Group Senior Internal Auditor (m/f/d)",
       "titleByLocale": {
-        "it": "Group Senior Internal Auditor (m/f/d)",
+        "it": "Auditore interno senior di gruppo (m/f/d)",
         "en": "Group Senior Internal Auditor (m/f/d)",
         "de": "Gruppenleiter Interner Prüfer (m/w/d)",
         "fr": "Auditeur interne principal du groupe (m/f/d)"
@@ -5478,7 +5442,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:05:27.685Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -5554,7 +5517,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:12:45.831Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -5780,7 +5742,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T11:35:17.960Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -5810,7 +5771,7 @@
       "titleByLocale": {
         "it": "Diagnostica Meccatronica Tecnica (m/f/x)",
         "en": "Diagnostics Mechatronics (m/f/x)",
-        "de": "Diagnostics Mechatronics (m/f/x)",
+        "de": "Diagnose Mechatronik (m/w/x)",
         "fr": "Diagnostics Mechatronics Technicien (m/f/x)"
       },
       "description": "Your Responsibilities\n• You are responsible for troubleshooting and diagnosing complete engines and hydraulic components, as well as their individual parts, in collaboration with the mechanic colleagues\n• You analyze fault patterns, identify their root causes, and present them in a clear and comprehensible manner\n• You document your investigations in technical reports\n• You participate in internal and external meetings and provide technical support (e.g., Customer Service, Supplier Management, Research & Development) Your Profile\n• You have completed vocational training (EFZ/CFC) as a mechanic or mechatronics technician in the automotive, truck, construction machinery, or agricultural machinery sectors\n• You have advanced training as a diagnostic technician or are willing to obtain the diagnostic technician qualification\n• You have several years of professional experience and a strong affinity for diagnostics and root cause analysis\n• You have very good German, knowledge of English is an advantage, and knowledge of French is a plus\n• You are proficient in MS Office\n• You are proactive, reliable, responsible, and a commited team player Our offer Can we inspire you to take on a responsible position in a dynamic and independent family business? We offer you room for ideas, a secure job, modern and family-friendly employment conditions such as flexible working hours, home office, a company restaurant, training opportunities as well as many benefits. The workplace is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Start planning your personal and professional development with us. In order to ensure a fair application process, we cannot accept applications by post or email. This position is subject to a background check process; the process is conducted by our partner Aequivalent. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Anna KOMARDINA. One Passion. Many Opportunities. The company ​Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Anna KOMARDINA +41 26 913 31 11",
@@ -5862,7 +5823,6 @@
         "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle"
       ],
       "firstSeenAt": "2026-07-01T22:41:16.361Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5925,7 +5885,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-22T22:12:46.196Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -6071,7 +6030,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:10:08.557Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -6314,7 +6272,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.368Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
