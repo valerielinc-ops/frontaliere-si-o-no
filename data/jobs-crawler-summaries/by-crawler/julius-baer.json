@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-22T09:35:36.199Z",
-  "total": 73,
+  "generatedAt": "2026-08-22T21:25:37.396Z",
+  "total": 72,
   "newCount": 2,
   "updatedCount": 70,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 46595,
-  "avgDurationMs": 46595,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 45317,
+  "avgDurationMs": 45317,
   "durationHistory": [
-    46595
+    45317
   ],
   "newJobs": [
     {
@@ -1138,8 +1138,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Responsible---Integrator-SaaS-Trading-Solutions-100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19334",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Responsible---Integrator-SaaS-Trading-Solutions-100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19334",
@@ -1179,5 +1178,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
