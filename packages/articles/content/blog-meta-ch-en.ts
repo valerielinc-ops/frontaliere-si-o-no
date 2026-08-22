@@ -3841,6 +3841,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-uri-diritto-locazione.title': 'Uri Rentals: Right of Lease and Dispute',
     'blog.article.affitti-uri-diritto-locazione.excerpt': 'Security deposit, fee dispute, cancellation and conciliation authority: federal rules on leasing in canton Uri.',
     'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Rental agreement with house keys and pen on desk, professional photography',
+    'blog.article.guida-affitti-uri-locazione.title': 'Rentals in Uri: average fees and rental rights',
+    'blog.article.guida-affitti-uri-locazione.excerpt': 'Federal Rules on Security Deposit, Rent Dispute and Cancellation in Canton Uri. Practical guide to lease law.',
+    'blog.article.guida-affitti-uri-locazione.imageAlt': 'Typical Swiss residential rental building facade in Uri canton, street-level perspective',
 };
 
 export default blogMetaChEn;

@@ -3841,6 +3841,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-uri-diritto-locazione.title': 'Affitti Uri: diritto di locazione e contestazione',
     'blog.article.affitti-uri-diritto-locazione.excerpt': 'Deposito cauzionale, contestazione canone, disdetta e autorità di conciliazione: regole federali sulla locazione nel cantone Uri.',
     'blog.article.affitti-uri-diritto-locazione.imageAlt': 'Contratto di locazione con chiavi di casa e penna su scrivania, fotografia professionale',
+    'blog.article.guida-affitti-uri-locazione.title': 'Affitti a Uri: canoni medi e diritto di locazione',
+    'blog.article.guida-affitti-uri-locazione.excerpt': 'Regole federali su deposito di garanzia, contestazione del canone e disdetta nel cantone Uri. Guida pratica al diritto di locazione.',
+    'blog.article.guida-affitti-uri-locazione.imageAlt': 'Facciata di edificio residenziale svizzero per affitti nel cantone Uri, vista dalla strada',
 };
 
 export default blogMetaChIt;

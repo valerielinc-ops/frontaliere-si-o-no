@@ -1306,6 +1306,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-donazione-lucerna-guida': { it: 'imposta-successione-donazione-lucerna-guida', en: 'succession-donation-tax-lucerne-guide', de: 'erbschaftssteuer-schenkungssteuer-luzern-leitfaden', fr: 'impot-succession-donation-lucerne-guide' },
  'diritto-locazione-canton-uri': { it: 'diritto-locazione-canton-uri', en: 'tenant-rights-canton-uri', de: 'mietrecht-kanton-uri', fr: 'droit-du-logement-canton-uri' },
  'affitti-uri-diritto-locazione': { it: 'affitti-uri-diritto-locazione', en: 'uri-rental-law-tenants-rights', de: 'mietmarkt-uri-mietrecht-kautionsvertrag', fr: 'location-uri-droit-locataire-depot-garantie' },
+ 'guida-affitti-uri-locazione': { it: 'guida-affitti-uri-locazione', en: 'uri-rental-guide-tenancy-rights', de: 'mietleitfaden-uri-schutzbestimmungen', fr: 'guide-location-uri-droits-locataires' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
