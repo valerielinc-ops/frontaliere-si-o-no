@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-08-21T21:52:49.781Z",
+  "assembledAt": "2026-08-22T09:55:51.569Z",
   "jobs": [
     {
       "id": "coopers-4c65b0608cd3",
@@ -17,7 +17,7 @@
       "title": "IT Business Applications Consultant (proALPHA) (m/w/d)",
       "titleByLocale": {
         "it": "IT Business Applications Consulente (proALPHA) (m/w/d)",
-        "en": "IT Business Applications Consultant (proALPHA) (m/f/d)",
+        "en": "IT Business Applications Consultant (proALPHA) (m/w/d)",
         "de": "IT Business Applications Berater (proALPHA) (m/w/d)",
         "fr": "Consultant en Applications Business IT (proALPHA) (h/f/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:45.264Z",
+      "crawledAt": "2026-08-22T09:55:48.472Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,14 +65,17 @@
         ]
       },
       "previousSlugs": [
-        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
+        "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
+          "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:53.050Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -101,7 +104,7 @@
       "title": "DevOps Engineer Storage Backup (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Storage Backup (m/w/d)",
-        "en": "DevOps Engineer Storage Backup (m/f/d)",
+        "en": "DevOps Engineer Storage Backup (m/w/d)",
         "de": "DevOps Ingenieur Storage Backup (m/w/d)",
         "fr": "DevOps Ingénieur Storage Backup (m/w/d)"
       },
@@ -117,7 +120,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5NSJ30",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:44.388Z",
+      "crawledAt": "2026-08-22T09:55:47.524Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,11 +153,13 @@
         ]
       },
       "previousSlugs": [
-        "devops-engineer-storage-backup-m-w-d-coopers-bern"
+        "devops-engineer-storage-backup-m-w-d-coopers-bern",
+        "devops-ingegnere-storage-backup-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-storage-backup-m-w-d-coopers-bern"
+          "devops-engineer-storage-backup-m-w-d-coopers-bern",
+          "devops-ingegnere-storage-backup-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "devops-engineer-storage-backup-m-w-d-coopers-bern"
@@ -206,7 +211,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W6TR28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:43.465Z",
+      "crawledAt": "2026-08-22T09:55:46.643Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -237,11 +242,13 @@
         ]
       },
       "previousSlugs": [
-        "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel"
+        "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel",
+        "location-manager-in-basel-membro-della-direzione-avanzata-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel"
+          "standortleiter-in-basel-mitglied-der-erweiterten-geschaftsleitung-m-w-d-coopers-basel",
+          "location-manager-in-basel-membro-della-direzione-avanzata-m-w-d-coopers-group-ag-basel-stadt"
         ]
       },
       "needsRetranslation": true,
@@ -290,7 +297,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:42.603Z",
+      "crawledAt": "2026-08-22T09:55:45.745Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -337,12 +344,14 @@
         "lead-expeditor-m-f-d-coopers-wallis",
         "leiter-m-f-d-coopers-group-ag-wallis",
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis",
-        "engineering-planner-m-f-d-coopers-wallis"
+        "engineering-planner-m-f-d-coopers-wallis",
+        "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-wallis",
+          "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
@@ -356,6 +365,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -400,7 +410,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:41.660Z",
+      "crawledAt": "2026-08-22T09:55:44.811Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -431,11 +441,13 @@
         ]
       },
       "previousSlugs": [
-        "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+        "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+        "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+          "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+          "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -468,7 +480,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/f/d)",
+        "en": "AI Governance Manager (m/w/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -484,7 +496,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OL0A91",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:40.710Z",
+      "crawledAt": "2026-08-22T09:55:43.939Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -519,18 +531,21 @@
       },
       "previousSlugs": [
         "ai-governance-manager-in-m-w-d-coopers-bern",
-        "ai-governance-manager-m-w-d-coopers-bern"
+        "ai-governance-manager-m-w-d-coopers-bern",
+        "responsabile-della-governance-ai-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ai-governance-manager-in-m-w-d-coopers-bern",
-          "ai-governance-manager-m-w-d-coopers-bern"
+          "ai-governance-manager-m-w-d-coopers-bern",
+          "responsabile-della-governance-ai-m-f-d-coopers-group-ag-bern"
         ],
         "fr": [
           "ai-governance-manager-in-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-06-11T12:27:51.132Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -559,7 +574,7 @@
       "title": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Consulente (Service Desk Agent) (m/w/d)",
-        "en": "Customer Care Consultant (Service Desk Agent) (m/f/d)",
+        "en": "Customer Care Consultant (Service Desk Agent) (m/w/d)",
         "de": "Customer Care Berater (Service Desk Agent) (m/w/d)",
         "fr": "Consultant en soins à la clientèle (agent de service) (m/f/d)"
       },
@@ -575,7 +590,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=L3Y71M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:39.830Z",
+      "crawledAt": "2026-08-22T09:55:42.959Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -621,6 +636,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:27:39.678Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -649,7 +665,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -665,7 +681,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:38.090Z",
+      "crawledAt": "2026-08-22T09:55:41.167Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -729,7 +745,7 @@
       "title": "Senior Active Directory Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Active Directory Ingegnere (m/w/d)",
-        "en": "Senior Active Directory Engineer (m/f/d)",
+        "en": "Senior Active Directory Engineer (m/w/d)",
         "de": "Senior Active Directory Ingenieur (m/w/d)",
         "fr": "Senior Active Directory Ingénieur (m/w/d)"
       },
@@ -745,7 +761,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E6S38Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:37.214Z",
+      "crawledAt": "2026-08-22T09:55:40.222Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -778,11 +794,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-active-directory-engineer-m-w-d-coopers-aargau"
+        "senior-active-directory-engineer-m-w-d-coopers-aargau",
+        "senior-active-directory-ingegnere-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-active-directory-engineer-m-w-d-coopers-aargau"
+          "senior-active-directory-engineer-m-w-d-coopers-aargau",
+          "senior-active-directory-ingegnere-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -815,7 +833,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Security Officer:r (SiBe) 100% (m/f/d)",
+        "en": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -831,7 +849,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3MQ82W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:36.350Z",
+      "crawledAt": "2026-08-22T09:55:39.351Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -862,12 +880,14 @@
       },
       "previousSlugs": [
         "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau",
-        "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau"
+        "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau",
+        "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau",
-          "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau"
+          "sheq-manager-sicherheitsbeauftragte-r-sibe-100-m-w-d-coopers-aargau",
+          "sheq-manager-safety-officer-sibe-100-m-f-d-coopers-group-ag-aargau"
         ],
         "en": [
           "sheq-manager-sicherheitsbeauftragter-sibe-100-m-w-d-coopers-aargau"
@@ -877,6 +897,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:38:19.523Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -905,7 +926,7 @@
       "title": "Release Train Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Release Train Ingegnere (m/w/d)",
-        "en": "Release Train Engineer (m/f/d)",
+        "en": "Release Train Engineer (m/w/d)",
         "de": "Release Train Ingenieur (m/w/d)",
         "fr": "Release Train Ingénieur (m/w/d)"
       },
@@ -921,7 +942,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B4I17W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:35.497Z",
+      "crawledAt": "2026-08-22T09:55:38.479Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -953,14 +974,17 @@
         ]
       },
       "previousSlugs": [
-        "release-train-engineer-m-w-d-coopers-luzern"
+        "release-train-engineer-m-w-d-coopers-luzern",
+        "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "release-train-engineer-m-w-d-coopers-luzern"
+          "release-train-engineer-m-w-d-coopers-luzern",
+          "release-train-ingegnere-m-w-d-coopers-group-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-08-20T10:24:27.749Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "baseSalary": {
@@ -989,7 +1013,7 @@
       "title": "Senior DevOps Engineer AWS (m/w/d)",
       "titleByLocale": {
         "it": "Senior DevOps Ingegnere AWS (m/w/d)",
-        "en": "Senior DevOps Engineer AWS (m/f/d)",
+        "en": "Senior DevOps Engineer AWS (m/w/d)",
         "de": "Senior DevOps Ingenieur AWS (m/w/d)",
         "fr": "Senior DevOps Ingénieur AWS (m/w/d)"
       },
@@ -1005,7 +1029,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H6Y46A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:34.629Z",
+      "crawledAt": "2026-08-22T09:55:37.603Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1057,7 +1081,8 @@
         "senior-platform-engineer-kubernetes-openshift-m-w-d-coopers-bern",
         "senior-platform-ingenieur-kubernetes-openshift-m-w-d-coopers-group-ag-bern",
         "senior-devops-ingegnere-m-w-d-coopers-group-ag-bern",
-        "senior-data-engineer-financing-products-m-f-d-coopers-group-ag-bern"
+        "senior-data-engineer-financing-products-m-f-d-coopers-group-ag-bern",
+        "senior-devops-ingegnere-aws-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1079,7 +1104,8 @@
           "senior-platform-ingegnere-kubernetes-openshift-m-w-d-coopers-group-ag-bern",
           "senior-platform-engineer-kubernetes-openshift-m-w-d-coopers-bern",
           "senior-platform-ingenieur-kubernetes-openshift-m-w-d-coopers-group-ag-bern",
-          "senior-devops-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-devops-ingegnere-m-w-d-coopers-group-ag-bern",
+          "senior-devops-ingegnere-aws-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-data-engineer-financing-products-m-f-d-coopers-group-ag-bern",
@@ -1099,6 +1125,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:49:42.487Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "baseSalary": {
@@ -1143,7 +1170,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WN66X7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:33.769Z",
+      "crawledAt": "2026-08-22T09:55:36.664Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1175,15 +1202,18 @@
       },
       "previousSlugs": [
         "unternehmerische-fuhrungsposition-immobilien-100-m-w-d-coopers-basel-stadt",
-        "real-estate-management-clerk-m-f-d-coopers-group-ag-basel-stadt"
+        "real-estate-management-clerk-m-f-d-coopers-group-ag-basel-stadt",
+        "posizione-aziendale-immobiliare-100-m-f-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unternehmerische-fuhrungsposition-immobilien-100-m-w-d-coopers-basel-stadt",
-          "real-estate-management-clerk-m-f-d-coopers-group-ag-basel-stadt"
+          "real-estate-management-clerk-m-f-d-coopers-group-ag-basel-stadt",
+          "posizione-aziendale-immobiliare-100-m-f-d-coopers-group-ag-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-07-08T22:27:29.965Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1228,7 +1258,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3N22VU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:32.911Z",
+      "crawledAt": "2026-08-22T09:55:35.698Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1262,11 +1292,13 @@
         ]
       },
       "previousSlugs": [
-        "application-developer-java-php-m-f-d-coopers-basel-landschaft"
+        "application-developer-java-php-m-f-d-coopers-basel-landschaft",
+        "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-developer-java-php-m-f-d-coopers-basel-landschaft"
+          "application-developer-java-php-m-f-d-coopers-basel-landschaft",
+          "sviluppatore-di-applicazioni-java-php-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "de": [
           "application-developer-java-php-m-f-d-coopers-basel-landschaft"
@@ -1276,6 +1308,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:28:45.542Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "baseSalary": {
@@ -1320,7 +1353,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=TM58E9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:32.048Z",
+      "crawledAt": "2026-08-22T09:55:34.829Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1351,11 +1384,13 @@
         ]
       },
       "previousSlugs": [
-        "backend-python-engineer-m-f-d-coopers-genf"
+        "backend-python-engineer-m-f-d-coopers-genf",
+        "backend-python-ingegnere-m-f-d-coopers-group-ag-genf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backend-python-engineer-m-f-d-coopers-genf"
+          "backend-python-engineer-m-f-d-coopers-genf",
+          "backend-python-ingegnere-m-f-d-coopers-group-ag-genf"
         ],
         "de": [
           "backend-python-engineer-m-f-d-coopers-genf"
@@ -1365,6 +1400,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:12:32.718Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -1393,7 +1429,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -1409,7 +1445,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:31.191Z",
+      "crawledAt": "2026-08-22T09:55:33.876Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1441,16 +1477,20 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ],
         "de": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ]
       },
       "previousSlugs": [
-        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+        "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -1480,7 +1520,7 @@
       "title": "Monitoring & Alerting Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Zabbix Ingegnere (m/w/d)",
-        "en": "Monitoring and Alerting Engineer (m/f/d)",
+        "en": "Monitoring & Alerting Engineer (m/w/d)",
         "de": "Monitoring & Alerting Ingenieur (m/w/d)",
         "fr": "Zabbix Ingénieur (m/w/d)"
       },
@@ -1496,7 +1536,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C05OD2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:30.327Z",
+      "crawledAt": "2026-08-22T09:55:32.926Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1534,12 +1574,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "monitoring-alerting-engineer-m-w-d-coopers-bern"
+          "monitoring-alerting-engineer-m-w-d-coopers-bern",
+          "zabbix-engineer-m-w-d-coopers-bern"
         ],
         "it": [
           "zabbix-engineer-m-w-d-coopers-bern",
           "monitoring-alerting-engineer-m-w-d-coopers-bern",
-          "test-ingegnere-m-w-d-coopers-group-ag-bern"
+          "test-ingegnere-m-w-d-coopers-group-ag-bern",
+          "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "zabbix-engineer-m-w-d-coopers-bern"
@@ -1551,9 +1593,11 @@
       "previousSlugs": [
         "zabbix-engineer-m-w-d-coopers-bern",
         "monitoring-alerting-engineer-m-w-d-coopers-bern",
-        "test-ingegnere-m-w-d-coopers-group-ag-bern"
+        "test-ingegnere-m-w-d-coopers-group-ag-bern",
+        "zabbix-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-07-10T10:28:37.373Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -1582,7 +1626,7 @@
       "title": "Salesforce Application Manager (Fully Remote) (m/w/d)",
       "titleByLocale": {
         "it": "Salesforce Application Manager (remote) (m/f/d)",
-        "en": "Salesforce Application Manager (Fully Remote) (m/f/d)",
+        "en": "Salesforce Application Manager (Fully Remote) (m/w/d)",
         "de": "Salesforce Application Manager (Fully Remote) (m/w/d)",
         "fr": "Gestionnaire de l'application de Salesforce (à distance) (m/f/d)"
       },
@@ -1598,7 +1642,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9AR78X",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:29.483Z",
+      "crawledAt": "2026-08-22T09:55:31.962Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1660,7 +1704,7 @@
       "title": "Senior SAP WM/MM Consultant (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP WM/MM Consulente (m/w/d)",
-        "en": "Senior SAP WM/MM Consultant (m/f/d)",
+        "en": "Senior SAP WM/MM Consultant (m/w/d)",
         "de": "Senior SAP WM/MM Berater (m/w/d)",
         "fr": "Consultant principal SAP WM/MM (m/f/d)"
       },
@@ -1676,7 +1720,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=617PKZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:28.616Z",
+      "crawledAt": "2026-08-22T09:55:31.084Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1709,14 +1753,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-sap-wm-mm-consultant-m-w-d-coopers-bern"
+        "senior-sap-wm-mm-consultant-m-w-d-coopers-bern",
+        "senior-sap-wm-mm-consulente-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sap-wm-mm-consultant-m-w-d-coopers-bern"
+          "senior-sap-wm-mm-consultant-m-w-d-coopers-bern",
+          "senior-sap-wm-mm-consulente-m-w-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-08-06T11:47:02.730Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1761,7 +1808,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:27.747Z",
+      "crawledAt": "2026-08-22T09:55:30.093Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1794,11 +1841,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+        "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+          "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
@@ -1837,7 +1886,7 @@
       "title": "Senior SAP BCS/4HANA Consultant (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP BCS/4HANA Consulente (m/w/d)",
-        "en": "Senior SAP BCS/4HANA Consultant (m/f/d)",
+        "en": "Senior SAP BCS/4HANA Consultant (m/w/d)",
         "de": "Senior SAP BCS/4HANA Berater (m/w/d)",
         "fr": "Conseiller principal SAP BCS/4HANA (m/f/d)"
       },
@@ -1853,7 +1902,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42QOW9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:26.901Z",
+      "crawledAt": "2026-08-22T09:55:29.114Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1888,19 +1937,22 @@
       "previousSlugs": [
         "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
         "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
-        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf"
+        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf",
+        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
           "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
-          "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf"
+          "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf",
+          "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern"
         ],
         "de": [
           "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-08-04T11:40:23.949Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1929,7 +1981,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
+        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -1945,7 +1997,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:26.055Z",
+      "crawledAt": "2026-08-22T09:55:28.147Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1990,7 +2042,8 @@
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern",
         "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
         "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
-        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern"
+        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern",
+        "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1998,7 +2051,8 @@
           "projectmanagement-officer-pmo-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
-          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern"
+          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
+          "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
@@ -2014,6 +2068,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2042,7 +2097,7 @@
       "title": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP Banking & Payment Architetto (EBICS & ISO 20022) (m/w/d)",
-        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/f/d)",
+        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "de": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "fr": "Senior SAP Banking & Payment Architecte (EBICS & ISO 20022) (m/w/d)"
       },
@@ -2058,7 +2113,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BG26A",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:25.179Z",
+      "crawledAt": "2026-08-22T09:55:27.218Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2137,7 +2192,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P5J50Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:24.317Z",
+      "crawledAt": "2026-08-22T09:55:26.052Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2171,6 +2226,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:18:31.261Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2215,7 +2271,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B994FQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:23.386Z",
+      "crawledAt": "2026-08-22T09:55:25.075Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2248,11 +2304,13 @@
         ]
       },
       "previousSlugs": [
-        "manufacturing-biotechnology-manager-m-f-d-coopers-wallis"
+        "manufacturing-biotechnology-manager-m-f-d-coopers-wallis",
+        "responsabile-della-produzione-di-biotecnologie-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-biotechnology-manager-m-f-d-coopers-wallis"
+          "manufacturing-biotechnology-manager-m-f-d-coopers-wallis",
+          "responsabile-della-produzione-di-biotecnologie-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "manufacturing-biotechnology-manager-m-f-d-coopers-wallis"
@@ -2262,6 +2320,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:34:33.238Z",
+      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "baseSalary": {
@@ -2290,7 +2349,7 @@
       "title": "M365 Engineer (m/w/d)",
       "titleByLocale": {
         "it": "M365 Ingegnere (m/w/d)",
-        "en": "M365 Engineer (m/f/d)",
+        "en": "M365 Engineer (m/w/d)",
         "de": "M365 Ingenieur (m/w/d)",
         "fr": "M365 Ingénieur (m/w/d)"
       },
@@ -2306,7 +2365,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=010VGG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:22.498Z",
+      "crawledAt": "2026-08-22T09:55:24.090Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2355,7 +2414,8 @@
         "ingegnere-di-qualificazione-in-m-f-d-coopers-group-ag-basel-stadt",
         "ingegnere-qualificato-m-f-d-coopers-group-ag-basel-stadt",
         "m365-solution-manager-in-m-w-d-coopers-basel-stadt",
-        "m365-gestionnaire-de-solutions-en-m-w-d-coopers-group-ag-basel-stadt"
+        "m365-gestionnaire-de-solutions-en-m-w-d-coopers-group-ag-basel-stadt",
+        "m365-ingegnere-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2371,7 +2431,8 @@
           "ingegnere-di-qualificazione-in-m-f-d-coopers-group-ag-basel-stadt",
           "ingegnere-qualificato-m-f-d-coopers-group-ag-basel-stadt",
           "m365-solution-manager-in-m-w-d-coopers-basel-stadt",
-          "m365-gestionnaire-de-solutions-en-m-w-d-coopers-group-ag-basel-stadt"
+          "m365-gestionnaire-de-solutions-en-m-w-d-coopers-group-ag-basel-stadt",
+          "m365-ingegnere-m-w-d-coopers-group-ag-basel-stadt"
         ],
         "en": [
           "project-engineer-in-qualification-m-f-d-coopers-group-ag-basel-stadt"
@@ -2387,6 +2448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:40:23.525Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -2431,7 +2493,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:21.622Z",
+      "crawledAt": "2026-08-22T09:55:23.112Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2462,11 +2524,13 @@
         ]
       },
       "previousSlugs": [
-        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+        "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+          "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
         ],
         "en": [
           "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
@@ -2476,6 +2540,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:53:35.533Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -2504,7 +2569,7 @@
       "title": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Solution Architetto D365 & Power Platform 80 – 100 % (m/w/d)",
-        "en": "Solution Architect D365 & Power Platform 80 – 100% (m/f/d)",
+        "en": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "de": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "fr": "Solution Architecte D365 & Power Platform 80 – 100 % (m/w/d)"
       },
@@ -2520,7 +2585,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:20.746Z",
+      "crawledAt": "2026-08-22T09:55:22.189Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2600,7 +2665,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=87KGM4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:19.879Z",
+      "crawledAt": "2026-08-22T09:55:21.283Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2632,14 +2697,17 @@
         ]
       },
       "previousSlugs": [
-        "quality-assurance-engineer-m-f-d-coopers-luzern"
+        "quality-assurance-engineer-m-f-d-coopers-luzern",
+        "quality-assurance-ingegnere-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-assurance-engineer-m-f-d-coopers-luzern"
+          "quality-assurance-engineer-m-f-d-coopers-luzern",
+          "quality-assurance-ingegnere-m-f-d-coopers-group-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-08-13T10:53:32.735Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "baseSalary": {
@@ -2684,7 +2752,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F26HA4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:19.028Z",
+      "crawledAt": "2026-08-22T09:55:20.361Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2721,7 +2789,8 @@
         "ict-supporter-in-rollout-m-w-d-coopers-bern",
         "soutien-aux-tic-en-deploiement-m-f-d-coopers-group-ag-bern",
         "ict-supporter-rollout-m-w-d-coopers-bern",
-        "ict-supporter-in-m-w-d-coopers-bern"
+        "ict-supporter-in-m-w-d-coopers-bern",
+        "supporto-ict-in-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2729,7 +2798,8 @@
           "ict-supporter-in-rollout-m-w-d-coopers-bern",
           "soutien-aux-tic-en-deploiement-m-f-d-coopers-group-ag-bern",
           "ict-supporter-rollout-m-w-d-coopers-bern",
-          "ict-supporter-in-m-w-d-coopers-bern"
+          "ict-supporter-in-m-w-d-coopers-bern",
+          "supporto-ict-in-m-f-d-coopers-group-ag-bern"
         ],
         "de": [
           "ict-supporter-in-rollout-m-w-d-coopers-bern"
@@ -2769,7 +2839,7 @@
       "title": "Expert Windows Client Engineer / Workplace Architect (m/w/d)",
       "titleByLocale": {
         "it": "Expert Windows Client Ingegnere / Workplace Architetto (m/w/d)",
-        "en": "Expert Windows Client Engineer / Workplace Architect (m/f/d)",
+        "en": "Expert Windows Client Engineer / Workplace Architect (m/w/d)",
         "de": "Expert Windows Client Ingenieur / Workplace Architect (m/w/d)",
         "fr": "Expert Windows Client Ingénieur / Workplace Architecte (m/w/d)"
       },
@@ -2785,7 +2855,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Y9DI16",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:18.169Z",
+      "crawledAt": "2026-08-22T09:55:19.454Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2817,17 +2887,20 @@
         ]
       },
       "previousSlugs": [
-        "expert-windows-client-engineer-workplace-architect-m-w-d-coopers-bern"
+        "expert-windows-client-engineer-workplace-architect-m-w-d-coopers-bern",
+        "expert-windows-client-ingegnere-workplace-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-windows-client-engineer-workplace-architect-m-w-d-coopers-bern"
+          "expert-windows-client-engineer-workplace-architect-m-w-d-coopers-bern",
+          "expert-windows-client-ingegnere-workplace-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "expert-windows-client-engineer-workplace-architect-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-08-14T21:36:56.052Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -2872,7 +2945,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5JT9F3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:17.306Z",
+      "crawledAt": "2026-08-22T09:55:18.591Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2906,14 +2979,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
+        "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
+        "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
+          "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern"
         ]
       },
       "firstSeenAt": "2026-08-14T21:36:55.197Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -2942,7 +3018,7 @@
       "title": "Cloud & Automation Engineer – Oracle Database / AWS (m/w/d)",
       "titleByLocale": {
         "it": "Cloud & Automation Ingegnere – Oracle Database / AWS (m/w/d)",
-        "en": "Cloud & Automation Engineer – Oracle Database / AWS (m/f/d)",
+        "en": "Cloud & Automation Engineer – Oracle Database / AWS (m/w/d)",
         "de": "Cloud & Automation Ingenieur – Oracle Database / AWS (m/w/d)",
         "fr": "Cloud & Automation Ingénieur – Oracle Database / AWS (m/w/d)"
       },
@@ -2958,7 +3034,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PE41B6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:16.400Z",
+      "crawledAt": "2026-08-22T09:55:17.696Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2993,6 +3069,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:30:54.519Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -3037,7 +3114,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=14PJ2J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:15.502Z",
+      "crawledAt": "2026-08-22T09:55:16.623Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3072,11 +3149,13 @@
         ]
       },
       "previousSlugs": [
-        "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau"
+        "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
+        "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau"
+          "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
+          "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
         ],
         "de": [
           "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau"
@@ -3086,6 +3165,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T22:06:05.062Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3130,7 +3210,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PC857F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:14.564Z",
+      "crawledAt": "2026-08-22T09:55:15.699Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3169,6 +3249,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T22:05:58.120Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -3213,7 +3294,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Y05U9N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:13.669Z",
+      "crawledAt": "2026-08-22T09:55:14.772Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3248,11 +3329,13 @@
         ]
       },
       "previousSlugs": [
-        "supply-chain-quality-specialist-m-f-d-coopers-wallis"
+        "supply-chain-quality-specialist-m-f-d-coopers-wallis",
+        "supply-chain-quality-specialista-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supply-chain-quality-specialist-m-f-d-coopers-wallis"
+          "supply-chain-quality-specialist-m-f-d-coopers-wallis",
+          "supply-chain-quality-specialista-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "supply-chain-quality-specialist-m-f-d-coopers-wallis"
@@ -3262,6 +3345,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:13:00.662Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3306,7 +3390,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PHL860",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:12.751Z",
+      "crawledAt": "2026-08-22T09:55:13.851Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3339,14 +3423,17 @@
         ]
       },
       "previousSlugs": [
-        "senior-quality-lead-m-f-d-coopers-basel-stadt"
+        "senior-quality-lead-m-f-d-coopers-basel-stadt",
+        "piombo-di-qualita-senior-m-f-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-quality-lead-m-f-d-coopers-basel-stadt"
+          "senior-quality-lead-m-f-d-coopers-basel-stadt",
+          "piombo-di-qualita-senior-m-f-d-coopers-group-ag-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-08-18T10:10:15.695Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3391,7 +3478,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2MD21V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:11.874Z",
+      "crawledAt": "2026-08-22T09:55:12.951Z",
       "addressLocality": "Waadt",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3452,7 +3539,7 @@
       "title": "Java Backend Engineer (Rail Control Systems) (m/w/d)",
       "titleByLocale": {
         "it": "Java Backend Ingegnere (Rail Control Systems) (m/w/d)",
-        "en": "Java Backend Engineer (Rail Control Systems) (m/f/d)",
+        "en": "Java Backend Engineer (Rail Control Systems) (m/w/d)",
         "de": "Java Backend Ingenieur (Rail Control Systems) (m/w/d)",
         "fr": "Java Backend Ingénieur (Rail Control Systems) (m/w/d)"
       },
@@ -3468,7 +3555,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DB94K7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:11.004Z",
+      "crawledAt": "2026-08-22T09:55:12.077Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3545,7 +3632,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IK2D00",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:10.031Z",
+      "crawledAt": "2026-08-22T09:55:11.123Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3578,6 +3665,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T22:13:27.074Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3606,7 +3694,7 @@
       "title": "Test Automation Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Test Automation Ingegnere (m/w/d)",
-        "en": "Test Automation Engineer (m/f/d)",
+        "en": "Test Automation Engineer (m/w/d)",
         "de": "Test Automation Ingenieur (m/w/d)",
         "fr": "Test Automation Ingénieur (m/w/d)"
       },
@@ -3622,7 +3710,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K3D86E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:09.156Z",
+      "crawledAt": "2026-08-22T09:55:10.239Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3659,13 +3747,15 @@
       "previousSlugs": [
         "test-automation-engineer-m-w-d-coopers-bern",
         "test-engineer-m-w-d-coopers-bern",
-        "test-ingenieur-m-w-d-coopers-group-ag-bern"
+        "test-ingenieur-m-w-d-coopers-group-ag-bern",
+        "test-automation-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "test-automation-engineer-m-w-d-coopers-bern",
           "test-engineer-m-w-d-coopers-bern",
-          "test-ingenieur-m-w-d-coopers-group-ag-bern"
+          "test-ingenieur-m-w-d-coopers-group-ag-bern",
+          "test-automation-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "test-automation-engineer-m-w-d-coopers-bern"
@@ -3690,9 +3780,9 @@
       "id": "coopers-963709e57e85",
       "slug": "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "de": "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
         "it": "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern",
         "en": "it-project-manager-infrastruktur-20-m-w-d-coopers-group-ag-bern",
+        "de": "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
         "fr": "it-chef-de-projet-infrastruktur-20-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
@@ -3707,17 +3797,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (W060PD)\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.01.2027 - 6 Monate ++\n\nProjektmanagement, Infrastruktur\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
+        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfilo del lavoro (W060PD)\n\n•\nIT - Project Management\n\n•\n\nBerna\n\nContratti\n\nTempo parziale, 20 %\n\n01.01.2027 - 6 mesi ++\n\nGestione dei progetti, infrastrutture\n\nPrestazioni di lavoro\n\n•\nCoopers Care\n\nSembra interessante?\n\nBasta cliccare.",
+        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profile (W060PD)\n\n•\nIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20 %\n\n01.01.2027 - 6 months ++\n\nProject management, infrastructure\n\nJob benefits\n\n•\nCoopers Care\n\nSounds interesting?\n\nSimply click.",
         "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (W060PD)\n\n•\n\nIT - Project Management\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.01.2027 - 6 Monate ++\n\nProjektmanagement, Infrastruktur\n\nJob benefits\n\nCoopers Care\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfilo del lavoro (W060PD)\n\n•\n IT - Project Management\n\n•\n\nBerna\n\nContratti\n\nTempo parziale, 20 %\n\n01.01.2027 - 6 mesi ++\n\nGestione dei progetti, infrastrutture\n\nPrestazioni di lavoro\n\n•\n Coopers Care\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profile (W060PD)\n\n•\n IT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20 %\n\n01.01.2027 - 6 months ++\n\nProject management, infrastructure\n\nJob benefits\n\n•\n Coopers Care\n\nSounds interesting?\n\nSimply click.",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfil d'emploi (W060PD)\n\n•\n IT - Gestion de projet\n\n•\n\nBelgique\n\nContrats\n\nTemps partiel, 20 %\n\n01.01.2027 - 6 mois ++\n\nGestion de projets, infrastructure\n\nPrestations d'emploi\n\n•\n Coopers Care\n\nÇa semble intéressant ?\n\nCliquez simplement."
+        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfil d'emploi (W060PD)\n\n•\nIT - Gestion de projet\n\n•\n\nBelgique\n\nContrats\n\nTemps partiel, 20 %\n\n01.01.2027 - 6 mois ++\n\nGestion de projets, infrastructure\n\nPrestations d'emploi\n\n•\nCoopers Care\n\nÇa semble intéressant ?\n\nCliquez simplement."
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:08.279Z",
+      "crawledAt": "2026-08-22T09:55:09.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3748,9 +3838,14 @@
           "Projektmanagement, Infrastruktur"
         ]
       },
+      "previousSlugs": [
+        "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
+        "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
+          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
+          "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
@@ -3759,9 +3854,8 @@
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-08-21T09:53:46.212Z",
+      "needsRetranslation": true,
       "salaryMin": 22600,
       "salaryMax": 38400,
       "baseSalary": {
@@ -3773,8 +3867,7 @@
           "maxValue": 38400,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T09:53:46.212Z"
+      }
     },
     {
       "id": "coopers-0cac3d32ce1f",
@@ -3791,7 +3884,7 @@
       "title": "Senior Data Engineer AWS (m/w/d)",
       "titleByLocale": {
         "it": "Senior Data Ingegnere AWS (m/w/d)",
-        "en": "Senior Data Engineer AWS (m/f/d)",
+        "en": "Senior Data Engineer AWS (m/w/d)",
         "de": "Senior Data Ingenieur AWS (m/w/d)",
         "fr": "Senior Data Ingénieur AWS (m/w/d)"
       },
@@ -3807,7 +3900,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FYU895",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:07.389Z",
+      "crawledAt": "2026-08-22T09:55:08.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3838,18 +3931,21 @@
           "Apache, SQL, Python, AWS"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:46:57.329Z",
+      "previousSlugs": [
+        "senior-data-engineer-aws-m-w-d-coopers-bern",
+        "senior-data-ingegnere-aws-m-w-d-coopers-group-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-engineer-aws-m-w-d-coopers-bern"
+          "senior-data-engineer-aws-m-w-d-coopers-bern",
+          "senior-data-ingegnere-aws-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-data-engineer-aws-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "senior-data-engineer-aws-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-08-20T21:46:57.329Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "baseSalary": {
@@ -3894,7 +3990,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=40CS4S",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:06.531Z",
+      "crawledAt": "2026-08-22T09:55:07.438Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3925,10 +4021,14 @@
           "IT Project Management, GxP, German, English"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:46:55.422Z",
+      "previousSlugs": [
+        "it-infrastructure-project-coordinator-m-f-d-coopers-wallis",
+        "it-infrastructure-project-coordinatore-m-f-d-coopers-group-ag-wallis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
+          "it-infrastructure-project-coordinator-m-f-d-coopers-wallis",
+          "it-infrastructure-project-coordinatore-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
@@ -3937,9 +4037,8 @@
           "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
         ]
       },
-      "previousSlugs": [
-        "it-infrastructure-project-coordinator-m-f-d-coopers-wallis"
-      ],
+      "firstSeenAt": "2026-08-20T21:46:55.422Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -3984,7 +4083,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:05.671Z",
+      "crawledAt": "2026-08-22T09:55:06.556Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4018,11 +4117,13 @@
         ]
       },
       "previousSlugs": [
-        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+          "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
@@ -4074,7 +4175,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=U08D7B",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:04.748Z",
+      "crawledAt": "2026-08-22T09:55:05.620Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -4105,11 +4206,13 @@
         ]
       },
       "previousSlugs": [
-        "verification-compliance-specialist-m-f-d-coopers-zug"
+        "verification-compliance-specialist-m-f-d-coopers-zug",
+        "verification-compliance-specialista-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verification-compliance-specialist-m-f-d-coopers-zug"
+          "verification-compliance-specialist-m-f-d-coopers-zug",
+          "verification-compliance-specialista-m-f-d-coopers-group-ag-zug"
         ],
         "de": [
           "verification-compliance-specialist-m-f-d-coopers-zug"
@@ -4119,6 +4222,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:23:51.907Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4147,7 +4251,7 @@
       "title": "Senior Fullstack Entwickler:in (JavaEE/Angular) (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Entwickler:in (Java/Jakarta e Angular) (m/w/d)",
-        "en": "Senior Fullstack Developer: in (JavaEE/Angular) (m/f/d)",
+        "en": "Senior Fullstack Entwickler:in (JavaEE/Angular) (m/w/d)",
         "de": "Senior Fullstack Entwickler:in (JavaEE/Angular) (m/w/d)",
         "fr": "Développeur senior Fullstack: dans (Java/Jakarta et Angular) (m/f/d)"
       },
@@ -4163,7 +4267,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WEP498",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-21T21:52:03.831Z",
+      "crawledAt": "2026-08-22T09:55:04.758Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4197,12 +4301,14 @@
       },
       "previousSlugs": [
         "senior-fullstack-entwickler-in-java-jakarta-und-angular-m-w-d-coopers-luzern",
-        "senior-fullstack-entwickler-in-javaee-angular-m-w-d-coopers-luzern"
+        "senior-fullstack-entwickler-in-javaee-angular-m-w-d-coopers-luzern",
+        "senior-fullstack-entwickler-in-java-jakarta-e-angular-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-fullstack-entwickler-in-java-jakarta-und-angular-m-w-d-coopers-luzern",
-          "senior-fullstack-entwickler-in-javaee-angular-m-w-d-coopers-luzern"
+          "senior-fullstack-entwickler-in-javaee-angular-m-w-d-coopers-luzern",
+          "senior-fullstack-entwickler-in-java-jakarta-e-angular-m-w-d-coopers-group-ag-luzern"
         ],
         "de": [
           "senior-fullstack-entwickler-in-java-jakarta-und-angular-m-w-d-coopers-luzern"
@@ -4227,8 +4333,8 @@
       "id": "coopers-17c9aefcf795",
       "slug": "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
-        "en": "project-manager-product-development-m-f-d-coopers-basel-landschaft",
         "it": "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft",
+        "en": "project-manager-product-development-m-f-d-coopers-basel-landschaft",
         "de": "projektmanager-produktentwicklung-m-w-d-coopers-group-ag-basel-landschaft",
         "fr": "gestionnaire-de-projet-developpement-de-produits-h-f-d-coopers-group-ag-basel-landschaft"
       },
@@ -4237,15 +4343,15 @@
       "companyDomain": "coopers.ch",
       "title": "Project Manager Product Development (m/f/d)",
       "titleByLocale": {
-        "en": "Project Manager Product Development (m/f/d)",
         "it": "Sviluppo del prodotto di Project Manager (m/f/d)",
+        "en": "Project Manager Product Development (m/f/d)",
         "de": "Projektmanager Produktentwicklung (m/w/d)",
         "fr": "Gestionnaire de projet Développement de produits (h/f/d)"
       },
       "description": "The role involves planning and executing projects, managing timelines and milestones, identifying risks and roadblocks, coordinating internal teams and external suppliers, and reporting project status to stakeholders. The position also supports product launches, collaborates with U.S.-based teams, and may take on managerial responsibilities as a deputy to the supervisor.\n\nThe ideal candidate has an Engineering degree, at least 5 years of experience in project management and/or medical device development, excellent German and English skills, strong leadership and communication abilities, and preferably a Project Management certification.\n\nLocation: Oberdorf\n\nContract duration: until 31.12.2026/possible extension\n\nMain Responsibilities\n\n• Responsible for leading product development projects from concept through product launch\n\n• Responsible for creating, monitoring, and maintaining project plans\n\n• Identifying critical paths, project risks, and roadblocks, and proposing corrective actions\n\n• Preparing and presenting project status reports and presentations\n\n• Collaborating with internal service providers and external suppliers Description of Duties and Responsibilities\n\n• Develop project plans in collaboration with the project team\n\n• Manage the execution of project plans together with the project team\n\n• Work with internal service providers and external suppliers to ensure project progress\n\n• Responsible for meeting project plans and milestones on time\n\n• Report on project progress and status\n\n• Escalation of critical issues\n\n• Identify critical paths, project risks, and roadblocks, and work with the project team to develop solutions\n\n• Support product launch and market introduction activities\n\n• Collaborate with U.S.-based project management teams and project teams\n\n• Manage particularly complex and strategically significant projects within the division\n\n• Act as deputy for the supervisor and assume managerial responsibilities when required\n\n• Understand and comply with policies regarding the Code of Conduct, Ethics & Compliance programs, and other relevant regulations. Qualifications / Requirements\n\nRequirements\n\n• Bachelor's or Master's degree in Engineering (Medical Technology, Mechatronics, Electrical Engineering, Mechanical Engineering, or related field)\n\n• Excellent German and English language skills\n\n• Minimum of 5 years of experience in project management and/or the development of medical devices\n\n• Project Management certification is preferred\n\n• Strong facilitation, influencing, and leadership skills",
       "descriptionByLocale": {
-        "en": "The role involves planning and executing projects, managing timelines and milestones, identifying risks and roadblocks, coordinating internal teams and external suppliers, and reporting project status to stakeholders. The position also supports product launches, collaborates with U.S.-based teams, and may take on managerial responsibilities as a deputy to the supervisor.\n\nThe ideal candidate has an Engineering degree, at least 5 years of experience in project management and/or medical device development, excellent German and English skills, strong leadership and communication abilities, and preferably a Project Management certification.\n\nLocation: Oberdorf\n\nContract duration: until 31.12.2026/possible extension\n\nMain Responsibilities\n\n• Responsible for leading product development projects from concept through product launch\n\n• Responsible for creating, monitoring, and maintaining project plans\n\n• Identifying critical paths, project risks, and roadblocks, and proposing corrective actions\n\n• Preparing and presenting project status reports and presentations\n\n• Collaborating with internal service providers and external suppliers Description of Duties and Responsibilities\n\n• Develop project plans in collaboration with the project team\n\n• Manage the execution of project plans together with the project team\n\n• Work with internal service providers and external suppliers to ensure project progress\n\n• Responsible for meeting project plans and milestones on time\n\n• Report on project progress and status\n\n• Escalation of critical issues\n\n• Identify critical paths, project risks, and roadblocks, and work with the project team to develop solutions\n\n• Support product launch and market introduction activities\n\n• Collaborate with U.S.-based project management teams and project teams\n\n• Manage particularly complex and strategically significant projects within the division\n\n• Act as deputy for the supervisor and assume managerial responsibilities when required\n\n• Understand and comply with policies regarding the Code of Conduct, Ethics & Compliance programs, and other relevant regulations. Qualifications / Requirements\n\nRequirements\n\n• Bachelor's or Master's degree in Engineering (Medical Technology, Mechatronics, Electrical Engineering, Mechanical Engineering, or related field)\n\n• Excellent German and English language skills\n\n• Minimum of 5 years of experience in project management and/or the development of medical devices\n\n• Project Management certification is preferred\n\n• Strong facilitation, influencing, and leadership skills",
         "it": "Il ruolo riguarda la pianificazione e l'esecuzione di progetti, la gestione delle linee temporali e delle pietre miliari, l'identificazione dei rischi e dei blocchi stradali, il coordinamento delle squadre interne e dei fornitori esterni, e la segnalazione dello stato del progetto agli stakeholder. La posizione supporta anche il lancio dei prodotti, la collaborazione con i team statunitensi, e può assumere responsabilità manageriali come deputato al supervisore.\n\nIl candidato ideale ha una laurea in Ingegneria, almeno 5 anni di esperienza nella gestione del progetto e / o sviluppo di dispositivi medici, eccellenti competenze tedesche e inglesi, forte leadership e capacità di comunicazione, e preferibilmente una certificazione di Project Management.\n\nPosizione: Oberdorf\n\nDurata del contratto: fino al 31.12.2026/possibile estensione\n\nPrincipali responsabilità\n\n• Responsabile per i principali progetti di sviluppo del prodotto dal concept al lancio del prodotto\n\n• Responsabile per la creazione, il monitoraggio e il mantenimento dei piani di progetto\n\n• Identificare percorsi critici, rischi di progetto e blocchi stradali e proporre azioni correttive\n\n• Preparazione e presentazione di report e presentazioni sullo stato del progetto\n\n• Collaborazione con fornitori di servizi interni e fornitori esterni Descrizione delle responsabilità\n\n• Sviluppare piani di progetto in collaborazione con il team di progetto\n\n• Gestire l'esecuzione dei piani di progetto insieme al team di progetto\n\n• Lavorare con fornitori di servizi interni e fornitori esterni per garantire il progresso dei progetti\n\n• Responsabile per l'incontro di progetti e pietre miliari in tempo\n\n• Relazione sul progresso e lo stato dei progetti\n\n• Escalation delle questioni critiche\n\n• Identificare percorsi critici, rischi di progetto e blocchi stradali, e lavorare con il team di progetto per sviluppare soluzioni\n\n• Supporta le attività di lancio e introduzione di mercato\n\n• Collabora con i team di project management e i team di progetto basati sugli Stati Uniti\n\n• Gestire progetti particolarmente complessi e strategicamente significativi all'interno della divisione\n\n• Atto come deputato per il supervisore e assume responsabilità manageriali quando richiesto\n\n• Comprendere e rispettare le politiche in materia di codice di condotta, programmi di etica e conformità e altre normative pertinenti. Qualifiche / Requisiti\n\nRequisiti\n\n• Laurea o Master in Ingegneria (tecnologia medica, Meccatronica, ingegneria elettrica, ingegneria meccanica, o campo correlato)\n\n• Eccellente tedesco e inglese competenze linguistiche\n\n• Minimo 5 anni di esperienza nella gestione del progetto e/o nello sviluppo di dispositivi medici\n\n• La certificazione Project Management è preferita\n\n• Forte facilitazione, influenza e capacità di leadership",
+        "en": "The role involves planning and executing projects, managing timelines and milestones, identifying risks and roadblocks, coordinating internal teams and external suppliers, and reporting project status to stakeholders. The position also supports product launches, collaborates with U.S.-based teams, and may take on managerial responsibilities as a deputy to the supervisor.\n\nThe ideal candidate has an Engineering degree, at least 5 years of experience in project management and/or medical device development, excellent German and English skills, strong leadership and communication abilities, and preferably a Project Management certification.\n\nLocation: Oberdorf\n\nContract duration: until 31.12.2026/possible extension\n\nMain Responsibilities\n\n• Responsible for leading product development projects from concept through product launch\n\n• Responsible for creating, monitoring, and maintaining project plans\n\n• Identifying critical paths, project risks, and roadblocks, and proposing corrective actions\n\n• Preparing and presenting project status reports and presentations\n\n• Collaborating with internal service providers and external suppliers Description of Duties and Responsibilities\n\n• Develop project plans in collaboration with the project team\n\n• Manage the execution of project plans together with the project team\n\n• Work with internal service providers and external suppliers to ensure project progress\n\n• Responsible for meeting project plans and milestones on time\n\n• Report on project progress and status\n\n• Escalation of critical issues\n\n• Identify critical paths, project risks, and roadblocks, and work with the project team to develop solutions\n\n• Support product launch and market introduction activities\n\n• Collaborate with U.S.-based project management teams and project teams\n\n• Manage particularly complex and strategically significant projects within the division\n\n• Act as deputy for the supervisor and assume managerial responsibilities when required\n\n• Understand and comply with policies regarding the Code of Conduct, Ethics & Compliance programs, and other relevant regulations. Qualifications / Requirements\n\nRequirements\n\n• Bachelor's or Master's degree in Engineering (Medical Technology, Mechatronics, Electrical Engineering, Mechanical Engineering, or related field)\n\n• Excellent German and English language skills\n\n• Minimum of 5 years of experience in project management and/or the development of medical devices\n\n• Project Management certification is preferred\n\n• Strong facilitation, influencing, and leadership skills",
         "de": "Die Rolle umfasst die Planung und Durchführung von Projekten, die Verwaltung von Zeitplänen und Meilensteinen, die Identifizierung von Risiken und Hindernissen, die Koordination interner Teams und externer Lieferanten und die Berichterstattung über den Projektstatus an die Stakeholder. Die Position unterstützt auch Produkteinführungen, arbeitet mit US-amerikanischen Teams zusammen und kann als Stellvertreter des Vorgesetzten Führungsaufgaben übernehmen.\n\nDer ideale Kandidat verfügt über einen Ingenieurabschluss, mindestens 5 Jahre Erfahrung im Projektmanagement und/oder in der Entwicklung von Medizinprodukten, hervorragende Deutsch- und Englischkenntnisse, starke Führungs- und Kommunikationsfähigkeiten und vorzugsweise über eine Projektmanagement-Zertifizierung.\n\nStandort: Oberdorf\n\nVertragslaufzeit: bis 31.12.2026/mögliche Verlängerung\n\nHauptzuständigkeiten\n\n• Verantwortlich für die Leitung von Produktentwicklungsprojekten vom Konzept bis zur Produkteinführung\n\n• Verantwortlich für die Erstellung, Überwachung und Pflege von Projektplänen\n\n• Identifizieren von kritischen Pfaden, Projektrisiken und Hindernissen und Vorschlagen von Korrekturmaßnahmen\n\n• Erstellung und Präsentation von Projektstatusberichten und -präsentationen\n\n• Zusammenarbeit mit internen Dienstleistern und externen Lieferanten Beschreibung der Pflichten und Verantwortlichkeiten\n\n• Projektpläne in Zusammenarbeit mit dem Projektteam entwickeln\n\n• Verwalten Sie die Ausführung von Projektplänen gemeinsam mit dem Projektteam\n\n• Zusammenarbeit mit internen Dienstleistern und externen Lieferanten, um den Projektfortschritt sicherzustellen\n\n• Verantwortlich für die rechtzeitige Einhaltung von Projektplänen und Meilensteinen\n\n• Bericht über Projektfortschritt und -stand\n\n• Eskalation kritischer Themen\n\n• Identifizieren Sie kritische Pfade, Projektrisiken und Hindernisse und entwickeln Sie gemeinsam mit dem Projektteam Lösungen\n\n• Unterstützung der Produkteinführung und Markteinführung\n\n• Zusammenarbeit mit US-amerikanischen Projektmanagementteams und Projektteams\n\n• Verwalten besonders komplexer und strategisch bedeutsamer Projekte innerhalb der Division\n\n• Handeln Sie als Stellvertreter für den Vorgesetzten und übernehmen Sie bei Bedarf Führungsaufgaben\n\n• Verstehen und befolgen Sie die Richtlinien in Bezug auf den Verhaltenskodex, Ethik- und Compliance-Programme und andere relevante Vorschriften. Qualifikationen/Anforderungen\n\nAnforderungen\n\n• Bachelor- oder Master-Abschluss in Ingenieurwissenschaften (Medizintechnik, Mechatronik, Elektrotechnik, Maschinenbau oder verwandte Bereiche)\n\n• Hervorragende Deutsch- und Englischkenntnisse\n\n• Mindestens 5 Jahre Erfahrung im Projektmanagement und/oder der Entwicklung von Medizinprodukten\n\n• Projektmanagement-Zertifizierung wird bevorzugt\n\n• Starke Förder-, Einfluss- und Führungsfähigkeiten",
         "fr": "Le rôle consiste à planifier et à exécuter les projets, à gérer les échéances et les jalons, à déterminer les risques et les obstacles, à coordonner les équipes internes et les fournisseurs externes et à rendre compte de l'état d'avancement des projets aux intervenants. Le poste appuie également les lancements de produits, collabore avec des équipes américaines et peut assumer des responsabilités de gestion à titre d'adjoint du superviseur.\n\nLe candidat idéal possède un diplôme d'ingénieur, au moins 5 ans d'expérience en gestion de projet et/ou développement de dispositifs médicaux, d'excellentes compétences en allemand et en anglais, de solides capacités de leadership et de communication, et de préférence une certification de gestion de projet.\n\nLieu: Oberdorf\n\nDurée du contrat: jusqu'au 31.12.2026\n\nPrincipales responsabilités\n\n• Responsable des projets de développement de produits depuis le concept jusqu'au lancement de produits\n\n• Responsable de la création, du suivi et du maintien des plans de projet\n\n• Identifier les voies critiques, les risques du projet et les barrages routiers, et proposer des mesures correctives\n\n• Préparer et présenter des rapports et des exposés sur l ' état d ' avancement des projets\n\n• Collaboration avec les fournisseurs de services internes et externes Description des fonctions et des responsabilités\n\n• Élaborer des plans de projet en collaboration avec l'équipe de projet\n\n• Gérer l'exécution des plans de projet avec l'équipe de projet\n\n• Travailler avec les fournisseurs de services internes et externes pour assurer l'avancement du projet\n\n• Responsable de la réalisation des plans et des étapes du projet à temps\n\n• Rapport sur l ' état d ' avancement des projets\n\n• Accélération des problèmes critiques\n\n• Identifier les voies critiques, les risques du projet et les barrages routiers, et travailler avec l'équipe du projet pour élaborer des solutions\n\n• Soutenir les activités de lancement et d'introduction du marché\n\n• Collaborer avec les équipes de gestion de projet et les équipes de projet américaines\n\n• Gérer des projets particulièrement complexes et d'importance stratégique au sein de la division\n\n• Agir comme adjoint du superviseur et assumer les responsabilités de gestion au besoin\n\n• Comprendre et respecter les politiques relatives au Code de conduite, aux programmes d'éthique et de conformité et aux autres règlements pertinents. Qualifications / Exigences\n\nExigences\n\n• Baccalauréat ou maîtrise en génie (technologie médicale, mécatronique, génie électrique, génie mécanique ou domaine connexe)\n\n• Excellentes compétences en langue allemande et anglaise\n\n• Au moins 5 ans d'expérience dans la gestion de projet et/ou le développement de dispositifs médicaux\n\n• La certification de gestion de projet est privilégiée\n\n• Forte capacité de facilitation, d'influence et de leadership"
       },
@@ -4254,7 +4360,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=X4D9D9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-21T21:52:02.749Z",
+      "crawledAt": "2026-08-22T09:55:03.843Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4286,6 +4392,24 @@
           "Process Management, Product Management, Product development"
         ]
       },
+      "previousSlugs": [
+        "project-manager-product-development-m-f-d-coopers-basel-landschaft",
+        "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-product-development-m-f-d-coopers-basel-landschaft",
+          "sviluppo-del-prodotto-di-project-manager-m-f-d-coopers-group-ag-basel-landschaft"
+        ],
+        "de": [
+          "project-manager-product-development-m-f-d-coopers-basel-landschaft"
+        ],
+        "fr": [
+          "project-manager-product-development-m-f-d-coopers-basel-landschaft"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:52:02.749Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -4297,22 +4421,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T21:52:02.749Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-product-development-m-f-d-coopers-basel-landschaft"
-        ],
-        "de": [
-          "project-manager-product-development-m-f-d-coopers-basel-landschaft"
-        ],
-        "fr": [
-          "project-manager-product-development-m-f-d-coopers-basel-landschaft"
-        ]
-      },
-      "previousSlugs": [
-        "project-manager-product-development-m-f-d-coopers-basel-landschaft"
-      ]
+      }
     },
     {
       "id": "coopers-3e1194239f3a",
@@ -4389,186 +4498,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "coopers-d5bd456ada18",
-      "slug": "redattore-tecnico-m-f-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "redattore-tecnico-m-f-d-coopers-group-ag-bern",
-        "en": "technical-editor-m-f-d-coopers-group-ag-bern",
-        "de": "technische-r-redakteur-in-m-w-d-coopers-bern",
-        "fr": "redacteur-technique-h-f-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Technische:r Redakteur:in (m/w/d)",
-      "titleByLocale": {
-        "it": "Redattore tecnico (m/f/d)",
-        "en": "Technical Editor (m/f/d)",
-        "de": "Technische:r Redakteur:in (m/w/d)",
-        "fr": "Rédacteur technique (h/f/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (AQP363)\n\n•\n\t\t\t\t\t\t\tAdministration - Various\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 (mit Option auf Internalisierung)\n\ntechnical writing\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tGood public transport connection\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione? Poi attendiamo con interesse di ricevere i documenti completi della domanda tramite modulo online. Nel caso di domande via e-mail, il mittente accetta che i dati trasmessi vengano utilizzati in conformità con la nostra politica sulla privacy. Altre offerte disponibili qui: coopers.ch Profilo lavorativo (AQP363)\n• Amministrazione - Varie\n• Bern Contracting part-time, 80-100% Attualmente - 31.12.2026 (con opzione di internalizzazione) Redazione tecnica Benefici lavorativi\n• Coopers Care\n• Buona connessione con i trasporti pubblici\n• Ambiente di lavoro moderno Sembra interessante? Basta cliccare \"",
-        "en": "Position? Then we look forward to receiving complete application documents via online form. In the case of applications by e-mail, the sender agrees that the transmitted data will be used in accordance with our privacy policy. More vacancies can be found here: coopers.ch Job profile (AQP363)\n• Administration - Various\n• Bern Contracting Part Time, 80-100% As of now - 31.12.2026 (with option for internalization) technical writing Job benefits\n• Coopers Care\n• Good public transport connection\n• Modern workspace Sounds interesting? Simply click \"",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (AQP363)\n\n•\n\nAdministration - Various\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\nAb sofort - 31.12.2026 (mit Option auf Internalisierung)\n\ntechnical writing\n\nJob benefits\n\nCoopers Care\n\nGood public transport connection\n\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Poste? Ensuite, nous attendons avec impatience de recevoir les documents de candidature complets via un formulaire en ligne. Dans le cas de demandes par e-mail, l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de confidentialité. Plus de postes vacants sont disponibles ici : coopers.ch Profil d'emploi (AQP363)\n• Administration - Divers\n• Berne Contractuel à temps partiel, 80-100 % À ce jour - 31.12.2026 (avec option d'internalisation) rédaction technique Avantages de l'emploi\n• Coopers Care\n• Bonne liaison avec les transports en commun\n• Espace de travail moderne Ça semble intéressant? Il suffit de cliquer \""
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQP363",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:36.034Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQP363",
-      "requirements": [
-        "Administration - Various",
-        "Bern",
-        "Contracting",
-        "Part Time, 80-100%",
-        "Ab sofort - 31.12.2026 (mit Option auf Internalisierung)",
-        "technical writing"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Administration - Various",
-          "Contracting",
-          "Part Time, 80-100%",
-          "Ab sofort - 31.12.2026 (mit Option auf Internalisierung)",
-          "technical writing",
-          "Full Time"
-        ]
-      },
-      "previousSlugs": [
-        "technische-r-redakteur-in-m-w-d-coopers-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-redakteur-in-m-w-d-coopers-bern"
-        ]
-      },
-      "firstSeenAt": "2026-06-11T22:29:03.923Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-43ae475f6619",
-      "slug": "ingegnere-di-qualificazione-nel-campo-della-sostanza-droga-m-f-d-coopers-group-ag-basel-stadt",
-      "slugByLocale": {
-        "it": "ingegnere-di-qualificazione-nel-campo-della-sostanza-droga-m-f-d-coopers-group-ag-basel-stadt",
-        "en": "qualification-engineer-in-the-field-of-drug-substance-m-f-d-coopers-group-ag-basel-stadt",
-        "de": "qualifizierungsingenieur-im-bereich-drug-substance-m-w-d-coopers-basel-stadt",
-        "fr": "ingenieur-qualifie-dans-le-domaine-de-la-substance-medicamenteuse-h-f-d-coopers-group-ag-basel-stadt"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Qualifizierungsingenieur im Bereich Drug Substance (m/w/d)",
-      "titleByLocale": {
-        "it": "Ingegnere di qualificazione nel campo della sostanza Droga (m/f/d)",
-        "en": "Qualification engineer in the field of Drug Substance (m/f/d)",
-        "de": "Qualifizierungsingenieur im Bereich Drug Substance (m/w/d)",
-        "fr": "Ingénieur qualifié dans le domaine de la substance médicamenteuse (h/f/d)"
-      },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (8NCQ59)\n\n•\n\t\t\t\t\t\t\tLife Sciences - Quality Management\n\n•\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80-100%\n\n01.10.2026 - 01.10.2027\n\nQualification, CSV, GMP\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-      "descriptionByLocale": {
-        "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nNel caso di domande via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfilo del lavoro (8NCQ59)\n\n•\nScienze della vita - Gestione della qualità\n\n•\n\nCittà di Basilea\n\nContraente\n\nTempo pieno\n\n01.10.2026 - 01.10.2027\n\nQualificazione, CSV, GMP\n\nPrestazioni di lavoro\n\n•\nAzienda portatile\n\n•\nCoopers Care\n\n•\nHome Ufficio\n\n•\nSpazio di lavoro moderno\n\n•\nBilancia della vita lavorativa\n\nSembra interessante?\n\nBasta cliccare.",
-        "en": "Position?\nThen we look forward to full application documents via online form.\n\nIn the case of applications by e-mail, the sender or sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profile (8NCQ59)\n\n•\nLife Sciences - Quality Management\n\n•\n\nBasel City\n\nContracting\n\nFull time\n\n01.10.2026 - 01.10.2027\n\nQualification, CSV, GMP\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life balance\n\nSounds interesting?\n\nSimply click.",
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (8NCQ59)\n\n•\n\nLife Sciences - Quality Management\n\nBasel-Stadt\n\nContracting\n\nPart Time, 80-100%\n\n01.10.2026 - 01.10.2027\n\nQualification, CSV, GMP\n\nJob benefits\n\nCompany laptop\n\nCoopers Care\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nDans le cas des applications par e-mail, l'expéditeur ou l'expéditeur convient que les données transmises seront utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi peuvent être trouvées ici: coopers.ch\n\nProfil d'emploi (8NCQ59)\n\n•\nSciences de la vie - Gestion de la qualité\n\n•\n\nVille de Bâle\n\nContrats\n\nTemps plein\n\n01.10.2026 - 01.10.2027\n\nQualification, CSV, GMP\n\nPrestations d'emploi\n\n•\nOrdinateur portable de la société\n\n•\nSoins aux Coopers\n\n•\nAccueil\n\n•\nEspace de travail moderne\n\n•\nÉquilibre travail-vie privée\n\nÇa semble intéressant ?\n\nIl suffit de cliquer."
-      },
-      "location": "Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NCQ59",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:47:07.907Z",
-      "addressLocality": "Basel-Stadt",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NCQ59",
-      "requirements": [
-        "Life Sciences - Quality Management",
-        "Basel-Stadt",
-        "Contracting",
-        "Part Time, 80-100%",
-        "01.10.2026 - 01.10.2027",
-        "Qualification, CSV, GMP"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Life Sciences - Quality Management",
-          "Basel-Stadt",
-          "Contracting",
-          "Full Time",
-          "01.10.2026 - 01.10.2027",
-          "Qualification, CSV, GMP",
-          "Part Time, 80-100%"
-        ]
-      },
-      "previousSlugs": [
-        "qualifizierungsingenieur-im-bereich-drug-substance-m-w-d-coopers-basel-stadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qualifizierungsingenieur-im-bereich-drug-substance-m-w-d-coopers-basel-stadt"
-        ],
-        "en": [
-          "qualifizierungsingenieur-im-bereich-drug-substance-m-w-d-coopers-basel-stadt"
-        ],
-        "fr": [
-          "qualifizierungsingenieur-im-bereich-drug-substance-m-w-d-coopers-basel-stadt"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:30:55.535Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
