@@ -17,6 +17,7 @@ import { loadRegistry, enumerablePlatforms, sharedHostPlatforms } from './lib/pr
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { VALIDATION_PATH } from './lib/prospector/config.mjs';
 import { loadChannelHealth } from './lib/prospector/sources/commoncrawl-careers.mjs';
+import { isTransportLogistics } from './lib/prospector/sector-signal.mjs';
 
 const md = process.argv.includes('--markdown');
 const store = loadCandidates();
@@ -87,6 +88,22 @@ for (const c of all) for (const s of c.sources || []) bySource[s] = (bySource[s]
 out.push(h('Resa per sorgente'));
 out.push(tableHead('sorgente', 'datori'));
 for (const [k, v] of Object.entries(bySource).sort((a, b) => b[1] - a[1])) out.push(row(k, v));
+
+// OSM's Ticino census turned up zero domain-carrying transport/logistics
+// businesses (#6251 item 2) — a one-off manual count until now. This makes it
+// an ongoing measurement: per SOURCE, how many filed candidates read as
+// transport/logistics by name, so a later run can tell whether the
+// sector-agnostic `web` sweep is actually closing OSM's gap or whether it
+// stays at zero long enough to justify a dedicated source.
+const transportLogistics = all.filter((c) => isTransportLogistics(c.name));
+if (transportLogistics.length || bySource.osm || bySource.web) {
+  const bySourceSector = {};
+  for (const c of transportLogistics) for (const s of c.sources || []) bySourceSector[s] = (bySourceSector[s] || 0) + 1;
+  out.push(h('Settore trasporti/logistica (copertura OSM vs web)'));
+  out.push(tableHead('sorgente', 'datori trasporti/logistica'));
+  for (const s of ['osm', 'web', 'seco', 'own']) out.push(row(s, bySourceSector[s] || 0));
+  out.push(row('totale distinti', transportLogistics.length));
+}
 
 const webHealth = loadChannelHealth();
 if (webHealth.length) {
