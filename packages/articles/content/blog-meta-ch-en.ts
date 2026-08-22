@@ -3769,6 +3769,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Buying a home in Bern: a guide to mortgages and costs',
     'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Find out how to buy a house in the Canton of Bern: mortgage financing, federal and cantonal taxes, transfer tax, notary fees, and complete purchase procedure.',
     'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Modern house in Bern canton with Swiss residential architecture and landscape',
+    'blog.article.digitalizzazione-processi-competenze.title': 'When digitization rhymes with improvisation',
+    'blog.article.digitalizzazione-processi-competenze.excerpt': 'Digitizing does not mean replacing paper with a screen: it requires rethinking processes, adequate skills and conscious management of organizational change.',
+    'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Modern Swiss administrative office with digital workstations and collaborative spaces during digital transformation',
 };
 
 export default blogMetaChEn;

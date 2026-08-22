@@ -3769,6 +3769,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-abitazione-berna-ipotecario.title': 'Acquistare casa a Berna: guida ai mutui e costi',
     'blog.article.acquistare-abitazione-berna-ipotecario.excerpt': 'Scopri come acquistare una casa nel Canton Berna: finanziamento ipotecario, tasse federali e cantonali, imposta sui trapassi, spese notarili, e procedura completa d\'acquisto.',
     'blog.article.acquistare-abitazione-berna-ipotecario.imageAlt': 'Casa moderna nel Canton Berna con architettura residenziale svizzera e paesaggio',
+    'blog.article.digitalizzazione-processi-competenze.title': 'Quando digitalizzazione rima con improvvisazione',
+    'blog.article.digitalizzazione-processi-competenze.excerpt': 'Digitalizzare non significa sostituire carta con schermo: richiede ripensamento dei processi, competenze adeguate e gestione consapevole del cambiamento organizzativo.',
+    'blog.article.digitalizzazione-processi-competenze.imageAlt': 'Ufficio amministrativo svizzero moderno con postazioni digitali e spazi collaborativi durante la trasformazione',
 };
 
 export default blogMetaChIt;
