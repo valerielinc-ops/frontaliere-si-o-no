@@ -3862,6 +3862,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.uri-settori-assunzione-retribuzioni.title': 'Salari e mercato del lavoro in Uri',
     'blog.article.uri-settori-assunzione-retribuzioni.excerpt': 'Come si determinano gli stipendi in Uri? Scopri settori, livelli di formazione, contratti collettivi, tassazione e previdenza nel cantone alpino svizzero.',
     'blog.article.uri-settori-assunzione-retribuzioni.imageAlt': 'Professionisti al lavoro in un moderno ufficio alpino svizzero, con documenti di contratti di lavoro.',
+    'blog.article.premi-lamal-svitto-riduzione.title': 'Premi LAMal in Svitto: franchigie e riduzione premi',
+    'blog.article.premi-lamal-svitto-riduzione.excerpt': 'Come funzionano i premi dell\'assicurazione malattia obbligatoria nel Cantone di Svitto, le franchigie disponibili e come richiedere la riduzione tramite sussidio.',
+    'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Ufficio di consulenza assicurativa con documenti su premi cassa malati e calcolatore di sussidi',
 };
 
 export default blogMetaChIt;

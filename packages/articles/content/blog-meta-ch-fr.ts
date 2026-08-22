@@ -3862,6 +3862,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uri-settori-assunzione-retribuzioni.title': 'Salaires et marché du travail à URI',
     'blog.article.uri-settori-assunzione-retribuzioni.excerpt': 'Comment sont déterminés les salaires en URI ? Découvrez les secteurs, les niveaux de formation, les conventions collectives, la fiscalité et la prévoyance dans le canton alpin suisse.',
     'blog.article.uri-settori-assunzione-retribuzioni.imageAlt': 'Professionnels examinant des contrats de travail dans un bureau alpin suisse moderne.',
+    'blog.article.premi-lamal-svitto-riduzione.title': 'Primes LAMal à Schwyz : franchises et réductions de primes',
+    'blog.article.premi-lamal-svitto-riduzione.excerpt': 'Comment fonctionnent les primes de l\'assurance maladie obligatoire dans le canton de Schwyz, les franchises disponibles et comment demander la réduction par allocation.',
+    'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Bureau de consultation d\'assurance avec documents de primes et calculateur de subventions',
 };
 
 export default blogMetaChFr;
