@@ -3757,6 +3757,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-tariffe.title': 'Switzerland-China: agreement to eliminate customs duties',
     'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Agreement for customs exemption on 99.8% of Swiss exports to China: estimated annual savings of CHF 244 million for Swiss companies.',
     'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Federal Palace in Bern, center of Swiss economic policy decisions.',
+    'blog.article.cherosene-sintetico-aviazione.title': 'Aviation: CO2 and water become synthetic kerosene',
+    'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Aargau inaugurates synthetic kerosene demonstration plant. Swiss airlines must blend 2% sustainable fuel today, rising to 6% in 2030.',
+    'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Demonstration plant at Paul Scherrer Institute producing sustainable synthetic kerosene in Aargau',
+    'blog.article.asilo-maghreb-reati-80-percento.title': 'Asylum seekers from the Maghreb, 80% are involved in crimes',
+    'blog.article.asilo-maghreb-reati-80-percento.excerpt': '80.5% of applicants from the Maghreb were charged with crimes. The SEM accelerates procedures and makes agreements with Morocco for faster repatriations.',
+    'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Aerial view of the Swiss federal palace in Bern, the seat of the Swiss government.',
 };
 
 export default blogMetaChEn;

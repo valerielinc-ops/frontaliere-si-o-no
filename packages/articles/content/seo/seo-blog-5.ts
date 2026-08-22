@@ -74093,6 +74093,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-caiolo-lavorare-grigioni-frontaliere': {
+    title: 'Da Caiolo ai Grigioni: vita da frontaliere Svizzera-Italia',
+    description: 'Vivere a Caiolo e lavorare nei Grigioni: guida pratica a fiscalità, Permesso G, AVS-LPP, LAMal e ristorni per il frontaliere CH-IT. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, caiolo, grigioni, vita, svizzera-italia',
+    ogTitle: 'Frontaliere Caiolo-Grigioni: vivere e lavorare a confine',
+    ogDescription: 'Come vivere a Caiolo (Lombardia) e lavorare nei Grigioni (Svizzera): guida pratica a fiscalità, Permesso G, contributi AVS-LPP, assicurazione malattia LAMal, ristorni e procedure di trasferimento per il frontaliere Svizzera-Italia.',
+    canonicalPath: '/articoli-frontaliere/vivere-caiolo-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da Caiolo ai Grigioni: vita da frontaliere Svizzera-Italia",
+      "description": "Vivere a Caiolo e lavorare nei Grigioni: guida pratica a fiscalità, Permesso G, AVS-LPP, LAMal e ristorni per il frontaliere CH-IT. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-caiolo-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama dal Monte Generoso verso i Grigioni, confine tra Svizzera e Italia"
+      },
+      "datePublished": "2026-08-21T23:52:59+00:00",
+      "dateModified": "2026-08-21T23:52:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-caiolo-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-malonno-lavorare-grigioni-frontaliere': {
+    title: 'Vivere a Malonno e lavorare in Grigioni da frontaliere: cosa sapere',
+    description: 'Informazioni sulla fiscalità, permessi e assicurazioni per i frontalieri Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, malonno, lavorare, grigioni',
+    ogTitle: 'Vivere a Malonno e lavorare in Grigioni da frontaliere: cosa sapere',
+    ogDescription: 'Informazioni sulla fiscalità, permessi e assicurazioni per i frontalieri Ticino',
+    canonicalPath: '/articoli-frontaliere/vivere-malonno-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Malonno e lavorare in Grigioni da frontaliere: cosa sapere",
+      "description": "Informazioni sulla fiscalità, permessi e assicurazioni per i frontalieri Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-malonno-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere Ticino: Malonno e Grigioni"
+      },
+      "datePublished": "2026-08-22T00:08:32+00:00",
+      "dateModified": "2026-08-22T00:08:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-malonno-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

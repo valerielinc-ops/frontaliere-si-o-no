@@ -3757,6 +3757,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-tariffe.title': 'Svizzera-Cina: intesa per eliminare i dazi doganali',
     'blog.article.svizzera-cina-accordo-tariffe.excerpt': 'Accordo per l\'esenzione doganale sul 99,8% dell\'export svizzero verso la Cina: risparmi annui stimati di 244 milioni di CHF per le imprese elvetiche.',
     'blog.article.svizzera-cina-accordo-tariffe.imageAlt': 'Palazzo federale a Berna, sede delle decisioni economiche svizzere.',
+    'blog.article.cherosene-sintetico-aviazione.title': 'Aviazione: CO2 e acqua diventano cherosene sintetico',
+    'blog.article.cherosene-sintetico-aviazione.excerpt': 'PSI Argovia inaugura centrale dimostrativa di cherosene sintetico. Compagnie aeree svizzere devono mescolare il 2% di carburante sostenibile oggi, salendo al 6% nel 2030.',
+    'blog.article.cherosene-sintetico-aviazione.imageAlt': 'Centrale dimostrativa del Paul Scherrer Institut per la produzione di cherosene sintetico sostenibile in Argovia',
+    'blog.article.asilo-maghreb-reati-80-percento.title': 'Richiedenti l\'asilo dal Maghreb, l\'80% è coinvolto in reati',
+    'blog.article.asilo-maghreb-reati-80-percento.excerpt': 'L\'80,5% dei richiedenti dal Maghreb è stato accusato di reati. La SEM accelera le procedure e stringe accordi con il Marocco per più veloci rimpatri.',
+    'blog.article.asilo-maghreb-reati-80-percento.imageAlt': 'Veduta aerea del palazzo federale di Berna, sede del governo svizzero, in un paesaggio nazionale.',
 };
 
 export default blogMetaChIt;

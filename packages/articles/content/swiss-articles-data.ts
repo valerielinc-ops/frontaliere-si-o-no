@@ -11269,6 +11269,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cherosene-sintetico-aviazione',
+    category: 'novita',
+    date: '2026-08-21T23:59:56.336Z',
+    image: '/images/blog/cherosene-sintetico-aviazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'asilo-maghreb-reati-80-percento',
+    category: 'novita',
+    date: '2026-08-22T00:14:33.099Z',
+    image: '/images/blog/asilo-maghreb-reati-80-percento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
