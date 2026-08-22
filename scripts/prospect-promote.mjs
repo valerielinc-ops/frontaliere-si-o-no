@@ -218,12 +218,30 @@ if (!shipped.length) {
   process.exit(1);
 }
 
-// Fold the new crawlers into a group workflow, so they actually get scheduled.
-try {
-  execFileSync('node', ['scripts/generate-crawler-group-workflows.mjs'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
-  console.log('\ngruppi di workflow rigenerati');
-} catch (err) {
-  console.log(`\n⚠️ rigenerazione gruppi fallita: ${String(err.stderr || err.message).slice(0, 200)}`);
+// Rigenerare i gruppi tocca `.github/workflows/**`, e GitHub rifiuta per
+// progetto che una App scriva li' senza il permesso `workflows`. Il permesso
+// non si deduce dalla PRESENZA del token: il conio riesce lo stesso quando
+// l'installazione non ce l'ha (issue #5288), e il rifiuto arriva solo alla
+// fine, al push — misurato qui: 10 crawler scaffoldati e poi
+// «refusing to allow a GitHub App to create or update workflow».
+//
+// Fail-closed: si rigenera solo se `mint-app-token.mjs` ha LETTO la capacita'
+// dalla risposta dell'API. Senza, il crawler entra comunque (parser, runner,
+// test, voce di manifest) e resta solo da schedulare — una PR in meno di valore,
+// non una PR bloccata.
+const canWriteWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
+let groupsRegenerated = false;
+if (canWriteWorkflows) {
+  try {
+    execFileSync('node', ['scripts/generate-crawler-group-workflows.mjs'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    groupsRegenerated = true;
+    console.log('\ngruppi di workflow rigenerati');
+  } catch (err) {
+    console.log(`\n⚠️ rigenerazione gruppi fallita: ${String(err.stderr || err.message).slice(0, 200)}`);
+  }
+} else {
+  console.log('\n⚠️ niente permesso `workflows` su questo token: i gruppi NON vengono rigenerati.');
+  console.log('   I crawler entrano comunque; restano da schedulare.');
 }
 
 saveCandidates(store);
@@ -271,7 +289,8 @@ const body = `## Implementato
 
 - **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare.
 ${bullets}${relaxedNote}
-- **in questa PR** — voci nel manifest e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente.
+- **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${groupsRegenerated ? '' : `
+- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}
 
 ## Non implementato (ancora)
 
@@ -297,7 +316,9 @@ fs.writeFileSync(bodyFile, body);
 const git = (...a) => execFileSync('git', a, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
 try {
   git('checkout', '-b', branch);
-  git('add', 'scripts', 'tests', 'data/crawler-manifest.json', '.github/workflows', 'data/prospector');
+  const paths = ['scripts', 'tests', 'data/crawler-manifest.json', 'data/prospector'];
+  if (groupsRegenerated) paths.push('.github/workflows');
+  git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);
   const url = execFileSync('gh', [
