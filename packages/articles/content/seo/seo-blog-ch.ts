@@ -49277,6 +49277,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-c-lucerna-guida': {
+    title: 'Permesso di domicilio C Lucerna: guida completa',
+    description: 'Requisiti, criteri di integrazione e procedura di richiesta per il permesso di domicilio C nel Cantone di Lucerna. Guida completa step-by-step. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, lucerna, completa',
+    ogTitle: 'Permesso di domicilio C Lucerna: guida completa',
+    ogDescription: 'Requisiti, criteri di integrazione e procedura di richiesta per il permesso di domicilio C nel Cantone di Lucerna. Guida completa step-by-step.',
+    canonicalPath: '/articoli-svizzera/permesso-c-lucerna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C Lucerna: guida completa",
+      "description": "Requisiti, criteri di integrazione e procedura di richiesta per il permesso di domicilio C nel Cantone di Lucerna. Guida completa step-by-step. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-lucerna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso moderno di un ufficio cantonale svizzero per richieste di permesso di domicilio"
+      },
+      "datePublished": "2026-08-22T07:27:58+00:00",
+      "dateModified": "2026-08-22T07:27:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-lucerna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

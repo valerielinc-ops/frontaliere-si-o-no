@@ -3799,6 +3799,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.udc-verdi-iniziativa-neutralita.title': 'Assemblées UDC et Verts, on discute de l\'initiative sur la neutralité',
     'blog.article.udc-verdi-iniziativa-neutralita.excerpt': 'Les délégués de l\'UDC et des Verts se réunissent aujourd\'hui pour discuter de l\'initiative sur la neutralité et l\'initiative sur l\'alimentation',
     'blog.article.udc-verdi-iniziativa-neutralita.imageAlt': 'Délégués UDC et Verts en assemblée',
+    'blog.article.permesso-c-lucerna-guida.title': 'Permis domicile C Lucerne : guide complet',
+    'blog.article.permesso-c-lucerna-guida.excerpt': 'Exigences, critères d\'intégration et procédure de demande du permis de séjour C dans le canton de Lucerne. Guide complet étape par étape.',
+    'blog.article.permesso-c-lucerna-guida.imageAlt': 'Entrée moderne d\'un bureau cantonal suisse pour les demandes de permis de résidence',
 };
 
 export default blogMetaChFr;

@@ -1292,6 +1292,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-lucerna-rinnovo-procedura': { it: 'permesso-dimora-b-lucerna-rinnovo-procedura', en: 'residence-permit-b-lucerne-renewal-procedure', de: 'aufenthaltserlaubnis-b-luzern-verlaengerung-verfahren', fr: 'permis-sejour-b-lucerne-renouvellement-procedure' },
  'permesso-b-lucerna-requisiti-rinnovo': { it: 'permesso-b-lucerna-requisiti-rinnovo', en: 'lucerne-residence-permit-b-requirements-renewal', de: 'aufenthaltserlaubnis-b-luzern-anforderungen-verlaengerung', fr: 'permis-de-sejour-b-lucerne-conditions-renouvellement' },
  'udc-verdi-iniziativa-neutralita': { it: 'udc-verdi-iniziativa-neutralita', en: 'udc-verdi-iniziativa-neutralita-en', de: 'udc-gruene-iniziativa-neutralita-de', fr: 'udc-verdi-iniziativa-neutralita-fr' },
+ 'permesso-c-lucerna-guida': { it: 'permesso-c-lucerna-guida', en: 'permit-c-lucerna-guide', de: 'aufenthalt-c-luzern-anleitung', fr: 'permis-c-lucerne-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
