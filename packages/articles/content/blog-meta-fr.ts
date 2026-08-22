@@ -10483,6 +10483,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.detrazioni-mediche-frontaliere.title': 'Déductions médicales pour les frontaliers en Italie',
     'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Frais de santé Suisse-Italie : franchise LAMal, remboursement INPS, déductions IRPEF. Procédures pratiques et limites annuelles pour les frontaliers.',
     'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Prescription médicale et carte d\'assurance-maladie sur un bureau avec stéthoscope, paysage du canton suisse visible à travers la fenêtre',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Travail saisonnier Tessin : règles, permis G et droits',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'Depuis 2024, le nouvel accord fiscal réforme les taxes et les redevances pour les frontaliers. Règles pour le permis G, la fiscalité et les droits au travail saisonnier au Tessin.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Travailleurs frontaliers traversant le point de passage frontière Suisse-Italie au Tessin tôt le matin',
 };
 
 export default blogMetaFr;

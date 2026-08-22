@@ -74639,6 +74639,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stagionale-ticino-diritti-permesso-g': {
+    title: 'Lavoro stagionale Ticino: regole, permesso G e diritti',
+    description: 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, stagionale, regole, permesso',
+    ogTitle: 'Lavoro stagionale Ticino: regole, permesso G e diritti',
+    ogDescription: 'Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.',
+    canonicalPath: '/articoli-frontaliere/stagionale-ticino-diritti-permesso-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro stagionale Ticino: regole, permesso G e diritti",
+      "description": "Dal 2024 il nuovo accordo fiscale riforma imposte e ristorni per frontalieri. Regole per permesso G, fiscalità e diritti nel lavoro stagionale in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stagionale-ticino-diritti-permesso-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che attraversano il valico di confine Ticino-Italia al mattino presto durante l'orario di lavoro"
+      },
+      "datePublished": "2026-08-22T07:15:30+00:00",
+      "dateModified": "2026-08-22T07:15:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stagionale-ticino-diritti-permesso-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10481,6 +10481,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.detrazioni-mediche-frontaliere.title': 'Medical deductions for border workers in Italy',
     'blog.article.detrazioni-mediche-frontaliere.excerpt': 'Switzerland-Italy health expenses: LAMal deductible, INPS reimbursement, personal income tax deductions. Practical procedures and annual limits for border workers.',
     'blog.article.detrazioni-mediche-frontaliere.imageAlt': 'Medical prescription and health insurance card on desk with stethoscope, Swiss canton landscape visible through window',
+    'blog.article.stagionale-ticino-diritti-permesso-g.title': 'Ticino Seasonal Work: Rules, G Permit and Rights',
+    'blog.article.stagionale-ticino-diritti-permesso-g.excerpt': 'From 2024, the new tax agreement reforms taxes and refunds for border workers. Rules for G leave, taxation and rights in seasonal work in Ticino.',
+    'blog.article.stagionale-ticino-diritti-permesso-g.imageAlt': 'Commuters crossing the Swiss-Italian border checkpoint in Ticino during morning rush hours',
 };
 
 export default blogMetaEn;
