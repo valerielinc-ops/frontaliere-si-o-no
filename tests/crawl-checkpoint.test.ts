@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { loadCursor, saveCursor, mergeEventsIntoSlice } from '../scripts/lib/crawl-checkpoint.mjs';
+import { loadCursor, saveCursor, mergeEventsIntoSlice, loadGenericCursor, saveGenericCursor } from '../scripts/lib/crawl-checkpoint.mjs';
 
 describe('loadCursor / saveCursor', () => {
   let dir: string;
@@ -41,6 +41,38 @@ describe('loadCursor / saveCursor', () => {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'guidle.json'), JSON.stringify({ nextIndex: -1 }), 'utf-8');
     expect(loadCursor('guidle', dir)).toBe(0);
+  });
+});
+
+describe('loadGenericCursor / saveGenericCursor', () => {
+  let dir: string;
+  let file: string;
+
+  beforeEach(() => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawl-checkpoint-generic-'));
+    file = path.join(dir, 'nested', 'commoncrawl-cursor.json');
+  });
+
+  afterEach(() => {
+    fs.rmSync(dir, { recursive: true, force: true });
+  });
+
+  it('returns the fallback when no cursor file exists yet', () => {
+    const fallback = { collection: null, nextPage: 0, sweptPages: [] };
+    expect(loadGenericCursor(file, fallback)).toEqual(fallback);
+  });
+
+  it('persists and reloads an arbitrary cursor shape, creating missing dirs', () => {
+    const cursor = { collection: 'CC-MAIN-2026-30', nextPage: 4, sweptPages: [0, 1, 2, 3] };
+    saveGenericCursor(file, cursor);
+    expect(loadGenericCursor(file, null)).toEqual(cursor);
+  });
+
+  it('falls back for a malformed cursor file instead of throwing', () => {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, 'not json', 'utf-8');
+    const fallback = { collection: null, nextPage: 0, sweptPages: [] };
+    expect(loadGenericCursor(file, fallback)).toEqual(fallback);
   });
 });
 
