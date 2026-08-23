@@ -355,6 +355,35 @@ describe('posthog-error-issue-sync.mjs', () => {
     delete process.env.POSTHOG_PROJECT_ID;
   });
 
+  it('includes resolved stack origins (sample) in the body when $exception_list resolves frames, and "unresolved (0 frames)" otherwise (#5999)', async () => {
+    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
+    process.env.POSTHOG_PROJECT_ID = 'p';
+    issueListEmptyThenCreate(204);
+    stubPostHogFetch([
+      [
+        'Ba', 'Error', 7, 2, 'https://frontaliereticino.ch/en/find-jobs-basel/quality-solution-lead-roche-ch/',
+        [{ stacktrace: { frames: [{ filename: 'https://accounts.google.com/gsi/client' }, { filename: 'https://accounts.google.com/gsi/client' }] } }],
+      ],
+      [
+        'no frames resolved', 'Error', 6, 3, 'https://frontaliereticino.ch/it/',
+        [{ stacktrace: { frames: [] } }],
+      ],
+    ]);
+
+    await posthogSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(2);
+    const bodyFor = (title: string) => {
+      const call = calls.find((c) => c[c.indexOf('--title') + 1].includes(title))!;
+      return call[call.indexOf('--body') + 1];
+    };
+    expect(bodyFor('Ba')).toContain('**Resolved stack origins (sample):** https://accounts.google.com/gsi/client, https://accounts.google.com/gsi/client');
+    expect(bodyFor('no frames resolved')).toContain('**Resolved stack origins (sample):** unresolved (0 frames)');
+    delete process.env.POSTHOG_PERSONAL_API_KEY;
+    delete process.env.POSTHOG_PROJECT_ID;
+  });
+
   it('does not create a GitHub issue for "Importing a module script failed" even above threshold (#3762)', async () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'k';
     process.env.POSTHOG_PROJECT_ID = 'p';
