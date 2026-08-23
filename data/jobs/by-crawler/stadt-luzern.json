@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-luzern",
-  "assembledAt": "2026-08-22T21:43:55.571Z",
+  "assembledAt": "2026-08-23T09:54:07.180Z",
   "jobs": [
     {
       "id": "stadt-luzern-e925edb42f78",
@@ -34,7 +34,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/planungs-und-baukoordinator-in-total-140/d2b9e650-df09-4d7b-a088-1ad1006e7cab",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.865Z",
+      "crawledAt": "2026-08-23T09:54:03.471Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -81,11 +81,91 @@
       }
     },
     {
+      "id": "stadt-luzern-87064cd5ff02",
+      "slug": "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern",
+      "slugByLocale": {
+        "it": "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern",
+        "en": "geomatics-engineer-in-fh-geomatics-technician-in-federal-law-fa-80-100-stadt-luzern-luzern",
+        "de": "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+        "fr": "ingenieur-geomatique-en-fh-technicien-geomatique-en-droit-federal-fa-80-100-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Geomatikingenieur*in FH / Geomatiktechniker*in eidg. FA (80-100 %)",
+      "titleByLocale": {
+        "it": "Ingegnere Geomatics* in FH / Tecnico Geomatics* in diritto federale. FA (80-100 %)",
+        "en": "Geomatikingenieur*in FH / Geomatiktechniker*in eidg. FA (80-100 %)",
+        "de": "Geomatikingenieur*in FH / Geomatiktechniker*in eidg. FA (80-100 %)",
+        "fr": "Ingénieur géomatique* en FH / Technicien géomatique* en droit fédéral. FA (80-100 %)"
+      },
+      "description": "Innovative Lösungen zu entwickeln ist genau Ihr Ding? Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Stadt Luzern mit.\n\nAufgaben:\n• Du übernimmst Verantwortung für den Betrieb und die Weiterentwicklung des 3D-Stadtmodells.\n\n• Du setzt spannende Projekte in der Bau-, Ingenieur-, Architektur- und Leitungsvermessung um und bringst deine Ideen aktiv in die Gestaltung ein.\n\n• Bestehende Prozesse entwickelst du weiter und implementierst neue Ansätze sowie Lösungswege.\n\n• Du übernimmst die Dokumentation städtischer Datenthemen sowie einzelner Werkleitungsthemen im GIS-System.\n\n• Du nimmst kleinere Entwicklungen in GIS-Systemen vor und berätst Kundinnen und Kunden in GIS-Fragen.\n\n• Als Praxisbildner*in gibst du dein Wissen weiter und begleitest die Ausbildung der Geomatik-Lernenden.\n\nAnforderungen:\n• Du verfügst über ein abgeschlossenes Studium in Geomatik (BSc) oder eine vergleichbare Weiterbildung als Geomatiktechniker*in mit eidg. Fachausweis.\n\n• Mit Geoinformationssystemen kennst du dich bestens aus. Zudem bringst du Erfahrung in der Betreuung von 3D-Stadtmodellen sowie in der Ingenieur- und Werkleitungsvermessung mit.\n\n• Du begeisterst dich für digitale Prozesse und Automatisierung und verfügst idealerweise über Kenntnisse in ETL-Prozessen (z.B. FME)\n\n• Neben guten Deutschkenntnissen in Wort und Schrift zeichnen dich eine ausgeprägte Kundenorientierung, ein hohes Qualitätsbewusstsein sowie konzeptionelle Fähigkeiten aus.\n\n• Du arbeitest selbstständig, strukturiert und innovativ und bringst eigene Ideen aktiv ein.\n\n• Die Zusammenarbeit in einem motivierten Team bereitet dir Freude.\n\n• Den Führerausweis der Kategorie B bringst du ebenfalls mit.",
+      "descriptionByLocale": {
+        "it": "Sviluppare soluzioni innovative è esattamente la tua cosa? Entra a far parte del nostro team e modella il futuro della città di Lucerna. Compiti:\n• Si assume la responsabilità per l'operazione e l'ulteriore sviluppo del modello di città 3D.\n• Realizzi progetti entusiasmanti in costruzione, ingegneria, architettura e misurazione della linea e contribuisci attivamente alla progettazione.\n• I processi esistenti si sviluppano ulteriormente e implementano nuovi approcci e soluzioni.\n• Si prende il controllo della documentazione degli argomenti dei dati urbani e dei singoli argomenti di gestione degli impianti nel sistema GIS.\n• Potrai effettuare piccoli sviluppi nei sistemi GIS e consigliare i clienti sui problemi GIS.\n• Come istruttore pratico, si passa la vostra conoscenza e accompagnare la formazione di studenti di geomatologia. Requisiti\n• Hai una laurea completa in geomatica (BSc) o un'ulteriore formazione comparabile come tecnico geomatico con un certificato federale.\n• Hai molto familiarità con i sistemi di informazione geografica. Inoltre, avete esperienza nel sostenere i modelli 3D città così come in ingegneria e la gestione delle piante indagine.\n• Sei entusiasta dei processi digitali e dell'automazione e conosci idealmente i processi ETL (ad esempio FME)\n• Oltre a una buona conoscenza del tedesco nella parola e nella scrittura, si sono caratterizzati da un forte orientamento al cliente, un alto livello di consapevolezza della qualità e competenze concettuali.\n• Lavori in modo indipendente, strutturato e innovativo e contribuisci attivamente alle tue idee.\n• Lavorare in una squadra motivata ti porta gioia.\n• È anche portare la licenza del driver di categoria B.",
+        "en": "Developing innovative solutions is exactly your thing? Become part of our team and shape the future of the city of Lucerne. Tasks:\n• You take responsibility for the operation and further development of the 3D city model.\n• You implement exciting projects in construction, engineering, architecture and line measurement and actively contribute your ideas to the design.\n• Existing processes you develop further and implement new approaches and solutions.\n• You take over the documentation of urban data topics as well as individual plant management topics in the GIS system.\n• You will carry out minor developments in GIS systems and advise customers on GIS issues.\n• As a practical instructor, you pass on your knowledge and accompany the training of geomatics learners. Requirements\n• You have a completed degree in geomatics (BSc) or a comparable further education as a geomatics technician with a federal certificate.\n• You are very familiar with geographic information systems. In addition, you have experience in supporting 3D city models as well as in engineering and plant management surveying.\n• You are enthusiastic about digital processes and automation and ideally have knowledge of ETL processes (e.g. FME)\n• In addition to a good knowledge of German in word and writing, you are characterized by a pronounced customer orientation, a high level of quality awareness and conceptual skills.\n• You work independently, structured and innovatively and actively contribute your own ideas.\n• Working in a motivated team brings you joy.\n• You also bring the category B driver’s license.",
+        "de": "Innovative Lösungen zu entwickeln ist genau Ihr Ding? Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Stadt Luzern mit.\n\nAufgaben:\n• Du übernimmst Verantwortung für den Betrieb und die Weiterentwicklung des 3D-Stadtmodells.\n\n• Du setzt spannende Projekte in der Bau-, Ingenieur-, Architektur- und Leitungsvermessung um und bringst deine Ideen aktiv in die Gestaltung ein.\n\n• Bestehende Prozesse entwickelst du weiter und implementierst neue Ansätze sowie Lösungswege.\n\n• Du übernimmst die Dokumentation städtischer Datenthemen sowie einzelner Werkleitungsthemen im GIS-System.\n\n• Du nimmst kleinere Entwicklungen in GIS-Systemen vor und berätst Kundinnen und Kunden in GIS-Fragen.\n\n• Als Praxisbildner*in gibst du dein Wissen weiter und begleitest die Ausbildung der Geomatik-Lernenden.\n\nAnforderungen:\n• Du verfügst über ein abgeschlossenes Studium in Geomatik (BSc) oder eine vergleichbare Weiterbildung als Geomatiktechniker*in mit eidg. Fachausweis.\n\n• Mit Geoinformationssystemen kennst du dich bestens aus. Zudem bringst du Erfahrung in der Betreuung von 3D-Stadtmodellen sowie in der Ingenieur- und Werkleitungsvermessung mit.\n\n• Du begeisterst dich für digitale Prozesse und Automatisierung und verfügst idealerweise über Kenntnisse in ETL-Prozessen (z.B. FME)\n\n• Neben guten Deutschkenntnissen in Wort und Schrift zeichnen dich eine ausgeprägte Kundenorientierung, ein hohes Qualitätsbewusstsein sowie konzeptionelle Fähigkeiten aus.\n\n• Du arbeitest selbstständig, strukturiert und innovativ und bringst eigene Ideen aktiv ein.\n\n• Die Zusammenarbeit in einem motivierten Team bereitet dir Freude.\n\n• Den Führerausweis der Kategorie B bringst du ebenfalls mit.",
+        "fr": "Développer des solutions innovantes est exactement votre truc ? Faites partie de notre équipe et façonnez l'avenir de la ville de Lucerne. Tâches :\n• Vous assumez la responsabilité de l'opération et du développement du modèle de ville 3D.\n• Vous implémentez des projets passionnants dans la construction, l'ingénierie, l'architecture et la mesure de ligne et contribuez activement à la conception.\n• Les processus existants que vous développez et mettez en œuvre de nouvelles approches et solutions.\n• Vous prenez en charge la documentation des sujets de données urbaines ainsi que des sujets de gestion d'usines individuelles dans le système SIG.\n• Vous réaliserez des développements mineurs dans les systèmes SIG et conseillerez les clients sur les questions SIG.\n• En tant qu'instructeur pratique, vous transmettez vos connaissances et accompagnez la formation des apprenants en géomatique. Exigences\n• Vous avez obtenu un diplôme en géomatique (BSc) ou une formation complémentaire comparable comme technicien en géomatique avec un certificat fédéral.\n• Vous connaissez très bien les systèmes d'information géographique. En outre, vous avez de l'expérience dans le support de modèles de ville 3D ainsi que dans l'ingénierie et l'arpentage de gestion d'usines.\n• Vous êtes passionné par les processus numériques et l'automatisation et avez idéalement une connaissance des processus ETL (par exemple FME)\n• En plus d'une bonne connaissance de l'allemand en paroles et en écriture, vous êtes caractérisé par une orientation client prononcée, un niveau élevé de sensibilisation à la qualité et des compétences conceptuelles.\n• Vous travaillez de façon indépendante, structurée, innovante et active.\n• Travailler dans une équipe motivée vous apporte de la joie.\n• Vous apportez également le permis de conduire de catégorie B."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T09:54:03.470Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6002",
+      "streetAddress": "Industriestrasse 6",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+        "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
+          "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern"
+        ],
+        "en": [
+          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:19:10.037Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-luzern-9824dc6d62a2",
       "slug": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
       "slugByLocale": {
         "it": "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
-        "en": "civil-status-officer-60-stadt-luzern-luzern",
+        "en": "zivilstandsbeamt-in-60-stadt-luzern",
         "de": "zivilstandsbeamt-in-60-stadt-luzern-luzern",
         "fr": "fonctionnaire-de-l-etat-civil-60-stadt-luzern-luzern"
       },
@@ -95,7 +175,7 @@
       "title": "Zivilstandsbeamt*in (60 %)",
       "titleByLocale": {
         "it": "Ufficiale di stato civile (60%)",
-        "en": "Civil status officer (60%)",
+        "en": "Zivilstandsbeamt*in (60 %)",
         "de": "Zivilstandsbeamt*in (60 %)",
         "fr": "Fonctionnaire de l ' état civil (60 %)"
       },
@@ -106,12 +186,13 @@
         "de": "Willst du Büroarbeit mit einer sinnstiftenden Tätigkeit verbinden? Und Kundinnen und Kunden an die erste Stelle setzen?\n\nAufgaben:\n• Du beurkundest Zivilstandsereignisse von Geburt, über Eheschliessung bis zum Tod inkl. Gerichts- und Verwaltungsentscheide.\n\n• Erklärungen (z. B. Anerkennung, Namenserklärung, Geschlechtsänderung) nimmst du entgegen und bearbeitest sie.\n\n• Im Rahmen der Ehevorbereitung prüfst du, ob alle Ehevoraussetzungen erfüllt sind.\n\n• Du führst Trauungen durch.\n\n• Du erstellst Auszüge aus den Zivilstandsregistern.\n\n• Du berätst unsere Kundinnen und Kunden telefonisch oder persönlich am Schalter.\n\nAnforderungen:\n• Du weist eine abgeschlossene kaufmännische Grundausbildung, vorzugsweise in einer öffentlichen Verwaltung sowie den eidgenössischen Fachausweis als Zivilstandsbeamtin / Zivilstandsbeamte vor.\n\n• Du verfügst über Praxiserfahrung im Aufgabenbereich und hast ein Flair für rechtliche Belange.\n\n• Du drückst dich schriftlich und mündlich gewandt in der deutschen Sprache aus und bringst Fremdsprachenkenntnisse mit.\n\n• Deine Arbeitsweise ist selbstständig, zuverlässig, dienstleistungsorientiert und einfühlsam.",
         "fr": "Voulez-vous combiner le travail de bureau et une activité significative? Et mettre les clients en premier ? Tâches :\n• Vous documentez les événements de l'état civil de la naissance, du mariage à la mort, y compris. décisions judiciaires et administratives.\n• Les déclarations (par exemple, reconnaissance, déclaration de nom, changement de sexe) sont acceptées et traitées.\n• Dans le cadre de la préparation du mariage, vous vérifiez si toutes les conditions du mariage sont remplies.\n• Vous dirigez des mariages.\n• Vous créez des extraits des registres de l'état civil.\n• Vous conseillez nos clients par téléphone ou personnellement au comptoir. Exigences\n• Vous avez suivi une formation commerciale de base, de préférence dans une administration publique, ainsi que la carte professionnelle fédérale suisse en tant qu'officier d'état civil.\n• Vous avez de l'expérience pratique dans le domaine des tâches et vous avez un goût pour les questions juridiques.\n• Vous vous exprimez par écrit et oralement en langue allemande et apportez vos compétences en langue étrangère.\n• Votre façon de travailler est indépendante, fiable, orientée vers le service et sensible."
       },
+      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/zivilstandsbeamt-in/2f40e940-835a-4325-97fd-d8c1e372ad6a",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.864Z",
+      "crawledAt": "2026-08-23T09:54:03.470Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -131,14 +212,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+        "civil-status-officer-60-stadt-luzern-luzern",
+        "ufficiale-di-stato-civile-60-stadt-luzern-luzern",
         "zivilstandsbeamt-in-60-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivilstandsbeamt-in-60-stadt-luzern-luzern"
+          "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+          "ufficiale-di-stato-civile-60-stadt-luzern-luzern"
         ],
         "en": [
           "zivilstandsbeamt-in-60-stadt-luzern-luzern",
+          "civil-status-officer-60-stadt-luzern-luzern",
           "zivilstandsbeamt-in-60-stadt-luzern"
         ],
         "fr": [
@@ -191,7 +276,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baukontrolle-vollzug/0d498076-521d-43a4-9304-2a9168f41507",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.863Z",
+      "crawledAt": "2026-08-23T09:54:03.463Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -210,11 +295,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
+        "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern",
+        "controllo-esecuzione-di-edifici-specializzati-60-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
+          "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern",
+          "controllo-esecuzione-di-edifici-specializzati-60-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachspezialist-in-baukontrolle-vollzug-60-80-stadt-luzern-luzern"
@@ -233,84 +320,6 @@
           "@type": "QuantitativeValue",
           "minValue": 55600,
           "maxValue": 84800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-87064cd5ff02",
-      "slug": "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern",
-      "slugByLocale": {
-        "it": "ingegnere-geomatics-in-fh-tecnico-geomatics-in-diritto-federale-fa-80-100-stadt-luzern-luzern",
-        "en": "geomatics-engineer-in-fh-geomatics-technician-in-federal-law-fa-80-100-stadt-luzern-luzern",
-        "de": "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern",
-        "fr": "ingenieur-geomatique-en-fh-technicien-geomatique-en-droit-federal-fa-80-100-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Geomatikingenieur*in FH / Geomatiktechniker*in eidg. FA (80-100 %)",
-      "titleByLocale": {
-        "it": "Ingegnere Geomatics* in FH / Tecnico Geomatics* in diritto federale. FA (80-100 %)",
-        "en": "Geomatics engineer* in FH / Geomatics technician* in federal law. FA (80-100 %)",
-        "de": "Geomatikingenieur*in FH / Geomatiktechniker*in eidg. FA (80-100 %)",
-        "fr": "Ingénieur géomatique* en FH / Technicien géomatique* en droit fédéral. FA (80-100 %)"
-      },
-      "description": "Innovative Lösungen zu entwickeln ist genau Ihr Ding? Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Stadt Luzern mit.\n\nAufgaben:\n• Du übernimmst Verantwortung für den Betrieb und die Weiterentwicklung des 3D-Stadtmodells.\n\n• Du setzt spannende Projekte in der Bau-, Ingenieur-, Architektur- und Leitungsvermessung um und bringst deine Ideen aktiv in die Gestaltung ein.\n\n• Bestehende Prozesse entwickelst du weiter und implementierst neue Ansätze sowie Lösungswege.\n\n• Du übernimmst die Dokumentation städtischer Datenthemen sowie einzelner Werkleitungsthemen im GIS-System.\n\n• Du nimmst kleinere Entwicklungen in GIS-Systemen vor und berätst Kundinnen und Kunden in GIS-Fragen.\n\n• Als Praxisbildner*in gibst du dein Wissen weiter und begleitest die Ausbildung der Geomatik-Lernenden.\n\nAnforderungen:\n• Du verfügst über ein abgeschlossenes Studium in Geomatik (BSc) oder eine vergleichbare Weiterbildung als Geomatiktechniker*in mit eidg. Fachausweis.\n\n• Mit Geoinformationssystemen kennst du dich bestens aus. Zudem bringst du Erfahrung in der Betreuung von 3D-Stadtmodellen sowie in der Ingenieur- und Werkleitungsvermessung mit.\n\n• Du begeisterst dich für digitale Prozesse und Automatisierung und verfügst idealerweise über Kenntnisse in ETL-Prozessen (z.B. FME)\n\n• Neben guten Deutschkenntnissen in Wort und Schrift zeichnen dich eine ausgeprägte Kundenorientierung, ein hohes Qualitätsbewusstsein sowie konzeptionelle Fähigkeiten aus.\n\n• Du arbeitest selbstständig, strukturiert und innovativ und bringst eigene Ideen aktiv ein.\n\n• Die Zusammenarbeit in einem motivierten Team bereitet dir Freude.\n\n• Den Führerausweis der Kategorie B bringst du ebenfalls mit.",
-      "descriptionByLocale": {
-        "it": "Sviluppare soluzioni innovative è esattamente la tua cosa? Entra a far parte del nostro team e modella il futuro della città di Lucerna. Compiti:\n• Si assume la responsabilità per l'operazione e l'ulteriore sviluppo del modello di città 3D.\n• Realizzi progetti entusiasmanti in costruzione, ingegneria, architettura e misurazione della linea e contribuisci attivamente alla progettazione.\n• I processi esistenti si sviluppano ulteriormente e implementano nuovi approcci e soluzioni.\n• Si prende il controllo della documentazione degli argomenti dei dati urbani e dei singoli argomenti di gestione degli impianti nel sistema GIS.\n• Potrai effettuare piccoli sviluppi nei sistemi GIS e consigliare i clienti sui problemi GIS.\n• Come istruttore pratico, si passa la vostra conoscenza e accompagnare la formazione di studenti di geomatologia. Requisiti\n• Hai una laurea completa in geomatica (BSc) o un'ulteriore formazione comparabile come tecnico geomatico con un certificato federale.\n• Hai molto familiarità con i sistemi di informazione geografica. Inoltre, avete esperienza nel sostenere i modelli 3D città così come in ingegneria e la gestione delle piante indagine.\n• Sei entusiasta dei processi digitali e dell'automazione e conosci idealmente i processi ETL (ad esempio FME)\n• Oltre a una buona conoscenza del tedesco nella parola e nella scrittura, si sono caratterizzati da un forte orientamento al cliente, un alto livello di consapevolezza della qualità e competenze concettuali.\n• Lavori in modo indipendente, strutturato e innovativo e contribuisci attivamente alle tue idee.\n• Lavorare in una squadra motivata ti porta gioia.\n• È anche portare la licenza del driver di categoria B.",
-        "en": "Developing innovative solutions is exactly your thing? Become part of our team and shape the future of the city of Lucerne. Tasks:\n• You take responsibility for the operation and further development of the 3D city model.\n• You implement exciting projects in construction, engineering, architecture and line measurement and actively contribute your ideas to the design.\n• Existing processes you develop further and implement new approaches and solutions.\n• You take over the documentation of urban data topics as well as individual plant management topics in the GIS system.\n• You will carry out minor developments in GIS systems and advise customers on GIS issues.\n• As a practical instructor, you pass on your knowledge and accompany the training of geomatics learners. Requirements\n• You have a completed degree in geomatics (BSc) or a comparable further education as a geomatics technician with a federal certificate.\n• You are very familiar with geographic information systems. In addition, you have experience in supporting 3D city models as well as in engineering and plant management surveying.\n• You are enthusiastic about digital processes and automation and ideally have knowledge of ETL processes (e.g. FME)\n• In addition to a good knowledge of German in word and writing, you are characterized by a pronounced customer orientation, a high level of quality awareness and conceptual skills.\n• You work independently, structured and innovatively and actively contribute your own ideas.\n• Working in a motivated team brings you joy.\n• You also bring the category B driver’s license.",
-        "de": "Innovative Lösungen zu entwickeln ist genau Ihr Ding? Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Stadt Luzern mit.\n\nAufgaben:\n• Du übernimmst Verantwortung für den Betrieb und die Weiterentwicklung des 3D-Stadtmodells.\n\n• Du setzt spannende Projekte in der Bau-, Ingenieur-, Architektur- und Leitungsvermessung um und bringst deine Ideen aktiv in die Gestaltung ein.\n\n• Bestehende Prozesse entwickelst du weiter und implementierst neue Ansätze sowie Lösungswege.\n\n• Du übernimmst die Dokumentation städtischer Datenthemen sowie einzelner Werkleitungsthemen im GIS-System.\n\n• Du nimmst kleinere Entwicklungen in GIS-Systemen vor und berätst Kundinnen und Kunden in GIS-Fragen.\n\n• Als Praxisbildner*in gibst du dein Wissen weiter und begleitest die Ausbildung der Geomatik-Lernenden.\n\nAnforderungen:\n• Du verfügst über ein abgeschlossenes Studium in Geomatik (BSc) oder eine vergleichbare Weiterbildung als Geomatiktechniker*in mit eidg. Fachausweis.\n\n• Mit Geoinformationssystemen kennst du dich bestens aus. Zudem bringst du Erfahrung in der Betreuung von 3D-Stadtmodellen sowie in der Ingenieur- und Werkleitungsvermessung mit.\n\n• Du begeisterst dich für digitale Prozesse und Automatisierung und verfügst idealerweise über Kenntnisse in ETL-Prozessen (z.B. FME)\n\n• Neben guten Deutschkenntnissen in Wort und Schrift zeichnen dich eine ausgeprägte Kundenorientierung, ein hohes Qualitätsbewusstsein sowie konzeptionelle Fähigkeiten aus.\n\n• Du arbeitest selbstständig, strukturiert und innovativ und bringst eigene Ideen aktiv ein.\n\n• Die Zusammenarbeit in einem motivierten Team bereitet dir Freude.\n\n• Den Führerausweis der Kategorie B bringst du ebenfalls mit.",
-        "fr": "Développer des solutions innovantes est exactement votre truc ? Faites partie de notre équipe et façonnez l'avenir de la ville de Lucerne. Tâches :\n• Vous assumez la responsabilité de l'opération et du développement du modèle de ville 3D.\n• Vous implémentez des projets passionnants dans la construction, l'ingénierie, l'architecture et la mesure de ligne et contribuez activement à la conception.\n• Les processus existants que vous développez et mettez en œuvre de nouvelles approches et solutions.\n• Vous prenez en charge la documentation des sujets de données urbaines ainsi que des sujets de gestion d'usines individuelles dans le système SIG.\n• Vous réaliserez des développements mineurs dans les systèmes SIG et conseillerez les clients sur les questions SIG.\n• En tant qu'instructeur pratique, vous transmettez vos connaissances et accompagnez la formation des apprenants en géomatique. Exigences\n• Vous avez obtenu un diplôme en géomatique (BSc) ou une formation complémentaire comparable comme technicien en géomatique avec un certificat fédéral.\n• Vous connaissez très bien les systèmes d'information géographique. En outre, vous avez de l'expérience dans le support de modèles de ville 3D ainsi que dans l'ingénierie et l'arpentage de gestion d'usines.\n• Vous êtes passionné par les processus numériques et l'automatisation et avez idéalement une connaissance des processus ETL (par exemple FME)\n• En plus d'une bonne connaissance de l'allemand en paroles et en écriture, vous êtes caractérisé par une orientation client prononcée, un niveau élevé de sensibilisation à la qualité et des compétences conceptuelles.\n• Vous travaillez de façon indépendante, structurée, innovante et active.\n• Travailler dans une équipe motivée vous apporte de la joie.\n• Vous apportez également le permis de conduire de catégorie B."
-      },
-      "needsRetranslation": true,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.863Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6002",
-      "streetAddress": "Industriestrasse 6",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa/eab851b2-2bc7-4d4e-8ca2-827b952bdeb3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
-        ],
-        "en": [
-          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "geomatikingenieur-in-fh-geomatiktechniker-in-eidg-fa-80-100-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:19:10.037Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -347,7 +356,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachspezialist-in-baugesuche/aeb15b73-2ce9-42f3-8d73-d97b6d2467a4",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.862Z",
+      "crawledAt": "2026-08-23T09:54:03.462Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -366,11 +375,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
+        "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern",
+        "applicazione-di-costruzione-specialistica-50-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
+          "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern",
+          "applicazione-di-costruzione-specialistica-50-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachspezialist-in-baugesuche-50-80-stadt-luzern-luzern"
@@ -425,7 +436,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/geomatiker-in-efz-geomatiktechniker-in-eidg-fa/7e75d21e-7d3f-4f00-8fcb-71ebb603f5ac",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.861Z",
+      "crawledAt": "2026-08-23T09:54:03.461Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -489,7 +500,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-grundstuecksentwaesserung/70e47d5e-0e59-4ebd-b7f6-31a10a7a0fa8",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.861Z",
+      "crawledAt": "2026-08-23T09:54:03.461Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -508,11 +519,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+        "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+        "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+          "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+          "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern"
         ],
         "en": [
           "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
@@ -531,84 +544,6 @@
           "@type": "QuantitativeValue",
           "minValue": 41700,
           "maxValue": 63600,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-luzern-e978b93ad2ae",
-      "slug": "apprendistato-come-gartner-in-cfc-specializzazione-pflanzenproduktion-100-stadt-luzern",
-      "slugByLocale": {
-        "it": "apprendistato-come-gartner-in-cfc-specializzazione-pflanzenproduktion-100-stadt-luzern",
-        "en": "apprenticeship-as-a-gardener-in-efz-field-of-plant-production-100-stadt-luzern-luzern",
-        "de": "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern",
-        "fr": "apprentissage-en-tant-que-jardinier-dans-efz-champ-de-production-vegetale-100-stadt-luzern-luzern"
-      },
-      "company": "Stadt Luzern",
-      "companyKey": "stadt-luzern",
-      "companyDomain": "stadtluzern.ch",
-      "title": "Lehrstelle als Gärtner*in EFZ, Fachrichtung Pflanzenproduktion (100 %)",
-      "titleByLocale": {
-        "it": "Apprendistato come Gärtner*in CFC, specializzazione Pflanzenproduktion (100 %)",
-        "en": "Apprenticeship as a gardener* in EFZ, field of plant production (100%)",
-        "de": "Lehrstelle als Gärtner*in EFZ, Fachrichtung Pflanzenproduktion (100 %)",
-        "fr": "Apprentissage en tant que jardinier* dans EFZ, champ de production végétale (100%)"
-      },
-      "description": "Du bepflanzt und baust öffentliche Anlagen und prägst damit das Erscheinungsbild der Stadt wesentlich mit.\n\nAufgaben:\n• Du ziehst Pflanzen vom Samenkorn bis zur fertigen Pflanze auf.\n\n• Du erlernst das Kultivieren von Pflanzen und sorgst für optimale Wachstumsbedingungen.\n\n• Du lernst die Ansprüche und Verwendung von Pflanzen kennen.\n\n• Du lernst Krankheiten und Schädlinge zu erkennen und biologisch zu bekämpfen.\n\n• Du überwinterst und pflegst frostempfindliche Pflanzen sorgfältig.\n\nAnforderungen:\n• Du hast Freude an der Natur.\n\n• Pflanzen und Blumen begeistern dich.\n\n• Du bringst die Bereitschaft mit, Pflanzen und deren Ansprüche zu lernen.\n\n• Du hast die Sekundarstufe B oder C mit guten Leistungen abgeschlossen.",
-      "descriptionByLocale": {
-        "it": "Pianifichi e costruisci strutture pubbliche e così forma significativamente l'aspetto della città.\n\nCompiti:\n• Si coltivano le piante dal seme alla pianta finita.\n\n• Imparerete a coltivare le piante e garantire condizioni di crescita ottimali.\n\n• Scoprirete i requisiti e l'uso delle piante.\n\n• Impara a riconoscere malattie e parassiti e a combattere biologicamente.\n\n• Si inverno e la cura con attenzione per piante gelo-sensibili.\n\nRequisiti\n• Ti piace la natura.\n\n• Le piante e i fiori ti ispirano.\n\n• Porti la volontà di imparare le piante e le loro esigenze.\n\n• Hai completato il livello secondario B o C con buone prestazioni.",
-        "en": "You plant and build public facilities and thus significantly shape the appearance of the city.\n\nTasks:\n• You grow plants from the seed to the finished plant.\n\n• You will learn to cultivate plants and ensure optimal growth conditions.\n\n• You will learn about the requirements and use of plants.\n\n• You learn to recognize diseases and pests and to fight biologically.\n\n• You winter and care carefully for frost-sensitive plants.\n\nRequirements\n• You enjoy nature.\n\n• Plants and flowers inspire you.\n\n• You bring the willingness to learn plants and their demands.\n\n• You have completed secondary level B or C with good performance.",
-        "de": "Du bepflanzt und baust öffentliche Anlagen und prägst damit das Erscheinungsbild der Stadt wesentlich mit.\n\nAufgaben:\n• Du ziehst Pflanzen vom Samenkorn bis zur fertigen Pflanze auf.\n\n• Du erlernst das Kultivieren von Pflanzen und sorgst für optimale Wachstumsbedingungen.\n\n• Du lernst die Ansprüche und Verwendung von Pflanzen kennen.\n\n• Du lernst Krankheiten und Schädlinge zu erkennen und biologisch zu bekämpfen.\n\n• Du überwinterst und pflegst frostempfindliche Pflanzen sorgfältig.\n\nAnforderungen:\n• Du hast Freude an der Natur.\n\n• Pflanzen und Blumen begeistern dich.\n\n• Du bringst die Bereitschaft mit, Pflanzen und deren Ansprüche zu lernen.\n\n• Du hast die Sekundarstufe B oder C mit guten Leistungen abgeschlossen.",
-        "fr": "Vous plantez et construisez des installations publiques et façonnez ainsi de façon significative l'apparence de la ville.\n\nTâches :\n• Vous cultivez des plantes de la semence à la plante finie.\n\n• Vous apprendrez à cultiver les plantes et à assurer des conditions de croissance optimales.\n\n• Vous apprendrez les exigences et l'utilisation des plantes.\n\n• Vous apprenez à reconnaître les maladies et les parasites et à lutter biologiquement.\n\n• Vous hivernez et soignez soigneusement les plantes sensibles au gel.\n\nExigences\n• Vous aimez la nature.\n\n• Les plantes et les fleurs vous inspirent.\n\n• Vous apportez la volonté d'apprendre les plantes et leurs exigences.\n\n• Vous avez terminé le niveau secondaire B ou C avec de bonnes performances."
-      },
-      "needsRetranslation": true,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-efz-fachrichtung-pflanzenproduktion/6374ffed-1907-4ed1-b4ce-10b560fd18cd",
-      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.860Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Riedstrasse 2",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-efz-fachrichtung-pflanzenproduktion/6374ffed-1907-4ed1-b4ce-10b560fd18cd",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern"
-        ],
-        "en": [
-          "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern"
-        ],
-        "fr": [
-          "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:26:03.492Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -645,7 +580,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/berufsbegleitendes-ausbildungspraktikum-jugend-und-familienberatung-contact/23e8a436-c8c0-4056-98c4-5d580b7794ee",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.860Z",
+      "crawledAt": "2026-08-23T09:54:03.459Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -692,38 +627,38 @@
       }
     },
     {
-      "id": "stadt-luzern-8da1a9c03ede",
-      "slug": "apprendistato-come-gartner-in-afp-specializzazione-garten-e-landschaftsbau-100-stadt-luzern",
+      "id": "stadt-luzern-e978b93ad2ae",
+      "slug": "apprendistato-come-gartner-in-cfc-specializzazione-pflanzenproduktion-100-stadt-luzern",
       "slugByLocale": {
-        "it": "apprendistato-come-gartner-in-afp-specializzazione-garten-e-landschaftsbau-100-stadt-luzern",
-        "en": "apprenticeship-as-a-gardener-eba-field-of-gardening-and-landscaping-100-stadt-luzern-luzern",
-        "de": "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern",
-        "fr": "apprentissage-comme-jardinier-eba-champ-de-jardinage-et-amenagement-paysager-100-stadt-luzern-luzern"
+        "it": "apprendistato-come-gartner-in-cfc-specializzazione-pflanzenproduktion-100-stadt-luzern",
+        "en": "apprenticeship-as-a-gardener-in-efz-field-of-plant-production-100-stadt-luzern-luzern",
+        "de": "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern",
+        "fr": "apprentissage-en-tant-que-jardinier-dans-efz-champ-de-production-vegetale-100-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
       "companyDomain": "stadtluzern.ch",
-      "title": "Lehrstelle als Gärtner*in EBA, Fachrichtung Garten- und Landschaftsbau (100 %)",
+      "title": "Lehrstelle als Gärtner*in EFZ, Fachrichtung Pflanzenproduktion (100 %)",
       "titleByLocale": {
-        "it": "Apprendistato come Gärtner*in AFP, specializzazione Garten- e Landschaftsbau (100 %)",
-        "en": "Apprenticeship as a gardener EBA, field of gardening and landscaping (100%)",
-        "de": "Lehrstelle als Gärtner*in EBA, Fachrichtung Garten- und Landschaftsbau (100 %)",
-        "fr": "Apprentissage comme jardinier EBA, champ de jardinage et aménagement paysager (100%)"
+        "it": "Apprendistato come Gärtner*in CFC, specializzazione Pflanzenproduktion (100 %)",
+        "en": "Apprenticeship as a gardener* in EFZ, field of plant production (100%)",
+        "de": "Lehrstelle als Gärtner*in EFZ, Fachrichtung Pflanzenproduktion (100 %)",
+        "fr": "Apprentissage en tant que jardinier* dans EFZ, champ de production végétale (100%)"
       },
-      "description": "Du bepflanzt und baust öffentliche Grünflächen und prägst damit das Erscheinungsbild der Stadt Luzern wesentlich mit.\n\nAufgaben:\n• Du setzt Geräte und Maschinen fachgerecht ein.\n\n• Du pflegst und unterhältst regelmässig öffentliche Grünflächen.\n\n• Du erstellst Pflanzenbeete und Rasenflächen.\n\n• Du wählst passende Pflanzen aus und beurteilst ihre Standortansprüche.\n\n• Du führst einfache Bauarbeiten aus, wie Mauern, Treppen oder das Verlegen von Platten.\n\nAnforderungen:\n• Die Arbeit in der Natur begeistert dich.\n\n• Du bringst handwerkliches Geschick und eine gute körperliche Konstitution mit.\n\n• Du arbeitest wetterunabhängig, im Sommer wie im Winter.\n\n• Du hast die Sekundarstufe C oder D mit guten Leistungen abgeschlossen.",
+      "description": "Du bepflanzt und baust öffentliche Anlagen und prägst damit das Erscheinungsbild der Stadt wesentlich mit.\n\nAufgaben:\n• Du ziehst Pflanzen vom Samenkorn bis zur fertigen Pflanze auf.\n\n• Du erlernst das Kultivieren von Pflanzen und sorgst für optimale Wachstumsbedingungen.\n\n• Du lernst die Ansprüche und Verwendung von Pflanzen kennen.\n\n• Du lernst Krankheiten und Schädlinge zu erkennen und biologisch zu bekämpfen.\n\n• Du überwinterst und pflegst frostempfindliche Pflanzen sorgfältig.\n\nAnforderungen:\n• Du hast Freude an der Natur.\n\n• Pflanzen und Blumen begeistern dich.\n\n• Du bringst die Bereitschaft mit, Pflanzen und deren Ansprüche zu lernen.\n\n• Du hast die Sekundarstufe B oder C mit guten Leistungen abgeschlossen.",
       "descriptionByLocale": {
-        "it": "Piantifichi e costruisci spazi verdi pubblici e così forma significativamente l'aspetto della città di Lucerna.\n\nCompiti:\n• Si utilizzano attrezzature e macchine professionalmente.\n\n• Si mantiene regolarmente e mantenere spazi verdi pubblici.\n\n• Si creano letti e prati vegetali.\n\n• Selezioni impianti adatti e valuta i loro requisiti di posizione.\n\n• Esegui semplici lavori di costruzione, come pareti, scale o piastre di posa.\n\nRequisiti\n• Lavorare in natura ti eccita.\n\n• Porti l'artigianato e una buona costituzione fisica.\n\n• Si lavora indipendentemente dal tempo, in estate così come in inverno.\n\n• Hai completato il livello secondario C o D con buone prestazioni.",
-        "en": "You plant and build public green spaces and thus significantly shape the appearance of the city of Lucerne.\n\nTasks:\n• You use equipment and machines professionally.\n\n• You regularly maintain and maintain public green spaces.\n\n• You create plant beds and lawns.\n\n• You select suitable plants and assess their location requirements.\n\n• You perform simple construction work, such as walls, stairs or laying plates.\n\nRequirements\n• Working in nature excites you.\n\n• You bring craftsmanship and a good physical constitution.\n\n• You work independently of the weather, in summer as well as in winter.\n\n• You have completed secondary level C or D with good performance.",
-        "de": "Du bepflanzt und baust öffentliche Grünflächen und prägst damit das Erscheinungsbild der Stadt Luzern wesentlich mit.\n\nAufgaben:\n• Du setzt Geräte und Maschinen fachgerecht ein.\n\n• Du pflegst und unterhältst regelmässig öffentliche Grünflächen.\n\n• Du erstellst Pflanzenbeete und Rasenflächen.\n\n• Du wählst passende Pflanzen aus und beurteilst ihre Standortansprüche.\n\n• Du führst einfache Bauarbeiten aus, wie Mauern, Treppen oder das Verlegen von Platten.\n\nAnforderungen:\n• Die Arbeit in der Natur begeistert dich.\n\n• Du bringst handwerkliches Geschick und eine gute körperliche Konstitution mit.\n\n• Du arbeitest wetterunabhängig, im Sommer wie im Winter.\n\n• Du hast die Sekundarstufe C oder D mit guten Leistungen abgeschlossen.",
-        "fr": "Vous plantez et construisez des espaces verts publics et façonnez ainsi de façon significative l'apparence de la ville de Lucerne.\n\nTâches :\n• Vous utilisez des équipements et des machines professionnellement.\n\n• Vous maintenez et maintenez régulièrement des espaces verts publics.\n\n• Vous créez des lits et des pelouses.\n\n• Vous sélectionnez des plantes appropriées et évaluez leurs besoins en matière de localisation.\n\n• Vous effectuez des travaux de construction simples, tels que des murs, des escaliers ou des plaques de pose.\n\nExigences\n• Travailler dans la nature vous excite.\n\n• Vous apportez de l'artisanat et une bonne constitution physique.\n\n• Vous travaillez indépendamment du temps, en été comme en hiver.\n\n• Vous avez terminé le niveau secondaire C ou D avec de bonnes performances."
+        "it": "Pianifichi e costruisci strutture pubbliche e così forma significativamente l'aspetto della città.\n\nCompiti:\n• Si coltivano le piante dal seme alla pianta finita.\n\n• Imparerete a coltivare le piante e garantire condizioni di crescita ottimali.\n\n• Scoprirete i requisiti e l'uso delle piante.\n\n• Impara a riconoscere malattie e parassiti e a combattere biologicamente.\n\n• Si inverno e la cura con attenzione per piante gelo-sensibili.\n\nRequisiti\n• Ti piace la natura.\n\n• Le piante e i fiori ti ispirano.\n\n• Porti la volontà di imparare le piante e le loro esigenze.\n\n• Hai completato il livello secondario B o C con buone prestazioni.",
+        "en": "You plant and build public facilities and thus significantly shape the appearance of the city.\n\nTasks:\n• You grow plants from the seed to the finished plant.\n\n• You will learn to cultivate plants and ensure optimal growth conditions.\n\n• You will learn about the requirements and use of plants.\n\n• You learn to recognize diseases and pests and to fight biologically.\n\n• You winter and care carefully for frost-sensitive plants.\n\nRequirements\n• You enjoy nature.\n\n• Plants and flowers inspire you.\n\n• You bring the willingness to learn plants and their demands.\n\n• You have completed secondary level B or C with good performance.",
+        "de": "Du bepflanzt und baust öffentliche Anlagen und prägst damit das Erscheinungsbild der Stadt wesentlich mit.\n\nAufgaben:\n• Du ziehst Pflanzen vom Samenkorn bis zur fertigen Pflanze auf.\n\n• Du erlernst das Kultivieren von Pflanzen und sorgst für optimale Wachstumsbedingungen.\n\n• Du lernst die Ansprüche und Verwendung von Pflanzen kennen.\n\n• Du lernst Krankheiten und Schädlinge zu erkennen und biologisch zu bekämpfen.\n\n• Du überwinterst und pflegst frostempfindliche Pflanzen sorgfältig.\n\nAnforderungen:\n• Du hast Freude an der Natur.\n\n• Pflanzen und Blumen begeistern dich.\n\n• Du bringst die Bereitschaft mit, Pflanzen und deren Ansprüche zu lernen.\n\n• Du hast die Sekundarstufe B oder C mit guten Leistungen abgeschlossen.",
+        "fr": "Vous plantez et construisez des installations publiques et façonnez ainsi de façon significative l'apparence de la ville.\n\nTâches :\n• Vous cultivez des plantes de la semence à la plante finie.\n\n• Vous apprendrez à cultiver les plantes et à assurer des conditions de croissance optimales.\n\n• Vous apprendrez les exigences et l'utilisation des plantes.\n\n• Vous apprenez à reconnaître les maladies et les parasites et à lutter biologiquement.\n\n• Vous hivernez et soignez soigneusement les plantes sensibles au gel.\n\nExigences\n• Vous aimez la nature.\n\n• Les plantes et les fleurs vous inspirent.\n\n• Vous apportez la volonté d'apprendre les plantes et leurs exigences.\n\n• Vous avez terminé le niveau secondaire B ou C avec de bonnes performances."
       },
       "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
-      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-eba-fachrichtung-garten-und-landschaftsbau/4873df83-63d1-4f37-8c83-0599cbd58336",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-efz-fachrichtung-pflanzenproduktion/6374ffed-1907-4ed1-b4ce-10b560fd18cd",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.859Z",
+      "crawledAt": "2026-08-23T09:54:03.458Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -738,24 +673,26 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-31",
-      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-eba-fachrichtung-garten-und-landschaftsbau/4873df83-63d1-4f37-8c83-0599cbd58336",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-efz-fachrichtung-pflanzenproduktion/6374ffed-1907-4ed1-b4ce-10b560fd18cd",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern"
+        "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern",
+        "apprendistato-come-gartner-in-cfc-specializzazione-pflanzenproduktion-100-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern"
+          "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern",
+          "apprendistato-come-gartner-in-cfc-specializzazione-pflanzenproduktion-100-stadt-luzern"
         ],
         "en": [
-          "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern"
+          "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern"
         ],
         "fr": [
-          "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern"
+          "lehrstelle-als-gartner-in-efz-fachrichtung-pflanzenproduktion-100-stadt-luzern-luzern"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:26:03.491Z",
+      "firstSeenAt": "2026-07-31T22:26:03.492Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -801,7 +738,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-geomatiker-in-efz-schwerpunkt-geoinformatik/3894464e-3dc4-4d0b-adb5-bbbe2482bdc6",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.858Z",
+      "crawledAt": "2026-08-23T09:54:03.457Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -820,11 +757,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-geomatiker-in-efz-schwerpunkt-geoinformatik-100-stadt-luzern-luzern"
+        "lehrstelle-als-geomatiker-in-efz-schwerpunkt-geoinformatik-100-stadt-luzern-luzern",
+        "apprendistato-come-geomatiker-in-cfc-schwerpunkt-geoinformatik-100-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-geomatiker-in-efz-schwerpunkt-geoinformatik-100-stadt-luzern-luzern"
+          "lehrstelle-als-geomatiker-in-efz-schwerpunkt-geoinformatik-100-stadt-luzern-luzern",
+          "apprendistato-come-geomatiker-in-cfc-schwerpunkt-geoinformatik-100-stadt-luzern"
         ],
         "en": [
           "lehrstelle-als-geomatiker-in-efz-schwerpunkt-geoinformatik-100-stadt-luzern-luzern"
@@ -834,6 +773,86 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:26:03.489Z",
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-luzern-8da1a9c03ede",
+      "slug": "apprendistato-come-gartner-in-afp-specializzazione-garten-e-landschaftsbau-100-stadt-luzern",
+      "slugByLocale": {
+        "it": "apprendistato-come-gartner-in-afp-specializzazione-garten-e-landschaftsbau-100-stadt-luzern",
+        "en": "apprenticeship-as-a-gardener-eba-field-of-gardening-and-landscaping-100-stadt-luzern-luzern",
+        "de": "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern",
+        "fr": "apprentissage-comme-jardinier-eba-champ-de-jardinage-et-amenagement-paysager-100-stadt-luzern-luzern"
+      },
+      "company": "Stadt Luzern",
+      "companyKey": "stadt-luzern",
+      "companyDomain": "stadtluzern.ch",
+      "title": "Lehrstelle als Gärtner*in EBA, Fachrichtung Garten- und Landschaftsbau (100 %)",
+      "titleByLocale": {
+        "it": "Apprendistato come Gärtner*in AFP, specializzazione Garten- e Landschaftsbau (100 %)",
+        "en": "Apprenticeship as a gardener EBA, field of gardening and landscaping (100%)",
+        "de": "Lehrstelle als Gärtner*in EBA, Fachrichtung Garten- und Landschaftsbau (100 %)",
+        "fr": "Apprentissage comme jardinier EBA, champ de jardinage et aménagement paysager (100%)"
+      },
+      "description": "Du bepflanzt und baust öffentliche Grünflächen und prägst damit das Erscheinungsbild der Stadt Luzern wesentlich mit.\n\nAufgaben:\n• Du setzt Geräte und Maschinen fachgerecht ein.\n\n• Du pflegst und unterhältst regelmässig öffentliche Grünflächen.\n\n• Du erstellst Pflanzenbeete und Rasenflächen.\n\n• Du wählst passende Pflanzen aus und beurteilst ihre Standortansprüche.\n\n• Du führst einfache Bauarbeiten aus, wie Mauern, Treppen oder das Verlegen von Platten.\n\nAnforderungen:\n• Die Arbeit in der Natur begeistert dich.\n\n• Du bringst handwerkliches Geschick und eine gute körperliche Konstitution mit.\n\n• Du arbeitest wetterunabhängig, im Sommer wie im Winter.\n\n• Du hast die Sekundarstufe C oder D mit guten Leistungen abgeschlossen.",
+      "descriptionByLocale": {
+        "it": "Piantifichi e costruisci spazi verdi pubblici e così forma significativamente l'aspetto della città di Lucerna.\n\nCompiti:\n• Si utilizzano attrezzature e macchine professionalmente.\n\n• Si mantiene regolarmente e mantenere spazi verdi pubblici.\n\n• Si creano letti e prati vegetali.\n\n• Selezioni impianti adatti e valuta i loro requisiti di posizione.\n\n• Esegui semplici lavori di costruzione, come pareti, scale o piastre di posa.\n\nRequisiti\n• Lavorare in natura ti eccita.\n\n• Porti l'artigianato e una buona costituzione fisica.\n\n• Si lavora indipendentemente dal tempo, in estate così come in inverno.\n\n• Hai completato il livello secondario C o D con buone prestazioni.",
+        "en": "You plant and build public green spaces and thus significantly shape the appearance of the city of Lucerne.\n\nTasks:\n• You use equipment and machines professionally.\n\n• You regularly maintain and maintain public green spaces.\n\n• You create plant beds and lawns.\n\n• You select suitable plants and assess their location requirements.\n\n• You perform simple construction work, such as walls, stairs or laying plates.\n\nRequirements\n• Working in nature excites you.\n\n• You bring craftsmanship and a good physical constitution.\n\n• You work independently of the weather, in summer as well as in winter.\n\n• You have completed secondary level C or D with good performance.",
+        "de": "Du bepflanzt und baust öffentliche Grünflächen und prägst damit das Erscheinungsbild der Stadt Luzern wesentlich mit.\n\nAufgaben:\n• Du setzt Geräte und Maschinen fachgerecht ein.\n\n• Du pflegst und unterhältst regelmässig öffentliche Grünflächen.\n\n• Du erstellst Pflanzenbeete und Rasenflächen.\n\n• Du wählst passende Pflanzen aus und beurteilst ihre Standortansprüche.\n\n• Du führst einfache Bauarbeiten aus, wie Mauern, Treppen oder das Verlegen von Platten.\n\nAnforderungen:\n• Die Arbeit in der Natur begeistert dich.\n\n• Du bringst handwerkliches Geschick und eine gute körperliche Konstitution mit.\n\n• Du arbeitest wetterunabhängig, im Sommer wie im Winter.\n\n• Du hast die Sekundarstufe C oder D mit guten Leistungen abgeschlossen.",
+        "fr": "Vous plantez et construisez des espaces verts publics et façonnez ainsi de façon significative l'apparence de la ville de Lucerne.\n\nTâches :\n• Vous utilisez des équipements et des machines professionnellement.\n\n• Vous maintenez et maintenez régulièrement des espaces verts publics.\n\n• Vous créez des lits et des pelouses.\n\n• Vous sélectionnez des plantes appropriées et évaluez leurs besoins en matière de localisation.\n\n• Vous effectuez des travaux de construction simples, tels que des murs, des escaliers ou des plaques de pose.\n\nExigences\n• Travailler dans la nature vous excite.\n\n• Vous apportez de l'artisanat et une bonne constitution physique.\n\n• Vous travaillez indépendamment du temps, en été comme en hiver.\n\n• Vous avez terminé le niveau secondaire C ou D avec de bonnes performances."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-eba-fachrichtung-garten-und-landschaftsbau/4873df83-63d1-4f37-8c83-0599cbd58336",
+      "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T09:54:03.457Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Riedstrasse 2",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-gaertner-in-eba-fachrichtung-garten-und-landschaftsbau/4873df83-63d1-4f37-8c83-0599cbd58336",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern",
+        "apprendistato-come-gartner-in-afp-specializzazione-garten-e-landschaftsbau-100-stadt-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern",
+          "apprendistato-come-gartner-in-afp-specializzazione-garten-e-landschaftsbau-100-stadt-luzern"
+        ],
+        "en": [
+          "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern"
+        ],
+        "fr": [
+          "lehrstelle-als-gartner-in-eba-fachrichtung-garten-und-landschaftsbau-100-stadt-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:26:03.491Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -879,7 +898,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung/2395b41d-835a-49b0-8334-cc9882a5c1bd",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.857Z",
+      "crawledAt": "2026-08-23T09:54:03.453Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -898,11 +917,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung-100-stadt-luzern"
+        "lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung-100-stadt-luzern",
+        "apprendistato-come-informatiker-in-cfc-specializzazione-plattformentwicklung-100-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung-100-stadt-luzern"
+          "lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung-100-stadt-luzern",
+          "apprendistato-come-informatiker-in-cfc-specializzazione-plattformentwicklung-100-stadt-luzern"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung-100-stadt-luzern"
@@ -957,7 +978,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz-branche-oeffentliche-verwaltung/980ea8b2-5bc4-45b1-b0fc-cdb002ff33d3",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.856Z",
+      "crawledAt": "2026-08-23T09:54:03.445Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -976,11 +997,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-branche-offentliche-verwaltung-100-stadt-luzern"
+        "lehrstelle-als-kauffrau-kaufmann-efz-branche-offentliche-verwaltung-100-stadt-luzern",
+        "apprendistato-come-kauffrau-kaufmann-cfc-branche-offentliche-verwaltung-100-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-branche-offentliche-verwaltung-100-stadt-luzern"
+          "lehrstelle-als-kauffrau-kaufmann-efz-branche-offentliche-verwaltung-100-stadt-luzern",
+          "apprendistato-come-kauffrau-kaufmann-cfc-branche-offentliche-verwaltung-100-stadt-luzern"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-offentliche-verwaltung-100-stadt-luzern"
@@ -1035,7 +1058,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/lehrstelle-als-motorgeraetemechaniker-in-efz/83bf459c-ff41-4efb-972d-9c5b492c532c",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.851Z",
+      "crawledAt": "2026-08-23T09:54:03.443Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1055,12 +1078,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "motorgeratemechaniker-in-efz-100-stadt-luzern-emmen",
-        "lehrstelle-als-motorgeratemechaniker-in-efz-100-stadt-luzern-emmen"
+        "lehrstelle-als-motorgeratemechaniker-in-efz-100-stadt-luzern-emmen",
+        "apprendistato-come-motorgeratemechaniker-in-cfc-100-stadt-luzern-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "motorgeratemechaniker-in-efz-100-stadt-luzern-emmen",
-          "lehrstelle-als-motorgeratemechaniker-in-efz-100-stadt-luzern-emmen"
+          "lehrstelle-als-motorgeratemechaniker-in-efz-100-stadt-luzern-emmen",
+          "apprendistato-come-motorgeratemechaniker-in-cfc-100-stadt-luzern-emmen"
         ]
       },
       "firstSeenAt": "2026-07-31T22:26:03.480Z",
@@ -1109,7 +1134,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/fachperson-arbeitsintegration/e4b6d2f3-360f-4224-b4eb-9087dbb37fe4",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.850Z",
+      "crawledAt": "2026-08-23T09:54:03.441Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1128,11 +1153,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-arbeitsintegration-80-stadt-luzern-luzern"
+        "fachperson-arbeitsintegration-80-stadt-luzern-luzern",
+        "integrazione-professionale-del-lavoro-80-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-arbeitsintegration-80-stadt-luzern-luzern"
+          "fachperson-arbeitsintegration-80-stadt-luzern-luzern",
+          "integrazione-professionale-del-lavoro-80-stadt-luzern-luzern"
         ],
         "en": [
           "fachperson-arbeitsintegration-80-stadt-luzern-luzern"
@@ -1187,7 +1214,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/leiter-in-betreibungsamt/8bb65e8d-afa8-4f3c-8e74-92ef797688a5",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.849Z",
+      "crawledAt": "2026-08-23T09:54:03.440Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1207,12 +1234,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-betreibungsamt-80-100-stadt-luzern-luzern",
-        "leiter-in-betreibungsamt-80-100-stadt-luzern"
+        "leiter-in-betreibungsamt-80-100-stadt-luzern",
+        "responsabile-amministrazione-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-betreibungsamt-80-100-stadt-luzern-luzern",
-          "leiter-in-betreibungsamt-80-100-stadt-luzern"
+          "leiter-in-betreibungsamt-80-100-stadt-luzern",
+          "responsabile-amministrazione-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "leiter-in-betreibungsamt-80-100-stadt-luzern-luzern"
@@ -1267,7 +1296,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/einschaetzer-in/317bc651-a02d-427e-bcde-53f0fd2bbfd1",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.848Z",
+      "crawledAt": "2026-08-23T09:54:03.439Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1286,11 +1315,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einschatzer-in-80-100-stadt-luzern-luzern"
+        "einschatzer-in-80-100-stadt-luzern-luzern",
+        "stimatore-in-80-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einschatzer-in-80-100-stadt-luzern-luzern"
+          "einschatzer-in-80-100-stadt-luzern-luzern",
+          "stimatore-in-80-100-stadt-luzern-luzern"
         ],
         "en": [
           "einschatzer-in-80-100-stadt-luzern-luzern"
@@ -1345,7 +1376,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/teamleitung-berufsbeistandschaft/91be4c95-c38b-4bf1-a346-4b6d1823053b",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.846Z",
+      "crawledAt": "2026-08-23T09:54:03.437Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1364,11 +1395,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-berufsbeistandschaft-80-90-stadt-luzern-luzern"
+        "teamleitung-berufsbeistandschaft-80-90-stadt-luzern-luzern",
+        "assistenza-professionale-80-90-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-berufsbeistandschaft-80-90-stadt-luzern-luzern"
+          "teamleitung-berufsbeistandschaft-80-90-stadt-luzern-luzern",
+          "assistenza-professionale-80-90-stadt-luzern-luzern"
         ],
         "en": [
           "teamleitung-berufsbeistandschaft-80-90-stadt-luzern-luzern"
@@ -1423,7 +1456,7 @@
       "url": "https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/leiter-in-baumanagement/aebbc348-a2ed-46c5-996f-01fd401ea8fc",
       "source": "Stadt Luzern Dedicated Parser (Prospective medium 1005002)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:43:51.842Z",
+      "crawledAt": "2026-08-23T09:54:03.432Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1442,11 +1475,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-baumanagement-80-100-stadt-luzern-luzern"
+        "leiter-in-baumanagement-80-100-stadt-luzern-luzern",
+        "responsabile-baumanagement-80-100-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-baumanagement-80-100-stadt-luzern-luzern"
+          "leiter-in-baumanagement-80-100-stadt-luzern-luzern",
+          "responsabile-baumanagement-80-100-stadt-luzern"
         ],
         "en": [
           "leiter-in-baumanagement-80-100-stadt-luzern-luzern"
