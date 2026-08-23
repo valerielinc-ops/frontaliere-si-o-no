@@ -10545,6 +10545,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.title': 'Vivere a Valganna, lavorare in Ticino da frontaliere',
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.excerpt': 'Guida pratica per chi vuole trasferirsi da Valganna e lavorare in Ticino: permessi, fiscalità, costi, contributi e procedure essenziali per frontalieri.',
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.imageAlt': 'Veduta di Mendrisio nel distretto meridionale del Ticino, prossimo al confine italiano',
+    'blog.article.vivere-villadossola-lavorare-ticino.title': 'Vivere a Villadossola e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Guida completa per chi sceglie Villadossola: tassazione, nuovo accordo, costi e adempimenti per i lavoratori frontalieri in Ticino.',
+    'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Pendolare che viaggia tra Italia e Ticino',
 };
 
 export default blogMetaIt;
