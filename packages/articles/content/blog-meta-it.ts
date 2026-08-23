@@ -10554,6 +10554,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-torno-lavorare-ticino.title': 'Vivere a Torno e lavorare in Ticino da frontaliere',
     'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Torno come residenza e lavora nel Canton Ticino, tra norme fiscali, accordi e gestione del pendolarismo quotidiano.',
     'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano vicino al confine italo-svizzero',
+    'blog.article.vivere-grantola-lavorare-ticino.title': 'Vivere a Grantola e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Guida pratica per chi risiede a Grantola e lavora in Ticino: fisco, permessi G, assicurazione LAMal e mobilità transfrontaliera.',
+    'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Vista panoramica sul Lago di Lugano vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;

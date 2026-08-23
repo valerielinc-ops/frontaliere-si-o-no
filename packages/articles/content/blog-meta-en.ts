@@ -10553,6 +10553,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-torno-lavorare-ticino.title': 'Living in Torno and working in Ticino as a border worker',
     'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Practical guide for those who choose Torno as a residence and work in the Canton of Ticino, including tax rules, agreements and management of daily commuting.',
     'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano near the Italian-Swiss border',
+    'blog.article.vivere-grantola-lavorare-ticino.title': 'Living in Grantola and working in Ticino as a border worker',
+    'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Practical guide for those residing in Grantola and working in Ticino: tax, G permits, LAMal insurance and cross-border mobility.',
+    'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano near the Italian-Swiss border',
 };
 
 export default blogMetaEn;
