@@ -10578,6 +10578,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tavernerio-como-frontaliere-ticino.title': 'Wohnen in Tavernerio, Arbeiten im Tessin als Grenzgänger',
     'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Bewilligung G, Commuting-Kosten CHF 5.400-7.200/anno, Quellensteuer Schweiz, Neues Abkommen 2024. Realistische Analyse für diejenigen, die sich für die Brianza Como entscheiden und im Tessin arbeiten.',
     'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Pendlerstrasse von Como zum Tessin mit nebligem Voralpenlandschaft in der Morgenröte, Darstellung der Route von Tavernerio nach Lugano',
+    'blog.article.vivere-montorfano-lavorare-ticino.title': 'Leben in Montorfano und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Montorfano wohnen und im Kanton Tessin arbeiten: Steuern, Steuerregelung und Verfahren für Grenzgänger.',
+    'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee',
 };
 
 export default blogMetaDe;

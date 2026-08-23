@@ -10581,6 +10581,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tavernerio-como-frontaliere-ticino.title': 'Vivre à Tavernerio, travailler au Tessin en tant que frontalier',
     'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Permis G, coût de trajet CHF 5 400-7 200/an, retenue à la source Suisse, Nouvel accord 2024. Analyse réaliste pour ceux qui choisissent la Como Brianza et travaillent au Tessin.',
     'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Route du navetteur de Côme vers le Tessin avec paysage préalpin brumeux à l\'aube, représentation du trajet de Tavernerio à Lugano',
+    'blog.article.vivere-montorfano-lavorare-ticino.title': 'Vivre à Montorfano et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui résident à Montorfano et travaillent dans le canton du Tessin : impôts, régime fiscal et procédures pour les travailleurs frontaliers.',
+    'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac de Lugano',
 };
 
 export default blogMetaFr;

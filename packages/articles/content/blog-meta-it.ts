@@ -10580,6 +10580,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tavernerio-como-frontaliere-ticino.title': 'Vivere a Tavernerio, lavorare in Ticino da frontaliere',
     'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Permesso G, costi commuting CHF 5.400-7.200/anno, imposta alla fonte Svizzera, Nuovo Accordo 2024. Analisi realistica per chi sceglie la Brianza comasca e lavora nel Ticino.',
     'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Strada del commuting da Como verso il Ticino con paesaggio prealpino nebbiato all\'alba, rappresentazione del percorso da Tavernerio a Lugano',
+    'blog.article.vivere-montorfano-lavorare-ticino.title': 'Vivere a Montorfano e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Guida pratica per chi risiede a Montorfano e lavora nel Canton Ticino: imposte, regime fiscale e procedure per i lavoratori frontalieri.',
+    'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Vista panoramica sul lago di Lugano',
 };
 
 export default blogMetaIt;
