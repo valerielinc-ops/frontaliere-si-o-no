@@ -3973,6 +3973,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zugo-riduzione-premi-sussidio.title': 'Canton Zug health insurance premiums and premium reductions',
     'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'How LAMal premiums work in the Canton of Zug, the six deductibles available and how to access cantonal benefits to reduce the cost of health insurance.',
     'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Swiss cantonal administrative office with residents consulting health insurance documents and subsidy applications.',
+    'blog.article.permesso-domicilio-c-zugo-guida.title': 'Residence permit C in the Canton of Zug: the guide',
+    'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'How to obtain residence permit C in the Canton of Zug: residency requirements, integration and the procedure at the Migration Office.',
+    'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Administrative documents and office in the Canton of Zug',
 };
 
 export default blogMetaChEn;

@@ -3973,6 +3973,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zugo-riduzione-premi-sussidio.title': 'Premi cassa malati canton Zugo e riduzione premi',
     'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'Come funzionano i premi LAMal nel Canton Zugo, le sei franchigie disponibili e come accedere ai sussidi cantonali per ridurre il costo dell\'assicurazione malattia.',
     'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Sportello amministrativo di un cantone svizzero dove residenti consultano documenti di assicurazione malattia obbligatoria.',
+    'blog.article.permesso-domicilio-c-zugo-guida.title': 'Permesso di domicilio C nel Cantone di Zugo: la guida',
+    'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'Come ottenere il permesso di domicilio C nel Cantone di Zugo: requisiti di residenza, integrazione e la procedura presso l\'Ufficio della migrazione.',
+    'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Documenti amministrativi e ufficio nel Cantone di Zugo',
 };
 
 export default blogMetaChIt;

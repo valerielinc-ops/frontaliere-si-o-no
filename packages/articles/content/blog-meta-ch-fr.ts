@@ -3973,6 +3973,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zugo-riduzione-premi-sussidio.title': 'Primes caisse-maladie canton de Zoug et réduction des primes',
     'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'Comment fonctionnent les primes LAMal dans le canton de Zoug, les six franchises disponibles et comment accéder aux allocations cantonales pour réduire le coût de l\'assurance maladie.',
     'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Guichet administratif cantonal où les résidents discutent des documents d\'assurance maladie obligatoire et des réductions de primes.',
+    'blog.article.permesso-domicilio-c-zugo-guida.title': 'Permis de domicile C dans le canton de Zoug : le guide',
+    'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'Comment obtenir le permis de séjour C dans le canton de Zoug : conditions de résidence, d\'intégration et procédure auprès de l\'Office des migrations.',
+    'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Documents administratifs et bureau dans le canton de Zoug',
 };
 
 export default blogMetaChFr;
