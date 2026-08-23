@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-22T19:07:47.511Z",
+  "generatedAt": "2026-08-23T04:38:52.298Z",
   "tally": {
-    "good": 29,
-    "weak": 7,
-    "bad": 2,
-    "insufficient": 2
+    "good": 28,
+    "weak": 6,
+    "bad": 1,
+    "insufficient": 5
   },
-  "promotedVacancies": 3843,
+  "promotedVacancies": 3636,
   "reports": [
     {
       "companyKey": "albergo-gardenia",
@@ -45,48 +45,23 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 218,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 0.33,
-      "score": 0.933,
-      "verdict": "good",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
-      ],
-      "samples": [
-        {
-          "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1154917/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 613,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/maler-1183518/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 614,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1117232/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 580,
-          "status": 200
-        }
-      ],
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
       "companyName": "Anker Swiss Ticino AG",
       "companyHost": "anker-swiss.ch",
       "platform": null,
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://anker-swiss.ch/stellen/: HTTP 0"
+      ]
     },
     {
       "companyKey": "apleona-schweiz-ag",
@@ -569,7 +544,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1706,
+          "words": 1707,
           "status": 200
         },
         {
@@ -577,7 +552,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1687,
+          "words": 1688,
           "status": 200
         },
         {
@@ -923,41 +898,37 @@
       "companyKey": "ipersonal",
       "vacancyCount": 15,
       "sampled": 3,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.1,
-      "verdict": "bad",
-      "problems": [
-        "100% degli URL non risolve",
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client"
-      ],
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
       "samples": [
         {
-          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-heerbrugg-gesucht-medizinische-fuehrung-mit-verantwortung/",
-          "reachable": false,
-          "titleMatch": 0,
-          "contentful": false,
-          "words": 0,
-          "status": 0
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-st-urban-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1235,
+          "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/pflegedienstleiter-pflegedienstleiterin-80-100-in-gelterkinden-gesucht-ihre-fuehrungsstaerke-fuer-eine-exzellente-pflege/",
-          "reachable": false,
-          "titleMatch": 0,
-          "contentful": false,
-          "words": 0,
-          "status": 0
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-oberbuchsiten-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1220,
+          "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-herisau-gesucht-medizinische-fuehrung-mit-verantwortung/",
-          "reachable": false,
-          "titleMatch": 0,
-          "contentful": false,
-          "words": 0,
-          "status": 0
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-wittinsburg-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1196,
+          "status": 200
         }
       ],
       "companyName": "iPersonal AG",
@@ -968,40 +939,23 @@
     },
     {
       "companyKey": "itunes",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0.028,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 0.66,
-      "verdict": "weak",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381?platform=iphone",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 380,
-          "status": 200
-        },
-        {
-          "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381",
-          "reachable": true,
-          "titleMatch": 0.05555555555555555,
-          "contentful": true,
-          "words": 380,
-          "status": 200
-        }
-      ],
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
       "companyName": "Jobup",
       "companyHost": "apps.apple.com",
       "platform": "apple.com",
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://apps.apple.com/ch/app/jobup-ch-emplois-en-romandie/id456238167: HTTP 429"
+      ]
     },
     {
       "companyKey": "jobs",
@@ -1027,7 +981,7 @@
           "status": 200
         },
         {
-          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/a058d2bc-4378-4d21-b694-8eb7a5d67006/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/1e79a015-25bc-421e-bee6-49d91862f578/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
@@ -1310,7 +1264,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1441,
+          "words": 1443,
           "status": 200
         },
         {
@@ -1373,22 +1327,30 @@
     },
     {
       "companyKey": "okjob",
-      "vacancyCount": 14,
+      "vacancyCount": 13,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.847,
+      "titleMatchRate": 0.897,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.947,
+      "score": 0.964,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-gesundheit-spitex-m-w-d-basel/?ref=42078",
+          "url": "https://www.okjob.ch/de/jobangebote/lastwagenchauffeur-ce-100-m-w-d-bern/?ref=41633",
           "reachable": true,
-          "titleMatch": 0.875,
+          "titleMatch": 1,
           "contentful": true,
-          "words": 721,
+          "words": 475,
+          "status": 200
+        },
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/walzenfuehrer-asphalteinbau-100-m-w-d-bern/?ref=41645",
+          "reachable": true,
+          "titleMatch": 0.8571428571428571,
+          "contentful": true,
+          "words": 736,
           "status": 200
         },
         {
@@ -1396,15 +1358,7 @@
           "reachable": true,
           "titleMatch": 0.8333333333333334,
           "contentful": true,
-          "words": 675,
-          "status": 200
-        },
-        {
-          "url": "https://www.okjob.ch/de/jobangebote/maurerin-80-100-m-w-d-bern/?ref=41647",
-          "reachable": true,
-          "titleMatch": 0.8333333333333334,
-          "contentful": true,
-          "words": 646,
+          "words": 656,
           "status": 200
         }
       ],
@@ -1462,42 +1416,27 @@
     },
     {
       "companyKey": "parkhoteldelta",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
+      "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-barista-e-cameriere-a-ore-3965168?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 676,
-          "status": 200
-        },
-        {
-          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-ad-ascona-cerca-cameriere-a-3970443?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 640,
-          "status": 200
-        }
-      ],
+      "samples": [],
       "companyName": "Parkhotel Delta",
       "companyHost": "hotelcareer.ch",
       "platform": "hotelcareer.ch",
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822: HTTP 403"
+      ]
     },
     {
       "companyKey": "physioswiss",
-      "vacancyCount": 10,
+      "vacancyCount": 9,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0.639,
