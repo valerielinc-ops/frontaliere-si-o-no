@@ -10615,6 +10615,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Border payroll 2026: actual net and New Deal',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'How the net is formed from the Swiss paycheck. Tax at source, AVS, LPP, exemption €7,500-10,000 from the New Frontier Agreement and procedure 730 in Italy.',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Professional workspace with laptop and Swiss payslip document, Bellinzona skyline in background',
+    'blog.article.stipendio-frontaliere-single-2026.title': 'Border payroll 2026: net and taxes for singles',
+    'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Full analysis of the new 2024 agreement: AVS, LPP, LAMal and Italian taxation rates for single border workers.',
+    'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'A cross-border worker reviews Swiss payslip with Italian tax documents',
 };
 
 export default blogMetaEn;

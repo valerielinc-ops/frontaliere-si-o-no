@@ -10616,6 +10616,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Busta paga frontalieri 2026: netto reale e Nuovo Accordo',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'Come si forma il netto dalla busta paga svizzera. Imposta alla fonte, AVS, LPP, esenzione €7\'500-10\'000 dal Nuovo Accordo Frontalieri e procedura 730 in Italia.',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Spazio di lavoro professionale con computer e documento di busta paga svizzera, vista su Bellinzona',
+    'blog.article.stipendio-frontaliere-single-2026.title': 'Frontalieri busta paga 2026: netto e imposte per single',
+    'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Analisi completa del nuovo accordo 2024: aliquote AVS, LPP, LAMal e tassazione italiana per frontalieri single.',
+    'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'Un frontaliere consulta la propria busta paga svizzera con documenti fiscali italiani davanti a sé',
 };
 
 export default blogMetaIt;

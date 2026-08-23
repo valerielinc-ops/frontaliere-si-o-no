@@ -10617,6 +10617,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Bulletin de paie frontaliers 2026 : net réel et nouvel accord',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'Comment se forme le net de la paie suisse. Impôt à la source, AVS, LPP, exonération € 7\'500-10\'000 du Nouvel Accord Frontalier et procédure 730 en Italie.',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Espace de travail professionnel avec ordinateur portable et bulletin de salaire suisse, vue sur Bellinzone',
+    'blog.article.stipendio-frontaliere-single-2026.title': 'Frontaliers bulletin de paie 2026 : net et taxes pour célibataires',
+    'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Analyse complète du nouvel accord 2024 : taux AVS, LPP, LAMal et fiscalité italienne pour les frontaliers célibataires.',
+    'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'Un travailleur frontalier consulte sa fiche de paie suisse avec documents fiscaux italiens',
 };
 
 export default blogMetaFr;

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Aug 2026 17:08:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 17:41:43 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,97 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Border payroll 2026: net and taxes for singles</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/salary-cross-border-single-2026/</link>
+      <description><![CDATA[Full analysis of the new 2024 agreement: AVS, LPP, LAMal and Italian taxation rates for single border workers.]]></description>
+      <content:encoded><![CDATA[## Brief Overview
+- New Frontier Agreement in effect from January 1, 2024: tax reform
+- AVS tax rate 5.3%, LPP 7-18%, LAMal exemptions CHF 300-2,500
+- Old frontiersmen: exemption CHF 7,500/year until 2033; new: exemption CHF 10,000/year
+- Source tax only in Switzerland, tax credit in Italy via 730 (CE box)
+
+## Key Facts
+- **What**: Tax reform for frontiersmen with new fiscal and contributory regime
+- When: January 1, 2024 (Agreement signed December 23, 2020)
+- Where: Swiss-Italian border, Canton Ticino
+- Who: SECO, AFC/ESTV, Revenue Agency
+- Old frontiersmen: exemption CHF 7,500/year (regime 2024-2033)
+- New frontiersmen: exemption CHF 10,000/year
+
+### The New 2024 Agreement and Frontier Tax Reform
+The New Frontier Agreement, in effect from January 1, 2024, has introduced a tax reform for workers who cross the Ticino border on a daily basis— from Brogeda to Chiasso. For single frontiersmen, this means a new architecture of the Swiss pay slip, with changes to tax calculations, AVS contributions, and LAMal premiums.
+
+The source of this revision is the Double Taxation Treaty signed on December 9, 1976 between Italy and Switzerland, updated by the Agreement of December 23, 2020 (ratified by Italy with Law 83 of June 13, 2023). The principle remains unchanged: the source tax is withheld only in Switzerland, while Italy avoids double taxation by applying a tax credit in the 730 model.
+
+For those working in Switzerland and residing in Italy, the tax rates are as follows:
+- AVS (pension and disability): 5.3% at the employee's expense
+- AD/AC contributions (unemployment/indemnity): 1.1% (with CHF 148,200 cap)
+- LAINF (work accident insurance): 0.7–1.5% depending on the sector
+- LPP (second pillar pension): 7–18% depending on the age range (from 25 years)
+- LAMal (health insurance): exemptions from CHF 300 to CHF 2,500 for adults, with the option to apply for G permits
+
+The new agreement has introduced a crucial distinction between old frontiersmen and new frontiersmen. Old frontiersmen—those who were already exercising this activity before July 17, 2023—benefit from a transitional regime until 2033 with a tax exemption of CHF 7,500 per year. New frontiersmen access a CHF 10,000 exemption.
+
+This change represents the first significant update since 1976 and is relevant for those filling out the 730: the tax credit on Swiss taxation is not automatic, but must be requested in the Italian tax return indicating foreign income and Swiss taxation (CE box).
+
+For the single frontiersman without specific deductions, understanding these layers of the pay slip is crucial for planning the real net and tax deadlines.
+### How the payroll changes between the previous regime and 2024
+
+A single border worker who receives a gross monthly salary in CHF sees the Swiss mandatory contributions applied in a cascade BEFORE taxation. Unlike in Italy, where personal income tax is withheld at rates of 23% (up to €28,000), 35% (€28,001-50,000), 43% (over €50,000), in Switzerland social security contributions (AVS/AI/IPG 5.3% + AD/AC 1.1%) reduce the tax base for source tax.
+
+The New 2024 Agreement also extended the income deductibles:
+- Old frontier workers: €7,500 exempt from Italian taxation (until 2033)
+- New frontier workers: €10,000 deductible
+
+This means that a new single frontier worker with annual earnings in CHF can convert the first €10,000 in CHF at the exchange rate, and these are not taxable in Italy until they exceed that threshold. Conversely, the excess income follows the normal Italian IRPEF rates, but with a tax credit for Swiss taxation already paid.
+
+The practical scenario: if a single frontier earns CHF 70,000 gross per annum (equivalent to about €66,000 at the historical average exchange rate), the AVS/AI/AD/AC contributions reduce the tax base to about CHF 66,000. In Switzerland, source tax is calculated on this reduced amount. Subsequently, declaring income in Italy through [730 con quadro CE](nav:tax-return), the border worker reports the total income CHF 70,000 converted into EUR, but enjoys the €10,000 deductible (new border workers) and the
+### Procedure for reading the Swiss payroll and declaring income
+
+A single frontier must know how to decode their Swiss payroll and then insert the data into the Italian 730. Here are the operational steps.
+
+Read the Swiss payroll: what to check
+
+Verify that the following are present:
+- Gross monthly (Brutto)
+- AVS/AI/IPG deductions (5.3%, reported as 'AHV/IV/EO')
+- AD/AC contributions (1.1% as 'AC')
+- LAMal premium (the chosen pension fund, variable by age)
+- Withholding tax (canton or federal, if applicable)
+- Net (salary after all deductions)
+
+The withholding tax is NOT an 'extra tax'—it's the advance of the IRPEF that will be reconciled in the Italian 730 with the tax credit.
+
+Complete the Italian 730: CE table for foreign income
+
+In the Foreign Income table, the frontier must enter:
+- Total foreign income (gross CHF, converted to EUR at the fiscal year exchange rate)
+- Country of origin (Switzerland)
+- Tax paid (Swiss withholding tax in CHF, converted to EUR)
+
+The Revenue Agency automatically calculates the tax credit if the foreign income taxed in Switzerland is less than that in Italy.
+
+**Check the personal exemption
+
+- If you are a new frontier: check that the €10,000 exemption has been applied to the Italian taxable income
+- If you are an old frontier: the €7,500 exemption applies until 2033
+- In both cases, the residual amount above exemption is taxed at standard Italian IRPEF
+
+Deadlines and tax refunds
+
+The 730 declaration must be submitted by September 30 (appeal by October 31) of the following year. It is not mandatory if the Swiss employer practices correct taxation, but it is recommended to claim the tax credit.
+
+For Ticino cantonal refunds (if due to error of withholding or change of income during the year), a request is made to the Canton of Ticino's Contributions Administration, often through an online counter. They are not automatic—submit a specific application within the terms of the cantonal law.
+
+Calculate your real net
+
+To simulate salary and taxes with precision, consult the [frontier payroll calculator](nav:calculator). By entering the gross CHF and your situation (old/new frontier, LAMal class), you will have an estimate of the monthly and annual net.]]></content:encoded>
+      <pubDate>Sun, 23 Aug 2026 17:41:43 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/stipendio-frontaliere-single-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/stipendio-frontaliere-single-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Border payroll 2026: actual net and New Deal</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/frontworker-payslip-net-salary-2026/</link>
@@ -3153,92 +3244,6 @@ Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter g
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-charvensod-lavorare-vallese-da-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-charvensod-lavorare-vallese-da-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Gressan and working in Valais: border taxation</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/live-gressan-work-valais-frontier-worker/</link>
-      <description><![CDATA[New agreement 2024: source tax in Switzerland, deductibles CHF 7,500/10,000, model 730 and tax credit. Everything you need to know.]]></description>
-      <content:encoded><![CDATA[## In Brief
-- New frontier agreement in force from January 1, 2024: revised tax rates, expanded exemptions to avoid double taxation.
-- Source tax withheld exclusively in Switzerland; Italy recognizes tax credit within the EU framework of the 730.
-- Old frontiersmen: CHF 7,500 exemption until 2033; new frontiersmen: CHF 10,000 exemption.
-
-## Key Facts
-- **What**: Tax agreement between Italy and Switzerland for frontiersmen
-- When: Entered into force January 1, 2024
-- Where: Canton Valais (place of work)
-- Who: Italian residents working in Switzerland
-- Tax: Withheld only in Switzerland (AVS 5.3%, AI 5.3%, IPG 1.1%)
-- Exemption: CHF 7,500 (old frontiersmen), CHF 10,000 (new)
-- Basic Convention: Signed December 9, 1976
-
-### The fiscal regime for residents in Valle d'Aosta working in Valais
-The new agreement between Italy and Switzerland, entered into force on January 1, 2024, has introduced significant tax innovations for frontiersmen. Unlike other areas, the source tax on income is withheld exclusively in Switzerland. Italy does not apply parallel taxes: it recognizes a tax credit within the EU framework of the 730 to avoid double taxation.
-
-Those residing in Gressan or other municipalities in the Valle d'Aosta and working in Valais are subject to the Swiss frontier regime. The applicable rates are:
-- AVS (pension): 5.3% at the expense of the employee
-- AI (invalidity): 5.3%
-- IPG (unemployment): 1.1%
-- LAINF (non-professional accident insurance): 0.7–1.5%
-
-The new agreement distinguishes between frontiersmen already so before July 17, 2023 (old frontiersmen) and new frontiersmen. Old frontiersmen benefit from an annual exemption of CHF 7,500 until 2033. New frontiersmen are entitled to a CHF 10,000 exemption. This mechanism significantly reduces the tax burden in the first years.
-
-### The International Convention as a legal basis
-The Convention between Italy and Switzerland signed on December 9, 1976 represents the legal basis governing cross-border taxation. Although Switzerland is not a member of the European Union or the European Economic Area, this bilateral agreement ensures that income is taxed only once. The frontiersman pays the Swiss tax at the source (calculated according to the cantonal rates of Valais), while in Italy declares the income within the EU framework of the 730 and receives the tax credit for what has already been paid in Switzerland.
-
-Opening a [G Permit](nav:permits) with the cantonal authorities of Valais is the first concrete administrative step to legalize one's position as a frontiersman.
-### How the tax and contribution payment flow works
-
-Every month, the Swiss employer withholds from the paycheck the tax at source according to the federal and cantonal rates of the Valais. At the same time, contributions are paid for AVS, AI, IPG and LAINF, which represent a form of financing for Swiss social security. At the end of the calendar year, the Swiss tax administration (AFC — Federal Administration of Contributions) issues the border crossing a certificate certifying the total amount of taxes and contributions paid.
-
-This document is essential: it must be kept for the Italian tax return. Without it, it will not be possible to prove to the Revenue Agency the amount of foreign tax paid and therefore you will not be able to benefit from the tax credit.
-
-### The tax return: the 730 form and the CE framework
-
-In Italy, the border worker declares income in form 730. Swiss gross source income should be included in the EC framework. The Revenue Agency compares the tax paid in Switzerland with the Italian tax due on the same taxable basis. If the Swiss tax is higher, nothing is due in Italy and sometimes a credit is generated that can be used in subsequent years. If the Swiss tax is lower, the differential must be paid in Italy.
-
-For those living in the border area with cross-border incomes, it is crucial to keep:
--
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Operational Procedures: Concrete Steps to Follow
-
-Step 1: Verify Effective Residency in Italy
-The first requirement is to be registered as a resident in Italy. In the case of Gressan, registration is required with the Comune of Gressan in the Italian civil records. Residency must correspond to the habitual place of residence. Required documentation: rental contract, bills in the name, cadastral certificate, or a declaration with the municipality of registration.
-
-Step 2: Request the G Permit from the Valais Authorities
-The Swiss employer requests the G Permit (Frontier Permit) for the employee with the competent cantonal authority in Valais. This permit authorizes the frontier worker to work in Switzerland while remaining a resident in Italy. Approval times vary, but generally take around 2-3 weeks. The permit is valid for one or more years and can be renewed.
-
-Step 3: Inform the Italian Revenue Agency
-Once employed in Valais, the frontier worker must inform the Italian Revenue Agency of their frontier worker status and foreign income. This is done through the 730 model (completed by a CAF or in autonomy) or the Unico model, depending on the complexity of the income situation.
-
-Step 4: Maintain Annual Swiss Documentation
-Every year, the frontier worker must keep:
-- Certificate of Withholding (Quellensteuer-Bestätigung) issued by the Valais tax authority
-- Monthly pay slips
-- Updated G Permit documentation
-- Any official communication received from the cantonal authority
-
-Step 5: Declare Income in the 730 Model by the Deadline
-By the ordinary deadline for declarations (end of May), the frontier worker presents the 730 model through an authorized intermediary (CAF, accountant, or in autonomy). In the CE section, they declare the gross income from the Swiss source and the tax already paid in Switzerland, benefiting from the tax credit.
-
-### Annual Calendar of Deadlines
-
-- **April 30**: Receive the official certificate of taxes and contributions paid from the Swiss authority
-- End of May: Submit the 730 model in Italy (ordinary deadline for declarations)
-- June-July: The Agency processes the declaration and communicates the outcome (refund, debt, or balance)
-- November: Any additional payment of Italian taxes due
-
-### Tools on the Website for Simulating Net Income and Planning the Budget
-
-The [salary net calculator](nav:calculator) on Frontaliere Ticino allows simulating the gross Swiss income, subtracting withholding and federal and cantonal contributions, and viewing the net credit. Although primarily calibrated for the Canton of Ticino, the withholding logic is the same: it provides an accurate estimate of what will be credited monthly after deductions.
-
-It is useful to consult the guide on [fiscal refunds](nav:ristorni) to understand how to present refund requests in case the withholding tax in Switzerland is excessive compared to the Italian obligation. Many frontier workers recover significant amounts in the 730 declaration.]]></content:encoded>
-      <pubDate>Sat, 22 Aug 2026 03:23:40 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-gressan-lavorare-vallese-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-gressan-lavorare-vallese-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>
