@@ -3934,6 +3934,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AVS et prestations complémentaires à Nidwald : guide pratique',
     'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'Comment fonctionne le premier pilier de la prévoyance dans le canton de Nidwald : calcul de la rente AVS, lacunes de cotisation et accès aux prestations complémentaires.',
     'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Espace de travail professionnel avec documents de calcul de rente AVS et planification retraite',
+    'blog.article.primo-pilastro-nidvaldo-avs.title': 'AVS et prestations complémentaires canton Nidwald',
+    'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'Le premier pilier à Nidwald : AVS, caisse de compensation, lacunes de cotisation et prestations complémentaires pour couvrir le minimum vital.',
+    'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Bureau de la caisse de compensation cantonale Nidvwald avec documents rentes AVS et prestations complémentaires',
 };
 
 export default blogMetaChFr;

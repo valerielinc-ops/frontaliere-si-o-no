@@ -51032,6 +51032,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-pilastro-nidvaldo-avs': {
+    title: 'AVS e prestazioni complementari canton Nidvaldo',
+    description: 'Guida completa al primo pilastro nel cantone Nidvaldo: AVS, cassa di compensazione, calcolo rendita, lacune contributive e prestazioni complementari',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, nidvaldo',
+    ogTitle: 'AVS e prestazioni complementari cantone Nidvaldo',
+    ogDescription: 'Come funziona il primo pilastro nel cantone Nidvaldo: AVS, cassa di compensazione cantonale, calcolo della rendita, lacune contributive e accesso alle prestazioni complementari per coprire il minimo vitale. Guida pratica con procedure di richiesta.',
+    canonicalPath: '/articoli-svizzera/primo-pilastro-nidvaldo-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari canton Nidvaldo",
+      "description": "Guida completa al primo pilastro nel cantone Nidvaldo: AVS, cassa di compensazione, calcolo rendita, lacune contributive e prestazioni complementari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/primo-pilastro-nidvaldo-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione cantonale Nidvaldo con scartoffie di previdenza sociale AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-08-23T11:40:32+00:00",
+      "dateModified": "2026-08-23T11:40:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/primo-pilastro-nidvaldo-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
