@@ -3952,6 +3952,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lamal-glarona-sussidio-premi.title': 'Glarus health insurance premiums: how to obtain a reduction',
     'blog.article.lamal-glarona-sussidio-premi.excerpt': 'How compulsory health insurance premiums work in Glarus, what deductibles are available and how to claim cantonal reduction benefits.',
     'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Swiss health insurance documents with calculator on wooden desk, close-up shot',
+    'blog.article.apprendistato-canton-glarona.title': 'Apprenticeship and training in the Glarus Canton',
+    'blog.article.apprendistato-canton-glarona.excerpt': 'Complete guide to job search, contract, salary and professional maturity: rights of the apprentice and procedure in the Canton of Glarus.',
+    'blog.article.apprendistato-canton-glarona.imageAlt': 'Young apprentice learning woodworking skills with experienced craftsman in Swiss vocational training',
 };
 
 export default blogMetaChEn;

@@ -3952,6 +3952,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lamal-glarona-sussidio-premi.title': 'Premi cassa malati Glarona: come ottenere riduzione',
     'blog.article.lamal-glarona-sussidio-premi.excerpt': 'Come funzionano i premi dell\'assicurazione malattia obbligatoria in Glarona, quali sono le franchigie disponibili e come richiedere i sussidi cantonali di riduzione.',
     'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Documenti di assicurazione malattia svizzera con calcolatore su scrivania in legno',
+    'blog.article.apprendistato-canton-glarona.title': 'Apprendistato e formazione nel Canton Glarona',
+    'blog.article.apprendistato-canton-glarona.excerpt': 'Guida completa a ricerca del posto, contratto, retribuzione e maturità professionale: diritti dell\'apprendista e procedura nel Canton Glarona.',
+    'blog.article.apprendistato-canton-glarona.imageAlt': 'Un giovane apprendista impara a lavorare il legno in bottega artigianale svizzera con maestro esperto',
 };
 
 export default blogMetaChIt;

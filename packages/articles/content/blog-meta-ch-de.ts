@@ -3952,6 +3952,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lamal-glarona-sussidio-premi.title': 'Krankenkassenprämien Glarus: So erhalten Sie eine Ermäßigung',
     'blog.article.lamal-glarona-sussidio-premi.excerpt': 'Wie funktionieren die Prämien der obligatorischen Krankenversicherung in Glarus, welche Franchisen stehen zur Verfügung und wie beantragt man kantonale Reduktionsbeiträge?',
     'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Schweizer Krankenversicherungsdokumente mit Taschenrechner auf Holzschreibtisch',
+    'blog.article.apprendistato-canton-glarona.title': 'Lehre und Ausbildung im Kanton Glarus',
+    'blog.article.apprendistato-canton-glarona.excerpt': 'Vollständiger Leitfaden zur Stellensuche, zum Vertrag, zur Bezahlung und zur Berufsmaturität: Lehrlingsrechte und Verfahren im Kanton Glarus.',
+    'blog.article.apprendistato-canton-glarona.imageAlt': 'Junger Lehrling erlernt Handwerksfähigkeiten von erfahrenem Meister in der Schweizer Berufsausbildung',
 };
 
 export default blogMetaChDe;
