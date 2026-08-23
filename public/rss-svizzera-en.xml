@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Aug 2026 07:06:53 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 07:35:26 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,68 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Calculation of AVS annuity and contribution gaps</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/avs-pension-calculation-contribution-gaps/</link>
+      <description><![CDATA[How the cantonal compensation fund works in the calculation of the AVS annuity, what contribution gaps reduce the amount and how the supplementary benefits fill the living minimum.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- The cantonal compensation fund manages the calculation of the AVS annuity in the first Swiss pillar
+- Contribution gaps reduce the amount of the annuity in proportion to the missing months
+- Supplementary benefits guarantee coverage of the minimum living allowance when the income is insufficient
+- The application process starts 3-4 months before reaching retirement age
+
+## Key facts
+- What: Cantonal compensation fund in charge of calculating and paying the AVS annuity
+- When: Request for annuity 3-4 months before the reference age (64 years old men, 63 years old women)
+- Where: At the compensation fund of the canton of residence (Obvaldo or other)
+- Who: UFAS/BSV coordinates at federal level; cantonal coffers manage locally
+- Amount: Depends on contributions paid during the working career and contribution gaps
+- Duration: Minimum 1 year contribution to access the annuity; full career typically 44 years for men
+- Procedure: Documentation sent automatically; return of form required at least 2 months before the desired date
+
+In the Swiss social security system, the first pillar (AVS) represents the basis of security in old age. Each canton has its own cantonal compensation fund in charge of managing the calculation of the AVS annuity for its residents. The fund collects and records contributions during the entire working career and, upon reaching the age of
+The calculation of the AVS pension follows well-defined steps at the federal level, even if materially carried out at the cantonal level. The amount of the annuity depends on two main factors: the number of years of contribution credited to the insurance account and the average coordinated income over the entire working career.
+
+The system is progressive: it is not enough to have paid many contributions at all, but the continuity and duration of the contributory career counts. A worker who enters the labour market late will access a lower income than a colleague who started earlier, even if both have paid the same total amount of contributions during their employment. This federal mechanism encourages career continuity and favors those who access work at a young age. Similarly, the [secondo pilastro (LPP/BVG)](nav:pension) completes the social security coverage with mandatory payments from the employer.
+
+### The concrete impact of contribution gaps
+
+A common scenario concerns job search periods between jobs. Even a few consecutive months of unemployment, if not covered by unemployment insurance, create a gap in the AVS tax register. Although a single 6-month gap has a seemingly modest impact, the accumulation of multiple gaps over the course of the career can reduce final performance by a significant percentage.
+
+For example, if an insured person turns 44 years of contribution (instead of 45 years of a
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+How to request the AVS pension and check contributory gaps
+
+The procedure for requesting the AVS pension begins about 3-4 months before reaching the reference age. The cantonal compensation fund sends automatically to the insured a complete package containing the request form, a detailed extract of the contributions account (where all identified gaps in the system are highlighted) and operational instructions.
+
+**Step-by-step procedure for requesting the pension:
+
+1. Accurate verification of the extract: Check the document received from the cantonal fund in every detail to identify any gaps, unregistered contributions or discrepancies in the coordinated income. If you notice inconsistent data or missing contributions, contact the cantonal fund immediately to request a correction. This phase is critical because errors can permanently reduce the pension.
+
+2. Evaluate the opportunity to fill gaps: Request the cantonal fund to project the monthly increase in pension that would result from paying voluntary contributions. Compare the total cost to be paid with the annual increase in pension and the number of years of life expectancy to retirement to evaluate whether it is worth it.
+
+3. Complete and sign the request form: Return the signed form to the cantonal fund within the specified times (usually at least 2 months before the desired retirement date). Attach any payment for voluntary contributions if you decide to fill gaps.
+
+4. Receive the communication and start of the pension: The cantonal fund will formally communicate the definitive amount of the pension, the exact date of commencement (first day of the month following the reference age) and the payment methods (usually through a bank account).
+
+### Complementary benefits: the backstop of the minimum vital
+
+When the AVS pension, possibly integrated with other incomes (LPP, third pillar, real estate income, widow's pensions), does not reach the minimum vital established at the cantonal level, the cantonal complementary benefits intervene automatically to fill the gap. This is a financial assistance funded by general taxation (federal and cantonal), not a pension contribution.
+
+Complementary benefits mainly cover: rent and housing expenses (up to a cantonal maximum), contributions to the compulsory health insurance (LAMal) through provincial subsidies to the premium, and home care expenses for those who require continuous medical support. Access is subject to income and asset verification according to uniform federal criteria. It is not an automatic benefit: it must be explicitly requested at the competent cantonal office, even simultaneously with the request for the AVS pension.
+
+Next practical steps:
+
+Contact the cantonal compensation fund of Obvaldo at least 3-4 months before the desired retirement date to receive the official extract of the contributions account and the request documentation. If you anticipate having paid contributions in other Swiss cantons or if you have worked abroad and paid contributions to foreign systems, report it immediately: the cantonal fund will coordinate with other entities to ensure the complete computation of the contributory career according to international treaties.
+
+Use the [AVS pension calculator](nav:pension) available for a preliminary estimate based on your personal data. To better understand how contributory gaps affect your overall pension - considering also the [second pillar LPP/BVG](nav:pension) and the [third pillar 3a](nav:pillar3) - consult the in-depth guides or contact directly the competent office of your place of residence.]]></content:encoded>
+      <pubDate>Sun, 23 Aug 2026 07:35:26 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/calcolo-rendita-avs-lacune-contributive</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/calcolo-rendita-avs-lacune-contributive.webp" medium="image"/>
+    </item>
     <item>
       <title>Swiss exports: record in July 2026 with +13.8%</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/swiss-exports-july-2026/</link>
@@ -3098,64 +3160,6 @@ Swiss citizens interested in national migration policy can subscribe to the fede
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/asilo-maghreb-reati-80-percento</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/asilo-maghreb-reati-80-percento.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Aviation: CO2 and water become synthetic kerosene</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/synthetic-kerosene-aviation/</link>
-      <description><![CDATA[PSI Aargau inaugurates synthetic kerosene demonstration plant. Swiss airlines must blend 2% sustainable fuel today, rising to 6% in 2030.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- PSI Aargau inaugurates demonstration plant for sustainable synthetic kerosene
-- Produces 50 litres per day; research lasts 3 years
-- Tethered airlines: 2% sustainable kerosene today, 6% in 2030
-
-## Key facts
-- **What**: Demonstration plant transforms water, electricity and CO2 into synthetic kerosene
-- Where: Paul Scherrer Institut (PSI), canton Aargau, Switzerland
-- When: Inauguration just took place (August 2026)
-- Who: Paul Scherrer Institut, Federal Office of Civil Aviation
-- Production: 50 litres per day
-- Cost: Sustainable kerosene costs 4-5 times more than conventional
-
-At the Paul Scherrer Institut (PSI) in Aargau, the first demonstration plant capable of producing "high quality and zero climate impact" synthetic kerosene was inaugurated. The project represents the culmination of three years of research. The plant transforms three essential ingredients — water, electricity from sustainable sources and carbon dioxide extracted directly from the atmosphere — into ready-to-use aviation fuel, paving the way for cleaner aviation.
-
-Marco Ranocchiari, head of the technological energies and innovation laboratory AT PSI, comments on the achievement with satisfaction: "For me personally it represents a research success, because we have transformed something that was prepared in the laboratory into something bigger and that will surely have an impact on society."
-
-### From the laboratory bench to the plant
-### The economic challenge: still high prices
-
-While Swiss research achieves a technically brilliant result, the road to large-scale industrial production presents significant obstacles. The main one is no longer technological, but economic. Synthetic kerosene costs four to five times more than conventional fuel. Jens Fehlinger, CEO of Swiss, makes no secret of the frustration: “Prices for sustainable kerosene are four to five times higher than conventional — that's where we need to work. Our planes are ready, from tomorrow we could load as much green kerosene as possible, but you can't find any. It is essential that we now increase production, to also lower the prices that our passengers ultimately pay. "
-
-This claim reveals a market paradox: airlines have already equipped their aircraft to use sustainable fuel; manufacturing plants are starting to become real; and yet the global shortage of supply keeps prices high, creating an economic bottleneck that slows the transition. For Swiss passengers and families who fly frequently, this translates into a real risk of fare increases in the coming years, at least until economies of scale reduce unit costs.
-
-### From Swiss research to production in the Netherlands
-
-For reasons of space and logistics, the first commercial plant
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-### Time Scenario: From Research to Commercial Scalability
-
-The transition will not happen overnight. Source data shows a clearly defined trajectory:
-
-**Phase 1 (2026-2029)**: The increase in research and testing capacity in Switzerland at the PSI continues; the commercial plant in the Netherlands is under construction. Mandatory percentages remain at 2% globally.
-
-Phase 2 (2030 onwards): The Dutch plant becomes operational and supplies synthetic fuel; the mandatory quota rises from 2% to 6%. Economies of scale on production begin, gradually leading to a reduction in unit prices.
-
-Phase 3 (2050): Climate neutrality target for the global aviation sector. A time horizon that is still far away, but thanks to the progress of Swiss research, today it appears less inaccessible than in the past.
-
-This timeframe means that Swiss passengers will likely have to deal with slightly higher airfares in the medium term, reflecting the additional cost of mandatory sustainable fuel. On the other hand, each increase in production and each economy of scale should lead to a gradual reduction in the price premium in the decade 2030-2040.
-
-### Electric aviation: a promise that is still premature
-
-Meanwhile, the industry is also exploring alternative paths, albeit still far from large-scale commercial application. Friday in Bern, in the
-
-Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swiss companies hiring cross-border workers.
-
-*Source: [rsi.ch](https://www.rsi.ch/s/4004394)*]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 23:59:56 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/cherosene-sintetico-aviazione</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/cherosene-sintetico-aviazione.webp" medium="image"/>
     </item>
   </channel>
 </rss>

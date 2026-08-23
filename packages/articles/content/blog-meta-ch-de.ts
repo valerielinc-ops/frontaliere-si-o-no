@@ -3907,6 +3907,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.export-svizzera-luglio-2026.title': 'Schweizer Export: Rekord im Juli 2026 mit +13,8%',
     'blog.article.export-svizzera-luglio-2026.excerpt': 'Im Juli 2026 beliefen sich die Schweizer Exporte auf 27,8 Milliarden Franken. Die Handelsbilanz weist einen Rekordüberschuss von 8,1 Milliarden aus.',
     'blog.article.export-svizzera-luglio-2026.imageAlt': 'Container und Logistik in einem Schweizer Frachtzentrum',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Berechnung AHV-Rente und Beitragslücken',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'Wie die kantonale Ausgleichskasse bei der Berechnung der AHV-Rente arbeitet, welche Beitragslücken den Betrag reduzieren und wie Ergänzungsleistungen das Existenzminimum ausfüllen.',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Schweizer Kantonsamt: Ausgleichskasse für die AVS-Rentenberechnung',
 };
 
 export default blogMetaChDe;

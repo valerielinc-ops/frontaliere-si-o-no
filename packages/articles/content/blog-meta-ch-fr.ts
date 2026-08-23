@@ -3907,6 +3907,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.export-svizzera-luglio-2026.title': 'Exportations suisses : record en juillet 2026 avec +13,8%',
     'blog.article.export-svizzera-luglio-2026.excerpt': 'En juillet 2026, les exportations suisses atteignent 27,8 milliards de francs. La balance commerciale affiche un excédent record de 8,1 milliards.',
     'blog.article.export-svizzera-luglio-2026.imageAlt': 'Conteneurs et logistique dans un centre de fret suisse',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Calcul rente AVS et lacunes contributives',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'Comment fonctionne la caisse de compensation cantonale dans le calcul de la rente AVS, quelles lacunes contributives réduisent le montant et comment les prestations complémentaires comblent le minimum vital.',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Bureau d\'administration cantonale suisse: caisse de compensation pour le calcul de la rente AVS',
 };
 
 export default blogMetaChFr;

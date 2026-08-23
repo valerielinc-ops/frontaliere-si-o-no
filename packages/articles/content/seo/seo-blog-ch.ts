@@ -50681,6 +50681,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcolo-rendita-avs-lacune-contributive': {
+    title: 'Calcolo rendita AVS e lacune contributive | Frontaliere Ticino',
+    description: 'Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS e come le lacune contributive sono coperte dalle prestazioni complementari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, rendita, lacune, contributive',
+    ogTitle: 'Rendita AVS: calcolo e prestazioni complementari',
+    ogDescription: 'Nel sistema previdenziale svizzero, la cassa di compensazione cantonale gestisce il calcolo della rendita AVS. Scopri come funzionano le lacune contributive e come le prestazioni complementari garantiscono una copertura del minimo vitale.',
+    canonicalPath: '/articoli-svizzera/calcolo-rendita-avs-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolo rendita AVS e lacune contributive",
+      "description": "Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS e come le lacune contributive sono coperte dalle prestazioni complementari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-rendita-avs-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di amministrazione cantonale svizzera: cassa di compensazione per il calcolo della rendita AVS"
+      },
+      "datePublished": "2026-08-23T07:35:26+00:00",
+      "dateModified": "2026-08-23T07:35:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcolo-rendita-avs-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
