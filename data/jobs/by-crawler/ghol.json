@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-08-23T09:39:35.880Z",
+  "assembledAt": "2026-08-23T21:52:10.216Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.162Z",
+      "crawledAt": "2026-08-23T21:52:07.694Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -90,6 +90,83 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-ff11106c27c6",
+      "slug": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+      "slugByLocale": {
+        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Aide en Soins et Accompagnement",
+      "titleByLocale": {
+        "it": "Cura e supporto",
+        "en": "Care and Support",
+        "de": "Pflege und Support",
+        "fr": "Aide en Soins et Accompagnement"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\n Niveau de formation :\n Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\n Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\n Avantages :\n Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n Intégrer une équipe dynamique et motivée\n Participation active au projet d’accompagnement des résidents·es\n Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\n Salaire en fonction de la grille salariale de la CCT SAN",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL. L'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità. Il nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n• Lavoro nei due servizi dello SME (geriatria e psicogeriatria)\n• Sostenere un gruppo di residenti stimolando la loro autonomia o, se necessario, sostituendo le loro esigenze in base al loro livello di dipendenza\n• Assicurare un supporto personalizzato\n• Collaborare in un team interdisciplinare\n• Trasmettere e ritrasmettere le sue osservazioni in modo mirato e rilevante nel file computerizzato del residente Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n• Pazienza, empatia, ascolto attivo, elevata capacità di comunicazione verbale e non verbale\n• Buona resistenza fisica e psicologica\n• Flessibilità in termini di programmazione (lavoro diurno/notte/orario continuo e di taglio) Livello di formazione: Certificazione della formazione professionale nella cura e nel supporto (AFP ASA) o equivalente desiderato Certificato di Croce Rossa svizzera (minimo) Vantaggi: Coinvolgere in un ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati Integrare un team dinamico e motivato Partecipazione attiva al progetto per sostenere i residenti Valorizzazione della funzione di accompagnamento ai residenti attraverso il tempo e i mezzi dedicati a questa missione Salario basato su SAN CTC scala salariale",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL. The aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities. Our accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff. Description of the post: In your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n• Work within the two services of EMS (geriatrics and psycho-geriatrics)\n• Support a group of residents by stimulating their autonomy or if necessary by replacing their needs according to their level of dependency\n• Ensure personalized support\n• Collaborate in an interdisciplinary team\n• Transmit and retransmit its observations in a targeted and relevant manner in the resident's computerized file Profile required: We are convinced of your rapid success in your future functions through your:\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n• Good physical and psychological resistance\n• Flexibility in terms of scheduling (day/night work/continuous and cut-off hours) Level of training: Certification of Vocational Training in Care and Support (AFP ASA) or desired equivalent Swiss Red Cross Certificate (minimum) Benefits: Evolve in a pleasant working environment, recent premises, specially equipped outdoor spaces Integrating a dynamic and motivated team Active participation in the project to support residents Valorisation of the function of accompaniment to residents through time and means dedicated to this mission Salary based on SAN CTC salary scale",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung von GHOL teilnehmen. Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist. Unser Begleitansatz basiert auf dem Aufbau einer Vertrauensbeziehung mit Bewohnern, ihren Angehörigen und medizinischen Mitarbeitern sowie unter Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Diese Achtung der Person spiegelt sich in der medizinischen Versorgung unserer qualifizierten Gesundheitspersonal wider. Beschreibung des Beitrags: In Ihren neuen Aufgaben haben Ihre Missionen Auswirkungen auf die Qualität der Pflege für Bewohner. Ihre Rolle wird beinhalten:\n• Arbeiten in den beiden Diensten des EMS (Kriminellen und Psycho-Kriminellen)\n• Unterstützung einer Gruppe von Bewohnern durch Förderung ihrer Autonomie oder erforderlichenfalls durch Austausch ihrer Bedürfnisse nach ihrer Abhängigkeit\n• Persönliche Unterstützung gewährleisten\n• Zusammenarbeit in einem interdisziplinären Team\n• Transmittieren und erneut seine Beobachtungen gezielt und relevant in der computergestützten Datei des Anwohners übertragen Profil erforderlich: Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n• Interesse an der Pflege älterer und/oder abhängiger und/oder kognitiver Beeinträchtigungen\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nicht-verbale Kommunikationsfähigkeiten\n• Guter körperlicher und psychologischer Widerstand\n• Flexibilität bei der Planung (Tag/Nachtarbeit/kontinuierliche und abgeschnittene Stunden) Ausbildungsstufe: Zertifizierung der Berufsbildung in Pflege und Unterstützung (AFP ASA) oder gewünschtes Äquivalent Swiss Red Cross Certificate (minimum) Vorteile: Entwickeln Sie in einer angenehmen Arbeitsumgebung, neueren Räumlichkeiten, speziell ausgestatteten Außenräumen Integration eines dynamischen und motivierten Teams Aktive Beteiligung am Projekt zur Unterstützung der Bewohner Valorisierung der Funktion der Begleitung der Bewohner durch die Zeit und Mittel, die dieser Mission gewidmet sind Salary basierend auf SAN CTC Gehaltsskala",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\nL’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\nNotre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\nNiveau de formation :\nAttestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\nDiplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\nAvantages :\nEvoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\nIntégrer une équipe dynamique et motivée\nParticipation active au projet d’accompagnement des résidents·es\nValorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\nSalaire en fonction de la grille salariale de la CCT SAN"
+      },
+      "location": "Rolle",
+      "canton": "VD",
+      "addressLocality": "Rolle",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1180",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "url": "https://app.beehire.com/invite/Wn7TRyXkp",
+      "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-23T21:52:07.693Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ],
+        "de": [
+          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        ]
+      },
+      "firstSeenAt": "2026-05-21T11:59:27.233Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -148,7 +225,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.161Z",
+      "crawledAt": "2026-08-23T21:52:07.693Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -213,83 +290,6 @@
       }
     },
     {
-      "id": "ghol-ff11106c27c6",
-      "slug": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-      "slugByLocale": {
-        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Aide en Soins et Accompagnement",
-      "titleByLocale": {
-        "it": "Cura e supporto",
-        "en": "Care and Support",
-        "de": "Pflege und Support",
-        "fr": "Aide en Soins et Accompagnement"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n L’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\n Notre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\n Niveau de formation :\n Attestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\n Diplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\n Avantages :\n Evoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\n Intégrer une équipe dynamique et motivée\n Participation active au projet d’accompagnement des résidents·es\n Valorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\n Salaire en fonction de la grille salariale de la CCT SAN",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL. L'obiettivo del \"Les Jardins du Léman\" (Les Jardins du Léman) è quello di fornire ai propri residenti la migliore qualità di vita possibile in un ambiente medico adattato alle loro specificità. Il nostro approccio di accompagnamento si basa sulla costruzione di un rapporto di fiducia con i residenti, i loro cari e personale medico, nonché tenendo conto del loro stile di vita, desideri e bisogni. Questo rispetto per la persona si riflette nell'assistenza medica fornita dal nostro personale sanitario qualificato. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto sulla qualità della cura per i residenti. Il tuo ruolo includerà:\n• Lavoro nei due servizi dello SME (geriatria e psicogeriatria)\n• Sostenere un gruppo di residenti stimolando la loro autonomia o, se necessario, sostituendo le loro esigenze in base al loro livello di dipendenza\n• Assicurare un supporto personalizzato\n• Collaborare in un team interdisciplinare\n• Trasmettere e ritrasmettere le sue osservazioni in modo mirato e rilevante nel file computerizzato del residente Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Interessi nella cura degli anziani e/o dipendenti e/o con alterazione cognitiva\n• Pazienza, empatia, ascolto attivo, elevata capacità di comunicazione verbale e non verbale\n• Buona resistenza fisica e psicologica\n• Flessibilità in termini di programmazione (lavoro diurno/notte/orario continuo e di taglio) Livello di formazione: Certificazione della formazione professionale nella cura e nel supporto (AFP ASA) o equivalente desiderato Certificato di Croce Rossa svizzera (minimo) Vantaggi: Coinvolgere in un ambiente di lavoro piacevole, locali recenti, spazi esterni appositamente attrezzati Integrare un team dinamico e motivato Partecipazione attiva al progetto per sostenere i residenti Valorizzazione della funzione di accompagnamento ai residenti attraverso il tempo e i mezzi dedicati a questa missione Salario basato su SAN CTC scala salariale",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL. The aim of the \"Les Jardins du Léman\" (Les Jardins du Léman) is to provide its residents with the best possible quality of life in a medical environment adapted to their specificities. Our accompaniment approach is based on building a relationship of trust with residents, their loved ones and medical staff, as well as taking into account their lifestyle, desires and needs. This respect for the person is reflected in the medical care provided by our qualified healthcare staff. Description of the post: In your new duties, your missions have an impact on the quality of care for residents. Your role will include:\n• Work within the two services of EMS (geriatrics and psycho-geriatrics)\n• Support a group of residents by stimulating their autonomy or if necessary by replacing their needs according to their level of dependency\n• Ensure personalized support\n• Collaborate in an interdisciplinary team\n• Transmit and retransmit its observations in a targeted and relevant manner in the resident's computerized file Profile required: We are convinced of your rapid success in your future functions through your:\n• Interest in the care of the elderly and/or dependent and/or with cognitive impairment\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n• Good physical and psychological resistance\n• Flexibility in terms of scheduling (day/night work/continuous and cut-off hours) Level of training: Certification of Vocational Training in Care and Support (AFP ASA) or desired equivalent Swiss Red Cross Certificate (minimum) Benefits: Evolve in a pleasant working environment, recent premises, specially equipped outdoor spaces Integrating a dynamic and motivated team Active participation in the project to support residents Valorisation of the function of accompaniment to residents through time and means dedicated to this mission Salary based on SAN CTC salary scale",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbinden und an der Entwicklung von GHOL teilnehmen. Ziel des \"Les Jardins du Léman\" (Les Jardins du Léman) ist es, seinen Bewohnern die bestmögliche Lebensqualität in einem medizinischen Umfeld zu bieten, das an ihre Besonderheiten angepasst ist. Unser Begleitansatz basiert auf dem Aufbau einer Vertrauensbeziehung mit Bewohnern, ihren Angehörigen und medizinischen Mitarbeitern sowie unter Berücksichtigung ihres Lebensstils, ihrer Wünsche und Bedürfnisse. Diese Achtung der Person spiegelt sich in der medizinischen Versorgung unserer qualifizierten Gesundheitspersonal wider. Beschreibung des Beitrags: In Ihren neuen Aufgaben haben Ihre Missionen Auswirkungen auf die Qualität der Pflege für Bewohner. Ihre Rolle wird beinhalten:\n• Arbeiten in den beiden Diensten des EMS (Kriminellen und Psycho-Kriminellen)\n• Unterstützung einer Gruppe von Bewohnern durch Förderung ihrer Autonomie oder erforderlichenfalls durch Austausch ihrer Bedürfnisse nach ihrer Abhängigkeit\n• Persönliche Unterstützung gewährleisten\n• Zusammenarbeit in einem interdisziplinären Team\n• Transmittieren und erneut seine Beobachtungen gezielt und relevant in der computergestützten Datei des Anwohners übertragen Profil erforderlich: Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen durch Ihre:\n• Interesse an der Pflege älterer und/oder abhängiger und/oder kognitiver Beeinträchtigungen\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nicht-verbale Kommunikationsfähigkeiten\n• Guter körperlicher und psychologischer Widerstand\n• Flexibilität bei der Planung (Tag/Nachtarbeit/kontinuierliche und abgeschnittene Stunden) Ausbildungsstufe: Zertifizierung der Berufsbildung in Pflege und Unterstützung (AFP ASA) oder gewünschtes Äquivalent Swiss Red Cross Certificate (minimum) Vorteile: Entwickeln Sie in einer angenehmen Arbeitsumgebung, neueren Räumlichkeiten, speziell ausgestatteten Außenräumen Integration eines dynamischen und motivierten Teams Aktive Beteiligung am Projekt zur Unterstützung der Bewohner Valorisierung der Funktion der Begleitung der Bewohner durch die Zeit und Mittel, die dieser Mission gewidmet sind Salary basierend auf SAN CTC Gehaltsskala",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\nL’EMS « Les Jardins du Léman » d’une capacité de 51 lits a pour but d’offrir à ses résidents·es la meilleure qualité de vie possible, dans un environnement médical adapté à leurs spécificités.\nNotre démarche d’accompagnement est fondée sur la construction d’une relation de confiance avec les résidents·es, leurs proches et le personnel médical ainsi que sur la prise en compte de leurs parcours de vie, de leurs désirs et besoins. Ce respect de la personne s’inscrit à travers des soins médicaux dispensés par notre personnel soignant qualifié.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des résidents·es. Votre rôle consistera notamment à,\n\n• Travailler au sein des 2 services de l’EMS (gériatrie et psycho-gériatrie)\n\n• Prendre en charge un groupe de résidents·es en stimulant leur autonomie ou si nécessaire en suppléant à leurs besoins suivant leur niveau de dépendance\n\n• Assurer une prise en charge personnalisée\n\n• Collaborer au sein d’une équipe interdisciplinaire\n\n• Transmettre et retranscrire ses observations de manière ciblée et pertinente dans le dossier informatisé du·de la résident·e\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Bonne résistance physique et psychique\n\n• Flexibilité en terme de planification horaire (travail jour/nuit/horaires continus et coupés)\nNiveau de formation :\nAttestation de Formation Professionnelle d’Aide en Soins et Accompagnement (AFP ASA) ou équivalent souhaité\nDiplôme d’Auxiliaire de Santé certifié par la Croix Rouge Suisse (à minima)\nAvantages :\nEvoluer dans un environnement de travail agréable, locaux récents, espaces extérieurs spécialement aménagés\nIntégrer une équipe dynamique et motivée\nParticipation active au projet d’accompagnement des résidents·es\nValorisation de la fonction d’accompagnement auprès des résidents·es par du temps et des moyens dédiés à cette mission\nSalaire en fonction de la grille salariale de la CCT SAN"
-      },
-      "location": "Rolle",
-      "canton": "VD",
-      "addressLocality": "Rolle",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1180",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://app.beehire.com/invite/Wn7TRyXkp",
-      "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.157Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ],
-        "de": [
-          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T11:59:27.233Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ghol-c0180cff0ed5",
       "slug": "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
@@ -334,7 +334,7 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.157Z",
+      "crawledAt": "2026-08-23T21:52:07.692Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -423,7 +423,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.156Z",
+      "crawledAt": "2026-08-23T21:52:07.691Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -500,7 +500,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.154Z",
+      "crawledAt": "2026-08-23T21:52:07.690Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -534,100 +534,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:45:55.990Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-4c3b3426b239",
-      "slug": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Infirmier·ère urgentiste",
-      "titleByLocale": {
-        "it": "Infermiera di emergenza",
-        "en": "Emergency Nurse",
-        "de": "Infirmier·ère urgentiste",
-        "fr": "Infirmier·ère urgentiste"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture a Nyon, Rolle e Saint-Cergue. Descrizione del servizio: La vostra nuova sfida sta emergendo nel reparto di emergenza del GHOL, offrendo 19 scatole e rispondendo a più di 37.000 consultazioni all'anno, guidate da un team di solidarietà di assistenza medica (infermiere binomo/fisico) e convergendo verso una cura ottimale. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto diretto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n• Ricevimento, smistamento e rinvio di tutti i pazienti nel reparto emergenza\n• Cura 24/24 per qualsiasi paziente adulto (compresa la cura neurovascolare come parte della nostra STROKE UNIT) che può avere problemi di salute con gradi molto diversi di gravità nei campi fisici, psicologici e sociali. Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Esperienza imperativa in un'unità di cura acuta minima di 2 anni\n• Esperienza desiderata in una funzione simile o in un'unità di cura intensiva\n• Sensibilizzazione professionale ed empatia\n• Forte senso di responsabilità\n• Alta adattabilità e reattività\n• Autonomia Riconosciuto per le vostre qualità di iniziativa e di relazione, siete apprezzati per la vostra capacità di lavorare come squadra. Garantire un'organizzazione di cura ottimale, la vostra resistenza fisica e la vostra capacità di gestire lo stress sono beni reali. Livello di formazione:\n• Corso di laurea in allattamento HES o equivalente riconosciuto dalla Croce Rossa svizzera richiesto\n• Formazione post-laurea in pronto soccorso (EPD ES o DAS) sarebbe un bene Vantaggi: Potrai beneficiare di formazione continua, stimolante e adattato alle esigenze del reparto di emergenza: blocchi di emergenza corsi ogni semestre, esercizio di simulazione settimanale, insegna veloce settimanale Avrete accesso ad un'offerta di formazione continua interna varia e attraente. Ogni giorno, lavorerai in locali adattati alle missioni di un servizio di emergenza moderno e di dimensioni umane",
-        "en": "GHOL is the reference hospital for the German West with its structures in Nyon, Rolle and Saint-Cergue. Description of the service: Your new challenge is emerging in the emergency department of the GHOL, offering 19 boxes and responding to more than 37,000 consultations a year, led by a team of medical-care solidarity (binome nurse/physician) and converging towards optimal care. Description of the post: In your new duties, your missions have a direct impact on the quality of patient care. Your role will include:\n• Reception, sorting and referral of all patients in the emergency department\n• Care 24/24 for any adult patient (including neurovascular care as part of our STROKE UNIT) who may have health problems with very varying degrees of severity in the physical, psychological and social fields. Profile required: We are convinced of your rapid success in your future functions through your:\n• Imperative experience in a minimum 2 year acute care unit\n• Desired experience in a similar function or in an intensive care unit\n• Professional awareness and empathy\n• Strong sense of responsibility\n• High adaptability and responsiveness\n• Autonomy Recognized for your initiative and relationship qualities, you are appreciated for your ability to work as a team. Guaranteeing optimal care organization, your physical resistance and your ability to manage your stress are real assets. Level of training:\n• Bachelor of nursing HES or equivalent degree recognized by the Swiss Red Cross required\n• Post-graduate training in emergency care (EPD ES or DAS) would be an asset Benefits: You will benefit from continuous training, stimulating and adapted to the needs of the emergency department: emergency blocks courses every semester, weekly simulation exercise, weekly quick teach You will have access to an offer of varied and attractive internal continuing education. Every day, you will work in premises adapted to the missions of a modern and human-sized emergency service",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Beschreibung des Dienstes: Ihre neue Herausforderung entsteht in der Notaufnahme der GHOL, die 19 Boxen anbietet und auf mehr als 37.000 Konsultationen pro Jahr reagiert, die von einem Team von medizinischer Solidarität (Binom-Krankenschwester / Arzt) geleitet werden und sich auf eine optimale Versorgung konzentrieren. Beschreibung der Post: In Ihren neuen Aufgaben haben Ihre Missionen einen direkten Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n• Empfang, Sortierung und Überweisung aller Patienten in der Notaufnahme\n• Pflege 24/24 für alle erwachsenen Patienten (einschließlich neurovaskuläre Versorgung als Teil unserer STROKE UNIT), die gesundheitliche Probleme mit sehr unterschiedlichem Schweregrad in den physischen, psychischen und sozialen Bereichen haben können. Profil erforderlich: Wir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt durch Ihre:\n• Imperative Erfahrung in mindestens 2 Jahren Akutstation\n• Gewünschte Erfahrung in einer ähnlichen Funktion oder in einer Intensivstation\n• Professionelles Bewusstsein und Empathie\n• Starkes Verantwortungsbewusstsein\n• Hohe Anpassungsfähigkeit und Reaktionsfähigkeit\n• Autonomie Anerkannt für Ihre Initiative und Beziehungsqualitäten, werden Sie für Ihre Fähigkeit geschätzt, als Team zu arbeiten. Die Gewährleistung einer optimalen Pflegeorganisation, Ihres körperlichen Widerstands und Ihrer Fähigkeit, Ihren Stress zu bewältigen, sind echte Vermögenswerte. Ausbildungsniveau:\n• Bachelor of Nursing HES oder gleichwertiger Abschluss vom Schweizerischen Roten Kreuz anerkannt erforderlich\n• Post-Graduate-Ausbildung in der Notfallversorgung (EPD ES oder DAS) wäre ein Vorteil Leistungen: Sie profitieren von kontinuierlicher Schulung, Stimulierung und Anpassung an die Bedürfnisse der Notfallabteilung: Notfallblockkurse jedes Semester, wöchentliche Simulationsübung, wöchentlicher Schnellunterricht Sie haben Zugang zu einem Angebot an abwechslungsreicher und attraktiver interner Weiterbildung. Jeden Tag arbeiten Sie in Räumlichkeiten, die an die Missionen eines modernen und menschlichen Rettungsdienstes angepasst sind",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\nDescriptif du service :\nVotre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\nReconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\nGarant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\nNiveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\nAvantages :\nVous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\nVous aurez accès à une offre de formation continue interne variée et attractive.\nAu quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "url": "https://app.beehire.com/invite/iNewpVG3m",
-      "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.152Z",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "fr": [
-          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T21:47:49.679Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -686,7 +592,7 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.151Z",
+      "crawledAt": "2026-08-23T21:52:07.688Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -705,6 +611,100 @@
         ]
       },
       "firstSeenAt": "2026-07-31T12:04:04.810Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-4c3b3426b239",
+      "slug": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmier·ère urgentiste",
+      "titleByLocale": {
+        "it": "Infermiera di emergenza",
+        "en": "Emergency Nurse",
+        "de": "Infirmier·ère urgentiste",
+        "fr": "Infirmier·ère urgentiste"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture a Nyon, Rolle e Saint-Cergue. Descrizione del servizio: La vostra nuova sfida sta emergendo nel reparto di emergenza del GHOL, offrendo 19 scatole e rispondendo a più di 37.000 consultazioni all'anno, guidate da un team di solidarietà di assistenza medica (infermiere binomo/fisico) e convergendo verso una cura ottimale. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto diretto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n• Ricevimento, smistamento e rinvio di tutti i pazienti nel reparto emergenza\n• Cura 24/24 per qualsiasi paziente adulto (compresa la cura neurovascolare come parte della nostra STROKE UNIT) che può avere problemi di salute con gradi molto diversi di gravità nei campi fisici, psicologici e sociali. Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Esperienza imperativa in un'unità di cura acuta minima di 2 anni\n• Esperienza desiderata in una funzione simile o in un'unità di cura intensiva\n• Sensibilizzazione professionale ed empatia\n• Forte senso di responsabilità\n• Alta adattabilità e reattività\n• Autonomia Riconosciuto per le vostre qualità di iniziativa e di relazione, siete apprezzati per la vostra capacità di lavorare come squadra. Garantire un'organizzazione di cura ottimale, la vostra resistenza fisica e la vostra capacità di gestire lo stress sono beni reali. Livello di formazione:\n• Corso di laurea in allattamento HES o equivalente riconosciuto dalla Croce Rossa svizzera richiesto\n• Formazione post-laurea in pronto soccorso (EPD ES o DAS) sarebbe un bene Vantaggi: Potrai beneficiare di formazione continua, stimolante e adattato alle esigenze del reparto di emergenza: blocchi di emergenza corsi ogni semestre, esercizio di simulazione settimanale, insegna veloce settimanale Avrete accesso ad un'offerta di formazione continua interna varia e attraente. Ogni giorno, lavorerai in locali adattati alle missioni di un servizio di emergenza moderno e di dimensioni umane",
+        "en": "GHOL is the reference hospital for the German West with its structures in Nyon, Rolle and Saint-Cergue. Description of the service: Your new challenge is emerging in the emergency department of the GHOL, offering 19 boxes and responding to more than 37,000 consultations a year, led by a team of medical-care solidarity (binome nurse/physician) and converging towards optimal care. Description of the post: In your new duties, your missions have a direct impact on the quality of patient care. Your role will include:\n• Reception, sorting and referral of all patients in the emergency department\n• Care 24/24 for any adult patient (including neurovascular care as part of our STROKE UNIT) who may have health problems with very varying degrees of severity in the physical, psychological and social fields. Profile required: We are convinced of your rapid success in your future functions through your:\n• Imperative experience in a minimum 2 year acute care unit\n• Desired experience in a similar function or in an intensive care unit\n• Professional awareness and empathy\n• Strong sense of responsibility\n• High adaptability and responsiveness\n• Autonomy Recognized for your initiative and relationship qualities, you are appreciated for your ability to work as a team. Guaranteeing optimal care organization, your physical resistance and your ability to manage your stress are real assets. Level of training:\n• Bachelor of nursing HES or equivalent degree recognized by the Swiss Red Cross required\n• Post-graduate training in emergency care (EPD ES or DAS) would be an asset Benefits: You will benefit from continuous training, stimulating and adapted to the needs of the emergency department: emergency blocks courses every semester, weekly simulation exercise, weekly quick teach You will have access to an offer of varied and attractive internal continuing education. Every day, you will work in premises adapted to the missions of a modern and human-sized emergency service",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Beschreibung des Dienstes: Ihre neue Herausforderung entsteht in der Notaufnahme der GHOL, die 19 Boxen anbietet und auf mehr als 37.000 Konsultationen pro Jahr reagiert, die von einem Team von medizinischer Solidarität (Binom-Krankenschwester / Arzt) geleitet werden und sich auf eine optimale Versorgung konzentrieren. Beschreibung der Post: In Ihren neuen Aufgaben haben Ihre Missionen einen direkten Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n• Empfang, Sortierung und Überweisung aller Patienten in der Notaufnahme\n• Pflege 24/24 für alle erwachsenen Patienten (einschließlich neurovaskuläre Versorgung als Teil unserer STROKE UNIT), die gesundheitliche Probleme mit sehr unterschiedlichem Schweregrad in den physischen, psychischen und sozialen Bereichen haben können. Profil erforderlich: Wir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt durch Ihre:\n• Imperative Erfahrung in mindestens 2 Jahren Akutstation\n• Gewünschte Erfahrung in einer ähnlichen Funktion oder in einer Intensivstation\n• Professionelles Bewusstsein und Empathie\n• Starkes Verantwortungsbewusstsein\n• Hohe Anpassungsfähigkeit und Reaktionsfähigkeit\n• Autonomie Anerkannt für Ihre Initiative und Beziehungsqualitäten, werden Sie für Ihre Fähigkeit geschätzt, als Team zu arbeiten. Die Gewährleistung einer optimalen Pflegeorganisation, Ihres körperlichen Widerstands und Ihrer Fähigkeit, Ihren Stress zu bewältigen, sind echte Vermögenswerte. Ausbildungsniveau:\n• Bachelor of Nursing HES oder gleichwertiger Abschluss vom Schweizerischen Roten Kreuz anerkannt erforderlich\n• Post-Graduate-Ausbildung in der Notfallversorgung (EPD ES oder DAS) wäre ein Vorteil Leistungen: Sie profitieren von kontinuierlicher Schulung, Stimulierung und Anpassung an die Bedürfnisse der Notfallabteilung: Notfallblockkurse jedes Semester, wöchentliche Simulationsübung, wöchentlicher Schnellunterricht Sie haben Zugang zu einem Angebot an abwechslungsreicher und attraktiver interner Weiterbildung. Jeden Tag arbeiten Sie in Räumlichkeiten, die an die Missionen eines modernen und menschlichen Rettungsdienstes angepasst sind",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\nDescriptif du service :\nVotre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\nReconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\nGarant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\nNiveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\nAvantages :\nVous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\nVous aurez accès à une offre de formation continue interne variée et attractive.\nAu quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://app.beehire.com/invite/iNewpVG3m",
+      "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-23T21:52:07.688Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "fr": [
+          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T21:47:49.679Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -763,7 +763,7 @@
       "applyUrl": "https://app.beehire.com/invite/CsBCCNTDM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:39:32.150Z",
+      "crawledAt": "2026-08-23T21:52:07.687Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
