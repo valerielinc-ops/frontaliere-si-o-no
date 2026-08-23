@@ -10555,6 +10555,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-torno-lavorare-ticino.title': 'Vivre à Torno et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Retour comme résidence et travaillent dans le canton du Tessin, entre les règles fiscales, les accords et la gestion des déplacements quotidiens.',
     'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac de Lugano près de la frontière italo-suisse',
+    'blog.article.vivere-grantola-lavorare-ticino.title': 'Vivre à Grantola et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui résident à Grantola et travaillent au Tessin : fiscalité, permis G, assurance LAMal et mobilité transfrontalière.',
+    'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac de Lugano près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;

@@ -10552,6 +10552,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-torno-lavorare-ticino.title': 'Leben in Torno und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die sich für Torno als Wohnsitz entscheiden und im Kanton Tessin arbeiten, zwischen Steuervorschriften, Vereinbarungen und der Verwaltung des täglichen Pendelverkehrs.',
     'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
+    'blog.article.vivere-grantola-lavorare-ticino.title': 'Leben in Grantola und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Grantola wohnen und im Tessin arbeiten: Steuern, G-Bewilligungen, KVG-Versicherung und grenzüberschreitende Mobilität.',
+    'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;
