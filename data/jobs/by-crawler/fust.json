@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-23T09:55:27.968Z",
+  "assembledAt": "2026-08-23T08:20:21.725Z",
   "jobs": [
     {
       "id": "company-gvrbqk",
@@ -16590,7 +16590,8 @@
           "consulente-commerciale-in-interdiscount-wettingen-aargau",
           "consulente-commerciale-in-interdiscount-wettingen",
           "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-          "venditore-a-interdiscount-wettingen-aargau"
+          "venditore-a-interdiscount-wettingen-aargau",
+          "venditore-a-interdiscount-wettingen"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
@@ -16617,7 +16618,8 @@
         "consulente-commerciale-in-interdiscount-wettingen-ffb287",
         "consultant-en-ventes-interdiscount-wettingen-ffb287",
         "venditore-a-interdiscount-wettingen-aargau",
-        "conseiller-e-de-vente-interdiscount-wettingen-aargau"
+        "conseiller-e-de-vente-interdiscount-wettingen-aargau",
+        "venditore-a-interdiscount-wettingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -16787,7 +16789,8 @@
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
           "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-          "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich"
+          "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
+          "venditore-a-coop-genossenschaft-winterthur-zurich"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -16811,7 +16814,8 @@
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
         "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
+        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich",
+        "venditore-a-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16954,15 +16958,24 @@
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
-          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-mels"
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-mels",
+          "macellaio-a-professionista-della-carne-coop-genossenschaft-goldach",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z",
+          "butcher-meat-specialist-coop-genossenschaft-goldach-i5fg9z",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-goldach-i5fg9z"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
-          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-mels"
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-mels",
+          "butcher-meat-specialist-coop-genossenschaft-goldach-i5fg9z"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
-          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-mels"
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-mels",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-goldach-i5fg9z"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z"
         ]
       },
       "previousSlugs": [
@@ -16970,7 +16983,11 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-mels-sankt-gallen-7uqg7n",
         "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-mels",
         "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-mels",
-        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-mels"
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-mels",
+        "macellaio-a-professionista-della-carne-coop-genossenschaft-goldach",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z",
+        "butcher-meat-specialist-coop-genossenschaft-goldach-i5fg9z",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-goldach-i5fg9z"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -27210,7 +27227,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -27219,7 +27237,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -29401,20 +29420,27 @@
           "verkaufer-in-food-coop-genossenschaft-st-gallen-sankt-gallen",
           "verkaufer-in-food-coop-genossenschaft-st-gallen-sankt-gallen-c7iz6t",
           "verkaufer-in-food-coop-city-st-gallen-sankt-gallen",
-          "venditore-in-food-coop-genossenschaft-st-gallen-1da57c"
+          "venditore-in-food-coop-genossenschaft-st-gallen-1da57c",
+          "venditore-in-food-coop-genossenschaft-st-gallen",
+          "seller-in-food-coop-genossenschaft-st-gallen",
+          "verkaufer-in-food-coop-st-gallen-sankt-gallen-mkq2rv",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-st-gallen-sankt-gallen-c7iz6t",
           "seller-in-food-coop-genossenschaft-st-gallen-sankt-gallen",
-          "seller-in-food-coop-genossenschaft-st-gallen-1da57c"
+          "seller-in-food-coop-genossenschaft-st-gallen-1da57c",
+          "seller-in-food-coop-genossenschaft-st-gallen"
         ],
         "fr": [
           "verkaufer-in-food-coop-genossenschaft-st-gallen-sankt-gallen-c7iz6t",
           "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-sankt-gallen",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-1da57c"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-1da57c",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen"
         ],
         "de": [
-          "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-c7iz6t"
+          "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-c7iz6t",
+          "verkaufer-in-food-coop-st-gallen-sankt-gallen-mkq2rv"
         ]
       },
       "previousSlugs": [
@@ -29426,7 +29452,11 @@
         "verkaufer-in-food-coop-city-st-gallen-sankt-gallen",
         "venditore-in-food-coop-genossenschaft-st-gallen-1da57c",
         "seller-in-food-coop-genossenschaft-st-gallen-1da57c",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-1da57c"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-1da57c",
+        "venditore-in-food-coop-genossenschaft-st-gallen",
+        "seller-in-food-coop-genossenschaft-st-gallen",
+        "verkaufer-in-food-coop-st-gallen-sankt-gallen-mkq2rv",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-23T09:38:39.670Z",
+  "assembledAt": "2026-08-23T08:29:14.615Z",
   "jobs": [
     {
       "id": "jumbo-3909bd54-ab1",
@@ -19434,7 +19434,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:08:24.041Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "baseSalary": {
@@ -19446,7 +19445,8 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-c021c19c-5b0",
