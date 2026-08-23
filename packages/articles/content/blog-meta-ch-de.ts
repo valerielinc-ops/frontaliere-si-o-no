@@ -4000,6 +4000,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-zugo-analisi.title': 'Arbeitsmarkt in Zug: Löhne und Branchendynamik',
     'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analyse des Zuger Marktes: treibende Sektoren, Lohndynamik, wettbewerbsfähige Besteuerung und obligatorische Vorsorge für Berufstätige und Arbeitnehmer.',
     'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Modernes Bürogebäude im Kanton Zug',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'B-Bewilligung Freiburg: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Erneuerbare B-Bewilligung in Freiburg: Anforderungen, Dokumente und Verfahren beim kantonalen Migrationsamt. Leitfaden für die Beantragung und Erneuerung.',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Kantonales Migrationsamt: Verwaltungsgebäude für die Ausstellung von Aufenthaltserlaubnis B in Freiburg',
 };
 
 export default blogMetaChDe;

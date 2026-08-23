@@ -4000,6 +4000,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-zugo-analisi.title': 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
     'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analisi del mercato zughese: settori trainanti, dinamiche salariali, fiscalità competitiva e previdenza obbligatoria per professionisti e lavoratori.',
     'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Palazzo uffici moderno nel Cantone di Zugo',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permesso B Friburgo: requisiti e rinnovo',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo.',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Ufficio cantonale della migrazione: sede per il rilascio dei permessi di dimora B in Friburgo',
 };
 
 export default blogMetaChIt;
