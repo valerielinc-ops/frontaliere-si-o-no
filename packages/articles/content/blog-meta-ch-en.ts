@@ -3877,6 +3877,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Open Canton Svitto business: costs and registration',
     'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Complete guide to starting a business in the canton of Switzerland: legal forms, registration in the commercial register, minimum capital, tax and social security obligations.',
     'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Administrative building in Canton Schwyz housing the commercial registry office.',
+    'blog.article.costituzione-impresa-cantone-svitto.title': 'Starting a business in the Canton of Schwyz: a practical guide',
+    'blog.article.costituzione-impresa-cantone-svitto.excerpt': 'The steps for the incorporation of a company in the Canton of Schwyz: from the choice of legal form to insurance and social security obligations.',
+    'blog.article.costituzione-impresa-cantone-svitto.imageAlt': 'Modern office in Switzerland for business incorporation.',
 };
 
 export default blogMetaChEn;

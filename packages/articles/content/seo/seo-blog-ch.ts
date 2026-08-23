@@ -50291,6 +50291,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costituzione-impresa-cantone-svitto': {
+    title: 'Aprire un\'impresa nel Cantone di Svitto: guida pratica',
+    description: 'Guida pratica all\'apertura di un\'attività nel Cantone di Svitto: forme giuridiche, registro di commercio, obblighi previdenziali e fiscali per imprenditori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, impresa, cantone, svitto',
+    ogTitle: 'Aprire un\'impresa nel Cantone di Svitto: guida pratica',
+    ogDescription: 'Scopri i passaggi burocratici, la scelta della forma giuridica e gli obblighi assicurativi necessari per avviare una nuova attività commerciale nel Cantone di Svitto.',
+    canonicalPath: '/articoli-svizzera/costituzione-impresa-cantone-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'impresa nel Cantone di Svitto: guida pratica",
+      "description": "Guida pratica all'apertura di un'attività nel Cantone di Svitto: forme giuridiche, registro di commercio, obblighi previdenziali e fiscali per imprenditori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costituzione-impresa-cantone-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Svizzera per la costituzione di un'impresa."
+      },
+      "datePublished": "2026-08-23T02:37:02+00:00",
+      "dateModified": "2026-08-23T02:37:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costituzione-impresa-cantone-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

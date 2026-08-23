@@ -3877,6 +3877,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Aprire attività Canton Svitto: costi e registrazione',
     'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Guida completa all\'avvio d\'attività nel Canton Svitto: forme giuridiche, registrazione al registro commercio, capitali minimi, obblighi fiscali e previdenziali.',
     'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Edificio amministrativo nel Canton Svitto dove sono situati gli uffici del registro di commercio.',
+    'blog.article.costituzione-impresa-cantone-svitto.title': 'Aprire un\'impresa nel Cantone di Svitto: guida pratica',
+    'blog.article.costituzione-impresa-cantone-svitto.excerpt': 'I passaggi per la costituzione d\'impresa nel Cantone di Svitto: dalla scelta della forma giuridica agli obblighi assicurativi e previdenziali.',
+    'blog.article.costituzione-impresa-cantone-svitto.imageAlt': 'Ufficio moderno in Svizzera per la costituzione di un\'impresa.',
 };
 
 export default blogMetaChIt;

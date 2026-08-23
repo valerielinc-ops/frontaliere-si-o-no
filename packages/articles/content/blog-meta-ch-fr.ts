@@ -3877,6 +3877,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Ouvrir l\'activité Canton de Schwyz : coûts et inscription',
     'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Guide complet de démarrage d\'activité dans le canton de Schwyz : formes juridiques, inscription au registre du commerce, capitaux minimaux, obligations fiscales et de sécurité sociale.',
     'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Bâtiment administratif du canton du Schwyz abritant le registre du commerce.',
+    'blog.article.costituzione-impresa-cantone-svitto.title': 'Ouvrir une entreprise dans le canton de Schwyz : guide pratique',
+    'blog.article.costituzione-impresa-cantone-svitto.excerpt': 'Les étapes de la création d\'entreprise dans le canton de Schwyz : du choix de la forme juridique aux obligations d\'assurance et de prévoyance.',
+    'blog.article.costituzione-impresa-cantone-svitto.imageAlt': 'Bureau moderne en Suisse pour la création d\'entreprise.',
 };
 
 export default blogMetaChFr;
