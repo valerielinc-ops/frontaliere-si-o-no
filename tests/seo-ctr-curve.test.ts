@@ -118,8 +118,31 @@ describe('seo-ctr-curve (issue #4300)', () => {
         ).toMatch(/^\/(en|de|fr|it)\/$/);
       }
       for (const family of SEO_CTR_FAMILIES) {
-        expect(['template', 'locale'], `${family.id}: kind sconosciuto`).toContain(family.kind);
+        expect(['template', 'locale', 'listing'], `${family.id}: kind sconosciuto`).toContain(family.kind);
       }
+    });
+
+    it('the `listing` exemption requires a documented justification note (issue #6306)', () => {
+      // Unlike `locale`, `listing` isn't pinned to a fixed path shape, so the
+      // `note` field is the only thing keeping the exemption auditable instead
+      // of a silent way to dodge THE INVARIANT above.
+      for (const family of SEO_CTR_FAMILIES.filter((f) => f.kind === 'listing')) {
+        expect(family.monitored, `${family.id}: kind 'listing' deve restare monitored:false`).toBe(false);
+        expect(
+          typeof family.note === 'string' && family.note.length > 0,
+          `${family.id}: kind 'listing' richiede un 'note' che giustifichi l'esenzione`,
+        ).toBe(true);
+      }
+    });
+
+    it('registers /vita-in-ticino/ as a heterogeneous listing, not an uncensed template (issue #6306)', () => {
+      const byId = Object.fromEntries(SEO_CTR_FAMILIES.map((f) => [f.id, f]));
+      const fam = byId['vita-in-ticino'];
+      expect(fam).toBeDefined();
+      expect(fam.pathContains).toBe('/vita-in-ticino/');
+      expect(fam.kind).toBe('listing');
+      expect(fam.monitored).toBe(false);
+      expect(fam.impressions90d).toBe(96180);
     });
 
     it('carries pathAliases for every locale slug of a top-level template family (issue #5964)', () => {

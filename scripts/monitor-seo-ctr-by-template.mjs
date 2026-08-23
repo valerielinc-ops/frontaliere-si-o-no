@@ -133,9 +133,10 @@ monitor CTR (issue #4300, poi #5601).
 Prossimi passi suggeriti: verificare se \`${pathContains}\` è un vero
 template con un proprio title/description generator; se sì, aggiungere una
 entry a \`SEO_CTR_FAMILIES\` con \`monitored: true\` e una \`impressions90d\`
-misurata; se è un raggruppamento non attribuibile a un singolo generator
-(es. locale prefix, listing eterogeneo), marcarla \`kind: 'locale'\` /
-lasciarla fuori con una nota che lo giustifica.`,
+misurata; se è un prefisso lingua cross-cutting, marcarla \`kind: 'locale'\`
+(pinnato a una radice \`/xx/\`); se è un raggruppamento di pagine editoriali
+eterogenee senza un generator condiviso, marcarla \`kind: 'listing'\` con un
+\`note\` che lo giustifichi (issue #6306).`,
       priority: 3,
       labels: ['seo'],
       workflow: 'Monitor SEO CTR by Template',
