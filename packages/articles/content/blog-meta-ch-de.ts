@@ -3937,6 +3937,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.primo-pilastro-nidvaldo-avs.title': 'AHV und Ergänzungsleistungen Kanton Nidwalden',
     'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'Die erste Säule in Nidwalden: AHV, Ausgleichskasse, Beitragslücken und Ergänzungsleistungen zur Deckung des Existenzminimums.',
     'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Kantonales Ausgleichskassenbüro Nidwalden mit AHV-Renten und Ergänzungsleistungsdokumenten',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Nidwalden-Aktivitäten eröffnen: Rechtsformen und Eintragung',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Einzelfirma, Gesellschaft, kantonale Handelsregister und AHV-Pflichten: Praktischer Leitfaden für Selbstständige und Unternehmer in der Schweiz.',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Bellinzona, Hauptstadt von Tessin, Symbol der Kantonsadministration und Firmenregistrierung in der Schweiz.',
 };
 
 export default blogMetaChDe;

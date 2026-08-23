@@ -1338,6 +1338,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'nidvaldo-immobiliare-mutuo-ipotecario': { it: 'nidvaldo-immobiliare-mutuo-ipotecario', en: 'nidwald-real-estate-mortgage-guide', de: 'nidwald-immobilien-hypothek-guide', fr: 'nidwald-immobilier-hypotheque-guide' },
  'avs-nidvaldo-cassa-compensazione': { it: 'avs-nidvaldo-cassa-compensazione', en: 'avs-nidvaldo-compensation-fund', de: 'avs-nidvaldo-ausgleichskasse', fr: 'avs-nidvaldo-caisse-compensation' },
  'primo-pilastro-nidvaldo-avs': { it: 'primo-pilastro-nidvaldo-avs', en: 'first-pillar-nidvwald-pension-ahv', de: 'erstes-saeulenidvwald-ahv-rente', fr: 'premier-pilier-nidvwald-avs-retraite' },
+ 'aprire-attivita-nidvaldo-registro-commercio': { it: 'aprire-attivita-nidvaldo-registro-commercio', en: 'opening-business-nidvaldo-commerce-registration', de: 'geschaft-eroffnung-nidvaldo-register', fr: 'ouvrir-activite-nidvaldo-registre-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

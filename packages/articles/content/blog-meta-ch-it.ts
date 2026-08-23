@@ -3937,6 +3937,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.primo-pilastro-nidvaldo-avs.title': 'AVS e prestazioni complementari canton Nidvaldo',
     'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'Il primo pilastro a Nidvaldo: AVS, cassa di compensazione, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
     'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Ufficio della cassa di compensazione cantonale Nidvaldo con scartoffie di previdenza sociale AVS e prestazioni complementari',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Aprire attività Nidvaldo: forme giuridiche e iscrizione',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Ditta individuale, società, registrazione commercio cantonale e obblighi AVS: guida pratica per autonomi e imprenditori in Svizzera.',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Panorama di Bellinzona, capoluogo ticinese, simbolo di amministrazione cantonale svizzera e apertura attività.',
 };
 
 export default blogMetaChIt;

@@ -3937,6 +3937,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.primo-pilastro-nidvaldo-avs.title': 'AVS et prestations complémentaires canton Nidwald',
     'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'Le premier pilier à Nidwald : AVS, caisse de compensation, lacunes de cotisation et prestations complémentaires pour couvrir le minimum vital.',
     'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Bureau de la caisse de compensation cantonale Nidvwald avec documents rentes AVS et prestations complémentaires',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Ouvrir une activité Nidwald : formes juridiques et inscription',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Entreprise individuelle, société, registre du commerce cantonal et obligations AVS : guide pratique pour indépendants et entrepreneurs en Suisse.',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Vue de Bellinzona, capitale du Tessin, symbole de l\'administration cantonale suisse et de l\'ouverture d\'une activité.',
 };
 
 export default blogMetaChFr;
