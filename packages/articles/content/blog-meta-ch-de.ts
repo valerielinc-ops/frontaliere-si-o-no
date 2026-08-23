@@ -3931,6 +3931,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Haus kaufen im Nidwalden: Hypothek und Steuern',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Praktischer Leitfaden zum Immobilienkauf im Kanton Nidwalden: Hypothekardarlehensanforderungen, Tragbarkeitsberechnung, Ablösesummen und Notarkosten.',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Modernes Schweizer Haus in Alpenszenerie; Immobilienkauf und Hypothekenfinanzierung im Kanton Nidwalden',
+    'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AHV und Ergänzungsleistungen in Nidwalden: Praxisleitfaden',
+    'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'So funktioniert die erste Säule der Vorsorge im Kanton Nidwalden: AHV-Rentenberechnung, Beitragslücken und Zugang zu Ergänzungsleistungen.',
+    'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Büroarbeitsplatz mit AVS-Rentenrechner und Altersversorgungsdokumenten auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

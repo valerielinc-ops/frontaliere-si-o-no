@@ -3931,6 +3931,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Acheter une maison à Nidwald : hypothèque et taxes',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Nidwald : exigences hypothécaires, calcul de la durabilité, taxes de passage et frais de notaire.',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Maison suisse moderne dans un cadre alpin; achat immobilier et financement hypothécaire dans le canton de Nidwald',
+    'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AVS et prestations complémentaires à Nidwald : guide pratique',
+    'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'Comment fonctionne le premier pilier de la prévoyance dans le canton de Nidwald : calcul de la rente AVS, lacunes de cotisation et accès aux prestations complémentaires.',
+    'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Espace de travail professionnel avec documents de calcul de rente AVS et planification retraite',
 };
 
 export default blogMetaChFr;

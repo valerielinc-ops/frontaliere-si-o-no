@@ -3931,6 +3931,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Comprare casa nel Nidvaldo: mutuo e tasse',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Guida pratica all\'acquisto immobiliare nel Cantone di Nidvaldo: requisiti mutuo ipotecario, calcolo della sostenibilità, imposte sui trapassi e spese notarili.',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Casa moderna in Svizzera con paesaggio alpino; tema acquisto immobiliare e mutui ipotecari nel Cantone di Nidvaldo',
+    'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AVS e prestazioni complementari in Nidvaldo: guida pratica',
+    'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'Come funziona il primo pilastro della previdenza nel canton Nidvaldo: calcolo rendita AVS, lacune contributive e accesso alle prestazioni complementari.',
+    'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Ufficio con documenti e calcolatore AVS per il calcolo della rendita di vecchiaia nel canton Nidvaldo',
 };
 
 export default blogMetaChIt;
