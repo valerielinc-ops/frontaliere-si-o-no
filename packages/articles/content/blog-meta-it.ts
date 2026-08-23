@@ -10586,6 +10586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Vivere a Appiano Gentile e lavorare in Ticino da frontaliere',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Impostata alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontalieri in movimento tra Appiano Gentile e Ticino',
+    'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Vivere a Cadorago da frontaliere Ticino: fiscalità 2024',
+    'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Guida completa: vivere a Cadorago e lavorare in Ticino. Nuovo Accordo 2024, franchigia €10.000, Permesso G, LAMal e pendolarismo dai valichi Como.',
+    'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontaliere con auto immatricolata CH al valico di Brogeda, zona Mendrisio, Ticino. Pendolarismo Como–Ticino.',
 };
 
 export default blogMetaIt;
