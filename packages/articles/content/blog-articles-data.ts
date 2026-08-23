@@ -31683,6 +31683,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cadorago-frontaliere-pendolare-guida',
+ category: 'pratico',
+ date: '2026-08-23T08:14:41.655Z',
+ image: '/images/blog/cadorago-frontaliere-pendolare-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-carlazzo-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-23T09:01:30.938Z',
+ image: '/images/blog/vivere-carlazzo-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-guanzate-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-23T09:21:36.621Z',
+ image: '/images/blog/vivere-guanzate-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

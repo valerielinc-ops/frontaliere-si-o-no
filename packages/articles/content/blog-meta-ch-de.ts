@@ -3913,6 +3913,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avc-lacune-contributive-prestazioni.title': 'AHV Obwalden: Rente und Ergänzungsleistungen',
     'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'Wie funktioniert die erste Säule und die Ergänzungsleistungen im Kanton Obwalden? Ein Leitfaden zur AHV-Rente.',
     'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Schweizer AHV-Rentendokumente mit Taschenrechner und Leistungsmitteilung auf einem Schreibtisch mit Schweizer Flagge.',
+    'blog.article.aprire-attivita-obvaldo-guida.title': 'Ein Unternehmen in Obwalden eröffnen: Leitfaden zu Rechtsformen und Kosten',
+    'blog.article.aprire-attivita-obvaldo-guida.excerpt': 'Vollständiger Leitfaden: Wahl der Rechtsform, Handelsregistereintrag, Mindestkapital, Steuern und Versicherungspflichten (AHV, KVG, SUVA).',
+    'blog.article.aprire-attivita-obvaldo-guida.imageAlt': 'Unternehmer bereitet Unterlagen zur Handelsregistereintragung vor.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.title': 'Obwalden-Geschäft eröffnen: Register und Kosten',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.excerpt': 'Rechtsformen, Handelsregistereintragung, Eintragungsgebühren und Versicherungspflichten zur Unternehmensgründung im Kanton Obwalden.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.imageAlt': 'Unternehmensregistrierungsbüro mit offiziellen Formularen, administrativen Unterlagen und Vertragsunterzeichnung.',
 };
 
 export default blogMetaChDe;

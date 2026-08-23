@@ -10586,6 +10586,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Vivere a Appiano Gentile e lavorare in Ticino da frontaliere',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Impostata alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontalieri in movimento tra Appiano Gentile e Ticino',
+    'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Vivere a Cadorago da frontaliere Ticino: fiscalità 2024',
+    'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Guida completa: vivere a Cadorago e lavorare in Ticino. Nuovo Accordo 2024, franchigia €10.000, Permesso G, LAMal e pendolarismo dai valichi Como.',
+    'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontaliere con auto immatricolata CH al valico di Brogeda, zona Mendrisio, Ticino. Pendolarismo Como–Ticino.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Vivere a Carlazzo e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Il Permesso G consente il lavoro quotidiano in Ticino da residente italiano. Imposta alla fonte 8–13%, doppio pilastro AVS/LPP, LAMal facoltativa: guida completa alle procedure e vantaggi economici.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere italiano al confine Svizzera-Italia presso il Lago di Como, con documenti di lavoro',
+    'blog.article.vivere-guanzate-lavorare-ticino.title': 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Guanzate: collegamenti, fiscalità, nuovo accordo e gestione del lavoro in Ticino.',
+    'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Confine tra Italia e Svizzera, zona di transito per frontalieri',
 };
 
 export default blogMetaIt;

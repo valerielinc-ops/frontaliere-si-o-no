@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unibe",
-  "assembledAt": "2026-08-22T21:45:38.646Z",
+  "assembledAt": "2026-08-23T09:03:24.317Z",
   "jobs": [
     {
       "id": "unibe-c213279f5926",
@@ -988,85 +988,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:59:41.298Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unibe-70a9cda0d56a",
-      "slug": "dottorato-dr-med-vet-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "dottorato-dr-med-vet-universitat-bern-bern",
-        "en": "doctoral-student-dr-med-vet-universitat-bern-bern",
-        "de": "doktorandin-doktorand-dr-med-vet-unibe-bern",
-        "fr": "etudiant-au-doctorat-dr-med-vet-universitat-bern-bern"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Doktorandin / Doktorand (Dr. med. vet.)",
-      "titleByLocale": {
-        "it": "Dottorato (Dr. med. vet.)",
-        "en": "Doctoral student (Dr. med. vet.)",
-        "de": "Doktorandin / Doktorand (Dr. med. vet.)",
-        "fr": "Étudiant au doctorat (Dr. med. vét.)"
-      },
-      "description": "<b>Die UniBE ist ambitioniert.</b><br/>Bei uns erbringen Sie Spitzenleistungen und messen sich mit den Besten.\n\nAufgaben:\nMitarbeit in der Wildtierdiagnostik (ca. 11 Woche/Jahr):\n• Durchführung von Sektion von freilebenden Wildtieren und Einleitung von weiterführenden Analysen\n\n• Histopathologische Untersuchungen von Organen, Verfassen von Berichten\n\n• Zusammenarbeit und Kommunikation mit Einsendern und Behörden\n\n• Regelmässige und aktive Teilnahme an internen Weiterbildungen (Fallbesprechungen, Seminare)\n\nDurchführung einer Dissertation über Infektionskrankheiten bei freilebenden Wildfeliden in Form einer wissenschaftlichen Publikation in Zusammenarbeit mit dem Veterinärmedizinisches Labor der Universität Zürich:\n• retrospektive Auswertung von Laboruntersuchungen bei freilebenden Wildfeliden\n\n• ggf. Durchführung von zusätzlichen Laboruntersuchungen\n\nMitarbeit in der Wildtierimmobilisation von Wildkatzen:\n• Durchführung von Fängen und Anästhesie von freilebende Wildfeliden (ca. 5 Wochen/Jahr)\n\nAnforderungen:\n• Abgeschlossenes Studium der Veterinärmedizin\n\n• Interesse an der Wildtiergesundheit, insbesondere an Infektionskrankheiten bei Wildfeliden\n\n• Klinische Erfahrung, bevorzugt im Bereich Klein- oder Wildtiere\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Dienstleistungsorientierte und teamfähige Persönlichkeit\n\n• Hohes Mass an Eigeninitiative\n\nDie Position bietet eine hervorragende Grundlage für eine weiterführende Tätigkeit im Bereich der Wildtiergesund-heit oder für eine akademische Karriere. Die Anstellung ist je nach Qualifikation auf 12 oder 18 Monate befristet. Die Vergütung richtet sich nach den Ansätzen des Schweizerischen Nationalfonds.\n\nWir bieten:\nGute Forschungsinfrastrukturen und internationales Netzwerk",
-      "descriptionByLocale": {
-        "it": "<b> UniBE è ambizioso. </b> Con noi si esegue le migliori prestazioni e competere con il meglio.\n\nCompiti:\nCooperazione nella diagnostica della fauna selvatica (circa 11 settimane/anno):\n• Attuazione della sezione della fauna selvatica e iniziazione di ulteriori analisi\n\n• Esami istopatologici degli organi, rapporti di scrittura\n\n• Cooperazione e comunicazione con i dicasteri e le autorità\n\n• Partecipazione regolare e attiva alla formazione interna (casi, seminari)\n\nCondurre una dissertazione sulle malattie infettive in fogliame selvatico sotto forma di pubblicazione scientifica in collaborazione con il Laboratorio veterinario dell'Università di Zurigo:\n• valutazione retrospettiva dei test di laboratorio in filiali selvatici\n\n• Se applicabile, eseguire ulteriori test di laboratorio\n\nCooperazione nella immobilizzazione della fauna selvatica dei gatti selvatici:\n• Operazione di catture e anestesia di felidi selvatici (circa 5 settimane/anno)\n\nRequisiti\n• Studio completo della medicina veterinaria\n\n• Interessi nella salute della fauna selvatica, in particolare nelle malattie infettive nel fogliame selvatico\n\n• Esperienza clinica, preferibilmente nel campo di animali piccoli o selvatici\n\n• Molto buone capacità orali e scritte tedesche, così come buone abilità inglesi e francesi\n\n• Metodo di lavoro indipendente, strutturato e affidabile\n\n• Personalità orientata al servizio e compatibile con il team\n\n• Alto livello di propria iniziativa\n\nLa posizione fornisce una base eccellente per un ulteriore lavoro nel campo della salute della fauna selvatica o per una carriera accademica. L'occupazione è limitata a 12 o 18 mesi a seconda della qualifica. La remunerazione si basa sugli approcci della Fondazione nazionale svizzera per la scienza.\n\nOffriamo:\nBuone infrastrutture di ricerca e rete internazionale",
-        "en": "<b>UniBE is ambitious. </b><br/>With us you perform top performance and compete with the best.\n\nTasks:\nCooperation in wildlife diagnostics (about 11 weeks/year):\n• Implementation of wildlife section and initiation of further analysis\n\n• Histopathological examinations of organs, writing reports\n\n• Cooperation and communication with consignors and authorities\n\n• Regular and active participation in internal training (case discussions, seminars)\n\nConduct of a dissertation on infectious diseases in wild wild foliage in the form of a scientific publication in cooperation with the Veterinary Laboratory of the University of Zurich:\n• retrospective evaluation of laboratory tests in wild filids\n\n• If applicable, Perform additional laboratory tests\n\nCooperation in the wildlife immobilization of wild cats:\n• Operation of catches and anesthesia of wild wild felids (approximately 5 weeks/year)\n\nRequirements\n• Completed study of veterinary medicine\n\n• Interest in wildlife health, in particular in infectious diseases in wild foliage\n\n• Clinical experience, preferably in the field of small or wild animals\n\n• Very good oral and written German skills as well as good English and French skills\n\n• Independent, structured and reliable working method\n\n• Service-oriented and team-capable personality\n\n• High level of own initiative\n\nThe position provides an excellent basis for further work in the field of wildlife health or for an academic career. The employment is limited to 12 or 18 months depending on the qualification. The remuneration is based on the approaches of the Swiss National Science Foundation.\n\nWe offer:\nGood research infrastructures and international network",
-        "de": "<b>Die UniBE ist ambitioniert.</b><br/>Bei uns erbringen Sie Spitzenleistungen und messen sich mit den Besten.\n\nAufgaben:\nMitarbeit in der Wildtierdiagnostik (ca. 11 Woche/Jahr):\n• Durchführung von Sektion von freilebenden Wildtieren und Einleitung von weiterführenden Analysen\n\n• Histopathologische Untersuchungen von Organen, Verfassen von Berichten\n\n• Zusammenarbeit und Kommunikation mit Einsendern und Behörden\n\n• Regelmässige und aktive Teilnahme an internen Weiterbildungen (Fallbesprechungen, Seminare)\n\nDurchführung einer Dissertation über Infektionskrankheiten bei freilebenden Wildfeliden in Form einer wissenschaftlichen Publikation in Zusammenarbeit mit dem Veterinärmedizinisches Labor der Universität Zürich:\n• retrospektive Auswertung von Laboruntersuchungen bei freilebenden Wildfeliden\n\n• ggf. Durchführung von zusätzlichen Laboruntersuchungen\n\nMitarbeit in der Wildtierimmobilisation von Wildkatzen:\n• Durchführung von Fängen und Anästhesie von freilebende Wildfeliden (ca. 5 Wochen/Jahr)\n\nAnforderungen:\n• Abgeschlossenes Studium der Veterinärmedizin\n\n• Interesse an der Wildtiergesundheit, insbesondere an Infektionskrankheiten bei Wildfeliden\n\n• Klinische Erfahrung, bevorzugt im Bereich Klein- oder Wildtiere\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute Englisch- und Französischkenntnisse\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Dienstleistungsorientierte und teamfähige Persönlichkeit\n\n• Hohes Mass an Eigeninitiative\n\nDie Position bietet eine hervorragende Grundlage für eine weiterführende Tätigkeit im Bereich der Wildtiergesund-heit oder für eine akademische Karriere. Die Anstellung ist je nach Qualifikation auf 12 oder 18 Monate befristet. Die Vergütung richtet sich nach den Ansätzen des Schweizerischen Nationalfonds.\n\nWir bieten:\nGute Forschungsinfrastrukturen und internationales Netzwerk",
-        "fr": "<b>UniBE est ambitieux. </b><br/> Avec nous, vous effectuez des performances supérieures et rivalisez avec les meilleurs.\n\nTâches :\nCoopération dans le diagnostic de la faune (environ 11 semaines/an):\n• Mise en oeuvre de la section sur la faune et lancement d'une analyse plus approfondie\n\n• Examens histopathologiques des organes, rédaction de rapports\n\n• Coopération et communication avec les expéditeurs et les autorités\n\n• Participation régulière et active à la formation interne (débats, séminaires)\n\nRéalisation d'une thèse sur les maladies infectieuses du feuillage sauvage sous la forme d'une publication scientifique en collaboration avec le Laboratoire vétérinaire de l'Université de Zurich:\n• évaluation rétrospective des tests de laboratoire dans les filides sauvages\n\n• Le cas échéant, effectuer des essais de laboratoire supplémentaires\n\nCoopération dans l'immobilisation des animaux sauvages des chats sauvages:\n• Exploitation des captures et anesthésie des félidés sauvages (environ 5 semaines/an)\n\nExigences\n• Étude complète de la médecine vétérinaire\n\n• Intérêt pour la santé de la faune, en particulier pour les maladies infectieuses du feuillage sauvage\n\n• Expérience clinique, de préférence dans le domaine des petits animaux ou des animaux sauvages\n\n• Très bonnes compétences orales et écrites en allemand ainsi que de bonnes compétences en anglais et en français\n\n• Méthode de travail indépendante, structurée et fiable\n\n• Personnalité axée sur le service et capable d ' équipe\n\n• Haute initiative\n\nCe poste constitue une excellente base pour de nouveaux travaux dans le domaine de la santé de la faune ou pour une carrière universitaire. L'emploi est limité à 12 ou 18 mois selon la qualification. La rémunération est basée sur les approches de la Fondation nationale suisse des sciences.\n\nNous offrons:\nBonnes infrastructures de recherche et réseau international"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/doktorandin-doktorand-dr-med-vet/a6a82919-cfca-4322-8af8-5171c7d1f2f5",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-22T21:45:35.272Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/doktorandin-doktorand-dr-med-vet/a6a82919-cfca-4322-8af8-5171c7d1f2f5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "doktorandin-doktorand-dr-med-vet-unibe-bern",
-        "dottorato-dr-med-vet-universitat-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "doktorandin-doktorand-dr-med-vet-unibe-bern",
-          "dottorato-dr-med-vet-universitat-bern-bern"
-        ],
-        "en": [
-          "doktorandin-doktorand-dr-med-vet-unibe-bern"
-        ],
-        "fr": [
-          "doktorandin-doktorand-dr-med-vet-unibe-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T22:56:55.944Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "baseSalary": {

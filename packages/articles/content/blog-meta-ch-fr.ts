@@ -3913,6 +3913,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avc-lacune-contributive-prestazioni.title': 'AVS en Obwald : rente et prestations complémentaires',
     'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'Comment fonctionne le premier pilier et les prestations complémentaires dans le canton d\'Obwald. Un guide de la rente AVS.',
     'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Documents de retraite AVS suisse avec calculatrice et relevé de prestations sur un bureau avec drapeau suisse.',
+    'blog.article.aprire-attivita-obvaldo-guida.title': 'Ouvrir une entreprise à Obwald : guide des formes juridiques et des coûts',
+    'blog.article.aprire-attivita-obvaldo-guida.excerpt': 'Guide complet : choix de la forme juridique, inscription au registre du commerce, capital minimum, taxes et obligations d\'assurance (AVS, LAMal, SUVA).',
+    'blog.article.aprire-attivita-obvaldo-guida.imageAlt': 'Entrepreneur préparant les documents d\'inscription au registre du commerce suisse.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.title': 'Ouvrir l\'activité Obwald : registre et coûts',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.excerpt': 'Formes juridiques, inscription au registre du commerce, droits d\'enregistrement et obligations d\'assurance pour la création d\'une entreprise dans le canton d\'Obwald.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.imageAlt': 'Bureau d\'enregistrement des entreprises avec formulaires officiels, documents administratifs et signature de contrats.',
 };
 
 export default blogMetaChFr;

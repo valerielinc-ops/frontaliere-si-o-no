@@ -75965,6 +75965,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cadorago-frontaliere-pendolare-guida': {
+    title: 'Vivere a Cadorago da frontaliere Ticino: fiscalità 2024',
+    description: 'Guida completa: vivere a Cadorago e lavorare in Ticino. Nuovo Accordo 2024, franchigia €10.000, Permesso G, LAMal e costo della vita per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cadorago, fiscalità, completa',
+    ogTitle: 'Cadorago frontaliere Ticino: guida fiscale 2024',
+    ogDescription: 'Vivere a Cadorago e lavorare in Ticino: nuovo Accordo Frontalieri 2024, franchigia €10.000, LAMal, ristorni fiscali e Permesso G. Guida completa e checklist per frontalieri Como–Ticino.',
+    canonicalPath: '/articoli-frontaliere/cadorago-frontaliere-pendolare-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cadorago da frontaliere Ticino: fiscalità 2024",
+      "description": "Guida completa: vivere a Cadorago e lavorare in Ticino. Nuovo Accordo 2024, franchigia €10.000, Permesso G, LAMal e costo della vita per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cadorago-frontaliere-pendolare-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con auto immatricolata CH al valico di Brogeda, zona Mendrisio, Ticino. Pendolarismo Como–Ticino."
+      },
+      "datePublished": "2026-08-23T08:14:41+00:00",
+      "dateModified": "2026-08-23T08:14:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cadorago-frontaliere-pendolare-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-carlazzo-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Carlazzo e lavorare in Ticino: guida frontaliere',
+    description: 'Permesso G, fiscalità frontaliere, AVS/LPP, LAMal: guida completa per vivere in Italia e lavorare in Ticino. Procedure, costi, vantaggi e considerazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, carlazzo, lavorare, permesso',
+    ogTitle: 'Vivere a Carlazzo, lavorare in Ticino da frontaliere',
+    ogDescription: 'Frontaliere in Ticino? Scopri come gestire Permesso G, tasse, previdenza AVS/LPP, LAMal. Procedure di trasferimento, checklist e vantaggi economici della guida pratica per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-carlazzo-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Carlazzo e lavorare in Ticino: guida frontaliere",
+      "description": "Permesso G, fiscalità frontaliere, AVS/LPP, LAMal: guida completa per vivere in Italia e lavorare in Ticino. Procedure, costi, vantaggi e considerazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-carlazzo-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere italiano al confine Svizzera-Italia presso il Lago di Como, con documenti di lavoro"
+      },
+      "datePublished": "2026-08-23T09:01:31+00:00",
+      "dateModified": "2026-08-23T09:01:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-carlazzo-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-guanzate-lavorare-ticino': {
+    title: 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri che vivono a Guanzate: fiscalità, nuovo accordo, contributi e gestione del lavoro in Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, guanzate, lavorare, pratica',
+    ogTitle: 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto quello che devi sapere se risiedi a Guanzate e lavori in Ticino: fisco, accordi bilaterali e consigli pratici.',
+    canonicalPath: '/articoli-frontaliere/vivere-guanzate-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Guanzate e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri che vivono a Guanzate: fiscalità, nuovo accordo, contributi e gestione del lavoro in Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-guanzate-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine tra Italia e Svizzera, zona di transito per frontalieri"
+      },
+      "datePublished": "2026-08-23T09:21:36+00:00",
+      "dateModified": "2026-08-23T09:21:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-guanzate-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

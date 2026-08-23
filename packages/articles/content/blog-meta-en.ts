@@ -10585,6 +10585,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Living in Appiano Gentile and working in Ticino as a cross-border commuter',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Taxed at source on income from work: withheld ONLY in Switzerland for border workers',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers moving between Appiano Gentile and Ticino',
+    'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Living in Cadorago as a border worker Ticino: taxation 2024',
+    'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Complete guide: living in Cadorago and working in Ticino. New 2024 Agreement, €10,000 deductible, G Permit, LAMal and commuting from Como crossings.',
+    'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontalier with Swiss registered car at Brogeda border crossing, Mendrisio area, Ticino. Como–Ticino commute.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Living in Carlazzo and working in Ticino: border guide',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Permit G allows daily work in Ticino as an Italian resident. Tax at source 8–13%, double pillar AVS/LPP, optional LAMal: complete guide to procedures and economic advantages.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Italian frontaliere at the Swiss-Italian border near Lake Como, carrying work documents',
+    'blog.article.vivere-guanzate-lavorare-ticino.title': 'Living in Guanzate and working in Ticino as a border worker',
+    'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Practical guide for those who choose Guanzate: connections, taxation, new agreement and work management in Ticino.',
+    'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Border between Italy and Switzerland, transit zone for cross-border workers',
 };
 
 export default blogMetaEn;

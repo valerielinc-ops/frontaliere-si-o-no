@@ -50759,6 +50759,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-obvaldo-guida': {
+    title: 'Aprire un\'attività in Obvaldo: guida a forme giuridiche e costi',
+    description: 'Guida pratica su come aprire un\'attività nel Cantone di Obvaldo: forme giuridiche (ditta individuale, SA, Sagl), iscrizione al registro, capitale minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, obvaldo, forme',
+    ogTitle: 'Aprire un\'attività in Obvaldo: guida forme e costi',
+    ogDescription: 'Scopri come aprire un\'attività nel Cantone di Obvaldo: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo (CHF 100.000 SA, CHF 20.000 Sagl), tasse di iscrizione, contributi AVS 5.3%, obblighi assicurativi SUVA e LAMal',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-obvaldo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Obvaldo: guida a forme giuridiche e costi",
+      "description": "Guida pratica su come aprire un'attività nel Cantone di Obvaldo: forme giuridiche (ditta individuale, SA, Sagl), iscrizione al registro, capitale minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-obvaldo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprenditore che prepara documenti per l'iscrizione al registro di commercio svizzero."
+      },
+      "datePublished": "2026-08-23T08:27:34+00:00",
+      "dateModified": "2026-08-23T08:27:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-obvaldo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-impresa-obvaldo-iscrizione': {
+    title: 'Aprire attività Obvaldo: registro e costi | Frontaliere Ticino',
+    description: 'Come iscrivere un\'impresa al registro di commercio nel canton Obvaldo. Forme giuridiche, tasse di iscrizione, capitale minimo e obblighi assicurativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, obvaldo, registro',
+    ogTitle: 'Aprire attività nel Canton Obvaldo: guida pratica',
+    ogDescription: 'Scopri le procedure di iscrizione al registro di commercio, forme giuridiche, costi di registrazione e obblighi assicurativi per avviare un\'impresa nel canton Obvaldo.',
+    canonicalPath: '/articoli-svizzera/aprire-impresa-obvaldo-iscrizione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Obvaldo: registro e costi",
+      "description": "Come iscrivere un'impresa al registro di commercio nel canton Obvaldo. Forme giuridiche, tasse di iscrizione, capitale minimo e obblighi assicurativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-impresa-obvaldo-iscrizione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di registrazione d'azienda con moduli ufficiali, scartoffie amministrative e firma di contratti."
+      },
+      "datePublished": "2026-08-23T09:14:06+00:00",
+      "dateModified": "2026-08-23T09:14:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-impresa-obvaldo-iscrizione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
