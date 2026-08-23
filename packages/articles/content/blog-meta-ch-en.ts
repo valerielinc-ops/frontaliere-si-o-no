@@ -3943,6 +3943,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-impresa-nidvaldo-costi.title': 'Opening a Nidvaldo company: costs',
     'blog.article.aprire-impresa-nidvaldo-costi.excerpt': 'How to open a business in the Canton of Nidvaldo: legal forms, registration in the trade register, taxes and social security obligations.',
     'blog.article.aprire-impresa-nidvaldo-costi.imageAlt': 'Modern Swiss office with business documents and computer for starting a company',
+    'blog.article.costituire-impresa-cantone-nidvaldo.title': 'Opening a business in the Canton of Nidvaldo: procedures and costs',
+    'blog.article.costituire-impresa-cantone-nidvaldo.excerpt': 'How to start a business in Nidvaldo: legal forms, registration in the trade register, three-tier tax system and insurance and social security obligations.',
+    'blog.article.costituire-impresa-cantone-nidvaldo.imageAlt': 'Swiss cantonal administration office for business registration and record keeping',
 };
 
 export default blogMetaChEn;

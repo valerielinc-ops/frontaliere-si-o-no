@@ -51149,6 +51149,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costituire-impresa-cantone-nidvaldo': {
+    title: 'Aprire un\'attività nel Cantone Nidvaldo: iter e costi',
+    description: 'Guida pratica: forme giuridiche, registro di commercio, tassazione a tre livelli, AVS/LAMal e costi di apertura nel Canton Nidvaldo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, cantone, nidvaldo',
+    ogTitle: 'Aprire un\'attività in Nidvaldo: guida completa e costi',
+    ogDescription: 'Come avviare un\'impresa a Nidvaldo: scelta della forma giuridica, iscrizione al registro di commercio, sistema fiscale svizzero a tre livelli, obblighi AVS/LAMal/IVA e procedura pratica step-by-step.',
+    canonicalPath: '/articoli-svizzera/costituire-impresa-cantone-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Cantone Nidvaldo: iter e costi",
+      "description": "Guida pratica: forme giuridiche, registro di commercio, tassazione a tre livelli, AVS/LAMal e costi di apertura nel Canton Nidvaldo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costituire-impresa-cantone-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di un'amministrazione cantonale svizzera per l'iscrizione di imprese al registro di commercio"
+      },
+      "datePublished": "2026-08-23T12:17:24+00:00",
+      "dateModified": "2026-08-23T12:17:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costituire-impresa-cantone-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
