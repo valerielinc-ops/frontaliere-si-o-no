@@ -838,12 +838,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-ou-une-juriste-40-canton-valais-ch",
-        "uno-o-uno-avvocato-40-canton-du-valais-sion"
+        "uno-o-uno-avvocato-40-canton-du-valais-sion",
+        "un-ou-une-juriste-80-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-ou-une-juriste-40-canton-valais-ch",
-          "uno-o-uno-avvocato-40-canton-du-valais-sion"
+          "uno-o-uno-avvocato-40-canton-du-valais-sion",
+          "un-ou-une-juriste-80-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-juriste-40-canton-valais-ch"
@@ -856,7 +858,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:25:56.585Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1497,8 +1498,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "canton-valais-8701c0a2e330",
@@ -1565,7 +1565,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:58:53.417Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {

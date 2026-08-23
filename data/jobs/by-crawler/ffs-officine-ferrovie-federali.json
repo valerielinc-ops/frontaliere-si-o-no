@@ -17,7 +17,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -175,7 +175,7 @@
       "title": "Data Engineer (m/w/d) - Asset Management Infrastrukturanlagen",
       "titleByLocale": {
         "it": "Data Engineer (m/f/d) - Asset Management Infrastrutture",
-        "en": "Data Engineer (m/w/d) - Asset Management Infrastrukturanlagen",
+        "en": "Data Engineer (m/f/d) - Asset Management Infrastructure assets",
         "de": "Data Ingenieur (m/w/d) - Asset Management Infrastrukturanlagen",
         "fr": "Ingénieur de données (h/f/d) - Gestion d'actifs Infrastructures"
       },
@@ -259,8 +259,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-936e01237532",
@@ -1077,7 +1076,9 @@
         }
       },
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-a770d6686d52",
@@ -1304,8 +1305,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-61de2e9ae79c",
@@ -1809,7 +1809,7 @@
       "title": "Application Operation Manager (m/w/d)",
       "titleByLocale": {
         "it": "Gestione Operativa delle Applicazioni (m/f/d)",
-        "en": "Application Operation Manager (m/w/d)",
+        "en": "Application Operation Manager (m/f/d)",
         "de": "Application Operation Manager (m/w/d)",
         "fr": "Gestionnaire d'opérations d'application (h/f/d)"
       },
@@ -1893,8 +1893,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-509c3b58e950",
@@ -2715,7 +2714,7 @@
       "title": "Security Engineer (m/w/d) - Netzleitsystem Energie",
       "titleByLocale": {
         "it": "Security Engineer (m/f/d) - Sistema di gestione dell'energia",
-        "en": "Security Engineer (m/w/d) - Netzleitsystem Energie",
+        "en": "Security Engineer (m/f/d) - Power grid control system",
         "de": "Security Ingenieur (m/w/d) - Netzleitsystem Energie",
         "fr": "Ingénieur en sécurité (h/f/d) - Système de contrôle des réseaux énergétiques"
       },
@@ -5684,7 +5683,7 @@
       "title": "Key Account Manager (m/w/d)",
       "titleByLocale": {
         "it": "Gestore dei Conti Chiave (m/f/d)",
-        "en": "Key Account Manager (m/w/d)",
+        "en": "Key Account Manager (m/f/d)",
         "de": "Key Account Manager (m/w/d)",
         "fr": "Gestionnaire de comptes clés (h/f/d)"
       },
@@ -5734,8 +5733,7 @@
         }
       },
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-699572e422b7",
@@ -8837,7 +8835,9 @@
         }
       },
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-6336efb99beb",
@@ -9009,7 +9009,9 @@
         }
       },
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-f817db5e03d9",
@@ -9766,7 +9768,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-7ab69bfa9ffb",
