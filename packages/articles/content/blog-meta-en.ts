@@ -10597,6 +10597,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-aurano-lavorare-ticino.title': 'Living in Aurano and working in Ticino: border guide',
     'blog.article.vivere-aurano-lavorare-ticino.excerpt': 'Aurano, VCO municipality on the Ticino border: G permit, taxes, cost of living and transfer procedure for those who want to commute to Swiss opportunities.',
     'blog.article.vivere-aurano-lavorare-ticino.imageAlt': 'Border landscape between Aurano Piedmont and Ticino with mountains and small villages, dawn light.',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Living in Alzate Brianza and working in Ticino',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Practical guide for border workers: housing costs, tax regimes, Swiss contributions, G permit, LAMal and checklists before moving as a Ticino worker.',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Aerial view of a car crossing the Swiss-Italian border near Lugano on a modern highway with Alpine landscape in the background',
 };
 
 export default blogMetaEn;

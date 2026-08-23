@@ -10598,6 +10598,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-aurano-lavorare-ticino.title': 'Vivere a Aurano e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-aurano-lavorare-ticino.excerpt': 'Aurano, comune VCO al confine ticinese: permesso G, tasse, costo della vita e procedura di trasferimento per chi vuole pendolare verso le opportunità svizzere.',
     'blog.article.vivere-aurano-lavorare-ticino.imageAlt': 'Paesaggio di confine tra Aurano Piemonte e Ticino con montagne e piccoli villaggi, illuminazione alba.',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Vivere a Alzate Brianza e lavorare in Ticino',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Guida pratica per frontalieri: costi abitativi, regimi fiscali, contributi svizzeri, permesso G, LAMal e checklist prima di trasferirsi da lavoratore ticinese.',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Veduta aerea di un\'auto che attraversa il confine svizzero-italiano nei pressi di Lugano su autostrada moderna con paesaggio alpino sullo sfondo',
 };
 
 export default blogMetaIt;

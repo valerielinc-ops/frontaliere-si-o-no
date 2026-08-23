@@ -3922,6 +3922,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cherosene-sintetico-svizzera-aviazione.title': 'Synthetic kerosene: Switzerland starts green production',
     'blog.article.cherosene-sintetico-svizzera-aviazione.excerpt': 'The first sustainable fuel plant opened at the PSI in Aargau. Produces 50 litres per day. By 2030 airlines will use 6% green kerosene.',
     'blog.article.cherosene-sintetico-svizzera-aviazione.imageAlt': 'Modern research laboratory with renewable energy technologies and sustainable fuel infrastructure in Switzerland.',
+    'blog.article.patente-guida-obvaldo-conversione.title': 'Obvaldo Driving License: Conversion and Exams',
+    'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Complete guide to the conversion of the foreign licence in the Canton of Obvaldo: procedure, theoretical and practical examination, compulsory courses and necessary documents.',
+    'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Swiss traffic office employee reviewing driving license documents at counter',
 };
 
 export default blogMetaChEn;

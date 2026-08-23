@@ -3922,6 +3922,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cherosene-sintetico-svizzera-aviazione.title': 'Kérosène synthétique : la Suisse lance la production verte',
     'blog.article.cherosene-sintetico-svizzera-aviazione.excerpt': 'Au PSI d\'Argovie, la première installation de carburant durable a été ouverte. Elle produit 50 litres par jour. D\'ici 2030, les compagnies aériennes utiliseront 6 % de kérosène vert.',
     'blog.article.cherosene-sintetico-svizzera-aviazione.imageAlt': 'Laboratoire de recherche suisse moderne avec technologies d\'énergie renouvelable et infrastructure de carburant durable.',
+    'blog.article.patente-guida-obvaldo-conversione.title': 'Permis de conduire Obwald : conversion et examens',
+    'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Guide complet pour la conversion du permis étranger dans le canton d\'Obwald : procédure, examen théorique et pratique, cours obligatoires et documents nécessaires.',
+    'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Bureau de la circulation suisse avec employé vérifiant les documents de permis',
 };
 
 export default blogMetaChFr;

@@ -10596,6 +10596,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-aurano-lavorare-ticino.title': 'Leben in Aurano und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.vivere-aurano-lavorare-ticino.excerpt': 'Aurano, VCO-Gemeinde an der Tessiner Grenze: G-Genehmigung, Steuern, Lebenshaltungskosten und Versetzungsverfahren für diejenigen, die zu Schweizer Möglichkeiten pendeln möchten.',
     'blog.article.vivere-aurano-lavorare-ticino.imageAlt': 'Grenzlandschaft zwischen Aurano Piemont und Tessin mit Bergen und kleinen Dörfern, Morgenlicht.',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Leben in Alzate Brianza und Arbeiten im Tessin',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Wohnkosten, Steuersysteme, Schweizer Beiträge, G-Bewilligung, KVG und Checkliste vor dem Umzug als Tessiner Arbeitnehmer.',
+    'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Luftaufnahme eines Autos, das die Schweizer-italienische Grenze bei Lugano auf moderner Autobahn mit Alpenpanorama ueberquert',
 };
 
 export default blogMetaDe;
