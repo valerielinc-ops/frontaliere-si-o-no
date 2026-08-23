@@ -51812,6 +51812,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissioni-twint-piccoli-commercianti': {
+    title: 'Commissioni Twint doppio: guerra aperta con commercianti',
+    description: 'Piccoli negozi pagano l\'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation denuncia alla COMCO per abuso di posizione dominante.',
+    keywords: 'frontalieri, ticino, svizzera, italia, commissioni, twint, doppio, guerra',
+    ogTitle: 'Commissioni Twint doppio: guerra aperta con commercianti',
+    ogDescription: 'Una perizia svizzera rivela disparità nelle commissioni Twint tra piccoli e grandi commercianti. La Swiss Retail Federation ha denunciato alla COMCO federale per abuso di posizione dominante delle banche proprietarie.',
+    canonicalPath: '/articoli-svizzera/commissioni-twint-piccoli-commercianti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commissioni Twint doppio: guerra aperta con commercianti",
+      "description": "Piccoli negozi pagano l'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation denuncia alla COMCO per abuso di posizione dominante.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissioni-twint-piccoli-commercianti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Terminale di pagamento digitale e codice QR Twint in una piccola bottega svizzera"
+      },
+      "datePublished": "2026-08-23T21:59:08+00:00",
+      "dateModified": "2026-08-23T21:59:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissioni-twint-piccoli-commercianti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

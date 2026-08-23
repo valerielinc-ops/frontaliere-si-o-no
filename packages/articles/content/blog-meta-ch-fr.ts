@@ -3994,6 +3994,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-zugo-formazione-livelli.title': 'Salaires et emploi dans le canton de Zoug : formation et niveaux',
     'blog.article.salari-zugo-formazione-livelli.excerpt': 'Marché du travail suisse : salaires par niveau de formation, horaires légaux, prévoyance obligatoire (AVS, LPP, LAMal) et conventions collectives.',
     'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Centre de Zoug avec immeubles modernes et panorama alpin',
+    'blog.article.commissioni-twint-piccoli-commercianti.title': 'Commissions Twint double : guerre ouverte avec les commerçants',
+    'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'Une expertise suisse révèle que les petits magasins paient 1,3% de commissions Twint contre 0,59% des grands. La Swiss Retail Federation demande l\'intervention fédérale.',
+    'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Terminal de paiement numérique et code QR Twint dans une petite boutique suisse',
 };
 
 export default blogMetaChFr;

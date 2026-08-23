@@ -10629,6 +10629,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Changement d\'employeur : permis J 2026 célibataire',
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'Renouvellement du permis G, continuité AVS/LPP, LAMal et restaurations : guide complet pour les frontaliers célibataires depuis le nouvel accord frontalier 2024.',
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Travailleur frontalier signature de contrat de travail dans bureau tessinois avec vue du Lac de Lugano',
+    'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAA accident : checklist plainte pour frontaliers',
+    'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'Comment signaler un accident à LAA si frontalier. Procédure correcte, différences maladie professionnelle, checklist opérationnelle avec échéances.',
+    'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'Documents d\'assurance LAINF et formulaires d\'accident du travail sur bureau suisse',
 };
 
 export default blogMetaFr;

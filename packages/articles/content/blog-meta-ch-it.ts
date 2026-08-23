@@ -3994,6 +3994,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-zugo-formazione-livelli.title': 'Salari e lavoro nel Canton Zugo: formazione e livelli',
     'blog.article.salari-zugo-formazione-livelli.excerpt': 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi.',
     'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Centro di Zug con edifici per uffici moderni e vista sulle Alpi, simbolo del mercato del lavoro svizzero',
+    'blog.article.commissioni-twint-piccoli-commercianti.title': 'Commissioni Twint doppio: guerra aperta con commercianti',
+    'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'Una perizia svizzera rivela che i piccoli negozi pagano l\'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation chiede l\'intervento federale.',
+    'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Terminale di pagamento digitale e codice QR Twint in una piccola bottega svizzera',
 };
 
 export default blogMetaChIt;

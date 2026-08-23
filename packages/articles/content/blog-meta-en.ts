@@ -10627,6 +10627,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Change of employer: G 2026 single permit',
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'G permit renewal, AVS/LPP continuity, LAMal and refreshments: complete guide for single border workers from the New Border Agreement 2024.',
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Frontier worker signs employment contract in Ticino office with Lake Lugano view in background',
+    'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAINF accident: report checklist for border workers',
+    'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'How to report an accident to LAINF if you are a border worker. Correct procedure, differences in occupational disease, operational checklist with deadlines.',
+    'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'LAINF insurance documents and workplace accident forms on desk in Swiss office',
 };
 
 export default blogMetaEn;
