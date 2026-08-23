@@ -10609,6 +10609,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Ticino labour market: border manual',
     'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Are you looking for work in Ticino as a border worker? Discover the tax advantages, the procedures for the G permit and how to orient yourself in the Ticino labour market.',
     'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Professional in Lugano\'s business district, Ticino\'s economic center, with lake and offices',
+    'blog.article.frontaliere-tasse-single-2026.title': 'Border taxation 2026: practical guide for singles',
+    'blog.article.frontaliere-tasse-single-2026.excerpt': 'New agreement 2024, tax at source, deductibles €7,500-€10,000, AVS/LPP, LAMal: everything you need to know about the taxation of a single border crossing.',
+    'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Lake Lugano landscape with Swiss-Italian border mountains, representing the Ticino border region.',
 };
 
 export default blogMetaEn;

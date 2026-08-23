@@ -10611,6 +10611,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Marché du travail Tessin : manuel frontalier',
     'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Vous cherchez un emploi au Tessin en tant que frontalier ? Découvrez les avantages fiscaux, les procédures de permis G et comment vous orienter sur le marché du travail tessinois.',
     'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Professionnel dans le quartier d\'affaires de Lugano, centre économique du Tessin',
+    'blog.article.frontaliere-tasse-single-2026.title': 'Taxation des frontaliers 2026 : guide pratique pour célibataires',
+    'blog.article.frontaliere-tasse-single-2026.excerpt': 'Nouvel accord 2024, impôt à la source, franchises € 7.500–€ 10.000, AVS/LPP, LAMal : tout ce qu\'il faut savoir sur la taxation d\'un frontalier célibataire.',
+    'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Vue du lac de Lugano avec les montagnes frontalières suisse-italiennes, symbole de la région transfrontalière du Tessin.',
 };
 
 export default blogMetaFr;
