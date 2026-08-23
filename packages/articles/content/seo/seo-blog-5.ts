@@ -76082,6 +76082,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-aurano-lavorare-ticino': {
+    title: 'Vivere a Aurano e lavorare in Ticino: guida frontaliere',
+    description: 'Aurano, VCO: vivere al confine, lavorare in Ticino. Permesso G, tasse frontaliere, costi, procedure, vantaggi e svantaggi. Guida pratica 2024. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, aurano, lavorare, comune',
+    ogTitle: 'Vivere a Aurano e lavorare in Ticino da frontaliere',
+    ogDescription: 'Aurano nel VCO piemontese: come diventare frontaliere G in Ticino. Procedure, franchigia €10.000, permessi, costi affitti, tasse italiane minimali e pendolarismo tra Italia e Svizzera. Leggi la guida pratica completa.',
+    canonicalPath: '/articoli-frontaliere/vivere-aurano-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Aurano e lavorare in Ticino: guida frontaliere",
+      "description": "Aurano, VCO: vivere al confine, lavorare in Ticino. Permesso G, tasse frontaliere, costi, procedure, vantaggi e svantaggi. Guida pratica 2024. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-aurano-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di confine tra Aurano Piemonte e Ticino con montagne e piccoli villaggi, illuminazione alba."
+      },
+      "datePublished": "2026-08-23T09:40:25+00:00",
+      "dateModified": "2026-08-23T09:40:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-aurano-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

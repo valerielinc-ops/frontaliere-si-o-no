@@ -10593,6 +10593,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-guanzate-lavorare-ticino.title': 'Wohnen in Guanzate und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die sich für Guanzate entscheiden: Verbindungen, Steuern, neues Abkommen und Arbeitsmanagement im Tessin.',
     'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz, Pendlerzone',
+    'blog.article.vivere-aurano-lavorare-ticino.title': 'Leben in Aurano und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-aurano-lavorare-ticino.excerpt': 'Aurano, VCO-Gemeinde an der Tessiner Grenze: G-Genehmigung, Steuern, Lebenshaltungskosten und Versetzungsverfahren für diejenigen, die zu Schweizer Möglichkeiten pendeln möchten.',
+    'blog.article.vivere-aurano-lavorare-ticino.imageAlt': 'Grenzlandschaft zwischen Aurano Piemont und Tessin mit Bergen und kleinen Dörfern, Morgenlicht.',
 };
 
 export default blogMetaDe;
