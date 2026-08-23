@@ -10588,6 +10588,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Living in Cadorago as a border worker Ticino: taxation 2024',
     'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Complete guide: living in Cadorago and working in Ticino. New 2024 Agreement, €10,000 deductible, G Permit, LAMal and commuting from Como crossings.',
     'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontalier with Swiss registered car at Brogeda border crossing, Mendrisio area, Ticino. Como–Ticino commute.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Living in Carlazzo and working in Ticino: border guide',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Permit G allows daily work in Ticino as an Italian resident. Tax at source 8–13%, double pillar AVS/LPP, optional LAMal: complete guide to procedures and economic advantages.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Italian frontaliere at the Swiss-Italian border near Lake Como, carrying work documents',
 };
 
 export default blogMetaEn;
