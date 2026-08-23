@@ -10552,6 +10552,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio : frontalier Tessin entre fiscalité et avantages',
     'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Vivre à Carate Urio et travailler au Tessin : Nouvel Accord 2024, franchises € 7.500–€ 10.000, AVS, LPP, LAMal et procédure Permis G.',
     'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'Vue du lac Ceresio depuis Carate Urio, avec les Alpes tessinoises en arrière-plan',
+    'blog.article.vivere-torno-lavorare-ticino.title': 'Vivre à Torno et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Retour comme résidence et travaillent dans le canton du Tessin, entre les règles fiscales, les accords et la gestion des déplacements quotidiens.',
+    'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac de Lugano près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;

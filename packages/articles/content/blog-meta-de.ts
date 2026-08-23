@@ -10549,6 +10549,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio: Grenzgänger Tessin zwischen Steuern und Vergünstigungen',
     'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Leben in Carate Urio und Arbeiten im Tessin: Neues Abkommen 2024, Selbstbehalte €7.500- € 10.000, AHV, BVG, KVG und Genehmigungsverfahren G.',
     'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'Blick auf den Luganersee von Carate Urio mit den Tessiner Alpen im Hintergrund',
+    'blog.article.vivere-torno-lavorare-ticino.title': 'Leben in Torno und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die sich für Torno als Wohnsitz entscheiden und im Kanton Tessin arbeiten, zwischen Steuervorschriften, Vereinbarungen und der Verwaltung des täglichen Pendelverkehrs.',
+    'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;
