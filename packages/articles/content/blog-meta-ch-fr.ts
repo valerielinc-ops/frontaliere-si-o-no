@@ -3916,6 +3916,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-obvaldo-guida.title': 'Ouvrir une entreprise à Obwald : guide des formes juridiques et des coûts',
     'blog.article.aprire-attivita-obvaldo-guida.excerpt': 'Guide complet : choix de la forme juridique, inscription au registre du commerce, capital minimum, taxes et obligations d\'assurance (AVS, LAMal, SUVA).',
     'blog.article.aprire-attivita-obvaldo-guida.imageAlt': 'Entrepreneur préparant les documents d\'inscription au registre du commerce suisse.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.title': 'Ouvrir l\'activité Obwald : registre et coûts',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.excerpt': 'Formes juridiques, inscription au registre du commerce, droits d\'enregistrement et obligations d\'assurance pour la création d\'une entreprise dans le canton d\'Obwald.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.imageAlt': 'Bureau d\'enregistrement des entreprises avec formulaires officiels, documents administratifs et signature de contrats.',
 };
 
 export default blogMetaChFr;
