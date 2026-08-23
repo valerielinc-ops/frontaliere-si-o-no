@@ -11593,6 +11593,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'permesso-b-svitto-come-richiederlo',
+    category: 'pratico',
+    date: '2026-08-23T00:29:38.108Z',
+    image: '/images/blog/permesso-b-svitto-come-richiederlo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

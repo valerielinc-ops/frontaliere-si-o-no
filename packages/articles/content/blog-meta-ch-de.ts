@@ -3865,6 +3865,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-svitto-riduzione.title': 'KVG-Prämien in Schwyz: Franchisen und Prämienverbilligung',
     'blog.article.premi-lamal-svitto-riduzione.excerpt': 'Wie die Prämien der obligatorischen Krankenversicherung im Kanton Schwyz funktionieren, welche Franchisen zur Verfügung stehen und wie Sie die Reduktion mittels Subvention beantragen können.',
     'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Versicherungsberatung mit Krankenkassenprämien-Dokumenten und Subventionsrechner',
+    'blog.article.permesso-b-svitto-come-richiederlo.title': 'Ausweis B in Schwyz: Beantragung und Erneuerung',
+    'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Laufzeit 1-5 Jahre, Voraussetzungen und Fristen für die Erneuerung. Vollständiger Leitfaden mit notwendigen Unterlagen und obligatorischer KVG-Versicherung.',
+    'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Schweizer Migrationsamt mit Dokumenten zur Beantragung von Aufenthaltserlaubnis B',
 };
 
 export default blogMetaChDe;

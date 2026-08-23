@@ -3865,6 +3865,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-svitto-riduzione.title': 'Premi LAMal in Svitto: franchigie e riduzione premi',
     'blog.article.premi-lamal-svitto-riduzione.excerpt': 'Come funzionano i premi dell\'assicurazione malattia obbligatoria nel Cantone di Svitto, le franchigie disponibili e come richiedere la riduzione tramite sussidio.',
     'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Ufficio di consulenza assicurativa con documenti su premi cassa malati e calcolatore di sussidi',
+    'blog.article.permesso-b-svitto-come-richiederlo.title': 'Permesso B in Svitto: come richiederlo e rinnovarlo',
+    'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Durata 1-5 anni, prerequisiti e scadenze per il rinnovo. Guida completa con documenti necessari e assicurazione LAMal obbligatoria.',
+    'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Ufficio della migrazione svizzero con documenti e procedura di richiesta permesso B',
 };
 
 export default blogMetaChIt;
