@@ -3892,6 +3892,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-avvio-impresa-canton-svitto.title': 'Ein Unternehmen im Kanton Schwyz gründen: Praxisleitfaden',
     'blog.article.guida-avvio-impresa-canton-svitto.excerpt': 'Von der Wahl der Rechtsform bis zu den Vorsorgepflichten: Hier sind die notwendigen Schritte, um eine Gesellschaft im Kanton Schwyz zu gründen.',
     'blog.article.guida-avvio-impresa-canton-svitto.imageAlt': 'Professionelles Büro mit Dokumenten und Blick auf die Schweizer Alpen',
+    'blog.article.svitto-tasse-eredita-aliquote.title': 'Erbschafts- und Schenkungssteuer: die Schwyzer Steuersätze',
+    'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'Wie funktioniert die Erbschafts- und Schenkungssteuer im Kanton Schwyz: Sätze pro Verwandtschaftsgrad, Befreiungen und Fristen für die Deklaration.',
+    'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Notarbüro mit Dokumenten und Schreibtisch für Erbschaften und Schenkungen',
 };
 
 export default blogMetaChDe;
