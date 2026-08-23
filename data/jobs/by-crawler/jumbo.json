@@ -20146,9 +20146,9 @@
       "id": "jumbo-0e0c3392-aae",
       "slug": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
       "slugByLocale": {
+        "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
         "it": "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
         "en": "sales-consultants-in-cash-registers-services-jumbo-sissach",
-        "de": "verkaufberater-in-kassen-services-jumbo-division-der-coop-genossenschaft-sissach-basel-landschaft-5ofuu2",
         "fr": "consultants-en-vente-en-caisse-services-jumbo-sissach"
       },
       "company": "JUMBO",
@@ -20204,31 +20204,7 @@
           "• Einsatzzeiten (Mo bis Sa)? Da bist du flexibel, ist ja klar."
         ]
       },
-      "previousSlugs": [
-        "verkaufberater-in-kassen-services-jumbo-sissach",
-        "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
-        "sales-consultants-in-cash-registers-services-jumbo-sissach",
-        "consultants-en-vente-en-caisse-services-jumbo-sissach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufberater-in-kassen-services-jumbo-sissach",
-          "consulenti-di-vendita-in-casse-servizi-jumbo-sissach"
-        ],
-        "en": [
-          "verkaufberater-in-kassen-services-jumbo-sissach",
-          "sales-consultants-in-cash-registers-services-jumbo-sissach"
-        ],
-        "de": [
-          "verkaufberater-in-kassen-services-jumbo-sissach"
-        ],
-        "fr": [
-          "verkaufberater-in-kassen-services-jumbo-sissach",
-          "consultants-en-vente-en-caisse-services-jumbo-sissach"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-21T21:31:47.868Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -20240,7 +20216,31 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:31:47.868Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufberater-in-kassen-services-jumbo-sissach"
+        ],
+        "en": [
+          "verkaufberater-in-kassen-services-jumbo-sissach",
+          "sales-consultants-in-cash-registers-services-jumbo-sissach"
+        ],
+        "fr": [
+          "verkaufberater-in-kassen-services-jumbo-sissach",
+          "consultants-en-vente-en-caisse-services-jumbo-sissach"
+        ],
+        "it": [
+          "verkaufberater-in-kassen-services-jumbo-sissach",
+          "consulenti-di-vendita-in-casse-servizi-jumbo-sissach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufberater-in-kassen-services-jumbo-sissach",
+        "consulenti-di-vendita-in-casse-servizi-jumbo-sissach",
+        "sales-consultants-in-cash-registers-services-jumbo-sissach",
+        "consultants-en-vente-en-caisse-services-jumbo-sissach"
+      ]
     },
     {
       "id": "jumbo-0d04671d-fe0",

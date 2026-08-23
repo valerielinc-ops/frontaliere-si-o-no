@@ -1313,6 +1313,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-uri-cassa': { it: 'avs-prestazioni-uri-cassa', en: 'ahv-benefits-uri-compensation', de: 'ahv-ergaenzungsleistungen-uri', fr: 'avs-prestazioni-uri-caisse' },
  'avs-prestazioni-complementari-uri': { it: 'avs-prestazioni-complementari-uri', en: 'avs-complementary-benefits-canton-uri', de: 'avs-zusatzleistungen-kanton-uri', fr: 'avs-prestations-complementaires-canton-uri' },
  'uri-settori-assunzione-retribuzioni': { it: 'uri-settori-assunzione-retribuzioni', en: 'uri-sectors-employment-compensation', de: 'uri-sektoren-beschaeftigung-verguetung', fr: 'uri-secteurs-emploi-remuneration' },
+ 'premi-lamal-svitto-riduzione': { it: 'premi-lamal-svitto-riduzione', en: 'health-insurance-premiums-schwyz-reduction', de: 'krankenkassenpramien-schwyz-reduktion', fr: 'primes-assurance-maladie-schwytz-reduction' },
+ 'permesso-b-svitto-come-richiederlo': { it: 'permesso-b-svitto-come-richiederlo', en: 'residence-permit-b-svitto-how-to-apply', de: 'aufenthaltsgenehmigung-b-svitto-wie-beantragen', fr: 'permis-de-sejour-b-svitto-comment-demander' },
+ 'permesso-b-svitto-requisiti-rinnovo': { it: 'permesso-b-svitto-requisiti-rinnovo', en: 'residence-permit-b-canton-schwyz-requirements-renewal', de: 'aufenthaltserlaubnis-b-kanton-schwyz-anforderungen-verlangerung', fr: 'permis-de-residence-b-canton-schwytz-exigences-renouvellement' },
+ 'calcolo-rendita-avs-svitto': { it: 'calcolo-rendita-avs-svitto', en: 'calculate-avs-pension-schwyz', de: 'avs-rente-berechnung-schwyz', fr: 'calcul-rente-avs-schwyz' },
+ 'avviare-impresa-canton-svitto-procedure': { it: 'avviare-impresa-canton-svitto-procedure', en: 'start-business-canton-schwyz-procedures', de: 'unternehmen-grunden-kanton-schwyz-verfahren', fr: 'creer-entreprise-canton-schwyz-procedures' },
+ 'costituzione-impresa-cantone-svitto': { it: 'costituzione-impresa-cantone-svitto', en: 'starting-business-schwyz-canton', de: 'unternehmensgruendung-kanton-schwyz', fr: 'creation-entreprise-canton-schwyz' },
+ 'aprire-attivita-svitto-registro-di-commercio': { it: 'aprire-attivita-svitto-registro-di-commercio', en: 'open-activity-svitz-registro-di-commercio', de: 'unternehmen-eroffnen-svitto-registro-der-gewerbe', fr: 'ouvrir-entreprise-svitto-registro-des-commerces' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
