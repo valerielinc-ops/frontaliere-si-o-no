@@ -3889,6 +3889,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-impresa-svitto-costi.title': 'Démarrer une entreprise à Schwyz : inscription et coûts',
     'blog.article.avviare-impresa-svitto-costi.excerpt': 'Comment ouvrir une entreprise dans le canton de Schwyz : formes juridiques, inscription au registre du commerce, capital minimum, frais d\'inscription et obligations d\'assurance.',
     'blog.article.avviare-impresa-svitto-costi.imageAlt': 'Bureau administratif suisse avec formulaires d\'enregistrement commercial',
+    'blog.article.guida-avvio-impresa-canton-svitto.title': 'Démarrer une entreprise dans le canton de Schwyz : guide pratique',
+    'blog.article.guida-avvio-impresa-canton-svitto.excerpt': 'Du choix de la forme juridique aux obligations de prévoyance : voici les étapes nécessaires à la constitution d\'une société dans le canton de Schwyz.',
+    'blog.article.guida-avvio-impresa-canton-svitto.imageAlt': 'Bureau professionnel avec documents et vue sur les montagnes suisses',
+    'blog.article.svitto-tasse-eredita-aliquote.title': 'Droits de succession et de donation : les taux de Schwyz',
+    'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'Comment fonctionne l\'impôt sur les successions et les donations dans le canton de Schwyz : taux par degré de parenté, exemptions et délais de déclaration.',
+    'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Étude notariale avec documents de successions et bureau professionnel',
 };
 
 export default blogMetaChFr;

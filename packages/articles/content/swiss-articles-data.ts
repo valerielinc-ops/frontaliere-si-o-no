@@ -11665,6 +11665,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guida-avvio-impresa-canton-svitto',
+    category: 'pratico',
+    date: '2026-08-23T04:19:09.002Z',
+    image: '/images/blog/guida-avvio-impresa-canton-svitto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svitto-tasse-eredita-aliquote',
+    category: 'fiscale',
+    date: '2026-08-23T05:00:01.584Z',
+    image: '/images/blog/svitto-tasse-eredita-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
