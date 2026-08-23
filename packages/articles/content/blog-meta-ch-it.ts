@@ -3922,6 +3922,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cherosene-sintetico-svizzera-aviazione.title': 'Cherosene sintetico: la Svizzera avvia la produzione verde',
     'blog.article.cherosene-sintetico-svizzera-aviazione.excerpt': 'Al PSI di Argovia aperto il primo impianto di carburante sostenibile. Produce 50 litri al giorno. Entro il 2030 le compagnie aeree useranno il 6% di cherosene verde.',
     'blog.article.cherosene-sintetico-svizzera-aviazione.imageAlt': 'Laboratorio moderno di ricerca con tecnologie per energie rinnovabili e carburanti sostenibili in Svizzera.',
+    'blog.article.patente-guida-obvaldo-conversione.title': 'Patente di guida Obvaldo: conversione ed esami',
+    'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Guida completa alla conversione della patente estera nel Cantone di Obvaldo: procedura, esame teorico e pratico, corsi obbligatori e documenti necessari.',
+    'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Ufficio della circolazione svizzero con impiegato che verifica documenti di patente di guida',
 };
 
 export default blogMetaChIt;

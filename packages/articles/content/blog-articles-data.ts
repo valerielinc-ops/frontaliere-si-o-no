@@ -31719,6 +31719,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-alzate-brianza-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-23T10:06:41.164Z',
+ image: '/images/blog/vivere-alzate-brianza-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

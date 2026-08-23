@@ -50876,6 +50876,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-obvaldo-conversione': {
+    title: 'Patente di guida Obvaldo: conversione ed esami',
+    description: 'Guida completa alla conversione della patente estera nel Cantone di Obvaldo: procedura, esame teorico e pratico, corsi obbligatori e documenti necessari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, obvaldo, conversione, esami',
+    ogTitle: 'Patente Obvaldo: conversione e esami completi',
+    ogDescription: 'Come convertire la tua patente estera nel Cantone di Obvaldo: procedure ufficiali, esami teorico e pratico, corsi obbligatori, documenti e step-by-step della conversione.',
+    canonicalPath: '/articoli-svizzera/patente-guida-obvaldo-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida Obvaldo: conversione ed esami",
+      "description": "Guida completa alla conversione della patente estera nel Cantone di Obvaldo: procedura, esame teorico e pratico, corsi obbligatori e documenti necessari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-obvaldo-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della circolazione svizzero con impiegato che verifica documenti di patente di guida"
+      },
+      "datePublished": "2026-08-23T09:58:00+00:00",
+      "dateModified": "2026-08-23T09:58:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-obvaldo-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3922,6 +3922,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cherosene-sintetico-svizzera-aviazione.title': 'Synthetisches Kerosin: Schweiz startet grüne Produktion',
     'blog.article.cherosene-sintetico-svizzera-aviazione.excerpt': 'Am PSI im Aargau wurde die erste nachhaltige Kraftstoffanlage eröffnet. Produziert 50 Liter pro Tag. Bis 2030 werden die Fluggesellschaften 6% grünes Kerosin verwenden.',
     'blog.article.cherosene-sintetico-svizzera-aviazione.imageAlt': 'Modernes Schweizer Forschungslabor mit erneuerbaren Energietechnologien und nachhaltigen Treibstofftechnologien.',
+    'blog.article.patente-guida-obvaldo-conversione.title': 'Führerschein Obwalden: Umschulung und Prüfungen',
+    'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Vollständiger Leitfaden zur Umwandlung des ausländischen Führerscheins im Kanton Obwalden: Verfahren, theoretische und praktische Prüfung, Pflichtkurse und erforderliche Unterlagen.',
+    'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Schweizer Verkehrsamt mit Mitarbeiter, der Führerscheindokumente prüft',
 };
 
 export default blogMetaChDe;
