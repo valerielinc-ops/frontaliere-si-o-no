@@ -10600,6 +10600,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Living in Alzate Brianza and working in Ticino',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Practical guide for border workers: housing costs, tax regimes, Swiss contributions, G permit, LAMal and checklists before moving as a Ticino worker.',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Aerial view of a car crossing the Swiss-Italian border near Lugano on a modern highway with Alpine landscape in the background',
+    'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Living in Zelbio, working in Ticino as a border worker',
+    'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio and Ticino border: tax advantages, G permit, AVS/LPP/LAMal, double taxation, start-up procedures and comparison with permanent transfer.',
+    'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama of the Italy-Switzerland border near Zelbio and Como, showing valleys and forests of the Ticino border area.',
 };
 
 export default blogMetaEn;

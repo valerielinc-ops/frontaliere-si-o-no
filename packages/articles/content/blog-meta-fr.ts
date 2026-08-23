@@ -10602,6 +10602,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Vivre à Alzate Brianza et travailler au Tessin',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers : frais de logement, régimes fiscaux, cotisations suisses, permis G, LAMal et checklist avant de déménager en tant que travailleur tessinois.',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Vue aerienne d\'une voiture traversant la frontiere suisse-italienne pres de Lugano sur une autoroute moderne avec le paysage alpin en arriere-plan',
+    'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Vivre à Zelbio, travailler au Tessin en tant que frontalier',
+    'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio et frontière tessinoise : avantages fiscaux, permis G, AVS/LPP/LAMal, double imposition, procédures de démarrage et comparaison avec transfert permanent.',
+    'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama de la frontière Italie-Suisse près de Zelbio et Côme, montrant les vallées et forêts de la région frontalière du Tessin.',
 };
 
 export default blogMetaFr;

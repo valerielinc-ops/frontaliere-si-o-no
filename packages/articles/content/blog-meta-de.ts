@@ -10599,6 +10599,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Leben in Alzate Brianza und Arbeiten im Tessin',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Wohnkosten, Steuersysteme, Schweizer Beiträge, G-Bewilligung, KVG und Checkliste vor dem Umzug als Tessiner Arbeitnehmer.',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Luftaufnahme eines Autos, das die Schweizer-italienische Grenze bei Lugano auf moderner Autobahn mit Alpenpanorama ueberquert',
+    'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Leben in Zelbio, Arbeiten im Tessin als Grenzgänger',
+    'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio und Tessiner Grenze: Steuervorteile, Bewilligung G, AHV/BVG/KVG, Doppelbesteuerung, Anlaufverfahren und Vergleich mit Dauertransfer.',
+    'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama der Grenze Italien-Schweiz bei Zelbio und Como mit Tälern und Wäldern der Tessiner Grenzregion.',
 };
 
 export default blogMetaDe;

@@ -76160,6 +76160,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zelbio-frontaliere-ticino-residenza': {
+    title: 'Vivere a Zelbio, lavorare in Ticino da frontaliere',
+    description: 'Zelbio e confine ticinese: vantaggi fiscali, permesso G, AVS/LPP/LAMal, doppia imposizione, procedure d\'avvio e confronto con trasferimento permanente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, zelbio, lavorare, confine',
+    ogTitle: 'Vivere a Zelbio, lavorare in Ticino da frontaliere',
+    ogDescription: 'Zelbio e confine ticinese: vantaggi fiscali, permesso G, AVS/LPP/LAMal, doppia imposizione, procedure d\'avvio e confronto con trasferimento permanente.',
+    canonicalPath: '/articoli-frontaliere/zelbio-frontaliere-ticino-residenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Zelbio, lavorare in Ticino da frontaliere",
+      "description": "Zelbio e confine ticinese: vantaggi fiscali, permesso G, AVS/LPP/LAMal, doppia imposizione, procedure d'avvio e confronto con trasferimento permanente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zelbio-frontaliere-ticino-residenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del confine Italia-Svizzera presso Zelbio e Como, con valli e boschi della zona frontaliera ticinese."
+      },
+      "datePublished": "2026-08-23T10:37:28+00:00",
+      "dateModified": "2026-08-23T10:37:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/zelbio-frontaliere-ticino-residenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
