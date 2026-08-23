@@ -10607,6 +10607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comprare-affittare-ticino-frontalieri.title': 'Comprare casa in Ticino: prezzi e tendenze',
     'blog.article.comprare-affittare-ticino-frontalieri.excerpt': 'Guida al mercato immobiliare ticinese per frontalieri: affitto vs acquisto, fattori di prezzo, costi aggiuntivi e implicazioni fiscali. Checklist pratica e procedura step-by-step.',
     'blog.article.comprare-affittare-ticino-frontalieri.imageAlt': 'Vista aerea del tessuto residenziale di Lugano e dintorni, con proprietà a lago e sfondo montuoso del Ticino',
+    'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Mercato del lavoro Ticino: manuale frontaliere',
+    'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Cercate impiego in Ticino da frontaliere? Scoprite i vantaggi fiscali, le procedure per il permesso G e come orientarvi nel mercato del lavoro ticinese.',
+    'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Professionista in Lugano, distretto economico ticinese, con uffici e lago sullo sfondo',
 };
 
 export default blogMetaIt;

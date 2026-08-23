@@ -31746,6 +31746,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mercato-lavoro-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-23T15:49:31.166Z',
+ image: '/images/blog/mercato-lavoro-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
