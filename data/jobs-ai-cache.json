@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-23T21:29:47.240Z",
+  "savedAt": "2026-08-23T21:40:19.310Z",
   "entries": [
     {
       "key": "6841b87242885c9bce4f379339e445ebac9a9e860b7ec8affc4e4a0807cad899",
@@ -240950,11 +240950,11 @@
     },
     {
       "key": "431c20d77882fab48dcfd392e5eafddf60ed3f3eb3dabbec68f71bd621138e08",
-      "touchedAt": 1787478805156,
+      "touchedAt": 1787521099899,
       "value": {
         "isJob": false,
-        "confidence": 0.6,
-        "reason": "The page appears to be a generic company career page with a focus on a specific program (Quereinstieg) rather than a single job detail. While it does list specific job openings and requirements, the content is more promotional and informative in nature, rather than providing a detailed job description and application instructions for a single position."
+        "confidence": 0.2,
+        "reason": "The page appears to be a generic company career page with a focus on a specific program (Quereinstieg) rather than a single job detail page. While it does list specific job roles and responsibilities, it does not provide a clear application context or a single job posting. The page is more of an informational page about the company's career opportunities and programs rather than a detailed job description."
       }
     },
     {
