@@ -3871,6 +3871,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Permis de séjour B canton Schwyz : exigences et renouvellement',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Schwytz permet aux ressortissants étrangers de résider et de travailler en Suisse. Découvrez les exigences, les documents et comment les renouveler selon les réglementations SEM.',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Bâtiment administratif suisse accueillant les services de migration cantonale pour permis de résidence',
+    'blog.article.calcolo-rendita-avs-svitto.title': 'Prestations complémentaires Schwyz : AVS et minimum vital',
+    'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Guide de calcul de la rente AVS, des écarts de cotisations et des prestations complémentaires dans le canton de Schwyz. Rôle de la caisse de compensation cantonale et procédures pratiques pour assurer le minimum vital.',
+    'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Bâtiment administratif de la caisse de compensation au canton de Schwyz',
 };
 
 export default blogMetaChFr;

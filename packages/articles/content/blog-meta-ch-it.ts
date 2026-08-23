@@ -3871,6 +3871,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Permesso di dimora B canton Svitto: requisiti e rinnovo',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Il permesso di dimora B nel canton Svitto consente ai cittadini stranieri di risiedere e lavorare in Svizzera. Scopri requisiti, documenti e come rinnovarlo secondo le normative SEM.',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Edificio amministrativo svizzero dove risiedono gli uffici della migrazione cantonale per permessi di dimora',
+    'blog.article.calcolo-rendita-avs-svitto.title': 'Prestazioni complementari Svitto: AVS e minimo vitale',
+    'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Guida al calcolo della rendita AVS, lacune contributive e prestazioni complementari nel Canton Svitto. Ruolo della cassa di compensazione cantonale e procedure pratiche per garantire il minimo vitale.',
+    'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Edificio amministrativo della cassa di compensazione nel Canton Svitto',
 };
 
 export default blogMetaChIt;

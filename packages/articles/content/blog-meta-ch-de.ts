@@ -3871,6 +3871,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B Kanton Schwyz: Voraussetzungen und Verlängerung',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Schwyz erlaubt ausländischen Staatsangehörigen, in der Schweiz zu wohnen und zu arbeiten. Entdecken Sie Anforderungen, Dokumente und wie Sie sie gemäß den SEM-Vorschriften erneuern können.',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Schweizer Verwaltungsgebäude mit Migrationsamt für Aufenthaltserlaubnisse',
+    'blog.article.calcolo-rendita-avs-svitto.title': 'Ergänzungsleistungen Schwyz: AHV und Lebensminimum',
+    'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Leitfaden zur Berechnung der AHV-Rente, Beitragslücken und Ergänzungsleistungen im Kanton Schwyz. Rolle der kantonalen Ausgleichskasse und praktische Verfahren zur Sicherstellung des Existenzminimums.',
+    'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Verwaltungsgebäude der Ausgleichskasse im Kanton Schwyz',
 };
 
 export default blogMetaChDe;

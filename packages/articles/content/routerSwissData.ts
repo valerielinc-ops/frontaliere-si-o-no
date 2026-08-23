@@ -1316,6 +1316,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-lamal-svitto-riduzione': { it: 'premi-lamal-svitto-riduzione', en: 'health-insurance-premiums-schwyz-reduction', de: 'krankenkassenpramien-schwyz-reduktion', fr: 'primes-assurance-maladie-schwytz-reduction' },
  'permesso-b-svitto-come-richiederlo': { it: 'permesso-b-svitto-come-richiederlo', en: 'residence-permit-b-svitto-how-to-apply', de: 'aufenthaltsgenehmigung-b-svitto-wie-beantragen', fr: 'permis-de-sejour-b-svitto-comment-demander' },
  'permesso-b-svitto-requisiti-rinnovo': { it: 'permesso-b-svitto-requisiti-rinnovo', en: 'residence-permit-b-canton-schwyz-requirements-renewal', de: 'aufenthaltserlaubnis-b-kanton-schwyz-anforderungen-verlangerung', fr: 'permis-de-residence-b-canton-schwytz-exigences-renouvellement' },
+ 'calcolo-rendita-avs-svitto': { it: 'calcolo-rendita-avs-svitto', en: 'calculate-avs-pension-schwyz', de: 'avs-rente-berechnung-schwyz', fr: 'calcul-rente-avs-schwyz' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

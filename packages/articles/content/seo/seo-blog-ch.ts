@@ -50213,6 +50213,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcolo-rendita-avs-svitto': {
+    title: 'Prestazioni complementari Svitto: AVS e minimo vitale',
+    description: 'Prestazioni complementari Svitto: guida a calcolo AVS, lacune contributive, minimo vitale e procedure accesso tramite cassa compensazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, svitto, minimo',
+    ogTitle: 'Prestazioni complementari Svitto: AVS e minimo vitale',
+    ogDescription: 'Scopri come accedere alle prestazioni complementari nel Canton Svitto, calcolare la rendita AVS, recuperare lacune contributive e garantire il minimo vitale. Guida pratica con procedure e scadenze.',
+    canonicalPath: '/articoli-svizzera/calcolo-rendita-avs-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prestazioni complementari Svitto: AVS e minimo vitale",
+      "description": "Prestazioni complementari Svitto: guida a calcolo AVS, lacune contributive, minimo vitale e procedure accesso tramite cassa compensazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-rendita-avs-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo della cassa di compensazione nel Canton Svitto"
+      },
+      "datePublished": "2026-08-23T01:43:06+00:00",
+      "dateModified": "2026-08-23T01:43:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcolo-rendita-avs-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
