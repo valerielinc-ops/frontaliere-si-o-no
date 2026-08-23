@@ -10540,6 +10540,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Leben in Cunardo und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Bewilligung G, Quellensteuer, koordinierte AHV und KVG Italien-Schweiz. Alles, was Sie wissen müssen, bevor Sie Grenzgänger zwischen Cunardo und dem Tessin werden.',
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Alpental an der Schweiz-Italien-Grenze mit italienischem Dorf und Blick auf den Kanton Tessin',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.title': 'Leben in Valganna, Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die nach Valganna ziehen und im Tessin arbeiten möchten: Genehmigungen, Steuern, Kosten, Beiträge und wesentliche Verfahren für Grenzgänger.',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.imageAlt': 'Ansicht von Mendrisio im südlichen Bezirk Tessin, in der Nähe der italienischen Grenze',
 };
 
 export default blogMetaDe;

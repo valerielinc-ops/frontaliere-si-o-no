@@ -10541,6 +10541,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Living in Cunardo and working in Ticino: border guide',
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Permit G, tax at source, AVS and LAMal coordinated Italy-Switzerland. Everything you need to know before becoming a border crossing between Cunardo and Ticino.',
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Alpine valley at Switzerland-Italy border with small Italian town and Ticino canton in background',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.title': 'Living in Valganna, working in Ticino as a border worker',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.excerpt': 'Practical guide for those who want to move from Valganna and work in Ticino: permits, taxation, costs, contributions and essential procedures for border workers.',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.imageAlt': 'View of Mendrisio in southern Ticino\'s district, near the Italian border',
 };
 
 export default blogMetaEn;

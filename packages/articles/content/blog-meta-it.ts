@@ -10542,6 +10542,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Vivere a Cunardo e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Permesso G, imposta alla fonte, AVS e LAMal coordinati Italia-Svizzera. Tutto quello che serve sapere prima di diventare frontaliere tra Cunardo e il Ticino.',
     'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio della vallata di confine Italia-Svizzera con piccolo comune italiano e Ticino sullo sfondo',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.title': 'Vivere a Valganna, lavorare in Ticino da frontaliere',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.excerpt': 'Guida pratica per chi vuole trasferirsi da Valganna e lavorare in Ticino: permessi, fiscalità, costi, contributi e procedure essenziali per frontalieri.',
+    'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.imageAlt': 'Veduta di Mendrisio nel distretto meridionale del Ticino, prossimo al confine italiano',
 };
 
 export default blogMetaIt;
