@@ -10618,6 +10618,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-frontaliere-single-2026.title': 'Border payroll 2026: net and taxes for singles',
     'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Full analysis of the new 2024 agreement: AVS, LPP, LAMal and Italian taxation rates for single border workers.',
     'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'A cross-border worker reviews Swiss payslip with Italian tax documents',
+    'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Change of employer for border workers: G permit and continuity 2026',
+    'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Change of employer for border workers: renewal of G permit, AVS/LPP continuity, tax at source and essential documents within 20 km of the border.',
+    'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Frontaliere at cantonal counter with permit G documents for employer change',
 };
 
 export default blogMetaEn;

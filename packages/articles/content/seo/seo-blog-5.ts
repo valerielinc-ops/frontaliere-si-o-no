@@ -76394,6 +76394,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-datore-frontaliere-permesso-g': {
+    title: 'Cambio datore per frontalieri: permesso G e continuità 2026',
+    description: 'Procedura cambio datore frontalieri permesso G: rinnovo, continuità AVS/LPP, imposta alla fonte e documenti essenziali entro 20 km dalla frontiera',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, datore, permesso, continuità',
+    ogTitle: 'Cambio datore per frontalieri: permesso G e continuità 2026',
+    ogDescription: 'Guida pratica al cambio datore di lavoro per frontalieri Ticino-Italia: rinnovo permesso G, continuità AVS/LPP, imposta alla fonte svizzera, checklist documenti e scenari',
+    canonicalPath: '/articoli-frontaliere/cambio-datore-frontaliere-permesso-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio datore per frontalieri: permesso G e continuità 2026",
+      "description": "Procedura cambio datore frontalieri permesso G: rinnovo, continuità AVS/LPP, imposta alla fonte e documenti essenziali entro 20 km dalla frontiera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-datore-frontaliere-permesso-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere allo sportello cantonale con documenti permesso G per cambio datore di lavoro"
+      },
+      "datePublished": "2026-08-23T20:13:10+00:00",
+      "dateModified": "2026-08-23T20:13:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-datore-frontaliere-permesso-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

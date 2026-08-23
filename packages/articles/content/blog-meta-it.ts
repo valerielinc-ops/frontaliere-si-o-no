@@ -10619,6 +10619,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-frontaliere-single-2026.title': 'Frontalieri busta paga 2026: netto e imposte per single',
     'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Analisi completa del nuovo accordo 2024: aliquote AVS, LPP, LAMal e tassazione italiana per frontalieri single.',
     'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'Un frontaliere consulta la propria busta paga svizzera con documenti fiscali italiani davanti a sé',
+    'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Cambio datore per frontalieri: permesso G e continuità 2026',
+    'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Cambio datore di lavoro per frontalieri: rinnovo permesso G, continuità AVS/LPP, imposta alla fonte e documenti essenziali entro i 20 km dalla frontiera.',
+    'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Frontaliere allo sportello cantonale con documenti permesso G per cambio datore di lavoro',
 };
 
 export default blogMetaIt;

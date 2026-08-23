@@ -10617,6 +10617,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-frontaliere-single-2026.title': 'Grenzgänger Lohnabrechnung 2026: Netto und Steuern für Singles',
     'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Vollständige Analyse des neuen Abkommens 2024: AHV-, BVG-, KVG-Sätze und italienische Besteuerung für alleinstehende Grenzgänger.',
     'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'Ein Grenzgänger überprüft seine Schweizer Gehaltsabrechnung mit italienischen Steuerdokumenten',
+    'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Arbeitgeberwechsel für Grenzgänger: Genehmigung G und Kontinuität 2026',
+    'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Arbeitgeberwechsel für Grenzgänger: Erneuerung der Bewilligung G, Kontinuität AHV/BVG, Quellensteuer und wesentliche Dokumente innerhalb von 20 km von der Grenze.',
+    'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Grenzgänger am Schalter mit Arbeitserlaubnispapieren',
 };
 
 export default blogMetaDe;
