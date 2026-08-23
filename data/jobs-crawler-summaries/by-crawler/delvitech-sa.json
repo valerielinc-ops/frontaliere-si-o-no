@@ -1,16 +1,16 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-08-23T09:42:07.519Z",
+  "generatedAt": "2026-08-23T21:48:43.939Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18836,
-  "avgDurationMs": 18836,
+  "durationMs": 17450,
+  "avgDurationMs": 17450,
   "durationHistory": [
-    18836
+    17450
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -78,6 +78,7 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
