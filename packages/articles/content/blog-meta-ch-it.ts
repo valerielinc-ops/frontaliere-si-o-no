@@ -3997,6 +3997,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.commissioni-twint-piccoli-commercianti.title': 'Commissioni Twint doppio: guerra aperta con commercianti',
     'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'Una perizia svizzera rivela che i piccoli negozi pagano l\'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation chiede l\'intervento federale.',
     'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Terminale di pagamento digitale e codice QR Twint in una piccola bottega svizzera',
+    'blog.article.mercato-lavoro-zugo-analisi.title': 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
+    'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analisi del mercato zughese: settori trainanti, dinamiche salariali, fiscalità competitiva e previdenza obbligatoria per professionisti e lavoratori.',
+    'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Palazzo uffici moderno nel Cantone di Zugo',
 };
 
 export default blogMetaChIt;

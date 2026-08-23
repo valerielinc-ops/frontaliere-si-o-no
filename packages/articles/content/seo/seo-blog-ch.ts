@@ -51851,6 +51851,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-zugo-analisi': {
+    title: 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
+    description: 'Scopri le dinamiche del mercato del lavoro nel Cantone di Zugo: settori trainanti, struttura salariale, fiscalità competitiva e previdenza obbligatoria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, zugo, salari',
+    ogTitle: 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
+    ogDescription: 'Analisi approfondita del mercato del lavoro nel Cantone di Zugo: dai settori ad alto valore aggiunto alla gestione della fiscalità e della previdenza per i lavoratori.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-zugo-analisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro a Zugo: salari e dinamiche settoriali",
+      "description": "Scopri le dinamiche del mercato del lavoro nel Cantone di Zugo: settori trainanti, struttura salariale, fiscalità competitiva e previdenza obbligatoria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-zugo-analisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo uffici moderno nel Cantone di Zugo"
+      },
+      "datePublished": "2026-08-23T22:46:44+00:00",
+      "dateModified": "2026-08-23T22:46:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-zugo-analisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
