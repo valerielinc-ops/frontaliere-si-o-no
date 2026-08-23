@@ -51305,6 +51305,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquisto-casa-cantone-glarona': {
+    title: 'Comprare casa nel Cantone di Glarona: guida al mutuo',
+    description: 'Guida pratica all\'acquisto di un immobile nel Cantone di Glarona: requisiti di sostenibilità, fondi propri, tassazione e iter burocratico per il futuro',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, cantone, glarona',
+    ogTitle: 'Comprare casa nel Cantone di Glarona: guida al mutuo',
+    ogDescription: 'Analisi delle dinamiche di finanziamento e fiscalità per l\'acquisto di una casa nel Cantone di Glarona. Informazioni su mutui, deducibilità e iter notarile.',
+    canonicalPath: '/articoli-svizzera/acquisto-casa-cantone-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Cantone di Glarona: guida al mutuo",
+      "description": "Guida pratica all'acquisto di un immobile nel Cantone di Glarona: requisiti di sostenibilità, fondi propri, tassazione e iter burocratico per il futuro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisto-casa-cantone-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Case residenziali nel Cantone di Glarona con sfondo montano"
+      },
+      "datePublished": "2026-08-23T13:24:37+00:00",
+      "dateModified": "2026-08-23T13:24:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisto-casa-cantone-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

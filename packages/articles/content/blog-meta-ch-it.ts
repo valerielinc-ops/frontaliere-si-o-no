@@ -3955,6 +3955,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-canton-glarona.title': 'Apprendistato e formazione nel Canton Glarona',
     'blog.article.apprendistato-canton-glarona.excerpt': 'Guida completa a ricerca del posto, contratto, retribuzione e maturità professionale: diritti dell\'apprendista e procedura nel Canton Glarona.',
     'blog.article.apprendistato-canton-glarona.imageAlt': 'Un giovane apprendista impara a lavorare il legno in bottega artigianale svizzera con maestro esperto',
+    'blog.article.acquisto-casa-cantone-glarona.title': 'Comprare casa nel Cantone di Glarona: guida al mutuo',
+    'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Scopri come pianificare l\'acquisto di un\'abitazione nel Cantone di Glarona tra sostenibilità bancaria, fondi propri, imposte locali e iter notarile.',
+    'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Case residenziali nel Cantone di Glarona con sfondo montano',
 };
 
 export default blogMetaChIt;
