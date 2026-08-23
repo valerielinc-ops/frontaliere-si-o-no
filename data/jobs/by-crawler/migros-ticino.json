@@ -764,6 +764,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -788,9 +790,7 @@
         "specialist-vendor-in-butchery-genossenschaft-migros-aare-thun",
         "butcher-s-sales-assistant-genossenschaft-migros-aare-thun"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "needsRetranslation": true
     },
     {
       "id": "company-iyldg0",
@@ -1663,7 +1663,6 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-grenchen-qav5ba",
-          "cook-cook-migros-restaurant-grenchen",
           "koch-kochin-migros-restaurant-grenchen"
         ],
         "fr": [
@@ -1688,9 +1687,9 @@
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ro9jjd",
@@ -8690,8 +8689,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu",
-          "istruttore-di-fitness-m-f-d-activ-fitness-luzern",
-          "fitness-instructor-m-w-d-activ-fitness-luzern"
+          "istruttore-di-fitness-m-f-d-activ-fitness-luzern"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu"
@@ -8699,8 +8697,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu",
-        "istruttore-di-fitness-m-f-d-activ-fitness-luzern",
-        "fitness-instructor-m-w-d-activ-fitness-luzern"
+        "istruttore-di-fitness-m-f-d-activ-fitness-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8715,9 +8712,9 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-q0tv2",
@@ -12370,8 +12367,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-          "istruttore-di-fitness-m-f-d-activ-fitness-st-gallen",
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+          "istruttore-di-fitness-m-f-d-activ-fitness-st-gallen"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
@@ -12379,8 +12375,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-        "istruttore-di-fitness-m-f-d-activ-fitness-st-gallen",
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+        "istruttore-di-fitness-m-f-d-activ-fitness-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12395,9 +12390,9 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-l6qqjc",
@@ -14290,7 +14285,7 @@
     },
     {
       "id": "company-1xo1zx",
-      "slug": "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier-1xo1zx",
+      "slug": "addetto-a-alla-sicurezza-e-protezione-msst-aeai-f-m-d-societe-cooperative-migros-geneve-vernier",
       "company": "Société coopérative Migros Genève",
       "title": "Chargée de Sécurité et Sûreté (MSST, AEAI) (F/H/D)",
       "location": "Vernier",
@@ -14354,7 +14349,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier-1xo1zx",
+        "it": "addetto-a-alla-sicurezza-e-protezione-msst-aeai-f-m-d-societe-cooperative-migros-geneve-vernier",
         "en": "security-and-safety-officer-msst-aeai-m-f-d-societe-cooperative-migros-geneve-vernier",
         "de": "sicherheitsbeauftragter-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier",
         "fr": "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier-1xo1zx"
@@ -14363,11 +14358,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier"
+          "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier",
+          "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier-1xo1zx"
         ]
       },
       "previousSlugs": [
-        "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier"
+        "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier",
+        "chargee-de-securite-et-surete-msst-aeai-m-w-d-societe-cooperative-migros-geneve-vernier-1xo1zx"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -14509,7 +14506,7 @@
     },
     {
       "id": "company-ho0otl",
-      "slug": "teamleader-software-engineering-community-m-w-d-galaxus-zurich-ho0otl",
+      "slug": "team-leader-software-engineering-community-m-f-d-galaxus-zurich",
       "company": "Galaxus",
       "title": "Teamleader Software Engineering - Community (w/m/d)",
       "location": "Zürich",
@@ -14593,7 +14590,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "teamleader-software-engineering-community-m-w-d-galaxus-zurich-ho0otl",
+        "it": "team-leader-software-engineering-community-m-f-d-galaxus-zurich",
         "en": "teamleader-software-engineering-community-m-w-d-galaxus-zurich-ho0otl",
         "de": "teamleader-software-engineering-community-m-w-d-galaxus-zurich-ho0otl",
         "fr": "teamleader-software-engineering-communaute-m-w-d-galaxus-zurich-ho0otl"
@@ -14602,11 +14599,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-software-engineering-community-m-w-d-galaxus-zurich"
+          "teamleader-software-engineering-community-m-w-d-galaxus-zurich",
+          "teamleader-software-engineering-community-m-w-d-galaxus-zurich-ho0otl"
         ]
       },
       "previousSlugs": [
-        "teamleader-software-engineering-community-m-w-d-galaxus-zurich"
+        "teamleader-software-engineering-community-m-w-d-galaxus-zurich",
+        "teamleader-software-engineering-community-m-w-d-galaxus-zurich-ho0otl"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18610,8 +18609,7 @@
       "previousSlugsByLocale": {
         "it": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-bern-ncplto",
-          "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-bern",
-          "studentenaushilfe-supermarkt-genossenschaft-migros-aare-bern"
+          "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-bern"
         ],
         "en": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-bern-ncplto"
@@ -18622,8 +18620,7 @@
       },
       "previousSlugs": [
         "studentenaushilfe-supermarkt-genossenschaft-migros-aare-bern-ncplto",
-        "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-bern",
-        "studentenaushilfe-supermarkt-genossenschaft-migros-aare-bern"
+        "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -18638,9 +18635,9 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-k9o3l4",
@@ -27624,19 +27621,17 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "istruttore-di-fitness-f-m-d-activ-fitness-bern",
-        "fitness-instructor-m-w-d-activ-fitness-bern"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "istruttore-di-fitness-f-m-d-activ-fitness-bern",
-          "fitness-instructor-m-w-d-activ-fitness-bern"
+          "istruttore-di-fitness-f-m-d-activ-fitness-bern"
         ]
       },
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "previousSlugs": [
+        "istruttore-di-fitness-f-m-d-activ-fitness-bern"
+      ]
     },
     {
       "id": "company-k70zqy",
@@ -36942,15 +36937,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen-r4pwii",
-          "assistente-manager-fitness-club-activ-fitness-zofingen"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen-r4pwii",
-        "assistente-manager-fitness-club-activ-fitness-zofingen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -37768,8 +37759,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-          "istruttore-di-fitness-f-m-d-activ-fitness-zofingen",
-          "fitness-instructor-m-w-d-activ-fitness-zofingen"
+          "istruttore-di-fitness-f-m-d-activ-fitness-zofingen"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
@@ -37777,8 +37767,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-        "istruttore-di-fitness-f-m-d-activ-fitness-zofingen",
-        "fitness-instructor-m-w-d-activ-fitness-zofingen"
+        "istruttore-di-fitness-f-m-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -37795,9 +37784,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-i9mnlu",
@@ -48474,8 +48463,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-          "istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-          "fitness-instructor-m-w-d-activ-fitness-uzwil"
+          "istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
@@ -48483,8 +48471,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-        "istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-        "fitness-instructor-m-w-d-activ-fitness-uzwil"
+        "istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -48501,9 +48488,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ly9qz",
@@ -58328,8 +58315,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
           "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
-          "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
-          "fitness-instructor-m-w-d-activ-fitness-aarau"
+          "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
@@ -58338,12 +58324,11 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
         "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
-        "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
-        "fitness-instructor-m-w-d-activ-fitness-aarau"
+        "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rhd880",
@@ -60024,8 +60009,7 @@
         "it": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
           "cuciniera-gurten-park-im-grunen-wabern",
-          "capo-di-stato-maggiore-gurten-park-im-grunen-wabern",
-          "chef-de-rang-gurten-park-im-grunen-wabern"
+          "capo-di-stato-maggiore-gurten-park-im-grunen-wabern"
         ],
         "en": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl"
@@ -60037,8 +60021,7 @@
       "previousSlugs": [
         "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
         "cuciniera-gurten-park-im-grunen-wabern",
-        "capo-di-stato-maggiore-gurten-park-im-grunen-wabern",
-        "chef-de-rang-gurten-park-im-grunen-wabern"
+        "capo-di-stato-maggiore-gurten-park-im-grunen-wabern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -60058,9 +60041,9 @@
       "retranslationAttempts": 14,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2642,
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5nsq3z",
@@ -60381,8 +60364,7 @@
       "previousSlugsByLocale": {
         "it": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608",
-          "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee",
-          "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee"
+          "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee"
         ],
         "en": [
           "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608"
@@ -60393,8 +60375,7 @@
       },
       "previousSlugs": [
         "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee-b0m608",
-        "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee",
-        "studentenaushilfe-supermarkt-genossenschaft-migros-aare-herzogenbuchsee"
+        "supermercato-dell-assistenza-agli-studenti-genossenschaft-migros-aare-herzogenbuchsee"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -60411,9 +60392,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6tgptl",
@@ -61329,8 +61310,7 @@
           "instructeur-fitness-w-m-d-activ-fitness-zurich",
           "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
           "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-          "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2",
-          "fitness-instructor-m-w-d-activ-fitness-zurich"
+          "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2"
         ],
         "en": [
           "fitness-instructor-w-activ-fitness-zurich"
@@ -61350,8 +61330,7 @@
         "instructeur-fitness-w-m-d-activ-fitness-zurich",
         "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
         "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-        "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2",
-        "fitness-instructor-m-w-d-activ-fitness-zurich"
+        "istruttore-di-fitness-f-m-d-activ-fitness-zurich-0038b2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -61368,9 +61347,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-2ndjc9",
@@ -79701,19 +79680,17 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
           "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
-          "fitness-instructor-m-w-d-activ-fitness-kloten"
+          "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
-        "fitness-instructor-m-w-d-activ-fitness-kloten"
+        "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "migrolino-31b2fdd0e1d8",
@@ -96370,8 +96347,7 @@
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
           "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+          "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -96388,8 +96364,7 @@
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
         "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil",
-        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+        "assistenza-agli-istruttore-di-fitness-f-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -96407,9 +96382,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o8pp1i",
@@ -113277,14 +113252,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-          "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+          "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-        "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+        "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -113302,9 +113275,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dy1cum",

@@ -707,9 +707,9 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8ik90z",
@@ -1645,7 +1645,7 @@
     },
     {
       "id": "company-9l6l4z",
-      "slug": "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z",
+      "slug": "ch-vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-lidl-svizzera-kehrsatz",
       "company": "Lidl Svizzera",
       "title": "CH_ Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80%",
       "location": "Kehrsatz",
@@ -1682,21 +1682,29 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z",
-        "en": "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z",
+        "it": "ch-vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-lidl-svizzera-kehrsatz",
+        "en": "asst-store-manager-m-f-d-80-lidl-svizzera-kehrsatz",
         "de": "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z",
-        "fr": "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
+        "fr": "adj-directeur-directrice-de-succursale-m-f-d-80-lidl-svizzera-kehrsatz"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz"
+          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz",
+          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
+        ],
+        "en": [
+          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
+        ],
+        "fr": [
+          "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
         ]
       },
       "previousSlugs": [
-        "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz"
+        "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz",
+        "ch-stv-filialleiter-stv-filialleiterin-m-w-d-80-lidl-svizzera-kehrsatz-9l6l4z"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

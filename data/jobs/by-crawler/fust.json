@@ -51,6 +51,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -83,9 +85,7 @@
         "operatore-macchina-in-produzione-panificio-panofina-coop-genossenschaft-schafisheim-aargau",
         "machine-operator-in-production-bakery-panofina-coop-genossenschaft-schafisheim-aargau",
         "machine-operateur-en-production-boulangerie-panofina-coop-genossenschaft-schafisheim-aargau"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-wp8i3t",
@@ -186,7 +186,7 @@
         "de": "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
         "it": "picker-d-ordine-in-coop-genossenschaft-schafisheim",
         "en": "order-picker-in-coop-genossenschaft-schafisheim",
-        "fr": "recuperateur-de-commande-in-coop-genossenschaft-schafisheim-aargau"
+        "fr": "commandeur-in-coop-genossenschaft-schafisheim"
       },
       "titleByLocale": {
         "de": "Kommissionierer:in",
@@ -209,6 +209,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -232,16 +234,16 @@
           "order-picker-in-coop-genossenschaft-schafisheim-aargau"
         ],
         "fr": [
-          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4"
+          "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
+          "recuperateur-de-commande-in-coop-genossenschaft-schafisheim-aargau"
         ]
       },
       "previousSlugs": [
         "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
         "picker-d-ordine-in-coop-genossenschaft-schafisheim-aargau",
-        "order-picker-in-coop-genossenschaft-schafisheim-aargau"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+        "order-picker-in-coop-genossenschaft-schafisheim-aargau",
+        "recuperateur-de-commande-in-coop-genossenschaft-schafisheim-aargau"
+      ]
     },
     {
       "id": "company-172wz6",
@@ -268,7 +270,7 @@
       "slugByLocale": {
         "de": "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
         "it": "chef-chef-m-f-d-coop-genossenschaft-kriens",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-kriens"
       },
       "titleByLocale": {
@@ -292,6 +294,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -313,6 +317,9 @@
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
           "chef-chef-h-f-d-coop-genossenschaft-kriens-luzern"
+        ],
+        "en": [
+          "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6"
         ]
       },
       "previousSlugs": [
@@ -320,8 +327,6 @@
         "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern",
         "chef-chef-h-f-d-coop-genossenschaft-kriens-luzern"
       ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
       "needsRetranslation": true
     },
     {
@@ -7767,7 +7772,7 @@
       "slugByLocale": {
         "de": "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
         "it": "chef-chef-m-f-d-coop-genossenschaft-seewen",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-seewen"
       },
       "titleByLocale": {
@@ -7814,6 +7819,9 @@
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
           "chef-chef-h-f-d-coop-genossenschaft-seewen-schwyz"
+        ],
+        "en": [
+          "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j"
         ]
       },
       "previousSlugs": [
