@@ -10634,6 +10634,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Pensionamento anticipato frontalieri 2026: evita gli errori',
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Guida completa al pensionamento anticipato per frontalieri: penalità AVS 6,8%, fattore LPP ridotto, coordinamento SECO-INPS. Errori comuni da evitare nel 2026.',
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Vista su Lugano e le sponde ticinesi: pianificare il pensionamento anticipato conviene con i calcoli giusti',
+    'blog.article.vivere-lozza-lavorare-ticino.title': 'Vivere a Lozza e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Collegamenti, tempi di percorrenza e costo della vita per i frontalieri',
+    'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Immagine di un frontaliere con la cartina di Lozza e Ticino',
 };
 
 export default blogMetaIt;

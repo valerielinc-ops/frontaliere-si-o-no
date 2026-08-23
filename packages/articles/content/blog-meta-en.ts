@@ -10633,6 +10633,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Early retirement for border crossers 2026: avoid mistakes',
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Complete guide to early retirement for border workers: AVS penalty 6.8%, reduced LPP factor, SECO-INPS coordination. Common mistakes to avoid in 2026.',
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Lugano\'s lakeside view: proper planning for early retirement requires correct financial calculations',
+    'blog.article.vivere-lozza-lavorare-ticino.title': 'Living in Lozza and working in Ticino as a border worker',
+    'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Connections, journey times and cost of living for border crossers',
+    'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Image of a border worker with a map of Lozza and Ticino',
 };
 
 export default blogMetaEn;
