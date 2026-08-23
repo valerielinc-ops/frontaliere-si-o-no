@@ -10544,6 +10544,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.title': 'Living in Valganna, working in Ticino as a border worker',
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.excerpt': 'Practical guide for those who want to move from Valganna and work in Ticino: permits, taxation, costs, contributions and essential procedures for border workers.',
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.imageAlt': 'View of Mendrisio in southern Ticino\'s district, near the Italian border',
+    'blog.article.vivere-villadossola-lavorare-ticino.title': 'Living in Villadossola and working in Ticino as a border worker',
+    'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Complete guide for those who choose Villadossola: taxation, new agreement, costs and obligations for border workers in Ticino.',
+    'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Commuter traveling between Italy and Ticino',
 };
 
 export default blogMetaEn;

@@ -10543,6 +10543,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.title': 'Leben in Valganna, Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die nach Valganna ziehen und im Tessin arbeiten möchten: Genehmigungen, Steuern, Kosten, Beiträge und wesentliche Verfahren für Grenzgänger.',
     'blog.article.vivere-valganna-lavorare-ticino-da-frontaliere.imageAlt': 'Ansicht von Mendrisio im südlichen Bezirk Tessin, in der Nähe der italienischen Grenze',
+    'blog.article.vivere-villadossola-lavorare-ticino.title': 'Wohnen in Villadossola und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für diejenigen, die Villadossola wählen: Besteuerung, neue Vereinbarung, Kosten und Verpflichtungen für Grenzgänger im Tessin.',
+    'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Pendler reist zwischen Italien und dem Tessin',
 };
 
 export default blogMetaDe;
