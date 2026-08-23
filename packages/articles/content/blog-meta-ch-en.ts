@@ -3937,6 +3937,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.primo-pilastro-nidvaldo-avs.title': 'AVS and complementary services Canton Nidvaldo',
     'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'The first pillar in Nidvaldo: AVS, compensation fund, contribution gaps and complementary benefits to cover the minimum living wage.',
     'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Nidvwald cantonal compensation fund office with social security retirement and supplementary benefits documents',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Open Nidvaldo business: legal forms and registration',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Sole proprietorship, company, cantonal trade registration and AVS obligations: practical guide for self-employed and entrepreneurs in Switzerland.',
+    'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Bellinzona skyline, capital of Ticino, symbol of Swiss cantonal administration and business registration.',
 };
 
 export default blogMetaChEn;

@@ -11809,6 +11809,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'aprire-attivita-nidvaldo-registro-commercio',
+    category: 'pratico',
+    date: '2026-08-23T11:49:46.069Z',
+    image: '/images/blog/aprire-attivita-nidvaldo-registro-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
