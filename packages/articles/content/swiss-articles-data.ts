@@ -11755,6 +11755,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cherosene-sintetico-svizzera-aviazione',
+    category: 'novita',
+    date: '2026-08-23T09:26:41.634Z',
+    image: '/images/blog/cherosene-sintetico-svizzera-aviazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

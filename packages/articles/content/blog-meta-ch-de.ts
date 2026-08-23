@@ -3919,6 +3919,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-impresa-obvaldo-iscrizione.title': 'Obwalden-Geschäft eröffnen: Register und Kosten',
     'blog.article.aprire-impresa-obvaldo-iscrizione.excerpt': 'Rechtsformen, Handelsregistereintragung, Eintragungsgebühren und Versicherungspflichten zur Unternehmensgründung im Kanton Obwalden.',
     'blog.article.aprire-impresa-obvaldo-iscrizione.imageAlt': 'Unternehmensregistrierungsbüro mit offiziellen Formularen, administrativen Unterlagen und Vertragsunterzeichnung.',
+    'blog.article.cherosene-sintetico-svizzera-aviazione.title': 'Synthetisches Kerosin: Schweiz startet grüne Produktion',
+    'blog.article.cherosene-sintetico-svizzera-aviazione.excerpt': 'Am PSI im Aargau wurde die erste nachhaltige Kraftstoffanlage eröffnet. Produziert 50 Liter pro Tag. Bis 2030 werden die Fluggesellschaften 6% grünes Kerosin verwenden.',
+    'blog.article.cherosene-sintetico-svizzera-aviazione.imageAlt': 'Modernes Schweizer Forschungslabor mit erneuerbaren Energietechnologien und nachhaltigen Treibstofftechnologien.',
 };
 
 export default blogMetaChDe;
