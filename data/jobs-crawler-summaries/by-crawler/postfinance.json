@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-22T21:25:42.671Z",
-  "total": 19,
+  "generatedAt": "2026-08-23T09:39:49.649Z",
+  "total": 18,
   "newCount": 0,
-  "updatedCount": 19,
+  "updatedCount": 18,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 31327,
-  "avgDurationMs": 31327,
+  "durationMs": 32821,
+  "avgDurationMs": 32821,
   "durationHistory": [
-    31327
+    32821
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -697,52 +697,6 @@
       }
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
-      "title": "Senior Portfolio Business Analyst Data & AI (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "senior-portfolio-business-analyst-data-ai-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "07.08.26",
-      "validThrough": "21.08.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-8e82c9e6cd4e",
-      "firstSeenAt": "2026-08-08T09:48:27.767Z",
-      "crawledAt": "",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
       "title": "Kundenbetreuer:in Customer Center",
@@ -786,39 +740,39 @@
   ],
   "removedJobs": [
     {
-      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
-      "title": "Fachspezialist:in Fondsmanagement",
+      "url": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
+      "title": "Senior Portfolio Business Analyst Data & AI (w/m/d)",
       "company": "PostFinance",
       "companyKey": "postfinance",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "specialista-in-gestione-del-fondo-postfinance-bern",
+      "slug": "senior-portfolio-business-analyst-data-ai-w-m-d-postfinance",
       "sourceLang": "de",
       "department": [
-        "Büro-Finanzen und Revision"
+        "Informatik und Digital Services"
       ],
       "category": [
-        "Büro-Finanzen und Revision"
+        "Informatik und Digital Services"
       ],
-      "datePosted": "03.08.26",
-      "validThrough": "02.09.26",
+      "datePosted": "07.08.26",
+      "validThrough": "21.08.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Servizi Finanziari",
+      "sector": "IT",
       "workload": "80-100%",
       "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
-      "id": "postfinance-d61f5a277b5f",
-      "firstSeenAt": "2026-08-03T22:14:08.925Z",
+      "id": "postfinance-8e82c9e6cd4e",
+      "firstSeenAt": "2026-08-08T09:48:27.767Z",
       "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "currency": "CHF",
       "addressLocality": "Bern",
       "addressRegion": "BE",
