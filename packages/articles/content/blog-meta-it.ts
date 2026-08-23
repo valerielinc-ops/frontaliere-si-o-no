@@ -10566,6 +10566,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-casnate-bernate-frontaliere-ticino.title': 'Vivere a Casnate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-casnate-bernate-frontaliere-ticino.excerpt': 'Casnate con Bernate offre una posizione strategica per chi lavora in Ticino. Scopri vantaggi fiscali, procedura permesso G, costo della vita e pianificazione pensionistica.',
     'blog.article.vivere-casnate-bernate-frontaliere-ticino.imageAlt': 'Vista sul confine italo-svizzero con paesaggio alpino e il Lago di Lugano sullo sfondo, rappresenta la vita del frontaliere tra Lombardia e Ticino',
+    'blog.article.bollettino-frontaliere-2026-08-23.title': 'Bollettino del frontaliere – 23 agosto 2026: 568 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-23.excerpt': 'I numeri di oggi, 23 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-23.imageAlt': 'I numeri del giorno per i frontalieri – 23 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-23.seoDescription': 'Bollettino frontalieri del 23 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-23.ogDescription': 'I numeri del 23 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

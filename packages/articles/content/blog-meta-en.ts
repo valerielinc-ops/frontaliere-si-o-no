@@ -10565,6 +10565,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-casnate-bernate-frontaliere-ticino.title': 'Living in Casnate and working in Ticino as a border worker',
     'blog.article.vivere-casnate-bernate-frontaliere-ticino.excerpt': 'Casnate con Bernate offers a strategic location for those who work in Ticino. Find out about tax advantages, G permit procedure, cost of living and pension planning.',
     'blog.article.vivere-casnate-bernate-frontaliere-ticino.imageAlt': 'View of the Italian-Swiss border with Alpine landscape and Lake Lugano in the background, representing cross-border life between Lombardy and Ticino',
+    'blog.article.bollettino-frontaliere-2026-08-23.title': 'Cross-border daily brief – August 23, 2026: 568 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-23.excerpt': 'Today\'s numbers, August 23, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-23.imageAlt': 'The day\'s numbers for cross-border commuters – August 23, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-23.seoDescription': 'Cross-border brief, August 23, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-23.ogDescription': 'The numbers for August 23, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
