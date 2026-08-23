@@ -10623,6 +10623,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Changement d\'employeur pour frontaliers : permis G et continuité 2026',
     'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Changement d\'employeur pour frontaliers : renouvellement du permis G, continuité AVS/LPP, taxe à la source et documents essentiels à moins de 20 km de la frontière.',
     'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Travailleur frontalier au guichet avec documents de permis',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Guide de changement d\'employeur pour les frontaliers : préavis et permis G',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Connaître les étapes du changement d\'employeur pour les frontaliers : préavis, renouvellement du permis G, continuité des cotisations et documents à mettre à jour.',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Deux personnes dans une file à la frontière entre la Suisse et l\'Italie',
 };
 
 export default blogMetaFr;
