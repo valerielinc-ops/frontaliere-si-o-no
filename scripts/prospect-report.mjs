@@ -77,6 +77,21 @@ const next = [
 ].sort((a, b) => b.gain - a.gain).slice(0, 8);
 for (const n of next) out.push(md ? `- ${n.what} → ~${n.gain} datori` : `    ${n.what.padEnd(34)} ~${n.gain} datori`);
 
+// Una PR di promozione ferma non e' un dettaglio di processo: finche' resta
+// aperta il loop non ne apre altre — deliberatamente, perche' due si
+// bloccherebbero a vicenda — quindi la PIPELINE E' FERMA e questo report e'
+// l'unico posto dove si vede.
+const promoting = all.filter((c) => c.status === 'promoting');
+if (promoting.length) {
+  const prs = [...new Set(promoting.map((c) => c.promotionPr).filter(Boolean))];
+  out.push(h('Promozione in volo'));
+  out.push(row('candidati in attesa di merge', promoting.length));
+  out.push(row('PR', prs.map((n) => `#${n}`).join(', ') || '—'));
+  out.push(md
+    ? '\n> Finche\' una PR di promozione resta aperta il loop non ne apre altre: due rigenererebbero gli stessi gruppi di workflow e si bloccherebbero a vicenda.'
+    : '  (finche\' resta aperta, il loop non promuove nessun altro)');
+}
+
 out.push(h('Dove il loop NON arriva'));
 const deadReasons = {};
 for (const c of all.filter((c) => c.status === 'dead')) deadReasons[c.reason || '?'] = (deadReasons[c.reason || '?'] || 0) + 1;

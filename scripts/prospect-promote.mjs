@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
-import { selectForPromotion, clampMinDays, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
+import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
@@ -112,6 +112,39 @@ function reconcileOpenPromotions(store) {
   return { landed, reopened };
 }
 
+/**
+ * C'e' gia' una PR di promozione aperta?
+ *
+ * Ogni promozione rigenera TUTTI i 22 `crawler-group-*.yml`, perche' aggiungere
+ * un crawler ribilancia i gruppi. Due PR aperte insieme toccano quindi le stesse
+ * 22 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
+ * piu' — misurato su #6292 e #6297, 25 file in comune, entrambe bloccate.
+ *
+ * Il loop gira ogni notte, quindi senza una serializzazione esplicita il caso e'
+ * la norma e non l'eccezione: basta che una PR non mergi entro 24 ore perche' la
+ * successiva la blocchi, e da li' in poi non mergia piu' niente.
+ *
+ * Non si accoda alla PR esistente: quella e' gia' stata revisionata, e
+ * aggiungerci commit invaliderebbe il `## LGTM` che le serve per mergiare da
+ * sola. Saltare e' anche auto-riparante — i candidati restano `promoted`,
+ * quindi il giro dopo il merge li riprende senza che nessuno faccia niente.
+ *
+ * @returns {{ number: string, createdAt: string, title: string }|null}
+ */
+function openPromotionPr() {
+  try {
+    const out = execFileSync('gh', [
+      'pr', 'list', '--state', 'open', '--limit', '20',
+      '--json', 'number,createdAt,title,headRefName',
+    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    return findOpenPromotionPr(JSON.parse(out));
+  } catch {
+    // `gh` assente o non autorizzato: non si puo' sapere. Meglio NON promuovere
+    // che aprire una seconda PR alla cieca e bloccarle entrambe.
+    return { number: '?', createdAt: '', title: 'stato non verificabile' };
+  }
+}
+
 const reconciled = reconcileOpenPromotions(store);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
@@ -122,6 +155,23 @@ const { promotable, blocked, capped } = selectForPromotion(
   { existingKeys: coverage.keys },
   { maxPerRun, minDistinctDays: minDays, minRuns: Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays)) },
 );
+
+const inFlight = openPromotionPr();
+if (inFlight) {
+  const ageH = inFlight.createdAt
+    ? Math.round((Date.now() - Date.parse(inFlight.createdAt)) / 3600000)
+    : null;
+  console.log('═══ Prospector · PROMOTE ═══');
+  console.log(`\nUna PR di promozione e' gia' aperta: #${inFlight.number}${ageH !== null ? ` (da ${ageH}h)` : ''}`);
+  console.log(`  ${inFlight.title}`);
+  console.log('\nNon ne apro una seconda: ogni promozione rigenera tutti i gruppi di');
+  console.log('workflow, quindi due PR aperte si bloccherebbero a vicenda sugli stessi file.');
+  console.log('I candidati restano in coda e il giro dopo il merge li riprende da solo.');
+  if (ageH !== null && ageH > 48) {
+    console.log(`\n⚠️  Quella PR e' ferma da ${ageH}h: finche' non mergia, il loop non promuove piu' nessuno.`);
+  }
+  process.exit(0);
+}
 
 console.log('═══ Prospector · PROMOTE ═══');
 console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
