@@ -142,13 +142,18 @@ function reconcileOpenPromotions(store) {
  * mimetizzava da comportamento normale invece di segnalarsi come guasto
  * separato (follow-up #6305 item 2).
  *
+ * `author` nel campo `--json` alimenta il controllo owner in
+ * `findOpenPromotionPr`: senza, un branch aperto a mano con lo stesso
+ * prefisso `prospector/promote-` (es. un test manuale) bloccherebbe il loop
+ * indefinitamente, scambiato per una promozione reale (follow-up #6305 item 3).
+ *
  * @returns {{ number: string, createdAt: string, title: string, ghUnavailable?: boolean }|null}
  */
 function openPromotionPr() {
   try {
     const out = execFileSync('gh', [
       'pr', 'list', '--state', 'open', '--search', 'sort:created-desc', '--limit', '300',
-      '--json', 'number,createdAt,title,headRefName',
+      '--json', 'number,createdAt,title,headRefName,author',
     ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
     return findOpenPromotionPr(JSON.parse(out));
   } catch {
