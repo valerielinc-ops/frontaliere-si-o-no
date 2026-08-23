@@ -3940,6 +3940,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Ouvrir une activité Nidwald : formes juridiques et inscription',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Entreprise individuelle, société, registre du commerce cantonal et obligations AVS : guide pratique pour indépendants et entrepreneurs en Suisse.',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Vue de Bellinzona, capitale du Tessin, symbole de l\'administration cantonale suisse et de l\'ouverture d\'une activité.',
+    'blog.article.aprire-impresa-nidvaldo-costi.title': 'Ouvrir une entreprise Nidwald : coûts',
+    'blog.article.aprire-impresa-nidvaldo-costi.excerpt': 'Comment ouvrir une entreprise dans le canton de Nidwald : formes juridiques, inscription au registre du commerce, impôts et obligations de sécurité sociale.',
+    'blog.article.aprire-impresa-nidvaldo-costi.imageAlt': 'Bureau moderne suisse avec documents commerciaux et ordinateur pour créer une entreprise',
 };
 
 export default blogMetaChFr;

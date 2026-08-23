@@ -3940,6 +3940,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Aprire attività Nidvaldo: forme giuridiche e iscrizione',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Ditta individuale, società, registrazione commercio cantonale e obblighi AVS: guida pratica per autonomi e imprenditori in Svizzera.',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Panorama di Bellinzona, capoluogo ticinese, simbolo di amministrazione cantonale svizzera e apertura attività.',
+    'blog.article.aprire-impresa-nidvaldo-costi.title': 'Aprire impresa Nidvaldo: costi',
+    'blog.article.aprire-impresa-nidvaldo-costi.excerpt': 'Come aprire un\'attività nel Cantone di Nidvaldo: forme giuridiche, iscrizione al registro di commercio, imposte e obblighi previdenziali.',
+    'blog.article.aprire-impresa-nidvaldo-costi.imageAlt': 'Ufficio moderno in Svizzera con documenti e computer per aprire un\'impresa',
 };
 
 export default blogMetaChIt;
