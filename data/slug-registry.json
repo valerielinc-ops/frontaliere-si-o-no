@@ -468543,7 +468543,10 @@
   "url|https://apply.refline.ch/116352/1252/pub/2/index.html": {
     "canonicalSlug": "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
     "slugByLocale": {
-      "de": "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
+      "de": "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+      "it": "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen",
+      "en": "barista-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich-flughafen",
+      "fr": "barista-100-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich-flughafen"
     },
     "createdAt": "2026-08-07",
     "canton": "ZH"
@@ -552900,7 +552903,8 @@
     "slugByLocale": {
       "it": "claims-data-analista-zurich-insurance-sede-ticino-lugano-nyk162",
       "en": "claims-data-analyst-zurich-insurance-sede-ticino-lugano-nyk162",
-      "fr": "claims-data-analyste-zurich-insurance-sede-ticino-lugano-nyk162"
+      "fr": "claims-data-analyste-zurich-insurance-sede-ticino-lugano-nyk162",
+      "de": "angaben-datenanalytiker-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-08-22",
     "canton": "TI"
@@ -553332,7 +553336,10 @@
   "id|coopjobs.ch|d6530b13-9239-4fe1-b9f7-4ea3379d606b": {
     "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-domat-ems-graubunden",
     "slugByLocale": {
-      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-domat-ems-graubunden-nti7i8"
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-domat-ems-graubunden-nti7i8",
+      "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-domat-ems",
+      "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-domat-ems",
+      "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-domat-ems"
     },
     "createdAt": "2026-08-23",
     "canton": "GR"
@@ -553340,7 +553347,10 @@
   "id|coopjobs.ch|10de7f74-89f1-4274-b765-52eb28e7c637": {
     "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-herrliberg-zurich",
     "slugByLocale": {
-      "de": "rayonleiter-in-grundnahrungsmittel-coop-herrliberg-zurich-u963el"
+      "de": "rayonleiter-in-grundnahrungsmittel-coop-herrliberg-zurich-u963el",
+      "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-herrliberg",
+      "en": "rayon-conductor-in-staple-food-coop-genossenschaft-herrliberg",
+      "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-herrliberg"
     },
     "createdAt": "2026-08-23",
     "canton": "ZH"
@@ -553348,7 +553358,10 @@
   "id|coopjobs.ch|484ccca3-4f0c-40fe-926a-c7dc0ea1a427": {
     "canonicalSlug": "rayonleiter-in-grundnahrungsmittel-coop-egg-zurich",
     "slugByLocale": {
-      "de": "rayonleiter-in-grundnahrungsmittel-coop-egg-zurich-74b0dw"
+      "de": "rayonleiter-in-grundnahrungsmittel-coop-egg-zurich-74b0dw",
+      "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-egg",
+      "en": "rayon-conductor-in-staple-food-coop-genossenschaft-egg",
+      "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-egg"
     },
     "createdAt": "2026-08-23",
     "canton": "ZH"
@@ -553356,7 +553369,10 @@
   "id|coopjobs.ch|97ec8921-1ae5-4552-9d99-c4e66d13dbc6": {
     "canonicalSlug": "verkaufer-in-food-coop-zurich",
     "slugByLocale": {
-      "de": "verkaufer-in-food-coop-zurich-7eez6n"
+      "de": "verkaufer-in-food-coop-zurich-7eez6n",
+      "it": "venditore-in-food-coop-genossenschaft-zurich-8bf03e",
+      "en": "seller-in-food-coop-genossenschaft-zurich-8bf03e",
+      "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-8bf03e"
     },
     "createdAt": "2026-08-23",
     "canton": "ZH"
@@ -553397,7 +553413,8 @@
   "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/508772": {
     "canonicalSlug": "technical-sales-support-professional-80-100-siemens-ostermundigen",
     "slugByLocale": {
-      "de": "technical-sales-support-professional-80-100-siemens-ostermundigen"
+      "de": "technical-sales-support-professional-80-100-siemens-ostermundigen",
+      "it": "supporto-tecnico-commerciale-professional-80-100-siemens-ostermundigen"
     },
     "createdAt": "2026-08-23",
     "canton": "BE"
@@ -553405,9 +553422,73 @@
   "id|post.ch|73958-de_de": {
     "canonicalSlug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
     "slugByLocale": {
-      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-49f1ea",
+      "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-wattwil",
+      "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-49f1ea"
     },
     "createdAt": "2026-08-23",
     "canton": "SG"
+  },
+  "url|https://apply.refline.ch/116352/1255/pub/1/index.html": {
+    "canonicalSlug": "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
+    "slugByLocale": {
+      "it": "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
+      "en": "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
+      "de": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+      "fr": "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon"
+    },
+    "createdAt": "2026-08-23",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/116352/1234/pub/9/index.html": {
+    "canonicalSlug": "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon",
+    "slugByLocale": {
+      "it": "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon",
+      "en": "temporary-employees-production-100-confiserie-sprungli-ag-dietikon",
+      "de": "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
+      "fr": "production-d-employes-temporaires-100-confiserie-sprungli-ag-dietikon"
+    },
+    "createdAt": "2026-08-23",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/116352/1253/pub/2/index.html": {
+    "canonicalSlug": "demand-planner-process-automation-specialista-100-confiserie-sprungli-ag-zurich",
+    "slugByLocale": {
+      "it": "demand-planner-process-automation-specialista-100-confiserie-sprungli-ag-zurich",
+      "de": "demand-planner-process-automation-specialist-100-spruengli-zurich",
+      "fr": "demand-planner-process-automation-specialiste-100-confiserie-sprungli-ag-zurich"
+    },
+    "createdAt": "2026-08-23",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/116352/1246/pub/5/index.html": {
+    "canonicalSlug": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909",
+    "slugByLocale": {
+      "it": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909",
+      "de": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
+    },
+    "createdAt": "2026-08-23",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/116352/1223/pub/17/index.html": {
+    "canonicalSlug": "chef-de-partie-100-spruengli-zurich",
+    "slugByLocale": {
+      "de": "chef-de-partie-100-spruengli-zurich",
+      "fr": "chef-de-partie-100-confiserie-sprungli-ag-zurich"
+    },
+    "createdAt": "2026-08-23",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/116352/1039/pub/68/index.html": {
+    "canonicalSlug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich",
+    "slugByLocale": {
+      "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich",
+      "en": "apprenticeship-retail-specialist-efz-zurich-basel-and-wallisellen-for-2027-confiserie-sprungli-ag-zurich",
+      "de": "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
+      "fr": "apprentissage-specialiste-du-commerce-de-detail-efz-zurich-bale-et-wallisellen-pour-2027-confiserie-sprungli-ag-zurich"
+    },
+    "createdAt": "2026-08-23",
+    "canton": "ZH"
   }
 }

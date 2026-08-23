@@ -1,6 +1,6 @@
 {
   "crawlerKey": "new-yorker",
-  "assembledAt": "2026-08-23T09:49:26.526Z",
+  "assembledAt": "2026-08-23T08:42:13.247Z",
   "jobs": [
     {
       "id": "new-yorker-27748",
@@ -1922,12 +1922,65 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-lyssach",
-        "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach"
+        "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach",
+        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon",
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon",
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
+        "mitarbeiter-m-w-d-im-vente-80-new-yorker-ebikon",
+        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-ebikon",
+        "mitarbeiter-m-w-d-im-sales-60-new-yorker-ebikon",
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-ebikon",
+        "mitarbeiter-m-w-d-im-vente-60-new-yorker-ebikon",
+        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-sales-50-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-vente-50-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-interlaken",
+        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-lyssach",
-          "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach"
+          "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach",
+          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-vente-80-new-yorker-ebikon",
+          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-sales-60-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-vente-60-new-yorker-ebikon",
+          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-sales-50-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-vente-50-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-interlaken",
+          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-sales-60-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-sales-50-new-yorker-interlaken"
+        ],
+        "de": [
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
+        ],
+        "fr": [
+          "mitarbeiter-m-w-d-im-vente-80-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-vente-60-new-yorker-ebikon",
+          "mitarbeiter-m-w-d-im-vente-50-new-yorker-interlaken"
         ]
       },
       "needsRetranslation": true,
