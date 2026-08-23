@@ -10608,6 +10608,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Arbeitsmarkt Tessin: Grenzgängerhandbuch',
     'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Sie suchen eine Anstellung im Tessin als Grenzgänger? Entdecken Sie die Steuervorteile, die Verfahren für die G-Bewilligung und wie Sie sich auf dem Tessiner Arbeitsmarkt orientieren können.',
     'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Fachkraft in Luganos Geschäftsviertel, wirtschaftliches Zentrum des Tessins',
+    'blog.article.frontaliere-tasse-single-2026.title': 'Grenzgängerbesteuerung 2026: Praxisleitfaden für Singles',
+    'blog.article.frontaliere-tasse-single-2026.excerpt': 'Neues Abkommen 2024, Quellensteuer, Selbstbehalte € 7.500- € 10.000, AHV/BVG, KVG: Alles, was Sie über die Besteuerung eines alleinstehenden Grenzgängers wissen müssen.',
+    'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Blick auf den Luganer See mit Schweizer-italienischen Grenzbergen, Symbol der Tessiner Grenzregion.',
 };
 
 export default blogMetaDe;

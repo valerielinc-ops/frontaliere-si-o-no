@@ -76277,6 +76277,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-tasse-single-2026': {
+    title: 'Tassazione frontalieri 2026: guida pratica per single',
+    description: 'Nuovo accordo 2024, imposta alla fonte Svizzera, franchigie €7.500–€10.000, AVS/LPP, LAMal: guida fiscale completa per frontalieri single Italia-Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, pratica, single, nuovo',
+    ogTitle: 'Tassazione frontalieri 2026: guida per single',
+    ogDescription: 'Scopri come funziona la tassazione per frontalieri single nel 2026: imposta alla fonte, franchigie, credito d\'imposta, contributi AVS/LPP e diritti LAMal. Guida pratica con checklist operativa e FAQ.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tasse-single-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassazione frontalieri 2026: guida pratica per single",
+      "description": "Nuovo accordo 2024, imposta alla fonte Svizzera, franchigie €7.500–€10.000, AVS/LPP, LAMal: guida fiscale completa per frontalieri single Italia-Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-tasse-single-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago Lugano con le montagne della frontiera svizzero-italiana, simbolo della regione transfrontaliera ticinese."
+      },
+      "datePublished": "2026-08-23T16:14:41+00:00",
+      "dateModified": "2026-08-23T16:14:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tasse-single-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

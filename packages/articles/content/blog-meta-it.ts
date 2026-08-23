@@ -10610,6 +10610,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Mercato del lavoro Ticino: manuale frontaliere',
     'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Cercate impiego in Ticino da frontaliere? Scoprite i vantaggi fiscali, le procedure per il permesso G e come orientarvi nel mercato del lavoro ticinese.',
     'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Professionista in Lugano, distretto economico ticinese, con uffici e lago sullo sfondo',
+    'blog.article.frontaliere-tasse-single-2026.title': 'Tassazione frontalieri 2026: guida pratica per single',
+    'blog.article.frontaliere-tasse-single-2026.excerpt': 'Nuovo accordo 2024, imposta alla fonte, franchigie €7.500–€10.000, AVS/LPP, LAMal: tutto ciò che serve sapere sulla tassazione di un frontaliere single.',
+    'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Veduta del Lago Lugano con le montagne della frontiera svizzero-italiana, simbolo della regione transfrontaliera ticinese.',
 };
 
 export default blogMetaIt;
