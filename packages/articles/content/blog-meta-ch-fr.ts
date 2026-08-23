@@ -3928,6 +3928,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo.title': 'Permis B Nidwald : guide des exigences et renouvellement',
     'blog.article.permesso-b-nidvaldo.excerpt': 'Permis de séjour B dans le canton de Nidwald : comment le demander, quels sont les documents nécessaires, la durée et la procédure de renouvellement avec les contacts du service des migrations.',
     'blog.article.permesso-b-nidvaldo.imageAlt': 'Formulaires de demande de permis de séjour à un bureau administratif suisse',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Acheter une maison à Nidwald : hypothèque et taxes',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Nidwald : exigences hypothécaires, calcul de la durabilité, taxes de passage et frais de notaire.',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Maison suisse moderne dans un cadre alpin; achat immobilier et financement hypothécaire dans le canton de Nidwald',
 };
 
 export default blogMetaChFr;

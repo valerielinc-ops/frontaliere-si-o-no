@@ -3928,6 +3928,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo.title': 'Permit B Nidvaldo: guide to requirements and renewal',
     'blog.article.permesso-b-nidvaldo.excerpt': 'Residence permit B in Canton Nidvaldo: how to request it, what documents are needed, duration and renewal procedure with migration office contacts.',
     'blog.article.permesso-b-nidvaldo.imageAlt': 'Residence permit application forms at Swiss administrative office',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Buying a house in Nidvaldo: mortgage and taxes',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Practical guide to buying real estate in the Canton of Nidvaldo: mortgage loan requirements, calculation of sustainability, transfer taxes and notary fees.',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Modern Swiss home in alpine setting; real estate purchase and mortgage financing in Nidwald canton',
 };
 
 export default blogMetaChEn;

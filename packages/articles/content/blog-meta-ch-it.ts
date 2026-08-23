@@ -3928,6 +3928,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo.title': 'Permesso B Nidvaldo: guida a requisiti e rinnovo',
     'blog.article.permesso-b-nidvaldo.excerpt': 'Permesso di dimora B nel Canton Nidvaldo: come richiederlo, quali documenti servono, durata e procedura di rinnovo con contatti ufficio migrazione.',
     'blog.article.permesso-b-nidvaldo.imageAlt': 'Moduli di richiesta per permesso di soggiorno presso ufficio amministrativo svizzero',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Comprare casa nel Nidvaldo: mutuo e tasse',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Guida pratica all\'acquisto immobiliare nel Cantone di Nidvaldo: requisiti mutuo ipotecario, calcolo della sostenibilità, imposte sui trapassi e spese notarili.',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Casa moderna in Svizzera con paesaggio alpino; tema acquisto immobiliare e mutui ipotecari nel Cantone di Nidvaldo',
 };
 
 export default blogMetaChIt;

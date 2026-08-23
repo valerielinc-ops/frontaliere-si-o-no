@@ -3928,6 +3928,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo.title': 'Führerschein B Nidwalden: Anforderungs- und Verlängerungsleitfaden',
     'blog.article.permesso-b-nidvaldo.excerpt': 'Aufenthaltsbewilligung B im Kanton Nidwalden: Wie beantragt man sie, welche Dokumente benötigt werden, Dauer und Erneuerungsverfahren mit Kontakten der Migrationsstelle.',
     'blog.article.permesso-b-nidvaldo.imageAlt': 'Antragsformulare für Aufenthaltsbewilligung bei Schweizer Behörde',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Haus kaufen im Nidwalden: Hypothek und Steuern',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Praktischer Leitfaden zum Immobilienkauf im Kanton Nidwalden: Hypothekardarlehensanforderungen, Tragbarkeitsberechnung, Ablösesummen und Notarkosten.',
+    'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Modernes Schweizer Haus in Alpenszenerie; Immobilienkauf und Hypothekenfinanzierung im Kanton Nidwalden',
 };
 
 export default blogMetaChDe;
