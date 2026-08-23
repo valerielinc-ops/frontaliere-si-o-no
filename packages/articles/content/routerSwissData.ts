@@ -1341,6 +1341,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-nidvaldo-registro-commercio': { it: 'aprire-attivita-nidvaldo-registro-commercio', en: 'opening-business-nidvaldo-commerce-registration', de: 'geschaft-eroffnung-nidvaldo-register', fr: 'ouvrir-activite-nidvaldo-registre-commerce' },
  'aprire-impresa-nidvaldo-costi': { it: 'aprire-impresa-nidvaldo-costi', en: 'start-business-nidvaldo-costs', de: 'geschaft-eroffnen-nidvaldo-kosten', fr: 'creer-entreprise-nidvaldo-frais' },
  'costituire-impresa-cantone-nidvaldo': { it: 'costituire-impresa-cantone-nidvaldo', en: 'establish-company-canton-nidvaldo', de: 'unternehmung-eroffnen-kanton-nidvaldo', fr: 'creer-entreprise-canton-nidvaldo' },
+ 'nidvaldo-impresa-costi-iscrizione-registro': { it: 'nidvaldo-impresa-costi-iscrizione-registro', en: 'nidvaldo-company-registration-costs-guide', de: 'nidvaldo-unternehmensregistrierung-kosten-leitfaden', fr: 'nidvaldo-enregistrement-entreprise-couts-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

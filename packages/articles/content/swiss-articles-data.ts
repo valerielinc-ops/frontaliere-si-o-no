@@ -11836,6 +11836,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nidvaldo-impresa-costi-iscrizione-registro',
+    category: 'pratico',
+    date: '2026-08-23T12:25:10.107Z',
+    image: '/images/blog/nidvaldo-impresa-costi-iscrizione-registro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

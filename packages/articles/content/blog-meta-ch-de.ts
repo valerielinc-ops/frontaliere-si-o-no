@@ -3946,6 +3946,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costituire-impresa-cantone-nidvaldo.title': 'Ein Geschäft im Kanton Nidwalden eröffnen: Ablauf und Kosten',
     'blog.article.costituire-impresa-cantone-nidvaldo.excerpt': 'So gründen Sie ein Unternehmen in Nidwalden: Rechtsformen, Handelsregistereintrag, dreistufiges Steuersystem sowie Versicherungs- und Vorsorgepflichten.',
     'blog.article.costituire-impresa-cantone-nidvaldo.imageAlt': 'Schweizer Kantonsadministration für Handelsregisteranmeldung und Unternehmensregistrierung',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Ein Geschäft in Nidwalden eröffnen: Kosten und Ablauf',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Vollständiger Leitfaden zur Unternehmensgründung im Kanton Nidwalden: Rechtsformen, Handelsregister, Kosten und Vorsorgepflichten.',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Unternehmensregistrierungsdokumente auf Büroschalter mit Schweizer Berglandschaft im Hintergrund.',
 };
 
 export default blogMetaChDe;
