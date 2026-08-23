@@ -463,10 +463,17 @@ describe('promotion gate', () => {
     // base: conflitto garantito e nessuna delle due mergia piu'. Misurato su
     // #6292 e #6297, 25 file in comune, entrambe bloccate.
     const rows = [
-      { number: 6300, headRefName: 'fix/issue-1', title: 'altro' },
-      { number: 6297, headRefName: 'prospector/promote-2026-08-23', createdAt: '2026-08-23T04:39:39Z', title: 'promuove 10' },
+      { number: 6300, headRefName: 'fix/issue-1', title: 'altro', author: { login: 'valerielinc-ops' } },
+      {
+        number: 6297, headRefName: 'prospector/promote-2026-08-23', createdAt: '2026-08-23T04:39:39Z', title: 'promuove 10',
+        author: { login: 'app/frontaliere-automation' },
+      },
     ];
     expect(findOpenPromotionPr(rows)?.number).toBe('6297');
+    // La REST API grezza spelle lo stesso autore diversamente da `gh pr list --json`.
+    expect(findOpenPromotionPr([
+      { number: 6298, headRefName: 'prospector/promote-2026-08-24', title: 'promuove 3', author: { login: 'frontaliere-automation[bot]' } },
+    ])?.number).toBe('6298');
   });
 
   it('non scambia una PR qualsiasi per una promozione', () => {
@@ -474,6 +481,15 @@ describe('promotion gate', () => {
     expect(findOpenPromotionPr([])).toBeNull();
     // Un branch che CONTIENE il prefisso ma non ci comincia non conta.
     expect(findOpenPromotionPr([{ number: 2, headRefName: 'wip/prospector/promote-x' }])).toBeNull();
+  });
+
+  it('ignora un branch con lo stesso prefisso ma aperto da qualcun altro', () => {
+    // Un test manuale con lo stesso prefisso non deve bloccare il loop
+    // indefinitamente, scambiato per una promozione reale (#6305 item 3).
+    const rows = [
+      { number: 6301, headRefName: 'prospector/promote-manual-test', title: 'test a mano', author: { login: 'valerielinc-ops' } },
+    ];
+    expect(findOpenPromotionPr(rows)).toBeNull();
   });
 
   it('caps how many ship in one run and reports the overflow', () => {
