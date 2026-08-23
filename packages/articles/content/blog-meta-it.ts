@@ -10551,6 +10551,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio: frontaliere Ticino tra fisco e vantaggi',
     'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Vivere a Carate Urio e lavorare in Ticino: Nuovo Accordo 2024, franchigie €7.500–€10.000, AVS, LPP, LAMal e procedura Permesso G.',
     'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'Vista del lago Ceresio da Carate Urio, con le Alpi ticinesi sullo sfondo, fotografato al mattino',
+    'blog.article.vivere-torno-lavorare-ticino.title': 'Vivere a Torno e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Torno come residenza e lavora nel Canton Ticino, tra norme fiscali, accordi e gestione del pendolarismo quotidiano.',
+    'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;

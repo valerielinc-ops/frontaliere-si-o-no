@@ -10550,6 +10550,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio: Ticino border between tax and benefits',
     'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Living in Carate Urio and working in Ticino: New Agreement 2024, deductibles €7,500-€10,000, AVS, LPP, LAMal and G Permit procedure.',
     'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'View of Lake Ceresio from Carate Urio village, with Swiss Alps visible across the Ticino border',
+    'blog.article.vivere-torno-lavorare-ticino.title': 'Living in Torno and working in Ticino as a border worker',
+    'blog.article.vivere-torno-lavorare-ticino.excerpt': 'Practical guide for those who choose Torno as a residence and work in the Canton of Ticino, including tax rules, agreements and management of daily commuting.',
+    'blog.article.vivere-torno-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano near the Italian-Swiss border',
 };
 
 export default blogMetaEn;
