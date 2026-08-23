@@ -1,14 +1,14 @@
 {
   "crawlerKey": "recruitingapp-2649",
-  "assembledAt": "2026-08-23T09:41:35.440Z",
+  "assembledAt": "2026-08-23T21:47:53.169Z",
   "jobs": [
     {
       "id": "recruitingapp-2649-7fa09a2659b2",
       "slug": "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-alexander-von-humboldt-stiftung-stellen-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
         "it": "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-alexander-von-humboldt-stiftung-stellen-lugano",
         "en": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
+        "de": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
         "fr": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im"
       },
       "company": "Alexander von Humboldt-Stiftung Stellen",
@@ -16,16 +16,16 @@
       "companyDomain": "recruitingapp-2649.umantis.com",
       "title": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle",
       "titleByLocale": {
-        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle",
         "it": "Sachbearbeiter (m/w/d) per la finanzwirtschaftliche Programm- e Zuwendungsbetreuung im Referat Finanzen, Reisestelle",
         "en": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle",
+        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle",
         "fr": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle"
       },
       "description": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle — Alexander von Humboldt-Stiftung Stellen",
       "descriptionByLocale": {
-        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle — Alexander von Humboldt-Stiftung Stellen",
         "it": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle — Alexander von Humboldt-Stiftung Stellen",
         "en": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle — Alexander von Humboldt-Stiftung Stellen",
+        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle — Alexander von Humboldt-Stiftung Stellen",
         "fr": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle — Alexander von Humboldt-Stiftung Stellen"
       },
       "location": "Lugano",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:32.672Z",
+      "crawledAt": "2026-08-23T21:47:50.724Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,18 +47,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
+        "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-alexander-von-humboldt-stiftung-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im"
+          "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
+          "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-alexander-von-humboldt-stiftung-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:32.672Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -71,16 +72,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:41:32.672Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2649-0d8fe2e8a90c",
       "slug": "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
         "it": "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano",
         "en": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im-2",
+        "de": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
         "fr": "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im-2"
       },
       "company": "Alexander von Humboldt-Stiftung Stellen",
@@ -88,16 +88,16 @@
       "companyDomain": "recruitingapp-2649.umantis.com",
       "title": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit",
       "titleByLocale": {
-        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit",
         "it": "Sachbearbeiter (m/w/d) per la finanzwirtschaftliche Programm- e Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit",
         "en": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit",
+        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit",
         "fr": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit"
       },
       "description": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit — Alexander von Humboldt-Stiftung Stellen",
       "descriptionByLocale": {
-        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit — Alexander von Humboldt-Stiftung Stellen",
         "it": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit — Alexander von Humboldt-Stiftung Stellen",
         "en": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit — Alexander von Humboldt-Stiftung Stellen",
+        "de": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit — Alexander von Humboldt-Stiftung Stellen",
         "fr": "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit — Alexander von Humboldt-Stiftung Stellen"
       },
       "location": "Lugano",
@@ -105,7 +105,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:32.370Z",
+      "crawledAt": "2026-08-23T21:47:50.421Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,20 +119,21 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im-2",
+        "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
+        "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im-2",
-          "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im"
+          "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im",
+          "sachbearbeiter-m-w-d-per-la-finanzwirtschaftliche-programm-e-zuwendungsbetreuung-im-referat-finanzen-reisestelle-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im-2",
-        "sachbearbeiter-m-w-d-fur-die-finanzwirtschaftliche-programm-und-zuwendungsbetreuung-im"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:32.370Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -145,16 +146,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:41:32.370Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2649-dfe8ae9234e0",
       "slug": "referent-m-w-d-per-marketing-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano",
       "slugByLocale": {
-        "de": "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch",
         "it": "referent-m-w-d-per-marketing-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano",
         "en": "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch",
+        "de": "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch",
         "fr": "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch"
       },
       "company": "Alexander von Humboldt-Stiftung Stellen",
@@ -162,9 +162,9 @@
       "companyDomain": "recruitingapp-2649.umantis.com",
       "title": "Referent (m/w/d) für Marketing in Teilzeit",
       "titleByLocale": {
-        "de": "Referent (m/w/d) für Marketing in Teilzeit",
         "it": "Referent (m/w/d) per Marketing in Teilzeit",
         "en": "Referent (m/w/d) für Marketing in Teilzeit",
+        "de": "Referent (m/w/d) für Marketing in Teilzeit",
         "fr": "Referent (m/w/d) für Marketing in Teilzeit"
       },
       "description": "Referent (m/w/d) für Marketing in Teilzeit — Alexander von Humboldt-Stiftung Stellen",
@@ -176,7 +176,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:32.064Z",
+      "crawledAt": "2026-08-23T21:47:50.117Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -190,18 +190,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch",
+        "referent-m-w-d-per-marketing-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch"
+          "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch",
+          "referent-m-w-d-per-marketing-in-teilzeit-alexander-von-humboldt-stiftung-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "referent-m-w-d-fur-marketing-in-teilzeit-recruitingapp-2649-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:32.064Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -214,16 +215,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:41:32.064Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2649-d7f8c5d92cba",
       "slug": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-alexander-von-humboldt-stiftung-stellen-lugano",
       "slugByLocale": {
-        "de": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch",
         "it": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-alexander-von-humboldt-stiftung-stellen-lugano",
         "en": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-alexander-von-humboldt-stiftung-stellen-lugano",
+        "de": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch",
         "fr": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-alexander-von-humboldt-stiftung-stellen-lugano"
       },
       "company": "Alexander von Humboldt-Stiftung Stellen",
@@ -231,9 +231,9 @@
       "companyDomain": "recruitingapp-2649.umantis.com",
       "title": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen",
       "titleByLocale": {
-        "de": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen",
         "it": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen",
         "en": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen",
+        "de": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen",
         "fr": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen"
       },
       "description": "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen — Alexander von Humboldt-Stiftung Stellen",
@@ -245,7 +245,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:31.734Z",
+      "crawledAt": "2026-08-23T21:47:49.792Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -259,18 +259,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch",
+        "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-alexander-von-humboldt-stiftung-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch"
+          "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch",
+          "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-alexander-von-humboldt-stiftung-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:31.734Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -283,8 +284,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:41:31.734Z"
+      "addressRegion": "TI"
     }
   ]
 }

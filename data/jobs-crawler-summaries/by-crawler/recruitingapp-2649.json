@@ -1,20 +1,21 @@
 {
   "key": "recruitingapp-2649",
   "label": "Alexander von Humboldt-Stiftung Stellen",
-  "generatedAt": "2026-08-23T09:41:35.441Z",
+  "generatedAt": "2026-08-23T21:47:53.170Z",
   "total": 4,
   "discovered": null,
   "written": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4735,
-  "avgDurationMs": 4735,
+  "durationMs": 4510,
+  "avgDurationMs": 4510,
   "durationHistory": [
-    4735
+    4510
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-2649-d7f8c5d92cba",
       "slug": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch",
@@ -27,7 +28,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:31.734Z",
+      "crawledAt": "2026-08-23T21:47:49.792Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:31.734Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:32.064Z",
+      "crawledAt": "2026-08-23T21:47:50.117Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:32.064Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:32.370Z",
+      "crawledAt": "2026-08-23T21:47:50.421Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,11 +111,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:32.370Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -126,7 +133,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:41:32.672Z",
+      "crawledAt": "2026-08-23T21:47:50.724Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,16 +146,17 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:41:32.672Z",
+      "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
