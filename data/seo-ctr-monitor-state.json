@@ -1,35 +1,35 @@
 {
   "families": {
     "articoli-frontaliere": {
-      "consecutiveBelowRuns": 7,
-      "lastCtr": 0.015580437308545473,
-      "lastPosition": 8.078535967043415,
+      "consecutiveBelowRuns": 0,
+      "lastCtr": null,
+      "lastPosition": null,
       "lastTargetCtr": 0.03,
-      "lastCheckedIso": "2026-08-16T16:32:46.457Z",
+      "lastCheckedIso": "2026-08-23T16:32:19.460Z",
       "lastError": null
     },
     "guida-frontaliere": {
-      "consecutiveBelowRuns": 7,
-      "lastCtr": 0.020265743635551586,
-      "lastPosition": 10.611936132201876,
+      "consecutiveBelowRuns": 0,
+      "lastCtr": null,
+      "lastPosition": null,
       "lastTargetCtr": 0.035,
-      "lastCheckedIso": "2026-08-16T16:32:46.457Z",
+      "lastCheckedIso": "2026-08-23T16:32:19.460Z",
       "lastError": null
     },
     "tasse-e-pensione": {
-      "consecutiveBelowRuns": 7,
-      "lastCtr": 0.01955458989679522,
-      "lastPosition": 7.358500814774579,
+      "consecutiveBelowRuns": 0,
+      "lastCtr": null,
+      "lastPosition": null,
       "lastTargetCtr": 0.03,
-      "lastCheckedIso": "2026-08-16T16:32:46.457Z",
+      "lastCheckedIso": "2026-08-23T16:32:19.460Z",
       "lastError": null
     },
     "cerca-lavoro-ticino": {
       "consecutiveBelowRuns": 0,
-      "lastCtr": 0.060015066543902235,
-      "lastPosition": 8.762618230518122,
-      "lastTargetCtr": 0.0532,
-      "lastCheckedIso": "2026-08-16T16:32:46.457Z",
+      "lastCtr": null,
+      "lastPosition": null,
+      "lastTargetCtr": 0.053,
+      "lastCheckedIso": "2026-08-23T16:32:19.460Z",
       "lastError": null
     }
   }
