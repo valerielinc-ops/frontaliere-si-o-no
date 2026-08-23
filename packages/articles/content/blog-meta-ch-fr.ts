@@ -3988,6 +3988,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Ouvrir une entreprise à Zoug : inscription et obligations',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Enregistrer des activités à Zoug : formes juridiques, inscription au registre du commerce, obligations de sécurité sociale (AVS/AI, LPP) et assurances. Guide fédéral et cantonal.',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Bureau d\'administration cantonale avec formulaires d\'inscription au registre du commerce sur un bureau en bois',
+    'blog.article.salari-mercato-zugo-settori.title': 'Salaires et marché du travail : le canton de Zoug',
+    'blog.article.salari-mercato-zugo-settori.excerpt': 'Niveaux de salaire pour la formation, les secteurs, les horaires maximums, les cotisations fédérales et les conventions collectives en vigueur dans le canton de Zoug.',
+    'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline d\'une ville suisse, symbole du marché du travail et des opportunités d\'emploi dans le canton de Zoug.',
 };
 
 export default blogMetaChFr;

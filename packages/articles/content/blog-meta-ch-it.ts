@@ -3988,6 +3988,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Aprire attività a Zugo: iscrizione e obblighi',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Iscrivere attività a Zugo: forme giuridiche, iscrizione registro commercio, obblighi previdenziali (AVS/AI, LPP) e assicurazioni. Guida federale e cantonale.',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Ufficio amministrazione cantonale con moduli d\'iscrizione al registro di commercio svizzero su scrivania in legno',
+    'blog.article.salari-mercato-zugo-settori.title': 'Salari e mercato del lavoro: il Canton Zugo',
+    'blog.article.salari-mercato-zugo-settori.excerpt': 'Livelli salariali per formazione, settori, orari massimi, contributi federali e contratti collettivi in vigore nel Canton Zugo.',
+    'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline di una città svizzera, simbolo di mercato del lavoro e opportunità occupazionali nel Canton Zugo.',
 };
 
 export default blogMetaChIt;
