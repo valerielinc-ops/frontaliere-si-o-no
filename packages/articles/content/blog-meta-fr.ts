@@ -10561,6 +10561,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.title': 'Vivre à Beregazzo avec Figliaro et travailler au Tessin en tant que frontalière',
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.excerpt': 'Les avantages et les inconvénients de vivre à Beregazzo avec Figliaro et de travailler au Tessin en tant que frontalière',
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.imageAlt': 'Un frontalier travaille en Suisse et réside à Beregazzo con Figliaro',
+    'blog.article.brienno-frontaliere-checklist.title': 'Brienno et Tessin : transfert de frontalier',
+    'blog.article.brienno-frontaliere-checklist.excerpt': 'Guide complet : vivre à Brienno et travailler au Tessin. Permis G, taxe à la source, restaurations EUR 10\'000, LAMal et AVS en 2024.',
+    'blog.article.brienno-frontaliere-checklist.imageAlt': 'Vue panoramique du lac de Côme depuis Brienno, paysage frontalier Suisse-Italie, Tessin en arrière-plan.',
 };
 
 export default blogMetaFr;

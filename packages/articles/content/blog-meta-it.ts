@@ -10560,6 +10560,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.title': 'Vivere a Beregazzo con Figliaro e lavorare in Ticino da frontaliere',
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.excerpt': 'I benefici e gli svantaggi di vivere a Beregazzo con Figliaro e lavorare in Ticino come frontaliere',
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.imageAlt': 'Un frontaliere lavora in Ticino e risiede a Beregazzo con Figliaro',
+    'blog.article.brienno-frontaliere-checklist.title': 'Brienno e Ticino: trasferimento da frontaliere',
+    'blog.article.brienno-frontaliere-checklist.excerpt': 'Guida completa: vivere a Brienno e lavorare in Ticino. Permesso G, imposta alla fonte, ristorni EUR 10\'000, LAMal e AVS nel 2024.',
+    'blog.article.brienno-frontaliere-checklist.imageAlt': 'Veduta panoramica del lago di Como da Brienno, con paesaggio al confine Svizzera-Italia e Ticino sullo sfondo.',
 };
 
 export default blogMetaIt;

@@ -31611,6 +31611,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'brienno-frontaliere-checklist',
+ category: 'pratico',
+ date: '2026-08-23T04:33:55.542Z',
+ image: '/images/blog/brienno-frontaliere-checklist.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

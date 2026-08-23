@@ -10558,6 +10558,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.title': 'Mit Sohn in Beregazzo leben und als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.excerpt': 'Die Vor- und Nachteile, mit Sohn in Beregazzo zu leben und im Tessin als Grenzgänger zu arbeiten',
     'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.imageAlt': 'Ein Frontalier arbeitet in Ticino und wohnt in Beregazzo con Figliaro',
+    'blog.article.brienno-frontaliere-checklist.title': 'Brienn und Tessin: Grenzübertritt',
+    'blog.article.brienno-frontaliere-checklist.excerpt': 'Vollständiger Leitfaden: Leben in Brienno und Arbeiten im Tessin. Bewilligung G, Quellensteuer, Erstattungen EUR 10\'000, KVG und AHV im Jahr 2024.',
+    'blog.article.brienno-frontaliere-checklist.imageAlt': 'Panoramablick auf den Comer See von Brienno, Schweiz-Italien Grenzlandschaft, Tessin im Hintergrund.',
 };
 
 export default blogMetaDe;
