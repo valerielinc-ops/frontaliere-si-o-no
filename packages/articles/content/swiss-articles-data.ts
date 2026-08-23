@@ -11638,6 +11638,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-svitto-registro-di-commercio',
+    category: 'pratico',
+    date: '2026-08-23T03:01:07.543Z',
+    image: '/images/blog/aprire-attivita-svitto-registro-di-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

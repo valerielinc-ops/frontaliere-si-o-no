@@ -1319,6 +1319,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'calcolo-rendita-avs-svitto': { it: 'calcolo-rendita-avs-svitto', en: 'calculate-avs-pension-schwyz', de: 'avs-rente-berechnung-schwyz', fr: 'calcul-rente-avs-schwyz' },
  'avviare-impresa-canton-svitto-procedure': { it: 'avviare-impresa-canton-svitto-procedure', en: 'start-business-canton-schwyz-procedures', de: 'unternehmen-grunden-kanton-schwyz-verfahren', fr: 'creer-entreprise-canton-schwyz-procedures' },
  'costituzione-impresa-cantone-svitto': { it: 'costituzione-impresa-cantone-svitto', en: 'starting-business-schwyz-canton', de: 'unternehmensgruendung-kanton-schwyz', fr: 'creation-entreprise-canton-schwyz' },
+ 'aprire-attivita-svitto-registro-di-commercio': { it: 'aprire-attivita-svitto-registro-di-commercio', en: 'open-activity-svitz-registro-di-commercio', de: 'unternehmen-eroffnen-svitto-registro-der-gewerbe', fr: 'ouvrir-entreprise-svitto-registro-des-commerces' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3880,6 +3880,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costituzione-impresa-cantone-svitto.title': 'Ouvrir une entreprise dans le canton de Schwyz : guide pratique',
     'blog.article.costituzione-impresa-cantone-svitto.excerpt': 'Les étapes de la création d\'entreprise dans le canton de Schwyz : du choix de la forme juridique aux obligations d\'assurance et de prévoyance.',
     'blog.article.costituzione-impresa-cantone-svitto.imageAlt': 'Bureau moderne en Suisse pour la création d\'entreprise.',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.title': 'Ouvrir une entreprise à Schwyz : coûts et registre du commerce',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.excerpt': 'Le choix de la forme juridique est important pour les impôts et les taxes. L\'inscription au registre du commerce est obligatoire pour les activités commerciales.',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.imageAlt': 'Vue de Lugano avec un magasin en premier plan',
 };
 
 export default blogMetaChFr;

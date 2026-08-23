@@ -3880,6 +3880,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costituzione-impresa-cantone-svitto.title': 'Aprire un\'impresa nel Cantone di Svitto: guida pratica',
     'blog.article.costituzione-impresa-cantone-svitto.excerpt': 'I passaggi per la costituzione d\'impresa nel Cantone di Svitto: dalla scelta della forma giuridica agli obblighi assicurativi e previdenziali.',
     'blog.article.costituzione-impresa-cantone-svitto.imageAlt': 'Ufficio moderno in Svizzera per la costituzione di un\'impresa.',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.title': 'Aprire un\'attività nel Cantone di Svitto: registro di commercio e costi',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.excerpt': 'La scelta della forma giuridica è importante per le imposte e le tasse. L\'iscrizione al registro di commercio è obbligatoria per le attività commerciali.',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.imageAlt': 'Vista di Lugano con un negozio in primo piano',
 };
 
 export default blogMetaChIt;

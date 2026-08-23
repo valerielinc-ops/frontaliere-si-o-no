@@ -3880,6 +3880,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costituzione-impresa-cantone-svitto.title': 'Starting a business in the Canton of Schwyz: a practical guide',
     'blog.article.costituzione-impresa-cantone-svitto.excerpt': 'The steps for the incorporation of a company in the Canton of Schwyz: from the choice of legal form to insurance and social security obligations.',
     'blog.article.costituzione-impresa-cantone-svitto.imageAlt': 'Modern office in Switzerland for business incorporation.',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.title': 'Opening a business in the Canton of Schwyz: trade register and costs',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.excerpt': 'The choice of legal form is important for taxes and fees. Registration in the commercial register is mandatory for commercial activities.',
+    'blog.article.aprire-attivita-svitto-registro-di-commercio.imageAlt': 'Lugano view with a shop in the foreground',
 };
 
 export default blogMetaChEn;
