@@ -247,6 +247,38 @@ export function bulletsWithoutState(rawContent) {
 }
 
 // ---------------------------------------------------------------------------
+// Diff-vs-body citation check (#6301)
+// ---------------------------------------------------------------------------
+
+/**
+ * Funnel-critical path prefix: files under here carry outsized blast radius, and
+ * `hasMeaningfulContent` above only checks that `## Implementato` has SOME content —
+ * not that it mentions every file the diff actually touches. Reproduced on #6279
+ * (mergiata): the diff modified `.github/workflows/prospector-loop.yml` and the body
+ * never named it in any section; the gap surfaced only as a reviewer 🟡 Nit after the
+ * fact, wasting a review cycle the same way the bullet-state gap above did.
+ */
+export const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
+
+/**
+ * Funnel-critical paths in `diffPaths` that `body` never mentions — neither by their
+ * full repo-relative path nor by basename. Advisory input only (see the `warnings`
+ * rationale on `checkPrBodySections` below): promoting straight to a blocking
+ * violation risks the same over-blocking stall documented there before authors
+ * reliably cite every touched file.
+ *
+ * @param {string[]} diffPaths repo-relative paths changed by the PR (`git diff --name-only`)
+ * @param {string} body full PR body text
+ * @returns {string[]} the uncited funnel-critical paths, in the order given
+ */
+export function filesUncitedInBody(diffPaths, body) {
+  const text = String(body ?? '');
+  return (diffPaths ?? [])
+    .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
+    .filter((p) => !text.includes(p) && !text.includes(p.split('/').pop()));
+}
+
+// ---------------------------------------------------------------------------
 // Combined validator
 // ---------------------------------------------------------------------------
 
@@ -279,9 +311,12 @@ const NON_IMPL_NO_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b/im
  * da fare quando la misura sarà 0/13.
  *
  * @param {string} body full PR body text
+ * @param {{ diffPaths?: string[] }} [opts] `diffPaths` (optional): repo-relative paths
+ *   changed by the PR, to power the diff-vs-body citation check (#6301). Omitted →
+ *   that check simply doesn't run (no diff to compare against).
  * @returns {{ ok: boolean, violations: Array<{type:string,section?:string,message:string}>, warnings: Array<{type:string,section?:string,message:string}> }}
  */
-export function checkPrBodySections(body = '') {
+export function checkPrBodySections(body = '', { diffPaths } = {}) {
   const s = String(body ?? '');
   const violations = [];
   const warnings = [];
@@ -391,6 +426,24 @@ export function checkPrBodySections(body = '') {
             + ` Primo bullet interessato: "${stateless[0].slice(0, 120)}".`,
         });
       }
+    }
+  }
+
+  // --- 6. ADVISORY: funnel-critical files touched by the diff but never cited ------
+  // Not entered into `ok` — same reasoning as check 5 above (bullet-without-state):
+  // the generator producing these bodies doesn't yet cite every file reliably, and
+  // promoting this straight to blocking would repeat the 2026-08-12 stall.
+  if (diffPaths && diffPaths.length > 0) {
+    const uncited = filesUncitedInBody(diffPaths, s);
+    if (uncited.length > 0) {
+      warnings.push({
+        type: 'files-uncited-in-body',
+        message:
+          `${uncited.length} file funnel-critical modificati dal diff non sono citati nel ` +
+          `body (né per path né per basename): ${uncited.map((p) => `\`${p}\``).join(', ')}. ` +
+          'Aggiungi un bullet in `## Implementato` che li menziona (recidiva: PR #6279, ' +
+          '`.github/workflows/prospector-loop.yml` modificato e mai citato).',
+      });
     }
   }
 
