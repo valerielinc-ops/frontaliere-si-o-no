@@ -1,0 +1,67 @@
+{
+  "crawlerKey": "okjob",
+  "assembledAt": "2026-08-23T09:43:47.191Z",
+  "jobs": [
+    {
+      "id": "okjob-d8807ee84cfe",
+      "slug": "23-08-2026-41632-berne-fixe-allrounder-im-seminar-bankettbereich-100-m-w-d-okjob-ch",
+      "slugByLocale": {
+        "de": "23-08-2026-41632-berne-fixe-allrounder-im-seminar-bankettbereich-100-m-w-d-okjob-ch",
+        "it": "23-08-2026-41632-berne-fixe-allrounder-im-seminar-bankettbereich-100-m-w-d-okjob-ch",
+        "en": "23-08-2026-41632-berne-fixe-allrounder-im-seminar-bankettbereich-100-m-w-d-ok-job-sa-succursale-di-mendrisio-lugano",
+        "fr": "23-08-2026-41632-berne-fixe-allrounder-im-seminar-bankettbereich-100-m-w-d-okjob-ch"
+      },
+      "company": "OK Job SA, succursale di Mendrisio",
+      "companyKey": "okjob",
+      "companyDomain": "okjob.ch",
+      "title": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d)",
+      "titleByLocale": {
+        "de": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d)",
+        "en": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d)",
+        "it": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d)",
+        "fr": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d)"
+      },
+      "description": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d) — OK Job SA, succursale di Mendrisio",
+      "descriptionByLocale": {
+        "de": "23.08.2026 / 41632 Berne / Fixe Allrounder im Seminar- Bankettbereich 100% (m/w/d) — OK Job SA, succursale di Mendrisio"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.okjob.ch/de/jobangebote/allrounder-im-seminar-bankettbereich-100-m-w-d-bern/?ref=41632",
+      "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T09:43:34.241Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://www.okjob.ch/de/jobangebote/allrounder-im-seminar-bankettbereich-100-m-w-d-bern/?ref=41632",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:43:34.241Z"
+    }
+  ]
+}
