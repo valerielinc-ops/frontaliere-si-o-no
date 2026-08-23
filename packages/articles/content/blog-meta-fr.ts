@@ -10590,6 +10590,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Vivre à Cadorago en tant que frontalier du Tessin : fiscalité 2024',
     'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Guide complet : vivre à Cadorago et travailler au Tessin. Nouvel accord 2024, franchise de 10 000 € , permis G, LAMal et déplacements depuis les cols de Côme.',
     'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontalier avec voiture immatriculée CH au poste frontière de Brogeda, région de Mendrisio, Tessin. Navette Como–Tessin.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Vivre à Carlazzo et travailler au Tessin : guide frontalier',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Le permis G permet le travail quotidien au Tessin en tant que résident italien. Taxe à la source 8–13%, double pilier AVS/LPP, LAMal facultative : guide complet des procédures et avantages économiques.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Frontalier italien à la frontière Suisse-Italie près du lac de Côme, portant des documents de travail',
 };
 
 export default blogMetaFr;

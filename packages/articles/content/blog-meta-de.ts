@@ -10587,6 +10587,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Wohnen in Cadorago als Grenzgänger Tessin: Steuern 2024',
     'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Vollständiger Leitfaden: Leben in Cadorago und Arbeiten im Tessin. Neue Vereinbarung 2024, Selbstbehalt 10.000 €, G-Bewilligung, KVG und Pendeln von den Como-Pässen.',
     'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Grenzgänger mit Schweizer Kennzeichen am Grenzübergang Brogeda, Gegend Mendrisio, Tessin. Pendlerstrecke Como–Tessin.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Leben in Carlazzo und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Die G-Bewilligung ermöglicht die tägliche Arbeit im Tessin als Italiener. Quellensteuer 8–13%, Doppelsäule AHV/BVG, KVG fakultativ: Umfassender Verfahrensleitfaden und wirtschaftliche Vorteile.',
+    'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Italienischer Grenzgänger an der Schweiz-Italien-Grenze am Comer See mit Arbeitsdokumenten',
 };
 
 export default blogMetaDe;
