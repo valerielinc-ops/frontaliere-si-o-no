@@ -11827,6 +11827,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'costituire-impresa-cantone-nidvaldo',
+    category: 'pratico',
+    date: '2026-08-23T12:17:24.600Z',
+    image: '/images/blog/costituire-impresa-cantone-nidvaldo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
