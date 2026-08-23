@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-23T04:38:52.299Z",
+  "updatedAt": "2026-08-23T04:39:39.889Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -1180,12 +1180,12 @@
     },
     "ipersonal": {
       "key": "ipersonal",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.371Z",
-      "updatedAt": "2026-08-23T04:37:44.994Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "iPersonal",
       "city": "",
       "zip": "",
@@ -1254,7 +1254,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "scherler@breganzona": {
       "key": "scherler@breganzona",
@@ -9606,12 +9608,12 @@
     },
     "ete.ch": {
       "key": "ete.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.314Z",
-      "updatedAt": "2026-08-23T04:37:03.282Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "Emil Egger AG",
       "domain": "ete.ch",
       "city": "",
@@ -9695,7 +9697,9 @@
           "contentfulRate": 1,
           "distinctRate": 0.857
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "lexcon@suhr": {
       "key": "lexcon@suhr",
@@ -11790,12 +11794,12 @@
     },
     "fachkraft.ch": {
       "key": "fachkraft.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.609Z",
-      "updatedAt": "2026-08-23T04:37:07.526Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "fachkraft.ch GmbH",
       "city": "Luzern",
       "zip": "6003",
@@ -11889,7 +11893,9 @@
           "contentfulRate": 1,
           "distinctRate": 0.902
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "bauhaus-fachcentren@oftringen": {
       "key": "bauhaus-fachcentren@oftringen",
@@ -138454,12 +138460,12 @@
     },
     "hotel-international.ch": {
       "key": "hotel-international.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.566Z",
-      "updatedAt": "2026-08-23T04:37:35.848Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "Hotel International au Lac",
       "domain": "hotel-international.ch",
       "city": "Lugano",
@@ -138528,7 +138534,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "besomi-statione.ch": {
       "key": "besomi-statione.ch",
@@ -208919,12 +208927,12 @@
     },
     "recruitingapp-2761@umantis.com": {
       "key": "recruitingapp-2761@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.142Z",
-      "updatedAt": "2026-08-23T04:36:55.924Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "EOC candiDati Posizioni",
       "tenantHost": "recruitingapp-2761.umantis.com",
       "platform": "umantis.com",
@@ -208997,16 +209005,18 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "recruitingapp-2904@umantis.com": {
       "key": "recruitingapp-2904@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.143Z",
-      "updatedAt": "2026-08-23T04:36:23.742Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-2904.umantis.com",
       "platform": "umantis.com",
@@ -209079,7 +209089,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "recruitingapp-3030@umantis.com": {
       "key": "recruitingapp-3030@umantis.com",
@@ -209106,12 +209118,12 @@
     },
     "recruitingapp-2850@umantis.com": {
       "key": "recruitingapp-2850@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.143Z",
-      "updatedAt": "2026-08-23T04:36:34.503Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "Bürgenstock Collection",
       "tenantHost": "recruitingapp-2850.umantis.com",
       "platform": "umantis.com",
@@ -209184,16 +209196,18 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "recruitingapp-2607@umantis.com": {
       "key": "recruitingapp-2607@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.144Z",
-      "updatedAt": "2026-08-23T04:37:12.205Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "GKB JobService",
       "tenantHost": "recruitingapp-2607.umantis.com",
       "platform": "umantis.com",
@@ -209266,7 +209280,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "recruitingapp-2736@umantis.com": {
       "key": "recruitingapp-2736@umantis.com",
@@ -209292,12 +209308,12 @@
     },
     "recruitingapp-2966@umantis.com": {
       "key": "recruitingapp-2966@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.145Z",
-      "updatedAt": "2026-08-23T04:36:28.158Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "Bewerbungsmanagement Spital Davos",
       "tenantHost": "recruitingapp-2966.umantis.com",
       "platform": "umantis.com",
@@ -209371,7 +209387,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "recruitingapp-2998@umantis.com": {
       "key": "recruitingapp-2998@umantis.com",
@@ -209545,12 +209563,12 @@
     },
     "recruitingapp-1251@umantis.com": {
       "key": "recruitingapp-1251@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-23T04:38:01.928Z",
+      "updatedAt": "2026-08-23T04:39:39.888Z",
       "name": "KZU Recruiting",
       "tenantHost": "recruitingapp-1251.umantis.com",
       "platform": "umantis.com",
@@ -209623,7 +209641,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6297",
+      "promotionBranch": "prospector/promote-2026-08-23"
     },
     "recruitingapp-2997@umantis.com": {
       "key": "recruitingapp-2997@umantis.com",
