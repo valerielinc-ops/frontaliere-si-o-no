@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-08-22T09:45:05.986Z",
+  "assembledAt": "2026-08-23T09:39:36.002Z",
   "jobs": [
     {
       "id": "spruengli-765874e25e44",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1255/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.065Z",
+      "crawledAt": "2026-08-23T09:39:32.298Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -53,11 +53,15 @@
       "jobReqId": "1255",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
+        "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
+        "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
+        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+        "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
-          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
-        ],
         "it": [
           "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
           "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
@@ -70,19 +74,15 @@
           "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
           "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
         ],
+        "de": [
+          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
+        ],
         "fr": [
           "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
           "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
         ]
       },
-      "previousSlugs": [
-        "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
-        "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
-        "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
-        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
-        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-        "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon"
-      ],
       "firstSeenAt": "2026-08-20T10:05:11.997Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -128,7 +128,7 @@
       "url": "https://apply.refline.ch/116352/1234/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.064Z",
+      "crawledAt": "2026-08-23T09:39:32.298Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -148,11 +148,12 @@
       "jobReqId": "1234",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
+        "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
+        "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
-          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
-        ],
         "it": [
           "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
           "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
@@ -160,15 +161,14 @@
         "en": [
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
         ],
+        "de": [
+          "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
+          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
+        ],
         "fr": [
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
         ]
       },
-      "previousSlugs": [
-        "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
-        "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
-        "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:09:42.112Z",
       "salaryMin": 76000,
@@ -215,7 +215,7 @@
       "url": "https://apply.refline.ch/116352/1253/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.063Z",
+      "crawledAt": "2026-08-23T09:39:32.296Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -294,7 +294,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.061Z",
+      "crawledAt": "2026-08-23T09:39:32.295Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -314,21 +314,21 @@
       "jobReqId": "1246",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
-        ],
-        "it": [
-          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-          "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
-        ]
-      },
       "previousSlugs": [
         "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
         "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
         "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+          "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
+        ],
+        "de": [
+          "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T21:50:37.320Z",
       "salaryMin": 73000,
@@ -375,7 +375,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.060Z",
+      "crawledAt": "2026-08-23T09:39:32.294Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -441,7 +441,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/68/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.058Z",
+      "crawledAt": "2026-08-23T09:39:32.293Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -461,11 +461,12 @@
       "jobReqId": "1039",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
+        "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
-        ],
         "it": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
@@ -473,15 +474,14 @@
         "en": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ],
+        "de": [
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
+        ],
         "fr": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
-        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
-        "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
-      ],
       "firstSeenAt": "2026-08-12T22:16:16.792Z",
       "salaryMin": 65500,
       "salaryMax": 100500,
@@ -527,7 +527,7 @@
       "url": "https://apply.refline.ch/116352/1252/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.057Z",
+      "crawledAt": "2026-08-23T09:39:32.291Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -608,7 +608,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/76/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.056Z",
+      "crawledAt": "2026-08-23T09:39:32.290Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -692,7 +692,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/34/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.054Z",
+      "crawledAt": "2026-08-23T09:39:32.289Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -751,94 +751,6 @@
       }
     },
     {
-      "id": "spruengli-d5c32ab1c40e",
-      "slug": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
-      "slugByLocale": {
-        "it": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "en": "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "de": "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
-        "fr": "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
-      "titleByLocale": {
-        "it": "Temporärer Collaboratore/trice*innen Produktion bis 24. Dezember 2026 (40-50%)",
-        "en": "Temporary employee production until 24. December 2026 (40-50%)",
-        "de": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
-        "fr": "Production temporaire jusqu'au 24 décembre 2026 (40-50%)"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\n Auch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nProduzione temporanea dei dipendenti fino al 24 dicembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nLavorare a Sprüngli\n\nNella nostra fabbrica di Dietikon stiamo cercando la prossima stagione da Sofort temporanea fino a 24. Dicembre 2026 motivato e impegnato\n\nCosa fai con noi\n\nStai lavorando nel reparto di riempimento Confiserie nella nostra fabbrica a Dietikon e sostenere la squadra in uno fino al 24 °. dicembre 2026 lavoro temporaneo. Le tue ore di lavoro abituali di solito si estendono dal lunedì al venerdì.\n\n• 06.30 - 11.20\n\n• 12.45 - 15.45\nLe missioni di sabato sono anche possibili\n\nI vostri compiti:\n\n• Imballaggio e imballaggio dei nostri popolari prodotti Confiserie nel lavoro a nastro\n\n• Rispetto e controllo dei requisiti di sicurezza, igiene e qualità\n\n• Lavori di pulizia\n\nCosa vogliamo\n\n• Un metodo di lavoro preciso e di qualità consapevole così come la resilienza anche in situazioni frenetiche\n\n• Buona costituzione fisica (attività lavorativa di base) e buona destrezza\n\n• Rispetto costante delle nostre normative igieniche\n\n• Flessibilità\n\n• Buona conoscenza del tedesco\n\nNon vedo l'ora.\n\nUna zona di responsabilità versatile e impegnativa vi aspetta in un ambiente vivace e moderno con un team motivato e una du-cultura collegiale. Per gli abiti da lavoro e la loro pulizia, così come per varie possibilità di ristorazione, tra le altre cose nel nostro ristorante personale, siamo felici di fornire. Vi offriamo un parcheggio gratuito e generosi sconti per lo shopping nella posizione Dietikon.\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nTemporary employee production until 24. December 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nWorking at Sprüngli\n\nIn our factory in Dietikon we are looking for the upcoming season from Sofort temporary until 24. December 2026 motivated and committed\n\nWhat you do with us\n\nYou are working in the filling department Confiserie in our factory in Dietikon and support the team in one until the 24th. December 2026 temporary employment. Your regular working hours usually extend from Monday to Friday.\n\n• 06.30 to 11.20\n\n• 12.45 to 15.45\nSaturday missions are also possible\n\nYour tasks:\n\n• Packing and packaging of our popular Confiserie products in tape work\n\n• Compliance with and control of safety, hygiene and quality requirements\n\n• Cleaning work\n\nWhat we want\n\n• An exact and quality-conscious working method as well as resilience even in hectic situations\n\n• Good physical constitution (standing work activity) and good dexterity\n\n• Consistent compliance with our hygiene regulations\n\n• Flexibility\n\n• Good knowledge of German\n\nYou can look forward to it.\n\nA versatile and challenging area of responsibility awaits you in a lively and modern environment with a motivated team and a collegial du-culture. For the work clothes and their cleaning as well as for varied catering possibilities, among other things in our staff restaurant, we are happy to provide. We offer you a free parking space and generous shopping discounts at the Dietikon location.\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\nAuch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nProduction temporaire jusqu'au 24 décembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nTravailler chez Sprüngli\n\nDans notre usine à Dietikon, nous cherchons la prochaine saison de Sofort temporaire jusqu'à 24. Décembre 2026 motivé et engagé\n\nCe que tu fais avec nous\n\nVous travaillez dans le service de remplissage Confiserie dans notre usine à Dietikon et soutenir l'équipe dans un jusqu'au 24ème. Décembre 2026 emploi temporaire. Vos heures normales de travail s'étendent généralement du lundi au vendredi.\n\n• 06.30 à 11.20\n\n• 12 h 45 à 15 h 45\nLes missions du samedi sont également possibles\n\nVos tâches :\n\n• Emballage et emballage de nos produits Confiserie populaires en ruban adhésif\n\n• Respect et contrôle des exigences de sécurité, d'hygiène et de qualité\n\n• Travaux de nettoyage\n\nCe que nous voulons\n\n• Une méthode de travail exacte et soucieuse de la qualité ainsi que la résilience même dans les situations mouvementées\n\n• Bonne constitution physique (activité professionnelle permanente) et bonne dextérité\n\n• Respect constant de nos règles d'hygiène\n\n• Flexibilité\n\n• Bonne connaissance de l'allemand\n\nVous pouvez attendre avec impatience.\n\nUn espace de responsabilité polyvalent et stimulant vous attend dans un environnement animé et moderne avec une équipe motivée et une collégiale du-culture. Pour les vêtements de travail et leur nettoyage ainsi que pour diverses possibilités de restauration, entre autres dans notre restaurant du personnel, nous sommes heureux de fournir. Nous vous offrons un parking gratuit et de généreuses réductions d'achat à l'emplacement Dietikon.\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.052Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Bernstrasse 89",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://apply.refline.ch/116352/1232/pub/5/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1232",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
-        "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
-          "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-          "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
-        ],
-        "en": [
-          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
-        ],
-        "fr": [
-          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-31T22:18:24.557Z",
-      "salaryMin": 38000,
-      "salaryMax": 51300,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 38000,
-          "maxValue": 51300,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-f6bdb802675d",
       "slug": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
       "slugByLocale": {
@@ -869,7 +781,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.052Z",
+      "crawledAt": "2026-08-23T09:39:32.288Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -931,6 +843,94 @@
       }
     },
     {
+      "id": "spruengli-d5c32ab1c40e",
+      "slug": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
+      "slugByLocale": {
+        "it": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "en": "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "de": "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
+        "fr": "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
+      "titleByLocale": {
+        "it": "Temporärer Collaboratore/trice*innen Produktion bis 24. Dezember 2026 (40-50%)",
+        "en": "Temporary employee production until 24. December 2026 (40-50%)",
+        "de": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
+        "fr": "Production temporaire jusqu'au 24 décembre 2026 (40-50%)"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\n Auch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nProduzione temporanea dei dipendenti fino al 24 dicembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nLavorare a Sprüngli\n\nNella nostra fabbrica di Dietikon stiamo cercando la prossima stagione da Sofort temporanea fino a 24. Dicembre 2026 motivato e impegnato\n\nCosa fai con noi\n\nStai lavorando nel reparto di riempimento Confiserie nella nostra fabbrica a Dietikon e sostenere la squadra in uno fino al 24 °. dicembre 2026 lavoro temporaneo. Le tue ore di lavoro abituali di solito si estendono dal lunedì al venerdì.\n\n• 06.30 - 11.20\n\n• 12.45 - 15.45\nLe missioni di sabato sono anche possibili\n\nI vostri compiti:\n\n• Imballaggio e imballaggio dei nostri popolari prodotti Confiserie nel lavoro a nastro\n\n• Rispetto e controllo dei requisiti di sicurezza, igiene e qualità\n\n• Lavori di pulizia\n\nCosa vogliamo\n\n• Un metodo di lavoro preciso e di qualità consapevole così come la resilienza anche in situazioni frenetiche\n\n• Buona costituzione fisica (attività lavorativa di base) e buona destrezza\n\n• Rispetto costante delle nostre normative igieniche\n\n• Flessibilità\n\n• Buona conoscenza del tedesco\n\nNon vedo l'ora.\n\nUna zona di responsabilità versatile e impegnativa vi aspetta in un ambiente vivace e moderno con un team motivato e una du-cultura collegiale. Per gli abiti da lavoro e la loro pulizia, così come per varie possibilità di ristorazione, tra le altre cose nel nostro ristorante personale, siamo felici di fornire. Vi offriamo un parcheggio gratuito e generosi sconti per lo shopping nella posizione Dietikon.\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nTemporary employee production until 24. December 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nWorking at Sprüngli\n\nIn our factory in Dietikon we are looking for the upcoming season from Sofort temporary until 24. December 2026 motivated and committed\n\nWhat you do with us\n\nYou are working in the filling department Confiserie in our factory in Dietikon and support the team in one until the 24th. December 2026 temporary employment. Your regular working hours usually extend from Monday to Friday.\n\n• 06.30 to 11.20\n\n• 12.45 to 15.45\nSaturday missions are also possible\n\nYour tasks:\n\n• Packing and packaging of our popular Confiserie products in tape work\n\n• Compliance with and control of safety, hygiene and quality requirements\n\n• Cleaning work\n\nWhat we want\n\n• An exact and quality-conscious working method as well as resilience even in hectic situations\n\n• Good physical constitution (standing work activity) and good dexterity\n\n• Consistent compliance with our hygiene regulations\n\n• Flexibility\n\n• Good knowledge of German\n\nYou can look forward to it.\n\nA versatile and challenging area of responsibility awaits you in a lively and modern environment with a motivated team and a collegial du-culture. For the work clothes and their cleaning as well as for varied catering possibilities, among other things in our staff restaurant, we are happy to provide. We offer you a free parking space and generous shopping discounts at the Dietikon location.\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\nAuch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nProduction temporaire jusqu'au 24 décembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nTravailler chez Sprüngli\n\nDans notre usine à Dietikon, nous cherchons la prochaine saison de Sofort temporaire jusqu'à 24. Décembre 2026 motivé et engagé\n\nCe que tu fais avec nous\n\nVous travaillez dans le service de remplissage Confiserie dans notre usine à Dietikon et soutenir l'équipe dans un jusqu'au 24ème. Décembre 2026 emploi temporaire. Vos heures normales de travail s'étendent généralement du lundi au vendredi.\n\n• 06.30 à 11.20\n\n• 12 h 45 à 15 h 45\nLes missions du samedi sont également possibles\n\nVos tâches :\n\n• Emballage et emballage de nos produits Confiserie populaires en ruban adhésif\n\n• Respect et contrôle des exigences de sécurité, d'hygiène et de qualité\n\n• Travaux de nettoyage\n\nCe que nous voulons\n\n• Une méthode de travail exacte et soucieuse de la qualité ainsi que la résilience même dans les situations mouvementées\n\n• Bonne constitution physique (activité professionnelle permanente) et bonne dextérité\n\n• Respect constant de nos règles d'hygiène\n\n• Flexibilité\n\n• Bonne connaissance de l'allemand\n\nVous pouvez attendre avec impatience.\n\nUn espace de responsabilité polyvalent et stimulant vous attend dans un environnement animé et moderne avec une équipe motivée et une collégiale du-culture. Pour les vêtements de travail et leur nettoyage ainsi que pour diverses possibilités de restauration, entre autres dans notre restaurant du personnel, nous sommes heureux de fournir. Nous vous offrons un parking gratuit et de généreuses réductions d'achat à l'emplacement Dietikon.\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
+      },
+      "location": "Dietikon",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T09:39:32.287Z",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernstrasse 89",
+      "postalCode": "8953",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "applyUrl": "https://apply.refline.ch/116352/1232/pub/5/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1232",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
+        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
+        "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
+          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
+          "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
+          "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
+          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+        ],
+        "en": [
+          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
+        ],
+        "fr": [
+          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:18:24.557Z",
+      "salaryMin": 38000,
+      "salaryMax": 51300,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 38000,
+          "maxValue": 51300,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-3a39ba0200e3",
       "slug": "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
@@ -961,7 +961,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.051Z",
+      "crawledAt": "2026-08-23T09:39:32.286Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1096,7 +1096,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/52/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.049Z",
+      "crawledAt": "2026-08-23T09:39:32.285Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1194,7 +1194,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.046Z",
+      "crawledAt": "2026-08-23T09:39:32.283Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1282,7 +1282,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.044Z",
+      "crawledAt": "2026-08-23T09:39:32.282Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1374,7 +1374,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/36/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.043Z",
+      "crawledAt": "2026-08-23T09:39:32.280Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1489,7 +1489,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.041Z",
+      "crawledAt": "2026-08-23T09:39:32.279Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1569,7 +1569,7 @@
       "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.040Z",
+      "crawledAt": "2026-08-23T09:39:32.278Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1645,7 +1645,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.037Z",
+      "crawledAt": "2026-08-23T09:39:32.275Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1746,7 +1746,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/37/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.035Z",
+      "crawledAt": "2026-08-23T09:39:32.273Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1832,7 +1832,7 @@
       "url": "https://apply.refline.ch/116352/1193/pub/31/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.034Z",
+      "crawledAt": "2026-08-23T09:39:32.272Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -1919,7 +1919,7 @@
       "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.029Z",
+      "crawledAt": "2026-08-23T09:39:32.269Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -2005,7 +2005,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.028Z",
+      "crawledAt": "2026-08-23T09:39:32.268Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -2091,7 +2091,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/25/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:45:02.025Z",
+      "crawledAt": "2026-08-23T09:39:32.267Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",

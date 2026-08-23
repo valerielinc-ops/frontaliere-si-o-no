@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-08-22T09:52:54.817Z",
+  "assembledAt": "2026-08-23T09:58:54.047Z",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-7086d0eb9b65",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2130/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:52.118Z",
+      "crawledAt": "2026-08-23T09:58:51.621Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2120/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:51.336Z",
+      "crawledAt": "2026-08-23T09:58:50.833Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2345/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:50.652Z",
+      "crawledAt": "2026-08-23T09:58:50.040Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:49.956Z",
+      "crawledAt": "2026-08-23T09:58:49.260Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -359,7 +359,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:49.588Z",
+      "crawledAt": "2026-08-23T09:58:48.654Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -438,7 +438,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:48.932Z",
+      "crawledAt": "2026-08-23T09:58:47.863Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -517,7 +517,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2290/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:48.236Z",
+      "crawledAt": "2026-08-23T09:58:47.043Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -596,7 +596,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2376/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:47.542Z",
+      "crawledAt": "2026-08-23T09:58:46.188Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -613,9 +613,14 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2376/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "collaboratore-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "collaboratore-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -624,9 +629,7 @@
           "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
+      "firstSeenAt": "2026-08-21T10:08:40.406Z",
       "salaryMin": 67500,
       "salaryMax": 84500,
       "baseSalary": {
@@ -638,8 +641,7 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T10:08:40.406Z"
+      }
     },
     {
       "id": "gesundheitszentrum-fricktal-71e6317a7a06",
@@ -673,7 +675,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2361/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:46.729Z",
+      "crawledAt": "2026-08-23T09:58:45.402Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -729,9 +731,9 @@
       "id": "gesundheitszentrum-fricktal-05b855dd55b7",
       "slug": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "it": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "head-of-hr-services-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -757,7 +759,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2383/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:52:46.329Z",
+      "crawledAt": "2026-08-23T09:58:44.797Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -774,6 +776,7 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2383/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-21T21:40:48.870Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -785,72 +788,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T21:40:48.870Z"
-    },
-    {
-      "id": "gesundheitszentrum-fricktal-f233a1a05822",
-      "slug": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "medical-r-practice-assistant-in-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "assistant-medical-r-in-mpa-efz-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Medizinische:r Praxisassistent:in (MPA) CFC (m/w/d)",
-        "en": "Medical:r practice assistant:in (MPA) EFZ (m/f/d)",
-        "de": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
-        "fr": "Assistant médical:r:in (MPA) EFZ (h/f/d)"
-      },
-      "description": "Du liebst den persönlichen Kontakt zu Patient:innen und die vielfältigen Aufgaben einer MPA. Dann werde Teil unseres modernen Praxisverbunds und unterstütze das GZF‑Team – wir freuen uns auf dich!\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Amate il contatto personale con i pazienti e i diversi compiti di un MPA. Quindi diventare parte della nostra rete di pratica moderna e sostenere il team GZF – non vediamo l'ora di vederti!\n\n• Tipo: Tempo parziale\n• Termine temporaneo: perpetuo",
-        "en": "You love the personal contact with patients and the diverse tasks of an MPA. Then become part of our modern practice network and support the GZF team – we look forward to seeing you!\n\n• Type: Part-time\n• Temporary term: perpetual",
-        "de": "Du liebst den persönlichen Kontakt zu Patient:innen und die vielfältigen Aufgaben einer MPA. Dann werde Teil unseres modernen Praxisverbunds und unterstütze das GZF‑Team – wir freuen uns auf dich!\n\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Vous aimez le contact personnel avec les patients et les diverses tâches d'un MPA. Faites ensuite partie de notre réseau de pratique moderne et soutenez l'équipe GZF – nous avons hâte de vous voir !\n\n• Type: Temps partiel\n• Terme temporaire : perpétuel"
-      },
-      "needsRetranslation": true,
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2148/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-21T10:08:47.965Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-11",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2148/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-11T21:53:57.774Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }

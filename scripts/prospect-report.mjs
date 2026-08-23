@@ -77,6 +77,18 @@ const next = [
 ].sort((a, b) => b.gain - a.gain).slice(0, 8);
 for (const n of next) out.push(md ? `- ${n.what} → ~${n.gain} datori` : `    ${n.what.padEnd(34)} ~${n.gain} datori`);
 
+// Gli errori INATTESI sono l'unica riga di questo report che indica un bug
+// nostro invece di una proprieta' del web. Senza questa distinzione finiscono
+// fra i `rejected` come il rumore atteso, e vengono ri-scartati allo stesso
+// ritmo senza che nessuno li veda.
+const unexpected = all.filter((c) => c.errorClass === 'unexpected');
+if (unexpected.length) {
+  out.push(h('Errori INATTESI in sintesi (probabili bug, non rumore del web)'));
+  out.push(tableHead('datore', 'causa'));
+  for (const c of unexpected.slice(0, 10)) out.push(row(String(c.name || c.key).slice(0, 34), String(c.reason || '').slice(0, 90)));
+  if (unexpected.length > 10) out.push(md ? `- …e altri ${unexpected.length - 10}` : `    …e altri ${unexpected.length - 10}`);
+}
+
 // Una PR di promozione ferma non e' un dettaglio di processo: finche' resta
 // aperta il loop non ne apre altre — deliberatamente, perche' due si
 // bloccherebbero a vicenda — quindi la PIPELINE E' FERMA e questo report e'

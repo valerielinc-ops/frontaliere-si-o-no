@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-08-22T09:37:31.467Z",
+  "assembledAt": "2026-08-23T09:39:49.646Z",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
@@ -307,8 +307,19 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "crawledAt": "",
       "id": "postfinance-0ecc8812c887",
+      "previousSlugs": [
+        "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+        "responsabile-customer-care-firmenkunden-massenmarkt-postfinance-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
+          "responsabile-customer-care-firmenkunden-massenmarkt-postfinance-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:43:00.013Z",
+      "crawledAt": "",
       "salaryMin": 109000,
       "salaryMax": 167000,
       "currency": "CHF",
@@ -323,16 +334,7 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-21T21:43:00.013Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
-        ]
-      },
-      "previousSlugs": [
-        "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
-      ]
+      "addressRegion": "BE"
     },
     {
       "url": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
@@ -382,8 +384,20 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "crawledAt": "",
       "id": "postfinance-778d2920ef6b",
+      "previousSlugs": [
+        "hr-businesspartner-in-postfinance-bern"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "hr-businesspartner-in-postfinance-bern"
+        ],
+        "fr": [
+          "hr-businesspartner-in-postfinance-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:43:00.013Z",
+      "crawledAt": "",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -398,19 +412,7 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-21T21:43:00.013Z",
-      "previousSlugs": [
-        "hr-businesspartner-in-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "hr-businesspartner-in-postfinance-bern"
-        ],
-        "fr": [
-          "hr-businesspartner-in-postfinance-bern"
-        ]
-      }
+      "addressRegion": "BE"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
@@ -1354,160 +1356,6 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Portfolio-Business-Analyst-Data-&-AI-%28wmd%29/74426-de_DE",
-      "title": "Senior Portfolio Business Analyst Data & AI (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Im Agile Acceleration Center Enterprise Services gestaltest du als Portfolio Business Analyst:in die digitale Transformation von PostFinance aktiv mit. Du analysierst komplexe Zusammenhänge, entwickelst innovative Lösungen und optimierst bestehende Prozesse nachhaltig. Mit deinem Know-how stellst du sicher, dass strategische Initiativen effizient umgesetzt werden und Mehrwert für unsere Stakeholder entsteht. So leistest du einen zentralen Beitrag zur Zukunftsfähigkeit von PostFinance.\n\nDas kannst du bewirken\n\nDu analysierst und konkretisierst Problemstellungen und Zielbilder aus fachlicher, prozessualer und technischer Sicht und leitest daraus fundierte\n• Anforderungen, Nutzenargumentationen, Abgrenzungen und Handlungsoptionen ab\n\nDu schärfst gemeinsam mit relevanten Stakeholdern fachliche\n• Anforderungen sowie Optimierungs- und Innovationsideen, entwickelst ein tragfähiges Zielbild und erhebst, strukturierst und priorisierst die resultierenden\n• Anforderungen unter Berücksichtigung fachlicher, regulatorischer und technischer Rahmenbedingungen\n\nDu konzipierst und moderierst anspruchsvolle Workshops, führst unterschiedliche Interessen zusammen und begleitest Projektleitende und Teams methodisch im\n• Requirements Engineering sowie bei der Anwendung agiler Vorgehensweisen\n\nDu überführst gemeinsam mit Fachbereichen, Projektleitenden, Data- und AI-Spezialist:innen sowie der Unternehmensarchitektur\n• Anforderungen in konsistente, umsetzbare und mehrwertstiftende Umsetzungspakete (z. B. Epics und Features)\n\nDu stellst die Qualität und Nachvollziehbarkeit der\n• Anforderungen sicher und sorgst für eine klare, verständliche und konsistente Dokumentation der Analyse- und Anforderungsartefakte\n\nDas bringst du mit\n\nMehrjährige Erfahrung als Senior Portfolio Business Analyst oder in einer vergleichbaren Funktion, idealerweise im Umfeld von Data, Analytics und künstlicher Intelligenz\n\nFundiertes Verständnis von Daten- und AI-Themen sowie Fähigkeit zur Übersetzung technologischer Möglichkeiten in Geschäftspotenziale und umsetzbare Vorhaben\n\nFähigkeit zur Überführung fachlicher\n• Anforderungen in Entscheidungsgrundlagen, Zielbilder, Business Cases und umsetzbare Epics\n\nGutes Verständnis von Data Governance, Datenqualität, Datenschutz sowie regulatorischen und ethischen\n• Anforderungen beim Einsatz von AI\n\nSouveränes Stakeholdermanagement sowie Fähigkeit zur Zusammenführung unterschiedlicher Interessen aus Business, IT, Data, AI, Architektur, Security, Legal und Compliance\n\nErfahrung in der Konzeption und Moderation anspruchsvoller Workshops sowie in überzeugender, adressatengerechter Kommunikation auf Fach- und Führungsebene\n\nSelbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Fähigkeit zur verständlichen und entscheidungsreifen Aufbereitung komplexer Themen\n\nHochschul- oder Fachhochschulabschluss in Betriebswirtschaft, Wirtschaftsinformatik, Data Science oder vergleichbare Aus- und Weiterbildung\n\nSehr gute Deutschkenntnisse sowie gute Englischkenntnisse; Erfahrung im Finanzdienstleistungsumfeld von Vorteil",
-      "descriptionByLocale": {
-        "it": "Im Agile Acceleration Center Enterprise Services gestaltest du als Portfolio Business Analyst:in die digitale Transformation von PostFinance aktiv mit. Du analysierst komplexe Zusammenhänge, entwickelst innovative Lösungen und optimierst bestehende Prozesse nachhaltig. Mit deinem Know-how stellst du sicher, dass strategische Initiativen effizient umgesetzt werden und Mehrwert für unsere Stakeholder entsteht. So leistest du einen zentralen Beitrag zur Zukunftsfähigkeit von PostFinance.\n\nDas kannst du bewirken\n\nDu analysierst und konkretisierst Problemstellungen und Zielbilder aus fachlicher, prozessualer und technischer Sicht und leitest daraus fundierte\n• Anforderungen, Nutzenargumentationen, Abgrenzungen und Handlungsoptionen ab\n\nDu schärfst gemeinsam mit relevanten Stakeholdern fachliche\n• Anforderungen sowie Optimierungs- und Innovationsideen, entwickelst ein tragfähiges Zielbild und erhebst, strukturierst und priorisierst die resultierenden\n• Anforderungen unter Berücksichtigung fachlicher, regulatorischer und technischer Rahmenbedingungen\n\nDu konzipierst und moderierst anspruchsvolle Workshops, führst unterschiedliche Interessen zusammen und begleitest Projektleitende und Teams methodisch im\n• Requirements Engineering sowie bei der Anwendung agiler Vorgehensweisen\n\nDu überführst gemeinsam mit Fachbereichen, Projektleitenden, Data- und AI-Spezialist:innen sowie der Unternehmensarchitektur\n• Anforderungen in konsistente, umsetzbare und mehrwertstiftende Umsetzungspakete (z. B. Epics und Features)\n\nDu stellst die Qualität und Nachvollziehbarkeit der\n• Anforderungen sicher und sorgst für eine klare, verständliche und konsistente Dokumentation der Analyse- und Anforderungsartefakte\n\nDas bringst du mit\n\nMehrjährige Erfahrung als Senior Portfolio Business Analyst oder in einer vergleichbaren Funktion, idealerweise im Umfeld von Data, Analytics und künstlicher Intelligenz\n\nFundiertes Verständnis von Daten- und AI-Themen sowie Fähigkeit zur Übersetzung technologischer Möglichkeiten in Geschäftspotenziale und umsetzbare Vorhaben\n\nFähigkeit zur Überführung fachlicher\n• Anforderungen in Entscheidungsgrundlagen, Zielbilder, Business Cases und umsetzbare Epics\n\nGutes Verständnis von Data Governance, Datenqualität, Datenschutz sowie regulatorischen und ethischen\n• Anforderungen beim Einsatz von AI\n\nSouveränes Stakeholdermanagement sowie Fähigkeit zur Zusammenführung unterschiedlicher Interessen aus Business, IT, Data, AI, Architektur, Security, Legal und Compliance\n\nErfahrung in der Konzeption und Moderation anspruchsvoller Workshops sowie in überzeugender, adressatengerechter Kommunikation auf Fach- und Führungsebene\n\nSelbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Fähigkeit zur verständlichen und entscheidungsreifen Aufbereitung komplexer Themen\n\nHochschul- oder Fachhochschulabschluss in Betriebswirtschaft, Wirtschaftsinformatik, Data Science oder vergleichbare Aus- und Weiterbildung\n\nSehr gute Deutschkenntnisse sowie gute Englischkenntnisse; Erfahrung im Finanzdienstleistungsumfeld von Vorteil",
-        "en": "In the Agile Acceleration Center Enterprise Services, you as a portfolio business analyst actively participate in the digital transformation of PostFinance. You will analyze complex relationships, develop innovative solutions and optimize existing processes sustainably. With your know-how, you ensure that strategic initiatives are implemented efficiently and that added value is created for our stakeholders. This way you make a central contribution to the future viability of PostFinance.\n\nYou can do that.\n\nYou analyze and concretize problems and target images from a professional, processual and technical point of view and lead from this well-founded\n• Requirements, benefit arguments, boundaries and options for action\n\nYou will sharpen your skills together with relevant stakeholders\n• Requirements as well as optimization and innovation ideas, develop a viable target image and raise, structure and prioritize the resulting\n• Requirements taking into account professional, regulatory and technical frameworks\n\nYou design and moderate challenging workshops, bring together different interests and accompany project leaders and teams methodically in the\n• Requirements engineering and the application of agile procedures\n\nTogether with specialist areas, project leaders, data and AI specialists, you will transfer: insiders and the company architecture\n• Requirements for consistent, actionable and multi-value implementation packages (e.g. epics and features)\n\nYou provide the quality and traceability of the\n• Requirements secure and provide clear, comprehensible and consistent documentation of the analysis and requirements artifacts\n\nYou bring that with you\n\nSeveral years of experience as a senior portfolio business analyst or in a comparable function, ideally in the field of data, analytics and artificial intelligence\n\nIn-depth understanding of data and AI topics as well as the ability to translate technological opportunities into business potential and feasible projects\n\nAbility to transfer professional skills\n• Requirements for decision-making, target images, business cases and feasible epics\n\nGood understanding of data governance, data quality, data protection and regulatory and ethical\n• Requirements when using AI\n\nSovereign stakeholder management as well as the ability to bring together different interests from business, IT, data, AI, architecture, security, legal and compliance\n\nExperience in the conception and moderation of demanding workshops as well as in convincing, addressable communication at specialist and management level\n\nIndependent, structured and solution-oriented working methods as well as the ability to understand and make decisions on complex topics\n\nUniversity or university degree in business administration, business informatics, data science or comparable education and training\n\nVery good knowledge of German and good knowledge of English; Experience in the financial services environment is beneficial",
-        "de": "Im Agile Acceleration Center Enterprise Services gestaltest du als Portfolio Business Analyst:in die digitale Transformation von PostFinance aktiv mit. Du analysierst komplexe Zusammenhänge, entwickelst innovative Lösungen und optimierst bestehende Prozesse nachhaltig. Mit deinem Know-how stellst du sicher, dass strategische Initiativen effizient umgesetzt werden und Mehrwert für unsere Stakeholder entsteht. So leistest du einen zentralen Beitrag zur Zukunftsfähigkeit von PostFinance.\n\nDas kannst du bewirken\n\nDu analysierst und konkretisierst Problemstellungen und Zielbilder aus fachlicher, prozessualer und technischer Sicht und leitest daraus fundierte\n• Anforderungen, Nutzenargumentationen, Abgrenzungen und Handlungsoptionen ab\n\nDu schärfst gemeinsam mit relevanten Stakeholdern fachliche\n• Anforderungen sowie Optimierungs- und Innovationsideen, entwickelst ein tragfähiges Zielbild und erhebst, strukturierst und priorisierst die resultierenden\n• Anforderungen unter Berücksichtigung fachlicher, regulatorischer und technischer Rahmenbedingungen\n\nDu konzipierst und moderierst anspruchsvolle Workshops, führst unterschiedliche Interessen zusammen und begleitest Projektleitende und Teams methodisch im\n• Requirements Engineering sowie bei der Anwendung agiler Vorgehensweisen\n\nDu überführst gemeinsam mit Fachbereichen, Projektleitenden, Data- und AI-Spezialist:innen sowie der Unternehmensarchitektur\n• Anforderungen in konsistente, umsetzbare und mehrwertstiftende Umsetzungspakete (z. B. Epics und Features)\n\nDu stellst die Qualität und Nachvollziehbarkeit der\n• Anforderungen sicher und sorgst für eine klare, verständliche und konsistente Dokumentation der Analyse- und Anforderungsartefakte\n\nDas bringst du mit\n\nMehrjährige Erfahrung als Senior Portfolio Business Analyst oder in einer vergleichbaren Funktion, idealerweise im Umfeld von Data, Analytics und künstlicher Intelligenz\n\nFundiertes Verständnis von Daten- und AI-Themen sowie Fähigkeit zur Übersetzung technologischer Möglichkeiten in Geschäftspotenziale und umsetzbare Vorhaben\n\nFähigkeit zur Überführung fachlicher\n• Anforderungen in Entscheidungsgrundlagen, Zielbilder, Business Cases und umsetzbare Epics\n\nGutes Verständnis von Data Governance, Datenqualität, Datenschutz sowie regulatorischen und ethischen\n• Anforderungen beim Einsatz von AI\n\nSouveränes Stakeholdermanagement sowie Fähigkeit zur Zusammenführung unterschiedlicher Interessen aus Business, IT, Data, AI, Architektur, Security, Legal und Compliance\n\nErfahrung in der Konzeption und Moderation anspruchsvoller Workshops sowie in überzeugender, adressatengerechter Kommunikation auf Fach- und Führungsebene\n\nSelbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Fähigkeit zur verständlichen und entscheidungsreifen Aufbereitung komplexer Themen\n\nHochschul- oder Fachhochschulabschluss in Betriebswirtschaft, Wirtschaftsinformatik, Data Science oder vergleichbare Aus- und Weiterbildung\n\nSehr gute Deutschkenntnisse sowie gute Englischkenntnisse; Erfahrung im Finanzdienstleistungsumfeld von Vorteil",
-        "fr": "Dans le Agile Acceleration Center Enterprise Services, vous en tant qu'analyste de portefeuille participez activement à la transformation numérique de PostFinance. Vous analyserez des relations complexes, développerez des solutions innovantes et optimiserez durablement les processus existants. Avec votre savoir-faire, vous veillez à ce que les initiatives stratégiques soient mises en œuvre efficacement et à ce que la valeur ajoutée soit créée pour nos parties prenantes. De cette façon, vous apportez une contribution centrale à la viabilité future de PostFinance.\n\nTu peux le faire.\n\nVous analysez et réalisez des problèmes et des images cibles d'un point de vue professionnel, processuel et technique et dirigez de ce bien fondé\n• Exigences, arguments, limites et options d'action\n\nVous améliorerez vos compétences avec les parties prenantes concernées\n• Besoins ainsi que des idées d'optimisation et d'innovation, développer une image cible viable et élever, structurer et prioriser les résultats\n• Exigences tenant compte des cadres professionnels, réglementaires et techniques\n\nVous concevez et modérez des ateliers stimulants, rassemblez différents intérêts et accompagnez méthodiquement les chefs de projet et les équipes dans le\n• Exigences techniques et application des procédures agiles\n\nAvec des domaines spécialisés, des chefs de projet, des spécialistes des données et de l'IA, vous transférerez : les initiés et l'architecture de l'entreprise\n• Exigences relatives aux paquets de mise en œuvre cohérents, réalisables et à valeur multiple (p. ex., épopées et fonctionnalités)\n\nVous fournissez la qualité et la traçabilité du\n• Exigences sécuriser et fournir une documentation claire, compréhensible et cohérente de l'analyse et des artefacts requis\n\nApporte ça avec toi.\n\nPlusieurs années d'expérience en tant qu'analyste principal de portefeuille ou dans une fonction comparable, idéalement dans le domaine des données, de l'analyse et de l'intelligence artificielle\n\nCompréhension approfondie des données et des sujets de l'IA ainsi que la capacité de traduire les possibilités technologiques en possibilités d'affaires et en projets réalisables\n\nCapacité de transférer des compétences professionnelles\n• Exigences relatives à la prise de décisions, aux images cibles, aux analyses de rentabilisation et aux épopées réalisables\n\nBonne compréhension de la gouvernance des données, de la qualité des données, de la protection des données et de la réglementation et de l'éthique\n• Exigences lors de l'utilisation de l'IA\n\nLa gestion souveraine des parties prenantes ainsi que la capacité de réunir différents intérêts des entreprises, des TI, des données, de l'IA, de l'architecture, de la sécurité, du droit et de la conformité\n\nExpérience dans la conception et la modération des ateliers exigeants ainsi que dans la communication convaincante et adressable au niveau des spécialistes et de la gestion\n\nMéthodes de travail indépendantes, structurées et axées sur les solutions ainsi que la capacité de comprendre et de prendre des décisions sur des sujets complexes\n\nDiplôme universitaire en administration des affaires, informatique des affaires, sciences des données ou enseignement et formation comparables\n\nTrès bonne connaissance de l'allemand et bonne connaissance de l'anglais; L'expérience dans l'environnement des services financiers est bénéfique"
-      },
-      "titleByLocale": {
-        "it": "Senior Portfolio Business Analista Data & AI (w/m/d)",
-        "en": "Senior Portfolio Business Analyst Data & AI (w/m/d)",
-        "de": "Senior Portfolio Business Analyst Data & AI (w/m/d)",
-        "fr": "Senior Portfolio Business Analyste Data & AI (w/m/d)"
-      },
-      "slug": "senior-portfolio-business-analyst-data-ai-w-m-d-postfinance",
-      "slugByLocale": {
-        "it": "senior-portfolio-business-analyst-data-ai-w-m-d-postfinance",
-        "en": "senior-portfolio-business-analyst-data-ai-w-m-d-postfinance",
-        "de": "senior-portfolio-business-analyst-data-ai-w-m-d-postfinance",
-        "fr": "senior-portfolio-business-analyste-data-ai-w-m-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "07.08.26",
-      "validThrough": "21.08.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-8e82c9e6cd4e",
-      "previousSlugs": [
-        "senior-portfolio-business-analista-data-ai-w-m-d-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-portfolio-business-analista-data-ai-w-m-d-postfinance-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-08T09:48:27.767Z",
-      "crawledAt": "",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Fondsmanagement/74355-de_DE",
-      "title": "Fachspezialist:in Fondsmanagement",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei\n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer\n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
-      "descriptionByLocale": {
-        "it": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei\n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer\n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
-        "en": "At PostFinance, you are actively building up the management of our investment funds and strengthening our position as a digital investment bank. As a specialist: in fund and portfolio management, you take on a central role in the ongoing project. You contribute to the implementation and further development and bring your know-how to the portfolio management. In this way, you create the basis for PostFinance to manage its investment funds independently and ensure sustainable operation.\n\nYou can do that.\n\nYou play a central role in the insourcing of fund management activities and actively shape the development of modern portfolio management processes, controls and responsibilities\n\nTogether with your team, you are responsible for the implementation and smooth operation of the new portfolio management system.\n\nIn the long term, you ensure the day-to-day operational handling of the portfolio management of our investment fund range, which currently consists mainly of funds (no active stock selection)\n\nYou accompany the transformation from the project phase into operation and ensure an efficient and sustainable implementation of the concepts\n\nYou implement the investment strategy defined by the investment committee for our funds and ensure professional management and supervision\n\nYou support the Investment Office in\n• Tasks such as financial market analysis, asset management and internal and external communication of market assessments\n\nYou bring that with you\n\nuniversity degree (FH/university) in business administration and/or banking or in a comparable field of expertise; Further developments of advantage\n\nExperience in front-to-back portfolio management of investment funds\n\nSound understanding of regulatory\n• Requirements and operating models in fund management under Swiss law\n\nAnalytical and structured working method with a pronounced quality orientation\n\nCommunication strength, initiative, willingness to take responsibility, team spirit and joy in actively shaping change\n\nVery good user knowledge in MS Office, especially Excel, as well as advantageous experience with Bloomberg",
-        "de": "Bei PostFinance baust du die Verwaltung unserer Anlagefonds aktiv mit auf und stärkst unsere Position als digitale Anlagebank. Als Fachspezialist:in Fonds- und Portfoliomanagement übernimmst du eine zentrale Rolle im laufenden Projekt. Du gestaltest die Umsetzung und Weiterentwicklung mit und bringst dein Know-how im Portfoliomanagement ein. So schaffst du die Basis, damit PostFinance ihre Anlagefonds eigenständig verwalten kann und stellst den nachhaltigen Betrieb sicher.\n\nDas kannst du bewirken\n\nDu übernimmst eine zentrale Rolle beim Insourcing von Fondsmanagement-Aktivitäten und gestaltest den Aufbau moderner Portfoliomanagement-Prozesse, Kontrollen und Verantwortlichkeiten aktiv mit\n\nDu verantwortest gemeinsam mit deinem Team die Einführung und den reibungslosen Betrieb des neuen Portfoliomanagementsystems\n\nDu stellst langfristig die operative tägliche Abwicklung des Portfoliomanagements unserer Anlagefonds-Palette sicher, die aktuell hauptsächlich aus Fund of Funds besteht (keine aktive Titelselektion)\n\nDu begleitest die Transformation von der Projektphase in den Betrieb und sorgst für eine effiziente und nachhaltige Umsetzung der Konzepte\n\nDu setzt die vom Anlageausschuss definierte Anlagestrategie für unsere Fonds um und stellst eine professionelle Verwaltung und Überwachung sicher\n\nDu unterstützt das Investment Office bei\n• Aufgaben wie Finanzmarktanalysen, Vermögensverwaltung sowie der internen und externen Kommunikation von Markteinschätzungen\n\nDas bringst du mit\n\nHochschulabschluss (FH/Universität) in Betriebswirtschaft und/oder Banking oder in einem vergleichbaren Fachgebiet; Weiterbildungen von Vorteil\n\nErfahrung im Front-to-Back-Portfoliomanagement von Anlagefonds\n\nFundiertes Verständnis regulatorischer\n• Anforderungen und von Betriebsmodellen im Fondsmanagement nach Schweizer Recht\n\nAnalytische und strukturierte Arbeitsweise mit ausgeprägter Qualitätsorientierung\n\nKommunikationsstärke, Eigeninitiative, Verantwortungsbereitschaft, Teamgeist und Freude an der aktiven Mitgestaltung von Veränderungen\n\nSehr gute Anwenderkenntnisse in MS Office, insbesondere Excel, sowie vorteilhafte Erfahrung mit Bloomberg",
-        "fr": "Chez PostFinance, vous développez activement la gestion de nos fonds d'investissement et renforcez notre position de banque d'investissement numérique. En tant que spécialiste : en gestion de fonds et de portefeuille, vous assumez un rôle central dans le projet en cours. Vous contribuez à la mise en œuvre et au développement ultérieur et apportez votre savoir-faire à la gestion du portefeuille. De cette façon, vous créez la base pour PostFinance pour gérer ses fonds d'investissement indépendamment et assurer une exploitation durable.\n\nTu peux le faire.\n\nVous jouez un rôle central dans l'approvisionnement des activités de gestion de fonds et façonnez activement le développement des processus, contrôles et responsabilités modernes de gestion de portefeuille\n\nAvec votre équipe, vous êtes responsable de la mise en œuvre et du bon fonctionnement du nouveau système de gestion de portefeuille.\n\nÀ long terme, vous assurez le traitement opérationnel quotidien de la gestion de portefeuille de notre gamme de fonds d'investissement, qui se compose actuellement principalement de fonds (pas de sélection active des actions)\n\nVous accompagnez la transformation de la phase du projet en opération et assurez une mise en œuvre efficace et durable des concepts\n\nVous mettez en œuvre la stratégie d'investissement définie par le comité d'investissement pour nos fonds et assurez la gestion et la supervision professionnelles\n\nVous soutenez l'Office d'investissement dans\n• Tâches telles que l'analyse des marchés financiers, la gestion des actifs et la communication interne et externe des évaluations de marché\n\nApporte ça avec toi.\n\ndiplôme universitaire (FH/universitaire) en administration des affaires et/ou en banque ou dans un domaine d'expertise comparable;\n\nExpérience de la gestion de portefeuilles de fonds d'investissement\n\nBonne compréhension de la réglementation\n• Exigences et modèles d'exploitation en matière de gestion de fonds en droit suisse\n\nMéthode de travail analytique et structurée avec une orientation qualitative prononcée\n\nLa force de la communication, l'initiative, la volonté de prendre des responsabilités, l'esprit d'équipe et la joie de façonner activement le changement\n\nTrès bonne connaissance utilisateur dans MS Office, en particulier Excel, ainsi qu'une expérience avantageuse avec Bloomberg"
-      },
-      "titleByLocale": {
-        "it": "Fachspezialist:in Fondsmanagement",
-        "en": "Specialist: in Fund Management",
-        "de": "Fachspezialist:in Fondsmanagement",
-        "fr": "Spécialiste de la gestion des fonds"
-      },
-      "slug": "specialista-in-gestione-del-fondo-postfinance-bern",
-      "slugByLocale": {
-        "it": "specialista-in-gestione-del-fondo-postfinance-bern",
-        "en": "specialist-in-fund-management-postfinance-bern",
-        "de": "fachspezialist-in-fondsmanagement-postfinance-bern",
-        "fr": "specialiste-de-la-gestion-des-fonds-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "03.08.26",
-      "validThrough": "02.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-d61f5a277b5f",
-      "previousSlugs": [
-        "fachspezialist-in-fondsmanagement-postfinance",
-        "fachspezialist-in-fondsmanagement-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-fondsmanagement-postfinance",
-          "fachspezialist-in-fondsmanagement-postfinance-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T22:14:08.925Z",
-      "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",

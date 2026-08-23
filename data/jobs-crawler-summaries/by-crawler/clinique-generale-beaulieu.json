@@ -1,16 +1,18 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-08-22T10:11:16.255Z",
+  "generatedAt": "2026-08-23T09:38:18.163Z",
   "total": 1,
+  "discovered": null,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5405,
-  "avgDurationMs": 5405,
+  "durationMs": 6000,
+  "avgDurationMs": 6000,
   "durationHistory": [
-    5405
+    6000
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +30,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-22T10:11:11.789Z",
+      "crawledAt": "2026-08-23T09:38:13.130Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",

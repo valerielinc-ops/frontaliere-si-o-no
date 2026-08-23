@@ -6438,10 +6438,10 @@
         "fr": "assistant-dans-la-gestion-des-succursales-denner-biberist"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/assistant-dans-la-gestion-des-succursales-denner-biberist",
-        "en": "/en/find-jobs-ticino/assistant-dans-la-gestion-des-succursales-denner-biberist",
-        "de": "/de/jobs-im-tessin/assistant-dans-la-gestion-des-succursales-denner-biberist",
-        "fr": "/fr/trouver-emploi-tessin/assistant-dans-la-gestion-des-succursales-denner-biberist"
+        "it": "/cerca-lavoro-zurigo/assistant-dans-la-gestion-des-succursales-denner-biberist",
+        "en": "/en/find-jobs-zurich/assistant-dans-la-gestion-des-succursales-denner-biberist",
+        "de": "/de/jobs-in-zurich/assistant-dans-la-gestion-des-succursales-denner-biberist",
+        "fr": "/fr/trouver-emploi-zurich/assistant-dans-la-gestion-des-succursales-denner-biberist"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -6657,10 +6657,10 @@
         "fr": "assistant-in-branch-management-denner-lenzburg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/assistant-in-branch-management-denner-lenzburg",
-        "en": "/en/find-jobs-ticino/assistant-in-branch-management-denner-lenzburg",
-        "de": "/de/jobs-im-tessin/assistant-in-branch-management-denner-lenzburg",
-        "fr": "/fr/trouver-emploi-tessin/assistant-in-branch-management-denner-lenzburg"
+        "it": "/cerca-lavoro-zurigo/assistant-in-branch-management-denner-lenzburg",
+        "en": "/en/find-jobs-zurich/assistant-in-branch-management-denner-lenzburg",
+        "de": "/de/jobs-in-zurich/assistant-in-branch-management-denner-lenzburg",
+        "fr": "/fr/trouver-emploi-zurich/assistant-in-branch-management-denner-lenzburg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -31593,10 +31593,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "gardener-pemsa-bellinzona",
+        "it": "giardiniere-pemsa-bellinzona",
         "en": "gardener-pemsa-bellinzona",
-        "de": "gardener-pemsa-bellinzona",
-        "fr": "gardener-pemsa-bellinzona"
+        "de": "garten-pemsa-bellinzona",
+        "fr": "jardinier-pemsa-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/gardener-pemsa-bellinzona",
@@ -31604,12 +31604,13 @@
         "de": "/de/jobs-im-tessin/gardener-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/gardener-pemsa-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/giardiniere-2688897",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -36138,14 +36139,19 @@
           "impressions": 8
         },
         {
+          "query": "lavoro ingegneri svizzera",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
           "query": "disegnatore",
           "clicks": 0,
           "impressions": 7
         },
         {
-          "query": "lavoro ingegneri svizzera",
+          "query": "svizzera lavoro ingegnere",
           "clicks": 0,
-          "impressions": 7
+          "impressions": 5
         },
         {
           "query": "offerte di lavoro canton ticino",
@@ -36163,12 +36169,22 @@
           "impressions": 4
         },
         {
-          "query": "svizzera lavoro ingegnere",
+          "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 3
+        },
+        {
+          "query": "lavoro ingegneri svizzera",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "disegnatore genio civile",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "ingegnere svizzera lavoro",
           "clicks": 0,
           "impressions": 3
         },
@@ -36179,6 +36195,16 @@
         },
         {
           "query": "ingegnere in svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "lavoro ingegneri svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "ingegnere svizzera lavoro",
           "clicks": 0,
           "impressions": 2
         },
@@ -36206,34 +36232,9 @@
           "query": "frontalieri",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "ingegnere svizzera lavoro",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavoro ingegnere svizzera",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavoro ingegnere svizzera italiana",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavoro svizzera ingegnere",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "posti vacanti ticino",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 112,
+      "totalImpressions": 124,
       "totalClicks": 2,
       "topQuery": "lavoro in svizzera per italiani",
       "title": "Ingegneri",
@@ -76927,10 +76928,10 @@
         "fr": "venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen",
-        "en": "/en/find-jobs-aargau/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen",
+        "it": "/cerca-lavoro-berna/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen",
+        "en": "/en/find-jobs-bern/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen",
         "de": "/de/jobs-im-obwalden/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen",
-        "fr": "/fr/trouver-emploi-argovie/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen"
+        "fr": "/fr/trouver-emploi-berne/venditore-a-prodotti-freschi-food-coop-genossenschaft-mellingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78411,10 +78412,10 @@
         "fr": "verkaufer-in-denner-5"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-denner-5",
-        "en": "/en/find-jobs-zurich/verkaufer-in-denner-5",
-        "de": "/de/jobs-in-zurich/verkaufer-in-denner-5",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-denner-5"
+        "it": "/cerca-lavoro-basilea/verkaufer-in-denner-5",
+        "en": "/en/find-jobs-basel/verkaufer-in-denner-5",
+        "de": "/de/jobs-in-basel/verkaufer-in-denner-5",
+        "fr": "/fr/trouver-emploi-bale/verkaufer-in-denner-5"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79307,10 +79308,10 @@
         "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-biel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-coop-genossenschaft-biel",
-        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-coop-genossenschaft-biel",
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-biel",
+        "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-biel",
         "de": "/de/jobs-im-zug/verkaufer-in-frischprodukte-coop-genossenschaft-biel",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-coop-genossenschaft-biel"
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-biel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81881,10 +81882,10 @@
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-degersheim"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
-        "en": "/en/find-jobs-thurgau/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
+        "it": "/cerca-lavoro-argovia/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
+        "en": "/en/find-jobs-aargau/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
         "de": "/de/jobs-im-bern/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
-        "fr": "/fr/trouver-emploi-thurgovie/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim"
+        "fr": "/fr/trouver-emploi-argovie/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

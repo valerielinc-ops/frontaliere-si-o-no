@@ -1,16 +1,18 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-08-22T09:54:09.379Z",
-  "total": 8,
+  "generatedAt": "2026-08-23T09:53:34.657Z",
+  "total": 7,
+  "discovered": null,
+  "written": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 58172,
-  "avgDurationMs": 58172,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 60042,
+  "avgDurationMs": 60042,
   "durationHistory": [
-    58172
+    60042
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +43,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:54:07.027Z",
+      "crawledAt": "2026-08-23T09:53:31.084Z",
       "firstSeenAt": "2026-08-19T21:39:33.117Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -78,7 +80,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:53:58.998Z",
+      "crawledAt": "2026-08-23T09:53:23.219Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:54:07.430Z",
       "_qualityScore": 86,
@@ -116,7 +118,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=163082&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:53:19.078Z",
+      "crawledAt": "2026-08-23T09:52:44.263Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:54:58.821Z",
       "_qualityScore": 90,
@@ -154,7 +156,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:53:27.883Z",
+      "crawledAt": "2026-08-23T09:52:50.878Z",
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -191,7 +193,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:53:34.883Z",
+      "crawledAt": "2026-08-23T09:52:59.255Z",
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -228,7 +230,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:53:42.480Z",
+      "crawledAt": "2026-08-23T09:53:07.247Z",
       "firstSeenAt": "2026-05-13T11:12:28.078Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -265,7 +267,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:53:51.057Z",
+      "crawledAt": "2026-08-23T09:53:15.511Z",
       "firstSeenAt": "2026-05-13T11:12:58.806Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -276,91 +278,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "heineken-ch-b7ac2b956d7d",
-      "jobReqId": "160678",
-      "slug": "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Agent Customer Support",
-      "location": "Winterthur",
-      "canton": "ZH",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Winterthur, ZH",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/agent-customer-support?jobid=160678",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:48:05.678Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-25T22:27:52.893Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "id": "heineken-ch-851cd5272115",
-      "jobReqId": "152911",
-      "slug": "logistiker-in-getrankelager-100-heineken-switzerland-luzern",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Logistiker/in Getränkelager 100%",
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistikerin-getrankelager-100?jobid=152911",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-21T09:56:21.972Z",
-      "firstSeenAt": "2026-05-13T11:12:50.193Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "removedJobs": [],
+  "unchangedJobs": []
 }

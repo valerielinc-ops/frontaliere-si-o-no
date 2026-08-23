@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-08-22T09:52:10.121Z",
+  "assembledAt": "2026-08-23T09:38:01.116Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -4991,7 +4991,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0
     },
     {
@@ -5626,6 +5625,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-07-07T12:07:03.067Z",
+      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-8f4a8af2"
@@ -5633,9 +5633,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-8f4a8af2"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician (Robotaxi Fleet Maintenance & Technical Operations)",

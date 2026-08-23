@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-08-22T09:37:42.586Z",
+  "assembledAt": "2026-08-23T09:39:15.334Z",
   "jobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144710179-assistant-e-medical-e-a-80-cdm",
@@ -161,6 +161,14 @@
         "location": "Basel"
       },
       "sourceLang": "de",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-50-70-swiss-medical-network"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-50-70-swiss-medical-network"
+        ]
+      },
       "firstSeenAt": "2026-08-21T09:47:06.124Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -868,7 +876,7 @@
         "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
       },
       "category": "healthcare",
-      "datePosted": "2026-08-22",
+      "datePosted": "2026-08-23",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -891,7 +899,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-22T09:37:39.127Z"
+      "firstSeenAt": "2026-08-23T09:39:12.240Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144049020-med-praxisassistent-in",
@@ -1214,7 +1222,7 @@
         "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
       },
       "category": "medical",
-      "datePosted": "2026-08-22",
+      "datePosted": "2026-08-23",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1237,7 +1245,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-22T09:37:39.127Z"
+      "firstSeenAt": "2026-08-23T09:39:12.240Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143237494-physiotherapeute-du-sport-senior",
@@ -1292,7 +1300,15 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-du-sport-senior-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-du-sport-senior-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142855561-medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-",
@@ -1347,7 +1363,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142660370-infirmier-ere-instrumentiste",
@@ -1390,11 +1414,13 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "infirmier-ere-instrumentiste-swiss-medical-network-sion"
+        "infirmier-ere-instrumentiste-swiss-medical-network-sion",
+        "infirmier-ere-instrumentiste-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-instrumentiste-swiss-medical-network-sion"
+          "infirmier-ere-instrumentiste-swiss-medical-network-sion",
+          "infirmier-ere-instrumentiste-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-08-10T21:46:34.680Z",
@@ -1465,7 +1491,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-en-chirurgie-de-la-main-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142608286-medecin-adjoint-pedopsychiatre-fmh-h-f-",
@@ -1520,7 +1554,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142606436-assistant-e-s-medicale-s-d-f",
@@ -1563,11 +1605,13 @@
       },
       "sourceLang": "fr",
       "previousSlugs": [
-        "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel"
+        "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel",
+        "assistant-e-s-medicale-s-d-f-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel"
+          "assistant-e-s-medicale-s-d-f-swiss-medical-network-biel",
+          "assistant-e-s-medicale-s-d-f-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-08-10T21:46:34.680Z",
@@ -1644,7 +1688,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-diplome-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ne-diplome-e-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137621779-physiotherapeute",
@@ -1672,7 +1724,7 @@
         "it": "physiotherapeute-swiss-medical-network"
       },
       "category": "healthcare",
-      "datePosted": "2026-08-22",
+      "datePosted": "2026-08-23",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1695,7 +1747,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-22T09:37:39.127Z"
+      "firstSeenAt": "2026-08-23T09:39:12.240Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141172969-montchoisi-motionlab",
@@ -1813,7 +1865,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-angiologue-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-angiologue-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920001-fullstack-developer-ai-digital-health-fr",
@@ -2046,7 +2106,15 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139144739-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung",
@@ -2092,11 +2160,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
+        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
+        "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich"
+          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network-zurich",
+          "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2228,13 +2298,15 @@
       "previousSlugs": [
         "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6",
         "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-bern",
-        "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern"
+        "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern",
+        "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6",
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-bern",
-          "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern"
+          "gynakologe-in-e-geburtshelfer-in-swiss-medical-network-bern",
+          "gynakologe-in-und-geburtshelfer-in-swiss-medical-network"
         ],
         "de": [
           "gynakologe-in-und-geburtshelfer-in-swiss-medical-network-f0m8p6"
@@ -2302,11 +2374,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
+        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t",
+        "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
+          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t",
+          "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network"
         ],
         "de": [
           "medizinische-praxisassistentinnen-mpa-w-m-d-swiss-medical-network-vom39t"
@@ -2374,11 +2448,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona"
+        "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona",
+        "lehrstelle-fachperson-gesundheit-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona"
+          "apprendistato-fachperson-gesundheit-swiss-medical-network-rapperswil-jona",
+          "lehrstelle-fachperson-gesundheit-swiss-medical-network"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2457,7 +2533,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-rang-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-rang-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138085727-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
@@ -2485,7 +2569,7 @@
         "it": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network"
       },
       "category": "healthcare",
-      "datePosted": "2026-08-22",
+      "datePosted": "2026-08-23",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -2508,7 +2592,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-22T09:37:39.127Z"
+      "firstSeenAt": "2026-08-23T09:39:12.240Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138653929-medecin-responsable-d-unite",
@@ -2567,7 +2651,15 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-responsable-d-unite-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-responsable-d-unite-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
@@ -2595,7 +2687,7 @@
         "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network"
       },
       "category": "medical",
-      "datePosted": "2026-08-22",
+      "datePosted": "2026-08-23",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -2618,7 +2710,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-22T09:37:39.127Z"
+      "firstSeenAt": "2026-08-23T09:39:12.240Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137849199-product-owner-klinische-applikationen-",
@@ -2679,7 +2771,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-klinische-applikationen-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-klinische-applikationen-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137161519-dipl-fachperson-operationstechnik-40-80-",
@@ -2726,11 +2826,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-40-80-swiss-medical-network-rapperswil-jona",
-        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network"
+        "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network",
+        "dipl-fachperson-operationstechnik-40-80-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network"
+          "dipl-fachperson-operationstechnik-pool-region-mittelland-im-stundenlohn-swiss-medical-network",
+          "dipl-fachperson-operationstechnik-40-80-swiss-medical-network"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2795,11 +2897,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network"
+        "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
+        "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network"
+          "dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-gastroenterologie-endoskopie-40-60-swiss-medical-network",
+          "teamleitung-gastroenterologie-dipl-pflegefachperson-hf-fh-medizinische-praxisassistenz-60-80-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-07-06T15:37:05.963Z",
@@ -3038,11 +3142,13 @@
         "specialist-specialist-endocrinology-and-diabetology-fmh-pensum-by-agreement-swiss-medical-network-basel",
         "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network-basel",
         "facharztin-facharzt-endokrinologie-e-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network-basel",
-        "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel"
+        "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
+        "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel"
+          "specialista-specialista-endocrinologia-e-diabetologia-fmh-penso-dopo-consultazione-swiss-medical-network-basel",
+          "facharztin-facharzt-endokrinologie-und-diabetologie-fmh-pensum-nach-absprache-swiss-medical-network"
         ]
       },
       "firstSeenAt": "2026-06-29T23:34:11.527Z",
@@ -3180,124 +3286,71 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144752929-stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144752929-stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen?oga=true",
-      "title": "Stellvertretende/r Direktor/in und Leitung operative Betriebe und Finanzen",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144882959-receptionniste-stagiaire",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144882959-receptionniste-stagiaire?oga=true",
+      "title": "Réceptionniste stagiaire",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "8044",
-      "description": "Als Stellvertretende/r Direktor/in übernehmen Sie eine zentrale Führungsfunktion innerhalb der Privatklinik und tragen gemeinsam mit der Direktion die Verantwortung für die erfolgreiche Weiterentwicklung des Betriebs. Sie gestalten die operative Führung aktiv mit und stellen eine qualitativ hochwertige, wirtschaftliche und patientenorientierte Leistungserbringung sicher.\nZu Ihren Hauptaufgaben gehören:\n\n• Operative Führung ausgewählter klinischer und nichtklinischer Bereiche.\n\n• Übernahme der Stellvertretung der Direktorin in strategischen, organisatorischen und operativen Fragestellungen.\n\n• Verantwortung für die finanzielle Steuerung und Performance der Ihnen zugeordneten Bereiche inklusive Budgetplanung, Forecasting und Wirtschaftlichkeitsanalysen.\n\n• Führung und Weiterentwicklung von Führungspersonen und Teams mit Fokus auf Qualität, Effizienz und Service Excellence.\n\n• Sicherstellung einer engen Zusammenarbeit zwischen medizinischen Fachbereichen, Unternehmensfunktionen und externen Partnern.\n\n• Koordination und Weiterentwicklung von Prozessen sowie Leitung von bereichsübergreifenden Optimierungs- und Veränderungsprojekten.\n\n• Mitgestaltung und Umsetzung der Unternehmensstrategie sowie Unterstützung der Direktion bei strategischen Initiativen.\n\nFür diese anspruchsvolle Führungsposition suchen wir eine unternehmerisch denkende Persönlichkeit mit ausgewiesener Führungserfahrung im Gesundheitswesen.\nSie verfügen über:\n\n• Hochschulabschluss in Gesundheitsmanagement, Betriebswirtschaft, Healthcare Management oder vergleichbarer Fachrichtung.\n\n• Mehrjährige Führungs- und Managementerfahrung in einer Klinik, einem Spital oder einer vergleichbaren Gesundheitsinstitution.\n\n• Fundierte Kenntnisse in Finanzmanagement, Controlling und betriebswirtschaftlicher Steuerung im Gesundheitswesen.\n\n• Nachweisbare Erfahrung in der Verantwortung für Budgets, Ergebnissteuerung und wirtschaftliche Optimierung von Organisationseinheiten.\n\n• Ausgeprägtes Verständnis der regulatorischen, tarifarischen und gesundheitspolitischen Rahmenbedingungen des Schweizer Gesundheitswesens.\n\n• Hohe Sozial- und Führungskompetenz sowie Erfahrung in der Führung von Führungskräften.\n\n• Ausgewiesene Kompetenz im Projekt- und Changemanagement.\n\n• Unternehmerisches Denken, strategisches Verständnis und die Fähigkeit, operative Exzellenz mit wirtschaftlichem Erfolg zu verbinden.\n\n• Sicheres Auftreten gegenüber Ärzteschaft, Mitarbeitenden, Partnern und externen Anspruchsgruppen.\n\n• Sehr gute Deutschkenntnisse sowie idealerweise gute Französisch-, Italienisch und/oder Englischkenntnisse.\n\nPersönlich überzeugen Sie durch\n\n• eine wertschätzende, moderne Führungshaltung,\n\n• ausgeprägte Zahlenaffinität und analytisches Denken,\n\n• hohe Umsetzungsstärke und Entscheidungsfähigkeit,\n\n• lösungsorientiertes Handeln,\n\n• Belastbarkeit und Pragmatismus,\n\n• Freude daran, Veränderungen aktiv zu gestalten.\n\nWas wir bieten\n\n• Eine Schlüsselposition mit direktem Einfluss auf die operative und strategische Weiterentwicklung einer führenden Privatklinik.\n\n• Ein anspruchsvolles und vielseitiges Führungsmandat mit grossem Gestaltungsspielraum und kurzen Entscheidungswegen.\n\n• Die Möglichkeit, Verantwortung für zentrale klinische und betriebliche Bereiche zu übernehmen und deren Zukunft aktiv mitzugestalten.\n\n• Enge Zusammenarbeit mit der Direktion, der Belegärzteschaft sowie den Fach- und Führungsteams der Klinik.\n\n• Die Chance, Veränderungs- und Entwicklungsprojekte mit nachhaltiger Wirkung für Patienten, Mitarbeitende und Partner umzusetzen.\n\n• Eine Unternehmenskultur, die Eigenverantwortung, unternehmerisches Denken und interdisziplinäre Zusammenarbeit fördert.\n\n• Attraktive Anstellungsbedingungen sowie individuelle Entwicklungsmöglichkeiten innerhalb einer führenden privaten Spitalgruppe.\n\nBehandlung auf höchstem Niveau, hochklassige medizinische Betreuung und Versorgung, kompetente Pflege in einer familiäreren, privaten Atmosphäre mit Hotelkomfort, Hingabe, Gewissenhaftigkeit und absolute Diskretion – dafür steht die Privatklinik Bethanien. Rund 340 Belegärztinnen und -ärzte aus verschiedenen Fachrichtungen sorgen für eine hochstehende, integrierte medizinische Versorgung. Zu den wichtigsten Fachgebieten gehören Orthopädie, Viszeral- und Thoraxchirurgie, Urologie, Gynäkologie und Geburt, Gastroenterologie, Kardiologie, Pneumologie und innere Medizin inkl. Onkologie. In der Geburtenabteilung kommen jährlich rund 350 Kinder zur Welt. Die 1912 gegründete Privatklinik Bethanien ist ein Teil der Schweizer Privatklinikgruppe Swiss Medical Network.",
-      "descriptionByLocale": {
-        "en": "As Deputy Director, you take on a central management function within the private clinic and together with the management bear the responsibility for the successful further development of the company. They actively shape operational leadership and ensure high-quality, economical and patient-oriented service provision.\nTheir main tasks include:\n\n• Operational management of selected clinical and non-clinical areas.\n\n• Take over the deputy director in strategic, organizational and operational issues.\n\n• Responsibility for the financial management and performance of the areas assigned to you, including budget planning, forecasting and profitability analyses.\n\n• Leadership and development of leaders and teams with a focus on quality, efficiency and service excellence.\n\n• Ensure close cooperation between medical specialists, corporate functions and external partners.\n\n• Coordination and further development of processes as well as management of cross-divisional optimization and change projects.\n\n• Co-creation and implementation of the corporate strategy as well as support of the management in strategic initiatives.\n\nFor this demanding leadership position, we are looking for an entrepreneurial personality with proven leadership experience in the healthcare sector.\nThey shall have at their disposal:\n\n• University degree in health management, business administration, healthcare management or comparable discipline.\n\n• Several years of leadership and management experience in a clinic, hospital or comparable health institution.\n\n• In-depth knowledge in financial management, controlling and business management in the healthcare sector.\n\n• Demonstrable experience in the responsibility for budgets, results management and economic optimization of organizational units.\n\n• Strong understanding of the regulatory, tariff and health policy framework of the Swiss healthcare system.\n\n• High level of social and leadership competence as well as experience in the management of managers.\n\n• Proven competence in project and change management.\n\n• Entrepreneurial thinking, strategic understanding and the ability to combine operational excellence with economic success.\n\n• Safe appearance towards the medical profession, employees, partners and external stakeholders.\n\n• Very good knowledge of German and ideally good knowledge of French, Italian and/or English.\n\nPersonally convince you through\n\n• an appreciative, modern leadership attitude,\n\n• pronounced numerical affinity and analytical thinking,\n\n• high implementation strength and decision-making capacity,\n\n• solution-oriented action,\n\n• resilience and pragmatism,\n\n• Enjoy actively shaping change.\n\nWhat we offer\n\n• A key position with direct influence on the operational and strategic development of a leading private clinic.\n\n• A demanding and versatile management mandate with a great deal of room for manoeuvre and short decision-making paths.\n\n• The opportunity to take responsibility for central clinical and operational areas and to actively shape their future.\n\n• Close cooperation with the management, the medical profession and the specialist and management teams of the clinic.\n\n• The opportunity to implement change and development projects with a sustainable impact for patients, employees and partners.\n\n• A corporate culture that promotes personal responsibility, entrepreneurial thinking and interdisciplinary cooperation.\n\n• Attractive employment conditions and individual development opportunities within a leading private hospital group.\n\nTreatment at the highest level, high-class medical care and care, competent care in a more familiar, private atmosphere with hotel comfort, dedication, conscientiousness and absolute discretion – this is what the private clinic Bethanien stands for. Around 340 medical doctors from different disciplines provide high-quality, integrated medical care. Among the most important specialties are orthopaedics, visceral and thoracic surgery, urology, gynecology and birth, gastroenterology, cardiology, pneumology and internal medicine incl. Oncology. In the birth department, around 350 children are born each year. Founded in 1912, the private clinic Bethanien is part of the Swiss Medical Network.",
-        "it": "Come vicedirettore, si assume una funzione di gestione centrale all'interno della clinica privata e insieme con la gestione si assume la responsabilità per il successo ulteriore sviluppo della società. Formano attivamente la leadership operativa e garantiscono un servizio di alta qualità, economico e orientato al paziente.\nI loro compiti principali includono:\n\n• Gestione operativa di aree cliniche e non cliniche selezionate.\n\n• Assumere il vicedirettore in questioni strategiche, organizzative e operative.\n\n• Responsabilità per la gestione finanziaria e l'esecuzione delle aree a voi assegnate, compresa la pianificazione del bilancio, la previsione e l'analisi della redditività.\n\n• Leadership e sviluppo di leader e team con un focus sulla qualità, l'efficienza e l'eccellenza dei servizi.\n\n• Assicurare una stretta collaborazione tra specialisti medici, funzioni aziendali e partner esterni.\n\n• Coordinamento e ulteriore sviluppo dei processi e gestione di progetti di ottimizzazione e cambiamento cross-divisional.\n\n• Co-creazione e implementazione della strategia aziendale e supporto alla gestione in iniziative strategiche.\n\nPer questa impegnativa posizione di leadership, stiamo cercando una personalità imprenditoriale con comprovata esperienza di leadership nel settore sanitario.\nEssi hanno a loro disposizione:\n\n• Laurea in gestione della salute, amministrazione aziendale, gestione sanitaria o disciplina comparabile.\n\n• Diversi anni di leadership e di esperienza di gestione in una clinica, ospedale o istituto sanitario comparabile.\n\n• Conoscenza approfondita della gestione finanziaria, del controllo e della gestione aziendale nel settore sanitario.\n\n• Esperienza dimostrabile nella responsabilità di budget, gestione dei risultati e ottimizzazione economica delle unità organizzative.\n\n• Forte comprensione del quadro normativo, tariffario e della politica sanitaria del sistema sanitario svizzero.\n\n• Alto livello di competenza sociale e di leadership e l'esperienza nella gestione dei manager.\n\n• Competenza comprovata nella gestione dei progetti e dei cambiamenti.\n\n• Il pensiero imprenditoriale, la comprensione strategica e la capacità di combinare l'eccellenza operativa con il successo economico.\n\n• Apparizione sicura verso la professione medica, i dipendenti, i partner e gli stakeholder esterni.\n\n• Molto buona conoscenza del tedesco e idealmente buona conoscenza del francese, italiano e/o inglese.\n\nVi convincono personalmente attraverso\n\n• un atteggiamento di leadership apprezzativo e moderno,\n\n• pronunciata affinità numerica e pensiero analitico,\n\n• elevata forza di attuazione e capacità decisionale,\n\n• azione orientata alla soluzione,\n\n• resilienza e pragmatismo,\n\n• Goditi attivamente di modellare il cambiamento.\n\nCosa offriamo\n\n• Una posizione chiave con influenza diretta sullo sviluppo operativo e strategico di una clinica privata leader.\n\n• Un mandato di gestione impegnativo e versatile con una grande quantità di spazio per i percorsi decisionali di manovra e brevi.\n\n• L'opportunità di assumersi la responsabilità delle aree cliniche e operative centrali e di plasmare attivamente il loro futuro.\n\n• Una stretta collaborazione con la direzione, la professione medica e i team specializzati e di gestione della clinica.\n\n• L'opportunità di implementare progetti di cambiamento e sviluppo con un impatto sostenibile per pazienti, dipendenti e partner.\n\n• Una cultura aziendale che promuove la responsabilità personale, il pensiero imprenditoriale e la cooperazione interdisciplinare.\n\n• Condizioni di lavoro attraenti e opportunità di sviluppo individuale all'interno di un gruppo ospedaliero privato leader.\n\nTrattamento al più alto livello, assistenza medica di alta classe e cura, cura competente in un'atmosfera più familiare e privata con comfort dell'hotel, dedizione, coscienza e assoluta discrezione - questo è ciò che la clinica privata Bethanien sta per. Circa 340 medici di diverse discipline forniscono assistenza medica integrata di alta qualità. Tra le specialità più importanti ci sono ortopedia, chirurgia viscerale e toracica, urologia, ginecologia e nascita, gastroenterologia, cardiologia, pneumologia e medicina interna incl. Oncologia. Nel dipartimento di nascita, ogni anno sono nati circa 350 bambini. Fondata nel 1912, la clinica privata Bethanien fa parte della rete medica svizzera.",
-        "fr": "En tant que directeur adjoint, vous assumez une fonction centrale de gestion au sein de la clinique privée et avec la direction porte la responsabilité de la poursuite réussie du développement de l'entreprise. Ils façonnent activement le leadership opérationnel et assurent une prestation de services de haute qualité, économique et axée sur le patient.\nLeurs principales tâches sont les suivantes:\n\n• Gestion opérationnelle de certaines zones cliniques et non cliniques.\n\n• Prendre en charge le directeur adjoint pour les questions stratégiques, organisationnelles et opérationnelles.\n\n• Responsabilité de la gestion financière et de la performance des domaines qui vous sont assignés, y compris la planification budgétaire, les prévisions et les analyses de rentabilité.\n\n• Leadership et perfectionnement des leaders et des équipes en mettant l'accent sur la qualité, l'efficacité et l'excellence des services.\n\n• Assurer une coopération étroite entre les spécialistes médicaux, les fonctions de l'entreprise et les partenaires extérieurs.\n\n• Coordination et développement des processus ainsi que gestion des projets d'optimisation et de changement interdivisions.\n\n• Co-création et mise en oeuvre de la stratégie d'entreprise ainsi que soutien de la direction dans les initiatives stratégiques.\n\nPour ce poste de leadership exigeant, nous recherchons une personnalité entrepreneuriale ayant une expérience de leadership avérée dans le secteur de la santé.\nIls disposent:\n\n• Diplôme universitaire en gestion de la santé, administration des affaires, gestion de la santé ou discipline comparable.\n\n• Plusieurs années d'expérience en leadership et en gestion dans une clinique, un hôpital ou un établissement de santé comparable.\n\n• Connaissance approfondie de la gestion financière, du contrôle et de la gestion des entreprises dans le secteur des soins de santé.\n\n• Expérience démontrée dans la responsabilité des budgets, de la gestion des résultats et de l'optimisation économique des unités organisationnelles.\n\n• Une bonne compréhension du cadre réglementaire, tarifaire et de la politique de santé du système suisse de santé.\n\n• Niveau élevé de compétence sociale et de leadership ainsi que l'expérience dans la gestion des gestionnaires.\n\n• Compétence éprouvée en gestion de projet et de changement.\n\n• La pensée entrepreneuriale, la compréhension stratégique et la capacité de combiner excellence opérationnelle et réussite économique.\n\n• Une apparence sécuritaire envers la profession médicale, les employés, les partenaires et les intervenants externes.\n\n• Très bonne connaissance de l'allemand et idéalement bonne connaissance du français, de l'italien et/ou de l'anglais.\n\nVous convaincre personnellement à travers\n\n• une attitude de leadership appréciée et moderne,\n\n• affinité numérique prononcée et pensée analytique,\n\n• haute force de mise en œuvre et capacité de décision,\n\n• une action axée sur la solution,\n\n• résilience et pragmatisme,\n\n• Profitez de façonner activement le changement.\n\nCe que nous offrons\n\n• Position clé ayant une influence directe sur le développement opérationnel et stratégique d'une clinique privée de premier plan.\n\n• Un mandat de gestion exigeant et polyvalent avec beaucoup de marge de manoeuvre et de courtes pistes de décision.\n\n• L'occasion de prendre la responsabilité des domaines cliniques et opérationnels centraux et de façonner activement leur avenir.\n\n• Collaboration étroite avec la direction, la profession médicale et les équipes de spécialistes et de gestionnaires de la clinique.\n\n• La possibilité de mettre en œuvre des projets de changement et de développement ayant un impact durable pour les patients, les employés et les partenaires.\n\n• Une culture d'entreprise qui favorise la responsabilité personnelle, la pensée entrepreneuriale et la coopération interdisciplinaire.\n\n• Des conditions d'emploi attrayantes et des possibilités de développement individuel au sein d'un groupe hospitalier privé de premier plan.\n\nTraitement au plus haut niveau, soins et soins médicaux de haut niveau, soins compétents dans une atmosphère plus familière et privée avec confort de l'hôtel, dévouement, conscience et discrétion absolue – voilà ce que représente la clinique privée Bethanien. Environ 340 médecins de différentes disciplines offrent des soins médicaux intégrés de haute qualité. Parmi les spécialités les plus importantes sont l'orthopédie, la chirurgie viscérale et thoracique, l'urologie, la gynécologie et la naissance, la gastroentérologie, la cardiologie, la pneumologie et la médecine interne incl. Oncologie. Dans le service des naissances, environ 350 enfants naissent chaque année. Fondée en 1912, la clinique privée Bethanien fait partie du réseau médical suisse."
-      },
-      "titleByLocale": {
-        "en": "Deputy Director and Head of Operations and Finance",
-        "fr": "Directeur adjoint et chef des opérations et des finances",
-        "it": "Direttore aggiunto e responsabile delle operazioni e delle finanze"
-      },
-      "slug": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-swiss-medical-network",
-      "slugByLocale": {
-        "en": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-swiss-medical-network",
-        "it": "stellvertretende-r-direktor-in-und-leitung-operative-betriebe-und-finanzen-swiss-medical-network",
-        "fr": "directeur-adjoint-et-chef-des-operations-et-des-finances-swiss-medical-network-zurich"
-      },
-      "category": "healthcare",
-      "datePosted": "2026-08-21",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "sourceLang": "de",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-21T21:32:25.438Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144035577-aide-soignante",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144035577-aide-soignante?oga=true",
-      "title": "Aide-soignante",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Glion",
-      "addressLocality": "Glion",
+      "location": "Genolier",
+      "addressLocality": "Genolier",
       "addressRegion": "VD",
       "canton": "VD",
       "country": "CH",
-      "postalCode": "1823",
-      "description": "• Participer à l'accueil et l'installation du patient\n\n• Prodiguer des soins de base et de confort\n\n• Assurer la sécurité du patient\n\n• Soutenir le patient dans les activités de la vie quotidienne\n\n• Etre à l'écoute du patient, le considérer dans sa globalité et transmettre à l'équipe soignante toute information reçue nécessaire aux soins\n\n• Veiller à la bonne tenue de l'environnement du patient\n\n&#xa0;\n\n• Être au bénéfice d'un diplôme d'auxiliaire CRS ou formation jugée équivalente\n\n• Grande conscience professionnelle, motivation, flexibilité et dynamisme\n\n• Aptitude à s'intégrer dans un groupe et esprit d'équipe\n\n• Capacité à gérer le stress\n\n• La connaissance de l'anglais est un atout\n\n• Un cadre de travail dans un site exceptionnel\n\n• Une activité variée au sein d’une équipe pluridisciplinaire\n\n• Un salaire et des conditions de travail motivants\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nLa Clinique Valmont est une clinique privée située à Valmont dans un cadre pittoresque. Elle se distingue par son approche thérapeutique et son accent sur la rééducation.\nDepuis 1905, la Clinique Valmont accueille des patients en quête de calme et de soins personnalisés. Riche de plus de 115 ans d’expérience et d'histoire au service de la santé, la Clinique Valmont est aujourd’hui un établissement phare dans la réadaptation, de par son efficience thérapeutique inégalée, ses équipes compétentes et son plateau technique de pointe. &#xa0;A la Clinique Valmont, une attention personnelle est portée à chacun de nos patients. Nous mettons tout en oeuvre pour atteindre notre objectif: vous permettre de retrouver votre capital santé.",
+      "postalCode": "1272",
+      "description": "• Accueil des patients et des visiteurs : admission hospitalière et urgence.\n\n• Gestion des appels téléphoniques, de la messagerie, des&#xa0;agendas Outlook, du courrier et des colis.\n\n• Gestion des plaintes patients.\n\n• Gestion caisse.\n\n• Réaliser et traiter les demandes de transport.\n\n• Diverses tâches administratives.\n\n• Avoir un rôle d'ambassadeur.\n\n• Posséder une expérience dans le domaine de l'accueil, avoir une excellente&#xa0;présentation, ainsi que le sens du contact et du travail en équipe.\n\n• Etre de langue maternelle française avec une bonne maîtrise de l'anglais, l'allemand serait un atout.\n\n• Polyvalence, flexibilité, autonomie, organisation et précision.\n\n• Expérience dans le domaine l'hôtellerie de luxe serait également un atout.\n\n• Une activité dans un domaine passionnant, au sein d'une entreprise dynamique, stimulante et en pleine expansion.\n\n• Un cadre de travail agréable.\n\n&#xa0;\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFort d'une solide expertise, la Clinique de Genolier se distingue par son équipe expérimentée et qualifiée et son équipement médical à la pointe de la technologie.\n\nLa clinique de Genolier propose une palette de services étendue couvrant la cardiologie, la neurologie, l'oncologie, la chirurgie orthopédique et la chirurgie plastique. Par ailleurs, la clinique met à disposition de ses patients une vaste gamme de prestations axées sur la prévention et la rééducation, pour favoriser leur santé et leur bien-être.\n\nLa renommée de la Clinique de Genolier repose sur ses infrastructures médicales d'excellence et ses technologies avant-gardistes. Parmi elles, un centre de diagnostic ultramoderne, une unité de soins intensifs performante et une salle d'opération équipée des instruments et appareils dernière génération pour assurer des soins de qualité optimale.",
       "descriptionByLocale": {
-        "it": "• Partecipa alla ricezione e all'installazione dei pazienti\n\n• Fornire assistenza di base e comfort\n\n• Garantire la sicurezza dei pazienti\n\n• Sostenere il paziente nelle attività quotidiane\n\n• Ascoltare il paziente, considerarlo nel suo complesso e trasmettere al team sanitario qualsiasi informazione ricevuta necessaria per la cura\n\n• Garantire l'ambiente del paziente è mantenuto\n\n&#xa0;\n\n• Si può beneficiare di un grado ausiliario CRS o di una formazione equivalente\n\n• Alta consapevolezza professionale, motivazione, flessibilità e dinamismo\n\n• Capacità di integrare in un gruppo e spirito di squadra\n\n• Capacità di gestire lo stress\n\n• La conoscenza dell'inglese è un bene\n\n• Un ambiente di lavoro in un sito eccezionale\n\n• Una variegata attività all'interno di un team multidisciplinare\n\n• Paga e motiva le condizioni di lavoro\n\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nClinique Valmont è una clinica privata situata in Valmont in un ambiente pittoresco. Si distingue per il suo approccio terapeutico e la sua enfasi sulla riabilitazione.\nDal 1905 Clinique Valmont accoglie pazienti in cerca di pace e cura personalizzata. Con oltre 115 anni di esperienza e di storia al servizio della salute, Clinique Valmont è ora un importante centro di riabilitazione, grazie alla sua ineguagliabile efficienza terapeutica, ai team competenti e alla piattaforma tecnica all'avanguardia. Alla clinica Valmont, l'attenzione personale è rivolta a ciascuno dei nostri pazienti. Facciamo ogni sforzo per raggiungere il nostro obiettivo: ripristinare il vostro capitale sanitario.",
-        "en": "• Participate in patient reception and installation\n\n• Provide basic care and comfort\n\n• Ensuring patient safety\n\n• Supporting the patient in daily activities\n\n• To listen to the patient, to consider him as a whole and to transmit to the healthcare team any information received necessary for the care\n\n• Ensuring the patient's environment is maintained\n\n&#xa0;\n\n• Be eligible for a CRS auxiliary degree or equivalent training\n\n• High professional awareness, motivation, flexibility and dynamism\n\n• Ability to integrate into a group and team spirit\n\n• Ability to manage stress\n\n• Knowledge of English is an asset\n\n• A working environment in an exceptional site\n\n• A varied activity within a multidisciplinary team\n\n• Pay and motivating working conditions\n\nWe pay great attention to the diversity of life paths of our collaborators. Our positions are open to both women and men.\n\nClinique Valmont is a private clinic located in Valmont in a picturesque setting. It is distinguished by its therapeutic approach and its emphasis on rehabilitation.\nSince 1905, Clinique Valmont has been welcoming patients looking for peace and personalized care. With more than 115 years of experience and history in the service of health, Clinique Valmont is now a leading rehabilitation facility, thanks to its unparalleled therapeutic efficiency, competent teams and state-of-the-art technical platform. At the Valmont Clinic, personal attention is paid to each of our patients. We make every effort to achieve our goal: to restore your health capital.",
-        "de": "• Teilnahme an der Patientenaufnahme und -installation\n\n• Grundversorgung und Komfort\n\n• Gewährleistung der Patientensicherheit\n\n• Unterstützung des Patienten bei täglichen Aktivitäten\n\n• Dem Patienten zuzuhören, ihn als Ganzes zu betrachten und dem Gesundheitsteam alle für die Pflege erforderlichen Informationen zu übermitteln\n\n• Sicherstellen, dass die Umgebung des Patienten erhalten bleibt\n\n&#xa0;\n\n• Anspruch auf einen CRS-Hilfsabschluss oder eine gleichwertige Ausbildung haben\n\n• Hohes fachliches Bewusstsein, Motivation, Flexibilität und Dynamik\n\n• Fähigkeit, sich in einen Gruppen- und Teamgeist zu integrieren\n\n• Fähigkeit, Stress zu bewältigen\n\n• Englischkenntnisse sind ein Asset\n\n• Ein Arbeitsumfeld an einem außergewöhnlichen Standort\n\n• Eine abwechslungsreiche Tätigkeit innerhalb eines multidisziplinären Teams\n\n• Entlohnung und motivierende Arbeitsbedingungen\n\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen stehen sowohl Frauen als auch Männern offen.\n\nDie Clinique Valmont ist eine Privatklinik in Valmont in einer malerischen Umgebung. Es zeichnet sich durch seinen therapeutischen Ansatz und seine Betonung der Rehabilitation aus.\nSeit 1905 begrüßt die Clinique Valmont Patienten, die Ruhe und persönliche Betreuung suchen. Mit mehr als 115 Jahren Erfahrung und Geschichte im Dienste der Gesundheit ist Clinique Valmont heute eine führende Rehabilitationseinrichtung, dank ihrer beispiellosen therapeutischen Effizienz, kompetenten Teams und modernsten technischen Plattform. In der Valmont Clinic wird jedem unserer Patienten persönliche Aufmerksamkeit geschenkt. Wir bemühen uns, unser Ziel zu erreichen: Ihr Gesundheitskapital wiederherzustellen."
+        "en": "• Patient and visitor reception: hospital admission and emergency.\n\n• Managing phone calls, messaging, Outlook calendars, mail and parcels.\n\n• Management of patient complaints.\n\n• Cash management.\n\n• Complete and process transportation requests.\n\n• Various administrative tasks.\n\n• Have an ambassador role.\n\n• Have experience in the field of hospitality, have an excellent presentation, as well as a sense of contact and teamwork.\n\n• Being a French mother tongue with a good command of English, German would be an asset.\n\n• Versatility, flexibility, autonomy, organization and precision.\n\n• Experience in the field of luxury hotels would also be an asset.\n\n• An activity in an exciting field, within a dynamic, stimulating and expanding company.\n\n• A pleasant work environment.\n\n&#xa0;\nWe pay great attention to the diversity of life paths of our collaborators. Our positions are open to both women and men.\n\nWith strong expertise, the Genolier Clinic is distinguished by its experienced and qualified team and its state-of-the-art medical equipment.\n\nThe Genolier Clinic offers a wide range of services covering cardiology, neurology, oncology, orthopaedic surgery and plastic surgery. In addition, the clinic provides its patients with a wide range of prevention and rehabilitation services to promote their health and well-being.\n\nThe reputation of the Genolier Clinic is based on its excellent medical infrastructure and cutting-edge technologies. These include a state-of-the-art diagnostic centre, a high-performance intensive care unit and an operating room equipped with the latest generation instruments and devices to ensure optimal quality care.",
+        "it": "• Ricezione del paziente e dei visitatori: ammissione dell'ospedale e emergenza.\n\n• Gestione delle telefonate, messaggistica, calendari di Outlook, posta e pacchi.\n\n• Gestione dei reclami dei pazienti.\n\n• Gestione dei contanti.\n\n• Richieste di trasporto complete e di processo.\n\n• Vari compiti amministrativi.\n\n• Un ruolo da ambasciatore.\n\n• Avere esperienza nel campo dell'ospitalità, avere una presentazione eccellente, così come un senso di contatto e lavoro di squadra.\n\n• Essendo una lingua madre francese con un buon comando dell'inglese, il tedesco sarebbe un bene.\n\n• Versatilità, flessibilità, autonomia, organizzazione e precisione.\n\n• L'esperienza nel campo degli hotel di lusso sarebbe anche un bene.\n\n• Un'attività in un campo emozionante, all'interno di un'azienda dinamica, stimolante e in espansione.\n\n• Un ambiente di lavoro piacevole.\n\n&#xa0;\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nCon una forte competenza, la Clinica Genolier si distingue per il suo team esperto e qualificato e per le sue attrezzature mediche all'avanguardia.\n\nLa Clinica Genolier offre una vasta gamma di servizi che coprono cardiologia, neurologia, oncologia, chirurgia ortopedica e chirurgia plastica. Inoltre, la clinica fornisce ai suoi pazienti una vasta gamma di servizi di prevenzione e riabilitazione per promuovere la loro salute e benessere.\n\nLa reputazione della Clinica Genolier si basa sulla sua eccellente infrastruttura medica e tecnologie all'avanguardia. Questi includono un centro diagnostico all'avanguardia, un'unità di assistenza intensiva ad alte prestazioni e una sala operatoria dotata di strumenti e dispositivi di ultima generazione per garantire una cura ottimale della qualità.",
+        "de": "• Patienten- und Besucherempfang: Krankenhauseinweisung und Notfall.\n\n• Verwaltung von Telefonanrufen, Nachrichten, Outlook-Kalendern, Post und Paketen.\n\n• Management von Patientenbeschwerden.\n\n• Cash Management.\n\n• Transportanfragen ausfüllen und bearbeiten.\n\n• Verschiedene administrative Aufgaben.\n\n• Sie haben eine Botschafterrolle.\n\n• Haben Sie Erfahrung im Bereich der Gastfreundschaft, haben eine hervorragende Präsentation, sowie ein Gefühl von Kontakt und Teamwork.\n\n• Als französische Muttersprache mit guten Englischkenntnissen wäre Deutsch ein Gewinn.\n\n• Vielseitigkeit, Flexibilität, Autonomie, Organisation und Präzision.\n\n• Erfahrung im Bereich der Luxushotels wäre ebenfalls ein Gewinn.\n\n• Eine Tätigkeit in einem spannenden Bereich, in einem dynamischen, anregenden und expandierenden Unternehmen.\n\n• Ein angenehmes Arbeitsumfeld.\n\n&#xa0;\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen stehen sowohl Frauen als auch Männern offen.\n\nDie Genolier Klinik zeichnet sich durch ihr erfahrenes und qualifiziertes Team und ihre hochmoderne medizinische Ausstattung aus.\n\nDie Genolier Clinic bietet eine breite Palette von Dienstleistungen für Kardiologie, Neurologie, Onkologie, orthopädische Chirurgie und plastische Chirurgie. Darüber hinaus bietet die Klinik ihren Patienten eine breite Palette von Präventions- und Rehabilitationsdiensten, um ihre Gesundheit und ihr Wohlbefinden zu fördern.\n\nDer Ruf der Klinik Genolier basiert auf ihrer hervorragenden medizinischen Infrastruktur und modernsten Technologien. Dazu gehören ein hochmodernes Diagnosezentrum, eine leistungsstarke Intensivstation und ein Operationssaal, der mit den neuesten Instrumenten und Geräten ausgestattet ist, um eine optimale Versorgung zu gewährleisten."
       },
       "titleByLocale": {
-        "it": "Carriera",
-        "en": "Caregiver",
-        "de": "Pflegeperson"
+        "en": "Intern receptionist",
+        "it": "Ricevitore interno",
+        "de": "Interne Empfangsdame"
       },
-      "slug": "aide-soignante-swiss-medical-network",
+      "slug": "ricevitore-interno-swiss-medical-network-genolier",
       "slugByLocale": {
-        "it": "aide-soignante-swiss-medical-network",
-        "en": "aide-soignante-swiss-medical-network",
-        "de": "pflegeperson-swiss-medical-network-glion"
+        "en": "intern-receptionist-swiss-medical-network-genolier",
+        "it": "ricevitore-interno-swiss-medical-network-genolier",
+        "de": "interne-empfangsdame-swiss-medical-network-genolier"
       },
       "category": "healthcare",
-      "datePosted": "2026-08-18",
+      "datePosted": "2026-08-22",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "VD",
-        "location": "Glion"
+        "location": "Genolier"
       },
       "sourceLang": "fr",
-      "previousSlugs": [
-        "betreuer-swiss-medical-network-glion"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "betreuer-swiss-medical-network-glion"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T21:35:49.117Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 77500,
+      "salaryMax": 108000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 77500,
+          "maxValue": 108000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-08-22T21:25:34.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionniste-stagiaire-swiss-medical-network"
+        ],
+        "en": [
+          "receptionniste-stagiaire-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "receptionniste-stagiaire-swiss-medical-network"
+      ],
+      "crawlerMissStreak": 1
     }
   ]
 }

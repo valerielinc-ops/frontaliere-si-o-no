@@ -16,6 +16,7 @@ import {
   hasMeaningfulContent,
   hasOnlyBareBullets,
   hasNessuno,
+  filesUncitedInBody,
 } from '../scripts/lib/pr-body-sections-check.mjs';
 
 // ---------------------------------------------------------------------------
@@ -385,5 +386,79 @@ describe('checkPrBodySections — real-world violation patterns', () => {
       '- Wiring the check into `pr-body-contract.yml` as a CI step — blocked: ' +
       'requires PAT with `workflows` scope (separate PR).\n';
     expect(checkPrBodySections(body).ok).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// filesUncitedInBody (#6301 — reproduced on #6279: a diff touching a
+// `.github/workflows/**` file whose body never mentioned it, caught only by a
+// reviewer 🟡 after the fact)
+// ---------------------------------------------------------------------------
+describe('filesUncitedInBody', () => {
+  it('#6279 pattern: a workflow file changed but never named in the body is flagged', () => {
+    const diffPaths = [
+      '.github/workflows/prospector-loop.yml',
+      'scripts/lib/crawl-checkpoint.mjs',
+    ];
+    const body =
+      '## Implementato\n' +
+      '- `scripts/lib/crawl-checkpoint.mjs`: fixed the resume bug.\n\n' +
+      '## Non implementato (ancora)\n' +
+      'Nessuno.\n';
+    expect(filesUncitedInBody(diffPaths, body)).toEqual([
+      '.github/workflows/prospector-loop.yml',
+    ]);
+  });
+
+  it('does not flag a workflow file cited by its full path', () => {
+    const diffPaths = ['.github/workflows/prospector-loop.yml'];
+    const body = '## Implementato\n- `.github/workflows/prospector-loop.yml`: removed sparse-checkout.\n';
+    expect(filesUncitedInBody(diffPaths, body)).toEqual([]);
+  });
+
+  it('does not flag a workflow file cited by basename only', () => {
+    const diffPaths = ['.github/workflows/prospector-loop.yml'];
+    const body = '## Implementato\n- Simplified prospector-loop.yml checkout step.\n';
+    expect(filesUncitedInBody(diffPaths, body)).toEqual([]);
+  });
+
+  it('ignores non-funnel-critical paths entirely', () => {
+    const diffPaths = ['scripts/lib/crawl-checkpoint.mjs', 'components/Foo.tsx'];
+    const body = '## Implementato\n- Fixed something unrelated.\n';
+    expect(filesUncitedInBody(diffPaths, body)).toEqual([]);
+  });
+
+  it('returns [] for an empty diffPaths list', () => {
+    expect(filesUncitedInBody([], 'anything')).toEqual([]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// checkPrBodySections — diffPaths integration (advisory `warnings`, not `violations`)
+// ---------------------------------------------------------------------------
+describe('checkPrBodySections — diff-vs-body citation (advisory)', () => {
+  it('adds a files-uncited-in-body warning without failing `ok`', () => {
+    const body = makeBody();
+    const res = checkPrBodySections(body, {
+      diffPaths: ['.github/workflows/prospector-loop.yml'],
+    });
+    expect(res.ok).toBe(true);
+    expect(res.warnings.some((w) => w.type === 'files-uncited-in-body')).toBe(true);
+  });
+
+  it('does not warn when the workflow file is cited', () => {
+    const body = makeBody({
+      implContent: '- Updated `.github/workflows/prospector-loop.yml`.\n',
+    });
+    const res = checkPrBodySections(body, {
+      diffPaths: ['.github/workflows/prospector-loop.yml'],
+    });
+    expect(res.warnings.some((w) => w.type === 'files-uncited-in-body')).toBe(false);
+  });
+
+  it('does not run the check when diffPaths is omitted', () => {
+    const body = makeBody();
+    const res = checkPrBodySections(body);
+    expect(res.warnings.some((w) => w.type === 'files-uncited-in-body')).toBe(false);
   });
 });

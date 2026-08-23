@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-22T09:35:36.199Z",
-  "total": 73,
+  "generatedAt": "2026-08-23T09:37:08.236Z",
+  "total": 72,
   "newCount": 2,
   "updatedCount": 70,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 46595,
-  "avgDurationMs": 46595,
+  "unchangedCount": 0,
+  "durationMs": 45921,
+  "avgDurationMs": 45921,
   "durationHistory": [
-    46595
+    45921
   ],
   "newJobs": [
     {
@@ -1139,45 +1139,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Responsible---Integrator-SaaS-Trading-Solutions-100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19334",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Application-Responsible---Integrator-SaaS-Trading-Solutions-100---f-m-d---Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19334",
-      "title": "Application Responsible & Integrator SaaS Trading Solutions 100% (f/m/d) (Contract through our external payroll partner, immediate start for 12 months, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "application-responsible-integrator-saas-trading-solutions-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
-      "category": "hr",
-      "datePosted": "2026-07-23",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-23T22:07:24.034Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-22T16:24:12.006Z",
+  "generatedAt": "2026-08-23T04:38:52.298Z",
   "tally": {
-    "good": 30,
+    "good": 28,
     "weak": 6,
     "bad": 1,
-    "insufficient": 3
+    "insufficient": 5
   },
-  "promotedVacancies": 3857,
+  "promotedVacancies": 3636,
   "reports": [
     {
       "companyKey": "albergo-gardenia",
@@ -45,48 +45,23 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 218,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 0.33,
-      "score": 0.933,
-      "verdict": "good",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
-      ],
-      "samples": [
-        {
-          "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1154917/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 613,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/maler-1183518/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 614,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1117232/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 580,
-          "status": 200
-        }
-      ],
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
       "companyName": "Anker Swiss Ticino AG",
       "companyHost": "anker-swiss.ch",
       "platform": null,
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://anker-swiss.ch/stellen/: HTTP 0"
+      ]
     },
     {
       "companyKey": "apleona-schweiz-ag",
@@ -569,7 +544,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1705,
+          "words": 1707,
           "status": 200
         },
         {
@@ -577,7 +552,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1687,
+          "words": 1688,
           "status": 200
         },
         {
@@ -932,27 +907,27 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-heerbrugg-gesucht-medizinische-fuehrung-mit-verantwortung/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-st-urban-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1321,
+          "words": 1235,
           "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/pflegedienstleiter-pflegedienstleiterin-80-100-in-gelterkinden-gesucht-ihre-fuehrungsstaerke-fuer-eine-exzellente-pflege/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-oberbuchsiten-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1249,
+          "words": 1220,
           "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/geschaeftsleiter-in-facharzt-fachaerztin-fuer-allgemeine-innere-medizin-80-100-in-herisau-gesucht-medizinische-fuehrung-mit-verantwortung/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-wittinsburg-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1314,
+          "words": 1196,
           "status": 200
         }
       ],
@@ -1006,7 +981,7 @@
           "status": 200
         },
         {
-          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/a058d2bc-4378-4d21-b694-8eb7a5d67006/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/1e79a015-25bc-421e-bee6-49d91862f578/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
@@ -1289,7 +1264,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1441,
+          "words": 1443,
           "status": 200
         },
         {
@@ -1375,7 +1350,7 @@
           "reachable": true,
           "titleMatch": 0.8571428571428571,
           "contentful": true,
-          "words": 699,
+          "words": 736,
           "status": 200
         },
         {
@@ -1383,7 +1358,7 @@
           "reachable": true,
           "titleMatch": 0.8333333333333334,
           "contentful": true,
-          "words": 655,
+          "words": 656,
           "status": 200
         }
       ],
@@ -1441,42 +1416,27 @@
     },
     {
       "companyKey": "parkhoteldelta",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "score": 0,
+      "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-barista-e-cameriere-a-ore-3965168?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 676,
-          "status": 200
-        },
-        {
-          "url": "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822/delta-beach-lounge-ad-ascona-cerca-cameriere-a-3970443?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 640,
-          "status": 200
-        }
-      ],
+      "samples": [],
       "companyName": "Parkhotel Delta",
       "companyHost": "hotelcareer.ch",
       "platform": "hotelcareer.ch",
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://www.hotelcareer.ch/jobs/parkhotel-delta-wellbeing-resort-88822: HTTP 403"
+      ]
     },
     {
       "companyKey": "physioswiss",
-      "vacancyCount": 10,
+      "vacancyCount": 9,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0.639,
