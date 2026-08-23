@@ -9016,9 +9016,9 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-q0tv2",
@@ -12699,9 +12699,9 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-l6qqjc",
@@ -18931,9 +18931,9 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-k9o3l4",
@@ -24102,7 +24102,7 @@
     },
     {
       "id": "company-wiy9qc",
-      "slug": "gastro-allrounder-prendere-away-migros-mparc-migros-take-away-basel",
+      "slug": "addetto-gastro-polivalente-take-away-migros-mparc-migros-take-away-basel",
       "company": "Migros Take Away",
       "title": "Gastro Allrounder Take Away Migros MParc",
       "location": "Basel",
@@ -24139,7 +24139,7 @@
       "slugByLocale": {
         "de": "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-wiy9qc",
         "fr": "gastro-allrounder-prendre-l-autoroute-migros-mparc-migros-take-away-basel-wiy9qc",
-        "it": "gastro-allrounder-prendere-away-migros-mparc-migros-take-away-basel",
+        "it": "addetto-gastro-polivalente-take-away-migros-mparc-migros-take-away-basel",
         "en": "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-wiy9qc"
       },
       "titleByLocale": {
@@ -24185,11 +24185,13 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-wiy9qc"
+          "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-wiy9qc",
+          "gastro-allrounder-prendere-away-migros-mparc-migros-take-away-basel"
         ]
       },
       "previousSlugs": [
-        "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-wiy9qc"
+        "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-wiy9qc",
+        "gastro-allrounder-prendere-away-migros-mparc-migros-take-away-basel"
       ],
       "retranslationAttempts": 1
     },
@@ -25221,7 +25223,7 @@
     },
     {
       "id": "company-ttw9ci",
-      "slug": "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci",
+      "slug": "hitzberger-giocatore-di-squadra-20-40-glattzentrum-hitzberger-wallisellen",
       "company": "HITZBERGER",
       "title": "HITZBERGER Teamplayer 20-40% Glattzentrum",
       "location": "Wallisellen",
@@ -25274,10 +25276,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci",
-        "en": "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci",
+        "it": "hitzberger-giocatore-di-squadra-20-40-glattzentrum-hitzberger-wallisellen",
+        "en": "hitzberger-team-player-20-40-glattzentrum-hitzberger-wallisellen",
         "de": "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci",
-        "fr": "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci"
+        "fr": "hitzberger-equipier-20-40-glattzentrum-hitzberger-wallisellen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -25297,11 +25299,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen"
+          "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen",
+          "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci"
+        ],
+        "en": [
+          "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci"
+        ],
+        "fr": [
+          "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci"
         ]
       },
       "previousSlugs": [
-        "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen"
+        "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen",
+        "hitzberger-teamplayer-20-40-glattzentrum-hitzberger-wallisellen-ttw9ci"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -25590,7 +25600,7 @@
       },
       "slugByLocale": {
         "it": "specialist-vendor-in-service-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach",
-        "en": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9",
+        "en": "sales-specialist-fresh-foods-counter-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach",
         "de": "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9",
         "fr": "vendeur-specialise-en-service-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach"
       },
@@ -25602,6 +25612,9 @@
           "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
         ],
         "fr": [
+          "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
+        ],
+        "en": [
           "fachverkaufer-in-bedienung-migros-wydehof-breitenbach-genossenschaft-migros-basel-breitenbach-uwprv9"
         ]
       },
@@ -27852,6 +27865,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "it": [
           "istruttore-di-fitness-f-m-d-activ-fitness-bern",
@@ -27862,9 +27877,7 @@
         "istruttore-di-fitness-f-m-d-activ-fitness-bern",
         "fitness-instructor-m-w-d-activ-fitness-bern"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "needsRetranslation": true
     },
     {
       "id": "company-k70zqy",
@@ -37917,9 +37930,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-i9mnlu",
@@ -48729,9 +48742,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ly9qz",
@@ -58455,9 +58468,9 @@
         "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
         "fitness-instructor-m-w-d-activ-fitness-aarau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rhd880",
@@ -60172,9 +60185,9 @@
       "retranslationAttempts": 15,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2642,
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5nsq3z",
@@ -60525,9 +60538,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6tgptl",
@@ -61482,9 +61495,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-2ndjc9",
@@ -79825,9 +79838,9 @@
         "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
         "fitness-instructor-m-w-d-activ-fitness-kloten"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "migrolino-31b2fdd0e1d8",
@@ -96521,9 +96534,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o8pp1i",
@@ -113416,9 +113429,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dy1cum",
