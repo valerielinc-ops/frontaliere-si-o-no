@@ -3967,6 +3967,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Abonnements transports Glaris : zones, tarifs et réductions',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Système de zones tarifaires, abonnements annuels et mensuels, combinaison avec demi-tarif AG et réductions pour étudiants et apprentis dans le canton de Glaris.',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Gare ferroviaire alpine suisse avec train régional dans un paysage montagneux',
+    'blog.article.aprire-attivita-canton-glarona.title': 'Registre du commerce : ouvrir une entreprise à Glaris',
+    'blog.article.aprire-attivita-canton-glarona.excerpt': 'Le canton de Glaris demande l\'inscription au registre du commerce pour ouvrir une entreprise. Il est nécessaire de choisir la forme juridique, de déterminer le capital minimum, de payer les frais d\'inscription et de remplir les obligations d\'assurance.',
+    'blog.article.aprire-attivita-canton-glarona.imageAlt': 'Un entrepreneur qui s\'inscrit au registre de commerce du canton de Glaris',
 };
 
 export default blogMetaChFr;

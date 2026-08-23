@@ -3967,6 +3967,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Abbonamenti trasporti Glarona: zone, tariffe e sconti',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Sistema di zone tariffarie, abbonamenti annuali e mensili, combinazione con metà-prezzo AG e sconti per studenti e apprendisti nel Cantone di Glarona.',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Stazione ferroviaria alpina svizzera con treno regionale in paesaggio montuoso',
+    'blog.article.aprire-attivita-canton-glarona.title': 'Registrazione commercio: aprire attività a Glarona',
+    'blog.article.aprire-attivita-canton-glarona.excerpt': 'Il Cantone di Glarona richiede l\'iscrizione al registro di commercio per aprire un\'attività. È necessario scegliere la forma giuridica, determinare il capitale minimo, pagare le tasse di iscrizione e adempiere agli obblighi assicurativi.',
+    'blog.article.aprire-attivita-canton-glarona.imageAlt': 'Un imprenditore che si iscrive al registro di commercio del Cantone di Glarona',
 };
 
 export default blogMetaChIt;

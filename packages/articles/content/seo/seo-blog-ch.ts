@@ -51461,6 +51461,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-canton-glarona': {
+    title: 'Registrazione commercio: aprire attività a Glarona',
+    description: 'Il Cantone di Glarona richiede l\'iscrizione al registro di commercio per aprire un\'attività. È necessario scegliere la forma giuridica, determinare il capitale',
+    keywords: 'frontalieri, ticino, svizzera, italia, registrazione, commercio, aprire, attività',
+    ogTitle: 'Aprire un\'attività nel Cantone di Glarona: registrazione al registro di commercio',
+    ogDescription: 'Il Cantone di Glarona richiede l\'iscrizione al registro di commercio per aprire un\'attività. È necessario scegliere la forma giuridica, determinare il capitale minimo, pagare le tasse di iscrizione e adempiere agli obblighi assicurativi.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Registrazione commercio: aprire attività a Glarona",
+      "description": "Il Cantone di Glarona richiede l'iscrizione al registro di commercio per aprire un'attività. È necessario scegliere la forma giuridica, determinare il capitale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un imprenditore che si iscrive al registro di commercio del Cantone di Glarona"
+      },
+      "datePublished": "2026-08-23T15:03:49+00:00",
+      "dateModified": "2026-08-23T15:03:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

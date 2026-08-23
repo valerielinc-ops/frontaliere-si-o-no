@@ -3967,6 +3967,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Glarus transport subscriptions: zones, rates and discounts',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Tariff zone system, annual and monthly subscriptions, combination with half-price AG and discounts for students and apprentices in the Canton of Glarus.',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Swiss Alpine railway station with regional train surrounded by mountain landscape',
+    'blog.article.aprire-attivita-canton-glarona.title': 'Trade registration: opening businesses in Glarus',
+    'blog.article.aprire-attivita-canton-glarona.excerpt': 'The Canton of Glarus requires registration in the commercial register to open a business. It is necessary to choose the legal form, determine the minimum capital, pay the registration fees and fulfill the insurance obligations.',
+    'blog.article.aprire-attivita-canton-glarona.imageAlt': 'An entrepreneur registering a business at the Glarus canton commercial register',
 };
 
 export default blogMetaChEn;

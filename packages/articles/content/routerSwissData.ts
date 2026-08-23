@@ -1348,6 +1348,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-glarona-mutuo': { it: 'comprare-casa-glarona-mutuo', en: 'buy-house-glarus-mortgage', de: 'haus-kaufen-glarus-hypothek', fr: 'acheter-maison-glaris-hypotheque' },
  'acquistare-casa-glarona-finanziamento': { it: 'acquistare-casa-glarona-finanziamento', en: 'buy-house-glarus-financing-mortgage', de: 'haus-kaufen-glarus-finanzierung-hypothek', fr: 'acheter-maison-glaris-financement-hypotheque' },
  'abbonamenti-trasporti-glarona-tariffe': { it: 'abbonamenti-trasporti-glarona-tariffe', en: 'glarona-transport-passes-zones-fares', de: 'glarona-verkehrskarten-zonen-tarife', fr: 'glarona-abonnements-transport-zones-tarifs' },
+ 'aprire-attivita-canton-glarona': { it: 'aprire-attivita-canton-glarona', en: 'open-business-glaurus', de: 'unternehmen-eroffnen-kanton-glarus', fr: 'ouvrir-entreprise-canton-de-glaris' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
