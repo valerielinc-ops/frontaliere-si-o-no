@@ -299,10 +299,27 @@ ${bullets}${relaxedNote}
 - **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate; le cause sono nel log dello stadio PROMOTE e la piu' frequente e' la stabilita' su due giorni, che si risolve da sola al giro dopo.
 `;
 
+// Il body sopra non cita mai i file `.github/workflows/**` che
+// `generate-crawler-group-workflows.mjs` puo' aver toccato quando
+// `groupsRegenerated` (solo la frase generica "gruppi di workflow rigenerati") —
+// stesso gap di #6301/#6279: un file funnel-critical modificato dal diff e mai
+// nominato nel body. `diffPaths` alimenta quel check qui, non solo nel gate CI.
+function changedWorkflowPaths() {
+  try {
+    const modified = execFileSync('git', ['diff', '--name-only', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    return [...modified.split('\n'), ...untracked.split('\n')].map((l) => l.trim()).filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
 // Autocontrollo del corpo PRIMA di aprire la PR. Senza nessuno che guarda, un
 // body che non soddisfa il contratto del repo non e' un fastidio: la PR resta
 // ferma per sempre, e il loop continua a produrne altre uguali.
-const contract = checkPrBodySections(body);
+const contract = checkPrBodySections(body, {
+  diffPaths: groupsRegenerated ? changedWorkflowPaths() : [],
+});
 if (!contract.ok) {
   console.error('\n❌ il corpo della PR non soddisfa il contratto del repo, non apro nulla:');
   for (const v of contract.violations) console.error(`   - [${v.type}] ${v.message}`);
