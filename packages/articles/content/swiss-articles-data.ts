@@ -11989,6 +11989,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-lavoro-zugo-analisi',
+    category: 'pratico',
+    date: '2026-08-23T22:46:44.305Z',
+    image: '/images/blog/mercato-lavoro-zugo-analisi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3997,6 +3997,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.commissioni-twint-piccoli-commercianti.title': 'Twint double commissions: open war with merchants',
     'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'A Swiss survey reveals that small stores pay 1.3% Twint commissions compared to 0.59% for large ones. The Swiss Retail Federation calls for federal intervention.',
     'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Digital payment terminal and Twint QR code in a Swiss corner shop',
+    'blog.article.mercato-lavoro-zugo-analisi.title': 'Labour market in Zug: wages and sectoral dynamics',
+    'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analysis of the Zurich market: leading sectors, wage dynamics, competitive taxation and mandatory pensions for professionals and workers.',
+    'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Modern office building in Zug Canton',
 };
 
 export default blogMetaChEn;

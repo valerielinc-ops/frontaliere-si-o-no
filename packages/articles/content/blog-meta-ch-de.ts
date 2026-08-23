@@ -3997,6 +3997,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.commissioni-twint-piccoli-commercianti.title': 'Doppelte Twint-Provisionen: Offener Krieg mit Händlern',
     'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'Ein Schweizer Gutachten zeigt, dass kleine Läden 1,3% Twint-Gebühren zahlen, gegenüber 0,59% in grossen Läden. Die Swiss Retail Federation fordert ein Eingreifen des Bundes.',
     'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Digitales Zahlungsterminal und Twint-QR-Code in einem Schweizer Kleinladen',
+    'blog.article.mercato-lavoro-zugo-analisi.title': 'Arbeitsmarkt in Zug: Löhne und Branchendynamik',
+    'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analyse des Zuger Marktes: treibende Sektoren, Lohndynamik, wettbewerbsfähige Besteuerung und obligatorische Vorsorge für Berufstätige und Arbeitnehmer.',
+    'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Modernes Bürogebäude im Kanton Zug',
 };
 
 export default blogMetaChDe;
