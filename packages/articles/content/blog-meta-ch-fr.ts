@@ -3925,6 +3925,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-obvaldo-conversione.title': 'Permis de conduire Obwald : conversion et examens',
     'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Guide complet pour la conversion du permis étranger dans le canton d\'Obwald : procédure, examen théorique et pratique, cours obligatoires et documents nécessaires.',
     'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Bureau de la circulation suisse avec employé vérifiant les documents de permis',
+    'blog.article.permesso-b-nidvaldo.title': 'Permis B Nidwald : guide des exigences et renouvellement',
+    'blog.article.permesso-b-nidvaldo.excerpt': 'Permis de séjour B dans le canton de Nidwald : comment le demander, quels sont les documents nécessaires, la durée et la procédure de renouvellement avec les contacts du service des migrations.',
+    'blog.article.permesso-b-nidvaldo.imageAlt': 'Formulaires de demande de permis de séjour à un bureau administratif suisse',
 };
 
 export default blogMetaChFr;

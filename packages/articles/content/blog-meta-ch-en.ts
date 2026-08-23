@@ -3925,6 +3925,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-obvaldo-conversione.title': 'Obvaldo Driving License: Conversion and Exams',
     'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Complete guide to the conversion of the foreign licence in the Canton of Obvaldo: procedure, theoretical and practical examination, compulsory courses and necessary documents.',
     'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Swiss traffic office employee reviewing driving license documents at counter',
+    'blog.article.permesso-b-nidvaldo.title': 'Permit B Nidvaldo: guide to requirements and renewal',
+    'blog.article.permesso-b-nidvaldo.excerpt': 'Residence permit B in Canton Nidvaldo: how to request it, what documents are needed, duration and renewal procedure with migration office contacts.',
+    'blog.article.permesso-b-nidvaldo.imageAlt': 'Residence permit application forms at Swiss administrative office',
 };
 
 export default blogMetaChEn;
