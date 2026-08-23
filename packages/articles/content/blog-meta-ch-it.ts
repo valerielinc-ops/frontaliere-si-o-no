@@ -3979,6 +3979,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Comprare casa a Zugo: mutuo e fiscalità',
     'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Guida completa per acquistare una casa nel Cantone di Zugo: fondi propri richiesti, mutuo ipotecario, imposta sui trapassi e spese notarili della Svizzera.',
     'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Case residenziali moderne in un\'area svizzera con vista sui monti',
+    'blog.article.zugo-locazione-deposito-procedura.title': 'Affitti Zugo: canoni e diritti di locazione',
+    'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Guida ai tuoi diritti di affittuario e locatore in Svizzera: deposito cauzionale, disdetta, contestazione e autorità di conciliazione.',
+    'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Strada residenziale svizzera con edifici in affitto e segnaletica di annunci immobiliari',
 };
 
 export default blogMetaChIt;

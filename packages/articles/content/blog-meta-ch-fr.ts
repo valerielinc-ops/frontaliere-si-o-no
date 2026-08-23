@@ -3979,6 +3979,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Acheter une maison à Zoug : hypothèque et fiscalité',
     'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Guide complet pour l\'achat d\'une maison dans le canton de Zoug : fonds propres requis, hypothèque, taxe de passage et frais de notaire de la Suisse.',
     'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Immeubles résidentiels modernes en Suisse avec les Alpes en arrière-plan',
+    'blog.article.zugo-locazione-deposito-procedura.title': 'Location Zoug : loyers et droits de location',
+    'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Guide de vos droits locataires et bailleurs en Suisse : dépôt de garantie, résiliation, contestation et autorité de conciliation.',
+    'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Rue résidentielle suisse avec immeubles locatifs et panneaux immobiliers',
 };
 
 export default blogMetaChFr;
