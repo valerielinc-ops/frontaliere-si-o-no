@@ -3904,6 +3904,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Naturalizzazione Canton Obvaldo: requisiti e procedura',
     'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Scopri l\'iter per la naturalizzazione ordinaria nel Canton Obvaldo: dal possesso del permesso C ai test di lingua e integrazione sociale.',
     'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Edificio amministrativo comunale nel Canton Obvaldo',
+    'blog.article.export-svizzera-luglio-2026.title': 'Export svizzero: record a luglio 2026 con +13,8%',
+    'blog.article.export-svizzera-luglio-2026.excerpt': 'A luglio 2026 le esportazioni svizzere raggiungono i 27,8 miliardi di franchi. La bilancia commerciale segna un surplus record di 8,1 miliardi.',
+    'blog.article.export-svizzera-luglio-2026.imageAlt': 'Container e logistica in un porto o centro merci svizzero',
 };
 
 export default blogMetaChIt;

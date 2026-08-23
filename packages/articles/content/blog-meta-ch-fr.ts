@@ -3904,6 +3904,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Naturalisation Canton Obwald : conditions et procédure',
     'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Découvrez le processus de naturalisation ordinaire dans le canton d\'Obwald : de la possession du permis C aux tests de langue et à l\'intégration sociale.',
     'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Bâtiment administratif communal dans le canton d\'Obwald',
+    'blog.article.export-svizzera-luglio-2026.title': 'Exportations suisses : record en juillet 2026 avec +13,8%',
+    'blog.article.export-svizzera-luglio-2026.excerpt': 'En juillet 2026, les exportations suisses atteignent 27,8 milliards de francs. La balance commerciale affiche un excédent record de 8,1 milliards.',
+    'blog.article.export-svizzera-luglio-2026.imageAlt': 'Conteneurs et logistique dans un centre de fret suisse',
 };
 
 export default blogMetaChFr;

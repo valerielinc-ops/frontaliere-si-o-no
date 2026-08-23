@@ -3904,6 +3904,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Einbürgerung Kanton Obwalden: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Entdecken Sie den Weg zur ordentlichen Einbürgerung im Kanton Obwalden: vom Besitz der C-Bewilligung bis hin zu Sprachtests und sozialer Integration.',
     'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Gemeindeverwaltungsgebäude im Kanton Obwalden',
+    'blog.article.export-svizzera-luglio-2026.title': 'Schweizer Export: Rekord im Juli 2026 mit +13,8%',
+    'blog.article.export-svizzera-luglio-2026.excerpt': 'Im Juli 2026 beliefen sich die Schweizer Exporte auf 27,8 Milliarden Franken. Die Handelsbilanz weist einen Rekordüberschuss von 8,1 Milliarden aus.',
+    'blog.article.export-svizzera-luglio-2026.imageAlt': 'Container und Logistik in einem Schweizer Frachtzentrum',
 };
 
 export default blogMetaChDe;
