@@ -1,37 +1,35 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-22T21:35:38.671Z",
-  "total": 380,
+  "generatedAt": "2026-08-23T09:44:42.952Z",
+  "total": 381,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 111583,
-  "avgDurationMs": 111583,
+  "unchangedCount": 0,
+  "durationMs": 106060,
+  "avgDurationMs": 106060,
   "durationHistory": [
-    111583
+    106060
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Apotheker (w/m/d)",
+      "title": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d)",
       "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3124812.4043135",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3125351.4043894",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Apotheker (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "apotheker-m-w-d-galenica-bern",
-      "id": "galenica-d8255a8ce9fd",
+      "slug": "sachbearbeiter-sachbearbeiterin-frontoffice-m-w-d-galenica-bern",
+      "id": "galenica-992cee2a6de8",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -42,7 +40,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -51,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
