@@ -3913,6 +3913,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avc-lacune-contributive-prestazioni.title': 'AVS in Obvaldo: rendita e prestazioni complementari',
     'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'Come funziona il primo pilastro e le prestazioni complementari nel Canton Obvaldo. Una guida alla rendita AVS.',
     'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Documenti di previdenza AVS con calcolatrice su una scrivania, dichiarazione di rendita e bandiera svizzera.',
+    'blog.article.aprire-attivita-obvaldo-guida.title': 'Aprire un\'attività in Obvaldo: guida a forme giuridiche e costi',
+    'blog.article.aprire-attivita-obvaldo-guida.excerpt': 'Guida completa: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi (AVS, LAMal, SUVA).',
+    'blog.article.aprire-attivita-obvaldo-guida.imageAlt': 'Imprenditore che prepara documenti per l\'iscrizione al registro di commercio svizzero.',
 };
 
 export default blogMetaChIt;

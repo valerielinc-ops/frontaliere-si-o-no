@@ -3913,6 +3913,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avc-lacune-contributive-prestazioni.title': 'AVS in Obvaldo: annuity and complementary services',
     'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'How the first pillar and complementary services work in the Obvaldo Canton. An AVS annuity guide.',
     'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Swiss AVS pension documents with calculator and retirement statement on a desk with Swiss flag.',
+    'blog.article.aprire-attivita-obvaldo-guida.title': 'Opening a business in Obvaldo: guide to legal forms and costs',
+    'blog.article.aprire-attivita-obvaldo-guida.excerpt': 'Complete guide: choice of legal form, registration in the trade register, minimum capital, taxes and insurance obligations (AVS, LAMal, SUVA).',
+    'blog.article.aprire-attivita-obvaldo-guida.imageAlt': 'Entrepreneur preparing registration documents for Swiss business formation.',
 };
 
 export default blogMetaChEn;
