@@ -3898,6 +3898,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'KVG-Prämien Obwalden: Selbstbehalte und Kürzung',
     'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Obligatorische Franchisen, Prämienverbilligungen und kantonale Krankenversicherungsbeiträge im Kanton Obwalden. Antragsverfahren und alternative Versicherungsmodelle.',
     'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Schweizer Alpenlandschaft mit Gesundheitssymbolen und traditioneller Kantonsarchitektur',
+    'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Aufenthaltsbewilligung B: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Die Bewilligung B ermöglicht einen erneuerbaren Aufenthalt in der Schweiz. Umfassender Leitfaden zu Anforderungen, Dokumenten, Dauer und Erneuerungsverfahren auf Bundes- und Kantonsebene.',
+    'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Schweizer Verwaltungsstelle mit Schalter für Aufenthaltserlaubnisse.',
 };
 
 export default blogMetaChDe;
