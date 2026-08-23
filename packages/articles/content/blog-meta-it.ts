@@ -10601,6 +10601,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-alzate-brianza-lavorare-ticino.title': 'Vivere a Alzate Brianza e lavorare in Ticino',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.excerpt': 'Guida pratica per frontalieri: costi abitativi, regimi fiscali, contributi svizzeri, permesso G, LAMal e checklist prima di trasferirsi da lavoratore ticinese.',
     'blog.article.vivere-alzate-brianza-lavorare-ticino.imageAlt': 'Veduta aerea di un\'auto che attraversa il confine svizzero-italiano nei pressi di Lugano su autostrada moderna con paesaggio alpino sullo sfondo',
+    'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Vivere a Zelbio, lavorare in Ticino da frontaliere',
+    'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio e confine ticinese: vantaggi fiscali, permesso G, AVS/LPP/LAMal, doppia imposizione, procedure d\'avvio e confronto con trasferimento permanente.',
+    'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama del confine Italia-Svizzera presso Zelbio e Como, con valli e boschi della zona frontaliera ticinese.',
 };
 
 export default blogMetaIt;
