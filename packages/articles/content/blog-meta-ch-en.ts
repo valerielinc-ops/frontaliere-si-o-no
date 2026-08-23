@@ -3865,6 +3865,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-svitto-riduzione.title': 'LAMal Unwinding Rewards: deductibles and premium reductions',
     'blog.article.premi-lamal-svitto-riduzione.excerpt': 'How the compulsory health insurance premiums work in the Canton of Schwyz, the deductibles available and how to claim the reduction via subsidy.',
     'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Insurance consultation office with health insurance premium documents and subsidy calculator',
+    'blog.article.permesso-b-svitto-come-richiederlo.title': 'Permit B in Svitto: how to request and renew it',
+    'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Duration 1-5 years, prerequisites and renewal deadlines. Complete guide with necessary documents and mandatory LAMal insurance.',
+    'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Swiss migration office counter with documents for residence permit B applications',
 };
 
 export default blogMetaChEn;

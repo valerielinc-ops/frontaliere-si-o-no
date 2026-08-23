@@ -3865,6 +3865,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-svitto-riduzione.title': 'Primes LAMal à Schwyz : franchises et réductions de primes',
     'blog.article.premi-lamal-svitto-riduzione.excerpt': 'Comment fonctionnent les primes de l\'assurance maladie obligatoire dans le canton de Schwyz, les franchises disponibles et comment demander la réduction par allocation.',
     'blog.article.premi-lamal-svitto-riduzione.imageAlt': 'Bureau de consultation d\'assurance avec documents de primes et calculateur de subventions',
+    'blog.article.permesso-b-svitto-come-richiederlo.title': 'Permis B à Schwyz : comment le demander et le renouveler',
+    'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Durée 1-5 ans, conditions préalables et délais de renouvellement. Guide complet avec documents nécessaires et assurance LAMal obligatoire.',
+    'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Bureau de migration suisse avec documents pour demande de permis de séjour B',
 };
 
 export default blogMetaChFr;
