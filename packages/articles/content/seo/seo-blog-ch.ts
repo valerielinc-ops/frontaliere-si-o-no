@@ -51110,6 +51110,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-impresa-nidvaldo-costi': {
+    title: 'Aprire impresa Nidvaldo: costi | Frontaliere Ticino',
+    description: 'Come aprire un\'attività nel Cantone di Nidvaldo: forme giuridiche, registrazione, imposte, contributi previdenziali e guida step-by-step. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, impresa, nidvaldo, costi',
+    ogTitle: 'Aprire impresa Nidvaldo: costi',
+    ogDescription: 'Come aprire un\'attività nel Cantone di Nidvaldo: forme giuridiche, registrazione, imposte federali/cantonali, contributi AVS/AI, LAMal, procedure step-by-step. Guida pratica per autonomi e PMI.',
+    canonicalPath: '/articoli-svizzera/aprire-impresa-nidvaldo-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire impresa Nidvaldo: costi",
+      "description": "Come aprire un'attività nel Cantone di Nidvaldo: forme giuridiche, registrazione, imposte, contributi previdenziali e guida step-by-step. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-impresa-nidvaldo-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Svizzera con documenti e computer per aprire un'impresa"
+      },
+      "datePublished": "2026-08-23T12:07:57+00:00",
+      "dateModified": "2026-08-23T12:07:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-impresa-nidvaldo-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

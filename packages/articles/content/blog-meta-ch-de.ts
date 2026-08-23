@@ -3940,6 +3940,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Nidwalden-Aktivitäten eröffnen: Rechtsformen und Eintragung',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Einzelfirma, Gesellschaft, kantonale Handelsregister und AHV-Pflichten: Praktischer Leitfaden für Selbstständige und Unternehmer in der Schweiz.',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Bellinzona, Hauptstadt von Tessin, Symbol der Kantonsadministration und Firmenregistrierung in der Schweiz.',
+    'blog.article.aprire-impresa-nidvaldo-costi.title': 'Unternehmen Nidwalden eröffnen: Kosten',
+    'blog.article.aprire-impresa-nidvaldo-costi.excerpt': 'So gründen Sie ein Geschäft im Kanton Nidwalden: Rechtsformen, Handelsregistereintrag, Steuern und Vorsorgepflichten.',
+    'blog.article.aprire-impresa-nidvaldo-costi.imageAlt': 'Modernes Schweizer Büro mit Geschäftsdokumenten und Computer zum Geschäftsgründen',
 };
 
 export default blogMetaChDe;

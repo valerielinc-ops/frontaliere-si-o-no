@@ -3940,6 +3940,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.title': 'Open Nidvaldo business: legal forms and registration',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.excerpt': 'Sole proprietorship, company, cantonal trade registration and AVS obligations: practical guide for self-employed and entrepreneurs in Switzerland.',
     'blog.article.aprire-attivita-nidvaldo-registro-commercio.imageAlt': 'Bellinzona skyline, capital of Ticino, symbol of Swiss cantonal administration and business registration.',
+    'blog.article.aprire-impresa-nidvaldo-costi.title': 'Opening a Nidvaldo company: costs',
+    'blog.article.aprire-impresa-nidvaldo-costi.excerpt': 'How to open a business in the Canton of Nidvaldo: legal forms, registration in the trade register, taxes and social security obligations.',
+    'blog.article.aprire-impresa-nidvaldo-costi.imageAlt': 'Modern Swiss office with business documents and computer for starting a company',
 };
 
 export default blogMetaChEn;
