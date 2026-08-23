@@ -3907,6 +3907,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.export-svizzera-luglio-2026.title': 'Swiss exports: record in July 2026 with +13.8%',
     'blog.article.export-svizzera-luglio-2026.excerpt': 'In July 2026, Swiss exports reached 27.8 billion francs. The trade balance marks a record surplus of 8.1 billion.',
     'blog.article.export-svizzera-luglio-2026.imageAlt': 'Containers and logistics in a Swiss freight center',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Calculation of AVS annuity and contribution gaps',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'How the cantonal compensation fund works in the calculation of the AVS annuity, what contribution gaps reduce the amount and how the supplementary benefits fill the living minimum.',
+    'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Swiss cantonal administration office: compensation fund for AVS pension calculation',
 };
 
 export default blogMetaChEn;
