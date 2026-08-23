@@ -12932,5 +12932,161 @@
         "pending": 193
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-23T13:47:57.304Z",
+    "label": "before",
+    "total": 27324,
+    "needsRetranslation": 10862,
+    "suppressed": 51,
+    "incomplete": 11651,
+    "complete": 15673,
+    "slotsPresent": 15673,
+    "flaggedAmongSlotsPresent": 428,
+    "verifiedTranslated": 15245,
+    "sourceCopyExcused": 586,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 75,
+      "en": 50,
+      "de": 72,
+      "fr": 73
+    },
+    "queueAge": {
+      "count": 10862,
+      "withTimestamp": 10862,
+      "oldestAgeDays": 132.2,
+      "p50AgeDays": 22.6,
+      "p90AgeDays": 74.2,
+      "buckets": {
+        "0-7d": 1853,
+        "7-30d": 4817,
+        "30-90d": 3578,
+        "90-180d": 614,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1953
+      },
+      {
+        "company": "Roche",
+        "pending": 581
+      },
+      {
+        "company": "Klubschule Migros",
+        "pending": 414
+      },
+      {
+        "company": "LANDI Pilatus AG",
+        "pending": 283
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 260
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 250
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 249
+      },
+      {
+        "company": "BKW",
+        "pending": 227
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 210
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 193
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-23T16:12:10.398Z",
+    "label": "after",
+    "total": 27324,
+    "needsRetranslation": 10434,
+    "suppressed": 54,
+    "incomplete": 11642,
+    "complete": 15682,
+    "slotsPresent": 15682,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15682,
+    "sourceCopyExcused": 586,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 75,
+      "en": 50,
+      "de": 71,
+      "fr": 73
+    },
+    "queueAge": {
+      "count": 10434,
+      "withTimestamp": 10434,
+      "oldestAgeDays": 132.3,
+      "p50AgeDays": 22.6,
+      "p90AgeDays": 74.2,
+      "buckets": {
+        "0-7d": 1809,
+        "7-30d": 4703,
+        "30-90d": 3411,
+        "90-180d": 511,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1953
+      },
+      {
+        "company": "Roche",
+        "pending": 581
+      },
+      {
+        "company": "Klubschule Migros",
+        "pending": 411
+      },
+      {
+        "company": "LANDI Pilatus AG",
+        "pending": 283
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 260
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 250
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 249
+      },
+      {
+        "company": "BKW",
+        "pending": 227
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 210
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 193
+      }
+    ]
   }
 ]
