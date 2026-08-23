@@ -3898,6 +3898,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'Premi LAMal Obvaldo: franchigie e riduzione',
     'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Franchigie obbligatorie, riduzioni di premio e sussidi cantonali per l\'assicurazione malattia nel Cantone di Obvaldo. Procedura di richiesta e modelli assicurativi alternativi.',
     'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Paesaggio alpino svizzero con simboli di previdenza sanitaria e architettura cantonale tradizionale',
+    'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Permesso di dimora B: requisiti e rinnovo',
+    'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Il permesso B consente dimora rinnovabile in Svizzera. Guida completa su requisiti, documenti, durata e procedura di rinnovo a livello federale e cantonale.',
+    'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Ufficio amministrativo svizzero con sportello per i permessi di dimora e registrazione stranieri.',
 };
 
 export default blogMetaChIt;

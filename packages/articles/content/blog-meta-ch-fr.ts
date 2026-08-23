@@ -3898,6 +3898,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'Primes LAMal Obwald : franchises et réduction',
     'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Franchises obligatoires, réductions de primes et allocations cantonales pour l\'assurance-maladie dans le canton d\'Obwald. Procédure de demande et modèles d\'assurance alternatifs.',
     'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Paysage alpin suisse avec symboles de soins de santé et architecture cantonale traditionnelle',
+    'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Permis de séjour B : exigences et renouvellement',
+    'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Le permis B permet un séjour renouvelable en Suisse. Guide complet sur les exigences, les documents, la durée et la procédure de renouvellement au niveau fédéral et cantonal.',
+    'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Bureau administratif suisse pour les demandes de permis de séjour.',
 };
 
 export default blogMetaChFr;
