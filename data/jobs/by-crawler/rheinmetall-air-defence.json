@@ -3074,23 +3074,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Praktikum"
       },
-      "previousSlugs": [
-        "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich"
-        ],
-        "en": [
-          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
-        ],
-        "fr": [
-          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-22T09:54:04.715Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3102,7 +3085,26 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-22T09:54:04.715Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "ingenieur-stagiaire-m-f-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "ingenieur-stagiaire-m-f-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-17084e01e6d8",
