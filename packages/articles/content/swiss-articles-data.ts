@@ -11845,6 +11845,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lamal-glarona-sussidio-premi',
+    category: 'pratico',
+    date: '2026-08-23T12:40:50.239Z',
+    image: '/images/blog/lamal-glarona-sussidio-premi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3949,6 +3949,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Aprire un\'attività in Nidvaldo: costi e procedura',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Guida completa per avviare un\'attività nel Cantone di Nidvaldo: forme giuridiche, registro di commercio, costi e obblighi previdenziali.',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Documenti di registrazione impresa su scrivania ufficio con vista paesaggio montano svizzero.',
+    'blog.article.lamal-glarona-sussidio-premi.title': 'Premi cassa malati Glarona: come ottenere riduzione',
+    'blog.article.lamal-glarona-sussidio-premi.excerpt': 'Come funzionano i premi dell\'assicurazione malattia obbligatoria in Glarona, quali sono le franchigie disponibili e come richiedere i sussidi cantonali di riduzione.',
+    'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Documenti di assicurazione malattia svizzera con calcolatore su scrivania in legno',
 };
 
 export default blogMetaChIt;

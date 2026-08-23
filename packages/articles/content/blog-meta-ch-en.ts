@@ -3949,6 +3949,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Opening a business in Nidvaldo: costs and procedure',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Complete guide to starting a business in the Canton of Nidvaldo: legal forms, trade register, costs and social security obligations.',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Business registration documents on office desk with Swiss mountain landscape view.',
+    'blog.article.lamal-glarona-sussidio-premi.title': 'Glarus health insurance premiums: how to obtain a reduction',
+    'blog.article.lamal-glarona-sussidio-premi.excerpt': 'How compulsory health insurance premiums work in Glarus, what deductibles are available and how to claim cantonal reduction benefits.',
+    'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Swiss health insurance documents with calculator on wooden desk, close-up shot',
 };
 
 export default blogMetaChEn;
