@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-08-22T21:26:07.453Z",
+  "assembledAt": "2026-08-23T09:38:58.820Z",
   "jobs": [
     {
       "id": "company-ezd8q0",
@@ -25,7 +25,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T09:47:52.263Z",
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-self-checkout-e-vendita-lidl-svizzera-wadenswil-ezd8q0",
@@ -61,6 +61,7 @@
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -87,7 +88,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T09:47:52.263Z",
       "titleByLocale": {
         "it": "Vendor (m/f/d) 60% — Lyss",
@@ -180,7 +181,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T09:47:52.263Z",
       "titleByLocale": {
         "it": "Venditore / venditrice con responsabilità per turni (m/f/d) 60-80% — San Gallo — St. Gallen",
@@ -257,11 +258,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Brig",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Brig",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Brig",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Brig",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Brig"
       },
@@ -273,7 +274,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "en": "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
+        "en": "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-brig-mtf0hy"
       },
@@ -286,12 +287,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
+          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
           "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
+        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
       "baseSalary": {
@@ -307,6 +310,7 @@
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600
     },
@@ -333,11 +337,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Dietikon",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Dietikon",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Dietikon",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Dietikon",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Dietikon"
       },
@@ -349,7 +353,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
-        "en": "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
+        "en": "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-dietikon-ygychn"
       },
@@ -362,12 +366,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
+          "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
           "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
+        "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
       ],
       "baseSalary": {
@@ -383,6 +389,7 @@
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -409,11 +416,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Schlieren",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Schlieren",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Schlieren",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Schlieren",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Schlieren"
       },
@@ -425,7 +432,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
-        "en": "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
+        "en": "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n"
       },
@@ -441,6 +448,7 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
+          "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
           "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren"
         ]
       },
@@ -450,6 +458,7 @@
         "allrounder-verkauf-m-w-d-20-40-1-schlieren-lidl-svizzera-schlieren",
         "all-rounder-sale-m-f-d-20-40-1-schlieren-lidl-svizzera-schlieren-6a5258",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-schlieren-b35n2n",
+        "all-rounder-sale-m-f-d-20-40-schlieren-lidl-svizzera-schlieren",
         "allrounder-verkauf-m-w-d-20-40-schlieren-lidl-svizzera-schlieren"
       ],
       "baseSalary": {
@@ -465,6 +474,7 @@
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -491,11 +501,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Spreitenbach",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Spreitenbach",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Spreitenbach",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Spreitenbach",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Spreitenbach"
       },
@@ -507,7 +517,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
-        "en": "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
+        "en": "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb"
       },
@@ -520,12 +530,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
+          "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
           "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-spreitenbach-w6qqwb",
+        "all-rounder-sale-m-f-d-20-40-spreitenbach-lidl-svizzera-spreitenbach",
         "allrounder-verkauf-m-w-d-20-40-spreitenbach-lidl-svizzera-spreitenbach"
       ],
       "baseSalary": {
@@ -541,6 +553,7 @@
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -567,11 +580,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — St. Gallen",
-        "en": "All-rounder Sale (m/f/d) 20-40% — St. Gallen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — St. Gallen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — St. Gallen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — St. Gallen"
       },
@@ -583,7 +596,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
-        "en": "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen",
+        "en": "allrounder-verkauf-m-w-d-20-40-st-gallen-lidl-svizzera-st-gallen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao"
       },
@@ -596,12 +609,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
+          "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen",
           "allrounder-verkauf-m-w-d-20-40-st-gallen-lidl-svizzera-st-gallen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-st-gallen-xmq9ao",
+        "all-rounder-sale-m-f-d-20-40-st-gallen-lidl-svizzera-st-gallen",
         "allrounder-verkauf-m-w-d-20-40-st-gallen-lidl-svizzera-st-gallen"
       ],
       "baseSalary": {
@@ -617,6 +632,7 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800
     },
@@ -643,11 +659,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Catena di alimentazione aggiuntiva e controllo (M/F/D) 80-100 %",
-        "en": "Assistant Supply Chain & Controlling (M/F/D) 80-100 %",
+        "en": "Assistant Supply Chain & Controlling (M/W/D) 80-100%",
         "de": "Assistent Lieferkette & Controlling (M/W/D) 80-100%",
         "fr": "Assistant Chaîne d'approvisionnement & Controlling (M/W/D) 80-100%"
       },
@@ -658,7 +674,7 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse est de plus en plus présent sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009. Chez Lidl, des tâches passionnantes et des opportunités de carrière polyvalentes vous attendent dans l'environnement dynamique du commerce de détail.\nVos tâches\n\n- Vérification de la fraîcheur des stocks\n\n- Contrôle des ordres des succursales\n\n- Gestion des biens\n\n- Création de rapports et d'évaluations internes avec Google Sheet / Excel\n\n- Traitement des demandes internes et externes des fournisseurs\n\n- Soutien aux employés de différents secteurs de l'industrie des biens\n\n- Calcul et répartition des niveaux d'action\nVotre profil\n\n- Formation professionnelle terminée\n\n- Première expérience professionnelle dans la disposition des aliments bénéfiques\n\n- Bonne connaissance Excel et flair pour les nombres\n\n- Travail d'équipe, flexibilité, compétences en matière de coopération et de communication et résilience\n\n- Travail fiable et indépendant\n\n- Bonne connaissance de l'allemand, l'italien est avantageux\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc",
+        "it": "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden",
         "en": "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc",
         "de": "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc",
         "fr": "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc"
@@ -669,11 +685,13 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
+          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc",
           "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden"
         ]
       },
       "previousSlugs": [
         "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
+        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc",
         "catena-di-alimentazione-aggiuntiva-e-controllo-m-f-d-80-100-lidl-svizzera-weinfelden"
       ],
       "baseSalary": {
@@ -689,6 +707,7 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -715,7 +734,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% — Dietikon",
@@ -793,7 +812,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% — Schlieren",
@@ -879,7 +898,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Commesso / Commessa con Responsabilità di Turno (m/f/d) 60-80% — Dietikon",
@@ -960,7 +979,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Schlieren",
@@ -1015,6 +1034,7 @@
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200
     },
@@ -1041,7 +1061,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite con responsabilità di turno (m/f/d) 60-80% — Spreitenbach",
@@ -1122,7 +1142,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Branch Manager / Branch Manager (m/f/d) 80-100% 1",
@@ -1174,6 +1194,7 @@
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -1200,11 +1221,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "(Junior) Manager Sostenibilità (m/f/d) 80-100 %",
-        "en": "(Junior) Manager Sustainability (m/f/d) 80-100 %",
+        "en": "(Junior) Manager Nachhaltigkeit (m/w/d) 80-100%",
         "de": "(Junior) Manager Nachhaltigkeit (m/w/d) 80-100%",
         "fr": "(Junior) Gestionnaire Durabilité (h/f/d) 80-100 %"
       },
@@ -1246,6 +1267,7 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000
     },
@@ -1272,7 +1294,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-bern-u85dk5",
@@ -1345,7 +1367,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Stv. Filialleiter / Stv. Filialleiterin (m/f/d) 80-100% — Aarau (AG)",
@@ -1416,7 +1438,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Venditore (m/f/d) 20-60% — Wilen b. Wilt",
@@ -1494,10 +1516,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "slugByLocale": {
-        "it": "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre",
+        "it": "venditore-m-w-d-40-60-1-lidl-svizzera-sierre",
         "en": "seller-m-w-d-40-60-1-sierre-lidl-svizzera-sierre",
         "de": "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre-0clj8s",
         "fr": "vendeur-m-m-j-40-60-1-sierre-lidl-svizzera-sierre"
@@ -1518,7 +1540,8 @@
       "country": "CH",
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre"
+        "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
+        "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1535,7 +1558,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre"
+          "verkaufer-verkauferin-m-w-d-40-60-1-lidl-svizzera-sierre",
+          "seller-m-p-d-40-60-1-sierre-lidl-svizzera-sierre"
         ]
       },
       "salaryMin": 36300,
@@ -1564,7 +1588,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40-60% — Spiez",
@@ -1642,7 +1666,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
         "it": "CH_ Vice direttore di filiale / Vice direttore di filiale (m/f/d) 80%",
@@ -1694,6 +1718,7 @@
       "addressLocality": "Kehrsatz",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 83200
     },
@@ -1720,10 +1745,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 40% — Bulle",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 40% — Bulle",
         "en": "Collaborator/self-service and sales partner 40% — Bulle",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Bulle",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Bulle"
@@ -1772,6 +1797,7 @@
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 27400,
       "salaryMax": 41600
     },
@@ -1798,7 +1824,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
         "it": "Gérant adjoint / Gérante adjointe (f/m/d) 80-100% — Mont-sur-Lausanne",
@@ -1877,7 +1903,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 40% — Oron",
@@ -1893,7 +1919,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-oron-lidl-svizzera-oron",
-        "en": "seller-m-f-d-40-oron-lidl-svizzera-oron",
+        "en": "sales-assistant-m-w-d-40-oron-lidl-svizzera-oron",
         "de": "verkaufer-m-w-d-40-oron-lidl-svizzera-oron",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
       },
@@ -1906,7 +1932,8 @@
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
         ],
         "en": [
-          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh",
+          "seller-m-f-d-40-oron-lidl-svizzera-oron"
         ],
         "de": [
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
@@ -1914,7 +1941,8 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron",
-        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh"
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-oron-vloilh",
+        "seller-m-f-d-40-oron-lidl-svizzera-oron"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1955,7 +1983,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
         "it": "CH_ Collaboratore / Collaboratrice pulizie (m/f/d) 20-40%",
@@ -1999,6 +2027,7 @@
       "addressLocality": "Biasca",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 19800,
       "salaryMax": 30000
     },
@@ -2027,7 +2056,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
         "it": "CH_ Tuttofare vendita (m/f/d) 20-40%",
@@ -2088,6 +2117,7 @@
       "addressLocality": "Sant'Antonino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 23600,
       "salaryMax": 36200
     },
@@ -2116,10 +2146,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-18T09:48:04.938Z",
       "titleByLocale": {
-        "en": "292 Salesman / Salesman (m/f/d) 20-40%",
+        "en": "292 Venditore / Venditrice (m/f/d) 20-40%",
         "it": "292 Venditore / Venditrice (m/f/d) 20-40%",
         "de": "292 Verkäufer / Verkäufer (m/w/d) 20-40%",
         "fr": "292 Vendeur / Vendeur (h/f/d) 20-40%"
@@ -2167,6 +2197,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 23600,
       "salaryMax": 36200
     },
@@ -2193,7 +2224,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-18T21:33:55.684Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Schluein",
@@ -2264,7 +2295,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-18T21:33:55.684Z",
       "titleByLocale": {
         "it": "Venditore / Venditore 60%",
@@ -2342,7 +2373,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-18T21:33:55.684Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Terreno — Landquart",
@@ -2420,7 +2451,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-18T21:33:55.684Z",
       "titleByLocale": {
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 60-80% — Kehrsatz",
@@ -2498,11 +2529,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Chur",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Chur",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Chur",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Chur",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Chur"
       },
@@ -2514,7 +2545,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-chur-g1z8b2",
-        "en": "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
+        "en": "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g1z8b2",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-chur-g1z8b2"
       },
@@ -2530,6 +2561,7 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g1z8b2",
+          "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
           "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur"
         ]
       },
@@ -2538,7 +2570,8 @@
         "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur",
         "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur-b0ae98",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g1z8b2",
-        "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
+        "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon",
+        "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2553,6 +2586,7 @@
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800
     },
@@ -2579,7 +2613,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Stv. Branch Manager / Stv. Branch Manager (m/f/d) 80-100% — Amriswil",
@@ -2658,7 +2692,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-40 %",
@@ -2736,7 +2770,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Copertina — Chur",
@@ -2814,7 +2848,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 60% — Chur",
@@ -2892,7 +2926,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 60-80% — Visp",
@@ -2970,7 +3004,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 80-100%",
@@ -3048,7 +3082,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Matran",
@@ -3129,7 +3163,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-bulle-lidl-svizzera-bulle",
@@ -3192,7 +3226,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60-80% — Conthey",
@@ -3271,7 +3305,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60% — Matran",
@@ -3350,7 +3384,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
         "it": "Personale / Personale reclutamento (m/f/d) 80-100 %",
@@ -3428,7 +3462,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Fribourg",
@@ -3507,7 +3541,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Givisiez",
@@ -3586,7 +3620,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60-80% — Sierre",
@@ -3665,7 +3699,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60% — Moudon",
@@ -3744,7 +3778,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-14T10:13:30.136Z",
       "titleByLocale": {
         "it": "Addetto/a Vendita (m/f/d) 20%",
@@ -3760,7 +3794,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne",
-        "en": "seller-m-f-d-20-lidl-svizzera-payerne",
+        "en": "sales-associate-m-w-d-20-lidl-svizzera-payerne",
         "de": "verkaufer-m-w-d-20-lidl-svizzera-payerne",
         "fr": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t"
       },
@@ -3773,6 +3807,7 @@
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t",
+          "seller-m-f-d-20-lidl-svizzera-payerne",
           "sales-associate-m-w-d-20-lidl-svizzera-payerne"
         ],
         "de": [
@@ -3781,6 +3816,7 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t",
+        "seller-m-f-d-20-lidl-svizzera-payerne",
         "sales-associate-m-w-d-20-lidl-svizzera-payerne"
       ],
       "baseSalary": {
@@ -3822,7 +3858,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-14T21:28:59.015Z",
       "titleByLocale": {
         "it": "Vice Direttore/Vice Direttrice di Filiale (m/f/d) 100%",
@@ -3879,6 +3915,7 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -3905,7 +3942,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-14T21:28:59.015Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40-60% — Zurigo — Zürich",
@@ -3989,7 +4026,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-14T21:28:59.015Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 60-80% — Zurigo",
@@ -4067,7 +4104,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-14T21:28:59.015Z",
       "titleByLocale": {
         "it": "Addetto/a alle Vendite con Responsabilità di Turno (m/f/d) 80%",
@@ -4172,7 +4209,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-12T10:18:11.555Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40-60 % — Oensingen",
@@ -4250,7 +4287,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-12T10:18:11.555Z",
       "titleByLocale": {
         "it": "Venditore/Venditrice con Responsabilità di Turno (m/f/d) 60-80%",
@@ -4301,6 +4338,7 @@
       "addressLocality": "Bremgarten",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200
     },
@@ -4327,7 +4365,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-10T10:29:47.426Z",
       "titleByLocale": {
         "it": "Gestione clienti / Gestione clienti Self-Checkout 20-40% — Visp",
@@ -4405,7 +4443,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-10T21:45:25.169Z",
       "slugByLocale": {
         "it": "area-manager-m-w-d-80-100-lidl-svizzera-weinfelden-21u6t0",
@@ -4415,7 +4453,7 @@
       },
       "titleByLocale": {
         "it": "Area Manager (m/f/d) 80-100 %",
-        "en": "Area Manager (m/f/d) 80-100 %",
+        "en": "Area Manager (m/w/d) 80-100%",
         "de": "Area Manager (m/w/d) 80-100%",
         "fr": "Gestionnaire de secteur (h/f/d) 80-100 %"
       },
@@ -4441,6 +4479,7 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000
     },
@@ -4467,7 +4506,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-15T09:36:03.001Z",
       "titleByLocale": {
         "it": "Dipendente pulizia (m/f/d) 40%",
@@ -4499,12 +4538,12 @@
         "en": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-rothrist-4g5b83"
         ],
-        "fr": [
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-rothrist-4g5b83"
-        ],
         "de": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-luzern",
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-oftringen"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-lidl-svizzera-rothrist-4g5b83"
         ]
       },
       "previousSlugs": [
@@ -4526,6 +4565,7 @@
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -4552,7 +4592,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-07T01:07:19.589Z",
       "titleByLocale": {
         "it": "Commesso / Commessa (m/f/d) 40% — Etoy",
@@ -4568,7 +4608,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-etoy-lidl-svizzera-etoy",
-        "en": "seller-h-f-d-40-etoy-lidl-svizzera-etoy",
+        "en": "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy",
         "de": "verkaufer-h-w-d-40-etoy-lidl-svizzera-etoy",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7vvepx"
       },
@@ -4589,6 +4629,7 @@
         "en": [
           "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7vvepx",
+          "seller-h-f-d-40-etoy-lidl-svizzera-etoy",
           "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy"
         ],
         "de": [
@@ -4608,6 +4649,7 @@
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0",
         "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy",
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
+        "seller-h-f-d-40-etoy-lidl-svizzera-etoy",
         "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy"
       ],
       "baseSalary": {
@@ -4650,7 +4692,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T22:21:16.537Z",
       "titleByLocale": {
         "it": "Responsabile clienti / Responsabile clienti Self-Checkout – Lucerna — Luzern",
@@ -4729,11 +4771,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Muri (AG)",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Muri (AG)",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Muri (AG)",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Muri (AG)",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Muri (AG)"
       },
@@ -4799,6 +4841,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -4825,11 +4868,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Reinach (AG)",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Reinach (AG)",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Reinach (AG)",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Reinach (AG)",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Reinach (AG)"
       },
@@ -4895,6 +4938,7 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -4921,7 +4965,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Vendita al Dettaglio EBA o EFZ - Inizio 2027 — Bellach",
@@ -4968,6 +5012,7 @@
       "addressRegion": "SO",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -4994,7 +5039,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel Commercio al Dettaglio EBA o EFZ - Inizio 2027 — Berna",
@@ -5041,6 +5086,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -5067,7 +5113,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Retail EBA o EFZ - Inizio 2027 — Biberist",
@@ -5114,6 +5160,7 @@
       "addressRegion": "SO",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -5140,7 +5187,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Retail EBA o EFZ - Inizio 2027 — Lyss",
@@ -5187,6 +5234,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -5213,7 +5261,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Vendita al Dettaglio EBA o EFZ - Inizio 2027 — Reiden",
@@ -5260,6 +5308,7 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -5286,7 +5335,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprentistato Commercio Dettaglio EBA o EFZ - Inizio 2027 — Rothrist",
@@ -5333,6 +5382,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -5359,7 +5409,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Retail EBA o EFZ - Inizio 2027 — Spiez",
@@ -5408,6 +5458,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -5434,7 +5485,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel Commercio al Dettaglio EBA o EFZ - Inizio 2027 — Sursee",
@@ -5481,6 +5532,7 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -5507,7 +5559,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Commercio al Dettaglio EBA o EFZ - Inizio 2027 — Thun",
@@ -5560,6 +5612,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -5586,7 +5639,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Commercio al Dettaglio EBA o EFZ - Inizio 2027 — Visp",
@@ -5633,6 +5686,7 @@
       "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -5659,7 +5713,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Retail Learning - Prima 2027 — Châtel-Saint-Denis",
@@ -5740,7 +5794,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Imparare al dettaglio - Prima 2027 — Collombey-Muraz",
@@ -5821,7 +5875,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Imparare al dettaglio - Early 2027 — Conthey",
@@ -5914,7 +5968,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Imparare al dettaglio - Inizio 2027 — Crissier",
@@ -5995,7 +6049,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Retail Learning - Inizio 2027 - Friburgo — Fribourg",
@@ -6076,7 +6130,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Retail Learning - Early 2027 - Gland",
@@ -6131,6 +6185,7 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -6157,7 +6212,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Retail Learning - Prima 2027 — La Chaux-de-Fonds",
@@ -6238,7 +6293,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Imparare al dettaglio - Early 2027 — Martigny",
@@ -6319,7 +6374,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Retail Learning - Early 2027 - Matran",
@@ -6374,6 +6429,7 @@
       "addressRegion": "FR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -6400,7 +6456,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Retail Learning - Early 2027 - Noville",
@@ -6483,7 +6539,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "AFP o CFC Imparare al dettaglio - Prima 2027 — Yverdon-les-Bains",
@@ -6568,7 +6624,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Römerswil",
@@ -6653,7 +6709,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "previousSlugs": [
         "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-schaffhausen",
@@ -6738,7 +6794,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato come Commerciante AFC con Sport d'Elite (Acquisti) 2027",
@@ -6809,6 +6865,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000
     },
@@ -6835,7 +6892,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato come Plattformentwickler/-in CFC - Beginn 2027",
@@ -6914,7 +6971,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Aarau (AG)",
@@ -6986,7 +7043,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Altendorf",
@@ -7058,7 +7115,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Basel (BS)",
@@ -7130,7 +7187,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Brugg",
@@ -7202,7 +7259,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Buchs",
@@ -7274,7 +7331,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Chur",
@@ -7346,7 +7403,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Dietikon",
@@ -7418,7 +7475,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Frauenfeld",
@@ -7490,7 +7547,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Giubiasco",
@@ -7562,7 +7619,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Gretzenbach",
@@ -7634,7 +7691,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Herisau",
@@ -7706,7 +7763,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Horgen",
@@ -7778,7 +7835,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Kloten",
@@ -7850,7 +7907,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Kreuzlingen",
@@ -7922,7 +7979,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Lausen",
@@ -7994,7 +8051,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Neftenbach",
@@ -8066,7 +8123,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Niederlenz",
@@ -8138,7 +8195,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Oberglatt",
@@ -8210,7 +8267,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Rapperswil-Jona",
@@ -8282,7 +8339,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Schlieren",
@@ -8354,7 +8411,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Volketswil",
@@ -8426,7 +8483,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Widnau",
@@ -8498,7 +8555,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Winterthur",
@@ -8570,7 +8627,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Zwingen",
@@ -8642,11 +8699,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Junior Manager Controlling (m/f/d) 80-100 %",
-        "en": "Junior Manager Controlling (m/f/d) 80-100 %",
+        "en": "Junior Manager Controlling (m/w/d) 80-100%",
         "de": "Junior Manager Controlling (m/w/d) 80-100%",
         "fr": "Contrôle du gestionnaire junior (m/f/d) 80-100 %"
       },
@@ -8687,6 +8744,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000
     },
@@ -8713,7 +8771,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-07T01:07:19.589Z",
       "titleByLocale": {
         "it": "Collaboratore/trice / Mitarbeiterin Reinigung (m/w/d) 20% — Biel/Bienne",
@@ -8792,7 +8850,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout (40-60%) — Aegerten",
@@ -8871,7 +8929,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Direttore di filiale (m/f/d) 80-100% — Sarnen",
@@ -8950,7 +9008,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Collaboratore/trice / Mitarbeiterin Reinigung (m/w/d) 20-40% — Matten bei Interlaken",
@@ -9029,7 +9087,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-27T12:31:53.616Z",
       "titleByLocale": {
         "it": "Personale / Personale Amministrazione / Costi (m/f/d) 60-80 %",
@@ -9082,6 +9140,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 69600
     },
@@ -9108,11 +9167,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-24T11:13:50.406Z",
       "titleByLocale": {
         "it": "Gestione delle strutture tecniche (m/f/d) 80-100 %",
-        "en": "Technical Facility Management (m/f/d) 80-100 %",
+        "en": "Fachexperte Technisches Facility Management (m/w/d) 80-100%",
         "de": "Fachexperte Technisches Facility Management (m/w/d) 80-100%",
         "fr": "Gestion des installations techniques (m/f/d) 80-100 %"
       },
@@ -9161,6 +9220,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -9187,7 +9247,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-12T10:18:11.555Z",
       "titleByLocale": {
         "it": "Stv. Filialleiter / Stv. Filialleiter (m/f/d) 80-100% — Bern",
@@ -9287,7 +9347,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-21T11:17:03.148Z",
       "titleByLocale": {
         "it": "Collaboratore/trice / Mitarbeiterin Self-Checkout e vendita — Altendorf",
@@ -9359,7 +9419,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
@@ -9479,7 +9539,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-20T11:52:30.220Z",
       "titleByLocale": {
         "it": "Assortimento responsabile (m/f/d) 80-100 %",
@@ -9536,8 +9596,8 @@
       "salaryMax": 104000
     },
     {
-      "id": "company-oesrzy",
-      "slug": "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich",
+      "id": "company-ofbsar",
+      "slug": "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
       "location": "Zürich",
@@ -9549,7 +9609,7 @@
       "requirements": [],
       "featured": false,
       "postedDate": "2026-07-06",
-      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-738116",
+      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-zuerich-729861",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -9558,8 +9618,8 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
-      "firstSeenAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
+      "firstSeenAt": "2026-08-23T09:38:41.698Z",
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich",
         "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar",
@@ -9587,7 +9647,9 @@
         "vendeur-m-f-d-20-80-lidl-svizzera-zurich",
         "vendeur-m-f-j-20-80-zurich-lidl-svizzera-zurich",
         "vendeur-vendeur-h-f-d-20-80-zurich-lidl-svizzera-zurich",
-        "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
+        "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich",
+        "seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
+        "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9620,13 +9682,13 @@
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
           "seller-seller-m-f-d-20-80-zurich-lidl-svizzera-zurich",
-          "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
+          "seller-seller-m-f-d-20-80-lidl-svizzera-zurich"
         ],
         "de": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-544o5b",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
-          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar"
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-oesrzy"
         ],
         "fr": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar",
@@ -9637,27 +9699,28 @@
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
           "vendeur-vendeur-h-f-d-20-80-zurich-lidl-svizzera-zurich",
-          "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
+          "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
         ]
       },
       "slugByLocale": {
-        "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-oesrzy",
         "it": "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich",
-        "en": "seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
-        "fr": "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
+        "en": "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich",
+        "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar",
+        "fr": "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
-        "it": "Venditore / Venditore (m/f/d) 20-80% — Zurigo",
-        "en": "Seller / Seller (m/f/d) 20-80% — Zurich",
-        "fr": "Vendeur / Vendeur (h/f/d) 20-80% — Zurich"
+        "it": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
+        "en": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
+        "fr": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich"
       },
       "descriptionByLocale": {
         "de": "Einleitung\n Der Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n - Beitrag zu einem positiven Einkaufserlebnis unserer Kundschaft - Kassiertätigkeit - Warenverräumung und -pflege innerhalb der Filiale - Beitrag zum sauberen Erscheinungsbild der Verkaufsfläche Dein Profil\n - Berufserfahrung im Verkauf oder vergleichbarer Branche von Vorteil - Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht von ca. jeweils 9 Stunden) - Gute körperliche Fitness - Freundliches und gepflegtes Auftreten - Zuverlässigkeit sowie Verantwortungsgefühl - Gute Deutschkenntnisse Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung sind interne Weiterentwicklungen möglich. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "it": "Introduzione\n\nVendere è la tua passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessaria ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n\n- Contributo a una positiva esperienza di shopping dei nostri clienti\n\n- Attività di cassa\n\n- Trasferimento e manutenzione delle merci all'interno del ramo\n\n- Contributo all'aspetto pulito della zona di vendita\nIl tuo profilo\n\n- L'esperienza professionale nelle vendite o nell'industria comparabile è vantaggioso\n\n- Flessibilità rispetto agli orari operativi (MO-SA tra le 05:00 e le 22:00); primo e/o tardo turno di circa 9 ore ciascuna\n\n- Buona forma fisica\n\n- Aspetto amichevole e curato\n\n- Affidabilità e senso di responsabilità\n\n- Buona conoscenza del tedesco\n\nOffriamo\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una formazione intensiva. Se desiderato e buona idoneità personale, gli sviluppi interni sono possibili. Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'occasione & applicatevi online ora!",
-        "en": "Introduction\n\nSelling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n\n- Contribution to a positive shopping experience of our customers\n\n- Cash activity\n\n- Transfer and maintenance of goods within the branch\n\n- Contribution to the clean appearance of the sales area\nYour profile\n\n- Professional experience in sales or comparable industry is beneficial\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift of about 9 hours each\n\n- Good physical fitness\n\n- Friendly and well-groomed appearance\n\n- Reliability and sense of responsibility\n\n- Good knowledge of German\n\nWe offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive training. If desired and good personal suitability, internal further developments are possible. In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
-        "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transfert et entretien de biens au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5h00 et 22h00);\n\n- Bonne condition physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
+        "it": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Beitrag zu einem positiven Einkaufserlebnis unserer Kundschaft\n\n- Kassiertätigkeit\n\n- Warenverräumung und -pflege innerhalb der Filiale\n\n- Beitrag zum sauberen Erscheinungsbild der Verkaufsfläche\nDein Profil\n\n- Berufserfahrung im Verkauf oder vergleichbarer Branche von Vorteil\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht von ca. jeweils 9 Stunden)\n\n- Gute körperliche Fitness\n\n- Freundliches und gepflegtes Auftreten\n\n- Zuverlässigkeit sowie Verantwortungsgefühl\n\n- Gute Deutschkenntnisse\n\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung sind interne Weiterentwicklungen möglich. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "en": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Beitrag zu einem positiven Einkaufserlebnis unserer Kundschaft\n\n- Kassiertätigkeit\n\n- Warenverräumung und -pflege innerhalb der Filiale\n\n- Beitrag zum sauberen Erscheinungsbild der Verkaufsfläche\nDein Profil\n\n- Berufserfahrung im Verkauf oder vergleichbarer Branche von Vorteil\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht von ca. jeweils 9 Stunden)\n\n- Gute körperliche Fitness\n\n- Freundliches und gepflegtes Auftreten\n\n- Zuverlässigkeit sowie Verantwortungsgefühl\n\n- Gute Deutschkenntnisse\n\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung sind interne Weiterentwicklungen möglich. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "fr": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Beitrag zu einem positiven Einkaufserlebnis unserer Kundschaft\n\n- Kassiertätigkeit\n\n- Warenverräumung und -pflege innerhalb der Filiale\n\n- Beitrag zum sauberen Erscheinungsbild der Verkaufsfläche\nDein Profil\n\n- Berufserfahrung im Verkauf oder vergleichbarer Branche von Vorteil\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht von ca. jeweils 9 Stunden)\n\n- Gute körperliche Fitness\n\n- Freundliches und gepflegtes Auftreten\n\n- Zuverlässigkeit sowie Verantwortungsgefühl\n\n- Gute Deutschkenntnisse\n\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung sind interne Weiterentwicklungen möglich. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!"
       },
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
@@ -9700,7 +9763,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern",
@@ -9729,7 +9792,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Luzern",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Lucerne",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Luzern",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Luzern",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Luzern"
       },
@@ -9762,6 +9825,7 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400
     },
@@ -9788,7 +9852,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey",
@@ -9828,7 +9892,6 @@
       "postalCode": "1950",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron-fbg2bz",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-oron",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-la-chaux-de-fonds",
@@ -9847,7 +9910,8 @@
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-moudon-8vk3vl",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-lidl-svizzera-moudon",
           "gerant-adjoint-gerante-adjointe-m-w-d-80-100-oron-lidl-svizzera-oron",
-          "stellvertretender-manager-m-f-d-80-100-oron-lidl-svizzera-oron"
+          "stellvertretender-manager-m-f-d-80-100-oron-lidl-svizzera-oron",
+          "assistant-manager-m-f-d-80-100-oron-lidl-svizzera-oron"
         ],
         "en": [
           "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey-98tdrr",
@@ -9927,7 +9991,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gerant-gerante-de-magasin-suppleant-e-m-w-d-80-100-lidl-svizzera-sierre",
@@ -10003,7 +10067,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "studentenjob-vendita-m-w-d-20-40-lidl-svizzera-schluein-o1lk3w",
@@ -10075,7 +10139,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-12T10:18:11.555Z",
       "titleByLocale": {
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 60-80% — Bern",
@@ -10186,7 +10250,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "direttore-di-filiale-m-f-d-80-100-solothurn-lidl-svizzera-solothurn",
@@ -10266,7 +10330,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-29T22:39:11.744Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60% — Collombey-Muraz",
@@ -10362,7 +10426,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly",
@@ -10447,11 +10511,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Horgen",
-        "en": "All-rounder Sale (m/f/d) 20-40% – Horgen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Horgen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Horgen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Horgen"
       },
@@ -10463,7 +10527,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "en": "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
+        "en": "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-horgen-4e97nd"
       },
@@ -10476,12 +10540,14 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
+          "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
           "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
+        "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
       ],
       "baseSalary": {
@@ -10499,6 +10565,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -10525,10 +10592,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
-        "it": "Collaboratore/self-service e partner commerciale 40% — Fribourg",
+        "it": "Collaborateur/Collaboratrice libre-service et vente 40% — Fribourg",
         "en": "Collaborator/self-service and sales partner 40% — Fribourg",
         "de": "Mitarbeiter/Self-Service- und Vertriebspartner 40% — Freiburg — Fribourg",
         "fr": "Collaborateur/Collaboratrice libre-service et vente 40% — Fribourg"
@@ -10623,6 +10690,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1700",
+      "needsRetranslation": true,
       "salaryMin": 27400,
       "salaryMax": 41600
     },
@@ -10649,7 +10717,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-marly-lidl-svizzera-marly",
@@ -10707,8 +10775,8 @@
       "salaryMax": 41600
     },
     {
-      "id": "company-27rwtw",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
+      "id": "company-28w3kl",
+      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern",
       "location": "Luzern",
@@ -10720,7 +10788,7 @@
       "requirements": [],
       "featured": false,
       "postedDate": "2026-06-23",
-      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-728436",
+      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-luzern-707612",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -10729,8 +10797,8 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
-      "firstSeenAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
+      "firstSeenAt": "2026-08-23T09:38:41.698Z",
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kf",
@@ -10744,9 +10812,10 @@
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
-        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern"
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
+        "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
+        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10760,40 +10829,40 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-jhm409",
           "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern-d33207",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl"
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern"
+          "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern"
         ],
         "de": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw"
         ],
         "fr": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern"
+          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern"
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
-        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
-        "en": "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern"
+        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
+        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern",
+        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern",
+        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern",
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 60-80% — Luzern",
-        "en": "Seller with shift responsibility (m/f/d) 60-80% — Lucerne",
-        "fr": "Vendeur avec responsabilité de quart (h/f/d) 60-80% — Lucerne"
+        "en": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern",
+        "fr": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Luzern"
       },
       "descriptionByLocale": {
         "de": "Einleitung\n Der Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n - Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung - Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen - Unterstützung in der Personalplanung, Personalführung und Filialorganisation - Warendisposition und Warenpräsentation - Kassiertätigkeit Dein Profil\n - Berufserfahrung im Verkauf oder ähnlichem Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht) - Kommunikative Fähigkeiten und Freude am Umgang mit Menschen - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Gute Deutschkenntnisse in Wort und Schrift Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
-        "it": "Introduzione\n\nVendere è la tua passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessaria ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n\n- Rischio di responsabilità in assenza di gestione e vice\n\n- Attuazione dell'orientamento del cliente e degli standard di vendita nelle nostre filiali\n\n- Sostegno alla pianificazione del personale, alla gestione del personale e all'organizzazione di filiali\n\n- Buona disposizione e presentazione\n\n- Attività di cassa\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o ambiente simile\n\n- Formazione professionale completata idealmente nel commercio al dettaglio\n\n- Flessibilità rispetto agli orari operativi (MO-SA tra le 05:00 e le 22:00);\n\n- Capacità comunicative e piacere nel trattare con le persone\n\n- Alta motivazione, impegno e resilienza\n\n- Buona conoscenza del tedesco nelle parole e nella scrittura\nOffriamo\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una formazione intensiva. Se desiderato e con buona idoneità personale, vi svilupperemo nella gestione del ramo aggiunto (m/f/d). Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
-        "en": "Introduction\n\nSelling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n\n- Shift responsibility in the absence of branch management and deputy\n\n- Implementation of customer orientation and sales standards in our branches\n\n- Support in personnel planning, personnel management and branch organisation\n\n- Goods disposition and presentation\n\n- Cash activity\nYour profile\n\n- Professional experience in sales or similar environment\n\n- Ideally completed vocational training in the retail trade\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift\n\n- Communicative skills and pleasure in dealing with people\n\n- High motivation, commitment and resilience\n\n- Good knowledge of German in words and writing\nWe offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive training. If desired and with good personal suitability, we will develop you into the deputy branch management (m/f/d). In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
-        "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Déplacement des responsabilités en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des marchandises\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Une formation professionnelle idéalement complétée dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h);\n\n- Compétences de communication et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en mots et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
+        "it": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung\n\n- Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen\n\n- Unterstützung in der Personalplanung, Personalführung und Filialorganisation\n\n- Warendisposition und Warenpräsentation\n\n- Kassiertätigkeit\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht)\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n- Gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "en": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung\n\n- Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen\n\n- Unterstützung in der Personalplanung, Personalführung und Filialorganisation\n\n- Warendisposition und Warenpräsentation\n\n- Kassiertätigkeit\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht)\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n- Gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "fr": "Einleitung\n\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung\n\n- Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen\n\n- Unterstützung in der Personalplanung, Personalführung und Filialorganisation\n\n- Warendisposition und Warenpräsentation\n\n- Kassiertätigkeit\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht)\n\n- Kommunikative Fähigkeiten und Freude am Umgang mit Menschen\n\n- Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n- Gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!"
       },
       "needsRetranslation": true,
       "requirementsByLocale": {},
@@ -10808,6 +10877,69 @@
           "@type": "QuantitativeValue",
           "minValue": 55600,
           "maxValue": 84800,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "company-l9szf0",
+      "slug": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-lucerna-lidl-svizzera-luzern-41ebf5",
+      "company": "Lidl Svizzera",
+      "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
+      "location": "Luzern",
+      "canton": "LU",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "description": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-06-23",
+      "url": "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-luzern-728451",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Luzern",
+        "canton": "LU"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
+      "firstSeenAt": "2026-08-23T09:38:41.698Z",
+      "slugByLocale": {
+        "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-l9szf0",
+        "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-lucerna-lidl-svizzera-luzern-41ebf5",
+        "en": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-lucerne-lidl-svizzera-luzern-41ebf5",
+        "fr": "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-lucerne-lidl-svizzera-luzern-41ebf5"
+      },
+      "titleByLocale": {
+        "de": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
+        "it": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
+        "en": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern",
+        "fr": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Luzern"
+      },
+      "descriptionByLocale": {
+        "de": "Einleitung\n Der Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n - Stellvertretung der Filialleitung - Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden - Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche - Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale - Warendisposition und Warenpräsentation Dein Profil\n - Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung - Teamgeist und Verantwortungsbewusstsein - Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen - Einsatzbereitschaft, Flexibilität und Belastbarkeit - Sehr gute Deutschkenntnisse in Wort und Schrift Wir bieten\n Bei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "it": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "en": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
+        "fr": "Einleitung\n\nDer Verkauf und Menschen sind deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels.\nDeine Aufgaben\n\n- Stellvertretung der Filialleitung\n\n- Unterstützung in der Personalführung und Personalplanung von 15-35 Mitarbeitenden\n\n- Übernahme Verantwortung in der Filiale und tatkräftige Unterstützung auf der Fläche\n\n- Umsetzung der Kundenorientierung sowie Vertriebsstandards in der Filiale\n\n- Warendisposition und Warenpräsentation\nDein Profil\n\n- Mehrjährige Berufserfahrung im Verkauf oder ähnlichem Umfeld\n\n- Idealerweise abgeschlossene Berufsausbildung im Detailhandel\n\n- Führungspersönlichkeit, idealerweise gepaart mit erster Erfahrung\n\n- Teamgeist und Verantwortungsbewusstsein\n\n- Kommunikative Fähigkeiten sowie Freude am Umgang mit Menschen\n\n- Einsatzbereitschaft, Flexibilität und Belastbarkeit\n\n- Sehr gute Deutschkenntnisse in Wort und Schrift\nWir bieten\n\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "country": "CH",
+      "sourceLang": "de",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -10838,7 +10970,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-23T22:45:11.288Z",
       "slugByLocale": {
         "it": "gestione-clienti-self-checkout-20-30-berna-lidl-svizzera-bern",
@@ -10913,7 +11045,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-23T12:04:52.580Z",
       "slugByLocale": {
         "it": "confezionamento-m-f-d-40-60-lidl-svizzera-bern",
@@ -10922,7 +11054,7 @@
         "fr": "emballeur-m-f-d-40-60-lidl-svizzera-bern"
       },
       "titleByLocale": {
-        "it": "Pacchetto (m/f/d) 40-60 %",
+        "it": "Abpacker (m/w/d) 40-60%",
         "en": "Packager (m/f/d) 40-60 %",
         "de": "Abpacker (m/w/d) 40-60%",
         "fr": "Emballeur (m/f/d) 40-60 %"
@@ -10966,6 +11098,7 @@
         "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy",
         "abpacker-m-w-d-40-60-lidl-svizzera-bern"
       ],
+      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -10992,13 +11125,13 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
         "en": "customer-care-provider-self-checkout-20-30-lidl-svizzera-ostermundigen",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-        "fr": "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
+        "fr": "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       },
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout 20-30 — Ostermundigen",
@@ -11043,6 +11176,7 @@
         ],
         "fr": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
+          "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
           "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
         ]
       },
@@ -11053,6 +11187,7 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen",
+        "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
         "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       ],
       "salaryMin": 68500,
@@ -11081,7 +11216,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-22T14:44:48.208Z",
       "titleByLocale": {
         "it": "Vendeur / Vendeuse (f/m/d) 40% 1",
@@ -11176,7 +11311,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "account-manager-account-manager-self-checkout-baar-lidl-svizzera-baar",
@@ -11230,6 +11365,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -11256,7 +11392,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "direttore-di-filiale-m-f-d-80-100-stans-lidl-svizzera-stans",
@@ -11335,7 +11471,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-29T22:39:11.744Z",
       "titleByLocale": {
         "it": "Collaboratore/trice / Mitarbeiterin Reinigung (m/w/d) 20% — Bellach",
@@ -11415,7 +11551,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-60-lidl-svizzera-courgevaux",
@@ -11494,7 +11630,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-16T14:05:48.999Z",
       "titleByLocale": {
         "it": "Cassiera / Cassiera (lun/f/due) 40-60%",
@@ -11512,7 +11648,7 @@
         "it": "cassiera-cassiera-lun-f-due-40-60-lidl-svizzera-bern",
         "en": "cashier-m-f-d-40-60-lidl-svizzera-bern",
         "de": "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "fr": "caisse-m-f-j-40-60-lidl-svizzera-bern"
+        "fr": "caissier-m-w-d-40-60-lidl-svizzera-bern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -11527,12 +11663,14 @@
         ],
         "fr": [
           "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
+          "caisse-m-f-j-40-60-lidl-svizzera-bern",
           "caissier-m-w-d-40-60-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern",
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
+        "caisse-m-f-j-40-60-lidl-svizzera-bern",
         "caissier-m-w-d-40-60-lidl-svizzera-bern"
       ],
       "baseSalary": {
@@ -11550,6 +11688,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
+      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -11576,7 +11715,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "branch-manager-m-f-d-80-100-chur-lidl-svizzera-chur",
@@ -11630,6 +11769,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -11656,7 +11796,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-payerne-lidl-svizzera-payerne",
@@ -11737,7 +11877,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
@@ -11747,7 +11887,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Brugg",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Brugg",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Brugg",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Brugg",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Brugg"
       },
@@ -11789,6 +11929,7 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
         "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg"
       ],
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -11815,7 +11956,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
@@ -11825,7 +11966,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Hunzenschwil",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Hunzenschwil",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Hunzenschwil",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Hunzenschwil",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Hunzenschwil"
       },
@@ -11867,6 +12008,7 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
         "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
       ],
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -11893,7 +12035,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
@@ -11903,7 +12045,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Wettingen",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 – Wettingen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Wettingen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Wettingen",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Wettingen"
       },
@@ -11945,6 +12087,7 @@
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
         "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen"
       ],
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -11971,13 +12114,13 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-10T23:03:39.688Z",
       "titleByLocale": {
         "it": "Picker ordini non alimentari (lunedì/venerdì/d) 40-80%",
         "en": "Order Picker Non Food (m/f/d) 40-80%",
         "de": "Kommissionierer / Kommissioniererin Nicht-Lebensmittel (m/w/d) 40-80 %",
-        "fr": "Picker de commande / Picker de commande non alimentaire (h/f/d) 40-80 %"
+        "fr": "Kommissionierer / Kommissioniererin Non Food (m/w/d) 40-80%"
       },
       "descriptionByLocale": {
         "it": "Introduzione Lidl Svizzera è sempre più presente sul mercato svizzero con una moderna rete di filiali. L'espansione in Svizzera è continuata ininterrottamente dall'ingresso nel mercato nel 2009. Da Lidl Svizzera ti aspettano compiti entusiasmanti e diverse opportunità di carriera nel dinamico ambiente del commercio al dettaglio. Lavorerai nel nuovo centro di distribuzione merci a Derendingen. I vostri compiti - Prelievo degli ordini dalle nostre filiali - Assistenza negli inventari di magazzino e nel controllo e stoccaggio dei resi in entrata dalle filiali - Fornitura di pallet per la spedizione - Rispetto degli standard di sicurezza, igiene e pulizia sul lavoro Il vostro profilo - Esperienza nel settore della logistica o della produzione - Personalità affidabile, indipendente e resiliente - Capacità di lavorare in gruppo, cooperare e comunicare - Buona salute fisica - Disponibilità a lavorare su turni, notti e domeniche - Buono tedesco, francese e/o conoscenza dell'inglese - patente per carrelli elevatori categoria R1, R2 un vantaggio Quello che offriamo In Lidl Svizzera c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Ti prepareremo per i tuoi compiti vari e interessanti con una formazione intensiva. Inoltre vi offriamo la sicurezza di un posto fisso, di un grande team, dei vantaggi del GAV Lidl, di un'eccellente previdenza professionale e di altri vantaggi interessanti. Approfitta dell'opportunità e candidati online adesso!",
@@ -12028,6 +12171,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -12054,7 +12198,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-2",
@@ -12140,7 +12284,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
@@ -12150,7 +12294,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Wallisellen",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Wallisellen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Wallisellen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Wallisellen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Wallisellen"
       },
@@ -12198,6 +12342,7 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
         "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen"
       ],
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -12224,7 +12369,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "studentenjob-vendita-m-w-d-20-60-lidl-svizzera-wallisellen-vibzh1",
@@ -12296,7 +12441,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gestione-clienti-self-checkout-seewen-lidl-svizzera-seewen",
@@ -12376,7 +12521,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "responsabile-clienti-responsabile-clienti-self-checkout-adliswil-lidl-svizzera-adliswil",
@@ -12430,6 +12575,7 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-adliswil",
         "kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-adliswil-ug7fwy"
       ],
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -12456,7 +12602,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-12T10:18:11.555Z",
       "titleByLocale": {
         "it": "Stv. branch manager / Stv. branch manager (m/f/d) 80-100% — Schlieren",
@@ -12535,7 +12681,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-12T22:06:12.559Z",
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden",
@@ -12566,7 +12712,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Baden",
-        "en": "All-rounder Sale (m/f/d) 20-40% 1 — Baden",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% 1 — Baden",
         "de": "Allrounder Verkauf (m/w/d) 20-40% 1 — Baden",
         "fr": "Allrounder Vente (m/w/d) 20-40% 1 — Baden"
       },
@@ -12599,6 +12745,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600
     },
@@ -12625,7 +12772,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
@@ -12635,7 +12782,7 @@
       },
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Sarnen",
-        "en": "All-rounder Sale (m/f/d) 20-40% — Sarnen",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Sarnen",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Sarnen",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Sarnen"
       },
@@ -12676,6 +12823,7 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
         "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen"
       ],
+      "needsRetranslation": true,
       "salaryMin": 27800,
       "salaryMax": 42400
     },
@@ -12702,7 +12850,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-10T23:03:39.688Z",
       "titleByLocale": {
         "it": "Dipendente delle pulizie (l/f/d) 20% — Seewen",
@@ -12755,6 +12903,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -12781,11 +12930,11 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-21T22:07:43.598Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Adliswil",
-        "en": "All-rounder Sale (m/f/d) 20-40% – Adliswil",
+        "en": "Allrounder Verkauf (m/w/d) 20-40% — Adliswil",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Adliswil",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Adliswil"
       },
@@ -12845,6 +12994,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600
     },
@@ -12871,7 +13021,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "direttore-di-filiale-m-f-d-80-100-einsiedeln-lidl-svizzera-einsiedeln",
@@ -12950,7 +13100,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
@@ -12959,7 +13109,7 @@
         "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-gravesano-lidl-svizzera-gravesano"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Gravesano",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Gravesano",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
         "fr": "o AFC - Inizio 2026 - Gravesano"
@@ -13047,7 +13197,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
@@ -13056,7 +13206,7 @@
         "fr": "o-afc-inizio-2026-locarno-lidl-svizzera-locarno"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Locarno",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Locarno",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
         "fr": "o AFC - Inizio 2026 - Locarno"
@@ -13126,7 +13276,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-06-11T13:07:34.012Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca-3t5gz5",
@@ -13135,7 +13285,7 @@
         "fr": "apprendistato-nel-commercio-al-detail-cfp-o-afc-inizio-2026-biasca-lidl-svizzera-biasca-3t5gz5"
       },
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Biasca",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Biasca",
         "en": "Apprendista nel commercial dettaglio CFP o AFC - Inizio 2026 — Biasca",
         "de": "Ausbildung im Einzelhandel CFP oder EFZ – Anfang 2026 – Biasca",
         "fr": "Apprendistato nel commercio al détail CFP o AFC - Inizio 2026 — Biasca"
@@ -13183,6 +13333,7 @@
           "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-lidl-svizzera-biasca-3t5gz5"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -13209,10 +13360,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Arbedo-Castione",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Arbedo-Castione",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Arbedo-Castione",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Arbedo-Castione",
         "fr": "o AFC - Inizio 2026 - Arbedo-Castione"
@@ -13285,10 +13436,10 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-08-22T21:25:24.063Z",
+      "crawledAt": "2026-08-23T09:38:41.698Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
-        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Sant'Antonino",
+        "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
         "en": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 - Sant'Antonino",
         "de": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
         "fr": "o AFC - Inizio 2026 - Sant'Antonino"
@@ -13667,7 +13818,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-yiua5z",
@@ -14610,7 +14762,7 @@
       "crawledAt": "2026-08-11T21:50:11.500Z",
       "firstSeenAt": "2026-07-29T11:43:30.548Z",
       "titleByLocale": {
-        "fr": "CH Vendeur / Vendeur responsable du poste (h/f/d) 60-80%",
+        "fr": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
         "it": "CH_Venditore / Venditrice con responsabilità del turno (m/f/d) 60-80%",
         "en": "CH Seller / Seller with responsibility for shift (m/f/d) 60-80%",
         "de": "CH Verkäufer / Verkäufer mit Verantwortung für Schicht (m/w/d) 60-80%"
@@ -14674,7 +14826,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 54800,
-      "salaryMax": 84000
+      "salaryMax": 84000,
+      "needsRetranslation": true
     },
     {
       "id": "company-eaenlv",
@@ -15551,7 +15704,7 @@
       "firstSeenAt": "2026-07-14T11:07:52.705Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 40-60%",
-        "en": "All-rounder sale (m/f/d) 40-60 %",
+        "en": "Allrounder Verkauf (m/w/d) 40-60%",
         "de": "Allrounder Verkauf (m/w/d) 40-60%",
         "fr": "Allrounder Vente (m/w/d) 40-60%"
       },
@@ -15609,7 +15762,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "needsRetranslation": true
     },
     {
       "id": "company-k8j36j",
@@ -16933,7 +17087,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "salaryMin": 27800,
-      "salaryMax": 42400
+      "salaryMax": 42400,
+      "needsRetranslation": true
     },
     {
       "id": "company-igswfn",
@@ -17772,7 +17927,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6300",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-tz85u2",
@@ -18007,7 +18163,8 @@
         "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-schluein-ggwztk"
       ],
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-hk4tcm",
@@ -19381,7 +19538,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-63ixss",
@@ -19461,7 +19619,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-4011gn",
@@ -20523,7 +20682,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-t36d3k",
@@ -20773,7 +20933,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "salaryMin": 27400,
-      "salaryMax": 41600
+      "salaryMax": 41600,
+      "needsRetranslation": true
     },
     {
       "id": "company-y3mn4v",
@@ -22085,7 +22246,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-pv2x9z",
@@ -22835,7 +22997,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-7un5uo",
@@ -23153,7 +23316,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8500",
       "salaryMin": 60000,
-      "salaryMax": 102000
+      "salaryMax": 102000,
+      "needsRetranslation": true
     }
   ]
 }
