@@ -31737,6 +31737,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'comprare-affittare-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-08-23T14:50:21.907Z',
+ image: '/images/blog/comprare-affittare-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
