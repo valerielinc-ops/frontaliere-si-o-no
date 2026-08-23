@@ -50915,6 +50915,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-b-nidvaldo': {
+    title: 'Permesso B Nidvaldo: guida a requisiti e rinnovo',
+    description: 'Permesso di dimora B nel Canton Nidvaldo: come richiederlo, quali documenti servono, durata e procedura di rinnovo con contatti ufficio migrazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, nidvaldo, requisiti, rinnovo',
+    ogTitle: 'Permesso B Nidvaldo: guida a requisiti e rinnovo',
+    ogDescription: 'Permesso di dimora B nel Canton Nidvaldo: come richiederlo, quali documenti servono, durata e procedura di rinnovo con contatti ufficio migrazione.',
+    canonicalPath: '/articoli-svizzera/permesso-b-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Nidvaldo: guida a requisiti e rinnovo",
+      "description": "Permesso di dimora B nel Canton Nidvaldo: come richiederlo, quali documenti servono, durata e procedura di rinnovo con contatti ufficio migrazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Moduli di richiesta per permesso di soggiorno presso ufficio amministrativo svizzero"
+      },
+      "datePublished": "2026-08-23T10:13:59+00:00",
+      "dateModified": "2026-08-23T10:13:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

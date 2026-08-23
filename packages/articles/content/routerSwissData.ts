@@ -1334,6 +1334,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-impresa-obvaldo-iscrizione': { it: 'aprire-impresa-obvaldo-iscrizione', en: 'open-business-obvaldo-registration', de: 'geschaft-offnen-obwalden-anmeldung', fr: 'ouvrir-entreprise-obwald-inscription' },
  'cherosene-sintetico-svizzera-aviazione': { it: 'cherosene-sintetico-svizzera-aviazione', en: 'synthetic-kerosene-switzerland-aviation', de: 'synthetisches-kerosin-schweiz-luftfahrt', fr: 'kerosene-synthetique-suisse-aviation' },
  'patente-guida-obvaldo-conversione': { it: 'patente-guida-obvaldo-conversione', en: 'driving-licence-obvaldo-conversion', de: 'fuehrerschein-obwalden-umwandlung', fr: 'permis-de-conduire-obwald-conversion' },
+ 'permesso-b-nidvaldo': { it: 'permesso-b-nidvaldo', en: 'residence-permit-b-nidwalden', de: 'aufenthaltsbewilligung-b-nidwalden', fr: 'permis-sejour-b-nidwald' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

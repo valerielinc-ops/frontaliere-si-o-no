@@ -3925,6 +3925,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-obvaldo-conversione.title': 'Führerschein Obwalden: Umschulung und Prüfungen',
     'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Vollständiger Leitfaden zur Umwandlung des ausländischen Führerscheins im Kanton Obwalden: Verfahren, theoretische und praktische Prüfung, Pflichtkurse und erforderliche Unterlagen.',
     'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Schweizer Verkehrsamt mit Mitarbeiter, der Führerscheindokumente prüft',
+    'blog.article.permesso-b-nidvaldo.title': 'Führerschein B Nidwalden: Anforderungs- und Verlängerungsleitfaden',
+    'blog.article.permesso-b-nidvaldo.excerpt': 'Aufenthaltsbewilligung B im Kanton Nidwalden: Wie beantragt man sie, welche Dokumente benötigt werden, Dauer und Erneuerungsverfahren mit Kontakten der Migrationsstelle.',
+    'blog.article.permesso-b-nidvaldo.imageAlt': 'Antragsformulare für Aufenthaltsbewilligung bei Schweizer Behörde',
 };
 
 export default blogMetaChDe;

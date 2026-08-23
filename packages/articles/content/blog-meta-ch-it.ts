@@ -3925,6 +3925,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-obvaldo-conversione.title': 'Patente di guida Obvaldo: conversione ed esami',
     'blog.article.patente-guida-obvaldo-conversione.excerpt': 'Guida completa alla conversione della patente estera nel Cantone di Obvaldo: procedura, esame teorico e pratico, corsi obbligatori e documenti necessari.',
     'blog.article.patente-guida-obvaldo-conversione.imageAlt': 'Ufficio della circolazione svizzero con impiegato che verifica documenti di patente di guida',
+    'blog.article.permesso-b-nidvaldo.title': 'Permesso B Nidvaldo: guida a requisiti e rinnovo',
+    'blog.article.permesso-b-nidvaldo.excerpt': 'Permesso di dimora B nel Canton Nidvaldo: come richiederlo, quali documenti servono, durata e procedura di rinnovo con contatti ufficio migrazione.',
+    'blog.article.permesso-b-nidvaldo.imageAlt': 'Moduli di richiesta per permesso di soggiorno presso ufficio amministrativo svizzero',
 };
 
 export default blogMetaChIt;
