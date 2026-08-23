@@ -10556,6 +10556,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-grantola-lavorare-ticino.title': 'Living in Grantola and working in Ticino as a border worker',
     'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Practical guide for those residing in Grantola and working in Ticino: tax, G permits, LAMal insurance and cross-border mobility.',
     'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano near the Italian-Swiss border',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.title': 'Living in Beregazzo with Figliaro and working in Ticino as a border worker',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.excerpt': 'The benefits and disadvantages of living in Beregazzo with Figliaro and working in Ticino as a border worker',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.imageAlt': 'A front-line worker works in Ticino and resides in Beregazzo con Figliaro',
 };
 
 export default blogMetaEn;

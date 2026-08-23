@@ -10557,6 +10557,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-grantola-lavorare-ticino.title': 'Vivere a Grantola e lavorare in Ticino da frontaliere',
     'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Guida pratica per chi risiede a Grantola e lavora in Ticino: fisco, permessi G, assicurazione LAMal e mobilità transfrontaliera.',
     'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Vista panoramica sul Lago di Lugano vicino al confine italo-svizzero',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.title': 'Vivere a Beregazzo con Figliaro e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.excerpt': 'I benefici e gli svantaggi di vivere a Beregazzo con Figliaro e lavorare in Ticino come frontaliere',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.imageAlt': 'Un frontaliere lavora in Ticino e risiede a Beregazzo con Figliaro',
 };
 
 export default blogMetaIt;

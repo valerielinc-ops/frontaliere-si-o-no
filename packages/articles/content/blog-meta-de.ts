@@ -10555,6 +10555,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-grantola-lavorare-ticino.title': 'Leben in Grantola und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-grantola-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Grantola wohnen und im Tessin arbeiten: Steuern, G-Bewilligungen, KVG-Versicherung und grenzüberschreitende Mobilität.',
     'blog.article.vivere-grantola-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.title': 'Mit Sohn in Beregazzo leben und als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.excerpt': 'Die Vor- und Nachteile, mit Sohn in Beregazzo zu leben und im Tessin als Grenzgänger zu arbeiten',
+    'blog.article.vivere-beregazzo-lavorare-ticino-frontalieri.imageAlt': 'Ein Frontalier arbeitet in Ticino und wohnt in Beregazzo con Figliaro',
 };
 
 export default blogMetaDe;
