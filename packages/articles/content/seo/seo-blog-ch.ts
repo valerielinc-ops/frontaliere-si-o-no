@@ -50369,6 +50369,83 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-canton-svitto-guida': {
+    title: 'Aprire un\'attività nel Canton Svitto: guida pratica',
+    description: 'Scopri come aprire un\'attività nel Canton Svitto: procedure per il registro di commercio, capitale minimo, tasse e obblighi assicurativi per imprenditori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, svitto',
+    ogTitle: 'Aprire un\'attività nel Canton Svitto: guida al registro',
+    ogDescription: 'Guida pratica all\'apertura di un\'attività nel Canton Svitto: dalla scelta giuridica al registro di commercio, fino agli obblighi fiscali e previdenziali svizzeri.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-svitto-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Svitto: guida pratica",
+      "description": "Scopri come aprire un'attività nel Canton Svitto: procedure per il registro di commercio, capitale minimo, tasse e obblighi assicurativi per imprenditori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-svitto-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno con vista sulle montagne svizzere"
+      },
+      "datePublished": "2026-08-23T03:51:44+00:00",
+      "dateModified": "2026-08-23T03:51:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-svitto-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avviare-impresa-svitto-costi': {
+    title: 'Avviare impresa in Svitto: registrazione e costi',
+    description: 'Come aprire un\'attività nel Canton Svitto: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, impresa, svitto, registrazione',
+    ogTitle: 'Avviare impresa in Svitto: registrazione e costi',
+    ogDescription: 'Guida all\'apertura di un\'attività nel Canton Svitto: forma giuridica, iscrizione al registro di commercio, costi, tasse federali/cantonali e obblighi assicurativi per dipendenti (LAMal, SUVA, LPP). Procedura passo dopo passo.',
+    canonicalPath: '/articoli-svizzera/avviare-impresa-svitto-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare impresa in Svitto: registrazione e costi",
+      "description": "Come aprire un'attività nel Canton Svitto: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-impresa-svitto-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con documenti di iscrizione al registro di commercio"
+      },
+      "datePublished": "2026-08-23T04:01:49+00:00",
+      "dateModified": "2026-08-23T04:01:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-impresa-svitto-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
