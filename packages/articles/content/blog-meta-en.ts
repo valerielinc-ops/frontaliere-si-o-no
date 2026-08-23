@@ -10570,6 +10570,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-23.imageAlt': 'The day\'s numbers for cross-border commuters – August 23, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-23.seoDescription': 'Cross-border brief, August 23, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-23.ogDescription': 'The numbers for August 23, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.title': 'Living in Castelveccana and working in Ticino as a border worker',
+    'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.excerpt': 'Connections, travel times, cost of living, recommended areas, advantages and disadvantages of the transfer, what to consider before moving',
+    'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.imageAlt': 'A Ticino-based border worker living in Castelveccana',
 };
 
 export default blogMetaEn;

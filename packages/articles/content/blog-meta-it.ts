@@ -10571,6 +10571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-23.imageAlt': 'I numeri del giorno per i frontalieri – 23 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-23.seoDescription': 'Bollettino frontalieri del 23 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-23.ogDescription': 'I numeri del 23 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.title': 'Vivere a Castelveccana e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.excerpt': 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento, cosa considerare prima di trasferirsi',
+    'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e vive a Castelveccana',
 };
 
 export default blogMetaIt;
