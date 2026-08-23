@@ -75380,6 +75380,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cunardo-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cunardo e lavorare in Ticino: guida frontaliere',
+    description: 'Permesso G, imposta alla fonte, AVS e LAMal coordinati Italia-Svizzera. Tutto quello che serve sapere prima di diventare frontaliere tra Cunardo e il Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cunardo, lavorare, permesso',
+    ogTitle: 'Vivere a Cunardo e lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Permesso G, imposta alla fonte, AVS e LAMal coordinati Italia-Svizzera. Tutto quello che serve sapere prima di diventare frontaliere tra Cunardo e il Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-cunardo-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cunardo e lavorare in Ticino: guida frontaliere",
+      "description": "Permesso G, imposta alla fonte, AVS e LAMal coordinati Italia-Svizzera. Tutto quello che serve sapere prima di diventare frontaliere tra Cunardo e il Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cunardo-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio della vallata di confine Italia-Svizzera con piccolo comune italiano e Ticino sullo sfondo"
+      },
+      "datePublished": "2026-08-23T00:05:18+00:00",
+      "dateModified": "2026-08-23T00:05:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cunardo-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

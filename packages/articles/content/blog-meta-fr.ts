@@ -10540,6 +10540,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blevio-frontaliere-ticino.title': 'Vivre à Blevio et travailler au Tessin : Guide frontalier',
     'blog.article.blevio-frontaliere-ticino.excerpt': 'Comment se déplacer à Blevio en tant que frontalier du Tessin : permis G, fiscalité, AVS, coût de la vie et délais administratifs.',
     'blog.article.blevio-frontaliere-ticino.imageAlt': 'Vue lacustre de Blevio pres de la frontiere du Tessin, avec montagnes et villages italiens en arriere-plan',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Vivre à Cunardo et travailler au Tessin : guide frontalier',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Permis G, impôt à la source, AVS et LAMal coordonnés Italie-Suisse. Tout ce qu\'il faut savoir avant de devenir frontalier entre Cunardo et le Tessin.',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Vallée alpine à la frontière Suisse-Italie avec petit village italien et canton du Tessin visible',
 };
 
 export default blogMetaFr;

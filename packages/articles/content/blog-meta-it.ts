@@ -10539,6 +10539,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blevio-frontaliere-ticino.title': 'Vivere a Blevio e lavorare in Ticino: Guida frontaliere',
     'blog.article.blevio-frontaliere-ticino.excerpt': 'Come trasferirsi a Blevio da frontaliere del Ticino: permesso G, fiscalita, AVS, costo della vita e scadenze amministrative.',
     'blog.article.blevio-frontaliere-ticino.imageAlt': 'Paesaggio lacustre di Blevio al confine con il Ticino, con montagne e villaggi italiani sullo sfondo',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Vivere a Cunardo e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Permesso G, imposta alla fonte, AVS e LAMal coordinati Italia-Svizzera. Tutto quello che serve sapere prima di diventare frontaliere tra Cunardo e il Ticino.',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio della vallata di confine Italia-Svizzera con piccolo comune italiano e Ticino sullo sfondo',
 };
 
 export default blogMetaIt;
