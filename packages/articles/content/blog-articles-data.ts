@@ -31818,6 +31818,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-ritiro-anticipato-2026-guida',
+ category: 'pensione',
+ date: '2026-08-23T23:04:51.896Z',
+ image: '/images/blog/frontaliere-ritiro-anticipato-2026-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

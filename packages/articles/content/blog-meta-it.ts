@@ -10631,6 +10631,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAINF infortunio: checklist denunzia per frontalieri',
     'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'Come denunciare un infortunio a LAINF se frontaliere. Procedura corretta, differenze malattia professionale, checklist operativa con scadenze.',
     'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'Documenti LAINF e moduli di assicurazione infortuni su scrivania in ufficio ticinese',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Pensionamento anticipato frontalieri 2026: evita gli errori',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Guida completa al pensionamento anticipato per frontalieri: penalità AVS 6,8%, fattore LPP ridotto, coordinamento SECO-INPS. Errori comuni da evitare nel 2026.',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Vista su Lugano e le sponde ticinesi: pianificare il pensionamento anticipato conviene con i calcoli giusti',
 };
 
 export default blogMetaIt;
