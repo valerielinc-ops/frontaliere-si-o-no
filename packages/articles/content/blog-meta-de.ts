@@ -10620,6 +10620,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Arbeitgeberwechsel für Grenzgänger: Genehmigung G und Kontinuität 2026',
     'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Arbeitgeberwechsel für Grenzgänger: Erneuerung der Bewilligung G, Kontinuität AHV/BVG, Quellensteuer und wesentliche Dokumente innerhalb von 20 km von der Grenze.',
     'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Grenzgänger am Schalter mit Arbeitserlaubnispapieren',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Leitfaden zum Arbeitgeberwechsel G',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Kennen Sie die Schritte für den Arbeitgeberwechsel für Grenzgänger: Vorankündigung, Erneuerung der Genehmigung G, Kontinuität der Beiträge und zu aktualisierende Dokumente.',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Zwei Menschen in einer Schlange an der Grenze zwischen Schweiz und Italien',
 };
 
 export default blogMetaDe;

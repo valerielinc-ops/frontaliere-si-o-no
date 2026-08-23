@@ -10621,6 +10621,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Change of employer for border workers: G permit and continuity 2026',
     'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Change of employer for border workers: renewal of G permit, AVS/LPP continuity, tax at source and essential documents within 20 km of the border.',
     'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Frontaliere at cantonal counter with permit G documents for employer change',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Change of employer guide for frontier workers: notice and permission G',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Know the steps for the change of employer for border workers: notice, renewal of permit G, continuity of contributions and documents to be updated.',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Two people in a line at the border between Switzerland and Italy',
 };
 
 export default blogMetaEn;
