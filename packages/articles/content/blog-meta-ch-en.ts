@@ -3934,6 +3934,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AVS and complementary services in Nidvaldo: practical guide',
     'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'How the first pillar of social security works in the canton of Nidvaldo: calculation of AVS annuity, contribution gaps and access to supplementary benefits.',
     'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Office workspace with AVS pension calculator documents and retirement planning materials in Switzerland',
+    'blog.article.primo-pilastro-nidvaldo-avs.title': 'AVS and complementary services Canton Nidvaldo',
+    'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'The first pillar in Nidvaldo: AVS, compensation fund, contribution gaps and complementary benefits to cover the minimum living wage.',
+    'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Nidvwald cantonal compensation fund office with social security retirement and supplementary benefits documents',
 };
 
 export default blogMetaChEn;

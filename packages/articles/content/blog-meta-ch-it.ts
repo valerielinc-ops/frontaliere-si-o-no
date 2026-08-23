@@ -3934,6 +3934,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AVS e prestazioni complementari in Nidvaldo: guida pratica',
     'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'Come funziona il primo pilastro della previdenza nel canton Nidvaldo: calcolo rendita AVS, lacune contributive e accesso alle prestazioni complementari.',
     'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Ufficio con documenti e calcolatore AVS per il calcolo della rendita di vecchiaia nel canton Nidvaldo',
+    'blog.article.primo-pilastro-nidvaldo-avs.title': 'AVS e prestazioni complementari canton Nidvaldo',
+    'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'Il primo pilastro a Nidvaldo: AVS, cassa di compensazione, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
+    'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Ufficio della cassa di compensazione cantonale Nidvaldo con scartoffie di previdenza sociale AVS e prestazioni complementari',
 };
 
 export default blogMetaChIt;

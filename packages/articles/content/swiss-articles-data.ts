@@ -11800,6 +11800,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'primo-pilastro-nidvaldo-avs',
+    category: 'pensione',
+    date: '2026-08-23T11:40:32.193Z',
+    image: '/images/blog/primo-pilastro-nidvaldo-avs.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

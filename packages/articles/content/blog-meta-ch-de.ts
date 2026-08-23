@@ -3934,6 +3934,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AHV und Ergänzungsleistungen in Nidwalden: Praxisleitfaden',
     'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'So funktioniert die erste Säule der Vorsorge im Kanton Nidwalden: AHV-Rentenberechnung, Beitragslücken und Zugang zu Ergänzungsleistungen.',
     'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Büroarbeitsplatz mit AVS-Rentenrechner und Altersversorgungsdokumenten auf dem Schreibtisch',
+    'blog.article.primo-pilastro-nidvaldo-avs.title': 'AHV und Ergänzungsleistungen Kanton Nidwalden',
+    'blog.article.primo-pilastro-nidvaldo-avs.excerpt': 'Die erste Säule in Nidwalden: AHV, Ausgleichskasse, Beitragslücken und Ergänzungsleistungen zur Deckung des Existenzminimums.',
+    'blog.article.primo-pilastro-nidvaldo-avs.imageAlt': 'Kantonales Ausgleichskassenbüro Nidwalden mit AHV-Renten und Ergänzungsleistungsdokumenten',
 };
 
 export default blogMetaChDe;
