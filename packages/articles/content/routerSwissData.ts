@@ -1343,6 +1343,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'costituire-impresa-cantone-nidvaldo': { it: 'costituire-impresa-cantone-nidvaldo', en: 'establish-company-canton-nidvaldo', de: 'unternehmung-eroffnen-kanton-nidvaldo', fr: 'creer-entreprise-canton-nidvaldo' },
  'nidvaldo-impresa-costi-iscrizione-registro': { it: 'nidvaldo-impresa-costi-iscrizione-registro', en: 'nidvaldo-company-registration-costs-guide', de: 'nidvaldo-unternehmensregistrierung-kosten-leitfaden', fr: 'nidvaldo-enregistrement-entreprise-couts-guide' },
  'lamal-glarona-sussidio-premi': { it: 'lamal-glarona-sussidio-premi', en: 'lamal-glarus-subsidy-premiums', de: 'kvg-glarus-subsidie-praemien', fr: 'lam-glaris-subside-cotisations' },
+ 'apprendistato-canton-glarona': { it: 'apprendistato-canton-glarona', en: 'apprenticeship-canton-glarus', de: 'lehre-kanton-glarus', fr: 'apprentissage-canton-glaris' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

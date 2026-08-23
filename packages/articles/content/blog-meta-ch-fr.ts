@@ -3952,6 +3952,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lamal-glarona-sussidio-premi.title': 'Primes caisse-maladie Glaris : comment obtenir une réduction',
     'blog.article.lamal-glarona-sussidio-premi.excerpt': 'Comment fonctionnent les primes de l\'assurance maladie obligatoire à Glaris, quelles sont les franchises disponibles et comment demander les allocations cantonales de réduction.',
     'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Documents d\'assurance maladie suisse avec calculatrice sur un bureau en bois',
+    'blog.article.apprendistato-canton-glarona.title': 'Apprentissage et formation dans le canton de Glaris',
+    'blog.article.apprendistato-canton-glarona.excerpt': 'Guide complet de recherche d\'emploi, de contrat, de rémunération et de maturité professionnelle : droits de l\'apprenti et procédure dans le canton de Glaris.',
+    'blog.article.apprendistato-canton-glarona.imageAlt': 'Jeune apprenti apprenant le travail du bois auprès d\'un maître artisan dans la formation professionnelle suisse',
 };
 
 export default blogMetaChFr;
