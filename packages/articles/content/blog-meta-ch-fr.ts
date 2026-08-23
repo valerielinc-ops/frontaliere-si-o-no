@@ -3985,6 +3985,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-zugo-deposito-contestazione.title': 'Location à Zoug : règles, dépôt et contestation',
     'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Guide du droit de location dans le canton de Zoug : limites du dépôt de garantie, procédures de contestation et délais de résiliation selon le code civil fédéral.',
     'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Bâtiments résidentiels du canton de Zoug avec vue sur le lac et architecture suisse',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Ouvrir une entreprise à Zoug : inscription et obligations',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Enregistrer des activités à Zoug : formes juridiques, inscription au registre du commerce, obligations de sécurité sociale (AVS/AI, LPP) et assurances. Guide fédéral et cantonal.',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Bureau d\'administration cantonale avec formulaires d\'inscription au registre du commerce sur un bureau en bois',
 };
 
 export default blogMetaChFr;

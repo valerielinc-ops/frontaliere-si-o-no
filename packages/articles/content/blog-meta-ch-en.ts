@@ -3985,6 +3985,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazione-zugo-deposito-contestazione.title': 'Lease in Zug: rules, filing and dispute',
     'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Guide to the right to rent in the Canton of Zug: limits of the security deposit, dispute procedures and cancellation deadlines according to the Federal Civil Code.',
     'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Zug canton residential buildings and lakeside landscape with modern Swiss architecture',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Opening a business in Zug: registration and obligations',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Register activities in Zug: legal forms, trade register registration, social security obligations (AVS/AI, LPP) and insurance. Federal and cantonal guidance.',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Swiss cantonal administration office with commercial register forms and documents on wooden desk',
 };
 
 export default blogMetaChEn;
