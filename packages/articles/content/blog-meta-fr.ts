@@ -10608,6 +10608,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comprare-affittare-ticino-frontalieri.title': 'Acheter une maison au Tessin : prix et tendances',
     'blog.article.comprare-affittare-ticino-frontalieri.excerpt': 'Guide du marché immobilier tessinois pour les frontaliers : loyer vs achat, facteurs de prix, coûts supplémentaires et implications fiscales. Liste de contrôle pratique et procédure étape par étape.',
     'blog.article.comprare-affittare-ticino-frontalieri.imageAlt': 'Vue aérienne des quartiers résidentiels de Lugano avec propriétés lacustres et Alpes en arrière-plan',
+    'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Marché du travail Tessin : manuel frontalier',
+    'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Vous cherchez un emploi au Tessin en tant que frontalier ? Découvrez les avantages fiscaux, les procédures de permis G et comment vous orienter sur le marché du travail tessinois.',
+    'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Professionnel dans le quartier d\'affaires de Lugano, centre économique du Tessin',
 };
 
 export default blogMetaFr;

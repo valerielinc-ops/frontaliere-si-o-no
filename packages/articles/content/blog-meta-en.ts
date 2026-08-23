@@ -10606,6 +10606,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comprare-affittare-ticino-frontalieri.title': 'Buying a house in Ticino: prices and trends',
     'blog.article.comprare-affittare-ticino-frontalieri.excerpt': 'Guide to the Ticino real estate market for border crossers: rent vs purchase, price factors, additional costs and tax implications. Practical checklist and step-by-step procedure.',
     'blog.article.comprare-affittare-ticino-frontalieri.imageAlt': 'Aerial view of residential neighborhoods in Lugano with lakeside properties and Alpine mountains',
+    'blog.article.mercato-lavoro-ticino-frontalieri.title': 'Ticino labour market: border manual',
+    'blog.article.mercato-lavoro-ticino-frontalieri.excerpt': 'Are you looking for work in Ticino as a border worker? Discover the tax advantages, the procedures for the G permit and how to orient yourself in the Ticino labour market.',
+    'blog.article.mercato-lavoro-ticino-frontalieri.imageAlt': 'Professional in Lugano\'s business district, Ticino\'s economic center, with lake and offices',
 };
 
 export default blogMetaEn;
