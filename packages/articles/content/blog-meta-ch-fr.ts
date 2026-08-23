@@ -3970,6 +3970,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-glarona.title': 'Registre du commerce : ouvrir une entreprise à Glaris',
     'blog.article.aprire-attivita-canton-glarona.excerpt': 'Le canton de Glaris demande l\'inscription au registre du commerce pour ouvrir une entreprise. Il est nécessaire de choisir la forme juridique, de déterminer le capital minimum, de payer les frais d\'inscription et de remplir les obligations d\'assurance.',
     'blog.article.aprire-attivita-canton-glarona.imageAlt': 'Un entrepreneur qui s\'inscrit au registre de commerce du canton de Glaris',
+    'blog.article.zugo-riduzione-premi-sussidio.title': 'Primes caisse-maladie canton de Zoug et réduction des primes',
+    'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'Comment fonctionnent les primes LAMal dans le canton de Zoug, les six franchises disponibles et comment accéder aux allocations cantonales pour réduire le coût de l\'assurance maladie.',
+    'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Guichet administratif cantonal où les résidents discutent des documents d\'assurance maladie obligatoire et des réductions de primes.',
 };
 
 export default blogMetaChFr;
