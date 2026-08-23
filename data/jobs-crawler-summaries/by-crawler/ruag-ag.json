@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-08-22T21:45:30.591Z",
+  "generatedAt": "2026-08-23T09:55:05.680Z",
   "total": 59,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 59,
-  "durationMs": 98658,
-  "avgDurationMs": 98658,
+  "durationMs": 61757,
+  "avgDurationMs": 61757,
   "durationHistory": [
-    98658
+    61757
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -295,8 +295,8 @@
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-07-01T23:08:13.002Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
