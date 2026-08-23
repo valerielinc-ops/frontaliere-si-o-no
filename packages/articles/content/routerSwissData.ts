@@ -1331,6 +1331,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'calcolo-rendita-avs-lacune-contributive': { it: 'calcolo-rendita-avs-lacune-contributive', en: 'avs-pension-calculation-contribution-gaps', de: 'ahv-rentenberechnung-beitragslucken', fr: 'calcul-retraite-avs-lacunes-cotisations' },
  'avc-lacune-contributive-prestazioni': { it: 'avc-lacune-contributive-prestazioni', en: 'avc-contribution-gaps-benefits', de: 'ahv-beitragslucken-leistungen', fr: 'avs-lacunes-cotisations-prestations' },
  'aprire-attivita-obvaldo-guida': { it: 'aprire-attivita-obvaldo-guida', en: 'starting-business-obvaldo-guide', de: 'gewerbe-obwalden-anleitung', fr: 'creer-entreprise-obwald-guide' },
+ 'aprire-impresa-obvaldo-iscrizione': { it: 'aprire-impresa-obvaldo-iscrizione', en: 'open-business-obvaldo-registration', de: 'geschaft-offnen-obwalden-anmeldung', fr: 'ouvrir-entreprise-obwald-inscription' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

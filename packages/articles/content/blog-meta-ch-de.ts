@@ -3916,6 +3916,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-obvaldo-guida.title': 'Ein Unternehmen in Obwalden eröffnen: Leitfaden zu Rechtsformen und Kosten',
     'blog.article.aprire-attivita-obvaldo-guida.excerpt': 'Vollständiger Leitfaden: Wahl der Rechtsform, Handelsregistereintrag, Mindestkapital, Steuern und Versicherungspflichten (AHV, KVG, SUVA).',
     'blog.article.aprire-attivita-obvaldo-guida.imageAlt': 'Unternehmer bereitet Unterlagen zur Handelsregistereintragung vor.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.title': 'Obwalden-Geschäft eröffnen: Register und Kosten',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.excerpt': 'Rechtsformen, Handelsregistereintragung, Eintragungsgebühren und Versicherungspflichten zur Unternehmensgründung im Kanton Obwalden.',
+    'blog.article.aprire-impresa-obvaldo-iscrizione.imageAlt': 'Unternehmensregistrierungsbüro mit offiziellen Formularen, administrativen Unterlagen und Vertragsunterzeichnung.',
 };
 
 export default blogMetaChDe;
