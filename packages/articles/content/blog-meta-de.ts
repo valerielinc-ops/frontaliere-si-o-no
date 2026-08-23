@@ -10584,6 +10584,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Wohnen in Eppan Gentile und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Quellensteuer auf Erwerbseinkommen: NUR in der Schweiz für Grenzgänger einbehalten',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers in Bewegung zwischen Appiano Gentile und Ticino',
+    'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Wohnen in Cadorago als Grenzgänger Tessin: Steuern 2024',
+    'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Vollständiger Leitfaden: Leben in Cadorago und Arbeiten im Tessin. Neue Vereinbarung 2024, Selbstbehalt 10.000 €, G-Bewilligung, KVG und Pendeln von den Como-Pässen.',
+    'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Grenzgänger mit Schweizer Kennzeichen am Grenzübergang Brogeda, Gegend Mendrisio, Tessin. Pendlerstrecke Como–Tessin.',
 };
 
 export default blogMetaDe;

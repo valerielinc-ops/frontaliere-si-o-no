@@ -10585,6 +10585,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Living in Appiano Gentile and working in Ticino as a cross-border commuter',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Taxed at source on income from work: withheld ONLY in Switzerland for border workers',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers moving between Appiano Gentile and Ticino',
+    'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Living in Cadorago as a border worker Ticino: taxation 2024',
+    'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Complete guide: living in Cadorago and working in Ticino. New 2024 Agreement, €10,000 deductible, G Permit, LAMal and commuting from Como crossings.',
+    'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontalier with Swiss registered car at Brogeda border crossing, Mendrisio area, Ticino. Como–Ticino commute.',
 };
 
 export default blogMetaEn;

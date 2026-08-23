@@ -75965,6 +75965,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cadorago-frontaliere-pendolare-guida': {
+    title: 'Vivere a Cadorago da frontaliere Ticino: fiscalità 2024',
+    description: 'Guida completa: vivere a Cadorago e lavorare in Ticino. Nuovo Accordo 2024, franchigia €10.000, Permesso G, LAMal e costo della vita per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cadorago, fiscalità, completa',
+    ogTitle: 'Cadorago frontaliere Ticino: guida fiscale 2024',
+    ogDescription: 'Vivere a Cadorago e lavorare in Ticino: nuovo Accordo Frontalieri 2024, franchigia €10.000, LAMal, ristorni fiscali e Permesso G. Guida completa e checklist per frontalieri Como–Ticino.',
+    canonicalPath: '/articoli-frontaliere/cadorago-frontaliere-pendolare-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cadorago da frontaliere Ticino: fiscalità 2024",
+      "description": "Guida completa: vivere a Cadorago e lavorare in Ticino. Nuovo Accordo 2024, franchigia €10.000, Permesso G, LAMal e costo della vita per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cadorago-frontaliere-pendolare-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con auto immatricolata CH al valico di Brogeda, zona Mendrisio, Ticino. Pendolarismo Como–Ticino."
+      },
+      "datePublished": "2026-08-23T08:14:41+00:00",
+      "dateModified": "2026-08-23T08:14:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cadorago-frontaliere-pendolare-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

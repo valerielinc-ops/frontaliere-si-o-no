@@ -10587,6 +10587,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Vivre à Appiano Gentile et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Imposée à la source sur le revenu du travail : retenue UNIQUEMENT en Suisse pour les frontaliers',
     'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers en mouvement entre Appiano Gentile et Ticino',
+    'blog.article.cadorago-frontaliere-pendolare-guida.title': 'Vivre à Cadorago en tant que frontalier du Tessin : fiscalité 2024',
+    'blog.article.cadorago-frontaliere-pendolare-guida.excerpt': 'Guide complet : vivre à Cadorago et travailler au Tessin. Nouvel accord 2024, franchise de 10 000 € , permis G, LAMal et déplacements depuis les cols de Côme.',
+    'blog.article.cadorago-frontaliere-pendolare-guida.imageAlt': 'Frontalier avec voiture immatriculée CH au poste frontière de Brogeda, région de Mendrisio, Tessin. Navette Como–Tessin.',
 };
 
 export default blogMetaFr;
