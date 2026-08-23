@@ -39,6 +39,21 @@ const RAW_CREATE_ALLOWED: Record<string, string> = {
   // promotion the moment the title changes. Different mechanism, same goal.
   'traffic-data-freshness.yml':
     'label-state machine (pending→confirmed) that rewrites the title on promotion; already deduped by label',
+  // Same mechanism as the entry above, and verified against the CODE of the
+  // `Report push-retry exhaustion` step (#6296), not against its intent:
+  //  • it early-returns on BOTH labels before ever reaching `gh issue create`
+  //    (`thin-promotions-push-exhausted` → comment + `exit 0`; `…-pending` →
+  //    promote + `exit 0`), so at most one pending issue can be open and a
+  //    second run cannot mint a duplicate;
+  //  • promotion REWRITES the title in place (`[pending] … — 1st occurrence`
+  //    → `… on consecutive runs`), which is exactly what routing through the
+  //    helper would break: it dedups on the first 60 chars, so the rename
+  //    would orphan the issue and the next run would open a fresh one — the
+  //    very duplicate this guard exists to prevent;
+  //  • the created title carries no date, timestamp or counter, so it stays
+  //    stable across runs inside the dedup window.
+  'refresh-thin-promotions.yml':
+    'label-state machine (pending→confirmed→auto-close) that rewrites the title on promotion; deduped by label, with an early exit before create',
 };
 
 function workflowFiles(): string[] {
