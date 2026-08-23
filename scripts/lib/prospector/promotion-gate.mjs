@@ -153,6 +153,24 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 }
 
 /**
+ * La PR di promozione gia' in volo, se c'e'.
+ *
+ * Estratto qui perche' sia verificabile: la decisione «apro o non apro una
+ * seconda PR» e' quella che, sbagliata, blocca l'intera pipeline — due PR aperte
+ * rigenerano gli stessi 22 `crawler-group-*.yml` dalla stessa base e non mergia
+ * piu' nessuna delle due.
+ *
+ * @param {{ number: number|string, createdAt?: string, title?: string, headRefName?: string }[]} openPrs
+ * @param {string} [prefix]
+ * @returns {{ number: string, createdAt: string, title: string }|null}
+ */
+export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-') {
+  const hit = (openPrs || []).find((r) => String(r?.headRefName || '').startsWith(prefix));
+  if (!hit) return null;
+  return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '' };
+}
+
+/**
  * Rank and cap the promotable set.
  *
  * Ranked by vacancies, because the point of promoting a crawler is the

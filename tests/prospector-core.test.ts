@@ -21,7 +21,7 @@ import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mj
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
-import { evaluatePromotion, selectForPromotion, clampMinDays, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
+import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
 
@@ -456,6 +456,24 @@ describe('promotion gate', () => {
     const oneDayBadTitles = graded(1);
     oneDayBadTitles.validationHistory[0].titleMatchRate = 0.3;
     expect(evaluatePromotion(oneDayBadTitles, {}, { minDistinctDays: 1, minRuns: 1 }).passed).toBe(false);
+  });
+
+  it('riconosce una PR di promozione gia` in volo', () => {
+    // Due PR aperte rigenerano gli stessi 22 crawler-group-*.yml dalla stessa
+    // base: conflitto garantito e nessuna delle due mergia piu'. Misurato su
+    // #6292 e #6297, 25 file in comune, entrambe bloccate.
+    const rows = [
+      { number: 6300, headRefName: 'fix/issue-1', title: 'altro' },
+      { number: 6297, headRefName: 'prospector/promote-2026-08-23', createdAt: '2026-08-23T04:39:39Z', title: 'promuove 10' },
+    ];
+    expect(findOpenPromotionPr(rows)?.number).toBe('6297');
+  });
+
+  it('non scambia una PR qualsiasi per una promozione', () => {
+    expect(findOpenPromotionPr([{ number: 1, headRefName: 'fix/issue-9' }])).toBeNull();
+    expect(findOpenPromotionPr([])).toBeNull();
+    // Un branch che CONTIENE il prefisso ma non ci comincia non conta.
+    expect(findOpenPromotionPr([{ number: 2, headRefName: 'wip/prospector/promote-x' }])).toBeNull();
   });
 
   it('caps how many ship in one run and reports the overflow', () => {
