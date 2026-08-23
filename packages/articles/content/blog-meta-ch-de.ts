@@ -3979,6 +3979,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Haus kaufen in Zug: Hypothek und Steuern',
     'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Vollständiger Leitfaden zum Hauskauf im Kanton Zug: benötigte Eigenmittel, Hypothekendarlehen, Ablösesumme und Notarkosten der Schweiz.',
     'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Moderne Schweizer Wohngebäude mit Alpenkulisse',
+    'blog.article.zugo-locazione-deposito-procedura.title': 'Mieten Zug: Mieten und Pachtrechte',
+    'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Leitfaden zu Ihren Mieter- und Vermieterrechten in der Schweiz: Kaution, Kündigung, Anfechtung und Schlichtungsstelle.',
+    'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Schweizer Wohnstrasse mit Mietwohnungen und Immobilienanzeigen',
 };
 
 export default blogMetaChDe;

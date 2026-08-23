@@ -3979,6 +3979,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Buying a house in Zug: mortgage and taxation',
     'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Complete guide to buying a house in the Canton of Zug: own funds required, mortgage loan, transfer tax and notary fees in Switzerland.',
     'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Modern Swiss residential buildings with Alpine mountains in background',
+    'blog.article.zugo-locazione-deposito-procedura.title': 'Zug Rentals: Fees and Lease Fees',
+    'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Guide to your tenant and landlord rights in Switzerland: security deposit, cancellation, dispute and conciliation authority.',
+    'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Swiss residential street with rental buildings and real estate signs',
 };
 
 export default blogMetaChEn;

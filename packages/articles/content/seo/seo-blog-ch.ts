@@ -51617,6 +51617,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zugo-locazione-deposito-procedura': {
+    title: 'Affitti Zugo: canoni e diritti di locazione | Frontaliere Ticino',
+    description: 'Guida ai tuoi diritti di affittuario e locatore in Svizzera: deposito cauzionale, disdetta, contestazione e autorità di conciliazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, zugo, canoni, diritti',
+    ogTitle: 'Affitti Zugo: canoni e diritti di locazione',
+    ogDescription: 'Guida ai tuoi diritti di affittuario e locatore in Svizzera: deposito cauzionale, disdetta, contestazione e autorità di conciliazione.',
+    canonicalPath: '/articoli-svizzera/zugo-locazione-deposito-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Zugo: canoni e diritti di locazione",
+      "description": "Guida ai tuoi diritti di affittuario e locatore in Svizzera: deposito cauzionale, disdetta, contestazione e autorità di conciliazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zugo-locazione-deposito-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada residenziale svizzera con edifici in affitto e segnaletica di annunci immobiliari"
+      },
+      "datePublished": "2026-08-23T17:16:22+00:00",
+      "dateModified": "2026-08-23T17:16:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zugo-locazione-deposito-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
