@@ -51773,6 +51773,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-zugo-formazione-livelli': {
+    title: 'Salari e lavoro nel Canton Zugo: formazione e livelli',
+    description: 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, lavoro, canton, zugo',
+    ogTitle: 'Salari e lavoro nel Canton Zugo: formazione e livelli',
+    ogDescription: 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi.',
+    canonicalPath: '/articoli-svizzera/salari-zugo-formazione-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e lavoro nel Canton Zugo: formazione e livelli",
+      "description": "Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-zugo-formazione-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di Zug con edifici per uffici moderni e vista sulle Alpi, simbolo del mercato del lavoro svizzero"
+      },
+      "datePublished": "2026-08-23T21:37:47+00:00",
+      "dateModified": "2026-08-23T21:37:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-zugo-formazione-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

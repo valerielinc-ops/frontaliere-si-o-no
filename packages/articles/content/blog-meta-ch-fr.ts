@@ -3991,6 +3991,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-zugo-settori.title': 'Salaires et marché du travail : le canton de Zoug',
     'blog.article.salari-mercato-zugo-settori.excerpt': 'Niveaux de salaire pour la formation, les secteurs, les horaires maximums, les cotisations fédérales et les conventions collectives en vigueur dans le canton de Zoug.',
     'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline d\'une ville suisse, symbole du marché du travail et des opportunités d\'emploi dans le canton de Zoug.',
+    'blog.article.salari-zugo-formazione-livelli.title': 'Salaires et emploi dans le canton de Zoug : formation et niveaux',
+    'blog.article.salari-zugo-formazione-livelli.excerpt': 'Marché du travail suisse : salaires par niveau de formation, horaires légaux, prévoyance obligatoire (AVS, LPP, LAMal) et conventions collectives.',
+    'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Centre de Zoug avec immeubles modernes et panorama alpin',
 };
 
 export default blogMetaChFr;

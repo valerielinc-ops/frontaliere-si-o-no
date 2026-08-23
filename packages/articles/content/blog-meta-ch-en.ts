@@ -3991,6 +3991,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-zugo-settori.title': 'Wages and the labour market: the Canton of Zug',
     'blog.article.salari-mercato-zugo-settori.excerpt': 'Salary levels for training, sectors, maximum hours, federal contributions and collective agreements in force in the Canton of Zug.',
     'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline of a Swiss city, symbol of labour market and employment opportunities in Canton Zug.',
+    'blog.article.salari-zugo-formazione-livelli.title': 'Wages and work in the Canton of Zug: training and levels',
+    'blog.article.salari-zugo-formazione-livelli.excerpt': 'Swiss labour market: salaries by degree of training, legal hours, compulsory social security (AVS, LPP, LAMal) and collective agreements.',
+    'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Downtown Zug with modern offices and Alpine backdrop, representing Swiss job market',
 };
 
 export default blogMetaChEn;
