@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-22T21:31:15.259Z",
+  "updatedAt": "2026-08-23T09:43:46.741Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/operatore-per-la-bonifica-dallamianto-m-f-2688907/": {
       "location": "Genève",
@@ -676,36 +676,6 @@
     "https://www.pemsa.ch/it/job/installatore-di-impianti-solari-m-f-d-2686146/": {
       "location": "Basel",
       "canton": "BS",
-      "company": "PEMSA",
-      "postedDate": "2026-08-07"
-    },
-    "https://www.pemsa.ch/it/job/gru-mobile-su-cingoli-2686129/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-07"
-    },
-    "https://www.pemsa.ch/it/job/gruista-b-suva-2686123/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-07"
-    },
-    "https://www.pemsa.ch/it/job/pavimentatore-stradale-2686108/": {
-      "location": "Bellinzona",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-07"
-    },
-    "https://www.pemsa.ch/it/job/regolatore-su-finitrice-2686102/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-07"
-    },
-    "https://www.pemsa.ch/it/job/polimeccanico-operatore-di-fresatura-cnc-m-f-2686098/": {
-      "location": "Yverdon-les-Bains",
-      "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-08-07"
     },
