@@ -3895,6 +3895,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svitto-tasse-eredita-aliquote.title': 'Imposta di successione e donazione: le aliquote di Svitto',
     'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'Come funziona l\'imposta di successione e donazione nel Canton Svitto: aliquote per grado di parentela, esenzioni e scadenze per la dichiarazione.',
     'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Studio notarile con documenti e scrivania per successioni e donazioni nel Canton Svitto',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'Premi LAMal Obvaldo: franchigie e riduzione',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Franchigie obbligatorie, riduzioni di premio e sussidi cantonali per l\'assicurazione malattia nel Cantone di Obvaldo. Procedura di richiesta e modelli assicurativi alternativi.',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Paesaggio alpino svizzero con simboli di previdenza sanitaria e architettura cantonale tradizionale',
 };
 
 export default blogMetaChIt;

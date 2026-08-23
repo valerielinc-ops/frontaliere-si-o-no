@@ -3895,6 +3895,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svitto-tasse-eredita-aliquote.title': 'Droits de succession et de donation : les taux de Schwyz',
     'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'Comment fonctionne l\'impôt sur les successions et les donations dans le canton de Schwyz : taux par degré de parenté, exemptions et délais de déclaration.',
     'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Étude notariale avec documents de successions et bureau professionnel',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'Primes LAMal Obwald : franchises et réduction',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Franchises obligatoires, réductions de primes et allocations cantonales pour l\'assurance-maladie dans le canton d\'Obwald. Procédure de demande et modèles d\'assurance alternatifs.',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Paysage alpin suisse avec symboles de soins de santé et architecture cantonale traditionnelle',
 };
 
 export default blogMetaChFr;

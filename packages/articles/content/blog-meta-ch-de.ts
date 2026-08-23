@@ -3895,6 +3895,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svitto-tasse-eredita-aliquote.title': 'Erbschafts- und Schenkungssteuer: die Schwyzer Steuersätze',
     'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'Wie funktioniert die Erbschafts- und Schenkungssteuer im Kanton Schwyz: Sätze pro Verwandtschaftsgrad, Befreiungen und Fristen für die Deklaration.',
     'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Notarbüro mit Dokumenten und Schreibtisch für Erbschaften und Schenkungen',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'KVG-Prämien Obwalden: Selbstbehalte und Kürzung',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Obligatorische Franchisen, Prämienverbilligungen und kantonale Krankenversicherungsbeiträge im Kanton Obwalden. Antragsverfahren und alternative Versicherungsmodelle.',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Schweizer Alpenlandschaft mit Gesundheitssymbolen und traditioneller Kantonsarchitektur',
 };
 
 export default blogMetaChDe;
