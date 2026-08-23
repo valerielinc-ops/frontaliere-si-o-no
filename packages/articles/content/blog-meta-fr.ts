@@ -10564,6 +10564,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.brienno-frontaliere-checklist.title': 'Brienno et Tessin : transfert de frontalier',
     'blog.article.brienno-frontaliere-checklist.excerpt': 'Guide complet : vivre à Brienno et travailler au Tessin. Permis G, taxe à la source, restaurations EUR 10\'000, LAMal et AVS en 2024.',
     'blog.article.brienno-frontaliere-checklist.imageAlt': 'Vue panoramique du lac de Côme depuis Brienno, paysage frontalier Suisse-Italie, Tessin en arrière-plan.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.title': 'Vivre à Casnate et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.excerpt': 'Casnate con Bernate offre une position stratégique pour ceux qui travaillent au Tessin. Découvrez les avantages fiscaux, la procédure d\'autorisation G, le coût de la vie et la planification des retraites.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.imageAlt': 'Vue sur la frontière italo-suisse avec paysage alpin et lac de Lugano en arrière-plan, représentant la vie du frontalier entre Lombardie et Tessin',
 };
 
 export default blogMetaFr;

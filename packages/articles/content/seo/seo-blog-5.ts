@@ -75692,6 +75692,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-casnate-bernate-frontaliere-ticino': {
+    title: 'Vivere a Casnate e lavorare in Ticino da frontaliere',
+    description: 'Guida per frontalieri: vivere a Casnate con Bernate e lavorare in Ticino. Nuovo Accordo 2024, fiscalità, permesso G, LAMal e contributi AVS/LPP. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, casnate, lavorare, bernate',
+    ogTitle: 'Vivere a Casnate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri come vivere a Casnate con Bernate e lavorare in Ticino da frontaliere: regime fiscale agevolato con franchigia €10.000, diritto LAMal, contributi AVS/LPP svizzeri, permesso G e procedura step-by-step. Vantaggi e costi pratici.',
+    canonicalPath: '/articoli-frontaliere/vivere-casnate-bernate-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Casnate e lavorare in Ticino da frontaliere",
+      "description": "Guida per frontalieri: vivere a Casnate con Bernate e lavorare in Ticino. Nuovo Accordo 2024, fiscalità, permesso G, LAMal e contributi AVS/LPP. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-casnate-bernate-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul confine italo-svizzero con paesaggio alpino e il Lago di Lugano sullo sfondo, rappresenta la vita del frontaliere tra Lombardia e Ticino"
+      },
+      "datePublished": "2026-08-23T05:11:26+00:00",
+      "dateModified": "2026-08-23T05:11:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-casnate-bernate-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

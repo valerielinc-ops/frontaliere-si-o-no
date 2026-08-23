@@ -10561,6 +10561,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.brienno-frontaliere-checklist.title': 'Brienn und Tessin: Grenzübertritt',
     'blog.article.brienno-frontaliere-checklist.excerpt': 'Vollständiger Leitfaden: Leben in Brienno und Arbeiten im Tessin. Bewilligung G, Quellensteuer, Erstattungen EUR 10\'000, KVG und AHV im Jahr 2024.',
     'blog.article.brienno-frontaliere-checklist.imageAlt': 'Panoramablick auf den Comer See von Brienno, Schweiz-Italien Grenzlandschaft, Tessin im Hintergrund.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.title': 'Leben in Casnate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.excerpt': 'Casnate con Bernate bietet eine strategische Lage für diejenigen, die im Tessin arbeiten. Entdecken Sie Steuervorteile, Genehmigungsverfahren G, Lebenshaltungskosten und Rentenplanung.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.imageAlt': 'Blick auf die italienisch-schweizerische Grenze mit Alpenlandschaft und Lago di Lugano im Hintergrund, zeigt das Grenzgängerleben zwischen Lombardien und Tessin',
 };
 
 export default blogMetaDe;

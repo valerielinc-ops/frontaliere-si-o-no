@@ -10563,6 +10563,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.brienno-frontaliere-checklist.title': 'Brienno e Ticino: trasferimento da frontaliere',
     'blog.article.brienno-frontaliere-checklist.excerpt': 'Guida completa: vivere a Brienno e lavorare in Ticino. Permesso G, imposta alla fonte, ristorni EUR 10\'000, LAMal e AVS nel 2024.',
     'blog.article.brienno-frontaliere-checklist.imageAlt': 'Veduta panoramica del lago di Como da Brienno, con paesaggio al confine Svizzera-Italia e Ticino sullo sfondo.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.title': 'Vivere a Casnate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.excerpt': 'Casnate con Bernate offre una posizione strategica per chi lavora in Ticino. Scopri vantaggi fiscali, procedura permesso G, costo della vita e pianificazione pensionistica.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.imageAlt': 'Vista sul confine italo-svizzero con paesaggio alpino e il Lago di Lugano sullo sfondo, rappresenta la vita del frontaliere tra Lombardia e Ticino',
 };
 
 export default blogMetaIt;
