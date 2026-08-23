@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-23T09:55:25.733Z",
+  "savedAt": "2026-08-23T09:49:59.810Z",
   "entries": [
     {
       "key": "baa3ff1755c74a29fbd04c66c04cbe88636a42768ab0e5fc4aaab4456066b9b4",
@@ -75868,20 +75868,20 @@
     },
     {
       "key": "c693634175b0d41a2c30a14eb7a75bfac42ae3dc9fc424c211ae155a337b7c92",
-      "touchedAt": 1785017111007,
+      "touchedAt": 1787478572159,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "595c58b46593a0dd9fdddb5c6c404004ad02798ea3462e1aed0c2d4f741b0dfc",
-      "touchedAt": 1785017111284,
+      "touchedAt": 1787478572733,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title 'AI Tech Lead', responsibilities/requirements, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title (AI Tech Lead), responsibilities/requirements, and application context, indicating a real single job detail page."
       }
     },
     {
@@ -75895,11 +75895,11 @@
     },
     {
       "key": "aaa1d90e199e23922b300f66e1ad249228ca08bc3c4d0b45397bb66e4f066e6c",
-      "touchedAt": 1785017112128,
+      "touchedAt": 1787478572470,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title (AI Change & Adoption Lead), responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
       }
     },
     {
@@ -75922,16 +75922,16 @@
     },
     {
       "key": "6706dabacc76cae1f42238b6f9a5633e57d66e15b2d10b8666c6bc8ffb0efad2",
-      "touchedAt": 1785017112837,
+      "touchedAt": 1787478573681,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a detailed job description, required skills, and benefits. The page also has a clear call-to-action to apply for the job, which suggests that it is a real single job detail page."
       }
     },
     {
       "key": "6c066ce3cb87ae82d40444b4f5e82f878ddb4cff968642d39022da61eea28ee2",
-      "touchedAt": 1785017113061,
+      "touchedAt": 1787478571429,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -75940,11 +75940,11 @@
     },
     {
       "key": "ac7fa52778c9dd4a4e9b4e45c19fb5de11a4ec92ca4dc29bc8b1371a5f7d8ca8",
-      "touchedAt": 1785017113328,
+      "touchedAt": 1787478571730,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
       }
     },
     {
@@ -233970,11 +233970,11 @@
     },
     {
       "key": "7c81de0a6fcbc3d075b8083cdf03d1c031e96260a211eb0bde5dda08690c10e1",
-      "touchedAt": 1787349781103,
+      "touchedAt": 1787478533631,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title ('Responsable d'équipe sinistres complexes'), detailed responsibilities and requirements, and an application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title ('Responsable d'équipe sinistres complexes'), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
@@ -246931,6 +246931,114 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title ('Teamleiter Produktion 100%'), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "e84e767b72f8ca40d3cce2de41922bd2045f3b14803127b5401ed89e8dfd3568",
+      "touchedAt": 1787478570083,
+      "value": {
+        "isJob": true,
+        "confidence": 0.8,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real job detail page."
+      }
+    },
+    {
+      "key": "4ea9e8b0b27c4499e96e87f8887ea710e966e6e6065f22a003afd1bcd11ab218",
+      "touchedAt": 1787478570386,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "46baedb286ffc6a52826f84fb4f42e8fd471e9d1a91224eb641335b9f7c5fce4",
+      "touchedAt": 1787478570818,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "b5701c1d8f031e3f7e9b14b799a078bc8a144a920d93e7d618d0e069c5246e20",
+      "touchedAt": 1787478571137,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "1c5cea971fa0777ef0c3f73307503be62bdde6ec61ab3b079d09eab9221d6a9a",
+      "touchedAt": 1787478573019,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a detailed job description, required skills and experience, and a clear call to action to apply for the position."
+      }
+    },
+    {
+      "key": "75e276b7edeacaed48fb53b043777cbd1ab0533b3c18ba1bf8a86fb75c404274",
+      "touchedAt": 1787478573390,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "239cec68a26ff2fbc275d7517b5c765f298f7333cbcb4c9aaf3ce8e63aa46fbb",
+      "touchedAt": 1787478573981,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "6301444036b9e932130ee86219b80b114f6913520383252d3fac3ed59c42d2b6",
+      "touchedAt": 1787478574304,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Vice-président·e adjoint·e (AVP), Automobile commercial), responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "c9d02752a25230ff23b74747bce018e8bef869d1e466d6e3d31e137dd3aa18a6",
+      "touchedAt": 1787478574623,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "944bca17a3cb76b5b87632f5124a7c602a451cfd5d158359ffadc68a8f954005",
+      "touchedAt": 1787478574960,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Sr. Liability Trial Attorney - Texas), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "b0620f5501e524ae0f733312a3c212d72d2db2984e203ca2c46b38084074e3fc",
+      "touchedAt": 1787478575258,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (AVP, Commercial Auto), detailed job responsibilities and requirements, and an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "9478b38bee443fe2e0789848fd10c5b658e7631eaf3555cefbff37f3a61460af",
+      "touchedAt": 1787478575612,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a detailed job description, required skills, and company benefits."
       }
     }
   ]
