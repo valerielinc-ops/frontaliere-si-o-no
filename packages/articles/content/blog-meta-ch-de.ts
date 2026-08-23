@@ -3886,6 +3886,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-svitto-guida.title': 'Ein Geschäft im Kanton Schwyz eröffnen: Praktischer Leitfaden',
     'blog.article.aprire-attivita-canton-svitto-guida.excerpt': 'Die Gründung eines Unternehmens im Kanton Schwyz erfordert Planung: von der Wahl der Rechtsform über die Handelsregistereintragung bis hin zu steuerlichen Verpflichtungen.',
     'blog.article.aprire-attivita-canton-svitto-guida.imageAlt': 'Modernes Büro mit Blick auf die Schweizer Berge',
+    'blog.article.avviare-impresa-svitto-costi.title': 'Unternehmensgründung in Schwyz: Registrierung und Kosten',
+    'blog.article.avviare-impresa-svitto-costi.excerpt': 'So gründen Sie ein Geschäft im Kanton Schwyz: Rechtsformen, Handelsregistereintrag, Mindestkapital, Einschreibegebühren und Versicherungspflichten.',
+    'blog.article.avviare-impresa-svitto-costi.imageAlt': 'Schweizer Verwaltungsbuero mit Handelsregisteranmeldungen',
 };
 
 export default blogMetaChDe;
