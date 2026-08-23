@@ -11782,6 +11782,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nidvaldo-immobiliare-mutuo-ipotecario',
+    category: 'pratico',
+    date: '2026-08-23T10:50:11.516Z',
+    image: '/images/blog/nidvaldo-immobiliare-mutuo-ipotecario.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -50954,6 +50954,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nidvaldo-immobiliare-mutuo-ipotecario': {
+    title: 'Comprare casa nel Nidvaldo: mutuo e tasse | Frontaliere Ticino',
+    description: 'Guida completa all\'acquisto immobiliare nel Cantone di Nidvaldo: requisiti mutuo, fondi propri, imposte sui trapassi, spese notarili e procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, nidvaldo, mutuo',
+    ogTitle: 'Comprare casa nel Nidvaldo: mutuo e tasse',
+    ogDescription: 'Scopri come comprare casa nel Nidvaldo: requisiti mutuo (20% fondi propri), imposte cantonali sui trapassi, spese notarili, deduzioni fiscali e procedura notarile.',
+    canonicalPath: '/articoli-svizzera/nidvaldo-immobiliare-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Nidvaldo: mutuo e tasse",
+      "description": "Guida completa all'acquisto immobiliare nel Cantone di Nidvaldo: requisiti mutuo, fondi propri, imposte sui trapassi, spese notarili e procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nidvaldo-immobiliare-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in Svizzera con paesaggio alpino; tema acquisto immobiliare e mutui ipotecari nel Cantone di Nidvaldo"
+      },
+      "datePublished": "2026-08-23T10:50:11+00:00",
+      "dateModified": "2026-08-23T10:50:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nidvaldo-immobiliare-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
