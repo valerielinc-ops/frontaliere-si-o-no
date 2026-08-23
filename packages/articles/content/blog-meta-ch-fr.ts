@@ -3946,6 +3946,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costituire-impresa-cantone-nidvaldo.title': 'Ouvrir une entreprise dans le canton de Nidwald : processus et coûts',
     'blog.article.costituire-impresa-cantone-nidvaldo.excerpt': 'Comment démarrer une entreprise à Nidwald : formes juridiques, inscription au registre du commerce, système fiscal à trois niveaux et obligations d\'assurance et de sécurité sociale.',
     'blog.article.costituire-impresa-cantone-nidvaldo.imageAlt': 'Bureau de l\'administration cantonale suisse pour l\'enregistrement des entreprises au registre du commerce',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Ouvrir une entreprise à Nidwald : coûts et procédure',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Guide complet pour démarrer une activité dans le canton de Nidwald : formes juridiques, registre du commerce, coûts et obligations de sécurité sociale.',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Documents d\'enregistrement d\'entreprise sur bureau avec paysage montagneux suisse.',
 };
 
 export default blogMetaChFr;

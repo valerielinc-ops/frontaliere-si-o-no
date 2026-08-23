@@ -3946,6 +3946,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costituire-impresa-cantone-nidvaldo.title': 'Aprire un\'attività nel Cantone Nidvaldo: iter e costi',
     'blog.article.costituire-impresa-cantone-nidvaldo.excerpt': 'Come avviare un\'attività in Nidvaldo: forme giuridiche, iscrizione al registro di commercio, sistema fiscale a tre livelli e obblighi assicurativi e previdenziali.',
     'blog.article.costituire-impresa-cantone-nidvaldo.imageAlt': 'Ufficio di un\'amministrazione cantonale svizzera per l\'iscrizione di imprese al registro di commercio',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Aprire un\'attività in Nidvaldo: costi e procedura',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Guida completa per avviare un\'attività nel Cantone di Nidvaldo: forme giuridiche, registro di commercio, costi e obblighi previdenziali.',
+    'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Documenti di registrazione impresa su scrivania ufficio con vista paesaggio montano svizzero.',
 };
 
 export default blogMetaChIt;
