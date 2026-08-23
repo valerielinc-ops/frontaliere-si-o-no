@@ -294,7 +294,16 @@ if (canWriteWorkflows) {
   console.log('   I crawler entrano comunque; restano da schedulare.');
 }
 
-saveCandidates(store);
+// NIENTE `saveCandidates` qui.
+//
+// Dal fix #6258 il branch non cambia piu' lo stato dei candidati, quindi questa
+// scrittura produceva un unico diff: il timestamp `updatedAt` di primo livello.
+// Main lo riscrive a OGNI giro del loop, quindi ogni PR di promozione arrivava
+// al merge con un conflitto garantito su quella riga — misurato su #6292 e
+// #6297, unico file in conflitto, una riga, zero informazione.
+//
+// Lo stato lo scrive solo main, dopo l'apertura della PR. E' la stessa
+// disciplina del fix #6258, portata fino in fondo.
 
 /* ── The PR, for the repo's own autonomous cycle to review and merge ──── */
 if (!openPr) {
@@ -366,7 +375,10 @@ fs.writeFileSync(bodyFile, body);
 const git = (...a) => execFileSync('git', a, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
 try {
   git('checkout', '-b', branch);
-  const paths = ['scripts', 'tests', 'data/crawler-manifest.json', 'data/prospector'];
+  // `data/prospector` NON entra nel commit del branch: la coda e le spec sono
+  // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
+  // solo righe che main muove sotto i piedi della PR.
+  const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
   if (groupsRegenerated) paths.push('.github/workflows');
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
