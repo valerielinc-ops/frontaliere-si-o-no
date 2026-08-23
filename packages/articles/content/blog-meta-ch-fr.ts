@@ -3955,6 +3955,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-canton-glarona.title': 'Apprentissage et formation dans le canton de Glaris',
     'blog.article.apprendistato-canton-glarona.excerpt': 'Guide complet de recherche d\'emploi, de contrat, de rémunération et de maturité professionnelle : droits de l\'apprenti et procédure dans le canton de Glaris.',
     'blog.article.apprendistato-canton-glarona.imageAlt': 'Jeune apprenti apprenant le travail du bois auprès d\'un maître artisan dans la formation professionnelle suisse',
+    'blog.article.acquisto-casa-cantone-glarona.title': 'Acheter une maison dans le canton de Glaris : guide hypothécaire',
+    'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Découvrez comment planifier l\'achat d\'une maison dans le canton de Glaris entre durabilité bancaire, fonds propres, impôts locaux et actes notariés.',
+    'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Maisons résidentielles dans le canton de Glaris avec fond de montagne',
 };
 
 export default blogMetaChFr;

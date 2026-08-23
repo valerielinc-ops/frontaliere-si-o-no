@@ -3955,6 +3955,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-canton-glarona.title': 'Apprenticeship and training in the Glarus Canton',
     'blog.article.apprendistato-canton-glarona.excerpt': 'Complete guide to job search, contract, salary and professional maturity: rights of the apprentice and procedure in the Canton of Glarus.',
     'blog.article.apprendistato-canton-glarona.imageAlt': 'Young apprentice learning woodworking skills with experienced craftsman in Swiss vocational training',
+    'blog.article.acquisto-casa-cantone-glarona.title': 'Buying a house in the Canton of Glarus: a guide to the mortgage',
+    'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Learn how to plan the purchase of a home in the Canton of Glarus between banking sustainability, own funds, local taxes and notarial procedures.',
+    'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Residential houses in the Canton of Glarona with mountain background',
 };
 
 export default blogMetaChEn;

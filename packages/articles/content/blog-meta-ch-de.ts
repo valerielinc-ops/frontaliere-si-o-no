@@ -3955,6 +3955,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-canton-glarona.title': 'Lehre und Ausbildung im Kanton Glarus',
     'blog.article.apprendistato-canton-glarona.excerpt': 'Vollständiger Leitfaden zur Stellensuche, zum Vertrag, zur Bezahlung und zur Berufsmaturität: Lehrlingsrechte und Verfahren im Kanton Glarus.',
     'blog.article.apprendistato-canton-glarona.imageAlt': 'Junger Lehrling erlernt Handwerksfähigkeiten von erfahrenem Meister in der Schweizer Berufsausbildung',
+    'blog.article.acquisto-casa-cantone-glarona.title': 'Haus kaufen im Kanton Glarus: Ratgeber zum Hypothekendarlehen',
+    'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Erfahren Sie, wie Sie den Kauf einer Wohnung im Kanton Glarus zwischen Banknachhaltigkeit, Eigenmitteln, lokalen Steuern und notariellen Verfahren planen können.',
+    'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Wohnhäuser im Kanton Glarus mit Bergkulisse',
 };
 
 export default blogMetaChDe;
