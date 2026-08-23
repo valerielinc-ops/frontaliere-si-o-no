@@ -3976,6 +3976,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zugo-guida.title': 'Residence permit C in the Canton of Zug: the guide',
     'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'How to obtain residence permit C in the Canton of Zug: residency requirements, integration and the procedure at the Migration Office.',
     'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Administrative documents and office in the Canton of Zug',
+    'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Buying a house in Zug: mortgage and taxation',
+    'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Complete guide to buying a house in the Canton of Zug: own funds required, mortgage loan, transfer tax and notary fees in Switzerland.',
+    'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Modern Swiss residential buildings with Alpine mountains in background',
 };
 
 export default blogMetaChEn;

@@ -3976,6 +3976,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zugo-guida.title': 'Permis de domicile C dans le canton de Zoug : le guide',
     'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'Comment obtenir le permis de séjour C dans le canton de Zoug : conditions de résidence, d\'intégration et procédure auprès de l\'Office des migrations.',
     'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Documents administratifs et bureau dans le canton de Zoug',
+    'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Acheter une maison à Zoug : hypothèque et fiscalité',
+    'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Guide complet pour l\'achat d\'une maison dans le canton de Zoug : fonds propres requis, hypothèque, taxe de passage et frais de notaire de la Suisse.',
+    'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Immeubles résidentiels modernes en Suisse avec les Alpes en arrière-plan',
 };
 
 export default blogMetaChFr;

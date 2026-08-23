@@ -3976,6 +3976,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zugo-guida.title': 'Niederlassungsbewilligung C im Kanton Zug: der Führer',
     'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'So erhalten Sie die Niederlassungsbewilligung C im Kanton Zug: Aufenthaltsvoraussetzungen, Integration und das Verfahren beim Migrationsamt.',
     'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Verwaltungsdokumente und Büro im Kanton Zug',
+    'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Haus kaufen in Zug: Hypothek und Steuern',
+    'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Vollständiger Leitfaden zum Hauskauf im Kanton Zug: benötigte Eigenmittel, Hypothekendarlehen, Ablösesumme und Notarkosten der Schweiz.',
+    'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Moderne Schweizer Wohngebäude mit Alpenkulisse',
 };
 
 export default blogMetaChDe;
