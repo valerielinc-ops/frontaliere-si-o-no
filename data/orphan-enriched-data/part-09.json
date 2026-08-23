@@ -10048,7 +10048,7 @@
         {
           "query": "jobs bellinzona",
           "clicks": 0,
-          "impressions": 35
+          "impressions": 38
         },
         {
           "query": "bestbezahlte jobs bellinzona",
@@ -10096,7 +10096,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 85,
+      "totalImpressions": 88,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10134,13 +10134,16 @@
       "locale": "en",
       "path": "/en/find-jobs-ticino/bellinzona/",
       "observedPaths": {
-        "en": "/en/find-jobs-ticino/bellinzona/"
+        "de": "/de/jobs-im-tessin/bellinzona",
+        "fr": "/fr/trouver-emploi-tessin/bellinzona",
+        "it": "/cerca-lavoro-ticino/bellinzona",
+        "en": "/en/find-jobs-ticino/bellinzona"
       },
       "queries": [
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 110
+          "impressions": 116
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10188,6 +10191,11 @@
           "impressions": 1
         },
         {
+          "query": "altro",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "careers jobs near me",
           "clicks": 0,
           "impressions": 1
@@ -10204,6 +10212,11 @@
         },
         {
           "query": "job finder",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs bellinzona",
           "clicks": 0,
           "impressions": 1
         },
@@ -10228,7 +10241,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 148,
+      "totalImpressions": 156,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10328,10 +10341,7 @@
       "locale": "it",
       "path": "/cerca-lavoro-ticino/bellinzona/",
       "observedPaths": {
-        "de": "/de/jobs-im-tessin/bellinzona",
-        "fr": "/fr/trouver-emploi-tessin/bellinzona",
-        "it": "/cerca-lavoro-ticino/bellinzona",
-        "en": "/en/find-jobs-ticino/bellinzona"
+        "it": "/cerca-lavoro-ticino/bellinzona/"
       },
       "queries": [
         {
@@ -40081,7 +40091,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 37
+          "impressions": 38
         },
         {
           "query": "job mendrisio",
@@ -40154,7 +40164,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 64,
+      "totalImpressions": 65,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -40258,17 +40268,17 @@
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 12
+        },
+        {
+          "query": "offerte di lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 8
         },
         {
           "query": "offerte lavoro mendrisio",
           "clicks": 0,
           "impressions": 7
-        },
-        {
-          "query": "offerte di lavoro mendrisio",
-          "clicks": 0,
-          "impressions": 6
         },
         {
           "query": "lavoro in svizzera mendrisio",
@@ -40316,6 +40326,11 @@
           "impressions": 2
         },
         {
+          "query": "lavoro mendrisio svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "mendrisio offerte lavoro",
           "clicks": 0,
           "impressions": 2
@@ -40336,23 +40351,18 @@
           "impressions": 2
         },
         {
+          "query": "mendrisiotto",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
           "query": "agenzia di lavoro mendrisio",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "agenzie lavoro mendrisio",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "annunci di lavoro mendrisio",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 102,
-      "totalClicks": 0,
+      "totalImpressions": 109,
+      "totalClicks": 1,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
       "titleByLocale": {
@@ -75043,6 +75053,64 @@
         "en": "/en/find-jobs-ticino/versicherungsberater-in-fur-die-hauptagentur-muri-ag-axa-svizzera-muri",
         "de": "/de/jobs-im-tessin/versicherungsberater-in-fur-die-hauptagentur-muri-ag-axa-svizzera-muri",
         "fr": "/fr/trouver-emploi-tessin/versicherungsberater-in-fur-die-hauptagentur-muri-ag-axa-svizzera-muri"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/versicherungsmediziner-d-i-a-40-60-helsana-zurigo/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/versicherungsmediziner-d-i-a-40-60-helsana-zurigo/"
+      },
+      "queries": [
+        {
+          "query": "helsana",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "helsana",
+      "title": "Versicherungsmediziner i 40 helsana",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zurigo",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+        "en": "versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+        "de": "versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+        "fr": "versicherungsmediziner-d-i-a-40-60-helsana-zurigo"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+        "en": "/en/find-jobs-zurich/versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+        "de": "/de/jobs-im-zurich/versicherungsmediziner-d-i-a-40-60-helsana-zurigo",
+        "fr": "/fr/trouver-emploi-zurich/versicherungsmediziner-d-i-a-40-60-helsana-zurigo"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
