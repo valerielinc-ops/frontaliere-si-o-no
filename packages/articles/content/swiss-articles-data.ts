@@ -11728,6 +11728,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'avc-lacune-contributive-prestazioni',
+    category: 'pensione',
+    date: '2026-08-23T08:07:53.918Z',
+    image: '/images/blog/avc-lacune-contributive-prestazioni.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

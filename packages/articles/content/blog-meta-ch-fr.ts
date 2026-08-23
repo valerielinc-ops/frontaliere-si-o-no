@@ -3910,6 +3910,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Calcul rente AVS et lacunes contributives',
     'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'Comment fonctionne la caisse de compensation cantonale dans le calcul de la rente AVS, quelles lacunes contributives réduisent le montant et comment les prestations complémentaires comblent le minimum vital.',
     'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Bureau d\'administration cantonale suisse: caisse de compensation pour le calcul de la rente AVS',
+    'blog.article.avc-lacune-contributive-prestazioni.title': 'AVS en Obwald : rente et prestations complémentaires',
+    'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'Comment fonctionne le premier pilier et les prestations complémentaires dans le canton d\'Obwald. Un guide de la rente AVS.',
+    'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Documents de retraite AVS suisse avec calculatrice et relevé de prestations sur un bureau avec drapeau suisse.',
 };
 
 export default blogMetaChFr;

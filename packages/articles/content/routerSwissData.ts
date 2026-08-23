@@ -1329,6 +1329,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-canton-obvaldo-guida': { it: 'naturalizzazione-canton-obvaldo-guida', en: 'naturalization-canton-obwalden-guide', de: 'einbuergerung-kanton-obwalden-leitfaden', fr: 'naturalisation-canton-obwald-guide' },
  'export-svizzera-luglio-2026': { it: 'export-svizzera-luglio-2026', en: 'swiss-exports-july-2026', de: 'schweizer-exporte-juli-2026', fr: 'exportations-suisses-juillet-2026' },
  'calcolo-rendita-avs-lacune-contributive': { it: 'calcolo-rendita-avs-lacune-contributive', en: 'avs-pension-calculation-contribution-gaps', de: 'ahv-rentenberechnung-beitragslucken', fr: 'calcul-retraite-avs-lacunes-cotisations' },
+ 'avc-lacune-contributive-prestazioni': { it: 'avc-lacune-contributive-prestazioni', en: 'avc-contribution-gaps-benefits', de: 'ahv-beitragslucken-leistungen', fr: 'avs-lacunes-cotisations-prestations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

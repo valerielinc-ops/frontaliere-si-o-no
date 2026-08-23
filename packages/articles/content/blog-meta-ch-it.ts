@@ -3910,6 +3910,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Calcolo rendita AVS e lacune contributive',
     'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS, quali lacune contributive riducono l\'importo e come le prestazioni complementari colmano il minimo vitale.',
     'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Ufficio di amministrazione cantonale svizzera: cassa di compensazione per il calcolo della rendita AVS',
+    'blog.article.avc-lacune-contributive-prestazioni.title': 'AVS in Obvaldo: rendita e prestazioni complementari',
+    'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'Come funziona il primo pilastro e le prestazioni complementari nel Canton Obvaldo. Una guida alla rendita AVS.',
+    'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Documenti di previdenza AVS con calcolatrice su una scrivania, dichiarazione di rendita e bandiera svizzera.',
 };
 
 export default blogMetaChIt;
