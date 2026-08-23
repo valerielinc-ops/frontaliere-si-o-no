@@ -3901,6 +3901,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Residence Permit B: Requirements and Renewal',
     'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Permit B allows renewable residence in Switzerland. Complete guide on requirements, documents, duration and renewal procedure at federal and cantonal level.',
     'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Swiss administrative office counter for residence permit registration.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Naturalization Canton Obvaldo: requirements and procedure',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Discover the process for ordinary naturalization in the Canton of Obvaldo: from possession of the C permit to language tests and social integration.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Municipal administrative building in Canton Obwalden',
 };
 
 export default blogMetaChEn;

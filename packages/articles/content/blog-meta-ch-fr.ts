@@ -3901,6 +3901,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Permis de séjour B : exigences et renouvellement',
     'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Le permis B permet un séjour renouvelable en Suisse. Guide complet sur les exigences, les documents, la durée et la procédure de renouvellement au niveau fédéral et cantonal.',
     'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Bureau administratif suisse pour les demandes de permis de séjour.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Naturalisation Canton Obwald : conditions et procédure',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Découvrez le processus de naturalisation ordinaire dans le canton d\'Obwald : de la possession du permis C aux tests de langue et à l\'intégration sociale.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Bâtiment administratif communal dans le canton d\'Obwald',
 };
 
 export default blogMetaChFr;

@@ -3901,6 +3901,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Aufenthaltsbewilligung B: Voraussetzungen und Verlängerung',
     'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Die Bewilligung B ermöglicht einen erneuerbaren Aufenthalt in der Schweiz. Umfassender Leitfaden zu Anforderungen, Dokumenten, Dauer und Erneuerungsverfahren auf Bundes- und Kantonsebene.',
     'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Schweizer Verwaltungsstelle mit Schalter für Aufenthaltserlaubnisse.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Einbürgerung Kanton Obwalden: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Entdecken Sie den Weg zur ordentlichen Einbürgerung im Kanton Obwalden: vom Besitz der C-Bewilligung bis hin zu Sprachtests und sozialer Integration.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Gemeindeverwaltungsgebäude im Kanton Obwalden',
 };
 
 export default blogMetaChDe;

@@ -3901,6 +3901,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-obvaldo-guida-pratica.title': 'Permesso di dimora B: requisiti e rinnovo',
     'blog.article.permesso-b-obvaldo-guida-pratica.excerpt': 'Il permesso B consente dimora rinnovabile in Svizzera. Guida completa su requisiti, documenti, durata e procedura di rinnovo a livello federale e cantonale.',
     'blog.article.permesso-b-obvaldo-guida-pratica.imageAlt': 'Ufficio amministrativo svizzero con sportello per i permessi di dimora e registrazione stranieri.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Naturalizzazione Canton Obvaldo: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Scopri l\'iter per la naturalizzazione ordinaria nel Canton Obvaldo: dal possesso del permesso C ai test di lingua e integrazione sociale.',
+    'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Edificio amministrativo comunale nel Canton Obvaldo',
 };
 
 export default blogMetaChIt;
