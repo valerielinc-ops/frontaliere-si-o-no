@@ -10592,6 +10592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Vivere a Carlazzo e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Il Permesso G consente il lavoro quotidiano in Ticino da residente italiano. Imposta alla fonte 8–13%, doppio pilastro AVS/LPP, LAMal facoltativa: guida completa alle procedure e vantaggi economici.',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere italiano al confine Svizzera-Italia presso il Lago di Como, con documenti di lavoro',
+    'blog.article.vivere-guanzate-lavorare-ticino.title': 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Guanzate: collegamenti, fiscalità, nuovo accordo e gestione del lavoro in Ticino.',
+    'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Confine tra Italia e Svizzera, zona di transito per frontalieri',
 };
 
 export default blogMetaIt;

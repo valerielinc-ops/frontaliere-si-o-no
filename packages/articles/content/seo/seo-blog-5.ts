@@ -76043,6 +76043,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-guanzate-lavorare-ticino': {
+    title: 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri che vivono a Guanzate: fiscalità, nuovo accordo, contributi e gestione del lavoro in Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, guanzate, lavorare, pratica',
+    ogTitle: 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto quello che devi sapere se risiedi a Guanzate e lavori in Ticino: fisco, accordi bilaterali e consigli pratici.',
+    canonicalPath: '/articoli-frontaliere/vivere-guanzate-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Guanzate e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri che vivono a Guanzate: fiscalità, nuovo accordo, contributi e gestione del lavoro in Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-guanzate-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine tra Italia e Svizzera, zona di transito per frontalieri"
+      },
+      "datePublished": "2026-08-23T09:21:36+00:00",
+      "dateModified": "2026-08-23T09:21:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-guanzate-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

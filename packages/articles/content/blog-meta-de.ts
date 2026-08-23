@@ -10590,6 +10590,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Leben in Carlazzo und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Die G-Bewilligung ermöglicht die tägliche Arbeit im Tessin als Italiener. Quellensteuer 8–13%, Doppelsäule AHV/BVG, KVG fakultativ: Umfassender Verfahrensleitfaden und wirtschaftliche Vorteile.',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Italienischer Grenzgänger an der Schweiz-Italien-Grenze am Comer See mit Arbeitsdokumenten',
+    'blog.article.vivere-guanzate-lavorare-ticino.title': 'Wohnen in Guanzate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die sich für Guanzate entscheiden: Verbindungen, Steuern, neues Abkommen und Arbeitsmanagement im Tessin.',
+    'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz, Pendlerzone',
 };
 
 export default blogMetaDe;

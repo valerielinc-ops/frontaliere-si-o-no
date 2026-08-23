@@ -10591,6 +10591,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Living in Carlazzo and working in Ticino: border guide',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Permit G allows daily work in Ticino as an Italian resident. Tax at source 8–13%, double pillar AVS/LPP, optional LAMal: complete guide to procedures and economic advantages.',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Italian frontaliere at the Swiss-Italian border near Lake Como, carrying work documents',
+    'blog.article.vivere-guanzate-lavorare-ticino.title': 'Living in Guanzate and working in Ticino as a border worker',
+    'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Practical guide for those who choose Guanzate: connections, taxation, new agreement and work management in Ticino.',
+    'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Border between Italy and Switzerland, transit zone for cross-border workers',
 };
 
 export default blogMetaEn;

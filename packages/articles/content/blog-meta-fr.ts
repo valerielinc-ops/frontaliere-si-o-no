@@ -10593,6 +10593,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.title': 'Vivre à Carlazzo et travailler au Tessin : guide frontalier',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.excerpt': 'Le permis G permet le travail quotidien au Tessin en tant que résident italien. Taxe à la source 8–13%, double pilier AVS/LPP, LAMal facultative : guide complet des procédures et avantages économiques.',
     'blog.article.vivere-carlazzo-lavorare-ticino-frontaliere.imageAlt': 'Frontalier italien à la frontière Suisse-Italie près du lac de Côme, portant des documents de travail',
+    'blog.article.vivere-guanzate-lavorare-ticino.title': 'Vivre à Guanzate et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Guanzate : liens, fiscalité, nouvel accord et gestion du travail au Tessin.',
+    'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Frontière entre l\'Italie et la Suisse, zone de transit pour travailleurs frontaliers',
 };
 
 export default blogMetaFr;
