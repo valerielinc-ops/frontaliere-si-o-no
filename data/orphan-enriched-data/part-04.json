@@ -23072,7 +23072,7 @@
         {
           "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
           "clicks": 0,
-          "impressions": 3
+          "impressions": 5
         },
         {
           "query": "offerte lavoro briga svizzera",
@@ -23140,6 +23140,11 @@
           "impressions": 1
         },
         {
+          "query": "netto sarebbe",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "ofertas",
           "clicks": 0,
           "impressions": 1
@@ -23153,14 +23158,9 @@
           "query": "sto cercando",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "suiza canton italiano",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 50,
+      "totalImpressions": 53,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
@@ -23190,6 +23190,74 @@
       "lastCrawlTime": "",
       "source": [
         "gsc"
+      ]
+    },
+    {
+      "slug": "drogist-in-80-manor-ag-spreitenbach",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/drogist-in-80-manor-ag-spreitenbach/",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/drogist-in-80-manor-ag-spreitenbach/"
+      },
+      "queries": [
+        {
+          "query": "manor",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "manor of",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "spreitenbach jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "manor",
+      "title": "Drogist in spreitenbach",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "drogist-in-80-manor-ag-spreitenbach",
+        "en": "drogist-in-80-manor-ag-spreitenbach",
+        "de": "drogist-in-80-manor-ag-spreitenbach",
+        "fr": "drogist-in-80-manor-ag-spreitenbach"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/drogist-in-80-manor-ag-spreitenbach",
+        "en": "/en/find-jobs-aargau/drogist-in-80-manor-ag-spreitenbach",
+        "de": "/de/jobs-im-aargau/drogist-in-80-manor-ag-spreitenbach",
+        "fr": "/fr/trouver-emploi-argovie/drogist-in-80-manor-ag-spreitenbach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -24685,6 +24753,68 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "enterprise-operations-tirocinante-roche-la-roche",
+      "locale": "it",
+      "path": "/cerca-lavoro-friburgo/enterprise-operations-tirocinante-roche-la-roche/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-friburgo/enterprise-operations-tirocinante-roche-la-roche/"
+      },
+      "queries": [
+        {
+          "query": "la roche svizzera",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "roche salary switzerland",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "la roche svizzera",
+      "title": "Enterprise operations tirocinante roche la roche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "enterprise-operations-tirocinante-roche-la-roche",
+        "en": "enterprise-operations-tirocinante-roche-la-roche",
+        "de": "enterprise-operations-tirocinante-roche-la-roche",
+        "fr": "enterprise-operations-tirocinante-roche-la-roche"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/enterprise-operations-tirocinante-roche-la-roche",
+        "en": "/en/find-jobs-fribourg/enterprise-operations-tirocinante-roche-la-roche",
+        "de": "/de/jobs-im-freiburg/enterprise-operations-tirocinante-roche-la-roche",
+        "fr": "/fr/trouver-emploi-fribourg/enterprise-operations-tirocinante-roche-la-roche"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -57152,10 +57282,10 @@
         "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-reinach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
-        "en": "/en/find-jobs-schwyz/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
+        "it": "/cerca-lavoro-grigioni/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
+        "en": "/en/find-jobs-graubunden/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
         "de": "/de/jobs-im-bern/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
-        "fr": "/fr/trouver-emploi-schwytz/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
+        "fr": "/fr/trouver-emploi-grisons/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75575,10 +75705,10 @@
         "it": "consulente-di-vendita-do-it-jumbo-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-schwyz/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "it": "/cerca-lavoro-turgovia/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-thurgau/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
         "de": "/de/jobs-im-bern/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-schwytz/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
+        "fr": "/fr/trouver-emploi-thurgovie/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

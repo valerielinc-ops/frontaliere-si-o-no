@@ -14752,7 +14752,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 352
+          "impressions": 358
         },
         {
           "query": "lavoro chiasso",
@@ -14762,15 +14762,20 @@
         {
           "query": "offerte lavoro chiasso",
           "clicks": 0,
-          "impressions": 24
+          "impressions": 25
         },
         {
           "query": "chiasso lavoro",
           "clicks": 0,
-          "impressions": 18
+          "impressions": 19
         },
         {
           "query": "lavoro svizzera chiasso",
+          "clicks": 0,
+          "impressions": 17
+        },
+        {
+          "query": "offerte di lavoro chiasso",
           "clicks": 0,
           "impressions": 17
         },
@@ -14781,11 +14786,6 @@
         },
         {
           "query": "cerco lavoro chiasso",
-          "clicks": 0,
-          "impressions": 16
-        },
-        {
-          "query": "offerte di lavoro chiasso",
           "clicks": 0,
           "impressions": 16
         },
@@ -14850,7 +14850,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 674,
+      "totalImpressions": 684,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -23873,12 +23873,12 @@
         {
           "query": "educatore sociale offerte lavoro ticino",
           "clicks": 13,
-          "impressions": 76
+          "impressions": 78
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
           "clicks": 21,
-          "impressions": 57
+          "impressions": 58
         },
         {
           "query": "lavoro insegnante canton ticino",
@@ -23946,14 +23946,14 @@
           "impressions": 19
         },
         {
-          "query": "educatore ticino",
-          "clicks": 0,
+          "query": "educatore svizzera canton ticino",
+          "clicks": 2,
           "impressions": 18
         },
         {
-          "query": "educatore svizzera canton ticino",
-          "clicks": 2,
-          "impressions": 17
+          "query": "educatore ticino",
+          "clicks": 0,
+          "impressions": 18
         },
         {
           "query": "lavoro educatore ticino",
@@ -23971,8 +23971,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 898,
-      "totalClicks": 87,
+      "totalImpressions": 908,
+      "totalClicks": 88,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {
@@ -27527,6 +27527,88 @@
         "en": "/en/find-jobs-graubunden/fachperson-gesundheit-pdgr-ch-3",
         "de": "/de/jobs-im-graubunden/fachperson-gesundheit-pdgr-ch-3",
         "fr": "/fr/trouver-emploi-grisons/fachperson-gesundheit-pdgr-ch-3"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "felsberg",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/felsberg/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/felsberg/"
+      },
+      "queries": [
+        {
+          "query": "lavoro grigioni",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro presso cantone ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro ticino part time",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro canton ticino per italiani",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "posti di lavoro canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "topQuery": "lavoro grigioni",
+      "title": "Felsberg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "felsberg",
+        "en": "felsberg",
+        "de": "felsberg",
+        "fr": "felsberg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/felsberg",
+        "en": "/en/find-jobs-graubunden/felsberg",
+        "de": "/de/jobs-im-graubunden/felsberg",
+        "fr": "/fr/trouver-emploi-grisons/felsberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37972,6 +38054,64 @@
       ]
     },
     {
+      "slug": "leadership-development-spezialist-emmi-luzern",
+      "locale": "de",
+      "path": "/de/jobs-in-luzern/leadership-development-spezialist-emmi-luzern/",
+      "observedPaths": {
+        "de": "/de/jobs-in-luzern/leadership-development-spezialist-emmi-luzern/"
+      },
+      "queries": [
+        {
+          "query": "führungsteam entwicklung luzern",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "führungsteam entwicklung luzern",
+      "title": "Leadership development spezialist emmi",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "leadership-development-spezialist-emmi-luzern",
+        "en": "leadership-development-spezialist-emmi-luzern",
+        "de": "leadership-development-spezialist-emmi-luzern",
+        "fr": "leadership-development-spezialist-emmi-luzern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/leadership-development-spezialist-emmi-luzern",
+        "en": "/en/find-jobs-lucerne/leadership-development-spezialist-emmi-luzern",
+        "de": "/de/jobs-im-luzern/leadership-development-spezialist-emmi-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/leadership-development-spezialist-emmi-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "learning-electroplast-cfc-3-years-boncourt-2027-eta-sa-manufacture-horlogere-suisse-ticino",
       "locale": "en",
       "path": "/en/find-jobs-ticino/learning-electroplast-cfc-3-years-boncourt-2027-eta-sa-manufacture-horlogere-suisse-ticino",
@@ -47209,6 +47349,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+      "locale": "it",
+      "path": "/cerca-lavoro-friburgo/pharma-technical-regulatory-submission-tirocinante-roche-la-roche/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-friburgo/pharma-technical-regulatory-submission-tirocinante-roche-la-roche/"
+      },
+      "queries": [
+        {
+          "query": "la roche svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "la roche svizzera",
+      "title": "Pharma technical regulatory submission tirocinante roche la roche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "en": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "de": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "fr": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "en": "/en/find-jobs-fribourg/pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "de": "/de/jobs-im-freiburg/pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "fr": "/fr/trouver-emploi-fribourg/pharma-technical-regulatory-submission-tirocinante-roche-la-roche"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
