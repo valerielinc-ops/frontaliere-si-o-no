@@ -10538,6 +10538,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blevio-frontaliere-ticino.title': 'Living in Blevio and working in Ticino: Border Guide',
     'blog.article.blevio-frontaliere-ticino.excerpt': 'How to move to Blevio from Ticino border crossings: G permit, taxation, AVS, cost of living and administrative deadlines.',
     'blog.article.blevio-frontaliere-ticino.imageAlt': 'Lakeside view of Blevio near Ticino border, with Italian mountains and villages in background',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Living in Cunardo and working in Ticino: border guide',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Permit G, tax at source, AVS and LAMal coordinated Italy-Switzerland. Everything you need to know before becoming a border crossing between Cunardo and Ticino.',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Alpine valley at Switzerland-Italy border with small Italian town and Ticino canton in background',
 };
 
 export default blogMetaEn;

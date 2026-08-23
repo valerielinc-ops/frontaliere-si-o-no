@@ -10537,6 +10537,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blevio-frontaliere-ticino.title': 'Leben in Blevio und Arbeiten im Tessin: Grenzführer',
     'blog.article.blevio-frontaliere-ticino.excerpt': 'Wie man als Grenzgänger des Tessins nach Blevio zieht: G-Genehmigung, Steuern, AHV, Lebenshaltungskosten und administrative Fristen.',
     'blog.article.blevio-frontaliere-ticino.imageAlt': 'Seeblick von Blevio an der Grenze zum Tessin mit italienischen Bergen und Doerfern im Hintergrund',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.title': 'Leben in Cunardo und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.excerpt': 'Bewilligung G, Quellensteuer, koordinierte AHV und KVG Italien-Schweiz. Alles, was Sie wissen müssen, bevor Sie Grenzgänger zwischen Cunardo und dem Tessin werden.',
+    'blog.article.vivere-cunardo-lavorare-ticino-frontaliere.imageAlt': 'Alpental an der Schweiz-Italien-Grenze mit italienischem Dorf und Blick auf den Kanton Tessin',
 };
 
 export default blogMetaDe;
