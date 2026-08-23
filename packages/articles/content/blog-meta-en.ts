@@ -10562,6 +10562,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.brienno-frontaliere-checklist.title': 'Brienno and Ticino: transfer from border crossing',
     'blog.article.brienno-frontaliere-checklist.excerpt': 'Complete guide: living in Brienno and working in Ticino. Permit G, tax at source, refunds EUR 10,000, LAMal and AVS in 2024.',
     'blog.article.brienno-frontaliere-checklist.imageAlt': 'Panoramic view of Lake Como from Brienno, Swiss-Italian border landscape, Ticino shore in background.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.title': 'Living in Casnate and working in Ticino as a border worker',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.excerpt': 'Casnate con Bernate offers a strategic location for those who work in Ticino. Find out about tax advantages, G permit procedure, cost of living and pension planning.',
+    'blog.article.vivere-casnate-bernate-frontaliere-ticino.imageAlt': 'View of the Italian-Swiss border with Alpine landscape and Lake Lugano in the background, representing cross-border life between Lombardy and Ticino',
 };
 
 export default blogMetaEn;

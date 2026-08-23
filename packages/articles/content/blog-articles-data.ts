@@ -31620,6 +31620,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-casnate-bernate-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-23T05:11:26.541Z',
+ image: '/images/blog/vivere-casnate-bernate-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
