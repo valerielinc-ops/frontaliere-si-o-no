@@ -3961,6 +3961,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-glarona-mutuo.title': 'Buying a house in Glarus: mortgage and taxes',
     'blog.article.comprare-casa-glarona-mutuo.excerpt': 'Guide to buying real estate in Glarus: own funds, mortgage, federal and cantonal taxes, transfer tax and notary fees.',
     'blog.article.comprare-casa-glarona-mutuo.imageAlt': 'Traditional Swiss alpine house in a green mountain valley of canton Glarus with stone architecture',
+    'blog.article.acquistare-casa-glarona-finanziamento.title': 'Buying a house in Glarus: prices, mortgages and costs',
+    'blog.article.acquistare-casa-glarona-finanziamento.excerpt': 'Complete guide to buying a house in the canton of Glarus: discover the tax costs (federal, cantonal, municipal), how mortgage mortgages work and which regulatory sources to consult.',
+    'blog.article.acquistare-casa-glarona-finanziamento.imageAlt': 'Swiss residential villa on hillside with modern architecture overlooking alpine landscape',
 };
 
 export default blogMetaChEn;

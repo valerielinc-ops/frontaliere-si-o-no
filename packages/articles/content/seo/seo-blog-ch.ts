@@ -51383,6 +51383,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquistare-casa-glarona-finanziamento': {
+    title: 'Comprare casa Glarona: prezzi, mutui e costi | Frontaliere Ticino',
+    description: 'Guida completa all\'acquisto di casa nel canton Glarona: scopri i costi fiscali (federale, cantonale, comunale), come funzionano i mutui ipotecari e quali fonti',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, glarona, prezzi',
+    ogTitle: 'Comprare casa Glarona: prezzi, mutui e costi',
+    ogDescription: 'Guida completa all\'acquisto di casa nel canton Glarona: scopri i costi fiscali (federale, cantonale, comunale), come funzionano i mutui ipotecari e quali fonti normative consultare.',
+    canonicalPath: '/articoli-svizzera/acquistare-casa-glarona-finanziamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Glarona: prezzi, mutui e costi",
+      "description": "Guida completa all'acquisto di casa nel canton Glarona: scopri i costi fiscali (federale, cantonale, comunale), come funzionano i mutui ipotecari e quali fonti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-casa-glarona-finanziamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villetta residenziale svizzera su collina con architettura moderna e vista sul paesaggio alpino"
+      },
+      "datePublished": "2026-08-23T14:19:05+00:00",
+      "dateModified": "2026-08-23T14:19:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-casa-glarona-finanziamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
