@@ -168,11 +168,14 @@ jobs:
       # this job.s own direct-push to main, nor a brand-new writer added as new files;
       # branch protection "Require review from Code Owners" is the enforcement for those.
       - name: Commit if changed
+        id: commit
         run: |
           if git diff --quiet -- data/thin-page-promotions-active.json data/thin-page-promotions.jsonl; then
             echo "no change"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
           git config user.name "thin-promotions-bot"
           git config user.email "thin-promotions-bot@frontaliereticino.ch"
           git add data/thin-page-promotions-active.json data/thin-page-promotions.jsonl
@@ -196,7 +199,83 @@ jobs:
           # delays this run's delta by ~1h, the next run's overlapping 24h window
           # recaptures it. Warn + exit 0 instead of failing the job and reopening
           # this issue for an expected, self-healing contention blip.
-          bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted
+          #
+          # push_exhausted output (review round 2, PR #6296): --soft-fail-exhausted
+          # makes exhaustion invisible to `if: failure()` by design (that's the
+          # point), but that means nothing observes a *recurring* exhaustion either
+          # — the ::warning:: only lands in a log nobody scans. Capture the
+          # helper's own exhaustion message (not just its exit code, which is 0 in
+          # both the "pushed fine" and "soft-failed" cases) so the next step can
+          # debounce an alert on 2 consecutive occurrences.
+          set +e
+          PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted 2>&1)
+          rc=$?
+          set -e
+          echo "$PUSH_LOG"
+          if echo "$PUSH_LOG" | grep -q '::warning::Failed to push after'; then
+            echo "push_exhausted=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "push_exhausted=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit "$rc"
+
+      # Debounced alert (same pattern as traffic-data-freshness.yml's
+      # "Open / debounce stale issue"): a single soft-fail is expected
+      # self-healing contention noise (see comment above), but 2 CONSECUTIVE
+      # exhaustions mean the ~1h recapture assumption isn't holding and
+      # data/thin-page-promotions-active.json is going stale for longer than
+      # planned — that's worth a human looking, without paging on every blip.
+      - name: Debounce push-retry-exhausted alert
+        if: steps.commit.outputs.push_exhausted == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "thin-promotions-push-exhausted" --color "D93F0B" \
+            --description "refresh-thin-promotions push retries exhausted on consecutive runs" --force 2>/dev/null || true
+          gh label create "thin-promotions-push-exhausted-pending" --color "FBCA04" \
+            --description "refresh-thin-promotions push retries exhausted once — debouncing" --force 2>/dev/null || true
+
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          CONFIRMED=$(gh issue list --label "thin-promotions-push-exhausted" --state open --json number --jq '.[0].number')
+          if [ -n "$CONFIRMED" ]; then
+            gh issue comment "$CONFIRMED" --body "Still exhausting push retries as of $(date -u +%FT%TZ) — ${RUN_URL}."
+            echo "Updated existing confirmed issue #$CONFIRMED"
+            exit 0
+          fi
+
+          PENDING=$(gh issue list --label "thin-promotions-push-exhausted-pending" --state open --json number --jq '.[0].number')
+          if [ -n "$PENDING" ]; then
+            gh issue edit "$PENDING" \
+              --add-label "thin-promotions-push-exhausted" --add-label "bug" \
+              --remove-label "thin-promotions-push-exhausted-pending" \
+              --title "refresh-thin-promotions: push retries exhausted on consecutive runs"
+            gh issue comment "$PENDING" --body "Confirmed: 2 consecutive runs exhausted push retries (--soft-fail-exhausted). data/thin-page-promotions-active.json may be stale beyond the ~1h recapture window this flag assumes. ${RUN_URL}."
+            echo "Promoted pending issue #$PENDING to confirmed"
+            exit 0
+          fi
+
+          gh issue create \
+            --title "[pending] refresh-thin-promotions: push retries exhausted — 1st occurrence" \
+            --body "Push retries exhausted (--soft-fail-exhausted) at $(date -u +%FT%TZ). ${RUN_URL}. Expected occasional contention noise that self-heals via the next hourly run's overlapping 24h window — this issue auto-closes on recovery, or promotes to confirmed if the very next run exhausts retries again." \
+            --label "thin-promotions-push-exhausted-pending"
+          echo "Opened pending issue"
+
+      # Mirrors the auto-close half of traffic-data-freshness.yml's debounce:
+      # a run that actually pushes (changed=true) without exhausting retries
+      # means the contention cleared — retire any open pending/confirmed alert.
+      - name: Auto-close push-retry-exhausted issues on recovery
+        if: steps.commit.outputs.changed == 'true' && steps.commit.outputs.push_exhausted == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for LABEL in "thin-promotions-push-exhausted" "thin-promotions-push-exhausted-pending"; do
+            for NUM in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
+              gh issue comment "$NUM" --body "Push succeeded on the next run. Auto-closing."
+              gh issue close "$NUM" --reason completed
+              echo "Closed issue #$NUM (label=$LABEL)"
+            done
+          done
 
       - name: Report failure to GitHub Issues
         if: failure()
