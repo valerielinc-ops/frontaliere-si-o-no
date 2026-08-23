@@ -3985,6 +3985,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazione-zugo-deposito-contestazione.title': 'Vermietung in Zug: Regeln, Hinterlegung und Anfechtung',
     'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Leitfaden zum Mietrecht im Kanton Zug: Obergrenzen der Kaution, Anfechtungsverfahren und Kündigungsfristen gemäss BGB.',
     'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Wohngebäude im Kanton Zug mit Seeblick und moderner Schweizer Architektur',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Geschäft in Zug eröffnen: Anmeldung und Verpflichtungen',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Aktivitäten in Zug eintragen: Rechtsformen, Handelsregistereintrag, Vorsorgepflichten (AHV/IV, BVG) und Versicherungen. Eidgenössischer und kantonaler Führer.',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Kantonsadministrationsbüro mit Handelsregistrierungsformularen auf Holzschreibtisch',
 };
 
 export default blogMetaChDe;

@@ -51695,6 +51695,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attivita-zugo-iscrizione-contributi-obblighi': {
+    title: 'Aprire attività a Zugo: iscrizione e obblighi | Frontaliere Ticino',
+    description: 'Guida per aprire attività a Zugo: iscrizione al registro commercio, forme giuridiche, contributi AVS/AI/LPP (5,3%–18%) e assicurazioni obbligatorie. Procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, zugo, iscrizione',
+    ogTitle: 'Aprire attività a Zugo: iscrizione e obblighi',
+    ogDescription: 'Leggi come aprire un\'attività nel Cantone di Zugo: procedure d\'iscrizione al registro commercio, scelta forma giuridica, contributi previdenziali (AVS/AI 5,3%, LPP 7-18%) e assicurazioni obbligatorie (LAINF, LAMal). Guida completa step-by-step',
+    canonicalPath: '/articoli-svizzera/attivita-zugo-iscrizione-contributi-obblighi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività a Zugo: iscrizione e obblighi",
+      "description": "Guida per aprire attività a Zugo: iscrizione al registro commercio, forme giuridiche, contributi AVS/AI/LPP (5,3%–18%) e assicurazioni obbligatorie. Procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attivita-zugo-iscrizione-contributi-obblighi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrazione cantonale con moduli d'iscrizione al registro di commercio svizzero su scrivania in legno"
+      },
+      "datePublished": "2026-08-23T19:50:57+00:00",
+      "dateModified": "2026-08-23T19:50:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attivita-zugo-iscrizione-contributi-obblighi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

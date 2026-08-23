@@ -3985,6 +3985,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.locazione-zugo-deposito-contestazione.title': 'Locazione a Zugo: regole, deposito e contestazione',
     'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Guida al diritto di locazione nel Canton Zugo: limiti del deposito cauzionale, procedure di contestazione e scadenze di disdetta secondo il codice civile federale.',
     'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Panorama del Cantone di Zugo con edifici residenziali moderni sullo sfondo del lago',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Aprire attività a Zugo: iscrizione e obblighi',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Iscrivere attività a Zugo: forme giuridiche, iscrizione registro commercio, obblighi previdenziali (AVS/AI, LPP) e assicurazioni. Guida federale e cantonale.',
+    'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Ufficio amministrazione cantonale con moduli d\'iscrizione al registro di commercio svizzero su scrivania in legno',
 };
 
 export default blogMetaChIt;
