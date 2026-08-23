@@ -51344,6 +51344,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-glarona-mutuo': {
+    title: 'Comprare casa in Glarona: mutuo e imposte | Frontaliere Ticino',
+    description: 'Guida all\'acquisto immobiliare in Glarona: fondi propri, mutuo ipotecario, imposte federali e cantonali, imposta sui trapassi, spese notarili. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, glarona, mutuo',
+    ogTitle: 'Comprare casa in Glarona: mutuo e imposte',
+    ogDescription: 'Acquistare una casa in Svizzera con focus su Glarona: mutuo ipotecario, imposte cantonali, spese notarili e procedura operativa per il 2026.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-glarona-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Glarona: mutuo e imposte",
+      "description": "Guida all'acquisto immobiliare in Glarona: fondi propri, mutuo ipotecario, imposte federali e cantonali, imposta sui trapassi, spese notarili. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-glarona-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa tradizionale svizzera in una valle alpina del Cantone Glarona circondata da montagne verdi"
+      },
+      "datePublished": "2026-08-23T13:55:09+00:00",
+      "dateModified": "2026-08-23T13:55:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-glarona-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

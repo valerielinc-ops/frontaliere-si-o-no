@@ -3958,6 +3958,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisto-casa-cantone-glarona.title': 'Acheter une maison dans le canton de Glaris : guide hypothécaire',
     'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Découvrez comment planifier l\'achat d\'une maison dans le canton de Glaris entre durabilité bancaire, fonds propres, impôts locaux et actes notariés.',
     'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Maisons résidentielles dans le canton de Glaris avec fond de montagne',
+    'blog.article.comprare-casa-glarona-mutuo.title': 'Acheter une maison à Glaris : hypothèque et impôts',
+    'blog.article.comprare-casa-glarona-mutuo.excerpt': 'Guide d\'achat immobilier à Glaris : fonds propres, hypothèque, impôts fédéraux et cantonaux, taxe de passage et frais de notaire.',
+    'blog.article.comprare-casa-glarona-mutuo.imageAlt': 'Maison traditionnelle suisse dans la vallée du Glaris au cœur des Alpes',
 };
 
 export default blogMetaChFr;
