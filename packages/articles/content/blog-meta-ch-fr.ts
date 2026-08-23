@@ -3919,6 +3919,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-impresa-obvaldo-iscrizione.title': 'Ouvrir l\'activité Obwald : registre et coûts',
     'blog.article.aprire-impresa-obvaldo-iscrizione.excerpt': 'Formes juridiques, inscription au registre du commerce, droits d\'enregistrement et obligations d\'assurance pour la création d\'une entreprise dans le canton d\'Obwald.',
     'blog.article.aprire-impresa-obvaldo-iscrizione.imageAlt': 'Bureau d\'enregistrement des entreprises avec formulaires officiels, documents administratifs et signature de contrats.',
+    'blog.article.cherosene-sintetico-svizzera-aviazione.title': 'Kérosène synthétique : la Suisse lance la production verte',
+    'blog.article.cherosene-sintetico-svizzera-aviazione.excerpt': 'Au PSI d\'Argovie, la première installation de carburant durable a été ouverte. Elle produit 50 litres par jour. D\'ici 2030, les compagnies aériennes utiliseront 6 % de kérosène vert.',
+    'blog.article.cherosene-sintetico-svizzera-aviazione.imageAlt': 'Laboratoire de recherche suisse moderne avec technologies d\'énergie renouvelable et infrastructure de carburant durable.',
 };
 
 export default blogMetaChFr;

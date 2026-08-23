@@ -50837,6 +50837,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cherosene-sintetico-svizzera-aviazione': {
+    title: 'Cherosene sintetico: la Svizzera avvia la produzione verde',
+    description: 'Al PSI di Argovia inaugurato il primo impianto di carburante sostenibile che produce 50 litri al giorno. Entro il 2030 le compagnie aeree useranno il 6%',
+    keywords: 'frontalieri, ticino, svizzera, italia, cherosene, sintetico, avvia, produzione',
+    ogTitle: 'Cherosene sintetico: la Svizzera avvia la produzione verde',
+    ogDescription: 'La Svizzera inaugura il primo impianto di carburante sintetico sostenibile in Argovia. Produce 50 litri al giorno. Scopri come le normative internazionali stanno trasformando l\'aviazione verso l\'obiettivo di neutralità climatica entro il 2050',
+    canonicalPath: '/articoli-svizzera/cherosene-sintetico-svizzera-aviazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cherosene sintetico: la Svizzera avvia la produzione verde",
+      "description": "Al PSI di Argovia inaugurato il primo impianto di carburante sostenibile che produce 50 litri al giorno. Entro il 2030 le compagnie aeree useranno il 6%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cherosene-sintetico-svizzera-aviazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio moderno di ricerca con tecnologie per energie rinnovabili e carburanti sostenibili in Svizzera."
+      },
+      "datePublished": "2026-08-23T09:26:41+00:00",
+      "dateModified": "2026-08-23T09:26:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cherosene-sintetico-svizzera-aviazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

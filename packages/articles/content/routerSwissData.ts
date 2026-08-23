@@ -1332,6 +1332,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avc-lacune-contributive-prestazioni': { it: 'avc-lacune-contributive-prestazioni', en: 'avc-contribution-gaps-benefits', de: 'ahv-beitragslucken-leistungen', fr: 'avs-lacunes-cotisations-prestations' },
  'aprire-attivita-obvaldo-guida': { it: 'aprire-attivita-obvaldo-guida', en: 'starting-business-obvaldo-guide', de: 'gewerbe-obwalden-anleitung', fr: 'creer-entreprise-obwald-guide' },
  'aprire-impresa-obvaldo-iscrizione': { it: 'aprire-impresa-obvaldo-iscrizione', en: 'open-business-obvaldo-registration', de: 'geschaft-offnen-obwalden-anmeldung', fr: 'ouvrir-entreprise-obwald-inscription' },
+ 'cherosene-sintetico-svizzera-aviazione': { it: 'cherosene-sintetico-svizzera-aviazione', en: 'synthetic-kerosene-switzerland-aviation', de: 'synthetisches-kerosin-schweiz-luftfahrt', fr: 'kerosene-synthetique-suisse-aviation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
