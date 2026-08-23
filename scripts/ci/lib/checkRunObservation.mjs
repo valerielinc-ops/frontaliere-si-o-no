@@ -63,9 +63,11 @@ export const ADVISORY_CHECK_NAMES = Object.freeze({
   'delete-closed-unmerged':
     'worktree-branch-janitor.yml — pota i branch delle PR chiuse, gira dopo la decisione',
   preflight:
-    'pr-redflag-fixer.yml — decide SE far girare il fixer, non giudica il diff',
+    'pr-redflag-fixer.yml / pr-redcheck-fixer.yml — decide SE far girare il fixer, non giudica il diff',
   'redflag-fix':
     'pr-redflag-fixer.yml — applica la fix ai finding del reviewer; un rosso è il fixer inciampato',
+  'redcheck-fix':
+    'pr-redcheck-fixer.yml — ripara il check required rosso; un rosso qui è il fixer inciampato, non un verdetto sul diff',
   followup:
     'post-merge-followup.yml — triage POST-merge (`schedule`/`workflow_dispatch`): per costruzione non può essere un verdetto sulla PR al momento della decisione',
 });

@@ -31,11 +31,16 @@ const TRACKER_TITLE = '📊 Loop health report (tracker)';
 // (scripts/ci/followup-drainer.mjs); keep the literal in sync.
 const LBL_NO_AGE_OUT = 'agent:no-age-out';
 
-// Workflow Claude = i soli 5 che bruciano quota Max (AGENTS.md § frugalità).
+// Workflow Claude = i soli 6 che bruciano quota Max (AGENTS.md § frugalità).
+// `pr-redcheck-fixer.yml` è il sesto (2026-08-23): gemello del 🔴-fixer per il
+// sintomo che quello non copre (check required rosso senza un 🔴 del reviewer).
+// Va censito QUI o la sua quota diventa invisibile al loop-health — ed è
+// esattamente il tipo di consumo che si vuole vedere, non scoprire a posteriori.
 const CLAUDE_WORKFLOWS = [
   'pr-review-loop.yml',
   'issue-fix.yml',
   'pr-redflag-fixer.yml',
+  'pr-redcheck-fixer.yml',
   'post-merge-followup.yml',
   'lessons-harvester.yml',
 ];
