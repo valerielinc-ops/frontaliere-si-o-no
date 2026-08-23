@@ -75848,6 +75848,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tavernerio-como-frontaliere-ticino': {
+    title: 'Vivere a Tavernerio, lavorare in Ticino da frontaliere',
+    description: 'Permesso G, costi commuting CHF 5.400-7.200/anno, imposta alla fonte Svizzera, Nuovo Accordo 2024, procedure. Guida pratica per frontalieri da Como-Brianza',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, tavernerio, lavorare, permesso',
+    ogTitle: 'Tavernerio e Ticino: frontaliere da Como, costi e procedure 2024',
+    ogDescription: 'Vivere a Tavernerio e lavorare in Ticino: tempi commuting 50-60 min, costi trasporto CHF 5.400-7.200/anno, imposta alla fonte Svizzera, Nuovo Accordo Frontalieri 2024, Permesso G 5 anni, dichiarazione 730. Analisi economica e procedure complete.',
+    canonicalPath: '/articoli-frontaliere/tavernerio-como-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Tavernerio, lavorare in Ticino da frontaliere",
+      "description": "Permesso G, costi commuting CHF 5.400-7.200/anno, imposta alla fonte Svizzera, Nuovo Accordo 2024, procedure. Guida pratica per frontalieri da Como-Brianza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tavernerio-como-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada del commuting da Como verso il Ticino con paesaggio prealpino nebbiato all'alba, rappresentazione del percorso da Tavernerio a Lugano"
+      },
+      "datePublished": "2026-08-23T06:59:32+00:00",
+      "dateModified": "2026-08-23T06:59:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tavernerio-como-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

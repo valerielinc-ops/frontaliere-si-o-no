@@ -31656,6 +31656,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tavernerio-como-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-23T06:59:32.830Z',
+ image: '/images/blog/tavernerio-como-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

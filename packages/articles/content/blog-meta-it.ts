@@ -10577,6 +10577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.title': 'Frontaliere in Valle Cannobina: lavorare in Ticino',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.excerpt': 'Fiscalità, previdenza e procedura per chi sceglie Valle Cannobina come residenza e Ticino come luogo di lavoro. Imposta alla fonte, AVS/LPP, LAMal e permesso G: tutto quello che devi sapere.',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio di valle alpina al confine Ticino-Italia con villaggi di montagna e strade che conducono ai valichi di confine',
+    'blog.article.tavernerio-como-frontaliere-ticino.title': 'Vivere a Tavernerio, lavorare in Ticino da frontaliere',
+    'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Permesso G, costi commuting CHF 5.400-7.200/anno, imposta alla fonte Svizzera, Nuovo Accordo 2024. Analisi realistica per chi sceglie la Brianza comasca e lavora nel Ticino.',
+    'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Strada del commuting da Como verso il Ticino con paesaggio prealpino nebbiato all\'alba, rappresentazione del percorso da Tavernerio a Lugano',
 };
 
 export default blogMetaIt;
