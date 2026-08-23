@@ -146,6 +146,32 @@ export function isIssueDenied(message) {
   return ISSUE_DENY_PATTERNS.some((p) => p.test(message || ''));
 }
 
+/**
+ * Extract every resolved stack-frame filename/URL out of a PostHog
+ * `$exception_list` value (the parsed shape of `properties.$exception_list`).
+ * Mirrors `extractStackFrameOrigins` in services/posthog-error-filter.ts —
+ * kept as a separate copy because that file is `.ts` with DOM-adjacent client
+ * deps and this one runs under plain Node in CI, same reason
+ * ISSUE_DENY_PATTERNS above mirrors instead of importing (#5999: a mangled
+ * 2-char message like "Ba" can't be pattern-matched safely, so the feeder
+ * needs to surface resolved stack origins in the issue body instead).
+ */
+export function extractStackFrameOrigins(rawList) {
+  const origins = [];
+  if (!Array.isArray(rawList)) return origins;
+  for (const exc of rawList) {
+    if (!exc || typeof exc !== 'object') continue;
+    const frames = exc.stacktrace?.frames;
+    if (!Array.isArray(frames)) continue;
+    for (const frame of frames) {
+      if (!frame || typeof frame !== 'object') continue;
+      const filename = typeof frame.filename === 'string' ? frame.filename : frame.junk_drawer?.raw_frame?.filename;
+      if (typeof filename === 'string' && filename) origins.push(filename);
+    }
+  }
+  return origins;
+}
+
 // ── Stale page_404 telemetry (issues #5064 / #5065) ────────────────────────
 //
 // `page_404` is the one app_error class whose truth can be re-checked against
