@@ -8,7 +8,7 @@
       "slugByLocale": {
         "en": "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
         "it": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
-        "de": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
+        "de": "informationssicherheit-compliance-expertin-in-m-w-d-big-are-stellen-lugano",
         "fr": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
@@ -280,12 +280,12 @@
     },
     {
       "id": "recruitingapp-1123-f0b35ace98cf",
-      "slug": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+      "slug": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
       "slugByLocale": {
         "de": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
-        "it": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
-        "en": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
-        "fr": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        "it": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
+        "en": "team-management-assistance-m-f-d-from-30h-week-big-are-stellen-lugano",
+        "fr": "assistance-a-la-gestion-de-l-equipe-h-f-d-a-partir-de-30h-semaine-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
@@ -337,16 +337,30 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:37:55.341Z"
+      "firstSeenAt": "2026-08-23T09:37:55.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        ],
+        "en": [
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        ],
+        "fr": [
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+      ]
     },
     {
       "id": "recruitingapp-1123-fd9661f7604f",
-      "slug": "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano",
+      "slug": "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano",
       "slugByLocale": {
         "de": "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch",
-        "it": "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano",
-        "en": "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano",
-        "fr": "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
+        "it": "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano",
+        "en": "property-managers-focus-on-newly-built-apartments-m-f-d-big-are-stellen-lugano",
+        "fr": "gestionnaires-de-proprietes-focus-sur-les-appartements-nouvellement-construits-h-f-d-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
@@ -387,11 +401,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch"
+          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch",
+          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
+        ],
+        "en": [
+          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
+        ],
+        "fr": [
+          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
         ]
       },
       "previousSlugs": [
-        "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch"
+        "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch",
+        "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -483,8 +505,8 @@
       "slugByLocale": {
         "de": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123",
         "it": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-per-gebaudetechnik-m-w-d-big-are-stellen-lugano",
-        "en": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123",
-        "fr": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
+        "en": "participant-in-foreman-in-electrical-engineering-for-building-technology-m-f-d-big-are-stellen-lugano",
+        "fr": "participant-in-foreman-in-electrical-engineering-for-building-technology-h-f-d-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
@@ -526,6 +548,12 @@
       "previousSlugsByLocale": {
         "it": [
           "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
+        ],
+        "en": [
+          "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
+        ],
+        "fr": [
+          "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
         ]
       },
       "previousSlugs": [
@@ -548,12 +576,12 @@
     },
     {
       "id": "recruitingapp-1123-31d1f4d2790f",
-      "slug": "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano",
+      "slug": "tecnico-edile-negli-appartamenti-di-manutenzione-m-f-d-big-are-stellen-lugano",
       "slugByLocale": {
         "de": "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch",
-        "it": "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano",
-        "en": "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano",
-        "fr": "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
+        "it": "tecnico-edile-negli-appartamenti-di-manutenzione-m-f-d-big-are-stellen-lugano",
+        "en": "building-technician-in-maintenance-apartments-m-f-d-big-are-stellen-lugano",
+        "fr": "technicien-du-batiment-dans-les-appartements-d-entretien-h-f-d-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
@@ -594,11 +622,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch"
+          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch",
+          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
+        ],
+        "en": [
+          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
+        ],
+        "fr": [
+          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
         ]
       },
       "previousSlugs": [
-        "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch"
+        "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch",
+        "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -617,12 +653,12 @@
     },
     {
       "id": "recruitingapp-1123-5be949021b27",
-      "slug": "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+      "slug": "gestione-aggiuntiva-della-proprieta-m-f-d-big-are-stellen-lugano",
       "slugByLocale": {
         "de": "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
-        "it": "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
-        "en": "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
-        "fr": "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+        "it": "gestione-aggiuntiva-della-proprieta-m-f-d-big-are-stellen-lugano",
+        "en": "assistant-property-management-m-f-d-big-are-stellen-lugano",
+        "fr": "assistant-a-la-gestion-des-biens-h-f-d-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
@@ -663,11 +699,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
+          "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
+          "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+        ],
+        "en": [
+          "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+        ],
+        "fr": [
+          "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
         ]
       },
       "previousSlugs": [
-        "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
+        "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
+        "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
