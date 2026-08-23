@@ -10579,6 +10579,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tavernerio-como-frontaliere-ticino.title': 'Living in Tavernerio, working in Ticino as a border worker',
     'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Permit G, commuting costs CHF 5.400-7.200/anno, tax at source Switzerland, New Agreement 2024. Realistic analysis for those who choose Brianza Como and work in Ticino.',
     'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Commuter highway from Como toward Ticino with misty pre-Alpine landscape at dawn, representing route from Tavernerio to Lugano',
+    'blog.article.vivere-montorfano-lavorare-ticino.title': 'Living in Montorfano and working in Ticino as a border worker',
+    'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Practical guide for those residing in Montorfano and working in the Canton of Ticino: taxes, tax regime and procedures for frontier workers.',
+    'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano',
 };
 
 export default blogMetaEn;
