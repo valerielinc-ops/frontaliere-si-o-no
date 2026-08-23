@@ -50056,6 +50056,709 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-uri-settori-assunzione-retribuzioni': {
+    title: 'Salari e mercato del lavoro in Uri | Frontaliere Ticino',
+    description: 'Scopri come si determinano i salari in Uri: fattori economici, salari settoriali, tassazione, previdenza e contratti collettivi. Guida pratica per lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, determinano',
+    ogTitle: 'Salari e mercato del lavoro in Uri',
+    ogDescription: 'Guida completa al mercato del lavoro di Uri: scopri i fattori che determinano i salari, i settori occupazionali, come calcolare il netto da lordo, tassazione, previdenza e diritti. Informazioni pratiche per lavoratori e imprenditori.',
+    canonicalPath: '/articoli-svizzera/uri-settori-assunzione-retribuzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro in Uri",
+      "description": "Scopri come si determinano i salari in Uri: fattori economici, salari settoriali, tassazione, previdenza e contratti collettivi. Guida pratica per lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uri-settori-assunzione-retribuzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti al lavoro in un moderno ufficio alpino svizzero, con documenti di contratti di lavoro."
+      },
+      "datePublished": "2026-08-22T20:41:32+00:00",
+      "dateModified": "2026-08-22T20:41:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-settori-assunzione-retribuzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-svitto-riduzione': {
+    title: 'Premi LAMal in Svitto: franchigie e riduzione premi',
+    description: 'Guida ai premi dell\'assicurazione malattia obbligatoria nel Cantone di Svitto: franchigie, modelli alternativi e procedura per ottenere la riduzione tramite',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, svitto, franchigie',
+    ogTitle: 'Premi LAMal in Svitto: franchigie e riduzione premi',
+    ogDescription: 'Scopri come funzionano i premi dell\'assicurazione malattia nel Cantone di Svitto, le franchigie disponibili (CHF 300-2500), i modelli alternativi di copertura e come richiedere la riduzione dei premi tramite sussidio cantonale. Procedura passo-passo',
+    canonicalPath: '/articoli-svizzera/premi-lamal-svitto-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal in Svitto: franchigie e riduzione premi",
+      "description": "Guida ai premi dell'assicurazione malattia obbligatoria nel Cantone di Svitto: franchigie, modelli alternativi e procedura per ottenere la riduzione tramite",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-svitto-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di consulenza assicurativa con documenti su premi cassa malati e calcolatore di sussidi"
+      },
+      "datePublished": "2026-08-22T23:40:49+00:00",
+      "dateModified": "2026-08-22T23:40:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-svitto-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-svitto-come-richiederlo': {
+    title: 'Permesso B in Svitto: come richiederlo e rinnovarlo',
+    description: 'Permesso B in Svitto: guida completa ai requisiti, procedura di richiesta, documenti necessari, assicurazione LAMal obbligatoria e scadenze di rinnovo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, svitto, richiederlo, rinnovarlo',
+    ogTitle: 'Permesso B in Svitto: come richiederlo e rinnovarlo',
+    ogDescription: 'Permesso B: guida completa per lavorare in Svizzera. Come richiederlo, documenti necessari, assicurazione LAMal obbligatoria, scadenze rinnovo 1-5 anni, cambio datore di lavoro. Procedura per canton Svitto.',
+    canonicalPath: '/articoli-svizzera/permesso-b-svitto-come-richiederlo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B in Svitto: come richiederlo e rinnovarlo",
+      "description": "Permesso B in Svitto: guida completa ai requisiti, procedura di richiesta, documenti necessari, assicurazione LAMal obbligatoria e scadenze di rinnovo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-svitto-come-richiederlo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione svizzero con documenti e procedura di richiesta permesso B"
+      },
+      "datePublished": "2026-08-23T00:29:38+00:00",
+      "dateModified": "2026-08-23T00:29:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-svitto-come-richiederlo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-svitto-requisiti-rinnovo': {
+    title: 'Permesso di dimora B canton Svitto: requisiti e rinnovo',
+    description: 'Guida completa al permesso di dimora B nel canton Svitto. Scopri requisiti, documenti necessari, procedura di rinnovo e normative SEM per chi risiede',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, canton, svitto',
+    ogTitle: 'Permesso di dimora B canton Svitto: requisiti e rinnovo',
+    ogDescription: 'Il permesso di dimora B consente ai cittadini stranieri di risiedere e lavorare nel canton Svitto. Scopri come ottenerlo, i requisiti federali SEM, i documenti necessari e la procedura completa di rinnovo con step-by-step operativi.',
+    canonicalPath: '/articoli-svizzera/permesso-b-svitto-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B canton Svitto: requisiti e rinnovo",
+      "description": "Guida completa al permesso di dimora B nel canton Svitto. Scopri requisiti, documenti necessari, procedura di rinnovo e normative SEM per chi risiede",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-svitto-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero dove risiedono gli uffici della migrazione cantonale per permessi di dimora"
+      },
+      "datePublished": "2026-08-23T00:53:12+00:00",
+      "dateModified": "2026-08-23T00:53:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-svitto-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcolo-rendita-avs-svitto': {
+    title: 'Prestazioni complementari Svitto: AVS e minimo vitale',
+    description: 'Prestazioni complementari Svitto: guida a calcolo AVS, lacune contributive, minimo vitale e procedure accesso tramite cassa compensazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, svitto, minimo',
+    ogTitle: 'Prestazioni complementari Svitto: AVS e minimo vitale',
+    ogDescription: 'Scopri come accedere alle prestazioni complementari nel Canton Svitto, calcolare la rendita AVS, recuperare lacune contributive e garantire il minimo vitale. Guida pratica con procedure e scadenze.',
+    canonicalPath: '/articoli-svizzera/calcolo-rendita-avs-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prestazioni complementari Svitto: AVS e minimo vitale",
+      "description": "Prestazioni complementari Svitto: guida a calcolo AVS, lacune contributive, minimo vitale e procedure accesso tramite cassa compensazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-rendita-avs-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo della cassa di compensazione nel Canton Svitto"
+      },
+      "datePublished": "2026-08-23T01:43:06+00:00",
+      "dateModified": "2026-08-23T01:43:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcolo-rendita-avs-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avviare-impresa-canton-svitto-procedure': {
+    title: 'Aprire attività Canton Svitto: costi e registrazione',
+    description: 'Guida all\'avvio d\'attività nel Canton Svitto: forme giuridiche, registrazione registro commercio, capitali minimi, fiscalità e obblighi previdenziali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, svitto',
+    ogTitle: 'Aprire attività nel Canton Svitto: come farlo',
+    ogDescription: 'Scopri come registrare un\'attività nel Canton Svitto: forme giuridiche, iscrizione al registro commercio, capitali minimi, tasse federali e cantonali, obblighi previdenza (AVS, LPP, LAMal).',
+    canonicalPath: '/articoli-svizzera/avviare-impresa-canton-svitto-procedure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Canton Svitto: costi e registrazione",
+      "description": "Guida all'avvio d'attività nel Canton Svitto: forme giuridiche, registrazione registro commercio, capitali minimi, fiscalità e obblighi previdenziali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-impresa-canton-svitto-procedure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo nel Canton Svitto dove sono situati gli uffici del registro di commercio."
+      },
+      "datePublished": "2026-08-23T02:10:42+00:00",
+      "dateModified": "2026-08-23T02:10:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-impresa-canton-svitto-procedure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costituzione-impresa-cantone-svitto': {
+    title: 'Aprire un\'impresa nel Cantone di Svitto: guida pratica',
+    description: 'Guida pratica all\'apertura di un\'attività nel Cantone di Svitto: forme giuridiche, registro di commercio, obblighi previdenziali e fiscali per imprenditori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, impresa, cantone, svitto',
+    ogTitle: 'Aprire un\'impresa nel Cantone di Svitto: guida pratica',
+    ogDescription: 'Scopri i passaggi burocratici, la scelta della forma giuridica e gli obblighi assicurativi necessari per avviare una nuova attività commerciale nel Cantone di Svitto.',
+    canonicalPath: '/articoli-svizzera/costituzione-impresa-cantone-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'impresa nel Cantone di Svitto: guida pratica",
+      "description": "Guida pratica all'apertura di un'attività nel Cantone di Svitto: forme giuridiche, registro di commercio, obblighi previdenziali e fiscali per imprenditori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costituzione-impresa-cantone-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Svizzera per la costituzione di un'impresa."
+      },
+      "datePublished": "2026-08-23T02:37:02+00:00",
+      "dateModified": "2026-08-23T02:37:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costituzione-impresa-cantone-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-svitto-registro-di-commercio': {
+    title: 'Aprire un\'attività nel Cantone di Svitto: registro di commercio e costi',
+    description: 'La scelta della forma giuridica è importante per le imposte e le tasse. L\'iscrizione al registro di commercio è obbligatoria per le attività commerciali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, cantone, svitto',
+    ogTitle: 'Aprire un\'attività nel Cantone di Svitto: registro di commercio e costi',
+    ogDescription: 'La scelta della forma giuridica è importante per le imposte e le tasse. L\'iscrizione al registro di commercio è obbligatoria per le attività commerciali.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-svitto-registro-di-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Cantone di Svitto: registro di commercio e costi",
+      "description": "La scelta della forma giuridica è importante per le imposte e le tasse. L'iscrizione al registro di commercio è obbligatoria per le attività commerciali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-svitto-registro-di-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con un negozio in primo piano"
+      },
+      "datePublished": "2026-08-23T03:01:07+00:00",
+      "dateModified": "2026-08-23T03:01:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-svitto-registro-di-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-canton-svitto-guida': {
+    title: 'Aprire un\'attività nel Canton Svitto: guida pratica',
+    description: 'Scopri come aprire un\'attività nel Canton Svitto: procedure per il registro di commercio, capitale minimo, tasse e obblighi assicurativi per imprenditori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, svitto',
+    ogTitle: 'Aprire un\'attività nel Canton Svitto: guida al registro',
+    ogDescription: 'Guida pratica all\'apertura di un\'attività nel Canton Svitto: dalla scelta giuridica al registro di commercio, fino agli obblighi fiscali e previdenziali svizzeri.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-svitto-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Svitto: guida pratica",
+      "description": "Scopri come aprire un'attività nel Canton Svitto: procedure per il registro di commercio, capitale minimo, tasse e obblighi assicurativi per imprenditori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-svitto-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno con vista sulle montagne svizzere"
+      },
+      "datePublished": "2026-08-23T03:51:44+00:00",
+      "dateModified": "2026-08-23T03:51:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-svitto-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avviare-impresa-svitto-costi': {
+    title: 'Avviare impresa in Svitto: registrazione e costi',
+    description: 'Come aprire un\'attività nel Canton Svitto: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, impresa, svitto, registrazione',
+    ogTitle: 'Avviare impresa in Svitto: registrazione e costi',
+    ogDescription: 'Guida all\'apertura di un\'attività nel Canton Svitto: forma giuridica, iscrizione al registro di commercio, costi, tasse federali/cantonali e obblighi assicurativi per dipendenti (LAMal, SUVA, LPP). Procedura passo dopo passo.',
+    canonicalPath: '/articoli-svizzera/avviare-impresa-svitto-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare impresa in Svitto: registrazione e costi",
+      "description": "Come aprire un'attività nel Canton Svitto: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-impresa-svitto-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con documenti di iscrizione al registro di commercio"
+      },
+      "datePublished": "2026-08-23T04:01:49+00:00",
+      "dateModified": "2026-08-23T04:01:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-impresa-svitto-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guida-avvio-impresa-canton-svitto': {
+    title: 'Avviare un\'impresa nel Cantone di Svitto: guida pratica',
+    description: 'Scopri i passaggi per avviare un\'impresa nel Cantone di Svitto: forma giuridica, iscrizione al registro di commercio, costi e obblighi previdenziali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, impresa, cantone, svitto',
+    ogTitle: 'Avviare un\'impresa nel Cantone di Svitto: guida pratica',
+    ogDescription: 'Guida completa per avviare un\'attività nel Cantone di Svitto, dalla scelta della forma giuridica fino agli obblighi assicurativi e fiscali per i datori di lavoro.',
+    canonicalPath: '/articoli-svizzera/guida-avvio-impresa-canton-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'impresa nel Cantone di Svitto: guida pratica",
+      "description": "Scopri i passaggi per avviare un'impresa nel Cantone di Svitto: forma giuridica, iscrizione al registro di commercio, costi e obblighi previdenziali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-avvio-impresa-canton-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio professionale con documenti e vista sulle montagne svizzere"
+      },
+      "datePublished": "2026-08-23T04:19:09+00:00",
+      "dateModified": "2026-08-23T04:19:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-avvio-impresa-canton-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svitto-tasse-eredita-aliquote': {
+    title: 'Imposta di successione e donazione: le aliquote di Svitto',
+    description: 'Come funziona l\'imposta di successione e donazione nel Canton Svitto: aliquote per grado di parentela, esenzioni e scadenze per la dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, aliquote',
+    ogTitle: 'Imposta di successione e donazione: le aliquote di Svitto',
+    ogDescription: 'Guida completa: imposte di successione e donazione nel Canton Svitto. Aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedure di dichiarazione, documenti necessari secondo la legge cantonale vigente.',
+    canonicalPath: '/articoli-svizzera/svitto-tasse-eredita-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione: le aliquote di Svitto",
+      "description": "Come funziona l'imposta di successione e donazione nel Canton Svitto: aliquote per grado di parentela, esenzioni e scadenze per la dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-tasse-eredita-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio notarile con documenti e scrivania per successioni e donazioni nel Canton Svitto"
+      },
+      "datePublished": "2026-08-23T05:00:01+00:00",
+      "dateModified": "2026-08-23T05:00:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-tasse-eredita-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franchigie-obvaldo-malattia-riduzione': {
+    title: 'Premi LAMal Obvaldo: franchigie e riduzione | Frontaliere Ticino',
+    description: 'Franchigie CHF 300-2500 e riduzioni di premio LAMal a Obvaldo. Procedura richiesta, documenti, scadenze annuali e modelli assicurativi alternativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, obvaldo, franchigie',
+    ogTitle: 'Premi LAMal Obvaldo: franchigie e riduzione',
+    ogDescription: 'Scopri le sei franchigie disponibili, come richiedere la riduzione di premio a Obvaldo, i criteri di ammissibilità ai sussidi cantonali, e come confrontare i modelli assicurativi alternativi.',
+    canonicalPath: '/articoli-svizzera/franchigie-obvaldo-malattia-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Obvaldo: franchigie e riduzione",
+      "description": "Franchigie CHF 300-2500 e riduzioni di premio LAMal a Obvaldo. Procedura richiesta, documenti, scadenze annuali e modelli assicurativi alternativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigie-obvaldo-malattia-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con simboli di previdenza sanitaria e architettura cantonale tradizionale"
+      },
+      "datePublished": "2026-08-23T05:27:44+00:00",
+      "dateModified": "2026-08-23T05:27:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franchigie-obvaldo-malattia-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-obvaldo-guida-pratica': {
+    title: 'Permesso di dimora B: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Il permesso B consente dimora rinnovabile in Svizzera. Guida completa su requisiti, documenti, durata e procedura di rinnovo a livello federale e cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, requisiti, rinnovo',
+    ogTitle: 'Permesso di dimora B: guida a requisiti e rinnovo',
+    ogDescription: 'Permesso di dimora B rinnovabile in Svizzera: come ottenerlo, quali documenti servono, quanto dura, come rinnovarlo. Procedura federale e contatti uffici cantonali. Guida pratica.',
+    canonicalPath: '/articoli-svizzera/permesso-b-obvaldo-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B: requisiti e rinnovo",
+      "description": "Il permesso B consente dimora rinnovabile in Svizzera. Guida completa su requisiti, documenti, durata e procedura di rinnovo a livello federale e cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-obvaldo-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con sportello per i permessi di dimora e registrazione stranieri."
+      },
+      "datePublished": "2026-08-23T06:02:59+00:00",
+      "dateModified": "2026-08-23T06:02:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-obvaldo-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-canton-obvaldo-guida': {
+    title: 'Naturalizzazione Canton Obvaldo: requisiti e procedura',
+    description: 'Guida completa alla naturalizzazione ordinaria nel Canton Obvaldo: documenti, permessi C, test di integrazione e iter burocratico presso le autorità locali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, obvaldo, requisiti',
+    ogTitle: 'Naturalizzazione Canton Obvaldo: Requisiti e Procedura',
+    ogDescription: 'Vuoi ottenere la cittadinanza svizzera nel Canton Obvaldo? Scopri tutti i passaggi necessari, dai criteri di residenza ai test di integrazione e documentazione richiesta.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-obvaldo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Canton Obvaldo: requisiti e procedura",
+      "description": "Guida completa alla naturalizzazione ordinaria nel Canton Obvaldo: documenti, permessi C, test di integrazione e iter burocratico presso le autorità locali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-obvaldo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo comunale nel Canton Obvaldo"
+      },
+      "datePublished": "2026-08-23T06:37:18+00:00",
+      "dateModified": "2026-08-23T06:37:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-obvaldo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-export-svizzera-luglio-2026': {
+    title: 'Export svizzero: record a luglio 2026 con +13,8%',
+    description: 'L\'export svizzero cresce del 13,8% a luglio 2026. Bilancia commerciale record a 8,1 miliardi grazie al traino del settore chimico-farmaceutico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, svizzero, record, luglio',
+    ogTitle: 'Export svizzero: record a luglio 2026 con +13,8%',
+    ogDescription: 'L\'economia svizzera accelera a luglio 2026: esportazioni a 27,8 miliardi e bilancia commerciale con un surplus record di 8,1 miliardi di franchi.',
+    canonicalPath: '/articoli-svizzera/export-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export svizzero: record a luglio 2026 con +13,8%",
+      "description": "L'export svizzero cresce del 13,8% a luglio 2026. Bilancia commerciale record a 8,1 miliardi grazie al traino del settore chimico-farmaceutico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/export-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Container e logistica in un porto o centro merci svizzero"
+      },
+      "datePublished": "2026-08-23T07:06:53+00:00",
+      "dateModified": "2026-08-23T07:06:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/export-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcolo-rendita-avs-lacune-contributive': {
+    title: 'Calcolo rendita AVS e lacune contributive | Frontaliere Ticino',
+    description: 'Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS e come le lacune contributive sono coperte dalle prestazioni complementari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, rendita, lacune, contributive',
+    ogTitle: 'Rendita AVS: calcolo e prestazioni complementari',
+    ogDescription: 'Nel sistema previdenziale svizzero, la cassa di compensazione cantonale gestisce il calcolo della rendita AVS. Scopri come funzionano le lacune contributive e come le prestazioni complementari garantiscono una copertura del minimo vitale.',
+    canonicalPath: '/articoli-svizzera/calcolo-rendita-avs-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolo rendita AVS e lacune contributive",
+      "description": "Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS e come le lacune contributive sono coperte dalle prestazioni complementari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-rendita-avs-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di amministrazione cantonale svizzera: cassa di compensazione per il calcolo della rendita AVS"
+      },
+      "datePublished": "2026-08-23T07:35:26+00:00",
+      "dateModified": "2026-08-23T07:35:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcolo-rendita-avs-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avc-lacune-contributive-prestazioni': {
+    title: 'AVS in Obvaldo: rendita e prestazioni complementari',
+    description: 'Scopri come funziona la cassa di compensazione cantonale, il calcolo della rendita AVS e le prestazioni complementari nel Canton Obvaldo per il minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, obvaldo, rendita, prestazioni, complementari',
+    ogTitle: 'AVS in Obvaldo: rendita e prestazioni complementari',
+    ogDescription: 'Rendita AVS, lacune contributive, prestazioni complementari: guida al primo pilastro nel Canton Obvaldo. Scopri come funziona la cassa di compensazione cantonale e il minimo vitale garantito dalla previdenza svizzera.',
+    canonicalPath: '/articoli-svizzera/avc-lacune-contributive-prestazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS in Obvaldo: rendita e prestazioni complementari",
+      "description": "Scopri come funziona la cassa di compensazione cantonale, il calcolo della rendita AVS e le prestazioni complementari nel Canton Obvaldo per il minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avc-lacune-contributive-prestazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di previdenza AVS con calcolatrice su una scrivania, dichiarazione di rendita e bandiera svizzera."
+      },
+      "datePublished": "2026-08-23T08:07:53+00:00",
+      "dateModified": "2026-08-23T08:07:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avc-lacune-contributive-prestazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

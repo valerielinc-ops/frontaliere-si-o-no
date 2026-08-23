@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-08-22T10:08:18.077Z",
+  "generatedAt": "2026-08-22T21:34:56.669Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4240,
-  "avgDurationMs": 4240,
+  "durationMs": 4289,
+  "avgDurationMs": 4289,
   "durationHistory": [
-    4240
+    4289
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,14 +79,14 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "needsRetranslation": true,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -105,14 +105,14 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "needsRetranslation": true,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },

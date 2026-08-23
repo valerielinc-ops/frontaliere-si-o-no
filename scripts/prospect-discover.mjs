@@ -58,6 +58,12 @@ let filed = 0;
 let skippedCovered = 0;
 const perSource = {};
 
+// Per-source outage tracking: a source counts as DOWN only if it was
+// requested AND every attempt on it failed. A partial failure (some
+// cantons reachable) is normal flakiness, not an outage.
+const sourceAttempts = { seco: 0, osm: 0, web: 0 };
+const sourceFailures = { seco: 0, osm: 0, web: 0 };
+
 /**
  * @param {Record<string, any>} candidate
  * @param {string} source
@@ -104,10 +110,12 @@ if (sources.includes('seco')) {
     // un timeout sul quinto butterebbe via i quattro gia' raccolti e i venti
     // ancora da fare.
     let employers; let adCount; let hostHistogram;
+    sourceAttempts.seco++;
     try {
       ({ employers, adCount, hostHistogram } = await fetchSecoEmployers({ cantons: [canton], onlineSince: days }));
     } catch (err) {
-      console.log(`SECO ${canton}: non raggiungibile — ${String(err.message).slice(0, 90)}`);
+      sourceFailures.seco++;
+      console.log(`SECO ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
     console.log(`SECO ${canton}: ${adCount} annunci, ${employers.length} datori distinti`);
@@ -175,10 +183,12 @@ if (sources.includes('osm')) {
   }
   for (const canton of osmCantons) {
     let businesses;
+    sourceAttempts.osm++;
     try {
       businesses = await fetchOsmBusinesses(canton);
     } catch (err) {
-      console.log(`OSM  ${canton}: non raggiungibile — ${String(err.message).slice(0, 90)}`);
+      sourceFailures.osm++;
+      console.log(`OSM  ${canton}: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
       continue;
     }
     console.log(`OSM  ${canton}: ${businesses.length} imprese con dominio`);
@@ -191,10 +201,12 @@ if (sources.includes('osm')) {
 /* ── The Swiss web's own careers pages, via the crawl index ───── */
 if (sources.includes('web')) {
   let sweep = { collection: null, pagesRead: [], totalPages: 0, employers: [] };
+  sourceAttempts.web++;
   try {
     sweep = await sweepSwissCareerPages({ pages });
   } catch (err) {
-    console.log(`WEB : indice non raggiungibile — ${String(err.message).slice(0, 90)}`);
+    sourceFailures.web++;
+    console.log(`WEB : indice non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
   }
   console.log(`WEB : ${sweep.collection} · ${sweep.pagesRead.length}/${sweep.totalPages} pagine d'indice → ${sweep.employers.length} datori con pagina carriere`);
   for (const e of sweep.employers) {
@@ -202,6 +214,21 @@ if (sources.includes('web')) {
     // entirely — the most expensive and most failure-prone step in TRACE.
     file({ name: e.host.split('.')[0], domain: e.host, careersUrl: e.url, country: 'CH' }, 'web');
   }
+}
+
+/* ── Outage detection ─────────────────────────────────────────── */
+// Zero candidati filed è ambiguo: può voler dire "nulla di nuovo" oppure
+// "ogni fonte esterna era giù". Solo il secondo caso merita un segnale che
+// distingua un giro vuoto per outage da un giro vuoto per davvero — senza
+// far fallire lo stadio (coerente con l'isolamento per-elemento di #6287,
+// il resto del loop notturno deve comunque processare la coda esistente).
+const downSources = ['seco', 'osm', 'web'].filter(
+  (s) => sources.includes(s) && sourceAttempts[s] > 0 && sourceFailures[s] === sourceAttempts[s],
+);
+const requestedExternal = ['seco', 'osm', 'web'].filter((s) => sources.includes(s));
+if (requestedExternal.length > 0 && downSources.length === requestedExternal.length) {
+  console.error(`\n⚠️  OUTAGE TOTALE: tutte le fonti esterne richieste (${downSources.join('+').toUpperCase()}) sono fallite in questo giro — zero candidati filed non e' "nessuna novita'".`);
+  process.exitCode = 1;
 }
 
 /* ── Report ───────────────────────────────────────────────────── */

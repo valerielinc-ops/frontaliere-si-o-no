@@ -1,16 +1,18 @@
 {
   "key": "entero",
   "label": "entero",
-  "generatedAt": "2026-08-22T09:42:59.953Z",
+  "generatedAt": "2026-08-22T21:38:02.354Z",
   "total": 2,
+  "discovered": null,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4199,
-  "avgDurationMs": 4199,
+  "durationMs": 4317,
+  "avgDurationMs": 4317,
   "durationHistory": [
-    4199
+    4317
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +29,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:42:56.494Z",
+      "crawledAt": "2026-08-22T21:37:58.871Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -64,7 +66,7 @@
       "url": "https://www.entero.ch/de/karriere/psychotherapeutin-oder-psychotherapeut-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-22T09:42:57.100Z",
+      "crawledAt": "2026-08-22T21:37:59.465Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",

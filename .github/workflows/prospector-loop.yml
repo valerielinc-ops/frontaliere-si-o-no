@@ -80,6 +80,13 @@ jobs:
           node-version: 22
 
       - name: Discover
+        # continue-on-error: DISCOVER esce con exit-code 1 se TUTTE le fonti
+        # esterne richieste (SECO+OSM+WEB) sono fallite nello stesso giro — un
+        # outage totale, distinto da un giro senza novita'. Il resto del loop
+        # deve comunque processare la coda esistente (nessuno stadio muore per
+        # colpa di un altro, PR #6287): lo step appare rosso in Actions per la
+        # visibilita', ma non blocca Trace/Expand/Synthesize/Validate.
+        continue-on-error: true
         run: node scripts/prospect-discover.mjs --cantons="$CANTONS" --sources="$SOURCES"
 
       - name: Trace

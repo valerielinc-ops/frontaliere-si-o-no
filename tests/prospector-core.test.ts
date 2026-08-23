@@ -20,7 +20,7 @@ import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/cover
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
 import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
-import { commonUrlTemplate, crawlerKeyFor, detectPageLang } from '../scripts/lib/prospector/synthesize.mjs';
+import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
@@ -319,6 +319,12 @@ describe('crawler synthesis', () => {
     expect(detectPageLang('<html lang="it"><body>x</body></html>')).toBe('it');
     expect(detectPageLang('<html><body>Wir suchen und bieten für die neue Stellen mit unsere Arbeit bei der das</body></html>')).toBe('de');
   });
+
+  it('tells expected decode noise apart from a genuine programming bug', () => {
+    expect(isExpectedSynthesisError(new URIError('URI malformed'))).toBe(true);
+    expect(isExpectedSynthesisError(new TypeError('Cannot read properties of undefined'))).toBe(false);
+    expect(isExpectedSynthesisError(new Error('boom'))).toBe(false);
+  });
 });
 
 describe('promotion gate', () => {
@@ -479,6 +485,29 @@ describe('production spec runtime', () => {
   it('honours a numeric placeholder', () => {
     expect(templateToRegex('/job/#').test('/job/12345')).toBe(true);
     expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
+  });
+});
+
+describe('classificazione degli errori di sintesi', () => {
+  it('non riassorbe un errore qualsiasi col nome sovrascritto', () => {
+    // Il duck-typing sul solo `.name` avrebbe fatto passare per «rumore
+    // atteso» un errore di tutt'altra natura — cioe' esattamente il bug che la
+    // distinzione vuole rendere visibile.
+    const spoofed = { name: 'URIError', message: 'non sono un Error' };
+    expect(isExpectedSynthesisError(spoofed)).toBe(false);
+  });
+
+  it('riconosce un URIError vero, anche ri-lanciato', () => {
+    expect(isExpectedSynthesisError(new URIError('URI malformed'))).toBe(true);
+    const rethrown = new Error('URI malformed');
+    rethrown.name = 'URIError';
+    expect(isExpectedSynthesisError(rethrown)).toBe(true);
+  });
+
+  it('non scambia un bug di programmazione per rumore', () => {
+    expect(isExpectedSynthesisError(new TypeError('x is not a function'))).toBe(false);
+    expect(isExpectedSynthesisError(new Error('boom'))).toBe(false);
+    expect(isExpectedSynthesisError(null)).toBe(false);
   });
 });
 

@@ -1,16 +1,18 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-08-22T09:43:05.995Z",
-  "total": 2,
+  "generatedAt": "2026-08-22T21:38:07.796Z",
+  "total": 1,
+  "discovered": null,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5694,
-  "avgDurationMs": 5694,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5795,
+  "avgDurationMs": 5795,
   "durationHistory": [
-    5694
+    5795
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +29,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T09:43:03.708Z",
+      "crawledAt": "2026-08-22T21:38:05.560Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,8 +54,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "everest-re-c78959051657",
       "slug": "sottoscrittore-i-reinsurance-everest-re-zurich",
@@ -93,5 +94,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

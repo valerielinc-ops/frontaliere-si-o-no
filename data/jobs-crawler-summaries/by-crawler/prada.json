@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-08-22T09:42:14.833Z",
+  "generatedAt": "2026-08-22T21:29:38.359Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8087,
-  "avgDurationMs": 8087,
+  "durationMs": 8522,
+  "avgDurationMs": 8522,
   "durationHistory": [
-    8087
+    8522
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-e59d538b6dce",
       "slug": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
@@ -33,17 +34,16 @@
       "url": "https://jobs.pradagroup.com/job/Levanella-Buresta-Addettoa-Laboratorio-Abbigliamento/1280349901/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-22T09:42:10.107Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-08-22T21:29:34.410Z",
+      "firstSeenAt": "2026-08-22T09:42:10.107Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-6c4e57745113",
       "slug": "runner-prada-sankt-moritz-prada-group-saint-moritz",
@@ -64,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T09:42:08.340Z",
+      "crawledAt": "2026-08-22T21:29:31.916Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -97,16 +97,16 @@
       "url": "https://jobs.pradagroup.com/job/Levanella-Buresta-Addettoa-Laboratorio-Abbigliamento/1280349901/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-22T09:42:10.107Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-22T21:29:34.410Z",
+      "firstSeenAt": "2026-08-22T09:42:10.107Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -130,7 +130,7 @@
       "url": "https://jobs.pradagroup.com/job/Saint-Moritz-PRADA-Runner%2C-Sankt-Moritz/1422417533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T09:42:08.340Z",
+      "crawledAt": "2026-08-22T21:29:31.916Z",
       "firstSeenAt": "2026-08-03T22:16:33.147Z",
       "needsRetranslation": true,
       "salaryMin": 57500,

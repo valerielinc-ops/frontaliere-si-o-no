@@ -1,35 +1,37 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-22T09:37:21.741Z",
-  "total": 382,
+  "generatedAt": "2026-08-22T21:35:38.671Z",
+  "total": 380,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 101183,
-  "avgDurationMs": 101183,
+  "unchangedCount": 1,
+  "durationMs": 111583,
+  "avgDurationMs": 111583,
   "durationHistory": [
-    101183
+    111583
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
+      "title": "Apotheker (w/m/d)",
       "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3124814.4043264",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3124812.4043135",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Apotheker (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-bern",
-      "id": "galenica-884eefc35569",
+      "slug": "apotheker-m-w-d-galenica-bern",
+      "id": "galenica-d8255a8ce9fd",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -40,7 +42,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,7 +51,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
