@@ -10532,7 +10532,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-18T09:59:08.436Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -10544,7 +10543,16 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "tirocinante-digital-marketing-media-100-iwc-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "tirocinante-digital-marketing-media-100-iwc-schaffhausen"
+      ]
     },
     {
       "id": "richemont-c257a8607f3e",
