@@ -51578,6 +51578,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-canton-zugo-mutuo': {
+    title: 'Comprare casa a Zugo: mutuo e fiscalità | Frontaliere Ticino',
+    description: 'Guida completa per acquistare una casa nel Cantone di Zugo: fondi propri richiesti, mutuo ipotecario, imposta sui trapassi e spese notarili della Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, zugo, mutuo',
+    ogTitle: 'Comprare casa a Zugo: mutuo e fiscalità',
+    ogDescription: 'Scopri come acquistare un\'abitazione nel Cantone di Zugo: requisiti di fondi propri, mutuo ipotecario svizzero, deducibilità fiscale degli interessi, imposta sui trapassi e spese notarili. Guida step-by-step con calcolatore.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-zugo-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Zugo: mutuo e fiscalità",
+      "description": "Guida completa per acquistare una casa nel Cantone di Zugo: fondi propri richiesti, mutuo ipotecario, imposta sui trapassi e spese notarili della Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-zugo-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Case residenziali moderne in un'area svizzera con vista sui monti"
+      },
+      "datePublished": "2026-08-23T16:37:54+00:00",
+      "dateModified": "2026-08-23T16:37:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-zugo-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

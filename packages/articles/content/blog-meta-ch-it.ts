@@ -3976,6 +3976,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-zugo-guida.title': 'Permesso di domicilio C nel Cantone di Zugo: la guida',
     'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'Come ottenere il permesso di domicilio C nel Cantone di Zugo: requisiti di residenza, integrazione e la procedura presso l\'Ufficio della migrazione.',
     'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Documenti amministrativi e ufficio nel Cantone di Zugo',
+    'blog.article.comprare-casa-canton-zugo-mutuo.title': 'Comprare casa a Zugo: mutuo e fiscalità',
+    'blog.article.comprare-casa-canton-zugo-mutuo.excerpt': 'Guida completa per acquistare una casa nel Cantone di Zugo: fondi propri richiesti, mutuo ipotecario, imposta sui trapassi e spese notarili della Svizzera.',
+    'blog.article.comprare-casa-canton-zugo-mutuo.imageAlt': 'Case residenziali moderne in un\'area svizzera con vista sui monti',
 };
 
 export default blogMetaChIt;
