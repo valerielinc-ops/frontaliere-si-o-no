@@ -10632,6 +10632,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Vorzeitige Pensionierung von Grenzgängern 2026: Fehler vermeiden',
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Vollständiger Leitfaden zur Frühpensionierung für Grenzgänger: AHV-Strafe 6,8%, BVG-FAKTOR reduziert, SECO-INPS-Koordination. Häufige Fehler, die im Jahr 2026 zu vermeiden sind.',
     'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Blick auf den Luganer See: Eine frühe Pensionierung erfordert korrekte finanzielle Berechnungen',
+    'blog.article.vivere-lozza-lavorare-ticino.title': 'Wohnen in Lozza und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Verbindungen, Reisezeiten und Lebenshaltungskosten für Grenzgänger',
+    'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Bild eines Grenzarbeiters mit einer Karte von Lozza und Ticino',
 };
 
 export default blogMetaDe;
