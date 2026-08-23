@@ -3982,6 +3982,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zugo-locazione-deposito-procedura.title': 'Location Zoug : loyers et droits de location',
     'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Guide de vos droits locataires et bailleurs en Suisse : dépôt de garantie, résiliation, contestation et autorité de conciliation.',
     'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Rue résidentielle suisse avec immeubles locatifs et panneaux immobiliers',
+    'blog.article.locazione-zugo-deposito-contestazione.title': 'Location à Zoug : règles, dépôt et contestation',
+    'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Guide du droit de location dans le canton de Zoug : limites du dépôt de garantie, procédures de contestation et délais de résiliation selon le code civil fédéral.',
+    'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Bâtiments résidentiels du canton de Zoug avec vue sur le lac et architecture suisse',
 };
 
 export default blogMetaChFr;

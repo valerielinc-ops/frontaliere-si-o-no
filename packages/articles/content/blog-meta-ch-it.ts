@@ -3982,6 +3982,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zugo-locazione-deposito-procedura.title': 'Affitti Zugo: canoni e diritti di locazione',
     'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Guida ai tuoi diritti di affittuario e locatore in Svizzera: deposito cauzionale, disdetta, contestazione e autorità di conciliazione.',
     'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Strada residenziale svizzera con edifici in affitto e segnaletica di annunci immobiliari',
+    'blog.article.locazione-zugo-deposito-contestazione.title': 'Locazione a Zugo: regole, deposito e contestazione',
+    'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Guida al diritto di locazione nel Canton Zugo: limiti del deposito cauzionale, procedure di contestazione e scadenze di disdetta secondo il codice civile federale.',
+    'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Panorama del Cantone di Zugo con edifici residenziali moderni sullo sfondo del lago',
 };
 
 export default blogMetaChIt;

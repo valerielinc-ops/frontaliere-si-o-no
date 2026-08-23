@@ -1353,6 +1353,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-zugo-guida': { it: 'permesso-domicilio-c-zugo-guida', en: 'residence-permit-c-zug-guide', de: 'niederlassungsbewilligung-c-zug-leitfaden', fr: 'permis-etablissement-c-zoug-guide' },
  'comprare-casa-canton-zugo-mutuo': { it: 'comprare-casa-canton-zugo-mutuo', en: 'buy-house-canton-zug-mortgage', de: 'haus-kauf-kanton-zug-hypothek', fr: 'acheter-maison-canton-zoug-hypotheque' },
  'zugo-locazione-deposito-procedura': { it: 'zugo-locazione-deposito-procedura', en: 'zugo-rental-deposit-procedure', de: 'zug-mietvertrag-kaution-verfahren', fr: 'zug-location-depot-procedure' },
+ 'locazione-zugo-deposito-contestazione': { it: 'locazione-zugo-deposito-contestazione', en: 'zug-rental-deposit-dispute-procedure', de: 'mietrecht-zug-kaution-einspruch-verfahren', fr: 'location-zoug-depot-conteste-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
