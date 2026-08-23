@@ -50525,6 +50525,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigie-obvaldo-malattia-riduzione': {
+    title: 'Premi LAMal Obvaldo: franchigie e riduzione | Frontaliere Ticino',
+    description: 'Franchigie CHF 300-2500 e riduzioni di premio LAMal a Obvaldo. Procedura richiesta, documenti, scadenze annuali e modelli assicurativi alternativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, obvaldo, franchigie',
+    ogTitle: 'Premi LAMal Obvaldo: franchigie e riduzione',
+    ogDescription: 'Scopri le sei franchigie disponibili, come richiedere la riduzione di premio a Obvaldo, i criteri di ammissibilità ai sussidi cantonali, e come confrontare i modelli assicurativi alternativi.',
+    canonicalPath: '/articoli-svizzera/franchigie-obvaldo-malattia-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Obvaldo: franchigie e riduzione",
+      "description": "Franchigie CHF 300-2500 e riduzioni di premio LAMal a Obvaldo. Procedura richiesta, documenti, scadenze annuali e modelli assicurativi alternativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigie-obvaldo-malattia-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con simboli di previdenza sanitaria e architettura cantonale tradizionale"
+      },
+      "datePublished": "2026-08-23T05:27:44+00:00",
+      "dateModified": "2026-08-23T05:27:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franchigie-obvaldo-malattia-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

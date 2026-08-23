@@ -11683,6 +11683,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'franchigie-obvaldo-malattia-riduzione',
+    category: 'pratico',
+    date: '2026-08-23T05:27:44.369Z',
+    image: '/images/blog/franchigie-obvaldo-malattia-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

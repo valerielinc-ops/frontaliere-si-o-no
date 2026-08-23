@@ -3895,6 +3895,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svitto-tasse-eredita-aliquote.title': 'Inheritance and donation tax: the Svitto rates',
     'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'How inheritance and gift tax works in the Canton of Schwyz: rates for degree of kinship, exemptions and deadlines for declaration.',
     'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Notary office with succession and donation documents on professional desk',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.title': 'LAMal Obvaldo premiums: deductibles and reduction',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.excerpt': 'Compulsory deductibles, premium reductions and cantonal health insurance benefits in the Canton of Obvaldo. Application procedure and alternative insurance models.',
+    'blog.article.franchigie-obvaldo-malattia-riduzione.imageAlt': 'Alpine Swiss landscape with healthcare symbolism and traditional cantonal architecture',
 };
 
 export default blogMetaChEn;
