@@ -50486,6 +50486,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svitto-tasse-eredita-aliquote': {
+    title: 'Imposta di successione e donazione: le aliquote di Svitto',
+    description: 'Come funziona l\'imposta di successione e donazione nel Canton Svitto: aliquote per grado di parentela, esenzioni e scadenze per la dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, aliquote',
+    ogTitle: 'Imposta di successione e donazione: le aliquote di Svitto',
+    ogDescription: 'Guida completa: imposte di successione e donazione nel Canton Svitto. Aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedure di dichiarazione, documenti necessari secondo la legge cantonale vigente.',
+    canonicalPath: '/articoli-svizzera/svitto-tasse-eredita-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione: le aliquote di Svitto",
+      "description": "Come funziona l'imposta di successione e donazione nel Canton Svitto: aliquote per grado di parentela, esenzioni e scadenze per la dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-tasse-eredita-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio notarile con documenti e scrivania per successioni e donazioni nel Canton Svitto"
+      },
+      "datePublished": "2026-08-23T05:00:01+00:00",
+      "dateModified": "2026-08-23T05:00:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-tasse-eredita-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franchigie-obvaldo-malattia-riduzione': {
+    title: 'Premi LAMal Obvaldo: franchigie e riduzione | Frontaliere Ticino',
+    description: 'Franchigie CHF 300-2500 e riduzioni di premio LAMal a Obvaldo. Procedura richiesta, documenti, scadenze annuali e modelli assicurativi alternativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, obvaldo, franchigie',
+    ogTitle: 'Premi LAMal Obvaldo: franchigie e riduzione',
+    ogDescription: 'Scopri le sei franchigie disponibili, come richiedere la riduzione di premio a Obvaldo, i criteri di ammissibilità ai sussidi cantonali, e come confrontare i modelli assicurativi alternativi.',
+    canonicalPath: '/articoli-svizzera/franchigie-obvaldo-malattia-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Obvaldo: franchigie e riduzione",
+      "description": "Franchigie CHF 300-2500 e riduzioni di premio LAMal a Obvaldo. Procedura richiesta, documenti, scadenze annuali e modelli assicurativi alternativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigie-obvaldo-malattia-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con simboli di previdenza sanitaria e architettura cantonale tradizionale"
+      },
+      "datePublished": "2026-08-23T05:27:44+00:00",
+      "dateModified": "2026-08-23T05:27:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franchigie-obvaldo-malattia-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-obvaldo-guida-pratica': {
+    title: 'Permesso di dimora B: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Il permesso B consente dimora rinnovabile in Svizzera. Guida completa su requisiti, documenti, durata e procedura di rinnovo a livello federale e cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, requisiti, rinnovo',
+    ogTitle: 'Permesso di dimora B: guida a requisiti e rinnovo',
+    ogDescription: 'Permesso di dimora B rinnovabile in Svizzera: come ottenerlo, quali documenti servono, quanto dura, come rinnovarlo. Procedura federale e contatti uffici cantonali. Guida pratica.',
+    canonicalPath: '/articoli-svizzera/permesso-b-obvaldo-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B: requisiti e rinnovo",
+      "description": "Il permesso B consente dimora rinnovabile in Svizzera. Guida completa su requisiti, documenti, durata e procedura di rinnovo a livello federale e cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-obvaldo-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con sportello per i permessi di dimora e registrazione stranieri."
+      },
+      "datePublished": "2026-08-23T06:02:59+00:00",
+      "dateModified": "2026-08-23T06:02:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-obvaldo-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-canton-obvaldo-guida': {
+    title: 'Naturalizzazione Canton Obvaldo: requisiti e procedura',
+    description: 'Guida completa alla naturalizzazione ordinaria nel Canton Obvaldo: documenti, permessi C, test di integrazione e iter burocratico presso le autorità locali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, obvaldo, requisiti',
+    ogTitle: 'Naturalizzazione Canton Obvaldo: Requisiti e Procedura',
+    ogDescription: 'Vuoi ottenere la cittadinanza svizzera nel Canton Obvaldo? Scopri tutti i passaggi necessari, dai criteri di residenza ai test di integrazione e documentazione richiesta.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-obvaldo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Canton Obvaldo: requisiti e procedura",
+      "description": "Guida completa alla naturalizzazione ordinaria nel Canton Obvaldo: documenti, permessi C, test di integrazione e iter burocratico presso le autorità locali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-obvaldo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo comunale nel Canton Obvaldo"
+      },
+      "datePublished": "2026-08-23T06:37:18+00:00",
+      "dateModified": "2026-08-23T06:37:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-obvaldo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-export-svizzera-luglio-2026': {
+    title: 'Export svizzero: record a luglio 2026 con +13,8%',
+    description: 'L\'export svizzero cresce del 13,8% a luglio 2026. Bilancia commerciale record a 8,1 miliardi grazie al traino del settore chimico-farmaceutico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, svizzero, record, luglio',
+    ogTitle: 'Export svizzero: record a luglio 2026 con +13,8%',
+    ogDescription: 'L\'economia svizzera accelera a luglio 2026: esportazioni a 27,8 miliardi e bilancia commerciale con un surplus record di 8,1 miliardi di franchi.',
+    canonicalPath: '/articoli-svizzera/export-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export svizzero: record a luglio 2026 con +13,8%",
+      "description": "L'export svizzero cresce del 13,8% a luglio 2026. Bilancia commerciale record a 8,1 miliardi grazie al traino del settore chimico-farmaceutico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/export-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Container e logistica in un porto o centro merci svizzero"
+      },
+      "datePublished": "2026-08-23T07:06:53+00:00",
+      "dateModified": "2026-08-23T07:06:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/export-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calcolo-rendita-avs-lacune-contributive': {
+    title: 'Calcolo rendita AVS e lacune contributive | Frontaliere Ticino',
+    description: 'Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS e come le lacune contributive sono coperte dalle prestazioni complementari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, rendita, lacune, contributive',
+    ogTitle: 'Rendita AVS: calcolo e prestazioni complementari',
+    ogDescription: 'Nel sistema previdenziale svizzero, la cassa di compensazione cantonale gestisce il calcolo della rendita AVS. Scopri come funzionano le lacune contributive e come le prestazioni complementari garantiscono una copertura del minimo vitale.',
+    canonicalPath: '/articoli-svizzera/calcolo-rendita-avs-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolo rendita AVS e lacune contributive",
+      "description": "Come funziona la cassa di compensazione cantonale nel calcolo della rendita AVS e come le lacune contributive sono coperte dalle prestazioni complementari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calcolo-rendita-avs-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di amministrazione cantonale svizzera: cassa di compensazione per il calcolo della rendita AVS"
+      },
+      "datePublished": "2026-08-23T07:35:26+00:00",
+      "dateModified": "2026-08-23T07:35:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calcolo-rendita-avs-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avc-lacune-contributive-prestazioni': {
+    title: 'AVS in Obvaldo: rendita e prestazioni complementari',
+    description: 'Scopri come funziona la cassa di compensazione cantonale, il calcolo della rendita AVS e le prestazioni complementari nel Canton Obvaldo per il minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, obvaldo, rendita, prestazioni, complementari',
+    ogTitle: 'AVS in Obvaldo: rendita e prestazioni complementari',
+    ogDescription: 'Rendita AVS, lacune contributive, prestazioni complementari: guida al primo pilastro nel Canton Obvaldo. Scopri come funziona la cassa di compensazione cantonale e il minimo vitale garantito dalla previdenza svizzera.',
+    canonicalPath: '/articoli-svizzera/avc-lacune-contributive-prestazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS in Obvaldo: rendita e prestazioni complementari",
+      "description": "Scopri come funziona la cassa di compensazione cantonale, il calcolo della rendita AVS e le prestazioni complementari nel Canton Obvaldo per il minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avc-lacune-contributive-prestazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di previdenza AVS con calcolatrice su una scrivania, dichiarazione di rendita e bandiera svizzera."
+      },
+      "datePublished": "2026-08-23T08:07:53+00:00",
+      "dateModified": "2026-08-23T08:07:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avc-lacune-contributive-prestazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
