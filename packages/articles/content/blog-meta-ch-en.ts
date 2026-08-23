@@ -3964,6 +3964,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquistare-casa-glarona-finanziamento.title': 'Buying a house in Glarus: prices, mortgages and costs',
     'blog.article.acquistare-casa-glarona-finanziamento.excerpt': 'Complete guide to buying a house in the canton of Glarus: discover the tax costs (federal, cantonal, municipal), how mortgage mortgages work and which regulatory sources to consult.',
     'blog.article.acquistare-casa-glarona-finanziamento.imageAlt': 'Swiss residential villa on hillside with modern architecture overlooking alpine landscape',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Glarus transport subscriptions: zones, rates and discounts',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Tariff zone system, annual and monthly subscriptions, combination with half-price AG and discounts for students and apprentices in the Canton of Glarus.',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Swiss Alpine railway station with regional train surrounded by mountain landscape',
 };
 
 export default blogMetaChEn;

@@ -3964,6 +3964,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquistare-casa-glarona-finanziamento.title': 'Acheter une maison Glaris : prix, hypothèques et coûts',
     'blog.article.acquistare-casa-glarona-finanziamento.excerpt': 'Guide complet pour l\'achat d\'une maison dans le canton de Glaris : découvrez les coûts fiscaux (fédéral, cantonal, communal), le fonctionnement des prêts hypothécaires et les sources réglementaires à consulter.',
     'blog.article.acquistare-casa-glarona-finanziamento.imageAlt': 'Villa résidentielle suisse sur colline avec architecture moderne surplombant paysage alpin',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Abonnements transports Glaris : zones, tarifs et réductions',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Système de zones tarifaires, abonnements annuels et mensuels, combinaison avec demi-tarif AG et réductions pour étudiants et apprentis dans le canton de Glaris.',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Gare ferroviaire alpine suisse avec train régional dans un paysage montagneux',
 };
 
 export default blogMetaChFr;

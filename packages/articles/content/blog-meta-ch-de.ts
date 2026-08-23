@@ -3964,6 +3964,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquistare-casa-glarona-finanziamento.title': 'Haus Glarus kaufen: Preise, Hypotheken und Kosten',
     'blog.article.acquistare-casa-glarona-finanziamento.excerpt': 'Vollständiger Leitfaden zum Hauskauf im Kanton Glarus: Entdecken Sie die Steuerkosten (Bund, Kanton, Gemeinde), wie Hypothekendarlehen funktionieren und welche regulatorischen Quellen Sie konsultieren können.',
     'blog.article.acquistare-casa-glarona-finanziamento.imageAlt': 'Schweizer Wohnvilla auf Hügel mit moderner Architektur im Alpenpanorama',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Fahrkarten Glarus: Zonen, Tarife und Rabatte',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Tarifzonen-System, Jahres- und Monatsabonnements, Kombination mit GA-Halbtax und Rabatten für Studierende und Lernende im Kanton Glarus.',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Schweizer Bergbahnhof mit Regionalzug in Alpengegend',
 };
 
 export default blogMetaChDe;

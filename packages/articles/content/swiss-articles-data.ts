@@ -11890,6 +11890,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'abbonamenti-trasporti-glarona-tariffe',
+    category: 'pratico',
+    date: '2026-08-23T14:43:40.056Z',
+    image: '/images/blog/abbonamenti-trasporti-glarona-tariffe.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
