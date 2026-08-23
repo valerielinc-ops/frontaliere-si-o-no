@@ -1,20 +1,21 @@
 {
   "key": "med-ipersonal",
   "label": "MediPersonal",
-  "generatedAt": "2026-08-23T09:57:08.832Z",
+  "generatedAt": "2026-08-23T21:23:10.310Z",
   "total": 15,
   "discovered": null,
   "written": 15,
-  "newCount": 15,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8899,
-  "avgDurationMs": 8899,
+  "durationMs": 7345,
+  "avgDurationMs": 7345,
   "durationHistory": [
-    8899
+    7345
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "med-ipersonal-7419a9a85a08",
       "slug": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
@@ -27,7 +28,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:00.971Z",
+      "crawledAt": "2026-08-23T21:23:03.789Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:00.971Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-sursee-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:01.306Z",
+      "crawledAt": "2026-08-23T21:23:04.102Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-sursee-freie-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:01.306Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-horw-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:01.609Z",
+      "crawledAt": "2026-08-23T21:23:04.403Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,11 +111,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-horw-freie-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:01.609Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -126,7 +133,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-kriens-direkte-festanstellung/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:01.913Z",
+      "crawledAt": "2026-08-23T21:23:04.705Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,11 +146,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-kriens-direkte-festanstellung/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:01.913Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -159,7 +168,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-emmenbruecke-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:02.217Z",
+      "crawledAt": "2026-08-23T21:23:05.009Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,11 +181,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-emmenbruecke-temporaerbuero-ipersonal/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:02.217Z",
+      "_qualityScore": 51,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 12,
         "completeness": 14
       }
     },
@@ -192,7 +203,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:02.522Z",
+      "crawledAt": "2026-08-23T21:23:05.310Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,11 +216,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:02.522Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -225,7 +238,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-ruswil-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:02.824Z",
+      "crawledAt": "2026-08-23T21:23:05.612Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,11 +251,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-ruswil-jobangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:02.824Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -258,7 +273,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-wolhusen-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:03.128Z",
+      "crawledAt": "2026-08-23T21:23:05.914Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,11 +286,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-wolhusen-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:03.128Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -291,7 +308,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-escholzmatt-direkte-festanstellung/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:03.436Z",
+      "crawledAt": "2026-08-23T21:23:06.216Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,11 +321,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-escholzmatt-direkte-festanstellung/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:03.436Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -324,7 +343,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-hochdorf-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:03.740Z",
+      "crawledAt": "2026-08-23T21:23:06.518Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -337,11 +356,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-hochdorf-offene-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:03.740Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -357,7 +378,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.042Z",
+      "crawledAt": "2026-08-23T21:23:06.820Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -370,11 +391,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.042Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -390,7 +413,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-willisau-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.346Z",
+      "crawledAt": "2026-08-23T21:23:07.121Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -403,11 +426,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-willisau-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.346Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -423,7 +448,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.649Z",
+      "crawledAt": "2026-08-23T21:23:07.423Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -436,11 +461,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.649Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -456,7 +483,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.951Z",
+      "crawledAt": "2026-08-23T21:23:07.725Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -469,11 +496,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.951Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -489,7 +518,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:05.254Z",
+      "crawledAt": "2026-08-23T21:23:08.027Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,16 +531,17 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:05.254Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
