@@ -1350,6 +1350,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-glarona-tariffe': { it: 'abbonamenti-trasporti-glarona-tariffe', en: 'glarona-transport-passes-zones-fares', de: 'glarona-verkehrskarten-zonen-tarife', fr: 'glarona-abonnements-transport-zones-tarifs' },
  'aprire-attivita-canton-glarona': { it: 'aprire-attivita-canton-glarona', en: 'open-business-glaurus', de: 'unternehmen-eroffnen-kanton-glarus', fr: 'ouvrir-entreprise-canton-de-glaris' },
  'zugo-riduzione-premi-sussidio': { it: 'zugo-riduzione-premi-sussidio', en: 'zugo-lamal-premium-subsidy', de: 'zugo-krankenkasse-praemien-reduktion', fr: 'zugo-reduction-primes-maladie' },
+ 'permesso-domicilio-c-zugo-guida': { it: 'permesso-domicilio-c-zugo-guida', en: 'residence-permit-c-zug-guide', de: 'niederlassungsbewilligung-c-zug-leitfaden', fr: 'permis-etablissement-c-zoug-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3973,6 +3973,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zugo-riduzione-premi-sussidio.title': 'Krankenkassenprämien Kanton Zug und Prämienverbilligung',
     'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'Wie die KVG-Prämien im Kanton Zug funktionieren, welche sechs Franchisen zur Verfügung stehen und wie Sie auf kantonale Beiträge zugreifen können, um die Kosten der Krankenversicherung zu senken.',
     'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Schweizer Kantonsamt mit Bürgern, die Krankenversicherungsdokumente und Prämienreduktionsanträge besprechen.',
+    'blog.article.permesso-domicilio-c-zugo-guida.title': 'Niederlassungsbewilligung C im Kanton Zug: der Führer',
+    'blog.article.permesso-domicilio-c-zugo-guida.excerpt': 'So erhalten Sie die Niederlassungsbewilligung C im Kanton Zug: Aufenthaltsvoraussetzungen, Integration und das Verfahren beim Migrationsamt.',
+    'blog.article.permesso-domicilio-c-zugo-guida.imageAlt': 'Verwaltungsdokumente und Büro im Kanton Zug',
 };
 
 export default blogMetaChDe;
