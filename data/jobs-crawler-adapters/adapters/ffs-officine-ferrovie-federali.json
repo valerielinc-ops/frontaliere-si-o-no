@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-debitoren-und-kreditorenmanagement-m-w-d/86ba30cf-6927-4a51-be19-16d8337b1970",
     "https://jobs.sbb.ch/v2/offene-stellen/abteilungsleiter-in-entwicklung-bei-der-bahnsteuerung/71fe07e4-289e-4b29-b782-b5df81fa3600",
     "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-fachtechniker-in-industrie/831158b7-c0ce-431d-9cae-fcbecd8ae61b",
     "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-a40/97a912b5-76a7-4f46-a550-e895c36c6270",
@@ -162,5 +163,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-23T09:55:19.106Z"
+  "updatedAt": "2026-08-23T21:32:59.036Z"
 }

@@ -1355,6 +1355,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zugo-locazione-deposito-procedura': { it: 'zugo-locazione-deposito-procedura', en: 'zugo-rental-deposit-procedure', de: 'zug-mietvertrag-kaution-verfahren', fr: 'zug-location-depot-procedure' },
  'locazione-zugo-deposito-contestazione': { it: 'locazione-zugo-deposito-contestazione', en: 'zug-rental-deposit-dispute-procedure', de: 'mietrecht-zug-kaution-einspruch-verfahren', fr: 'location-zoug-depot-conteste-procedure' },
  'attivita-zugo-iscrizione-contributi-obblighi': { it: 'attivita-zugo-iscrizione-contributi-obblighi', en: 'activity-zug-registration-contributions-obligations', de: 'aktivitaet-zug-anmeldung-beitraege-pflichten', fr: 'activite-zoug-inscription-cotisations-obligations' },
+ 'salari-mercato-zugo-settori': { it: 'salari-mercato-zugo-settori', en: 'wages-labour-market-zug-sectors', de: 'loehne-arbeitsmarkt-kanton-zug-sektoren', fr: 'salaires-marche-travail-canton-zug-secteurs' },
+ 'salari-zugo-formazione-livelli': { it: 'salari-zugo-formazione-livelli', en: 'wages-zug-education-levels', de: 'loehne-zug-bildung-stufen', fr: 'salaires-zoug-formation-niveaux' },
+ 'commissioni-twint-piccoli-commercianti': { it: 'commissioni-twint-piccoli-commercianti', en: 'twint-commission-small-retailers-dispute', de: 'twint-gebuehren-kleine-haendler', fr: 'commissions-twint-petits-commercants' },
+ 'mercato-lavoro-zugo-analisi': { it: 'mercato-lavoro-zugo-analisi', en: 'zug-labor-market-analysis', de: 'arbeitsmarkt-zug-analyse', fr: 'analyse-marche-travail-zoug' },
+ 'permesso-b-friburgo-rinnovo-procedura': { it: 'permesso-b-friburgo-rinnovo-procedura', en: 'residence-permit-b-fribourg-renewal-procedure', de: 'aufenthaltserlaubnis-b-freiburg-erneuerung-verfahren', fr: 'permis-sejour-b-fribourg-renouvellement-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

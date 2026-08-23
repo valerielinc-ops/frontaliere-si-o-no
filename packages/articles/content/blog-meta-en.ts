@@ -10621,6 +10621,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Change of employer for border workers: G permit and continuity 2026',
     'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Change of employer for border workers: renewal of G permit, AVS/LPP continuity, tax at source and essential documents within 20 km of the border.',
     'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Frontaliere at cantonal counter with permit G documents for employer change',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Change of employer guide for frontier workers: notice and permission G',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Know the steps for the change of employer for border workers: notice, renewal of permit G, continuity of contributions and documents to be updated.',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Two people in a line at the border between Switzerland and Italy',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Change of employer: G 2026 single permit',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'G permit renewal, AVS/LPP continuity, LAMal and refreshments: complete guide for single border workers from the New Border Agreement 2024.',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Frontier worker signs employment contract in Ticino office with Lake Lugano view in background',
+    'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAINF accident: report checklist for border workers',
+    'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'How to report an accident to LAINF if you are a border worker. Correct procedure, differences in occupational disease, operational checklist with deadlines.',
+    'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'LAINF insurance documents and workplace accident forms on desk in Swiss office',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Early retirement for border crossers 2026: avoid mistakes',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Complete guide to early retirement for border workers: AVS penalty 6.8%, reduced LPP factor, SECO-INPS coordination. Common mistakes to avoid in 2026.',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Lugano\'s lakeside view: proper planning for early retirement requires correct financial calculations',
 };
 
 export default blogMetaEn;

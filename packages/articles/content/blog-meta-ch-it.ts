@@ -3988,6 +3988,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Aprire attività a Zugo: iscrizione e obblighi',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Iscrivere attività a Zugo: forme giuridiche, iscrizione registro commercio, obblighi previdenziali (AVS/AI, LPP) e assicurazioni. Guida federale e cantonale.',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Ufficio amministrazione cantonale con moduli d\'iscrizione al registro di commercio svizzero su scrivania in legno',
+    'blog.article.salari-mercato-zugo-settori.title': 'Salari e mercato del lavoro: il Canton Zugo',
+    'blog.article.salari-mercato-zugo-settori.excerpt': 'Livelli salariali per formazione, settori, orari massimi, contributi federali e contratti collettivi in vigore nel Canton Zugo.',
+    'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline di una città svizzera, simbolo di mercato del lavoro e opportunità occupazionali nel Canton Zugo.',
+    'blog.article.salari-zugo-formazione-livelli.title': 'Salari e lavoro nel Canton Zugo: formazione e livelli',
+    'blog.article.salari-zugo-formazione-livelli.excerpt': 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi.',
+    'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Centro di Zug con edifici per uffici moderni e vista sulle Alpi, simbolo del mercato del lavoro svizzero',
+    'blog.article.commissioni-twint-piccoli-commercianti.title': 'Commissioni Twint doppio: guerra aperta con commercianti',
+    'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'Una perizia svizzera rivela che i piccoli negozi pagano l\'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation chiede l\'intervento federale.',
+    'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Terminale di pagamento digitale e codice QR Twint in una piccola bottega svizzera',
+    'blog.article.mercato-lavoro-zugo-analisi.title': 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
+    'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analisi del mercato zughese: settori trainanti, dinamiche salariali, fiscalità competitiva e previdenza obbligatoria per professionisti e lavoratori.',
+    'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Palazzo uffici moderno nel Cantone di Zugo',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permesso B Friburgo: requisiti e rinnovo',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo.',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Ufficio cantonale della migrazione: sede per il rilascio dei permessi di dimora B in Friburgo',
 };
 
 export default blogMetaChIt;

@@ -1,14 +1,14 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-08-23T09:57:08.830Z",
+  "assembledAt": "2026-08-23T21:23:10.309Z",
   "jobs": [
     {
       "id": "med-ipersonal-a138b6938c4b",
       "slug": "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal",
         "it": "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal",
         "fr": "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -16,9 +16,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben",
         "it": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben",
         "en": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter Treuhand 100% in der Region Neuenkirch gesucht – jetzt bewerben — MediPersonal",
@@ -30,7 +30,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:05.254Z",
+      "crawledAt": "2026-08-23T21:23:08.027Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,18 +44,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal",
+        "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal"
+          "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal",
+          "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:05.254Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -68,16 +69,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:05.254Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-71c93194f04e",
       "slug": "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -85,9 +85,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben",
         "it": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben",
         "en": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter Treuhand 100% in der Region Malters gesucht – jetzt bewerben — MediPersonal",
@@ -99,7 +99,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.951Z",
+      "crawledAt": "2026-08-23T21:23:07.725Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,18 +113,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.951Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -137,16 +138,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:04.951Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-29b64786fdc4",
       "slug": "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -154,9 +154,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht",
         "it": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht",
         "en": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht",
+        "de": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht",
         "fr": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht"
       },
       "description": "Sachbearbeiter Treuhand 100% in der Region Reiden gesucht — MediPersonal",
@@ -168,7 +168,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.649Z",
+      "crawledAt": "2026-08-23T21:23:07.423Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,18 +182,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.649Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -206,16 +207,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:04.649Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-b71c766dd3cf",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal",
         "it": "sachbearbeiter-treuhand-100-per-la-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -223,9 +223,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Willisau gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Willisau gesucht – jetzt bewerben",
         "it": "Sachbearbeiter Treuhand 100% per la Region Willisau gesucht – jetzt bewerben",
         "en": "Sachbearbeiter Treuhand 100% für die Region Willisau gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Willisau gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Willisau gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Willisau gesucht – jetzt bewerben — MediPersonal",
@@ -237,7 +237,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-willisau-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.346Z",
+      "crawledAt": "2026-08-23T21:23:07.121Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,18 +251,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-willisau-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal",
+        "sachbearbeiter-treuhand-100-per-la-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal"
+          "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal",
+          "sachbearbeiter-treuhand-100-per-la-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.346Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -275,16 +276,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:04.346Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-119647a45d3b",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-schotz-jobangebot-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-schotz-jobangebot-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -292,9 +292,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Schötz – Jobangebot",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Schötz – Jobangebot",
         "it": "Sachbearbeiter Treuhand 100% per la Region Schötz – Jobangebot",
         "en": "Sachbearbeiter Treuhand 100% für die Region Schötz – Jobangebot",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Schötz – Jobangebot",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Schötz – Jobangebot"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Schötz – Jobangebot — MediPersonal",
@@ -306,7 +306,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:04.042Z",
+      "crawledAt": "2026-08-23T21:23:06.820Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -320,18 +320,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-schotz-jobangebot-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-schotz-jobangebot-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:04.042Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -344,16 +345,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:04.042Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-25140c34f477",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-hochdorf-offene-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-hochdorf-offene-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -361,9 +361,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Hochdorf – offene Stelle",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Hochdorf – offene Stelle",
         "it": "Sachbearbeiter Treuhand 100% per la Region Hochdorf – offene Stelle",
         "en": "Sachbearbeiter Treuhand 100% für die Region Hochdorf – offene Stelle",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Hochdorf – offene Stelle",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Hochdorf – offene Stelle"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Hochdorf – offene Stelle — MediPersonal",
@@ -375,7 +375,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-hochdorf-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:03.740Z",
+      "crawledAt": "2026-08-23T21:23:06.518Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -389,18 +389,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-hochdorf-offene-stelle/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-hochdorf-offene-stelle-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-hochdorf-offene-stelle-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:03.740Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -413,16 +414,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:03.740Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-eeadfb98a6b9",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-escholzmatt-direkte-festanstellung-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med",
         "it": "sachbearbeiter-treuhand-100-per-la-region-escholzmatt-direkte-festanstellung-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -430,9 +430,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Escholzmatt – Direkte Festanstellung",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Escholzmatt – Direkte Festanstellung",
         "it": "Sachbearbeiter Treuhand 100% per la Region Escholzmatt – Direkte Festanstellung",
         "en": "Sachbearbeiter Treuhand 100% für die Region Escholzmatt – Direkte Festanstellung",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Escholzmatt – Direkte Festanstellung",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Escholzmatt – Direkte Festanstellung"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Escholzmatt – Direkte Festanstellung — MediPersonal",
@@ -444,7 +444,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-escholzmatt-direkte-festanstellung/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:03.436Z",
+      "crawledAt": "2026-08-23T21:23:06.216Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -458,18 +458,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-escholzmatt-direkte-festanstellung/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med",
+        "sachbearbeiter-treuhand-100-per-la-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med"
+          "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med",
+          "sachbearbeiter-treuhand-100-per-la-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:03.436Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -482,16 +483,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:03.436Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-350d764a7e49",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal",
         "it": "sachbearbeiter-treuhand-100-per-la-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -499,9 +499,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Wolhusen gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Wolhusen gesucht – jetzt bewerben",
         "it": "Sachbearbeiter Treuhand 100% per la Region Wolhusen gesucht – jetzt bewerben",
         "en": "Sachbearbeiter Treuhand 100% für die Region Wolhusen gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Wolhusen gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Wolhusen gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Wolhusen gesucht – jetzt bewerben — MediPersonal",
@@ -513,7 +513,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-wolhusen-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:03.128Z",
+      "crawledAt": "2026-08-23T21:23:05.914Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -527,18 +527,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-wolhusen-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal",
+        "sachbearbeiter-treuhand-100-per-la-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal"
+          "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal",
+          "sachbearbeiter-treuhand-100-per-la-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:03.128Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -551,16 +552,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:03.128Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-fb7d5d2add33",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-ruswil-jobangebot-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-ruswil-jobangebot-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -568,9 +568,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Ruswil – Jobangebot",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Ruswil – Jobangebot",
         "it": "Sachbearbeiter Treuhand 100% per la Region Ruswil – Jobangebot",
         "en": "Sachbearbeiter Treuhand 100% für die Region Ruswil – Jobangebot",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Ruswil – Jobangebot",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Ruswil – Jobangebot"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Ruswil – Jobangebot — MediPersonal",
@@ -582,7 +582,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-ruswil-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:02.824Z",
+      "crawledAt": "2026-08-23T21:23:05.612Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -596,18 +596,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-ruswil-jobangebot/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-ruswil-jobangebot-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-ruswil-jobangebot-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:02.824Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -620,16 +621,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:02.824Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-9fd7d51de9a1",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-luzern-offene-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-luzern-offene-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -637,9 +637,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Luzern – offene Stelle",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Luzern – offene Stelle",
         "it": "Sachbearbeiter Treuhand 100% per la Region Luzern – offene Stelle",
         "en": "Sachbearbeiter Treuhand 100% für die Region Luzern – offene Stelle",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Luzern – offene Stelle",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Luzern – offene Stelle"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Luzern – offene Stelle — MediPersonal",
@@ -651,7 +651,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:02.522Z",
+      "crawledAt": "2026-08-23T21:23:05.310Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -665,18 +665,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-luzern-offene-stelle-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-luzern-offene-stelle-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:02.522Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -689,16 +690,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:02.522Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-a4c3e40a47f8",
       "slug": "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal",
         "it": "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal",
         "fr": "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -706,22 +706,22 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal",
-        "en": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal",
         "it": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal",
+        "en": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal",
+        "de": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal",
         "fr": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal"
       },
       "description": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal — MediPersonal",
       "descriptionByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal — MediPersonal",
-        "en": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal — MediPersonal"
+        "en": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal — MediPersonal",
+        "de": "Sachbearbeiter Treuhand 100% in der Region Emmenbrücke – Temporärbüro iPersonal — MediPersonal"
       },
       "location": "Lugano",
       "canton": "TI",
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-emmenbruecke-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:57:02.217Z",
+      "crawledAt": "2026-08-23T21:23:05.009Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -735,18 +735,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-emmenbruecke-temporaerbuero-ipersonal/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal",
+        "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal"
+          "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal",
+          "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:02.217Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -759,16 +760,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:02.217Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-07b74477d2b5",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-kriens-direkte-festanstellung-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-kriens-direkte-festanstellung-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -776,9 +776,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Kriens – Direkte Festanstellung",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Kriens – Direkte Festanstellung",
         "it": "Sachbearbeiter Treuhand 100% per la Region Kriens – Direkte Festanstellung",
         "en": "Sachbearbeiter Treuhand 100% für die Region Kriens – Direkte Festanstellung",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Kriens – Direkte Festanstellung",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Kriens – Direkte Festanstellung"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Kriens – Direkte Festanstellung — MediPersonal",
@@ -790,7 +790,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-kriens-direkte-festanstellung/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:01.913Z",
+      "crawledAt": "2026-08-23T21:23:04.705Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -804,18 +804,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-kriens-direkte-festanstellung/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-kriens-direkte-festanstellung-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-kriens-direkte-festanstellung-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:01.913Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -828,16 +829,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:01.913Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-11aa290afee6",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-horw-freie-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-horw-freie-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -845,9 +845,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Horw – freie Stelle",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Horw – freie Stelle",
         "it": "Sachbearbeiter Treuhand 100% per la Region Horw – freie Stelle",
         "en": "Sachbearbeiter Treuhand 100% für die Region Horw – freie Stelle",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Horw – freie Stelle",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Horw – freie Stelle"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Horw – freie Stelle — MediPersonal",
@@ -859,7 +859,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-horw-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:01.609Z",
+      "crawledAt": "2026-08-23T21:23:04.403Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -873,18 +873,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-horw-freie-stelle/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-horw-freie-stelle-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-horw-freie-stelle-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:01.609Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -897,16 +898,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:01.609Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-89e8c79a2968",
       "slug": "sachbearbeiter-treuhand-100-per-la-region-sursee-freie-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-per-la-region-sursee-freie-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -914,9 +914,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% für die Region Sursee – freie Stelle",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% für die Region Sursee – freie Stelle",
         "it": "Sachbearbeiter Treuhand 100% per la Region Sursee – freie Stelle",
         "en": "Sachbearbeiter Treuhand 100% für die Region Sursee – freie Stelle",
+        "de": "Sachbearbeiter Treuhand 100% für die Region Sursee – freie Stelle",
         "fr": "Sachbearbeiter Treuhand 100% für die Region Sursee – freie Stelle"
       },
       "description": "Sachbearbeiter Treuhand 100% für die Region Sursee – freie Stelle — MediPersonal",
@@ -928,7 +928,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-sursee-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:01.306Z",
+      "crawledAt": "2026-08-23T21:23:04.102Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -942,18 +942,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-sursee-freie-stelle/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-per-la-region-sursee-freie-stelle-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-sursee-freie-stelle-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:01.306Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -966,16 +967,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:01.306Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-7419a9a85a08",
       "slug": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
         "it": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
         "fr": "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -983,9 +983,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben",
         "it": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben",
         "en": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter Treuhand 100% in der Region Ebikon gesucht – jetzt bewerben — MediPersonal",
@@ -997,7 +997,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:57:00.971Z",
+      "crawledAt": "2026-08-23T21:23:03.789Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1011,18 +1011,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:57:00.971Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1035,8 +1036,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:57:00.971Z"
+      "addressRegion": "TI"
     }
   ]
 }

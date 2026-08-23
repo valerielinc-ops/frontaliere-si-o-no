@@ -3988,6 +3988,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Opening a business in Zug: registration and obligations',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Register activities in Zug: legal forms, trade register registration, social security obligations (AVS/AI, LPP) and insurance. Federal and cantonal guidance.',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Swiss cantonal administration office with commercial register forms and documents on wooden desk',
+    'blog.article.salari-mercato-zugo-settori.title': 'Wages and the labour market: the Canton of Zug',
+    'blog.article.salari-mercato-zugo-settori.excerpt': 'Salary levels for training, sectors, maximum hours, federal contributions and collective agreements in force in the Canton of Zug.',
+    'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline of a Swiss city, symbol of labour market and employment opportunities in Canton Zug.',
+    'blog.article.salari-zugo-formazione-livelli.title': 'Wages and work in the Canton of Zug: training and levels',
+    'blog.article.salari-zugo-formazione-livelli.excerpt': 'Swiss labour market: salaries by degree of training, legal hours, compulsory social security (AVS, LPP, LAMal) and collective agreements.',
+    'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Downtown Zug with modern offices and Alpine backdrop, representing Swiss job market',
+    'blog.article.commissioni-twint-piccoli-commercianti.title': 'Twint double commissions: open war with merchants',
+    'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'A Swiss survey reveals that small stores pay 1.3% Twint commissions compared to 0.59% for large ones. The Swiss Retail Federation calls for federal intervention.',
+    'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Digital payment terminal and Twint QR code in a Swiss corner shop',
+    'blog.article.mercato-lavoro-zugo-analisi.title': 'Labour market in Zug: wages and sectoral dynamics',
+    'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analysis of the Zurich market: leading sectors, wage dynamics, competitive taxation and mandatory pensions for professionals and workers.',
+    'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Modern office building in Zug Canton',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permit B Freiburg: Requirements and Renewal',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Renewable permit B in Freiburg: requirements, documents and procedure at the cantonal migration office. Application and renewal guide.',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Cantonal migration office: administrative building for issuing B residence permits in Fribourg',
 };
 
 export default blogMetaChEn;

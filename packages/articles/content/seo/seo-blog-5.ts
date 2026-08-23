@@ -76433,6 +76433,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single': {
+    title: 'Guida al cambio datore per frontalieri: preavviso e permesso G',
+    description: 'Conoscere i passaggi per il cambio datore di lavoro per frontalieri: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, datore, preavviso, permesso',
+    ogTitle: 'Guida al cambio datore di lavoro per frontalieri: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    ogDescription: 'Conoscere i passaggi per il cambio datore di lavoro per frontalieri: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
+    canonicalPath: '/articoli-frontaliere/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida al cambio datore per frontalieri: preavviso e permesso G",
+      "description": "Conoscere i passaggi per il cambio datore di lavoro per frontalieri: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Due persone in una fila al confine tra Svizzera e Italia"
+      },
+      "datePublished": "2026-08-23T20:48:38+00:00",
+      "dateModified": "2026-08-23T20:48:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuovo-datore-frontaliere-permesso-continuita': {
+    title: 'Cambio datore di lavoro: permesso G 2026 single',
+    description: 'Guida cambio datore frontalieri: rinnovo permesso G, continuità AVS/LPP, LAMal, ristorni fiscali. Procedure, checklist e calcolo imposta dalla fonte 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, datore, lavoro, permesso',
+    ogTitle: 'Cambio datore di lavoro: permesso G 2026 single',
+    ogDescription: 'Cambio datore lavoro frontalieri 2026: procedura permesso G, continuità AVS/LPP/LAMal, ristorni fiscali Italia-Svizzera per single. Checklist operativa e FAQ.',
+    canonicalPath: '/articoli-frontaliere/nuovo-datore-frontaliere-permesso-continuita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio datore di lavoro: permesso G 2026 single",
+      "description": "Guida cambio datore frontalieri: rinnovo permesso G, continuità AVS/LPP, LAMal, ristorni fiscali. Procedure, checklist e calcolo imposta dalla fonte 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuovo-datore-frontaliere-permesso-continuita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere firma contratto di lavoro in ufficio ticinese con vista sul Lago Lugano sullo sfondo"
+      },
+      "datePublished": "2026-08-23T21:21:09+00:00",
+      "dateModified": "2026-08-23T21:21:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-datore-frontaliere-permesso-continuita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lainf-infortunio-checklist-denunzia': {
+    title: 'LAINF infortunio: checklist denunzia per frontalieri',
+    description: 'Guida pratica per denunciare un infortunio a LAINF da frontaliere. Procedure corrette, scadenze di 3 giorni, differenze con malattia professionale, checklist',
+    keywords: 'frontalieri, ticino, svizzera, italia, lainf, infortunio, checklist, denunzia',
+    ogTitle: 'LAINF infortunio: checklist denunzia per frontalieri',
+    ogDescription: 'Cosa fare se subisci un infortunio al lavoro in Svizzera? Guida completa su LAINF per frontalieri: procedure di denunzia, scadenze di 3 giorni, differenze con malattie professionali. Scarica la checklist operativa per proteggere i tuoi diritti.',
+    canonicalPath: '/articoli-frontaliere/lainf-infortunio-checklist-denunzia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAINF infortunio: checklist denunzia per frontalieri",
+      "description": "Guida pratica per denunciare un infortunio a LAINF da frontaliere. Procedure corrette, scadenze di 3 giorni, differenze con malattia professionale, checklist",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lainf-infortunio-checklist-denunzia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti LAINF e moduli di assicurazione infortuni su scrivania in ufficio ticinese"
+      },
+      "datePublished": "2026-08-23T21:52:53+00:00",
+      "dateModified": "2026-08-23T21:52:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lainf-infortunio-checklist-denunzia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ritiro-anticipato-2026-guida': {
+    title: 'Pensionamento anticipato frontalieri 2026: evita gli errori',
+    description: 'Guida completa al pensionamento anticipato per frontalieri: penalità AVS 6,8%, fattore LPP ridotto, coordinamento SECO-INPS. Errori comuni da evitare nel 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, evita, errori',
+    ogTitle: 'Pensionamento anticipato frontalieri 2026: evita gli errori',
+    ogDescription: 'Smetti di commettere errori nel pensionamento anticipato. Scopri i vincoli AVS (penalità 6,8%), il fattore LPP ridotto, e come coordinare SECO, cassa pensioni, INPS per la rendita corretta. Checklist operativa per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ritiro-anticipato-2026-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionamento anticipato frontalieri 2026: evita gli errori",
+      "description": "Guida completa al pensionamento anticipato per frontalieri: penalità AVS 6,8%, fattore LPP ridotto, coordinamento SECO-INPS. Errori comuni da evitare nel 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ritiro-anticipato-2026-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su Lugano e le sponde ticinesi: pianificare il pensionamento anticipato conviene con i calcoli giusti"
+      },
+      "datePublished": "2026-08-23T23:04:51+00:00",
+      "dateModified": "2026-08-23T23:04:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ritiro-anticipato-2026-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -51734,6 +51734,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-zugo-settori': {
+    title: 'Salari e mercato del lavoro: il Canton Zugo | Frontaliere Ticino',
+    description: 'Livelli salariali nel Canton Zugo per grado di formazione, settori, orari di lavoro, contributi federali e contratti collettivi in vigore. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro nel Canton Zugo',
+    ogDescription: 'Guida completa ai salari nel Canton Zugo: scopri i livelli salariali per grado di formazione, i settori che assumono, i contributi previdenziali, l\'orario massimo di lavoro, e come orientarsi nel mercato occupazionale svizzero con strumenti pratici.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-zugo-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro: il Canton Zugo",
+      "description": "Livelli salariali nel Canton Zugo per grado di formazione, settori, orari di lavoro, contributi federali e contratti collettivi in vigore. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-zugo-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Skyline di una città svizzera, simbolo di mercato del lavoro e opportunità occupazionali nel Canton Zugo."
+      },
+      "datePublished": "2026-08-23T21:12:41+00:00",
+      "dateModified": "2026-08-23T21:12:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-zugo-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-zugo-formazione-livelli': {
+    title: 'Salari e lavoro nel Canton Zugo: formazione e livelli',
+    description: 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, lavoro, canton, zugo',
+    ogTitle: 'Salari e lavoro nel Canton Zugo: formazione e livelli',
+    ogDescription: 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi.',
+    canonicalPath: '/articoli-svizzera/salari-zugo-formazione-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e lavoro nel Canton Zugo: formazione e livelli",
+      "description": "Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-zugo-formazione-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di Zug con edifici per uffici moderni e vista sulle Alpi, simbolo del mercato del lavoro svizzero"
+      },
+      "datePublished": "2026-08-23T21:37:47+00:00",
+      "dateModified": "2026-08-23T21:37:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-zugo-formazione-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-commissioni-twint-piccoli-commercianti': {
+    title: 'Commissioni Twint doppio: guerra aperta con commercianti',
+    description: 'Piccoli negozi pagano l\'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation denuncia alla COMCO per abuso di posizione dominante.',
+    keywords: 'frontalieri, ticino, svizzera, italia, commissioni, twint, doppio, guerra',
+    ogTitle: 'Commissioni Twint doppio: guerra aperta con commercianti',
+    ogDescription: 'Una perizia svizzera rivela disparità nelle commissioni Twint tra piccoli e grandi commercianti. La Swiss Retail Federation ha denunciato alla COMCO federale per abuso di posizione dominante delle banche proprietarie.',
+    canonicalPath: '/articoli-svizzera/commissioni-twint-piccoli-commercianti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commissioni Twint doppio: guerra aperta con commercianti",
+      "description": "Piccoli negozi pagano l'1,3% di commissioni Twint contro lo 0,59% dei grandi. La Swiss Retail Federation denuncia alla COMCO per abuso di posizione dominante.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissioni-twint-piccoli-commercianti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Terminale di pagamento digitale e codice QR Twint in una piccola bottega svizzera"
+      },
+      "datePublished": "2026-08-23T21:59:08+00:00",
+      "dateModified": "2026-08-23T21:59:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissioni-twint-piccoli-commercianti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-lavoro-zugo-analisi': {
+    title: 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
+    description: 'Scopri le dinamiche del mercato del lavoro nel Cantone di Zugo: settori trainanti, struttura salariale, fiscalità competitiva e previdenza obbligatoria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, zugo, salari',
+    ogTitle: 'Mercato del lavoro a Zugo: salari e dinamiche settoriali',
+    ogDescription: 'Analisi approfondita del mercato del lavoro nel Cantone di Zugo: dai settori ad alto valore aggiunto alla gestione della fiscalità e della previdenza per i lavoratori.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-zugo-analisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro a Zugo: salari e dinamiche settoriali",
+      "description": "Scopri le dinamiche del mercato del lavoro nel Cantone di Zugo: settori trainanti, struttura salariale, fiscalità competitiva e previdenza obbligatoria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-zugo-analisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo uffici moderno nel Cantone di Zugo"
+      },
+      "datePublished": "2026-08-23T22:46:44+00:00",
+      "dateModified": "2026-08-23T22:46:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-zugo-analisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-friburgo-rinnovo-procedura': {
+    title: 'Permesso B Friburgo: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, friburgo, requisiti, rinnovo',
+    ogTitle: 'Permesso B Friburgo: requisiti e rinnovo',
+    ogDescription: 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo.',
+    canonicalPath: '/articoli-svizzera/permesso-b-friburgo-rinnovo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Friburgo: requisiti e rinnovo",
+      "description": "Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-friburgo-rinnovo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale della migrazione: sede per il rilascio dei permessi di dimora B in Friburgo"
+      },
+      "datePublished": "2026-08-23T23:28:41+00:00",
+      "dateModified": "2026-08-23T23:28:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-friburgo-rinnovo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

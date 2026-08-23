@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-08-23T09:38:01.138Z",
+  "generatedAt": "2026-08-23T21:26:33.609Z",
   "total": 99,
   "newCount": 0,
   "updatedCount": 99,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13113,
-  "avgDurationMs": 13113,
+  "durationMs": 11932,
+  "avgDurationMs": 11932,
   "durationHistory": [
-    13113
+    11932
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,6 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -85,7 +84,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -125,7 +123,6 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1054,7 +1051,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1092,7 +1088,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

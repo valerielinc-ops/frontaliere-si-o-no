@@ -10620,6 +10620,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Arbeitgeberwechsel für Grenzgänger: Genehmigung G und Kontinuität 2026',
     'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Arbeitgeberwechsel für Grenzgänger: Erneuerung der Bewilligung G, Kontinuität AHV/BVG, Quellensteuer und wesentliche Dokumente innerhalb von 20 km von der Grenze.',
     'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Grenzgänger am Schalter mit Arbeitserlaubnispapieren',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Leitfaden zum Arbeitgeberwechsel G',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Kennen Sie die Schritte für den Arbeitgeberwechsel für Grenzgänger: Vorankündigung, Erneuerung der Genehmigung G, Kontinuität der Beiträge und zu aktualisierende Dokumente.',
+    'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Zwei Menschen in einer Schlange an der Grenze zwischen Schweiz und Italien',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Arbeitgeberwechsel: Ausweis G 2026 Single',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'Erneuerung der Bewilligung G, Kontinuität AHV/BVG, KVG und Rückerstattungen: Kompletter Leitfaden für alleinerziehende Grenzgänger aus der Neuen Grenzgängervereinbarung 2024.',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Grenzgänger unterzeichnet Arbeitsvertrag in Tessiner Büro mit Blick auf den Luganersee',
+    'blog.article.lainf-infortunio-checklist-denunzia.title': 'UVG-Unfall: Melde-Checkliste für Grenzgänger',
+    'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'Wie melde ich einen Unfall beim UVG, wenn ich Grenzgänger bin? Korrektes Vorgehen, Unterschiede bei Berufskrankheiten, operative Checkliste mit Fristen.',
+    'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'LAINF-Versicherungsdokumente und Arbeitsunfallformulare auf Schreibtisch in Tessiner Büro',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Vorzeitige Pensionierung von Grenzgängern 2026: Fehler vermeiden',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Vollständiger Leitfaden zur Frühpensionierung für Grenzgänger: AHV-Strafe 6,8%, BVG-FAKTOR reduziert, SECO-INPS-Koordination. Häufige Fehler, die im Jahr 2026 zu vermeiden sind.',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Blick auf den Luganer See: Eine frühe Pensionierung erfordert korrekte finanzielle Berechnungen',
 };
 
 export default blogMetaDe;
