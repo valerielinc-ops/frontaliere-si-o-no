@@ -1327,6 +1327,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'franchigie-obvaldo-malattia-riduzione': { it: 'franchigie-obvaldo-malattia-riduzione', en: 'obvaldo-health-insurance-deductibles-subsidies', de: 'obvaldo-krankenversicherung-franchisen-reduktion', fr: 'obvaldo-assurance-maladie-franchises-reduction' },
  'permesso-b-obvaldo-guida-pratica': { it: 'permesso-b-obvaldo-guida-pratica', en: 'residence-permit-b-obwalden-guide', de: 'aufenthaltserlaubnis-b-obwalden-anleitung', fr: 'permis-de-sejour-b-obwald-guide' },
  'naturalizzazione-canton-obvaldo-guida': { it: 'naturalizzazione-canton-obvaldo-guida', en: 'naturalization-canton-obwalden-guide', de: 'einbuergerung-kanton-obwalden-leitfaden', fr: 'naturalisation-canton-obwald-guide' },
+ 'export-svizzera-luglio-2026': { it: 'export-svizzera-luglio-2026', en: 'swiss-exports-july-2026', de: 'schweizer-exporte-juli-2026', fr: 'exportations-suisses-juillet-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

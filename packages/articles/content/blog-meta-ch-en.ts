@@ -3904,6 +3904,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-obvaldo-guida.title': 'Naturalization Canton Obvaldo: requirements and procedure',
     'blog.article.naturalizzazione-canton-obvaldo-guida.excerpt': 'Discover the process for ordinary naturalization in the Canton of Obvaldo: from possession of the C permit to language tests and social integration.',
     'blog.article.naturalizzazione-canton-obvaldo-guida.imageAlt': 'Municipal administrative building in Canton Obwalden',
+    'blog.article.export-svizzera-luglio-2026.title': 'Swiss exports: record in July 2026 with +13.8%',
+    'blog.article.export-svizzera-luglio-2026.excerpt': 'In July 2026, Swiss exports reached 27.8 billion francs. The trade balance marks a record surplus of 8.1 billion.',
+    'blog.article.export-svizzera-luglio-2026.imageAlt': 'Containers and logistics in a Swiss freight center',
 };
 
 export default blogMetaChEn;
