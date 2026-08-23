@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-08-22T21:35:43.331Z",
+  "assembledAt": "2026-08-23T09:42:08.829Z",
   "jobs": [
     {
       "id": "company-7ubi8k",
@@ -20,7 +20,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-08-22T09:42:42.463Z",
+      "crawledAt": "2026-08-23T09:42:00.764Z",
       "firstSeenAt": "2026-08-18T22:25:33.603Z",
       "titleByLocale": {
         "it": "Masterdata Specialista 60%",
@@ -68,8 +68,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "0200 Deutsch Suche Suche Masterdata Specialist",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1
+      "addressRegion": "BE"
     }
   ]
 }
