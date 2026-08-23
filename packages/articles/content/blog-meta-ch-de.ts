@@ -3988,6 +3988,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Geschäft in Zug eröffnen: Anmeldung und Verpflichtungen',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Aktivitäten in Zug eintragen: Rechtsformen, Handelsregistereintrag, Vorsorgepflichten (AHV/IV, BVG) und Versicherungen. Eidgenössischer und kantonaler Führer.',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Kantonsadministrationsbüro mit Handelsregistrierungsformularen auf Holzschreibtisch',
+    'blog.article.salari-mercato-zugo-settori.title': 'Löhne und Arbeitsmarkt: der Kanton Zug',
+    'blog.article.salari-mercato-zugo-settori.excerpt': 'Lohnniveaus nach Ausbildung, Branchen, Maximalstunden, Bundesbeiträgen und im Kanton Zug geltenden Tarifverträgen.',
+    'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline einer Schweizer Stadt, Symbol des Arbeitsmarkts und Beschäftigungschancen im Kanton Zug.',
 };
 
 export default blogMetaChDe;

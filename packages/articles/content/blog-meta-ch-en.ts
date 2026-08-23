@@ -3988,6 +3988,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.title': 'Opening a business in Zug: registration and obligations',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.excerpt': 'Register activities in Zug: legal forms, trade register registration, social security obligations (AVS/AI, LPP) and insurance. Federal and cantonal guidance.',
     'blog.article.attivita-zugo-iscrizione-contributi-obblighi.imageAlt': 'Swiss cantonal administration office with commercial register forms and documents on wooden desk',
+    'blog.article.salari-mercato-zugo-settori.title': 'Wages and the labour market: the Canton of Zug',
+    'blog.article.salari-mercato-zugo-settori.excerpt': 'Salary levels for training, sectors, maximum hours, federal contributions and collective agreements in force in the Canton of Zug.',
+    'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline of a Swiss city, symbol of labour market and employment opportunities in Canton Zug.',
 };
 
 export default blogMetaChEn;

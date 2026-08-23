@@ -51734,6 +51734,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-zugo-settori': {
+    title: 'Salari e mercato del lavoro: il Canton Zugo | Frontaliere Ticino',
+    description: 'Livelli salariali nel Canton Zugo per grado di formazione, settori, orari di lavoro, contributi federali e contratti collettivi in vigore. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro nel Canton Zugo',
+    ogDescription: 'Guida completa ai salari nel Canton Zugo: scopri i livelli salariali per grado di formazione, i settori che assumono, i contributi previdenziali, l\'orario massimo di lavoro, e come orientarsi nel mercato occupazionale svizzero con strumenti pratici.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-zugo-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro: il Canton Zugo",
+      "description": "Livelli salariali nel Canton Zugo per grado di formazione, settori, orari di lavoro, contributi federali e contratti collettivi in vigore. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-zugo-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Skyline di una città svizzera, simbolo di mercato del lavoro e opportunità occupazionali nel Canton Zugo."
+      },
+      "datePublished": "2026-08-23T21:12:41+00:00",
+      "dateModified": "2026-08-23T21:12:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-zugo-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
