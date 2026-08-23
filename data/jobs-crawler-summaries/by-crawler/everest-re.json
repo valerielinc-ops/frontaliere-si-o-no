@@ -1,18 +1,18 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-08-22T21:38:07.796Z",
+  "generatedAt": "2026-08-23T09:41:03.661Z",
   "total": 1,
   "discovered": null,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5795,
-  "avgDurationMs": 5795,
+  "durationMs": 6102,
+  "avgDurationMs": 6102,
   "durationHistory": [
-    5795
+    6102
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:38:05.560Z",
+      "crawledAt": "2026-08-23T09:41:01.215Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,46 +54,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "everest-re-c78959051657",
-      "slug": "sottoscrittore-i-reinsurance-everest-re-zurich",
-      "company": "Everest Re",
-      "companyKey": "everest-re",
-      "companyDomain": "everestre.com",
-      "title": "Underwriter I, Reinsurance",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriter-I--Reinsurance_R7228",
-      "source": "Everest Re Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-21T10:02:25.422Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Riassicurazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriter-I--Reinsurance_R7228",
-      "jobReqId": "R7228",
-      "firstSeenAt": "2026-07-03T21:59:52.543Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
