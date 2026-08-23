@@ -1,0 +1,632 @@
+name: PR ❌ check fixer (bounded, red required check on bot PRs)
+
+# Gemello di `pr-redflag-fixer.yml`, per il sintomo che quello NON copre.
+#
+# Il 🔴-fixer parte su `pull_request_review`: chiude i findings che il reviewer
+# SCRIVE. Ma il reviewer legge il DIFF, non la CI — quindi una PR autonoma con un
+# check required rosso e nessun 🔴 non ha alcun meccanismo che la guardi. Nessun
+# workflow del repo si attiva su `check_suite`/`check_run` (verificato il
+# 2026-08-23 su tutti i 210 workflow): la PR resta rossa finché un umano non ci
+# inciampa.
+#
+# Misurato sul repo, ultime 100 run di `tests` su branch di PR: 51 branch, 11 con
+# almeno un `tests` fallito, 10 tornati verdi da soli — il buco e' il residuo, ed
+# e' reale. Il caso che l'ha reso visibile e' la PR #6296: il 🔴-fixer ha pushato
+# la sua fix alle 03:39, quella fix ha rotto `monitor-issue-dedup`, il round cap
+# e' scattato alle 04:12, e la PR e' rimasta rossa **20 ore** — rossa per colpa
+# del commit del fixer stesso, con nessuno a guardare.
+#
+# NON agisce mai su PR scritte da umani, ne' su un rosso che non e' piu' quello
+# della HEAD corrente (un rosso stantio non e' un difetto da fixare).
+#
+# ANTI-LOOP: marker `<!-- REDCHECK_FIX_ROUND: N -->`, cap 2 → `needs-human` e
+# STOP senza Claude, identico al gemello e per la stessa ragione (frugalita' di
+# quota: non bruciare turni in un loop che non converge).
+
+on:
+  workflow_run:
+    workflows: ['tests']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'Numero PR da riparare (bypassa il gate workflow_run)'
+        required: true
+
+# Serializzato per BRANCH, non per numero PR: nel contesto `workflow_run` il
+# numero non e' affidabile (`pull_requests` e' vuoto in diversi casi), mentre
+# `head_branch` c'e' sempre. Due round Claude concorrenti sullo stesso branch si
+# sovrascriverebbero il push.
+concurrency:
+  group: redcheck-fix-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  # Preflight (no checkout, solo gh): risolve la PR dal `workflow_run` e applica
+  # OGNI gate prima di spendere un checkout. actionable=false → skip verde,
+  # nessun round consumato. Stessa forma del gemello.
+  preflight:
+    # `tests` gira su PR, ma anche via `workflow_dispatch` — e' cosi' che
+    # `pr-autorebase.yml` ri-testa una head appena rebasata, perche' un push con
+    # PAT su un branch di PR non ri-triggera affidabilmente i workflow
+    # `pull_request`. Gatare sul solo `pull_request` lascerebbe quindi fuori
+    # proprio i rossi delle head rebasate, che sono fra i piu' probabili.
+    # Escluso invece `push`: su main non c'e' nessuna PR da riparare (e il
+    # preflight lo confermerebbe comunque, non trovando PR aperte per il ramo).
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'failure' &&
+       github.event.workflow_run.event != 'push')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      actionable: ${{ steps.pre.outputs.actionable }}
+      pr_number: ${{ steps.pre.outputs.pr_number }}
+      head_ref: ${{ steps.pre.outputs.head_ref }}
+      failed_run_id: ${{ steps.pre.outputs.failed_run_id }}
+    steps:
+      - name: PR actionable, and is the red still the HEAD's?
+        id: pre
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_PR: ${{ github.event.inputs.pr }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          set -uo pipefail
+          skip() { echo "$1"; echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0; }
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            PR="$DISPATCH_PR"
+            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq '.head.sha' 2>/dev/null || echo "")
+            RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
+              --json databaseId,headSha,conclusion \
+              --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
+            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+              skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
+            fi
+          else
+            # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
+            # cercare la PR aperta con questo head branch.
+            PR=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
+              --jq "[.[] | select(.head.ref==\"$RUN_BRANCH\")][0].number" 2>/dev/null || echo "")
+            if [ -z "$PR" ] || [ "$PR" = "null" ]; then
+              skip "Nessuna PR aperta per il branch '$RUN_BRANCH' → skip (no-op)."
+            fi
+          fi
+
+          pr=$(gh api "repos/$REPO/pulls/$PR" 2>/dev/null || echo "")
+          if [ -z "$pr" ]; then
+            skip "PR #$PR non leggibile → skip (no-op)."
+          fi
+
+          state=$(printf '%s' "$pr" | jq -r '.state')
+          draft=$(printf '%s' "$pr" | jq -r '.draft')
+          author_type=$(printf '%s' "$pr" | jq -r '.user.type')
+          author=$(printf '%s' "$pr" | jq -r '.user.login')
+          head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
+          head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
+
+          if [ "$state" != "open" ]; then
+            skip "PR #$PR non piu' OPEN (state=$state) → gia' risolta, skip (no-op)."
+          fi
+          if [ "$draft" = "true" ]; then
+            skip "PR #$PR e' draft → fuori scope (come ogni altro strato), skip (no-op)."
+          fi
+
+          # Scope: solo PR autonome. Identico al gemello, e per lo stesso motivo:
+          # un fixer che riscrive la PR di una persona e' fuori mandato.
+          case "$head_ref" in
+            fix/*) autonomous=true ;;
+            *) [ "$author_type" = "Bot" ] && autonomous=true || autonomous=false ;;
+          esac
+          if [ "$autonomous" != "true" ]; then
+            skip "PR #$PR e' di un umano ($author, head '$head_ref') → fuori scope per design, skip (no-op)."
+          fi
+
+          # Il rosso deve essere quello della HEAD CORRENTE. Un rosso su un SHA
+          # superato e' gia' stato risolto da un push successivo, e "fixarlo"
+          # significherebbe lavorare su una diagnosi vecchia — la trappola che
+          # `frontaliere-gate-giudica-build-vecchia` descrive.
+          if [ "$EVENT_NAME" != "workflow_dispatch" ] && [ "$RUN_SHA" != "$head_sha" ]; then
+            skip "Il rosso e' del commit $RUN_SHA ma la HEAD e' $head_sha → rosso stantio, gia' superato da un push. Skip (no-op)."
+          fi
+
+          # La CI corrente deve essere DAVVERO rossa adesso: fra il trigger e qui
+          # un re-run puo' aver rimesso verde, e allora non c'e' niente da fixare.
+          rollup=$(gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
+            --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | join(", ")' 2>/dev/null || echo "")
+          if [ -z "$rollup" ]; then
+            skip "Nessun check in stato failure sulla HEAD adesso → gia' rientrato, skip (no-op)."
+          fi
+
+          # Non correre sopra il gemello: se il 🔴-fixer sta girando su questo
+          # branch, il suo push arriverebbe sopra il nostro (o viceversa).
+          busy=$(gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
+            --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null || echo 0)
+          if [ "${busy:-0}" -gt 0 ]; then
+            skip "Il 🔴-fixer sta gia' girando su '$head_ref' → skip per evitare una push race (no-op, si rivaluta al prossimo rosso)."
+          fi
+
+          echo "PR #$PR ('$head_ref') rossa su: $rollup → azionabile."
+          {
+            echo "actionable=true"
+            echo "pr_number=$PR"
+            echo "head_ref=$head_ref"
+            echo "failed_run_id=$RUN_ID"
+          } >> "$GITHUB_OUTPUT"
+
+  redcheck-fix:
+    needs: preflight
+    if: needs.preflight.outputs.actionable == 'true'
+    runs-on: ubuntu-latest
+    # 30→40 (2026-07-17): headroom per il cap turni alzato 45→60.
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ needs.preflight.outputs.head_ref }}
+          # Checkout 769-1379s su 3 run: il massimo è il 57% di un cap da 40min,
+          # e il lavoro qui è un run Claude (costoso da buttare). Blobless partial
+          # clone come issue-fix #4189, che è l'altro job Claude-driven con la
+          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e fa
+          # `git merge origin/main` — servono i blob dei file toccati, non la
+          # storia dei blob.
+          filter: blob:none
+        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
+        timeout-minutes: 15
+
+      # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
+      # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
+      # a `main`. Se `main` ha aggiornato un workflow di review DOPO il branch, la
+      # re-review (ri-triggerata dal push del fix sotto) fallirebbe `401 Workflow
+      # validation failed`, review vuota, niente `## LGTM`, niente auto-merge — e il
+      # 🔴-fix risulterebbe RED senza colpa propria (osservato 2× nel campione 7gg).
+      # Allineare i workflow PRIMA: `merge origin/main` no-op se già fresh; il merge
+      # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
+      # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
+      - name: Align review workflows (merge origin/main, anti-401 drift)
+        run: |
+          set -uo pipefail
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
+          if git merge --no-edit origin/main; then
+            echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
+          else
+            echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
+            git merge --abort || true
+            # Prima del fix del refspec (#6074) `origin/main` non si risolveva mai
+            # ("unknown revision"), quindi questo `--abort` era sempre un no-op su un
+            # merge mai iniziato: il path di un conflitto GENUINO (MERGE_HEAD reale,
+            # marker di conflitto nel worktree) non è mai stato esercitato in
+            # produzione (#6089). `git merge --abort` è affidabile, ma qui non ci
+            # affidiamo alla sua riuscita silenziosa: verifichiamo esplicitamente che
+            # il worktree sia tornato pulito prima che gli step successivi (npm ci,
+            # l'agent Claude) lo usino, e forziamo il reset se non lo è.
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "::warning::worktree non pulito dopo merge --abort, forzo reset a HEAD."
+              git reset --hard HEAD
+              git clean -fd
+            fi
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il push del fix userà GITHUB_TOKEN (non ri-triggera la re-review automatica)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity for the fix push below = GitHub App installation token
+      # (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and its
+      # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
+      # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # cascade, coda congelata, routing/re-queue inerti). Alert inline
+      # deterministico, dedup sul titolo canonico del monitor daily
+      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
+      # NESSUN token usabile (né App né PAT).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # ── Round cap + capability guard (deterministico, prima di Claude) ────
+      # Conta i marker `<!-- REDCHECK_FIX_ROUND: N -->` già sulla PR. A N>=2 →
+      # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
+      # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
+      # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
+      # un turno.
+      #
+      # HAS_PAT accetta ORA anche APP_TOKEN. Fino al 2026-08-06 era legato al solo
+      # GITHUB_PAT, e il commento lo giustificava con "la App installation token NON
+      # ha lo scope workflows": era vero, ha smesso di esserlo quando alla App
+      # `frontaliere-automation` è stato concesso `workflows: write`. Lasciarlo com'era
+      # avrebbe fatto continuare a saltare i fix su .github/workflows/** con la
+      # motivazione "serve un PAT abilitato" mentre il push sarebbe passato — cioè la
+      # stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
+      #
+      # Allineato al push step più sotto, che era già token-aware
+      # (`env.APP_TOKEN || env.GITHUB_PAT`): erano i due lati della stessa decisione,
+      # tenuti in disaccordo.
+      #
+      # 2026-08-08 (#5288): si legge la CAPACITÀ, non la presenza. Il conio riesce
+      # (201, token valido) anche quando `workflows` è stato richiesto ma mai approvato
+      # sull'installazione — in quel caso il permesso non compare fra i `permissions` e
+      # `mint-app-token.mjs` scrive `APP_TOKEN_WORKFLOWS=false`. Con la vecchia
+      # condizione questo guard avrebbe lasciato PROCEDERE un fix su
+      # `.github/workflows/**` che il push avrebbe poi rifiutato: un turno Claude speso
+      # per intero e buttato, che è esattamente ciò che il guard evita. Fail-closed:
+      # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
+      - name: Round cap + capability guard + tier
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
+        run: |
+          set -uo pipefail
+          MAX_ROUNDS=2
+
+          # Round corrente = numero di marker già presenti.
+          comments=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          ROUND=$(printf '%s' "$comments" | grep -oE 'REDCHECK_FIX_ROUND: [0-9]+' \
+            | grep -oE '[0-9]+' | sort -rn | head -1 || true)
+          ROUND=${ROUND:-0}
+          NEXT=$((ROUND + 1))
+          echo "Round ❌-check-fix correnti: $ROUND (cap $MAX_ROUNDS)"
+
+          if [ "$ROUND" -ge "$MAX_ROUNDS" ]; then
+            echo "::warning::Round cap raggiunto ($ROUND >= $MAX_ROUNDS) → escalation needs-human, no Claude."
+            gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+              || echo "label needs-human assente — creala: gh label create needs-human"
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '🛑 **needs-human** (auto): il ❌-check-fixer ha già tentato %s round senza far tornare verde la CI. STOP automatico (anti-loop, frugalità quota). Serve revisione umana: apri il job fallito, leggi le righe \x60FAIL \x60 e applica il fix a mano.' "$ROUND")" \
+              2>/dev/null || true
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # File cambiati dalla PR (per tier + capability guard). Fallback
+          # GraphQL→REST/cap-100 + `expected`/`files_complete` sono nel CLI
+          # condiviso `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano
+          # una reimplementazione shell inline, tenuta allineata a mano alla
+          # stessa logica in `scripts/ci/pr-collision-detector.mjs` e nel
+          # gemello `pr-review-loop.yml`).
+          result=$(node scripts/ci/fetch-pr-files.mjs --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
+          expected=$(echo "$result" | jq -r '.expected // 0')
+          count=$(echo "$result" | jq -r '.count // 0')
+          files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          files=$(echo "$result" | jq -r '(.files // [])[]')
+          if [ "$files_complete" != "1" ]; then
+            echo "::warning::Elenco file INCOMPLETO ($count/$expected) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+          fi
+          touches_wf=$(echo "$files" | grep -E '^\.github/workflows/' || true)
+          # Elenco incompleto = «non lo so», e su un capability guard «non lo so»
+          # deve pesare come «si'»: il costo di sbagliare in questa direzione e'
+          # uno skip con commento, quello opposto e' un turno Claude bruciato e
+          # un push che fallisce alla fine.
+          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_PAT" != "true" ]; then
+            # Il commento deve dire QUALE dei due operandi ha fatto scattare lo
+            # skip: affermare «la PR tocca i workflow» quando lo scatto viene
+            # dall'elenco incompleto manda chi legge a cercare una modifica che
+            # non c'e'.
+            bt=$(printf '\x60')
+            if [ -n "$touches_wf" ]; then
+              skip_why="la PR tocca ${bt}.github/workflows/**${bt}"
+            else
+              skip_why="l'elenco file è incompleto, quindi non si può escludere che la PR tocchi ${bt}.github/workflows/**${bt}"
+            fi
+            echo "::warning::Skip capability workflows (causa: $skip_why), manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
+            gh pr comment "$PR_NUMBER" --repo "$REPO" \
+              --body "⏭️ 🔴-fixer skip: ${skip_why} e non è disponibile un PAT con scope ${bt}workflows${bt} → il push fallirebbe. Applicare il fix dei 🔴 a mano." \
+              2>/dev/null || true
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Tier (mirror di pr-review-loop / issue-fix): high se la PR
+          # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
+          # services/seo*), normal altrimenti. Modello UNIFICATO claude-sonnet-5
+          # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
+          # restano distinti solo per telemetria/prompt.
+          crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
+          if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
+            echo "tier=high"   >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
+          else
+            echo "tier=normal" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+          fi
+
+          # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
+          # run muore, il round è comunque contato → l'anti-loop tiene).
+          gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDCHECK_FIX_ROUND: %s -->\n_❌-check-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
+            2>/dev/null || true
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+          echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
+
+      - name: Configure git identity
+        if: steps.guard.outputs.proceed == 'true'
+        run: |
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+
+      # Push via App token (primario) / PAT (fallback) — ri-attiva pr-review-loop
+      # = re-review. Senza nessuno dei due il push userebbe GITHUB_TOKEN e la
+      # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
+      # committato. Esposto come remote authenticato.
+      - name: Configure push remote (App token / PAT)
+        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
+        env:
+          PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+        # Stessa classe del bug di pr-autorebase: `actions/checkout` persiste
+        # `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
+        # che sovrascrive lo `x-access-token:<token>` del remote set-url → il `git
+        # push origin` si autenticherebbe come github-actions[bot] (action_required,
+        # no re-review). Azzerare l'extraheader prima del set-url forza l'uso
+        # dell'App token/PAT.
+        run: |
+          git config --unset-all "http.https://github.com/.extraheader" || true
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
+
+      # SHA di partenza (post-merge origin/main, pre-Claude): il classify finale lo
+      # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
+      # pushato un fix → un round che pusha un fix è SUCCESS anche se la run Claude
+      # è poi morta `error_max_turns` in cleanup (false-failure: 28% dei fail nel
+      # campione 7gg pushavano un commit ma il job restava RED → failure-rate
+      # gonfiato nel loop-health-report #1951).
+      - name: Record base SHA (pre-Claude)
+        id: base
+        if: steps.guard.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          # Baseline commenti PRE-Claude (dopo il marker round appena postato dal
+          # guard): serve al classify sotto per distinguere "Claude ha lasciato
+          # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
+          # 'success' senza push (issue #5534).
+          n=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
+
+      # Contesto del rosso, deterministico e BOUNDED, prima di spendere un turno
+      # Claude. Due ragioni per farlo qui e non nel prompt: il log di una run
+      # `tests` e' decine di MB (farlo scaricare all'agente brucia turni di
+      # setup, che e' il primo consumatore misurato in questo repo), e il filtro
+      # giusto e' noto — solo le righe `FAIL `, perche' `cancelled` e le righe di
+      # riepilogo si leggono come fallimenti e mandano la diagnosi fuori strada.
+      - name: Collect failing check context (zero-Claude)
+        id: ctx
+        if: steps.guard.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          FAILED_RUN_ID: ${{ needs.preflight.outputs.failed_run_id }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+        run: |
+          set -uo pipefail
+          OUT="$RUNNER_TEMP/redcheck"
+          mkdir -p "$OUT"
+
+          # Solo i job FALLITI della run: `--log-failed` evita di scaricare
+          # l'intero log della suite verde.
+          gh run view "$FAILED_RUN_ID" --repo "$REPO" --log-failed > "$OUT/raw.log" 2>/dev/null || true
+          if [ ! -s "$OUT/raw.log" ]; then
+            echo "::warning::log della run $FAILED_RUN_ID non leggibile → l'agente dovra' ricavarsi il fallimento da solo."
+            : > "$OUT/failing.txt"
+          else
+            # Il log CI porta gli escape ANSI come TESTO, non come byte: vanno
+            # tolti o il grep sui nomi dei test non aggancia niente.
+            sed -e 's/\x1b\[[0-9;]*m//g' -e 's/\^\[\[[0-9;]*m//g' "$OUT/raw.log" > "$OUT/clean.log"
+            {
+              echo "### Test falliti (righe \`FAIL \`)"
+              grep -E '(^|[[:space:]])FAIL ' "$OUT/clean.log" | sed 's/^[^\t]*\t[^\t]*\t[0-9T:.Z-]*//' | sort -u | head -40
+              echo
+              echo "### Riepilogo vitest"
+              grep -E 'Test Files|Tests  ' "$OUT/clean.log" | sort -u | head -10
+              echo
+              echo "### Estratto attorno al primo fallimento"
+              grep -n -m1 -E '(^|[[:space:]])FAIL ' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
+                sed -n "$((n)),$((n+120))p" "$OUT/clean.log"
+              done
+            } > "$OUT/failing.txt" 2>/dev/null || true
+          fi
+
+          # Cap duro: il contesto non deve diventare esso stesso il consumatore
+          # di turni che questo step esiste per evitare.
+          head -c 24000 "$OUT/failing.txt" > "$OUT/failing.trim" 2>/dev/null || : > "$OUT/failing.trim"
+          mv "$OUT/failing.trim" "$OUT/failing.txt"
+          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL."
+          sed -n '1,25p' "$OUT/failing.txt"
+
+      - name: Setup Headroom compression proxy
+        if: steps.guard.outputs.proceed == 'true'
+        uses: ./.github/actions/setup-headroom
+
+      - name: Run Claude ❌-check-fix
+        id: claude_review
+        if: steps.guard.outputs.proceed == 'true'
+        # Non far fallire il job sull'exit non-zero della action: lo `Classify
+        # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
+        # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un
+        # fallimento del round. I fail genuini (nessun push) vengono ri-marcati RED
+        # dal classify → il segnale "non-progress" resta visibile nel loop-health.
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          PR_TITLE: ${{ needs.preflight.outputs.pr_number }}
+          REPO: ${{ github.repository }}
+          FIX_TIER: ${{ steps.guard.outputs.tier }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        with:
+          # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Stessa identità dello step `Configure push remote (App token / PAT)` qui sopra,
+          # e per la stessa ragione per cui la si passa in issue-fix.yml: senza questo input
+          # `claude-code-action` conia un proprio token e RI-SCRIVE il remote
+          # (`git-config.ts` → `replaceCheckoutCredentials()` fa un `git remote set-url`
+          # incondizionato), buttando via il remote appena configurato. Il commento del
+          # prompt qui sotto — «il remote origin è già autenticato con l'App token» —
+          # era quindi falso nel momento in cui l'agente lo leggeva, e ogni fix 🔴 su
+          # `.github/workflows/**` moriva al push nonostante il guard `HAS_PAT` lo avesse
+          # lasciato passare sulla capacità VERIFICATA (`APP_TOKEN_WORKFLOWS == 'true'`).
+          # Espressione identica a PUSH_TOKEN: se nessuno dei due esiste rende `''`, che è
+          # il ramo di default della action = comportamento odierno invariato.
+          github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          show_full_output: true
+          # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
+          # frontaliere-automation[bot] (App): le PR aggiornate via App token
+          # triggerano con actor = l'App → senza whitelist la action aborta
+          # "non-human actor: frontaliere-automation" (exit 1). Mai `*`.
+          allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
+          # 30->45 (misurato 06-12): 25 fail vs 20 success in 7gg, TUTTI
+          # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
+          # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
+          # opus senza commit e lascia il rosso alla escalation needs-human.
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml claude_args comment, stesso
+          # fix, evita drift tra copie duplicate).
+          # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
+          # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
+          claude_args: "--max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
+          prompt: |
+            Il branch è già checkoutato sulla head della PR #${{ needs.preflight.outputs.pr_number }}, che ha un **check required ROSSO**.
+
+            **Obiettivo:** far tornare verde la CI su questo branch, senza indebolire nulla. NON mergiare.
+
+            **Il contesto del fallimento è GIÀ stato raccolto** (zero-Claude) in `$RUNNER_TEMP/redcheck/failing.txt`: nomi dei test falliti, riepilogo vitest, ed estratto attorno al primo fallimento. **Leggilo con `Read` come PRIMA cosa.** Non rieseguire `gh run view --log`: è lo stesso output, pesa decine di MB, e scaricarlo è il primo consumatore di turni misurato in questo repo.
+
+            **REGOLA #0, che viene prima di ogni altra: non si fa passare un test indebolendolo.**
+            È il modo ovvio e sbagliato di chiudere questo task, ed è vietato da AGENTS.md non-negotiable #1. Concretamente, NON puoi:
+            - cancellare, rinominare, o mettere `.skip`/`.todo` su un test o un `it`/`describe`;
+            - rilassare un'asserzione perché "tanto il valore nuovo è quello giusto" (soglia alzata, `toBe` → `toBeGreaterThan`, regex allargata, `expect` rimossa);
+            - allargare un ratchet, un floor, o un budget per accogliere una regressione;
+            - aggiungere un file a un'allowlist **solo** per zittire il guard.
+            Se la strada giusta ti sembra una di queste, quasi sempre significa che è il **codice della PR** a essere sbagliato: fixa quello.
+
+            **L'unica eccezione, e va guadagnata:** alcuni guard di questo repo dichiarano ESSI STESSI una via di uscita sanzionata (es. `RAW_CREATE_ALLOWED` in `tests/monitor-issue-dedup.test.ts`, che nel proprio commento ammette «route it through the helper, **or** add it with a reason that has been verified against the code»). Puoi usarla solo se: (a) il guard la documenta esplicitamente nel proprio sorgente, (b) verifichi la condizione **contro il codice**, non contro l'intento, e (c) scrivi nel commento *quale* codice hai letto e *cosa* ti garantisce. Se non puoi fare tutte e tre, non è la tua strada.
+
+            **Metodo:**
+            - Capisci PERCHÉ fallisce prima di toccare qualcosa. Le due diagnosi possibili sono opposte: «il codice della PR viola un invariante reale» (→ fixa il codice) oppure «l'invariante ha una via di uscita dichiarata che questo caso soddisfa» (→ vedi l'eccezione sopra).
+            - Riproduci in locale prima di fixare: `npx vitest run <file-del-test>`. Un fix non riprodotto non è un fix.
+            - **Verifica che il rosso sia davvero della PR.** Se lo stesso test fallisce anche su `main` (`git fetch origin main && git stash && git checkout FETCH_HEAD -- <file>`, o più semplicemente controlla se il test tocca file che la PR non ha cambiato), allora è un rosso EREDITATO: commenta dicendolo, con la prova, e TERMINA senza toccare la PR. Ripararlo qui lo nasconderebbe invece di risolverlo.
+            - Fix CHIRURGICO alla CLASSE del difetto (AGENTS.md #6): se il fallimento segnala un pattern, `rg` i sibling e sweepa l'intera classe nella STESSA commit, o giustifica ogni sibling non toccato in `## Non implementato (ancora)`.
+            - Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
+            - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
+            - Rilancia il test dopo il fix, e verifica che sia verde, prima di committare.
+
+            **Chiusura:**
+            - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional.
+            - Push sullo stesso branch: `git push origin HEAD:${{ needs.preflight.outputs.head_ref }}`. Il remote `origin` è già autenticato → ri-attiva `tests` e `pr-review-loop`.
+            - Aggiorna il body della PR (`gh pr edit`) mantenendo `## Implementato` (aggiungi cosa hai riparato e perché il test falliva) + `## Non implementato (ancora)`, con lo stato letterale su ogni bullet.
+
+            **Constraint:**
+            - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".
+            - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → commenta «❌ check non auto-fixabile: <motivo>» e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
+            - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
+      - name: Claude usage metrics
+        if: always() && steps.guard.outputs.proceed == 'true'
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redcheck-fixer"
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
+      #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
+      #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
+      #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
+      #  • nessun push + Claude FAILED          → non-progress reale → RED (segnale
+      #    preservato per il loop-health-report + escalation round-cap).
+      #  • nessun push + Claude SUCCESS + NUOVO commento → terminale pulito (es.
+      #    "🔴 non auto-fixabile: <motivo>", come richiesto dal prompt) → GREEN.
+      #  • nessun push + Claude SUCCESS + NESSUN commento → non-progress SILENZIOSO
+      #    → RED. Prima del 2026-08-10 (issue #5534) questo caso era indistinguibile
+      #    da un round che ha davvero lavorato: 'success' senza push e senza traccia
+      #    usciva verde allo stesso modo di un fix pushato, e né stale-pr-rescuer né
+      #    il round-cap potevano più raccoglierlo (un round "riuscito" non ri-arma
+      #    niente). Il prompt chiede esplicitamente un commento quando non c'è nulla
+      #    da pushare — un round che non lo rispetta non è un terminale legittimo,
+      #    è lo stesso buco della PR #142 del repo gemello.
+      # I fail infra a monte (npm ci, setup, load-rc) restano RED da soli: quegli
+      # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
+      # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always() && steps.guard.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HEAD_REF: ${{ needs.preflight.outputs.head_ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          BASE_COMMENTS: ${{ steps.base.outputs.comments }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+        run: |
+          set -uo pipefail
+          HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
+          git fetch origin "$HEAD_REF" -q 2>/dev/null || true
+          REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
+          echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA claude=$CLAUDE_OUTCOME"
+          if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
+            echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se la CLI è uscita '$CLAUDE_OUTCOME'."
+            exit 0
+          fi
+          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            echo "::error::❌-check-fix: nessun commit pushato e la run Claude è fallita ('$CLAUDE_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            exit 1
+          fi
+          NOW_COMMENTS=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
+            echo "::error::❌-check-fix: nessun commit pushato, Claude uscita '$CLAUDE_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            exit 1
+          fi
+          echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
+          exit 0
