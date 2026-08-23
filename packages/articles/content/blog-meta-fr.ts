@@ -10614,6 +10614,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-tasse-single-2026.title': 'Taxation des frontaliers 2026 : guide pratique pour célibataires',
     'blog.article.frontaliere-tasse-single-2026.excerpt': 'Nouvel accord 2024, impôt à la source, franchises € 7.500–€ 10.000, AVS/LPP, LAMal : tout ce qu\'il faut savoir sur la taxation d\'un frontalier célibataire.',
     'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Vue du lac de Lugano avec les montagnes frontalières suisse-italiennes, symbole de la région transfrontalière du Tessin.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Bulletin de paie frontaliers 2026 : net réel et nouvel accord',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'Comment se forme le net de la paie suisse. Impôt à la source, AVS, LPP, exonération € 7\'500-10\'000 du Nouvel Accord Frontalier et procédure 730 en Italie.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Espace de travail professionnel avec ordinateur portable et bulletin de salaire suisse, vue sur Bellinzone',
 };
 
 export default blogMetaFr;

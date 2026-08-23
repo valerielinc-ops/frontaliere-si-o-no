@@ -10612,6 +10612,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-tasse-single-2026.title': 'Border taxation 2026: practical guide for singles',
     'blog.article.frontaliere-tasse-single-2026.excerpt': 'New agreement 2024, tax at source, deductibles €7,500-€10,000, AVS/LPP, LAMal: everything you need to know about the taxation of a single border crossing.',
     'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Lake Lugano landscape with Swiss-Italian border mountains, representing the Ticino border region.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Border payroll 2026: actual net and New Deal',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'How the net is formed from the Swiss paycheck. Tax at source, AVS, LPP, exemption €7,500-10,000 from the New Frontier Agreement and procedure 730 in Italy.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Professional workspace with laptop and Swiss payslip document, Bellinzona skyline in background',
 };
 
 export default blogMetaEn;
