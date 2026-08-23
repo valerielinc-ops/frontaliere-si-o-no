@@ -10549,6 +10549,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-villadossola-lavorare-ticino.title': 'Vivre à Villadossola et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Guide complet pour ceux qui choisissent Villadossola : fiscalité, nouvel accord, coûts et obligations pour les travailleurs frontaliers au Tessin.',
     'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Navetteur voyageant entre l\'Italie et le Tessin',
+    'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio : frontalier Tessin entre fiscalité et avantages',
+    'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Vivre à Carate Urio et travailler au Tessin : Nouvel Accord 2024, franchises € 7.500–€ 10.000, AVS, LPP, LAMal et procédure Permis G.',
+    'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'Vue du lac Ceresio depuis Carate Urio, avec les Alpes tessinoises en arrière-plan',
 };
 
 export default blogMetaFr;

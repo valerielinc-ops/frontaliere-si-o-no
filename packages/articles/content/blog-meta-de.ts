@@ -10546,6 +10546,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-villadossola-lavorare-ticino.title': 'Wohnen in Villadossola und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für diejenigen, die Villadossola wählen: Besteuerung, neue Vereinbarung, Kosten und Verpflichtungen für Grenzgänger im Tessin.',
     'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Pendler reist zwischen Italien und dem Tessin',
+    'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio: Grenzgänger Tessin zwischen Steuern und Vergünstigungen',
+    'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Leben in Carate Urio und Arbeiten im Tessin: Neues Abkommen 2024, Selbstbehalte €7.500- € 10.000, AHV, BVG, KVG und Genehmigungsverfahren G.',
+    'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'Blick auf den Luganersee von Carate Urio mit den Tessiner Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

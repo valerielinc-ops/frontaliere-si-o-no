@@ -10547,6 +10547,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-villadossola-lavorare-ticino.title': 'Living in Villadossola and working in Ticino as a border worker',
     'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Complete guide for those who choose Villadossola: taxation, new agreement, costs and obligations for border workers in Ticino.',
     'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Commuter traveling between Italy and Ticino',
+    'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio: Ticino border between tax and benefits',
+    'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Living in Carate Urio and working in Ticino: New Agreement 2024, deductibles €7,500-€10,000, AVS, LPP, LAMal and G Permit procedure.',
+    'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'View of Lake Ceresio from Carate Urio village, with Swiss Alps visible across the Ticino border',
 };
 
 export default blogMetaEn;

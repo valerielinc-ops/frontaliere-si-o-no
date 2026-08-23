@@ -31575,6 +31575,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'carate-urio-frontaliere-ticino',
+ category: 'fiscale',
+ date: '2026-08-23T01:57:31.013Z',
+ image: '/images/blog/carate-urio-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
