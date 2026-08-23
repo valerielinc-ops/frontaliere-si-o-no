@@ -3991,6 +3991,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-zugo-settori.title': 'Salari e mercato del lavoro: il Canton Zugo',
     'blog.article.salari-mercato-zugo-settori.excerpt': 'Livelli salariali per formazione, settori, orari massimi, contributi federali e contratti collettivi in vigore nel Canton Zugo.',
     'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline di una città svizzera, simbolo di mercato del lavoro e opportunità occupazionali nel Canton Zugo.',
+    'blog.article.salari-zugo-formazione-livelli.title': 'Salari e lavoro nel Canton Zugo: formazione e livelli',
+    'blog.article.salari-zugo-formazione-livelli.excerpt': 'Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi.',
+    'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Centro di Zug con edifici per uffici moderni e vista sulle Alpi, simbolo del mercato del lavoro svizzero',
 };
 
 export default blogMetaChIt;

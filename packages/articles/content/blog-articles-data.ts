@@ -31800,6 +31800,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-datore-frontaliere-permesso-continuita',
+ category: 'pratico',
+ date: '2026-08-23T21:21:09.297Z',
+ image: '/images/blog/nuovo-datore-frontaliere-permesso-continuita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

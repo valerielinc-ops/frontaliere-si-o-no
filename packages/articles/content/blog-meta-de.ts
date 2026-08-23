@@ -10623,6 +10623,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Leitfaden zum Arbeitgeberwechsel G',
     'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Kennen Sie die Schritte für den Arbeitgeberwechsel für Grenzgänger: Vorankündigung, Erneuerung der Genehmigung G, Kontinuität der Beiträge und zu aktualisierende Dokumente.',
     'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Zwei Menschen in einer Schlange an der Grenze zwischen Schweiz und Italien',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Arbeitgeberwechsel: Ausweis G 2026 Single',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'Erneuerung der Bewilligung G, Kontinuität AHV/BVG, KVG und Rückerstattungen: Kompletter Leitfaden für alleinerziehende Grenzgänger aus der Neuen Grenzgängervereinbarung 2024.',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Grenzgänger unterzeichnet Arbeitsvertrag in Tessiner Büro mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

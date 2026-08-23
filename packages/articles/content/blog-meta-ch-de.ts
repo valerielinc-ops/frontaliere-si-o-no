@@ -3991,6 +3991,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-zugo-settori.title': 'Löhne und Arbeitsmarkt: der Kanton Zug',
     'blog.article.salari-mercato-zugo-settori.excerpt': 'Lohnniveaus nach Ausbildung, Branchen, Maximalstunden, Bundesbeiträgen und im Kanton Zug geltenden Tarifverträgen.',
     'blog.article.salari-mercato-zugo-settori.imageAlt': 'Skyline einer Schweizer Stadt, Symbol des Arbeitsmarkts und Beschäftigungschancen im Kanton Zug.',
+    'blog.article.salari-zugo-formazione-livelli.title': 'Löhne und Arbeit im Kanton Zug: Ausbildung und Niveaustufen',
+    'blog.article.salari-zugo-formazione-livelli.excerpt': 'Schweizer Arbeitsmarkt: Löhne nach Bildungsgrad, gesetzliche Arbeitszeiten, obligatorische Vorsorge (AHV, BVG, KVG) und Kollektivverträge.',
+    'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Innenstadt von Zug mit modernen Bürogebäuden und Alpenpanorama',
 };
 
 export default blogMetaChDe;

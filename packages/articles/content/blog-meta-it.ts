@@ -10625,6 +10625,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.title': 'Guida al cambio datore per frontalieri: preavviso e permesso G',
     'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.excerpt': 'Conoscere i passaggi per il cambio datore di lavoro per frontalieri: preavviso, rinnovo permesso G, continuità contributiva e documenti da aggiornare.',
     'blog.article.cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.imageAlt': 'Due persone in una fila al confine tra Svizzera e Italia',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Cambio datore di lavoro: permesso G 2026 single',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'Rinnovo permesso G, continuità AVS/LPP, LAMal e ristorni: guida completa per frontalieri single dal Nuovo Accordo Frontalieri 2024.',
+    'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Frontaliere firma contratto di lavoro in ufficio ticinese con vista sul Lago Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
