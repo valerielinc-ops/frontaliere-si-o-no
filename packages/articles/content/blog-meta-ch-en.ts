@@ -3871,6 +3871,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Residence permit B canton Svitto: requirements and renewal',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Residence permit B in canton Svitto allows foreign nationals to reside and work in Switzerland. Discover requirements, documents and how to renew it according to SEM regulations.',
     'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Swiss cantonal administrative building housing migration offices for residence permits',
+    'blog.article.calcolo-rendita-avs-svitto.title': 'Complementary services Unscrewed: AVS and vital minimum',
+    'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Guide to the calculation of the AVS annuity, contribution gaps and supplementary benefits in the Canton of Schwyz. Role of the cantonal clearing house and practical procedures to ensure minimum viability.',
+    'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Swiss administrative building in Canton Schwyz for social insurance processing',
 };
 
 export default blogMetaChEn;

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Aug 2026 00:53:12 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 01:43:06 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,75 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Complementary services Unscrewed: AVS and vital minimum</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/calculate-avs-pension-schwyz/</link>
+      <description><![CDATA[Guide to the calculation of the AVS annuity, contribution gaps and supplementary benefits in the Canton of Schwyz. Role of the cantonal clearing house and practical procedures to ensure minimum viability.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Supplementary benefits (PC) supplement the AVS when the annuity does not cover the minimum living
+- The cantonal compensation fund manages registration of contributions, gaps and PC coordination
+- In the canton of Schwyz, the CPs are financed by the Confederation, canton and municipalities
+- Contribution gaps and low incomes are the main causes of access to PCs
+
+## Key facts
+- **What**: Supplementary benefits integrated into the AVS annuity to ensure minimum living
+- When: Requests during or after retirement (reference age: 64 women, 65 men)
+- Where: Canton of Svitto via cantonal compensation fund
+- Who: Crooked residents with insufficient AVS income
+- Amount: Calculated as the difference between living minimum and rent plus lump sums for rentals and LAMal
+- Management: Federal Social Insurance Office coordinates; cantonal administration examines applications
+
+In the canton of Svitto, the cantonal compensation fund is the central body of the first pillar of social security (AVS). It manages the collection of contributions, the recording of insurance periods, the calculation of annuities and coordinates access to supplementary benefits (PC) for residents.
+
+When the monthly AVS annuity does not cover the actual costs of living, supplementary benefits intervene to ensure the minimum living. This system ensures that no pensioner in the canton falls below the poverty line, as long as they apply and meet the requirements
+### How to Calculate AVS Rent and the Role of Contribution Gaps
+
+The monthly AVS income depends on two main factors: the amount of the average salary recorded during the contribution years and the number of years of contributions paid. A full insurance period for men is 45 years; for women 44 years.
+
+When an insured has worked fewer years than necessary, or has had periods without payments, the compensation fund records "contribution gaps". These gaps directly reduce the amount of the final monthly annuity. A common scenario concerns those who have interrupted their career for family reasons, illness or unemployment without contributory coverage.
+
+Not all gaps count equally. The case distinguishes between:
+- ** Justified gaps **: periods covered by contributions due to sickness, invalidity, unemployment, maternity when accredited by the system
+- Unjustified gaps: periods of total absence from the system, sometimes recoverable retroactively through voluntary payments
+
+### Voluntary Deposit Strategies
+
+Those who discover that they have gaps before retirement can pay additional voluntary contributions to the compensation fund, thus increasing their monthly income. After retirement, recovery is generally more difficult and subject to tighter administrative terms.
+
+The swift compensation fund offers free advice to calculate the cost and benefit of a payment
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### How to Apply for Complementary Benefits in the Canton of Schwyz
+
+The process for accessing complementary benefits in the Canton of Schwyz usually begins several months before the expected retirement date.
+
+Phase 1: Request a Payout Estimate — Contact the cantonal compensation fund and request an extract of your insurance account (Versichertenkonto). This document shows all contributory periods, gaps, and the estimated payout at the time of retirement. You can also obtain this document online through the cantonal compensation fund's portal.
+
+**Phase 2: Verify Gaps** — Carefully examine the extract. If you notice missing periods (unregistered work years), report this immediately to the fund with supporting documents (pay slips, contracts). You have a deadline to submit appeals or provide clarifications.
+
+Phase 3: Decision on Additional Contributions — If your payout will be below the minimum vital amount, consider with the fund whether it makes sense to pay voluntary contributions in the months leading up to retirement. The fund will calculate how much to pay to achieve a more adequate payout.
+
+Phase 4: Application for Complementary Benefit — About 3-4 months before retirement, submit a written application to the Canton of Schwyz's Complementary Benefits Office. Attach:
+- AVS (AVS payout certificate) received from the fund after the final review
+- Declaration of income and assets (cantonally issued form)
+- Certificate of mandatory health insurance (LAMal)
+- Recent bank statements if required
+
+Phase 5: Decision and Payment — The cantonal office examines the application within 2-4 weeks. If approved, the PCs are paid automatically along with the AVS payout from the first month of retirement.
+
+### Deadlines, Documents, and Contacts
+
+There is no absolute deadline for submitting a PC application if already retired, but it is recommended to do so no later than the month following retirement. Those who submit late may be entitled to retroactive PCs, but only if the application is processed within the administrative deadlines set by the canton.
+
+The cantonal compensation fund provides specific forms and consultants who can guide you through the process. Many offer free telephone consultations on voluntary payment options and personal payout estimates. It is recommended to contact the fund at least 6-12 months before the expected retirement date to plan accordingly.
+
+[Consult the pension calculator](nav:pension) to estimate your AVS payout, identify potential contributory gaps, and evaluate the impact of voluntary payments before retirement.]]></content:encoded>
+      <pubDate>Sun, 23 Aug 2026 01:43:06 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/calcolo-rendita-avs-svitto</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/calcolo-rendita-avs-svitto.webp" medium="image"/>
+    </item>
     <item>
       <title>Residence permit B canton Svitto: requirements and renewal</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/residence-permit-b-canton-schwyz-requirements-renewal/</link>
@@ -3166,57 +3235,6 @@ You can consult the legislative texts and updates directly via the Swiss Parliam
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/manager-casse-malattia-commissione</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/manager-casse-malattia-commissione.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Psychiatrist diagnosis required for sick fund coverage</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/mental-health-care-costs-switzerland-2024/</link>
-      <description><![CDATA[The costs of mental health care borne by sickness funds increased by 6.1% in 2024 and amounted to about CHF 3.2 billion, equivalent to 7.5% of the total costs of compulsory insurance.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- The Commission on Social Security and Health has convinced the proposal to limit the boom in costs related to the performance of psychologists.
-- Psychotherapy has been reimbursed by nursing homes since 2022.
-- Costs have only increased.
-
-## Key facts
-- **What**: Psychotherapy covered by the sick fund?
-- When: 2022
-- Where: Switzerland
-- Who: Social Security and Health Commission
-- Amount: CHF 3.2 billion
-
-Psychotherapy has been covered by the sick fund since 2022. Since then, the costs have only increased. The Commission on Social Security and Health has convinced the proposal to limit the boom in costs related to the performance of psychologists. The costs of mental health care borne by sickness funds increased by 6.1% in 2024. They amounted to about 3.2 billion francs, equivalent to 7.5% of the total costs of compulsory insurance. These burdens, as well as those of healthcare as a whole, have grown steadily since 2006.
-
-## Concrete examples
-
-In 2022, 30% of psychotherapy cases had been covered by the sick fund. In 2024, this number rose to 45%. In the Canton of Zurich, for example, costs for psychotherapy increased by 10% in 2024, while in the Canton of Bern they increased by 5%. This data was provided by the Social Security and Health Commission.
-
-## Concrete examples of psychotherapy cases
-
-* In 2022, a citizen of Zurich
-The proposal to limit the boom in costs related to the performance of psychologists convinced the Commission on Social Security and Health. The Commission approved a motion to periodically collect data on mental illness and mental well-being in order to have a better information base on the prevalence of such disorders in Switzerland. The motion was passed by 16 votes to 9. A second motion, adopted by 13 votes to 9, provides for the periodic collection of data on mental illness and mental well-being.
-
-The proposal was made in response to rising spending on psychotherapy, which exceeded CHF 1.3 billion in 2022, according to Commission data. This represents a 25% increase over the previous year. The Commission pointed out that most of the psychotherapy services were requested by the citizens of the Canton of Zurich and the Canton of Bern.
-
-The motion approved provides for data on mental illness and mental well-being to be collected periodically through a standardized questionnaire. The questionnaire will be completed by about 10,000 people each year, representing about 10% of the Swiss population. The data collected will be used to improve the management of mental illnesses and to have a better information base on the prevalence of such disorders in Switzerland.
-
-The second motion approved provides that the data on
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-Psychotherapy covered by the sick fund is an important topic in Switzerland. The costs of mental health care borne by sickness funds increased by 6.1% in 2024. They amounted to about 3.2 billion francs, equivalent to 7.5% of the total costs of compulsory insurance. These burdens, as well as those of healthcare as a whole, have grown steadily since 2006. To limit the boom in psychologists' performance costs, it is important that the Social Security and Health Commission continues to monitor the situation and take steps to reduce costs.
-
-According to official data, in 2024, the costs of mental health care were over CHF 150 million higher than in 2023. This represents a growth of 5.1% compared to the previous year. This increase is particularly evident in the cantons of Zurich and Bern, where mental health care costs increased by 7.2% and 6.5% compared to 2023, respectively.
-
-To better understand the situation, it is important to analyze mental health care cost data for each canton. For example, in 2024, the costs of mental health care in the canton of Geneva were around 230 million francs, while in the canton of Lausanne they were around 180 million francs. These data demonstrate how the costs of mental health care vary greatly from canton to canton.
-
-The Commission of Social Security and
-
-Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter gross salary, marital status and municipality for a detailed breakdown.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1945336/costi-pischiatria-svizzera-sanita-mozione)*]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 16:09:28 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/costi-psichiatria-svizzera-2024</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/costi-psichiatria-svizzera-2024.webp" medium="image"/>
     </item>
   </channel>
 </rss>
