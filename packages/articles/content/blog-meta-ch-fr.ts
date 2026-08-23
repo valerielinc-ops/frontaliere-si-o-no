@@ -3961,6 +3961,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-glarona-mutuo.title': 'Acheter une maison à Glaris : hypothèque et impôts',
     'blog.article.comprare-casa-glarona-mutuo.excerpt': 'Guide d\'achat immobilier à Glaris : fonds propres, hypothèque, impôts fédéraux et cantonaux, taxe de passage et frais de notaire.',
     'blog.article.comprare-casa-glarona-mutuo.imageAlt': 'Maison traditionnelle suisse dans la vallée du Glaris au cœur des Alpes',
+    'blog.article.acquistare-casa-glarona-finanziamento.title': 'Acheter une maison Glaris : prix, hypothèques et coûts',
+    'blog.article.acquistare-casa-glarona-finanziamento.excerpt': 'Guide complet pour l\'achat d\'une maison dans le canton de Glaris : découvrez les coûts fiscaux (fédéral, cantonal, communal), le fonctionnement des prêts hypothécaires et les sources réglementaires à consulter.',
+    'blog.article.acquistare-casa-glarona-finanziamento.imageAlt': 'Villa résidentielle suisse sur colline avec architecture moderne surplombant paysage alpin',
 };
 
 export default blogMetaChFr;
