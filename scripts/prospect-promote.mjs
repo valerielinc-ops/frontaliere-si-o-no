@@ -129,12 +129,19 @@ function reconcileOpenPromotions(store) {
  * sola. Saltare e' anche auto-riparante — i candidati restano `promoted`,
  * quindi il giro dopo il merge li riprende senza che nessuno faccia niente.
  *
+ * `--search 'sort:created-desc'` rende esplicito l'ordinamento invece di
+ * assumere il default di `gh pr list` (che coincide, ma non era verificato —
+ * follow-up #6305 item 1). Il limite e' alto apposta: con l'ordinamento reso
+ * esplicito basterebbe l'ultima manciata di PR, ma un limite basso resta un
+ * secondo modo silenzioso di perdere la PR di promozione se il backlog di PR
+ * aperte cresce oltre la finestra.
+ *
  * @returns {{ number: string, createdAt: string, title: string }|null}
  */
 function openPromotionPr() {
   try {
     const out = execFileSync('gh', [
-      'pr', 'list', '--state', 'open', '--limit', '20',
+      'pr', 'list', '--state', 'open', '--search', 'sort:created-desc', '--limit', '300',
       '--json', 'number,createdAt,title,headRefName',
     ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
     return findOpenPromotionPr(JSON.parse(out));
