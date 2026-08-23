@@ -3964,6 +3964,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-casa-glarona-finanziamento.title': 'Comprare casa Glarona: prezzi, mutui e costi',
     'blog.article.acquistare-casa-glarona-finanziamento.excerpt': 'Guida completa all\'acquisto di casa nel canton Glarona: scopri i costi fiscali (federale, cantonale, comunale), come funzionano i mutui ipotecari e quali fonti normative consultare.',
     'blog.article.acquistare-casa-glarona-finanziamento.imageAlt': 'Villetta residenziale svizzera su collina con architettura moderna e vista sul paesaggio alpino',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Abbonamenti trasporti Glarona: zone, tariffe e sconti',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Sistema di zone tariffarie, abbonamenti annuali e mensili, combinazione con metà-prezzo AG e sconti per studenti e apprendisti nel Cantone di Glarona.',
+    'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Stazione ferroviaria alpina svizzera con treno regionale in paesaggio montuoso',
 };
 
 export default blogMetaChIt;
