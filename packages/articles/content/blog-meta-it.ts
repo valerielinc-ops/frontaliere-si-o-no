@@ -10548,6 +10548,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-villadossola-lavorare-ticino.title': 'Vivere a Villadossola e lavorare in Ticino da frontaliere',
     'blog.article.vivere-villadossola-lavorare-ticino.excerpt': 'Guida completa per chi sceglie Villadossola: tassazione, nuovo accordo, costi e adempimenti per i lavoratori frontalieri in Ticino.',
     'blog.article.vivere-villadossola-lavorare-ticino.imageAlt': 'Pendolare che viaggia tra Italia e Ticino',
+    'blog.article.carate-urio-frontaliere-ticino.title': 'Carate Urio: frontaliere Ticino tra fisco e vantaggi',
+    'blog.article.carate-urio-frontaliere-ticino.excerpt': 'Vivere a Carate Urio e lavorare in Ticino: Nuovo Accordo 2024, franchigie €7.500–€10.000, AVS, LPP, LAMal e procedura Permesso G.',
+    'blog.article.carate-urio-frontaliere-ticino.imageAlt': 'Vista del lago Ceresio da Carate Urio, con le Alpi ticinesi sullo sfondo, fotografato al mattino',
 };
 
 export default blogMetaIt;
