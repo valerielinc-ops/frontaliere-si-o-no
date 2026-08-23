@@ -4000,6 +4000,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-zugo-analisi.title': 'Labour market in Zug: wages and sectoral dynamics',
     'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analysis of the Zurich market: leading sectors, wage dynamics, competitive taxation and mandatory pensions for professionals and workers.',
     'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Modern office building in Zug Canton',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permit B Freiburg: Requirements and Renewal',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Renewable permit B in Freiburg: requirements, documents and procedure at the cantonal migration office. Application and renewal guide.',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Cantonal migration office: administrative building for issuing B residence permits in Fribourg',
 };
 
 export default blogMetaChEn;

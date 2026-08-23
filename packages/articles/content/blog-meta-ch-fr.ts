@@ -4000,6 +4000,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-lavoro-zugo-analisi.title': 'Marché du travail à Zoug : salaires et dynamiques sectorielles',
     'blog.article.mercato-lavoro-zugo-analisi.excerpt': 'Analyse du marché zugien : secteurs moteurs, dynamique des salaires, fiscalité compétitive et prévoyance obligatoire pour les professionnels et les travailleurs.',
     'blog.article.mercato-lavoro-zugo-analisi.imageAlt': 'Immeuble de bureaux moderne dans le canton de Zoug',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permis B Fribourg : exigences et renouvellement',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Permis B renouvelable à Fribourg : exigences, documents et procédure auprès de l\'Office cantonal des migrations. Guide de la demande et du renouvellement.',
+    'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Office cantonal de la migration : bâtiment administratif pour l\'émission de permis de séjour B à Fribourg',
 };
 
 export default blogMetaChFr;

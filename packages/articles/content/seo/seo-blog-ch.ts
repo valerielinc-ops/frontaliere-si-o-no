@@ -51890,6 +51890,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-b-friburgo-rinnovo-procedura': {
+    title: 'Permesso B Friburgo: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, friburgo, requisiti, rinnovo',
+    ogTitle: 'Permesso B Friburgo: requisiti e rinnovo',
+    ogDescription: 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo.',
+    canonicalPath: '/articoli-svizzera/permesso-b-friburgo-rinnovo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Friburgo: requisiti e rinnovo",
+      "description": "Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-friburgo-rinnovo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale della migrazione: sede per il rilascio dei permessi di dimora B in Friburgo"
+      },
+      "datePublished": "2026-08-23T23:28:41+00:00",
+      "dateModified": "2026-08-23T23:28:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-friburgo-rinnovo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
