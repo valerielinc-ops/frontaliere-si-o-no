@@ -205,6 +205,23 @@ export function decomposedChildNumbers(comments) {
 const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 10);
 const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 7);
 const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20);
+// Quante candidate all'age-out possono essere rivalutate sull'ultimo evento
+// significativo in una run. Stesso modello del cap del PARKED-RETRY, e stesso
+// motivo: la lettura commenti è l'unica parte cara del passo.
+// 25 copre con margine le 19 candidate `età ≥ AGEOUT_DAYS` misurate sul sito il
+// 2026-08-23 (112 aperte: 80 più giovani di 10gg, 6 non queue-managed, 6
+// tracker, 1 in lavorazione). Il tetto vero resta comunque il `budget` di run,
+// che questo passo condivide col PARKED-RETRY più sotto: a 3s per lettura sono
+// ~75s per ciascuno dei due su ~275s utilizzabili, quindi nessuno dei due può
+// affamare l'altro ai default. L'eccedenza è dichiarata nel log e rivalutata al
+// tick successivo (AGENTS.md "no silent cap").
+const AGEOUT_COMMENT_SCAN_MAX = Number(process.env.FOLLOWUP_AGEOUT_COMMENT_SCAN_MAX || 25);
+// Periodo della finestra rotante (vedi `scanWindowOffset`). 20 minuti = la
+// cadenza del cron di `followup-drainer.yml`, così un tick del cron corrisponde
+// a uno spostamento della finestra. Le run extra innescate da `workflow_run`
+// cadono nello stesso bucket e riusano lo stesso offset: è voluto, altrimenti
+// una raffica di fine-fix sfoglierebbe il pool senza che passi tempo vero.
+const SCAN_ROTATION_PERIOD_MS = Number(process.env.FOLLOWUP_SCAN_ROTATION_MS || 20 * 60_000);
 
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
 // `<!-- FIX_OUTCOME: <code> -->`) DETERMINISTICI: rieseguire il fixer sullo
@@ -583,17 +600,15 @@ export function isPermanentTracker(iss) {
 }
 
 /**
- * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
- * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
- * solo follow-up), NON marcata `agent:no-age-out` (issue-contatore/tracker
- * permanente, #5615), NON in lavorazione (né `agent:fix` né
- * `agent:fix-queued`), creata da ≥ageOutDays E inattiva da ≥inactiveDays. I
- * `fu-parked` ricadono qui (non sono in coda). Il chiamante aggiunge la
- * guardia "nessuna PR aperta" (impura).
- * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
- * @param {{now:number, ageOutDays:number, inactiveDays:number}} opts
+ * Tutto cio' che rende una issue eleggibile all'age-out TRANNE l'inattivita'.
+ * Puro (niente gh) → testabile. Estratto da `isAgeOutEligible` perche' il
+ * chiamante deve poter decidere se vale la pena SPENDERE una lettura commenti
+ * su questa issue: l'inattivita' significativa costa una chiamata, tutto il
+ * resto e' gratis e la esclude prima.
+ * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string}} iss
+ * @param {{now:number, ageOutDays:number}} opts
  */
-export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
+export function isAgeOutCandidate(iss, { now, ageOutDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
@@ -605,11 +620,53 @@ export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   // quando le figlie sono chiuse, che è l'esito giusto.
   if (ls.includes(LBL_DECOMP_QUEUED) || ls.includes(LBL_DECOMP) || ls.includes(LBL_DECOMPOSED)) return false;
   const created = Date.parse(iss?.createdAt);
+  if (Number.isNaN(created)) return false; // data illeggibile → non chiudere
+  return (now - created) / 86_400_000 >= ageOutDays;
+}
+
+/**
+ * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
+ * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
+ * solo follow-up), NON marcata `agent:no-age-out` (issue-contatore/tracker
+ * permanente, #5615), NON in lavorazione (né `agent:fix` né
+ * `agent:fix-queued`), creata da ≥ageOutDays E inattiva da ≥inactiveDays. I
+ * `fu-parked` ricadono qui (non sono in coda). Il chiamante aggiunge la
+ * guardia "nessuna PR aperta" (impura).
+ *
+ * L'INATTIVITÀ si misura sull'ultimo evento SIGNIFICATIVO quando il chiamante
+ * riesce a leggerlo (`significantAt`), e su `updatedAt` solo come ripiego. È la
+ * metà mai riparata del difetto del 2026-08-11: la starvation del PARKED-RETRY
+ * fu chiusa misurando l'attività significativa nel cooldown, ma QUESTA funzione
+ * continuava a leggere `updatedAt` — lo stesso campo che i monitor rinfrescano
+ * ogni 2-3 ore sulle issue che hanno aperto loro. Con entrambe le uscite chiuse
+ * lo stato non era transitorio ma STABILE: mai ritentate e mai chiuse.
+ *
+ * Misurato il 2026-08-23 sui due repo, con i default (10gg età, 7gg quiete):
+ * sito 26 issue oltre i 10 giorni, 7 quiete su `updatedAt`, **intersezione
+ * vuota** → `0` eleggibili; corpus idem, `0`. Non «poche»: zero, su entrambi,
+ * cioè un'uscita chiusa al 100% mentre la coda saliva di +38 (sito) e +28
+ * (corpus) issue in 7 giorni. Rimisurando sull'evento significativo: 6 sul
+ * sito, con casi come #5657 a `idle(updatedAt)=0,08g` contro
+ * `idle(reale)=10,97g` — due ordini di grandezza di scarto, tutto rumore di bot.
+ *
+ * La direzione è sicura per costruzione: un evento significativo è un
+ * SOTTOINSIEME degli eventi che alzano `updatedAt`, quindi
+ * `significantAt ≤ updatedAt` e l'inattività misurata così è sempre ≥ quella
+ * misurata su `updatedAt`. Passare `significantAt` può solo rendere eleggibili
+ * issue che prima non lo erano, mai il contrario — e chi è già eleggibile su
+ * `updatedAt` lo resta senza spendere la lettura.
+ *
+ * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
+ * @param {{now:number, ageOutDays:number, inactiveDays:number, significantAt?:number|null}} opts
+ */
+export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays, significantAt = null }) {
+  if (!isAgeOutCandidate(iss, { now, ageOutDays })) return false;
   const updated = Date.parse(iss?.updatedAt);
-  if (Number.isNaN(created) || Number.isNaN(updated)) return false; // date illeggibili → non chiudere
-  const ageDays = (now - created) / 86_400_000;
-  const idleDays = (now - updated) / 86_400_000;
-  return ageDays >= ageOutDays && idleDays >= inactiveDays;
+  // Ripiego su `updatedAt` solo se non c'è una misura significativa: un
+  // `significantAt` illeggibile non deve MAI far chiudere al buio.
+  const idleFrom = Number.isFinite(significantAt) ? significantAt : updated;
+  if (!Number.isFinite(idleFrom)) return false; // date illeggibili → non chiudere
+  return (now - idleFrom) / 86_400_000 >= inactiveDays;
 }
 
 // --- INATTIVITÀ SIGNIFICATIVA vs `updatedAt` (starvation del PARKED-RETRY) ---
@@ -682,6 +739,51 @@ export function isBotLogin(login) {
 export function isBotComment(comment) {
   if (String(comment?.user?.type || '') === 'Bot') return true;
   return isBotLogin(comment?.user?.login ?? comment?.author?.login);
+}
+
+/**
+ * Offset della finestra di scansione rotante, su un pool più grande del cap.
+ *
+ * La rotazione (2026-08-21) esisteva già ed era la diagnosi giusta: con un cap
+ * fisso e un ordine di `gh` stabile, le eccedenti sarebbero SEMPRE le stesse e
+ * il «rinviate al prossimo tick» del log sarebbe una bugia. Ma il PASSO era di
+ * UNA posizione per tick, mentre il commento accanto dichiarava copertura «in
+ * ⌈pool/cap⌉ tick»: l'invariante documentata non era quella fornita dal codice.
+ *
+ * Con passo 1 la finestra `[offset, offset+cap)` impiega fino a `pool - cap`
+ * tick a raggiungere una data posizione — sui numeri del sito del 2026-08-23
+ * (pool 44, cap 25) sono 19 tick, cioè **~6,5 ore**, non i 2 tick (~40 min)
+ * promessi. Nel frattempo le uniche candidate ri-accodabili restano invisibili:
+ * misurate 4 sopra il cooldown, di cui 2 non capability-scoped (#4854 e #6017,
+ * quest'ultima `fu-prio:high`), e ZERO `PARKED-RETRY` negli ultimi 30 run.
+ *
+ * Avanzare di `cap` posizioni per tick rende vera l'invariante dichiarata: le
+ * finestre di tick consecutivi sono adiacenti e non sovrapposte, quindi il pool
+ * è coperto in ⌈pool/cap⌉ tick esatti. Il costo per run non cambia — sono
+ * sempre e solo `cap` letture.
+ *
+ * Puro (l'orologio è un parametro) → testabile senza rete né `Date.now()`.
+ *
+ * @param {number} poolSize
+ * @param {{scanMax:number, now:number, periodMs:number}} opts
+ * @returns {number} offset in [0, poolSize)
+ */
+export function scanWindowOffset(poolSize, { scanMax, now, periodMs }) {
+  const n = Number(poolSize) || 0;
+  if (n <= 0) return 0;
+  // Pool che ci sta tutto nella finestra → nessuna rotazione da fare: ruotare
+  // cambierebbe solo l'ordine di lettura senza cambiare CHI viene letto.
+  if (!scanMax || scanMax <= 0 || n <= scanMax) return 0;
+  if (!periodMs || periodMs <= 0 || !Number.isFinite(now)) return 0;
+  const tick = Math.floor(now / periodMs);
+  return ((tick * scanMax) % n + n) % n;
+}
+
+/** Il pool, ruotato sulla finestra di scansione di questo tick. */
+export function rotateForScan(pool, opts) {
+  const items = Array.isArray(pool) ? pool : [];
+  const off = scanWindowOffset(items.length, opts);
+  return off ? [...items.slice(off), ...items.slice(0, off)] : items;
 }
 
 /**
@@ -766,15 +868,40 @@ function inFlightFixCount() {
   return n;
 }
 
-function listIssues(label) {
+// Tetto dei listing di issue. `gh issue list` ordina dalle più RECENTI, quindi
+// un limite raggiunto non taglia via un campione qualunque: taglia via le issue
+// più VECCHIE — cioè, per ogni passo di questo file, esattamente quelle che
+// hanno più diritto di essere lavorate o chiuse.
+//
+// Misurato il 2026-08-23 sul sito: 107 issue `fu-parked` contro un `--limit`
+// di 100, e le 7 fuori (#5321 #5314 #5139 #5041 #4854 #4675 #1951) erano
+// invisibili a OGNI passo che parte da `listIssues` — parked-retry ed
+// escalation too-large compresi. Fra queste #4854, che superava il cooldown di
+// 5 giorni e non è capability-scoped: lavoro ri-accodabile che nessun tick
+// avrebbe mai potuto vedere, e senza una riga di log a dirlo. Un silent cap in
+// senso proprio, contro la regola esplicita di AGENTS.md.
+const ISSUE_LIST_LIMIT = Number(process.env.FOLLOWUP_ISSUE_LIST_LIMIT || 300);
+
+/** Elenco issue con tetto DICHIARATO: se il tetto è stato raggiunto lo dice,
+ * invece di restituire in silenzio una vista parziale che sembra completa. */
+function listIssuesBounded(args, what) {
   try {
-    return gh([
-      'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
-      '--json', 'number,title,labels,createdAt,updatedAt', '--limit', '100',
-    ]);
+    const out = gh([...args, '--limit', String(ISSUE_LIST_LIMIT)]);
+    const rows = Array.isArray(out) ? out : [];
+    if (rows.length >= ISSUE_LIST_LIMIT) {
+      console.log(`::warning::listing ${what} al tetto di ${ISSUE_LIST_LIMIT}: la vista è PARZIALE e taglia le issue più vecchie (no silent cap). Alza FOLLOWUP_ISSUE_LIST_LIMIT.`);
+    }
+    return rows;
   } catch {
     return [];
   }
+}
+
+function listIssues(label) {
+  return listIssuesBounded([
+    'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
+    '--json', 'number,title,labels,createdAt,updatedAt',
+  ], `issue aperte con label \`${label}\``);
 }
 
 /** Quante run issue-decompose sono in volo (queued|in_progress). Gemello di
@@ -803,14 +930,10 @@ function inFlightDecomposeCount() {
 // in-process. Limit bound (no scan illimitato); eccesso oltre il cap non è un
 // problema qui perché age-out ha già il suo AGEOUT_MAX_PER_RUN sulle azioni.
 function listAllOpenIssues() {
-  try {
-    return gh([
-      'issue', 'list', '--repo', REPO, '--state', 'open',
-      '--json', 'number,title,labels,createdAt,updatedAt', '--limit', '300',
-    ]);
-  } catch {
-    return [];
-  }
+  return listIssuesBounded([
+    'issue', 'list', '--repo', REPO, '--state', 'open',
+    '--json', 'number,title,labels,createdAt,updatedAt',
+  ], 'issue aperte');
 }
 
 const names = (iss) => (iss.labels || []).map((l) => l.name);
@@ -1260,10 +1383,62 @@ export function runDrain() {
   // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
   if (AGEOUT_DAYS > 0) {
     const now = Date.now();
-    const candidates = listAllOpenIssues()
-      .filter((iss) => isAgeOutEligible(iss, { now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS }))
-      .filter((iss) => !hasFixPR(iss.number)) // mai chiudere una issue con PR aperta
-      .sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt)); // più stantii prima
+    // Chi supera TUTTO tranne l'inattività: è su questo insieme, e solo su
+    // questo, che ha senso spendere una lettura commenti.
+    const aged = listAllOpenIssues().filter((iss) => isAgeOutCandidate(iss, { now, ageOutDays: AGEOUT_DAYS }));
+    // Passo 1 — quiete già su `updatedAt`: eleggibili GRATIS. L'invariante
+    // `significativo ≤ updatedAt` rende il salto sicuro (vedi `isAgeOutEligible`).
+    const eligible = [];
+    const toRescan = [];
+    for (const iss of aged) {
+      if (isAgeOutEligible(iss, { now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS })) {
+        eligible.push({ iss, at: Date.parse(iss.updatedAt) });
+      } else {
+        toRescan.push(iss);
+      }
+    }
+    // Passo 2 — le altre sembrano vive solo perché un bot le ri-commenta:
+    // rivaluta sull'ultimo evento significativo. Bounded come il PARKED-RETRY
+    // (cap/run + budget), e ordinato per età così il cap non esclude sempre le
+    // stesse: le più vecchie sono anche le più probabilmente quiete davvero.
+    toRescan.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+    // Stessa finestra rotante del PARKED-RETRY. Oggi le candidate (19 sul sito)
+    // stanno sotto il cap (25) e `rotateForScan` è un no-op, ma è esattamente
+    // così che è nato il difetto di là: un cap tarato su un pool di 19 che nel
+    // frattempo è diventato 44, senza che nessuno cambiasse una riga.
+    const rescanOrder = rotateForScan(toRescan, {
+      scanMax: AGEOUT_COMMENT_SCAN_MAX, now, periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
+    let ageoutScans = 0;
+    let ageoutScanCapped = 0;
+    let ageoutUnreadable = 0;
+    for (const iss of rescanOrder) {
+      if (ageoutScans >= AGEOUT_COMMENT_SCAN_MAX) { ageoutScanCapped++; continue; }
+      if (!budget.take(`#${iss.number} (age-out-scan)`, COMMENT_SCAN_COST_MS)) break;
+      ageoutScans++;
+      const comments = issueCommentsRest(iss.number);
+      if (comments === null) { ageoutUnreadable++; continue; } // glitch gh → si rivaluta al prossimo tick
+      const at = lastSignificantActivityAt(iss, comments);
+      if (at === null) continue;
+      if (isAgeOutEligible(iss, {
+        now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS, significantAt: at,
+      })) eligible.push({ iss, at });
+    }
+    if (ageoutScans) {
+      // Senza questa riga l'effetto della fix è invisibile nei log, ed è
+      // esattamente com'è restata nascosta per mesi la metà non riparata.
+      console.log(`age-out: ${ageoutScans}/${toRescan.length} candidate non quiete su \`updatedAt\` rivalutate sull'ultimo evento significativo → ${eligible.length} eleggibili in totale.`);
+    }
+    if (ageoutScanCapped) {
+      console.log(`age-out: cap di scansione commenti ${AGEOUT_COMMENT_SCAN_MAX}/run raggiunto, ${ageoutScanCapped} candidate non valutate in questo tick (no silent cap).`);
+    }
+    if (ageoutUnreadable) {
+      console.log(`age-out: ${ageoutUnreadable} candidate con commenti illeggibili (glitch gh) → nessuna decisione presa, rivalutate al prossimo tick.`);
+    }
+    const candidates = eligible
+      .sort((a, b) => a.at - b.at) // più stantii (per evento significativo) prima
+      .map((e) => e.iss)
+      .filter((iss) => !hasFixPR(iss.number)); // mai chiudere una issue con PR aperta
     const toClose = candidates.slice(0, AGEOUT_MAX_PER_RUN);
     if (candidates.length > toClose.length) {
       console.log(`age-out: ${candidates.length} eleggibili, cap ${AGEOUT_MAX_PER_RUN}/run → ${candidates.length - toClose.length} rinviate al prossimo tick (no silent cap).`);
@@ -1273,7 +1448,7 @@ export function runDrain() {
       // le due e lasciare la issue commentata-ma-aperta, che al tick successivo
       // viene ri-commentata. Non si comincia se non c'è il tempo di finire.
       if (!budget.take(`#${iss.number} (age-out)`, ITEM_COST_MS)) break;
-      const note = `🗑️ Auto-chiusa dal followup-drainer: follow-up inattivo da ≥${AGEOUT_INACTIVE_DAYS}gg e vecchio ≥${AGEOUT_DAYS}gg, mai entrato in lavorazione → non funnel-blocking. **Riapri** se il problema ricorre (o riloggalo: il lessons-harvester lo ricatturerà se è un pattern reale).`;
+      const note = `🗑️ Auto-chiusa dal followup-drainer: nessun evento SIGNIFICATIVO da ≥${AGEOUT_INACTIVE_DAYS}gg (commenti di bot e ping dei monitor esclusi: alzano \`updatedAt\` senza dire niente sullo stato) e issue vecchia ≥${AGEOUT_DAYS}gg, mai entrata in lavorazione → non funnel-blocking. **Riapri** se il problema ricorre (o riloggalo: il lessons-harvester lo ricatturerà se è un pattern reale).`;
       if (DRY) { console.log(`[dry] close #${iss.number} (age-out) — "${iss.title}"`); continue; }
       try {
         gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
@@ -1395,8 +1570,14 @@ export function runDrain() {
     // senza stato: in ⌈pool/cap⌉ tick ogni candidata viene valutata almeno una
     // volta. L'ordine di priorità non c'entra: il sort avviene DOPO, su
     // `eligible`.
-    const scanOffset = pool.length ? Math.floor(now / 1_200_000) % pool.length : 0;
-    const rotatedPool = pool.slice(scanOffset).concat(pool.slice(0, scanOffset));
+    //
+    // Il PASSO della rotazione era però di UNA posizione per tick, che quella
+    // copertura non la dà: servivano fino a `pool - cap` tick (19, ~6,5h) invece
+    // di ⌈pool/cap⌉ (2, ~40min). Ora l'avanzamento è di `cap` posizioni — vedi
+    // `scanWindowOffset`, dove sta anche la misura che ha reso visibile lo scarto.
+    const rotatedPool = rotateForScan(pool, {
+      scanMax: RETRY_COMMENT_SCAN_MAX, now, periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
     for (const iss of rotatedPool) {
       if (minutesSince(iss.updatedAt) >= cooldownMin) {
         // Quieto anche sul campo grezzo → eleggibile senza chiamate extra. La
