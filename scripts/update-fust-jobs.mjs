@@ -8,10 +8,13 @@
  * Prospective.ch JobBooster platform as Coop (Career Center 1000103).
  *
  * This script:
- *   1. Fetches the Prospective.ch JSON API UNFILTERED (no canton facet),
- *      paginating through the full national result set.
- *   2. Filters for jobs where the company attribute (70) is "Fust"
- *      (the medium is a Coop-group feed; keep only the Fust subsidiary).
+ *   1. Fetches the Prospective.ch JSON API server-side filtered to the Fust
+ *      subsidiary alone (attribute 70 = company, filter id 1114045 — see
+ *      "Company filter" below), no canton facet, paginating through the full
+ *      national result set.
+ *   2. Client-side company-text check as a defensive second layer only (the
+ *      server-side filter above is what actually keeps other Coop-group
+ *      subsidiaries out — see #5975).
  *   3. Drops any Fust job whose canton label doesn't resolve to a Swiss
  *      canton (CH-only gate — foreign/unresolved postings are dropped, never
  *      defaulted to TI).
@@ -24,7 +27,9 @@
  * attribute 30 (e.g. "Zurigo", "Vallese", "San Gallo", "Ticino") via the
  * shared CH-wide inferAnyCanton helper.
  *
- * Detail pages live at jobs.fust.ch and contain JSON-LD JobPosting.
+ * Detail pages live at jobs.coopjobs.ch (the shared Coop Group portal — the
+ * medium serves Fust, Jumbo, Interdiscount and other subsidiaries from the
+ * same domain) and contain JSON-LD JobPosting.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -73,14 +78,23 @@ const DATA_JOBS = crawlerScratchPathFor(FUST_KEY);
 const FUST_COMPANY_NAME = 'Fust';
 
 /**
- * Prospective.ch API — same medium as Coop (1000103).
+ * Prospective.ch API — same medium as Coop (1000103), shared by Fust, Jumbo,
+ * Interdiscount and other Coop-group subsidiaries.
  *
- * CH-wide fetch: we issue an UNFILTERED query (no `f=30:{cantonId}` canton
- * facet), which the API answers with every Coop-group job across all 26
- * cantons. We then keep only the Fust subsidiary (attribute 70 = "Fust") and
- * paginate via offset/limit until the full national result set is drained.
+ * CH-wide fetch: no canton facet (`f=30:{cantonId}`), so the API returns every
+ * Fust job across all 26 cantons. Company scoping IS server-side, via the
+ * `f=70:{FUST_COMPANY_FILTER_ID}` attribute filter (mirrors the pattern in
+ * jumbo-job-parser.mjs / interdiscount-job-parser.mjs) — the medium's
+ * `/attributes` endpoint lists attribute 70 ("Azienda") value 1114045 as
+ * "Fust". Before #5975 this query had NO company filter at all: it fetched
+ * every subsidiary unfiltered and relied on a client-side substring check
+ * against `attributes['70'][0]`, which does not reliably identify the true
+ * per-job employer on this shared multi-brand medium — 78% of the resulting
+ * fust.json entries turned out to belong to Jumbo/Interdiscount/Coop/etc.
+ * Verified live: `f=70:1114045` returns exactly the Fust subsidiary's jobs,
+ * all tagged `company: "Fust"`.
  *
- *   https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500
+ *   https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=70:1114045
  *
  * Per-job canton comes from attribute 30 (a localized canton label such as
  * "Zurigo", "Vallese", "San Gallo", "Ticino"), resolved CH-wide by
@@ -89,20 +103,27 @@ const FUST_COMPANY_NAME = 'Fust';
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
 const API_LIMIT = 500; // max jobs per request
 const API_MAX_PAGES = 20; // hard ceiling: 20 * 500 = 10000 jobs (safety stop)
+// Attribute 70 ("Azienda") value id for "Fust" on medium 1000103 (Coop Group
+// career center) — confirmed against /public/v1/medium/1000103/attributes.
+const FUST_COMPANY_FILTER_ID = '1114045';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Matchers ──────────────────────────────────────────────── */
-function isFustJob(job) {
-  const key = normalizeKey(job?.companyKey || job?.company || '');
+// A present `company` field is authoritative (it comes from the scraped
+// JSON-LD detail page, i.e. the real employer): a job whose company text
+// names another Coop-group subsidiary is NOT Fust even if its companyKey was
+// mistakenly stamped 'fust' upstream (#5975 — companyKey alone used to be
+// sufficient here, which is exactly how 259 Jumbo/Interdiscount/Coop jobs
+// ended up counted as Fust). companyKey is only trusted as a fallback when
+// company is missing.
+export function isFustJob(job) {
   const company = normalize(job?.company || '');
-  return (
-    key === FUST_KEY ||
-    key.includes('fust') ||
-    company.includes('fust')
-  );
+  if (company) return company.includes('fust');
+  const key = normalizeKey(job?.companyKey || '');
+  return key === FUST_KEY || key.includes('fust');
 }
 
 /**
@@ -175,6 +196,8 @@ async function fetchFustJobUrls() {
       offset: String(offset),
       limit: String(API_LIMIT),
     });
+    // Company filter: Fust (server-side — see FUST_COMPANY_FILTER_ID above).
+    params.append('f', `70:${FUST_COMPANY_FILTER_ID}`);
     const apiUrl = `${API_BASE}/jobs?${params}`;
     console.log(`🔍 Fetching Coop Group feed CH-wide page ${page + 1} (offset ${offset})…`);
 
@@ -258,7 +281,7 @@ function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
       seedUrls,
       seedMetaByUrl,
-      notes: 'Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.',
+      notes: 'Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103, server-side filtered to attribute 70=1114045 "Fust"). Detail pages on jobs.coopjobs.ch with JSON-LD JobPosting.',
       updatedAt: new Date().toISOString(),
     };
     fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -441,4 +464,15 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Fust'));
+// Only run main() when invoked as a script, not when imported by tests.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => exitCrawlerOnError(err, 'Fust'));
+}
