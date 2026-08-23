@@ -31782,6 +31782,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'cambio-datore-frontaliere-permesso-g',
+ category: 'pratico',
+ date: '2026-08-23T20:13:10.181Z',
+ image: '/images/blog/cambio-datore-frontaliere-permesso-g.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

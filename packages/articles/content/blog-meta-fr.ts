@@ -10620,6 +10620,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-frontaliere-single-2026.title': 'Frontaliers bulletin de paie 2026 : net et taxes pour célibataires',
     'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Analyse complète du nouvel accord 2024 : taux AVS, LPP, LAMal et fiscalité italienne pour les frontaliers célibataires.',
     'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'Un travailleur frontalier consulte sa fiche de paie suisse avec documents fiscaux italiens',
+    'blog.article.cambio-datore-frontaliere-permesso-g.title': 'Changement d\'employeur pour frontaliers : permis G et continuité 2026',
+    'blog.article.cambio-datore-frontaliere-permesso-g.excerpt': 'Changement d\'employeur pour frontaliers : renouvellement du permis G, continuité AVS/LPP, taxe à la source et documents essentiels à moins de 20 km de la frontière.',
+    'blog.article.cambio-datore-frontaliere-permesso-g.imageAlt': 'Travailleur frontalier au guichet avec documents de permis',
 };
 
 export default blogMetaFr;
