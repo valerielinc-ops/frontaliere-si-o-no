@@ -152,7 +152,7 @@ describe('il token della App deve SOPRAVVIVERE fino al `git push` (#5595)', () =
     // sicurezza: gli eventi di GITHUB_TOKEN non ri-triggerano i workflow a valle
     // (anti-ricorsione), quindi `tests` e `pr-review-loop` non partirebbero più sulle PR
     // del fixer — che resterebbero ferme per sempre, senza review e senza auto-merge.
-    for (const file of ['issue-fix.yml', 'pr-redflag-fixer.yml']) {
+    for (const file of ['issue-fix.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml']) {
       const text = readFileSync(resolve(wfDir, file), 'utf8');
       const line = text.split('\n').find((l) => l.trim().startsWith('github_token:'));
       expect(line, `${file} deve passare github_token alla action`).toBeTruthy();
