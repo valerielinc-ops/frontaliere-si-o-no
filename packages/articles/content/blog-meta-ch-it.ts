@@ -3970,6 +3970,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-glarona.title': 'Registrazione commercio: aprire attività a Glarona',
     'blog.article.aprire-attivita-canton-glarona.excerpt': 'Il Cantone di Glarona richiede l\'iscrizione al registro di commercio per aprire un\'attività. È necessario scegliere la forma giuridica, determinare il capitale minimo, pagare le tasse di iscrizione e adempiere agli obblighi assicurativi.',
     'blog.article.aprire-attivita-canton-glarona.imageAlt': 'Un imprenditore che si iscrive al registro di commercio del Cantone di Glarona',
+    'blog.article.zugo-riduzione-premi-sussidio.title': 'Premi cassa malati canton Zugo e riduzione premi',
+    'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'Come funzionano i premi LAMal nel Canton Zugo, le sei franchigie disponibili e come accedere ai sussidi cantonali per ridurre il costo dell\'assicurazione malattia.',
+    'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Sportello amministrativo di un cantone svizzero dove residenti consultano documenti di assicurazione malattia obbligatoria.',
 };
 
 export default blogMetaChIt;

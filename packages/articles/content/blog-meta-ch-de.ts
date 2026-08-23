@@ -3970,6 +3970,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-glarona.title': 'Handelsregister: Geschäft in Glarus eröffnen',
     'blog.article.aprire-attivita-canton-glarona.excerpt': 'Der Kanton Glarus beantragt die Eintragung ins Handelsregister, um ein Geschäft zu eröffnen. Es ist notwendig, die Rechtsform zu wählen, das Mindestkapital zu bestimmen, die Einschreibegebühren zu bezahlen und die Versicherungspflichten zu erfüllen.',
     'blog.article.aprire-attivita-canton-glarona.imageAlt': 'Ein Unternehmer, der sich beim Handelsregister des Kantons Glarus anmeldet',
+    'blog.article.zugo-riduzione-premi-sussidio.title': 'Krankenkassenprämien Kanton Zug und Prämienverbilligung',
+    'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'Wie die KVG-Prämien im Kanton Zug funktionieren, welche sechs Franchisen zur Verfügung stehen und wie Sie auf kantonale Beiträge zugreifen können, um die Kosten der Krankenversicherung zu senken.',
+    'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Schweizer Kantonsamt mit Bürgern, die Krankenversicherungsdokumente und Prämienreduktionsanträge besprechen.',
 };
 
 export default blogMetaChDe;

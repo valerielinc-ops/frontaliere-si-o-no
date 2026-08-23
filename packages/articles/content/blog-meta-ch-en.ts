@@ -3970,6 +3970,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-glarona.title': 'Trade registration: opening businesses in Glarus',
     'blog.article.aprire-attivita-canton-glarona.excerpt': 'The Canton of Glarus requires registration in the commercial register to open a business. It is necessary to choose the legal form, determine the minimum capital, pay the registration fees and fulfill the insurance obligations.',
     'blog.article.aprire-attivita-canton-glarona.imageAlt': 'An entrepreneur registering a business at the Glarus canton commercial register',
+    'blog.article.zugo-riduzione-premi-sussidio.title': 'Canton Zug health insurance premiums and premium reductions',
+    'blog.article.zugo-riduzione-premi-sussidio.excerpt': 'How LAMal premiums work in the Canton of Zug, the six deductibles available and how to access cantonal benefits to reduce the cost of health insurance.',
+    'blog.article.zugo-riduzione-premi-sussidio.imageAlt': 'Swiss cantonal administrative office with residents consulting health insurance documents and subsidy applications.',
 };
 
 export default blogMetaChEn;
