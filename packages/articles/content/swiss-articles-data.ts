@@ -11791,6 +11791,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'avs-nidvaldo-cassa-compensazione',
+    category: 'pensione',
+    date: '2026-08-23T11:20:18.776Z',
+    image: '/images/blog/avs-nidvaldo-cassa-compensazione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

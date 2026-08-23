@@ -1336,6 +1336,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-obvaldo-conversione': { it: 'patente-guida-obvaldo-conversione', en: 'driving-licence-obvaldo-conversion', de: 'fuehrerschein-obwalden-umwandlung', fr: 'permis-de-conduire-obwald-conversion' },
  'permesso-b-nidvaldo': { it: 'permesso-b-nidvaldo', en: 'residence-permit-b-nidwalden', de: 'aufenthaltsbewilligung-b-nidwalden', fr: 'permis-sejour-b-nidwald' },
  'nidvaldo-immobiliare-mutuo-ipotecario': { it: 'nidvaldo-immobiliare-mutuo-ipotecario', en: 'nidwald-real-estate-mortgage-guide', de: 'nidwald-immobilien-hypothek-guide', fr: 'nidwald-immobilier-hypotheque-guide' },
+ 'avs-nidvaldo-cassa-compensazione': { it: 'avs-nidvaldo-cassa-compensazione', en: 'avs-nidvaldo-compensation-fund', de: 'avs-nidvaldo-ausgleichskasse', fr: 'avs-nidvaldo-caisse-compensation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

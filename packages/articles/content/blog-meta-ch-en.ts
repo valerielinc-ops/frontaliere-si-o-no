@@ -3931,6 +3931,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.title': 'Buying a house in Nidvaldo: mortgage and taxes',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.excerpt': 'Practical guide to buying real estate in the Canton of Nidvaldo: mortgage loan requirements, calculation of sustainability, transfer taxes and notary fees.',
     'blog.article.nidvaldo-immobiliare-mutuo-ipotecario.imageAlt': 'Modern Swiss home in alpine setting; real estate purchase and mortgage financing in Nidwald canton',
+    'blog.article.avs-nidvaldo-cassa-compensazione.title': 'AVS and complementary services in Nidvaldo: practical guide',
+    'blog.article.avs-nidvaldo-cassa-compensazione.excerpt': 'How the first pillar of social security works in the canton of Nidvaldo: calculation of AVS annuity, contribution gaps and access to supplementary benefits.',
+    'blog.article.avs-nidvaldo-cassa-compensazione.imageAlt': 'Office workspace with AVS pension calculator documents and retirement planning materials in Switzerland',
 };
 
 export default blogMetaChEn;

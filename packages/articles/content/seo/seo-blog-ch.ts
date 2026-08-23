@@ -50993,6 +50993,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-nidvaldo-cassa-compensazione': {
+    title: 'AVS e prestazioni complementari in Nidvaldo: guida pratica',
+    description: 'Come funziona l\'AVS nel canton Nidvaldo: guida al calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, nidvaldo, pratica',
+    ogTitle: 'AVS e prestazioni complementari in Nidvaldo',
+    ogDescription: 'Scopri il primo pilastro della previdenza svizzera nel canton Nidvaldo. Leggi come funziona la cassa di compensazione, calcolare la rendita AVS, gestire le lacune contributive e accedere alle prestazioni complementari. Guida pratica con procedure',
+    canonicalPath: '/articoli-svizzera/avs-nidvaldo-cassa-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari in Nidvaldo: guida pratica",
+      "description": "Come funziona l'AVS nel canton Nidvaldo: guida al calcolo della rendita, lacune contributive e prestazioni complementari per il minimo vitale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-nidvaldo-cassa-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio con documenti e calcolatore AVS per il calcolo della rendita di vecchiaia nel canton Nidvaldo"
+      },
+      "datePublished": "2026-08-23T11:20:18+00:00",
+      "dateModified": "2026-08-23T11:20:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-nidvaldo-cassa-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
