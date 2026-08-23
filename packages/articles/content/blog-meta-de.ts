@@ -10575,6 +10575,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.title': 'Grenzgänger im Cannobina-Tal: Arbeiten im Tessin',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.excerpt': 'Steuern, Vorsorge und Verfahren für diejenigen, die das Cannobina-Tal als Wohnsitz und das Tessin als Arbeitsplatz wählen. Quellensteuer, AHV/BVG, KVG und G-Bewilligung: Alles, was Sie wissen müssen.',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.imageAlt': 'Alpental an der Grenze Tessin-Italien mit Bergdörfern und Straßen zu Grenzübergängen',
+    'blog.article.tavernerio-como-frontaliere-ticino.title': 'Wohnen in Tavernerio, Arbeiten im Tessin als Grenzgänger',
+    'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Bewilligung G, Commuting-Kosten CHF 5.400-7.200/anno, Quellensteuer Schweiz, Neues Abkommen 2024. Realistische Analyse für diejenigen, die sich für die Brianza Como entscheiden und im Tessin arbeiten.',
+    'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Pendlerstrasse von Como zum Tessin mit nebligem Voralpenlandschaft in der Morgenröte, Darstellung der Route von Tavernerio nach Lugano',
 };
 
 export default blogMetaDe;

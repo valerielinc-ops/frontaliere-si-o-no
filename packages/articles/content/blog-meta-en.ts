@@ -10576,6 +10576,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.title': 'Border workers in Valle Cannobina: working in Ticino',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.excerpt': 'Taxation, social security and procedure for those who choose Valle Cannobina as their residence and Ticino as their workplace. Tax at source, AVS/LPP, LAMal and G permit: everything you need to know.',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.imageAlt': 'Alpine valley landscape on the Ticino-Italy border with mountain villages and border crossing roads',
+    'blog.article.tavernerio-como-frontaliere-ticino.title': 'Living in Tavernerio, working in Ticino as a border worker',
+    'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Permit G, commuting costs CHF 5.400-7.200/anno, tax at source Switzerland, New Agreement 2024. Realistic analysis for those who choose Brianza Como and work in Ticino.',
+    'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Commuter highway from Como toward Ticino with misty pre-Alpine landscape at dawn, representing route from Tavernerio to Lugano',
 };
 
 export default blogMetaEn;

@@ -10578,6 +10578,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.title': 'Frontière dans la vallée de Cannobina : travailler au Tessin',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.excerpt': 'Fiscalité, prévoyance et procédure pour ceux qui choisissent Valle Cannobina comme résidence et le Tessin comme lieu de travail. Taxe à la source, AVS/LPP, LAMal et permis G : tout ce que vous devez savoir.',
     'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.imageAlt': 'Vallée alpine à la frontière Tessin-Italie avec villages de montagne et routes vers les postes frontaliers',
+    'blog.article.tavernerio-como-frontaliere-ticino.title': 'Vivre à Tavernerio, travailler au Tessin en tant que frontalier',
+    'blog.article.tavernerio-como-frontaliere-ticino.excerpt': 'Permis G, coût de trajet CHF 5 400-7 200/an, retenue à la source Suisse, Nouvel accord 2024. Analyse réaliste pour ceux qui choisissent la Como Brianza et travaillent au Tessin.',
+    'blog.article.tavernerio-como-frontaliere-ticino.imageAlt': 'Route du navetteur de Côme vers le Tessin avec paysage préalpin brumeux à l\'aube, représentation du trajet de Tavernerio à Lugano',
 };
 
 export default blogMetaFr;
