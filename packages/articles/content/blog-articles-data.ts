@@ -31773,6 +31773,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'stipendio-frontaliere-single-2026',
+ category: 'fiscale',
+ date: '2026-08-23T17:41:43.002Z',
+ image: '/images/blog/stipendio-frontaliere-single-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

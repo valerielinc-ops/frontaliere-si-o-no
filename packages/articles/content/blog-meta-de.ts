@@ -10614,6 +10614,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Lohnabrechnung Grenzgänger 2026: Realnetto und Neue Vereinbarung',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'Wie das Netto aus der Schweizer Lohnabrechnung gebildet wird. Quellensteuer, AHV, BVG, Befreiung € 7\'500-10\'000 von der Neuen Grenzgängervereinbarung und Verfahren 730 in Italien.',
     'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Professioneller Arbeitsplatz mit Laptop und Schweizer Lohnzettel, Blick auf Bellinzona',
+    'blog.article.stipendio-frontaliere-single-2026.title': 'Grenzgänger Lohnabrechnung 2026: Netto und Steuern für Singles',
+    'blog.article.stipendio-frontaliere-single-2026.excerpt': 'Vollständige Analyse des neuen Abkommens 2024: AHV-, BVG-, KVG-Sätze und italienische Besteuerung für alleinstehende Grenzgänger.',
+    'blog.article.stipendio-frontaliere-single-2026.imageAlt': 'Ein Grenzgänger überprüft seine Schweizer Gehaltsabrechnung mit italienischen Steuerdokumenten',
 };
 
 export default blogMetaDe;
