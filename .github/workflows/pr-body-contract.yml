@@ -276,6 +276,42 @@ jobs:
             const { owner, repo } = context.repo;
             const issue_number = context.payload.pull_request.number;
 
+            // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
+            // body (#6301, reproduced on #6279: the diff touched
+            // `.github/workflows/prospector-loop.yml` and the body never named it in
+            // any section — neither this gate nor scripts/lib/pr-body-sections-check.mjs
+            // compared the diff's file list against the body text, only checked that
+            // `## Implementato` had SOME content. Uses `pulls.listFiles` (no checkout
+            // needed — unlike the sibling-check/below-floor-bridge steps further down,
+            // which DO need the tree). Advisory only, same reasoning as the
+            // bullet-without-state warning in pr-body-sections-check.mjs: promoting
+            // straight to blocking risks repeating the 2026-08-12 13h stall documented
+            // there, before PR bodies reliably cite every touched file.
+            const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
+            let uncitedFiles = [];
+            try {
+              const prFiles = await github.paginate(github.rest.pulls.listFiles, {
+                owner, repo, pull_number: issue_number, per_page: 100,
+              });
+              uncitedFiles = prFiles
+                .map((f) => f.filename)
+                .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
+                .filter((p) => !body.includes(p) && !body.includes(p.split('/').pop()));
+            } catch (e) {
+              core.info(`uncited-files check: skip (${e.status || e.message})`);
+            }
+            const advisoryParts = [];
+            if (uncitedFiles.length) {
+              advisoryParts.push(
+                `⚠️ **File funnel-critical non citati nel body** (issue #6301, advisory — non blocca) — ` +
+                `il diff modifica ${uncitedFiles.length} file sotto \`.github/workflows/**\` che il body non menziona ` +
+                `(né per path né per basename):\n\n` +
+                uncitedFiles.map((p) => `- \`${p}\``).join('\n') + '\n\n' +
+                `Aggiungi un bullet in \`## Implementato\` che li cita (recidiva reale: PR #6279, ` +
+                `\`.github/workflows/prospector-loop.yml\` modificato e mai menzionato, flaggato dal reviewer solo dopo il fatto).`,
+              );
+            }
+
             // Fetch each closed issue; flag the multi-item follow-up aggregates.
             // Proceed-safe: any API error → skip that ref (never block on infra).
             const aggregateCloseViolations = [];
@@ -309,15 +345,17 @@ jobs:
               }
             };
 
-            // --- All-clear ----------------------------------------------------------
+            // --- All-clear (violations) — advisories can still be present -----------
             if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
-              if (prior) {
-                await github.rest.issues.updateComment({
-                  owner, repo, comment_id: prior.id,
-                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`,
-                });
+              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
+                + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
+              // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
+              // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
+              // vale un commento nuovo.
+              if (prior || advisoryParts.length) {
+                await upsert(okBody);
               }
-              core.info('PR body contract satisfied.');
+              core.info(`PR body contract satisfied.${advisoryParts.length ? ' (advisory: uncited files)' : ''}`);
               return;
             }
 
@@ -385,6 +423,9 @@ jobs:
               );
               fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
             }
+            // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
+            // che calcola `advisoryParts` più sopra.
+            if (advisoryParts.length) parts.push(...advisoryParts);
             parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
 
             await upsert(parts.join('\n\n'));

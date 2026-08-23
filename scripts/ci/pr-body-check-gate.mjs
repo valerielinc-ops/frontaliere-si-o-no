@@ -21,12 +21,13 @@
  * «PR bloccata» and then let `gh pr create` through. See lib/hook-exit-codes.mjs.
  */
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 // La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
 // due copie che divergono al primo stato nuovo, in silenzio.
-import { bulletsWithoutState, extractSection } from '../lib/pr-body-sections-check.mjs';
+import { bulletsWithoutState, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
 
 const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
 const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
@@ -100,6 +101,49 @@ export function warnAboutStatelessBullets(body) {
   return stateless;
 }
 
+/**
+ * Repo-relative paths changed on this branch vs `origin/main`, best-effort. Returns
+ * `[]` on any git failure (no `origin/main` locally, detached checkout, etc.) — this
+ * feeds an advisory-only check, never worth blocking `gh pr create` over.
+ *
+ * @returns {string[]}
+ */
+export function localDiffPaths() {
+  try {
+    const out = execFileSync(
+      'git',
+      ['diff', '--name-only', 'origin/main...HEAD'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+    return out.split('\n').map((l) => l.trim()).filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Stampa (senza bloccare) i file funnel-critical modificati dal diff locale ma non
+ * citati nel body (#6301 — riprodotto su #6279: `.github/workflows/prospector-loop.yml`
+ * modificato e mai citato). Esportata per il test.
+ *
+ * @param {string} body corpo della PR
+ * @returns {string[]} i path segnalati
+ */
+export function warnAboutUncitedFiles(body) {
+  const diffPaths = localDiffPaths();
+  if (diffPaths.length === 0) return [];
+  const uncited = filesUncitedInBody(diffPaths, body);
+  if (uncited.length === 0) return [];
+  process.stderr.write(
+    `\n⚠️  pr-body-check-gate (advisory, NON blocca): ${uncited.length} file funnel-critical `
+    + 'modificati dal diff locale non sono citati nel body (né path né basename).\n'
+    + 'Aggiungi un bullet in `## Implementato` che li menziona (recidiva: PR #6279).\n'
+    + uncited.map((p) => `  · ${p}\n`).join('')
+    + '\n',
+  );
+  return uncited;
+}
+
 async function main() {
   let command = '';
   try {
@@ -150,6 +194,9 @@ async function main() {
   // a una PR di nascere.
   try {
     warnAboutStatelessBullets(body);
+  } catch { /* advisory: non blocca mai */ }
+  try {
+    warnAboutUncitedFiles(body);
   } catch { /* advisory: non blocca mai */ }
 
   if (hasImpl && hasNon) {
