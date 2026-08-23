@@ -3967,6 +3967,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-glarona-tariffe.title': 'Fahrkarten Glarus: Zonen, Tarife und Rabatte',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.excerpt': 'Tarifzonen-System, Jahres- und Monatsabonnements, Kombination mit GA-Halbtax und Rabatten für Studierende und Lernende im Kanton Glarus.',
     'blog.article.abbonamenti-trasporti-glarona-tariffe.imageAlt': 'Schweizer Bergbahnhof mit Regionalzug in Alpengegend',
+    'blog.article.aprire-attivita-canton-glarona.title': 'Handelsregister: Geschäft in Glarus eröffnen',
+    'blog.article.aprire-attivita-canton-glarona.excerpt': 'Der Kanton Glarus beantragt die Eintragung ins Handelsregister, um ein Geschäft zu eröffnen. Es ist notwendig, die Rechtsform zu wählen, das Mindestkapital zu bestimmen, die Einschreibegebühren zu bezahlen und die Versicherungspflichten zu erfüllen.',
+    'blog.article.aprire-attivita-canton-glarona.imageAlt': 'Ein Unternehmer, der sich beim Handelsregister des Kantons Glarus anmeldet',
 };
 
 export default blogMetaChDe;
