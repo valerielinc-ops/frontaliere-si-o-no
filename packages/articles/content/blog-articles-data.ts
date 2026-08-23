@@ -31764,6 +31764,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'busta-paga-frontalieri-netto-nuovo-accordo',
+ category: 'fiscale',
+ date: '2026-08-23T17:08:06.084Z',
+ image: '/images/blog/busta-paga-frontalieri-netto-nuovo-accordo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

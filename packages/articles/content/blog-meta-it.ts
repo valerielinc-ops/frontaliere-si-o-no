@@ -10613,6 +10613,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-tasse-single-2026.title': 'Tassazione frontalieri 2026: guida pratica per single',
     'blog.article.frontaliere-tasse-single-2026.excerpt': 'Nuovo accordo 2024, imposta alla fonte, franchigie €7.500–€10.000, AVS/LPP, LAMal: tutto ciò che serve sapere sulla tassazione di un frontaliere single.',
     'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Veduta del Lago Lugano con le montagne della frontiera svizzero-italiana, simbolo della regione transfrontaliera ticinese.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Busta paga frontalieri 2026: netto reale e Nuovo Accordo',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'Come si forma il netto dalla busta paga svizzera. Imposta alla fonte, AVS, LPP, esenzione €7\'500-10\'000 dal Nuovo Accordo Frontalieri e procedura 730 in Italia.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Spazio di lavoro professionale con computer e documento di busta paga svizzera, vista su Bellinzona',
 };
 
 export default blogMetaIt;

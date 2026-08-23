@@ -10611,6 +10611,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-tasse-single-2026.title': 'Grenzgängerbesteuerung 2026: Praxisleitfaden für Singles',
     'blog.article.frontaliere-tasse-single-2026.excerpt': 'Neues Abkommen 2024, Quellensteuer, Selbstbehalte € 7.500- € 10.000, AHV/BVG, KVG: Alles, was Sie über die Besteuerung eines alleinstehenden Grenzgängers wissen müssen.',
     'blog.article.frontaliere-tasse-single-2026.imageAlt': 'Blick auf den Luganer See mit Schweizer-italienischen Grenzbergen, Symbol der Tessiner Grenzregion.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.title': 'Lohnabrechnung Grenzgänger 2026: Realnetto und Neue Vereinbarung',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.excerpt': 'Wie das Netto aus der Schweizer Lohnabrechnung gebildet wird. Quellensteuer, AHV, BVG, Befreiung € 7\'500-10\'000 von der Neuen Grenzgängervereinbarung und Verfahren 730 in Italien.',
+    'blog.article.busta-paga-frontalieri-netto-nuovo-accordo.imageAlt': 'Professioneller Arbeitsplatz mit Laptop und Schweizer Lohnzettel, Blick auf Bellinzona',
 };
 
 export default blogMetaDe;
