@@ -3949,6 +3949,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Ouvrir une entreprise à Nidwald : coûts et procédure',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Guide complet pour démarrer une activité dans le canton de Nidwald : formes juridiques, registre du commerce, coûts et obligations de sécurité sociale.',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Documents d\'enregistrement d\'entreprise sur bureau avec paysage montagneux suisse.',
+    'blog.article.lamal-glarona-sussidio-premi.title': 'Primes caisse-maladie Glaris : comment obtenir une réduction',
+    'blog.article.lamal-glarona-sussidio-premi.excerpt': 'Comment fonctionnent les primes de l\'assurance maladie obligatoire à Glaris, quelles sont les franchises disponibles et comment demander les allocations cantonales de réduction.',
+    'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Documents d\'assurance maladie suisse avec calculatrice sur un bureau en bois',
 };
 
 export default blogMetaChFr;

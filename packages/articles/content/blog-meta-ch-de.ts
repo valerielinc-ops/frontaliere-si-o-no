@@ -3949,6 +3949,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.title': 'Ein Geschäft in Nidwalden eröffnen: Kosten und Ablauf',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.excerpt': 'Vollständiger Leitfaden zur Unternehmensgründung im Kanton Nidwalden: Rechtsformen, Handelsregister, Kosten und Vorsorgepflichten.',
     'blog.article.nidvaldo-impresa-costi-iscrizione-registro.imageAlt': 'Unternehmensregistrierungsdokumente auf Büroschalter mit Schweizer Berglandschaft im Hintergrund.',
+    'blog.article.lamal-glarona-sussidio-premi.title': 'Krankenkassenprämien Glarus: So erhalten Sie eine Ermäßigung',
+    'blog.article.lamal-glarona-sussidio-premi.excerpt': 'Wie funktionieren die Prämien der obligatorischen Krankenversicherung in Glarus, welche Franchisen stehen zur Verfügung und wie beantragt man kantonale Reduktionsbeiträge?',
+    'blog.article.lamal-glarona-sussidio-premi.imageAlt': 'Schweizer Krankenversicherungsdokumente mit Taschenrechner auf Holzschreibtisch',
 };
 
 export default blogMetaChDe;
