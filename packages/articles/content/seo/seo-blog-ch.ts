@@ -51656,6 +51656,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locazione-zugo-deposito-contestazione': {
+    title: 'Locazione a Zugo: regole, deposito e contestazione',
+    description: 'Diritto di locazione nel Canton Zugo: deposito cauzionale, procedure di contestazione entro 30 giorni e scadenze di disdetta secondo il codice civile federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, locazione, zugo, regole, deposito',
+    ogTitle: 'Locazione a Zugo: regole, deposito e contestazione',
+    ogDescription: 'Guida completa al diritto di locazione nel Cantone di Zugo: limiti del deposito (max 3 mesi), contestazione del canone entro 30 giorni e procedure di disdetta secondo la legge federale svizzera.',
+    canonicalPath: '/articoli-svizzera/locazione-zugo-deposito-contestazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locazione a Zugo: regole, deposito e contestazione",
+      "description": "Diritto di locazione nel Canton Zugo: deposito cauzionale, procedure di contestazione entro 30 giorni e scadenze di disdetta secondo il codice civile federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/locazione-zugo-deposito-contestazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Cantone di Zugo con edifici residenziali moderni sullo sfondo del lago"
+      },
+      "datePublished": "2026-08-23T17:52:16+00:00",
+      "dateModified": "2026-08-23T17:52:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/locazione-zugo-deposito-contestazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

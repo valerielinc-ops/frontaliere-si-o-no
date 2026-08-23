@@ -3982,6 +3982,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zugo-locazione-deposito-procedura.title': 'Zug Rentals: Fees and Lease Fees',
     'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Guide to your tenant and landlord rights in Switzerland: security deposit, cancellation, dispute and conciliation authority.',
     'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Swiss residential street with rental buildings and real estate signs',
+    'blog.article.locazione-zugo-deposito-contestazione.title': 'Lease in Zug: rules, filing and dispute',
+    'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Guide to the right to rent in the Canton of Zug: limits of the security deposit, dispute procedures and cancellation deadlines according to the Federal Civil Code.',
+    'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Zug canton residential buildings and lakeside landscape with modern Swiss architecture',
 };
 
 export default blogMetaChEn;

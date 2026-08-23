@@ -3982,6 +3982,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zugo-locazione-deposito-procedura.title': 'Mieten Zug: Mieten und Pachtrechte',
     'blog.article.zugo-locazione-deposito-procedura.excerpt': 'Leitfaden zu Ihren Mieter- und Vermieterrechten in der Schweiz: Kaution, Kündigung, Anfechtung und Schlichtungsstelle.',
     'blog.article.zugo-locazione-deposito-procedura.imageAlt': 'Schweizer Wohnstrasse mit Mietwohnungen und Immobilienanzeigen',
+    'blog.article.locazione-zugo-deposito-contestazione.title': 'Vermietung in Zug: Regeln, Hinterlegung und Anfechtung',
+    'blog.article.locazione-zugo-deposito-contestazione.excerpt': 'Leitfaden zum Mietrecht im Kanton Zug: Obergrenzen der Kaution, Anfechtungsverfahren und Kündigungsfristen gemäss BGB.',
+    'blog.article.locazione-zugo-deposito-contestazione.imageAlt': 'Wohngebäude im Kanton Zug mit Seeblick und moderner Schweizer Architektur',
 };
 
 export default blogMetaChDe;
