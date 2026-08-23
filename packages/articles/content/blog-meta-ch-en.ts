@@ -3994,6 +3994,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-zugo-formazione-livelli.title': 'Wages and work in the Canton of Zug: training and levels',
     'blog.article.salari-zugo-formazione-livelli.excerpt': 'Swiss labour market: salaries by degree of training, legal hours, compulsory social security (AVS, LPP, LAMal) and collective agreements.',
     'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Downtown Zug with modern offices and Alpine backdrop, representing Swiss job market',
+    'blog.article.commissioni-twint-piccoli-commercianti.title': 'Twint double commissions: open war with merchants',
+    'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'A Swiss survey reveals that small stores pay 1.3% Twint commissions compared to 0.59% for large ones. The Swiss Retail Federation calls for federal intervention.',
+    'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Digital payment terminal and Twint QR code in a Swiss corner shop',
 };
 
 export default blogMetaChEn;

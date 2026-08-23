@@ -10628,6 +10628,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.title': 'Cambio datore di lavoro: permesso G 2026 single',
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.excerpt': 'Rinnovo permesso G, continuità AVS/LPP, LAMal e ristorni: guida completa per frontalieri single dal Nuovo Accordo Frontalieri 2024.',
     'blog.article.nuovo-datore-frontaliere-permesso-continuita.imageAlt': 'Frontaliere firma contratto di lavoro in ufficio ticinese con vista sul Lago Lugano sullo sfondo',
+    'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAINF infortunio: checklist denunzia per frontalieri',
+    'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'Come denunciare un infortunio a LAINF se frontaliere. Procedura corretta, differenze malattia professionale, checklist operativa con scadenze.',
+    'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'Documenti LAINF e moduli di assicurazione infortuni su scrivania in ufficio ticinese',
 };
 
 export default blogMetaIt;

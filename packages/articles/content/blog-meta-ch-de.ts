@@ -3994,6 +3994,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-zugo-formazione-livelli.title': 'Löhne und Arbeit im Kanton Zug: Ausbildung und Niveaustufen',
     'blog.article.salari-zugo-formazione-livelli.excerpt': 'Schweizer Arbeitsmarkt: Löhne nach Bildungsgrad, gesetzliche Arbeitszeiten, obligatorische Vorsorge (AHV, BVG, KVG) und Kollektivverträge.',
     'blog.article.salari-zugo-formazione-livelli.imageAlt': 'Innenstadt von Zug mit modernen Bürogebäuden und Alpenpanorama',
+    'blog.article.commissioni-twint-piccoli-commercianti.title': 'Doppelte Twint-Provisionen: Offener Krieg mit Händlern',
+    'blog.article.commissioni-twint-piccoli-commercianti.excerpt': 'Ein Schweizer Gutachten zeigt, dass kleine Läden 1,3% Twint-Gebühren zahlen, gegenüber 0,59% in grossen Läden. Die Swiss Retail Federation fordert ein Eingreifen des Bundes.',
+    'blog.article.commissioni-twint-piccoli-commercianti.imageAlt': 'Digitales Zahlungsterminal und Twint-QR-Code in einem Schweizer Kleinladen',
 };
 
 export default blogMetaChDe;
