@@ -10595,6 +10595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-guanzate-lavorare-ticino.title': 'Vivere a Guanzate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Guanzate: collegamenti, fiscalità, nuovo accordo e gestione del lavoro in Ticino.',
     'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Confine tra Italia e Svizzera, zona di transito per frontalieri',
+    'blog.article.vivere-aurano-lavorare-ticino.title': 'Vivere a Aurano e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-aurano-lavorare-ticino.excerpt': 'Aurano, comune VCO al confine ticinese: permesso G, tasse, costo della vita e procedura di trasferimento per chi vuole pendolare verso le opportunità svizzere.',
+    'blog.article.vivere-aurano-lavorare-ticino.imageAlt': 'Paesaggio di confine tra Aurano Piemonte e Ticino con montagne e piccoli villaggi, illuminazione alba.',
 };
 
 export default blogMetaIt;

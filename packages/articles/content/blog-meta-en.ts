@@ -10594,6 +10594,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-guanzate-lavorare-ticino.title': 'Living in Guanzate and working in Ticino as a border worker',
     'blog.article.vivere-guanzate-lavorare-ticino.excerpt': 'Practical guide for those who choose Guanzate: connections, taxation, new agreement and work management in Ticino.',
     'blog.article.vivere-guanzate-lavorare-ticino.imageAlt': 'Border between Italy and Switzerland, transit zone for cross-border workers',
+    'blog.article.vivere-aurano-lavorare-ticino.title': 'Living in Aurano and working in Ticino: border guide',
+    'blog.article.vivere-aurano-lavorare-ticino.excerpt': 'Aurano, VCO municipality on the Ticino border: G permit, taxes, cost of living and transfer procedure for those who want to commute to Swiss opportunities.',
+    'blog.article.vivere-aurano-lavorare-ticino.imageAlt': 'Border landscape between Aurano Piedmont and Ticino with mountains and small villages, dawn light.',
 };
 
 export default blogMetaEn;
