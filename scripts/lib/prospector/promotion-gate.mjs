@@ -153,6 +153,24 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 }
 
 /**
+ * L'identita' che apre le PR di promozione reali: l'App via token
+ * installato (vedi `prospector-loop.yml`, step "Mint App token").
+ */
+export const PROMOTION_BOT_LOGIN = 'frontaliere-automation';
+
+/**
+ * `gh pr list --json author` normalizza il login di una GitHub App come
+ * `app/<slug>`, la REST API grezza come `<slug>[bot]` — due grafie per la
+ * stessa identita'. Le spoglia entrambe prima del confronto.
+ *
+ * @param {string} [login]
+ * @returns {string}
+ */
+function normalizeAuthorLogin(login) {
+  return String(login || '').replace(/^app\//, '').replace(/\[bot\]$/i, '');
+}
+
+/**
  * La PR di promozione gia' in volo, se c'e'.
  *
  * Estratto qui perche' sia verificabile: la decisione «apro o non apro una
@@ -160,14 +178,31 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
  * rigenerano gli stessi 22 `crawler-group-*.yml` dalla stessa base e non mergia
  * piu' nessuna delle due.
  *
- * @param {{ number: number|string, createdAt?: string, title?: string, headRefName?: string }[]} openPrs
+ * Il match e' su prefisso del branch E autore: un branch aperto a mano con lo
+ * stesso prefisso (es. un test manuale) non conta come promozione reale.
+ * Contare solo il prefisso bloccherebbe il loop indefinitamente su quel
+ * branch, indistinguibile da una vera promozione in volo, finche' un umano
+ * non lo nota e lo chiude — vanificando l'auto-riparazione descritta sopra
+ * (follow-up #6305 item 3).
+ *
+ * @param {{ number: number|string, createdAt?: string, title?: string, headRefName?: string, author?: { login?: string } }[]} openPrs
  * @param {string} [prefix]
+ * @param {string} [expectedAuthor]
  * @returns {{ number: string, createdAt: string, title: string }|null}
  */
-export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-') {
-  const hit = (openPrs || []).find((r) => String(r?.headRefName || '').startsWith(prefix));
-  if (!hit) return null;
-  return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '' };
+export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-', expectedAuthor = PROMOTION_BOT_LOGIN) {
+  const candidates = (openPrs || []).filter((r) => String(r?.headRefName || '').startsWith(prefix));
+  const hit = candidates.find((r) => normalizeAuthorLogin(r?.author?.login) === expectedAuthor);
+  if (hit) return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '' };
+  const impostor = candidates[0];
+  if (impostor) {
+    // Stesso prefisso, autore diverso: segnala esplicitamente invece di
+    // ignorare in silenzio, cosi' un branch di test rimasto aperto si
+    // riconosce nei log invece di sembrare "nessuna promozione in volo".
+    const who = normalizeAuthorLogin(impostor.author?.login) || '(sconosciuto)';
+    console.log(`branch di promozione "${impostor.headRefName}" (#${impostor.number}) ignorato: autore "${who}" diverso da "${expectedAuthor}"`);
+  }
+  return null;
 }
 
 /**
