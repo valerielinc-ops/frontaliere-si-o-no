@@ -10629,6 +10629,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lainf-infortunio-checklist-denunzia.title': 'UVG-Unfall: Melde-Checkliste für Grenzgänger',
     'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'Wie melde ich einen Unfall beim UVG, wenn ich Grenzgänger bin? Korrektes Vorgehen, Unterschiede bei Berufskrankheiten, operative Checkliste mit Fristen.',
     'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'LAINF-Versicherungsdokumente und Arbeitsunfallformulare auf Schreibtisch in Tessiner Büro',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Vorzeitige Pensionierung von Grenzgängern 2026: Fehler vermeiden',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Vollständiger Leitfaden zur Frühpensionierung für Grenzgänger: AHV-Strafe 6,8%, BVG-FAKTOR reduziert, SECO-INPS-Koordination. Häufige Fehler, die im Jahr 2026 zu vermeiden sind.',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Blick auf den Luganer See: Eine frühe Pensionierung erfordert korrekte finanzielle Berechnungen',
 };
 
 export default blogMetaDe;

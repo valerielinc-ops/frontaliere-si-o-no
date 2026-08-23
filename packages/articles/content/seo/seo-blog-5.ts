@@ -76550,6 +76550,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-ritiro-anticipato-2026-guida': {
+    title: 'Pensionamento anticipato frontalieri 2026: evita gli errori',
+    description: 'Guida completa al pensionamento anticipato per frontalieri: penalità AVS 6,8%, fattore LPP ridotto, coordinamento SECO-INPS. Errori comuni da evitare nel 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, evita, errori',
+    ogTitle: 'Pensionamento anticipato frontalieri 2026: evita gli errori',
+    ogDescription: 'Smetti di commettere errori nel pensionamento anticipato. Scopri i vincoli AVS (penalità 6,8%), il fattore LPP ridotto, e come coordinare SECO, cassa pensioni, INPS per la rendita corretta. Checklist operativa per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ritiro-anticipato-2026-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionamento anticipato frontalieri 2026: evita gli errori",
+      "description": "Guida completa al pensionamento anticipato per frontalieri: penalità AVS 6,8%, fattore LPP ridotto, coordinamento SECO-INPS. Errori comuni da evitare nel 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ritiro-anticipato-2026-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su Lugano e le sponde ticinesi: pianificare il pensionamento anticipato conviene con i calcoli giusti"
+      },
+      "datePublished": "2026-08-23T23:04:51+00:00",
+      "dateModified": "2026-08-23T23:04:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ritiro-anticipato-2026-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

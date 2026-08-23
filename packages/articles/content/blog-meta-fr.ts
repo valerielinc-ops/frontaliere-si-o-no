@@ -10632,6 +10632,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAA accident : checklist plainte pour frontaliers',
     'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'Comment signaler un accident à LAA si frontalier. Procédure correcte, différences maladie professionnelle, checklist opérationnelle avec échéances.',
     'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'Documents d\'assurance LAINF et formulaires d\'accident du travail sur bureau suisse',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Pré-retraite frontalière 2026 : éviter les erreurs',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Guide complet de retraite anticipée pour les frontaliers : pénalité AVS 6,8 %, facteur LPP réduit, coordination SECO-INPS. Erreurs courantes à éviter en 2026.',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Vue du lac de Lugano: une retraite anticipée réussie nécessite des calculs financiers justes',
 };
 
 export default blogMetaFr;

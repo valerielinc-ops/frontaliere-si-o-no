@@ -10630,6 +10630,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lainf-infortunio-checklist-denunzia.title': 'LAINF accident: report checklist for border workers',
     'blog.article.lainf-infortunio-checklist-denunzia.excerpt': 'How to report an accident to LAINF if you are a border worker. Correct procedure, differences in occupational disease, operational checklist with deadlines.',
     'blog.article.lainf-infortunio-checklist-denunzia.imageAlt': 'LAINF insurance documents and workplace accident forms on desk in Swiss office',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.title': 'Early retirement for border crossers 2026: avoid mistakes',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.excerpt': 'Complete guide to early retirement for border workers: AVS penalty 6.8%, reduced LPP factor, SECO-INPS coordination. Common mistakes to avoid in 2026.',
+    'blog.article.frontaliere-ritiro-anticipato-2026-guida.imageAlt': 'Lugano\'s lakeside view: proper planning for early retirement requires correct financial calculations',
 };
 
 export default blogMetaEn;
