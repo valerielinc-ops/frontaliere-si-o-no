@@ -1,6 +1,6 @@
 {
   "crawlerKey": "claraspital",
-  "assembledAt": "2026-08-23T09:39:34.066Z",
+  "assembledAt": "2026-08-23T21:52:04.351Z",
   "jobs": [
     {
       "id": "claraspital-d73e4e16bd63",
@@ -34,7 +34,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/dipl-expertin-experte-anaesthesiepflege-nds/b79233b0-b445-4f07-ac24-68b57327bf00",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.939Z",
+      "crawledAt": "2026-08-23T21:52:01.287Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -63,6 +63,109 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.152Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "claraspital-73bd37e734fb",
+      "slug": "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel",
+      "slugByLocale": {
+        "it": "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel",
+        "en": "postgraduate-training-to-become-a-dipl-expert-in-intensive-care-nursing-nds-hf-st-claraspital-basel",
+        "de": "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
+        "fr": "formation-post-diplome-pour-devenir-expert-e-en-soins-intensifs-nds-hf-st-claraspital-basel"
+      },
+      "company": "St. Claraspital",
+      "companyKey": "claraspital",
+      "companyDomain": "claraspital.ch",
+      "title": "Nachdiplomstudium zum/r Dipl. Experten/in Intensivpflege NDS HF eine Dipl. Pflegefachperson",
+      "titleByLocale": {
+        "it": "Corso post-diploma per diventare Esperto/a di Infermieristica Intensiva NDS HF",
+        "en": "Postgraduate Training to become a Dipl. Expert in Intensive Care Nursing NDS HF",
+        "de": "Nachdiplomstudium zum/r Dipl. Experten/in Intensivpflege NDS HF eine Dipl. Pflegefachperson",
+        "fr": "Formation post-diplôme pour devenir Expert(e) en soins intensifs NDS HF"
+      },
+      "description": "<b>Während der zweijährigen beruflichen Weiterbildung sind Sie Teil unserer interdisziplinären Intensivstation. Die Theorieweiterbildung erfolgt in Zusammenarbeit mit dem Unispital Basel.</b>\n\nAufgaben:\n•\tOptimale Versorgung und Betreuung unserer intensivpflichtigen Patienten\n•\tUnterstützung der Berufsbildungsverantwortlichen\n•\tPflege, Überwachung, Diagnostik und Therapie der Patienten\n•\tÜberblick in schnell wechselnden Situationen behalten und situativ Prioritäten setzen\n•\tFachgerechte Bedienung von technischen Hilfsmitteln und Geräten\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH oder ein vom SRK anerkanntes ausländisches Pflegediplom\n\n• Mindestens ein Jahr Berufserfahrung im Akutpflegebereich\n\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen und innovativen Team\n\n• Verantwortungsbewusst und Hilfsbereit\n\n• Hohe Motivation und starkes Engagement für den zweijährigen Studiengang\n\n• Einen freundlichen und einfühlsamen Umgang mit unseren Patienten und Angehörigen\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "descriptionByLocale": {
+        "it": "Durante i due anni di perfezionamento professionale fai parte del nostro reparto di terapia intensiva interdisciplinare. La formazione teorica si svolge in collaborazione con l'Ospedale universitario di Basilea. Compiti:\n• Cura e assistenza ottimali per i nostri pazienti in terapia intensiva\n• Supporto ai responsabili della formazione professionale\n• Cura, monitoraggio, diagnosi e terapia dei pazienti\n• Mantenere una visione d'insieme in situazioni che cambiano rapidamente e stabilire le priorità in base alla situazione\n• Uso professionale di ausili tecnici e attrezzature Requisiti:\n• Dipl. Personale infermieristico SSS/SUP o un diploma infermieristico estero riconosciuto dalla CRS\n• Almeno un anno di esperienza professionale nel settore delle cure acute\n• Piacere della collaborazione interdisciplinare in un team dinamico e innovativo\n• Responsabile e disponibile\n• Elevata motivazione e forte impegno per il corso di studi di due anni\n• Un rapporto amichevole e sensibile con i nostri pazienti e parenti Offriamo:\n• 28-33 giorni di ferie retribuite all'anno in base all'età\n• Ampie opportunità di formazione e perfezionamento, ad es. programma di seminari propri con un'ampia offerta formativa\n• Gestione della salute in azienda con misure preventive come la consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di job sharing anche in funzioni dirigenziali\n• Spazi luminosi e amichevoli con infrastrutture moderne\n• Valori distinti e attività",
+        "en": "During the two-year professional development, you will be part of our interdisciplinary intensive care unit. The theory training is carried out in cooperation with the Unispital Basel. Tasks:\n• Optimal care and care for our intensive care patients\n• Support for those responsible for vocational training\n• Care, monitoring, diagnosis and therapy of patients\n• Keep track of rapidly changing situations and set priorities according to the situation\n• Proper operation of technical aids and equipment Requirements:\n• Dipl. Nursing specialist HF/FH or a foreign nursing diploma recognized by the SRC\n• At least one year of professional experience in the field of acute care\n• Enjoyment of interdisciplinary cooperation in a dynamic and innovative team\n• Responsible and helpful\n• High motivation and strong commitment to the two-year course of study\n• A friendly and empathetic approach to our patients and relatives We offer:\n• Age-dependent 28-33 paid holidays per year\n• Extensive opportunities for further education and training, e.g. our own seminar program with a wide range of educational offerings\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n• Part-time work and the possibility of job sharing also in management functions\n• Bright, friendly rooms with modern infrastructure\n• Strong values and active",
+        "de": "<b>Während der zweijährigen beruflichen Weiterbildung sind Sie Teil unserer interdisziplinären Intensivstation. Die Theorieweiterbildung erfolgt in Zusammenarbeit mit dem Unispital Basel.</b>\n\nAufgaben:\n• Optimale Versorgung und Betreuung unserer intensivpflichtigen Patienten\n• Unterstützung der Berufsbildungsverantwortlichen\n• Pflege, Überwachung, Diagnostik und Therapie der Patienten\n• Überblick in schnell wechselnden Situationen behalten und situativ Prioritäten setzen\n• Fachgerechte Bedienung von technischen Hilfsmitteln und Geräten\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH oder ein vom SRK anerkanntes ausländisches Pflegediplom\n\n• Mindestens ein Jahr Berufserfahrung im Akutpflegebereich\n\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen und innovativen Team\n\n• Verantwortungsbewusst und Hilfsbereit\n\n• Hohe Motivation und starkes Engagement für den zweijährigen Studiengang\n\n• Einen freundlichen und einfühlsamen Umgang mit unseren Patienten und Angehörigen\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+        "fr": "Pendant les deux années de formation professionnelle continue, vous faites partie de notre unité de soins intensifs interdisciplinaire. La formation théorique continue a lieu en collaboration avec l'hôpital universitaire de Bâle. Tâches :\n• Soins et suivi optimaux de nos patients nécessitant des soins intensifs\n• Soutien aux responsables de la formation professionnelle\n• Soins, surveillance, diagnostic et traitement des patients\n• Garder une vue d'ensemble dans des situations qui changent rapidement et établir des priorités en fonction de la situation\n• Utilisation professionnelle des aides techniques et des appareils Exigences :\n• Dipl. Infirmier ES/HES ou diplômé étranger reconnu par la CRS\n• Au moins une année d'expérience professionnelle dans le domaine des soins aigus\n• Plaisir d'une collaboration interdisciplinaire au sein d'une équipe dynamique et innovante\n• Responsable et serviable\n• Haute motivation et engagement fort pour le programme d'études de deux ans\n• Une approche amicale et empathique de nos patients et de nos proches Nous offrons :\n• 28 à 33 jours de vacances rémunérés par an en fonction de l'âge\n• De nombreuses possibilités de formation continue et de perfectionnement, par exemple notre propre programme de séminaires avec une large offre de formation\n• Gestion de la santé en entreprise avec des mesures préventives telles que le conseil ergonomique sur le lieu de travail\n• Travail à temps partiel ainsi que la possibilité de partage du travail également dans des fonctions de direction\n• Espaces lumineux et conviviaux avec une infrastructure moderne\n• Attitude marquée et active"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.claraspital.ch/offene-stellen/nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson/9cf23207-a579-4b97-861d-e400c66b210d",
+      "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T21:52:01.286Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4058",
+      "streetAddress": "Kleinriehenstrasse 30",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "applyUrl": "https://stclara.pi-asp.de/bewerber-web/?companyEid=1&tenant=&lang=DS#position,id=0ce9a0f3-f9d9-40d5-92a0-87d75756eb15",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma di infermiere/a professionale HF/FH o diploma di infermiere/a riconosciuto a livello internazionale",
+          "Almeno un anno di esperienza professionale nel campo dell'assistenza infermieristica",
+          "Disponibilità a collaborare in un team interdisciplinare, dinamico e innovativo",
+          "Responsabilità e disponibilità ad aiutare",
+          "Forte motivazione e impegno per il corso di studio della durata di due anni",
+          "Un approccio gentile e comprensivo nei confronti dei nostri pazienti e dei loro familiari",
+          "Uso professionale di ausili tecnici e attrezzature Requisiti:",
+          "Almeno un anno di esperienza professionale nel settore delle cure acute"
+        ],
+        "en": [
+          "Diploma in Nursing HF/FH or a recognized foreign nursing diploma",
+          "At least one year of professional experience in acute care",
+          "Enjoy interdisciplinary collaboration in a dynamic and innovative team",
+          "Responsible and helpful",
+          "High motivation and strong commitment to the two-year study program",
+          "A friendly and empathetic approach to our patients and their relatives",
+          "Proper operation of technical aids and equipment Requirements:",
+          "At least one year of professional experience in the field of acute care"
+        ],
+        "fr": [
+          "Diplôme d'infirmier(e) HF/FH ou diplôme d'infirmier(e) reconnu à l'étranger",
+          "Au moins un an d'expérience professionnelle en soins aigus",
+          "Prise de plaisir à travailler en interdisciplinaire dans une équipe dynamique et innovante",
+          "Responsable et prêt à aider",
+          "Motivation élevée et engagement fort pour le programme d'études de deux ans",
+          "Une approche amicale et empathique envers nos patients et leurs proches"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
+        "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
+          "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T12:23:42.147Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -108,7 +211,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/stationsoberaerztin-stationsoberarzt-palliativmedizin/ac9c6fe8-8421-4433-82b8-8cd3ef9b4d5f",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.938Z",
+      "crawledAt": "2026-08-23T21:52:01.286Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -213,7 +316,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/medizinproduktetechnologin-medizinproduktetechnologe-oder-technische-sterilisationsassistenz/417a2759-a56a-42aa-b7a1-551e75c0eeb3",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.938Z",
+      "crawledAt": "2026-08-23T21:52:01.286Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -268,109 +371,6 @@
       }
     },
     {
-      "id": "claraspital-73bd37e734fb",
-      "slug": "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel",
-      "slugByLocale": {
-        "it": "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel",
-        "en": "postgraduate-training-to-become-a-dipl-expert-in-intensive-care-nursing-nds-hf-st-claraspital-basel",
-        "de": "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
-        "fr": "formation-post-diplome-pour-devenir-expert-e-en-soins-intensifs-nds-hf-st-claraspital-basel"
-      },
-      "company": "St. Claraspital",
-      "companyKey": "claraspital",
-      "companyDomain": "claraspital.ch",
-      "title": "Nachdiplomstudium zum/r Dipl. Experten/in Intensivpflege NDS HF eine Dipl. Pflegefachperson",
-      "titleByLocale": {
-        "it": "Corso post-diploma per diventare Esperto/a di Infermieristica Intensiva NDS HF",
-        "en": "Postgraduate Training to become a Dipl. Expert in Intensive Care Nursing NDS HF",
-        "de": "Nachdiplomstudium zum/r Dipl. Experten/in Intensivpflege NDS HF eine Dipl. Pflegefachperson",
-        "fr": "Formation post-diplôme pour devenir Expert(e) en soins intensifs NDS HF"
-      },
-      "description": "<b>Während der zweijährigen beruflichen Weiterbildung sind Sie Teil unserer interdisziplinären Intensivstation. Die Theorieweiterbildung erfolgt in Zusammenarbeit mit dem Unispital Basel.</b>\n\nAufgaben:\n•\tOptimale Versorgung und Betreuung unserer intensivpflichtigen Patienten\n•\tUnterstützung der Berufsbildungsverantwortlichen\n•\tPflege, Überwachung, Diagnostik und Therapie der Patienten\n•\tÜberblick in schnell wechselnden Situationen behalten und situativ Prioritäten setzen\n•\tFachgerechte Bedienung von technischen Hilfsmitteln und Geräten\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH oder ein vom SRK anerkanntes ausländisches Pflegediplom\n\n• Mindestens ein Jahr Berufserfahrung im Akutpflegebereich\n\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen und innovativen Team\n\n• Verantwortungsbewusst und Hilfsbereit\n\n• Hohe Motivation und starkes Engagement für den zweijährigen Studiengang\n\n• Einen freundlichen und einfühlsamen Umgang mit unseren Patienten und Angehörigen\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-      "descriptionByLocale": {
-        "it": "Durante i due anni di perfezionamento professionale fai parte del nostro reparto di terapia intensiva interdisciplinare. La formazione teorica si svolge in collaborazione con l'Ospedale universitario di Basilea. Compiti:\n• Cura e assistenza ottimali per i nostri pazienti in terapia intensiva\n• Supporto ai responsabili della formazione professionale\n• Cura, monitoraggio, diagnosi e terapia dei pazienti\n• Mantenere una visione d'insieme in situazioni che cambiano rapidamente e stabilire le priorità in base alla situazione\n• Uso professionale di ausili tecnici e attrezzature Requisiti:\n• Dipl. Personale infermieristico SSS/SUP o un diploma infermieristico estero riconosciuto dalla CRS\n• Almeno un anno di esperienza professionale nel settore delle cure acute\n• Piacere della collaborazione interdisciplinare in un team dinamico e innovativo\n• Responsabile e disponibile\n• Elevata motivazione e forte impegno per il corso di studi di due anni\n• Un rapporto amichevole e sensibile con i nostri pazienti e parenti Offriamo:\n• 28-33 giorni di ferie retribuite all'anno in base all'età\n• Ampie opportunità di formazione e perfezionamento, ad es. programma di seminari propri con un'ampia offerta formativa\n• Gestione della salute in azienda con misure preventive come la consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di job sharing anche in funzioni dirigenziali\n• Spazi luminosi e amichevoli con infrastrutture moderne\n• Valori distinti e attività",
-        "en": "During the two-year professional development, you will be part of our interdisciplinary intensive care unit. The theory training is carried out in cooperation with the Unispital Basel. Tasks:\n• Optimal care and care for our intensive care patients\n• Support for those responsible for vocational training\n• Care, monitoring, diagnosis and therapy of patients\n• Keep track of rapidly changing situations and set priorities according to the situation\n• Proper operation of technical aids and equipment Requirements:\n• Dipl. Nursing specialist HF/FH or a foreign nursing diploma recognized by the SRC\n• At least one year of professional experience in the field of acute care\n• Enjoyment of interdisciplinary cooperation in a dynamic and innovative team\n• Responsible and helpful\n• High motivation and strong commitment to the two-year course of study\n• A friendly and empathetic approach to our patients and relatives We offer:\n• Age-dependent 28-33 paid holidays per year\n• Extensive opportunities for further education and training, e.g. our own seminar program with a wide range of educational offerings\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n• Part-time work and the possibility of job sharing also in management functions\n• Bright, friendly rooms with modern infrastructure\n• Strong values and active",
-        "de": "<b>Während der zweijährigen beruflichen Weiterbildung sind Sie Teil unserer interdisziplinären Intensivstation. Die Theorieweiterbildung erfolgt in Zusammenarbeit mit dem Unispital Basel.</b>\n\nAufgaben:\n• Optimale Versorgung und Betreuung unserer intensivpflichtigen Patienten\n• Unterstützung der Berufsbildungsverantwortlichen\n• Pflege, Überwachung, Diagnostik und Therapie der Patienten\n• Überblick in schnell wechselnden Situationen behalten und situativ Prioritäten setzen\n• Fachgerechte Bedienung von technischen Hilfsmitteln und Geräten\n\nAnforderungen:\n• Dipl. Pflegefachperson HF/FH oder ein vom SRK anerkanntes ausländisches Pflegediplom\n\n• Mindestens ein Jahr Berufserfahrung im Akutpflegebereich\n\n• Freude an interdisziplinärer Zusammenarbeit in einem dynamischen und innovativen Team\n\n• Verantwortungsbewusst und Hilfsbereit\n\n• Hohe Motivation und starkes Engagement für den zweijährigen Studiengang\n\n• Einen freundlichen und einfühlsamen Umgang mit unseren Patienten und Angehörigen\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-        "fr": "Pendant les deux années de formation professionnelle continue, vous faites partie de notre unité de soins intensifs interdisciplinaire. La formation théorique continue a lieu en collaboration avec l'hôpital universitaire de Bâle. Tâches :\n• Soins et suivi optimaux de nos patients nécessitant des soins intensifs\n• Soutien aux responsables de la formation professionnelle\n• Soins, surveillance, diagnostic et traitement des patients\n• Garder une vue d'ensemble dans des situations qui changent rapidement et établir des priorités en fonction de la situation\n• Utilisation professionnelle des aides techniques et des appareils Exigences :\n• Dipl. Infirmier ES/HES ou diplômé étranger reconnu par la CRS\n• Au moins une année d'expérience professionnelle dans le domaine des soins aigus\n• Plaisir d'une collaboration interdisciplinaire au sein d'une équipe dynamique et innovante\n• Responsable et serviable\n• Haute motivation et engagement fort pour le programme d'études de deux ans\n• Une approche amicale et empathique de nos patients et de nos proches Nous offrons :\n• 28 à 33 jours de vacances rémunérés par an en fonction de l'âge\n• De nombreuses possibilités de formation continue et de perfectionnement, par exemple notre propre programme de séminaires avec une large offre de formation\n• Gestion de la santé en entreprise avec des mesures préventives telles que le conseil ergonomique sur le lieu de travail\n• Travail à temps partiel ainsi que la possibilité de partage du travail également dans des fonctions de direction\n• Espaces lumineux et conviviaux avec une infrastructure moderne\n• Attitude marquée et active"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.claraspital.ch/offene-stellen/nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson/9cf23207-a579-4b97-861d-e400c66b210d",
-      "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.937Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4058",
-      "streetAddress": "Kleinriehenstrasse 30",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "applyUrl": "https://stclara.pi-asp.de/bewerber-web/?companyEid=1&tenant=&lang=DS#position,id=0ce9a0f3-f9d9-40d5-92a0-87d75756eb15",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma di infermiere/a professionale HF/FH o diploma di infermiere/a riconosciuto a livello internazionale",
-          "Almeno un anno di esperienza professionale nel campo dell'assistenza infermieristica",
-          "Disponibilità a collaborare in un team interdisciplinare, dinamico e innovativo",
-          "Responsabilità e disponibilità ad aiutare",
-          "Forte motivazione e impegno per il corso di studio della durata di due anni",
-          "Un approccio gentile e comprensivo nei confronti dei nostri pazienti e dei loro familiari",
-          "Uso professionale di ausili tecnici e attrezzature Requisiti:",
-          "Almeno un anno di esperienza professionale nel settore delle cure acute"
-        ],
-        "en": [
-          "Diploma in Nursing HF/FH or a recognized foreign nursing diploma",
-          "At least one year of professional experience in acute care",
-          "Enjoy interdisciplinary collaboration in a dynamic and innovative team",
-          "Responsible and helpful",
-          "High motivation and strong commitment to the two-year study program",
-          "A friendly and empathetic approach to our patients and their relatives",
-          "Proper operation of technical aids and equipment Requirements:",
-          "At least one year of professional experience in the field of acute care"
-        ],
-        "fr": [
-          "Diplôme d'infirmier(e) HF/FH ou diplôme d'infirmier(e) reconnu à l'étranger",
-          "Au moins un an d'expérience professionnelle en soins aigus",
-          "Prise de plaisir à travailler en interdisciplinaire dans une équipe dynamique et innovante",
-          "Responsable et prêt à aider",
-          "Motivation élevée et engagement fort pour le programme d'études de deux ans",
-          "Une approche amicale et empathique envers nos patients et leurs proches"
-        ]
-      },
-      "previousSlugs": [
-        "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
-        "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nachdiplomstudium-zum-r-dipl-experten-in-intensivpflege-nds-hf-eine-dipl-pflegefachperson",
-          "corso-post-diploma-per-diventare-esperto-a-di-infermieristica-intensiva-nds-hf-st-claraspital-basel"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:23:42.147Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "claraspital-65eccfb004a9",
       "slug": "specialista-della-salute-st-claraspital-basel",
       "slugByLocale": {
@@ -402,7 +402,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/fachperson-gesundheit/c74123a9-ed6a-4b3f-83b4-550102c0669c",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.937Z",
+      "crawledAt": "2026-08-23T21:52:01.285Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -498,7 +498,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/pflegepraktikant-in/a28800bb-d7e6-4604-b780-81597a7ee085",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.936Z",
+      "crawledAt": "2026-08-23T21:52:01.285Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -569,6 +569,90 @@
       }
     },
     {
+      "id": "claraspital-919697908147",
+      "slug": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
+      "slugByLocale": {
+        "it": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
+        "en": "head-of-infrastructural-facility-management-st-claraspital-basel",
+        "de": "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+        "fr": "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel"
+      },
+      "company": "St. Claraspital",
+      "companyKey": "claraspital",
+      "companyDomain": "claraspital.ch",
+      "title": "Leiter/in Infrastrukturelles Gebäudemanagement",
+      "titleByLocale": {
+        "it": "Responsabile della Gestione delle Infrastrutture",
+        "en": "Head of Infrastructural Facility Management",
+        "de": "Leiter/in Infrastrukturelles Gebäudemanagement",
+        "fr": "Responsable de la gestion des infrastructures"
+      },
+      "description": "<b>Als Leiter/in Infrastrukturelles Gebäudemanagement übernehmen Sie die fachliche und personelle Führung eines engagierten Teams und tragen die Verantwortung für die infrastrukturelle Bewirtschaftung unserer Liegenschaften. Sie stellen einen wirtschaftlichen, nachhaltigen und nutzerorientierten Betrieb sicher und vertreten die Interessen der Organisation bei Bau-, Unterhalts- und Sanierungsprojekten.</b>\n\nAufgaben:\n• Personelle und fachliche Führung von fünf Mitarbeitenden\n\n• Organisation und Leitung von Eigenleistungen bei kleineren Bauprojekten, Unterhaltsarbeiten und Umzügen\n\n• Planung, Koordination und Umsetzung von Unterhalts-, Sanierungs- und Optimierungsprojekten\n\n• Projektleitung und Bauherrenvertretung bei baulichen Massnahmen\n\n• Verantwortung für Vertragswesen, Auftragsmanagement sowie Werk- und Garantieabnahmen, sowie Mängelmanagement\n\n• Wahrnehmung der Betreiberverantwortung im zugewiesenen Verantwortungsbereich\n\n• Planung und Koordination der internen sowie externen Raumnutzung\n\n• Organisation und Überwachung interner Umzüge mit internen oder externen Dienstleistern\n\nAnforderungen:\n• Abgeschlossene technische oder handwerkliche Grundausbildung (z. B. Bau, Gebäudetechnik oder vergleichbar)\n\n• Weiterbildung im Facility Management, Gebäudemanagement oder Bauwesen, vorzugsweise als FM-Leiter/in, dipl. Facility Manager/in oder mit vergleichbarer Qualifikation\n\n• Mehrjährige Berufserfahrung im Facility Management, Immobilienmanagement oder Bauprojektmanagement von Vorteil\n\n• Erfahrung in der Leitung von Unterhalts-, Umbau- oder Sanierungsprojekten\n\n• Gute Kenntnisse in Budgetierung, Kostenkontrolle und Investitionsplanung\n\n• Ausgeprägte organisatorische und konzeptionelle Fähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Dienstleistungsorientierung sowie ausgeprägte Kommunikations-, Organisations- und Durchsetzungsfähigkeiten\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "descriptionByLocale": {
+        "it": "In qualità di responsabile della gestione infrastrutturale degli edifici, sarai responsabile della gestione tecnica e del personale di un team impegnato e sarai responsabile della gestione infrastrutturale dei nostri immobili. Garantisci operazioni economiche, sostenibili e orientate all'utente e rappresenti gli interessi dell'organizzazione nei progetti di costruzione, manutenzione e ristrutturazione. Compiti:\n• Gestione del personale e tecnica di cinque dipendenti\n• Organizzazione e direzione dei lavori interni per piccoli progetti di costruzione, lavori di manutenzione e traslochi\n• Pianificazione, coordinamento e realizzazione di progetti di manutenzione, ristrutturazione e ottimizzazione\n• Gestione del progetto e rappresentanza del cliente nelle misure di costruzione\n• Responsabilità dei contratti, della gestione degli ordini nonché dell'accettazione dei lavori e delle garanzie, nonché della gestione dei difetti\n• Assumere la responsabilità dell'operatore nell'area di responsabilità assegnata\n• Pianificazione e coordinamento dell'uso interno ed esterno dello spazio\n• Organizzazione e monitoraggio dei traslochi interni con fornitori di servizi interni o esterni Requisiti:\n• Tecnico di base completato o formazione artigianale (ad es. edilizia, tecnologia edilizia o simili)\n• Formazione continua in facility management, gestione di edifici o costruzione, preferibilmente come manager FM, qualificato. Facility manager o con qualifiche comparabili\n• Esperienza professionale pluriennale nel facility management, nella gestione immobiliare o nella gestione di progetti di costruzione costituisce un vantaggio\n• Esperienza nella gestione di progetti di manutenzione, conversione o ristrutturazione\n• Buona conoscenza del budget, del controllo dei costi e della pianificazione degli investimenti\n• Forti capacità organizzative e concettuali\n• Modo di lavorare indipendente, strutturato e orientato alla soluzione\n• Elevato orientamento al servizio nonché forti capacità comunicative, organizzative e assertive Offriamo:\n• 28-33 giorni di ferie retribuite all'anno a seconda dell'età\n• Ampie opportunità di formazione continua e perfezionamento, ad es. proprio programma di seminari con un'ampia offerta formativa\n• Gestione della salute aziendale con misure preventive come consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di job sharing anche in posizioni dirigenziali\n• Aule luminose e accoglienti con infrastrutture moderne\n• Valori distintivi e cultura aziendale praticata attivamente\n• I collaboratori danno forma e contribuiscono a dare forma al Claraspital Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e di ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e l'esposizione nazionale del suo \"addome\" e Centri \"tumori\" e relative aree speciali. Al Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che personalmente. Al Claraspital attribuiamo grande importanza al mantenimento e allo sviluppo consapevole della nostra cultura aziendale e al vivere attivo i criteri culturali che abbiamo sviluppato insieme: “insieme – con competenza – responsabile”.",
+        "en": "As head of infrastructural building management, you will be responsible for the technical and personnel management of a committed team and will be responsible for the infrastructural management of our properties. You ensure economical, sustainable and user-oriented operations and represent the interests of the organization in construction, maintenance and renovation projects. Tasks:\n• Personnel and technical management of five employees\n• Organization and management of in-house work on smaller construction projects, maintenance work and moves\n• Planning, coordination and implementation of maintenance, renovation and optimization projects\n• Project management and client representation in construction measures\n• Responsibility for contracts, order management as well as work and warranty acceptance, as well as defect management\n• Assuming operator responsibility in the assigned area of responsibility\n• Planning and coordination of internal and external use of space\n• Organization and monitoring internal moves with internal or external service providers Requirements:\n• Completed basic technical or craft training (e.g. construction, building technology or comparable)\n• Further training in facility management, building management or construction, preferably as FM manager, qualified. Facility manager or with comparable qualifications\n• Several years of professional experience in facility management, real estate management or construction project management is an advantage\n• Experience in managing maintenance, conversion or renovation projects\n• Good knowledge of budgeting, cost control and investment planning\n• Strong organizational and conceptual skills\n• Independent, structured and solution-oriented way of working\n• High service orientation as well as strong communication, organization and assertive skills We offer:\n• 28-33 paid vacation days depending on age per year\n• Extensive opportunities for further training and further education, e.g. own seminar program with a wide range of educational offerings\n• Company health management with preventive measures such as ergonomic advice at the workplace\n• Part-time work and the possibility of job sharing, including in management positions\n• Bright, friendly rooms with modern infrastructure\n• Distinctive values and actively practiced corporate culture\n• Employees shape and help shape the Claraspital The Claraspital, Basel's largest private hospital, is a University teaching and research hospital with a comprehensive service mandate for highly specialized abdominal surgery and national exposure of its \"Abdomen\" and \"Tumor\" centers as well as its special areas. At Claraspital, employees find jobs where they can develop both professionally and personally. At Claraspital, we attach great importance to consciously maintaining and developing our corporate culture and actively living the cultural criteria we have developed together: “together – competently – responsibly”.",
+        "de": "<b>Als Leiter/in Infrastrukturelles Gebäudemanagement übernehmen Sie die fachliche und personelle Führung eines engagierten Teams und tragen die Verantwortung für die infrastrukturelle Bewirtschaftung unserer Liegenschaften. Sie stellen einen wirtschaftlichen, nachhaltigen und nutzerorientierten Betrieb sicher und vertreten die Interessen der Organisation bei Bau-, Unterhalts- und Sanierungsprojekten.</b>\n\nAufgaben:\n• Personelle und fachliche Führung von fünf Mitarbeitenden\n\n• Organisation und Leitung von Eigenleistungen bei kleineren Bauprojekten, Unterhaltsarbeiten und Umzügen\n\n• Planung, Koordination und Umsetzung von Unterhalts-, Sanierungs- und Optimierungsprojekten\n\n• Projektleitung und Bauherrenvertretung bei baulichen Massnahmen\n\n• Verantwortung für Vertragswesen, Auftragsmanagement sowie Werk- und Garantieabnahmen, sowie Mängelmanagement\n\n• Wahrnehmung der Betreiberverantwortung im zugewiesenen Verantwortungsbereich\n\n• Planung und Koordination der internen sowie externen Raumnutzung\n\n• Organisation und Überwachung interner Umzüge mit internen oder externen Dienstleistern\n\nAnforderungen:\n• Abgeschlossene technische oder handwerkliche Grundausbildung (z. B. Bau, Gebäudetechnik oder vergleichbar)\n\n• Weiterbildung im Facility Management, Gebäudemanagement oder Bauwesen, vorzugsweise als FM-Leiter/in, dipl. Facility Manager/in oder mit vergleichbarer Qualifikation\n\n• Mehrjährige Berufserfahrung im Facility Management, Immobilienmanagement oder Bauprojektmanagement von Vorteil\n\n• Erfahrung in der Leitung von Unterhalts-, Umbau- oder Sanierungsprojekten\n\n• Gute Kenntnisse in Budgetierung, Kostenkontrolle und Investitionsplanung\n\n• Ausgeprägte organisatorische und konzeptionelle Fähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Dienstleistungsorientierung sowie ausgeprägte Kommunikations-, Organisations- und Durchsetzungsfähigkeiten\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+        "fr": "En tant que responsable de la gestion des bâtiments infrastructurels, vous serez responsable de la gestion technique et du personnel d'une équipe engagée et serez responsable de la gestion des infrastructures de nos propriétés. Vous assurez une exploitation économique, durable et orientée utilisateur et représentez les intérêts de l’organisation dans les projets de construction, d’entretien et de rénovation. Tâches :\n• Gestion du personnel et technique de cinq employés\n• Organisation et gestion des travaux internes sur les petits projets de construction, travaux d'entretien et déménagements\n• Planification, coordination et mise en œuvre de projets d'entretien, de rénovation et d'optimisation\n• Gestion de projet et représentation du client dans les mesures de construction\n• Responsabilité des contrats, de la gestion des commandes ainsi que de l'acceptation des travaux et des garanties, ainsi que de la gestion des défauts\n• Assumer la responsabilité de l'opérateur dans le domaine de responsabilité assigné\n• Planification et coordination de l'utilisation interne et externe de l'espace\n• Organisation et suivi des déménagements internes avec des prestataires de services internes ou externes. ou formation artisanale (par exemple construction, technique du bâtiment ou similaire)\n• Formation continue en matière de gestion d'installations, de gestion de bâtiments ou de construction, de préférence en tant que responsable FM, qualifiée. Gestionnaire d'installations ou avec des qualifications comparables\n• Plusieurs années d'expérience professionnelle dans la gestion d'installations, la gestion immobilière ou la gestion de projets de construction sont un avantage\n• Expérience dans la gestion de projets de maintenance, de conversion ou de rénovation\n• Bonnes connaissances en matière de budgétisation, de contrôle des coûts et de planification des investissements\n• Solides compétences organisationnelles et conceptuelles\n• Méthode de travail indépendante, structurée et orientée vers les solutions\n• Haute orientation vers le service ainsi que de solides compétences en communication, organisation et affirmation de soi Nous offrons :\n• 28-33 jours de vacances payés selon l'âge par an\n• De nombreuses possibilités de formation continue et de formation continue, par ex. propre programme de séminaires avec une large offre de formation\n• Gestion de la santé de l'entreprise avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage d'emploi, y compris dans des postes de direction\n• Des salles lumineuses et conviviales avec une infrastructure moderne\n• Valeurs distinctives et culture d'entreprise activement mise en pratique\n• Les collaborateurs façonnent et contribuent à façonner le Claraspital Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de prestation complet pour la chirurgie abdominale hautement spécialisée et une exposition nationale de son \"Abdomen\" et Centres « Tumeurs » ainsi que ses zones spéciales. Au Claraspital, les collaborateurs trouvent des emplois où ils peuvent se développer tant sur le plan professionnel que personnel. Au Claraspital, nous attachons une grande importance à entretenir et développer consciemment notre culture d’entreprise et à vivre activement les critères culturels que nous avons développés ensemble : « ensemble – avec compétence – de manière responsable »."
+      },
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.claraspital.ch/offene-stellen/leiter-in-infrastrukturelles-gebaeudemanagement/fa4da652-a4a0-4e5f-89be-b018b44dc82e",
+      "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T21:52:01.284Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4058",
+      "streetAddress": "Kleinriehenstrasse 30",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://stclara.pi-asp.de/bewerber-web/?companyEid=1&tenant=&lang=DS#position,id=4890b1e7-2599-4090-bb4d-474d7560975d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+        "head-of-infrastructure-management-st-claraspital-basel",
+        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel",
+        "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+          "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel"
+        ],
+        "en": [
+          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+          "head-of-infrastructure-management-st-claraspital-basel"
+        ],
+        "fr": [
+          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+          "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T13:02:57.960Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "claraspital-30b1d79c009c",
       "slug": "stationare-r-case-manager-in-claraspital-basel",
       "slugByLocale": {
@@ -600,7 +684,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/stationaere-r-case-manager-in/73b32843-aa82-4e82-a166-cbe06c6b9b08",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.935Z",
+      "crawledAt": "2026-08-23T21:52:01.284Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -657,90 +741,6 @@
       }
     },
     {
-      "id": "claraspital-919697908147",
-      "slug": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
-      "slugByLocale": {
-        "it": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
-        "en": "head-of-infrastructural-facility-management-st-claraspital-basel",
-        "de": "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-        "fr": "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel"
-      },
-      "company": "St. Claraspital",
-      "companyKey": "claraspital",
-      "companyDomain": "claraspital.ch",
-      "title": "Leiter/in Infrastrukturelles Gebäudemanagement",
-      "titleByLocale": {
-        "it": "Responsabile della Gestione delle Infrastrutture",
-        "en": "Head of Infrastructural Facility Management",
-        "de": "Leiter/in Infrastrukturelles Gebäudemanagement",
-        "fr": "Responsable de la gestion des infrastructures"
-      },
-      "description": "<b>Als Leiter/in Infrastrukturelles Gebäudemanagement übernehmen Sie die fachliche und personelle Führung eines engagierten Teams und tragen die Verantwortung für die infrastrukturelle Bewirtschaftung unserer Liegenschaften. Sie stellen einen wirtschaftlichen, nachhaltigen und nutzerorientierten Betrieb sicher und vertreten die Interessen der Organisation bei Bau-, Unterhalts- und Sanierungsprojekten.</b>\n\nAufgaben:\n• Personelle und fachliche Führung von fünf Mitarbeitenden\n\n• Organisation und Leitung von Eigenleistungen bei kleineren Bauprojekten, Unterhaltsarbeiten und Umzügen\n\n• Planung, Koordination und Umsetzung von Unterhalts-, Sanierungs- und Optimierungsprojekten\n\n• Projektleitung und Bauherrenvertretung bei baulichen Massnahmen\n\n• Verantwortung für Vertragswesen, Auftragsmanagement sowie Werk- und Garantieabnahmen, sowie Mängelmanagement\n\n• Wahrnehmung der Betreiberverantwortung im zugewiesenen Verantwortungsbereich\n\n• Planung und Koordination der internen sowie externen Raumnutzung\n\n• Organisation und Überwachung interner Umzüge mit internen oder externen Dienstleistern\n\nAnforderungen:\n• Abgeschlossene technische oder handwerkliche Grundausbildung (z. B. Bau, Gebäudetechnik oder vergleichbar)\n\n• Weiterbildung im Facility Management, Gebäudemanagement oder Bauwesen, vorzugsweise als FM-Leiter/in, dipl. Facility Manager/in oder mit vergleichbarer Qualifikation\n\n• Mehrjährige Berufserfahrung im Facility Management, Immobilienmanagement oder Bauprojektmanagement von Vorteil\n\n• Erfahrung in der Leitung von Unterhalts-, Umbau- oder Sanierungsprojekten\n\n• Gute Kenntnisse in Budgetierung, Kostenkontrolle und Investitionsplanung\n\n• Ausgeprägte organisatorische und konzeptionelle Fähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Dienstleistungsorientierung sowie ausgeprägte Kommunikations-, Organisations- und Durchsetzungsfähigkeiten\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-      "descriptionByLocale": {
-        "it": "In qualità di responsabile della gestione infrastrutturale degli edifici, sarai responsabile della gestione tecnica e del personale di un team impegnato e sarai responsabile della gestione infrastrutturale dei nostri immobili. Garantisci operazioni economiche, sostenibili e orientate all'utente e rappresenti gli interessi dell'organizzazione nei progetti di costruzione, manutenzione e ristrutturazione. Compiti:\n• Gestione del personale e tecnica di cinque dipendenti\n• Organizzazione e direzione dei lavori interni per piccoli progetti di costruzione, lavori di manutenzione e traslochi\n• Pianificazione, coordinamento e realizzazione di progetti di manutenzione, ristrutturazione e ottimizzazione\n• Gestione del progetto e rappresentanza del cliente nelle misure di costruzione\n• Responsabilità dei contratti, della gestione degli ordini nonché dell'accettazione dei lavori e delle garanzie, nonché della gestione dei difetti\n• Assumere la responsabilità dell'operatore nell'area di responsabilità assegnata\n• Pianificazione e coordinamento dell'uso interno ed esterno dello spazio\n• Organizzazione e monitoraggio dei traslochi interni con fornitori di servizi interni o esterni Requisiti:\n• Tecnico di base completato o formazione artigianale (ad es. edilizia, tecnologia edilizia o simili)\n• Formazione continua in facility management, gestione di edifici o costruzione, preferibilmente come manager FM, qualificato. Facility manager o con qualifiche comparabili\n• Esperienza professionale pluriennale nel facility management, nella gestione immobiliare o nella gestione di progetti di costruzione costituisce un vantaggio\n• Esperienza nella gestione di progetti di manutenzione, conversione o ristrutturazione\n• Buona conoscenza del budget, del controllo dei costi e della pianificazione degli investimenti\n• Forti capacità organizzative e concettuali\n• Modo di lavorare indipendente, strutturato e orientato alla soluzione\n• Elevato orientamento al servizio nonché forti capacità comunicative, organizzative e assertive Offriamo:\n• 28-33 giorni di ferie retribuite all'anno a seconda dell'età\n• Ampie opportunità di formazione continua e perfezionamento, ad es. proprio programma di seminari con un'ampia offerta formativa\n• Gestione della salute aziendale con misure preventive come consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di job sharing anche in posizioni dirigenziali\n• Aule luminose e accoglienti con infrastrutture moderne\n• Valori distintivi e cultura aziendale praticata attivamente\n• I collaboratori danno forma e contribuiscono a dare forma al Claraspital Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e di ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e l'esposizione nazionale del suo \"addome\" e Centri \"tumori\" e relative aree speciali. Al Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che personalmente. Al Claraspital attribuiamo grande importanza al mantenimento e allo sviluppo consapevole della nostra cultura aziendale e al vivere attivo i criteri culturali che abbiamo sviluppato insieme: “insieme – con competenza – responsabile”.",
-        "en": "As head of infrastructural building management, you will be responsible for the technical and personnel management of a committed team and will be responsible for the infrastructural management of our properties. You ensure economical, sustainable and user-oriented operations and represent the interests of the organization in construction, maintenance and renovation projects. Tasks:\n• Personnel and technical management of five employees\n• Organization and management of in-house work on smaller construction projects, maintenance work and moves\n• Planning, coordination and implementation of maintenance, renovation and optimization projects\n• Project management and client representation in construction measures\n• Responsibility for contracts, order management as well as work and warranty acceptance, as well as defect management\n• Assuming operator responsibility in the assigned area of responsibility\n• Planning and coordination of internal and external use of space\n• Organization and monitoring internal moves with internal or external service providers Requirements:\n• Completed basic technical or craft training (e.g. construction, building technology or comparable)\n• Further training in facility management, building management or construction, preferably as FM manager, qualified. Facility manager or with comparable qualifications\n• Several years of professional experience in facility management, real estate management or construction project management is an advantage\n• Experience in managing maintenance, conversion or renovation projects\n• Good knowledge of budgeting, cost control and investment planning\n• Strong organizational and conceptual skills\n• Independent, structured and solution-oriented way of working\n• High service orientation as well as strong communication, organization and assertive skills We offer:\n• 28-33 paid vacation days depending on age per year\n• Extensive opportunities for further training and further education, e.g. own seminar program with a wide range of educational offerings\n• Company health management with preventive measures such as ergonomic advice at the workplace\n• Part-time work and the possibility of job sharing, including in management positions\n• Bright, friendly rooms with modern infrastructure\n• Distinctive values and actively practiced corporate culture\n• Employees shape and help shape the Claraspital The Claraspital, Basel's largest private hospital, is a University teaching and research hospital with a comprehensive service mandate for highly specialized abdominal surgery and national exposure of its \"Abdomen\" and \"Tumor\" centers as well as its special areas. At Claraspital, employees find jobs where they can develop both professionally and personally. At Claraspital, we attach great importance to consciously maintaining and developing our corporate culture and actively living the cultural criteria we have developed together: “together – competently – responsibly”.",
-        "de": "<b>Als Leiter/in Infrastrukturelles Gebäudemanagement übernehmen Sie die fachliche und personelle Führung eines engagierten Teams und tragen die Verantwortung für die infrastrukturelle Bewirtschaftung unserer Liegenschaften. Sie stellen einen wirtschaftlichen, nachhaltigen und nutzerorientierten Betrieb sicher und vertreten die Interessen der Organisation bei Bau-, Unterhalts- und Sanierungsprojekten.</b>\n\nAufgaben:\n• Personelle und fachliche Führung von fünf Mitarbeitenden\n\n• Organisation und Leitung von Eigenleistungen bei kleineren Bauprojekten, Unterhaltsarbeiten und Umzügen\n\n• Planung, Koordination und Umsetzung von Unterhalts-, Sanierungs- und Optimierungsprojekten\n\n• Projektleitung und Bauherrenvertretung bei baulichen Massnahmen\n\n• Verantwortung für Vertragswesen, Auftragsmanagement sowie Werk- und Garantieabnahmen, sowie Mängelmanagement\n\n• Wahrnehmung der Betreiberverantwortung im zugewiesenen Verantwortungsbereich\n\n• Planung und Koordination der internen sowie externen Raumnutzung\n\n• Organisation und Überwachung interner Umzüge mit internen oder externen Dienstleistern\n\nAnforderungen:\n• Abgeschlossene technische oder handwerkliche Grundausbildung (z. B. Bau, Gebäudetechnik oder vergleichbar)\n\n• Weiterbildung im Facility Management, Gebäudemanagement oder Bauwesen, vorzugsweise als FM-Leiter/in, dipl. Facility Manager/in oder mit vergleichbarer Qualifikation\n\n• Mehrjährige Berufserfahrung im Facility Management, Immobilienmanagement oder Bauprojektmanagement von Vorteil\n\n• Erfahrung in der Leitung von Unterhalts-, Umbau- oder Sanierungsprojekten\n\n• Gute Kenntnisse in Budgetierung, Kostenkontrolle und Investitionsplanung\n\n• Ausgeprägte organisatorische und konzeptionelle Fähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Dienstleistungsorientierung sowie ausgeprägte Kommunikations-, Organisations- und Durchsetzungsfähigkeiten\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-        "fr": "En tant que responsable de la gestion des bâtiments infrastructurels, vous serez responsable de la gestion technique et du personnel d'une équipe engagée et serez responsable de la gestion des infrastructures de nos propriétés. Vous assurez une exploitation économique, durable et orientée utilisateur et représentez les intérêts de l’organisation dans les projets de construction, d’entretien et de rénovation. Tâches :\n• Gestion du personnel et technique de cinq employés\n• Organisation et gestion des travaux internes sur les petits projets de construction, travaux d'entretien et déménagements\n• Planification, coordination et mise en œuvre de projets d'entretien, de rénovation et d'optimisation\n• Gestion de projet et représentation du client dans les mesures de construction\n• Responsabilité des contrats, de la gestion des commandes ainsi que de l'acceptation des travaux et des garanties, ainsi que de la gestion des défauts\n• Assumer la responsabilité de l'opérateur dans le domaine de responsabilité assigné\n• Planification et coordination de l'utilisation interne et externe de l'espace\n• Organisation et suivi des déménagements internes avec des prestataires de services internes ou externes. ou formation artisanale (par exemple construction, technique du bâtiment ou similaire)\n• Formation continue en matière de gestion d'installations, de gestion de bâtiments ou de construction, de préférence en tant que responsable FM, qualifiée. Gestionnaire d'installations ou avec des qualifications comparables\n• Plusieurs années d'expérience professionnelle dans la gestion d'installations, la gestion immobilière ou la gestion de projets de construction sont un avantage\n• Expérience dans la gestion de projets de maintenance, de conversion ou de rénovation\n• Bonnes connaissances en matière de budgétisation, de contrôle des coûts et de planification des investissements\n• Solides compétences organisationnelles et conceptuelles\n• Méthode de travail indépendante, structurée et orientée vers les solutions\n• Haute orientation vers le service ainsi que de solides compétences en communication, organisation et affirmation de soi Nous offrons :\n• 28-33 jours de vacances payés selon l'âge par an\n• De nombreuses possibilités de formation continue et de formation continue, par ex. propre programme de séminaires avec une large offre de formation\n• Gestion de la santé de l'entreprise avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage d'emploi, y compris dans des postes de direction\n• Des salles lumineuses et conviviales avec une infrastructure moderne\n• Valeurs distinctives et culture d'entreprise activement mise en pratique\n• Les collaborateurs façonnent et contribuent à façonner le Claraspital Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de prestation complet pour la chirurgie abdominale hautement spécialisée et une exposition nationale de son \"Abdomen\" et Centres « Tumeurs » ainsi que ses zones spéciales. Au Claraspital, les collaborateurs trouvent des emplois où ils peuvent se développer tant sur le plan professionnel que personnel. Au Claraspital, nous attachons une grande importance à entretenir et développer consciemment notre culture d’entreprise et à vivre activement les critères culturels que nous avons développés ensemble : « ensemble – avec compétence – de manière responsable »."
-      },
-      "needsRetranslation": false,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.claraspital.ch/offene-stellen/leiter-in-infrastrukturelles-gebaeudemanagement/fa4da652-a4a0-4e5f-89be-b018b44dc82e",
-      "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.934Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4058",
-      "streetAddress": "Kleinriehenstrasse 30",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://stclara.pi-asp.de/bewerber-web/?companyEid=1&tenant=&lang=DS#position,id=4890b1e7-2599-4090-bb4d-474d7560975d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-        "head-of-infrastructure-management-st-claraspital-basel",
-        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel",
-        "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-          "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel"
-        ],
-        "en": [
-          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-          "head-of-infrastructure-management-st-claraspital-basel"
-        ],
-        "fr": [
-          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-          "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T13:02:57.960Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "claraspital-896b6bb5d5c9",
       "slug": "psicologo-st-claraspital-basel",
       "slugByLocale": {
@@ -772,7 +772,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/psychologin-psychologe/4e0320df-acff-435e-aea3-3e6c8baf467f",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.933Z",
+      "crawledAt": "2026-08-23T21:52:01.283Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -852,7 +852,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/amb-case-manager-in-urologie-mpa/2498c2b6-8ab3-4bbf-b1c6-4987cdce50c5",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.932Z",
+      "crawledAt": "2026-08-23T21:52:01.282Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -916,7 +916,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/assistenzaerztin-assistenzarzt-aim/d9b73c78-6b19-4111-8c8f-ed80f57eb902",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.932Z",
+      "crawledAt": "2026-08-23T21:52:01.282Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1027,7 +1027,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/fachleitung-pflege-chirurgie/8bbaec72-e3c9-4432-9fe8-d379293748b5",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.931Z",
+      "crawledAt": "2026-08-23T21:52:01.281Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1127,7 +1127,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/amb-case-manager-in-gynaekologie-mpa/073abd91-85a7-449e-81e9-b9b49e819f11",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.931Z",
+      "crawledAt": "2026-08-23T21:52:01.281Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1227,7 +1227,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/dipl-pflegefachperson-hf-fh/7eb248da-7e7b-4dc5-bfcd-970b7303e414",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.928Z",
+      "crawledAt": "2026-08-23T21:52:01.279Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1294,86 +1294,6 @@
       }
     },
     {
-      "id": "claraspital-fc0cc5ddf639",
-      "slug": "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel",
-      "slugByLocale": {
-        "it": "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel",
-        "en": "dipl-care-professional-cardiology-hf-fh-st-claraspital-basel",
-        "de": "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel",
-        "fr": "dipl-soins-professionnels-cardiologie-hf-fh-st-claraspital-basel"
-      },
-      "company": "St. Claraspital",
-      "companyKey": "claraspital",
-      "companyDomain": "claraspital.ch",
-      "title": "Dipl. Pflegefachperson Kardiologie HF / FH",
-      "titleByLocale": {
-        "it": "Dipl. Cura professionale Cardiologia HF / FH",
-        "en": "Dipl. Care professional Cardiology HF / FH",
-        "de": "Dipl. Pflegefachperson Kardiologie HF / FH",
-        "fr": "Dipl. Soins professionnels Cardiologie HF / FH"
-      },
-      "description": "Aufgaben:\n• Sterile und technische Assistenz bei invasiven kardiologischen Untersuchungen / Interventionen im Herzkatheterlabor\n\n• Dokumentation und Leistungserfassung der Eingriffe sowie Überwachung der hämodynamischen Patientendaten\n\n• Aufnahme, Vorbereitung und Überwachung ambulanter sowie stationärer Patienten für Herzkatheteruntersuchungen\n\n• Assistenz in der nicht-invasiven kardiologischen Funktionsdiagnostik , u.a. Langzeit-EKG, Belastungs-EKG, Echokardiographie, transösophagealer Echokardiographie, Elektorkonversion, Schrittmachersprechstunde etc.\n\n• Administrative Aufgaben, u.a. Sprechstunden Organisation, Leistungserfassung, Langzeit EKG Voranalyse, führen von Statistiken und Mitarbeit bei Projekten etc.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH in einem Akutspital\n\n• Erfahrungen in der Kardiologie, Herzkatheter Labor, Notfall- oder Intensivmedizin sind von Vorteil\n\n• Bereitschaft zur fachlichen Weiterbildung\n\n• Sie sind versiert und geschickt im Umgang mit IT und Medizintechnik\n\n• Sie pflegen einen freundlichen und einfühlsamen Umgang mit Patienten und können dies in einem technischen Umfeld beweisen\n\n• Sie sind gewissenhaft und erfreuen sich an einer anspruchsvollen und abwechslungsreichen Arbeit\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Assistenza sterile e tecnica negli esami cardiologici invasivi / interventi nel laboratorio del catetere cardiaco\n\n• Documentazione e registrazione delle prestazioni di interventi e monitoraggio dei dati dei pazienti emodinamici\n\n• Ammissione, preparazione e monitoraggio degli ambulatori e degli inpatici per gli esami del catetere cardiaco\n\n• Assistenza nella diagnostica funzionale cardiaca non invasiva, tra cui ECG a lungo termine, stress ECG, ecocardiografia, ecocardiografia transesofagea, elettroconversione, consultazione pacemaker, ecc.\n\n• Compiti amministrativi, ad esempio organizzazione delle ore di ufficio, registrazione delle prestazioni, analisi preliminare ECG a lungo termine, condurre statistiche e cooperazione in progetti, ecc.\n\nRequisiti\n• Allenamento completato come Dipl. Infermiera HF/FH in un ospedale acuto\n\n• Esperienza in cardiologia, laboratorio di catetere cardiaco, pronto soccorso o medicina intensiva di cura sono utili\n\n• Prontezza per la formazione professionale\n\n• Siete ben diversificati e qualificati nel trattare con IT e tecnologia medica\n\n• Mantengono un trattamento amichevole e sensibile dei pazienti e possono dimostrarlo in un ambiente tecnico\n\n• Sono coscienziosi e godono di un lavoro impegnativo e vario\n\nOffriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n\n• Camere luminose e accoglienti con infrastrutture moderne\n\n• Valori forti e cultura aziendale attivamente vissuta\n\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
-        "en": "Tasks:\n• Sterile and technical assistance in invasive cardiological examinations / interventions in the heart catheter laboratory\n\n• Documentation and performance recording of interventions and monitoring of hemodynamic patient data\n\n• Admission, preparation and monitoring of outpatients and inpatients for cardiac catheter examinations\n\n• Assistance in non-invasive cardiac functional diagnostics, including long-term ECG, stress ECG, echocardiography, transesophageal echocardiography, electroconversion, pacemaker consultation, etc.\n\n• Administrative tasks, e.g. office hours organization, performance recording, long-term ECG preliminary analysis, conduct statistics and cooperation in projects, etc.\n\nRequirements\n• Completed training as a Dipl. Nurse HF/FH in an acute hospital\n\n• Experience in cardiology, cardiac catheter laboratory, emergency or intensive care medicine are beneficial\n\n• Readiness for professional training\n\n• You are well-versed and skilled in dealing with IT and medical technology\n\n• They maintain a friendly and sensitive treatment of patients and can prove this in a technical environment\n\n• They are conscientious and enjoy a demanding and varied work\n\nWe offer:\n• 28-33 paid leave days per year\n\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n\n• Part-time work and possibility of job sharing also in management functions\n\n• Bright, friendly rooms with modern infrastructure\n\n• Strong values and actively lived corporate culture\n\n• Characterisation and participation of the Claraspital by the employees\n\nThe Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
-        "de": "Aufgaben:\n• Sterile und technische Assistenz bei invasiven kardiologischen Untersuchungen / Interventionen im Herzkatheterlabor\n\n• Dokumentation und Leistungserfassung der Eingriffe sowie Überwachung der hämodynamischen Patientendaten\n\n• Aufnahme, Vorbereitung und Überwachung ambulanter sowie stationärer Patienten für Herzkatheteruntersuchungen\n\n• Assistenz in der nicht-invasiven kardiologischen Funktionsdiagnostik , u.a. Langzeit-EKG, Belastungs-EKG, Echokardiographie, transösophagealer Echokardiographie, Elektorkonversion, Schrittmachersprechstunde etc.\n\n• Administrative Aufgaben, u.a. Sprechstunden Organisation, Leistungserfassung, Langzeit EKG Voranalyse, führen von Statistiken und Mitarbeit bei Projekten etc.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH in einem Akutspital\n\n• Erfahrungen in der Kardiologie, Herzkatheter Labor, Notfall- oder Intensivmedizin sind von Vorteil\n\n• Bereitschaft zur fachlichen Weiterbildung\n\n• Sie sind versiert und geschickt im Umgang mit IT und Medizintechnik\n\n• Sie pflegen einen freundlichen und einfühlsamen Umgang mit Patienten und können dies in einem technischen Umfeld beweisen\n\n• Sie sind gewissenhaft und erfreuen sich an einer anspruchsvollen und abwechslungsreichen Arbeit\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-        "fr": "Tâches :\n• Stérile et assistance technique dans les examens cardiologiques invasifs / interventions dans le laboratoire du cathéter cardiaque\n\n• Documentation et enregistrement des performances des interventions et surveillance des données sur les patients hémodynamiques\n\n• Admission, préparation et surveillance des patients externes et hospitalisés pour les examens de cathéter cardiaque\n\n• Assistance dans les diagnostics fonctionnels cardiaques non invasifs, y compris ECG à long terme, ECG de stress, échocardiographie, échocardiographie transoesophagienne, électroconversion, consultation des stimulateurs cardiaques, etc.\n\n• Tâches administratives, p. ex. organisation des heures de bureau, enregistrement des performances, analyse préliminaire à long terme du GCE, réalisation de statistiques et coopération dans les projets, etc.\n\nExigences\n• Formation terminée en tant que diplômé. Infirmière HF/FH dans un hôpital aigu\n\n• L'expérience en cardiologie, en laboratoire de cathéter cardiaque, en médecine d'urgence ou en médecine de soins intensifs est bénéfique\n\n• Préparation à la formation professionnelle\n\n• Vous êtes bien placé pour gérer les technologies informatiques et médicales.\n\n• Ils maintiennent un traitement amical et sensible des patients et peuvent le prouver dans un environnement technique\n\n• Ils sont consciencieux et jouissent d'un travail exigeant et varié.\n\nNous offrons:\n• 28-33 jours de congé payé par an\n\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n\n• Des valeurs fortes et une culture d'entreprise active\n\n• Caractérisation et participation du Claraspital par les salariés\n\nLe Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
-      },
-      "needsRetranslation": false,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.claraspital.ch/offene-stellen/dipl-pflegefachperson-kardiologie-hf-fh/3f00c316-b75c-4abf-a6c8-0a92b5f15413",
-      "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.927Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4058",
-      "streetAddress": "Kleinriehenstrasse 30",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://stclara.pi-asp.de/bewerber-web/?companyEid=1&tenant=&lang=DS#position,id=4b8815b2-ad79-440a-8b4a-ec2728fe4014",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel",
-        "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel",
-          "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel"
-        ],
-        "en": [
-          "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T11:23:18.396Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "claraspital-d7c7d70b4725",
       "slug": "nutrizione-st-claraspital-basel-440c34",
       "slugByLocale": {
@@ -1405,7 +1325,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/ernaehrungsberater-in/f4941588-ef18-40ee-8fee-0708cba5175b",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.926Z",
+      "crawledAt": "2026-08-23T21:52:01.278Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1454,6 +1374,86 @@
       }
     },
     {
+      "id": "claraspital-fc0cc5ddf639",
+      "slug": "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel",
+      "slugByLocale": {
+        "it": "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel",
+        "en": "dipl-care-professional-cardiology-hf-fh-st-claraspital-basel",
+        "de": "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel",
+        "fr": "dipl-soins-professionnels-cardiologie-hf-fh-st-claraspital-basel"
+      },
+      "company": "St. Claraspital",
+      "companyKey": "claraspital",
+      "companyDomain": "claraspital.ch",
+      "title": "Dipl. Pflegefachperson Kardiologie HF / FH",
+      "titleByLocale": {
+        "it": "Dipl. Cura professionale Cardiologia HF / FH",
+        "en": "Dipl. Care professional Cardiology HF / FH",
+        "de": "Dipl. Pflegefachperson Kardiologie HF / FH",
+        "fr": "Dipl. Soins professionnels Cardiologie HF / FH"
+      },
+      "description": "Aufgaben:\n• Sterile und technische Assistenz bei invasiven kardiologischen Untersuchungen / Interventionen im Herzkatheterlabor\n\n• Dokumentation und Leistungserfassung der Eingriffe sowie Überwachung der hämodynamischen Patientendaten\n\n• Aufnahme, Vorbereitung und Überwachung ambulanter sowie stationärer Patienten für Herzkatheteruntersuchungen\n\n• Assistenz in der nicht-invasiven kardiologischen Funktionsdiagnostik , u.a. Langzeit-EKG, Belastungs-EKG, Echokardiographie, transösophagealer Echokardiographie, Elektorkonversion, Schrittmachersprechstunde etc.\n\n• Administrative Aufgaben, u.a. Sprechstunden Organisation, Leistungserfassung, Langzeit EKG Voranalyse, führen von Statistiken und Mitarbeit bei Projekten etc.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH in einem Akutspital\n\n• Erfahrungen in der Kardiologie, Herzkatheter Labor, Notfall- oder Intensivmedizin sind von Vorteil\n\n• Bereitschaft zur fachlichen Weiterbildung\n\n• Sie sind versiert und geschickt im Umgang mit IT und Medizintechnik\n\n• Sie pflegen einen freundlichen und einfühlsamen Umgang mit Patienten und können dies in einem technischen Umfeld beweisen\n\n• Sie sind gewissenhaft und erfreuen sich an einer anspruchsvollen und abwechslungsreichen Arbeit\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Assistenza sterile e tecnica negli esami cardiologici invasivi / interventi nel laboratorio del catetere cardiaco\n\n• Documentazione e registrazione delle prestazioni di interventi e monitoraggio dei dati dei pazienti emodinamici\n\n• Ammissione, preparazione e monitoraggio degli ambulatori e degli inpatici per gli esami del catetere cardiaco\n\n• Assistenza nella diagnostica funzionale cardiaca non invasiva, tra cui ECG a lungo termine, stress ECG, ecocardiografia, ecocardiografia transesofagea, elettroconversione, consultazione pacemaker, ecc.\n\n• Compiti amministrativi, ad esempio organizzazione delle ore di ufficio, registrazione delle prestazioni, analisi preliminare ECG a lungo termine, condurre statistiche e cooperazione in progetti, ecc.\n\nRequisiti\n• Allenamento completato come Dipl. Infermiera HF/FH in un ospedale acuto\n\n• Esperienza in cardiologia, laboratorio di catetere cardiaco, pronto soccorso o medicina intensiva di cura sono utili\n\n• Prontezza per la formazione professionale\n\n• Siete ben diversificati e qualificati nel trattare con IT e tecnologia medica\n\n• Mantengono un trattamento amichevole e sensibile dei pazienti e possono dimostrarlo in un ambiente tecnico\n\n• Sono coscienziosi e godono di un lavoro impegnativo e vario\n\nOffriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n\n• Camere luminose e accoglienti con infrastrutture moderne\n\n• Valori forti e cultura aziendale attivamente vissuta\n\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
+        "en": "Tasks:\n• Sterile and technical assistance in invasive cardiological examinations / interventions in the heart catheter laboratory\n\n• Documentation and performance recording of interventions and monitoring of hemodynamic patient data\n\n• Admission, preparation and monitoring of outpatients and inpatients for cardiac catheter examinations\n\n• Assistance in non-invasive cardiac functional diagnostics, including long-term ECG, stress ECG, echocardiography, transesophageal echocardiography, electroconversion, pacemaker consultation, etc.\n\n• Administrative tasks, e.g. office hours organization, performance recording, long-term ECG preliminary analysis, conduct statistics and cooperation in projects, etc.\n\nRequirements\n• Completed training as a Dipl. Nurse HF/FH in an acute hospital\n\n• Experience in cardiology, cardiac catheter laboratory, emergency or intensive care medicine are beneficial\n\n• Readiness for professional training\n\n• You are well-versed and skilled in dealing with IT and medical technology\n\n• They maintain a friendly and sensitive treatment of patients and can prove this in a technical environment\n\n• They are conscientious and enjoy a demanding and varied work\n\nWe offer:\n• 28-33 paid leave days per year\n\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n\n• Part-time work and possibility of job sharing also in management functions\n\n• Bright, friendly rooms with modern infrastructure\n\n• Strong values and actively lived corporate culture\n\n• Characterisation and participation of the Claraspital by the employees\n\nThe Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
+        "de": "Aufgaben:\n• Sterile und technische Assistenz bei invasiven kardiologischen Untersuchungen / Interventionen im Herzkatheterlabor\n\n• Dokumentation und Leistungserfassung der Eingriffe sowie Überwachung der hämodynamischen Patientendaten\n\n• Aufnahme, Vorbereitung und Überwachung ambulanter sowie stationärer Patienten für Herzkatheteruntersuchungen\n\n• Assistenz in der nicht-invasiven kardiologischen Funktionsdiagnostik , u.a. Langzeit-EKG, Belastungs-EKG, Echokardiographie, transösophagealer Echokardiographie, Elektorkonversion, Schrittmachersprechstunde etc.\n\n• Administrative Aufgaben, u.a. Sprechstunden Organisation, Leistungserfassung, Langzeit EKG Voranalyse, führen von Statistiken und Mitarbeit bei Projekten etc.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH in einem Akutspital\n\n• Erfahrungen in der Kardiologie, Herzkatheter Labor, Notfall- oder Intensivmedizin sind von Vorteil\n\n• Bereitschaft zur fachlichen Weiterbildung\n\n• Sie sind versiert und geschickt im Umgang mit IT und Medizintechnik\n\n• Sie pflegen einen freundlichen und einfühlsamen Umgang mit Patienten und können dies in einem technischen Umfeld beweisen\n\n• Sie sind gewissenhaft und erfreuen sich an einer anspruchsvollen und abwechslungsreichen Arbeit\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+        "fr": "Tâches :\n• Stérile et assistance technique dans les examens cardiologiques invasifs / interventions dans le laboratoire du cathéter cardiaque\n\n• Documentation et enregistrement des performances des interventions et surveillance des données sur les patients hémodynamiques\n\n• Admission, préparation et surveillance des patients externes et hospitalisés pour les examens de cathéter cardiaque\n\n• Assistance dans les diagnostics fonctionnels cardiaques non invasifs, y compris ECG à long terme, ECG de stress, échocardiographie, échocardiographie transoesophagienne, électroconversion, consultation des stimulateurs cardiaques, etc.\n\n• Tâches administratives, p. ex. organisation des heures de bureau, enregistrement des performances, analyse préliminaire à long terme du GCE, réalisation de statistiques et coopération dans les projets, etc.\n\nExigences\n• Formation terminée en tant que diplômé. Infirmière HF/FH dans un hôpital aigu\n\n• L'expérience en cardiologie, en laboratoire de cathéter cardiaque, en médecine d'urgence ou en médecine de soins intensifs est bénéfique\n\n• Préparation à la formation professionnelle\n\n• Vous êtes bien placé pour gérer les technologies informatiques et médicales.\n\n• Ils maintiennent un traitement amical et sensible des patients et peuvent le prouver dans un environnement technique\n\n• Ils sont consciencieux et jouissent d'un travail exigeant et varié.\n\nNous offrons:\n• 28-33 jours de congé payé par an\n\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n\n• Des valeurs fortes et une culture d'entreprise active\n\n• Caractérisation et participation du Claraspital par les salariés\n\nLe Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+      },
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.claraspital.ch/offene-stellen/dipl-pflegefachperson-kardiologie-hf-fh/3f00c316-b75c-4abf-a6c8-0a92b5f15413",
+      "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-23T21:52:01.278Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4058",
+      "streetAddress": "Kleinriehenstrasse 30",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://stclara.pi-asp.de/bewerber-web/?companyEid=1&tenant=&lang=DS#position,id=4b8815b2-ad79-440a-8b4a-ec2728fe4014",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel",
+        "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel",
+          "dipl-cura-professionale-cardiologia-hf-fh-st-claraspital-basel"
+        ],
+        "en": [
+          "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-kardiologie-hf-fh-claraspital-basel"
+        ]
+      },
+      "firstSeenAt": "2026-07-30T11:23:18.396Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "claraspital-00de6fcdb5df",
       "slug": "gestione-letti-gestione-letti-st-claraspital-basel",
       "slugByLocale": {
@@ -1485,7 +1485,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/bettenmanagerin-bettenmanager/32adfbfe-bb5d-4773-a7f1-9ef1aeb87ff4",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.925Z",
+      "crawledAt": "2026-08-23T21:52:01.277Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1577,7 +1577,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/sachbearbeiter-in-gebaeudemanagement/2691c693-6dd5-4625-b05a-31ab4b4c6f2b",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.925Z",
+      "crawledAt": "2026-08-23T21:52:01.277Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1657,7 +1657,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/unterassistentin-unterassistent-urologie/a060692d-d8e2-4351-b17c-80ae67ec8e3c",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.923Z",
+      "crawledAt": "2026-08-23T21:52:01.276Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1737,7 +1737,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/patientenanmeldung-gynaekologie-mpa/bbd41ca1-a790-4062-9d2a-5e58b5f0afac",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.923Z",
+      "crawledAt": "2026-08-23T21:52:01.276Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1819,7 +1819,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/logistiker-in-efz/a5608f2f-0664-461e-8605-f83a726dc223",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.922Z",
+      "crawledAt": "2026-08-23T21:52:01.275Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1899,7 +1899,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-rezeption/fc49644f-e360-4f9a-862d-1582aed2d4eb",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.921Z",
+      "crawledAt": "2026-08-23T21:52:01.274Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1979,7 +1979,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/stationaere-r-case-manager-in-befristet-bis-zum-31-12-2026/a1f31306-0e29-4234-b06b-f66278eaa0c0",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.919Z",
+      "crawledAt": "2026-08-23T21:52:01.273Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2061,7 +2061,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d/53d40e96-d124-4871-8a1d-7f833899bf48",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.915Z",
+      "crawledAt": "2026-08-23T21:52:01.271Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2139,7 +2139,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/oberaerztin-oberarzt-urologie/617d3b2a-364e-482e-b393-20c5caf63146",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.913Z",
+      "crawledAt": "2026-08-23T21:52:01.268Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2232,7 +2232,7 @@
       "url": "https://jobs.claraspital.ch/offene-stellen/fachleitung-pflege-apn-clinical-nurse-specialist-medizin/ade67b39-303a-488f-adad-8ed5429df98a",
       "source": "St. Claraspital Dedicated Parser (Prospective medium 1006906)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:29.908Z",
+      "crawledAt": "2026-08-23T21:52:01.266Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2345,7 +2345,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
