@@ -11602,6 +11602,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-b-svitto-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-23T00:53:12.602Z',
+    image: '/images/blog/permesso-b-svitto-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

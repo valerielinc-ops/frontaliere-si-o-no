@@ -50174,6 +50174,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-b-svitto-requisiti-rinnovo': {
+    title: 'Permesso di dimora B canton Svitto: requisiti e rinnovo',
+    description: 'Guida completa al permesso di dimora B nel canton Svitto. Scopri requisiti, documenti necessari, procedura di rinnovo e normative SEM per chi risiede',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, canton, svitto',
+    ogTitle: 'Permesso di dimora B canton Svitto: requisiti e rinnovo',
+    ogDescription: 'Il permesso di dimora B consente ai cittadini stranieri di risiedere e lavorare nel canton Svitto. Scopri come ottenerlo, i requisiti federali SEM, i documenti necessari e la procedura completa di rinnovo con step-by-step operativi.',
+    canonicalPath: '/articoli-svizzera/permesso-b-svitto-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B canton Svitto: requisiti e rinnovo",
+      "description": "Guida completa al permesso di dimora B nel canton Svitto. Scopri requisiti, documenti necessari, procedura di rinnovo e normative SEM per chi risiede",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-svitto-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero dove risiedono gli uffici della migrazione cantonale per permessi di dimora"
+      },
+      "datePublished": "2026-08-23T00:53:12+00:00",
+      "dateModified": "2026-08-23T00:53:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-b-svitto-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

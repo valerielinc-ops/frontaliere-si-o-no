@@ -3868,6 +3868,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-svitto-come-richiederlo.title': 'Permit B in Svitto: how to request and renew it',
     'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Duration 1-5 years, prerequisites and renewal deadlines. Complete guide with necessary documents and mandatory LAMal insurance.',
     'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Swiss migration office counter with documents for residence permit B applications',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Residence permit B canton Svitto: requirements and renewal',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Residence permit B in canton Svitto allows foreign nationals to reside and work in Switzerland. Discover requirements, documents and how to renew it according to SEM regulations.',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Swiss cantonal administrative building housing migration offices for residence permits',
 };
 
 export default blogMetaChEn;

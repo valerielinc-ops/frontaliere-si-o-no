@@ -3868,6 +3868,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-svitto-come-richiederlo.title': 'Permis B à Schwyz : comment le demander et le renouveler',
     'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Durée 1-5 ans, conditions préalables et délais de renouvellement. Guide complet avec documents nécessaires et assurance LAMal obligatoire.',
     'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Bureau de migration suisse avec documents pour demande de permis de séjour B',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Permis de séjour B canton Schwyz : exigences et renouvellement',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Schwytz permet aux ressortissants étrangers de résider et de travailler en Suisse. Découvrez les exigences, les documents et comment les renouveler selon les réglementations SEM.',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Bâtiment administratif suisse accueillant les services de migration cantonale pour permis de résidence',
 };
 
 export default blogMetaChFr;

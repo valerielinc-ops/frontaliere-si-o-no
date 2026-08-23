@@ -3868,6 +3868,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-svitto-come-richiederlo.title': 'Ausweis B in Schwyz: Beantragung und Erneuerung',
     'blog.article.permesso-b-svitto-come-richiederlo.excerpt': 'Laufzeit 1-5 Jahre, Voraussetzungen und Fristen für die Erneuerung. Vollständiger Leitfaden mit notwendigen Unterlagen und obligatorischer KVG-Versicherung.',
     'blog.article.permesso-b-svitto-come-richiederlo.imageAlt': 'Schweizer Migrationsamt mit Dokumenten zur Beantragung von Aufenthaltserlaubnis B',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B Kanton Schwyz: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Schwyz erlaubt ausländischen Staatsangehörigen, in der Schweiz zu wohnen und zu arbeiten. Entdecken Sie Anforderungen, Dokumente und wie Sie sie gemäß den SEM-Vorschriften erneuern können.',
+    'blog.article.permesso-b-svitto-requisiti-rinnovo.imageAlt': 'Schweizer Verwaltungsgebäude mit Migrationsamt für Aufenthaltserlaubnisse',
 };
 
 export default blogMetaChDe;
