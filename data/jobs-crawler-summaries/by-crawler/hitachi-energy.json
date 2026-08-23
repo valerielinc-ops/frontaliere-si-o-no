@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-08-22T21:27:53.851Z",
+  "generatedAt": "2026-08-23T09:40:39.943Z",
   "total": 74,
   "newCount": 0,
   "updatedCount": 74,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 256534,
-  "avgDurationMs": 256534,
+  "durationMs": 272682,
+  "avgDurationMs": 272682,
   "durationHistory": [
-    256534
+    272682
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,8 +40,8 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-22T09:38:11.354Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
