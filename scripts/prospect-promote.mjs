@@ -136,7 +136,13 @@ function reconcileOpenPromotions(store) {
  * secondo modo silenzioso di perdere la PR di promozione se il backlog di PR
  * aperte cresce oltre la finestra.
  *
- * @returns {{ number: string, createdAt: string, title: string }|null}
+ * `ghUnavailable: true` distingue il ramo catch (gh assente/non autorizzato)
+ * dal caso reale di PR trovata: senza il flag i due esiti stampavano lo stesso
+ * messaggio "PR gia' in volo", e un guasto auth persistente nel runner CI si
+ * mimetizzava da comportamento normale invece di segnalarsi come guasto
+ * separato (follow-up #6305 item 2).
+ *
+ * @returns {{ number: string, createdAt: string, title: string, ghUnavailable?: boolean }|null}
  */
 function openPromotionPr() {
   try {
@@ -148,7 +154,7 @@ function openPromotionPr() {
   } catch {
     // `gh` assente o non autorizzato: non si puo' sapere. Meglio NON promuovere
     // che aprire una seconda PR alla cieca e bloccarle entrambe.
-    return { number: '?', createdAt: '', title: 'stato non verificabile' };
+    return { number: '?', createdAt: '', title: 'stato non verificabile', ghUnavailable: true };
   }
 }
 
@@ -165,10 +171,21 @@ const { promotable, blocked, capped } = selectForPromotion(
 
 const inFlight = openPromotionPr();
 if (inFlight) {
+  console.log('═══ Prospector · PROMOTE ═══');
+  if (inFlight.ghUnavailable) {
+    // Guasto separato dal caso "PR trovata": non sappiamo se una promozione e'
+    // gia' in volo, quindi saltiamo per sicurezza — ma un problema di
+    // auth/token persistente nel runner CI deve segnalarsi come tale, non
+    // mimetizzarsi da normale serializzazione.
+    console.log('\n⚠️  gh non risponde (assente o non autorizzato): impossibile verificare');
+    console.log('se una PR di promozione e\' gia\' aperta. Salto la promozione per sicurezza.');
+    console.log('Questo NON e\' il caso normale di "PR gia\' in volo": se persiste su piu\' run,');
+    console.log('e\' un guasto di auth/token del runner CI da investigare separatamente.');
+    process.exit(0);
+  }
   const ageH = inFlight.createdAt
     ? Math.round((Date.now() - Date.parse(inFlight.createdAt)) / 3600000)
     : null;
-  console.log('═══ Prospector · PROMOTE ═══');
   console.log(`\nUna PR di promozione e' gia' aperta: #${inFlight.number}${ageH !== null ? ` (da ${ageH}h)` : ''}`);
   console.log(`  ${inFlight.title}`);
   console.log('\nNon ne apro una seconda: ogni promozione rigenera tutti i gruppi di');
