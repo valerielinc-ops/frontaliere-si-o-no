@@ -3910,6 +3910,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Calculation of AVS annuity and contribution gaps',
     'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'How the cantonal compensation fund works in the calculation of the AVS annuity, what contribution gaps reduce the amount and how the supplementary benefits fill the living minimum.',
     'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Swiss cantonal administration office: compensation fund for AVS pension calculation',
+    'blog.article.avc-lacune-contributive-prestazioni.title': 'AVS in Obvaldo: annuity and complementary services',
+    'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'How the first pillar and complementary services work in the Obvaldo Canton. An AVS annuity guide.',
+    'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Swiss AVS pension documents with calculator and retirement statement on a desk with Swiss flag.',
 };
 
 export default blogMetaChEn;

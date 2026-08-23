@@ -3910,6 +3910,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-lacune-contributive.title': 'Berechnung AHV-Rente und Beitragslücken',
     'blog.article.calcolo-rendita-avs-lacune-contributive.excerpt': 'Wie die kantonale Ausgleichskasse bei der Berechnung der AHV-Rente arbeitet, welche Beitragslücken den Betrag reduzieren und wie Ergänzungsleistungen das Existenzminimum ausfüllen.',
     'blog.article.calcolo-rendita-avs-lacune-contributive.imageAlt': 'Schweizer Kantonsamt: Ausgleichskasse für die AVS-Rentenberechnung',
+    'blog.article.avc-lacune-contributive-prestazioni.title': 'AHV Obwalden: Rente und Ergänzungsleistungen',
+    'blog.article.avc-lacune-contributive-prestazioni.excerpt': 'Wie funktioniert die erste Säule und die Ergänzungsleistungen im Kanton Obwalden? Ein Leitfaden zur AHV-Rente.',
+    'blog.article.avc-lacune-contributive-prestazioni.imageAlt': 'Schweizer AHV-Rentendokumente mit Taschenrechner und Leistungsmitteilung auf einem Schreibtisch mit Schweizer Flagge.',
 };
 
 export default blogMetaChDe;
