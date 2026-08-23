@@ -75808,6 +75808,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-vivere-cannobina-lavorare-ticino-frontaliere': {
+    title: 'Frontaliere in Valle Cannobina: lavorare in Ticino',
+    description: 'Guida pratica per frontalieri che vivono a Valle Cannobina e lavorano in Ticino: fiscalità, previdenza, LAMal, permesso G. Scopri come organizzarti al confine',
+    keywords: 'frontalieri, ticino, svizzera, italia, valle, cannobina, lavorare, fiscalità',
+    ogTitle: 'Vivere a Valle Cannobina, lavorare in Ticino da frontaliere',
+    ogDescription: 'Stai considerando di trasferirti a Valle Cannobina e lavorare in Ticino? Scopri come organizzarti: fiscalità, previdenza obbligatoria, assicurazione malattia, procedura per il permesso G. Leggi la guida completa su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-cannobina-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere in Valle Cannobina: lavorare in Ticino",
+      "description": "Guida pratica per frontalieri che vivono a Valle Cannobina e lavorano in Ticino: fiscalità, previdenza, LAMal, permesso G. Scopri come organizzarti al confine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cannobina-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di valle alpina al confine Ticino-Italia con villaggi di montagna e strade che conducono ai valichi di confine"
+      },
+      "datePublished": "2026-08-23T06:20:48+00:00",
+      "dateModified": "2026-08-23T06:20:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cannobina-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

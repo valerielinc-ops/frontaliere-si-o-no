@@ -10575,6 +10575,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.title': 'Vivre à Castelveccana et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.excerpt': 'Liaisons, temps de trajet, coût de la vie, zones recommandées, avantages et inconvénients du transfert, ce qu\'il faut prendre en compte avant de déménager',
     'blog.article.vivere-castelveccana-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier qui travaille dans le canton de Tessin et habite à Castelveccana',
+    'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.title': 'Frontière dans la vallée de Cannobina : travailler au Tessin',
+    'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.excerpt': 'Fiscalité, prévoyance et procédure pour ceux qui choisissent Valle Cannobina comme résidence et le Tessin comme lieu de travail. Taxe à la source, AVS/LPP, LAMal et permis G : tout ce que vous devez savoir.',
+    'blog.article.vivere-cannobina-lavorare-ticino-frontaliere.imageAlt': 'Vallée alpine à la frontière Tessin-Italie avec villages de montagne et routes vers les postes frontaliers',
 };
 
 export default blogMetaFr;
