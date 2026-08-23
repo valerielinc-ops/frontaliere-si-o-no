@@ -10584,6 +10584,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-montorfano-lavorare-ticino.title': 'Vivre à Montorfano et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui résident à Montorfano et travaillent dans le canton du Tessin : impôts, régime fiscal et procédures pour les travailleurs frontaliers.',
     'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac de Lugano',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Vivre à Appiano Gentile et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Imposée à la source sur le revenu du travail : retenue UNIQUEMENT en Suisse pour les frontaliers',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers en mouvement entre Appiano Gentile et Ticino',
 };
 
 export default blogMetaFr;

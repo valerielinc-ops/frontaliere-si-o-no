@@ -31674,6 +31674,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-appiano-gentile-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-23T07:54:10.157Z',
+ image: '/images/blog/vivere-appiano-gentile-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

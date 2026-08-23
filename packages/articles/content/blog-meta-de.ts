@@ -10581,6 +10581,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-montorfano-lavorare-ticino.title': 'Leben in Montorfano und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die in Montorfano wohnen und im Kanton Tessin arbeiten: Steuern, Steuerregelung und Verfahren für Grenzgänger.',
     'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Wohnen in Eppan Gentile und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Quellensteuer auf Erwerbseinkommen: NUR in der Schweiz für Grenzgänger einbehalten',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers in Bewegung zwischen Appiano Gentile und Ticino',
 };
 
 export default blogMetaDe;

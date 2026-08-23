@@ -10582,6 +10582,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-montorfano-lavorare-ticino.title': 'Living in Montorfano and working in Ticino as a border worker',
     'blog.article.vivere-montorfano-lavorare-ticino.excerpt': 'Practical guide for those residing in Montorfano and working in the Canton of Ticino: taxes, tax regime and procedures for frontier workers.',
     'blog.article.vivere-montorfano-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.title': 'Living in Appiano Gentile and working in Ticino as a cross-border commuter',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.excerpt': 'Taxed at source on income from work: withheld ONLY in Switzerland for border workers',
+    'blog.article.vivere-appiano-gentile-lavorare-ticino.imageAlt': 'Frontaliers moving between Appiano Gentile and Ticino',
 };
 
 export default blogMetaEn;
