@@ -10604,6 +10604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Vivere a Zelbio, lavorare in Ticino da frontaliere',
     'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio e confine ticinese: vantaggi fiscali, permesso G, AVS/LPP/LAMal, doppia imposizione, procedure d\'avvio e confronto con trasferimento permanente.',
     'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama del confine Italia-Svizzera presso Zelbio e Como, con valli e boschi della zona frontaliera ticinese.',
+    'blog.article.comprare-affittare-ticino-frontalieri.title': 'Comprare casa in Ticino: prezzi e tendenze',
+    'blog.article.comprare-affittare-ticino-frontalieri.excerpt': 'Guida al mercato immobiliare ticinese per frontalieri: affitto vs acquisto, fattori di prezzo, costi aggiuntivi e implicazioni fiscali. Checklist pratica e procedura step-by-step.',
+    'blog.article.comprare-affittare-ticino-frontalieri.imageAlt': 'Vista aerea del tessuto residenziale di Lugano e dintorni, con proprietà a lago e sfondo montuoso del Ticino',
 };
 
 export default blogMetaIt;

@@ -10602,6 +10602,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Leben in Zelbio, Arbeiten im Tessin als Grenzgänger',
     'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio und Tessiner Grenze: Steuervorteile, Bewilligung G, AHV/BVG/KVG, Doppelbesteuerung, Anlaufverfahren und Vergleich mit Dauertransfer.',
     'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama der Grenze Italien-Schweiz bei Zelbio und Como mit Tälern und Wäldern der Tessiner Grenzregion.',
+    'blog.article.comprare-affittare-ticino-frontalieri.title': 'Haus kaufen im Tessin: Preise und Trends',
+    'blog.article.comprare-affittare-ticino-frontalieri.excerpt': 'Leitfaden zum Tessiner Immobilienmarkt für Grenzgänger: Miete vs. Kauf, Preisfaktoren, Mehrkosten und steuerliche Auswirkungen. Praktische Checkliste und Schritt-für-Schritt-Verfahren.',
+    'blog.article.comprare-affittare-ticino-frontalieri.imageAlt': 'Luftaufnahme von Wohnvierteln in Lugano mit Seeliegenschaften und Alpenlandschaft',
 };
 
 export default blogMetaDe;

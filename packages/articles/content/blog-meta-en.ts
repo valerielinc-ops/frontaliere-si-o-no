@@ -10603,6 +10603,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.zelbio-frontaliere-ticino-residenza.title': 'Living in Zelbio, working in Ticino as a border worker',
     'blog.article.zelbio-frontaliere-ticino-residenza.excerpt': 'Zelbio and Ticino border: tax advantages, G permit, AVS/LPP/LAMal, double taxation, start-up procedures and comparison with permanent transfer.',
     'blog.article.zelbio-frontaliere-ticino-residenza.imageAlt': 'Panorama of the Italy-Switzerland border near Zelbio and Como, showing valleys and forests of the Ticino border area.',
+    'blog.article.comprare-affittare-ticino-frontalieri.title': 'Buying a house in Ticino: prices and trends',
+    'blog.article.comprare-affittare-ticino-frontalieri.excerpt': 'Guide to the Ticino real estate market for border crossers: rent vs purchase, price factors, additional costs and tax implications. Practical checklist and step-by-step procedure.',
+    'blog.article.comprare-affittare-ticino-frontalieri.imageAlt': 'Aerial view of residential neighborhoods in Lugano with lakeside properties and Alpine mountains',
 };
 
 export default blogMetaEn;
