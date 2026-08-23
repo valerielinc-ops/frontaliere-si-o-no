@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Aug 2026 01:43:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 02:10:42 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,85 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Open Canton Svitto business: costs and registration</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/start-business-canton-schwyz-procedures/</link>
+      <description><![CDATA[Complete guide to starting a business in the canton of Switzerland: legal forms, registration in the commercial register, minimum capital, tax and social security obligations.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Legal forms: single company, SNC, SA, SARL/GmbH, association
+- Commercial register: mandatory federal registration managed cantonally
+- Three tax tiers: Federal IFD, Cantonal Taxes, Municipal Taxes
+- Social security: AVS/AI mandatory, LPP optional, LAMal mandatory
+
+## Key facts
+- **What**: Business registration in the Swiss trade register
+- When: Before starting self-employment
+- Where: Office of the Registrar of Commerce of the Canton of Switzerland
+- Who: Entrepreneurs, sole proprietorships, joint-stock companies
+- Tax levels: Federal (DFI + VAT), cantonal, municipal
+- AVS/AI contributions: 9.8% of net income for self-employed
+- Minimum capital: CHF 100,000 for SA (CHF20,000 paid-in), CHF 20,000 for SARL
+
+In the canton of Swabia, as in every Swiss canton, anyone wishing to engage in an independent economic activity must register with the commercial register. This is a federal rule implemented at the cantonal level: the register is centralized at the competent office of the canton, where the data of all companies active in the territory converge.
+
+Registration in the commercial register is not just an administrative formality: it represents the moment when the company acquires civil rights, allows you to open a company bank account and — crucially — activates tax and social security obligations. This is why it is essential to register BEFORE starting the activity, not after.
+
+### Which legal form to choose?
+
+The law
+### The three-tier tax system
+
+The most important element in running a Swiss business is understanding the three-tier tax system. The Swiss Confederation applies direct federal tax (DFI) on the net income of the company. Each canton adds a cantonal income and profit tax. Each municipality, in turn, applies a municipal tax with a multiplier applied to the cantonal rate. The result is that the tax burden varies significantly between cantons and municipalities.
+
+In the canton of Svitto, as in all cantons, the cantonal administration sets the cantonal rate; the municipalities then establish their own multiplier. This means that two identical companies could pay very different taxes depending on where they are located. It is therefore essential to check the specific rates at the cantonal tax office and at the municipality where you intend to locate the registered office.
+
+Value added tax (VAT) is managed at the federal level by the Federal Administration of Customs (AFC/ESTV). A business must register for VAT if it exceeds CHF 100,000 in annual turnover. The ordinary rate is 8.1%. Registering for VAT entitles you to the deduction of taxes paid on goods and services purchased (accounting savings), but requires more complex quarterly statements and annual returns.
+
+### Social security and insurance: the essential obligations
+
+Every independent in Switzerland MUST register with the AVS/AI (Social Security
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Procedure step-by-step: from idea to registration
+
+To start a business in the canton of Schwyz, you must follow a precise procedure. Here are the essential steps.
+
+Step 1: Choose the legal form. Consult a notary, accountant or the cantonal commercial office to understand which form is most suitable. The choice depends on available capital, number of partners, and risk profile. If you are unsure, speak with a professional.
+
+Step 2: Register with the commercial register. Complete the registration form and deposit it with the Schwyz Commercial Register Office (decentralized offices, if present, accept registrations). It is mandatory to register BEFORE starting the activity. Registration creates your federal business identity (IDE number, Business Identification Number).
+
+Step 3: Open a business bank account. Once registered with the commercial register, open a business bank account in the company's name. Banks in Switzerland require a copy of the commercial register as proof of the company's existence.
+
+Step 4: Register with the AVS. Go to the competent municipal office (the municipality where you reside if you are self-employed; the municipality of the legal seat if you are a company) and register with the AVS. You will receive a business AVS number and will receive notifications on the contributions due.
+
+Step 5: Sign the health insurance (LAMal). Contact a health insurance fund within 3 months of the first day of activity. You can choose from various deductible and insurance models. Do not wait: the obligation is immediate, and the lack of coverage exposes you to penalties.
+
+Step 6: Register for VAT (if applicable). If the expected turnover exceeds CHF 100,000 per year, register with the Federal Administration of Customs (AFC/ESTV) for VAT. You can do this online through the federal portal.
+
+Step 7: Verify specific sector insurance obligations. If you hire employees, the accident insurance (LAInf) becomes mandatory. Contact SUVA or private insurers authorized in your sector to obtain a policy.
+
+### Checklist of control
+
+- [ ] Commercial register registration form completed and signed
+- [ ] Business bank account opened with a Swiss bank
+- [ ] IDE number (Business Identification Number) received
+- [ ] AVS registration completed at the municipality
+- [ ] Active health insurance (confirmation from the health insurance fund)
+- [ ] Determination of federal, cantonal, and municipal IFD rates
+- [ ] Accounting and taxation plan prepared
+- [ ] Accident insurance signed (if with employees)
+
+### Administrative times and deadlines
+
+The entire basic registration process (commercial register + AVS + LAMal) can take 2-4 weeks, depending on the speed of local bureaucracy. Start in advance of the planned first day of activity. Each canton and municipality has slightly different times, so contact the Schwyz offices directly to confirm the exact deadlines.
+
+[Use our tax calculator to estimate the tax burden of your company](nav:calculator) and plan the balance sheet in the first months.]]></content:encoded>
+      <pubDate>Sun, 23 Aug 2026 02:10:42 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avviare-impresa-canton-svitto-procedure</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avviare-impresa-canton-svitto-procedure.webp" medium="image"/>
+    </item>
     <item>
       <title>Complementary services Unscrewed: AVS and vital minimum</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/calculate-avs-pension-schwyz/</link>
@@ -3172,69 +3251,6 @@ Remember that the Canton of Zurich, like every Swiss canton, applies the same fe
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/locazione-zurigo-deposito-contestazione-procedure</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/locazione-zurigo-deposito-contestazione-procedure.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Salaries manager sickness funds: no of the Commission</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/health-insurance-managers-commission/</link>
-      <description><![CDATA[CSSS-N and the Federal Council divided on the remuneration of the heads of the coffers: CHF 480,000 per year is excessive. Commission prefers benchmark on federal administrative salaries.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- CSSS-N Commission disputes Federal Council proposal on cash manager salaries
-- Disputed figure: about CHF 480,000 per year at the Federal Councillor level
-- Debate on benchmark: officials vs federal ministers
-- Dossier ready for vote in plenum National Council
-
-## Key facts
-- **What**: Debate on salary limitation top sickness funds mandatory sector
-- When: August 21, 2026
-- Where: Health Commission National Council (CSSS-N), Bern
-- Who: CSSS-N v Federal Council on manager remuneration
-- Amount: Approximately CHF 480,000 per year (executive proposal)
-- Origin: Bapstiste Hurni parliamentary initiative, Neuchâtel socialist senator
-
-### The conflict between the two bodies
-
-A real arm wrestling with the remuneration of the heads of the sickness funds. The Health Commission of the National Council (CSSS-N) is clearly opposed to the Federal Council, which had proposed in recent days to guide the salaries of managers at the level of a federal councilor — about 480 thousand francs a year — to "simplify the system".
-
-For CSSS-N that figure is too high. The project, the result of the parliamentary initiative of the socialist Bapstiste Hurni, senator of Neuchâtel, instead provides for anchoring the salary ceilings to the highest remunerations paid within the Federal Administration, taking into account the actual number of insured and the average costs per insured of the individual
-## Implications for premium payers
-
-When deciding on the maximum salary ceiling of the heads of the sickness funds, the impact is reflected — directly or indirectly — on the pockets of those who pay the premiums. An inflated remuneration of the managers represents a cost that is amortized on the basis of the policyholders. CSSS-N has understood this link well: limiting salaries to the levels of the Federal Administration (rather than the Federal Councillors) means containing the overall operating costs of the coffers. It is not just a matter of principle, but of economic rationality that directly affects the balance sheet of Swiss households.
-
-### The two visions in comparison
-
-The **CSSS-N proposes** to anchor the ceilings to the highest salaries of the Federal Administration, with adjustment according to the number of policyholders and the average costs of each fund. This creates a flexible but contained parameter, calibrated on the actual operational size of each fund.
-
-The Federal Council claims to simply equate about CHF 480,000 a year to the salaries of a federal councillor. Easier administratively, but potentially more onerous for the system.
-
-The difference may seem abstract, but in a system such as Swiss compulsory insurance, where every franc of operating cost is transferred to premiums (directly or by redistribution), stricter management of remuneration has concrete consequences on
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-## Next legislative steps
-
-The dossier is currently in the preparation phase for the plenary vote in the National Council. There are no precise dates yet for the session, but the debate will take place soon according to the CSSS-N. Once voted on in the National Council, the project (if approved) will move to the Council of States for review and a final vote. Those monitoring the issue can follow progress via the Federal Assembly portal (parlament.ch), where all documents regarding the parliamentary initiative by Baptiste Hurni and updates on its status are available.
-
-### How the plenary debate will be structured
-
-If the Commission maintains its position during the plenary debate, the National Council will have to decide whether to adopt the CSSS-N's line (limits based on Federal Administration salaries with adjustments) or that of the Federal Council (equalization with Federal Councillors). The debate is likely to be heated, given that the two positions are sharply contrasted. In similar cases, a compromise is often sought that balances administrative simplicity (requested by the executive) with cost efficiency (requested by the Commission).
-
-### Possible scenarios for policyholders
-
-If the CSSS-N prevails, remuneration limits for health insurance managers will be more contained, and consequently, there could be less pressure on premium increases in the medium term. However, the direct impact on individual premiums will depend on numerous other factors (risk of claims, medical inflation, general administrative costs).
-
-If the Federal Council is correct and succeeds in achieving equalization with Federal Councillors, administrative simplicity will be guaranteed, but the costs of compensation for top management could be higher and potentially passed on to the community of policyholders.
-
-In both cases, it is worth tracking the debate if you are an insured person with [compulsory health insurance](nav:health) in Switzerland, because decisions on the operating costs of insurance companies have long-term effects on the sustainability of the system and your personal premiums.
-
-### Where to find updated information
-
-You can consult the legislative texts and updates directly via the Swiss Parliament website. If you wish to understand how health insurance costs and compensation paid to insurance companies affect your personal budget, our [payslip and tax calculator](nav:payslip) helps you visualize the overall impact of healthcare costs on your gross and net income in Switzerland.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1945331/federale-consiglio-commissione-stipendi-casse-malattia-salari-ministro)*]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 16:21:58 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/manager-casse-malattia-commissione</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/manager-casse-malattia-commissione.webp" medium="image"/>
     </item>
   </channel>
 </rss>

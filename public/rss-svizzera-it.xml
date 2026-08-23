@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Sun, 23 Aug 2026 01:43:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 02:10:42 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -16,6 +16,105 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Aprire attività Canton Svitto: costi e registrazione</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/avviare-impresa-canton-svitto-procedure/</link>
+      <description><![CDATA[Guida completa all'avvio d'attività nel Canton Svitto: forme giuridiche, registrazione al registro commercio, capitali minimi, obblighi fiscali e previdenziali.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Forme giuridiche: ditta singola, SNC, SA, SARL/GmbH, associazione
+- Registro di commercio: iscrizione obbligatoria federale gestita cantonalmente
+- Tre livelli fiscali: IFD federale, imposte cantonali, imposte comunali
+- Previdenza: AVS/AI obbligatorio, LPP facoltativo, LAMal obbligatoria
+
+## Fatti chiave
+- **Cosa**: Registrazione impresa al registro di commercio svizzero
+- Quando: Prima di iniziare l'attività autonoma
+- Dove: Ufficio del Registro di Commercio del Canton Svitto
+- Chi: Imprenditori, ditte individuali, società di capitali
+- Livelli fiscali: Federale (IFD + IVA), cantonale, comunale
+- Contributi AVS/AI: 9.8% del reddito netto per indipendenti
+- Capitale minimo: CHF 100'000 per SA (CHF 20'000 versati), CHF 20'000 per SARL
+
+Nel Canton Svitto, come in ogni cantone svizzero, chiunque voglia esercitare un'attività economica autonoma deve iscriversi al registro di commercio. Si tratta di una norma federale attuata a livello cantonale: il registro è centralizzato presso l'ufficio competente del cantone, dove confluiscono i dati di tutte le imprese attive nel territorio.
+
+L'iscrizione al registro di commercio non è solo una formalità amministrativa: rappresenta il momento in cui l'impresa acquista diritti civili, permette di aprire un conto bancario aziendale e — crucialmente — attiva gli obblighi fiscali e previdenziali. Per questo è essenziale registrarsi PRIMA di iniziare l'attività, non dopo.
+
+### Quale forma giuridica scegliere?
+
+La legge svizzera prevede diverse forme di esercizio dell'attività, ciascuna con caratteristiche fiscali, patrimoniali e organizzative diverse.
+
+La ditta singola è la forma più semplice: una persona esercita un'attività economica in proprio. La responsabilità è illimitata (il patrimonio personale risponde dei debiti aziendali). Gli adempimenti amministrativi e fiscali sono ridotti. È adatta per freelancer, consulenti, artigiani senza dipendenti.
+
+La società in nome collettivo (SNC) è una partnership tra due o più persone. I soci rispondono solidalmente e illimitatamente dei debiti della società. Meno comune rispetto ad altre forme.
+
+La società anonima (SA) è una società di capitali con responsabilità limitata al capitale versato. Richiede un capitale minimo di CHF 100'000 (di cui CHF 20'000 devono essere versati all'atto della fondazione). È la forma più rigida dal punto di vista amministrativo (assemblea azionisti, consiglio di amministrazione), ma offre massima protezione patrimoniale ai proprietari. Indicata per imprese di medie e grandi dimensioni.
+
+La società a responsabilità limitata (SARL/GmbH in tedesco) è il compromesso tra semplicità della ditta singola e protezione della SA. Capitale minimo: CHF 20'000. Responsabilità limitata al capitale versato. Meno rigida della SA dal punto di vista organizzativo. È la forma più diffusa tra le PMI svizzere.
+
+L'associazione è una forma particolare per attività non profit o di scopo comune. Responsabilità illimitata, meno comune per attività commerciali profit.
+### Il sistema fiscale a tre livelli
+
+L'elemento più importante nella gestione di un'impresa svizzera è comprendere il sistema fiscale a tre livelli. La Confederazione Svizzera applica l'imposta federale diretta (IFD) sul reddito netto della ditta. Ogni cantone aggiunge un'imposta cantonale sul reddito e sui profitti. Ogni comune, a sua volta, applica un'imposta comunale con un moltiplicatore applicato all'aliquota cantonale. Il risultato è che l'onere fiscale varia significativamente tra cantoni e comuni.
+
+Nel Canton Svitto, come in tutti i cantoni, l'Amministrazione cantonale fissa l'aliquota cantonale; i comuni poi stabiliscono il proprio moltiplicatore. Questo significa che due ditte identiche potrebbero pagare imposte molto diverse a seconda di dove sono localizzate. È quindi essenziale verificare le aliquote specifiche presso l'ufficio tributario cantonale e presso il comune dove intendi ubicare la sede legale.
+
+L'imposta sul valore aggiunto (IVA) è gestita a livello federale dall'Amministrazione federale delle dogane (AFC/ESTV). Un'impresa deve registrarsi all'IVA se supera CHF 100'000 di fatturato annuale. L'aliquota ordinaria è dell'8.1%. Registrarsi all'IVA dà diritto alla detrazione delle imposte pagate sui beni e servizi acquistati (risparmio contabile), ma obbliga a rendiconti trimestrali e dichiarazioni annuali più complesse.
+
+### Previdenza e assicurazioni: gli obblighi essenziali
+
+Ogni indipendente in Svizzera DEVE iscriversi all'AVS/AI (previdenza vecchiaia e invalidità). Il tasso di contribuzione per un indipendente è il 9.8% del reddito netto (calcolato dopo deduzioni standard). L'iscrizione è gestita dai comuni del domicilio. Non è facoltativo: è un obbligo legale federale.
+
+La LPP (Cassa pensioni, assicurazione per la vecchiaia professionale) è obbligatoria per i dipendenti. Il datore versa una percentuale del salario coordinato in un fondo pensione secondo fasce d'età: 7% per 25–34 anni, 10% per 35–44, 15% per 45–54, 18% per 55 anni sino all'età di riferimento. Per gli indipendenti, la LPP è FACOLTATIVA, anche se fortemente consigliata dalla maggioranza dei professionisti svizzeri per costituire una rendita integrativa.
+
+L'assicurazione malattia (LAMal/KVG) è OBBLIGATORIA per tutti i residenti in Svizzera, indipendentemente dallo status di occupazione. Deve essere stipulata entro 3 mesi dall'arrivo in Svizzera. I premi sono pro capite e variano per cantone e regione di assicurazione. Non è una tassa federale, ma un contratto privato con una cassa malati. Le franchigie per adulti vanno da CHF 300 a CHF 2'500.
+
+L'assicurazione contro gli infortuni sul lavoro (LAInf/UVG) è obbligatoria se assumi dipendenti. Se sei indipendente senza dipendenti, è facoltativa ma protegge in caso di infortunio sul lavoro. Il costo varia per settore di attività (0.7–1.5% del salario circa).
+
+### La scelta della forma giuridica in relazione al reddito atteso
+
+Una ditta singola è più semplice ma espone il patrimonio personale ai rischi di impresa. Una SARL offre protezione della responsabilità e flessibilità organizzativa con costi ragionevoli. Una SA è più rigida legalmente ma idonea per società con più azionisti e capitali consistenti. La scelta dipende dalle dimensioni previste, dal numero di soci, dalla tolleranza al rischio, e dal reddito atteso. Un commercialista o un notaio possono guidarti nella valutazione.
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
+### Procedura passo-passo: dall'idea all'iscrizione
+
+Per avviare un'attività nel Canton Svitto devi seguire una procedura precisa. Ecco i passaggi essenziali.
+
+Passo 1: Scegli la forma giuridica. Consulta un notaio, commercialista o l'ufficio di commercio cantonale per capire quale forma sia più adatta. La scelta dipende da capitale disponibile, numero di soci, e profilo di rischio. Se hai dubbi, parla con un professionista.
+
+Passo 2: Registrati al registro di commercio. Compila il modulo di iscrizione e depositalo presso l'Ufficio del Registro di Commercio del Canton Svitto (gli uffici decentrati, se presenti, accettano le iscrizioni). È obbligatorio registrarsi PRIMA di iniziare l'attività. La registrazione crea la tua identità aziendale federale (numero IDE, Numero di Identificazione dell'Impresa).
+
+Passo 3: Apri un conto bancario. Una volta registrato al registro di commercio, apri un conto bancario a nome della ditta. Le banche in Svizzera richiedono l'estratto del registro di commercio come prova di esistenza dell'impresa.
+
+**Passo 4: Iscriviti all'AVS**. Recati all'ufficio comunale competente (il comune dove risiedi se sei indipendente; il comune della sede legale se sei una società) e registrati all'AVS. Riceverai un numero AVS aziendale e riceverai notifiche sui contributi dovuti.
+
+Passo 5: Sottoscrivi l'assicurazione malattia (LAMal). Contatta una cassa malati entro 3 mesi dal primo giorno di attività. Potrai scegliere tra diverse opzioni di franchigia e modelli assicurativi. Non aspettare: l'obbligo è immediato e la mancanza di copertura espone a sanzioni.
+
+Passo 6: Registrati all'IVA (se applicabile). Se il fatturato previsto supera CHF 100'000 annui, registrati all'Amministrazione federale delle dogane (AFC/ESTV) per l'IVA. Potrai farlo online tramite il portale federale.
+
+Passo 7: Verifica gli obblighi assicurativi specifici al settore. Se assumi dipendenti, l'assicurazione infortuni (LAInf) diventa obbligatoria. Contatta SUVA o assicuratori privati abilitati nel tuo settore per ottenere una polizza.
+
+### Checklist di controllo
+
+- [ ] Modulo di iscrizione al registro di commercio compilato e sottoscritto
+- [ ] Conto bancario aziendale aperto presso banca svizzera
+- [ ] Numero IDE (Numero di Identificazione dell'Impresa) ricevuto
+- [ ] Iscrizione AVS completata presso il comune
+- [ ] Assicurazione malattia attiva (conferma cassa malati)
+- [ ] Determinazione aliquota IFD federale, cantonale e comunale
+- [ ] Piano di contabilità e tassazione preparato
+- [ ] Assicurazione infortuni sottoscritta (se con dipendenti)
+
+### Tempi e scadenze amministrative
+
+L'intero processo di registrazione di base (registro di commercio + AVS + LAMal) può richiedere 2–4 settimane, a seconda della velocità della burocrazia locale. Inizia in anticipo rispetto al primo giorno di attività previsto. Ogni cantone e comune ha tempi leggermente diversi, quindi contatta direttamente gli uffici del Canton Svitto per confermare le scadenze esatte.
+
+[Utilizza il nostro calcolatore di imposte per stimare l'onere fiscale della tua ditta](nav:calculator) e pianificare il bilancio d'esercizio nei primi mesi.]]></content:encoded>
+      <pubDate>Sun, 23 Aug 2026 02:10:42 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/avviare-impresa-canton-svitto-procedure</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avviare-impresa-canton-svitto-procedure.webp" medium="image"/>
+    </item>
     <item>
       <title>Prestazioni complementari Svitto: AVS e minimo vitale</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/calcolo-rendita-avs-svitto/</link>
@@ -4050,91 +4149,6 @@ Ricordate che il cantone di Zurigo, come ogni cantone svizzero, applica le medes
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/locazione-zurigo-deposito-contestazione-procedure</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/locazione-zurigo-deposito-contestazione-procedure.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Salari manager casse malattia: no della Commissione</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/manager-casse-malattia-commissione/</link>
-      <description><![CDATA[CSSS-N e Consiglio federale divisi sui compensi dei vertici delle casse: 480mila CHF l'anno è eccessivo. Commissione preferisce parametro su retribuzioni amministrative federali.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Commissione CSSS-N contesta proposta Consiglio federale su stipendi manager casse
-- Cifra contestata: circa 480mila CHF annui al livello di consigliere federale
-- Dibattito su parametro di riferimento: funzionari vs ministri federali
-- Dossier pronto per votazione in plenum Consiglio nazionale
-
-## Fatti chiave
-- **Cosa**: Dibattito su limitazione stipendi vertici casse malattia settore obbligatorio
-- Quando: 21 agosto 2026
-- Dove: Commissione della sanità Consiglio nazionale (CSSS-N), Berna
-- Chi: CSSS-N contro Consiglio federale su remunerazione manager
-- Importo: Circa 480mila CHF l'anno (proposta dell'esecutivo)
-- Origine: Iniziativa parlamentare Bapstiste Hurni, senatore socialista Neuchâtel
-
-### Il conflitto tra i due organi
-
-Un vero braccio di ferro sulla remunerazione dei vertici delle casse malattia. La Commissione della sanità del Consiglio nazionale (CSSS-N) si oppone nettamente al Consiglio federale, che aveva proposto nei giorni scorsi di orientare gli stipendi dei manager al livello di un consigliere federale — circa 480 mila franchi l'anno — per «semplificare il sistema».
-
-Per la CSSS-N quella cifra è troppo alta. Il progetto, frutto dell'iniziativa parlamentare del socialista Bapstiste Hurni, senatore di Neuchâtel, prevede invece di ancorare i massimali dei salari alle remunerazioni più elevate versate all'interno dell'Amministrazione federale, tenendo conto dell'effettivo di assicurati e dei costi medi per assicurato delle singole casse.
-
-La Commissione ha mantenuto una posizione ferma e ha ribadito la bontà del suo approccio. Il dossier è ora pronto per essere discusso nel plenum del Consiglio nazionale.
-
-### Il nodo della remunerazione
-
-La contesa riguarda la direzione e i membri del Consiglio d'amministrazione delle casse malattia attive nel settore dell'assicurazione obbligatoria. Il Consiglio federale aveva chiesto una settimana prima dell'ultimo aggiornamento di equiparare gli stipendi a quelli dei consiglieri federali per questioni di semplicità amministrativa.
-
-La CSSS-N non lo ritiene appropriato. La Commissione sostiene che un parametro più ragionevole sia quello delle retribuzioni massime dentro l'Amministrazione federale, considerando le differenze tra le varie casse (numero di assicurati, costi totali medi). Questo darebbe un tetto più contenuto e coerente con il principio della gestione efficiente del sistema sanitario.
-
-### Il punto critico delle sanzioni
-
-Un ulteriore elemento di dissenso: il Consiglio federale ha chiesto di introdurre una disposizione penale che sanzioni le violazioni dei nuovi limiti di remunerazione. La CSSS-N, d'altra parte, non vuole alcuna disposizione penale nel progetto. Il voto in Consiglio nazionale sarà cruciale per definire l'indirizzo finale della legislazione sulla gestione dei compensi nel sistema d'assicurazione obbligatoria svizzero.
-## Implicazioni per chi paga i premi
-
-Quando si decide sul tetto massimo di retribuzione dei vertici delle casse malattia, l'impatto si riflette — direttamente o indirettamente — sulle tasche di chi paga i premi. Una remunerazione gonfiata dei manager rappresenta un costo che viene ammortizzato sulla base degli assicurati. La CSSS-N ha compreso bene questo legame: limitare gli stipendi ai livelli dell'Amministrazione federale (anziché ai consiglieri federali) significa contenere i costi operativi complessivi delle casse. Non è solo una questione di principio, ma di razionalità economica che tocca direttamente il bilancio delle famiglie svizzere.
-
-### Le due visioni a confronto
-
-La **CSSS-N propone** di ancorare i massimali alle retribuzioni più alte dell'Amministrazione federale, con aggiustamento secondo il numero di assicurati e i costi medi di ciascuna cassa. Questo crea un parametro flessibile ma contenuto, calibrato sulla effettiva dimensione operativa di ogni fondo.
-
-Il Consiglio federale sostiene di equiparare semplicemente ai salari di un consigliere federale, circa 480 mila franchi l'anno. Più semplice amministrativamente, ma potenzialmente più oneroso per il sistema.
-
-La differenza potrebbe sembrare astratta, ma in un sistema come quello dell'assicurazione obbligatoria svizzera, dove ogni franco di costo operativo viene trasferito ai premi (direttamente o per redistribuzione), una gestione più stringente dei compensi ha conseguenze concrete sulla sostenibilità futura dei premi per tutti gli assicurati.
-
-### Il contesto più ampio della LAMal
-
-In Svizzera, il tema dei compensi nei sistemi obbligatori è particolarmente delicato. L'assicurazione malattia (LAMal) è già oggetto di critiche da parte degli assicurati per l'andamento continuo dei premi. Introdurre limiti restrittivi ai salari dei gestori è una misura che può guadagnare consenso popolare proprio perché è percepita come una mossa verso la contenzione dei costi complessivi.
-
-Tuttavia, il Consiglio federale sostiene che avere un parametro semplice e univoco (il salario del consigliere federale) facilita la gestione e l'applicazione della norma. Una regola flessibile basata su vari fattori (numero di assicurati, costi medi) richiede più controllo e trasparenza amministrativa, aumentando potenzialmente il lavoro di monitoraggio.
-
-### La posizione della Commissione rappresenta una priorità
-
-La CSSS-N non è contraria a limitare i salari: tutt'altro. Essa semplicemente argomenta che il tetto proposto dal Consiglio federale è troppo alto e non basato su criteri di efficienza operativa. La posizione della Commissione rappresenta l'interesse verso sistemi sanitari più efficienti e meno onerosi per gli assicurati, soprattutto in un contesto dove i premi continuano a salire.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).
-## I prossimi passi legislativi
-
-Il dossier è nella fase di preparazione al voto nel plenum del Consiglio nazionale. Non ci sono ancora date precise per la seduta, ma il dibattito avrà luogo prossimamente secondo quanto comunicato dalla CSSS-N. Una volta votato in Consiglio nazionale, il progetto (se approvato) passerà al Consiglio degli Stati per l'esame e il voto finale. Chi tiene monitorato il tema può seguire i progressi tramite il portale delle Camere federali (parlament.ch), dove sono disponibili tutti i documenti dell'iniziativa parlamentare di Bapstiste Hurni e gli aggiornamenti sullo stato di avanzamento.
-
-### Come si articolerà il dibattito in plenum
-
-Se la Commissione mantiene la sua posizione durante il dibattito in plenum, il Consiglio nazionale dovrà decidere se accogliere la linea della CSSS-N (limiti basati sulle retribuzioni dell'Amministrazione federale con aggiustamenti) o quella del Consiglio federale (equiparazione ai consiglieri federali). È probabile che il dibattito sia acceso, dato che le due posizioni sono nettamente contrapposte. In casi simili, spesso si cerca un compromesso che bilancia la semplicità amministrativa (richiesta dall'esecutivo) con l'efficienza dei costi (richiesta dalla Commissione).
-
-### Scenari possibili per gli assicurati
-
-Se la CSSS-N prevale, i limiti di remunerazione per i manager delle casse saranno più contenuti, e di conseguenza potrebbe esserci una pressione minore su aumenti dei premi nel medio termine. Tuttavia, l'impatto diretto sul singolo premio dipenderà da numerosi altri fattori (rischi di sinistro, inflazione medica, costi amministrativi generali).
-
-Se il Consiglio federale ha ragione e riesce a ottenere l'equiparazione ai consiglieri federali, la semplicità amministrativa sarà garantita, ma i costi dei compensi ai vertici delle casse potranno essere più alti e potenzialmente trasferiti sulla comunità degli assicurati.
-
-In entrambi i casi, conviene tenere traccia del dibattito se sei un assicurato con [assicurazione malattia obbligatoria](nav:health) in Svizzera, perché le decisioni sui costi operativi delle casse hanno effetti di lungo termine sulla sostenibilità del sistema e sui tuoi premi personali.
-
-### Dove trovare le informazioni aggiornate
-
-Puoi consultare direttamente i testi legislativi e gli aggiornamenti tramite il sito del Parlamento svizzero. Se desideri capire come i costi dell'assicurazione malattia e i compensi versati alle casse influiscono sul tuo bilancio personale, il nostro [calcolatore della busta paga e delle imposte](nav:payslip) ti aiuta a visualizzare l'impatto complessivo dei costi sanitari sul tuo reddito lordo e netto in Svizzera.
-
-*Fonte: [tio.ch](https://www.tio.ch/svizzera/politica/1945331/federale-consiglio-commissione-stipendi-casse-malattia-salari-ministro)*]]></content:encoded>
-      <pubDate>Fri, 21 Aug 2026 16:21:58 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/manager-casse-malattia-commissione</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/manager-casse-malattia-commissione.webp" medium="image"/>
     </item>
   </channel>
 </rss>

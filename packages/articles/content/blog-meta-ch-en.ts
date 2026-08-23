@@ -3874,6 +3874,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-svitto.title': 'Complementary services Unscrewed: AVS and vital minimum',
     'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Guide to the calculation of the AVS annuity, contribution gaps and supplementary benefits in the Canton of Schwyz. Role of the cantonal clearing house and practical procedures to ensure minimum viability.',
     'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Swiss administrative building in Canton Schwyz for social insurance processing',
+    'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Open Canton Svitto business: costs and registration',
+    'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Complete guide to starting a business in the canton of Switzerland: legal forms, registration in the commercial register, minimum capital, tax and social security obligations.',
+    'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Administrative building in Canton Schwyz housing the commercial registry office.',
 };
 
 export default blogMetaChEn;

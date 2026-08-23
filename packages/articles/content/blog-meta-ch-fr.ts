@@ -3874,6 +3874,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-svitto.title': 'Prestations complémentaires Schwyz : AVS et minimum vital',
     'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Guide de calcul de la rente AVS, des écarts de cotisations et des prestations complémentaires dans le canton de Schwyz. Rôle de la caisse de compensation cantonale et procédures pratiques pour assurer le minimum vital.',
     'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Bâtiment administratif de la caisse de compensation au canton de Schwyz',
+    'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Ouvrir l\'activité Canton de Schwyz : coûts et inscription',
+    'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Guide complet de démarrage d\'activité dans le canton de Schwyz : formes juridiques, inscription au registre du commerce, capitaux minimaux, obligations fiscales et de sécurité sociale.',
+    'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Bâtiment administratif du canton du Schwyz abritant le registre du commerce.',
 };
 
 export default blogMetaChFr;
