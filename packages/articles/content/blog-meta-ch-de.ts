@@ -3874,6 +3874,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-svitto.title': 'Ergänzungsleistungen Schwyz: AHV und Lebensminimum',
     'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Leitfaden zur Berechnung der AHV-Rente, Beitragslücken und Ergänzungsleistungen im Kanton Schwyz. Rolle der kantonalen Ausgleichskasse und praktische Verfahren zur Sicherstellung des Existenzminimums.',
     'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Verwaltungsgebäude der Ausgleichskasse im Kanton Schwyz',
+    'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Aktivitäten Kanton Schwyz eröffnen: Kosten und Registrierung',
+    'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Umfassender Leitfaden zur Unternehmensgründung im Kanton Schwyz: Rechtsformen, Handelsregistereintrag, Mindestkapital, Steuer- und Vorsorgepflichten.',
+    'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Verwaltungsgebäude im Kanton Schwyz mit Sitz des Handelsregisters.',
 };
 
 export default blogMetaChDe;

@@ -11620,6 +11620,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'avviare-impresa-canton-svitto-procedure',
+    category: 'pratico',
+    date: '2026-08-23T02:10:42.685Z',
+    image: '/images/blog/avviare-impresa-canton-svitto-procedure.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

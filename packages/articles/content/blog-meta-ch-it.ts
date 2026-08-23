@@ -3874,6 +3874,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calcolo-rendita-avs-svitto.title': 'Prestazioni complementari Svitto: AVS e minimo vitale',
     'blog.article.calcolo-rendita-avs-svitto.excerpt': 'Guida al calcolo della rendita AVS, lacune contributive e prestazioni complementari nel Canton Svitto. Ruolo della cassa di compensazione cantonale e procedure pratiche per garantire il minimo vitale.',
     'blog.article.calcolo-rendita-avs-svitto.imageAlt': 'Edificio amministrativo della cassa di compensazione nel Canton Svitto',
+    'blog.article.avviare-impresa-canton-svitto-procedure.title': 'Aprire attività Canton Svitto: costi e registrazione',
+    'blog.article.avviare-impresa-canton-svitto-procedure.excerpt': 'Guida completa all\'avvio d\'attività nel Canton Svitto: forme giuridiche, registrazione al registro commercio, capitali minimi, obblighi fiscali e previdenziali.',
+    'blog.article.avviare-impresa-canton-svitto-procedure.imageAlt': 'Edificio amministrativo nel Canton Svitto dove sono situati gli uffici del registro di commercio.',
 };
 
 export default blogMetaChIt;
