@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-08-22T21:31:32.233Z",
+  "assembledAt": "2026-08-23T09:53:12.387Z",
   "jobs": [
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.025Z",
+      "crawledAt": "2026-08-23T09:53:09.809Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.023Z",
+      "crawledAt": "2026-08-23T09:53:09.808Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,7 +195,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.021Z",
+      "crawledAt": "2026-08-23T09:53:09.807Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,6 +226,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -271,7 +272,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.019Z",
+      "crawledAt": "2026-08-23T09:53:09.805Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -315,7 +316,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -348,7 +350,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.018Z",
+      "crawledAt": "2026-08-23T09:53:09.804Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -392,7 +394,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-edb17c0adfea",
@@ -425,7 +428,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/036efa0f-73c4-4737-b4ad-c4e834e5b31c",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.016Z",
+      "crawledAt": "2026-08-23T09:53:09.802Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -487,7 +490,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.014Z",
+      "crawledAt": "2026-08-23T09:53:09.800Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -538,7 +541,7 @@
       "slug": "ai-scientist-mistral-ai-ch",
       "slugByLocale": {
         "it": "ai-scientist-mistral-ai-ch",
-        "en": "ai-scientist-mistral-ai-zurich",
+        "en": "ai-scientist-mistral-ai-ch",
         "de": "ki-wissenschaftler-mistral-ai-zurich",
         "fr": "scientifique-de-l-ia-mistral-ai-zurich"
       },
@@ -564,7 +567,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.012Z",
+      "crawledAt": "2026-08-23T09:53:09.798Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -579,12 +582,10 @@
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-scientist-zurigo-mistral-ai-zurich",
-        "ai-scientist-zurich-mistral-ai-ch",
-        "scientifique-ai-zurich-mistral-ai-zurich"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "ai-scientist-mistral-ai-zurich"
+        ],
         "it": [
           "ai-scientist-zurigo-mistral-ai-zurich",
           "ai-scientist-zurich-mistral-ai-ch",
@@ -597,6 +598,12 @@
           "scientifique-ai-zurich-mistral-ai-zurich"
         ]
       },
+      "previousSlugs": [
+        "ai-scientist-zurigo-mistral-ai-zurich",
+        "ai-scientist-zurich-mistral-ai-ch",
+        "scientifique-ai-zurich-mistral-ai-zurich",
+        "ai-scientist-mistral-ai-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "salaryMin": 73500,
@@ -644,7 +651,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.007Z",
+      "crawledAt": "2026-08-23T09:53:09.795Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -721,7 +728,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-22T21:31:29.000Z",
+      "crawledAt": "2026-08-23T09:53:09.789Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
