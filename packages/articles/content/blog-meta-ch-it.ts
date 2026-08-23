@@ -3958,6 +3958,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquisto-casa-cantone-glarona.title': 'Comprare casa nel Cantone di Glarona: guida al mutuo',
     'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Scopri come pianificare l\'acquisto di un\'abitazione nel Cantone di Glarona tra sostenibilità bancaria, fondi propri, imposte locali e iter notarile.',
     'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Case residenziali nel Cantone di Glarona con sfondo montano',
+    'blog.article.comprare-casa-glarona-mutuo.title': 'Comprare casa in Glarona: mutuo e imposte',
+    'blog.article.comprare-casa-glarona-mutuo.excerpt': 'Guida all\'acquisto immobiliare in Glarona: fondi propri, mutuo ipotecario, imposte federali e cantonali, imposta sui trapassi e spese notarili.',
+    'blog.article.comprare-casa-glarona-mutuo.imageAlt': 'Casa tradizionale svizzera in una valle alpina del Cantone Glarona circondata da montagne verdi',
 };
 
 export default blogMetaChIt;

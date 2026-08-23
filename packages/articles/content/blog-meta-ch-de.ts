@@ -3958,6 +3958,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisto-casa-cantone-glarona.title': 'Haus kaufen im Kanton Glarus: Ratgeber zum Hypothekendarlehen',
     'blog.article.acquisto-casa-cantone-glarona.excerpt': 'Erfahren Sie, wie Sie den Kauf einer Wohnung im Kanton Glarus zwischen Banknachhaltigkeit, Eigenmitteln, lokalen Steuern und notariellen Verfahren planen können.',
     'blog.article.acquisto-casa-cantone-glarona.imageAlt': 'Wohnhäuser im Kanton Glarus mit Bergkulisse',
+    'blog.article.comprare-casa-glarona-mutuo.title': 'Haus kaufen in Glarus: Hypothek und Steuern',
+    'blog.article.comprare-casa-glarona-mutuo.excerpt': 'Leitfaden zum Immobilienkauf in Glarus: Eigenmittel, Hypothekendarlehen, eidgenössische und kantonale Steuern, Abgeltungssteuer und Notargebühren.',
+    'blog.article.comprare-casa-glarona-mutuo.imageAlt': 'Typisches Schweizer Haus im Glarnerland mit Alpenpanorama und Steinfassade',
 };
 
 export default blogMetaChDe;
