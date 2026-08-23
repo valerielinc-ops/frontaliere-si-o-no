@@ -3892,6 +3892,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-avvio-impresa-canton-svitto.title': 'Avviare un\'impresa nel Cantone di Svitto: guida pratica',
     'blog.article.guida-avvio-impresa-canton-svitto.excerpt': 'Dalla scelta della forma giuridica agli obblighi previdenziali: ecco i passaggi necessari per costituire una società nel Cantone di Svitto.',
     'blog.article.guida-avvio-impresa-canton-svitto.imageAlt': 'Ufficio professionale con documenti e vista sulle montagne svizzere',
+    'blog.article.svitto-tasse-eredita-aliquote.title': 'Imposta di successione e donazione: le aliquote di Svitto',
+    'blog.article.svitto-tasse-eredita-aliquote.excerpt': 'Come funziona l\'imposta di successione e donazione nel Canton Svitto: aliquote per grado di parentela, esenzioni e scadenze per la dichiarazione.',
+    'blog.article.svitto-tasse-eredita-aliquote.imageAlt': 'Studio notarile con documenti e scrivania per successioni e donazioni nel Canton Svitto',
 };
 
 export default blogMetaChIt;
