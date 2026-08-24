@@ -4126,6 +4126,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cieli-affollati-estate-2026.title': 'Überfüllter Himmel im Sommer: 240 \'000 Flüge in die Schweiz',
     'blog.article.cieli-affollati-estate-2026.excerpt': 'Vom 26. Juni bis 17. August verfolgte Skyguide 240.108 Flüge. Am 24. Juli der Rekordtag mit 4.761 Bewegungen.',
     'blog.article.cieli-affollati-estate-2026.imageAlt': 'Dichtes Flugverkehr am Schweizer Flughafen während der Sommerferien mit wartenden Flugzeugen',
+    'blog.article.registro-commercio-basilea-citta.title': 'Geschäftstätigkeit Basel-Stadt eröffnen: Register und Kosten',
+    'blog.article.registro-commercio-basilea-citta.excerpt': 'Vollständiger Leitfaden zu Rechtsformen, Handelsregistereintrag, Sozialbeiträgen AHV/IV/KVG und Steuern von Bund, Kantonen und Gemeinden im Kanton Basel-Stadt.',
+    'blog.article.registro-commercio-basilea-citta.imageAlt': 'Geschäftsregisterbüro mit Gründungsformularen und administrativen Dokumenten für Unternehmenseröffnung im Kanton Basel-Stadt',
 };
 
 export default blogMetaChDe;

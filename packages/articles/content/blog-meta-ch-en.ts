@@ -4126,6 +4126,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cieli-affollati-estate-2026.title': 'Crowded skies in summer: 240,000 flights to Switzerland',
     'blog.article.cieli-affollati-estate-2026.excerpt': 'From 26 June to 17 August Skyguide monitored 240,108 flights. On July 24, the record day with 4,761 movements.',
     'blog.article.cieli-affollati-estate-2026.imageAlt': 'Congested air traffic at Swiss airport during summer peak season with queued aircraft on tarmac',
+    'blog.article.registro-commercio-basilea-citta.title': 'Open activities Basel City: register and costs',
+    'blog.article.registro-commercio-basilea-citta.excerpt': 'Complete guide on legal forms, registration in the trade register, AVS/AI/LAMal social contributions and federal, cantonal and municipal taxes in the canton of Basel-City.',
+    'blog.article.registro-commercio-basilea-citta.imageAlt': 'Business registration office desk with official forms and documents for company registration in Basel-Stadt canton, Switzerland',
 };
 
 export default blogMetaChEn;

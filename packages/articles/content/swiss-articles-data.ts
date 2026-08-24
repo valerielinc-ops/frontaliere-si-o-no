@@ -12376,6 +12376,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'registro-commercio-basilea-citta',
+    category: 'pratico',
+    date: '2026-08-24T14:14:07.467Z',
+    image: '/images/blog/registro-commercio-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

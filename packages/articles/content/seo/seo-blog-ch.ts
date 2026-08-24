@@ -53528,6 +53528,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-registro-commercio-basilea-citta': {
+    title: 'Aprire attività Basilea Città: registro e costi',
+    description: 'Aprire attività Basilea Città: forme giuridiche, registro commercio, capitale minimo, tasse, contributi AVS/LPP/LAMal, procedura step-by-step aggiornata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, basilea, città',
+    ogTitle: 'Aprire un\'attività a Basilea Città: guida completa',
+    ogDescription: 'Come aprire un\'attività nel cantone Basilea Città: scelta forma giuridica (ditta, SA, SAGL), iscrizione registro commercio, costi tasse imposte federali/cantonali, contributi sociali AVS/AI/LPP/LAMal obbligatori.',
+    canonicalPath: '/articoli-svizzera/registro-commercio-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Basilea Città: registro e costi",
+      "description": "Aprire attività Basilea Città: forme giuridiche, registro commercio, capitale minimo, tasse, contributi AVS/LPP/LAMal, procedura step-by-step aggiornata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/registro-commercio-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio del registro di commercio con moduli di iscrizione e documenti amministrativi per apertura attività nel cantone di Basilea Città"
+      },
+      "datePublished": "2026-08-24T14:14:07+00:00",
+      "dateModified": "2026-08-24T14:14:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/registro-commercio-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
