@@ -31836,6 +31836,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-caprezzo-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-24T00:37:59.217Z',
+ image: '/images/blog/vivere-caprezzo-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
