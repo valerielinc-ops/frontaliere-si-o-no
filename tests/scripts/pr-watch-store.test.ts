@@ -105,26 +105,31 @@ describe('scoping per sessione — una sessione non blocca sulle PR di un’altr
   const theirs = { owner: 'o', repo: 'r', number: 2, openedAt: 'x', sessionId: 'B' };
   const legacy = { owner: 'o', repo: 'r', number: 3, openedAt: 'x' };
 
-  it('enforce le proprie e quelle senza padrone, non quelle altrui', () => {
+  it('enforce SOLO le proprie — non quelle altrui, non quelle senza padrone', () => {
     // Il messaggio del gate dice «leggi la review e applica il fix»: bloccare
-    // la sessione A sulla PR della sessione B la manda a pushare sul branch di
-    // un altro agente, cioè la collisione che il resto del ciclo previene.
-    expect(entriesForSession([mine, theirs, legacy], 'A')).toEqual([mine, legacy]);
+    // la sessione A sulla PR della sessione B (o su una legacy senza id) la
+    // manda a pushare sul branch di un altro agente, cioè la collisione che
+    // il resto del ciclo previene. Incidente in diretta 2026-08-24: due entry
+    // legacy hanno bloccato 6+ sessioni parallele contemporaneamente perché
+    // la versione precedente le faceva enforce-are da chiunque.
+    expect(entriesForSession([mine, theirs, legacy], 'A')).toEqual([mine]);
   });
 
-  it('senza session id enforce TUTTO — un gate che si spegne quando non sa non protegge', () => {
+  it('senza session id sul CHIAMANTE enforce TUTTO — un gate che si spegne quando non sa non protegge', () => {
+    // Distinto dal caso sopra: qui è QUESTA sessione a non sapere chi è, non
+    // un'entry senza padrone vista da una sessione che il proprio id ce l'ha.
     expect(entriesForSession([mine, theirs, legacy], null)).toEqual([mine, theirs, legacy]);
     expect(entriesForSession([mine, theirs, legacy], '')).toEqual([mine, theirs, legacy]);
   });
 
-  it('le entry altrui restano tracciate: il filtro restringe chi blocca, non chi è seguito', () => {
+  it('le entry altrui e quelle senza padrone restano tracciate: il filtro restringe chi blocca, non chi è seguito', () => {
     // Il gate riscrive il file con ciò che resta: senza questa metà, filtrare
-    // per sessione cancellerebbe le PR degli altri dallo store e nessuno le
-    // seguirebbe più.
-    expect(entriesOfOtherSessions([mine, theirs, legacy], 'A')).toEqual([theirs]);
+    // per sessione cancellerebbe le PR degli altri (comprese le legacy) dallo
+    // store e nessuno le seguirebbe più.
+    expect(entriesOfOtherSessions([mine, theirs, legacy], 'A')).toEqual([theirs, legacy]);
   });
 
-  it('senza session id nessuna entry è «di altri» — niente da riscrivere a parte', () => {
+  it('senza session id sul chiamante nessuna entry è «di altri» — niente da riscrivere a parte', () => {
     expect(entriesOfOtherSessions([mine, theirs, legacy], null)).toEqual([]);
   });
 
