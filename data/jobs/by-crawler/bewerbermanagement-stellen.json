@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bewerbermanagement-stellen",
-  "assembledAt": "2026-08-24T10:22:21.630Z",
+  "assembledAt": "2026-08-24T21:51:45.077Z",
   "jobs": [
     {
       "id": "bewerbermanagement-stellen-f444ba36dc64",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:19.114Z",
+      "crawledAt": "2026-08-24T21:51:42.102Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,7 +104,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:18.812Z",
+      "crawledAt": "2026-08-24T21:51:41.800Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -181,7 +181,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:18.509Z",
+      "crawledAt": "2026-08-24T21:51:41.497Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,7 +251,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:22:18.205Z",
+      "crawledAt": "2026-08-24T21:51:41.195Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -332,7 +332,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:17.902Z",
+      "crawledAt": "2026-08-24T21:51:40.892Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -406,7 +406,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1067/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:22:17.599Z",
+      "crawledAt": "2026-08-24T21:51:40.590Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -480,7 +480,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:17.296Z",
+      "crawledAt": "2026-08-24T21:51:40.287Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,7 +554,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:16.992Z",
+      "crawledAt": "2026-08-24T21:51:39.985Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -629,7 +629,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1385/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:16.689Z",
+      "crawledAt": "2026-08-24T21:51:39.681Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,7 +698,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1383/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:16.386Z",
+      "crawledAt": "2026-08-24T21:51:39.378Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -770,7 +770,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/965/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:16.084Z",
+      "crawledAt": "2026-08-24T21:51:39.076Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -785,19 +785,21 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/965/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:46:38.858Z",
+      "previousSlugs": [
+        "front-office-supervisor-m-w-d-bewerbermanagement-stellen-ch",
+        "front-office-supervisore-m-w-d-bewerbermanagement-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "front-office-supervisor-m-w-d-bewerbermanagement-stellen-ch"
+          "front-office-supervisor-m-w-d-bewerbermanagement-stellen-ch",
+          "front-office-supervisore-m-w-d-bewerbermanagement-stellen-lugano"
         ],
         "fr": [
           "front-office-supervisor-m-w-d-bewerbermanagement-stellen-ch"
         ]
       },
-      "previousSlugs": [
-        "front-office-supervisor-m-w-d-bewerbermanagement-stellen-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:38.858Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -841,7 +843,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1387/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:15.781Z",
+      "crawledAt": "2026-08-24T21:51:38.772Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -900,7 +902,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1388/Description/1",
       "source": "Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:15.449Z",
+      "crawledAt": "2026-08-24T21:51:38.469Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -930,6 +932,67 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "bewerbermanagement-stellen-33bd8b98e71f",
+      "slug": "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+      "slugByLocale": {
+        "it": "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+        "en": "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+        "de": "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+        "fr": "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
+      },
+      "company": "Bewerbermanagement Stellen",
+      "companyKey": "bewerbermanagement-stellen",
+      "companyDomain": "recruitingapp-2904.umantis.com",
+      "title": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
+      "titleByLocale": {
+        "it": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
+        "de": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
+        "en": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
+        "fr": "Chef de Rang (m/w/d) Wintersaison 2026/2027"
+      },
+      "description": "Chef de Rang (m/w/d) Wintersaison 2026/2027 — Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "it": "Chef de Rang (m/w/d) Wintersaison 2026/2027 — Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
+      "source": "Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:51:38.150Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T21:51:38.150Z"
     }
   ]
 }
