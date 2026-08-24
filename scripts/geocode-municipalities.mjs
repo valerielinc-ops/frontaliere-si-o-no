@@ -19,6 +19,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import { haversineKm } from './lib/haversine.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
@@ -240,13 +242,8 @@ const SWISS_BORDER_POINTS = [
   { lat: 46.5300, lng: 10.4500 },
 ];
 
-function haversineKm(lat1, lng1, lat2, lng2) {
-  const R = 6371;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLng = (lng2 - lng1) * Math.PI / 180;
-  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-}
+// haversineKm: ora dal modulo condiviso scripts/lib/haversine.mjs
+// (era una delle sei copie byte-equivalenti della stessa formula, #5002).
 
 function estimateDistanceFromBorder(lat, lng) {
   let min = Infinity;

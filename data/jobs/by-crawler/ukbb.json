@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-08-23T21:22:58.966Z",
+  "assembledAt": "2026-08-24T09:42:33.694Z",
   "jobs": [
     {
       "id": "ukbb-e7925ffef938",
@@ -916,82 +916,6 @@
           "@type": "QuantitativeValue",
           "minValue": 52800,
           "maxValue": 73800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ukbb-407e25290a3c",
-      "slug": "gestione-record-di-aiuto-50-universitats-kinderspital-beider-basel-basel",
-      "slugByLocale": {
-        "it": "gestione-record-di-aiuto-50-universitats-kinderspital-beider-basel-basel",
-        "en": "help-records-management-50-universitats-kinderspital-beider-basel-basel",
-        "de": "aushilfe-records-management-50-ukbb-basel",
-        "fr": "aushilfe-records-management-50-universitats-kinderspital-beider-basel-basel"
-      },
-      "company": "Universitäts-Kinderspital beider Basel",
-      "companyKey": "ukbb",
-      "companyDomain": "ukbb.ch",
-      "title": "Aushilfe Records Management 50%",
-      "titleByLocale": {
-        "it": "Gestione record di aiuto 50%",
-        "en": "Help Records Management 50%",
-        "de": "Aushilfe Records Management 50%",
-        "fr": "Aide Gestion des dossiers 50%"
-      },
-      "description": "Aushilfe Records Management 50% — Universitäts-Kinderspital beider Basel, Basel.\n\n• Prüfung, Kennzeichnung und Ablage der Mikrofiches\n\n• Selbständige Recherche in IT-Systemen",
-      "descriptionByLocale": {
-        "it": "Gestione record 50% — Ospedale per bambini dell'Università di Basilea, Basilea.\n\n• Test, marcatura e stoccaggio di microfiche\n\n• Ricerca indipendente nei sistemi IT",
-        "en": "Records Management 50% — University Children's Hospital of both Basel, Basel.\n\n• Testing, marking and storage of microfiches\n\n• Independent research in IT systems",
-        "de": "Aushilfe Records Management 50% — Universitäts-Kinderspital beider Basel, Basel.\n\n• Prüfung, Kennzeichnung und Ablage der Mikrofiches\n\n• Selbständige Recherche in IT-Systemen",
-        "fr": "Gestion des dossiers 50% — Hôpital universitaire pour enfants de Bâle, Bâle.\n\n• Essai, marquage et stockage des microfiches\n\n• Recherche indépendante dans les systèmes informatiques"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.ukbb.ch/jobs/aushilfe-records-management-50/bcec2194-c16e-4407-8afc-40031366f7a4",
-      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:22:48.193Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4056",
-      "streetAddress": "Spitalstrasse 33",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://jobs.ukbb.ch/jobs/aushilfe-records-management-50/bcec2194-c16e-4407-8afc-40031366f7a4",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aushilfe-records-management-50-ukbb-basel",
-        "gestione-record-di-aiuto-50-universitats-kinderspital-beider-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aushilfe-records-management-50-ukbb-basel",
-          "gestione-record-di-aiuto-50-universitats-kinderspital-beider-basel-basel"
-        ],
-        "en": [
-          "aushilfe-records-management-50-ukbb-basel"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T22:14:21.243Z",
-      "salaryMin": 32300,
-      "salaryMax": 55000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 32300,
-          "maxValue": 55000,
           "unitText": "YEAR"
         }
       }

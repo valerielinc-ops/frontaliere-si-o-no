@@ -52475,6 +52475,357 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roche-acquisisce-diritti-trattamento-obesita': {
+    title: 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    description: 'L\'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, roche, acquisisce, diritti, trattamento',
+    ogTitle: 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    ogDescription: 'L\'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari.',
+    canonicalPath: '/articoli-svizzera/roche-acquisisce-diritti-trattamento-obesita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roche acquisisce i diritti su un trattamento sperimentale contro l'obesità",
+      "description": "L'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/roche-acquisisce-diritti-trattamento-obesita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Roche acquisisce i diritti su un trattamento sperimentale contro l'obesità"
+      },
+      "datePublished": "2026-08-24T07:44:45+00:00",
+      "dateModified": "2026-08-24T07:44:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/roche-acquisisce-diritti-trattamento-obesita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquistare-immobile-canton-soletta-mutuo': {
+    title: 'Comprare casa in Canton Soletta: prezzi e mutuo',
+    description: 'Guida all\'acquisto di casa nel Canton Soletta: procedura, mutuo ipotecario, imposta sui trapassi, spese notarili e fondi propri. Informazioni pratiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, soletta',
+    ogTitle: 'Comprare casa in Canton Soletta: prezzi e mutuo',
+    ogDescription: 'Comprare una casa nel Canton Soletta richiede comprensione della fiscalità immobiliare svizzera, dei mutui ipotecari e delle spese notarili. Leggi la nostra guida pratica con procedura step-by-step, documenti richiesti e strumenti utili.',
+    canonicalPath: '/articoli-svizzera/acquistare-immobile-canton-soletta-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Canton Soletta: prezzi e mutuo",
+      "description": "Guida all'acquisto di casa nel Canton Soletta: procedura, mutuo ipotecario, imposta sui trapassi, spese notarili e fondi propri. Informazioni pratiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-immobile-canton-soletta-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in cantone svizzero con giardino e vista sulla campagna"
+      },
+      "datePublished": "2026-08-24T08:06:59+00:00",
+      "dateModified": "2026-08-24T08:06:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-immobile-canton-soletta-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-storia-sicurezza-sociale-rilancio': {
+    title: 'Storia della sicurezza sociale: rilancio del sito Internet',
+    description: 'Il sito Internet www.storiadellasicurezzasociale.ch si presenta in una nuova veste, con nuove funzioni di navigazione e una cronologia interattiva.',
+    keywords: 'frontalieri, ticino, svizzera, italia, storia, sicurezza, sociale, rilancio',
+    ogTitle: 'Storia della sicurezza sociale: rilancio del sito Internet',
+    ogDescription: 'Il sito Internet www.storiadellasicurezzasociale.ch si presenta in una nuova veste, con nuove funzioni di navigazione e una cronologia interattiva.',
+    canonicalPath: '/articoli-svizzera/storia-sicurezza-sociale-rilancio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Storia della sicurezza sociale: rilancio del sito Internet",
+      "description": "Il sito Internet www.storiadellasicurezzasociale.ch si presenta in una nuova veste, con nuove funzioni di navigazione e una cronologia interattiva.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/storia-sicurezza-sociale-rilancio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con un archivio storico in primo piano"
+      },
+      "datePublished": "2026-08-24T08:19:30+00:00",
+      "dateModified": "2026-08-24T08:19:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/storia-sicurezza-sociale-rilancio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-soletta-affitti-canoni-diritto': {
+    title: 'Mercato affitti a Soletta: canoni medi e diritto',
+    description: 'Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, soletta, canoni',
+    ogTitle: 'Mercato degli affitti nel Cantone di Soletta: canoni medi e diritto di locazione',
+    ogDescription: 'Approfondimento completo sul mercato immobiliare e delle locazioni nel Cantone di Soletta. Scopri le regole sui canoni medi, la cauzione, le contestazioni e il ruolo dell\'autorità di conciliazione.',
+    canonicalPath: '/articoli-svizzera/soletta-affitti-canoni-diritto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato affitti a Soletta: canoni medi e diritto",
+      "description": "Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-affitti-canoni-diritto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato immobiliare e affitti nel Cantone di Soletta"
+      },
+      "datePublished": "2026-08-24T08:37:12+00:00",
+      "dateModified": "2026-08-24T08:37:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-affitti-canoni-diritto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-primo-pilastro-soletta-prestazioni': {
+    title: 'AVS e prestazioni complementari nel Canton Soletta',
+    description: 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, soletta',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Soletta',
+    ogDescription: 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, lacune contributive e prestazioni complementari. Guida pratica su come funziona il primo pilastro, come verificare la tua posizione contributiva e accedere ai supplementi.',
+    canonicalPath: '/articoli-svizzera/primo-pilastro-soletta-prestazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Soletta",
+      "description": "AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/primo-pilastro-soletta-prestazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di previdenza e moduli AVS su scrivania con calcolatrice e caffè"
+      },
+      "datePublished": "2026-08-24T08:57:23+00:00",
+      "dateModified": "2026-08-24T08:57:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/primo-pilastro-soletta-prestazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-mercato-lavoro-soletta': {
+    title: 'Salari Soletta: settori e livelli di formazione',
+    description: 'Scopri come funzionano salari e livelli di formazione nel Canton Soletta. Contratti collettivi, contributi obbligatori e calcolo del netto dal lordo',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, soletta, settori, livelli',
+    ogTitle: 'Salari Soletta: settori e livelli di formazione',
+    ogDescription: 'Come funzionano i salari nel Canton Soletta a seconda della formazione. Scopri livelli salariali, contributi obbligatori (AVS, LPP, LAINF) e come calcolare il netto dal lordo. Contratti collettivi e tassazione federale/cantonale in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari Soletta: settori e livelli di formazione",
+      "description": "Scopri come funzionano salari e livelli di formazione nel Canton Soletta. Contratti collettivi, contributi obbligatori e calcolo del netto dal lordo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti svizzeri che lavorano in un moderno ufficio con collaborazione di team e documenti sulla scrivania"
+      },
+      "datePublished": "2026-08-24T09:16:07+00:00",
+      "dateModified": "2026-08-24T09:16:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassazione-forfettaria-ticino-incassi': {
+    title: 'Ticino incassa record da tassazione forfettaria',
+    description: 'Nel 2024 il Ticino ha riscosso 189,5 milioni CHF dalla tassazione forfettaria stranieri, 71 milioni in più rispetto al 2016. Scopri il paradosso: meno',
+    keywords: 'frontalieri, ticino, svizzera, italia, incassa, record, tassazione, forfettaria',
+    ogTitle: 'Ticino incassa record da tassazione forfettaria',
+    ogDescription: 'La tassazione forfettaria genera 189,5 milioni CHF al Ticino nel 2024. Scopri il paradosso: meno contribuenti stranieri facoltosi scelgono il regime, ma le entrate salgono. Analisi della fiscalità svizzera e delle implicazioni economiche',
+    canonicalPath: '/articoli-svizzera/tassazione-forfettaria-ticino-incassi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino incassa record da tassazione forfettaria",
+      "description": "Nel 2024 il Ticino ha riscosso 189,5 milioni CHF dalla tassazione forfettaria stranieri, 71 milioni in più rispetto al 2016. Scopri il paradosso: meno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassazione-forfettaria-ticino-incassi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con edifici bancari moderni affacciati sul lago, simbolo della gestione patrimoniale in Ticino"
+      },
+      "datePublished": "2026-08-24T09:22:08+00:00",
+      "dateModified": "2026-08-24T09:22:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassazione-forfettaria-ticino-incassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festival-scientifica-zurigo-ricerca': {
+    title: 'Scientifica: ricerca e innovazione svizzera a Zurigo',
+    description: 'Festival Scientifica a Zurigo: il Politecnico federale e l\'Università presentano ricerca innovativa. Auto da record mondiale (0-100 km/h in 9 decimi) e droni',
+    keywords: 'frontalieri, ticino, svizzera, italia, scientifica, ricerca, innovazione, zurigo',
+    ogTitle: 'Scientifica: ricerca e innovazione svizzera a Zurigo',
+    ogDescription: 'Festival Scientifica a Zurigo: il Politecnico federale e l\'Università presentano ricerca innovativa. Auto da record mondiale (0-100 km/h in 9 decimi) e droni autonomi.',
+    canonicalPath: '/articoli-svizzera/festival-scientifica-zurigo-ricerca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scientifica: ricerca e innovazione svizzera a Zurigo",
+      "description": "Festival Scientifica a Zurigo: il Politecnico federale e l'Università presentano ricerca innovativa. Auto da record mondiale (0-100 km/h in 9 decimi) e droni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/festival-scientifica-zurigo-ricerca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca del Politecnico federale di Zurigo con studenti che lavorano su progetti di robotica e droni autonomi"
+      },
+      "datePublished": "2026-08-24T09:29:29+00:00",
+      "dateModified": "2026-08-24T09:29:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/festival-scientifica-zurigo-ricerca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pausa-estiva-apprendimento-scuola': {
+    title: 'Pausa estiva e apprendimento: come sfruttarla | Frontaliere Ticino',
+    description: 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare',
+    keywords: 'frontalieri, ticino, svizzera, italia, pausa, estiva, apprendimento, sfruttarla',
+    ogTitle: 'Pausa estiva e apprendimento: come sfruttarla',
+    ogDescription: 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare l\'estate dei ragazzi efficacemente.',
+    canonicalPath: '/articoli-svizzera/pausa-estiva-apprendimento-scuola/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pausa estiva e apprendimento: come sfruttarla",
+      "description": "Scuole svizzere riaprono tra l'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pausa-estiva-apprendimento-scuola.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano durante l'estate, simbolo di riposo e sviluppo dei ragazzi in pausa scolastica"
+      },
+      "datePublished": "2026-08-24T09:38:26+00:00",
+      "dateModified": "2026-08-24T09:38:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pausa-estiva-apprendimento-scuola/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
