@@ -10718,6 +10718,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Leben in Inarzo und Arbeiten im Tessin als Grenzgänger',
     'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Wohnen im Varese und Arbeiten im Tessin: Steuerbefreiungen, Kurzzeitpendeln, geringere Wohnkosten. Komplette Anleitung für Grenzgänger mit G-Genehmigung.',
     'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee aus der italienisch-Schweizer Grenzregion mit den Alpen im Hintergrund und Wohngebieten auf beiden Ufern',
+    'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Ticino: Leben als Grenzgänger im Jahr 2024',
+    'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'Ab dem 1. Januar 2024 wird die Quellensteuer nur noch in der Schweiz einbehalten. Grenzgänger Kategorie G zahlen AHV 5.3%, BVG 7–18%, KVG ab CHF 300–2500 jährlich. Komplette Anleitung.',
+    'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Lugano Seeufer mit modernen Bürogebäuden: typische Tessiner Landschaft für Grenzgänger',
 };
 
 export default blogMetaDe;

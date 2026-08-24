@@ -10721,6 +10721,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Vivre à Inarzo et travailler au Tessin en tant que frontalier',
     'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Vivre à Varesotto et travailler au Tessin : franchises fiscales, déplacements courts, coûts de logement inférieurs. Guide complet pour les frontaliers avec permis G.',
     'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'Vue du lac de Lugano depuis la région frontalière italo-suisse avec les Alpes en arrière-plan et des quartiers résidentiels sur les deux rives',
+    'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Tessin : vivre en frontalier en 2024',
+    'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'Depuis le 1er janvier 2024, l\'impôt à la source n\'est retenu qu\'en Suisse. Les frontaliers de la catégorie G paient AVS 5.3%, LPP 7–18%, LAMal de CHF 300–2500 par an. Guide complet.',
+    'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Vue du lac de Lugano avec immeubles modernes: paysage typique du Tessin où travaillent les frontaliers',
 };
 
 export default blogMetaFr;

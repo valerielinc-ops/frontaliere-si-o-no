@@ -10720,6 +10720,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Vivere a Inarzo e lavorare in Ticino da frontaliere',
     'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Vivere nel Varesotto e lavorare in Ticino: franchigie fiscali, pendolarismo breve, costi abitativi inferiori. Guida completa per frontalieri con permesso G.',
     'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'Vista del Lago Lugano dalla regione di confine italo-svizzera con le Alpi sullo sfondo e paesi residenziali su entrambe le sponde',
+    'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Ticino: vivere da frontaliere nel 2024',
+    'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'Dal 1° gennaio 2024 l\'imposta alla fonte è trattenuta solo in Svizzera. Frontalieri categoria G pagano AVS 5.3%, LPP 7–18%, LAMal da CHF 300–2500 annuali. Guida completa.',
+    'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Vista del lungolago di Lugano al tramonto con uffici moderni: paesaggio tipico del Ticino dove lavorano i frontalieri',
 };
 
 export default blogMetaIt;
