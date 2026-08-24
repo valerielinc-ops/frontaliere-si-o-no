@@ -51,6 +51,7 @@ import {
   extractBalancedTagBlock,
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 const PAGE_SIZE = 25; // SF CSB default — observed 78 jobs returned on a single
                       // page for ZURZACH Care, so larger sites may need it.
@@ -135,6 +136,9 @@ export function parseCsbSearchResults(html) {
 
     const title = decodeEntities(normalizeSpace(stripHtml(linkMatch[3])));
     if (!title || title.length < 3) continue;
+    // A row link's anchor text can be the SF cookie-consent / search widget
+    // rather than a posting title on some CSB skins — discard the row.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     // Preferred: dedicated `<td class="colLocation hidden-phone">` cell or
     // `<span class="jobLocation">…</span>` directly. This avoids picking up
@@ -299,7 +303,10 @@ export function parseCsbDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
   const titleHtml = readPropertyBlock(html, 'title');
-  const title = decodeEntities(normalizeSpace(stripHtml(titleHtml)));
+  // The title propertyid block can resolve to SF widget chrome (cookie
+  // consent / search box) on a skin variant — sanitize so the factory's
+  // listing.title fallback (see createSuccessFactorsParser) takes over.
+  const title = sanitizeSuccessFactorsField(decodeEntities(normalizeSpace(stripHtml(titleHtml))));
 
   let descriptionHtml = readPropertyBlock(html, 'description');
   let descriptionText = htmlToText(descriptionHtml);
@@ -372,7 +379,10 @@ export function parseCsbDetailPage(html) {
   return {
     title,
     descriptionHtml,
-    descriptionText: normalizeDescriptionBullets(descriptionText),
+    // Widget chrome (cookie consent / search / job-alert) occasionally
+    // bleeds into the description propertyid block or its microdata
+    // fallback above — reject it here rather than ship it as a job body.
+    descriptionText: sanitizeSuccessFactorsField(normalizeDescriptionBullets(descriptionText)),
     location: locationFirstLine,
     city,
     region,

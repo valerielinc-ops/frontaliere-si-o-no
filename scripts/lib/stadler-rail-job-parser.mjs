@@ -32,6 +32,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -201,6 +202,9 @@ export function parseSearchResults(html) {
     const jobId = m[3];
     const title = normalizeSpace(stripHtml(m[4]));
     if (!title || title.length < 3) continue;
+    // A `jobTitle-link` anchor carrying page-chrome text (cookie consent, job
+    // alert, keyword search) is not a posting — drop the row, don't clean it.
+    if (isSuccessFactorsWidgetText(title)) continue;
     if (seen.has(jobId)) continue;
     seen.add(jobId);
 
@@ -255,7 +259,11 @@ export function parseDetailPage(html) {
     titleSource.match(/<h1[^>]*itemprop="title"[^>]*>([\s\S]*?)<\/h1>/i) ||
     titleSource.match(/<h1[^>]*id="job-title"[^>]*>([\s\S]*?)<\/h1>/i) ||
     titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  // '' here makes fetchAll's `detail?.title || listing.title` fall back to the
+  // authoritative listing-row title instead of publishing widget chrome.
+  const title = sanitizeSuccessFactorsField(
+    titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '',
+  );
 
   const addressLocality = getMicrodataContent(html, 'addressLocality');
   // addressRegion in microdata is the canton-prefixed code, e.g. "TG T" — keep
@@ -282,15 +290,7 @@ export function parseDetailPage(html) {
   let description = normalizeDescriptionSpace(stripHtml(descriptionHtml));
 
   // Reject SF widget garbage that occasionally bleeds in.
-  const GARBAGE = [
-    /Suche nach Stichwort/i,
-    /Benachrichtigung erstellen/i,
-    /Search by keyword/i,
-    /Create Alert/i,
-    /Manager für Cookie/i,
-    /Cookie Consent/i,
-  ];
-  if (GARBAGE.some((re) => re.test(description))) description = '';
+  description = sanitizeSuccessFactorsField(description);
 
   return {
     title,
