@@ -10650,6 +10650,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-grandola-uniti-lavorare-ticino.title': 'Von Grandola ed Uniti ins Tessin: Grenzüberschreitung',
     'blog.article.vivere-grandola-uniti-lavorare-ticino.excerpt': 'Der Umzug nach Grandola ed Uniti, um im Tessin zu arbeiten, bringt Steuervorteile und Beitragsrisiken mit sich. Hier ist, was Sie vor dem Transfer überprüfen müssen.',
     'blog.article.vivere-grandola-uniti-lavorare-ticino.imageAlt': 'Abendsicht auf Mendrisio, die Grenzstadt im Tessin, mit dem Kirchturm ueber roten Ziegeldaechern',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Grenzgänger Lezzeno-Ticino: G-Genehmigung, Gebühren und Verfahren',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Wer in Lezzeno lebt und im Tessin arbeitet, kann mit der Grenzgängerbewilligung G arbeiten. Quellensteuer in der Schweiz, Rückerstattungen, AHV, BVG und KVG: Alles, was Sie wissen müssen.',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Lezzeno am Comer See mit italienischer Architektur und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

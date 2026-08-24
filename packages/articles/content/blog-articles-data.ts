@@ -31881,6 +31881,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-lezzeno-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-24T03:46:57.696Z',
+ image: '/images/blog/vivere-lezzeno-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

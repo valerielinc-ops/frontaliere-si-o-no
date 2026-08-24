@@ -76823,6 +76823,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-lezzeno-lavorare-ticino-frontaliere': {
+    title: 'Frontaliere Lezzeno-Ticino: permesso G, tasse e procedimenti',
+    description: 'Vivere a Lezzeno e lavorare in Ticino: permesso G, imposta alla fonte, ristorni, AVS, LPP, LAMal. Guida pratica al regime frontaliere e procedimenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, lezzeno-ticino, permesso, tasse, procedimenti',
+    ogTitle: 'Frontaliere Lezzeno-Ticino: permesso G, tasse, procedimenti',
+    ogDescription: 'Lavori in Ticino e vivi a Lezzeno? Scopri come funziona il permesso G, le tasse in Svizzera, i contributi sociali (AVS, LPP), l\'assicurazione malattia (LAMal) e come gestire la dichiarazione redditi senza doppia imposizione.',
+    canonicalPath: '/articoli-frontaliere/vivere-lezzeno-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Lezzeno-Ticino: permesso G, tasse e procedimenti",
+      "description": "Vivere a Lezzeno e lavorare in Ticino: permesso G, imposta alla fonte, ristorni, AVS, LPP, LAMal. Guida pratica al regime frontaliere e procedimenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-lezzeno-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lezzeno sul Lago di Como con architettura italiana e montagne sullo sfondo, paesaggio di confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-24T03:46:57+00:00",
+      "dateModified": "2026-08-24T03:46:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-lezzeno-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

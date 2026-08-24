@@ -10651,6 +10651,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-grandola-uniti-lavorare-ticino.title': 'From Grandola and Uniti to Ticino: border guide',
     'blog.article.vivere-grandola-uniti-lavorare-ticino.excerpt': 'Moving to Grandola and the United States to work in Ticino entails tax advantages and contributory risks. Here\'s what to check before transferring.',
     'blog.article.vivere-grandola-uniti-lavorare-ticino.imageAlt': 'Evening view of Mendrisio, Ticino\'s border town, with the church tower rising above red-roofed buildings',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Lezzeno-Ticino border guards: G permit, taxes and procedures',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Those who live in Lezzeno and work in Ticino can work with the G permit as border workers. Tax at source in Switzerland, refreshments, AVS, LPP and LAMal: everything you need to know.',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Lezzeno on Como Lake with Italian architecture and mountains, Swiss-Italian border landscape',
 };
 
 export default blogMetaEn;
