@@ -4051,6 +4051,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Comprare casa in Canton Soletta: prezzi e mutuo',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Acquistare una casa nel Canton Soletta richiede pianificazione finanziaria accurata. Scopri come funzionano mutuo ipotecario, fondi propri, imposta sui trapassi e spese notarili.',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Casa moderna in cantone svizzero con giardino e vista sulla campagna',
+    'blog.article.storia-sicurezza-sociale-rilancio.title': 'Storia della sicurezza sociale: rilancio del sito Internet',
+    'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Il sito Internet www.storiadellasicurezzasociale.ch si presenta in una nuova veste, con una nuova interfaccia e una veste grafica ottimizzate per la compatibilità con tutti i terminali e l\'accessibilità.',
+    'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Vista di Lugano con un archivio storico in primo piano',
 };
 
 export default blogMetaChIt;

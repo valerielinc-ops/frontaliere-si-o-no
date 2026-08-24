@@ -4051,6 +4051,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Haus kaufen im Kanton Solothurn: Preise und Hypothek',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Der Kauf eines Hauses im Kanton Solothurn erfordert sorgfältige finanzielle Planung. Erfahren Sie, wie Hypothekendarlehen, Kapitalzulänglichkeit, Übertragungssteuer und Notargebühren funktionieren.',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Modernes Wohnhaus in Schweizer Kanton mit Garten und Landschaftsblick',
+    'blog.article.storia-sicurezza-sociale-rilancio.title': 'Geschichte der sozialen Sicherheit: Neustart der Website',
+    'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Die Website www.storiadellasicurezzasociale.ch präsentiert sich in einem neuen Erscheinungsbild mit einer neuen Benutzeroberfläche und einem grafischen Erscheinungsbild, die für die Kompatibilität mit allen Terminals und die Zugänglichkeit optimiert sind.',
+    'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Blick auf Lugano mit einem historischen Archiv im Vordergrund',
 };
 
 export default blogMetaChDe;
