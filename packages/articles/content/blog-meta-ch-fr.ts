@@ -4060,6 +4060,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS et prestations complémentaires dans le canton de Soleure',
     'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS dans le canton de Soleure : caisse de compensation, calcul rente, comblement des lacunes contributives, prestations complémentaires pour minimum vital. Guide complet.',
     'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Documents de retraite et formulaires AVS sur un bureau de travail avec calculatrice',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Salaires Soleure : secteurs et niveaux de formation',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Comment fonctionnent les salaires dans le canton de Soleure en fonction de la formation. Découvrez les niveaux de salaire, les conventions collectives et la fiscalité en Suisse.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Professionnels suisses travaillant dans un bureau moderne avec collaboration d\'équipe et documents sur le bureau',
 };
 
 export default blogMetaChFr;

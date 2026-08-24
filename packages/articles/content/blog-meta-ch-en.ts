@@ -4060,6 +4060,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS and complementary services in the canton of Solothurn',
     'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS in the canton of Solothurn: compensation fund, calculation of annuity, filling in contribution gaps, supplementary benefits for minimum subsistence. Complete guide.',
     'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Retirement planning documents and AVS forms on an office desk with calculator',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Sole Salaries: Sectors and Levels of Training',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'How wages work in the Canton of Solothurn depending on training. Discover salary levels, collective agreements and taxation in Switzerland.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Swiss professionals working in a modern office environment with team collaboration and desk paperwork',
 };
 
 export default blogMetaChEn;
