@@ -912,7 +912,10 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   });
 
   const title = clampSiteSuffix(titles.title, 'Frontaliere Ticino');
-  const description = titles.description.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = titles.description;
 
   // Header is intentionally short (eyebrow + H1 + ≤140-char tagline); the
   // long methodology + frontaliere-context prose moves to the BOTTOM of the
