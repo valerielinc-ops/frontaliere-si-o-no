@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epi-stiftung",
-  "assembledAt": "2026-08-23T21:27:57.440Z",
+  "assembledAt": "2026-08-24T08:47:17.572Z",
   "jobs": [
     {
       "id": "epi-stiftung-12e5f9265646",
@@ -67,91 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:39:49.047Z",
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "epi-stiftung-b908abc8790d",
-      "slug": "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-      "slugByLocale": {
-        "it": "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-        "de": "leiterin-leiter-restaurant-epi-stiftung-zurich",
-        "fr": "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich"
-      },
-      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
-      "companyKey": "epi-stiftung",
-      "companyDomain": "epi.ch",
-      "title": "Leiterin / Leiter Restaurant",
-      "titleByLocale": {
-        "it": "Head / Head Restaurant",
-        "en": "Head / Head Restaurant",
-        "de": "Leiterin / Leiter Restaurant",
-        "fr": "Chef / Chef Restaurant"
-      },
-      "description": "Die Schweizerische Epilepsie-Stiftung (EPI) ist ein Mehrspartenunternehmen. Sie umfasst das EPI WohnWerk, die Oberstufenschule Lengg, die Schenkung Dapples, ein Seminarzentrum mit Restaurant und die EPI Zentralen Dienste. Ausserdem bildet die Schweizerische Epilepsie-Stiftung gemeinsam mit einer anderen Stiftung die Trägerschaft der Klinik Lengg AG, mit je einer Klinik für Epileptologie und Neurorehabilitation. Rund 1000 Mitarbeitende setzen sich für diese sozialen Aufgaben ein. Das Areal liegt am Stadtrand von Zürich, mit einer traumhaften Aussicht auf den nahegelegenen Zürichsee und die Alpen.\n\nAufgaben:\n• Personelle und fachliche Leitung vom Restaurant EPI Park mit einem Team von 5-7 Mitarbeitenden\n\n• Aktive Mitarbeit im operativen Tagesgeschäft (ca. 70%) inkl. Wochenenddienste als Gastgeber\n\n• Arbeitszeiten: mehrheitlich Tagesdienst (08.00 – 17.00 Uhr)\n\n• Mitwirkung bei ca. 30–40 Events und Abendveranstaltungen ausserhalb der regulären Arbeitszeiten\n\n• Sicherstellung eines gastfreundlichen und dienstleistungsorientieren Service für unsere Gäste\n\n• Unterstützung bei der Dienstplanung\n\n• Verantwortung für Verkauf, Planung, Organisation und Durchführung von Banketten und Veranstaltungen\n\n• Mitarbeit bei der Budgeterstellung, -verwaltung sowie beim Wareneinkauf\n\n• Förderung und Weiterentwicklung Ihres Teams\n\n• Sicherstellung der Einhaltung von Qualitäts- und Servicestandards\n\n• Enge Zusammenarbeit mit der Leitung Gastronomie und Mitarbeit im Seminarzentrum\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Restaurantfachfrau/-mann EFZ oder vergleichbare Qualifikation\n\n• Ausgewiesene Führungserfahrung in einem lebhaften Betrieb idealerweise in der Systemgastronomie\n\n• Ausgeprägte Dienstleistungsorientierung sowie Freude am Umgang mit Menschen\n\n• Engagierte, empathische, motivierte und verantwortungsvolle Führungspersönlichkeit\n\n• Unternehmerisches Denken, verantwortungsbewusste und präzise Arbeitsweise\n\n• Flexibilität bei der Dienstplanung\n\n• IT-Affinität, gute PC-Kenntnisse sowie Erfahrung mit Kassensystemen bzw. Reservationssysteme (idealerweise TCPOS und Protel)\n\n• Sichere Kommunikation in Deutsch (mündlich und schriftlich), Englischkenntnisse von Vorteil\n\n• Souveränes, professionelles und freundliches Auftreten\n\nWir bieten:\n• Dienstpläne 4-6 Wochen im Voraus mit geregelten freien Wochenenden\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Jährliche, verbindliche Ferienplanung\n\n• Eigene Pensionskasse mit einem überdurchschnittlichen Arbeitgeberanteil von 60 %\n\n• Mitarbeiterermässigung in unserem Restaurant\n\n• Gute Erreichbarkeit mit den öffentlichen Verkehrsmitteln\n\n• Personalwohnungen, Parkplätze und Vergünstigungen in der Apotheke und bei Halbtax- oder Generalabonnement\n\nEPI Park und Restarurant\nDer EPI Park umfasst ein Seminarzentrum und ein öffentliches Restaurant. Es bietet unseren Patientinnen und Patienten, Mitarbeitenden, Klientinnen und Klienten, Seminarteilnehmenden und Besuchenden täglich eine Auswahl an köstlichen, gesunden Menüs und ein Salatbuffet an.",
-      "descriptionByLocale": {
-        "it": "La Swiss Epilepsy Foundation (EPI) è una società multisettore. Include l'EPI WohnWerk, il Lengg High School, la donazione Dapples, un centro seminari con ristorante e i servizi centrali EPI. Inoltre, la Fondazione svizzera per l'epilessia insieme ad un'altra fondazione costituisce la sponsorizzazione di Klinik Lengg AG, ognuna con una clinica per l'epileptologia e la neuroriabilitazione. Circa 1000 dipendenti sono impegnati a questi compiti sociali. La zona si trova nella periferia di Zurigo, con una fantastica vista sul vicino Lago di Zurigo e sulle Alpi.\n\nCompiti:\n• Personale e gestione professionale del ristorante EPI Park con un team di 5-7 dipendenti\n\n• Partecipazione attiva alle operazioni giornaliere (circa il 70%) incl. Servizi Weekend come host\n\n• Orario di lavoro: servizio giornaliero di maggioranza (08.00 – 17.00)\n\n• Partecipazione a circa 30-40 eventi e eventi serali al di fuori delle ore di lavoro regolari\n\n• Garantire un servizio ospitale e orientato al servizio per i nostri ospiti\n\n• Supporto per la pianificazione dei servizi\n\n• Responsabilità per vendite, pianificazione, organizzazione ed esecuzione di banchetti ed eventi\n\n• Cooperazione in materia di preparazione, gestione e acquisto di beni\n\n• Promozione e sviluppo del vostro team\n\n• Garantire il rispetto delle norme di qualità e servizio\n\n• Una stretta collaborazione con la gestione della gastronomia e della cooperazione nel centro seminari\n\nRequisiti\n• Formazione completa come specialista del ristorante EFZ o qualificazione comparabile\n\n• Esperienza di leadership dimostrata in un'azienda vivace idealmente nella ristorazione di sistema\n\n• Forte orientamento di servizio e piacere nel trattare con le persone\n\n• Leader attivo, empatico, motivato e responsabile\n\n• pensiero imprenditoriale, metodi di lavoro responsabili e precisi\n\n• Flessibilità nella programmazione dei servizi\n\n• affinità IT, buona conoscenza del PC e esperienza con i sistemi POS Sistemi di prenotazione (idealmente TCPOS e Protel)\n\n• Comunicazione sicura in tedesco (verbale e scritto), abilità inglesi benefiche\n\n• Aspetto sovrano, professionale e amichevole\n\nOffriamo:\n• Orari 4-6 settimane in anticipo con i fine settimana gratuiti regolamentati\n\n• 5 settimane di vacanza, dal 50 °. Età 6 settimane\n\n• Pianificazione annuale e vincolante delle vacanze\n\n• Fondo pensionistico privato con una quota di datore di lavoro superiore alla media del 60%\n\n• Riduzione dei dipendenti nel nostro ristorante\n\n• Buona accessibilità ai trasporti pubblici\n\n• Staff appartamenti, posti auto e sconti in farmacia e per mezza tassa o abbonamento generale\n\nParco EPI e Restauro\nEPI Park comprende un centro per seminari e un ristorante pubblico. Offre ai nostri pazienti, dipendenti, clienti, partecipanti ai seminari e visitatori una selezione di menu deliziosi e sani e un buffet di insalata ogni giorno.",
-        "en": "The Swiss Epilepsy Foundation (EPI) is a multi-sector company. It includes the EPI WohnWerk, the Lengg High School, the donation Dapples, a seminar center with restaurant and the EPI Central Services. In addition, the Swiss Epilepsy Foundation together with another foundation forms the sponsorship of Klinik Lengg AG, each with a clinic for epileptology and neurorehabilitation. Around 1000 employees are committed to these social tasks. The area is located on the outskirts of Zurich, with a fantastic view of the nearby Lake Zurich and the Alps.\n\nTasks:\n• Personnel and professional management of the restaurant EPI Park with a team of 5-7 employees\n\n• Active participation in day-to-day operations (about 70%) incl. Weekend services as hosts\n\n• Working hours: majority daily service (08.00 – 17.00)\n\n• Participation in approximately 30-40 events and evening events outside regular working hours\n\n• Ensuring a hospitable and service-oriented service for our guests\n\n• Service planning support\n\n• Responsibility for sales, planning, organisation and execution of banquets and events\n\n• Cooperation in budget preparation, management and purchase of goods\n\n• Promotion and development of your team\n\n• Ensuring compliance with quality and service standards\n\n• Close cooperation with the management of gastronomy and cooperation in the seminar center\n\nRequirements\n• Completed training as a restaurant specialist EFZ or comparable qualification\n\n• Proven leadership experience in a lively company ideally in system catering\n\n• Strong service orientation and pleasure in dealing with people\n\n• Engaged, empathetic, motivated and responsible leader\n\n• Entrepreneurial thinking, responsible and precise working methods\n\n• Flexibility in service scheduling\n\n• IT affinity, good PC knowledge and experience with POS systems Reservation systems (ideally TCPOS and Protel)\n\n• Secure communication in German (verbal and written), English skills beneficial\n\n• Sovereign, professional and friendly appearance\n\nWe offer:\n• Schedules 4-6 weeks in advance with regulated free weekends\n\n• 5 weeks holiday, from the 50th. Age 6 weeks\n\n• Annual, binding holiday planning\n\n• Own pension fund with an above-average employer share of 60%\n\n• Employee reduction in our restaurant\n\n• Good accessibility with public transport\n\n• Staff apartments, parking spaces and discounts in the pharmacy and for half-tax or general subscription\n\nEPI Park and Restarurant\nEPI Park includes a seminar center and a public restaurant. It offers our patients, employees, clients, seminar participants and visitors a selection of delicious, healthy menus and a salad buffet every day.",
-        "de": "Die Schweizerische Epilepsie-Stiftung (EPI) ist ein Mehrspartenunternehmen. Sie umfasst das EPI WohnWerk, die Oberstufenschule Lengg, die Schenkung Dapples, ein Seminarzentrum mit Restaurant und die EPI Zentralen Dienste. Ausserdem bildet die Schweizerische Epilepsie-Stiftung gemeinsam mit einer anderen Stiftung die Trägerschaft der Klinik Lengg AG, mit je einer Klinik für Epileptologie und Neurorehabilitation. Rund 1000 Mitarbeitende setzen sich für diese sozialen Aufgaben ein. Das Areal liegt am Stadtrand von Zürich, mit einer traumhaften Aussicht auf den nahegelegenen Zürichsee und die Alpen.\n\nAufgaben:\n• Personelle und fachliche Leitung vom Restaurant EPI Park mit einem Team von 5-7 Mitarbeitenden\n\n• Aktive Mitarbeit im operativen Tagesgeschäft (ca. 70%) inkl. Wochenenddienste als Gastgeber\n\n• Arbeitszeiten: mehrheitlich Tagesdienst (08.00 – 17.00 Uhr)\n\n• Mitwirkung bei ca. 30–40 Events und Abendveranstaltungen ausserhalb der regulären Arbeitszeiten\n\n• Sicherstellung eines gastfreundlichen und dienstleistungsorientieren Service für unsere Gäste\n\n• Unterstützung bei der Dienstplanung\n\n• Verantwortung für Verkauf, Planung, Organisation und Durchführung von Banketten und Veranstaltungen\n\n• Mitarbeit bei der Budgeterstellung, -verwaltung sowie beim Wareneinkauf\n\n• Förderung und Weiterentwicklung Ihres Teams\n\n• Sicherstellung der Einhaltung von Qualitäts- und Servicestandards\n\n• Enge Zusammenarbeit mit der Leitung Gastronomie und Mitarbeit im Seminarzentrum\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Restaurantfachfrau/-mann EFZ oder vergleichbare Qualifikation\n\n• Ausgewiesene Führungserfahrung in einem lebhaften Betrieb idealerweise in der Systemgastronomie\n\n• Ausgeprägte Dienstleistungsorientierung sowie Freude am Umgang mit Menschen\n\n• Engagierte, empathische, motivierte und verantwortungsvolle Führungspersönlichkeit\n\n• Unternehmerisches Denken, verantwortungsbewusste und präzise Arbeitsweise\n\n• Flexibilität bei der Dienstplanung\n\n• IT-Affinität, gute PC-Kenntnisse sowie Erfahrung mit Kassensystemen bzw. Reservationssysteme (idealerweise TCPOS und Protel)\n\n• Sichere Kommunikation in Deutsch (mündlich und schriftlich), Englischkenntnisse von Vorteil\n\n• Souveränes, professionelles und freundliches Auftreten\n\nWir bieten:\n• Dienstpläne 4-6 Wochen im Voraus mit geregelten freien Wochenenden\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Jährliche, verbindliche Ferienplanung\n\n• Eigene Pensionskasse mit einem überdurchschnittlichen Arbeitgeberanteil von 60 %\n\n• Mitarbeiterermässigung in unserem Restaurant\n\n• Gute Erreichbarkeit mit den öffentlichen Verkehrsmitteln\n\n• Personalwohnungen, Parkplätze und Vergünstigungen in der Apotheke und bei Halbtax- oder Generalabonnement\n\nEPI Park und Restarurant\nDer EPI Park umfasst ein Seminarzentrum und ein öffentliches Restaurant. Es bietet unseren Patientinnen und Patienten, Mitarbeitenden, Klientinnen und Klienten, Seminarteilnehmenden und Besuchenden täglich eine Auswahl an köstlichen, gesunden Menüs und ein Salatbuffet an.",
-        "fr": "La Fondation suisse de l'épilepsie (EPI) est une entreprise multisectorielle. Il comprend l'EPI WohnWerk, l'école secondaire Lengg, le don Dapples, un centre de séminaire avec restaurant et les services centraux EPI. En outre, la Fondation suisse pour l'épilepsie et une autre fondation forment le parrainage de Klinik Lengg AG, chacune ayant une clinique d'épileptologie et de neuroréhabilitation. Environ 1000 employés sont engagés dans ces tâches sociales. Le quartier est situé à la périphérie de Zurich, avec une vue fantastique sur le lac de Zurich et les Alpes.\n\nTâches :\n• Personnel et gestion professionnelle du restaurant EPI Park avec une équipe de 5 à 7 employés\n\n• Participation active aux opérations quotidiennes (environ 70 %) y compris Services de week-end comme hôtes\n\n• Heures de travail: service quotidien majoritaire (08.00 – 17.00)\n\n• Participation à environ 30-40 manifestations et soirées en dehors des heures normales de travail\n\n• Assurer un service hospitalier et axé sur le service à nos clients\n\n• Appui à la planification des services\n\n• Responsabilité de la vente, de la planification, de l'organisation et de l'exécution des banquets et des événements\n\n• Coopération en matière d ' établissement, de gestion et d ' achat du budget\n\n• Promotion et développement de votre équipe\n\n• Assurer le respect des normes de qualité et de service\n\n• Coopération étroite avec la gestion de la gastronomie et la coopération dans le centre de séminaires\n\nExigences\n• Formation complète en tant que spécialiste des restaurants EFZ ou qualification comparable\n\n• Expérience de leadership éprouvée dans une entreprise animée idéalement dans la restauration système\n\n• Une forte orientation et le plaisir de traiter avec les gens\n\n• Leader engagé, empathique, motivé et responsable\n\n• Pensée entrepreneuriale, méthodes de travail responsables et précises\n\n• Flexibilité dans la programmation des services\n\n• affinité informatique, bonne connaissance PC et expérience avec les systèmes POS Systèmes de réservation (idéalement TCPOS et Protel)\n\n• Communication sécurisée en allemand (verbal et écrit), compétences anglaises bénéfiques\n\n• Aspect souverain, professionnel et amical\n\nNous offrons:\n• Horaires 4-6 semaines à l'avance avec des week-ends gratuits réglementés\n\n• 5 semaines de vacances, à partir du 50ème. Âge 6 semaines\n\n• Planification annuelle et obligatoire des vacances\n\n• Fonds de pension propre avec une part de l'employeur supérieure à la moyenne de 60 %\n\n• Réduction des employés dans notre restaurant\n\n• Bonne accessibilité avec les transports en commun\n\n• Appartements du personnel, places de parking et réductions en pharmacie et pour demi-taxe ou abonnement général\n\nEPI Park et Restarurant\nEPI Park comprend un centre de séminaires et un restaurant public. Il offre à nos patients, employés, clients, participants au séminaire et visiteurs une sélection de menus délicieux et sains ainsi qu'un buffet de salade tous les jours."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.swissepi.ch/offene-stellen/leiterin-leiter-restaurant/27a22c57-e950-42a2-90a9-935774396164",
-      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:27:53.700Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "Bleulerstrasse 60",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://job.swissepi.ch/offene-stellen/leiterin-leiter-restaurant/27a22c57-e950-42a2-90a9-935774396164",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiterin-leiter-restaurant-epi-stiftung-zurich",
-        "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-        "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-        "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-        "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiterin-leiter-restaurant-epi-stiftung-zurich",
-          "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-          "chef-du-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-          "head-of-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-          "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich"
-        ],
-        "en": [
-          "leiterin-leiter-restaurant-epi-stiftung-zurich"
-        ],
-        "fr": [
-          "leiterin-leiter-restaurant-epi-stiftung-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:20:57.453Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "baseSalary": {
