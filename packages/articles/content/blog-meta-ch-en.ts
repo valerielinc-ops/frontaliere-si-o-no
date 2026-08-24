@@ -4048,6 +4048,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche Acquires Rights to Experimental Obesity Treatment',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'The deal with South Korean company Hanmi could be worth up to $2.3 billion.',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquires rights to obesity treatment',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Buying a house in Canton Solothurn: prices and mortgage',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Buying a home in the Canton of Solothurn requires careful financial planning. Learn how mortgage, equity, transfer tax, and notary fees work.',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Modern residential property in Swiss canton with garden and countryside view',
 };
 
 export default blogMetaChEn;

@@ -4048,6 +4048,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche acquiert les droits sur un traitement expérimental contre l\'obésité',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'L\'accord avec la société sud-coréenne Hanmi pourrait valoir jusqu\'à 2,3 milliards de dollars.',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquiert les droits à un traitement expérimental contre l\'obésité',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Acheter une maison dans le canton de Soleure : prix et hypothèque',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Acheter une maison dans le canton de Soleure nécessite une planification financière minutieuse. Découvrez comment fonctionnent les prêts hypothécaires, l\'adéquation du capital, l\'impôt sur les transferts et les frais de notaire.',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Maison résidentielle moderne dans un canton suisse avec jardin et vue campagnarde',
 };
 
 export default blogMetaChFr;
