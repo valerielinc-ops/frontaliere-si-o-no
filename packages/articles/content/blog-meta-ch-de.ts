@@ -4189,6 +4189,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tirocinio-contratto-sciaffusa.title': 'Lehre: Praxisleitfaden im Kanton Schaffhausen',
     'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'So finden Sie eine Lehrstelle, Lehrlingsgehälter, Verträge und Berufsmaturität im Schweizer System.',
     'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Lehrling arbeitet mit Mentor in einer Werkstatt während der Schweizer Berufsausbildung',
+    'blog.article.borse-studio-sciaffusa.title': 'Stipendien Kanton Schaffhausen: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-sciaffusa.excerpt': 'Der Kanton Schaffhausen bietet Stipendien für Studierende und Auszubildende an, die Höchstbeträge und Bewerbungsfristen sind jedoch noch nicht festgelegt.',
+    'blog.article.borse-studio-sciaffusa.imageAlt': 'Studierende und Praktikanten in der Schweiz',
 };
 
 export default blogMetaChDe;

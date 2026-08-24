@@ -4189,6 +4189,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tirocinio-contratto-sciaffusa.title': 'Apprentissage : guide pratique dans le canton de Schaffhouse',
     'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'Comment trouver une place d\'apprentissage, les salaires de l\'apprenti, les contrats et la maturité professionnelle dans le système suisse.',
     'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Apprenti travaillant avec un mentor dans un atelier pendant la formation professionnelle suisse',
+    'blog.article.borse-studio-sciaffusa.title': 'Bourses Canton Schaffhouse : exigences et montants',
+    'blog.article.borse-studio-sciaffusa.excerpt': 'Le canton de Schaffhouse offre des bourses pour les étudiants et les apprentis, mais les montants maximums et les délais de présentation ne sont pas encore précisés.',
+    'blog.article.borse-studio-sciaffusa.imageAlt': 'Étudiants et apprentis en Suisse',
 };
 
 export default blogMetaChFr;

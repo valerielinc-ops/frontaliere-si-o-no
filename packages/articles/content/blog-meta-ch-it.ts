@@ -4189,6 +4189,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tirocinio-contratto-sciaffusa.title': 'Apprendistato: guida pratica nel Cantone Sciaffusa',
     'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'Come trovare un posto di tirocinio, stipendi dell\'apprendista, contratti e maturità professionale nel sistema svizzero.',
     'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Apprendista al lavoro in officina insieme a un mentor durante la formazione professionale svizzera',
+    'blog.article.borse-studio-sciaffusa.title': 'Borse di studio Canton Sciaffusa: requisiti e importi',
+    'blog.article.borse-studio-sciaffusa.excerpt': 'Il Canton Sciaffusa offre borse di studio per gli studenti e gli apprendisti, ma gli importi massimi e i termini di presentazione non sono ancora specificati.',
+    'blog.article.borse-studio-sciaffusa.imageAlt': 'Studenti e apprendisti in Svizzera',
 };
 
 export default blogMetaChIt;
