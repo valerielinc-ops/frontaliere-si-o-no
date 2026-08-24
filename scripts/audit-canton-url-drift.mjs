@@ -45,12 +45,21 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+// Layout of the store is the producer's business, not this reader's: the
+// sharding was introduced when the monolith crossed GitHub's 100 MB push limit
+// (#4248) and could move again. Hardcoding `part-NN.json` here would give a
+// reader that goes quietly empty on the next reshape.
+import {
+  KNOWN_SLUGS_SHARD_COUNT,
+  knownSlugsManifestFile,
+  knownSlugsShardFile,
+} from './lib/all-known-job-slugs-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 
-/** Store shard count is fixed by the producer; keep the pad width in one place. */
-const SHARD_PAD = 2;
+/** Repo-relative path, as `git show <sha>:<path>` needs it. */
+const rel = (abs) => path.relative(REPO_ROOT, abs);
 
 /**
  * The store's per-slug value has carried two shapes over time: a bare path
@@ -87,13 +96,13 @@ export function sectionOf(p) {
  *
  * @param {number} want how many shards to sample
  * @param {number} total shards in the store
- * @returns {string[]} zero-padded ids
+ * @returns {number[]} shard indices; the producer's helper names the files
  */
 export function pickShards(want, total) {
   const n = Math.max(1, Math.min(want, total));
   const step = total / n;
   const out = [];
-  for (let i = 0; i < n; i++) out.push(String(Math.floor(i * step)).padStart(SHARD_PAD, '0'));
+  for (let i = 0; i < n; i++) out.push(Math.floor(i * step));
   return [...new Set(out)];
 }
 
@@ -183,10 +192,8 @@ async function main() {
   const historyPath = path.resolve(REPO_ROOT, arg('history', 'data/canton-url-drift-history.jsonl'));
   const ref = arg('ref', 'HEAD');
 
-  const manifest = JSON.parse(
-    fs.readFileSync(path.join(REPO_ROOT, 'data/all-known-job-slugs/manifest.json'), 'utf-8'),
-  );
-  const shardCount = Number(manifest.shardCount) || 32;
+  const manifest = JSON.parse(fs.readFileSync(knownSlugsManifestFile(REPO_ROOT), 'utf-8'));
+  const shardCount = Number(manifest.shardCount) || KNOWN_SLUGS_SHARD_COUNT;
   const totalSlugs = Number(manifest.totalSlugs) || 0;
 
   // Cut-off by date, not by commit count: main takes ~9.700 commits a week from
@@ -207,17 +214,17 @@ async function main() {
   const drifted = [];
   const usedShards = [];
   for (const id of shards) {
-    const rel = `data/all-known-job-slugs/part-${id}.json`;
+    const shardPath = rel(knownSlugsShardFile(id, REPO_ROOT));
     let before;
     try {
-      before = JSON.parse(git(['show', `${base}:${rel}`]));
+      before = JSON.parse(git(['show', `${base}:${shardPath}`]));
     } catch {
       // A shard that did not exist at the base commit carries no comparable
       // population; skipping it is honest, and `shards` records what was used.
       console.log(`ℹ️  shard ${id}: assente al commit base, saltato`);
       continue;
     }
-    const now = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, rel), 'utf-8'));
+    const now = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, shardPath), 'utf-8'));
     const r = diffShard(before.slugs || {}, now.slugs || {});
     common += r.common;
     drifted.push(...r.drifted);

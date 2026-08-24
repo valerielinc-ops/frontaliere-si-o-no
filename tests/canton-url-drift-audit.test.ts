@@ -52,7 +52,10 @@ describe('pickShards — the sample must be the same population week over week',
     expect(pickShards(5, 32)).toEqual(pickShards(5, 32));
   });
   it('spreads across the store instead of clustering at the start', () => {
-    expect(pickShards(5, 32)).toEqual(['00', '06', '12', '19', '25']);
+    // Indices, not filenames: naming the shard file is the producer's job
+    // (scripts/lib/all-known-job-slugs-store.mjs), so the layout can change
+    // without this reader going quietly empty.
+    expect(pickShards(5, 32)).toEqual([0, 6, 12, 19, 25]);
   });
   it('never asks for more shards than exist, nor fewer than one', () => {
     expect(pickShards(99, 4)).toHaveLength(4);
