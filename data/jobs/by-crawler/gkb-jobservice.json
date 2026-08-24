@@ -17,9 +17,9 @@
       "title": "Kauffrau / Kaufmann Bank in Arosa (Lehrbeginn 2027)",
       "titleByLocale": {
         "de": "Kauffrau / Kaufmann Bank in Arosa (Lehrbeginn 2027)",
-        "it": "Kauffrau / Kaufmann Bank in Arosa (Lehrbeginn 2027)",
-        "en": "Kauffrau / Kaufmann Bank in Arosa (Lehrbeginn 2027)",
-        "fr": "Kauffrau / Kaufmann Bank in Arosa (Lehrbeginn 2027)"
+        "it": "Kauffrau / Kaufmann Bank in Arosa (inizio dell'insegnamento 2027)",
+        "en": "Kauffrau / Kaufmann Bank in Arosa (beginning of teaching 2027)",
+        "fr": "Kauffrau / Kaufmann Bank à Arosa (début de l'enseignement 2027)"
       },
       "description": "Kauffrau / Kaufmann Bank in Arosa (Lehrbeginn 2027) — GKB JobService",
       "descriptionByLocale": {
@@ -78,9 +78,9 @@
       "title": "Kauffrau / Kaufmann Bank in Scuol (Lehrbeginn 2027)",
       "titleByLocale": {
         "de": "Kauffrau / Kaufmann Bank in Scuol (Lehrbeginn 2027)",
-        "it": "Kauffrau / Kaufmann Bank in Scuol (Lehrbeginn 2027)",
-        "en": "Kauffrau / Kaufmann Bank in Scuol (Lehrbeginn 2027)",
-        "fr": "Kauffrau / Kaufmann Bank in Scuol (Lehrbeginn 2027)"
+        "it": "Kauffrau / Kaufmann Bank in Scuol (inizio dell'insegnamento 2027)",
+        "en": "Kauffrau / Kaufmann Bank in Scuol (beginning of teaching 2027)",
+        "fr": "Kauffrau / Kaufmann Bank in Scuol (début de l'enseignement 2027)"
       },
       "description": "Kauffrau / Kaufmann Bank in Scuol (Lehrbeginn 2027) — GKB JobService",
       "descriptionByLocale": {
@@ -139,9 +139,9 @@
       "title": "Kauffrau / Kaufmann Bank in St. Moritz (Lehrbeginn 2027)",
       "titleByLocale": {
         "de": "Kauffrau / Kaufmann Bank in St. Moritz (Lehrbeginn 2027)",
-        "it": "Kauffrau / Kaufmann Bank in St. Moritz (Lehrbeginn 2027)",
-        "en": "Kauffrau / Kaufmann Bank in St. Moritz (Lehrbeginn 2027)",
-        "fr": "Kauffrau / Kaufmann Bank in St. Moritz (Lehrbeginn 2027)"
+        "it": "Kauffrau / Kaufmann Bank a St. Moritz (inizio dell'insegnamento 2027)",
+        "en": "Kauffrau / Kaufmann Bank in St. Moritz (beginning of teaching 2027)",
+        "fr": "Kauffrau / Kaufmann Bank à St. Moritz (début de l'enseignement 2027)"
       },
       "description": "Kauffrau / Kaufmann Bank in St. Moritz (Lehrbeginn 2027) — GKB JobService",
       "descriptionByLocale": {
@@ -305,7 +305,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:29:51.229Z"
+      "firstSeenAt": "2026-08-23T21:29:51.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-partner-in-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-partner-in-80-100-gkb-ch"
+      ]
     },
     {
       "id": "gkb-jobservice-b0a5f3dfc81d",
@@ -323,8 +331,8 @@
       "titleByLocale": {
         "en": "Praktikant:in (BEM) Banking, Arosa ab August 2027",
         "de": "Praktikant:in (BEM) Banking, Arosa ab August 2027",
-        "it": "Praktikant:in (BEM) Banking, Arosa ab August 2027",
-        "fr": "Praktikant:in (BEM) Banking, Arosa ab August 2027"
+        "it": "Praktikant:in (BEM) Banking, Arosa ab agosto 2027",
+        "fr": "Praktikan:in (BEM) Banking, Arosa ab août 2027"
       },
       "description": "Praktikant:in (BEM) Banking, Arosa ab August 2027 — GKB JobService",
       "descriptionByLocale": {
@@ -366,7 +374,18 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:29:50.923Z"
+      "firstSeenAt": "2026-08-23T21:29:50.923Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch"
+        ],
+        "de": [
+          "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch"
+      ]
     },
     {
       "id": "gkb-jobservice-4b780af2943e",
@@ -384,8 +403,8 @@
       "titleByLocale": {
         "en": "Praktikant:in (BEM) Banking, Scuol ab August 2027",
         "de": "Praktikant:in (BEM) Banking, Scuol ab August 2027",
-        "it": "Praktikant:in (BEM) Banking, Scuol ab August 2027",
-        "fr": "Praktikant:in (BEM) Banking, Scuol ab August 2027"
+        "it": "Praktikant:in (BEM) Banking, Scuol ab agosto 2027",
+        "fr": "Praktikan:in (BEM) Banking, Scuol ab août 2027"
       },
       "description": "Praktikant:in (BEM) Banking, Scuol ab August 2027 — GKB JobService",
       "descriptionByLocale": {
@@ -445,8 +464,8 @@
       "titleByLocale": {
         "en": "Praktikant:in (BEM) Banking, St. Moritz ab August 2027",
         "de": "Praktikant:in (BEM) Banking, St. Moritz ab August 2027",
-        "it": "Praktikant:in (BEM) Banking, St. Moritz ab August 2027",
-        "fr": "Praktikant:in (BEM) Banking, St. Moritz ab August 2027"
+        "it": "Praktikant:in (BEM) Banking, St. Moritz ab agosto 2027",
+        "fr": "Praktikan:in (BEM) Banking, St. Moritz ab août 2027"
       },
       "description": "Praktikant:in (BEM) Banking, St. Moritz ab August 2027 — GKB JobService",
       "descriptionByLocale": {
@@ -506,8 +525,8 @@
       "titleByLocale": {
         "en": "Praktikant:in (BEM) Banking, Chur ab August 2027",
         "de": "Praktikant:in (BEM) Banking, Chur ab August 2027",
-        "it": "Praktikant:in (BEM) Banking, Chur ab August 2027",
-        "fr": "Praktikant:in (BEM) Banking, Chur ab August 2027"
+        "it": "Praktikant:in (BEM) Banking, Chur ab agosto 2027",
+        "fr": "Praktikan:in (BEM) Banking, Chur ab août 2027"
       },
       "description": "Praktikant:in (BEM) Banking, Chur ab August 2027 — GKB JobService",
       "descriptionByLocale": {
@@ -567,7 +586,7 @@
       "titleByLocale": {
         "de": "Business Analyst:in Payments - Fokus Geschäftskunden (60-100%)",
         "it": "Business Analista:in Payments - Fokus Geschäftskunden (60-100%)",
-        "en": "Business Analyst:in Payments - Fokus Geschäftskunden (60-100%)",
+        "en": "Business Analyst:in Payments - Focus Business Customers (60-100%)",
         "fr": "Business Analyste:in Payments - Fokus Geschäftskunden (60-100%)"
       },
       "description": "Business Analyst:in Payments - Fokus Geschäftskunden (60-100%) — GKB JobService",
@@ -760,9 +779,9 @@
       "title": "Berater:in Digital Business (80-100%)",
       "titleByLocale": {
         "de": "Berater:in Digital Business (80-100%)",
-        "it": "Berater:in Digital Business (80-100%)",
-        "en": "Berater:in Digital Business (80-100%)",
-        "fr": "Berater:in Digital Business (80-100%)"
+        "it": "Consulente: in Digital Business (80-100%)",
+        "en": "Consultant: in Digital Business (80-100%)",
+        "fr": "Consultant: en Digital Business (80-100%)"
       },
       "description": "Berater:in Digital Business (80-100%) — GKB JobService",
       "descriptionByLocale": {
@@ -832,8 +851,8 @@
       "title": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
       "titleByLocale": {
         "fr": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
-        "de": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
-        "it": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
+        "de": "Facharzt: im Rechtsdienst/Compliance (80-100%)",
+        "it": "Fachspezialist: in Rechtsdienst/Compliance (80-100%)",
         "en": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)"
       },
       "description": "Fachspezialist:in Rechtsdienst/Compliance (80-100%) — GKB JobService",
@@ -894,7 +913,7 @@
       "titleByLocale": {
         "de": "Specialist Geschäftsführung & Beratung Stiftungen (80%)",
         "it": "Specialista Geschäftsführung & Beratung Stiftungen (80%)",
-        "en": "Specialist Geschäftsführung & Beratung Stiftungen (80%)",
+        "en": "Specialist Management & Consulting Foundations (80%)",
         "fr": "Spécialiste Geschäftsführung & Beratung Stiftungen (80%)"
       },
       "description": "Specialist Geschäftsführung & Beratung Stiftungen (80%) — GKB JobService",
@@ -965,9 +984,9 @@
       "title": "Fachleiter:in Client Lifecycle Management (80-100%)",
       "titleByLocale": {
         "de": "Fachleiter:in Client Lifecycle Management (80-100%)",
-        "it": "Fachleiter:in Client Lifecycle Management (80-100%)",
-        "en": "Fachleiter:in Client Lifecycle Management (80-100%)",
-        "fr": "Fachleiter:in Client Lifecycle Management (80-100%)"
+        "it": "Responsabile professionale: nella gestione del ciclo di vita del cliente (80-100%)",
+        "en": "Professional Manager: in Client Lifecycle Management (80-100%)",
+        "fr": "Gestionnaire professionnel : gestion du cycle de vie des clients (80-100%)"
       },
       "description": "Fachleiter:in Client Lifecycle Management (80-100%) — GKB JobService",
       "descriptionByLocale": {
@@ -997,14 +1016,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
         ],
         "de": [
           "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
         ]
       },
       "previousSlugs": [
-        "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
+        "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
+        "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
       ],
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -1182,7 +1203,7 @@
       "titleByLocale": {
         "de": "Trainee Finanzieren (80-100%)",
         "it": "Apprendista Finanzieren (80-100%)",
-        "en": "Trainee Finanzieren (80-100%)",
+        "en": "Trainee Funding (80-100%)",
         "fr": "Apprenti Finanzieren (80-100%)"
       },
       "description": "Trainee Finanzieren (80-100%) — GKB JobService",
@@ -1253,9 +1274,9 @@
       "title": "Studentenstelle Personalentwicklung (60%)",
       "titleByLocale": {
         "de": "Studentenstelle Personalentwicklung (60%)",
-        "it": "Studentenstelle Personalentwicklung (60%)",
-        "en": "Studentenstelle Personalentwicklung (60%)",
-        "fr": "Studentenstelle Personalentwicklung (60%)"
+        "it": "Sviluppo dell'occupazione degli studenti (60%)",
+        "en": "Student Employment Development (60%)",
+        "fr": "Développement de l'emploi des étudiants (60 %)"
       },
       "description": "Studentenstelle Personalentwicklung (60%) — GKB JobService",
       "descriptionByLocale": {
@@ -1325,9 +1346,9 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "de": "Studentenstelle Marketing (60%)",
-        "en": "Studentenstelle Marketing (60%)",
-        "it": "Studentenstelle Marketing (60%)",
-        "fr": "Studentenstelle Marketing (60%)"
+        "en": "Marketing student position (60%)",
+        "it": "Posizione degli studenti di marketing (60%)",
+        "fr": "Position étudiante en marketing (60%)"
       },
       "description": "Studentenstelle Marketing (60%) — GKB JobService",
       "descriptionByLocale": {
@@ -1397,9 +1418,9 @@
       "title": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
       "titleByLocale": {
         "de": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
-        "it": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
-        "en": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
-        "fr": "(Senior) Berater:in Spezialfinanzierungen (80-100%)"
+        "it": "(Senior) Consulente: in finanziamento speciale (80-100%)",
+        "en": "(Senior) Consultant: in special financing (80-100%)",
+        "fr": "Consultant principal : financement spécial (80-100%)"
       },
       "description": "(Senior) Berater:in Spezialfinanzierungen (80-100%) — GKB JobService",
       "descriptionByLocale": {
@@ -1469,9 +1490,9 @@
       "title": "Assistent:in Hypotheken Lenzerheide (80%)",
       "titleByLocale": {
         "de": "Assistent:in Hypotheken Lenzerheide (80%)",
-        "it": "Assistent:in Hypotheken Lenzerheide (80%)",
-        "en": "Assistent:in Hypotheken Lenzerheide (80%)",
-        "fr": "Assistent:in Hypotheken Lenzerheide (80%)"
+        "it": "Assistente: in Mortgage Lenzerheide (80%)",
+        "en": "Assistant:in Mortgage Lenzerheide (80%)",
+        "fr": "Assistant: en hypothèque Lenzerheide (80%)"
       },
       "description": "Assistent:in Hypotheken Lenzerheide (80%) — GKB JobService",
       "descriptionByLocale": {
@@ -1541,9 +1562,9 @@
       "title": "Immobilienbewirtschafter:in (100%)",
       "titleByLocale": {
         "de": "Immobilienbewirtschafter:in (100%)",
-        "it": "Immobilienbewirtschafter:in (100%)",
-        "en": "Immobilienbewirtschafter:in (100%)",
-        "fr": "Immobilienbewirtschafter:in (100%)"
+        "it": "Responsabile della proprietà:in (100%)",
+        "en": "Property manager:in (100%)",
+        "fr": "Gestionnaire immobilier: en (100%)"
       },
       "description": "Immobilienbewirtschafter:in (100%) — GKB JobService",
       "descriptionByLocale": {
@@ -1613,9 +1634,9 @@
       "title": "Assistent:in Hypotheken Thusis (40%)",
       "titleByLocale": {
         "de": "Assistent:in Hypotheken Thusis (40%)",
-        "it": "Assistent:in Hypotheken Thusis (40%)",
-        "en": "Assistent:in Hypotheken Thusis (40%)",
-        "fr": "Assistent:in Hypotheken Thusis (40%)"
+        "it": "Assistente: in Mortgage Sois (40%)",
+        "en": "Assistant: in Mortgage Thusis (40%)",
+        "fr": "Assistante : en hypothèques de Sosis (40%)"
       },
       "description": "Assistent:in Hypotheken Thusis (40%) — GKB JobService",
       "descriptionByLocale": {
