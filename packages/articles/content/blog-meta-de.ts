@@ -10656,6 +10656,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Longone al Segrino-Ticino: Leitfaden für Grenzgänger',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Wohnen in Longone al Segrino und Arbeiten im Tessin: Selbstbehalt€ 7.500- € 10.000, Quellensteuer, AHV, KVG, Pendelzeiten und Lebenshaltungskosten.',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf das östliche Ufer des Comer Sees mit Alpengipfeln',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Leben in Monguzzo und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Vergünstigungen für Grenzgänger, die im Tessin arbeiten und in Monguzzo wohnen',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Bild eines Grenzarbeiters, der in Tessin arbeitet und in Monguzzo wohnt',
 };
 
 export default blogMetaDe;

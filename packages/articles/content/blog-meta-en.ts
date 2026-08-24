@@ -10657,6 +10657,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Segrino-Ticino beam: guide for border guards',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Living in Longone al Segrino and working in Ticino: deductible €7,500-€10,000, tax at source, AVS, LAMal, commuting times and cost of living.',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Como\'s eastern shore with Alpine peaks and border villages',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Living in Monguzzo and working in Ticino as a border worker',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Tax setting, permits and benefits for border workers working in Ticino and residing in Monguzzo',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Image of a frontier worker who works in Ticino and resides in Monguzzo',
 };
 
 export default blogMetaEn;
