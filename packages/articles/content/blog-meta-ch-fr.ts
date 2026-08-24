@@ -4177,6 +4177,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticino-solare-fotovoltaico-1982.title': 'Le soleil comme matériau de construction',
     'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Tessin pionnier du photovoltaïque européen depuis 1982. Aujourd\'hui, ViverTI et Sun Appeal réinventent le solaire résidentiel : 2 100 heures de soleil/an, des maisons intelligentes et durables.',
     'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Vue aérienne de Lugano montrant maisons avec panneaux solaires intégrés à l\'architecture, Tessin ensoleillé',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Permis L Schaffhouse : validité, prorogation et passage B',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'Le permis L permet de travailler jusqu\'à 1 an en Suisse. Découvrez comment le prolonger, changer d\'employeur et transiter par des permis B ou C dans le canton.',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'Vue d\'une ville suisse représentant le contexte professionnel et les opportunités de mobilité',
 };
 
 export default blogMetaChFr;

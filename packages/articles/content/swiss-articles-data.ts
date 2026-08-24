@@ -12529,6 +12529,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-sciaffusa-rinnovamento-dimora',
+    category: 'pratico',
+    date: '2026-08-24T20:34:29.665Z',
+    image: '/images/blog/permesso-l-sciaffusa-rinnovamento-dimora.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

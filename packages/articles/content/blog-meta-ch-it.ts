@@ -4177,6 +4177,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ticino-solare-fotovoltaico-1982.title': 'Il sole come materiale da costruzione',
     'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Ticino pioniere del fotovoltaico europeo dal 1982. Oggi ViverTI e Sun Appeal reinventano il solare residenziale: 2.100 ore sole/anno, case intelligenti e sostenibili.',
     'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Vista aerea di Lugano con case con pannelli solari integrati nella struttura, sole su Ticino',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Permesso L Sciaffusa: validità, proroga e passaggio B',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'Il permesso L permette lavoro fino a 1 anno in Svizzera. Scopri come prolungarlo, cambiare datore e transitare a permessi B o C nel cantone.',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'Veduta di una città svizzera che rappresenta il contesto lavorativo e le opportunità di mobilità professionale',
 };
 
 export default blogMetaChIt;

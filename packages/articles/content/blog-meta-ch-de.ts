@@ -4177,6 +4177,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ticino-solare-fotovoltaico-1982.title': 'Die Sonne als Baumaterial',
     'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Tessin ist seit 1982 Pionier der europäischen Photovoltaik. Heute erfinden ViverTI und Sun Appeal die Wohnsolaranlage neu: 2.100 Sonnenstunden/Jahr, intelligentes und nachhaltiges Wohnen.',
     'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Luftansicht von Lugano mit Häusern mit in die Architektur integrierten Solarpaneelen, sonniges Tessin',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Erlaubnis L Schaffhausen: Gültigkeit, Verlängerung und Durchgang B',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'Die Bewilligung L erlaubt Arbeit bis zu 1 Jahr in der Schweiz. Erfahren Sie, wie Sie es verlängern, den Arbeitgeber wechseln und zu B- oder C-Bewilligungen im Kanton übergehen können.',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'Ansicht einer Schweizer Stadt, die den Arbeitskontext und berufliche Mobilitätsmöglichkeiten symbolisiert',
 };
 
 export default blogMetaChDe;
