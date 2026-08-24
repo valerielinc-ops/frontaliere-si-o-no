@@ -13,6 +13,7 @@ import type { Plugin } from 'vite';
 import { getSiteShell } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
+import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
@@ -304,6 +305,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleCanonicalOverrides = loadSwissArticleCanonicalOverrides(
  fs,
  SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
+ );
+
+ // Issue #6337: articleId -> reviewerAuthorSlug map for the `reviewedBy`
+ // JSON-LD signal (E-E-A-T on fiscal/legal YMYL content). Section-agnostic,
+ // same map for every section — see shared/articleReviewOverrides.ts header.
+ const articleReviewOverrides = loadArticleReviewOverrides(
+ fs,
+ np.resolve(rootDir, 'packages/articles/engine/shared/article-reviewed-by.json'),
  );
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
@@ -1168,6 +1177,21 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  url: `${BASE_URL}/chi-siamo/`,
  };
 
+ // Issue #6337: `reviewedBy` E-E-A-T signal — only emitted when the
+ // article has an explicit entry in articleReviewOverrides (nothing
+ // reviewed by default, see shared/articleReviewOverrides.ts header).
+ const reviewerSlug = resolveArticleReviewerSlug(en.articleId, articleReviewOverrides);
+ const reviewerAuthor = reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined;
+ const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
+ ? {
+ '@type': 'Person' as const,
+ name: reviewerAuthor.name,
+ jobTitle: reviewerAuthor.role,
+ url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
+ ...(reviewerAuthor.social?.linkedin ? { sameAs: [reviewerAuthor.social.linkedin] } : {}),
+ }
+ : undefined;
+
  // Build the JSON-LD object, respecting source @type (Event vs NewsArticle)
  const isEvent = en.sdType === 'Event';
  let ldObj: Record<string, unknown>;
@@ -1286,6 +1310,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // author must match the byline. Person/Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
+ // Issue #6337: expert-review signal, present only when the article
+ // has an entry in articleReviewOverrides — absent (not a fabricated
+ // default) for every article until an editor marks it reviewed.
+ ...(reviewedByObj ? { reviewedBy: reviewedByObj } : {}),
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is
  // the single source of truth (services/seo/organizationLd.ts) — was a
  // hand-rolled duplicate pointing at a 404'd logo (/images/logo-192.png).
