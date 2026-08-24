@@ -12106,6 +12106,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sunrise-salt-rete-cooperazione',
+    category: 'novita',
+    date: '2026-08-24T06:19:30.572Z',
+    image: '/images/blog/sunrise-salt-rete-cooperazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'tirocinio-retribuzione-soletta-guida',
+    category: 'pratico',
+    date: '2026-08-24T06:47:04.485Z',
+    image: '/images/blog/tirocinio-retribuzione-soletta-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

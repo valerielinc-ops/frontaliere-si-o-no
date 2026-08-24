@@ -1371,6 +1371,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-soletta-requisiti-rinnovo': { it: 'permesso-dimora-b-soletta-requisiti-rinnovo', en: 'residence-permit-b-soletta-requirements-renewal', de: 'aufenthaltserlaubnis-b-soletta-anforderungen-erneuerung', fr: 'permis-de-sejour-b-soletta-exigences-renouvellement' },
  'apprendistato-tirocinio-soletta': { it: 'apprendistato-tirocinio-soletta', en: 'apprenticeship-canton-soletta', de: 'lehre-kanton-soletta', fr: 'apprentissage-canton-soletta' },
  'classi-scolastiche-create-algoritmo': { it: 'classi-scolastiche-create-algoritmo', en: 'school-classes-created-by-algorithm', de: 'schulklassen-erzeugt-durch-algorithmus', fr: 'classes-scolaires-crees-par-algorithme' },
+ 'sunrise-salt-rete-cooperazione': { it: 'sunrise-salt-rete-cooperazione', en: 'sunrise-salt-mobile-network-cooperation', de: 'sunrise-salt-mobilfunknetzkooperation', fr: 'sunrise-salt-cooperation-reseau-mobil' },
+ 'tirocinio-retribuzione-soletta-guida': { it: 'tirocinio-retribuzione-soletta-guida', en: 'apprenticeship-wage-solothurn-guide', de: 'lehrling-verguetung-solothurn-anleitung', fr: 'apprentissage-salaire-soleure-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

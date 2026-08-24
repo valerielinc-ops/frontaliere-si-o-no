@@ -85,7 +85,14 @@ jobs:
         run: |
           git config user.email "github-actions@github.com"
           git config user.name "GitHub Actions"
-          git add data/job-popularity.json data/job-popularity.meta.json
+          # `-A`, non un add semplice: scripts/fetch-job-popularity.mjs CANCELLA
+          # il metadato quando cade nel fallback, e un add semplice non stagia
+          # quella rimozione — il commit successivo si ritroverebbe il metadato
+          # vecchio accanto a un job-popularity.json azzerato, che e' esattamente
+          # lo stato che writeFallback() esiste per impedire. Entrambi i pathspec
+          # sono tracciati (il metadato ha un seed committato), quindi `-A` non
+          # puo' fallire con "did not match any files".
+          git add -A data/job-popularity.json data/job-popularity.meta.json
           git diff --cached --quiet && echo "No popularity changes to commit" && exit 0
           git commit -m "chore(data): refresh job popularity snapshot"
           # Concurrent data-refresh workflows can push to main at the same time
@@ -93,7 +100,7 @@ jobs:
           # rebase-retry helper. The fetch is deterministic given the current
           # job_views state, so on conflict we re-run it after rebasing.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/fetch-job-popularity.mjs && git add data/job-popularity.json data/job-popularity.meta.json"
+            --regenerate-cmd "node scripts/fetch-job-popularity.mjs && git add -A data/job-popularity.json data/job-popularity.meta.json"
 
       - name: Report failure to GitHub Issues
         if: failure()
