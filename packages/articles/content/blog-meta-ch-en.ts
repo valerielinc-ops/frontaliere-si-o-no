@@ -4201,6 +4201,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Apprenticeship Zurich: how to find and negotiate',
     'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Practical guide to apprenticeship in the canton of Zurich: job search, internship contract, apprentice\'s salary and professional maturity.',
     'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Young apprentice in practical training at a Swiss company',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Starting a business in Switzerland: forms and registration fees',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Sole proprietorship, Srl, SA: which form to choose? Discover the steps for registration in the trade register, the minimum capital required and the obligations towards AVS and LAMal.',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Office desk with business registration documents and forms for starting an enterprise in Switzerland.',
 };
 
 export default blogMetaChEn;

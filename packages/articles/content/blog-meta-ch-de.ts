@@ -4201,6 +4201,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Lehre Zürich: So finden und verhandeln',
     'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Praktischer Leitfaden für die Lehre im Kanton Zürich: Stellensuche, Lehrvertrag, Lehrlingsvergütung und Berufsmaturität.',
     'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Junger Lehrling in praktischer Ausbildung bei einem Schweizer Betrieb',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Gründung eines Unternehmens in der Schweiz: Formen und Kosten der Einschreibung',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Einzelunternehmen, SRL, SA: Welche Form soll gewählt werden? Entdecken Sie die Schritte für die Eintragung ins Handelsregister, das erforderliche Mindestkapital und die Verpflichtungen gegenüber AHV und KVG.',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Ein Büroschreibtisch mit Geschäftsregistrierungsdokumenten und Gründungsformularen.',
 };
 
 export default blogMetaChDe;
