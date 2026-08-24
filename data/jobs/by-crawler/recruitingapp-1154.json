@@ -1,14 +1,14 @@
 {
   "crawlerKey": "recruitingapp-1154",
-  "assembledAt": "2026-08-23T21:51:38.139Z",
+  "assembledAt": "2026-08-24T10:32:10.002Z",
   "jobs": [
     {
       "id": "recruitingapp-1154-f98d1ef85a40",
       "slug": "consulente-clienti-senior-in-consulting-center-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano",
       "slugByLocale": {
-        "de": "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-recruitingapp-1154",
         "it": "consulente-clienti-senior-in-consulting-center-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano",
         "en": "senior-customer-consultant-in-consulting-center-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "de": "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-recruitingapp-1154",
         "fr": "consultant-principal-aupres-des-clients-dans-le-centre-de-conseil-conformite-des-operations-80-100-sgkb"
       },
       "company": "SGKB Bewerbermanagement Stellen",
@@ -16,9 +16,9 @@
       "companyDomain": "recruitingapp-1154.umantis.com",
       "title": "Senior Kundenberater*in Beratungszentrum Operations Compliance 80 – 100%",
       "titleByLocale": {
-        "de": "Senior Kundenberater*in Beratungszentrum Operations Compliance 80 – 100%",
-        "en": "Senior Customer Consultant*in Consulting Center Operations Compliance 80 – 100%",
         "it": "Consulente clienti senior*in Consulting Center Operations Compliance 80 – 100%",
+        "en": "Senior Kundenberater*in Beratungszentrum Operations Compliance 80 – 100%",
+        "de": "Senior Kundenberater*in Beratungszentrum Operations Compliance 80 – 100%",
         "fr": "Consultant principal auprès des clients* dans le Centre de conseil Conformité des opérations 80 – 100%"
       },
       "description": "Senior Kundenberater*in Beratungszentrum Operations Compliance 80 – 100% — SGKB Bewerbermanagement Stellen",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:51:34.233Z",
+      "crawledAt": "2026-08-24T10:32:06.686Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,11 +45,16 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-recruitingapp-1154",
+        "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "consulente-clienti-senior-in-consulting-center-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-recruitingapp-1154",
-          "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano"
+          "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano",
+          "consulente-clienti-senior-in-consulting-center-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano"
         ],
         "en": [
           "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano"
@@ -58,10 +63,8 @@
           "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-recruitingapp-1154",
-        "senior-kundenberater-in-beratungszentrum-operations-compliance-80-100-sgkb-bewerbermanagement-stellen-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:39:21.969Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -74,8 +77,488 @@
           "unitText": "YEAR"
         }
       },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1154-cb69f06548de",
+      "slug": "fachspezialist-in-conformita-60-80-sgkb-bewerbermanagement-stellen-lugano",
+      "slugByLocale": {
+        "it": "fachspezialist-in-conformita-60-80-sgkb-bewerbermanagement-stellen-lugano",
+        "en": "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch",
+        "de": "facharzt-in-compliance-60-80-sgkb-bewerbermanagement-stellen-lugano",
+        "fr": "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Fachspezialist*in Compliance 60 – 80%",
+      "titleByLocale": {
+        "it": "Fachspezialist* in conformità 60 – 80%",
+        "en": "Fachspezialist*in Compliance 60 – 80%",
+        "de": "Fachspezialist*in Compliance 60 – 80%",
+        "fr": "Fachspezialist*in Compliance 60 – 80%"
+      },
+      "description": "Fachspezialist*in Compliance 60 – 80% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "fr": "Fachspezialist*in Compliance 60 – 80% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-24T10:32:06.384Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch",
+        "fachspezialist-in-compliance-60-80-sgkb-bewerbermanagement-stellen-lugano",
+        "fachspezialist-in-conformita-60-80-sgkb-bewerbermanagement-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch",
+          "fachspezialist-in-conformita-60-80-sgkb-bewerbermanagement-stellen-lugano"
+        ],
+        "de": [
+          "fachspezialist-in-compliance-60-80-sgkb-bewerbermanagement-stellen-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:39:21.364Z",
+      "salaryMin": 39600,
+      "salaryMax": 60000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 39600,
+          "maxValue": 60000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1154-84ce77d2fbf5",
+      "slug": "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano",
+      "slugByLocale": {
+        "it": "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "en": "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "de": "kundenberater-in-private-banking-80-100-recruitingapp-1154-ch",
+        "fr": "conseiller-client-en-banque-privee-80-100-sgkb-bewerbermanagement-stellen-lugano"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Kundenberater*in Private Banking 80 – 100%",
+      "titleByLocale": {
+        "it": "Consulente clienti* in Private Banking 80 – 100%",
+        "en": "Kundenberater*in Private Banking 80 – 100%",
+        "de": "Kundenberater*in Private Banking 80 – 100%",
+        "fr": "Conseiller client* en banque privée 80 – 100%"
+      },
+      "description": "Kundenberater*in Private Banking 80 – 100% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "de": "Kundenberater*in Private Banking 80 – 100% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:32:06.080Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kundenberater-in-private-banking-80-100-recruitingapp-1154-ch",
+        "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-private-banking-80-100-recruitingapp-1154-ch",
+          "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:39:21.062Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1154-d984225e376d",
+      "slug": "change-release-manager-in-80-100-recruitingapp-1154-ch",
+      "slugByLocale": {
+        "it": "change-release-manager-in-80-100-recruitingapp-1154-ch",
+        "en": "change-release-manager-in-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "de": "change-release-manager-in-80-100-recruitingapp-1154-ch",
+        "fr": "gestionnaire-de-modification-et-de-publication-en-80-100-sgkb-bewerbermanagement-stellen-lugano"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Change & Release Manager*in 80 – 100%",
+      "titleByLocale": {
+        "it": "Change & Release Manager*in 80 – 100%",
+        "en": "Change & Release Manager*in 80 – 100%",
+        "de": "Change & Release Manager*in 80 – 100%",
+        "fr": "Gestionnaire de modification et de publication*en 80 – 100%"
+      },
+      "description": "Change & Release Manager*in 80 – 100% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "de": "Change & Release Manager*in 80 – 100% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:32:05.775Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:39:20.758Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1154-5a29f64d799b",
+      "slug": "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano",
+      "slugByLocale": {
+        "fr": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
+        "it": "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "en": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
+        "de": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100%",
+      "titleByLocale": {
+        "it": "Chief Investment Officer (CIO) / Responsabile Centro Investimenti 80 – 100%",
+        "en": "Chief Investment Officer (CIO) / Head of Investment Center 80 – 100%",
+        "de": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100%",
+        "fr": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100%"
+      },
+      "description": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "de": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100% — SGKB Bewerbermanagement Stellen",
+        "fr": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:32:05.468Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
+        ],
+        "it": [
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
+        "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:39:20.454Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1154-14f3ec04181f",
+      "slug": "team-leader-nella-sicurezza-100-sgkb-bewerbermanagement-stellen-lugano",
+      "slugByLocale": {
+        "it": "team-leader-nella-sicurezza-100-sgkb-bewerbermanagement-stellen-lugano",
+        "en": "team-leader-in-safety-100-sgkb-bewerbermanagement-stellen-lugano",
+        "de": "teamleiter-in-sicherheit-100-recruitingapp-1154-ch",
+        "fr": "chef-d-equipe-en-securite-100-sgkb-bewerbermanagement-stellen-lugano"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Teamleiter*in Sicherheit 100%",
+      "titleByLocale": {
+        "it": "Team Leader* nella sicurezza 100%",
+        "en": "Team Leader* in Safety 100%",
+        "de": "Teamleiter*in Sicherheit 100%",
+        "fr": "Chef d'équipe* en sécurité 100%"
+      },
+      "description": "Teamleiter*in Sicherheit 100% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "de": "Teamleiter*in Sicherheit 100% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:32:05.164Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-in-sicherheit-100-recruitingapp-1154-ch",
+        "team-leader-nella-sicurezza-100-sgkb-bewerbermanagement-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-sicherheit-100-recruitingapp-1154-ch",
+          "team-leader-nella-sicurezza-100-sgkb-bewerbermanagement-stellen-lugano"
+        ],
+        "en": [
+          "teamleiter-in-sicherheit-100-recruitingapp-1154-ch"
+        ],
+        "fr": [
+          "teamleiter-in-sicherheit-100-recruitingapp-1154-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:39:20.134Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1154-88941a71cd80",
+      "slug": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
+      "slugByLocale": {
+        "fr": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
+        "it": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
+        "en": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
+        "de": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Senior Compliance Officer VSB 60 – 70%",
+      "titleByLocale": {
+        "fr": "Senior Compliance Officer VSB 60 – 70%",
+        "it": "Senior Compliance Officer VSB 60 – 70%",
+        "en": "Senior Compliance Officer VSB 60 – 70%",
+        "de": "Senior Compliance Officer VSB 60 – 70%"
+      },
+      "description": "Senior Compliance Officer VSB 60 – 70% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "fr": "Senior Compliance Officer VSB 60 – 70% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-24T10:32:04.862Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 47600,
+      "salaryMax": 72100,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 47600,
+          "maxValue": 72100,
+          "unitText": "YEAR"
+        }
+      },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:21.969Z"
+      "firstSeenAt": "2026-08-24T10:32:04.862Z"
+    },
+    {
+      "id": "recruitingapp-1154-6a3824e3d042",
+      "slug": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano",
+      "slugByLocale": {
+        "de": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154",
+        "it": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano",
+        "en": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano",
+        "fr": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano"
+      },
+      "company": "SGKB Bewerbermanagement Stellen",
+      "companyKey": "recruitingapp-1154",
+      "companyDomain": "recruitingapp-1154.umantis.com",
+      "title": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
+      "titleByLocale": {
+        "de": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
+        "it": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
+        "en": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
+        "fr": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%"
+      },
+      "description": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100% — SGKB Bewerbermanagement Stellen",
+      "descriptionByLocale": {
+        "de": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100% — SGKB Bewerbermanagement Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
+      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:32:04.542Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:32:04.542Z"
     },
     {
       "id": "recruitingapp-1154-853b0bc5a292",
@@ -146,352 +629,8 @@
       },
       "previousSlugs": [
         "fachspezialist-in-operations-services-70-80-recruitingapp-1154-ch"
-      ]
-    },
-    {
-      "id": "recruitingapp-1154-cb69f06548de",
-      "slug": "fachspezialist-in-conformita-60-80-sgkb-bewerbermanagement-stellen-lugano",
-      "slugByLocale": {
-        "fr": "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch",
-        "it": "fachspezialist-in-conformita-60-80-sgkb-bewerbermanagement-stellen-lugano",
-        "en": "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch",
-        "de": "facharzt-in-compliance-60-80-sgkb-bewerbermanagement-stellen-lugano"
-      },
-      "company": "SGKB Bewerbermanagement Stellen",
-      "companyKey": "recruitingapp-1154",
-      "companyDomain": "recruitingapp-1154.umantis.com",
-      "title": "Fachspezialist*in Compliance 60 – 80%",
-      "titleByLocale": {
-        "fr": "Fachspezialist*in Compliance 60 – 80%",
-        "de": "Facharzt*in Compliance 60 – 80%",
-        "it": "Fachspezialist* in conformità 60 – 80%",
-        "en": "Fachspezialist*in Compliance 60 – 80%"
-      },
-      "description": "Fachspezialist*in Compliance 60 – 80% — SGKB Bewerbermanagement Stellen",
-      "descriptionByLocale": {
-        "fr": "Fachspezialist*in Compliance 60 – 80% — SGKB Bewerbermanagement Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
-      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:51:33.626Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 39600,
-      "salaryMax": 60000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 39600,
-          "maxValue": 60000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:21.364Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch"
-        ],
-        "de": [
-          "fachspezialist-in-compliance-60-80-sgkb-bewerbermanagement-stellen-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "fachspezialist-in-compliance-60-80-recruitingapp-1154-ch",
-        "fachspezialist-in-compliance-60-80-sgkb-bewerbermanagement-stellen-lugano"
-      ]
-    },
-    {
-      "id": "recruitingapp-1154-84ce77d2fbf5",
-      "slug": "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano",
-      "slugByLocale": {
-        "de": "kundenberater-in-private-banking-80-100-recruitingapp-1154-ch",
-        "it": "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano",
-        "en": "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano",
-        "fr": "conseiller-client-en-banque-privee-80-100-sgkb-bewerbermanagement-stellen-lugano"
-      },
-      "company": "SGKB Bewerbermanagement Stellen",
-      "companyKey": "recruitingapp-1154",
-      "companyDomain": "recruitingapp-1154.umantis.com",
-      "title": "Kundenberater*in Private Banking 80 – 100%",
-      "titleByLocale": {
-        "de": "Kundenberater*in Private Banking 80 – 100%",
-        "en": "Customer Advisor* in Private Banking 80 – 100%",
-        "it": "Consulente clienti* in Private Banking 80 – 100%",
-        "fr": "Conseiller client* en banque privée 80 – 100%"
-      },
-      "description": "Kundenberater*in Private Banking 80 – 100% — SGKB Bewerbermanagement Stellen",
-      "descriptionByLocale": {
-        "de": "Kundenberater*in Private Banking 80 – 100% — SGKB Bewerbermanagement Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
-      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:51:33.317Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-in-private-banking-80-100-recruitingapp-1154-ch",
-          "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "kundenberater-in-private-banking-80-100-recruitingapp-1154-ch",
-        "kundenberater-in-private-banking-80-100-sgkb-bewerbermanagement-stellen-lugano"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:21.062Z"
-    },
-    {
-      "id": "recruitingapp-1154-d984225e376d",
-      "slug": "change-release-manager-in-80-100-recruitingapp-1154-ch",
-      "slugByLocale": {
-        "de": "change-release-manager-in-80-100-recruitingapp-1154-ch",
-        "it": "change-release-manager-in-80-100-recruitingapp-1154-ch",
-        "en": "change-release-manager-in-80-100-sgkb-bewerbermanagement-stellen-lugano",
-        "fr": "gestionnaire-de-modification-et-de-publication-en-80-100-sgkb-bewerbermanagement-stellen-lugano"
-      },
-      "company": "SGKB Bewerbermanagement Stellen",
-      "companyKey": "recruitingapp-1154",
-      "companyDomain": "recruitingapp-1154.umantis.com",
-      "title": "Change & Release Manager*in 80 – 100%",
-      "titleByLocale": {
-        "de": "Change & Release Manager*in 80 – 100%",
-        "en": "Change & Release Manager*in 80 – 100%",
-        "it": "Change & Release Manager*in 80 – 100%",
-        "fr": "Gestionnaire de modification et de publication*en 80 – 100%"
-      },
-      "description": "Change & Release Manager*in 80 – 100% — SGKB Bewerbermanagement Stellen",
-      "descriptionByLocale": {
-        "de": "Change & Release Manager*in 80 – 100% — SGKB Bewerbermanagement Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
-      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:51:33.013Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:20.758Z"
-    },
-    {
-      "id": "recruitingapp-1154-5a29f64d799b",
-      "slug": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
-      "slugByLocale": {
-        "fr": "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
-        "it": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
-        "en": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-        "de": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
-      },
-      "company": "SGKB Bewerbermanagement Stellen",
-      "companyKey": "recruitingapp-1154",
-      "companyDomain": "recruitingapp-1154.umantis.com",
-      "title": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100%",
-      "titleByLocale": {
-        "fr": "Directeur de l'Investissement (CIO) / Chef du Centre d'Investissement 80 – 100%",
-        "de": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100%",
-        "it": "Chief Investment Officer (CIO) / Responsabile Centro Investimenti 80 – 100%",
-        "en": "Chief Investment Officer (CIO) / Head of Investment Center 80 – 100%"
-      },
-      "description": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100% — SGKB Bewerbermanagement Stellen",
-      "descriptionByLocale": {
-        "de": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100% — SGKB Bewerbermanagement Stellen",
-        "fr": "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100% — SGKB Bewerbermanagement Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
-      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:51:32.708Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
-        ],
-        "fr": [
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
-        ]
-      },
-      "previousSlugs": [
-        "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-        "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
-      ],
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:20.454Z"
-    },
-    {
-      "id": "recruitingapp-1154-14f3ec04181f",
-      "slug": "team-leader-nella-sicurezza-100-sgkb-bewerbermanagement-stellen-lugano",
-      "slugByLocale": {
-        "de": "teamleiter-in-sicherheit-100-recruitingapp-1154-ch",
-        "it": "team-leader-nella-sicurezza-100-sgkb-bewerbermanagement-stellen-lugano",
-        "en": "team-leader-in-safety-100-sgkb-bewerbermanagement-stellen-lugano",
-        "fr": "chef-d-equipe-en-securite-100-sgkb-bewerbermanagement-stellen-lugano"
-      },
-      "company": "SGKB Bewerbermanagement Stellen",
-      "companyKey": "recruitingapp-1154",
-      "companyDomain": "recruitingapp-1154.umantis.com",
-      "title": "Teamleiter*in Sicherheit 100%",
-      "titleByLocale": {
-        "de": "Teamleiter*in Sicherheit 100%",
-        "it": "Team Leader* nella sicurezza 100%",
-        "en": "Team Leader* in Safety 100%",
-        "fr": "Chef d'équipe* en sécurité 100%"
-      },
-      "description": "Teamleiter*in Sicherheit 100% — SGKB Bewerbermanagement Stellen",
-      "descriptionByLocale": {
-        "de": "Teamleiter*in Sicherheit 100% — SGKB Bewerbermanagement Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
-      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:51:32.386Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:20.134Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-sicherheit-100-recruitingapp-1154-ch"
-        ],
-        "en": [
-          "teamleiter-in-sicherheit-100-recruitingapp-1154-ch"
-        ],
-        "fr": [
-          "teamleiter-in-sicherheit-100-recruitingapp-1154-ch"
-        ]
-      },
-      "previousSlugs": [
-        "teamleiter-in-sicherheit-100-recruitingapp-1154-ch"
-      ]
+      "crawlerMissStreak": 1
     }
   ]
 }
