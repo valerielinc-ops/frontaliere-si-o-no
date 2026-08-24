@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-24T10:37:09.072Z",
+  "generatedAt": "2026-08-24T21:57:37.472Z",
   "total": 26,
   "newCount": 0,
   "updatedCount": 26,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 40158,
-  "avgDurationMs": 40158,
+  "durationMs": 41046,
+  "avgDurationMs": 41046,
   "durationHistory": [
-    40158
+    41046
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -477,6 +477,7 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
