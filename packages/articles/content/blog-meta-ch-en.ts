@@ -4066,6 +4066,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Ticino collects record from flat-rate taxation',
     'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'In 2024 Ticino collected CHF 189.5 million from flat-rate taxpayers, 71 million more than in 2016. The paradox: fewer wealthy foreigners, but higher incomes.',
     'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Lugano lakeside with modern banking buildings overlooking mountains, representing wealth management in Ticino',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientific: Swiss research and innovation in Zurich',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Scientific Festival in Zurich: the Federal Polytechnic and the University present innovative research. World record cars (0-100 km/h in 9 tenths) and autonomous drones.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Research laboratory at ETH Zurich with students working on robotics and autonomous drone projects',
 };
 
 export default blogMetaChEn;
