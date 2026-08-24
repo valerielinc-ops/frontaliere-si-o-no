@@ -10664,6 +10664,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.title': 'Vivere a Novedrate e lavorare in Ticino',
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.excerpt': 'Nuovo Accordo Frontalieri, permesso G, imposta alla fonte, AVS e LPP: la guida completa per vivere in Lombardia e pendolare verso il Ticino.',
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.imageAlt': 'Lago di Como al confine tra Novedrate e il Canton Ticino, simbolo del pendolarismo frontaliere italiano-svizzero',
+    'blog.article.vivere-rezzago-lavorare-ticino.title': 'Vivere a Rezzago e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-rezzago-lavorare-ticino.excerpt': 'Impostazione dell\'imposta alla fonte, nuove aliquote e franchigie per i frontalieri.',
+    'blog.article.vivere-rezzago-lavorare-ticino.imageAlt': 'Immagine di un frontaliere in Ticino con la famiglia e il lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-24.title': 'Bollettino del frontaliere – 24 agosto 2026: 447 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-24.excerpt': 'I numeri di oggi, 24 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'I numeri del giorno per i frontalieri – 24 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Bollettino frontalieri del 24 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'I numeri del 24 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
