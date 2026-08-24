@@ -4120,6 +4120,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Haus kaufen in Basel-Stadt: Hypothek und Kosten',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Praktischer Leitfaden zum Immobilienkauf im Kanton Basel-Stadt: Hypothekenfinanzierung, Ablösesummen, Notarkosten und Schritt-für-Schritt-Verfahren. Wo Sie sich über die spezifischen lokalen Daten informieren können.',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Modernes Schweizer Wohnhaus im Kanton Basel-Stadt mit städtischem Hintergrund',
+    'blog.article.aprire-attivita-canton-basilea-citta.title': 'Ein Geschäft in Basel-Stadt eröffnen: Kosten und Verfahren',
+    'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Vollständiger Leitfaden: Rechtsformen, Registrierung, eidgenössische/kantonale Veranlagung, AHV/BVG-BEITRÄGE (5,3-18%), UVG (0,7-1,5%) und KVG-Verpflichtungen.',
+    'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Schweizer Geschaeftsregistrierungsbuero mit Unternehmensunterlagen und Arbeitsumgebung',
 };
 
 export default blogMetaChDe;

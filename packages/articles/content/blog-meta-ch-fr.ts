@@ -4120,6 +4120,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Acheter une maison à Bâle-Ville : hypothèque et coûts',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Bâle-Ville : financement hypothécaire, taxes de passage, frais de notaire et procédure étape par étape. Où se renseigner pour les données locales spécifiques.',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Propriété résidentielle moderne de style suisse dans le canton de Bâle-Ville',
+    'blog.article.aprire-attivita-canton-basilea-citta.title': 'Ouvrir une entreprise à Bâle-Ville : coûts et procédures',
+    'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Guide complet : formes juridiques, enregistrement, fiscalité fédérale/cantonale, cotisations AVS/LPP (5,3-18%), LAA (0,7-1,5%) et obligations LAMal.',
+    'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Bureau d\'enregistrement commercial suisse avec documents d\'entreprise et environnement de travail',
 };
 
 export default blogMetaChFr;
