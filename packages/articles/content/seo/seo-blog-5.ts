@@ -77408,6 +77408,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-bosisio-parini-lavorare-ticino-da-frontaliere': {
+    title: 'Trasferimento Bosisio Parini: vantaggi e svantaggi',
+    description: 'Bosisio Parini, un comune di 1.017 abitanti in provincia di Lecco, è un luogo ideale per i frontalieri che desiderano vivere in Italia e lavorare in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferimento, bosisio, parini, vantaggi',
+    ogTitle: 'Vivere a Bosisio Parini e lavorare in Ticino da frontaliere',
+    ogDescription: 'Bosisio Parini, un comune di 1.017 abitanti in provincia di Lecco, è un luogo ideale per i frontalieri che desiderano vivere in Italia e lavorare in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vivere-bosisio-parini-lavorare-ticino-da-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferimento Bosisio Parini: vantaggi e svantaggi",
+      "description": "Bosisio Parini, un comune di 1.017 abitanti in provincia di Lecco, è un luogo ideale per i frontalieri che desiderano vivere in Italia e lavorare in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-bosisio-parini-lavorare-ticino-da-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri Ticino"
+      },
+      "datePublished": "2026-08-24T18:36:00+00:00",
+      "dateModified": "2026-08-24T18:36:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-bosisio-parini-lavorare-ticino-da-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
