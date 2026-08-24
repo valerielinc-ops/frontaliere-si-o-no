@@ -4012,6 +4012,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.title': 'AVS and complementary services in the canton of Fribourg: an income guide',
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.excerpt': 'How the first federal pillar works in the canton of Freiburg: AVS rates, the role of the cantonal compensation fund, pension calculation and supplementary benefits for the living minimum.',
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.imageAlt': 'Fribourg cantonal compensation office for AVS pension administration and supplementary benefits',
+    'blog.article.abbonamenti-trasporti-friburgo.title': 'Freiburg Transport Subscriptions: Zones and Rates',
+    'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'How fare zones, half-price, AG and student discounts work in the transport subscriptions of the Canton of Fribourg.',
+    'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Swiss public transport station with ticket machines and fare zone signs',
 };
 
 export default blogMetaChEn;

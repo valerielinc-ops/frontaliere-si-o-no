@@ -4012,6 +4012,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.title': 'AVS e prestazioni complementari in canton Friburgo: guida alla rendita',
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.excerpt': 'Come funziona il primo pilastro federale nel canton Friburgo: aliquote AVS, ruolo della cassa di compensazione cantonale, calcolo della rendita e prestazioni complementari per il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.imageAlt': 'Ufficio della cassa di compensazione cantonale di Friburgo per la gestione della previdenza AVS e prestazioni complementari',
+    'blog.article.abbonamenti-trasporti-friburgo.title': 'Abbonamenti trasporti Friburgo: zone e tariffe',
+    'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'Come funzionano zone tariffarie, metà-prezzo, AG e sconti per studenti negli abbonamenti trasporti del Cantone Friburgo.',
+    'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Stazione dei trasporti pubblici svizzeri con distributori automatici di biglietti e cartelli di zone tariffarie',
 };
 
 export default blogMetaChIt;
