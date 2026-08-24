@@ -18,8 +18,9 @@ import {
   classifyDirection,
   buildSectionToCanton,
   diffShard,
-  evaluateAlert,
-  readSeries,
+  evaluateDriftAlert,
+  readDriftSeries,
+  buildAlertBody,
   // @ts-expect-error — plain .mjs script, no type declarations
 } from '../scripts/audit-canton-url-drift.mjs';
 
@@ -168,68 +169,138 @@ describe('diffShard — only slugs present in BOTH builds are drift candidates',
  * so both of its failure modes are expensive: staying silent while the drift is
  * back, and crying wolf until it gets ignored (alert-pat-down.mjs, #5432).
  */
-describe('evaluateAlert — threshold relative to the recorded baseline', () => {
+describe('evaluateDriftAlert — threshold relative to the recorded baseline', () => {
   const row = (rate: number, date = '2026-01-01') => ({ rate, date });
 
   it('stays silent with no history to compare against', () => {
-    expect(evaluateAlert([]).alert).toBe(false);
-    expect(evaluateAlert([row(0.0079)]).alert).toBe(false);
+    expect(evaluateDriftAlert([]).alert).toBe(false);
+    expect(evaluateDriftAlert([row(0.0079)]).alert).toBe(false);
   });
 
   it('does not fire on the baseline row itself, which is over its own line by construction', () => {
     // baseline 0,79% → threshold 0,395%; the second row is still high because
     // its window straddles the fix. One point is not a trend.
-    const v = evaluateAlert([row(0.0079), row(0.0075)]);
+    const v = evaluateDriftAlert([row(0.0079), row(0.0075)]);
     expect(v.alert).toBe(false);
     expect(v.threshold).toBeCloseTo(0.00395, 5);
   });
 
   it('fires when two consecutive runs stay above half the baseline', () => {
-    const v = evaluateAlert([row(0.0079), row(0.0075), row(0.0071)]);
+    const v = evaluateDriftAlert([row(0.0079), row(0.0075), row(0.0071)]);
     expect(v.alert).toBe(true);
     expect(v.reason).toMatch(/due run consecutivi/);
   });
 
   it('waits for confirmation when only the latest run is above', () => {
     // A single spike must not open an issue: that is the cries-wolf failure.
-    const v = evaluateAlert([row(0.0079), row(0.001), row(0.0071)]);
+    const v = evaluateDriftAlert([row(0.0079), row(0.001), row(0.0071)]);
     expect(v.alert).toBe(false);
     expect(v.reason).toMatch(/si attende conferma/);
   });
 
   it('stays silent once the rate is down, which is the expected steady state', () => {
-    const v = evaluateAlert([row(0.0079), row(0.0012), row(0.0009)]);
+    const v = evaluateDriftAlert([row(0.0079), row(0.0012), row(0.0009)]);
     expect(v.alert).toBe(false);
     expect(v.reason).toMatch(/sotto soglia/);
   });
 
   it('re-fires after a regression that is confirmed', () => {
-    const v = evaluateAlert([row(0.0079), row(0.0009), row(0.006), row(0.0065)]);
+    const v = evaluateDriftAlert([row(0.0079), row(0.0009), row(0.006), row(0.0065)]);
     expect(v.alert).toBe(true);
   });
 
   it('does not fire on a regression seen only once', () => {
-    expect(evaluateAlert([row(0.0079), row(0.0009), row(0.0008), row(0.0065)]).alert).toBe(false);
+    expect(evaluateDriftAlert([row(0.0079), row(0.0009), row(0.0008), row(0.0065)]).alert).toBe(false);
   });
 
   it('refuses to build a threshold from an unusable baseline', () => {
-    expect(evaluateAlert([row(0), row(0.01), row(0.01)])).toMatchObject({ alert: false, baseline: null });
+    expect(evaluateDriftAlert([row(0), row(0.01), row(0.01)])).toMatchObject({ alert: false, baseline: null });
   });
 });
 
-describe('readSeries', () => {
+describe('readDriftSeries', () => {
   it('reads one JSON object per line, oldest first', () => {
-    const s = readSeries('{"date":"a","rate":0.008}\n{"date":"b","rate":0.004}\n');
+    const s = readDriftSeries('{"date":"a","rate":0.008}\n{"date":"b","rate":0.004}\n');
     expect(s.map((r: { date: string }) => r.date)).toEqual(['a', 'b']);
   });
   it('skips a corrupt line instead of throwing — a truncated append must not blind the monitor', () => {
-    expect(readSeries('{"date":"a","rate":0.008}\n{oops\n')).toHaveLength(1);
+    expect(readDriftSeries('{"date":"a","rate":0.008}\n{oops\n')).toHaveLength(1);
   });
   it('skips a row with no usable rate', () => {
-    expect(readSeries('{"date":"a"}\n{"date":"b","rate":"x"}\n')).toHaveLength(0);
+    expect(readDriftSeries('{"date":"a"}\n{"date":"b","rate":"x"}\n')).toHaveLength(0);
   });
   it('is an empty series for empty or missing input', () => {
-    expect(readSeries('')).toEqual([]);
-    expect(readSeries(undefined as unknown as string)).toEqual([]);
+    expect(readDriftSeries('')).toEqual([]);
+    expect(readDriftSeries(undefined as unknown as string)).toEqual([]);
+  });
+});
+
+/**
+ * The issue body is consumed by the autonomous loop, so its structure is a
+ * contract, not prose: bl-planner's 5 fields plus the command that reproduces
+ * the number. A body that loses a field sends a planner off to rediscover it.
+ */
+describe('buildAlertBody — a scheda the loop can act on', () => {
+  const record = {
+    date: '2026-09-14', base: 'abc12345678', days: 7, shards: [0, 6, 12, 19, 25],
+    common: 44634, drifted: 351, rate: 0.0079, totalSlugs: 304263,
+    projectedUrlsPerWindow: 9571,
+    direction: { towards: 101, away: 118, lateral: 74, unresolved: 58 },
+  };
+  const verdict = { reason: 'due run consecutivi sopra la soglia', baseline: 0.0079, threshold: 0.00395 };
+  const body = buildAlertBody(record, verdict, '2026-09-07 0.80% → 2026-09-14 0.79%');
+
+  it('carries all five scheda fields', () => {
+    for (const f of ['1-CAUSA', '2-FIX', '3-METRICA', '4-OSSERVATORE', '5-FALLIMENTO']) {
+      expect(body).toContain(f);
+    }
+  });
+
+  it('gives the exact reproduction command, with the shard count actually used', () => {
+    expect(body).toContain('--days 7 --shards 5 --no-history');
+  });
+
+  it('frames the cause as a hypothesis and ships the command that kills it', () => {
+    // A cause stated as settled is worse than none: #6318 closed one path, and a
+    // later return may well come from somewhere else.
+    expect(body).toMatch(/ipotesi/i);
+    expect(body).toContain('crawlerHasSpoken');
+    expect(body).toContain('tests/canton-pin-crawler-authority.test.ts');
+  });
+
+  it('names the two upstream sources to check once that cause is excluded', () => {
+    expect(body).toMatch(/per SLUG, non per `id`/);
+    expect(body).toMatch(/location/);
+  });
+
+  it('states the repo and the mirror mode, so the fix does not land in the wrong repo', () => {
+    expect(body).toContain('REPO**: sito');
+    expect(body).toContain('non nel manifest');
+  });
+
+  it('carries the measurement and the threshold it failed', () => {
+    expect(body).toContain('0.79%');
+    expect(body).toContain('0.40%');
+    expect(body).toContain('9571');
+  });
+
+  it('warns that the numbers go stale', () => {
+    expect(body).toMatch(/rimisurali/i);
+  });
+
+  it('spells out the blast radius, naming both incidents a naive fix would recreate', () => {
+    expect(body).toContain('#4838');
+    expect(body).toMatch(/galenica/);
+  });
+
+  it('reads churn and genuine recovery differently', () => {
+    expect(body).toMatch(/churn/);
+    const recovering = buildAlertBody(
+      { ...record, direction: { towards: 300, away: 10, lateral: 5, unresolved: 36 } },
+      verdict, 'x',
+    );
+    // When most moves correct the assignment, the body must not assert a defect.
+    expect(recovering).toMatch(/recupero legittimo/);
+    expect(recovering).not.toMatch(/e' churn/);
   });
 });

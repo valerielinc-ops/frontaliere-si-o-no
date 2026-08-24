@@ -179,7 +179,7 @@ export function buildSectionToCanton(registry) {
  * @param {Array<{rate: number}>} series history rows, oldest first, current one last
  * @returns {{alert: boolean, reason: string, baseline: number|null, threshold: number|null}}
  */
-export function evaluateAlert(series) {
+export function evaluateDriftAlert(series) {
   if (!Array.isArray(series) || series.length < 2) {
     return { alert: false, reason: 'serie troppo corta: serve almeno un run precedente', baseline: null, threshold: null };
   }
@@ -214,13 +214,123 @@ export function evaluateAlert(series) {
 }
 
 /** History rows, oldest first. A missing or corrupt file is an empty series. */
-export function readSeries(text) {
+export function readDriftSeries(text) {
   return String(text || '')
     .split('\n')
     .map((l) => l.trim())
     .filter(Boolean)
     .map((l) => { try { return JSON.parse(l); } catch { return null; } })
     .filter((r) => r && Number.isFinite(Number(r.rate)));
+}
+
+/**
+ * Issue body for the autonomous loop, as bl-planner's 5-field scheda.
+ *
+ * The consumer is the loop, not a person: a planner that has to derive cause,
+ * metric, command and blast radius from scratch burns a whole round rediscovering
+ * what this script already knows. What it must NOT do is state the cause as
+ * settled — #6318 closed one path and a later return may come from another — so
+ * the cause ships as the first hypothesis together with the command that kills
+ * it. An issue that sends a fixer after a stale cause costs more than one with
+ * no cause at all.
+ *
+ * @param {object} record the run just measured
+ * @param {{reason: string, baseline: number, threshold: number}} verdict
+ * @param {string} trend rendered series
+ * @returns {string} markdown
+ */
+export function buildAlertBody(record, verdict, trend) {
+  const shardCountUsed = record.shards.length;
+  const repro = `node scripts/audit-canton-url-drift.mjs --days ${record.days} --shards ${shardCountUsed} --no-history`;
+  return [
+    `Il drift di sezione degli URL degli annunci non e' sceso: ${verdict.reason}.`,
+    '',
+    'Ogni slug che cambia sezione lascia dietro 4 URL (uno per locale) che Google',
+    "ha gia' indicizzato e che diventano 301. E' la classe che Search Console",
+    'contava come «Pagina con reindirizzamento» (188.160 URL al 2026-08-21, ~75%',
+    'pagine di annunci).',
+    '',
+    '## SCHEDA',
+    '',
+    '**1-CAUSA (ipotesi, da confermare prima di toccare codice).** La precedenza in',
+    '`resolveCantonAgainstPin` (`scripts/assemble-jobs-dataset.mjs`) non tiene: un',
+    "cantone che proviene SOLO dall'inferenza BFS riesce a riscrivere il pin, e",
+    "cosi' la sezione dell'URL diventa funzione dell'ultimo crawl invece di restare",
+    'ferma. #6318 ha chiuso questa strada passando la provenienza',
+    '(`crawlerCanton`) e congelando sul pin quando a dissentire e\' solo',
+    "l'inferenza. Se il tasso e' risalito, la prima cosa da verificare e' se quella",
+    'precedenza e\' ancora quella di #6318:',
+    '',
+    '```bash',
+    "grep -n 'crawlerHasSpoken' scripts/assemble-jobs-dataset.mjs",
+    'npx vitest run tests/canton-pin-crawler-authority.test.ts',
+    '```',
+    '',
+    'Se il ramo c\'e\' e i test sono verdi, la causa NON e\' questa e va cercata a',
+    'monte, fra le due sorgenti che #6318 non copre per costruzione:',
+    '',
+    '- il crawler cambia il cantone che dichiara (allora il pin viene corretto, ed',
+    "  e' il comportamento voluto: il difetto sta nel parser di quella sorgente).",
+    '  Per sapere quali: confronta `canton` per SLUG, non per `id`, fra due build di',
+    '  `data/jobs/by-crawler/<crawler>.json` — il 3% dei record cambia `id` a slug',
+    '  invariato, quindi un confronto per `id` non vede niente e sembra tutto a posto.',
+    "- la stringa `location` cambia fra un crawl e l'altro, e l'inferenza cambia con",
+    '  lei. `inferAnyCanton` sulle citta\' pulite e\' corretto (verificato su 16',
+    "  comuni), quindi in questo caso il difetto e' nell'estrazione della location,",
+    '  non nel database dei comuni.',
+    '',
+    "**2-FIX.** Dipende da quale delle tre sorgenti sopra regge all'esame; non",
+    'preassegnata qui. | **REPO**: sito | **MODE**: non nel manifest',
+    "(`scripts/assemble-jobs-dataset.mjs` non e' in",
+    '`frontaliere-articles/scripts/ci/loop-sync-manifest.json`, quindi nessun',
+    'vincolo di mirror: la fix vive qui e non scende al corpus).',
+    '',
+    `**3-METRICA.** prima=${(record.rate * 100).toFixed(2)}% atteso=<${(verdict.threshold * 100).toFixed(2)}% | **COMANDO**: \`${repro}\``,
+    '',
+    `Baseline (prima riga dello storico, misurata prima di #6318): **${(verdict.baseline * 100).toFixed(2)}%** a settimana.`,
+    `Soglia: **${(verdict.threshold * 100).toFixed(2)}%**, meta' della baseline, confermata da due run consecutivi.`,
+    `Ultima misura: **${record.drifted}** slug su ${record.common} confrontati (**${(record.rate * 100).toFixed(2)}%**), circa **${record.projectedUrlsPerWindow}** URL gia' indicizzati per finestra di ${record.days} giorni sui 4 locali.`,
+    `Shard campionati: ${record.shards.join(', ')} su ${record.totalSlugs} slug totali. Commit base del confronto: \`${record.base}\`.`,
+    '',
+    `Direzione: **${record.direction.towards}** verso il cantone del comune nominato nello slug, **${record.direction.away}** in allontanamento, **${record.direction.lateral}** laterali, ${record.direction.unresolved} senza oracolo.`,
+    `${record.direction.away + record.direction.lateral} movimenti su ${record.drifted} non migliorano l'assegnazione.`,
+    record.direction.towards > record.direction.away + record.direction.lateral
+      ? "La maggioranza CORREGGE l'assegnazione: prima di trattarlo come difetto, valuta se e' un recupero legittimo in corso e se basta alzare la soglia."
+      : 'La maggioranza NON migliora l\'assegnazione: e\' churn, quindi un difetto e non un corpus che si sta correggendo.',
+    '',
+    `Andamento: ${trend}`,
+    '',
+    '**4-OSSERVATORE.** Gia\' coperto: e\' questo monitor',
+    '(`.github/workflows/canton-url-drift-monitor.yml`) a riaprire la issue se il',
+    'tasso non scende, e la serie sta in `data/canton-url-drift-history.jsonl`. Una',
+    'fix va accompagnata da un test che pinni la precedenza scelta, come fa',
+    '`tests/canton-pin-crawler-authority.test.ts`.',
+    '',
+    '**5-FALLIMENTO.** `Canton URL drift: il tasso settimanale non scende sotto la soglia`',
+    '',
+    '## FILE',
+    '',
+    '- `scripts/assemble-jobs-dataset.mjs` — `resolveCantonAgainstPin` e la sua call site',
+    '- `tests/canton-pin-crawler-authority.test.ts` — i test della precedenza',
+    '- `scripts/lib/target-swiss-locations.mjs` — `inferAnyCanton`',
+    '- `data/canton-url-drift-history.jsonl` — la serie',
+    '- `scripts/audit-canton-url-drift.mjs` — la misura',
+    '',
+    '## RISCHIO',
+    '',
+    'Alto se si torna a far vincere il pin sempre: si ricreano due incidenti noti,',
+    'documentati nei test, che vanno restare verdi. #4838 (Obbürgen: il crawler',
+    'dichiara NW su 39 posting, BFS non risolve il paese, un pin TI stale',
+    'sovrascriveva ogni build e 28 su 39 uscivano come TI) e la collisione di',
+    'identity galenica (un URL di listing riusato collassava 220 job non-TI su TI).',
+    "In entrambi e' il CRAWLER a contraddire il pin, e in quel caso il pin deve",
+    'cedere. Un cantone congelato sbagliato e\' peggio di un redirect: e\' una pagina',
+    'con il contenuto nella sezione sbagliata e `addressRegion` errato nel',
+    'JobPosting (AGENTS.md Non-Negotiable #3).',
+    '',
+    "Nota sui numeri: rimisurali col comando sopra prima di lavorare, non fidarti di",
+    'quelli qui — questa issue puo\' essere stata aperta settimane fa.',
+  ].join('\n');
 }
 
 /**
@@ -355,7 +465,7 @@ async function main() {
   if (hasFlag('no-history')) return;
   let series = [];
   try {
-    series = readSeries(fs.readFileSync(historyPath, 'utf-8'));
+    series = readDriftSeries(fs.readFileSync(historyPath, 'utf-8'));
   } catch {
     series = []; // first ever run
   }
@@ -367,8 +477,8 @@ async function main() {
     return;
   }
 
-  // Verdict against the series, not against this run alone — see evaluateAlert.
-  const verdict = evaluateAlert([...series, record]);
+  // Verdict against the series, not against this run alone — see evaluateDriftAlert.
+  const verdict = evaluateDriftAlert([...series, record]);
   console.log(`\n${verdict.alert ? '🔴' : '🟢'} ${verdict.reason}`);
   const trend = [...series.slice(-5), record]
     .map((r) => `${r.date} ${(Number(r.rate) * 100).toFixed(2)}%`)
@@ -392,32 +502,7 @@ async function main() {
   // even on an alert, and a non-zero exit would skip that step.
   const alertFile = arg('alert-file', '');
   if (alertFile && verdict.alert) {
-    const body = [
-      `Il drift di sezione degli URL degli annunci non e' sceso: ${verdict.reason}.`,
-      '',
-      `Baseline (prima riga dello storico, misurata prima della fix #6318): **${(verdict.baseline * 100).toFixed(2)}%** a settimana.`,
-      `Soglia: **${(verdict.threshold * 100).toFixed(2)}%** — meta' della baseline, confermata da due run consecutivi per non allarmare sulla finestra di transizione.`,
-      '',
-      `Ultima misura: **${record.drifted}** slug su ${record.common} confrontati (**${(record.rate * 100).toFixed(2)}%**), circa **${record.projectedUrlsPerWindow}** URL gia' indicizzati per finestra di ${record.days} giorni sui 4 locali.`,
-      '',
-      `Direzione: ${record.direction.towards} verso il comune dello slug, ${record.direction.away} in allontanamento, ${record.direction.lateral} laterali, ${record.direction.unresolved} senza oracolo.`,
-      `${record.direction.away + record.direction.lateral} movimenti su ${record.drifted} non migliorano l'assegnazione.`,
-      '',
-      `Andamento: ${trend}`,
-      '',
-      'Riproduci in locale:',
-      '',
-      '```bash',
-      `node scripts/audit-canton-url-drift.mjs --days ${record.days} --shards ${record.shards.length} --no-history`,
-      '```',
-      '',
-      'Serie completa in `data/canton-url-drift-history.jsonl`. La causa nota di questa',
-      'classe e\' la precedenza in `resolveCantonAgainstPin`',
-      '(`scripts/assemble-jobs-dataset.mjs`): un valore che viene solo',
-      'dall\'inferenza BFS non deve riscrivere un pin, perche\' sposta un URL che',
-      'Google ha gia\' indicizzato. Se il tasso e\' risalito, la prima cosa da',
-      'guardare e\' se quella precedenza e\' ancora quella di #6318.',
-    ].join('\n');
+    const body = buildAlertBody(record, verdict, trend);
     try {
       fs.writeFileSync(alertFile, body);
       console.log(`\n🔴 allarme scritto in ${alertFile}`);
