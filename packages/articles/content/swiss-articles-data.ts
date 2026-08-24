@@ -12394,6 +12394,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposta-successione-basilea-citta',
+    category: 'fiscale',
+    date: '2026-08-24T14:42:33.929Z',
+    image: '/images/blog/imposta-successione-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

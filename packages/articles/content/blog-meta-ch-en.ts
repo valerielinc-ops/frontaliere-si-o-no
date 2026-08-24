@@ -4132,6 +4132,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Opening a business in the Canton of Basel-City: trade register and costs',
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'The legal form for opening a business in the Canton of Basel-City is subject to several options. Registration in the trade register requires a specific minimum capital and registration fees must be paid.',
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Image of an entrepreneur working in an office in Basel-Stadt Canton.',
+    'blog.article.imposta-successione-basilea-citta.title': 'Inheritance tax in the canton of Basel-City: rates and procedures',
+    'blog.article.imposta-successione-basilea-citta.excerpt': 'Inheritance tax in the Canton of Basel-City: rates for degree of kinship, exemptions for spouse and descendants, declaration and filing deadlines.',
+    'blog.article.imposta-successione-basilea-citta.imageAlt': 'Tax administration office with fiscal documents and tax records on desk',
 };
 
 export default blogMetaChEn;

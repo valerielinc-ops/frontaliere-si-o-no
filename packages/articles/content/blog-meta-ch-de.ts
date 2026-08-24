@@ -4132,6 +4132,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Geschäft im Kanton Basel-Stadt eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'Die Rechtsform für die Gründung eines Unternehmens im Kanton Basel-Stadt unterliegt verschiedenen Optionen. Die Eintragung in das Handelsregister erfordert ein spezifisches Mindestkapital und die Eintragungsgebühren sind zu entrichten.',
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Bild eines Unternehmers, der in einem Büro im Kanton Basel-Stadt arbeitet.',
+    'blog.article.imposta-successione-basilea-citta.title': 'Erbschaftssteuer im Kanton Basel-Stadt: Sätze und Verfahren',
+    'blog.article.imposta-successione-basilea-citta.excerpt': 'Erbschaftssteuer im Kanton Basel-Stadt: Sätze pro Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Erklärung und Einreichungsfristen.',
+    'blog.article.imposta-successione-basilea-citta.imageAlt': 'Finanzbehörde mit Steuerdokumenten und Registerunterlagen auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

@@ -53606,6 +53606,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-basilea-citta': {
+    title: 'Imposta di successione nel Canton Basilea-Città: aliquote e procedure',
+    description: 'Imposta di successione nel Canton Basilea-Città: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini di presentazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, canton, basilea-città',
+    ogTitle: 'Imposta di successione nel Canton Basilea-Città: aliquote',
+    ogDescription: 'Imposta di successione nel Canton Basilea-Città: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini di presentazione.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione nel Canton Basilea-Città: aliquote e procedure",
+      "description": "Imposta di successione nel Canton Basilea-Città: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini di presentazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio dell'amministrazione tributaria con documenti fiscali e registri delle imposte"
+      },
+      "datePublished": "2026-08-24T14:42:33+00:00",
+      "dateModified": "2026-08-24T14:42:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
