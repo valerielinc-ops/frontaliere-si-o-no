@@ -4096,6 +4096,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-aziende-biologiche-2026.title': 'Siccità: deroga per le aziende biologiche',
     'blog.article.siccita-aziende-biologiche-2026.excerpt': 'L\'OFAG autorise jusqu\'à 20 % d\'aliments conventionnels pour les exploitations biologiques en raison de la sécheresse 2026. Dérogation valable jusqu\'à la fin de l\'année.',
     'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Pâturages alpins secs lors de la sécheresse d\'été 2026 en Suisse, avec herbe brune et vallée alpine en arrière-plan',
+    'blog.article.dimora-b-basilea-rinnovo.title': 'Permis B Bâle : exigences et renouvellement',
+    'blog.article.dimora-b-basilea-rinnovo.excerpt': 'Le permis B en Suisse est renouvelable. Guide des exigences, des documents et de la procédure de renouvellement dans le canton de Bâle-Ville.',
+    'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Bureau administratif pour permis de migration et de séjour du canton de Bâle-Ville',
 };
 
 export default blogMetaChFr;

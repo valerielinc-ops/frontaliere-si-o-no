@@ -4096,6 +4096,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-aziende-biologiche-2026.title': 'Siccità: deroga per aziende biologiche sull\'acquisto mangimi',
     'blog.article.siccita-aziende-biologiche-2026.excerpt': 'L\'UFAG autorizza fino al 20% di mangimi convenzionali per aziende biologiche a causa della siccità 2026. Deroga valida fino a fine anno.',
     'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Pascolo alpino secco durante la siccità dell\'estate 2026 in Svizzera, con erba marrone e valle alpina sullo sfondo',
+    'blog.article.dimora-b-basilea-rinnovo.title': 'Permesso B Basilea: requisiti e rinnovo',
+    'blog.article.dimora-b-basilea-rinnovo.excerpt': 'Il permesso B in Svizzera è rinnovabile. Guida a requisiti, documenti e procedura di rinnovo nel Cantone di Basilea Città.',
+    'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Ufficio amministrativo federale e cantonale per permessi di migrazione e dimora nel Cantone di Basilea Città',
 };
 
 export default blogMetaChIt;

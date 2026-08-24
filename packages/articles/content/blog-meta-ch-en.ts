@@ -4096,6 +4096,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-aziende-biologiche-2026.title': 'Drought: exemption for organic farms on the purchase of feed',
     'blog.article.siccita-aziende-biologiche-2026.excerpt': 'The FOAG authorises up to 20% of conventional feed for organic farms due to drought 2026. Derogation valid until the end of the year.',
     'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Dry Alpine pasture during Switzerland\'s 2026 drought, with brown grass and Alpine valley landscape',
+    'blog.article.dimora-b-basilea-rinnovo.title': 'Permit B Basel: Requirements and Renewal',
+    'blog.article.dimora-b-basilea-rinnovo.excerpt': 'The B permit in Switzerland is renewable. Guide to requirements, documents and renewal procedure in the Canton of Basel-City.',
+    'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Federal and cantonal administrative office for migration and residence permits in Basel-Stadt canton',
 };
 
 export default blogMetaChEn;
