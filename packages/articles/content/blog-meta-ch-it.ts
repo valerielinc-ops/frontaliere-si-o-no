@@ -4105,6 +4105,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-basilea-citta.title': 'Permesso dimora B Basilea Città: requisiti e rinnovo',
     'blog.article.permesso-b-basilea-citta.excerpt': 'Guida pratica al permesso di dimora rinnovabile nel Cantone di Basilea Città: requisiti, documenti, durata, procedura di rinnovo e contatti dell\'ufficio della migrazione.',
     'blog.article.permesso-b-basilea-citta.imageAlt': 'Ufficio amministrativo svizzero con moduli di richiesta permesso di dimora e documenti ufficiali',
+    'blog.article.aziende-bio-foraggio-convenzionale.title': 'Aziende bio possono acquistare 20% foraggio convenzionale',
+    'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'L\'Ufficio federale dell\'agricoltura allenta le norme per le aziende biologiche: 20% di foraggio convenzionale per coprire il fabbisogno totale dei propri animali',
+    'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Aziende biologiche',
 };
 
 export default blogMetaChIt;
