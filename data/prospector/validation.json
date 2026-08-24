@@ -1,13 +1,99 @@
 {
-  "generatedAt": "2026-08-23T04:38:52.298Z",
+  "generatedAt": "2026-08-24T04:52:01.452Z",
   "tally": {
-    "good": 28,
-    "weak": 6,
+    "good": 29,
+    "weak": 7,
     "bad": 1,
-    "insufficient": 5
+    "insufficient": 3
   },
-  "promotedVacancies": 3636,
+  "promotedVacancies": 3658,
   "reports": [
+    {
+      "companyKey": "115west",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2017-schulanlage-bruehl-solothurn",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 681,
+          "status": 200
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2013-esplanade-bielbienne",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 511,
+          "status": 200
+        },
+        {
+          "url": "https://www.115west.ch/projekte/wettbewerbe/2012-neumarktplatz-biel",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 535,
+          "status": 200
+        }
+      ],
+      "companyName": "115west",
+      "companyHost": "115west.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": []
+    },
+    {
+      "companyKey": "accor",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://careers.accor.com/fr/fr/job/chef-de-partie-pastry-in-swissotel-nusantara-nusantara-indonesia-jid-105965",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1937,
+          "status": 200
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/demi-chef-in-95-charlotte-street-4000-brisbane-aus-jid-107329",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 2044,
+          "status": 200
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/chef-fixed-term-in-state-highway-8-7945-lake-tekapo-nzl-jid-107326",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 2061,
+          "status": 200
+        }
+      ],
+      "companyName": "Ibis Budget",
+      "companyHost": "careers.accor.com",
+      "platform": null,
+      "mode": "template",
+      "runErrors": []
+    },
     {
       "companyKey": "albergo-gardenia",
       "vacancyCount": 2,
@@ -45,23 +131,48 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "distinctRate": 0,
-      "score": 0,
-      "verdict": "insufficient",
-      "problems": [],
-      "samples": [],
+      "vacancyCount": 215,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 0.335,
+      "score": 0.933,
+      "verdict": "good",
+      "problems": [
+        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
+      ],
+      "samples": [
+        {
+          "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1154917/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 613,
+          "status": 200
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/schaler-1183800/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 593,
+          "status": 200
+        },
+        {
+          "url": "https://anker-swiss.ch/stellen/plattenleger-1117544/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 581,
+          "status": 200
+        }
+      ],
       "companyName": "Anker Swiss Ticino AG",
       "companyHost": "anker-swiss.ch",
       "platform": null,
       "mode": "template",
-      "runErrors": [
-        "https://anker-swiss.ch/stellen/: HTTP 0"
-      ]
+      "runErrors": []
     },
     {
       "companyKey": "apleona-schweiz-ag",
@@ -544,7 +655,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1707,
+          "words": 1705,
           "status": 200
         },
         {
@@ -552,7 +663,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1688,
+          "words": 1686,
           "status": 200
         },
         {
@@ -560,7 +671,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1627,
+          "words": 1625,
           "status": 200
         }
       ],
@@ -572,13 +683,13 @@
     },
     {
       "companyKey": "fachkraft",
-      "vacancyCount": 3362,
+      "vacancyCount": 3170,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.902,
-      "score": 0.99,
+      "distinctRate": 0.908,
+      "score": 0.991,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -591,19 +702,19 @@
           "status": 200
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/45071-stalu/",
+          "url": "https://www.fachkraft.ch/stellen/43028-staof/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 504,
+          "words": 498,
           "status": 200
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/43120-staof/",
+          "url": "https://www.fachkraft.ch/stellen/19532-stazh/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 510,
+          "words": 541,
           "status": 200
         }
       ],
@@ -907,27 +1018,27 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-st-urban-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-uster-und-umgebung-gesucht-mit-herz-und-fachkompetenz-fuer-die-langzeitpflege/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1235,
+          "words": 1269,
           "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-oberbuchsiten-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-zihlschlacht-und-umgebung-gesucht-mit-herz-und-fachkompetenz-fuer-die-langzeitpflege/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1220,
+          "words": 1292,
           "status": 200
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-80-100-in-wittinsburg-und-umgebung-gesucht-ihr-engagement-fuer-eine-hochwertige-pflege/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-betreuung-efz-80-100-in-emmenbruecke-und-umgebung-gesucht-ihr-engagement-fuer-eine-liebevolle-begleitung/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1196,
+          "words": 1243,
           "status": 200
         }
       ],
@@ -939,23 +1050,40 @@
     },
     {
       "companyKey": "itunes",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "distinctRate": 0,
-      "score": 0,
-      "verdict": "insufficient",
-      "problems": [],
-      "samples": [],
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.028,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "score": 0.66,
+      "verdict": "weak",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale"
+      ],
+      "samples": [
+        {
+          "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381?platform=iphone",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "words": 380,
+          "status": 200
+        },
+        {
+          "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381",
+          "reachable": true,
+          "titleMatch": 0.05555555555555555,
+          "contentful": true,
+          "words": 380,
+          "status": 200
+        }
+      ],
       "companyName": "Jobup",
       "companyHost": "apps.apple.com",
       "platform": "apple.com",
       "mode": "template",
-      "runErrors": [
-        "https://apps.apple.com/ch/app/jobup-ch-emplois-en-romandie/id456238167: HTTP 429"
-      ]
+      "runErrors": []
     },
     {
       "companyKey": "jobs",
@@ -981,7 +1109,7 @@
           "status": 200
         },
         {
-          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/1e79a015-25bc-421e-bee6-49d91862f578/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/152242b5-91f0-421f-9f42-5efef346faf8/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
@@ -1276,11 +1404,11 @@
           "status": 200
         },
         {
-          "url": "https://www.pageexecutive.com/job-detail/finance-manager-us-manufacturing-houston-tx/ref/jn-072026-7062467",
+          "url": "https://www.pageexecutive.com/job-detail/associate-energy-infrastructure-and-natural-resources/ref/jn-082026-7088309",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1348,
+          "words": 1161,
           "status": 200
         }
       ],
@@ -1327,38 +1455,38 @@
     },
     {
       "companyKey": "okjob",
-      "vacancyCount": 13,
+      "vacancyCount": 11,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.897,
+      "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.964,
+      "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/de/jobangebote/lastwagenchauffeur-ce-100-m-w-d-bern/?ref=41633",
+          "url": "https://www.okjob.ch/offres-demplois/menuisier-pvc-alu-atelier-h-f-bulle/?ref=41683",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 475,
+          "words": 670,
           "status": 200
         },
         {
-          "url": "https://www.okjob.ch/de/jobangebote/walzenfuehrer-asphalteinbau-100-m-w-d-bern/?ref=41645",
+          "url": "https://www.okjob.ch/offres-demplois/menuisie-bois-atelier-h-f-bulle/?ref=41690",
           "reachable": true,
-          "titleMatch": 0.8571428571428571,
+          "titleMatch": 1,
           "contentful": true,
-          "words": 736,
+          "words": 648,
           "status": 200
         },
         {
-          "url": "https://www.okjob.ch/de/jobangebote/mechanikerin-80-100-m-w-d-bern/?ref=41641",
+          "url": "https://www.okjob.ch/offres-demplois/installateur-en-chauffage-h-f-bulle/?ref=41676",
           "reachable": true,
-          "titleMatch": 0.8333333333333334,
+          "titleMatch": 1,
           "contentful": true,
-          "words": 656,
+          "words": 658,
           "status": 200
         }
       ],
@@ -1436,16 +1564,24 @@
     },
     {
       "companyKey": "physioswiss",
-      "vacancyCount": 9,
+      "vacancyCount": 7,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.639,
+      "titleMatchRate": 0.667,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.874,
+      "score": 0.883,
       "verdict": "good",
       "problems": [],
       "samples": [
+        {
+          "url": "https://physioswiss.ch/stelleninserate/152344/sport-physiotherapeutin-40-100-aktiv-manuell-menschlich/",
+          "reachable": true,
+          "titleMatch": 0.75,
+          "contentful": true,
+          "words": 912,
+          "status": 200
+        },
         {
           "url": "https://physioswiss.ch/stelleninserate/151842/physiotherapeut-in-60-100/",
           "reachable": true,
@@ -1455,111 +1591,17 @@
           "status": 200
         },
         {
-          "url": "https://physioswiss.ch/stelleninserate/151477/physiotherapeutin-40-100-fuer-zentrum-in-olten-gesucht/",
+          "url": "https://physioswiss.ch/stelleninserate/151466/physiotherapeut-physiotherapeutin-80-100-fuer-uster-gesucht/",
           "reachable": true,
           "titleMatch": 0.75,
           "contentful": true,
-          "words": 695,
-          "status": 200
-        },
-        {
-          "url": "https://physioswiss.ch/stelleninserate/152635/mobile-r-physiotherapeut-in-in-zuerich-40-100/",
-          "reachable": true,
-          "titleMatch": 0.6666666666666666,
-          "contentful": true,
-          "words": 592,
+          "words": 731,
           "status": 200
         }
       ],
       "companyName": "Physio swiss",
       "companyHost": "physioswiss.ch",
       "platform": null,
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-1123",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 632,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 678,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 711,
-          "status": 200
-        }
-      ],
-      "companyName": "BIG & ARE Stellen",
-      "companyHost": "recruitingapp-1123.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "recruitingapp-1154",
-      "vacancyCount": 7,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 295,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 393,
-          "status": 200
-        },
-        {
-          "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 312,
-          "status": 200
-        }
-      ],
-      "companyName": "SGKB Bewerbermanagement Stellen",
-      "companyHost": "recruitingapp-1154.umantis.com",
-      "platform": "umantis.com",
       "mode": "template",
       "runErrors": []
     }
