@@ -96,6 +96,42 @@ Numeri precisi non sono riportati qui **deliberatamente**: una cifra copiata da
 una misura vecchia in un documento di checklist invecchia in silenzio e diventa
 una fonte di verita' falsa. Se serve il dato, va rimisurato al momento.
 
+### ✅ Registrazione Google Publisher Center
+
+Verificato **dal vivo** il 2026-08-24 aprendo `publishercenter.google.com` con
+la sessione Google gia' autenticata sul dominio (non deducibile da grep sul
+repo, perche' e' stato esterno, non codice — motivo per cui l'audit precedente
+di questo documento lo aveva marcato `blocked` per errore, senza controllarlo
+davvero). Stato riscontrato:
+
+- **Publication esistente**: "Frontaliere Ticino", lingua italiano, sede
+  Svizzera.
+- **URL principale verificato**: `https://frontaliereticino.ch/` → badge
+  `VERIFIED`. Piu' **6 URL aggiuntivi verificati**: root, `articoli-frontaliere/`,
+  `chi-siamo/`, e i tre percorsi articolo di `de`/`en`/`fr`.
+- **Punto di contatto verificato**: `valerielinc@gmail.com`, flaggato per
+  problemi tecnici e aggiornamenti di prodotto.
+- **Logo quadrato e logo rettangolare** entrambi gia' caricati.
+- **Il sito compare nello strumento Preferred Sources stesso**: aprendo il deep
+  link canonico di questo documento (riga 26-30) compare la card "Frontaliere
+  Ticino / frontaliereticino.ch" con lo stesso logo, selezionabile — prova
+  end-to-end che il deep link punta a una destinazione reale e funzionante, non
+  solo sintatticamente corretta.
+
+**Nessun campo "categorie editoriali" trovato** nell'interfaccia attuale del
+Publisher Center (ne' nelle impostazioni pubblicazione ne' in quelle
+organizzazione) — il passaggio "Lavoro / Finanza / Diritto" della issue
+originale non ha un equivalente nel prodotto oggi. Coerente con il banner
+in-app «Aggiornamento di marzo 2025: Google News ora genera automaticamente le
+pagine delle pubblicazioni»: quel passaggio manuale risulta superato dal
+prodotto stesso, non un residuo da inseguire.
+
+**Nessuna azione di codice possibile qui ne' necessaria**: era stato
+correttamente identificato come fuori dalla portata di una PR (richiede una
+sessione umana autenticata), ma lo stato reale era gia' completo — l'errore
+nella versione precedente di questo documento era averlo dichiarato `blocked`
+senza prima controllare lo stato effettivo dell'account.
+
 ### ✅ CTA utente verso il pannello Preferred Sources — *in questa PR*
 
 Era la **fase 4** della issue, ed era il buco piu' grande: verificato con un
@@ -125,33 +161,6 @@ corretto e non montato e' esattamente il difetto che la issue 5004 aveva.
 
 ## 2. Cosa resta fuori — e perche' non e' automatizzabile
 
-### 🔲 `blocked: richiede azione manuale del proprietario su publishercenter.google.com`
-
-Il Publisher Center e' un tool Google separato da Search Console, con la sua
-verifica e il suo login. Nessuno di questi passi e' raggiungibile da codice:
-richiedono una sessione umana autenticata con l'account Google che amministra il
-dominio.
-
-Passi che il proprietario deve fare a mano, in ordine:
-
-1. **Accedere** a `https://publishercenter.google.com` con l'account Google che
-   amministra `frontaliereticino.ch`.
-2. **Creare la publication** per il sito, se non esiste ancora.
-3. **Verificare l'ownership** dentro il Publisher Center. La verifica di Search
-   Console (§1) **non si trasferisce**: e' un flusso distinto, e va completato
-   li'.
-4. **Caricare il logo** nei formati richiesti dal tool (rettangolare e
-   quadrato). Il logo di riferimento e' quello gia' dichiarato nell'entita'
-   `#organization` — usare lo stesso asset, altrimenti l'entita' e la
-   publication divergono.
-5. **Dichiarare le categorie** editoriali: **Lavoro**, **Finanza**, **Diritto**.
-6. **Confermare** la publication e attendere la revisione Google.
-
-Finche' questi passi non sono fatti, l'eleggibilita' tecnica del §1 resta
-condizione necessaria e non sufficiente. Non c'e' modo di sbloccarlo dal repo, e
-non c'e' un gate CI sensato da scrivere: non esiste un'API pubblica del
-Publisher Center da interrogare per sapere se la publication e' stata approvata.
-
 ### 🔲 `blocked: editoriale, non codice`
 
 Un **post social dedicato** che spieghi ai lettori come selezionare il sito come
@@ -169,9 +178,10 @@ Se torni qui per capire «Preferred Sources e' fatto?», la risposta e' in due
 righe:
 
 - **Il repo ha finito**, con l'eccezione di nulla: eleggibilita' tecnica
-  completa (§1) e le tre superfici di CTA live.
-- **Restano due voci fuori dal repo** (§2), entrambe `blocked` su qualcosa che
-  richiede una persona: un login al Publisher Center e un post editoriale.
+  completa (§1), le tre superfici di CTA live, e la registrazione Publisher
+  Center risultata gia' completa a verifica dal vivo (§1).
+- **Resta una sola voce fuori dal repo** (§2), `blocked` su qualcosa che
+  richiede una persona: un post editoriale sui social.
 
 E la lezione di processo, che vale oltre questa issue: la 5004 e' stata chiusa
 `completed` da una PR che ne copriva una fase su cinque, e nessun gate se ne e'
