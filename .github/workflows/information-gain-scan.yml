@@ -78,7 +78,6 @@ jobs:
           sparse-checkout: |
             /*
             !/public/images/
-            !/data/jobs/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
