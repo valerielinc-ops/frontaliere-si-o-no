@@ -10643,6 +10643,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Frontaliere: riqualifica 2026, figli e tassazione',
     'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'Come una riqualificazione professionale nel 2026 cambia tassazione, assegni familiari e previdenza per frontalieri con figli: guida operativa con checklist.',
     'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Scrivania con libri di formazione professionale e documenti in ambiente universitario ticinese, luce naturale.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Frontaliere: corsi riconosciuti e finanziamenti',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'I frontalieri possono accedere a corsi di formazione professionale e riqualifica per migliorare le loro competenze e aumentare le loro possibilità di lavoro.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontaliere in Ticino che si riqualifica',
 };
 
 export default blogMetaIt;

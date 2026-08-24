@@ -10642,6 +10642,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Frontier: 2026 redevelopment, children and taxation',
     'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'How a professional retraining in 2026 changes taxation, family allowances and pension for border workers with children: operational guide with checklist.',
     'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Professional development books and training materials on desk in Ticino university background with natural light.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Frontier: recognised courses and funding',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'Border workers can access vocational training and retraining courses to improve their skills and increase their job opportunities.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontalier in Ticino undergoing training',
 };
 
 export default blogMetaEn;
