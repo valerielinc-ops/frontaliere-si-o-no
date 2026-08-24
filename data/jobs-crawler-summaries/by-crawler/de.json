@@ -1,20 +1,21 @@
 {
   "key": "de",
   "label": "MPI AGE",
-  "generatedAt": "2026-08-24T10:28:20.483Z",
+  "generatedAt": "2026-08-24T21:43:52.331Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4462,
-  "avgDurationMs": 4462,
+  "durationMs": 4423,
+  "avgDurationMs": 4423,
   "durationHistory": [
-    4462
+    4423
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "de-dfc4921b55ae",
       "slug": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
@@ -27,7 +28,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:17.192Z",
+      "crawledAt": "2026-08-24T21:43:49.185Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,17 +41,19 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:17.192Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
     {
       "id": "de-a1b65c3223c4",
-      "slug": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch",
+      "slug": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-e-gastechnik-mpi-age-lugano",
       "company": "MPI AGE",
       "companyKey": "de",
       "companyDomain": "mpi-age.de.umantis.com",
@@ -60,7 +63,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:17.522Z",
+      "crawledAt": "2026-08-24T21:43:49.501Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,16 +76,17 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:17.522Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
