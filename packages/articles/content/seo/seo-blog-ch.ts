@@ -54503,6 +54503,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avviare-impresa-svizzera-passaggi-costi': {
+    title: 'Aprire un\'attività in Svizzera: forme e costi di iscrizione',
+    description: 'Guida pratica a iscrizione registro di commercio, forme giuridiche, capitale minimo, tasse e obblighi assicurativi (AVS, LAMal, LPP) per chi apre un\'attività.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, forme, costi',
+    ogTitle: 'Aprire un\'attività in Svizzera: forme e costi di iscrizione',
+    ogDescription: 'Come aprire un\'attività in Svizzera: scegli la forma giuridica (ditta individuale, Srl, SA), iscriviti al registro di commercio, versa il capitale minimo, e rispetta obblighi AVS, LAMal e LPP. Guida step-by-step con costi e scadenze.',
+    canonicalPath: '/articoli-svizzera/avviare-impresa-svizzera-passaggi-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Svizzera: forme e costi di iscrizione",
+      "description": "Guida pratica a iscrizione registro di commercio, forme giuridiche, capitale minimo, tasse e obblighi assicurativi (AVS, LAMal, LPP) per chi apre un'attività.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-impresa-svizzera-passaggi-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scrivania d'ufficio con documenti di registrazione commerciale e moduli per costituire un'impresa."
+      },
+      "datePublished": "2026-08-24T23:42:43+00:00",
+      "dateModified": "2026-08-24T23:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-impresa-svizzera-passaggi-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

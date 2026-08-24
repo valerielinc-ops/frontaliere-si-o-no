@@ -1426,6 +1426,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-zurigo-contratto-tirocinio': { it: 'apprendistato-zurigo-contratto-tirocinio', en: 'zurich-apprenticeship-vocational-training', de: 'lehrausbildung-zurich-berufsausbildung', fr: 'apprentissage-zurich-formation-professionnelle' },
  'formazione-professionale-zurigo': { it: 'formazione-professionale-zurigo', en: 'vocational-training-zurich', de: 'berufslehre-zurich', fr: 'apprentissage-zurich' },
  'apprendistato-zurigo-ricerca-contratto': { it: 'apprendistato-zurigo-ricerca-contratto', en: 'apprenticeship-zurich-find-position', de: 'lehre-zuerich-stelle-suchen', fr: 'apprentissage-zurich-trouver-poste' },
+ 'avviare-impresa-svizzera-passaggi-costi': { it: 'avviare-impresa-svizzera-passaggi-costi', en: 'start-business-switzerland-steps-costs', de: 'unternehmen-gruenden-schweiz-schritte-kosten', fr: 'creer-entreprise-suisse-etapes-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

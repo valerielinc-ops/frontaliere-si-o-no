@@ -4201,6 +4201,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Apprentissage Zurich : comment trouver et négocier',
     'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Guide pratique de l\'apprentissage dans le canton de Zurich : recherche d\'emploi, contrat de stage, rémunération de l\'apprenti et maturité professionnelle.',
     'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Jeune apprenti en formation pratique dans une entreprise suisse',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Ouvrir une entreprise en Suisse : formes et frais d\'inscription',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Entreprise individuelle, Srl, SA : quelle forme choisir ? Découvrez les étapes pour l\'inscription au registre du commerce, le capital minimum requis et les obligations envers AVS et LAMal.',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Un bureau avec des documents d\'enregistrement commercial et des formulaires de création d\'entreprise.',
 };
 
 export default blogMetaChFr;

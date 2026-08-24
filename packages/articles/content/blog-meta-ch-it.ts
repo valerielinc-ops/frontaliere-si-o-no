@@ -4201,6 +4201,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Apprendistato Zurigo: come trovare e contrattare',
     'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Guida pratica all\'apprendistato nel cantone di Zurigo: ricerca del posto, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
     'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Giovane apprendista in formazione pratica presso un\'azienda in Svizzera',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Aprire un\'attività in Svizzera: forme e costi di iscrizione',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Ditta individuale, Srl, SA: quale forma scegliere? Scopri gli step per l\'iscrizione al registro di commercio, il capitale minimo richiesto e gli obblighi verso AVS e LAMal.',
+    'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Una scrivania d\'ufficio con documenti di registrazione commerciale e moduli per costituire un\'impresa.',
 };
 
 export default blogMetaChIt;
