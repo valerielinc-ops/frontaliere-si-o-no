@@ -126,6 +126,18 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-frontaliere-density.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-hub-archive-assets.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-hub-topics-nav.test.ts', roots: ['services/locales/'] },
+  // Not pipeline-live: `article-reviewed-by.json` is a hand-edited map that
+  // no script/crawler ever writes (verified: `rg -n "article-reviewed-by"`
+  // outside this test hits only the loader's own doc comment and
+  // `ogPagesPlugin.ts`'s `readFileSync` call — no writer anywhere). The
+  // segment heuristic still fires because it generalizes any
+  // `'packages','articles',...` sequence to the `packages/articles/` root
+  // (see LIVE_DATA_SEGMENTS comment), which also covers this unrelated
+  // subtree. The file's first test asserts the REAL checked-in map starts at
+  // `{}` (issue #6337: no article may claim a fabricated review signal) —
+  // that guarantee is about the shipped file itself, so pinning to
+  // `tests/__fixtures__/` would test a copy instead of the guarantee.
+  { file: 'tests/article-review-overrides.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-slug-prompt-leak-guard.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },
