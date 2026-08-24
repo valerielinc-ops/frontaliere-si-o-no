@@ -4144,6 +4144,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carte-credito-pagamenti-offline-2027.title': 'Offline-Zahlungen per Kreditkarte ab 2027 in der Schweiz',
     'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'Ab 2027 können Schweizer Geschäfte Kredit- und Debitkartenzahlungen auch ohne Internet abwickeln. WBF, SNB und Bundesrat kündigen die Lösung für die finanzielle Belastbarkeit an.',
     'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Kartenzahlung an einem Geschäftsterminal in der Schweiz mit Kreditkarte und PIN-Eingabe, Unterstützung für Offline-Zahlungen.',
+    'blog.article.permesso-dimora-b-basilea-campagna.title': 'Aufenthaltsbewilligung B Basel-Landschaft: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Leitfaden zu den Anforderungen und Verfahren für die Erneuerung der B-Bewilligung im Kanton Basel-Landschaft. Dauer, Dokumente und nützliche Kontakte.',
+    'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Kantonales Migrationsamt Baselland, Aufenthaltserlaubnis B Erneuerung',
 };
 
 export default blogMetaChDe;
