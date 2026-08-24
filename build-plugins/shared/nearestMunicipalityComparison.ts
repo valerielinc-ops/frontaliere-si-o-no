@@ -44,6 +44,18 @@
  * No new dependency, no data file: `population`, `distanceKm`, `lat`, `lng`
  * are already in each family's dataset, and the great-circle helper is the
  * existing leaf module `scripts/lib/haversine.mjs`.
+ *
+ * WHY NOT `shared/relatedLinks.ts`
+ * ---------------------------------------------------------------------------
+ * That module solves a different problem, and solves it well: 10-12 curated
+ * LINKS per page across three clusters (siblings, parent hubs, cross-category)
+ * for the fuel, border-wait, weekly-employers and health families. It is a
+ * navigation block. What the municipality families lacked is not navigation —
+ * it is CONTENT: a figure comparison the reader can act on, and prose that
+ * states what the figures mean for this comune. The municipality families are
+ * also not among its `pageType`s. Adding a table of computed values and a
+ * spread sentence to a link-nav helper would give it two jobs; the two blocks
+ * can coexist on a page without either knowing about the other.
  */
 
 import { haversineKm } from '../../scripts/lib/haversine.mjs';
