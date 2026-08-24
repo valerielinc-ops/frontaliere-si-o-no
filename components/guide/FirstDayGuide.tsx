@@ -7,6 +7,7 @@ import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useNavigation } from '@/services/NavigationContext';
 import { buildPath } from '@/services/router';
 import { Analytics } from '@/services/analytics';
+import AiExtractableTable from '@/components/shared/AiExtractableTable';
 
 // ─── Checklist Steps ─────────────────────────────────────────────────────
 
@@ -173,6 +174,45 @@ const FirstDayGuide: React.FC = () => {
  return hints;
  }, [profile, t]);
 
+
+ // HowTo JSON-LD: la checklist E' la procedura del primo giorno, quindi lo
+ // schema descrive gli stessi 12 passi che la pagina gia' mostra.
+ // Stesso guard e stesse ragioni di WorkPermitsGuide: si interrogano solo i
+ // JSON-LD STATICI (`:not([data-dynamic-ld])`) perche' quelli dinamici sono di
+ // seoService e in navigazione SPA sarebbero ancora quelli della pagina
+ // precedente; e lo script iniettato qui non porta quell'attributo, o
+ // seoService lo cancellerebbe col componente ancora montato.
+ const howToLdJson = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'HowTo',
+ name: t('firstday.title'),
+ description: t('firstday.subtitle'),
+ step: CHECKLIST_STEPS.map((step, i) => ({
+ '@type': 'HowToStep',
+ position: i + 1,
+ name: t(`firstday.step.${step.id}`),
+ text: t(`firstday.step.${step.id}.desc`),
+ })),
+ });
+
+ useEffect(() => {
+ const LD_ID = 'firstday-howto-jsonld';
+ const alreadyOnPage = Array.from(
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
+ ).some(el => {
+ if (el.id === LD_ID) return false;
+ try { return JSON.parse(el.textContent || '')?.['@type'] === 'HowTo'; } catch { return false; }
+ });
+ if (alreadyOnPage) return;
+ document.getElementById(LD_ID)?.remove();
+ const script = document.createElement('script');
+ script.type = 'application/ld+json';
+ script.id = LD_ID;
+ script.textContent = howToLdJson;
+ document.head.appendChild(script);
+ return () => { document.getElementById(LD_ID)?.remove(); };
+ }, [howToLdJson]);
+
  // Save to localStorage
  useEffect(() => {
  localStorage.setItem(STORAGE_KEY, JSON.stringify([...completedSteps]));
@@ -242,6 +282,31 @@ const FirstDayGuide: React.FC = () => {
  </span>
  ))}
  </div>
+
+ {/* Roadmap in forma estraibile. Collassata come in FiscoTabContent: la
+ checklist sopra resta la superficie interattiva, la tabella aggiunge la
+ forma che i bot leggono (e i tempi, che su mobile la lista nasconde). */}
+ <details className="bg-surface rounded-2xl border border-edge p-4 sm:p-5 group">
+ <summary className="flex items-center gap-2 cursor-pointer font-bold text-strong text-sm list-none">
+ <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+ {t('firstday.table.caption')}
+ </summary>
+ <div className="mt-3">
+ <AiExtractableTable
+ caption={t('firstday.table.caption')}
+ columns={[
+ { header: t('firstday.table.col.step'), accessor: 'step' },
+ { header: t('firstday.table.col.category'), accessor: 'category' },
+ { header: t('firstday.table.col.time'), accessor: 'time' },
+ ]}
+ rows={CHECKLIST_STEPS.map(step => ({
+ step: t(`firstday.step.${step.id}`),
+ category: t(`firstday.cat.${step.category}`),
+ time: step.estimatedDays,
+ }))}
+ />
+ </div>
+ </details>
 
  {/* Checklist Steps */}
  <div className="space-y-3">
