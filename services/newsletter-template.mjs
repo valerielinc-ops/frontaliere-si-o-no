@@ -21,6 +21,11 @@ import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIde
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
+// Deep link al pannello "Fonti preferite" di Google, dominio canonico senza
+// `www` in `q` (AGENTS.md -> Architecture). Gemello di PREFERRED_SOURCE_URL in
+// components/shared/PreferredSourceCTA.tsx: stessa URL su superfici diverse
+// (React vs HTML email), che non possono importarsi a vicenda.
+const PREFERRED_SOURCE_URL = 'https://www.google.com/preferences/source?q=frontaliereticino.ch';
 const BRAND_DARK = '#0f172a';
 const DARK_CARD = '#1e293b';
 const LIGHT_BG = '#f1f5f9';
@@ -50,6 +55,9 @@ const NL_I18N = {
     closerText: 'Ti è piaciuta questa email? Inoltrala a quel collega che chiede sempre "ma com\u2019è il cambio oggi?".',
     closerTag: 'Alla prossima. ☕',
     footerReason: 'Ricevi questa email perch\u00e9 ti sei iscritto su',
+    preferredSourceTitle: 'Rendici una delle tue fonti preferite su Google',
+    preferredSourceText: 'Su Google puoi scegliere le fonti che vuoi vedere pi\u00f9 spesso nei risultati e nelle risposte AI. Un click e ci trovi pi\u00f9 facilmente.',
+    preferredSourceCta: 'Aggiungi alle fonti preferite \u2192',
     unsubText: 'Non la vuoi pi\u00f9? {link} \u2014 giuro che non piangeremo. (Forse un po\u2019.)',
     unsubLink: 'Cancellati',
     prefsLink: 'Gestisci preferenze',
@@ -99,6 +107,9 @@ const NL_I18N = {
     closerText: 'Liked this email? Forward it to that colleague who always asks "what\u2019s the rate today?".',
     closerTag: 'See you next time. ☕',
     footerReason: 'You receive this email because you subscribed on',
+    preferredSourceTitle: 'Make us one of your preferred sources on Google',
+    preferredSourceText: 'Google lets you pick the sources you want to see more often in results and AI answers. One click and we are easier to find.',
+    preferredSourceCta: 'Add to preferred sources \u2192',
     unsubText: 'Had enough? {link} \u2014 no hard feelings. (Maybe a little.)',
     unsubLink: 'Unsubscribe',
     prefsLink: 'Manage preferences',
@@ -148,6 +159,9 @@ const NL_I18N = {
     closerText: 'Hat dir diese E-Mail gefallen? Leite sie an den Kollegen weiter, der immer fragt "Wie steht der Kurs?".',
     closerTag: 'Bis zum nächsten Mal. ☕',
     footerReason: 'Du erh\u00e4ltst diese E-Mail, weil du dich angemeldet hast auf',
+    preferredSourceTitle: 'Mach uns zu einer deiner bevorzugten Quellen bei Google',
+    preferredSourceText: 'Bei Google kannst du festlegen, welche Quellen du in den Ergebnissen und in KI-Antworten h\u00e4ufiger sehen willst. Ein Klick, und du findest uns leichter.',
+    preferredSourceCta: 'Zu bevorzugten Quellen hinzuf\u00fcgen \u2192',
     unsubText: 'Genug? {link} \u2014 wir weinen nicht. (Vielleicht ein bisschen.)',
     unsubLink: 'Abmelden',
     prefsLink: 'Einstellungen verwalten',
@@ -197,6 +211,9 @@ const NL_I18N = {
     closerText: 'Tu as aimé cet email ? Transfère-le au collègue qui demande toujours "c\u2019est quoi le taux ?".',
     closerTag: 'À la prochaine. ☕',
     footerReason: 'Tu re\u00e7ois cet email car tu t\u2019es inscrit sur',
+    preferredSourceTitle: 'Fais de nous une de tes sources pr\u00e9f\u00e9r\u00e9es sur Google',
+    preferredSourceText: 'Sur Google, tu peux choisir les sources que tu veux voir plus souvent dans les r\u00e9sultats et les r\u00e9ponses IA. Un clic et on se trouve plus facilement.',
+    preferredSourceCta: 'Ajouter aux sources pr\u00e9f\u00e9r\u00e9es \u2192',
     unsubText: 'Tu n\u2019en veux plus ? {link} \u2014 on ne pleurera pas. (Un peu peut-\u00eatre.)',
     unsubLink: 'Se d\u00e9sinscrire',
     prefsLink: 'G\u00e9rer les pr\u00e9f\u00e9rences',
@@ -638,6 +655,22 @@ function renderCloser(locale) {
     </td></tr>`;
 }
 
+/**
+ * Fase 4 della issue 5004 — CTA "fonti preferite su Google".
+ * Sta dopo il closer e prima del footer: e' l'ultimo blocco di contenuto,
+ * quindi non contende attenzione alle offerte di lavoro ne' al briefing.
+ */
+function renderPreferredSource(locale) {
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 24px;">
+      <div style="border:1px solid ${BORDER_COLOR};border-radius:12px;padding:18px 20px;text-align:center;">
+        <div style="font-size:15px;font-weight:700;color:${TEXT_COLOR};margin:0 0 6px;">${nlT(locale, 'preferredSourceTitle')}</div>
+        <div style="font-size:13px;color:${MUTED_COLOR};line-height:1.5;margin:0 0 14px;">${nlT(locale, 'preferredSourceText')}</div>
+        <a target="_blank" rel="noopener noreferrer" href="${PREFERRED_SOURCE_URL}" style="display:inline-block;background:${BRAND_ORANGE};color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:11px 20px;border-radius:8px;">${nlT(locale, 'preferredSourceCta')}</a>
+      </div>
+    </td></tr>`;
+}
+
 function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
   const unsubLink = `<a target="_blank" rel="noopener noreferrer" href="${unsubscribeUrl || '{{UNSUBSCRIBE_URL}}'}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'unsubLink')}</a>`;
   const unsubLine = nlT(locale, 'unsubText').replace('{link}', unsubLink);
@@ -753,7 +786,10 @@ export function buildNewsletter(data) {
   // 12. Closer
   html += renderCloser(locale);
 
-  // 13. Footer
+  // 13. Preferred Sources CTA (fase 4 della issue 5004)
+  html += renderPreferredSource(locale);
+
+  // 14. Footer
   html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);
 
   return `<!DOCTYPE html>
