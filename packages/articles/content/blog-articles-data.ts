@@ -31863,6 +31863,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-caslino-erba-frontaliere',
+ category: 'pratico',
+ date: '2026-08-24T02:16:09.931Z',
+ image: '/images/blog/vivere-caslino-erba-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

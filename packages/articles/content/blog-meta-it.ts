@@ -10646,6 +10646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Frontaliere: corsi riconosciuti e finanziamenti',
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'I frontalieri possono accedere a corsi di formazione professionale e riqualifica per migliorare le loro competenze e aumentare le loro possibilità di lavoro.',
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontaliere in Ticino che si riqualifica',
+    'blog.article.vivere-caslino-erba-frontaliere.title': 'Vivere a Caslino d\'Erba, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-caslino-erba-frontaliere.excerpt': 'Trasferirsi a Caslino d\'Erba per lavorare in Ticino: come gestire permessi, tassazione e costi della vita dopo il nuovo Accordo Frontalieri 2024.',
+    'blog.article.vivere-caslino-erba-frontaliere.imageAlt': 'Veduta del paesaggio tra la provincia di Como e il Canton Ticino con architettura italiana e montagne svizzere',
 };
 
 export default blogMetaIt;
