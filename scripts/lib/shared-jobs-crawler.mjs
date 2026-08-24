@@ -1840,12 +1840,12 @@ function extractAlternateLocaleUrls(html, currentUrl) {
 //
 // `titleLooksUntranslated` flags 30.14% of non-source title slots (24,054 of
 // 79,796 measured 2026-08-10; 49.8% of jobs carry at least one). Flagging all of
-// them the first time this code runs would enqueue a backlog two orders of
-// magnitude above what drains: the quota-bound cascade in
-// relocalize-pending-jobs.mjs repairs ~100 jobs/run, and the free unlimited
-// local-MT mop-up only fills slots that are missing, too short, or an exact
-// source copy (local-mt-mopup.mjs `missingSlots`) — i.e. it cannot touch the
-// partial-translation majority at all.
+// them the first time this code runs would enqueue a backlog above what drains
+// per run: the quota-bound cascade in relocalize-pending-jobs.mjs repairs ~100
+// jobs/run, and the free unlimited local-MT mop-up (local-mt-mopup.mjs
+// `missingSlots`, extended 2026-08-24 to call `titleLooksUntranslated` too —
+// issue #6354) is capped by its own per-run job budget (LOCAL_MT_MAX_JOBS,
+// default 2000) and wall-clock budget, not by detection reach.
 //
 // So the sweep over *already-stored* titles is capped per process. Slots this
 // call actually wrote are NOT capped: they are new content, they are few, and
