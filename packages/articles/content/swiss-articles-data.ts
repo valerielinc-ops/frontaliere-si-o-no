@@ -12475,6 +12475,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stabilita-svizzera-bilaterali-neutralita',
+    category: 'novita',
+    date: '2026-08-24T17:05:07.940Z',
+    image: '/images/blog/stabilita-svizzera-bilaterali-neutralita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

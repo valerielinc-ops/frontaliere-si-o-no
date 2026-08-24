@@ -4159,6 +4159,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Naturalization Basel countryside: how to proceed',
     'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Federal and cantonal requirements for naturalisation in Basel-Landschaft: 10 years of residence, language test, administrative procedure and costs.',
     'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Swiss cantonal administration office with naturalization forms and official documents',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Switzerland-EU: bilateral and neutrality between geopolitical stability',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis announces the return of Switzerland to Horizon Europe. On 27 September, a crucial vote on the neutrality initiative. The head of the FDFA illustrates the path from the suspended negotiations of 2021 to the current agreements.',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Bellinzona skyline representing Swiss political stability and federal governance',
 };
 
 export default blogMetaChEn;

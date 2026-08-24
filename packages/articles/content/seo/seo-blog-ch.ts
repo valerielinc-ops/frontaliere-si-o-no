@@ -53957,6 +53957,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stabilita-svizzera-bilaterali-neutralita': {
+    title: 'Svizzera-Ue: bilaterali e neutralità tra stabilità geopolitica',
+    description: 'Cassis annuncia il ritorno della Svizzera a Horizon Europe dopo 5 anni di negoziati. Il 27 settembre votazione cruciale sull\'iniziativa di neutralità',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzera-ue, bilaterali, neutralità, stabilità',
+    ogTitle: 'Svizzera-Ue: bilaterali e neutralità tra stabilità geopolitica',
+    ogDescription: 'Cassis illustra il cammino dei negoziati svizzeri con l\'UE da 2021 a 2026: riadesione a Horizon Europe, accordi sottoscritti, e la sfida dell\'iniziativa di neutralità in votazione il 27 settembre. Come cambiano le relazioni della Svizzera',
+    canonicalPath: '/articoli-svizzera/stabilita-svizzera-bilaterali-neutralita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera-Ue: bilaterali e neutralità tra stabilità geopolitica",
+      "description": "Cassis annuncia il ritorno della Svizzera a Horizon Europe dopo 5 anni di negoziati. Il 27 settembre votazione cruciale sull'iniziativa di neutralità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stabilita-svizzera-bilaterali-neutralita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona: simbolo della stabilità politica e della capacità decisionale della Svizzera"
+      },
+      "datePublished": "2026-08-24T17:05:07+00:00",
+      "dateModified": "2026-08-24T17:05:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stabilita-svizzera-bilaterali-neutralita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

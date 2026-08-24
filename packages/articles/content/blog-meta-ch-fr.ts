@@ -4159,6 +4159,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Naturalisation de la campagne de Bâle : comment procéder',
     'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Exigences fédérales et cantonales pour la naturalisation à Bâle-Campagne : 10 ans de résidence, test de langue, procédure administrative et frais à payer.',
     'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Bureau cantonal suisse avec demandes de naturalisation et formulaires officiels',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Suisse-UE : bilatéraux et neutralité entre stabilité géopolitique',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis annonce le retour de la Suisse à Horizon Europe. Le 27 septembre, vote crucial sur l\'initiative de neutralité. Le chef du DFAE illustre le cheminement des négociations suspendues de 2021 aux accords actuels.',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Vue de Bellinzona symbolisant la stabilité politique et la capacité décisionnelle suisse',
 };
 
 export default blogMetaChFr;
