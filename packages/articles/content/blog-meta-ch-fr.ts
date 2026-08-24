@@ -4129,6 +4129,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.registro-commercio-basilea-citta.title': 'Ouvrir l\'activité Bâle-Ville : registre et coûts',
     'blog.article.registro-commercio-basilea-citta.excerpt': 'Guide complet sur les formes juridiques, l\'inscription au registre du commerce, les cotisations sociales AVS/AI/LAMal et les impôts fédéraux, cantonaux et communaux dans le canton de Bâle-Ville.',
     'blog.article.registro-commercio-basilea-citta.imageAlt': 'Bureau d\'enregistrement commercial avec formulaires d\'inscription et documents administratifs pour l\'ouverture d\'une activité au canton de Bâle-Ville',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Ouvrir une entreprise à Bâle-Ville : coûts et formalités',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'La forme juridique pour ouvrir une entreprise dans le canton de Bâle-Ville est soumise à plusieurs options. L\'inscription au registre du commerce nécessite un capital minimum spécifique et les frais d\'inscription doivent être payés.',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Image d\'un entrepreneur qui travaille dans un bureau dans le canton de Bâle-Ville.',
 };
 
 export default blogMetaChFr;

@@ -4129,6 +4129,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.registro-commercio-basilea-citta.title': 'Aprire attività Basilea Città: registro e costi',
     'blog.article.registro-commercio-basilea-citta.excerpt': 'Guida completa su forme giuridiche, iscrizione al registro di commercio, contributi sociali AVS/AI/LAMal e imposte federali, cantonali e comunali nel cantone di Basilea Città.',
     'blog.article.registro-commercio-basilea-citta.imageAlt': 'Ufficio del registro di commercio con moduli di iscrizione e documenti amministrativi per apertura attività nel cantone di Basilea Città',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Aprire un\'attività nel Cantone di Basilea Città: registro di commercio e costi',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'La forma giuridica per aprire un\'attività nel Cantone di Basilea Città è soggetta a diverse opzioni. L\'iscrizione al registro di commercio richiede un capitale minimo specifico e le tasse di iscrizione devono essere soddisfatte.',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Immagine di un imprenditore che lavora in un ufficio nel Cantone di Basilea Città.',
 };
 
 export default blogMetaChIt;
