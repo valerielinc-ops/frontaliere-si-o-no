@@ -4045,6 +4045,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Garde d\'enfants en Suisse : coûts et subventions cantonales',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Comment fonctionne la garde des enfants en Suisse, quels sont les coûts des crèches et les allocations disponibles pour les familles au niveau cantonal.',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Centre de garde d\'enfants suisse avec des enfants jouant dehors par une belle journée de printemps',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche acquiert les droits sur un traitement expérimental contre l\'obésité',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'L\'accord avec la société sud-coréenne Hanmi pourrait valoir jusqu\'à 2,3 milliards de dollars.',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquiert les droits à un traitement expérimental contre l\'obésité',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Acheter une maison dans le canton de Soleure : prix et hypothèque',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Acheter une maison dans le canton de Soleure nécessite une planification financière minutieuse. Découvrez comment fonctionnent les prêts hypothécaires, l\'adéquation du capital, l\'impôt sur les transferts et les frais de notaire.',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Maison résidentielle moderne dans un canton suisse avec jardin et vue campagnarde',
+    'blog.article.storia-sicurezza-sociale-rilancio.title': 'Histoire de la sécurité sociale : relance du site Internet',
+    'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Le site Internet www.storiadellasicurezzasociale.ch se présente sous un nouveau jour, avec une nouvelle interface et un graphisme optimisés pour la compatibilité avec tous les terminaux et l\'accessibilité.',
+    'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Vue de Lugano avec un archive historique en premier plan',
 };
 
 export default blogMetaChFr;
