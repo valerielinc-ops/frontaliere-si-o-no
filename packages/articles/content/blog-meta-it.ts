@@ -10672,6 +10672,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'I numeri del giorno per i frontalieri – 24 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Bollettino frontalieri del 24 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'I numeri del 24 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.malesco-frontaliere-ticino.title': 'Vivere a Malesco, lavorare in Ticino: pratica guida',
+    'blog.article.malesco-frontaliere-ticino.excerpt': 'Trasferirsi a Malesco per lavorare in Ticino: valichi di accesso, tempi di percorrenza, fiscalità vantaggiosa e costi ridotti per frontalieri.',
+    'blog.article.malesco-frontaliere-ticino.imageAlt': 'Veduta di Lugano al tramonto con le montagne del Ticino sullo sfondo.',
 };
 
 export default blogMetaIt;

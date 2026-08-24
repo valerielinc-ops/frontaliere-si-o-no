@@ -31935,6 +31935,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'malesco-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-24T06:11:15.528Z',
+ image: '/images/blog/malesco-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

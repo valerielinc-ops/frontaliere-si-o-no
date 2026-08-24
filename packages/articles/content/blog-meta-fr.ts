@@ -10673,6 +10673,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'Les chiffres du jour pour les frontaliers – 24 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Bulletin du frontalier du 24 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'Les chiffres du 24 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.malesco-frontaliere-ticino.title': 'Vivre à Malesco, travailler au Tessin : guide pratique',
+    'blog.article.malesco-frontaliere-ticino.excerpt': 'Déménager à Malesco pour travailler au Tessin : points de passage, temps de trajet, fiscalité avantageuse et coûts réduits pour les frontaliers.',
+    'blog.article.malesco-frontaliere-ticino.imageAlt': 'Vue du coucher de soleil sur Lugano avec les montagnes tessinoises en arrière-plan.',
 };
 
 export default blogMetaFr;
