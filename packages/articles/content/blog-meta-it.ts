@@ -10661,6 +10661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Vivere a Monguzzo e lavorare in Ticino da frontaliere',
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Impostazione fiscale, permessi e vantaggi per i frontalieri che lavorano in Ticino e risiedono in Monguzzo',
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora in Ticino e risiede a Monguzzo',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.title': 'Vivere a Novedrate e lavorare in Ticino',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.excerpt': 'Nuovo Accordo Frontalieri, permesso G, imposta alla fonte, AVS e LPP: la guida completa per vivere in Lombardia e pendolare verso il Ticino.',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.imageAlt': 'Lago di Como al confine tra Novedrate e il Canton Ticino, simbolo del pendolarismo frontaliere italiano-svizzero',
 };
 
 export default blogMetaIt;
