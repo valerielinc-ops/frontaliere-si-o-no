@@ -1,18 +1,49 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-23T21:26:30.338Z",
-  "total": 134,
-  "newCount": 0,
+  "generatedAt": "2026-08-24T10:26:02.182Z",
+  "total": 135,
+  "newCount": 1,
   "updatedCount": 84,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 3266,
-  "avgDurationMs": 3266,
+  "durationMs": 3191,
+  "avgDurationMs": 3191,
   "durationHistory": [
-    3266
+    3191
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "(Senior) Associate - U.S. Tax (Financial Services)",
+      "slug": "senior-associate-u-s-tax-financial-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-u-s-tax-financial-services/c2987500-7158-4c80-bb43-a7a5590e8dd8",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/XMLNAME--Senior--Associate---US-Tax--Financial-Services-_746222WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-23",
+      "validThrough": "2036-08-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikant:in - Sustainable Finance (Financial Services)",
@@ -568,7 +599,6 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -639,7 +669,6 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1048,7 +1077,6 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:03:02.989Z",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1376,6 +1404,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-17T22:05:45.953Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1413,6 +1442,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-08T22:21:17.082Z",
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
