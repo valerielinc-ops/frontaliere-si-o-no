@@ -741,13 +741,13 @@ const EMPTY_OK_CRAWLERS = new Set([
   // VISIONAPARTMENTS / Vision Management Services GmbH (Zürich, #6345):
   // verified live 2026-08-24 — the jobs.ch company profile
   // (https://www.jobs.ch/en/companies/69c35774-5e33-4b40-94e0-4a9d949707c6-vision-management-services-gmbh/vacancies/)
-  // renders `data-cy="company-no-vacancies"` (jobs.ch's own explicit
-  // zero-openings marker), and the `vacancy-serp-item`/
-  // `/en/vacancies/detail/{uuid}/` markup the parser targets is confirmed
-  // still correct against a sibling jobs.ch company profile with live
-  // openings (e.g. jobcloud-ag) fetched the same way. This is not a
-  // selector break: the company profile id/markup are unchanged and still
-  // correct; VISIONAPARTMENTS simply has zero open Swiss roles right now.
+  // renders jobs.ch's own explicit zero-openings marker
+  // (`data-cy="company-no-vacancies"`), and the vacancy-listing markup the
+  // dedicated parser targets is confirmed still correct against a sibling
+  // jobs.ch company profile with live openings (e.g. jobcloud-ag) fetched
+  // the same way. This is not a selector break: the company profile
+  // id/markup are unchanged and still correct; VISIONAPARTMENTS simply has
+  // zero open Swiss roles right now.
   // `lastNonZeroJobs: 1` is physiological for this single-listing local
   // employer. Parser is healthy; re-arms automatically when
   // VISIONAPARTMENTS republishes a Swiss vacancy. Same legitimately-empty
