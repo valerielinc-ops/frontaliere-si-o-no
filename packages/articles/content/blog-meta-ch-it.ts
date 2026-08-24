@@ -4141,6 +4141,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pagamenti-offline-negozi-svizzera.title': 'Pagamenti offline nei negozi: arriva la soluzione',
     'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'Dal 2027 potrai pagare con carta anche senza internet nei negozi svizzeri. Il DEFR adotta un nuovo sistema offline per garantire la continuità durante blackout.',
     'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Terminale di pagamento in negozio durante transazione contactless con carta di credito, simbolo del pagamento offline',
+    'blog.article.carte-credito-pagamenti-offline-2027.title': 'Pagamenti offline con carte di credito dal 2027 in Svizzera',
+    'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'Dal 2027 i negozi svizzeri potranno processare pagamenti con carta di credito e di debito anche senza internet. DEFR, BNS e Consiglio federale annunciano la soluzione per la resilienza finanziaria.',
+    'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Lettore di carte di credito in un negozio svizzero che supporta i pagamenti offline anche in caso di blackout internet.',
 };
 
 export default blogMetaChIt;

@@ -4141,6 +4141,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pagamenti-offline-negozi-svizzera.title': 'Offline payments in stores: here comes the solution',
     'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'From 2027 you can pay by card even without internet in Swiss stores. The DEFR adopts a new offline system to ensure continuity during blackouts.',
     'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Payment terminal in retail shop during contactless card transaction, symbol of offline payment technology',
+    'blog.article.carte-credito-pagamenti-offline-2027.title': 'Offline credit card payments since 2027 in Switzerland',
+    'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'From 2027, Swiss stores will be able to process credit and debit card payments even without the internet. DEFR, the SNB and the Federal Council announce the solution for financial resilience.',
+    'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Digital payment terminal in a Swiss retail store supporting credit card transactions during internet outages.',
 };
 
 export default blogMetaChEn;

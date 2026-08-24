@@ -4141,6 +4141,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pagamenti-offline-negozi-svizzera.title': 'Offline-Zahlungen in Geschäften: Die Lösung kommt',
     'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'Ab 2027 können Sie in Schweizer Geschäften auch ohne Internet mit Karte bezahlen. Das WBF verwendet ein neues Offline-System, um die Kontinuität bei Stromausfällen zu gewährleisten.',
     'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Zahlungsterminal im Geschäft während kontaktloser Kartentransaktion, Symbol der Offline-Zahlungstechnologie',
+    'blog.article.carte-credito-pagamenti-offline-2027.title': 'Offline-Zahlungen per Kreditkarte ab 2027 in der Schweiz',
+    'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'Ab 2027 können Schweizer Geschäfte Kredit- und Debitkartenzahlungen auch ohne Internet abwickeln. WBF, SNB und Bundesrat kündigen die Lösung für die finanzielle Belastbarkeit an.',
+    'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Kartenzahlung an einem Geschäftsterminal in der Schweiz mit Kreditkarte und PIN-Eingabe, Unterstützung für Offline-Zahlungen.',
 };
 
 export default blogMetaChDe;
