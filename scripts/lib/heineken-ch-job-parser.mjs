@@ -41,6 +41,7 @@ import {
   AntiBotBlockError,
   NavigationTimeout,
 } from './ats-clients/playwright-runtime.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -194,6 +195,8 @@ export function parseSearchResults(html) {
     const title = rawTitle.replace(/^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i, '').trim();
 
     if (!title || title.length < 3) continue;
+    // Legacy SF/Jobs2Web chrome must not enter the list as a posting.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     const department = cells.length > 1 ? cells[1] : '';
     const location = cells.length > 2 ? cells[2] : '';
@@ -233,7 +236,12 @@ export function parseDetailPage(html) {
   const titleSource = stripScriptsAndStyles(html);
   const titleMatch = titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
     || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  // This portal is the legacy SuccessFactors/Jobs2Web one and tries <h2>
+  // FIRST — the same fallback that made Schindler publish the cookie-consent
+  // widget as a job title. '' lets fetchAll fall back to `row.title`.
+  const title = sanitizeSuccessFactorsField(
+    titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '',
+  );
 
   let descriptionHtml = '';
 

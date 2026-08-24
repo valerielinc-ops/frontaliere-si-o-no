@@ -52,6 +52,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -380,6 +381,11 @@ export async function fetchAllHolcimJobs() {
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
+    // A row whose anchor text IS the j2w page chrome (cookie-consent widget,
+    // keyword-search box, job-alert box) is not a posting — discard the row
+    // rather than clean the text, since a cleaned-out title would ship the
+    // consent widget's body under a blank/undefined heading (#3797 sibling).
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     const publicUrl = new URL(listing.href, `https://${CAREER_HOST}/`).toString();
     console.log(`  📄 Fetching detail: ${title}`);
@@ -394,7 +400,10 @@ export async function fetchAllHolcimJobs() {
 
     const location = city || 'Zug';
     const canton = explicitCanton || inferAnyCanton(location) || 'ZG';
-    const descriptionText = detail ? stripHtml(detail.descriptionHtml || '') : '';
+    // Detail page can carry the same j2w widget chrome as a description block
+    // (e.g. the consent manager's body text) — strip it to '' so the
+    // brand-blurb fallback below kicks in instead of shipping widget copy.
+    const descriptionText = detail ? sanitizeSuccessFactorsField(stripHtml(detail.descriptionHtml || '')) : '';
     const description = descriptionText || `${title} — ${HOLCIM_COMPANY_NAME} a ${location}.`;
 
     const sourceLang = detectLang(descriptionText || title, 'de');

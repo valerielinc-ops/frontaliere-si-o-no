@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -201,6 +202,10 @@ function parseListingPage(html, pageUrl) {
       || row.match(/<a[^>]+class="jobTitle-link"[^>]*>([\s\S]*?)<\/a>/i);
     const title = titleM ? textOf(titleM[1]) : '';
     if (!title || title.length < 3) continue;
+    // A row whose anchor text is the j2w page chrome (cookie-consent widget,
+    // keyword-search box, job-alert box) is not a posting — discard it rather
+    // than clean it, which would leave an annuncio without a name.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     const department = (row.match(/class="jobDepartment[^"]*"[^>]*>([\s\S]*?)<\/span>/i) || [])[1];
     const facility = (row.match(/class="jobFacility[^"]*"[^>]*>([\s\S]*?)<\/span>/i) || [])[1];
@@ -341,7 +346,10 @@ export async function fetchAllRolexJobs() {
     const canton = inferSwissTargetCanton(location) || 'GE'; // HQ fallback: Genève
 
     const descriptionHtml = (detail && detail.descriptionHtml) || '';
-    const descriptionText = stripHtml(descriptionHtml);
+    // Detail page can surface widget chrome as the "description" body too —
+    // sanitize before the length check so a widget-only block falls through
+    // to the brand blurb instead of shipping as content.
+    const descriptionText = sanitizeSuccessFactorsField(stripHtml(descriptionHtml));
     const description = descriptionText && descriptionText.length >= 40
       ? descriptionText
       : `${title} — ${ROLEX_COMPANY_NAME}, ${location} (${canton}).`;

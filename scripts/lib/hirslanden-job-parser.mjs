@@ -33,6 +33,7 @@ import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.
 import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -181,6 +182,10 @@ function parseSearchResultsTable(html) {
       : cells[0];
     const title = rawTitle.replace(/^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i, '').trim();
     if (!title || title.length < 3) continue;
+    // This branch's link is a GENERIC /Hirslanden/job/ anchor with a
+    // cells[0] fallback — the row most exposed to picking up the SF
+    // cookie-consent / search widget instead of a real posting title.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     // Hirslanden table layout: Title | Location | Date
     const location = cells.length > 1 ? cells[1] : '';
@@ -227,6 +232,9 @@ function parseSearchResultsTiles(html) {
       .replace(/^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i, '')
       .trim();
     if (!title || title.length < 3) continue;
+    // Same jobTitle-link anchor can carry SF widget chrome instead of a
+    // real posting title — discard the row, don't fabricate a job from it.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     // Location: `customfield5-value` div keyed by this jobId ("Ort" field).
     let location = '';
@@ -353,7 +361,11 @@ export function parseDetailPage(html) {
     doc.querySelector('[itemprop="title"]:not(meta):not(link)') ||
     doc.querySelector('h1') ||
     doc.querySelector('h2');
-  const title = titleEl ? normalizeSpace(titleEl.textContent || '') : '';
+  // The same selector chain can land on the SF cookie-consent / search
+  // widget when the microdata title span is missing on a given render —
+  // sanitize before it becomes the job's title. The listing.title fallback
+  // (see caller) covers the resulting empty string.
+  const title = sanitizeSuccessFactorsField(titleEl ? normalizeSpace(titleEl.textContent || '') : '');
 
   // Description: the real per-job body lives in <span itemprop="description">.
   // Prefer the typed body <span> and exclude void <meta>/<link> microdata nodes.
@@ -369,16 +381,10 @@ export function parseDetailPage(html) {
     description = descriptionBodyToMarkdown(descEl.innerHTML);
   }
 
-  // Reject SF widget garbage that occasionally bleeds into the description.
-  const GARBAGE = [
-    /Suche nach Stichwort/i,
-    /Benachrichtigung erstellen/i,
-    /Search by keyword/i,
-    /Create Alert/i,
-    /Select how often/i,
-    /Wählen Sie.*wie oft/i,
-  ];
-  if (GARBAGE.some((re) => re.test(description))) description = '';
+  // Reject SF widget garbage (cookie-consent / search / job-alert chrome)
+  // that occasionally bleeds into the description — shared module, see its
+  // header for why the three near-identical copies of this list got merged.
+  description = sanitizeSuccessFactorsField(description);
 
   // Strip recruiter-contact PII (direct phone numbers) per the Privacy policy.
   if (description) description = stripContactPII(description);
