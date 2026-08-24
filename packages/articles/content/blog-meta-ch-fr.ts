@@ -4066,6 +4066,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Tessin encaisse des records d\'imposition forfaitaire',
     'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'En 2024, le Tessin a perçu 189,5 millions de francs auprès de contribuables forfaitaires, soit 71 millions de plus qu\'en 2016. Le paradoxe : moins d\'étrangers fortunés, mais des entrées plus élevées.',
     'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Vue sur le lac de Lugano avec bâtiments bancaires modernes, représentant la gestion patrimoniale au Tessin',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifique : recherche et innovation suisse à Zurich',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Festival scientifique à Zurich : l\'Ecole polytechnique fédérale et l\'Université présentent des recherches innovantes. Voiture record du monde (0-100 km/h en 9 dixièmes) et drones autonomes.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Laboratoire de recherche de l\'EPFZ avec des étudiants travaillant sur des projets de robotique et de drones autonomes',
 };
 
 export default blogMetaChFr;

@@ -4066,6 +4066,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Das Tessin erzielt Rekordeinnahmen durch Pauschalsteuer',
     'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'Im Jahr 2024 erhielt das Tessin 189,5 Millionen Franken von Pauschalsteuerzahlern, 71 Millionen mehr als 2016. Das Paradoxe: Weniger wohlhabende Ausländer, aber höhere Einnahmen.',
     'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Lugano-Seeblick mit modernen Bankgebäuden und Berglandschaft, Symbol der Vermögensverwaltung im Tessin',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifica: Schweizer Forschung und Innovation in Zürich',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Wissenschaftsfestival in Zürich: Die Eidgenössische Technische Hochschule und die Universität präsentieren innovative Forschung. Weltrekord-Autos (0-100 km/h in 9 Zehntel) und autonome Drohnen.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Forschungslabor der ETH Zürich mit Studierenden an Robotik- und autonomen Drohnenprojekten',
 };
 
 export default blogMetaChDe;

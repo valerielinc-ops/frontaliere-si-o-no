@@ -12196,6 +12196,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'festival-scientifica-zurigo-ricerca',
+    category: 'novita',
+    date: '2026-08-24T09:29:29.038Z',
+    image: '/images/blog/festival-scientifica-zurigo-ricerca.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
