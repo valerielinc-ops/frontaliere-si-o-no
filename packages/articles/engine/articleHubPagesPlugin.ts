@@ -73,7 +73,7 @@ import {
   TOPIC_HUB_SEGMENT,
   TOPIC_INDEX_TITLE,
 } from './topicTaxonomy';
-import { assignArticlesToTopics } from './topicClusters';
+import { assignArticlesToTopics, type TopicAssignment } from './topicClusters';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -572,14 +572,45 @@ const TWIN_ARCHIVE_LINK_LABEL: Record<HubLocale, Record<ArticleSection, string>>
 };
 
 /**
+ * Full per-article topic assignment for a section's Italian master corpus —
+ * the same `assignArticlesToTopics` call `computeEligibleTopicKeys` below
+ * reduces to a Set of keys ≥ TOPIC_HUB_MIN_ARTICLES, on the same inputs read
+ * through the same shared readers (membership is computed once, on one
+ * locale, by design — see `topicClusters.ts`). `datePub` is inert for
+ * assignment (only `buildRelatedArticlesIndex` reads it) but is passed
+ * anyway so the input tuple stays field-for-field identical to that other
+ * caller's.
+ *
+ * Exported so a caller that needs the full assignment — e.g. `topicOf`, to
+ * link an article page to its own hub rather than just checking which
+ * topics clear the floor — reuses this one input build instead of a
+ * near-copy of it drifting out of sync (AGENTS.md #6).
+ */
+export function computeSectionTopicAssignment(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  section: ArticleSection,
+): TopicAssignment {
+  const cfg = ARTICLE_SECTIONS[section];
+  const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const dates = readArticleDates(fs, np, rootDir, cfg.registryFile);
+  return assignArticlesToTopics(
+    itArticles.map((a) => ({
+      articleId: a.slug,
+      title: a.title,
+      excerpt: itExcerpts.get(a.slug) ?? '',
+      datePub: dates.get(a.slug) ?? '',
+    })),
+    TOPIC_CLUSTERS.map((t) => ({ key: t.key, seedText: t.seedText })),
+  );
+}
+
+/**
  * Which topics carry an INDEXABLE hub for this section — the same
  * `assignArticlesToTopics`-membership ≥ TOPIC_HUB_MIN_ARTICLES split
- * `topicClusterHubsPlugin.ts`'s `renderTopicHubSectionCore` applies, on the
- * same inputs: the Italian master corpus (membership is computed once, on one
- * locale, by design — see `topicClusters.ts`), read through the same shared
- * readers. `datePub` is inert for assignment (only `buildRelatedArticlesIndex`
- * reads it) but is passed anyway so the input tuple stays field-for-field the
- * plugin's.
+ * `topicClusterHubsPlugin.ts`'s `renderTopicHubSectionCore` applies.
  *
  * Exported for tests and for callers that want to precompute/override
  * (`RenderArticleHubCoreArgs.eligibleTopicKeys`).
@@ -590,19 +621,7 @@ export function computeEligibleTopicKeys(
   rootDir: string,
   section: ArticleSection,
 ): ReadonlySet<string> {
-  const cfg = ARTICLE_SECTIONS[section];
-  const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
-  const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
-  const dates = readArticleDates(fs, np, rootDir, cfg.registryFile);
-  const assignment = assignArticlesToTopics(
-    itArticles.map((a) => ({
-      articleId: a.slug,
-      title: a.title,
-      excerpt: itExcerpts.get(a.slug) ?? '',
-      datePub: dates.get(a.slug) ?? '',
-    })),
-    TOPIC_CLUSTERS.map((t) => ({ key: t.key, seedText: t.seedText })),
-  );
+  const assignment = computeSectionTopicAssignment(fs, np, rootDir, section);
   return new Set(
     TOPIC_CLUSTERS.filter(
       (t) => (assignment.byTopic.get(t.key)?.length ?? 0) >= TOPIC_HUB_MIN_ARTICLES,

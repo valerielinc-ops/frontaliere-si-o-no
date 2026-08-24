@@ -4027,6 +4027,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Geschäft in Freiburg eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Freiburg: Rechtsformen, Handelsregistereintrag, Mindestkapital, Steuern und Versicherungspflichten für Selbstständige.',
     'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Schweizer Bürogebäude, die die Geschäftsumgebung zum Starten einer kommerziellen Tätigkeit darstellen.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B Solothurn: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Vollständiger Führerschein B im Kanton Solothurn. Entdecken Sie die Anforderungen, die einzureichenden Dokumente, die Dauer von 5 Jahren und das Erneuerungsverfahren innerhalb von 3 Monaten nach Ablauf.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Schweizer Aufenthaltserlaubnis Typ B mit persönlichen Daten und Erneuerungsdatum',
+    'blog.article.apprendistato-tirocinio-soletta.title': 'Lehre und Ausbildung im Kanton Solothurn',
+    'blog.article.apprendistato-tirocinio-soletta.excerpt': 'So finden Sie eine Lehrstelle, schließen den Vertrag ab, verstehen Entlohnung und Sozialschutz, ESTV-Zertifizierung im Kanton Solothurn.',
+    'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Junger Lehrling bei der Arbeit in einer modernen Schweizer Werkstatt',
+    'blog.article.classi-scolastiche-create-algoritmo.title': 'Mit einem Algorithmus erstellte Schulklassen, das Uster-Experiment',
+    'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'Die Stadt Uster hat eine Software implementiert, um ausgewogenere Schulklassen zu schaffen, die allen Schülern gleiche Chancen bieten.',
+    'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'Die Stadt Uster implementiert ein Software-Tool, um die Schulklassen besser auszugleichen, um allen Schülern gleiche Chancen zu bieten.',
 };
 
 export default blogMetaChDe;

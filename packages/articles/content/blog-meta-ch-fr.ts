@@ -4027,6 +4027,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Ouvrir des activités à Fribourg : registre du commerce et des coûts',
     'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Guide pratique pour démarrer une activité dans le canton de Fribourg : formes juridiques, inscription au registre du commerce, capital minimum, taxes et obligations d\'assurance pour indépendants.',
     'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Bâtiments de bureaux suisses représentant l\'environnement commercial pour démarrer une activité.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Permis de séjour B Soleure : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Guide complet du permis B dans le canton de Soleure. Découvrez les exigences, les documents à produire, la durée de 5 ans et la procédure de renouvellement dans les 3 mois suivant l\'expiration.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Permis de séjour type B suisse affichant les données personnelles et la date de renouvellement',
+    'blog.article.apprendistato-tirocinio-soletta.title': 'Apprentissage et formation dans le canton de Soleure',
+    'blog.article.apprendistato-tirocinio-soletta.excerpt': 'Comment trouver un poste d\'apprentissage, conclure le contrat, inclure la rémunération et les protections sociales, la certification AFC dans le canton de Soleure.',
+    'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Jeune apprenti travaillant dans un atelier professionnel suisse moderne',
+    'blog.article.classi-scolastiche-create-algoritmo.title': 'Classes scolaires créées avec un algorithme, l\'expérience d\'Uster',
+    'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'La ville d\'Uster a mis en place un logiciel pour créer des classes scolaires plus équilibrées, garantissant l\'égalité des chances à tous les élèves.',
+    'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'La ville d\'Uster met en œuvre un logiciel pour créer des classes scolaires plus équilibrées, garantissant des opportunités égales pour tous les élèves.',
 };
 
 export default blogMetaChFr;

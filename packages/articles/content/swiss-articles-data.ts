@@ -12079,6 +12079,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-soletta-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-24T04:51:47.353Z',
+    image: '/images/blog/permesso-dimora-b-soletta-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'apprendistato-tirocinio-soletta',
+    category: 'pratico',
+    date: '2026-08-24T05:25:13.569Z',
+    image: '/images/blog/apprendistato-tirocinio-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'classi-scolastiche-create-algoritmo',
+    category: 'fiscale',
+    date: '2026-08-24T05:51:30.507Z',
+    image: '/images/blog/classi-scolastiche-create-algoritmo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
