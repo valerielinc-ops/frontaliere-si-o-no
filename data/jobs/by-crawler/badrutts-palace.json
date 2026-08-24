@@ -677,6 +677,7 @@
           "sushi-chef-per-il-nostro-ristorante-matsuhisa-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:51:29.585Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -690,7 +691,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 0
     },
     {
       "id": "badrutts-palace-0f3aef9db00e",
