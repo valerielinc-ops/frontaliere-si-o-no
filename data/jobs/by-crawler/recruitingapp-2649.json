@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-2649",
-  "assembledAt": "2026-08-24T10:28:57.040Z",
+  "assembledAt": "2026-08-24T21:46:02.916Z",
   "jobs": [
     {
       "id": "recruitingapp-2649-7fa09a2659b2",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:54.861Z",
+      "crawledAt": "2026-08-24T21:45:59.139Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +111,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:54.558Z",
+      "crawledAt": "2026-08-24T21:45:58.834Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,7 +188,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:54.256Z",
+      "crawledAt": "2026-08-24T21:45:58.526Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,7 +263,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:53.949Z",
+      "crawledAt": "2026-08-24T21:45:58.216Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -316,9 +316,9 @@
       "id": "recruitingapp-2649-55c11dd7f349",
       "slug": "ausbildung-come-kaufmann-per-buromanagement-m-w-d-2027-alexander-von-humboldt-stiftung-stellen-lugano",
       "slugByLocale": {
-        "de": "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch",
         "it": "ausbildung-come-kaufmann-per-buromanagement-m-w-d-2027-alexander-von-humboldt-stiftung-stellen-lugano",
         "en": "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-alexander-von-humboldt-stiftung-stellen-lugano",
+        "de": "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch",
         "fr": "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-alexander-von-humboldt-stiftung-stellen-lugano"
       },
       "company": "Alexander von Humboldt-Stiftung Stellen",
@@ -326,9 +326,9 @@
       "companyDomain": "recruitingapp-2649.umantis.com",
       "title": "Ausbildung als Kaufmann für Büromanagement (m/w/d) 2027",
       "titleByLocale": {
-        "de": "Ausbildung als Kaufmann für Büromanagement (m/w/d) 2027",
         "it": "Ausbildung come Kaufmann per Büromanagement (m/w/d) 2027",
         "en": "Ausbildung als Kaufmann für Büromanagement (m/w/d) 2027",
+        "de": "Ausbildung als Kaufmann für Büromanagement (m/w/d) 2027",
         "fr": "Ausbildung als Kaufmann für Büromanagement (m/w/d) 2027"
       },
       "description": "Ausbildung als Kaufmann für Büromanagement (m/w/d) 2027 — Alexander von Humboldt-Stiftung Stellen",
@@ -340,7 +340,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/3948/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:53.633Z",
+      "crawledAt": "2026-08-24T21:45:57.891Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -354,18 +354,19 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/3948/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch",
+        "ausbildung-come-kaufmann-per-buromanagement-m-w-d-2027-alexander-von-humboldt-stiftung-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch"
+          "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch",
+          "ausbildung-come-kaufmann-per-buromanagement-m-w-d-2027-alexander-von-humboldt-stiftung-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:53.633Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -378,8 +379,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:28:53.633Z"
+      "addressRegion": "TI"
     }
   ]
 }

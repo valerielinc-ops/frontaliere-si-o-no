@@ -1,20 +1,21 @@
 {
   "key": "recruitingapp-2649",
   "label": "Alexander von Humboldt-Stiftung Stellen",
-  "generatedAt": "2026-08-24T10:28:57.041Z",
+  "generatedAt": "2026-08-24T21:46:02.916Z",
   "total": 5,
   "discovered": null,
   "written": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4433,
-  "avgDurationMs": 4433,
+  "durationMs": 6371,
+  "avgDurationMs": 6371,
   "durationHistory": [
-    4433
+    6371
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-2649-55c11dd7f349",
       "slug": "ausbildung-als-kaufmann-fur-buromanagement-m-w-d-2027-recruitingapp-2649-ch",
@@ -27,7 +28,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/3948/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:53.633Z",
+      "crawledAt": "2026-08-24T21:45:57.891Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-2649.umantis.com/Vacancies/3948/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:53.633Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "recruitingapp-2649-d7f8c5d92cba",
       "slug": "teamleitung-m-w-d-finanzmanagement-im-referat-finanzen-recruitingapp-2649-ch",
@@ -62,7 +63,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:53.949Z",
+      "crawledAt": "2026-08-24T21:45:58.216Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -97,7 +98,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4005/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:54.256Z",
+      "crawledAt": "2026-08-24T21:45:58.526Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -132,7 +133,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:54.558Z",
+      "crawledAt": "2026-08-24T21:45:58.834Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -167,7 +168,7 @@
       "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
       "source": "Alexander von Humboldt-Stiftung Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:54.861Z",
+      "crawledAt": "2026-08-24T21:45:59.139Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
