@@ -12079,6 +12079,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-soletta-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-24T04:51:47.353Z',
+    image: '/images/blog/permesso-dimora-b-soletta-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
