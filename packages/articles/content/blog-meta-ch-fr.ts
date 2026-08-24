@@ -4144,6 +4144,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carte-credito-pagamenti-offline-2027.title': 'Paiements hors ligne par cartes de crédit depuis 2027 en Suisse',
     'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'À partir de 2027, les magasins suisses pourront également traiter les paiements par carte de crédit et de débit sans Internet. DEFR, BNS et Conseil fédéral annoncent la solution pour la résilience financière.',
     'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Terminal de paiement par carte de crédit dans un magasin suisse permettant les transactions hors ligne en cas de panne internet.',
+    'blog.article.permesso-dimora-b-basilea-campagna.title': 'Permis de séjour B Bâle-Campagne : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Guide des exigences et de la procédure de renouvellement du permis B dans le canton de Bâle-Campagne. Durée, documents et contacts utiles.',
+    'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Bureau cantonal de migration Bâle-Campagne, renouvellement permis séjour B',
 };
 
 export default blogMetaChFr;

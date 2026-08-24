@@ -4144,6 +4144,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carte-credito-pagamenti-offline-2027.title': 'Pagamenti offline con carte di credito dal 2027 in Svizzera',
     'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'Dal 2027 i negozi svizzeri potranno processare pagamenti con carta di credito e di debito anche senza internet. DEFR, BNS e Consiglio federale annunciano la soluzione per la resilienza finanziaria.',
     'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Lettore di carte di credito in un negozio svizzero che supporta i pagamenti offline anche in caso di blackout internet.',
+    'blog.article.permesso-dimora-b-basilea-campagna.title': 'Permesso di dimora B Basilea Campagna: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Guida ai requisiti e alla procedura di rinnovo del permesso B nel Canton Basilea Campagna. Durata, documenti e contatti utili.',
+    'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Ufficio della migrazione cantonale, procedura per il rinnovo del permesso B di dimora',
 };
 
 export default blogMetaChIt;

@@ -4144,6 +4144,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carte-credito-pagamenti-offline-2027.title': 'Offline credit card payments since 2027 in Switzerland',
     'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'From 2027, Swiss stores will be able to process credit and debit card payments even without the internet. DEFR, the SNB and the Federal Council announce the solution for financial resilience.',
     'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Digital payment terminal in a Swiss retail store supporting credit card transactions during internet outages.',
+    'blog.article.permesso-dimora-b-basilea-campagna.title': 'Residence Permit B Basel Countryside: Requirements and Renewal',
+    'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Guide to the requirements and procedure for renewing the B permit in the Basel-Country Canton. Duration, documents and useful contacts.',
+    'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Cantonal migration office building, residence permit B renewal procedures',
 };
 
 export default blogMetaChEn;
