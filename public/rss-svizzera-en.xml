@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2026 01:04:41 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 01:24:46 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS and complementary services in the canton of Fribourg: an income guide</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/avs-pension-benefits-fribourg-compensation-fund/</link>
+      <description><![CDATA[How the first federal pillar works in the canton of Freiburg: AVS rates, the role of the cantonal compensation fund, pension calculation and supplementary benefits for the living minimum.]]></description>
+      <content:encoded><![CDATA[## In Brief
+- AVS is the first federal pillar with a 5.3% contribution rate at the employee's expense (10.6% with employer)
+- The Fribourg cantonal compensation fund manages contributions, calculations, and local benefits
+- Complementary benefits ensure the minimum vital when the AVS pension is insufficient
+
+## Key Facts
+- **What**: Old-age and survivors' insurance (AVS) system, first Swiss federal pillar
+- Rate: 5.3% employee, 10.6% total with employer
+- Where: Administered at the cantonal level by compensation funds (Fribourg included)
+- Who: UFAS/BSV coordinates at the federal level; cantonal funds manage locally
+- Benefits: Complementary benefits provided by the canton and municipalities to ensure minimum vital
+
+In the canton of Fribourg, as in the rest of Switzerland, the first pillar of pension insurance is guaranteed by the AVS system. This federal system is based on compulsory contributions: 5.3% is paid by the employee, while the employer contributes an additional 5.3%, for a total of 10.6%. Contributions paid during working life determine the monthly pension amount received from the time of retirement.
+
+Local management is the responsibility of the Fribourg cantonal compensation fund, which collects contributions, verifies insurance continuity, and calculates benefits. The role of this institution is crucial for those who have worked in the canton: it maintains contributory records, manages pension requests, and coordinates the payment of complementary benefits.
+
+Complementary benefits (PC) represent the second level of protection in the system: when the AVS pension does not cover the minimum vital (threshold set by the canton and municipalities), complementary benefits fill the gap. This mechanism ensures that no resident remains below a defined standard of living.
+
+### Contributory gaps and pension calculation
+
+One of the most important aspects is managing contributory gaps. If there are years without contributions paid during working life (for unemployment, illness, periods abroad), these directly affect the final pension calculation. The Fribourg cantonal compensation fund is responsible for identifying these gaps and offering the possibility of voluntary payments to partially fill them.
+
+Pension calculation follows a standard federal formula, but the result varies depending on the number of contributory years, the average salary, and the effect of the first pillar pension scheme. Each year of contribution counts in the final formula: a minimum of 1 year of insurance ensures a small benefit, while a maximum of 44 years allows for the accumulation of higher contributions. There is no fixed conversion rate: the pension is the result of a complex individual determination that the fund calculates by verifying the contributory dossier.
+### Complementary services: when they intervene
+
+Supplementary benefits are an essential safety net in the Swiss social security system. In the canton of Fribourg, as in other cantons, these benefits come into play when the AVS annuity alone is not enough to cover the living minimum. The minimum living threshold is defined at the municipal level, in coordination with the canton, and includes costs of food, housing, health and other basic needs.
+
+To access supplementary benefits, you must submit a request to the competent office, usually the cantonal social assistance office or a delegated body. The procedure involves the detailed declaration of income, assets, family maintenance obligations and other personal circumstances. The cantonal authorities assess whether the claimant falls within the parameters to receive the integration.
+
+### Coordination between AVS and complementary services
+
+A fundamental aspect is to understand how the coordinated system works. The AVS annuity and contribution gaps are not independent: PCs are calculated as a supplement to the AVS annuity to reach the living minimum. This means that an increase in AVS income (for example, by annual indexation) is reflected in a reduction in PCs.
+
+In the canton of Fribourg, the address of the cantonal clearing house is the starting point for any questions about calculations, gaps or retirement procedure. Many errors and
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### How to request AVS pension in the canton of Fribourg: a practical procedure
+
+The AVS pension request must be submitted to the Fribourg compensation fund at least three months before the planned retirement date. This advance notice allows the institution to verify the completeness of the contributory file and to prepare the decision in due time.
+
+**Step 1**: Contact the Fribourg compensation fund via mail, phone, or counter and request the official application form.
+
+Step 2: Fill out the form with personal data, AVS insurance number, date of birth, and salary history (if available in your personal records).
+
+Step 3: Attach supporting documents: AVS registry extract, work certificates, current residence documents, recent income tax declaration (if requesting supplementary benefits).
+
+Step 4: Send the complete file at least 3 months before the desired retirement date.
+
+Step 5: The fund notifies the written decision with the monthly pension amount. If further verifications are necessary (e.g., gaps to be filled), the process may take up to 6 months.
+
+### Key deadlines
+
+- 3 months before retirement: official deadline for the request
+- Elaboration time: 2–6 weeks for simple cases, up to 6 months if further verifications are necessary
+- Start of payment: usually the month following the notification of the decision
+
+### Available resources and tools
+
+The Fribourg compensation fund provides consultants who help with the predictive calculation of the pension. Many contributors underutilize this service: a preventive consultation allows for planning the retirement and identifying gaps to be filled before actually retiring. For those with contributory periods in multiple cantons or countries (thanks to international agreements with the EU/AELS), the calculation is more complex: it is essential to be guided by experts from the fund.
+
+Calculate your AVS pension today with our [pension calculator](nav:pension) and check in advance how much you will receive at retirement.]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 01:24:46 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avs-prestazioni-complementari-friburgo-cassa</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-friburgo-cassa.webp" medium="image"/>
+    </item>
     <item>
       <title>Naturalization Canton of Fribourg: requirements and procedure</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/naturalization-fribourg-requirements-procedure/</link>
@@ -3163,83 +3234,6 @@ If you change your LAMal model during the year (for example, from a CHF 500 dedu
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/premi-lamal-svitto-riduzione</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-lamal-svitto-riduzione.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Wages and labour market in URIs</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/uri-sectors-employment-compensation/</link>
-      <description><![CDATA[How are salaries determined in URIs? Discover sectors, levels of training, collective agreements, taxation and social security in the Swiss Alpine canton.]]></description>
-      <content:encoded><![CDATA[## In brief
-- In Switzerland there is no federal minimum wage; some cantons set it separately by law.
-- Max 45 hours/week (industry/offices); min 4 weeks vacation; AVS/AI account for 5.3% of salary.
-- Three-level taxation (federal, cantonal, municipal); LAMal premiums vary by canton and include subsidies.
-
-## Key Facts
-- **What**: Factors that determine wages and employment in the Swiss labor market
-- Where: Uri Canton, central Switzerland
-- Contributions: AVS/AI/IPG 5.3% employee; AD/AC 1.1% up to annual ceiling
-- Hours: 45 hours per week maximum (industry/offices); other sectors up to 50 hours
-- Vacation: 4 weeks minimum per year (5 for employees under 20 years old)
-- LAMal: Mandatory health insurance; per capita premiums with cantonal subsidies
-
-### Factors affecting salaries in Uri
-
-The labor market of Uri Canton follows federal and cantonal principles that regulate wages, hours and pensions throughout Switzerland. Although Uri is not among the cantons with its own legislative minimum wage (federal law does not provide for a national minimum wage), salary depends on several factors: level of education, economic sector, collective labor agreements (CCL) in force and the cantonal tax regime.
-
-For those working in Uri, some common national thresholds apply. The maximum working hours are set at 45 hours per week for industry, offices and commerce; other sectors can agree up to 50 hours. Minimum vacation is four weeks per year, five for employees under 20 years old. Contract terminations follow precise timelines: 1 month during the first year, 2 months from the second to the ninth year, 3 months from the tenth year onwards.
-
-Pensions constitute a significant item in gross salary. Contributions to social security funds (AVS/AI/IPG) amount to 5.3% of salary for the employee and 5.3% for the employer; unemployment insurance (AD/AC) accounts for 1.1% up to an annual ceiling. The occupational pension fund (LPP/BVG), when applicable, varies by age: from 7% for ages 25–34 up to 18% for ages 55 and over (until the reference age).
-
-Health insurance (LAMal/KVG) is mandatory for all residents in Switzerland and is not applied through salary, but through individual premiums paid directly to insurance companies. Premiums vary by canton and region and benefit from cantonal reductions (subsidies) for medium-low incomes.
-
-### Taxation and collective labor agreements
-
-Taxation significantly affects net salary. Three levels of taxes operate in Switzerland: federal (the same throughout the country), cantonal and municipal. Uri has its own cantonal multiplier and municipalities apply a multiplier on the cantonal rate; this cascading structure affects the net amount that the employee actually receives.
-
-Many economic sectors operate under collective labor agreements that set sector minimum wages, hours and benefits. Not all sectors have a CLA: membership in an employers' organization or trade union that adheres to a CLA determines whether the worker benefits from these protections. Identifying the applicable CLA for your sector is essential to understand contractual rights and obligations.
-
-Beyond technical factors, Uri's labor market is influenced by its geographical position in Swiss alpine territory and the canton's economic dynamics. Some sectors may offer more employment opportunities than others, just as levels of education determine access to better-paid positions. To determine the exact salary and taxes due in Uri, it is advisable to consult the [online calculators](nav:calculator) provided by federal and cantonal administrations.
-### Evaluate the contractual conditions in Uri
-
-When moving or changing jobs in Uri, the first assessment is about the level of training and experience required. A high nominal salary can be deceptively low once taxes, contributions and insurance premiums are deducted. A worker receiving a gross salary often finds that the net is significantly lower when the three tax rates (federal, cantonal, municipal) and social insurance contributions are subtracted.
-
-In URI, as in all of Switzerland, a first discriminant between contracts is the adherence to a collective labour agreement. If your employer is a member of an employer association that adheres to a CCL in your industry, the contract is subject to federal and sectoral minimum standards: hours, holidays, night/holiday supplements, salary supplements are already defined. An individual contract, by contrast, requires case-by-case negotiation and leaves fewer protections established by law or agreement.
-
-### Social security and taxes: the impact on net income
-
-Compulsory social security (AVS/AI) weighs directly on the salary: 5.3% is automatically paid from the paycheck; the employer pays an additional 5.3%. Unemployment insurance (AD) is another 1.1% until a ceiling is reached. If your contract includes an LPP/BVG fund, the contribution varies by age group and can reach 18% for workers over 55.
-
-Direct taxes
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Concrete steps to start working in Uri
-
-Before accepting a job offer in Uri, gather information on three fronts. First: verify the applicable collective labor agreement (CLA) in your sector by contacting the trade union or employer; the CLA defines sectoral minimum wage, working hours, benefits and forms of protection. Second: calculate the tax effect using the SECO calculator or the Uri tax office; enter the proposed gross salary and immediately discover your monthly/annual net income. Third: check LAMal premiums for your profile (age, gender, franchise) by visiting the official comparison tool and verify if you are entitled to cantonal subsidies.
-
-When signing the contract, ensure it contains the start date, net/gross amount, duration (definite/indefinite), weekly hours, days of leave, probation period and termination clauses. If the contract refers to a CLA, request a copy of the applicable text. Keep the documentation: it will be useful for future verifications and for any disputes with the employer.
-
-### Registration, taxes and deadlines
-
-Within 3 months of arriving in Uri, register with the municipal residence authorities (population office). Registration is mandatory and opens access to cantonal public services. At the same time, you must register with a [LAMal](nav:health) health insurance fund; you can do this online or by directly contacting an insurance company.
-
-If you are a tax resident in Uri as of December 31, you are subject to federal, cantonal and municipal income tax. The federal tax return usually expires on March 31 of the following year; Uri may have its own deadlines. Keep pay slips, receipts and pension documents to support your return.
-
-If you have an LPP/BVG (occupational pension) contract, the fund sends annual statements: verify them for correctness of contributions and reserved balance. The amount of the pension at the reference age (65 years for men, 64 for women, with possible variations) depends on the accumulated capital and the conversion rate of the fund.
-
-### Useful contacts and online tools
-
-To navigate the Uri labor market with awareness:
-- SECO for job offers and information on the national market
-- Uri tax office for tax returns and advice
-- [Official LAMal comparison tool](nav:health) for premiums and cantonal subsidies
-- Uri pension office for information on AVS, LPP and subsidies
-- [Salary calculator](nav:calculator) for net-to-gross simulations
-
-Using these tools from the early stages of your job search allows you to compare offers realistically and plan your budget in Uri.]]></content:encoded>
-      <pubDate>Sat, 22 Aug 2026 20:41:32 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/uri-settori-assunzione-retribuzioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/uri-settori-assunzione-retribuzioni.webp" medium="image"/>
     </item>
   </channel>
 </rss>

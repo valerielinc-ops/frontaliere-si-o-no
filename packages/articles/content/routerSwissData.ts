@@ -1362,6 +1362,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-b-friburgo-rinnovo-procedura': { it: 'permesso-b-friburgo-rinnovo-procedura', en: 'residence-permit-b-fribourg-renewal-procedure', de: 'aufenthaltserlaubnis-b-freiburg-erneuerung-verfahren', fr: 'permis-sejour-b-fribourg-renouvellement-procedure' },
  'domicilio-c-friburgo-procedura-richiesta': { it: 'domicilio-c-friburgo-procedura-richiesta', en: 'residence-permit-c-fribourg-procedure-application', de: 'aufenthaltserlaubnis-c-freiburg-verfahren-antrag', fr: 'permis-domicile-c-fribourg-procedure-demande' },
  'naturalizzazione-friburgo-requisiti-procedura': { it: 'naturalizzazione-friburgo-requisiti-procedura', en: 'naturalization-fribourg-requirements-procedure', de: 'einbuergerung-freiburg-anforderungen-verfahren', fr: 'naturalisation-fribourg-conditions-procedure' },
+ 'avs-prestazioni-complementari-friburgo-cassa': { it: 'avs-prestazioni-complementari-friburgo-cassa', en: 'avs-pension-benefits-fribourg-compensation-fund', de: 'ahv-ergaenzungsleistungen-freiburg-ausgleichskasse', fr: 'avs-prestations-complementaires-fribourg-caisse-compensation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4009,6 +4009,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.title': 'Einbürgerung des Kantons Freiburg: Anforderungen und Verfahren',
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.excerpt': 'Vollständiger Leitfaden für die gewöhnliche Einbürgerung im Kanton Freiburg: Bundesverfahren, Sprachanforderungen, Steuern und kommunale Fristen.',
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.imageAlt': 'Schweizer Einbuergerungsurkunde vor dem Rathaus von Freiburg',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Freiburg: Rentenleitfaden',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.excerpt': 'Wie die erste Säule des Bundes im Kanton Freiburg funktioniert: AHV-Sätze, Rolle der kantonalen Ausgleichskasse, Rentenberechnung und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.imageAlt': 'Friburger Kantonsausgleichskasse für AVS-Rentenverwaltung und Ergänzungsleistungen',
 };
 
 export default blogMetaChDe;

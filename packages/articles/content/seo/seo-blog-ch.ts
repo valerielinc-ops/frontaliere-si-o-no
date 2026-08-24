@@ -52007,6 +52007,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-friburgo-cassa': {
+    title: 'AVS e prestazioni complementari in canton Friburgo: guida alla rendita',
+    description: 'Come funziona il primo pilastro AVS nel canton Friburgo: aliquote contributive 5.3%, ruolo della cassa di compensazione cantonale, calcolo della rendita',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, friburgo',
+    ogTitle: 'AVS e prestazioni complementari in canton Friburgo: guida pratica',
+    ogDescription: 'Scopri come funziona il primo pilastro della previdenza nel canton Friburgo: calcolo della rendita AVS, ruolo della cassa di compensazione cantonale e accesso alle prestazioni complementari per garantire il minimo vitale. Guida pratica con procedura',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-friburgo-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari in canton Friburgo: guida alla rendita",
+      "description": "Come funziona il primo pilastro AVS nel canton Friburgo: aliquote contributive 5.3%, ruolo della cassa di compensazione cantonale, calcolo della rendita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-friburgo-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione cantonale di Friburgo per la gestione della previdenza AVS e prestazioni complementari"
+      },
+      "datePublished": "2026-08-24T01:24:46+00:00",
+      "dateModified": "2026-08-24T01:24:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-friburgo-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
