@@ -46,6 +46,16 @@ export interface TopicClusterDefinition {
   readonly seedText: string;
 }
 
+// ~24% of the frontaliere-section corpus and ~16% of svizzera (845/3.539 and
+// 221/1.341, measured 2026-08-24 — see docs/topical-authority-map.md) match
+// none of the 14 topics below. TRIED AND REJECTED before adding a 15th: 3
+// candidate topics (comuni-confine, cultura-eventi, economia-imprese) raised
+// frontaliere coverage 75.9% → 80.1%, but 153/222 of comuni-confine's new
+// members were STOLEN from other topics with wrong matches (a drug-bust
+// article landed there for mentioning a border town's name). Low-specificity
+// topics buy coverage by degrading the 14 that already work. Re-measure with
+// `computeSectionTopicAssignment` (articleHubPagesPlugin.ts) before trying
+// again — don't re-attempt this from the same hunch.
 export const TOPIC_CLUSTERS: readonly TopicClusterDefinition[] = [
   {
     key: 'fiscalita',
