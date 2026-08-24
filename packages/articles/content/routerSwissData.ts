@@ -1395,6 +1395,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'usi-supsi-aumentano-tasse-studenti': { it: 'usi-supsi-aumentano-tasse-studenti', en: 'usi-supsi-increase-student-fees', de: 'usi-supsi-steigende-studentenbeitrage', fr: 'usi-supsi-augmentation-des-frais-etudiants' },
  'permesso-b-basilea-citta': { it: 'permesso-b-basilea-citta', en: 'residence-permit-b-basel-city', de: 'aufenthaltsgenehmigung-b-basel-stadt', fr: 'permis-sejour-b-bale-ville' },
  'aziende-bio-foraggio-convenzionale': { it: 'aziende-bio-foraggio-convenzionale', en: 'bio-farms-forage-conventional', de: 'biobetriebe-forage-konventionell', fr: 'exploitations-biologiques-fourrage-conventionnel' },
+ 'domicilio-c-canton-basilea-diritti': { it: 'domicilio-c-canton-basilea-diritti', en: 'residence-permit-c-canton-basel-rights', de: 'aufenthalt-c-kanton-basel-rechte', fr: 'permis-residence-c-canton-bale-droits' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

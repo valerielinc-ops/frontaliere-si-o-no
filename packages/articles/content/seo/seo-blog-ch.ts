@@ -53294,6 +53294,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domicilio-c-canton-basilea-diritti': {
+    title: 'Permesso C Basilea Città: requisiti diritti e naturalizzazione',
+    description: 'Permesso di domicilio C nel Canton Basilea Città: 10 anni residenza (5 UE/AELS), integrazione, procedura domanda e naturalizzazione ordinaria in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, basilea, città, requisiti',
+    ogTitle: 'Permesso C Basilea: requisiti diritti e naturalizzazione',
+    ogDescription: 'Il permesso di domicilio C è il titolo federale per stabilirsi permanentemente in Svizzera. Nel Canton Basilea Città scopri i requisiti (10 anni residenza, 5 per UE/AELS), la procedura cantonale e il percorso verso naturalizzazione ordinaria',
+    canonicalPath: '/articoli-svizzera/domicilio-c-canton-basilea-diritti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Basilea Città: requisiti diritti e naturalizzazione",
+      "description": "Permesso di domicilio C nel Canton Basilea Città: 10 anni residenza (5 UE/AELS), integrazione, procedura domanda e naturalizzazione ordinaria in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/domicilio-c-canton-basilea-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo cantonale di Basilea Città con bandiera svizzera, sede delle autorità per il rilascio del permesso di domicilio C"
+      },
+      "datePublished": "2026-08-24T12:47:49+00:00",
+      "dateModified": "2026-08-24T12:47:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/domicilio-c-canton-basilea-diritti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

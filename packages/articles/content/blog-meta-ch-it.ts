@@ -4108,6 +4108,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aziende-bio-foraggio-convenzionale.title': 'Aziende bio possono acquistare 20% foraggio convenzionale',
     'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'L\'Ufficio federale dell\'agricoltura allenta le norme per le aziende biologiche: 20% di foraggio convenzionale per coprire il fabbisogno totale dei propri animali',
     'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Aziende biologiche',
+    'blog.article.domicilio-c-canton-basilea-diritti.title': 'Permesso C Basilea Città: requisiti diritti e naturalizzazione',
+    'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Permesso di domicilio C nel Canton Basilea Città: 10 anni residenza (5 UE/AELS), integrazione federale, procedura cantonale e percorso verso naturalizzazione ordinaria svizzera.',
+    'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Edificio amministrativo cantonale di Basilea Città con bandiera svizzera, sede delle autorità per il rilascio del permesso di domicilio C',
 };
 
 export default blogMetaChIt;
