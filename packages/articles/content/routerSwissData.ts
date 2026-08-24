@@ -1377,6 +1377,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'roche-acquisisce-diritti-trattamento-obesita': { it: 'roche-acquisisce-diritti-trattamento-obesita', en: 'roche-acquires-rights-to-obesity-treatment', de: 'roche-erwirbt-rechte-an-einer-widerstandstoffs-behandlung-gegen-adipositas', fr: 'roche-acquiert-les-droits-a-un-traitement-experimental-contre-lobesite' },
  'acquistare-immobile-canton-soletta-mutuo': { it: 'acquistare-immobile-canton-soletta-mutuo', en: 'buying-property-canton-soletta-mortgage', de: 'immobilie-kauf-kanton-solothurn-hypothek', fr: 'acheter-propriete-canton-soleure-hypotheque' },
  'storia-sicurezza-sociale-rilancio': { it: 'storia-sicurezza-sociale-rilancio', en: 'history-of-social-security-relaunch', de: 'geschichte-der-sozialen-sicherheit-neuauflage', fr: 'histoire-de-la-securite-sociale-reprise' },
+ 'soletta-affitti-canoni-diritto': { it: 'soletta-affitti-canoni-diritto', en: 'solothurn-rents-market-and-tenancy-law', de: 'solothurn-mietmarkt-und-mietrecht', fr: 'soleure-marche-loyers-droit-bail' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

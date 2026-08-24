@@ -12160,6 +12160,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'soletta-affitti-canoni-diritto',
+    category: 'pratico',
+    date: '2026-08-24T08:37:12.606Z',
+    image: '/images/blog/soletta-affitti-canoni-diritto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
