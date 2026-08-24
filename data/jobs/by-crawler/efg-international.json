@@ -1082,14 +1082,12 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ]
     },
@@ -1904,7 +1902,7 @@
       "slugByLocale": {
         "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -1935,13 +1933,15 @@
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano"
+          "schaltnetzbetreiber-efg-international-ag-lugano",
+          "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
         "schaltnetzbetreiber-efg-international-ag-lugano",
-        "switchboard-operator-efg-international-ag-lugano"
+        "switchboard-operator-efg-international-ag-lugano",
+        "schaltstelle-operator-efg-international-ag-lugano"
       ]
     },
     {

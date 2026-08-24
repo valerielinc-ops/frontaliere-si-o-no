@@ -75,12 +75,12 @@
     },
     {
       "id": "recruitingapp-2677-e9fa8bc85a9c",
-      "slug": "private-banker-in-salzburg-recruitingapp-2677-ch",
+      "slug": "private-banker-a-salisburgo-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "private-banker-in-salzburg-recruitingapp-2677-ch",
+        "de": "privatbanker-in-salzburg-e-recruiting-llb-gruppe-stellen-lugano",
+        "it": "private-banker-a-salisburgo-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "private-banker-in-salzburg-recruitingapp-2677-ch",
-        "de": "private-banker-in-salzburg-recruitingapp-2677-ch",
-        "fr": "private-banker-in-salzburg-recruitingapp-2677-ch"
+        "fr": "banque-privee-a-salzbourg-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -130,7 +130,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:52.317Z"
+      "firstSeenAt": "2026-08-23T09:36:52.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "private-banker-in-salzburg-recruitingapp-2677-ch"
+        ],
+        "de": [
+          "private-banker-in-salzburg-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "private-banker-in-salzburg-recruitingapp-2677-ch"
+        ]
+      },
+      "previousSlugs": [
+        "private-banker-in-salzburg-recruitingapp-2677-ch"
+      ]
     },
     {
       "id": "recruitingapp-2677-942958e34440",
@@ -176,7 +190,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:36:52.010Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -189,7 +202,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:36:52.010Z"
     },
     {
       "id": "recruitingapp-2677-adf5d6d85512",
@@ -265,9 +279,9 @@
       "id": "recruitingapp-2677-f12150ca7f54",
       "slug": "pam-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
+        "de": "pam-system-engineer-recruitingapp-2677-ch",
         "it": "pam-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "pam-system-engineer-e-recruiting-llb-gruppe-stellen-lugano",
-        "de": "pam-system-engineer-recruitingapp-2677-ch",
         "fr": "pam-system-ingenieur-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
@@ -305,18 +319,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:36:51.402Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pam-system-engineer-recruitingapp-2677-ch"
-        ],
-        "fr": [
-          "pam-system-engineer-recruitingapp-2677-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pam-system-engineer-recruitingapp-2677-ch"
-      ],
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -329,7 +331,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:36:51.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pam-system-engineer-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "pam-system-engineer-recruitingapp-2677-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pam-system-engineer-recruitingapp-2677-ch"
+      ]
     },
     {
       "id": "recruitingapp-2677-1e09f84b8df2",
@@ -464,10 +478,10 @@
       "id": "recruitingapp-2677-acd8d753a1a5",
       "slug": "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
         "de": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp",
-        "fr": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        "it": "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "computer-scientist-apprenticeship-in-platform-development-with-or-without-a-professional-degree-e-recruiting-llb-gruppe",
+        "fr": "apprentissage-informatique-scientifique-en-developpement-de-plateforme-avec-ou-sans-diplome-professionnel-e-recruiting"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -508,11 +522,18 @@
         "it": [
           "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp",
           "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "en": [
+          "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
       "previousSlugs": [
         "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp",
-        "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
+        "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -533,10 +554,10 @@
       "id": "recruitingapp-2677-5e16def81b6a",
       "slug": "apprendistato-bankkauffrau-bankkaufmann-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "apprendistato-bankkauffrau-bankkaufmann-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch",
         "de": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch",
-        "fr": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
+        "it": "apprendistato-bankkauffrau-bankkaufmann-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "apprenticeship-bank-manager-bank-manager-with-or-without-a-professional-diploma-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "apprentissage-gestionnaire-de-banque-gestionnaire-de-banque-avec-ou-sans-diplome-professionnel-e-recruiting-llb-gruppe"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -577,6 +598,12 @@
         "it": [
           "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch",
           "apprendistato-bankkauffrau-bankkaufmann-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "en": [
+          "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
         ]
       },
       "previousSlugs": [
@@ -731,10 +758,10 @@
       "id": "recruitingapp-2677-31053c69d35a",
       "slug": "private-banker-in-recruitingapp-2677-ch",
       "slugByLocale": {
+        "de": "privatbanker-in-e-recruiting-llb-gruppe-stellen-lugano",
         "it": "private-banker-in-recruitingapp-2677-ch",
         "en": "private-banker-in-recruitingapp-2677-ch",
-        "de": "private-banker-in-recruitingapp-2677-ch",
-        "fr": "private-banker-in-recruitingapp-2677-ch"
+        "fr": "banquer-prive-en-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -788,12 +815,12 @@
     },
     {
       "id": "recruitingapp-2677-e9a4d98bb08e",
-      "slug": "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano",
+      "slug": "formazione-professionale-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
-        "de": "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
-        "fr": "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
+        "it": "formazione-professionale-e-recruiting-llb-gruppe-stellen-lugano",
+        "de": "traineeprogramm-institutionelles-bankwesen-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "programme-de-stagiaires-services-bancaires-institutionnels-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -834,6 +861,12 @@
         "it": [
           "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
           "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "de": [
+          "traineeprogramm-institutional-banking-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
       "previousSlugs": [
@@ -859,9 +892,9 @@
       "id": "recruitingapp-2677-40c1dbb58d49",
       "slug": "microsoft-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
+        "de": "microsoft-system-engineer-recruitingapp-2677-ch",
         "it": "microsoft-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "microsoft-system-engineer-e-recruiting-llb-gruppe-stellen-lugano",
-        "de": "microsoft-system-engineer-recruitingapp-2677-ch",
         "fr": "microsoft-system-ingenieur-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
@@ -899,18 +932,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:36:48.667Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "microsoft-system-engineer-recruitingapp-2677-ch"
-        ],
-        "fr": [
-          "microsoft-system-engineer-recruitingapp-2677-ch"
-        ]
-      },
-      "previousSlugs": [
-        "microsoft-system-engineer-recruitingapp-2677-ch"
-      ],
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -923,16 +944,28 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:36:48.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "microsoft-system-engineer-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "microsoft-system-engineer-recruitingapp-2677-ch"
+        ]
+      },
+      "previousSlugs": [
+        "microsoft-system-engineer-recruitingapp-2677-ch"
+      ]
     },
     {
       "id": "recruitingapp-2677-efe217f50e91",
       "slug": "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano",
         "de": "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch",
-        "fr": "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
+        "it": "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "client-advisor-in-professional-provision-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "conseiller-client-en-prestation-professionnelle-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -973,11 +1006,18 @@
         "it": [
           "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch",
           "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "en": [
+          "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch",
-        "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano"
+        "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano",
+        "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -998,10 +1038,10 @@
       "id": "recruitingapp-2677-ee52b72e7ad3",
       "slug": "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
         "de": "leiter-in-prozessmanagement-recruitingapp-2677-ch",
-        "fr": "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+        "it": "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "head-in-process-management-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "chef-gestion-des-processus-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -1042,11 +1082,18 @@
         "it": [
           "leiter-in-prozessmanagement-recruitingapp-2677-ch",
           "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "en": [
+          "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
       "previousSlugs": [
         "leiter-in-prozessmanagement-recruitingapp-2677-ch",
-        "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+        "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
+        "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1065,12 +1112,12 @@
     },
     {
       "id": "recruitingapp-2677-4923473206ff",
-      "slug": "legal-compliance-officer-recruitingapp-2677-ch",
+      "slug": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "legal-compliance-officer-recruitingapp-2677-ch",
+        "fr": "agent-juridique-et-de-conformite-e-recruiting-llb-gruppe-stellen-lugano",
+        "it": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "legal-compliance-officer-recruitingapp-2677-ch",
-        "de": "legal-compliance-officer-recruitingapp-2677-ch",
-        "fr": "legal-compliance-officer-recruitingapp-2677-ch"
+        "de": "legal-compliance-officer-recruitingapp-2677-ch"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -1120,16 +1167,27 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:47.734Z"
+      "firstSeenAt": "2026-08-23T09:36:47.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-compliance-officer-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "legal-compliance-officer-recruitingapp-2677-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-compliance-officer-recruitingapp-2677-ch"
+      ]
     },
     {
       "id": "recruitingapp-2677-86b5efa6551e",
-      "slug": "associate-institutional-banking-recruitingapp-2677-ch",
+      "slug": "bancario-istituzionale-associato-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "associate-institutional-banking-recruitingapp-2677-ch",
         "en": "associate-institutional-banking-recruitingapp-2677-ch",
-        "de": "associate-institutional-banking-recruitingapp-2677-ch",
-        "fr": "associate-institutional-banking-recruitingapp-2677-ch"
+        "it": "bancario-istituzionale-associato-e-recruiting-llb-gruppe-stellen-lugano",
+        "de": "assoziiertes-institutionelles-bankwesen-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "banques-institutionnelles-associees-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -1179,7 +1237,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:47.423Z"
+      "firstSeenAt": "2026-08-23T09:36:47.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-institutional-banking-recruitingapp-2677-ch"
+        ],
+        "de": [
+          "associate-institutional-banking-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "associate-institutional-banking-recruitingapp-2677-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-institutional-banking-recruitingapp-2677-ch"
+      ]
     },
     {
       "id": "recruitingapp-2677-845d0f554af4",
@@ -1188,7 +1260,7 @@
         "it": "oracle-database-administrator-dba-recruitingapp-2677-ch",
         "en": "oracle-database-administrator-dba-recruitingapp-2677-ch",
         "de": "oracle-database-administrator-dba-recruitingapp-2677-ch",
-        "fr": "oracle-database-administrator-dba-recruitingapp-2677-ch"
+        "fr": "administrateur-de-base-de-donnees-oracle-dba-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -1242,12 +1314,12 @@
     },
     {
       "id": "recruitingapp-2677-f7af3041bd5d",
-      "slug": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano",
+      "slug": "consulente-clienti-in-servizio-direttamente-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "it": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano",
         "de": "kundenberater-in-service-direkt-recruitingapp-2677-ch",
-        "fr": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+        "it": "consulente-clienti-in-servizio-direttamente-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "customer-advisor-in-service-directly-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "conseiller-client-en-service-direct-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -1287,6 +1359,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-service-direkt-recruitingapp-2677-ch",
+          "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "en": [
+          "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
           "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
