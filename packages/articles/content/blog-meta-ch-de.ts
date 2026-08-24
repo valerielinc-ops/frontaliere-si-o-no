@@ -4006,6 +4006,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Niederlassungsbewilligung C Freiburg: Jahre und Antragsverfahren',
     'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Die Niederlassungsbewilligung C im Kanton Freiburg erfordert 10 Jahre Aufenthalt (5 für EU/EFTA-Staatsangehörige). Informieren Sie sich über die nationalen Anforderungen, das Schritt-für-Schritt-Verfahren und die nächsten Schritte zur Einbürgerung.',
     'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Schweizer Verwaltungsbüro mit Schalter für Migrationsdienste und Aufenthaltserlaubnis-Anträge',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.title': 'Einbürgerung des Kantons Freiburg: Anforderungen und Verfahren',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.excerpt': 'Vollständiger Leitfaden für die gewöhnliche Einbürgerung im Kanton Freiburg: Bundesverfahren, Sprachanforderungen, Steuern und kommunale Fristen.',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.imageAlt': 'Schweizer Einbuergerungsurkunde vor dem Rathaus von Freiburg',
 };
 
 export default blogMetaChDe;

@@ -4006,6 +4006,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Residence permit C Freiburg: years and application procedure',
     'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Residence permit C in the Canton of Freiburg requires 10 years of residence (5 for EU/EFTA citizens). Learn about national requirements, the step-by-step procedure, and the next steps towards naturalization.',
     'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Swiss administrative office counter for migration services and residence permit applications',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.title': 'Naturalization Canton of Fribourg: requirements and procedure',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.excerpt': 'Complete guide to ordinary naturalization in the Canton of Fribourg: federal procedure, language requirements, taxes and municipal deadlines.',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.imageAlt': 'Swiss naturalization certificate in front of Friburgo municipality building',
 };
 
 export default blogMetaChEn;
