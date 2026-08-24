@@ -10641,6 +10641,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Vivre à Caprezzo et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers résidant à Caprezzo : nouvel accord fiscal, fiscalité, franchises et gestion du travail dans le canton du Tessin.',
     'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Vue panoramique de la région frontalière entre l\'Italie et la Suisse près du lac Majeur',
+    'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Frontalier : requalification 2026, enfants et fiscalité',
+    'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'Comment une requalification professionnelle en 2026 change la fiscalité, les allocations familiales et la prévoyance pour frontaliers avec enfants : guide opérationnel avec checklist.',
+    'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Livres de formation professionnelle et documents sur bureau en contexte universitaire tessinois avec lumière naturelle.',
 };
 
 export default blogMetaFr;

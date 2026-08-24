@@ -10639,6 +10639,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Living in Caprezzo and working in Ticino as a border worker',
     'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Practical guide for border workers residing in Caprezzo: new tax agreement, taxation, deductibles and labour management in Canton Ticino.',
     'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Panoramic view of the border region between Italy and Switzerland near Lake Maggiore',
+    'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Frontier: 2026 redevelopment, children and taxation',
+    'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'How a professional retraining in 2026 changes taxation, family allowances and pension for border workers with children: operational guide with checklist.',
+    'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Professional development books and training materials on desk in Ticino university background with natural light.',
 };
 
 export default blogMetaEn;
