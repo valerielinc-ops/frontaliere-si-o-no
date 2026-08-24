@@ -39,6 +39,7 @@
     "audit:link-anchor-text": "node scripts/audit-link-anchor-text.mjs",
     "audit:duplicate-meta-description": "node scripts/audit-duplicate-meta-description.mjs",
     "audit:title-uniqueness": "node --expose-gc scripts/audit-title-uniqueness.mjs",
+    "audit:job-content-plausibility": "node scripts/audit-job-content-plausibility.mjs",
     "audit:job-locations": "node scripts/audit-job-locations.mjs",
     "audit:job-title-locale": "node scripts/audit-job-title-locale.mjs",
     "audit:spa-bundle-injection": "node scripts/audit-spa-bundle-injection.mjs",

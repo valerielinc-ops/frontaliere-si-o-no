@@ -127,6 +127,33 @@ Per issue HIGH-risk o intervento manuale su una categoria in coda (es. `revenue`
 | `agent:in-progress` | mutex: qualcuno (fixer CI o sessione locale `/fix-issue`) sta lavorando la issue ORA — anti-doppione (#4788/#4793) | claim gate (0.75 sopra) o sessione locale (Appendice A); rilasciata a fine lavoro/abbandono da entrambi |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
+| `job-content-quality` | un record crawlato non è un annuncio di lavoro (offerta commerciale, widget di consenso, voce di menu, placeholder di template) | `crawler-content-plausibility-audit.yml` e `scripts/report-crawler-content-error.mjs` |
+
+## Segnalazione umana di un difetto di contenuto crawlato
+
+Non tutte le issue nascono da un monitor. Un difetto **visto a occhio** su una
+pagina live — è così che sono emersi i due casi del 2026-08-24, `hotel-international`
+che pubblicava offerte di camere d'hotel e `schindler` col widget dei cookie come
+titolo — entra nella stessa pipeline con un comando, senza aprire una sessione:
+
+```bash
+node scripts/report-crawler-content-error.mjs <crawler-key|url-del-job> "<cosa c'è che non va>"
+node scripts/report-crawler-content-error.mjs <...> --urgent    # route immediata
+node scripts/report-crawler-content-error.mjs <...> --dry-run   # stampa e basta
+```
+
+Da lì è il ciclo normale: `issue-triage` → `issue-fix` → PR → `## LGTM` → auto-merge.
+
+**Routing, che qui è una scelta e non un caso.** Senza flag l'issue non porta
+label di routing né parole di innesco nel titolo → categoria `other` →
+`agent:fix-queued`, drenata da `followup-drainer` come tutto il resto.
+Con `--urgent` porta `parser-broken`, che da sola basta a `classifyIssue()` per
+dare categoria `crawler` → `agent:fix` immediato: è la deroga giusta quando il
+contenuto sbagliato è live e chi segnala l'ha verificato di persona, e resta
+opt-in perché il bypass della coda è documentato sopra come l'unica eccezione.
+
+Il contesto completo (rilevatore, calibrazione, audit settimanale) sta in
+`docs/CRAWLERS.md` → "Job-Content Plausibility".
 
 ## Kill-switch
 
