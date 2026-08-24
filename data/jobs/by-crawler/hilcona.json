@@ -1,7 +1,75 @@
 {
   "crawlerKey": "hilcona",
-  "assembledAt": "2026-08-24T10:15:18.670Z",
+  "assembledAt": "2026-08-24T21:45:17.949Z",
   "jobs": [
+    {
+      "id": "hilcona-b125562f2751",
+      "slug": "collaboratore-trice-magazzino-suddeutsche-truthahn-ag-ampfing",
+      "slugByLocale": {
+        "de": "mitarbeiter-lager-hilcona-ampfing",
+        "it": "collaboratore-trice-magazzino-suddeutsche-truthahn-ag-ampfing",
+        "en": "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing",
+        "fr": "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing"
+      },
+      "company": "Süddeutsche Truthahn AG",
+      "companyKey": "hilcona",
+      "companyDomain": "bellfoodgroup.com",
+      "title": "Mitarbeiter Lager",
+      "titleByLocale": {
+        "de": "Mitarbeiter Lager",
+        "it": "Collaboratore/trice magazzino",
+        "en": "Mitarbeiter Lager",
+        "fr": "Mitarbeiter Lager"
+      },
+      "description": "Du bist auf der Suche nach einer langfristigen Anstellung mit Perspektive? Dann bist du bei uns genau richtig! Komm in unser Team und werde Teil einer sicheren und zukunftsorientierten Erfolgsgeschichte. Aufgaben:\n• $ Abladen von Lieferungen mittels Schnellläufer und Ameise\n• $ ein- und Auslagern von Waren\n• $ Allgemeine Hilfsarbeiten im Lager\n• Bedienung des Warenwirtschaftssystems\n• Arbeiten mit dem Scanner\n• $ Bedienen und Grundwartung des Kartonaufrichters\n• Mengenvorbereitung nach Bedarf und Produktionsplanung Anforderungen:\n• Schichtbereitschaft\n• Teamfähigkeit\n• Sorgfalt und Belastbarkeit",
+      "descriptionByLocale": {
+        "de": "Du bist auf der Suche nach einer langfristigen Anstellung mit Perspektive? Dann bist du bei uns genau richtig! Komm in unser Team und werde Teil einer sicheren und zukunftsorientierten Erfolgsgeschichte. Aufgaben:\n• $ Abladen von Lieferungen mittels Schnellläufer und Ameise\n• $ ein- und Auslagern von Waren\n• $ Allgemeine Hilfsarbeiten im Lager\n• Bedienung des Warenwirtschaftssystems\n• Arbeiten mit dem Scanner\n• $ Bedienen und Grundwartung des Kartonaufrichters\n• Mengenvorbereitung nach Bedarf und Produktionsplanung Anforderungen:\n• Schichtbereitschaft\n• Teamfähigkeit\n• Sorgfalt und Belastbarkeit",
+        "it": "Du bist auf der Suche nach einer langfristigen Anstellung mit Perspektive? Dann bist du bei uns genau richtig! Komm in unser Team und werde Teil einer sicheren und zukunftsorientierten Erfolgsgeschichte. Aufgaben:\n• $ Abladen von Lieferungen mittels Schnellläufer und Ameise\n• $ ein- und Auslagern von Waren\n• $ Allgemeine Hilfsarbeiten im Lager\n• Bedienung des Warenwirtschaftssystems\n• Arbeiten mit dem Scanner\n• $ Bedienen und Grundwartung des Kartonaufrichters\n• Mengenvorbereitung nach Bedarf und Produktionsplanung Anforderungen:\n• Schichtbereitschaft\n• Teamfähigkeit\n• Sorgfalt und Belastbarkeit",
+        "en": "Du bist auf der Suche nach einer langfristigen Anstellung mit Perspektive? Dann bist du bei uns genau richtig! Komm in unser Team und werde Teil einer sicheren und zukunftsorientierten Erfolgsgeschichte. Aufgaben:\n• $ Abladen von Lieferungen mittels Schnellläufer und Ameise\n• $ ein- und Auslagern von Waren\n• $ Allgemeine Hilfsarbeiten im Lager\n• Bedienung des Warenwirtschaftssystems\n• Arbeiten mit dem Scanner\n• $ Bedienen und Grundwartung des Kartonaufrichters\n• Mengenvorbereitung nach Bedarf und Produktionsplanung Anforderungen:\n• Schichtbereitschaft\n• Teamfähigkeit\n• Sorgfalt und Belastbarkeit",
+        "fr": "Du bist auf der Suche nach einer langfristigen Anstellung mit Perspektive? Dann bist du bei uns genau richtig! Komm in unser Team und werde Teil einer sicheren und zukunftsorientierten Erfolgsgeschichte. Aufgaben:\n• $ Abladen von Lieferungen mittels Schnellläufer und Ameise\n• $ ein- und Auslagern von Waren\n• $ Allgemeine Hilfsarbeiten im Lager\n• Bedienung des Warenwirtschaftssystems\n• Arbeiten mit dem Scanner\n• $ Bedienen und Grundwartung des Kartonaufrichters\n• Mengenvorbereitung nach Bedarf und Produktionsplanung Anforderungen:\n• Schichtbereitschaft\n• Teamfähigkeit\n• Sorgfalt und Belastbarkeit"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Ampfing",
+      "canton": "GR",
+      "addressLocality": "Ampfing",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "Unbefristet",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-lager-5121",
+      "source": "Hilcona Dedicated Parser",
+      "crawledAt": "2026-08-24T21:45:14.772Z",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-lager-hilcona-ampfing"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-lager-hilcona-ampfing"
+      ],
+      "salaryMin": 64500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-24T21:45:14.772Z"
+    },
     {
       "id": "hilcona-0a4ebc60b146",
       "slug": "responsabile-della-tecnologia-dei-progetti-di-approvvigionamento-bell-schweiz-ag-basel",
@@ -42,7 +110,7 @@
       "postedDate": "2026-08-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-leiterin-beschaffung-projekte-technik-5118",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:14.803Z",
+      "crawledAt": "2026-08-24T21:45:14.407Z",
       "sourceLang": "de",
       "previousSlugs": [
         "leiter-leiterin-beschaffung-projekte-technik-hilcona-basel",
@@ -117,7 +185,7 @@
       "postedDate": "2026-08-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-planung-m-w-d-5117",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:14.271Z",
+      "crawledAt": "2026-08-24T21:45:13.927Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-planung-m-w-d-hilcona-pfaffstatt",
@@ -192,7 +260,7 @@
       "postedDate": "2026-08-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-elterntierbetrieb-in-herbligen-bei-thun-60-5116",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:13.888Z",
+      "crawledAt": "2026-08-24T21:45:13.576Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-elterntierbetrieb-in-herbligen-bei-thun-60-hilcona-zell",
@@ -267,7 +335,7 @@
       "postedDate": "2026-08-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/country-procurement-lead-schweiz-5115",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:13.502Z",
+      "crawledAt": "2026-08-24T21:45:13.046Z",
       "sourceLang": "de",
       "previousSlugs": [
         "country-procurement-lead-schweiz-hilcona-steinach",
@@ -282,8 +350,8 @@
           "country-procurement-lead-schweiz-hilcona-steinach"
         ]
       },
-      "firstSeenAt": "2026-08-20T10:02:56.470Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T10:02:56.470Z",
       "salaryMin": 113500,
       "salaryMax": 153000,
       "baseSalary": {
@@ -338,7 +406,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/controlling-m-w-d-5114",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:13.135Z",
+      "crawledAt": "2026-08-24T21:45:12.694Z",
       "sourceLang": "de",
       "previousSlugs": [
         "controlling-m-w-d-hilcona-marchtrenk",
@@ -409,7 +477,7 @@
       "postedDate": "2026-08-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/it-business-analyst-m-w-d-5112",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:12.746Z",
+      "crawledAt": "2026-08-24T21:45:12.173Z",
       "sourceLang": "de",
       "previousSlugs": [
         "it-business-analyst-m-w-d-hilcona-radolfzell",
@@ -480,7 +548,7 @@
       "postedDate": "2026-08-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/bi-specialist-financial-reporting-data-analytics-5110",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:12.342Z",
+      "crawledAt": "2026-08-24T21:45:11.781Z",
       "sourceLang": "de",
       "previousSlugs": [
         "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell",
@@ -495,8 +563,8 @@
           "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell"
         ]
       },
-      "firstSeenAt": "2026-08-17T21:56:08.236Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:56:08.236Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -551,7 +619,7 @@
       "postedDate": "2026-08-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-5109",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:11.960Z",
+      "crawledAt": "2026-08-24T21:45:11.298Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel",
@@ -625,7 +693,7 @@
       "postedDate": "2026-08-14",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-logistikerin-5101",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:11.436Z",
+      "crawledAt": "2026-08-24T21:45:10.796Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-logistikerin-hilcona-landquart",
@@ -645,8 +713,8 @@
           "logistiker-logistikerin-hilcona-landquart"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:41:04.605Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:41:04.605Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -701,7 +769,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-5100",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:11.049Z",
+      "crawledAt": "2026-08-24T21:45:10.458Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-ba-hilcona-schaan",
@@ -775,7 +843,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-kauffrau-kaufmann-fz-5099",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:10.520Z",
+      "crawledAt": "2026-08-24T21:45:10.100Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-fz-hilcona-schaan",
@@ -849,7 +917,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-logistiker-logistikerin-fz-5098",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:09.983Z",
+      "crawledAt": "2026-08-24T21:45:09.719Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan",
@@ -867,8 +935,8 @@
           "lehrstelle-als-logistiker-logistikerin-fz-hilcona-schaan"
         ]
       },
-      "firstSeenAt": "2026-08-19T21:50:55.714Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:50:55.714Z",
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -923,7 +991,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-5097",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:09.460Z",
+      "crawledAt": "2026-08-24T21:45:09.375Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-fz-hilcona-schaan",
@@ -996,7 +1064,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-automatiker-automatikerin-fz-5096",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:08.936Z",
+      "crawledAt": "2026-08-24T21:45:08.875Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-automatiker-automatikerin-fz-hilcona-schaan",
@@ -1018,8 +1086,8 @@
           "lehrstelle-als-automatiker-automatikerin-fz-hilcona-ag-schaan"
         ]
       },
-      "firstSeenAt": "2026-08-19T21:50:55.053Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:50:55.053Z",
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1074,7 +1142,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-5095",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:08.351Z",
+      "crawledAt": "2026-08-24T21:45:08.525Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-fz-hilcona-schaan",
@@ -1148,7 +1216,7 @@
       "postedDate": "2026-08-13",
       "url": "https://career.bellfoodgroup.com/de/stelle/abteilungsleiter-lebensmittelproduktion-m-w-d-5094",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:07.772Z",
+      "crawledAt": "2026-08-24T21:45:08.187Z",
       "sourceLang": "de",
       "previousSlugs": [
         "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
@@ -1223,7 +1291,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-ict-fachmann-ict-fachfrau-fz-5093",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:07.408Z",
+      "crawledAt": "2026-08-24T21:45:07.818Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-ict-fachmann-ict-fachfrau-fz-hilcona-schaan",
@@ -1297,7 +1365,7 @@
       "postedDate": "2026-08-13",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-schlussdienst-m-w-d-5090",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:06.900Z",
+      "crawledAt": "2026-08-24T21:45:07.480Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-schlussdienst-m-w-d-hilcona-pfaffstatt",
@@ -1372,7 +1440,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-logistikerin-efz-2027-5087",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:06.535Z",
+      "crawledAt": "2026-08-24T21:45:07.145Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-logistikerin-efz-2027-hilcona-oensingen",
@@ -1392,8 +1460,8 @@
           "logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-08-19T09:56:24.834Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T09:56:24.834Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -1448,7 +1516,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmechaniker-produktionsmechanikerin-efz-2027-5086",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:06.015Z",
+      "crawledAt": "2026-08-24T21:45:06.749Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen",
@@ -1468,8 +1536,8 @@
           "produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-08-19T09:56:24.342Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T09:56:24.342Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -1524,7 +1592,7 @@
       "postedDate": "2026-08-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenfuehrer-anlagenfuehrerin-efz-2027-5085",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:05.489Z",
+      "crawledAt": "2026-08-24T21:45:06.373Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
@@ -1544,8 +1612,8 @@
           "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-08-18T21:55:04.798Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T21:55:04.798Z",
       "salaryMin": 124000,
       "salaryMax": 167500,
       "baseSalary": {
@@ -1600,7 +1668,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-efz-2027-5084",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:04.932Z",
+      "crawledAt": "2026-08-24T21:45:06.033Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen",
@@ -1625,8 +1693,8 @@
           "specialiste-de-la-viande-specialiste-de-la-viande-portionnage-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-08-19T09:56:23.507Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T09:56:23.507Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -1681,7 +1749,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachassistent-fleischfachassistentin-eba-2027-5083",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:04.337Z",
+      "crawledAt": "2026-08-24T21:45:05.692Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen",
@@ -1756,7 +1824,7 @@
       "postedDate": "2026-08-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-5082",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:03.818Z",
+      "crawledAt": "2026-08-24T21:45:05.141Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
@@ -1833,7 +1901,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/spezialist-spezialistin-stammdatenmanagement-sap-mdg-mm-5076",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:03.256Z",
+      "crawledAt": "2026-08-24T21:45:04.658Z",
       "sourceLang": "de",
       "previousSlugs": [
         "spezialist-spezialistin-stammdatenmanagement-sap-mdg-mm-hilcona-basel",
@@ -1850,8 +1918,8 @@
           "spezialist-spezialistin-stammdatenmanagement-sap-mdg-mm-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:52:04.239Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:52:04.239Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -1906,7 +1974,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/praktikant-qualitaetskontrolle-80-100-m-w-d-5074",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:02.389Z",
+      "crawledAt": "2026-08-24T21:45:04.175Z",
       "sourceLang": "de",
       "previousSlugs": [
         "praktikant-qualitaetskontrolle-80-100-m-w-d-hilcona-steinach",
@@ -1981,7 +2049,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehre-als-informatiker-informatikerin-efz-plattformentwicklung-2027-5073",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:01.892Z",
+      "crawledAt": "2026-08-24T21:45:03.794Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehre-als-informatiker-informatikerin-efz-plattformentwicklung-2027-hilcona-basel",
@@ -2055,7 +2123,7 @@
       "postedDate": "2026-08-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/landwirt-landwirtin-in-efz-gefluegelhaltung-5055",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:01.276Z",
+      "crawledAt": "2026-08-24T21:45:03.295Z",
       "sourceLang": "de",
       "previousSlugs": [
         "landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
@@ -2075,8 +2143,8 @@
           "landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:46:14.840Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T11:46:14.840Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2131,7 +2199,7 @@
       "postedDate": "2026-08-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-login-efz-lehrstart-2027-5054",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:00.754Z",
+      "crawledAt": "2026-08-24T21:45:02.772Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmitteltechnologe-login-efz-lehrstart-2027-hilcona-dallikon",
@@ -2146,8 +2214,8 @@
           "lebensmitteltechnologe-login-efz-lehrstart-2027-hilcona-dallikon"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:46:14.335Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T11:46:14.335Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -2202,7 +2270,7 @@
       "postedDate": "2026-08-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-in-efz-lehrstart-2027-5053",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:00.380Z",
+      "crawledAt": "2026-08-24T21:45:02.292Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-in-efz-lehrstart-2027-hilcona-dallikon",
@@ -2222,8 +2290,8 @@
           "logistiker-in-efz-lehrstart-2027-hilcona-dallikon"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:46:13.989Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T11:46:13.989Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -2278,7 +2346,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-fachrichtung-convenience-5051",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:15:00.016Z",
+      "crawledAt": "2026-08-24T21:45:01.115Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-fachrichtung-convenience-hilcona-zell",
@@ -2352,7 +2420,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/koch-koechin-efz-2027-5050",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:59.499Z",
+      "crawledAt": "2026-08-24T21:45:00.627Z",
       "sourceLang": "de",
       "previousSlugs": [
         "koch-koechin-efz-2027-hilcona-zell",
@@ -2370,8 +2438,8 @@
           "koch-koechin-efz-2027-hilcona-zell"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:36:35.545Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:36:35.545Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2426,7 +2494,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenfuehrer-anlagenfuehrerin-efz-2027-5049",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:59.118Z",
+      "crawledAt": "2026-08-24T21:45:00.274Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell",
@@ -2438,8 +2506,8 @@
           "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:36:35.201Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:36:35.201Z",
       "salaryMin": 113500,
       "salaryMax": 153000,
       "baseSalary": {
@@ -2494,7 +2562,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-5048",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:58.725Z",
+      "crawledAt": "2026-08-24T21:44:59.919Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell",
@@ -2512,8 +2580,8 @@
           "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:36:34.849Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:36:34.849Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2568,7 +2636,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-logistikerin-efz-2027-5047",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:58.181Z",
+      "crawledAt": "2026-08-24T21:44:59.441Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-logistikerin-efz-2027-hilcona-zell",
@@ -2580,8 +2648,8 @@
           "logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell"
         ]
       },
-      "firstSeenAt": "2026-08-04T22:36:34.365Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:36:34.365Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2636,7 +2704,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-in-80-bis-100-5046",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:57.655Z",
+      "crawledAt": "2026-08-24T21:44:58.962Z",
       "sourceLang": "de",
       "previousSlugs": [
         "einkaeufer-in-80-bis-100-hilcona-essert-s-champvent",
@@ -2709,7 +2777,7 @@
       "postedDate": "2026-07-31",
       "url": "https://career.bellfoodgroup.com/de/stelle/kaufmann-frau-efz-lehrstart-2027-5045",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:57.284Z",
+      "crawledAt": "2026-08-24T21:44:58.601Z",
       "sourceLang": "de",
       "previousSlugs": [
         "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon",
@@ -2727,8 +2795,8 @@
           "kaufmann-frau-efz-lehrstart-2027-hilcona-dallikon"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:28:13.447Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:28:13.447Z",
       "salaryMin": 55000,
       "salaryMax": 74500,
       "baseSalary": {
@@ -2783,7 +2851,7 @@
       "postedDate": "2026-07-31",
       "url": "https://career.bellfoodgroup.com/de/stelle/senior-sap-ibp-pp-consultant-5044",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:56.920Z",
+      "crawledAt": "2026-08-24T21:44:58.249Z",
       "sourceLang": "de",
       "previousSlugs": [
         "senior-sap-ibp-pp-consultant-hilcona-basel",
@@ -2795,8 +2863,8 @@
           "senior-sap-ibp-pp-consulente-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:28:13.085Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:28:13.085Z",
       "salaryMin": 123000,
       "salaryMax": 165500,
       "baseSalary": {
@@ -2851,7 +2919,7 @@
       "postedDate": "2026-07-31",
       "url": "https://career.bellfoodgroup.com/de/stelle/vorarbeiter-vorarbeiterin-im-lebensmittelbereich-5043",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:56.400Z",
+      "crawledAt": "2026-08-24T21:44:57.764Z",
       "sourceLang": "de",
       "previousSlugs": [
         "vorarbeiter-vorarbeiterin-im-lebensmittelbereich-hilcona-schaan",
@@ -2924,7 +2992,7 @@
       "postedDate": "2026-07-31",
       "url": "https://career.bellfoodgroup.com/de/stelle/sap-successfactors-projektleiter-projektleiterin-5042",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:56.018Z",
+      "crawledAt": "2026-08-24T21:44:57.279Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sap-successfactors-projektleiter-projektleiterin-hilcona-basel",
@@ -2941,8 +3009,8 @@
           "sap-successfactors-projektleiter-projektleiterin-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-07-31T11:52:07.375Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T11:52:07.375Z",
       "salaryMin": 123000,
       "salaryMax": 165500,
       "baseSalary": {
@@ -2997,7 +3065,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenfuehrer-in-tofurei-5041",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:55.499Z",
+      "crawledAt": "2026-08-24T21:44:56.796Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagenfuehrer-in-tofurei-hilcona-landquart",
@@ -3070,7 +3138,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-mit-entwicklungsmoeglichkeit-schlachtbetrieb-basel-5040",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:55.125Z",
+      "crawledAt": "2026-08-24T21:44:56.442Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-mit-entwicklungsmoeglichkeit-schlachtbetrieb-basel-hilcona-basel",
@@ -3138,7 +3206,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-5039",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:54.763Z",
+      "crawledAt": "2026-08-24T21:44:56.085Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart",
@@ -3156,8 +3224,8 @@
           "betriebsmechaniker-betriebsmechanikerin-hilcona-landquart"
         ]
       },
-      "firstSeenAt": "2026-07-29T11:59:14.201Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T11:59:14.201Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3212,7 +3280,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-hlkk-5038",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:54.405Z",
+      "crawledAt": "2026-08-24T21:44:55.738Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-hlkk-hilcona-basel",
@@ -3257,7 +3325,7 @@
         "it": "Signor socio in affari 60 70",
         "en": "Hr Business Partner 60 70",
         "de": "Hr Business Partner 60 70",
-        "fr": "Partenaire d'affaires Hr 60 70"
+        "fr": "Hr Business Partner 60 70"
       },
       "description": "Du möchtest HR nicht nur begleiten, sondern aktiv mitgestalten? In unserem HR-Team Supply Chain suchen wir aufgrund einer internen Weiterentwicklung eine engagierte Persönlichkeit als HR Business Partner (60–70%), die unsere Teams vor Ort kompetent begleitet, berät und weiterentwickelt. Bei uns verbindest du strategische HR-Arbeit mit operativer Nähe zum Business – und trägst mit deinem Einsatz dazu bei, dass unsere frischen Convenience-Produkte den Alltag vieler Menschen bereichern. Aufgaben:\n• Beratung und Unterstützung der Führungskräfte entlang des Employee Life Cycles\n• Identifikation von Personalbedarf und Mitwirkung bei der Rekrutierung neuer Mitarbeiter\n• Förderung der Mitarbeiterentwicklung durch gezielte Schulungs- und Entwicklungsmassnahmen\n• Unterstützung bei der Umsetzung von Change-Management-Prozessen\n• Analyse von HR-Kennzahlen und Ableitung von Handlungsempfehlungen\n• Sicherstellung der Einhaltung von arbeitsrechtlichen Vorgaben und Unternehmensrichtlinien Anforderungen:\n• Abgeschlossenes Studium im Bereich Human Resources, einen kaufmännischen Hintergrund oder eine vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung im HR-Bereich, idealerweise als HR Business Partner im industriellen Umfeld\n• Freude an der Begleitung von Mitarbeitenden und Führungskräften eines Industriebetriebs\n• Fundierte Kenntnisse im Arbeits- und Sozialversicherungsrecht\n• Ausgezeichnete Kommunikations- und Beratungskompetenzen und die Fähigkeit, komplexe Probleme zu lösen\n• Teamorientierte und proaktive Arbeitsweise",
       "descriptionByLocale": {
@@ -3280,7 +3348,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/hr-business-partner-60-70-5037",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:54.039Z",
+      "crawledAt": "2026-08-24T21:44:55.386Z",
       "sourceLang": "de",
       "previousSlugs": [
         "partenaire-d-affaires-hr-60-70-hilcona-ag-schaan",
@@ -3352,7 +3420,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretung-leitung-technik-m-w-d-5036",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:53.671Z",
+      "crawledAt": "2026-08-24T21:44:55.003Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretung-leitung-technik-m-w-d-hilcona-pfaffstatt",
@@ -3427,7 +3495,7 @@
       "postedDate": "2026-07-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/senior-brand-manager-marke-hilcona-5034",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:53.294Z",
+      "crawledAt": "2026-08-24T21:44:54.653Z",
       "sourceLang": "de",
       "previousSlugs": [
         "senior-brand-manager-marke-hilcona-hilcona-schaan",
@@ -3439,8 +3507,8 @@
           "marchio-senior-hilcona-hilcona-ag-schaan"
         ]
       },
-      "firstSeenAt": "2026-07-28T11:32:17.019Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T11:32:17.019Z",
       "salaryMin": 113500,
       "salaryMax": 153000,
       "baseSalary": {
@@ -3495,7 +3563,7 @@
       "postedDate": "2026-07-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsinstallateur-betriebsinstallateurin-5031",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:52.907Z",
+      "crawledAt": "2026-08-24T21:44:54.310Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
@@ -3515,8 +3583,8 @@
           "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
         ]
       },
-      "firstSeenAt": "2026-07-24T11:31:33.224Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-24T11:31:33.224Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3571,7 +3639,7 @@
       "postedDate": "2026-07-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/jedox-entwickler-jedox-entwicklerin-5030",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:52.538Z",
+      "crawledAt": "2026-08-24T21:44:53.971Z",
       "sourceLang": "de",
       "previousSlugs": [
         "jedox-entwickler-jedox-entwicklerin-hilcona-basel",
@@ -3589,8 +3657,8 @@
           "jedox-entwickler-jedox-entwicklerin-hilcona-basel"
         ]
       },
-      "firstSeenAt": "2026-07-23T12:29:56.836Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T12:29:56.836Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -3645,7 +3713,7 @@
       "postedDate": "2026-07-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-technischer-unterhalt-schlachtbetrieb-5029",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:51.998Z",
+      "crawledAt": "2026-08-24T21:44:53.373Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-technischer-unterhalt-schlachtbetrieb-hilcona-oensingen",
@@ -3720,7 +3788,7 @@
       "postedDate": "2026-07-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeitung-verkaufsinnendienst-foodservice-60-5028",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:51.618Z",
+      "crawledAt": "2026-08-24T21:44:52.936Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeitung-verkaufsinnendienst-foodservice-60-hilcona-schaan",
@@ -3738,8 +3806,8 @@
           "sachbearbeitung-verkaufsinnendienst-foodservice-60-hilcona-schaan"
         ]
       },
-      "firstSeenAt": "2026-07-22T12:12:18.673Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-22T12:12:18.673Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3794,7 +3862,7 @@
       "postedDate": "2026-07-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/senior-sap-consultant-fi-co-5027",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:51.239Z",
+      "crawledAt": "2026-08-24T21:44:52.585Z",
       "sourceLang": "de",
       "previousSlugs": [
         "senior-sap-consultant-fi-co-hilcona-basel",
@@ -3809,8 +3877,8 @@
           "senior-sap-consultant-fi-co-hilcona-basel"
         ]
       },
-      "firstSeenAt": "2026-07-22T12:12:18.306Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-22T12:12:18.306Z",
       "salaryMin": 123000,
       "salaryMax": 165500,
       "baseSalary": {
@@ -3865,7 +3933,7 @@
       "postedDate": "2026-07-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/project-coordinator-food-industry-m-w-d-5025",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:50.685Z",
+      "crawledAt": "2026-08-24T21:44:52.243Z",
       "sourceLang": "de",
       "previousSlugs": [
         "project-coordinator-food-industry-m-w-d-hilcona-steinach",
@@ -3880,8 +3948,8 @@
           "project-coordinator-food-industry-m-w-d-hilcona-steinach"
         ]
       },
-      "firstSeenAt": "2026-07-21T12:01:29.475Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T12:01:29.475Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3936,7 +4004,7 @@
       "postedDate": "2026-07-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/studienplatz-dhbw-loerrach-im-bereich-bwl-digital-business-management-2026-4995",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:50.152Z",
+      "crawledAt": "2026-08-24T21:44:51.901Z",
       "sourceLang": "de",
       "previousSlugs": [
         "studienplatz-dhbw-loerrach-im-bereich-bwl-digital-business-management-2026-hilcona-basel",
@@ -3954,6 +4022,7 @@
           "studienplatz-dhbw-loerrach-im-bereich-bwl-digital-business-management-2026-hilcona-basel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T13:01:21.021Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -3967,8 +4036,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "hilcona-547547d1534d",
@@ -4010,7 +4078,7 @@
       "postedDate": "2026-07-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-in-zerlegerei-datenkontrolle-4994",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:49.616Z",
+      "crawledAt": "2026-08-24T21:44:51.409Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-in-zerlegerei-datenkontrolle-hilcona-oensingen",
@@ -4084,7 +4152,7 @@
       "postedDate": "2026-07-16",
       "url": "https://career.bellfoodgroup.com/de/stelle/ai-integration-manager-4992",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:49.081Z",
+      "crawledAt": "2026-08-24T21:44:50.934Z",
       "sourceLang": "de",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:34:32.413Z",
@@ -4142,7 +4210,7 @@
       "postedDate": "2026-07-10",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachspezialist-fachspezialistin-qualitaetssicherung-4988",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:48.553Z",
+      "crawledAt": "2026-08-24T21:44:50.454Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachspezialist-fachspezialistin-qualitaetssicherung-hilcona-landquart",
@@ -4215,7 +4283,7 @@
       "postedDate": "2026-07-09",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-unterhalt-foerdertechnik-4987",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:48.174Z",
+      "crawledAt": "2026-08-24T21:44:50.088Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-unterhalt-foerdertechnik-hilcona-oensingen",
@@ -4293,7 +4361,7 @@
       "postedDate": "2026-07-09",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-qualitaetskontrolle-m-w-d-4985",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:47.636Z",
+      "crawledAt": "2026-08-24T21:44:49.610Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-qualitaetskontrolle-m-w-d-hilcona-pfaffstatt",
@@ -4331,33 +4399,35 @@
       "addressRegion": "GR"
     },
     {
-      "id": "hilcona-0d3028b36c4a",
-      "slug": "pianificatori-di-domanda-hilcona-ag-schaan",
+      "id": "hilcona-c306614ff8f1",
+      "slug": "demand-planner-hilcona-schaan",
       "slugByLocale": {
-        "it": "pianificatori-di-domanda-hilcona-ag-schaan",
-        "en": "demand-planners-hilcona-ag-schaan",
-        "de": "demand-planer-hilcona-schaan",
-        "fr": "planification-de-la-demande-hilcona-ag-schaan"
+        "de": "demand-planner-hilcona-schaan",
+        "it": "demand-planner-hilcona-schaan",
+        "en": "demand-planner-hilcona-schaan",
+        "fr": "demand-planner-hilcona-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
       "companyDomain": "bellfoodgroup.com",
-      "title": "Demand Planer",
+      "title": "Demand Planner",
       "titleByLocale": {
-        "it": "Pianificatori di domanda",
-        "en": "Demand Planer",
-        "de": "Demand Planer",
-        "fr": "Planification de la demande"
+        "de": "Demand Planner",
+        "en": "Demand Planner",
+        "it": "Demand Planner",
+        "fr": "Demand Planner"
       },
       "description": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil",
       "descriptionByLocale": {
-        "it": "Nel nostro ambiente dinamico, è possibile implementare pienamente le vostre competenze analitiche e prendere il sopravvento della pianificazione di vendita delle nostre gamme in vari canali di vendita alla previsione dei nostri prodotti ultra-freschi su base giornaliera. Al centro della vostra attività è il massimo equilibrio di soddisfazione del cliente ed evitando sprechi alimentari. Per questo siete in stretto contatto con le nostre vendite e la catena di fornitura. Compiti:\n• Creare, rivedere e regolare le previsioni della domanda di rotolamento per un segmento definito\n• Pianificazione e accompagnamento di azioni, stagioni e quantità di eventi con il sistema di previsione\n• Pianificazione degli input e delle valutazioni\n• Valutazione e analisi di KPI\n• Promuovere attivamente misure di ottimizzazione sostenibili e digitali nel settore della pianificazione e della previsione delle vendite\n• Assumendo singoli pacchetti di attività nel processo S&OP e progetti di accompagnamento Requisiti:\n• background commerciale-tecnico o aziendale con un'esperienza professionale approfondita nel campo della previsione della domanda e/o della pianificazione della produzione\n• Conoscenza dei sistemi ERP o Planning e una buona comprensione del processo di supply chain end-to-end\n• Con le tue capacità analitiche e l'alto livello di orientamento dei dettagli, ti piace analizzare i dati\n• Grazie alla vostra elevata capacità di problem solving, vi impegnate proattivamente con i vostri contatti interni ed esterni nello scambio per un raggiungimento obiettivo comune.\n• Un ulteriore sviluppo nell'area di S&OP e soprattutto sotto l'aumento dell'uso dell'IA si trova eccitante\n• Le competenze francesi sono un vantaggio",
-        "en": "In our dynamic environment, you can fully implement your analytical skills and take over the forward-looking sales planning of our ranges in various sales channels to the forecasting of our ultra-fresh products on a day-to-day basis. At the heart of your activity is the maximum balance of customer satisfaction and avoiding food waste. For this you are in close contact with our sales and the supply chain. Tasks:\n• Create, review and adjust the rolling demand forecast for a defined segment\n• Planning and accompanying action, season and event quantities with the forecasting system\n• Planning of inputs and evaluations\n• Evaluation and analysis of KPI's\n• Proactively promote sustainable and digital optimization measures in the area of sales planning and forecasting\n• Assuming individual task packages in the S&OP process and accompanying projects Requirements:\n• commercial-technical or business background with in-depth professional experience in the field of demand forecasting and/or production planning\n• Knowledge of ERP or Planning systems and a good understanding of the end-to-end supply chain process\n• With your analytical skills and high level of detail orientation, you love to analyze data\n• Thanks to your high problem-solving ability, you will proactively engage with your internal and external contacts in the exchange for a common goal achievement.\n• A further development in the area of S&OP and especially under increased use of AI you find exciting\n• French skills are an advantage",
         "de": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil",
-        "fr": "Dans notre environnement dynamique, vous pouvez pleinement mettre en œuvre vos compétences analytiques et prendre en charge la planification prospective de nos ventes de nos gammes dans différents canaux de vente à la prévision de nos produits ultra-frais sur une base quotidienne. Au cœur de votre activité se trouve le maximum d'équilibre de la satisfaction du client et d'éviter le gaspillage alimentaire. Pour cela, vous êtes en contact étroit avec nos ventes et la chaîne d'approvisionnement. Tâches :\n• Créer, revoir et ajuster les prévisions de la demande mobile pour un segment défini\n• Planifier et accompagner les actions, la saison et les événements avec le système de prévision\n• Planification des apports et des évaluations\n• Évaluation et analyse de KPI\n• Promouvoir activement des mesures d'optimisation durable et numérique dans le domaine de la planification et de la prévision des ventes\n• En supposant des ensembles de tâches individuels dans le processus de S-P et les projets connexes.\n• Expérience commerciale-technique ou commerciale avec une expérience professionnelle approfondie dans le domaine de la prévision de la demande et/ou de la planification de la production\n• Connaissance des systèmes ERP ou de planification et bonne compréhension du processus de la chaîne d'approvisionnement de bout en bout\n• Avec vos compétences analytiques et un niveau élevé d'orientation des détails, vous aimez analyser les données\n• Grâce à votre grande capacité de résolution de problèmes, vous vous engagerez proactivement avec vos contacts internes et externes dans l'échange d'un objectif commun.\n• Un nouveau développement dans le domaine des S&OP et surtout sous l'utilisation accrue de l'IA que vous trouvez passionnant\n• Les compétences en français sont un avantage"
+        "it": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil",
+        "en": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil",
+        "fr": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil"
       },
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "location": "Schaan",
       "canton": "GR",
       "addressLocality": "Schaan",
@@ -4367,30 +4437,11 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-07",
-      "url": "https://career.bellfoodgroup.com/de/stelle/demand-planer-4984",
+      "postedDate": "2026-08-24",
+      "url": "https://career.bellfoodgroup.com/de/stelle/demand-planner-4984",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:47.244Z",
+      "crawledAt": "2026-08-24T21:44:49.094Z",
       "sourceLang": "de",
-      "previousSlugs": [
-        "demand-planer-hilcona-schaan",
-        "demand-planer-hilcona-ag-schaan",
-        "pianificatori-di-domanda-hilcona-ag-schaan"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "demand-planer-hilcona-schaan",
-          "pianificatori-di-domanda-hilcona-ag-schaan"
-        ],
-        "en": [
-          "demand-planer-hilcona-schaan",
-          "demand-planer-hilcona-ag-schaan"
-        ],
-        "fr": [
-          "demand-planer-hilcona-schaan"
-        ]
-      },
-      "firstSeenAt": "2026-07-07T22:30:35.048Z",
       "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -4404,7 +4455,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-24T21:44:49.094Z"
     },
     {
       "id": "hilcona-68bb1a589275",
@@ -4446,7 +4498,7 @@
       "postedDate": "2026-07-06",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-gebaeudeservice-m-w-d-4983",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:46.729Z",
+      "crawledAt": "2026-08-24T21:44:48.614Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-gebaeudeservice-m-w-d-hilcona-bad-wunnenberg",
@@ -4468,8 +4520,8 @@
           "mitarbeiter-gebaeudeservice-m-w-d-hfc-gmbh-bad-wunnenberg"
         ]
       },
-      "firstSeenAt": "2026-07-06T13:52:08.851Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-06T13:52:08.851Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4524,7 +4576,7 @@
       "postedDate": "2026-07-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-4981",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:46.346Z",
+      "crawledAt": "2026-08-24T21:44:48.268Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
@@ -4603,7 +4655,7 @@
       "postedDate": "2026-07-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/linienleiter-lebensmittelproduktion-m-w-d-4980",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:45.930Z",
+      "crawledAt": "2026-08-24T21:44:47.787Z",
       "sourceLang": "de",
       "previousSlugs": [
         "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
@@ -4630,8 +4682,8 @@
           "directeur-de-ligne-de-production-alimentaire-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
-      "firstSeenAt": "2026-07-05T11:30:00.915Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-05T11:30:00.915Z",
       "salaryMin": 113500,
       "salaryMax": 153000,
       "baseSalary": {
@@ -4686,7 +4738,7 @@
       "postedDate": "2026-07-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-4979",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:45.415Z",
+      "crawledAt": "2026-08-24T21:44:47.311Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mechaniker-fuer-pkw-lkw-oder-landmaschinen-m-w-d-hilcona-pfaffstatt",
@@ -4764,7 +4816,7 @@
       "postedDate": "2026-07-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-technische-beschaffung-4977",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:44.880Z",
+      "crawledAt": "2026-08-24T21:44:46.829Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-technische-beschaffung-hilcona-schaan",
@@ -4839,7 +4891,7 @@
       "postedDate": "2026-06-30",
       "url": "https://career.bellfoodgroup.com/de/stelle/wartungstechniker-in-vollzeit-4976",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:44.366Z",
+      "crawledAt": "2026-08-24T21:44:46.345Z",
       "sourceLang": "de",
       "previousSlugs": [
         "wartungstechniker-in-vollzeit-hilcona-essert-s-champvent",
@@ -4919,7 +4971,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-produktionsleiter-m-w-d-4973",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:44.010Z",
+      "crawledAt": "2026-08-24T21:44:45.997Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt",
@@ -4997,7 +5049,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechatroniker-m-w-d-4972",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:43.490Z",
+      "crawledAt": "2026-08-24T21:44:45.650Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mechatroniker-m-w-d-hilcona-pfaffstatt",
@@ -5019,8 +5071,8 @@
           "mechatroniker-m-w-d-hilcona-pfaffstatt"
         ]
       },
-      "firstSeenAt": "2026-06-24T11:38:38.622Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T11:38:38.622Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -5075,7 +5127,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/kaeltetechniker-m-w-d-4971",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:42.978Z",
+      "crawledAt": "2026-08-24T21:44:45.316Z",
       "sourceLang": "de",
       "previousSlugs": [
         "kaeltetechniker-m-w-d-hilcona-pfaffstatt",
@@ -5153,7 +5205,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-instandhaltung-m-w-d-4970",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:42.620Z",
+      "crawledAt": "2026-08-24T21:44:44.973Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt",
@@ -5231,7 +5283,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-leiter-in-der-schlachtung-m-w-d-4969",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:42.110Z",
+      "crawledAt": "2026-08-24T21:44:44.498Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretender-leiter-in-der-schlachtung-m-w-d-hilcona-pfaffstatt",
@@ -5309,7 +5361,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-4967",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:41.589Z",
+      "crawledAt": "2026-08-24T21:44:44.013Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lkw-fahrer-m-w-d-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
@@ -5388,7 +5440,7 @@
       "postedDate": "2026-06-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-4966",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:41.064Z",
+      "crawledAt": "2026-08-24T21:44:43.663Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lkw-fahrer-m-w-d-teilzeit-fuer-den-lebendtiertransport-hilcona-pfaffstatt",
@@ -5466,7 +5518,7 @@
       "postedDate": "2026-06-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachspezialist-lebensmittelrecht-qs-60-100-m-w-d-4964",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:40.500Z",
+      "crawledAt": "2026-08-24T21:44:43.317Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachspezialist-lebensmittelrecht-qs-60-100-m-w-d-hilcona-steinach",
@@ -5541,7 +5593,7 @@
       "postedDate": "2026-06-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/putzkraft-4963",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:40.130Z",
+      "crawledAt": "2026-08-24T21:44:42.965Z",
       "sourceLang": "de",
       "previousSlugs": [
         "putzkraft-hilcona-ampfing",
@@ -5618,7 +5670,7 @@
       "postedDate": "2026-06-16",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktmanager-m-w-d-4961",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:39.745Z",
+      "crawledAt": "2026-08-24T21:44:42.599Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktmanager-m-w-d-hilcona-seevetal",
@@ -5640,8 +5692,8 @@
           "produktmanager-m-w-d-hilcona-seevetal"
         ]
       },
-      "firstSeenAt": "2026-06-16T22:56:56.238Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T22:56:56.238Z",
       "salaryMin": 113500,
       "salaryMax": 153000,
       "baseSalary": {
@@ -5696,7 +5748,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/schichtleiter-zerlegung-m-w-d-4960",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:39.362Z",
+      "crawledAt": "2026-08-24T21:44:42.247Z",
       "sourceLang": "de",
       "previousSlugs": [
         "schichtleiter-zerlegung-m-w-d-hilcona-ampfing",
@@ -5775,7 +5827,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-4954",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:38.982Z",
+      "crawledAt": "2026-08-24T21:44:41.869Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell",
@@ -5854,7 +5906,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-logistiker-in-efz-4952",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:38.448Z",
+      "crawledAt": "2026-08-24T21:44:41.357Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-logistiker-in-efz-hilcona-steinach",
@@ -5922,7 +5974,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:38.072Z",
+      "crawledAt": "2026-08-24T21:44:41.011Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach",
@@ -5990,7 +6042,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-lebensmitteltechnologe-login-efz-4950",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:37.689Z",
+      "crawledAt": "2026-08-24T21:44:40.643Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-lebensmitteltechnologe-login-efz-hilcona-steinach",
@@ -6010,8 +6062,8 @@
           "apprendistato-2027-lebensmitteltechnologe-login-efz-hugli-nahrmittel-ag-steinach"
         ]
       },
-      "firstSeenAt": "2026-06-05T22:07:08.008Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-05T22:07:08.008Z",
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6066,7 +6118,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/laborant-in-60-100-4948",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:37.299Z",
+      "crawledAt": "2026-08-24T21:44:40.295Z",
       "sourceLang": "de",
       "previousSlugs": [
         "laboratorio-nel-60-100-eisberg-ag-dallikon",
@@ -6087,8 +6139,8 @@
           "laborant-in-60-100-hilcona-dallikon"
         ]
       },
-      "firstSeenAt": "2026-06-02T13:21:44.131Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T13:21:44.131Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -6143,7 +6195,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechatroniker-m-w-d-4946",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:36.770Z",
+      "crawledAt": "2026-08-24T21:44:39.936Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mechatroniker-m-w-d-hilcona-bad-wunnenberg",
@@ -6165,8 +6217,8 @@
           "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
         ]
       },
-      "firstSeenAt": "2026-06-02T13:21:43.657Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T13:21:43.657Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6221,7 +6273,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/linienfuehrer-maschinenfuehrer-m-w-d-4939",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:36.396Z",
+      "crawledAt": "2026-08-24T21:44:39.597Z",
       "sourceLang": "de",
       "previousSlugs": [
         "linienfuehrer-maschinenfuehrer-m-w-d-hilcona-bad-wunnenberg",
@@ -6244,8 +6296,8 @@
           "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg"
         ]
       },
-      "firstSeenAt": "2026-05-21T12:09:07.729Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:09:07.729Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6300,7 +6352,7 @@
       "postedDate": "2026-05-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-4933",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:36.020Z",
+      "crawledAt": "2026-08-24T21:44:39.269Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden",
@@ -6379,7 +6431,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/gruppenleiter-produktion-m-w-d-4931",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:35.509Z",
+      "crawledAt": "2026-08-24T21:44:38.925Z",
       "sourceLang": "de",
       "previousSlugs": [
         "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
@@ -6456,7 +6508,7 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4926",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:34.993Z",
+      "crawledAt": "2026-08-24T21:44:38.577Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
@@ -6477,8 +6529,8 @@
           "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ]
       },
-      "firstSeenAt": "2026-05-11T22:14:05.649Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T22:14:05.649Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -6533,7 +6585,7 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-gruppenleiter-stv-gruppenleiterin-ruesterei-4925",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:34.451Z",
+      "crawledAt": "2026-08-24T21:44:38.229Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren",
@@ -6606,7 +6658,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-leiter-packerei-m-w-d-4924",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:33.910Z",
+      "crawledAt": "2026-08-24T21:44:37.848Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretender-leiter-packerei-m-w-d-hilcona-neuburg",
@@ -6684,7 +6736,7 @@
       "postedDate": "2026-05-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-operational-technology-4918",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:33.535Z",
+      "crawledAt": "2026-08-24T21:44:37.510Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
@@ -6760,7 +6812,7 @@
       "postedDate": "2026-06-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/verantwortlicher-produktion-charcuterie-cheseaux-4917",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:33.014Z",
+      "crawledAt": "2026-08-24T21:44:37.124Z",
       "sourceLang": "de",
       "previousSlugs": [
         "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
@@ -6839,7 +6891,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-schlussdienst-30-std-m-w-d-4903",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:32.465Z",
+      "crawledAt": "2026-08-24T21:44:36.790Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6918,7 +6970,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-instandhaltungsfachmann-m-w-d-4901",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:32.104Z",
+      "crawledAt": "2026-08-24T21:44:36.457Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
@@ -6941,8 +6993,8 @@
           "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
         ]
       },
-      "firstSeenAt": "2026-04-24T21:45:49.790Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-24T21:45:49.790Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -6997,7 +7049,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4900",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:31.736Z",
+      "crawledAt": "2026-08-24T21:44:36.096Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
@@ -7028,8 +7080,8 @@
           "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-05-19T22:27:14.053Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T22:27:14.053Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7084,7 +7136,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/installateur-m-w-d-4895",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:31.207Z",
+      "crawledAt": "2026-08-24T21:44:35.619Z",
       "sourceLang": "de",
       "previousSlugs": [
         "installateur-m-w-d-hilcona-pfaffstatt",
@@ -7157,7 +7209,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/jungkoch-koch-m-w-d-4886",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:30.682Z",
+      "crawledAt": "2026-08-24T21:44:35.279Z",
       "sourceLang": "de",
       "firstSeenAt": "2026-05-21T12:08:56.213Z",
       "previousSlugsByLocale": {
@@ -7235,7 +7287,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/schlosser-mitarbeiter-technik-m-w-d-4884",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:30.299Z",
+      "crawledAt": "2026-08-24T21:44:34.936Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7314,10 +7366,10 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/elektriker-m-w-d-4883",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:29.779Z",
+      "crawledAt": "2026-08-24T21:44:34.584Z",
       "sourceLang": "de",
-      "firstSeenAt": "2026-05-21T12:08:55.336Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:08:55.336Z",
       "previousSlugsByLocale": {
         "it": [
           "elektriker-m-w-d-hilcona-schiltach",
@@ -7393,7 +7445,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/werkstudent-m-w-d-projekte-bereich-operations-4882",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:29.257Z",
+      "crawledAt": "2026-08-24T21:44:34.247Z",
       "sourceLang": "de",
       "previousSlugs": [
         "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
@@ -7464,7 +7516,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-foerdertechnik-4699",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:28.897Z",
+      "crawledAt": "2026-08-24T21:44:33.894Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
@@ -7543,7 +7595,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/area-sales-marktentwickler-food-service-suedtirol-4634",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:28.373Z",
+      "crawledAt": "2026-08-24T21:44:33.403Z",
       "sourceLang": "de",
       "previousSlugs": [
         "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
@@ -7616,7 +7668,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-4612",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:28.014Z",
+      "crawledAt": "2026-08-24T21:44:33.043Z",
       "sourceLang": "de",
       "previousSlugs": [
         "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht",
@@ -7695,7 +7747,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-wareneingang-m-w-d-4459",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:27.644Z",
+      "crawledAt": "2026-08-24T21:44:32.690Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-wareneingang-m-w-d-hilcona-pfaffstatt",
@@ -7772,7 +7824,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/sap-sd-inhouse-consultant-m-w-d-4440",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:27.262Z",
+      "crawledAt": "2026-08-24T21:44:32.347Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
@@ -7800,8 +7852,8 @@
           "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ]
       },
-      "firstSeenAt": "2026-05-21T12:08:49.178Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:08:49.178Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -7856,7 +7908,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/berufsbildner-berufsbildnerin-logistik-4427",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:26.863Z",
+      "crawledAt": "2026-08-24T21:44:31.964Z",
       "sourceLang": "de",
       "previousSlugs": [
         "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
@@ -7879,8 +7931,8 @@
           "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
         ]
       },
-      "firstSeenAt": "2026-05-19T11:52:53.886Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T11:52:53.886Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7935,7 +7987,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-schlachthaus-4370",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:26.411Z",
+      "crawledAt": "2026-08-24T21:44:31.623Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
@@ -8018,7 +8070,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-elektrotechnik-und-automation-4362",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:26.039Z",
+      "crawledAt": "2026-08-24T21:44:31.260Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8104,7 +8156,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/metzger-portionierung-metzgerin-portionierung-4358",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:25.510Z",
+      "crawledAt": "2026-08-24T21:44:30.914Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8188,7 +8240,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-4357",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:25.114Z",
+      "crawledAt": "2026-08-24T21:44:30.439Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8286,7 +8338,7 @@
       "postedDate": "2026-06-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-in-80-100-3693",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:24.710Z",
+      "crawledAt": "2026-08-24T21:44:30.084Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-in-80-100-hilcona-dallikon",
@@ -8361,7 +8413,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/automatiker-automatikerin-efz-2027-3062",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:24.340Z",
+      "crawledAt": "2026-08-24T21:44:29.706Z",
       "sourceLang": "de",
       "previousSlugs": [
         "automatiker-automatikerin-efz-2027-hilcona-basel",
@@ -8379,8 +8431,8 @@
           "automatiker-automatikerin-efz-2027-hilcona-basel"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:51:24.199Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:51:24.199Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -8435,7 +8487,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagefuehrer-fluessigproduktion-m-w-d-3027",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:23.783Z",
+      "crawledAt": "2026-08-24T21:44:29.220Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagefuehrer-fluessigproduktion-m-w-d-hugli-nahrmittel-ag-steinach",
@@ -8517,7 +8569,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-neubau-oensingen-2860",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:23.409Z",
+      "crawledAt": "2026-08-24T21:44:28.866Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
@@ -8552,8 +8604,8 @@
           "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
         ]
       },
-      "firstSeenAt": "2026-06-15T23:06:49.717Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-15T23:06:49.717Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -8608,7 +8660,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektrikerin-betriebselektriker-100-2835",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:22.889Z",
+      "crawledAt": "2026-08-24T21:44:28.389Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8638,8 +8690,8 @@
         "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
         "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell"
       ],
-      "firstSeenAt": "2026-05-21T12:08:41.802Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:08:41.802Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8694,7 +8746,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-2765",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:22.365Z",
+      "crawledAt": "2026-08-24T21:44:27.905Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-oensingen",
@@ -8773,7 +8825,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-efz-2027-2749",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:21.830Z",
+      "crawledAt": "2026-08-24T21:44:27.423Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
@@ -8793,8 +8845,8 @@
           "fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:51:21.968Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:51:21.968Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -8849,7 +8901,7 @@
       "postedDate": "2026-06-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/automatiker-automatikerin-2719",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:21.441Z",
+      "crawledAt": "2026-08-24T21:44:27.056Z",
       "sourceLang": "de",
       "previousSlugs": [
         "automatiker-automatikerin-hilcona-basel",
@@ -8926,7 +8978,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-lebensmitteltechnik-m-w-d-2697",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:21.058Z",
+      "crawledAt": "2026-08-24T21:44:26.688Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8956,8 +9008,8 @@
         "lehrling-lebensmitteltechnik-m-w-d-hilcona-undefined",
         "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
-      "firstSeenAt": "2026-05-21T12:08:40.470Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:08:40.470Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9012,7 +9064,7 @@
       "postedDate": "2026-08-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-reinigung-slicer-center-neubau-oensingen-2681",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:20.648Z",
+      "crawledAt": "2026-08-24T21:44:26.338Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen",
@@ -9085,7 +9137,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-technischer-leitstand-neubau-oensingen-2619",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:20.093Z",
+      "crawledAt": "2026-08-24T21:44:25.834Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-technischer-leitstand-neubau-oensingen-hilcona-oensingen",
@@ -9158,7 +9210,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-2617",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:19.584Z",
+      "crawledAt": "2026-08-24T21:44:25.350Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-oensingen",
@@ -9186,8 +9238,8 @@
           "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:42:40.250Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:42:40.250Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -9242,7 +9294,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachkraft-lagerlogistik-m-w-d-2595",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:19.051Z",
+      "crawledAt": "2026-08-24T21:44:24.863Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge",
@@ -9321,7 +9373,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/praktikum-waehrend-des-studiums-30-1-jahr-befristet-2574",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:18.644Z",
+      "crawledAt": "2026-08-24T21:44:24.360Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9405,7 +9457,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-m-w-d-2517",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:18.274Z",
+      "crawledAt": "2026-08-24T21:44:23.871Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmitarbeiter-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
@@ -9483,7 +9535,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/instandhaltungstechniker-m-w-d-2515",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:17.754Z",
+      "crawledAt": "2026-08-24T21:44:23.385Z",
       "sourceLang": "de",
       "previousSlugs": [
         "instandhaltungstechniker-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
@@ -9564,7 +9616,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lager-kommissionierung-m-w-d-2513",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:17.372Z",
+      "crawledAt": "2026-08-24T21:44:22.913Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lager-kommissionierung-m-w-d-hilcona-marchtrenk",
@@ -9638,7 +9690,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/vertriebsinnendienst-mitarbeiter-m-w-d-2455",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:16.845Z",
+      "crawledAt": "2026-08-24T21:44:22.546Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9723,7 +9775,7 @@
       "postedDate": "2026-06-16",
       "url": "https://career.bellfoodgroup.com/de/stelle/koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-2450",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:16.468Z",
+      "crawledAt": "2026-08-24T21:44:22.205Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9798,7 +9850,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-2435",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:15.858Z",
+      "crawledAt": "2026-08-24T21:44:21.842Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9883,7 +9935,7 @@
       "postedDate": "2026-06-16",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachkraefte-lebensmittelproduktion-2425",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:15.467Z",
+      "crawledAt": "2026-08-24T21:44:21.493Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachkraefte-lebensmittelproduktion-hilcona-schaan",
@@ -9962,7 +10014,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-2421",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:15.039Z",
+      "crawledAt": "2026-08-24T21:44:21.100Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-basel",
@@ -10052,7 +10104,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachassistent-fleischfachassistentin-eba-2027-2416",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:14.395Z",
+      "crawledAt": "2026-08-24T21:44:20.733Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-basel",
@@ -10131,7 +10183,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmechaniker-produktionsmechanikerin-efz-2027-2399",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:13.883Z",
+      "crawledAt": "2026-08-24T21:44:20.254Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-basel",
@@ -10151,8 +10203,8 @@
           "produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:51:15.148Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:51:15.148Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -10207,7 +10259,7 @@
       "postedDate": "2026-07-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-zerlegerei-2340",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:13.121Z",
+      "crawledAt": "2026-08-24T21:44:19.767Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen",
@@ -10284,7 +10336,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-2333",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:12.306Z",
+      "crawledAt": "2026-08-24T21:44:19.405Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-hilcona-basel",
@@ -10304,8 +10356,8 @@
           "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:51:14.258Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:51:14.258Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -10360,7 +10412,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriereiniger-m-w-d-2280",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:11.431Z",
+      "crawledAt": "2026-08-24T21:44:18.920Z",
       "sourceLang": "de",
       "previousSlugs": [
         "industriereiniger-m-w-d-hilcona-bad-wunnenberg",
@@ -10383,8 +10435,8 @@
           "industriereiniger-m-w-d-hfc-gmbh-bad-wunnenberg"
         ]
       },
-      "firstSeenAt": "2026-06-02T13:21:15.692Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T13:21:15.692Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10439,7 +10491,7 @@
       "postedDate": "2026-06-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-qualitaetssicherheit-in-der-produktion-m-w-d-2259",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:10.877Z",
+      "crawledAt": "2026-08-24T21:44:18.553Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-qualitaetssicherheit-in-der-produktion-m-w-d-hilcona-ampfing",
@@ -10517,7 +10569,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-2258",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:10.145Z",
+      "crawledAt": "2026-08-24T21:44:18.168Z",
       "sourceLang": "de",
       "firstSeenAt": "2026-05-21T12:08:35.616Z",
       "previousSlugsByLocale": {
@@ -10595,7 +10647,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriemechaniker-schlosser-m-w-d-2256",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:09.452Z",
+      "crawledAt": "2026-08-24T21:44:17.818Z",
       "sourceLang": "de",
       "previousSlugs": [
         "industriemechaniker-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing",
@@ -10679,7 +10731,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/hausmeister-m-w-d-2255",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:08.548Z",
+      "crawledAt": "2026-08-24T21:44:17.475Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -10708,8 +10760,8 @@
         "hausmeister-m-w-d-hilcona-ag-bell-food-group-landquart",
         "master-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
-      "firstSeenAt": "2026-05-21T12:08:35.050Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:08:35.050Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10764,7 +10816,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/kommissionierung-m-w-d-2254",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:07.883Z",
+      "crawledAt": "2026-08-24T21:44:16.983Z",
       "sourceLang": "de",
       "previousSlugs": [
         "kommissionierung-m-w-d-hilcona-ampfing",
@@ -10788,8 +10840,8 @@
           "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
-      "firstSeenAt": "2026-06-15T14:30:15.396Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-15T14:30:15.396Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10844,7 +10896,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-m-w-d-2253",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:07.287Z",
+      "crawledAt": "2026-08-24T21:44:16.495Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -10871,13 +10923,13 @@
       "previousSlugs": [
         "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-m-w-d-hilcona-ampfing",
         "industrial-electrician-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "betriebselektriker-m-w-d-hilcona-ampfing",
         "betriebselektriker-m-w-d-hilcona-undefined",
         "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
-      "firstSeenAt": "2026-05-21T12:08:34.776Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:08:34.776Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10932,7 +10984,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-m-w-d-2180",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:06.219Z",
+      "crawledAt": "2026-08-24T21:44:15.494Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmitarbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
@@ -11015,7 +11067,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/maschinen-und-anlagenfuehrer-m-w-d-2112",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-08-24T10:14:05.520Z",
+      "crawledAt": "2026-08-24T21:44:15.004Z",
       "sourceLang": "de",
       "previousSlugs": [
         "maschinen-und-anlagenfuehrer-m-w-d-hilcona-harkebrugge",
@@ -11052,6 +11104,83 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "hilcona-0d3028b36c4a",
+      "slug": "pianificatori-di-domanda-hilcona-ag-schaan",
+      "slugByLocale": {
+        "it": "pianificatori-di-domanda-hilcona-ag-schaan",
+        "en": "demand-planners-hilcona-ag-schaan",
+        "de": "demand-planer-hilcona-schaan",
+        "fr": "planification-de-la-demande-hilcona-ag-schaan"
+      },
+      "company": "Hilcona AG",
+      "companyKey": "hilcona",
+      "companyDomain": "bellfoodgroup.com",
+      "title": "Demand Planer",
+      "titleByLocale": {
+        "it": "Pianificatori di domanda",
+        "en": "Demand Planer",
+        "de": "Demand Planer",
+        "fr": "Planification de la demande"
+      },
+      "description": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil",
+      "descriptionByLocale": {
+        "it": "Nel nostro ambiente dinamico, è possibile implementare pienamente le vostre competenze analitiche e prendere il sopravvento della pianificazione di vendita delle nostre gamme in vari canali di vendita alla previsione dei nostri prodotti ultra-freschi su base giornaliera. Al centro della vostra attività è il massimo equilibrio di soddisfazione del cliente ed evitando sprechi alimentari. Per questo siete in stretto contatto con le nostre vendite e la catena di fornitura. Compiti:\n• Creare, rivedere e regolare le previsioni della domanda di rotolamento per un segmento definito\n• Pianificazione e accompagnamento di azioni, stagioni e quantità di eventi con il sistema di previsione\n• Pianificazione degli input e delle valutazioni\n• Valutazione e analisi di KPI\n• Promuovere attivamente misure di ottimizzazione sostenibili e digitali nel settore della pianificazione e della previsione delle vendite\n• Assumendo singoli pacchetti di attività nel processo S&OP e progetti di accompagnamento Requisiti:\n• background commerciale-tecnico o aziendale con un'esperienza professionale approfondita nel campo della previsione della domanda e/o della pianificazione della produzione\n• Conoscenza dei sistemi ERP o Planning e una buona comprensione del processo di supply chain end-to-end\n• Con le tue capacità analitiche e l'alto livello di orientamento dei dettagli, ti piace analizzare i dati\n• Grazie alla vostra elevata capacità di problem solving, vi impegnate proattivamente con i vostri contatti interni ed esterni nello scambio per un raggiungimento obiettivo comune.\n• Un ulteriore sviluppo nell'area di S&OP e soprattutto sotto l'aumento dell'uso dell'IA si trova eccitante\n• Le competenze francesi sono un vantaggio",
+        "en": "In our dynamic environment, you can fully implement your analytical skills and take over the forward-looking sales planning of our ranges in various sales channels to the forecasting of our ultra-fresh products on a day-to-day basis. At the heart of your activity is the maximum balance of customer satisfaction and avoiding food waste. For this you are in close contact with our sales and the supply chain. Tasks:\n• Create, review and adjust the rolling demand forecast for a defined segment\n• Planning and accompanying action, season and event quantities with the forecasting system\n• Planning of inputs and evaluations\n• Evaluation and analysis of KPI's\n• Proactively promote sustainable and digital optimization measures in the area of sales planning and forecasting\n• Assuming individual task packages in the S&OP process and accompanying projects Requirements:\n• commercial-technical or business background with in-depth professional experience in the field of demand forecasting and/or production planning\n• Knowledge of ERP or Planning systems and a good understanding of the end-to-end supply chain process\n• With your analytical skills and high level of detail orientation, you love to analyze data\n• Thanks to your high problem-solving ability, you will proactively engage with your internal and external contacts in the exchange for a common goal achievement.\n• A further development in the area of S&OP and especially under increased use of AI you find exciting\n• French skills are an advantage",
+        "de": "In unserem dynamischen Umfeld kannst du deine analytischen Fähigkeiten voll ausleben und übernimmst die vorausschauende Absatzplanung unserer Sortimente in verschiedenen Verkaufskanälen bis hin zum Forecasting unserer ultrafrischen Produkte auf Tagesebene. Im Zentrum deiner Tätigkeit steht die maximale Balance der Kundenzufriedenheit und Vermeidung von Lebensmittelverschwendung. Hierfür stehst du im engen Austausch mit unserem Vertrieb und der Supply Chain. Aufgaben:\n• Erstellen, Überprüfen und Anpassen des rollierenden Demand Forecasts für ein definiertes Segment\n• Planen und Begleiten von Aktions-, Saisons- und Eventmengen mit dem Forecasting-System\n• Planen von Ein- und Auslistungen\n• Auswerten und Analysieren von KPI's\n• Proaktives Vorantreiben nachhaltiger und digitaler Optimierungsmassnahmen im Bereich Absatzplanung und Forecasting\n• Übernehmen einzelner Aufgabenpakete im S&OP-Prozess sowie Begleiten von Projekten Anforderungen:\n• kaufmännisch-technischer oder betriebswirtschaftlicher Hintergrund mit fundierter Berufserfahrung im Bereich Demand Forecasting und/oder Produktionsplanung\n• Kenntnisse in ERP bzw. Planungssystemen und ein gutes Verständnis des End-to-End Supply Chain Prozesses\n• Mit deinen analytischen Fähigkeiten und deiner hohen Detailorientierung liebst du es Daten zu analysieren\n• Dank deiner hohen Problemlösungsfähigkeit gehst du proaktiv mit deinen internen und externen Ansprechpartnern in den Austausch für eine gemeinsame Zielerreichung\n• Eine Weiterentwicklung im Bereich S&OP und speziell unter verstärktem Einsatz der KI findest du spannend\n• Französisch-Kenntnisse von Vorteil",
+        "fr": "Dans notre environnement dynamique, vous pouvez pleinement mettre en œuvre vos compétences analytiques et prendre en charge la planification prospective de nos ventes de nos gammes dans différents canaux de vente à la prévision de nos produits ultra-frais sur une base quotidienne. Au cœur de votre activité se trouve le maximum d'équilibre de la satisfaction du client et d'éviter le gaspillage alimentaire. Pour cela, vous êtes en contact étroit avec nos ventes et la chaîne d'approvisionnement. Tâches :\n• Créer, revoir et ajuster les prévisions de la demande mobile pour un segment défini\n• Planifier et accompagner les actions, la saison et les événements avec le système de prévision\n• Planification des apports et des évaluations\n• Évaluation et analyse de KPI\n• Promouvoir activement des mesures d'optimisation durable et numérique dans le domaine de la planification et de la prévision des ventes\n• En supposant des ensembles de tâches individuels dans le processus de S-P et les projets connexes.\n• Expérience commerciale-technique ou commerciale avec une expérience professionnelle approfondie dans le domaine de la prévision de la demande et/ou de la planification de la production\n• Connaissance des systèmes ERP ou de planification et bonne compréhension du processus de la chaîne d'approvisionnement de bout en bout\n• Avec vos compétences analytiques et un niveau élevé d'orientation des détails, vous aimez analyser les données\n• Grâce à votre grande capacité de résolution de problèmes, vous vous engagerez proactivement avec vos contacts internes et externes dans l'échange d'un objectif commun.\n• Un nouveau développement dans le domaine des S&OP et surtout sous l'utilisation accrue de l'IA que vous trouvez passionnant\n• Les compétences en français sont un avantage"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Schaan",
+      "canton": "GR",
+      "addressLocality": "Schaan",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "Unbefristet",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "url": "https://career.bellfoodgroup.com/de/stelle/demand-planer-4984",
+      "source": "Hilcona Dedicated Parser",
+      "crawledAt": "2026-08-24T10:14:47.244Z",
+      "sourceLang": "de",
+      "previousSlugs": [
+        "demand-planer-hilcona-schaan",
+        "demand-planer-hilcona-ag-schaan",
+        "pianificatori-di-domanda-hilcona-ag-schaan"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "demand-planer-hilcona-schaan",
+          "pianificatori-di-domanda-hilcona-ag-schaan"
+        ],
+        "en": [
+          "demand-planer-hilcona-schaan",
+          "demand-planer-hilcona-ag-schaan"
+        ],
+        "fr": [
+          "demand-planer-hilcona-schaan"
+        ]
+      },
+      "firstSeenAt": "2026-07-07T22:30:35.048Z",
+      "needsRetranslation": true,
+      "salaryMin": 64500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
     },
     {
       "id": "hilcona-291537a7c36b",
@@ -11117,7 +11246,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -11184,7 +11313,7 @@
         }
       },
       "addressRegion": "SO",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hilcona-8df9f0f52268",
@@ -11265,7 +11394,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
