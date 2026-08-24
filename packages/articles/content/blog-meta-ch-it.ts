@@ -4027,6 +4027,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Aprire attività a Friburgo: registro commercio e costi',
     'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Guida pratica per avviare un\'attività nel canton Friburgo: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi per autonomi.',
     'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Uffici di una città svizzera, ambiente economico e imprenditoriale per aprire un\'attività commerciale.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Permesso dimora B Soletta: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Guida completa al permesso B nel cantone Soletta. Scopri requisiti, documenti da produrre, durata 5 anni e procedura di rinnovo entro 3 mesi dalla scadenza.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Documento del permesso di dimora B svizzero con dati personali e data di rinnovo su scrivania',
 };
 
 export default blogMetaChIt;

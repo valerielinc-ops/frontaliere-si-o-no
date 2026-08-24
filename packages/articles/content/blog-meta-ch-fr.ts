@@ -4027,6 +4027,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Ouvrir des activités à Fribourg : registre du commerce et des coûts',
     'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Guide pratique pour démarrer une activité dans le canton de Fribourg : formes juridiques, inscription au registre du commerce, capital minimum, taxes et obligations d\'assurance pour indépendants.',
     'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Bâtiments de bureaux suisses représentant l\'environnement commercial pour démarrer une activité.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Permis de séjour B Soleure : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Guide complet du permis B dans le canton de Soleure. Découvrez les exigences, les documents à produire, la durée de 5 ans et la procédure de renouvellement dans les 3 mois suivant l\'expiration.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Permis de séjour type B suisse affichant les données personnelles et la date de renouvellement',
 };
 
 export default blogMetaChFr;

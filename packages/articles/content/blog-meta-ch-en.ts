@@ -4027,6 +4027,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Opening businesses in Freiburg: trade register and costs',
     'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Practical guide to starting a business in the canton of Freiburg: legal forms, registration in the trade register, minimum capital, taxes and insurance obligations for the self-employed.',
     'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Swiss office buildings representing the business environment for starting a commercial activity.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Residence permit B Slab: requirements and renewal',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Complete guide to permit B in the canton of Solothurn. Discover requirements, documents to be produced, duration 5 years and renewal procedure within 3 months of expiry.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Swiss residence permit type B showing personal data and renewal expiration date on desk',
 };
 
 export default blogMetaChEn;

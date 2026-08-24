@@ -52241,6 +52241,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-dimora-b-soletta-requisiti-rinnovo': {
+    title: 'Permesso dimora B Soletta: requisiti e rinnovo',
+    description: 'Permesso B cantone Soletta: requisiti, documenti, durata 5 anni. Procedura rinnovo entro 3 mesi dalla scadenza, ufficio migrazione, AVS-LPP-LAMal.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, soletta, requisiti',
+    ogTitle: 'Permesso dimora B Soletta: requisiti e rinnovo',
+    ogDescription: 'Guida completa al permesso B nel cantone Soletta: requisiti federali per cittadini UE e stranieri, documenti da produrre, durata 5 anni, procedura rinnovo step-by-step, contatti ufficio migrazione e implicazioni fiscali-previdenziali.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-soletta-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso dimora B Soletta: requisiti e rinnovo",
+      "description": "Permesso B cantone Soletta: requisiti, documenti, durata 5 anni. Procedura rinnovo entro 3 mesi dalla scadenza, ufficio migrazione, AVS-LPP-LAMal.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-soletta-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento del permesso di dimora B svizzero con dati personali e data di rinnovo su scrivania"
+      },
+      "datePublished": "2026-08-24T04:51:47+00:00",
+      "dateModified": "2026-08-24T04:51:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-soletta-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
