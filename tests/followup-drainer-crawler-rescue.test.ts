@@ -73,7 +73,7 @@ describe('crawlerFixDecision — max-turns resta un PARK (nessuna regressione)',
   });
 
   it('parka anche i verdetti non-ri-tentabili (abort pulita del fixer)', () => {
-    for (const outcome of ['no-root-cause', 'blocked-secrets', 'already-fixed']) {
+    for (const outcome of ['no-root-cause', 'blocked-admin-settings', 'already-fixed']) {
       expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0 }).action).toBe('park-verdict');
     }
   });

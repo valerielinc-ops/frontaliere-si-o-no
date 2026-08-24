@@ -123,14 +123,32 @@ describe('#5544 — si gata sulla CAPACITÀ letta, mai sulla presenza del token 
   });
 });
 
-describe('#5544 — il secrets-scope guard (#5057) resta INCONDIZIONATO', () => {
-  it('capacità workflows concessa → una candidata secrets-scoped resta comunque esclusa', () => {
-    const { fn, calls } = stubFetch(WF_SCOPED_DETAIL);
+describe('il secrets-scope guard è CADUTO (decisione del proprietario, 2026-08-24)', () => {
+  // Questo blocco asseriva l'opposto — «una candidata secrets-scoped resta
+  // comunque esclusa» — e va letto per quello che era: la codifica di una
+  // configurazione, non di un limite. Il fixer del sito girava senza credenziali
+  // (a differenza di quello del corpus, che le carica da sempre), quindi
+  // escludere quelle issue per sempre era corretto. Dal 2026-08-24 il
+  // proprietario ha autorizzato in modo permanente l'uso dei secret (registro in
+  // VISION.md) e `issue-fix.yml` carica Remote Config: la premessa non c'è più.
+  //
+  // Il test resta, invertito, perché è il punto dove un ripristino accidentale si
+  // vedrebbe: se qualcuno rimette l'esclusione, qui diventa rosso e la decisione
+  // viene ri-letta invece di essere silenziosamente annullata.
+  it('capacità workflows concessa → una candidata secrets-scoped NON è più esclusa', () => {
+    const { fn } = stubFetch({ title: 'roba con POSTHOG_API_KEY', body: '', labels: [] });
     expect(
       isCapabilityScoped(SECRETS_SCOPED_ISSUE, { fetchIssue: fn, canPushWorkflows: true }),
+    ).toBe(false);
+  });
+
+  it('senza la capacità workflows resta esclusa, ma per il MOTIVO giusto', () => {
+    // Ciò che tiene fuori una issue ora è solo l'impossibilità vera di pushare
+    // `.github/workflows/**` — non la presenza di un nome di secret nel titolo.
+    const { fn } = stubFetch(WF_SCOPED_DETAIL);
+    expect(
+      isCapabilityScoped(SECRETS_SCOPED_ISSUE, { fetchIssue: fn, canPushWorkflows: false }),
     ).toBe(true);
-    // e corto-circuita sulla label: nessuna fetch pagata (invariante di costo #5838)
-    expect(calls).toEqual([]);
   });
 });
 

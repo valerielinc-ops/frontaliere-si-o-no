@@ -1,13 +1,16 @@
 /**
- * secrets-scope-detect — zero-Claude pre-promotion gate for followup-drainer.mjs
+ * secrets-scope-detect — pre-promotion detector for followup-drainer.mjs
  * (escalation #5057, bucket fix-outcome:blocked-secrets 6x/14d).
  *
- * `cloudflare-5xx` / `campaign-goal` / `evergreen-refresh` issues structurally
- * require a Firebase-RC-loaded credential never available to `issue-fix` (GH_TOKEN
- * only) — promoting them to `agent:fix` always burns a full Claude run that ends
- * `blocked-secrets`. This detector intercepts them PRE-promotion, mirroring
- * `detectWorkflowScoped` (#1724). CONSERVATIVE (bias to promote): only the 3 known
- * monitor-applied labels trigger a park.
+ * `cloudflare-5xx` / `campaign-goal` / `evergreen-refresh` issues used to
+ * structurally require a Firebase-RC-loaded credential never available to
+ * `issue-fix` (GH_TOKEN only) — promoting them to `agent:fix` always burned a
+ * full Claude run that ended `blocked-secrets`. This detector intercepted
+ * them PRE-promotion, mirroring `detectWorkflowScoped` (#1724). From
+ * 2026-08-24 `issue-fix.yml` loads Remote Config too (owner decision,
+ * VISION.md), so that credential is now present and the drainer promotes
+ * these anyway — the detector's match is logged, not parking. CONSERVATIVE
+ * (bias to promote): only the 3 known monitor-applied labels ever match.
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -194,18 +197,47 @@ describe('matchSecretsScopedShape — label e testo nella stessa risposta', () =
 
 // Il pre-flight del drainer deve USARE la forma completa, non piu' la sola label:
 // un detector giusto cablato al posto sbagliato e' una guardia che non guarda.
-describe('#5838 — il pre-flight del drainer e\' cablato sulla forma completa', () => {
+describe('#5838 — poi CADUTO per decisione del proprietario (2026-08-24)', () => {
   const SRC = readFileSync(join(__dirname, '../scripts/ci/followup-drainer.mjs'), 'utf8');
 
-  it('il park pre-promozione chiama matchSecretsScopedShape con title+body', () => {
+  // Fino al 2026-08-24 questo blocco pinnava l'opposto: il pre-flight del
+  // drainer doveva parcheggiare su forma completa (label O testo), e
+  // `isCapabilityScoped` doveva condividere quella stessa forma per non aprire
+  // un ciclo un-park -> park fra parked-retry e pre-promozione. Era corretto
+  // finché il fixer del sito girava senza credenziali: una issue secrets-scoped
+  // era un blocco di capacità reale.
+  //
+  // Il proprietario ha autorizzato in modo permanente l'uso dei secret dal
+  // ciclo autonomo (registro in VISION.md) e `issue-fix.yml` carica Remote
+  // Config prima di ogni run: una issue secrets-scoped è ora lavoro normale.
+  // Questi due test sono INVERTITI, non cancellati — sono il punto dove un
+  // ripristino accidentale del vecchio guard diventerebbe rosso invece di
+  // annullare la decisione in silenzio.
+
+  it('il pre-flight OSSERVA ancora la forma (matcher condiviso, zero-Claude), ma non parcheggia più su di essa', () => {
+    // Il rilevatore resta collegato come SEGNALE: se il caricamento dei secret
+    // smettesse di funzionare, questa riga accanto a un `blocked-secrets` reale
+    // renderebbe immediata la correlazione. Vedi il commento sopra
+    // `secretsMatch` nel drainer per la stessa ragione, per esteso.
     expect(SRC).toContain('matchSecretsScopedShape({');
     const call = SRC.slice(SRC.indexOf('const secretsMatch = matchSecretsScopedShape('));
     expect(call.slice(0, 200)).toContain('text:');
+    // La promozione avviene comunque: NON deve esserci più un `park` legato a
+    // questo match nello stesso blocco.
+    const block = SRC.slice(SRC.indexOf('if (secretsMatch) {'), SRC.indexOf('if (secretsMatch) {') + 900);
+    expect(block).not.toContain("edit(cand.number, { add: [LBL_PARKED]");
   });
 
-  it('il parked-retry passa dal capability-guard unificato (no ciclo un-park -> park)', () => {
+  it('isCapabilityScoped NON chiama più matchSecretsScopedShape: esclude solo su workflows-scope reale', () => {
+    // La funzione porta un commento che RACCONTA la rimozione — cita
+    // `matchSecretsScopedShape` in prosa apposta, come nota storica — quindi il
+    // test isola il CORPO ESEGUITO (dal `try` in poi) e non l'intera funzione
+    // commento incluso, o assertirebbe il falso sulla base delle parole sbagliate.
     expect(SRC).toContain('isCapabilityScoped(iss)');
-    const fn = SRC.slice(SRC.indexOf('function isCapabilityScoped'));
-    expect(fn.slice(0, 700)).toContain('matchSecretsScopedShape');
+    const start = SRC.indexOf('function isCapabilityScoped');
+    const body = SRC.slice(SRC.indexOf('try {', start), SRC.indexOf('} catch { return true; }', start));
+    expect(body).not.toContain('matchSecretsScopedShape');
+    expect(body).not.toContain('isSecretsScoped');
+    expect(body).toContain('isWorkflowScoped');
   });
 });
