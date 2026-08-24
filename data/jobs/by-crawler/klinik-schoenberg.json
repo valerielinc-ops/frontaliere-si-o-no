@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-schoenberg",
-  "assembledAt": "2026-08-24T10:15:03.167Z",
+  "assembledAt": "2026-08-24T21:38:23.587Z",
   "jobs": [
     {
       "id": "klinik-schoenberg-c42535418e48",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/73659d11d66726d34baa1203b951e13a/lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:15:00.130Z",
+      "crawledAt": "2026-08-24T21:38:20.856Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://my.jobalino.ch/job/ad9827b92dcdcf1fdd96bf6bb8cc6c02/lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:14:59.581Z",
+      "crawledAt": "2026-08-24T21:38:20.244Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://my.jobalino.ch/job/a16ce66f550cacf4f12a8e90df158121/berufswahl-schnupperpraktikant-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:14:59.020Z",
+      "crawledAt": "2026-08-24T21:38:19.639Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://my.jobalino.ch/job/d04c92d8d180de8b487c70e692c4199a/bereichsleiter-in-bildung-pflege-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:14:58.605Z",
+      "crawledAt": "2026-08-24T21:38:19.193Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -372,7 +372,7 @@
       "url": "https://my.jobalino.ch/job/7f8c93ff068084dedcfa539b92bc4521/assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d_4915",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:14:58.062Z",
+      "crawledAt": "2026-08-24T21:38:18.595Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -493,7 +493,7 @@
       "url": "https://my.jobalino.ch/job/e7485250903f75718f577817aa1a483a/fachperson-gesundheit-fage-w-m-d_227",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:14:57.274Z",
+      "crawledAt": "2026-08-24T21:38:17.980Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -574,7 +574,7 @@
       "url": "https://my.jobalino.ch/job/80e424e55beb9566fa7b9d166549929e/dipl-pflegefachperson-hf-fh-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:14:56.484Z",
+      "crawledAt": "2026-08-24T21:38:17.378Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -647,6 +647,159 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "klinik-schoenberg-6848b85cd009",
+      "slug": "infermiera-hf-fh-80-100-privatklinik-meiringen-thun",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fh-80-100-privatklinik-meiringen-thun",
+        "it": "infermiera-hf-fh-80-100-privatklinik-meiringen-thun",
+        "fr": "infirmiere-diplomee-hf-fh-80-100-privatklinik-meiringen-thun",
+        "en": "infermiera-hf-fh-80-100-privatklinik-meiringen-thun"
+      },
+      "company": "Klinik Schönberg AG",
+      "companyKey": "klinik-schoenberg",
+      "companyDomain": "klinik-schoenberg.ch",
+      "title": "Diätkoch / Diätköchin (w/m/d) / 80% - 100%",
+      "titleByLocale": {
+        "de": "Diätkoch / Diätköchin (w/m/d) / 80% - 100%",
+        "it": "Diätkoch / Diätköchin (w/m/d) / 80% - 100%",
+        "en": "Diätkoch / Diätköchin (w/m/d) / 80% - 100%",
+        "fr": "Diätkoch / Diätköchin (w/m/d) / 80% - 100%"
+      },
+      "description": "Du willst mehr als nur Teller füllen? Du möchtest mit deinem Können Menschen im Alltag stärken, Genesung unterstützen und Qualität spürbar machen?\n Dann bring deine Leidenschaft dorthin, wo sie Sinn stiftet: in die Küche der Klinik Schönberg.\n\nDeine Aufgaben\n\n• Zubereitung von Mahlzeiten nach diätetischen und ernährungsmedizinischen Richtlinien\n\n• Vorproduktion, Fertigung und Ausgabe der Tagesmenus sowie des à-la-carte-Angebots\n\n• Fachliche Unterstützung der Mitarbeitenden bei Diät- und Ernährungsfragen\n\n• Aktive Mithilfe bei der Einführung neuer Teammitglieder\n\n• Mitverantwortung in der Ausbildung unserer Koch- und Diätkochlernenden\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Diätköchin/Diätkoch EFZ oder Weiterbildung als Diätköchin/Diätkoch mit eidg. FA\n\n• Selbstständige, verantwortungsbewusste Arbeitsweise\n\n• Leidenschaft fürs Kochen – mit Kreativität, Sorgfalt und Sinn für Qualität\n\n• Teamfähigkeit in einem 17-köpfigen Küchenteam\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. C1)\n\n• Sicherer Umgang mit MS Office (Word/Excel) und digitalen Arbeitsmitteln\n\n• Flexibilität für Wochenend- und Feiertagsdienste (nach Einsatzplanung)\n\nUnser Angebot\n\n• Keine Zimmerstunde – dafür ein planbarer Arbeitsalltag, kombiniert mit flexiblen Arbeitszeitmodellen\n\n• Wir investieren in dein Können: durch gezielte Aus- und Weiterbildungsmöglichkeiten\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+      "descriptionByLocale": {
+        "de": "Du willst mehr als nur Teller füllen? Du möchtest mit deinem Können Menschen im Alltag stärken, Genesung unterstützen und Qualität spürbar machen?\n Dann bring deine Leidenschaft dorthin, wo sie Sinn stiftet: in die Küche der Klinik Schönberg.\n\nDeine Aufgaben\n\n• Zubereitung von Mahlzeiten nach diätetischen und ernährungsmedizinischen Richtlinien\n\n• Vorproduktion, Fertigung und Ausgabe der Tagesmenus sowie des à-la-carte-Angebots\n\n• Fachliche Unterstützung der Mitarbeitenden bei Diät- und Ernährungsfragen\n\n• Aktive Mithilfe bei der Einführung neuer Teammitglieder\n\n• Mitverantwortung in der Ausbildung unserer Koch- und Diätkochlernenden\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Diätköchin/Diätkoch EFZ oder Weiterbildung als Diätköchin/Diätkoch mit eidg. FA\n\n• Selbstständige, verantwortungsbewusste Arbeitsweise\n\n• Leidenschaft fürs Kochen – mit Kreativität, Sorgfalt und Sinn für Qualität\n\n• Teamfähigkeit in einem 17-köpfigen Küchenteam\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. C1)\n\n• Sicherer Umgang mit MS Office (Word/Excel) und digitalen Arbeitsmitteln\n\n• Flexibilität für Wochenend- und Feiertagsdienste (nach Einsatzplanung)\n\nUnser Angebot\n\n• Keine Zimmerstunde – dafür ein planbarer Arbeitsalltag, kombiniert mit flexiblen Arbeitszeitmodellen\n\n• Wir investieren in dein Können: durch gezielte Aus- und Weiterbildungsmöglichkeiten\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+        "it": "Du willst mehr als nur Teller füllen? Du möchtest mit deinem Können Menschen im Alltag stärken, Genesung unterstützen und Qualität spürbar machen?\n Dann bring deine Leidenschaft dorthin, wo sie Sinn stiftet: in die Küche der Klinik Schönberg.\n\nDeine Aufgaben\n\n• Zubereitung von Mahlzeiten nach diätetischen und ernährungsmedizinischen Richtlinien\n\n• Vorproduktion, Fertigung und Ausgabe der Tagesmenus sowie des à-la-carte-Angebots\n\n• Fachliche Unterstützung der Mitarbeitenden bei Diät- und Ernährungsfragen\n\n• Aktive Mithilfe bei der Einführung neuer Teammitglieder\n\n• Mitverantwortung in der Ausbildung unserer Koch- und Diätkochlernenden\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Diätköchin/Diätkoch EFZ oder Weiterbildung als Diätköchin/Diätkoch mit eidg. FA\n\n• Selbstständige, verantwortungsbewusste Arbeitsweise\n\n• Leidenschaft fürs Kochen – mit Kreativität, Sorgfalt und Sinn für Qualität\n\n• Teamfähigkeit in einem 17-köpfigen Küchenteam\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. C1)\n\n• Sicherer Umgang mit MS Office (Word/Excel) und digitalen Arbeitsmitteln\n\n• Flexibilität für Wochenend- und Feiertagsdienste (nach Einsatzplanung)\n\nUnser Angebot\n\n• Keine Zimmerstunde – dafür ein planbarer Arbeitsalltag, kombiniert mit flexiblen Arbeitszeitmodellen\n\n• Wir investieren in dein Können: durch gezielte Aus- und Weiterbildungsmöglichkeiten\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+        "en": "Du willst mehr als nur Teller füllen? Du möchtest mit deinem Können Menschen im Alltag stärken, Genesung unterstützen und Qualität spürbar machen?\n Dann bring deine Leidenschaft dorthin, wo sie Sinn stiftet: in die Küche der Klinik Schönberg.\n\nDeine Aufgaben\n\n• Zubereitung von Mahlzeiten nach diätetischen und ernährungsmedizinischen Richtlinien\n\n• Vorproduktion, Fertigung und Ausgabe der Tagesmenus sowie des à-la-carte-Angebots\n\n• Fachliche Unterstützung der Mitarbeitenden bei Diät- und Ernährungsfragen\n\n• Aktive Mithilfe bei der Einführung neuer Teammitglieder\n\n• Mitverantwortung in der Ausbildung unserer Koch- und Diätkochlernenden\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Diätköchin/Diätkoch EFZ oder Weiterbildung als Diätköchin/Diätkoch mit eidg. FA\n\n• Selbstständige, verantwortungsbewusste Arbeitsweise\n\n• Leidenschaft fürs Kochen – mit Kreativität, Sorgfalt und Sinn für Qualität\n\n• Teamfähigkeit in einem 17-köpfigen Küchenteam\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. C1)\n\n• Sicherer Umgang mit MS Office (Word/Excel) und digitalen Arbeitsmitteln\n\n• Flexibilität für Wochenend- und Feiertagsdienste (nach Einsatzplanung)\n\nUnser Angebot\n\n• Keine Zimmerstunde – dafür ein planbarer Arbeitsalltag, kombiniert mit flexiblen Arbeitszeitmodellen\n\n• Wir investieren in dein Können: durch gezielte Aus- und Weiterbildungsmöglichkeiten\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+        "fr": "Du willst mehr als nur Teller füllen? Du möchtest mit deinem Können Menschen im Alltag stärken, Genesung unterstützen und Qualität spürbar machen?\n Dann bring deine Leidenschaft dorthin, wo sie Sinn stiftet: in die Küche der Klinik Schönberg.\n\nDeine Aufgaben\n\n• Zubereitung von Mahlzeiten nach diätetischen und ernährungsmedizinischen Richtlinien\n\n• Vorproduktion, Fertigung und Ausgabe der Tagesmenus sowie des à-la-carte-Angebots\n\n• Fachliche Unterstützung der Mitarbeitenden bei Diät- und Ernährungsfragen\n\n• Aktive Mithilfe bei der Einführung neuer Teammitglieder\n\n• Mitverantwortung in der Ausbildung unserer Koch- und Diätkochlernenden\n\nDein Profil\n\n• Abgeschlossene Ausbildung als Diätköchin/Diätkoch EFZ oder Weiterbildung als Diätköchin/Diätkoch mit eidg. FA\n\n• Selbstständige, verantwortungsbewusste Arbeitsweise\n\n• Leidenschaft fürs Kochen – mit Kreativität, Sorgfalt und Sinn für Qualität\n\n• Teamfähigkeit in einem 17-köpfigen Küchenteam\n\n• Gute Deutschkenntnisse in Wort und Schrift (mind. C1)\n\n• Sicherer Umgang mit MS Office (Word/Excel) und digitalen Arbeitsmitteln\n\n• Flexibilität für Wochenend- und Feiertagsdienste (nach Einsatzplanung)\n\nUnser Angebot\n\n• Keine Zimmerstunde – dafür ein planbarer Arbeitsalltag, kombiniert mit flexiblen Arbeitszeitmodellen\n\n• Wir investieren in dein Können: durch gezielte Aus- und Weiterbildungsmöglichkeiten\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten"
+      },
+      "needsRetranslation": true,
+      "location": "Gunten",
+      "canton": "BE",
+      "url": "https://my.jobalino.ch/job/5e090767e44850d6090241204609188f/diaetkoch-diaetkoechin-w-m-d_1615",
+      "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:38:16.770Z",
+      "addressLocality": "Gunten",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3654",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://my.jobalino.ch/job/5e090767e44850d6090241204609188f/diaetkoch-diaetkoechin-w-m-d_1615",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "5e090767e44850d6090241204609188f",
+      "contractDuration": "permanent",
+      "previousSlugsByLocale": {
+        "it": [
+          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
+        ],
+        "de": [
+          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
+        ]
+      },
+      "previousSlugs": [
+        "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
+      ],
+      "salaryMin": 67500,
+      "salaryMax": 84500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67500,
+          "maxValue": 84500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:38:16.770Z"
+    },
+    {
+      "id": "klinik-schoenberg-89fbd08a5eb2",
+      "slug": "office-collaboratore-trice-m-w-d-80-100-klinik-schonberg-ag-gunten",
+      "slugByLocale": {
+        "de": "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten",
+        "it": "office-collaboratore-trice-m-w-d-80-100-klinik-schonberg-ag-gunten",
+        "en": "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten",
+        "fr": "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten"
+      },
+      "company": "Klinik Schönberg AG",
+      "companyKey": "klinik-schoenberg",
+      "companyDomain": "klinik-schoenberg.ch",
+      "title": "Office-Mitarbeiter:in (w/m/d) / 80% - 100%",
+      "titleByLocale": {
+        "de": "Office-Mitarbeiter:in (w/m/d) / 80% - 100%",
+        "it": "Office-Collaboratore/trice (w/m/d) / 80% - 100%",
+        "en": "Office-Associate (w/m/d) / 80% - 100%",
+        "fr": "Office-Collaborateur/trice (w/m/d) / 80% - 100%"
+      },
+      "description": "Bist du auf der Suche nach einer Stelle mit geregelten Arbeitszeiten bis 20 Uhr? Und möchtest du von zahlreichen Firmenbenefits profitieren? Dann bist du bei uns genau richtig! Da eine langjährige Mitarbeiterin in den wohlverdienten Ruhestand tritt, suchen wir im Rahmen dieser Nachfolgeregelung eine engagierte Persönlichkeit, die unser gut eingespieltes 20-köpfiges Küchenteam ergänzt – 1. Dezember 2025 oder nach Vereinbarung.\n\nDeine Aufgaben\n\n• Mitarbeit in der Abwaschküche\n\n• Allgemeine Aufräum- und Reinigungsarbeiten\n\n• Mithilfe bei der Produktion und Fertigung (Rüst- und Schneidearbeiten)\n\n• Einhalten und Umsetzen der gesetzlichen und betrieblichen Hygienevorschriften\n\nDein Profil\n\n• Du verfügst über gute Deutschkenntnisse (mindestens A2/B1) sowie Erfahrungen in einer Gemeinschafts-, Klinik- oder Grossküche (oder in einem vergleichbaren Umfeld)\n\n• Du bist belastbar und körperlich fit\n\n• Du bist verantwortungsbewusst, und arbeitest effizient und selbständig\n\n• Du bringst die Bereitschaft für Wochenenddienste und Einsätze an Feiertagen mit\n\nUnser Angebot\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Wir bieten dir die Möglichkeit, unser Unternehmen mitzugestalten\n\n• Du willst weiterkommen? – Wir bieten dir zielgerichtete Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+      "descriptionByLocale": {
+        "de": "Bist du auf der Suche nach einer Stelle mit geregelten Arbeitszeiten bis 20 Uhr? Und möchtest du von zahlreichen Firmenbenefits profitieren? Dann bist du bei uns genau richtig! Da eine langjährige Mitarbeiterin in den wohlverdienten Ruhestand tritt, suchen wir im Rahmen dieser Nachfolgeregelung eine engagierte Persönlichkeit, die unser gut eingespieltes 20-köpfiges Küchenteam ergänzt – 1. Dezember 2025 oder nach Vereinbarung.\n\nDeine Aufgaben\n\n• Mitarbeit in der Abwaschküche\n\n• Allgemeine Aufräum- und Reinigungsarbeiten\n\n• Mithilfe bei der Produktion und Fertigung (Rüst- und Schneidearbeiten)\n\n• Einhalten und Umsetzen der gesetzlichen und betrieblichen Hygienevorschriften\n\nDein Profil\n\n• Du verfügst über gute Deutschkenntnisse (mindestens A2/B1) sowie Erfahrungen in einer Gemeinschafts-, Klinik- oder Grossküche (oder in einem vergleichbaren Umfeld)\n\n• Du bist belastbar und körperlich fit\n\n• Du bist verantwortungsbewusst, und arbeitest effizient und selbständig\n\n• Du bringst die Bereitschaft für Wochenenddienste und Einsätze an Feiertagen mit\n\nUnser Angebot\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Wir bieten dir die Möglichkeit, unser Unternehmen mitzugestalten\n\n• Du willst weiterkommen? – Wir bieten dir zielgerichtete Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+        "it": "Bist du auf der Suche nach einer Stelle mit geregelten Arbeitszeiten bis 20 Uhr? Und möchtest du von zahlreichen Firmenbenefits profitieren? Dann bist du bei uns genau richtig! Da eine langjährige Mitarbeiterin in den wohlverdienten Ruhestand tritt, suchen wir im Rahmen dieser Nachfolgeregelung eine engagierte Persönlichkeit, die unser gut eingespieltes 20-köpfiges Küchenteam ergänzt – 1. Dezember 2025 oder nach Vereinbarung.\n\nDeine Aufgaben\n\n• Mitarbeit in der Abwaschküche\n\n• Allgemeine Aufräum- und Reinigungsarbeiten\n\n• Mithilfe bei der Produktion und Fertigung (Rüst- und Schneidearbeiten)\n\n• Einhalten und Umsetzen der gesetzlichen und betrieblichen Hygienevorschriften\n\nDein Profil\n\n• Du verfügst über gute Deutschkenntnisse (mindestens A2/B1) sowie Erfahrungen in einer Gemeinschafts-, Klinik- oder Grossküche (oder in einem vergleichbaren Umfeld)\n\n• Du bist belastbar und körperlich fit\n\n• Du bist verantwortungsbewusst, und arbeitest effizient und selbständig\n\n• Du bringst die Bereitschaft für Wochenenddienste und Einsätze an Feiertagen mit\n\nUnser Angebot\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Wir bieten dir die Möglichkeit, unser Unternehmen mitzugestalten\n\n• Du willst weiterkommen? – Wir bieten dir zielgerichtete Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+        "en": "Bist du auf der Suche nach einer Stelle mit geregelten Arbeitszeiten bis 20 Uhr? Und möchtest du von zahlreichen Firmenbenefits profitieren? Dann bist du bei uns genau richtig! Da eine langjährige Mitarbeiterin in den wohlverdienten Ruhestand tritt, suchen wir im Rahmen dieser Nachfolgeregelung eine engagierte Persönlichkeit, die unser gut eingespieltes 20-köpfiges Küchenteam ergänzt – 1. Dezember 2025 oder nach Vereinbarung.\n\nDeine Aufgaben\n\n• Mitarbeit in der Abwaschküche\n\n• Allgemeine Aufräum- und Reinigungsarbeiten\n\n• Mithilfe bei der Produktion und Fertigung (Rüst- und Schneidearbeiten)\n\n• Einhalten und Umsetzen der gesetzlichen und betrieblichen Hygienevorschriften\n\nDein Profil\n\n• Du verfügst über gute Deutschkenntnisse (mindestens A2/B1) sowie Erfahrungen in einer Gemeinschafts-, Klinik- oder Grossküche (oder in einem vergleichbaren Umfeld)\n\n• Du bist belastbar und körperlich fit\n\n• Du bist verantwortungsbewusst, und arbeitest effizient und selbständig\n\n• Du bringst die Bereitschaft für Wochenenddienste und Einsätze an Feiertagen mit\n\nUnser Angebot\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Wir bieten dir die Möglichkeit, unser Unternehmen mitzugestalten\n\n• Du willst weiterkommen? – Wir bieten dir zielgerichtete Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten",
+        "fr": "Bist du auf der Suche nach einer Stelle mit geregelten Arbeitszeiten bis 20 Uhr? Und möchtest du von zahlreichen Firmenbenefits profitieren? Dann bist du bei uns genau richtig! Da eine langjährige Mitarbeiterin in den wohlverdienten Ruhestand tritt, suchen wir im Rahmen dieser Nachfolgeregelung eine engagierte Persönlichkeit, die unser gut eingespieltes 20-köpfiges Küchenteam ergänzt – 1. Dezember 2025 oder nach Vereinbarung.\n\nDeine Aufgaben\n\n• Mitarbeit in der Abwaschküche\n\n• Allgemeine Aufräum- und Reinigungsarbeiten\n\n• Mithilfe bei der Produktion und Fertigung (Rüst- und Schneidearbeiten)\n\n• Einhalten und Umsetzen der gesetzlichen und betrieblichen Hygienevorschriften\n\nDein Profil\n\n• Du verfügst über gute Deutschkenntnisse (mindestens A2/B1) sowie Erfahrungen in einer Gemeinschafts-, Klinik- oder Grossküche (oder in einem vergleichbaren Umfeld)\n\n• Du bist belastbar und körperlich fit\n\n• Du bist verantwortungsbewusst, und arbeitest effizient und selbständig\n\n• Du bringst die Bereitschaft für Wochenenddienste und Einsätze an Feiertagen mit\n\nUnser Angebot\n\n• Entspannende Erholung (Fitnesskurse, kostenlose Wellness-Angebote in unseren Partnerbetrieben und Rabatte auf Fitness-Abos)\n\n• Wir bieten dir die Möglichkeit, unser Unternehmen mitzugestalten\n\n• Du willst weiterkommen? – Wir bieten dir zielgerichtete Aus- und Weiterbildungsmöglichkeiten\n\n• Zeitgemässe Anstellungsbedingungen mit fortschrittlichen Lohnnebenleistungen\n\nInteressiert? Dann freuen wir uns auf deine Online-Bewerbung.\n Klinik Schönberg AG, Estelle Fuchs, Human Resources, Schönbergstrasse 40, 3654 Gunten"
+      },
+      "needsRetranslation": true,
+      "location": "Gunten",
+      "canton": "BE",
+      "url": "https://my.jobalino.ch/job/6cedfaf9d1f127606f659865988e923a/office-mitarbeiter-in-w-m-d",
+      "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:38:16.143Z",
+      "addressLocality": "Gunten",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3654",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://my.jobalino.ch/job/6cedfaf9d1f127606f659865988e923a/office-mitarbeiter-in-w-m-d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "6cedfaf9d1f127606f659865988e923a",
+      "contractDuration": "permanent",
+      "previousSlugsByLocale": {
+        "it": [
+          "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten"
+        ]
+      },
+      "previousSlugs": [
+        "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten"
+      ],
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:38:16.143Z"
     }
   ]
 }
