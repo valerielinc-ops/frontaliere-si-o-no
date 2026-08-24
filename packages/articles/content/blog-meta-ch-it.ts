@@ -4102,6 +4102,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'USI e SUPSI: aumenteranno le tasse semestrali per gli studenti',
     'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Le università ticinesi aumenteranno le tasse semestrali per gli studenti a partire dall\'anno accademico 2027/2028, a causa della riduzione del sostegno pubblico da parte della Confederazione.',
     'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Immagine di un studente in una università svizzera',
+    'blog.article.permesso-b-basilea-citta.title': 'Permesso dimora B Basilea Città: requisiti e rinnovo',
+    'blog.article.permesso-b-basilea-citta.excerpt': 'Guida pratica al permesso di dimora rinnovabile nel Cantone di Basilea Città: requisiti, documenti, durata, procedura di rinnovo e contatti dell\'ufficio della migrazione.',
+    'blog.article.permesso-b-basilea-citta.imageAlt': 'Ufficio amministrativo svizzero con moduli di richiesta permesso di dimora e documenti ufficiali',
 };
 
 export default blogMetaChIt;

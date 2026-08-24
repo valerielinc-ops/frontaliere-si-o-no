@@ -12304,6 +12304,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-b-basilea-citta',
+    category: 'pratico',
+    date: '2026-08-24T12:28:08.819Z',
+    image: '/images/blog/permesso-b-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

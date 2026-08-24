@@ -4102,6 +4102,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'USI und SUPSI: Die Semestergebühren für Studenten werden erhöht',
     'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Die Tessiner Hochschulen werden die Semestergebühren für Studierende ab dem Studienjahr 2027/2028 aufgrund des Rückgangs der öffentlichen Förderung durch den Bund erhöhen.',
     'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Bild eines Studierenden in einer Schweizer Universität',
+    'blog.article.permesso-b-basilea-citta.title': 'Aufenthaltsbewilligung B Basel-Stadt: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-b-basilea-citta.excerpt': 'Praktischer Leitfaden zur erneuerbaren Aufenthaltsbewilligung im Kanton Basel-Stadt: Voraussetzungen, Dokumente, Dauer, Erneuerungsverfahren und Kontakte der Migrationsstelle.',
+    'blog.article.permesso-b-basilea-citta.imageAlt': 'Schweizer Behördenbüro mit Aufenthaltserlaubnisformularen und amtlichen Dokumenten',
 };
 
 export default blogMetaChDe;

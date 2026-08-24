@@ -1393,6 +1393,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'siccita-aziende-biologiche-2026': { it: 'siccita-aziende-biologiche-2026', en: 'organic-farms-drought-relief-2026', de: 'trockenheit-biobetriebe-2026', fr: 'secheresse-fermes-biologiques-2026' },
  'dimora-b-basilea-rinnovo': { it: 'dimora-b-basilea-rinnovo', en: 'residence-permit-b-basel-renewal', de: 'aufenthaltserlaubnis-b-basel-erneuerung', fr: 'permis-sejour-b-bale-renouvellement' },
  'usi-supsi-aumentano-tasse-studenti': { it: 'usi-supsi-aumentano-tasse-studenti', en: 'usi-supsi-increase-student-fees', de: 'usi-supsi-steigende-studentenbeitrage', fr: 'usi-supsi-augmentation-des-frais-etudiants' },
+ 'permesso-b-basilea-citta': { it: 'permesso-b-basilea-citta', en: 'residence-permit-b-basel-city', de: 'aufenthaltsgenehmigung-b-basel-stadt', fr: 'permis-sejour-b-bale-ville' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
