@@ -1,0 +1,160 @@
+# Canton URL drift — settimanale, misura il FLUSSO che alimenta i redirect.
+#
+# PERCHE' ESISTE
+# Search Console contava 188.160 URL sotto «Pagina con reindirizzamento» il
+# 2026-08-21. Su un campione di 1.000 esempi, ~75% erano pagine di dettaglio job
+# il cui segmento cantone era cambiato: l'URL vecchio, gia' indicizzato, resta
+# come 301. Quel numero e' uno STOCK e non sa dire se il problema e' finito —
+# un redirect resta contato per mesi dopo che la causa e' stata rimossa.
+#
+# Questo job misura il flusso: quanti slug cambiano sezione a settimana, e se il
+# movimento va verso o via dal cantone del comune nominato nello slug. La serie
+# in data/canton-url-drift-history.jsonl e' la risposta a «sta migliorando?».
+#
+# Baseline al 2026-08-24, prima della fix #6318: 0,86%/settimana su 44.919 slug
+# (5 shard), ~10.500 URL gia' indicizzati a settimana sui 4 locali; direzione
+# 108 verso / 154 via / 68 laterali su 330 risolvibili.
+#
+# QUANDO AVVISA
+# Una issue, e solo al superamento della soglia: tasso oltre META' della baseline
+# registrata nella prima riga dello storico, confermato da DUE run consecutivi.
+# Le due condizioni servono a non ripetere alert-pat-down.mjs (#5432), il
+# reporter che scattava su una categoria che nessuno poteva chiudere e che per
+# questo e' stato ignorato e poi spento:
+#   • la soglia e' relativa alla baseline, non un numero inventato — il rumore di
+#     campionamento su ~45.000 slug e' circa ±0,08 punti, un ordine di grandezza
+#     sotto la linea baseline/2;
+#   • i due run consecutivi eliminano la classe di falsi allarmi della finestra a
+#     cavallo della fix, che misura legittimamente ancora il churn vecchio.
+# Il titolo e' FISSO: il dedup di github-issue-creator.mjs guarda i primi 60
+# caratteri, quindi un tasso nel titolo aprirebbe una issue nuova ogni settimana.
+# Le misure successive arrivano come commenti sulla stessa issue, che diventa il
+# grafico che si legge senza aprire Actions.
+name: Canton URL Drift Monitor (weekly, read-only)
+
+on:
+  schedule:
+    # Domenica 05:40 UTC. Dopo audit-article-corpus-drift (05:10 dello stesso
+    # giorno) e prima di audit-404-risk (06:00): nessuna sovrapposizione, e
+    # lontano dall'ora 07Z che la fairness di quota riserva al corpus.
+    - cron: '40 5 * * 0'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Ampiezza della finestra in giorni (default 7 = la cadenza del cron)'
+        type: string
+        default: '7'
+      shards:
+        description: 'Shard campionati su 32 (5 ~= 45k slug; alzare solo per una misura una tantum)'
+        type: string
+        default: '5'
+      write_history:
+        description: 'Appendere la misura allo storico e pusharla'
+        type: boolean
+        default: true
+
+# `contents: write` per la riga appesa allo storico, `issues: write` per la
+# issue di soglia descritta nell'intestazione.
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: canton-url-drift-monitor
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # Storia intera: il confronto e' con lo stato di N giorni fa, e main
+          # prende ~9.700 commit a settimana dai bot, quindi qualunque --depth
+          # fisso atterrerebbe in un punto arbitrario. Blobless (#4120) tiene il
+          # costo giu': i blob dei soli shard richiesti arrivano su domanda.
+          #
+          # NIENTE sparse-checkout, deliberatamente: scripts/ci/apply-checkout-profiles.mjs
+          # (--only canton-url-drift-monitor.yml) segue la chiusura transitiva
+          # dei DUE script condivisi che questo job invoca oltre al proprio
+          # (scripts/lib/git-push-with-retry.sh, scripts/lib/github-issue-creator.mjs)
+          # e conclude che il residuo minimo e' 1.531 MB — sopra CROSSOVER_MB
+          # (1.500 MB), la soglia oltre la quale lo sparse e' controproducente.
+          # La causa e' in commenti storici di quei moduli condivisi (menzionano
+          # data/jobs/, data/seo-404-compat/, docs/ come esempi passati, non come
+          # dipendenze reali di QUESTO job) — non e' chirurgico ripulirli qui solo
+          # per questo job. Rigenerare con lo stesso comando se main cambia quei
+          # moduli in un modo che abbassa il residuo sotto la soglia.
+          fetch-depth: 0
+          filter: blob:none
+        # Tetto sullo step: senza, un fetch degenere consuma il budget del job e
+        # muore `cancelled`, stato invisibile agli `if: failure()`.
+        timeout-minutes: 12
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Nessun `npm ci`: gli unici moduli importati sono scripts/lib/*.mjs del
+      # repo (nessuna dipendenza esterna oltre quelle gia' in node_modules per
+      # gli altri due script invocati piu' sotto).
+      - name: Measure drift
+        env:
+          DRIFT_DAYS: ${{ inputs.days || '7' }}
+          DRIFT_SHARDS: ${{ inputs.shards || '5' }}
+        run: |
+          node scripts/audit-canton-url-drift.mjs \
+            --days "$DRIFT_DAYS" \
+            --shards "$DRIFT_SHARDS" \
+            --alert-file /tmp/canton-url-drift-alert.md \
+            | tee /tmp/canton-url-drift.json
+
+      - name: Upload measurement
+        uses: actions/upload-artifact@v7
+        with:
+          name: canton-url-drift
+          path: /tmp/canton-url-drift.json
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Commit history
+        # Su dispatch si puo' misurare senza sporcare la serie (una finestra
+        # diversa da 7 giorni non e' confrontabile con le righe del cron).
+        if: ${{ github.event_name == 'schedule' || inputs.write_history }}
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          if git diff --quiet -- data/canton-url-drift-history.jsonl; then
+            echo "Nessuna riga nuova (la misura non e' riuscita): niente da committare."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/canton-url-drift-history.jsonl
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "📉 Canton URL drift — ${DATE}"
+          # Lo storico e' append-only: su conflitto di rebase si uniscono le due
+          # parti invece di rigenerare, come fa ai-visibility-check.yml.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$BRANCH" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+
+      # L'assenza del file e' il caso normale: lo script lo scrive solo quando il
+      # verdetto e' di allarme, quindi qui non serve nessuna soglia duplicata.
+      - name: Open issue when the drift is not going down
+        if: ${{ hashFiles('/tmp/canton-url-drift-alert.md') != '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Titolo fisso e senza numeri: il dedup guarda i primi 60 caratteri, e
+          # una misura nel titolo minterebbe una issue nuova a ogni run. Le
+          # misure vanno nel corpo, che sulle ripetizioni diventa un commento.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Canton URL drift: il tasso settimanale non scende sotto la soglia" \
+            --description "$(cat /tmp/canton-url-drift-alert.md)" \
+            --priority 2 \
+            --label Bug \
+            --workflow "Canton URL Drift Monitor (weekly, read-only)"
