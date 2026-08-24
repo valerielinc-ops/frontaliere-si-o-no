@@ -1150,10 +1150,17 @@ export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanto
   // fill step, so on its own it cannot say whether the value is the crawler's
   // per-job evidence or a BFS guess — and only the former may rewrite a pin.
   // Omitting `crawlerCanton` keeps the pre-#6xxx behaviour (every contradiction
-  // rewrites the ledger), which is what the pure-function tests exercise.
+  // rewrites the ledger) — distinct from PASSING an empty string, which means
+  // "the crawler was asked and had nothing", a real input the branches below
+  // must be able to see.
   const crawlerHasSpoken = crawlerCanton !== undefined;
   const crawlerRaw = String(crawlerCanton || '').toUpperCase().trim();
   const crawler = isTargetCanton(crawlerRaw) ? crawlerRaw : '';
+  // A value was WRITTEN but is off-funnel (e.g. "CH", 3 live records) is a
+  // different signal than the field being empty: it is proof the crawler's
+  // canton detection misfired for this record, not merely silent. Kept
+  // distinct from `!crawler` below on purpose.
+  const crawlerOffFunnel = crawlerRaw !== '' && !crawler;
   // "A canton of our own" means one the funnel actually serves. A crawler that
   // records the COUNTRY code (`canton: "CH"` — 3 live records) or any other
   // off-funnel value has no URL section to be placed in, so it must neither
@@ -1179,43 +1186,70 @@ export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanto
     return { canton: pinned, pin: pinned, outcome: 'pin-frozen' };
   }
   if (job === pinned) return { canton: job, pin: pinned, outcome: 'pin-agrees' };
-  // The job contradicts the ledger. WHO contradicts it decides the outcome.
+  // The job contradicts the ledger. WHO contradicts it, and how, decides the
+  // outcome.
   //
-  // The crawler's own canton is per-job evidence: it comes from the posting or
-  // the parser config, so it does not change between builds. When it disagrees
-  // with the pin, the pin is the stale one — that is #4838 (Obbürgen frozen to
-  // a TI pin) and the galenica identity collision (220 non-TI jobs on TI), and
-  // it must still heal the ledger.
+  // The crawler's own canton is normally per-job evidence: it comes from the
+  // posting or the parser config, so it does not change between builds. When
+  // it disagrees with the pin, the pin is usually the stale one — that is
+  // #4838 (Obbürgen frozen to a TI pin) and the galenica identity collision
+  // (220 non-TI jobs on TI) — and it must heal the ledger.
+  if (crawlerHasSpoken && !crawlerOffFunnel && crawler && crawler !== pinned) {
+    return { canton: crawler, pin: crawler, outcome: 'pin-corrected' };
+  }
+
+  // An off-funnel crawler value ("CH", 3 live records) is proof of a crawler
+  // bug, not evidence: it must never unlock the freeze, regardless of what
+  // the inference says. Pre-existing guard, kept exactly as it was.
+  if (crawlerHasSpoken && crawlerOffFunnel) {
+    return { canton: pinned, pin: pinned, outcome: 'pin-frozen' };
+  }
+
+  // Here the crawler either never spoke, or spoke and AGREES with the pin —
+  // either way it offers no evidence AGAINST the pin. A BFS inference is not
+  // per-job evidence on its own (it is a lookup of a `location` string the
+  // crawler re-extracts every run, against a municipality DB that grows), so
+  // when it merely agrees or is silent, freeze:
   //
-  // A BFS inference is NOT per-job evidence: it is a lookup of a `location`
-  // string that the crawler re-extracts every run, against a municipality DB
-  // that grows. Letting it rewrite the pin makes the URL section a function of
-  // the latest crawl, which is exactly the drift the ledger exists to stop.
   // Measured 2026-08-24 on data/all-known-job-slugs (5 of 32 shards, 44,919
   // slugs common to 2026-08-17 and 2026-08-24): 387 slugs — 0.86%/week —
   // changed section, ~10,500 already-indexed URLs per week across the 4
   // locales. Of the 330 with a municipality named in the slug to check
-  // against, only 108 moved TOWARDS that municipality's canton: 154 moved away
-  // and 68 were lateral, so the churn is noise, not convergence. GSC reported
-  // 188,160 URLs in "Page with redirect" on 2026-08-21, ~75% of them job
-  // detail pages whose section had moved.
-  //
-  // So: freeze to the pin unless the crawler itself is the one disagreeing.
-  if (crawlerHasSpoken && (!crawler || crawler === pinned)) {
+  // against, only 108 moved TOWARDS that municipality's canton: 154 moved
+  // away and 68 were lateral, so the churn is noise, not convergence. GSC
+  // reported 188,160 URLs in "Page with redirect" on 2026-08-21, ~75% of
+  // them job detail pages whose section had moved.
+  if (crawlerHasSpoken && (!inferred || inferred === pinned)) {
     return { canton: pinned, pin: pinned, outcome: 'pin-frozen' };
   }
-  // Heal: the CRAWLER is what disagrees with the pin, so the crawler's own
-  // evidence is what must enter the ledger — NOT `job`. `job` is `jobCanton`
-  // AFTER the inference fill step, so it can already carry a THIRD value that
-  // matches neither the pin nor the crawler (stale TI pin, crawler says NW,
-  // but this build's inference resolves the job's `location` to BE and
-  // overwrites `job.canton` before this function ever runs). Writing `job`
-  // here would let that inference value into the ledger through the heal
-  // branch — the exact drift `crawlerCanton` exists to stop, only rerouted
-  // through the one branch that was supposed to be safe from it.
-  if (crawlerHasSpoken) {
-    return { canton: crawler, pin: crawler, outcome: 'pin-corrected' };
-  }
+
+  // But when a confident inference converges on a THIRD value that neither
+  // the pin NOR the crawler agree with, freezing anyway is unsafe. Verified
+  // 2026-08-24 (tests/canton-ti-misclassification-guard.test.ts, on the real
+  // assembled dataset): 5 coopjobs.ch postings at "Jegensdorf" (BE) carried a
+  // stale TI pin that a crawler-stamped "TI" merely repeated — "the crawler
+  // agrees with the pin" is not independent confirmation when the SAME
+  // crawler stamps FIVE different cantons (BE/SG/TI/ZH…) on other postings at
+  // the identical location, which is what this dataset shows for Interdiscount
+  // postings scraped by coop-ticino. A same-crawler stamp that merely repeats
+  // a pin is weaker evidence than a location match that is otherwise
+  // unambiguous. Confirmed by diffing against origin/main on the SAME
+  // assembled dataset: main passes this guard (2/2); an earlier draft of this
+  // fix that froze unconditionally whenever job and crawler agreed did not
+  // (5 offenders).
+  //
+  // This does give up some of the drift protection above whenever the crawler
+  // happens to agree with a pin that turns out to be wrong — but the
+  // give-up is bounded: a crawler canton is present on 99.6% of live jobs
+  // (30,219 of 30,332, data/jobs/by-crawler/*.json, 2026-08-24), so
+  // "crawler-canton" being wrong (as opposed to merely absent) is the
+  // exception, not the rule this branch has to defend against on every job.
+  // A wrong URL section is a redirect; a wrong canton here is a plain
+  // misclassification live in production (wrong addressRegion in the
+  // JobPosting, AGENTS.md Non-Negotiable #3) — correctness outranks URL
+  // stability when the two are in direct conflict, and canton-url-drift-monitor.yml
+  // (added alongside this fix) watches whether this trade gives the churn
+  // back; if it does, its issue links straight back here.
   return { canton: job, pin: job, outcome: 'pin-corrected' };
 }
 
