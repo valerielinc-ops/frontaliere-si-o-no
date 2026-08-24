@@ -1374,6 +1374,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sunrise-salt-rete-cooperazione': { it: 'sunrise-salt-rete-cooperazione', en: 'sunrise-salt-mobile-network-cooperation', de: 'sunrise-salt-mobilfunknetzkooperation', fr: 'sunrise-salt-cooperation-reseau-mobil' },
  'tirocinio-retribuzione-soletta-guida': { it: 'tirocinio-retribuzione-soletta-guida', en: 'apprenticeship-wage-solothurn-guide', de: 'lehrling-verguetung-solothurn-anleitung', fr: 'apprentissage-salaire-soleure-guide' },
  'custodia-bambini-svizzera-costi-sussidi': { it: 'custodia-bambini-svizzera-costi-sussidi', en: 'childcare-switzerland-costs-subsidies', de: 'kinderbetreuung-schweiz-kosten-subventionen', fr: 'garde-enfants-suisse-couts-aides' },
+ 'roche-acquisisce-diritti-trattamento-obesita': { it: 'roche-acquisisce-diritti-trattamento-obesita', en: 'roche-acquires-rights-to-obesity-treatment', de: 'roche-erwirbt-rechte-an-einer-widerstandstoffs-behandlung-gegen-adipositas', fr: 'roche-acquiert-les-droits-a-un-traitement-experimental-contre-lobesite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
