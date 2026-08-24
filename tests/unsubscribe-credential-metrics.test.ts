@@ -13,6 +13,7 @@ import {
   classifyCredential,
   aggregate,
   fallbackRate,
+  DUPLICATE_EVENT_WINDOW_MS,
   evaluate,
   pct,
   FALLBACK_RATE_WARN,
@@ -71,6 +72,59 @@ describe('unsubscribeCredentialMetrics — aggregate / fallbackRate', () => {
     expect(fallbackRate({ counts: { autologin_code: 0, email_token: 0 } })).toBeNull();
     expect(aggregate(records({ missing: 40 })).fallbackRate).toBeNull();
     expect(aggregate([]).fallbackRate).toBeNull();
+  });
+
+  // ── #6361: same email + credential repeated inside the dedup window is one
+  // retried action (scanner refetch, doubled tap), not two people. ──────────
+  it('collapses repeats of the same email+credential inside DUPLICATE_EVENT_WINDOW_MS into one record', () => {
+    const base = new Date('2026-08-24T10:00:00.000Z').getTime();
+    const withDupes = aggregate([
+      { credential: 'autologin_code', email: 'a@example.com', occurredAt: new Date(base) },
+      // Same person, same credential, 60s later — the scanner refetch shape.
+      { credential: 'autologin_code', email: 'a@example.com', occurredAt: new Date(base + 60_000) },
+      { credential: 'email_token', email: 'b@example.com', occurredAt: new Date(base) },
+    ]);
+    expect(withDupes.counts).toEqual({ autologin_code: 1, email_token: 1, legacy_auth_token: 0, missing: 0 });
+    expect(withDupes.duplicatesDropped).toBe(1);
+    expect(withDupes.graded).toBe(2);
+    expect(withDupes.fallbackRate).toBeCloseTo(0.5, 10);
+
+    // Without dedup the same events would grade 2/3 = 66.7% — the correction
+    // lowers the rate, it does not remove the underlying signal.
+    const withoutDupeCollapse = aggregate([
+      { credential: 'autologin_code', email: 'c@example.com', occurredAt: new Date(base) },
+      { credential: 'autologin_code', email: 'd@example.com', occurredAt: new Date(base) },
+      { credential: 'email_token', email: 'e@example.com', occurredAt: new Date(base) },
+    ]);
+    expect(withoutDupeCollapse.duplicatesDropped).toBe(0);
+    expect(withoutDupeCollapse.fallbackRate).toBeCloseTo(2 / 3, 10);
+  });
+
+  it('does NOT collapse the same email+credential outside the dedup window — a second, genuinely separate action', () => {
+    const base = new Date('2026-08-24T10:00:00.000Z').getTime();
+    const agg = aggregate([
+      { credential: 'autologin_code', email: 'a@example.com', occurredAt: new Date(base) },
+      { credential: 'autologin_code', email: 'a@example.com', occurredAt: new Date(base + DUPLICATE_EVENT_WINDOW_MS + 1000) },
+    ]);
+    expect(agg.duplicatesDropped).toBe(0);
+    expect(agg.counts.autologin_code).toBe(2);
+  });
+
+  it('never collapses records missing `email` or a parseable `occurredAt` — retro-compat with pre-#6361 fixtures', () => {
+    // The plain `{ credential }` shape every other test in this file uses:
+    // no `email`, no `occurredAt`. Nothing here should ever be treated as a
+    // duplicate of anything else, no matter how many share a credential.
+    const agg = aggregate(records({ autologin: 5, email: 5 }));
+    expect(agg.duplicatesDropped).toBe(0);
+    expect(agg.counts).toEqual({ autologin_code: 5, email_token: 5, legacy_auth_token: 0, missing: 0 });
+
+    // Same email+credential repeated, but with no occurredAt to key on.
+    const noTimestamp = aggregate([
+      { credential: 'autologin_code', email: 'a@example.com' },
+      { credential: 'autologin_code', email: 'a@example.com' },
+    ]);
+    expect(noTimestamp.duplicatesDropped).toBe(0);
+    expect(noTimestamp.counts.autologin_code).toBe(2);
   });
 });
 
