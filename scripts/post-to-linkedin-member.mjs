@@ -57,7 +57,7 @@ import {
   LINKEDIN_MEMBER_CAMPAIGN_JOB,
 } from './lib/linkedin-links.mjs';
 import {
-  previousUtcDay,
+  previousReportDay,
   rankCandidates,
   pickFirstUnposted,
 } from './lib/daily-top-content.mjs';
@@ -359,7 +359,7 @@ async function main() {
   const onlyArg = args.find((a) => a.startsWith('--only='));
   const only = onlyArg ? onlyArg.split('=')[1] : null;
   const dateArg = args.find((a) => a.startsWith('--date='));
-  const day = dateArg ? dateArg.split('=')[1] : previousUtcDay();
+  const day = dateArg ? dateArg.split('=')[1] : previousReportDay();
 
   console.log(`─── LinkedIn member daily — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 

@@ -36,18 +36,41 @@ export const ARTICLE_HUB_SEGMENTS = Object.freeze(['articoli-frontaliere', 'arti
 export const LOCALE_PREFIXES = Object.freeze(['en', 'de', 'fr']);
 
 /**
- * The UTC calendar day before `now`, as `YYYY-MM-DD`.
+ * The GA4 property's reporting timezone. Measured via the Admin API on
+ * 2026-08-24: property 524485296 reports in `Europe/Zurich`, NOT UTC.
+ */
+export const GA4_REPORT_TIMEZONE = 'Europe/Zurich';
+
+/**
+ * The calendar day before `now` **in the GA4 property's timezone**, `YYYY-MM-DD`.
  *
- * GA4 accepts the literal `yesterday`, but it resolves against the PROPERTY's
- * configured timezone, not UTC — so it is not the same day this returns. An
- * explicit date keeps the window reproducible and makes the ledger key stable.
+ * This deliberately does NOT return the UTC previous day. A `startDate`/`endDate`
+ * passed to `runReport` is resolved by GA4 against the PROPERTY's configured
+ * timezone, so asking for the UTC day and calling the result "yesterday" is
+ * wrong twice over: the bucket GA4 fills is the Zurich day, and near midnight
+ * the two dates are different strings entirely. At the 08:15 UTC cron the two
+ * happen to coincide, which is exactly what would have kept the bug invisible
+ * until someone moved the cron or passed `--date`.
+ *
+ * Reporting on the local day is also the right product answer: "l'articolo piu'
+ * letto di ieri" means yesterday for a reader in Ticino, not yesterday in UTC.
  *
  * @param {Date|number} [now]
+ * @param {string} [timeZone] IANA zone; defaults to the property's
  * @returns {string}
  */
-export function previousUtcDay(now = Date.now()) {
+export function previousReportDay(now = Date.now(), timeZone = GA4_REPORT_TIMEZONE) {
   const ms = now instanceof Date ? now.getTime() : Number(now);
-  return new Date(ms - 86400000).toISOString().slice(0, 10);
+  // en-CA renders as YYYY-MM-DD, which is the format GA4 wants.
+  const fmt = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+  // Shift by a day first, then render in the target zone: rendering first and
+  // subtracting from the string would need calendar arithmetic by hand.
+  return fmt.format(new Date(ms - 86400000));
 }
 
 /**
@@ -151,7 +174,10 @@ export function looksLikePathTitle(t) {
 export function cleanPageTitle(raw) {
   const t = String(raw ?? '').trim();
   if (!t) return '';
-  const parts = t.split(/\s+[|｜]\s+/);
+  // Spacing around the pipe is not guaranteed: GA4 stores whatever the tag
+  // sent, and 'Titolo|Sito' / 'Titolo  |  Sito' both occur. `\s*` rather than
+  // `\s+` so the no-space form is not silently left unsplit.
+  const parts = t.split(/\s*[|｜]\s*/);
   if (parts.length < 2) return t;
   const head = parts.slice(0, -1).join(' | ').trim();
   return head || t;

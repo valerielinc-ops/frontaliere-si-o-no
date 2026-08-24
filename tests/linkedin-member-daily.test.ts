@@ -30,7 +30,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import {
-  previousUtcDay,
+  previousReportDay,
+  GA4_REPORT_TIMEZONE,
   normalizeGa4Path,
   classifyPath,
   cleanPageTitle,
@@ -51,12 +52,35 @@ import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/ca
 
 const JOB_SECTIONS = new Set(['cerca-lavoro-ticino', 'cerca-lavoro-argovia', 'cerca-lavoro-svizzera']);
 
-describe('previousUtcDay', () => {
-  it('is the UTC calendar day before, regardless of local timezone', () => {
-    expect(previousUtcDay(Date.parse('2026-08-24T03:00:00Z'))).toBe('2026-08-23');
-    expect(previousUtcDay(Date.parse('2026-08-24T23:59:59Z'))).toBe('2026-08-23');
-    // Across a month boundary.
-    expect(previousUtcDay(Date.parse('2026-09-01T00:00:01Z'))).toBe('2026-08-31');
+describe('previousReportDay — the GA4 window is the PROPERTY timezone', () => {
+  it('reports in Europe/Zurich, the property timezone measured via the Admin API', () => {
+    expect(GA4_REPORT_TIMEZONE).toBe('Europe/Zurich');
+  });
+
+  it('gives the previous local day at the cron hour', () => {
+    // 08:15 UTC cron → 10:15 CEST, same date either way.
+    expect(previousReportDay(Date.parse('2026-08-24T08:15:00Z'))).toBe('2026-08-23');
+  });
+
+  it('DIVERGES from the UTC day near midnight — the bug this rename fixes', () => {
+    // 2026-08-23T23:59:59Z is already 2026-08-24 01:59 in Zurich. GA4 resolves
+    // an explicit startDate against the property timezone, so asking for the
+    // UTC day would name a bucket GA4 never filled with "yesterday"'s traffic.
+    const t = Date.parse('2026-08-24T23:59:59Z');
+    expect(previousReportDay(t)).toBe('2026-08-24');
+    const utcDay = new Date(t - 86400000).toISOString().slice(0, 10);
+    expect(utcDay).toBe('2026-08-23');
+    expect(previousReportDay(t)).not.toBe(utcDay);
+  });
+
+  it('crosses a month boundary correctly', () => {
+    expect(previousReportDay(Date.parse('2026-09-01T08:15:00Z'))).toBe('2026-08-31');
+  });
+
+  it('always yields a GA4-shaped date string', () => {
+    for (const iso of ['2026-01-01T00:30:00Z', '2026-06-15T12:00:00Z', '2026-12-31T23:00:00Z']) {
+      expect(previousReportDay(Date.parse(iso))).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    }
   });
 });
 
@@ -127,6 +151,17 @@ describe('cleanPageTitle — defect 1, the en dash', () => {
 
   it('returns a bare site name unchanged rather than emptying it', () => {
     expect(cleanPageTitle('Frontaliere Ticino')).toBe('Frontaliere Ticino');
+  });
+
+  it('tolerates any spacing around the pipe', () => {
+    // GA4 stores whatever the tag sent; all three forms occur.
+    expect(cleanPageTitle('Tasse 2026|Frontaliere Ticino')).toBe('Tasse 2026');
+    expect(cleanPageTitle('Tasse 2026  |  Frontaliere Ticino')).toBe('Tasse 2026');
+    expect(cleanPageTitle('Tasse 2026 ｜ Frontaliere Ticino')).toBe('Tasse 2026');
+  });
+
+  it('keeps an inner pipe when only the last group is the site name', () => {
+    expect(cleanPageTitle('A | B | Frontaliere Ticino')).toBe('A | B');
   });
 });
 
@@ -278,6 +313,39 @@ describe('UTM identity — a posted link must never be invisible', () => {
       LINKEDIN_COMPANY_CAMPAIGN_ARTICLE,
     ];
     expect(new Set(campaigns).size).toBe(3);
+  });
+
+  it('EVERY social poster tags its links — the whole class, not just LinkedIn', () => {
+    // The 🔴 on this PR: post-to-facebook.mjs and post-to-reddit.mjs shared the
+    // real construct (a bare `articleUrl` posted), not an homonym, and a
+    // collective "falso positivo" dismiss is exactly what AGENTS.md #6 forbids.
+    // The three schedulers are here because post-to-facebook.mjs is a MANUAL
+    // CLI tool by its own header — the live crons are these, so fixing only the
+    // flagged file would have fixed the inert half of the channel.
+    const root = path.resolve(__dirname, '..', 'scripts');
+    const cases: Array<[string, string]> = [
+      ['post-to-facebook.mjs', 'facebookUrl('],
+      ['schedule-fb-articles-daily.mjs', 'facebookUrl('],
+      ['schedule-fb-events-daily.mjs', 'facebookUrl('],
+      ['schedule-fb-jobs-daily.mjs', 'facebookUrl('],
+      ['post-to-reddit.mjs', 'redditUrl('],
+    ];
+    for (const [file, helper] of cases) {
+      const src = fs.readFileSync(path.join(root, file), 'utf-8');
+      expect(src, `${file} must tag its posted link`).toContain(helper);
+      // The bare form must not survive at the posting boundary.
+      expect(src, `${file} still posts a bare link`).not.toMatch(/\blink:\s*p\.url\b/);
+      expect(src, `${file} still posts a bare link`).not.toMatch(/\blink:\s*articleUrl\b/);
+    }
+  });
+
+  it('the FB ledgers keep the UNTAGGED url as their dedup key', () => {
+    // Tagging `p.url` itself would rewrite the dedup key and re-post
+    // everything already sent. The tag lives only at the posting boundary.
+    const root = path.resolve(__dirname, '..', 'scripts');
+    for (const file of ['schedule-fb-articles-daily.mjs', 'schedule-fb-jobs-daily.mjs']) {
+      expect(fs.readFileSync(path.join(root, file), 'utf-8')).toContain('url: p.url');
+    }
   });
 
   it('the Company Page poster tags its links too (same class of defect)', () => {
