@@ -10662,6 +10662,14 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.title': 'Leben in Novedrate und Arbeiten im Tessin',
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.excerpt': 'Neue Frontalieri-Vereinbarung, Genehmigung G, Quellensteuer, AHV und BVG: der komplette Leitfaden für das Leben in der Lombardei und das Pendeln ins Tessin.',
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.imageAlt': 'Comer See an der Grenze zwischen Novedrate und Kanton Tessin, Symbol des grenzüberschreitenden Pendelverkehrs',
+    'blog.article.vivere-rezzago-lavorare-ticino.title': 'Leben in Rezzago und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-rezzago-lavorare-ticino.excerpt': 'Festlegung der Quellensteuer, neue Steuersätze und Selbstbehalte für Grenzgänger.',
+    'blog.article.vivere-rezzago-lavorare-ticino.imageAlt': 'Bild eines Frontalierers in der Schweiz mit Familie und Arbeit',
+    'blog.article.bollettino-frontaliere-2026-08-24.title': 'Grenzgänger-Tagesbulletin – 24. August 2026: 447 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-24.excerpt': 'Die Zahlen von heute, 24. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 24. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Grenzgänger-Bulletin vom 24. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'Die Zahlen vom 24. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

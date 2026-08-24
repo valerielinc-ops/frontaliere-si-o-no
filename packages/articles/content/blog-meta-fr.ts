@@ -10665,6 +10665,14 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.title': 'Vivre à Novedrate et travailler au Tessin',
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.excerpt': 'Nouvel accord frontalier, permis G, impôt à la source, AVS et LPP : le guide complet pour vivre en Lombardie et se rendre au Tessin.',
     'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.imageAlt': 'Lac de Côme à la frontière entre Novedrate et le Canton du Tessin, symbole du travail transfrontalier',
+    'blog.article.vivere-rezzago-lavorare-ticino.title': 'Vivre à Rezzago et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-rezzago-lavorare-ticino.excerpt': 'Réglage de la taxe à la source, nouveaux taux et franchises pour les frontaliers.',
+    'blog.article.vivere-rezzago-lavorare-ticino.imageAlt': 'Image d\'un frontalier en Suisse avec sa famille et son travail',
+    'blog.article.bollettino-frontaliere-2026-08-24.title': 'Bulletin du frontalier – 24 août 2026 : 447 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-24.excerpt': 'Les chiffres du jour, 24 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'Les chiffres du jour pour les frontaliers – 24 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Bulletin du frontalier du 24 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'Les chiffres du 24 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
