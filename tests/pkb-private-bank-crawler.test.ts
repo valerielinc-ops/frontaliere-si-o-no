@@ -37,6 +37,30 @@ const DETAIL_HTML = `
 <div itemprop="description"><p>Cerchiamo un Senior Compliance Officer con esperienza in ambito FATCA, QI e AEOI/CRS per la nostra sede di Lugano.</p></div>
 </body></html>`;
 
+// Reproduces the real `view-job.php` layout, where `itemprop="description"`
+// appears THREE times: a void `<meta>` in the head, the real `<div>` container,
+// and a `<p>` inside the login modal. `locateTagByAttribute` without
+// `{ skipVoidTags: true }` stops on the `<meta>`, and since a void element has
+// no `</meta>`, `extractBalancedTagBlock` scans forward to its cap and returns
+// the surrounding head markup/scripts as the "description".
+const DETAIL_HTML_VOID_META_COLLISION = `
+<html><head>
+<meta itemprop="description" content="PKB Private Bank SA - offerta di lavoro">
+<script>var alertM = { wrongFileSize: "Il file che stai cercando di caricare e troppo grande.", zeroFileSize: "Il file e vuoto.", sicuroRifiutareInvito: "Sei sicuro di voler declinare l'invito?" };</script>
+<style>.descriptionContainer { padding: 12px; margin: 0 auto; display: block; }</style>
+</head><body>
+<h1 itemprop="title">PKB Private Bank SA Senior Compliance Officer <a>Invia</a></h1>
+<span itemprop="addressLocality">Lugano</span>
+<span itemprop="datePosted">09/07/2026</span>
+<div itemprop="description">
+  <p>Descrizione del ruolo</p>
+  <p>Per la nostra sede di Lugano ricerchiamo un Senior Compliance Officer con consolidata esperienza nell'ambito della Client Tax Compliance e del relativo reporting regolamentare FATCA, QI, AEOI/CRS, AML/CDB.</p>
+</div>
+<div class="loginModal">
+  <p itemprop="description">Inserisci il tuo indirizzo mail per accedere al portale e candidarti alle nostre offerte di lavoro.</p>
+</div>
+</body></html>`;
+
 describe('PKB Private Bank crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(PKB_KEY).toBe('pkb-private-bank');
@@ -68,6 +92,30 @@ describe('PKB Private Bank crawler parser', () => {
       expect(parsed!.datePosted).toBe('2026-07-09');
       expect(parsed!.validThrough).toBe('2026-09-09');
       expect(parsed!.description).toContain('FATCA');
+    });
+
+    it('reads the description from the real <div>, skipping the void <meta> and the login modal', () => {
+      const parsed = parsePkbDetailPage(
+        DETAIL_HTML_VOID_META_COLLISION,
+        'https://careers.pkb.ch/job/view-job.php?id=27-senior-compliance-officer-lugano',
+      );
+      expect(parsed).not.toBeNull();
+      // The real role text wins...
+      expect(parsed!.description).toContain('Descrizione del ruolo');
+      expect(parsed!.description).toContain('Client Tax Compliance');
+      // ...and the block STOPS at that <div>'s close tag. Without
+      // `skipVoidTags` the scan starts at the void <meta> and runs past every
+      // later element, so these three markers — head markup before the <div>
+      // and the login modal after it — are what the overscan drags in.
+      expect(parsed!.description).not.toContain('alertM');
+      expect(parsed!.description).not.toContain('descriptionContainer');
+      expect(parsed!.description).not.toContain('Inserisci il tuo indirizzo mail');
+      // Exact boundary: nothing but the <div>'s own two paragraphs.
+      expect(parsed!.description.replace(/\s+/g, ' ').trim()).toBe(
+        "Descrizione del ruolo Per la nostra sede di Lugano ricerchiamo un Senior Compliance Officer "
+        + "con consolidata esperienza nell'ambito della Client Tax Compliance e del relativo reporting "
+        + 'regolamentare FATCA, QI, AEOI/CRS, AML/CDB.',
+      );
     });
 
     it('returns null when no usable title is present', () => {
