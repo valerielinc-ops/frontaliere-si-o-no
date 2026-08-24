@@ -4024,6 +4024,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avvio-attivita-cantone-friburgo.title': 'Start of activities in Freiburg: register guide and costs',
     'blog.article.avvio-attivita-cantone-friburgo.excerpt': 'The steps to start a business in the Canton of Freiburg: from registration in the trade register to the management of taxes, social security and tax obligations.',
     'blog.article.avvio-attivita-cantone-friburgo.imageAlt': 'Administrative office in a Swiss urban context',
+    'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Opening businesses in Freiburg: trade register and costs',
+    'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Practical guide to starting a business in the canton of Freiburg: legal forms, registration in the trade register, minimum capital, taxes and insurance obligations for the self-employed.',
+    'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Swiss office buildings representing the business environment for starting a commercial activity.',
 };
 
 export default blogMetaChEn;
