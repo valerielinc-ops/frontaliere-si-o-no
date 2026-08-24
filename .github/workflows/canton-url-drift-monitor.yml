@@ -1,0 +1,144 @@
+# Canton URL drift — settimanale, misura il FLUSSO che alimenta i redirect.
+#
+# PERCHE' ESISTE
+# Search Console contava 188.160 URL sotto «Pagina con reindirizzamento» il
+# 2026-08-21. Su un campione di 1.000 esempi, ~75% erano pagine di dettaglio job
+# il cui segmento cantone era cambiato: l'URL vecchio, gia' indicizzato, resta
+# come 301. Quel numero e' uno STOCK e non sa dire se il problema e' finito —
+# un redirect resta contato per mesi dopo che la causa e' stata rimossa.
+#
+# Questo job misura il flusso: quanti slug cambiano sezione a settimana, e se il
+# movimento va verso o via dal cantone del comune nominato nello slug. La serie
+# in data/canton-url-drift-history.jsonl e' la risposta a «sta migliorando?».
+#
+# Baseline al 2026-08-24, prima della fix #6318: 0,86%/settimana su 44.919 slug
+# (5 shard), ~10.500 URL gia' indicizzati a settimana sui 4 locali; direzione
+# 108 verso / 154 via / 68 laterali su 330 risolvibili.
+#
+# NON APRE ISSUE, deliberatamente. La lezione di alert-pat-down.mjs (#5432) e di
+# audit-article-corpus-drift.yml: un reporter che scatta su una categoria che
+# nessuno puo' chiudere viene ignorato e poi spento. Qui il segnale utile e' una
+# TENDENZA su piu' settimane, non il valore di un singolo run: finche' non c'e'
+# una soglia difendibile misurata su una serie vera, il posto giusto e' lo step
+# summary piu' lo storico. La soglia si aggiunge quando la serie la giustifica.
+name: Canton URL Drift Monitor (weekly, read-only)
+
+on:
+  schedule:
+    # Domenica 05:40 UTC. Dopo audit-article-corpus-drift (05:10 dello stesso
+    # giorno) e prima di audit-404-risk (06:00): nessuna sovrapposizione, e
+    # lontano dall'ora 07Z che la fairness di quota riserva al corpus.
+    - cron: '40 5 * * 0'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Ampiezza della finestra in giorni (default 7 = la cadenza del cron)'
+        type: string
+        default: '7'
+      shards:
+        description: 'Shard campionati su 32 (5 ~= 45k slug; alzare solo per una misura una tantum)'
+        type: string
+        default: '5'
+      write_history:
+        description: 'Appendere la misura allo storico e pusharla'
+        type: boolean
+        default: true
+
+# `contents: write` serve solo per la riga appesa allo storico. Nessun
+# `issues: write`: vedi l'intestazione.
+permissions:
+  contents: write
+
+concurrency:
+  group: canton-url-drift-monitor
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # Storia intera: il confronto e' con lo stato di N giorni fa, e main
+          # prende ~9.700 commit a settimana dai bot, quindi qualunque --depth
+          # fisso atterrerebbe in un punto arbitrario. Blobless (#4120) tiene il
+          # costo giu': i blob dei soli shard richiesti arrivano su domanda.
+          fetch-depth: 0
+          filter: blob:none
+          # data/all-known-job-slugs/ (141 MB) e' il dato misurato, quindi e'
+          # l'unico bucket pesante che resta. Gli altri 19 di
+          # scripts/ci/checkout-buckets.json sono esclusi: ~339 MB invece di 6,8 GB.
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        # Tetto sullo step: senza, un fetch degenere consuma il budget del job e
+        # muore `cancelled`, stato invisibile agli `if: failure()`.
+        timeout-minutes: 12
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Nessun `npm ci`: lo script importa solo scripts/lib/target-swiss-locations.mjs,
+      # che a sua volta legge un JSON del repo. Zero dipendenze esterne.
+      - name: Measure drift
+        env:
+          DRIFT_DAYS: ${{ inputs.days || '7' }}
+          DRIFT_SHARDS: ${{ inputs.shards || '5' }}
+        run: |
+          node scripts/audit-canton-url-drift.mjs \
+            --days "$DRIFT_DAYS" \
+            --shards "$DRIFT_SHARDS" \
+            | tee /tmp/canton-url-drift.json
+
+      - name: Upload measurement
+        uses: actions/upload-artifact@v4
+        with:
+          name: canton-url-drift
+          path: /tmp/canton-url-drift.json
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Commit history
+        # Su dispatch si puo' misurare senza sporcare la serie (una finestra
+        # diversa da 7 giorni non e' confrontabile con le righe del cron).
+        if: ${{ github.event_name == 'schedule' || inputs.write_history }}
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          if git diff --quiet -- data/canton-url-drift-history.jsonl; then
+            echo "Nessuna riga nuova (la misura non e' riuscita): niente da committare."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/canton-url-drift-history.jsonl
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "📉 Canton URL drift — ${DATE}"
+          # Lo storico e' append-only: su conflitto di rebase si uniscono le due
+          # parti invece di rigenerare, come fa ai-visibility-check.yml.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$BRANCH" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
