@@ -1,0 +1,152 @@
+name: Information Gain Scan
+
+# La metà che misura e apre il lavoro del ciclo Information Gain (#5002).
+#
+# PERCHÉ ESISTE, DATO CHE UN GATE C'È GIÀ
+# ----------------------------------------------------------------------------
+# `audit-information-gain.mjs` gira dentro `audit-all.mjs`, cioè in
+# `post-deploy-validate-dist.yml`, sul dist riassemblato. Quel gate risponde a
+# «l'emissione si è rotta?» e blocca. Non risponde alle due domande che fanno
+# migliorare il meccanismo invece di tenerlo fermo:
+#
+#   1. quale famiglia è la PEGGIORE fra quelle che passano? Il gate tace su
+#      tutto ciò che passa, quindi una famiglia ferma al 6 % per sempre è
+#      indistinguibile da una al 50 %;
+#   2. una famiglia nell'inventario è RISALITA? Il gate stampa «togli questa
+#      riga» in un log che nessuno legge, quindi l'inventario scende solo
+#      quando a un umano capita di guardare.
+#
+# Questo scan campiona le sitemap LIVE — 12 URL per famiglia, equispaziati —
+# quindi non serve build, non serve dist e non serve `npm ci`, e misura quello
+# che Google ha davvero.
+#
+# LA CATENA
+# ----------------------------------------------------------------------------
+#   information-gain-scan (qui)  →  issue con la misura dentro
+#     →  issue-triage, job `sweep` (cron 17 */4): le issue le apre
+#        GITHUB_TOKEN e GitHub non fa scattare `issues:[opened]` per quel
+#        token, quindi il primo salto passa dallo sweep — che esiste
+#        esattamente per questo — con al massimo quattro ore di latenza
+#     →  agent:fix-queued
+#     →  issue-fix  →  PR  →  pr-review-loop  →  auto-merge-on-lgtm
+#     →  deploy  →  post-deploy-validate-dist (il gate che blocca)
+#     →  questo scan, il giorno dopo, rimisura e CHIUDE la issue
+#
+# Non c'è un fixer nuovo: le issue sono scritte nella forma che il ciclo
+# autonomo di questo repo già consuma. E si auto-migliora in due direzioni —
+# le regressioni tornano sopra il floor, e le righe dell'inventario che sono
+# risalite vengono tolte, che è l'unico modo in cui il gate si stringe.
+#
+# NON diventa un cron rosso. Un cron che va rosso su una metrica di contenuto
+# è un cron che qualcuno silenzia: nessuna PR può farlo tornare verde, quindi
+# il suo rosso è arredamento. Lo scan esce sempre 0 e parla per issue.
+
+on:
+  schedule:
+    # 05:25 UTC: dopo il deploy notturno e prima del giro del drainer, così una
+    # regressione trovata oggi entra in coda oggi.
+    - cron: '25 5 * * *'
+  workflow_dispatch:
+    inputs:
+      per_family:
+        description: 'URL campionati per famiglia (min 4)'
+        required: false
+        default: '12'
+      dry_run:
+        description: 'Misura e stampa, senza aprire o chiudere issue'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: information-gain-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Niente `npm ci`: lo scan importa tre moduli ESM di primo livello e usa
+      # la fetch globale. Installare 1,7 GB di node_modules per fare ~150 GET
+      # sarebbe la parte lenta di questa run di un ordine di grandezza.
+
+      - name: Misura le famiglie live
+        id: scan
+        env:
+          PER_FAMILY: ${{ github.event.inputs.per_family || '12' }}
+        run: |
+          node scripts/ci/information-gain-live-scan.mjs \
+            --per-family="$PER_FAMILY" --out=verdict.json
+
+      - name: Riepilogo nella run
+        if: always()
+        run: |
+          {
+            echo '## Information Gain — famiglie live'
+            echo
+            echo '```'
+            node -e 'const v=JSON.parse(require("node:fs").readFileSync("verdict.json","utf8")); console.log(v.summary)' 2>/dev/null || echo '(verdetto non prodotto)'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Apri e chiudi le issue del ciclo
+        if: steps.scan.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_WORKFLOW: ${{ github.workflow }}
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          # Il flag va passato o omesso, non passato vuoto: `$FLAG` non quotato
+          # farebbe scattare SC2086 e `"$FLAG"` vuoto arriverebbe allo script
+          # come un argomento vero.
+          if [ "$DRY_RUN" = "true" ]; then
+            node scripts/ci/information-gain-loop-issues.mjs --verdict=verdict.json --dry-run
+          else
+            node scripts/ci/information-gain-loop-issues.mjs --verdict=verdict.json
+          fi
+
+      - name: Conserva il verdetto
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: information-gain-verdict
+          path: verdict.json
+          if-no-files-found: warn
+          retention-days: 30
