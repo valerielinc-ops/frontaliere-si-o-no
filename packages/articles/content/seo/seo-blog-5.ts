@@ -77252,6 +77252,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-toceno-lavoro-frontaliere-ticino': {
+    title: 'Toceno e frontalieri Ticino: lavoro, tasse e trasferimento',
+    description: 'Vivere a Toceno e lavorare in Ticino: imposta alla fonte, permessi frontalieri, costo della vita e checklist prima del trasferimento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, toceno, lavoro, tasse, trasferimento',
+    ogTitle: 'Toceno e frontalieri Ticino: lavoro e tasse',
+    ogDescription: 'Toceno al confine con Ticino: una guida per frontalieri su imposta alla fonte, permessi, costi di vita, vantaggi e step-by-step prima di trasferirsi da Piemonte a Svizzera.',
+    canonicalPath: '/articoli-frontaliere/toceno-lavoro-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Toceno e frontalieri Ticino: lavoro, tasse e trasferimento",
+      "description": "Vivere a Toceno e lavorare in Ticino: imposta alla fonte, permessi frontalieri, costo della vita e checklist prima del trasferimento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/toceno-lavoro-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari al valico confine tra Toceno (Piemonte) e Canton Ticino durante il pendolarismo mattutino"
+      },
+      "datePublished": "2026-08-24T16:29:39+00:00",
+      "dateModified": "2026-08-24T16:29:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/toceno-lavoro-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

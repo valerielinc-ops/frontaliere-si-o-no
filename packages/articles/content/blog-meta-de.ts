@@ -10685,6 +10685,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Leben in Ass, Arbeiten im Tessin: Was zu beachten ist',
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Hier sind einige der wichtigsten Punkte, die Sie beachten sollten, bevor Sie nach Ass ziehen und als Grenzgänger im Tessin arbeiten.',
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Bild eines Grenzgängers, der das Luganer See-Landschaft anschaut',
+    'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno und Grenzgänger Tessin: Arbeit, Steuern und Versetzung',
+    'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno an der Grenze zum Tessin: eine Wahl für Grenzgänger zwischen Quellensteuer und Pendeln in die Schweiz.',
+    'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Pendler an der Grenzstation zwischen Toceno (Piemont) und Kanton Tessin während des Morgenverkehrs',
 };
 
 export default blogMetaDe;

@@ -31980,6 +31980,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'toceno-lavoro-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-24T16:29:39.528Z',
+ image: '/images/blog/toceno-lavoro-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
