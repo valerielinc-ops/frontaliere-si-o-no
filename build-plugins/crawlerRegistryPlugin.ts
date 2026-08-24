@@ -152,7 +152,7 @@ function scanWorkflows(root: string): CrawlerWorkflowEntry[] {
  details: `Dispatcha i ${groupFiles.length} workflow crawler-group (ognuno esegue in parallelo, come background steps, i crawler del proprio gruppo). Nessun crawler ha più uno schedule individuale. Runs 2×/day (09:00 + 21:00 UTC).`,
  expectedDuration: '60-90 min',
  schedule: '09:00 / 21:00',
- defaultInputs: { group: 'all', delay_seconds: '20', dry_run: 'false' },
+ defaultInputs: { group: 'all', delay_seconds: '60', dry_run: 'false' },
  });
  }
 
