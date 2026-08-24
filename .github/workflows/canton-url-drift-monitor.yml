@@ -15,12 +15,21 @@
 # (5 shard), ~10.500 URL gia' indicizzati a settimana sui 4 locali; direzione
 # 108 verso / 154 via / 68 laterali su 330 risolvibili.
 #
-# NON APRE ISSUE, deliberatamente. La lezione di alert-pat-down.mjs (#5432) e di
-# audit-article-corpus-drift.yml: un reporter che scatta su una categoria che
-# nessuno puo' chiudere viene ignorato e poi spento. Qui il segnale utile e' una
-# TENDENZA su piu' settimane, non il valore di un singolo run: finche' non c'e'
-# una soglia difendibile misurata su una serie vera, il posto giusto e' lo step
-# summary piu' lo storico. La soglia si aggiunge quando la serie la giustifica.
+# QUANDO AVVISA
+# Una issue, e solo al superamento della soglia: tasso oltre META' della baseline
+# registrata nella prima riga dello storico, confermato da DUE run consecutivi.
+# Le due condizioni servono a non ripetere alert-pat-down.mjs (#5432), il
+# reporter che scattava su una categoria che nessuno poteva chiudere e che per
+# questo e' stato ignorato e poi spento:
+#   • la soglia e' relativa alla baseline, non un numero inventato — il rumore di
+#     campionamento su ~45.000 slug e' circa ±0,08 punti, un ordine di grandezza
+#     sotto la linea baseline/2;
+#   • i due run consecutivi eliminano la classe di falsi allarmi della finestra a
+#     cavallo della fix, che misura legittimamente ancora il churn vecchio.
+# Il titolo e' FISSO: il dedup di github-issue-creator.mjs guarda i primi 60
+# caratteri, quindi un tasso nel titolo aprirebbe una issue nuova ogni settimana.
+# Le misure successive arrivano come commenti sulla stessa issue, che diventa il
+# grafico che si legge senza aprire Actions.
 name: Canton URL Drift Monitor (weekly, read-only)
 
 on:
@@ -44,10 +53,11 @@ on:
         type: boolean
         default: true
 
-# `contents: write` serve solo per la riga appesa allo storico. Nessun
-# `issues: write`: vedi l'intestazione.
+# `contents: write` per la riga appesa allo storico, `issues: write` per la
+# issue di soglia descritta nell'intestazione.
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: canton-url-drift-monitor
@@ -111,6 +121,7 @@ jobs:
           node scripts/audit-canton-url-drift.mjs \
             --days "$DRIFT_DAYS" \
             --shards "$DRIFT_SHARDS" \
+            --alert-file /tmp/canton-url-drift-alert.md \
             | tee /tmp/canton-url-drift.json
 
       - name: Upload measurement
@@ -142,3 +153,20 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$BRANCH" \
             --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+
+      # L'assenza del file e' il caso normale: lo script lo scrive solo quando il
+      # verdetto e' di allarme, quindi qui non serve nessuna soglia duplicata.
+      - name: Open issue when the drift is not going down
+        if: ${{ hashFiles('/tmp/canton-url-drift-alert.md') != '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Titolo fisso e senza numeri: il dedup guarda i primi 60 caratteri, e
+          # una misura nel titolo minterebbe una issue nuova a ogni run. Le
+          # misure vanno nel corpo, che sulle ripetizioni diventa un commento.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Canton URL drift: il tasso settimanale non scende sotto la soglia" \
+            --description "$(cat /tmp/canton-url-drift-alert.md)" \
+            --priority 2 \
+            --label Bug \
+            --workflow "Canton URL Drift Monitor (weekly, read-only)"

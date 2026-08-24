@@ -159,6 +159,71 @@ export function buildSectionToCanton(registry) {
 }
 
 /**
+ * Alert threshold, evaluated against the series rather than against a constant.
+ *
+ * WHY A RATIO OF THE BASELINE AND NOT AN ABSOLUTE NUMBER
+ * The first row of the history is the pre-fix measurement (0,79%/week on 2026-08-24,
+ * before #6318). The fix's whole claim is that a BFS inference can no longer
+ * re-section an indexed URL, so what is left should be the much smaller residue
+ * of crawlers genuinely restamping a canton. Halving is the weakest form of that
+ * claim that is still worth asserting: sampling noise on ~45.000 slugs at
+ * p≈0,008 is about ±0,08 percentage points (2 standard errors), an order of
+ * magnitude below the baseline/2 line, so a run that trips this is not noise.
+ *
+ * WHY TWO CONSECUTIVE RUNS
+ * A window straddling the fix (some days before, some after) legitimately still
+ * measures old churn, and a single alert on that would be a false one — the
+ * exact way a monitor earns being ignored. Requiring the previous run to be over
+ * the line too costs one week of latency and removes the whole transition class.
+ *
+ * @param {Array<{rate: number}>} series history rows, oldest first, current one last
+ * @returns {{alert: boolean, reason: string, baseline: number|null, threshold: number|null}}
+ */
+export function evaluateAlert(series) {
+  if (!Array.isArray(series) || series.length < 2) {
+    return { alert: false, reason: 'serie troppo corta: serve almeno un run precedente', baseline: null, threshold: null };
+  }
+  const baseline = Number(series[0].rate);
+  if (!Number.isFinite(baseline) || baseline <= 0) {
+    return { alert: false, reason: 'baseline non utilizzabile', baseline: null, threshold: null };
+  }
+  const threshold = baseline / 2;
+  const current = Number(series[series.length - 1].rate);
+  const previous = Number(series[series.length - 2].rate);
+  // The baseline row is itself over the line by construction; it is the thing
+  // being improved on, not a run that should raise an alarm about itself.
+  if (series.length === 2) {
+    return { alert: false, reason: 'primo run dopo la baseline: serve un secondo punto per confermare', baseline, threshold };
+  }
+  if (current > threshold && previous > threshold) {
+    return {
+      alert: true,
+      reason: `due run consecutivi sopra la soglia: ${(previous * 100).toFixed(2)}% e ${(current * 100).toFixed(2)}% contro una soglia di ${(threshold * 100).toFixed(2)}%`,
+      baseline,
+      threshold,
+    };
+  }
+  return {
+    alert: false,
+    reason: current > threshold
+      ? `sopra soglia (${(current * 100).toFixed(2)}%) ma il run precedente no: si attende conferma`
+      : `sotto soglia (${(current * 100).toFixed(2)}% contro ${(threshold * 100).toFixed(2)}%)`,
+    baseline,
+    threshold,
+  };
+}
+
+/** History rows, oldest first. A missing or corrupt file is an empty series. */
+export function readSeries(text) {
+  return String(text || '')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .map((l) => { try { return JSON.parse(l); } catch { return null; } })
+    .filter((r) => r && Number.isFinite(Number(r.rate)));
+}
+
+/**
  * Compare one shard's two states.
  *
  * @returns {{common: number, drifted: Array<{slug: string, from: string, to: string}>}}
@@ -288,11 +353,77 @@ async function main() {
   }
 
   if (hasFlag('no-history')) return;
+  let series = [];
+  try {
+    series = readSeries(fs.readFileSync(historyPath, 'utf-8'));
+  } catch {
+    series = []; // first ever run
+  }
   try {
     fs.appendFileSync(historyPath, JSON.stringify(record) + '\n');
     console.log(`\n📈 storico aggiornato: ${path.relative(REPO_ROOT, historyPath)}`);
   } catch (e) {
     console.log(`⚠️  storico non scritto (${e?.message || e})`);
+    return;
+  }
+
+  // Verdict against the series, not against this run alone — see evaluateAlert.
+  const verdict = evaluateAlert([...series, record]);
+  console.log(`\n${verdict.alert ? '🔴' : '🟢'} ${verdict.reason}`);
+  const trend = [...series.slice(-5), record]
+    .map((r) => `${r.date} ${(Number(r.rate) * 100).toFixed(2)}%`)
+    .join(' → ');
+  const tail = [
+    '',
+    `Andamento: ${trend}`,
+    verdict.threshold != null
+      ? `Soglia di allarme: ${(verdict.threshold * 100).toFixed(2)}% (metà della baseline ${(verdict.baseline * 100).toFixed(2)}% del ${series[0]?.date ?? '?'}), confermata da due run consecutivi.`
+      : 'Soglia non ancora calcolabile: serve almeno un run precedente.',
+    '',
+    verdict.alert ? `🔴 ${verdict.reason}` : `🟢 ${verdict.reason}`,
+  ].join('\n');
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try { fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, tail + '\n'); } catch { /* non-fatal */ }
+  } else {
+    console.log(tail);
+  }
+
+  // A file, not an exit code: the workflow must still commit the history row
+  // even on an alert, and a non-zero exit would skip that step.
+  const alertFile = arg('alert-file', '');
+  if (alertFile && verdict.alert) {
+    const body = [
+      `Il drift di sezione degli URL degli annunci non e' sceso: ${verdict.reason}.`,
+      '',
+      `Baseline (prima riga dello storico, misurata prima della fix #6318): **${(verdict.baseline * 100).toFixed(2)}%** a settimana.`,
+      `Soglia: **${(verdict.threshold * 100).toFixed(2)}%** — meta' della baseline, confermata da due run consecutivi per non allarmare sulla finestra di transizione.`,
+      '',
+      `Ultima misura: **${record.drifted}** slug su ${record.common} confrontati (**${(record.rate * 100).toFixed(2)}%**), circa **${record.projectedUrlsPerWindow}** URL gia' indicizzati per finestra di ${record.days} giorni sui 4 locali.`,
+      '',
+      `Direzione: ${record.direction.towards} verso il comune dello slug, ${record.direction.away} in allontanamento, ${record.direction.lateral} laterali, ${record.direction.unresolved} senza oracolo.`,
+      `${record.direction.away + record.direction.lateral} movimenti su ${record.drifted} non migliorano l'assegnazione.`,
+      '',
+      `Andamento: ${trend}`,
+      '',
+      'Riproduci in locale:',
+      '',
+      '```bash',
+      `node scripts/audit-canton-url-drift.mjs --days ${record.days} --shards ${record.shards.length} --no-history`,
+      '```',
+      '',
+      'Serie completa in `data/canton-url-drift-history.jsonl`. La causa nota di questa',
+      'classe e\' la precedenza in `resolveCantonAgainstPin`',
+      '(`scripts/assemble-jobs-dataset.mjs`): un valore che viene solo',
+      'dall\'inferenza BFS non deve riscrivere un pin, perche\' sposta un URL che',
+      'Google ha gia\' indicizzato. Se il tasso e\' risalito, la prima cosa da',
+      'guardare e\' se quella precedenza e\' ancora quella di #6318.',
+    ].join('\n');
+    try {
+      fs.writeFileSync(alertFile, body);
+      console.log(`\n🔴 allarme scritto in ${alertFile}`);
+    } catch (e) {
+      console.log(`⚠️  allarme non scritto (${e?.message || e})`);
+    }
   }
 }
 

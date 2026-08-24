@@ -18,6 +18,8 @@ import {
   classifyDirection,
   buildSectionToCanton,
   diffShard,
+  evaluateAlert,
+  readSeries,
   // @ts-expect-error — plain .mjs script, no type declarations
 } from '../scripts/audit-canton-url-drift.mjs';
 
@@ -158,5 +160,76 @@ describe('diffShard — only slugs present in BOTH builds are drift candidates',
     const r = diffShard(wrap({ e: '/cerca-lavoro-ticino/e' }), { e: { de: '/de/jobs-im-tessin/e' } } as never);
     expect(r.common).toBe(1);
     expect(r.drifted).toHaveLength(0);
+  });
+});
+
+/**
+ * The alert is the only thing that reaches a human without them going to look,
+ * so both of its failure modes are expensive: staying silent while the drift is
+ * back, and crying wolf until it gets ignored (alert-pat-down.mjs, #5432).
+ */
+describe('evaluateAlert — threshold relative to the recorded baseline', () => {
+  const row = (rate: number, date = '2026-01-01') => ({ rate, date });
+
+  it('stays silent with no history to compare against', () => {
+    expect(evaluateAlert([]).alert).toBe(false);
+    expect(evaluateAlert([row(0.0079)]).alert).toBe(false);
+  });
+
+  it('does not fire on the baseline row itself, which is over its own line by construction', () => {
+    // baseline 0,79% → threshold 0,395%; the second row is still high because
+    // its window straddles the fix. One point is not a trend.
+    const v = evaluateAlert([row(0.0079), row(0.0075)]);
+    expect(v.alert).toBe(false);
+    expect(v.threshold).toBeCloseTo(0.00395, 5);
+  });
+
+  it('fires when two consecutive runs stay above half the baseline', () => {
+    const v = evaluateAlert([row(0.0079), row(0.0075), row(0.0071)]);
+    expect(v.alert).toBe(true);
+    expect(v.reason).toMatch(/due run consecutivi/);
+  });
+
+  it('waits for confirmation when only the latest run is above', () => {
+    // A single spike must not open an issue: that is the cries-wolf failure.
+    const v = evaluateAlert([row(0.0079), row(0.001), row(0.0071)]);
+    expect(v.alert).toBe(false);
+    expect(v.reason).toMatch(/si attende conferma/);
+  });
+
+  it('stays silent once the rate is down, which is the expected steady state', () => {
+    const v = evaluateAlert([row(0.0079), row(0.0012), row(0.0009)]);
+    expect(v.alert).toBe(false);
+    expect(v.reason).toMatch(/sotto soglia/);
+  });
+
+  it('re-fires after a regression that is confirmed', () => {
+    const v = evaluateAlert([row(0.0079), row(0.0009), row(0.006), row(0.0065)]);
+    expect(v.alert).toBe(true);
+  });
+
+  it('does not fire on a regression seen only once', () => {
+    expect(evaluateAlert([row(0.0079), row(0.0009), row(0.0008), row(0.0065)]).alert).toBe(false);
+  });
+
+  it('refuses to build a threshold from an unusable baseline', () => {
+    expect(evaluateAlert([row(0), row(0.01), row(0.01)])).toMatchObject({ alert: false, baseline: null });
+  });
+});
+
+describe('readSeries', () => {
+  it('reads one JSON object per line, oldest first', () => {
+    const s = readSeries('{"date":"a","rate":0.008}\n{"date":"b","rate":0.004}\n');
+    expect(s.map((r: { date: string }) => r.date)).toEqual(['a', 'b']);
+  });
+  it('skips a corrupt line instead of throwing — a truncated append must not blind the monitor', () => {
+    expect(readSeries('{"date":"a","rate":0.008}\n{oops\n')).toHaveLength(1);
+  });
+  it('skips a row with no usable rate', () => {
+    expect(readSeries('{"date":"a"}\n{"date":"b","rate":"x"}\n')).toHaveLength(0);
+  });
+  it('is an empty series for empty or missing input', () => {
+    expect(readSeries('')).toEqual([]);
+    expect(readSeries(undefined as unknown as string)).toEqual([]);
   });
 });
