@@ -377,20 +377,38 @@ jobs:
         #     a rosso apre una issue `Workflow Failure: corpus-wide gates`
         #     chiusa dal reconciler orario `close-recovered-failure-issues.yml`.
         #
+        # ORA anche su `push` a main (prima solo su `pull_request`): il commit
+        # appena mergiato riceve la STESSA valutazione per-diff, con l'API
+        # compare al posto di `pulls/<n>/files`. Prima di questa modifica un
+        # push che non toccava affatto il corpus faceva comunque ripartire
+        # tutti e sette i gate O(corpus) dentro `tests.yml`, e una deriva pura
+        # del DATO (es. job-locale-consistency, 25744/77967 = 33,02% contro il
+        # tetto 33,00%, misurato 2026-08-24) rendeva rosso il check bloccante
+        # `vitest (unit + integration)` su main — il segnale che AGENTS.md
+        # tratta come priorità assoluta — per un difetto già tracciato
+        # altrove: `corpus-wide-gates.yml` misura questi stessi sette gate in
+        # modo indipendente e aveva già aperto la issue #6315 sullo stesso
+        # identico fallimento. Duplicare il rosso su `tests.yml` non aggiunge
+        # copertura: aggiunge un secondo posto dove main sembra rotto, e uno
+        # che — a differenza di corpus-wide-gates.yml — non ha un reconciler
+        # `close-recovered-failure-issues` che lo richiuda da solo al verde.
+        #
         # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
         # lascia `skip` VUOTO, quindi la suite gira INTERA. Un guasto qui costa
         # tempo, mai copertura. `|| true` sul fetch e `|| echo` sul merge-base
-        # servono a questo.
-        #
-        # Solo su `pull_request`: su `push` a main, `github.base_ref` è vuoto e
-        # non esiste un diff da valutare — lì la suite gira intera come oggi, e
-        # il verdetto di salute di main resta completo.
+        # servono a questo. Su `push` non c'è un fallback su `git diff`: il
+        # checkout di questo job è shallow (`fetch-depth: 1`), quindi il
+        # commit `github.event.before` non è quasi mai presente in locale; se
+        # la compare API non risponde, `changed-paths.txt` resta vuoto e la
+        # suite gira intera — stessa direzione di ogni altro fallimento qui.
         id: corpus
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           BASE_REF: ${{ github.base_ref }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
         run: |
           # I path toccati arrivano dall'API della PR, non da `git diff`, e la
           # ragione è MISURATA su questa stessa PR (run 32182836022): la prima
@@ -406,17 +424,28 @@ jobs:
           # problemi: risponde con l'elenco esatto dei file della PR, senza
           # storia locale.
           #
-          # Il fallback su git resta per il caso in cui l'API non risponda.
-          # Entrambi i rami sono `|| true`: qualunque guasto lascia
-          # changed-paths.txt vuoto → `skip` vuoto → suite INTERA. La direzione
-          # del fail-safe è quella giusta: un guasto qui costa tempo, mai
-          # copertura.
+          # Il fallback su git resta per il caso PR in cui l'API non risponda.
+          # Su push non c'è un fallback equivalente: il checkout di questo job
+          # è shallow, quindi `git diff $BEFORE_SHA $AFTER_SHA` non avrebbe gli
+          # oggetti per risolvere `$BEFORE_SHA`. Ogni ramo è `|| true`/vuoto:
+          # qualunque guasto lascia changed-paths.txt vuoto → `skip` vuoto →
+          # suite INTERA. La direzione del fail-safe è quella giusta: un
+          # guasto qui costa tempo, mai copertura.
           : > changed-paths.txt
           if [ -n "$PR_NUMBER" ]; then
             gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
               --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+          elif [ "$GITHUB_EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] \
+            && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            # `compare` invece di `pulls/<n>/files`: un push a main non ha una
+            # PR associata (o non è quella che ci interessa — un push può
+            # arrivare anche da un commit diretto di un bot/crawler), ma
+            # confronta comunque due SHA con la stessa identica API,
+            # senza bisogno di storia locale.
+            gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
+              --paginate -q '.files[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
           fi
-          if [ ! -s changed-paths.txt ]; then
+          if [ ! -s changed-paths.txt ] && [ -n "$PR_NUMBER" ]; then
             echo "API senza risposta utile → fallback su git"
             base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
             if [ -n "$base" ]; then
@@ -424,17 +453,20 @@ jobs:
             fi
           fi
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
-          echo "path toccati dalla PR: $count"
+          echo "path toccati: $count"
           if [ "$count" = "0" ]; then
             echo "elenco vuoto → nessuna esclusione, gira la suite intera"
             exit 0
           fi
-          # L'endpoint `pulls/<n>/files` tronca a 3000 file. Un troncamento non
-          # e' un errore — risponde 200 con una lista PARZIALE — quindi il
+          # Sia `pulls/<n>/files` che `compare` troncano su un diff enorme
+          # (rispondono 200 con una lista PARZIALE, non un errore) — il
           # fail-safe sul fallimento non lo copre: un path corpus caduto oltre
-          # il taglio farebbe escludere un gate che invece doveva bloccare.
-          # Sopra la soglia si rinuncia a decidere e gira la suite intera, che
-          # e' la stessa direzione di ogni altro fallimento qui.
+          # il taglio farebbe escludere un gate che invece doveva restare
+          # bloccante. Sopra la soglia si rinuncia a decidere e gira la suite
+          # intera, la stessa direzione di ogni altro fallimento qui. Anche se
+          # il vero cap di troncamento differisse fra i due endpoint, sbagliare
+          # per eccesso qui costa solo tempo: `corpus-wide-gates.yml` misura
+          # questi stessi sette gate in modo indipendente ad ogni push su main.
           if [ "$count" -ge 3000 ]; then
             echo "elenco al cap dell'API ($count): possibile troncamento → suite intera"
             exit 0
@@ -500,10 +532,11 @@ jobs:
         # (progettata per i 4 shard di un tempo) → due file sono già supportati.
         env:
           VITEST_DATASET_GROUP: independent
-          # Vuoto su push a main e su qualunque esito anomalo dello step
-          # "Decide i gate corpus-wide" → nessuna esclusione, suite intera.
-          # `parseCorpusSkipList` filtra comunque il valore contro il registro:
-          # questa env non puo' spegnere un test che non sia uno dei sette.
+          # Calcolato per diff anche su push a main (non solo su pull_request,
+          # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
+          # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
+          # filtra comunque il valore contro il registro: questa env non puo'
+          # spegnere un test che non sia uno dei sette.
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
