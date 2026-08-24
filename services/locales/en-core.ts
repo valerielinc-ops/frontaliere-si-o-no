@@ -1165,6 +1165,8 @@ const enCore: Record<string, string> = {
  'newsletter.subscribing': 'Subscribing...',
  'newsletter.subscribeFree': 'Subscribe Free',
  'newsletter.unsubscribeNotice': 'You can unsubscribe at any time. No spam, we promise.',
+ 'newsletter.telegram.title': 'Or follow the Telegram channel',
+ 'newsletter.telegram.desc': 'The jobs of the day and the weekly border-wait ranking, without leaving your email address.',
  'newsletter.unsubscribed': 'Unsubscribed successfully. You will no longer receive our newsletter.',
  'newsletter.unsubscribeError': 'Error during unsubscription. Please try again or contact us.',
  'newsletter.confirmationSuccess': 'Subscription confirmed! 🎉 You will receive the weekly newsletter every Monday.',

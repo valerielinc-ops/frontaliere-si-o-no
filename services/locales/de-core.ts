@@ -1168,6 +1168,8 @@ const deCore: Record<string, string> = {
  'newsletter.subscribing': 'Anmeldung läuft...',
  'newsletter.subscribeFree': 'Kostenlos anmelden',
  'newsletter.unsubscribeNotice': 'Sie können sich jederzeit abmelden. Kein Spam, versprochen.',
+ 'newsletter.telegram.title': 'Oder folgen Sie dem Telegram-Kanal',
+ 'newsletter.telegram.desc': 'Die Jobs des Tages und die wöchentliche Rangliste der Grenzwartezeiten, ohne Ihre E-Mail-Adresse anzugeben.',
  'newsletter.unsubscribed': 'Abmeldung erfolgreich. Sie erhalten unseren Newsletter nicht mehr.',
  'newsletter.unsubscribeError': 'Fehler bei der Abmeldung. Bitte versuchen Sie es erneut oder kontaktieren Sie uns.',
  'newsletter.confirmationSuccess': 'Anmeldung bestätigt! 🎉 Sie erhalten den wöchentlichen Newsletter jeden Montag.',

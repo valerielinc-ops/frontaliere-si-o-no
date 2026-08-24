@@ -6,7 +6,14 @@
  *                         escaping, URL-less job filtering, limit cap.
  *   • telegram-border-digest — weekly dogane ranking: best/worst order,
  *                         canonical links, skip-when-no-data.
- *   • social-post-utils — the shared salary formatter the digest reuses.
+ *   • social-post-utils — the shared salary formatter the digest reuses, and
+ *                         `withUtm` link tagging.
+ *   • telegram-links    — the single source of the channel's UTM identity.
+ *
+ * The UTM assertions are the observer for the 2026-08-24 finding: the channel
+ * had been posting every day while GA4 reported ZERO sessions from `t.me`,
+ * because every link it posted was untagged and landed in Direct. An untagged
+ * broadcast link is invisible, not absent — these tests fail if one comes back.
  */
 import { describe, it, expect } from 'vitest';
 import { mkdtempSync, writeFileSync } from 'node:fs';
@@ -22,7 +29,14 @@ import {
 } from '../scripts/lib/telegram-client.mjs';
 import { buildDailyJobsDigest } from '../scripts/lib/telegram-templates.mjs';
 import { buildWeeklyBorderDigest } from '../scripts/lib/telegram-border-digest.mjs';
-import { formatJobSalaryLabel, formatSwissThousands } from '../scripts/lib/social-post-utils.mjs';
+import { formatJobSalaryLabel, formatSwissThousands, withUtm } from '../scripts/lib/social-post-utils.mjs';
+import {
+  telegramUrl,
+  TELEGRAM_UTM_SOURCE,
+  TELEGRAM_UTM_MEDIUM,
+  TELEGRAM_CAMPAIGN_JOBS,
+  TELEGRAM_CAMPAIGN_BORDER,
+} from '../scripts/lib/telegram-links.mjs';
 
 // ── telegram-client ──────────────────────────────────────────
 
@@ -132,13 +146,19 @@ describe('buildDailyJobsDigest', () => {
     const { text, jobIds, count } = buildDailyJobsDigest([JOB_A], { dateLabel: '19 luglio 2026' });
     expect(count).toBe(1);
     expect(jobIds).toEqual(['a']);
-    expect(text).toContain('href="https://frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-frontend-lugano/"');
+    // canonical trailing-slash path, now UTM-tagged (attribution, #GA4-zero)
+    expect(text).toContain(
+      'href="https://frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-frontend-lugano/' +
+        '?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=jobs_digest' +
+        '&amp;utm_content=sviluppatore-frontend-lugano"',
+    );
     // company name is HTML-escaped
     expect(text).toContain('Acme &amp; Co &lt;SA&gt;');
     // salary with Swiss separator
     expect(text).toContain("CHF 90'000–110'000");
-    // CTA to the canonical job hub (trailing slash)
-    expect(text).toContain('href="https://frontaliereticino.ch/cerca-lavoro-ticino/"');
+    // CTA to the canonical job hub (trailing slash preserved before the query)
+    expect(text).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/?utm_source=telegram');
+    expect(text).toContain('utm_content=hub');
   });
 
   it('drops jobs with no resolvable URL and caps at the limit', () => {
@@ -155,6 +175,74 @@ describe('buildDailyJobsDigest', () => {
   it('respects the limit cap', () => {
     const many = Array.from({ length: 8 }, (_, i) => ({ ...JOB_A, id: `j${i}`, slug: `s${i}` }));
     expect(buildDailyJobsDigest(many, { limit: 3 }).count).toBe(3);
+  });
+});
+
+// ── UTM tagging (the GA4-zero observer) ──────────────────────
+
+describe('withUtm', () => {
+  it('sets the four utm keys and keeps the existing query + trailing slash', () => {
+    const out = withUtm('https://frontaliereticino.ch/cerca-lavoro-ticino/?page=2', {
+      source: 'telegram',
+      medium: 'social',
+      campaign: 'jobs_digest',
+      content: 'hub',
+    });
+    expect(out).toContain('/cerca-lavoro-ticino/?');
+    expect(out).toContain('page=2');
+    expect(out).toContain('utm_source=telegram');
+    expect(out).toContain('utm_medium=social');
+    expect(out).toContain('utm_campaign=jobs_digest');
+    expect(out).toContain('utm_content=hub');
+  });
+
+  it('skips empty fields rather than writing an empty utm_content', () => {
+    const out = withUtm('https://frontaliereticino.ch/x/', {
+      source: 'telegram',
+      medium: 'social',
+      campaign: 'jobs_digest',
+      content: '   ',
+    });
+    expect(out).not.toContain('utm_content');
+  });
+
+  it('returns the input verbatim when it is not a parseable URL', () => {
+    // Attribution may be lost; the destination never may be.
+    expect(withUtm('not a url', { source: 's', medium: 'm', campaign: 'c' })).toBe('not a url');
+    expect(withUtm('', { source: 's', medium: 'm', campaign: 'c' })).toBe('');
+  });
+});
+
+describe('telegram-links identity', () => {
+  it('pins medium=channel-class and source=identifier (project UTM convention)', () => {
+    // Matches scripts/send-job-alerts.mjs / newsletter-template.mjs.
+    expect(TELEGRAM_UTM_SOURCE).toBe('telegram');
+    expect(TELEGRAM_UTM_MEDIUM).toBe('social');
+    expect(TELEGRAM_CAMPAIGN_JOBS).toBe('jobs_digest');
+    expect(TELEGRAM_CAMPAIGN_BORDER).toBe('border_ranking');
+  });
+
+  it('telegramUrl applies that identity', () => {
+    const out = telegramUrl('https://frontaliereticino.ch/a/', TELEGRAM_CAMPAIGN_JOBS, 'slug-x');
+    expect(out).toBe(
+      'https://frontaliereticino.ch/a/?utm_source=telegram&utm_medium=social' +
+        '&utm_campaign=jobs_digest&utm_content=slug-x',
+    );
+  });
+});
+
+describe('no broadcast link ships untagged', () => {
+  const hrefs = (text: string) => Array.from(text.matchAll(/href="([^"]+)"/g), (m) => m[1]);
+
+  it('every href in the jobs digest carries utm_source=telegram', () => {
+    const { text } = buildDailyJobsDigest([JOB_A], { dateLabel: '19 luglio 2026' });
+    const found = hrefs(text);
+    expect(found.length).toBeGreaterThan(0);
+    for (const href of found) {
+      expect(href).toContain('utm_source=telegram');
+      expect(href).toContain('utm_medium=social');
+      expect(href).toContain('utm_campaign=jobs_digest');
+    }
   });
 });
 
@@ -189,8 +277,12 @@ describe('buildWeeklyBorderDigest', () => {
     const slowIdx = text.indexOf('Ponte Tresa');
     expect(fastIdx).toBeGreaterThan(-1);
     expect(slowIdx).toBeGreaterThan(-1);
-    // canonical trailing-slash "oggi" links
-    expect(text).toContain('href="https://frontaliereticino.ch/traffico-dogane/chiasso-centro/oggi/"');
+    // canonical trailing-slash "oggi" links, UTM-tagged per crossing
+    expect(text).toContain(
+      'href="https://frontaliereticino.ch/traffico-dogane/chiasso-centro/oggi/' +
+        '?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=border_ranking' +
+        '&amp;utm_content=chiasso-centro"',
+    );
     // CTA links to the canonical hub + ranking article (trailing slash)
     expect(text).toContain('https://frontaliereticino.ch/traffico-dogane/');
     expect(text).toContain('https://frontaliereticino.ch/articoli-frontaliere/classifica-dogane-ticino/');

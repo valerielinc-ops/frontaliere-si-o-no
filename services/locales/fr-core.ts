@@ -1168,6 +1168,8 @@ const frCore: Record<string, string> = {
  'newsletter.subscribing': 'Inscription en cours...',
  'newsletter.subscribeFree': 'S\'inscrire gratuitement',
  'newsletter.unsubscribeNotice': 'Vous pouvez vous désinscrire à tout moment. Pas de spam, promis.',
+ 'newsletter.telegram.title': 'Ou suivez le canal Telegram',
+ 'newsletter.telegram.desc': 'Les offres d\'emploi du jour et le classement hebdomadaire des attentes aux douanes, sans laisser votre adresse e-mail.',
  'newsletter.unsubscribed': 'Désinscription réussie. Vous ne recevrez plus notre newsletter.',
  'newsletter.unsubscribeError': 'Erreur lors de la désinscription. Veuillez réessayer ou nous contacter.',
  'newsletter.confirmationSuccess': 'Inscription confirmée ! 🎉 Vous recevrez la newsletter hebdomadaire chaque lundi.',

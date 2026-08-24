@@ -1213,6 +1213,8 @@ const translations: Record<string, string> = {
  'newsletter.subscribing': 'Iscrizione in corso...',
  'newsletter.subscribeFree': 'Iscriviti Gratis',
  'newsletter.unsubscribeNotice': 'Puoi disiscriverti in qualsiasi momento. Niente spam, promesso.',
+ 'newsletter.telegram.title': 'Oppure segui il canale Telegram',
+ 'newsletter.telegram.desc': 'Le offerte di lavoro del giorno e la classifica settimanale delle attese alle dogane, senza lasciare la tua email.',
  'newsletter.unsubscribed': 'Disiscrizione completata. Non riceverai più la nostra newsletter.',
  'newsletter.unsubscribeError': 'Errore durante la disiscrizione. Riprova o contattaci.',
  'newsletter.confirmationSuccess': 'Iscrizione confermata! 🎉 Riceverai la newsletter settimanale ogni lunedì.',
