@@ -10682,6 +10682,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Wohnen in Leggiuno und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die in Leggiuno leben und im Kanton Tessin arbeiten: Verbindungen, Quellensteuer, AHV-, KVG- und Steuervorschriften für Grenzgänger.',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Grenzregion zwischen Italien und der Schweiz',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Leben in Ass, Arbeiten im Tessin: Was zu beachten ist',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Hier sind einige der wichtigsten Punkte, die Sie beachten sollten, bevor Sie nach Ass ziehen und als Grenzgänger im Tessin arbeiten.',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Bild eines Grenzgängers, der das Luganer See-Landschaft anschaut',
 };
 
 export default blogMetaDe;

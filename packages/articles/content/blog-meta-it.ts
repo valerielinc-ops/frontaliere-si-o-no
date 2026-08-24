@@ -10684,6 +10684,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Vivere a Leggiuno e lavorare in Ticino da frontaliere',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per chi vive a Leggiuno e lavora in Canton Ticino: collegamenti, imposta alla fonte, previdenza AVS, LAMal e regole fiscali per i frontalieri.',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Panorama della zona di confine tra Italia e Svizzera per frontalieri',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Vivere a Asso, lavorare in Ticino: cosa considerare',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Ecco alcuni dei punti chiave da considerare prima di trasferirsi a Asso e lavorare in Ticino come frontaliere.',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Immagine di un frontaliere che guarda il panorama del lago di Lugano',
 };
 
 export default blogMetaIt;

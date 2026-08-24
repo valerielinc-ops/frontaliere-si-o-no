@@ -10685,6 +10685,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Vivre à Leyuno et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour ceux qui vivent à Leyuno et travaillent dans le canton du Tessin : liens, impôt à la source, prévoyance AVS, LAMal et règles fiscales pour les frontaliers.',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Paysage de la région frontalière entre l\'Italie et la Suisse',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Vivre à Asso, travailler au Tessin : ce qu\'il faut considérer',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Voici quelques-uns des points clés à considérer avant de déménager à Asso et de travailler au Tessin en tant que frontalier.',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Image d\'un frontalier regardant la vue du lac de Lugano',
 };
 
 export default blogMetaFr;
