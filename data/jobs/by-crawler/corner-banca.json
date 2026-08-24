@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-08-24T08:42:38.389Z",
+  "assembledAt": "2026-08-24T21:30:31.889Z",
   "jobs": [
     {
       "id": "corner-banca-bb79fcc27fb5",
@@ -64,7 +64,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.507Z",
+      "crawledAt": "2026-08-24T21:30:29.652Z",
       "previousSlugsByLocale": {
         "it": [
           "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
@@ -166,7 +166,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.507Z",
+      "crawledAt": "2026-08-24T21:30:29.652Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -175,8 +175,8 @@
           "initiativbewerbung-lehre-corner-banca-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -264,7 +264,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.506Z",
+      "crawledAt": "2026-08-24T21:30:29.651Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
@@ -281,8 +281,8 @@
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -364,7 +364,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.505Z",
+      "crawledAt": "2026-08-24T21:30:29.651Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -405,6 +405,100 @@
         }
       },
       "addressRegion": "ZH",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-2fd5dbfa7f6e",
+      "slug": "information-security-specialista-ref-1108-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "information-security-specialista-ref-1108-corner-banca-lugano",
+        "en": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "de": "information-security-specialist-ref-1108-corner-banca-lugano",
+        "fr": "information-security-specialist-ref-1108-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Information Security Specialista  -  ref. 1108",
+      "titleByLocale": {
+        "it": "Information Security Specialista - ref. 1108",
+        "en": "Information Security Specialista  -  ref. 1108",
+        "de": "Information Security Spezialist - ref. 1108",
+        "fr": "Information Security Spécialiste - ref. 1108"
+      },
+      "description": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
+        "de": "Hauptzuständigkeiten:\n\n• Handeln Sie als Sicherheitspartner für Projekte und Initiativen und gewährleisten Sie Secure-by-Design-Prinzipien\n\n• Durchführung von Risiko- und Kontrollbewertungen in IT- und Geschäftsprozessen\n\n• Definieren und Validieren von Sicherheitsanforderungen für neue Systeme und Änderungen\n\n• Gewährleistung der Umsetzung und Wirksamkeit von Sicherheitskontrollen (ausgerichtet auf FINMA, LPD, ISO 27001 / NIST)\n\n• Verwalten von Sicherheitsausnahmen und Risikoakzeptanzen, Gewährleistung einer ordnungsgemäßen Governance und Rückverfolgbarkeit\n\n• Beitrag zu Sicherheitsrichtlinien, Standards und Second Line of Defense Aktivitäten\n\n• Unterstützung interner und externer Audits zu Sicherheits- und IT-Risikothemen\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• 3-7+ Jahre in Informationssicherheit, IT-Risiko oder Security Governance\n\n• Erfahrung in Projektsicherheit / Security Assurance / Control Frameworks\n\n• Starkes Verständnis von Risikomanagement und regulatorischen Erwartungen (FINMA ist ein Plus)\n\n• Zertifizierungen wie CISSP, CISM, CISA sind von Vorteil\n\n• Fließend Englisch und Italienisch (obligatorisch). Deutsch und/oder Französisch ist ein Plus\n\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Principales responsabilités :\n\n• Agir en tant que partenaire de sécurité pour les projets et les initiatives, en veillant à ce que les principes de sécurité par conception soient respectés\n\n• Effectuer des évaluations des risques et des contrôles dans l'ensemble des TI et des processus opérationnels\n\n• Définir et valider les exigences de sécurité pour les nouveaux systèmes et changements\n\n• Assurer la mise en œuvre et l'efficacité des contrôles de sécurité (alignés avec FINMA, LPD, ISO 27001 / NIST)\n\n• Gérer les exceptions en matière de sécurité et les acceptations des risques, en assurant une gouvernance et une traçabilité appropriées\n\n• Contribuer aux politiques de sécurité, aux normes et aux activités de défense de deuxième ligne\n\n• Soutenir les audits internes et externes sur les questions de sécurité et de risque informatique\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• 3 à 7 ans et plus en sécurité de l'information, risque de TI ou gouvernance de la sécurité\n\n• Expérience dans les cadres de sécurité / sécurité / contrôle du projet\n\n• Connaissance approfondie de la gestion des risques et des attentes réglementaires (la FINMA est un plus)\n\n• Des certifications telles que CISSP, CISM, CISA sont un avantage\n\n• Anglais et italien (obligatoire). L'allemand et/ou le français est un plus\n\n• Résident au Tessin ou désireux de déménager"
+      },
+      "requirements": [
+        "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
+        "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo",
+        "Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)",
+        "Le certificazioni come CISSP, CISM, CISA sono un vantaggio",
+        "Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus",
+        "Residente in Ticino o disposto a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "3–7+ years in Information Security, IT Risk, or Security Governance",
+          "Experience in project security / security assurance / control frameworks",
+          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+          "Certifications such as CISSP, CISM, CISA are an advantage",
+          "Fluent English and Italian (mandatory). German and/or French is a plus",
+          "Resident in Ticino or willing to relocate",
+          "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
+          "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo"
+        ],
+        "en": [
+          "3–7+ years in Information Security, IT Risk, or Security Governance",
+          "Experience in project security / security assurance / control frameworks",
+          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
+          "Certifications such as CISSP, CISM, CISA are an advantage",
+          "Fluent English and Italian (mandatory). German and/or French is a plus",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T21:30:29.650Z",
+      "previousSlugs": [
+        "information-security-specialist-ref-1108-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-specialist-ref-1108-corner-banca-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.230Z",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
       "employmentType": "FULL_TIME"
     },
     {
@@ -476,7 +570,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.503Z",
+      "crawledAt": "2026-08-24T21:30:29.649Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano"
       ],
@@ -496,100 +590,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-2fd5dbfa7f6e",
-      "slug": "information-security-specialista-ref-1108-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "information-security-specialista-ref-1108-corner-banca-lugano",
-        "en": "information-security-specialist-ref-1108-corner-banca-lugano",
-        "de": "information-security-specialist-ref-1108-corner-banca-lugano",
-        "fr": "information-security-specialist-ref-1108-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Information Security Specialista  -  ref. 1108",
-      "titleByLocale": {
-        "it": "Information Security Specialista - ref. 1108",
-        "en": "Information Security Specialista  -  ref. 1108",
-        "de": "Information Security Spezialist - ref. 1108",
-        "fr": "Information Security Spécialiste - ref. 1108"
-      },
-      "description": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Responsabilità chiave:\n\n• Agire come partner di sicurezza per progetti e iniziative, garantendo principi di progettazione sicura\n\n• Eseguire valutazioni di rischio e controllo attraverso processi IT e aziendali\n\n• Definire e convalidare requisiti di sicurezza per nuovi sistemi e modifiche\n\n• Garantire l'implementazione e l'efficacia dei controlli di sicurezza (allineati con FINMA, LPD, ISO 27001 / NIST)\n\n• Gestire eccezioni di sicurezza e accettazioni di rischio, garantendo una corretta governance e tracciabilità\n\n• Contribuire a politiche di sicurezza, standard e attività di seconda linea di difesa\n\n• Supportare audit interni ed esterni su temi di sicurezza e rischi IT\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• 3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza\n\n• Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo\n\n• Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)\n\n• Le certificazioni come CISSP, CISM, CISA sono un vantaggio\n\n• Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus\n\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "Key responsibilities:\n\n• Act as a security partner for projects and initiatives, ensuring secure-by-design principles\n\n• Perform risk and control assessments across IT and business processes\n\n• Define and validate security requirements for new systems and changes\n\n• Ensure the implementation and effectiveness of security controls (aligned with FINMA, LPD, ISO 27001 / NIST)\n\n• Manage security exceptions and risk acceptances, ensuring proper governance and traceability\n\n• Contribute to security policies, standards, and second line of defense activities\n\n• Support internal and external audits on security and IT risk topics\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• 3–7+ years in Information Security, IT Risk, or Security Governance\n\n• Experience in project security / security assurance / control frameworks\n\n• Strong understanding of risk management and regulatory expectations (FINMA is a plus)\n\n• Certifications such as CISSP, CISM, CISA are an advantage\n\n• Fluent English and Italian (mandatory). German and/or French is a plus\n\n• Resident in Ticino or willing to relocate",
-        "de": "Hauptzuständigkeiten:\n\n• Handeln Sie als Sicherheitspartner für Projekte und Initiativen und gewährleisten Sie Secure-by-Design-Prinzipien\n\n• Durchführung von Risiko- und Kontrollbewertungen in IT- und Geschäftsprozessen\n\n• Definieren und Validieren von Sicherheitsanforderungen für neue Systeme und Änderungen\n\n• Gewährleistung der Umsetzung und Wirksamkeit von Sicherheitskontrollen (ausgerichtet auf FINMA, LPD, ISO 27001 / NIST)\n\n• Verwalten von Sicherheitsausnahmen und Risikoakzeptanzen, Gewährleistung einer ordnungsgemäßen Governance und Rückverfolgbarkeit\n\n• Beitrag zu Sicherheitsrichtlinien, Standards und Second Line of Defense Aktivitäten\n\n• Unterstützung interner und externer Audits zu Sicherheits- und IT-Risikothemen\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• 3-7+ Jahre in Informationssicherheit, IT-Risiko oder Security Governance\n\n• Erfahrung in Projektsicherheit / Security Assurance / Control Frameworks\n\n• Starkes Verständnis von Risikomanagement und regulatorischen Erwartungen (FINMA ist ein Plus)\n\n• Zertifizierungen wie CISSP, CISM, CISA sind von Vorteil\n\n• Fließend Englisch und Italienisch (obligatorisch). Deutsch und/oder Französisch ist ein Plus\n\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Principales responsabilités :\n\n• Agir en tant que partenaire de sécurité pour les projets et les initiatives, en veillant à ce que les principes de sécurité par conception soient respectés\n\n• Effectuer des évaluations des risques et des contrôles dans l'ensemble des TI et des processus opérationnels\n\n• Définir et valider les exigences de sécurité pour les nouveaux systèmes et changements\n\n• Assurer la mise en œuvre et l'efficacité des contrôles de sécurité (alignés avec FINMA, LPD, ISO 27001 / NIST)\n\n• Gérer les exceptions en matière de sécurité et les acceptations des risques, en assurant une gouvernance et une traçabilité appropriées\n\n• Contribuer aux politiques de sécurité, aux normes et aux activités de défense de deuxième ligne\n\n• Soutenir les audits internes et externes sur les questions de sécurité et de risque informatique\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• 3 à 7 ans et plus en sécurité de l'information, risque de TI ou gouvernance de la sécurité\n\n• Expérience dans les cadres de sécurité / sécurité / contrôle du projet\n\n• Connaissance approfondie de la gestion des risques et des attentes réglementaires (la FINMA est un plus)\n\n• Des certifications telles que CISSP, CISM, CISA sont un avantage\n\n• Anglais et italien (obligatoire). L'allemand et/ou le français est un plus\n\n• Résident au Tessin ou désireux de déménager"
-      },
-      "requirements": [
-        "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
-        "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo",
-        "Forte comprensione della gestione del rischio e delle aspettative normative (il possesso di FINMA è un plus)",
-        "Le certificazioni come CISSP, CISM, CISA sono un vantaggio",
-        "Inglese e italiano fluente (obbligatorio). Tedesco e/o francese sono un plus",
-        "Residente in Ticino o disposto a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "3–7+ years in Information Security, IT Risk, or Security Governance",
-          "Experience in project security / security assurance / control frameworks",
-          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
-          "Certifications such as CISSP, CISM, CISA are an advantage",
-          "Fluent English and Italian (mandatory). German and/or French is a plus",
-          "Resident in Ticino or willing to relocate",
-          "3-7+ anni in Sicurezza delle informazioni, Rischi IT o Governance della sicurezza",
-          "Esperienza in sicurezza del progetto / garanzia di sicurezza / quadri di controllo"
-        ],
-        "en": [
-          "3–7+ years in Information Security, IT Risk, or Security Governance",
-          "Experience in project security / security assurance / control frameworks",
-          "Strong understanding of risk management and regulatory expectations (FINMA is a plus)",
-          "Certifications such as CISSP, CISM, CISA are an advantage",
-          "Fluent English and Italian (mandatory). German and/or French is a plus",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.503Z",
-      "previousSlugs": [
-        "information-security-specialist-ref-1108-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "information-security-specialist-ref-1108-corner-banca-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:12:28.230Z",
-      "needsRetranslation": true,
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
           "unitText": "YEAR"
         }
       },
@@ -663,7 +663,7 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.501Z",
+      "crawledAt": "2026-08-24T21:30:29.648Z",
       "previousSlugs": [
         "employee-backoffice-ref-1110-corner-banca-lugano"
       ],
@@ -672,8 +672,8 @@
           "employee-backoffice-ref-1110-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -755,7 +755,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.501Z",
+      "crawledAt": "2026-08-24T21:30:29.648Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
       ],
@@ -764,8 +764,8 @@
           "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -846,7 +846,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-ref-1113",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.499Z",
+      "crawledAt": "2026-08-24T21:30:29.646Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
       ],
@@ -855,8 +855,8 @@
           "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.201Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.201Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -866,6 +866,103 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-9edf9a711b5c",
+      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Senior Compliance Officer  - ref. 1111",
+      "titleByLocale": {
+        "it": "Senior Compliance Officer - ref. 1111",
+        "en": "Senior Compliance Officer - ref. 1111",
+        "de": "Senior Compliance Officer - ref. 1111",
+        "fr": "Senior Compliance Officer  - ref. 1111"
+      },
+      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+        "en": "We are looking for an experienced Senior Compliance Officer to join our Compliance team. The ideal candidate has solid experience in the banking sector and a comprehensive understanding of compliance processes beyond Anti-Money Laundering (AML), including cross-border, sanctions, regulatory reporting, compliance risk assessment, and oversight of Compliance-related projects.\n\nKey Responsibilities\n\n• Collaborate effectively with colleagues across different departments, including IT;\n\n• Adopt a proactive and critical approach when identifying and implementing new solutions;\n\n• Work independently and manage priorities autonomously;\n\n• Handle a high volume of complex cases efficiently and accurately.\n\n• Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.\n\n• Proven expertise not only in AML Compliance, but also in:\n\no Cross-border, sanctions and consolidated supervision on affiliates;\n\no Compliance reporting, training and regulatory monitoring;\n\no Compliance Risk Assessment;\n\no Coordination and supervision of Compliance-related projects.\n\n• University degree in Law, Economics, or a related discipline.\n\n• CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.\n\n• Advanced proficiency in Microsoft Office, particularly Microsoft Excel.\n\n• Strong team-oriented mindset and excellent problem-solving skills.\n\n• Resident in Ticino or willing to relocate",
+        "de": "Wir suchen einen erfahrenen Senior Compliance Officer, der unserem Compliance-Team beitritt. Der ideale Kandidat verfügt über fundierte Erfahrung im Bankensektor und ein umfassendes Verständnis der Compliance-Prozesse jenseits der Geldwäschebekämpfung (AML), einschließlich grenzüberschreitender, Sanktionen, regulatorischer Berichterstattung, Compliance-Risikobewertung und Aufsicht über Compliance-bezogene Projekte.\n\nHauptzuständigkeiten\n\n• Zusammenarbeit mit Kollegen aus verschiedenen Abteilungen, einschließlich IT;\n\n• Annahme eines proaktiven und kritischen Ansatzes bei der Identifizierung und Umsetzung neuer Lösungen;\n\n• unabhängig arbeiten und Prioritäten autonom verwalten;\n\n• Behandeln Sie ein hohes Volumen komplexer Fälle effizient und genau.\n\n• Mindestens 3-5 Jahre Erfahrung in der Bankenbranche in einer ähnlichen Rolle als Compliance Officer.\n\n• Bewährte Expertise nicht nur in AML Compliance, sondern auch in:\n\nGrenzüberschreitende, Sanktionen und konsolidierte Beaufsichtigung von verbundenen Unternehmen;\n\nCompliance-Berichterstattung, Schulung und regulatorische Überwachung;\n\no Compliance-Risikobewertung;\n\no Koordination und Überwachung von Compliance-bezogenen Projekten.\n\n• Universitätsabschluss in Recht, Wirtschaft oder einer verwandten Disziplin.\n\n• CAS in Compliance (Certificate of Advanced Studies) oder einer gleichwertigen beruflichen Qualifikation.\n\n• Erweiterte Kenntnisse in Microsoft Office, insbesondere Microsoft Excel.\n\n• Starke teamorientierte Denkweise und ausgezeichnete Problemlösungsfähigkeiten.\n\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Nous cherchons un agent supérieur de conformité expérimenté pour rejoindre notre équipe de conformité. Le candidat idéal a une solide expérience dans le secteur bancaire et une compréhension complète des processus de conformité au-delà de la lutte contre le blanchiment de capitaux (LAM), y compris transfrontalier, les sanctions, les rapports réglementaires, l'évaluation des risques liés à la conformité et la surveillance des projets liés à la conformité.\n\nPrincipales responsabilités\n\n• Collaborer efficacement avec des collègues de différents ministères, y compris les TI;\n\n• Adopter une approche proactive et critique lors de l ' identification et de la mise en œuvre de nouvelles solutions;\n\n• Travailler de manière indépendante et gérer les priorités de manière autonome;\n\n• Gérer un volume élevé de cas complexes efficacement et avec précision.\n\n• Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui d'agent de conformité.\n\n• Expertise éprouvée non seulement dans la conformité à la LMA, mais aussi dans:\n\no les sanctions et la surveillance consolidée des filiales;\n\no les rapports sur la conformité, la formation et la surveillance réglementaire;\n\no Évaluation des risques liés à la conformité;\n\no Coordination et supervision des projets liés à la conformité.\n\n• Diplôme universitaire en droit, économie ou discipline connexe.\n\n• Le CAS en conformité (certificat d'études supérieures) ou une qualification professionnelle équivalente.\n\n• Compétence avancée dans Microsoft Office, en particulier Microsoft Excel.\n\n• Une bonne attitude d'équipe et d'excellentes compétences en résolution de problèmes.\n\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
+        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
+        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
+        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
+        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
+        "Residente in Ticino o disponibile a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate",
+          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
+        ],
+        "en": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T21:30:29.645Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-ref-1111-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T21:46:42.895Z",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -952,7 +1049,7 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T10:44:05.498Z",
+      "crawledAt": "2026-08-24T21:30:29.645Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
@@ -964,103 +1061,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79500,
           "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-9edf9a711b5c",
-      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Senior Compliance Officer  - ref. 1111",
-      "titleByLocale": {
-        "it": "Senior Compliance Officer - ref. 1111",
-        "en": "Senior Compliance Officer - ref. 1111",
-        "de": "Senior Compliance Officer - ref. 1111",
-        "fr": "Senior Compliance Officer  - ref. 1111"
-      },
-      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-        "en": "We are looking for an experienced Senior Compliance Officer to join our Compliance team. The ideal candidate has solid experience in the banking sector and a comprehensive understanding of compliance processes beyond Anti-Money Laundering (AML), including cross-border, sanctions, regulatory reporting, compliance risk assessment, and oversight of Compliance-related projects.\n\nKey Responsibilities\n\n• Collaborate effectively with colleagues across different departments, including IT;\n\n• Adopt a proactive and critical approach when identifying and implementing new solutions;\n\n• Work independently and manage priorities autonomously;\n\n• Handle a high volume of complex cases efficiently and accurately.\n\n• Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.\n\n• Proven expertise not only in AML Compliance, but also in:\n\no Cross-border, sanctions and consolidated supervision on affiliates;\n\no Compliance reporting, training and regulatory monitoring;\n\no Compliance Risk Assessment;\n\no Coordination and supervision of Compliance-related projects.\n\n• University degree in Law, Economics, or a related discipline.\n\n• CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.\n\n• Advanced proficiency in Microsoft Office, particularly Microsoft Excel.\n\n• Strong team-oriented mindset and excellent problem-solving skills.\n\n• Resident in Ticino or willing to relocate",
-        "de": "Wir suchen einen erfahrenen Senior Compliance Officer, der unserem Compliance-Team beitritt. Der ideale Kandidat verfügt über fundierte Erfahrung im Bankensektor und ein umfassendes Verständnis der Compliance-Prozesse jenseits der Geldwäschebekämpfung (AML), einschließlich grenzüberschreitender, Sanktionen, regulatorischer Berichterstattung, Compliance-Risikobewertung und Aufsicht über Compliance-bezogene Projekte.\n\nHauptzuständigkeiten\n\n• Zusammenarbeit mit Kollegen aus verschiedenen Abteilungen, einschließlich IT;\n\n• Annahme eines proaktiven und kritischen Ansatzes bei der Identifizierung und Umsetzung neuer Lösungen;\n\n• unabhängig arbeiten und Prioritäten autonom verwalten;\n\n• Behandeln Sie ein hohes Volumen komplexer Fälle effizient und genau.\n\n• Mindestens 3-5 Jahre Erfahrung in der Bankenbranche in einer ähnlichen Rolle als Compliance Officer.\n\n• Bewährte Expertise nicht nur in AML Compliance, sondern auch in:\n\nGrenzüberschreitende, Sanktionen und konsolidierte Beaufsichtigung von verbundenen Unternehmen;\n\nCompliance-Berichterstattung, Schulung und regulatorische Überwachung;\n\no Compliance-Risikobewertung;\n\no Koordination und Überwachung von Compliance-bezogenen Projekten.\n\n• Universitätsabschluss in Recht, Wirtschaft oder einer verwandten Disziplin.\n\n• CAS in Compliance (Certificate of Advanced Studies) oder einer gleichwertigen beruflichen Qualifikation.\n\n• Erweiterte Kenntnisse in Microsoft Office, insbesondere Microsoft Excel.\n\n• Starke teamorientierte Denkweise und ausgezeichnete Problemlösungsfähigkeiten.\n\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Nous cherchons un agent supérieur de conformité expérimenté pour rejoindre notre équipe de conformité. Le candidat idéal a une solide expérience dans le secteur bancaire et une compréhension complète des processus de conformité au-delà de la lutte contre le blanchiment de capitaux (LAM), y compris transfrontalier, les sanctions, les rapports réglementaires, l'évaluation des risques liés à la conformité et la surveillance des projets liés à la conformité.\n\nPrincipales responsabilités\n\n• Collaborer efficacement avec des collègues de différents ministères, y compris les TI;\n\n• Adopter une approche proactive et critique lors de l ' identification et de la mise en œuvre de nouvelles solutions;\n\n• Travailler de manière indépendante et gérer les priorités de manière autonome;\n\n• Gérer un volume élevé de cas complexes efficacement et avec précision.\n\n• Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui d'agent de conformité.\n\n• Expertise éprouvée non seulement dans la conformité à la LMA, mais aussi dans:\n\no les sanctions et la surveillance consolidée des filiales;\n\no les rapports sur la conformité, la formation et la surveillance réglementaire;\n\no Évaluation des risques liés à la conformité;\n\no Coordination et supervision des projets liés à la conformité.\n\n• Diplôme universitaire en droit, économie ou discipline connexe.\n\n• Le CAS en conformité (certificat d'études supérieures) ou une qualification professionnelle équivalente.\n\n• Compétence avancée dans Microsoft Office, en particulier Microsoft Excel.\n\n• Une bonne attitude d'équipe et d'excellentes compétences en résolution de problèmes.\n\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
-        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
-        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
-        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
-        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
-        "Residente in Ticino o disponibile a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate",
-          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
-        ],
-        "en": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.497Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano",
-          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:46:42.895Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1136,7 +1136,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.496Z",
+      "crawledAt": "2026-08-24T21:30:29.644Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -1145,8 +1145,8 @@
           "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1217,9 +1217,9 @@
       "url": "https://jobs.corner.ch/o/employee-ss-retention-outbound-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:44:05.486Z",
-      "firstSeenAt": "2026-08-18T21:32:39.030Z",
+      "crawledAt": "2026-08-24T21:30:29.641Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T21:32:39.030Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
