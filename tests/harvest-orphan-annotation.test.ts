@@ -15,6 +15,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   ORPHAN_NOTE_MARKER,
   hasOrphanNote,
@@ -88,5 +89,27 @@ describe('isAvoidableMaxTurns — un branch con lavoro non è un burn evitabile'
     expect(isAvoidableMaxTurns('follow-up(#1): una cosa sola', ['follow-up'], {
       hasDeliveredPr: false, hasRecoverableBranch: false,
     })).toBe(true);
+  });
+});
+
+describe('il janitor non cancella il lavoro che questa PR conserva', () => {
+  // Interazione REALE, non lessicale, trovata dal gate sibling: la regola EC0 di
+  // `worktree-branch-janitor.yml` cancellava `fix/issue-N` appena la issue era
+  // `closed`, senza consultare i commit — e lo stadio VERDICT-EXIT (#6323) ora
+  // chiude issue parcheggiate a ritmo molto più alto di prima (15 in 15 minuti
+  // dal suo merge). Annotare un branch recuperabile e poi lasciarlo cancellare
+  // sarebbe stato un giro a vuoto.
+  const wf = readFileSync(
+    new URL('../.github/workflows/worktree-branch-janitor.yml', import.meta.url), 'utf8');
+
+  it('EC0 consulta `state_reason`, non solo `state`', () => {
+    expect(wf).toContain('state_reason');
+  });
+
+  it('una chiusura `not_planned` NON basta a cancellare', () => {
+    // `not_planned` è la chiusura dell'age-out del drainer, che non dice niente
+    // sul contenuto del branch: si cade nell'ahead-check, che cancella a 0
+    // commit e segnala (report-only) se c'è lavoro.
+    expect(wf).toMatch(/\[ "\$IREASON" != "not_planned" \]/);
   });
 });
