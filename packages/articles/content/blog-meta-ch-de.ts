@@ -4162,6 +4162,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Schweiz-EU: Bilaterale und Neutralität zwischen geopolitischer Stabilität',
     'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis kündigt die Rückkehr der Schweiz zu Horizon Europe an. Entscheidende Abstimmung über die Neutralitätsinitiative am 27. September. Der EDA-Vorsteher zeigt den Weg von den ausgesetzten Verhandlungen 2021 zu den aktuellen Abkommen.',
     'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Bellinzona Skyline als Symbol der Schweizer politischen Stabilität und Handlungsfähigkeit',
+    'blog.article.piano-emergenza-pagamenti-digitali.title': 'Internet-Blackout: In der Schweiz kann man mit der Karte bezahlen',
+    'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'Notfallplan für digitales Bezahlen ohne Internet in der Schweiz vorgestellt. Betriebsbereit bis Ende nächsten Jahres für lebensnotwendige Güter.',
+    'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Zahlungsterminals und Kreditkarten in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -4162,6 +4162,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Svizzera-Ue: bilaterali e neutralità tra stabilità geopolitica',
     'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis annuncia il ritorno della Svizzera a Horizon Europe. Il 27 settembre votazione cruciale sull\'iniziativa di neutralità. Il capo DFAE illustra il cammino dai negoziati sospesi del 2021 agli accordi attuali.',
     'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Veduta di Bellinzona: simbolo della stabilità politica e della capacità decisionale della Svizzera',
+    'blog.article.piano-emergenza-pagamenti-digitali.title': 'Blackout internet: in Svizzera si potrà pagare con la carta',
+    'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'Presentato il piano d\'emergenza per i pagamenti digitali senza internet in Svizzera. Operativo entro la fine del prossimo anno per i beni di prima necessità.',
+    'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Terminali di pagamento e carte di credito in Svizzera',
 };
 
 export default blogMetaChIt;

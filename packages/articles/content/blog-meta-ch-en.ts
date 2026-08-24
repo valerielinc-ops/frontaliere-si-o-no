@@ -4162,6 +4162,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Switzerland-EU: bilateral and neutrality between geopolitical stability',
     'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis announces the return of Switzerland to Horizon Europe. On 27 September, a crucial vote on the neutrality initiative. The head of the FDFA illustrates the path from the suspended negotiations of 2021 to the current agreements.',
     'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Bellinzona skyline representing Swiss political stability and federal governance',
+    'blog.article.piano-emergenza-pagamenti-digitali.title': 'Internet blackout: in Switzerland you can pay by card',
+    'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'The emergency plan for internet-free digital payments in Switzerland has been presented. Operational by the end of next year for basic goods.',
+    'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Payment terminals and credit cards in Switzerland',
 };
 
 export default blogMetaChEn;
