@@ -23,7 +23,11 @@ name: Information Gain Scan
 # LA CATENA
 # ----------------------------------------------------------------------------
 #   information-gain-scan (qui)  →  issue con la misura dentro
-#     →  issue-triage (deterministico, zero Claude)  →  agent:fix-queued
+#     →  issue-triage, job `sweep` (cron 17 */4): le issue le apre
+#        GITHUB_TOKEN e GitHub non fa scattare `issues:[opened]` per quel
+#        token, quindi il primo salto passa dallo sweep — che esiste
+#        esattamente per questo — con al massimo quattro ore di latenza
+#     →  agent:fix-queued
 #     →  issue-fix  →  PR  →  pr-review-loop  →  auto-merge-on-lgtm
 #     →  deploy  →  post-deploy-validate-dist (il gate che blocca)
 #     →  questo scan, il giorno dopo, rimisura e CHIUDE la issue

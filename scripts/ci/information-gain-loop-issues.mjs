@@ -4,7 +4,10 @@
  * Information-Gain loop (issue #5002).
  *
  * Reads the verdict of `information-gain-live-scan.mjs` and turns it into work
- * the EXISTING autonomous loop can pick up: `issue-triage` routes the issue,
+ * the EXISTING autonomous loop can pick up: `issue-triage` routes the issue
+ * (through its `sweep` job, not through `issues:[opened]` — GitHub does not
+ * fire that event for issues opened with GITHUB_TOKEN, which is why that job
+ * exists and says so),
  * `issue-fix` implements it, `pr-review-loop` reviews it,
  * `auto-merge-on-lgtm` merges it, the next scan re-measures and this script
  * resolves the issue. Nothing here implements a fix — that would be a second

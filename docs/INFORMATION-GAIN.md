@@ -182,7 +182,7 @@ information-gain-scan.yml  (cron 05:25 UTC + workflow_dispatch)
   │  scripts/ci/information-gain-loop-issues.mjs
   │    tre bucket → tre issue diverse, con la misura DENTRO
   ↓
-issue-triage  (deterministico, zero Claude)  →  agent:fix-queued
+issue-triage  (job `sweep`, cron 17 */4 — vedi sotto)  →  agent:fix-queued
   ↓
 issue-fix  →  PR  →  pr-review-loop  →  auto-merge-on-lgtm
   ↓
@@ -193,6 +193,20 @@ information-gain-scan, il giorno dopo: rimisura e CHIUDE la issue
 
 Non c'è un fixer nuovo: le issue sono scritte nella forma che il ciclo autonomo
 di questo repo già consuma.
+
+### Il primo salto passa dallo sweep, non dall'evento
+
+Le issue le apre `GITHUB_TOKEN`, e GitHub non fa scattare `issues:[opened]` per
+gli eventi generati da quel token (anti-ricorsione). Quindi il salto
+scan → triage **non** è event-driven: lo prende il job `sweep` di
+`issue-triage.yml`, cron `17 */4 * * *`, che esiste esattamente per questo —
+il suo commento nomina «TUTTI i monitor di fallimento». Latenza massima del
+primo salto: quattro ore.
+
+Non è un difetto da aggirare con un PAT: un PAT qui darebbe un trigger
+immediato in cambio di un'identità diversa sulle issue e di un secret in più in
+un workflow che non ne ha nessuno. Su un ciclo giornaliero quattro ore non
+cambiano niente.
 
 ### I tre bucket
 
