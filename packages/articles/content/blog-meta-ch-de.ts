@@ -4069,6 +4069,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifica: Schweizer Forschung und Innovation in Zürich',
     'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Wissenschaftsfestival in Zürich: Die Eidgenössische Technische Hochschule und die Universität präsentieren innovative Forschung. Weltrekord-Autos (0-100 km/h in 9 Zehntel) und autonome Drohnen.',
     'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Forschungslabor der ETH Zürich mit Studierenden an Robotik- und autonomen Drohnenprojekten',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Sommerpause und Lernen: wie man sie nutzt',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Schweizer Schulen öffnen vom 11. bis 31. August wieder. Sommerpause verursacht vorübergehende Stagnation, ist aber entscheidend für die Ruhe des Gehirns. So organisieren Sie den Jungs-Sommer effektiv!',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Blick auf den Lugano-See im Sommer, Symbol für Ruhe und Jugendentwicklung in den Schulferien',
 };
 
 export default blogMetaChDe;

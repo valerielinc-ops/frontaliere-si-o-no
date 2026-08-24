@@ -4069,6 +4069,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifique : recherche et innovation suisse à Zurich',
     'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Festival scientifique à Zurich : l\'Ecole polytechnique fédérale et l\'Université présentent des recherches innovantes. Voiture record du monde (0-100 km/h en 9 dixièmes) et drones autonomes.',
     'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Laboratoire de recherche de l\'EPFZ avec des étudiants travaillant sur des projets de robotique et de drones autonomes',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Pause estivale et apprentissage : comment en profiter',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Les écoles suisses rouvrent entre le 11 et le 31 août. La pause estivale provoque une stagnation temporaire, mais elle est fondamentale pour le repos cérébral. Comment organiser efficacement l\'été des enfants.',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Vue du lac de Lugano en été, symbole du repos et de la croissance des jeunes pendant les vacances scolaires',
 };
 
 export default blogMetaChFr;
