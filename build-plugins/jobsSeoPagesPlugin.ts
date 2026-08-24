@@ -2091,7 +2091,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // copy of this table drifting out of sync (AGENTS.md anti-duplication
  // rule). `canonicalSchema` below already carries them.
 
- const COMPANY_LOGO_PLACEHOLDER = `${BASE_URL}/og-image.png`;
+ // NOT the canonical `COMPANY_LOGO_PLACEHOLDER` of services/logoService.ts
+ // (`/icons/company-placeholder.svg`). This is a JSON-LD-only filler: the
+ // branded OG image, valid as a `hiringOrganization.logo` value where
+ // Schema.org expects one, but never a real company logo. It must NEVER reach
+ // an `<img src>` — the visible fallback is the deterministic coloured-initials
+ // badge from `resolveJobLogoSrc` (build-plugins/shared/companyLogoResolver.ts).
+ // Named distinctly because the shared name made exactly that confusion happen:
+ // passing it as `logoUrl` to `renderJobCardHtml` put the site's generic OG
+ // image in every job card of every company without a curated logo.
+ const COMPANY_LOGO_JSONLD_FALLBACK = `${BASE_URL}/og-image.png`;
  const companyLogo = (job: any): string => {
  // Publisher-provided logo (projected from the publish form, https-only).
  const ownLogo = String(job?.companyLogo || '').trim();
@@ -2101,7 +2110,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
  // where Schema.org expects a value. `renderLogoImg` skips emitting an <img> tag
  // when the resolved URL is this placeholder (saves ~230 B × ~5 occurrences/page).
- return COMPANY_LOGO_PLACEHOLDER;
+ return COMPANY_LOGO_JSONLD_FALLBACK;
  };
  /**
   * Local placeholder served from `public/images/company-logo-fallback.svg`.
@@ -2141,7 +2150,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Skip emitting <img> when no curated brand logo exists — emitting the
  // generic placeholder added ~230 B × 5 occurrences per job page across
  // 545k pages (~600 MB of artifact). Cards render text-only without it.
- if (!url || url === COMPANY_LOGO_PLACEHOLDER) return '';
+ if (!url || url === COMPANY_LOGO_JSONLD_FALLBACK) return '';
  const safeAlt = esc(alt);
  // Omit the style attribute entirely when no style is requested. Callers
  // that render inside `.rja` / `.cb` cards rely on the scoped CSS rule
@@ -3950,11 +3959,18 @@ ${staticAnalyticsHtml}
  const sectionForJob = jobCanton ? sharedResolveCantonSection(locale, jobCanton) : sectionByLocale[locale];
  const jPath = `${localePrefix[locale]}/${sectionForJob}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ // NO `logoUrl` override: `renderJobCardHtml` resolves the logo itself via
+ // `resolveJobCardLogo` (the canonical curated-asset → coloured-initials
+ // chain), exactly like the per-canton call site further down. Passing
+ // `companyLogo(job)` here handed it the JSON-LD-only OG-image filler as an
+ // authoritative URL, and `renderLogoSlot` — which knows nothing about that
+ // local constant — emitted it verbatim as `<img src>`: every company without
+ // a curated `CRAWLED_COMPANY_LOGOS` entry showed the site's generic OG image
+ // instead of its initials badge.
  const cardHtml = renderJobCardHtml(job as JobCardJob, {
  href: jHref,
  locale,
  linkifyLocation: linkifyCityInLocation,
- logoUrl: companyLogo(job),
  });
  return `<li class="s-hjzncp">${cardHtml}</li>`;
  };
@@ -8041,8 +8057,8 @@ ${staticAnalyticsHtml}
  const withDomain = jobs.find((j: any) => String(j?.companyDomain || '').trim().length > 0);
  const sameAs = withDomain ? `https://${String((withDomain as any).companyDomain).replace(/^https?:\/\//, '').trim()}` : undefined;
  const sampleJob = jobs[0];
- const rawLogo = sampleJob ? companyLogo(sampleJob) : COMPANY_LOGO_PLACEHOLDER;
- const logo = rawLogo && rawLogo !== COMPANY_LOGO_PLACEHOLDER
+ const rawLogo = sampleJob ? companyLogo(sampleJob) : COMPANY_LOGO_JSONLD_FALLBACK;
+ const logo = rawLogo && rawLogo !== COMPANY_LOGO_JSONLD_FALLBACK
  ? (rawLogo.startsWith('http') ? rawLogo : `${BASE_URL}${rawLogo}`)
  : undefined;
  return { sameAs, logo };
