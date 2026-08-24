@@ -4015,6 +4015,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-friburgo.title': 'Abbonamenti trasporti Friburgo: zone e tariffe',
     'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'Come funzionano zone tariffarie, metà-prezzo, AG e sconti per studenti negli abbonamenti trasporti del Cantone Friburgo.',
     'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Stazione dei trasporti pubblici svizzeri con distributori automatici di biglietti e cartelli di zone tariffarie',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Abbonamenti trasporti pubblici canton Friburgo: zone e tariffe',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Zone tariffarie progressive, abbonamenti annuali e mensili, sconti per studenti: guida completa ai trasporti pubblici friburghesi e nazionali.',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Stazione ferroviaria svizzera con informazioni tariffarie per zone e abbonamenti ai trasporti pubblici.',
 };
 
 export default blogMetaChIt;

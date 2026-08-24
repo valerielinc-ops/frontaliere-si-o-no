@@ -1364,6 +1364,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-friburgo-requisiti-procedura': { it: 'naturalizzazione-friburgo-requisiti-procedura', en: 'naturalization-fribourg-requirements-procedure', de: 'einbuergerung-freiburg-anforderungen-verfahren', fr: 'naturalisation-fribourg-conditions-procedure' },
  'avs-prestazioni-complementari-friburgo-cassa': { it: 'avs-prestazioni-complementari-friburgo-cassa', en: 'avs-pension-benefits-fribourg-compensation-fund', de: 'ahv-ergaenzungsleistungen-freiburg-ausgleichskasse', fr: 'avs-prestations-complementaires-fribourg-caisse-compensation' },
  'abbonamenti-trasporti-friburgo': { it: 'abbonamenti-trasporti-friburgo', en: 'public-transport-subscriptions-friburgo', de: 'abonnementes-oeffentliche-verkehrsmittel-freiburg', fr: 'abonnements-transports-publics-fribourg' },
+ 'abbonamenti-friburgo-zone-tariffe': { it: 'abbonamenti-friburgo-zone-tariffe', en: 'fribourg-public-transport-subscriptions-zones', de: 'freiburg-fahrkarten-abo-zonen-tarife', fr: 'fribourg-abonnements-transports-zones-tarifs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
