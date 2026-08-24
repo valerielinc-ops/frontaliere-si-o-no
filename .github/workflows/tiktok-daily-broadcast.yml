@@ -1,0 +1,121 @@
+name: TikTok Daily/Weekly Broadcast
+
+# TikTok Business account carousel posts (scripts/post-to-tiktok.mjs):
+#   • daily  08:25 UTC → top-5 most-clicked JOBS + top-5 most-read ARTICLES
+#            (staggered 5 min after instagram-daily-broadcast.yml — same GA4
+#            window, same runner-minute-contention reasoning)
+#   • weekly Mon 07:10 UTC → top-5 fastest DOGANE
+#
+# Same dual-cron/mode-select shape as telegram-channel-broadcast.yml /
+# instagram-daily-broadcast.yml.
+#
+# Fail-soft by design: with no TIKTOK_ACCESS_TOKEN in Remote Config the
+# poster logs a clean skip and exits 0. The whole pipeline ships and stays
+# GREEN before the owner has a TikTok developer app that has passed audit —
+# a human, external process (2-6 weeks per TikTok's own docs) this workflow
+# cannot shortcut. See scripts/post-to-tiktok.mjs header, in particular the
+# note that the request/response shape has not been exercised against a real
+# token yet.
+#
+# workflow_dispatch defaults to dry_run=true (preview only). Scheduled runs
+# post for real, subject to the credentials being present.
+
+on:
+  schedule:
+    - cron: '25 8 * * *'  # daily job/article carousels
+    - cron: '10 7 * * 1'  # weekly dogane carousel (Monday)
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Limit to one slot (weekly border only makes sense on-demand)'
+        required: false
+        default: ''
+        type: choice
+        options: ['', 'article', 'job', 'border']
+      date:
+        description: 'UTC day to report on (YYYY-MM-DD). Empty = yesterday.'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Preview only (no TikTok API call)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: tiktok-daily-broadcast
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # commit data/tiktok-posted.json
+  issues: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ONLY: ${{ github.event.inputs.only || (github.event.schedule == '10 7 * * 1' && 'border' || '') }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      REPORT_DATE: ${{ github.event.inputs.date || '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset
+        if: env.ONLY != 'article' && env.ONLY != 'border'
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+        continue-on-error: true
+
+      - name: Post to TikTok
+        run: |
+          set -euo pipefail
+          ARGS=()
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then ARGS+=("--only=$ONLY"); fi
+          if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
+          npx tsx scripts/post-to-tiktok.mjs ${ARGS[@]+"${ARGS[@]}"}
+
+      - name: Commit posted ledger
+        if: success() && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/tiktok-posted.json 2>/dev/null; then
+            echo "no ledger changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tiktok-posted.json
+          git commit -m "chore(tiktok): track posted carousel content [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
