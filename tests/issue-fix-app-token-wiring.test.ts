@@ -108,13 +108,45 @@ describe('issue-fix.yml — App token wiring', () => {
     expect(prompt).not.toContain("env.APP_TOKEN != ''");
   });
 
-  it('still refuses the capabilities that remain genuinely absent', () => {
-    // The App token grants `workflows`. It does NOT grant admin API or the Firebase-RC
-    // secrets, and conflating "can push workflows" with "can do anything" would send the
-    // agent to implement fixes it can never land.
+  it('has the secret it once lacked (decision 2026-08-24): Remote Config is loaded before the run', () => {
+    // Until 2026-08-24 the prompt told the agent the opposite of what this asserts now —
+    // "NON hai PAT/Firebase SA" — and that line was true: the fixer ran with no Remote
+    // Config loaded, so `blocked-secrets` was a real capability gap, not a stale verdict.
+    // The owner then authorized secret USE from the autonomous loop permanently (VISION.md
+    // registry), and `issue-fix.yml` grew a Firebase SA + `load-rc-env.mjs` step for it
+    // (same commit that removed the old sentence this test used to check for). A prompt
+    // still telling the agent "you have no PAT/Firebase SA" after that step runs would be
+    // asserting a capability gap that no longer exists — precisely the class of stale-prompt
+    // bug this file exists to pin.
+    const saStep = steps.find((s) => /Firebase SA per Remote Config/.test(String(s.name || '')));
+    expect(saStep, 'the Firebase SA step must exist').toBeTruthy();
+    const rcStep = steps.find((s) => /Load secrets from Remote Config \(decisione 2026-08-24\)/.test(String(s.name || '')));
+    expect(rcStep, 'the Remote Config load step must exist').toBeTruthy();
+    expect(String(rcStep!.run)).toContain('load-rc-env.mjs');
+
+    const saIdx = steps.indexOf(saStep!);
+    const rcIdx = steps.indexOf(rcStep!);
+    const claudeIdx = steps.indexOf(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    // Order matters here too: loading secrets after the agent has already run would leave
+    // `process.env` empty for the whole implementation window.
+    expect(saIdx).toBeLessThan(claudeIdx);
+    expect(rcIdx).toBeLessThan(claudeIdx);
+
     const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
-    expect(prompt).toContain('NON hai PAT/Firebase SA');
+    expect(prompt).toContain('I SEGRETI CI SONO');
     expect(prompt).toContain('CF_API_TOKEN');
+    // The sentence this test used to require must be GONE, not just unrequired: its
+    // presence today would mean the prompt lies about a capability the run actually has.
+    expect(prompt).not.toContain('NON hai PAT/Firebase SA');
+  });
+
+  it('still distinguishes workflows-scope from repo-setting/admin-API access', () => {
+    // Secrets and the App token grant real capabilities, but neither grants GitHub's
+    // repo-settings/branch-protection admin API — that gap is real and stays real, and the
+    // prompt must not paper over it now that the secrets sentence changed.
+    const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    expect(prompt).toContain('repo-setting/branch-protection/admin-API');
+    expect(prompt).toContain('blocked-admin-settings');
   });
 });
 
