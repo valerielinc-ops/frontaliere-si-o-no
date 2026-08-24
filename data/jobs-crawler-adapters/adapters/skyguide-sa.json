@@ -11,7 +11,7 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-24T10:14:57.433Z",
+  "updatedAt": "2026-08-24T21:38:20.686Z",
   "seedMetaByUrl": {
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-APS-&-ADC-Rated-%28ATCO%29-Instructor-%28100%29/1418247333/": {
       "location": "Wangen b. Dübendorf",
@@ -78,12 +78,6 @@
       "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-10"
-    },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-Network-Architect-%2880-100%29/1399690633/": {
-      "location": "Wangen b. Dübendorf",
-      "canton": "ZH",
-      "company": "Skyguide",
-      "postedDate": "2026-08-05"
     },
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-IT-Application-Solutions-Lead-%2880-100%29/1391456533/": {
       "location": "Wangen b. Dübendorf",
