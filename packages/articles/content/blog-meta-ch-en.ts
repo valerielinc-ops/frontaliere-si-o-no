@@ -4057,6 +4057,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Rentals market in Solothurn: average fees and legal fees',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analysis of rent, security deposit and dispute procedures in the Canton of Solothurn.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Real estate market and rents in the Canton of Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS and complementary services in the canton of Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS in the canton of Solothurn: compensation fund, calculation of annuity, filling in contribution gaps, supplementary benefits for minimum subsistence. Complete guide.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Retirement planning documents and AVS forms on an office desk with calculator',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Sole Salaries: Sectors and Levels of Training',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'How wages work in the Canton of Solothurn depending on training. Discover salary levels, collective agreements and taxation in Switzerland.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Swiss professionals working in a modern office environment with team collaboration and desk paperwork',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Ticino collects record from flat-rate taxation',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'In 2024 Ticino collected CHF 189.5 million from flat-rate taxpayers, 71 million more than in 2016. The paradox: fewer wealthy foreigners, but higher incomes.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Lugano lakeside with modern banking buildings overlooking mountains, representing wealth management in Ticino',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientific: Swiss research and innovation in Zurich',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Scientific Festival in Zurich: the Federal Polytechnic and the University present innovative research. World record cars (0-100 km/h in 9 tenths) and autonomous drones.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Research laboratory at ETH Zurich with students working on robotics and autonomous drone projects',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Summer break and learning: how to take advantage of it',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Swiss schools reopen between 11 and 31 August. Summer break causes temporary stagnation, but it is critical for brain rest. How to organize children\'s summer effectively.',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'View of Lake Lugano in summer, symbolizing youth rest and development during school break',
 };
 
 export default blogMetaChEn;

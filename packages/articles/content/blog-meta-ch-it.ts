@@ -4057,6 +4057,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Mercato affitti a Soletta: canoni medi e diritto',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analisi dei canoni di locazione, del deposito di garanzia e delle procedure di contestazione nel Cantone di Soletta.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Mercato immobiliare e affitti nel Cantone di Soletta',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS e prestazioni complementari nel Canton Soletta',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Documenti di previdenza e moduli AVS su scrivania con calcolatrice e caffè',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Salari Soletta: settori e livelli di formazione',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Come funzionano i salari nel Canton Soletta a seconda della formazione. Scopri livelli salariali, contratti collettivi e tassazione in Svizzera.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Professionisti svizzeri che lavorano in un moderno ufficio con collaborazione di team e documenti sulla scrivania',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Ticino incassa record da tassazione forfettaria',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'Nel 2024 il Ticino ha riscosso 189,5 milioni CHF da contribuenti forfettari, 71 milioni in più rispetto al 2016. Il paradosso: meno stranieri facoltosi, ma entrate più alte.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Veduta di Lugano con edifici bancari moderni affacciati sul lago, simbolo della gestione patrimoniale in Ticino',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifica: ricerca e innovazione svizzera a Zurigo',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Festival Scientifica a Zurigo: il Politecnico federale e l\'Università presentano ricerca innovativa. Auto da record mondiale (0-100 km/h in 9 decimi) e droni autonomi.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Laboratorio di ricerca del Politecnico federale di Zurigo con studenti che lavorano su progetti di robotica e droni autonomi',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Pausa estiva e apprendimento: come sfruttarla',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare l\'estate dei ragazzi efficacemente.',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Vista del Lago di Lugano durante l\'estate, simbolo di riposo e sviluppo dei ragazzi in pausa scolastica',
 };
 
 export default blogMetaChIt;

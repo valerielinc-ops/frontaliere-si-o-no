@@ -4057,6 +4057,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Marché des loyers à Soleure : loyers moyens et droit',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analyse des loyers, du dépôt de garantie et des procédures de contestation dans le canton de Soleure.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Marche immobilier et loyers dans le canton de Soleure',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS et prestations complémentaires dans le canton de Soleure',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS dans le canton de Soleure : caisse de compensation, calcul rente, comblement des lacunes contributives, prestations complémentaires pour minimum vital. Guide complet.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Documents de retraite et formulaires AVS sur un bureau de travail avec calculatrice',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Salaires Soleure : secteurs et niveaux de formation',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Comment fonctionnent les salaires dans le canton de Soleure en fonction de la formation. Découvrez les niveaux de salaire, les conventions collectives et la fiscalité en Suisse.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Professionnels suisses travaillant dans un bureau moderne avec collaboration d\'équipe et documents sur le bureau',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Tessin encaisse des records d\'imposition forfaitaire',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'En 2024, le Tessin a perçu 189,5 millions de francs auprès de contribuables forfaitaires, soit 71 millions de plus qu\'en 2016. Le paradoxe : moins d\'étrangers fortunés, mais des entrées plus élevées.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Vue sur le lac de Lugano avec bâtiments bancaires modernes, représentant la gestion patrimoniale au Tessin',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifique : recherche et innovation suisse à Zurich',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Festival scientifique à Zurich : l\'Ecole polytechnique fédérale et l\'Université présentent des recherches innovantes. Voiture record du monde (0-100 km/h en 9 dixièmes) et drones autonomes.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Laboratoire de recherche de l\'EPFZ avec des étudiants travaillant sur des projets de robotique et de drones autonomes',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Pause estivale et apprentissage : comment en profiter',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Les écoles suisses rouvrent entre le 11 et le 31 août. La pause estivale provoque une stagnation temporaire, mais elle est fondamentale pour le repos cérébral. Comment organiser efficacement l\'été des enfants.',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Vue du lac de Lugano en été, symbole du repos et de la croissance des jeunes pendant les vacances scolaires',
 };
 
 export default blogMetaChFr;

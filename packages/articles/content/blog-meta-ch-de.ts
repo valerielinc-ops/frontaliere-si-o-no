@@ -4057,6 +4057,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Mietmarkt in Solothurn: Durchschnitts- und Rechtsmieten',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analyse der Mietzins-, Kautions- und Streitverfahren im Kanton Solothurn.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Immobilienmarkt und Mieten im Kanton Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AHV und Ergänzungsleistungen im Kanton Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AHV im Kanton Solothurn: Ausgleichskasse, Rentenberechnung, Beitragslücken schliessen, Ergänzungsleistungen bei Lebensminimum. Komplette Anleitung.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Altersversorgungsdokumente und AHV-Formulare auf einem Schreibtisch mit Rechner',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Löhne Solothurn: Branchen und Ausbildungsstufen',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Wie die Löhne im Kanton Solothurn je nach Ausbildung funktionieren. Entdecken Sie Lohnniveaus, Tarifverträge und Steuern in der Schweiz.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Schweizer Fachleute arbeiten in einem modernen Büro mit Teamzusammenarbeit und Schreibtischarbeit',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Das Tessin erzielt Rekordeinnahmen durch Pauschalsteuer',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'Im Jahr 2024 erhielt das Tessin 189,5 Millionen Franken von Pauschalsteuerzahlern, 71 Millionen mehr als 2016. Das Paradoxe: Weniger wohlhabende Ausländer, aber höhere Einnahmen.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Lugano-Seeblick mit modernen Bankgebäuden und Berglandschaft, Symbol der Vermögensverwaltung im Tessin',
+    'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifica: Schweizer Forschung und Innovation in Zürich',
+    'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Wissenschaftsfestival in Zürich: Die Eidgenössische Technische Hochschule und die Universität präsentieren innovative Forschung. Weltrekord-Autos (0-100 km/h in 9 Zehntel) und autonome Drohnen.',
+    'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Forschungslabor der ETH Zürich mit Studierenden an Robotik- und autonomen Drohnenprojekten',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Sommerpause und Lernen: wie man sie nutzt',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Schweizer Schulen öffnen vom 11. bis 31. August wieder. Sommerpause verursacht vorübergehende Stagnation, ist aber entscheidend für die Ruhe des Gehirns. So organisieren Sie den Jungs-Sommer effektiv!',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Blick auf den Lugano-See im Sommer, Symbol für Ruhe und Jugendentwicklung in den Schulferien',
 };
 
 export default blogMetaChDe;

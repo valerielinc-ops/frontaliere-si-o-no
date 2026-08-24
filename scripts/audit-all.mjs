@@ -79,6 +79,7 @@ import { factory as singleH1PerPage } from './audit-single-h1-per-page.mjs';
 import { factory as duplicateStructuredData } from './audit-duplicate-structured-data.mjs';
 import { factory as linkAnchorText } from './audit-link-anchor-text.mjs';
 import { factory as duplicateMetaDescription } from './audit-duplicate-meta-description.mjs';
+import { factory as informationGain } from './audit-information-gain.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
@@ -98,6 +99,7 @@ const REGISTRY = [
   { factory: duplicateStructuredData, name: 'duplicate-structured-data' },
   { factory: linkAnchorText, name: 'link-anchor-text' },
   { factory: duplicateMetaDescription, name: 'duplicate-meta-description' },
+  { factory: informationGain, name: 'information-gain' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────
