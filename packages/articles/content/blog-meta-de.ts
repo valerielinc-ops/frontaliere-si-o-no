@@ -10644,6 +10644,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Grenzgänger: anerkannte Kurse und Finanzierung',
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'Grenzgängerinnen und Grenzgänger können an Aus- und Weiterbildungskursen teilnehmen, um ihre Kompetenzen zu verbessern und ihre Beschäftigungsfähigkeit zu erhöhen.',
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontalier in Tessin, der sich weiterbildet',
+    'blog.article.vivere-caslino-erba-frontaliere.title': 'Wohnen in Caslino d \'Erba, Arbeiten im Tessin: Grenzführer',
+    'blog.article.vivere-caslino-erba-frontaliere.excerpt': 'Umzug nach Caslino d \'Erba, um im Tessin zu arbeiten: Wie man nach der neuen Frontalieri-Vereinbarung 2024 mit Genehmigungen, Steuern und Lebenshaltungskosten umgeht.',
+    'blog.article.vivere-caslino-erba-frontaliere.imageAlt': 'Landschaft zwischen Como-Provinz und Kanton Tessin mit italienischer Architektur und Schweizer Bergen',
 };
 
 export default blogMetaDe;

@@ -10645,6 +10645,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Frontier: recognised courses and funding',
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'Border workers can access vocational training and retraining courses to improve their skills and increase their job opportunities.',
     'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontalier in Ticino undergoing training',
+    'blog.article.vivere-caslino-erba-frontaliere.title': 'Living in Caslino d \'Erba, working in Ticino: border guide',
+    'blog.article.vivere-caslino-erba-frontaliere.excerpt': 'Moving to Caslino d \'Erba to work in Ticino: how to manage permits, taxation and living costs after the new 2024 Border Agreement.',
+    'blog.article.vivere-caslino-erba-frontaliere.imageAlt': 'Landscape between Como province and Canton Ticino with Italian architecture and Swiss mountains',
 };
 
 export default blogMetaEn;
