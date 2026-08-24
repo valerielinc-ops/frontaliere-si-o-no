@@ -31971,6 +31971,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-asso-lavorare-ticino-da-frontaliere',
+ category: 'pratico',
+ date: '2026-08-24T11:30:20.234Z',
+ image: '/images/blog/vivere-asso-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

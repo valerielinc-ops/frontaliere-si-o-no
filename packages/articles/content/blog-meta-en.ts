@@ -10683,6 +10683,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Living in Leggiuno and working in Ticino as a border worker',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Practical guide for those who live in Leggiuno and work in Canton Ticino: connections, tax at source, AVS pension, LAMal and tax rules for border workers.',
     'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Border region landscape between Italy and Switzerland',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Living in Ace, working in Ticino: what to consider',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Here are some of the key points to consider before moving to Ace and working in Ticino as a border worker.',
+    'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Image of a cross-border commuter looking at the Lake Lugano landscape',
 };
 
 export default blogMetaEn;
