@@ -12187,6 +12187,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tassazione-forfettaria-ticino-incassi',
+    category: 'fiscale',
+    date: '2026-08-24T09:22:08.061Z',
+    image: '/images/blog/tassazione-forfettaria-ticino-incassi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

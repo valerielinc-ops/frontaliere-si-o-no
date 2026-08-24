@@ -4063,6 +4063,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-soletta.title': 'Salari Soletta: settori e livelli di formazione',
     'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Come funzionano i salari nel Canton Soletta a seconda della formazione. Scopri livelli salariali, contratti collettivi e tassazione in Svizzera.',
     'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Professionisti svizzeri che lavorano in un moderno ufficio con collaborazione di team e documenti sulla scrivania',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Ticino incassa record da tassazione forfettaria',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'Nel 2024 il Ticino ha riscosso 189,5 milioni CHF da contribuenti forfettari, 71 milioni in più rispetto al 2016. Il paradosso: meno stranieri facoltosi, ma entrate più alte.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Veduta di Lugano con edifici bancari moderni affacciati sul lago, simbolo della gestione patrimoniale in Ticino',
 };
 
 export default blogMetaChIt;
