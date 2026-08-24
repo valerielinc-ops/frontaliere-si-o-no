@@ -9,8 +9,38 @@
 
 const SOURCE_TAG = 'orphan';
 
-const JOB_SEARCH_INTENT_RE =
-  /\b(cerco|cercare|offert[ae]|annunci?|posti?|lavoro|jobs?|assunzioni|curriculum|cv)\b/i;
+/**
+ * Tokens that mean "job search" on their own, unambiguously.
+ */
+const JOB_SEARCH_INTENT_STRONG_RE =
+  /\b(cerco|cercare|annunci?|lavoro|jobs?|assunzioni|curriculum|cv)\b/i;
+
+/**
+ * Tokens that mean "job search" only next to a job word, and something else
+ * entirely on their own — same ambiguity the vacancy-path classifier in
+ * `scripts/lib/prospector/extract.mjs` was split out for (PR #6375):
+ * `offerte` is retail/promo as often as vacancies ("offerte black friday"),
+ * `posti` is parking spaces and rental beds as often as "posti di lavoro".
+ * Bare in an alternation they would wrongly flag a non-job query as job
+ * intent and drop it from article discovery (`isArticleableOrphanQuery`
+ * below), losing a legitimate orphan-query article candidate.
+ */
+const JOB_SEARCH_INTENT_WEAK_RE = /\b(offert[ae]|posti?)\b/i;
+
+/** Words that disambiguate a weak token appearing in the same query. */
+const JOB_SEARCH_INTENT_QUALIFIER_RE =
+  /\b(lavoro|lavori|jobs?|assunzion|impiego|occupazione|carriera|candidat|recruit)\b/i;
+
+/**
+ * Whether a query reads as job-search intent.
+ *
+ * @param {string} query
+ * @returns {boolean}
+ */
+function hasJobSearchIntent(query) {
+  if (JOB_SEARCH_INTENT_STRONG_RE.test(query)) return true;
+  return JOB_SEARCH_INTENT_WEAK_RE.test(query) && JOB_SEARCH_INTENT_QUALIFIER_RE.test(query);
+}
 
 const FRONTALIERE_ARTICLE_INTENT_RE =
   /\b(frontalier[aeio]|permesso\s*g|tass|impost|fisc|stipendio|salario|busta\s*paga|avs|lpp|lamal|cmi|ristorni|telelavoro|smart\s*working|disoccupazione|naspi|dichiarazione|credito\s+d.?imposta)\b/i;
@@ -33,7 +63,7 @@ function isValidEntry(entry) {
 export function isArticleableOrphanQuery(query) {
   const q = String(query || '').trim();
   if (!q) return false;
-  if (JOB_SEARCH_INTENT_RE.test(q) && !FRONTALIERE_ARTICLE_INTENT_RE.test(q)) return false;
+  if (hasJobSearchIntent(q) && !FRONTALIERE_ARTICLE_INTENT_RE.test(q)) return false;
   return true;
 }
 
