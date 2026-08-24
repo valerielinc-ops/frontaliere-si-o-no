@@ -4069,6 +4069,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientific: Swiss research and innovation in Zurich',
     'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Scientific Festival in Zurich: the Federal Polytechnic and the University present innovative research. World record cars (0-100 km/h in 9 tenths) and autonomous drones.',
     'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Research laboratory at ETH Zurich with students working on robotics and autonomous drone projects',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Summer break and learning: how to take advantage of it',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Swiss schools reopen between 11 and 31 August. Summer break causes temporary stagnation, but it is critical for brain rest. How to organize children\'s summer effectively.',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'View of Lake Lugano in summer, symbolizing youth rest and development during school break',
 };
 
 export default blogMetaChEn;

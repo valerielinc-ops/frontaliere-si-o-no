@@ -52787,6 +52787,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pausa-estiva-apprendimento-scuola': {
+    title: 'Pausa estiva e apprendimento: come sfruttarla | Frontaliere Ticino',
+    description: 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare',
+    keywords: 'frontalieri, ticino, svizzera, italia, pausa, estiva, apprendimento, sfruttarla',
+    ogTitle: 'Pausa estiva e apprendimento: come sfruttarla',
+    ogDescription: 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare l\'estate dei ragazzi efficacemente.',
+    canonicalPath: '/articoli-svizzera/pausa-estiva-apprendimento-scuola/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pausa estiva e apprendimento: come sfruttarla",
+      "description": "Scuole svizzere riaprono tra l'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pausa-estiva-apprendimento-scuola.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano durante l'estate, simbolo di riposo e sviluppo dei ragazzi in pausa scolastica"
+      },
+      "datePublished": "2026-08-24T09:38:26+00:00",
+      "dateModified": "2026-08-24T09:38:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pausa-estiva-apprendimento-scuola/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

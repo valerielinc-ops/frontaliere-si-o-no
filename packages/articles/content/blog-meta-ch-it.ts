@@ -4069,6 +4069,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.festival-scientifica-zurigo-ricerca.title': 'Scientifica: ricerca e innovazione svizzera a Zurigo',
     'blog.article.festival-scientifica-zurigo-ricerca.excerpt': 'Festival Scientifica a Zurigo: il Politecnico federale e l\'Università presentano ricerca innovativa. Auto da record mondiale (0-100 km/h in 9 decimi) e droni autonomi.',
     'blog.article.festival-scientifica-zurigo-ricerca.imageAlt': 'Laboratorio di ricerca del Politecnico federale di Zurigo con studenti che lavorano su progetti di robotica e droni autonomi',
+    'blog.article.pausa-estiva-apprendimento-scuola.title': 'Pausa estiva e apprendimento: come sfruttarla',
+    'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare l\'estate dei ragazzi efficacemente.',
+    'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Vista del Lago di Lugano durante l\'estate, simbolo di riposo e sviluppo dei ragazzi in pausa scolastica',
 };
 
 export default blogMetaChIt;
