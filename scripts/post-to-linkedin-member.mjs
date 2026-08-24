@@ -81,7 +81,12 @@ const POSTED_TRIM_LIMIT = 1000;
 const DEDUP_WINDOW_DAYS = 30;
 
 const LINKEDIN_API = 'https://api.linkedin.com/rest/posts';
-const LINKEDIN_VERSION = '202401';
+// LinkedIn sunsets each YYYYMM version ~1 year after release and 426s a
+// deprecated one outright (measured 2026-08-24: 202401 → "NONEXISTENT_VERSION
+// Requested version 20240101 is not active" on every post). Bump this by
+// hand periodically — check developers.linkedin.com/docs/marketing-api/versioning
+// for the current latest before it goes stale again.
+const LINKEDIN_VERSION = '202608';
 /** LinkedIn hard-rejects commentary over 3000 chars; stay under it. */
 const COMMENTARY_MAX = 2900;
 
