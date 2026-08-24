@@ -4036,6 +4036,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.classi-scolastiche-create-algoritmo.title': 'School classes created with an algorithm, the Uster experiment',
     'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'The city of Uster has implemented software to create more balanced school classes, ensuring equal opportunities for all students.',
     'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'The city of Uster implements a software to create more balanced school classes, ensuring equal opportunities for all students.',
+    'blog.article.sunrise-salt-rete-cooperazione.title': 'Sunrise and salt consider closer cooperation on the mobile network',
+    'blog.article.sunrise-salt-rete-cooperazione.excerpt': 'Cooperation between Sunrise and salt could improve coverage, reception and connection quality in Switzerland, especially in rural and less populated areas.',
+    'blog.article.sunrise-salt-rete-cooperazione.imageAlt': 'Image of a user with smartphone in a Swiss rural area, with stable and fast connection.',
 };
 
 export default blogMetaChEn;
