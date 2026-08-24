@@ -212,7 +212,10 @@ async function readUnsubscribeLinkEvents(db, sinceDate) {
     if (data.source_channel !== CREDENTIAL_LINK_CHANNEL) continue;
     const occurredAt = data.occurred_at ? new Date(data.occurred_at) : null;
     if (!occurredAt || Number.isNaN(occurredAt.getTime()) || occurredAt < sinceDate) continue;
-    records.push({ credential: data.credential ?? null, occurredAt });
+    // `email` feeds aggregate()'s dedup (#6361): repeats of the same email +
+    // credential within DUPLICATE_EVENT_WINDOW_MS are one retried action
+    // (scanner refetch, doubled tap), not two people relying on the fallback.
+    records.push({ credential: data.credential ?? null, email: typeof data.email === 'string' ? data.email : null, occurredAt });
   }
   // The cap drops the OLDEST events (the query is ordered newest-first), so a
   // saturated read silently shortens the window rather than failing. Say so.
@@ -246,7 +249,7 @@ function report(agg, verdict, hours, scannedEvents, hadFallbackBefore) {
   lines.push(`| legacy_auth_token (link \`at\`/\`authToken\`) | ${agg.counts.legacy_auth_token} | denominatore |`);
   lines.push(`| missing (nessun campo \`credential\`) | ${agg.counts.missing} | no — vedi \`uncredentialed_share\` |`);
   lines.push('');
-  lines.push(`**quota fallback: ${pct(agg.fallbackRate)}** su ${agg.graded} unsubscribe graduati (${agg.total} eventi \`unsubscribe_link\` totali nella finestra).`);
+  lines.push(`**quota fallback: ${pct(agg.fallbackRate)}** su ${agg.graded} unsubscribe graduati (${agg.total} eventi \`unsubscribe_link\` totali nella finestra${agg.duplicatesDropped ? `, ${agg.duplicatesDropped} scartati come ripetizioni della stessa email+credential entro 15 minuti` : ''}).`);
   lines.push(`Fallback \`autologin_code\` osservato prima d'ora: ${hadFallbackBefore ? 'sì' : 'no (baseline a zero)'}.`);
   lines.push('');
   for (const f of verdict.findings) lines.push(`- ${f.alert ? '🔴' : 'ℹ️'} \`${f.code}\` (p${f.priority}) — ${f.message}`);

@@ -80,6 +80,30 @@
  * rate the one that means somebody should look" — is pure arithmetic over
  * already-read event records, so it lives here where
  * `tests/unsubscribe-credential-metrics.test.ts` pins it against fixtures.
+ *
+ * WHY `aggregate()` DEDUPES BEFORE IT COUNTS (#6361)
+ *
+ * The alert this module raised on 2026-08-24 (18.95% `autologin_code`,
+ * 29/153 graded) was read-only-verified against production before assuming
+ * it meant "the primary token is failing for real people". A wider read a
+ * few hours later (169 graded events, window moved forward) found 11 of 39
+ * `autologin_code` events and 8 of 130 `email_token` events were the SAME
+ * email repeating the SAME credential 4-92 seconds after its own prior event
+ * — one browser load, one link, counted twice. This is not two people;
+ * `unsubscribe_link` is a bare GET (App.tsx keeps it that way on purpose —
+ * see the fall-through comments around `unsubscribeNewsletterSubscriber` —
+ * because gating it behind a second click is the #5672/#5711 defect in the
+ * other direction), and the same GET reaching the write twice — a corporate
+ * anti-phishing scanner refetching the link (35 hits, 25 inside 7 seconds,
+ * measured for the sibling resubscribe path — see App.tsx), a doubled tap, a
+ * retried request — writes a second `unsubscribe` event for an action that
+ * happened once. `aggregate()` collapses repeats of the same
+ * `email`+`credential` inside `DUPLICATE_EVENT_WINDOW_MS` of the previous
+ * kept one before grading, so the rate answers "how many people rode the
+ * fallback", not "how many events a retry produced". On that same wider
+ * sample deduping moved the rate from 39/169 = 23.08% to 28/150 = 18.67% —
+ * still over WARN, so the underlying signal is real; the correction is about
+ * not overstating it, not about making the finding disappear.
  */
 
 /** The `source_channel` of the credentialed unsubscribe paths. TWO writers
@@ -133,6 +157,55 @@ export const MIN_SAMPLE = 20;
  */
 export const UNCREDENTIALED_SHARE_WARN = 0.20;
 
+/**
+ * How close two events for the SAME `email` + `credential` have to be to
+ * count as one retried action rather than two independent unsubscribes.
+ * 15 minutes comfortably covers the 4-92s gaps measured in production (see
+ * the module header) while staying far shorter than the gap between two
+ * genuinely separate sends to the same person — those are days apart, never
+ * minutes.
+ */
+export const DUPLICATE_EVENT_WINDOW_MS = 15 * 60 * 1000;
+
+/**
+ * Collapse repeats of the same `email`+`credential` inside
+ * `DUPLICATE_EVENT_WINDOW_MS` of the earliest kept occurrence into a single
+ * record. Records missing `email` or a parseable `occurredAt` are never
+ * deduped — with no identity to key on, treating them as duplicates would
+ * risk erasing genuinely distinct people, and this also keeps every fixture
+ * that predates #6361 (none of which sets `email`/`occurredAt`) unchanged.
+ */
+function dedupeRepeatedActions(records) {
+  const withKey = [];
+  const passthrough = [];
+  for (const rec of records || []) {
+    if (!rec) continue;
+    const email = typeof rec.email === 'string' ? rec.email.trim().toLowerCase() : '';
+    const occurredAt = rec.occurredAt instanceof Date ? rec.occurredAt.getTime() : NaN;
+    if (!email || Number.isNaN(occurredAt)) {
+      passthrough.push(rec);
+      continue;
+    }
+    withKey.push({ rec, email, credential: rec.credential ?? null, ts: occurredAt });
+  }
+  withKey.sort((a, b) => a.ts - b.ts);
+
+  const lastKeptTs = new Map();
+  const kept = [];
+  let duplicatesDropped = 0;
+  for (const item of withKey) {
+    const key = `${item.email} ${item.credential}`;
+    const prevTs = lastKeptTs.get(key);
+    if (prevTs !== undefined && item.ts - prevTs <= DUPLICATE_EVENT_WINDOW_MS) {
+      duplicatesDropped += 1;
+      continue;
+    }
+    lastKeptTs.set(key, item.ts);
+    kept.push(item.rec);
+  }
+  return { records: [...passthrough, ...kept], duplicatesDropped };
+}
+
 /** @returns {'autologin_code'|'email_token'|'legacy_auth_token'|'missing'} */
 export function classifyCredential(value) {
   if (value === 'autologin_code') return 'autologin_code';
@@ -151,9 +224,9 @@ export function classifyCredential(value) {
  * the report and the alert both read.
  */
 export function aggregate(records) {
+  const { records: deduped, duplicatesDropped } = dedupeRepeatedActions(records);
   const counts = { autologin_code: 0, email_token: 0, legacy_auth_token: 0, missing: 0 };
-  for (const rec of records || []) {
-    if (!rec) continue;
+  for (const rec of deduped) {
     counts[classifyCredential(rec.credential)] += 1;
   }
   const graded = counts.autologin_code + counts.email_token + counts.legacy_auth_token;
@@ -162,6 +235,7 @@ export function aggregate(records) {
     counts,
     graded,
     total,
+    duplicatesDropped,
     uncredentialedShare: total === 0 ? null : counts.missing / total,
     fallbackRate: fallbackRate({ counts }),
   };
