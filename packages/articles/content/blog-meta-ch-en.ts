@@ -4195,6 +4195,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-zurigo-contratto-tirocinio.title': 'Apprenticeship in Zurich: how to find your internship place',
     'blog.article.apprendistato-zurigo-contratto-tirocinio.excerpt': 'Practical guide to apprenticeship in the Canton of Zurich: research, contract, salary and professional maturity. Everything you need to know about the Swiss dual training system.',
     'blog.article.apprendistato-zurigo-contratto-tirocinio.imageAlt': 'Apprentices during practical vocational training at a Swiss professional school',
+    'blog.article.formazione-professionale-zurigo.title': 'Internship Zurich: salary, contract, maturity',
+    'blog.article.formazione-professionale-zurigo.excerpt': 'Apprenticeship in the Canton of Zurich: how to find an internship, federal rights, salary, AVS/LAMal contributions and procedure to start the contract.',
+    'blog.article.formazione-professionale-zurigo.imageAlt': 'Young apprentice learning hands-on skills in Swiss professional workshop with mentor',
 };
 
 export default blogMetaChEn;

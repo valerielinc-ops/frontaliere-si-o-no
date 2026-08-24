@@ -4195,6 +4195,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-zurigo-contratto-tirocinio.title': 'Lehre in Zürich: So finden Sie Ihren Praktikumsplatz',
     'blog.article.apprendistato-zurigo-contratto-tirocinio.excerpt': 'Praktischer Leitfaden für die Lehre im Kanton Zürich: Forschung, Vertrag, Vergütung und Berufsmaturität. Alles, was Sie über das duale Bildungssystem Schweiz wissen müssen.',
     'blog.article.apprendistato-zurigo-contratto-tirocinio.imageAlt': 'Lehrlinge während praktischer Berufsausbildung an einer Schweizer Schule',
+    'blog.article.formazione-professionale-zurigo.title': 'Praktikum Zürich: Gehalt, Vertrag, Maturität',
+    'blog.article.formazione-professionale-zurigo.excerpt': 'Lehre im Kanton Zürich: So finden Sie eine Lehrstelle, Bundesrechte, Lohn, AHV/KVG-Beiträge und Verfahren zur Vertragsanbahnung.',
+    'blog.article.formazione-professionale-zurigo.imageAlt': 'Lehrling in einer Berufswerkstatt während der Berufsausbildung in der Schweiz',
 };
 
 export default blogMetaChDe;
