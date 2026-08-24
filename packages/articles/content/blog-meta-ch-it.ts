@@ -4048,6 +4048,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'L\'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari.',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Comprare casa in Canton Soletta: prezzi e mutuo',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Acquistare una casa nel Canton Soletta richiede pianificazione finanziaria accurata. Scopri come funzionano mutuo ipotecario, fondi propri, imposta sui trapassi e spese notarili.',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Casa moderna in cantone svizzero con giardino e vista sulla campagna',
 };
 
 export default blogMetaChIt;

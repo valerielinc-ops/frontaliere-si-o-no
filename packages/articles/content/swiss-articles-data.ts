@@ -12142,6 +12142,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'acquistare-immobile-canton-soletta-mutuo',
+    category: 'pratico',
+    date: '2026-08-24T08:06:59.258Z',
+    image: '/images/blog/acquistare-immobile-canton-soletta-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

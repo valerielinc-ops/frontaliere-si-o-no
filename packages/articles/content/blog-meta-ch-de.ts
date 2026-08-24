@@ -4048,6 +4048,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche erwirbt Rechte an einer experimentellen Behandlung gegen Fettleibigkeit',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'Der Deal mit dem südkoreanischen Unternehmen Hanmi könnte bis zu 2,3 Milliarden Dollar wert sein.',
     'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche erwirbt Rechte an einer Widerstandsstoff Behandlung gegen Adipositas',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Haus kaufen im Kanton Solothurn: Preise und Hypothek',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Der Kauf eines Hauses im Kanton Solothurn erfordert sorgfältige finanzielle Planung. Erfahren Sie, wie Hypothekendarlehen, Kapitalzulänglichkeit, Übertragungssteuer und Notargebühren funktionieren.',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Modernes Wohnhaus in Schweizer Kanton mit Garten und Landschaftsblick',
 };
 
 export default blogMetaChDe;
