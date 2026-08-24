@@ -1,7 +1,7 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-23T21:26:40.363Z",
+  "generatedAt": "2026-08-24T10:01:45.252Z",
   "total": 3,
   "discovered": null,
   "written": 3,
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5232,
-  "avgDurationMs": 5232,
+  "durationMs": 6931,
+  "avgDurationMs": 6931,
   "durationHistory": [
-    5232
+    6931
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:26:38.076Z",
+      "crawledAt": "2026-08-24T10:01:42.551Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -67,7 +67,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2523&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:26:37.394Z",
+      "crawledAt": "2026-08-24T10:01:41.637Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -84,7 +84,6 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2523&portal=Global",
       "jobReqId": "VN2523",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-20T21:36:32.939Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -106,7 +105,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:26:36.784Z",
+      "crawledAt": "2026-08-24T10:01:40.895Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -123,7 +122,6 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "jobReqId": "VN2520",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:37:03.167Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {

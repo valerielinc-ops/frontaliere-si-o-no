@@ -40,6 +40,7 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
+import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* -- Constants ------------------------------------------------- */
 
@@ -200,6 +201,10 @@ function parseListingTiles(html = '') {
     const titleMatch = chunk.match(/<a class="jobTitle-link[^"]*"[^>]*>([\s\S]*?)<\/a>/);
     const title = titleMatch ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1]))) : '';
     if (!title) continue;
+    // A row whose anchor text is j2w page chrome (cookie-consent widget,
+    // search/alert box) isn't a job at all — discard the row, don't clean it,
+    // or it becomes a posting with no title.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     const cityMatch =
       chunk.match(new RegExp(`id="job-${jobId}-desktop-section-city-value">([^<]*)`)) ||

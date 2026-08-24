@@ -1377,6 +1377,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'roche-acquisisce-diritti-trattamento-obesita': { it: 'roche-acquisisce-diritti-trattamento-obesita', en: 'roche-acquires-rights-to-obesity-treatment', de: 'roche-erwirbt-rechte-an-einer-widerstandstoffs-behandlung-gegen-adipositas', fr: 'roche-acquiert-les-droits-a-un-traitement-experimental-contre-lobesite' },
  'acquistare-immobile-canton-soletta-mutuo': { it: 'acquistare-immobile-canton-soletta-mutuo', en: 'buying-property-canton-soletta-mortgage', de: 'immobilie-kauf-kanton-solothurn-hypothek', fr: 'acheter-propriete-canton-soleure-hypotheque' },
  'storia-sicurezza-sociale-rilancio': { it: 'storia-sicurezza-sociale-rilancio', en: 'history-of-social-security-relaunch', de: 'geschichte-der-sozialen-sicherheit-neuauflage', fr: 'histoire-de-la-securite-sociale-reprise' },
+ 'soletta-affitti-canoni-diritto': { it: 'soletta-affitti-canoni-diritto', en: 'solothurn-rents-market-and-tenancy-law', de: 'solothurn-mietmarkt-und-mietrecht', fr: 'soleure-marche-loyers-droit-bail' },
+ 'primo-pilastro-soletta-prestazioni': { it: 'primo-pilastro-soletta-prestazioni', en: 'first-pillar-soletta-benefits', de: 'erste-saeule-soletta-leistungen', fr: 'premier-pilier-soletta-prestations' },
+ 'salari-mercato-lavoro-soletta': { it: 'salari-mercato-lavoro-soletta', en: 'salaries-labor-market-soletta-sectors', de: 'lohne-arbeitsmarkt-soletta-sektoren', fr: 'salaires-marche-travail-soletta-secteurs' },
+ 'tassazione-forfettaria-ticino-incassi': { it: 'tassazione-forfettaria-ticino-incassi', en: 'flat-rate-taxation-ticino-record-revenue', de: 'pauschalbesteuerung-tessin-einnahmen', fr: 'imposition-forfaitaire-tessin-recettes' },
+ 'festival-scientifica-zurigo-ricerca': { it: 'festival-scientifica-zurigo-ricerca', en: 'scientifica-festival-zurich-research', de: 'scientifica-festival-zuerich-forschung', fr: 'scientifica-festival-zurich-recherche' },
+ 'pausa-estiva-apprendimento-scuola': { it: 'pausa-estiva-apprendimento-scuola', en: 'summer-break-learning-school', de: 'sommerferien-lernziele-schule', fr: 'pause-estivale-apprentissage-ecole' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

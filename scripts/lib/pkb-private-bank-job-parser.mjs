@@ -224,7 +224,7 @@ export function parsePkbDetailPage(html, pageUrl = '') {
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   let description = '';
-  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']');
+  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']', { skipVoidTags: true });
   if (located) {
     const candidate = stripHtml(extractBalancedTagBlock(located.rest, located.tagName));
     if (candidate.length > 50) description = candidate;

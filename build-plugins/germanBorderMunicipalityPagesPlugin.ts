@@ -28,6 +28,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
+import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -112,7 +113,12 @@ interface Copy {
   explainHealth: string;
   crossTitle: string;
   calcLink: string;
-  relatedTitle: string;
+  /** Column headers and prose labels of the nearest-comune comparison block. */
+  colBorderDistance: string;
+  colPopulation: string;
+  colCrossing: string;
+  spreadComparison: string;
+  comparisonSource: string;
   faqTitle: string;
   faqQ1: (n: string) => string;
   faqA1: (n: string) => string;
@@ -158,7 +164,11 @@ const COPY: Record<GermanLocale, Copy> = {
       `Il frontaliere può scegliere di uscire dall'assicurazione malattia obbligatoria svizzera per restare nel sistema tedesco (diritto di opzione, base legale art. 2 cpv. 6 OAMal). La scelta va esercitata esplicitamente entro ${HEALTH_OPTION_MONTHS} mesi dall'inizio dell'attività: l'esercizio tacito non è valido, e la scelta è generalmente irrevocabile una volta fatta.`,
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
-    relatedTitle: 'Altri comuni del corridoio',
+    colBorderDistance: 'Distanza dal confine',
+    colPopulation: 'Abitanti',
+    colCrossing: 'Valico più vicino',
+    spreadComparison: 'la distanza dal confine',
+    comparisonSource: 'Distanza su strada dal valico più vicino e popolazione dal dataset comunale tedesco (Destatis, chiave AGS).',
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
     faqA1: (n) => `${n} segue il regime frontalieri art. 15a DBA Germania-Svizzera: imposta alla fonte svizzera del ${TAX_RATE_STR} sul reddito lordo, uniforme indipendentemente dal cantone svizzero di impiego.`,
@@ -207,7 +217,11 @@ const COPY: Record<GermanLocale, Copy> = {
       `A cross-border worker can opt out of compulsory Swiss health insurance to stay in the German system (Optionsrecht, legal basis Art. 2 para. 6 OAMal). The choice must be made explicitly within ${HEALTH_OPTION_MONTHS} months of starting work: tacit exercise is not valid, and the choice is generally irrevocable once made.`,
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
-    relatedTitle: 'Other towns in the corridor',
+    colBorderDistance: 'Distance to border',
+    colPopulation: 'Population',
+    colCrossing: 'Nearest crossing',
+    spreadComparison: 'the distance to the border',
+    comparisonSource: 'Road distance to the nearest crossing and population from the German municipal dataset (Destatis, AGS key).',
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
     faqA1: (n) => `${n} follows the §15a DBA Germany-Switzerland regime: Swiss withholding tax of ${TAX_RATE_STR} on gross pay, uniform regardless of the Swiss canton of employment.`,
@@ -256,7 +270,11 @@ const COPY: Record<GermanLocale, Copy> = {
       `Ein Grenzgänger kann sich von der obligatorischen Schweizer Krankenversicherung befreien lassen, um im deutschen System zu bleiben (Optionsrecht, Rechtsgrundlage Art. 2 Abs. 6 KVV). Die Wahl muss innerhalb von ${HEALTH_OPTION_MONTHS} Monaten nach Arbeitsbeginn ausdrücklich getroffen werden: Eine stillschweigende Ausübung ist ungültig, und die Wahl ist in der Regel unwiderruflich.`,
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
-    relatedTitle: 'Weitere Orte im Korridor',
+    colBorderDistance: 'Entfernung zur Grenze',
+    colPopulation: 'Einwohner',
+    colCrossing: 'Nächster Übergang',
+    spreadComparison: 'die Entfernung zur Grenze',
+    comparisonSource: 'Straßenentfernung zum nächsten Übergang und Einwohnerzahl aus dem deutschen Gemeindedatensatz (Destatis, AGS-Schlüssel).',
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
     faqA1: (n) => `${n} folgt dem Grenzgänger-Regime nach Art. 15a DBA Deutschland-Schweiz: Schweizer Quellensteuer von ${TAX_RATE_STR} auf das Bruttoeinkommen, unabhängig vom Schweizer Beschäftigungskanton.`,
@@ -305,7 +323,11 @@ const COPY: Record<GermanLocale, Copy> = {
       `Un frontalier peut choisir de sortir de l'assurance maladie obligatoire suisse pour rester dans le système allemand (droit d'option, base légale art. 2 al. 6 OAMal). Le choix doit être exercé explicitement dans les ${HEALTH_OPTION_MONTHS} mois suivant le début de l'activité : l'exercice tacite n'est pas valable, et le choix est généralement irrévocable une fois fait.`,
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
-    relatedTitle: 'Autres communes du corridor',
+    colBorderDistance: 'Distance de la frontière',
+    colPopulation: 'Habitants',
+    colCrossing: 'Passage le plus proche',
+    spreadComparison: 'la distance de la frontière',
+    comparisonSource: 'Distance routière du passage le plus proche et population issues du jeu de données communal allemand (Destatis, clé AGS).',
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
     faqA1: (n) => `${n} suit le régime art. 15a CDI Allemagne-Suisse : impôt à la source suisse de ${TAX_RATE_STR} sur le revenu brut, uniforme quel que soit le canton suisse d'emploi.`,
@@ -355,19 +377,48 @@ function breadcrumbLd(locale: GermanLocale, name: string, canonicalUrl: string):
 
 // ── Page renderers ──────────────────────────────────────────────
 
+/**
+ * The comparison block that used to be a fixed link grid.
+ *
+ * Before (issue #5002): `GERMAN_ABOVE_FLOOR.filter(self).slice(0, 6)` — the SAME
+ * six comuni on every page of the family, so the block carried no per-page
+ * information and every inbound link inside the family pointed at those six
+ * pages (the concentration PR #5107 fixed for articles). Measured 2026-08-24,
+ * the municipality families scored a median Information Gain of 0-15 percent.
+ *
+ * After: the six geographically nearest comuni with the figures that differ
+ * between them, plus prose stating where THIS comune sits in the group.
+ * Page-specific by construction — a comune's neighbour set is unique to it.
+ *
+ * Renderer, determinism argument and shared copy: `nearestMunicipalityComparison`.
+ */
 function renderRelated(locale: GermanLocale, current: GermanBorderMunicipality): string {
-  const others = GERMAN_ABOVE_FLOOR.filter((m) => m.slug !== current.slug).slice(0, 6);
-  if (others.length === 0) return '';
-  const links = others
-    .map(
-      (m) =>
-        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${germanMunicipalityPathFor(locale, m.slug)}">${esc(m.name)} <span class="font-normal text-muted">· ${esc(getCantonDisplayName(m.canton, locale))}</span></a>`,
-    )
-    .join('');
-  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(COPY[locale].relatedTitle)}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${links}</div>
-    </section>`;
+  const c = COPY[locale];
+  return renderNearestComparison<GermanBorderMunicipality>({
+    locale,
+    current,
+    pool: GERMAN_ABOVE_FLOOR,
+    hrefFor: (m) => germanMunicipalityPathFor(locale, m.slug),
+    keyOf: (m) => m.slug,
+    columns: [
+      {
+        header: c.colBorderDistance,
+        value: (m) => `${intFmt(m.distanceKm, locale)} km`,
+        numeric: (m) => m.distanceKm,
+        formatNumeric: (value) => `${intFmt(value, locale)} km`,
+        spreadLabel: c.spreadComparison,
+      },
+      {
+        header: c.colPopulation,
+        value: (m) => intFmt(m.population, locale),
+      },
+      {
+        header: c.colCrossing,
+        value: (m) => m.nearestCrossing,
+      },
+    ],
+    sourceNote: c.comparisonSource,
+  });
 }
 
 export function renderAboveFloorPage(params: {

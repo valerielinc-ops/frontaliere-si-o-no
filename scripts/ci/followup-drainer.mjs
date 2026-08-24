@@ -256,11 +256,29 @@ export const NON_RETRYABLE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
   'skip-duplicate-diagnosis',
-  'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
   'already-fixed',
 ]);
+
+// `blocked-secrets` NON e' piu' qui, e la ragione e' una decisione del
+// proprietario del 2026-08-24 (registro in VISION.md): l'uso dei secret dal
+// ciclo autonomo e' autorizzato in modo permanente. `issue-fix.yml` carica
+// Remote Config prima del run, quindi la credenziale che il verdetto dichiarava
+// mancante ORA c'e' — e un verdetto emesso prima di quella data descrive una
+// configurazione che non esiste piu'.
+//
+// Toglierlo da `NON_RETRYABLE` e' cio' che rende quelle issue ri-tentabili
+// invece di terminali: 5 sul sito al momento della decisione (#5999 PostHog,
+// #5964 alias di locale, #5953 campaign goal, #5824 token legacy, #5429
+// copertura professioni), tutte parcheggiate su un blocco che era una scelta di
+// configurazione e non una capacita' mancante.
+//
+// Il verdetto resta nel VOCABOLARIO, e deve: se la mappa `RC_TO_ENV` non porta
+// un parametro, chi lo legge trova `undefined` per quanto sia impostato in
+// Remote Config — e allora `blocked-secrets` e' la diagnosi giusta, con il nome
+// della variabile. Quello e' un difetto della mappa, ri-tentabile appena e'
+// riparata, non uno stato assorbente.
 
 // --- USCITA TERMINALE PER VERDETTO (misurato 2026-08-24) ---------------------
 // `NON_RETRYABLE` dice soltanto «non ri-accodare»: la issue resta `fu-parked` e
@@ -302,7 +320,6 @@ export const VERDICT_ESCALATE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
   'skip-duplicate-diagnosis',
-  'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
 ]);
@@ -1127,14 +1144,6 @@ function isWorkflowScoped(num, prefetched = null) {
   } catch { return true; }
 }
 
-/** Secrets-scope capability-guard for parked-retry (#5057): a park-preemptive gate
- * driven by `detectSecretsScoped` already ran pre-promotion (see main loop below) —
- * this mirrors `isWorkflowScoped` for the reparkable pass so these known
- * credential-blocked categories never cycle un-park → promote → re-park. Pure on
- * already-fetched labels, no extra `gh` call needed. */
-function isSecretsScoped(iss) {
-  return detectSecretsScoped(names(iss));
-}
 
 /**
  * Il fixer PUÒ pushare `.github/workflows/**` in questo run? (#5544)
@@ -1222,15 +1231,24 @@ export function isCapabilityScoped(iss, {
   fetchIssue = (num) => gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']),
   canPushWorkflows: canPushWorkflowsOpt = canPushWorkflows(),
 } = {}) {
-  if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
+  // Il ramo secrets e' CADUTO INTERO, per label e per forma: decisione del
+  // proprietario del 2026-08-24 (registro in VISION.md). Le credenziali sono
+  // caricate nel run del fixer, quindi una issue secrets-scoped e' lavoro
+  // normale e non una capacita' mancante.
+  //
+  // Toglierne solo meta' — la label si', la forma no — sarebbe stato peggio che
+  // non toccarlo: il guard avrebbe continuato a escludere le stesse issue
+  // passando da `matchSecretsScopedShape`, e il commento qui sopra avrebbe
+  // dichiarato una fix che non c'era. Era la ragione per cui le due sole
+  // candidate che superavano il cooldown venivano scartate entrambe
+  // («secrets-scope sempre escluso» nei log del 2026-08-24).
+  //
+  // Cio' che ora tiene fuori una issue e' SOLO l'impossibilita' vera di pushare
+  // `.github/workflows/**`, letta e non dedotta (vedi `canPushWorkflows`).
   try {
     const d = fetchIssue(iss.number);
     // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).
-    if (!canPushWorkflowsOpt && isWorkflowScoped(iss.number, d)) return true;
-    return Boolean(matchSecretsScopedShape({
-      labels: names(d),
-      text: `${d?.title || ''}\n${d?.body || ''}`,
-    }));
+    return Boolean(!canPushWorkflowsOpt && isWorkflowScoped(iss.number, d));
   } catch { return true; }
 }
 
@@ -2379,20 +2397,22 @@ export function runDrain() {
       text: `${cand.title}\n${body || ''}`,
     });
     if (secretsMatch) {
+      // NON si parca piu', e il commento che stava qui dichiarava il falso: diceva
+      // «credenziale caricata via Firebase Remote Config, non disponibile
+      // nell'ambiente issue-fix». Dal 2026-08-24 `issue-fix.yml` la carica —
+      // decisione del proprietario, registro in VISION.md — quindi quel gate
+      // parcheggiava lavoro che il fixer puo' fare. Misurato: 7 occorrenze in
+      // 14 giorni.
+      //
+      // Il rilevatore resta collegato, come SEGNALE e non come freno: se un
+      // giorno il caricamento dei secret smette di funzionare, e' questa riga
+      // accanto a un `blocked-secrets` reale a rendere immediata la correlazione.
+      // Spegnerlo del tutto lo trasformerebbe in codice morto — che e' l'altra
+      // meta' dello stesso errore.
       const via = secretsMatch.via === 'label'
         ? `label \`${secretsMatch.label}\``
         : `scrittura Remote Config (${(secretsMatch.params || []).join(', ')})`;
-      console.log(`PARK #${cand.number} (secrets-scoped: ${via}) → no promozione, credenziali non disponibili in issue-fix`);
-      const preamble = secretsMatch.via === 'label'
-        ? `questa issue porta la label \`${secretsMatch.label}\`, categoria il cui fix richiede sempre \`${secretsMatch.secret}\` (${secretsMatch.reason})`
-        : `il fix di questa issue e' **esclusivamente** una scrittura su Firebase Remote Config e richiede \`${secretsMatch.secret}\` (${secretsMatch.reason})`;
-      const ref = secretsMatch.via === 'label' ? '#5057' : '#5057/#5838';
-      const note = `⏭️ **Pre-flight drainer (zero-Claude, ${ref})**: ${preamble} — credenziale caricata via Firebase Remote Config, non disponibile nell'ambiente \`issue-fix\` (solo \`GH_TOKEN\` GitHub App). Promuoverla a \`agent:fix\` brucerebbe un run Claude intero per arrivare sempre alla stessa conclusione \`blocked-secrets\`. **Non promuovo**: serve una sessione con Firebase SA/PAT (locale o owner). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-secrets -->`;
-      if (DRY) { console.log(`[dry] park #${cand.number} (secrets-scoped)`); continue; }
-      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
-      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
-      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
-      continue; // prova il prossimo in coda
+      console.log(`secrets-scoped #${cand.number} (${via}) → promuovo comunque: le credenziali sono caricate nel run del fixer (decisione 2026-08-24).`);
     }
 
     // Il parcheggio workflow-scoped ha senso SOLO se issue-fix non può pushare quei file.

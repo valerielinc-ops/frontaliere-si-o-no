@@ -15,6 +15,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 const HQ = getCompanyDefaults('rapelli');
 
@@ -85,6 +86,11 @@ export function parseRapelliListingHtml(html) {
 
     const rawTitle = normalizeSpace(stripHtml(titleMatch[1]));
     if (!rawTitle || rawTitle.length < 3) continue;
+    // The anchor matched here is generic (`<a …>text</a>`), so on ORIOR's
+    // SuccessFactors instance it can be the cookie-consent / keyword-search
+    // widget rather than a posting — discard the row instead of naming a job
+    // after page chrome.
+    if (isSuccessFactorsWidgetText(rawTitle)) continue;
 
     // Extract location from URL path (e.g., Stabio-Title-TI)
     const pathMatch = relUrl.match(/\/job\/([^/]+)/);
@@ -166,7 +172,7 @@ export function parseRapelliDetailHtml(html) {
   const description = stripHtml(rawHtml);
 
   return {
-    description: description || '',
+    description: sanitizeSuccessFactorsField(description || ''),
     rawHtml,
   };
 }

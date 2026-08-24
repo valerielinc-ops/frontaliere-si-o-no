@@ -1,25 +1,25 @@
 {
   "crawlerKey": "ete",
-  "assembledAt": "2026-08-23T21:34:50.799Z",
+  "assembledAt": "2026-08-24T10:10:12.357Z",
   "jobs": [
     {
       "id": "ete-8e1b044575dd",
       "slug": "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano",
       "slugByLocale": {
-        "fr": "operateur-logistique-maintenance-magasin-automatise-ete-ch",
         "it": "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano",
         "en": "logistics-maintenance-operator-automated-store-emil-egger-ag-lugano",
-        "de": "logistik-und-wartungsbetreiber-automated-store-emil-egger-ag-lugano"
+        "de": "logistik-und-wartungsbetreiber-automated-store-emil-egger-ag-lugano",
+        "fr": "operateur-logistique-maintenance-magasin-automatise-ete-ch"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
       "companyDomain": "ete.ch",
       "title": "Opérateur Logistique & Maintenance – Magasin Automatisé",
       "titleByLocale": {
-        "fr": "Opérateur Logistique & Maintenance – Magasin Automatisé",
         "it": "Operatore logistico e manutenzione – Negozio automatizzato",
         "en": "Logistics & Maintenance Operator – Automated Store",
-        "de": "Logistik- und Wartungsbetreiber – Automated Store"
+        "de": "Logistik- und Wartungsbetreiber – Automated Store",
+        "fr": "Opérateur Logistique & Maintenance – Magasin Automatisé"
       },
       "description": "Opérateur Logistique & Maintenance – Magasin Automatisé — Emil Egger AG",
       "descriptionByLocale": {
@@ -30,7 +30,7 @@
       "url": "https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:34:46.434Z",
+      "crawledAt": "2026-08-24T10:10:08.428Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,10 +44,25 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "operateur-logistique-maintenance-magasin-automatise-ete-ch",
+        "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-logistique-maintenance-magasin-automatise-ete-ch",
+          "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+        ],
+        "de": [
+          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:46.434Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -60,30 +75,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:46.434Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
-        ],
-        "en": [
-          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
-        ],
-        "de": [
-          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
-        ]
-      },
-      "previousSlugs": [
-        "operateur-logistique-maintenance-magasin-automatise-ete-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "ete-6517d9344dcf",
       "slug": "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
         "it": "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
         "en": "apprenticeship-to-the-merchant-merchant-efz-start-from-summer-2027-emil-egger-ag-lugano",
+        "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
         "fr": "apprentissage-au-marchand-marchand-efz-a-partir-de-l-ete-2027-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -91,9 +91,9 @@
       "companyDomain": "ete.ch",
       "title": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
       "titleByLocale": {
-        "de": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
         "it": "Lehre zum Kaufmann / Kauffrau CFC (Start ab Sommer 2027)",
         "en": "Apprenticeship to the merchant / merchant EFZ (start from summer 2027)",
+        "de": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
         "fr": "Apprentissage au marchand / marchand EFZ (à partir de l'été 2027)"
       },
       "description": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027) — Emil Egger AG",
@@ -105,7 +105,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:46.129Z",
+      "crawledAt": "2026-08-24T10:10:08.125Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,13 +119,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
+        "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch"
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
+          "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano"
         ],
         "en": [
           "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
@@ -134,10 +137,8 @@
           "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
-        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:46.129Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -150,16 +151,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:46.129Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-dad26f9be703",
       "slug": "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
         "it": "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano",
+        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
         "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger"
       },
       "company": "Emil Egger AG",
@@ -167,9 +167,9 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%",
       "titleByLocale": {
-        "de": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%",
         "it": "Chauffeur / Chauffeuse per Kat. C/E per Hebebühnen- e Baumaschinen Sattelschlepper 100%",
         "en": "Chauffeur / Chauffeuse for Cat C/E for lifting platform and construction machines semitrailers 100%",
+        "de": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100%",
         "fr": "Chauffeur / Chauffeuse pour Cat C/E pour plate-forme de levage et machines de construction semi-remorques 100%"
       },
       "description": "Chauffeur / Chauffeuse für Kat. C/E für Hebebühnen- und Baumaschinen Sattelschlepper 100% — Emil Egger AG",
@@ -181,7 +181,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:45.821Z",
+      "crawledAt": "2026-08-24T10:10:07.822Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,13 +195,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
+          "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
         ],
         "en": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
@@ -210,10 +213,8 @@
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:45.821Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -226,16 +227,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:45.821Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-4f890e1dbbc4",
-      "slug": "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
+      "slug": "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
-        "it": "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
-        "en": "driver-c-e-special-transport-m-f-emil-egger-ag-lugano",
+        "de": "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+        "it": "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano",
+        "en": "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano",
         "fr": "chauffeur-c-e-transports-speciaux-h-f-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -243,10 +243,10 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur C/E – Transports spéciaux (H/F)",
       "titleByLocale": {
-        "de": "Fahrer C/E – Sondertransport (M/W)",
+        "de": "Chauffeur C/E – Transports spéciaux (H/F)",
         "fr": "Chauffeur C/E – Transports spéciaux (H/F)",
-        "it": "Driver C/E – Trasporto Speciale (M/F)",
-        "en": "Driver C/E – Special Transport (M/F)"
+        "it": "Chauffeur C/E – Transports spéciaux (H/F)",
+        "en": "Chauffeur C/E – Transports spéciaux (H/F)"
       },
       "description": "Chauffeur C/E – Transports spéciaux (H/F) — Emil Egger AG",
       "descriptionByLocale": {
@@ -257,7 +257,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-c-e-transports-speciaux-h-f-11/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:34:45.214Z",
+      "crawledAt": "2026-08-24T10:10:07.214Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,10 +271,29 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-c-e-transports-speciaux-h-f-11/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "de": [
+          "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
+          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
+        ],
+        "it": [
+          "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+          "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+          "driver-c-e-special-transport-m-f-emil-egger-ag-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+        "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
+        "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
+        "driver-c-e-special-transport-m-f-emil-egger-ag-lugano"
+      ],
+      "firstSeenAt": "2026-08-23T21:34:45.214Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -287,30 +306,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:45.214Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
-        ],
-        "en": [
-          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
-        ],
-        "de": [
-          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "ete-7672e8ba0187",
       "slug": "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
         "it": "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano",
         "en": "customer-support-order-processing-transport-logistics-100-m-f-emil-egger-ag-lugano",
+        "de": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
         "fr": "assistance-client-traitement-des-commandes-transport-logistique-100-h-f-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -318,9 +322,9 @@
       "companyDomain": "ete.ch",
       "title": "SachbearbeiterIn Kundenbetreuung / Auftragsbearbeitung Transport-Logistik 100% m/w",
       "titleByLocale": {
-        "de": "SachbearbeiterIn Kundenbetreuung / Auftragsbearbeitung Transport-Logistik 100% m/w",
         "it": "Supporto clienti / elaborazione ordini Logistica di trasporto 100% m/f",
         "en": "Customer support / order processing Transport logistics 100% m/f",
+        "de": "SachbearbeiterIn Kundenbetreuung / Auftragsbearbeitung Transport-Logistik 100% m/w",
         "fr": "Assistance client / traitement des commandes Transport logistique 100% h/f"
       },
       "description": "SachbearbeiterIn Kundenbetreuung / Auftragsbearbeitung Transport-Logistik 100% m/w — Emil Egger AG",
@@ -332,7 +336,7 @@
       "url": "https://www.ete.ch/jobs/sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:44.911Z",
+      "crawledAt": "2026-08-24T10:10:06.912Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -346,14 +350,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
+        "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
-          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
+          "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano"
         ],
         "en": [
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
@@ -362,10 +369,8 @@
           "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
-        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:44.911Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -378,8 +383,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:44.911Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-9499465dc46e",
@@ -396,8 +400,8 @@
       "title": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
       "titleByLocale": {
         "it": "Lehre zum LogistikerIn CFC (Start ab Sommer 2027)",
-        "de": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
         "en": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
+        "de": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
         "fr": "Lehre zum LogistikerIn EFZ (Démarrer sur Sommer 2027)"
       },
       "description": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027) — Emil Egger AG",
@@ -409,7 +413,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:34:44.604Z",
+      "crawledAt": "2026-08-24T10:10:06.610Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -423,10 +427,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:44.604Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -439,16 +442,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:44.604Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-b3aa4e179045",
       "slug": "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
         "it": "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano",
         "en": "employee-in-freight-handling-permanent-night-shift-emil-egger-ag-lugano",
+        "de": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
         "fr": "employe-dans-la-manutention-du-fret-poste-de-nuit-permanent-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -456,9 +458,9 @@
       "companyDomain": "ete.ch",
       "title": "MitarbeiterIn Güterumschlag (dauerhafte Nachtschicht)",
       "titleByLocale": {
-        "de": "MitarbeiterIn Güterumschlag (dauerhafte Nachtschicht)",
         "it": "Dipendenti nella movimentazione delle merci (cambio notturno permanente)",
         "en": "Employee in freight handling (permanent night shift)",
+        "de": "MitarbeiterIn Güterumschlag (dauerhafte Nachtschicht)",
         "fr": "Employé dans la manutention du fret (poste de nuit permanent)"
       },
       "description": "MitarbeiterIn Güterumschlag (dauerhafte Nachtschicht) — Emil Egger AG",
@@ -470,7 +472,7 @@
       "url": "https://www.ete.ch/jobs/mitarbeiterin-gueterumschlag-dauerhafte-nachtschicht-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:44.299Z",
+      "crawledAt": "2026-08-24T10:10:06.306Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -484,14 +486,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/mitarbeiterin-gueterumschlag-dauerhafte-nachtschicht-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
+        "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
-          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
+          "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano"
         ],
         "en": [
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
@@ -500,10 +505,8 @@
           "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
-        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:44.299Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -516,16 +519,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:44.299Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-27fbe7b56934",
       "slug": "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
         "it": "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
         "en": "chauffeur-cat-c-e-for-changeable-platforms-100-m-f-d-emil-egger-ag-lugano",
+        "de": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
         "fr": "chauffeur-cat-c-e-pour-plates-formes-modifiables-100-h-f-d-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -533,9 +535,9 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur Kat. C/E für Wechselpritschen 100% (m/w/d)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. C/E für Wechselpritschen 100% (m/w/d)",
         "it": "Chauffeur Kat. C/E per Wechselpritschen 100% (m/w/d)",
         "en": "Chauffeur Cat. C/E for changeable platforms 100% (m/f/d)",
+        "de": "Chauffeur Kat. C/E für Wechselpritschen 100% (m/w/d)",
         "fr": "Chauffeur Cat. C/E pour plates-formes modifiables 100% (h/f/d)"
       },
       "description": "Chauffeur Kat. C/E für Wechselpritschen 100% (m/w/d) — Emil Egger AG",
@@ -547,7 +549,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:43.693Z",
+      "crawledAt": "2026-08-24T10:10:05.698Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -561,13 +563,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
+        "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch"
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
+          "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
         ],
         "en": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
@@ -576,10 +581,8 @@
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
-        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:43.693Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -592,16 +595,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:43.693Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-08d39e2960e3",
       "slug": "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
         "it": "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-for-cat-c-e-for-special-transports-for-open-semi-trailers-100-emil-egger-ag-lugano",
+        "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
         "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-les-transports-speciaux-pour-semi-remorques-ouvertes-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -609,9 +611,9 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur / Chauffeuse für Kat. C/E für Spezialtransporte für offenen Sattelschlepper 100%",
       "titleByLocale": {
-        "de": "Chauffeur / Chauffeuse für Kat. C/E für Spezialtransporte für offenen Sattelschlepper 100%",
         "it": "Chauffeur / Chauffeuse per Kat. C/E per Spezialtransporte per offenen Sattelschlepper 100%",
         "en": "Chauffeur / Chauffeuse for Cat. C/E for special transports for open semi-trailers 100%",
+        "de": "Chauffeur / Chauffeuse für Kat. C/E für Spezialtransporte für offenen Sattelschlepper 100%",
         "fr": "Chauffeur / Chauffeuse pour Cat. C/E pour les transports spéciaux pour semi-remorques ouvertes 100%"
       },
       "description": "Chauffeur / Chauffeuse für Kat. C/E für Spezialtransporte für offenen Sattelschlepper 100% — Emil Egger AG",
@@ -623,7 +625,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-spezialtransporte-fuer-offenen-sattelschlepper-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:43.087Z",
+      "crawledAt": "2026-08-24T10:10:05.090Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -637,13 +639,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-spezialtransporte-fuer-offenen-sattelschlepper-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano",
+        "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete"
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
+          "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano"
         ],
         "en": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
@@ -652,10 +657,8 @@
           "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:43.087Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -668,8 +671,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:43.087Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-207db82bf35c",
@@ -699,7 +701,7 @@
       "url": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:34:42.782Z",
+      "crawledAt": "2026-08-24T10:10:04.786Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -713,10 +715,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:42.782Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -729,16 +730,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:42.782Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-7a440ff68edb",
-      "slug": "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
+      "slug": "macchine-mecanicien-de-chantier-agricole-m-f-emil-egger-ag-lugano",
       "slugByLocale": {
+        "it": "macchine-mecanicien-de-chantier-agricole-m-f-emil-egger-ag-lugano",
+        "en": "mecanicien-machines-de-chantier-agricole-m-f-emil-egger-ag-lugano",
         "de": "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
-        "it": "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
-        "en": "mecanicien-machines-de-chantier-agricole-h-f-ete-ch",
         "fr": "mecanicien-machines-de-chantier-agricole-h-f-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -746,10 +746,10 @@
       "companyDomain": "ete.ch",
       "title": "Mécanicien machines de chantier, agricole(H/F)",
       "titleByLocale": {
-        "de": "Mécanicien machines de chantier, agricole(H/F)",
-        "fr": "Mécanicien machines de chantier, agricole(H/F)",
         "it": "Macchine Mécanicien de chantier, agricole(M/F)",
-        "en": "Mécanicien machines de chantier, agricole(M/F)"
+        "en": "Mécanicien machines de chantier, agricole(M/F)",
+        "de": "Mécanicien machines de chantier, agricole(H/F)",
+        "fr": "Mécanicien machines de chantier, agricole(H/F)"
       },
       "description": "Mécanicien machines de chantier, agricole(H/F) — Emil Egger AG",
       "descriptionByLocale": {
@@ -760,7 +760,7 @@
       "url": "https://www.ete.ch/jobs/mecanicien-machines-de-chantier-agricoleh-f/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:42.477Z",
+      "crawledAt": "2026-08-24T10:10:04.482Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -774,10 +774,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/mecanicien-machines-de-chantier-agricoleh-f/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:42.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-machines-de-chantier-agricole-h-f-ete-ch"
+        ],
+        "en": [
+          "mecanicien-machines-de-chantier-agricole-h-f-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-machines-de-chantier-agricole-h-f-ete-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -790,16 +800,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:42.477Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-0a81ee617f81",
       "slug": "quereinsteigerin-per-kat-c-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "quereinsteigerin-fur-kat-c-ete-ch",
         "it": "quereinsteigerin-per-kat-c-emil-egger-ag-lugano",
         "en": "newcomer-to-kat-c-emil-egger-ag-lugano",
+        "de": "quereinsteigerin-fur-kat-c-ete-ch",
         "fr": "nouveau-venu-a-kat-c-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -807,9 +816,9 @@
       "companyDomain": "ete.ch",
       "title": "QuereinsteigerIn für Kat. C",
       "titleByLocale": {
-        "de": "QuereinsteigerIn für Kat. C",
         "it": "QuereinsteigerIn per Kat. C",
         "en": "Newcomer to Kat. C",
+        "de": "QuereinsteigerIn für Kat. C",
         "fr": "Nouveau venu à Kat. C"
       },
       "description": "QuereinsteigerIn für Kat. C — Emil Egger AG",
@@ -821,7 +830,7 @@
       "url": "https://www.ete.ch/jobs/quereinsteigerin-fuer-kat-c-5/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:42.174Z",
+      "crawledAt": "2026-08-24T10:10:04.180Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -835,13 +844,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/quereinsteigerin-fuer-kat-c-5/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "quereinsteigerin-fur-kat-c-ete-ch",
+        "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano",
+        "quereinsteigerin-per-kat-c-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteigerin-fur-kat-c-ete-ch"
+          "quereinsteigerin-fur-kat-c-ete-ch",
+          "quereinsteigerin-per-kat-c-emil-egger-ag-lugano"
         ],
         "en": [
           "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
@@ -850,10 +862,8 @@
           "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "quereinsteigerin-fur-kat-c-ete-ch",
-        "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:42.174Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -866,16 +876,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:42.174Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-224fcb1aaccf",
       "slug": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "ausnahmetransportbegleiter-in-100-ete-ch",
         "it": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano",
         "en": "exceptional-transport-attendants-100-emil-egger-ag-lugano",
+        "de": "ausnahmetransportbegleiter-in-100-ete-ch",
         "fr": "agents-de-transport-exceptionnels-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -883,9 +892,9 @@
       "companyDomain": "ete.ch",
       "title": "Ausnahmetransportbegleiter/in 100 %",
       "titleByLocale": {
-        "de": "Ausnahmetransportbegleiter/in 100 %",
         "it": "Assistenti di trasporto eccezionali/100 %",
         "en": "Exceptional transport attendants/100 %",
+        "de": "Ausnahmetransportbegleiter/in 100 %",
         "fr": "Agents de transport exceptionnels/100 %"
       },
       "description": "Ausnahmetransportbegleiter/in 100 % — Emil Egger AG",
@@ -897,7 +906,7 @@
       "url": "https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-3/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:41.871Z",
+      "crawledAt": "2026-08-24T10:10:03.879Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -911,14 +920,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-3/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ausnahmetransportbegleiter-in-100-ete-ch",
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
+        "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ausnahmetransportbegleiter-in-100-ete-ch",
-          "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
+          "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano"
         ],
         "en": [
           "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
@@ -927,10 +939,8 @@
           "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "ausnahmetransportbegleiter-in-100-ete-ch",
-        "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:41.871Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -943,16 +953,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:41.871Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-d82a5625610a",
       "slug": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "chauffeur-chauffeuse-kat-c-e-ete-ch",
         "it": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-kat-c-e-ete-ch",
+        "de": "chauffeur-chauffeuse-kat-c-e-ete-ch",
         "fr": "chauffeur-chauffeuse-kat-c-e-ete-ch"
       },
       "company": "Emil Egger AG",
@@ -960,9 +969,9 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur/Chauffeuse Kat. C/E",
       "titleByLocale": {
-        "de": "Chauffeur/Chauffeuse Kat. C/E",
         "it": "Chauffeur/Chauffeuse Cat. C/E",
         "en": "Chauffeur/Chauffeuse Cat. C/E",
+        "de": "Chauffeur/Chauffeuse Kat. C/E",
         "fr": "Chauffeur/Chauffeuse Cat. C/E"
       },
       "description": "Chauffeur/Chauffeuse Kat. C/E — Emil Egger AG",
@@ -974,7 +983,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-6/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:41.568Z",
+      "crawledAt": "2026-08-24T10:10:03.577Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -988,10 +997,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-6/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-chauffeuse-kat-c-e-ete-ch",
+        "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-chauffeuse-kat-c-e-ete-ch",
+          "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:41.568Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1004,24 +1022,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:41.568Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-chauffeuse-kat-c-e-ete-ch"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-chauffeuse-kat-c-e-ete-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "ete-692f3baf5d3f",
       "slug": "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
         "it": "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano",
         "en": "chauffeur-in-cat-c-e-for-special-transports-4-4-man-100-emil-egger-ag-lugano",
+        "de": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
         "fr": "chauffeur-en-cat-c-e-pour-les-transports-speciaux-4-4-man-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1029,9 +1038,9 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur:in Kat. C/E für Spezialtransporte (4×4 MAN) 100%",
       "titleByLocale": {
-        "de": "Chauffeur:in Kat. C/E für Spezialtransporte (4×4 MAN) 100%",
         "it": "Chauffeur:in Kat. C/E per Spezialtransporte (4×4 MAN) 100%",
         "en": "Chauffeur: in Cat. C/E for special transports (4×4 MAN) 100%",
+        "de": "Chauffeur:in Kat. C/E für Spezialtransporte (4×4 MAN) 100%",
         "fr": "Chauffeur: en Cat. C/E pour les transports spéciaux (4×4 MAN) 100%"
       },
       "description": "Chauffeur:in Kat. C/E für Spezialtransporte (4×4 MAN) 100% — Emil Egger AG",
@@ -1043,7 +1052,7 @@
       "url": "https://www.ete.ch/jobs/chauffeurin-kat-c-e-fuer-spezialtransporte-4x4-man-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:41.264Z",
+      "crawledAt": "2026-08-24T10:10:03.274Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1057,13 +1066,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeurin-kat-c-e-fuer-spezialtransporte-4x4-man-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano",
+        "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch"
+          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
+          "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano"
         ],
         "en": [
           "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
@@ -1072,10 +1084,8 @@
           "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
-        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:41.264Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1088,16 +1098,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:41.264Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-2d4d449cf0c5",
       "slug": "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
         "it": "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano",
         "en": "all-rounder-in-heavy-goods-logistics-focus-on-accompaniment-80-100-emil-egger-ag-lugano",
+        "de": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
         "fr": "logistique-des-marchandises-lourdes-ensembles-accent-sur-l-accompagnement-80-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1105,9 +1114,9 @@
       "companyDomain": "ete.ch",
       "title": "Allrounder/in Schwergut-Logistik (Schwerpunkt Begleitungen) 80-100 %",
       "titleByLocale": {
-        "de": "Allrounder/in Schwergut-Logistik (Schwerpunkt Begleitungen) 80-100 %",
         "it": "All-rounder/in logistica di merci pesanti (attenzione su accompagnamento) 80-100 %",
         "en": "All-rounder/in heavy goods logistics (focus on accompaniment) 80-100 %",
+        "de": "Allrounder/in Schwergut-Logistik (Schwerpunkt Begleitungen) 80-100 %",
         "fr": "Logistique des marchandises lourdes/ensembles (accent sur l'accompagnement) 80-100 %"
       },
       "description": "Allrounder/in Schwergut-Logistik (Schwerpunkt Begleitungen) 80-100 % — Emil Egger AG",
@@ -1119,7 +1128,7 @@
       "url": "https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:40.961Z",
+      "crawledAt": "2026-08-24T10:10:02.973Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1133,10 +1142,25 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
+        "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
+          "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+        ],
+        "fr": [
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:40.961Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1149,30 +1173,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:40.961Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
-        ],
-        "en": [
-          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
-        ],
-        "fr": [
-          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
-        ]
-      },
-      "previousSlugs": [
-        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "ete-d5ea0472e9b7",
       "slug": "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
         "it": "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano",
         "en": "lw-crane-driver-in-kat-ce-100-36mt-fassi-crane-emil-egger-ag-lugano",
+        "de": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
         "fr": "conducteur-de-grue-lw-dans-kat-ce-100-36mt-grue-fassi-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1180,9 +1189,9 @@
       "companyDomain": "ete.ch",
       "title": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
       "titleByLocale": {
-        "de": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
         "it": "LW gru driver: in Kat.CE 100% – 36mt Fassi gru",
         "en": "LW crane driver: in Kat.CE 100% – 36mt Fassi crane",
+        "de": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran",
         "fr": "Conducteur de grue LW: dans Kat.CE 100% – 36mt grue Fassi"
       },
       "description": "LW-Kranchauffeur:in Kat.CE 100% – 36mt Fassi-Kran — Emil Egger AG",
@@ -1194,7 +1203,7 @@
       "url": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:40.355Z",
+      "crawledAt": "2026-08-24T10:10:02.368Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1208,10 +1217,25 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
+        "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
+          "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+        ],
+        "fr": [
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:40.355Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1224,30 +1248,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:40.355Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
-        ],
-        "en": [
-          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
-        ],
-        "fr": [
-          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
-        ]
-      },
-      "previousSlugs": [
-        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "ete-0b498480610d",
       "slug": "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
         "it": "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano",
         "en": "atb-driver-exceptional-transport-attendant-a-100-emil-egger-ag-lugano",
+        "de": "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
         "fr": "conducteur-atb-agent-de-transport-exceptionnel-a-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1255,9 +1264,9 @@
       "companyDomain": "ete.ch",
       "title": "ATB-Fahrer / Ausnahmetransportbegleiter (a) 100%",
       "titleByLocale": {
-        "de": "ATB-Fahrer / Ausnahmetransportbegleiter (a) 100%",
         "it": "Driver ATB / operatore di trasporto eccezionale (a) 100%",
         "en": "ATB driver / exceptional transport attendant (a) 100%",
+        "de": "ATB-Fahrer / Ausnahmetransportbegleiter (a) 100%",
         "fr": "Conducteur ATB / agent de transport exceptionnel (a) 100%"
       },
       "description": "ATB-Fahrer / Ausnahmetransportbegleiter (a) 100% — Emil Egger AG",
@@ -1269,7 +1278,7 @@
       "url": "https://www.ete.ch/jobs/atb-fahrer-ausnahmetransportbegleiter-a-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:40.053Z",
+      "crawledAt": "2026-08-24T10:10:02.065Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1283,14 +1292,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/atb-fahrer-ausnahmetransportbegleiter-a-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
+        "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
-          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
+          "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano"
         ],
         "en": [
           "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
@@ -1299,10 +1311,8 @@
           "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
-        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:40.053Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1315,16 +1325,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:40.053Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-d5fd3983aedd",
       "slug": "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "quereinsteiger-in-fur-kat-c-ete-ch",
         "it": "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano",
         "en": "join-the-team-for-cat-c-emil-egger-ag-lugano",
+        "de": "quereinsteiger-in-fur-kat-c-ete-ch",
         "fr": "rejoignez-l-equipe-pour-cat-c-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1332,9 +1341,9 @@
       "companyDomain": "ete.ch",
       "title": "Quereinsteiger/in für Kat. C",
       "titleByLocale": {
-        "de": "Quereinsteiger/in für Kat. C",
         "it": "Candidato/a in riqualificazione per Kat. C",
         "en": "Join the team for Cat. C",
+        "de": "Quereinsteiger/in für Kat. C",
         "fr": "Rejoignez l'équipe pour Cat. C"
       },
       "description": "Quereinsteiger/in für Kat. C — Emil Egger AG",
@@ -1346,7 +1355,7 @@
       "url": "https://www.ete.ch/jobs/quereinsteiger-in-fuer-kat-c-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:39.448Z",
+      "crawledAt": "2026-08-24T10:10:01.459Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1360,13 +1369,15 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/quereinsteiger-in-fuer-kat-c-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "quereinsteiger-in-fur-kat-c-ete-ch",
+        "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinsteiger-in-fur-kat-c-ete-ch"
+          "quereinsteiger-in-fur-kat-c-ete-ch",
+          "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano"
         ],
         "en": [
           "quereinsteiger-in-fur-kat-c-ete-ch"
@@ -1375,9 +1386,8 @@
           "quereinsteiger-in-fur-kat-c-ete-ch"
         ]
       },
-      "previousSlugs": [
-        "quereinsteiger-in-fur-kat-c-ete-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:39.448Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1390,16 +1400,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:39.448Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-a74ebdca32fe",
       "slug": "meccanico-del-camion-in-80-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "lkw-mechaniker-in-80-100-ete-ch",
         "it": "meccanico-del-camion-in-80-100-emil-egger-ag-lugano",
         "en": "truck-mechanic-in-80-100-emil-egger-ag-lugano",
+        "de": "lkw-mechaniker-in-80-100-ete-ch",
         "fr": "mecanicien-de-camion-en-80-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1407,9 +1416,9 @@
       "companyDomain": "ete.ch",
       "title": "LKW-Mechaniker / in 80-100%",
       "titleByLocale": {
-        "de": "LKW-Mechaniker / in 80-100%",
         "it": "Meccanico del camion / in 80-100 %",
         "en": "Truck mechanic / in 80-100 %",
+        "de": "LKW-Mechaniker / in 80-100%",
         "fr": "Mécanicien de camion / en 80-100 %"
       },
       "description": "LKW-Mechaniker / in 80-100% — Emil Egger AG",
@@ -1421,7 +1430,7 @@
       "url": "https://www.ete.ch/jobs/lkw-mechaniker-in-80-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:39.144Z",
+      "crawledAt": "2026-08-24T10:10:01.157Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1435,10 +1444,25 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/lkw-mechaniker-in-80-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lkw-mechaniker-in-80-100-ete-ch",
+        "meccanico-del-camion-in-80-100-emil-egger-ag-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lkw-mechaniker-in-80-100-ete-ch",
+          "meccanico-del-camion-in-80-100-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "lkw-mechaniker-in-80-100-ete-ch"
+        ],
+        "fr": [
+          "lkw-mechaniker-in-80-100-ete-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:39.144Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1451,22 +1475,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:39.144Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "lkw-mechaniker-in-80-100-ete-ch"
-        ],
-        "en": [
-          "lkw-mechaniker-in-80-100-ete-ch"
-        ],
-        "fr": [
-          "lkw-mechaniker-in-80-100-ete-ch"
-        ]
-      },
-      "previousSlugs": [
-        "lkw-mechaniker-in-80-100-ete-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "ete-d64e4252831f",
@@ -1483,8 +1492,8 @@
       "title": "Disponent / in Industrieumzüge 100%",
       "titleByLocale": {
         "it": "Disponent / in Industrieumzüge 100%",
-        "de": "Ausgestattet / in Industrieumzüge 100%",
         "en": "Equipped / in Industrieumzüge 100%",
+        "de": "Disponent / in Industrieumzüge 100%",
         "fr": "Équipé / en Industrieumzüge 100%"
       },
       "description": "Disponent / in Industrieumzüge 100% — Emil Egger AG",
@@ -1496,7 +1505,7 @@
       "url": "https://www.ete.ch/jobs/disponent-in-industrieumzuege-100-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:34:38.838Z",
+      "crawledAt": "2026-08-24T10:10:00.854Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1510,10 +1519,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/disponent-in-industrieumzuege-100-2/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:38.838Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1526,16 +1534,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:38.838Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ete-18e68a1594e4",
       "slug": "collaboratore-trice-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
         "it": "collaboratore-trice-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano",
         "en": "employees-in-machine-removals-special-transports-100-emil-egger-ag-lugano",
+        "de": "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
         "fr": "employes-demenagements-et-transports-speciaux-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -1543,9 +1550,9 @@
       "companyDomain": "ete.ch",
       "title": "Mitarbeiter/in Maschinenumzüge & Spezialtransporte (100%)",
       "titleByLocale": {
-        "de": "Mitarbeiter/in Maschinenumzüge & Spezialtransporte (100%)",
         "it": "Collaboratore/trice Maschinenumzüge & Spezialtransporte (100%)",
         "en": "Employees/in machine removals & special transports (100%)",
+        "de": "Mitarbeiter/in Maschinenumzüge & Spezialtransporte (100%)",
         "fr": "Employés/déménagements et transports spéciaux (100%)"
       },
       "description": "Mitarbeiter/in Maschinenumzüge & Spezialtransporte (100%) — Emil Egger AG",
@@ -1557,7 +1564,7 @@
       "url": "https://www.ete.ch/jobs/mitarbeiter-in-maschinenumzuege-spezialtransporte-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:34:38.208Z",
+      "crawledAt": "2026-08-24T10:10:00.230Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1571,13 +1578,16 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.ete.ch/jobs/mitarbeiter-in-maschinenumzuege-spezialtransporte-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
+        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano",
+        "collaboratore-trice-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch"
+          "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
+          "collaboratore-trice-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
         ],
         "en": [
           "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
@@ -1586,10 +1596,8 @@
           "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
-        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:34:38.208Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1602,8 +1610,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:38.208Z"
+      "addressRegion": "TI"
     }
   ]
 }

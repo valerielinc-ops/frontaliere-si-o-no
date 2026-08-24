@@ -1,18 +1,18 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-08-23T09:36:59.884Z",
+  "generatedAt": "2026-08-24T10:01:34.115Z",
   "total": 3,
   "discovered": null,
   "written": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2796,
-  "avgDurationMs": 2796,
+  "unchangedCount": 1,
+  "durationMs": 4767,
+  "avgDurationMs": 4767,
   "durationHistory": [
-    2796
+    4767
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:36:57.370Z",
+      "crawledAt": "2026-08-24T10:01:31.525Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://app.beehire.com/invite/swtNGdXFJ",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:36:57.362Z",
+      "crawledAt": "2026-08-24T10:01:31.524Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -91,10 +91,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "hopital-de-lavaux-30f5087c6164",
-      "slug": "responsable-de-production-culinaire-hopital-de-lavaux-bourg-en-lavaux",
+      "slug": "responsabile-della-produzione-culinaria-hopital-de-lavaux-bourg-en-lavaux",
       "company": "Hôpital de Lavaux",
       "companyKey": "hopital-de-lavaux",
       "companyDomain": "hopitaldelavaux.ch",
@@ -122,15 +125,16 @@
       "applyUrl": "https://app.beehire.com/invite/8XDoWyOzV",
       "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
       "firstSeenAt": "2026-07-13T22:12:44.822Z",
-      "_qualityScore": 87,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
