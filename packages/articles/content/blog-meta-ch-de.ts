@@ -4018,6 +4018,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Öffentliche Verkehrsmittel Kanton Freiburg: Zonen und Tarife',
     'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Progressive Tarifzonen, Jahres- und Monatsabonnements, Studentenrabatte: Kompletter Leitfaden für den öffentlichen Verkehr in Freiburg und im Inland.',
     'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Schweizer Bahnhof mit Tarifzonierungsinformationen und Fahrkartendisplays für Öffentliche Verkehrsmittel.',
+    'blog.article.avviare-attivita-friburgo-step.title': 'Geschäft in Freiburg eröffnen: Anmeldung und Kosten',
+    'blog.article.avviare-attivita-friburgo-step.excerpt': 'Rechtsform, Handelsregistereintrag, 3-stufige Besteuerung und gesetzliche Verpflichtungen. Wie gründet man ein Unternehmen im Kanton Freiburg?',
+    'blog.article.avviare-attivita-friburgo-step.imageAlt': 'Geschätsregistrierungsbüro einer Kantonal-verwaltung',
 };
 
 export default blogMetaChDe;

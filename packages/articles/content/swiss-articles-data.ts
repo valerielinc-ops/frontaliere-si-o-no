@@ -12052,6 +12052,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avviare-attivita-friburgo-step',
+    category: 'pratico',
+    date: '2026-08-24T03:39:45.788Z',
+    image: '/images/blog/avviare-attivita-friburgo-step.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
