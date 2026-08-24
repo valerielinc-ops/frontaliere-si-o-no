@@ -4003,6 +4003,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permit B Freiburg: Requirements and Renewal',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Renewable permit B in Freiburg: requirements, documents and procedure at the cantonal migration office. Application and renewal guide.',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Cantonal migration office: administrative building for issuing B residence permits in Fribourg',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Residence permit C Freiburg: years and application procedure',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Residence permit C in the Canton of Freiburg requires 10 years of residence (5 for EU/EFTA citizens). Learn about national requirements, the step-by-step procedure, and the next steps towards naturalization.',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Swiss administrative office counter for migration services and residence permit applications',
 };
 
 export default blogMetaChEn;
