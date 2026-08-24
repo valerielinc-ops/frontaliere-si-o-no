@@ -4093,6 +4093,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.skyguide-luglio-2026-voli-record.title': 'Air traffic in the skies: 4761 flights on 24 July',
     'blog.article.skyguide-luglio-2026-voli-record.excerpt': 'On July 24, 2026, the record: Skyguide counted 4761 flights in Swiss skies. Summer season with 240,108 flights, 93% punctual, 65% bad weather delays.',
     'blog.article.skyguide-luglio-2026-voli-record.imageAlt': 'Aerial view of Zurich airport with busy runways during summer season',
+    'blog.article.siccita-aziende-biologiche-2026.title': 'Drought: exemption for organic farms on the purchase of feed',
+    'blog.article.siccita-aziende-biologiche-2026.excerpt': 'The FOAG authorises up to 20% of conventional feed for organic farms due to drought 2026. Derogation valid until the end of the year.',
+    'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Dry Alpine pasture during Switzerland\'s 2026 drought, with brown grass and Alpine valley landscape',
 };
 
 export default blogMetaChEn;

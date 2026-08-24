@@ -4093,6 +4093,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.skyguide-luglio-2026-voli-record.title': 'Traffico aereo nei cieli: 4761 voli il 24 luglio',
     'blog.article.skyguide-luglio-2026-voli-record.excerpt': 'Il 24 luglio 2026 il record: Skyguide ha contato 4761 voli nei cieli svizzeri. Stagione estiva con 240.108 voli, 93% puntuale, 65% ritardi da maltempo.',
     'blog.article.skyguide-luglio-2026-voli-record.imageAlt': 'Veduta aerea dell\'aeroporto di Zurigo con piste di decollo affollate durante l\'estate',
+    'blog.article.siccita-aziende-biologiche-2026.title': 'Siccità: deroga per aziende biologiche sull\'acquisto mangimi',
+    'blog.article.siccita-aziende-biologiche-2026.excerpt': 'L\'UFAG autorizza fino al 20% di mangimi convenzionali per aziende biologiche a causa della siccità 2026. Deroga valida fino a fine anno.',
+    'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Pascolo alpino secco durante la siccità dell\'estate 2026 in Svizzera, con erba marrone e valle alpina sullo sfondo',
 };
 
 export default blogMetaChIt;
