@@ -210,9 +210,20 @@ const IT_AGENZIE: CareerLandingCopy = {
 };
 
 const IT_CONCORSI: CareerLandingCopy = {
-  title: 'Concorsi pubblici aperti in Ticino 2026',
+  // The page ranks for "concorsi lugano" (720/mo) and lives at
+  // /concorsi-pubblici-lugano/, but the title said only "Ticino" — the search
+  // term itself never appeared in the SERP result. "Lugano" leads; "Ticino"
+  // stays because the listing really is canton-wide, so this is a widening of
+  // the promise, not a narrowing of it.
+  // 43 chars, so the " | Frontaliere Ticino" suffix (21) lands at 64 — inside
+  // TITLE_MAX_CHARS (66) with headroom rather than exactly on the boundary.
+  title: 'Concorsi pubblici a Lugano e in Ticino 2026',
+  // Front-loaded and kept under 160 so clampMetaDescription never truncates
+  // it: the old 243-char string was cut at 160 with an ellipsis, which threw
+  // away the source, the frontalieri angle and the application procedure —
+  // everything after "stage cantonali." never reached a SERP snippet.
   description:
-    'Concorsi pubblici aperti in Canton Ticino nel 2026: infermieri OSC, amministrativi, medici assistenti, aiuto cucina, stage cantonali. Elenco aggiornato dalla fonte ufficiale concorsi.ti.ch, requisiti per frontalieri e procedura di candidatura.',
+    'Bandi e concorsi pubblici aperti a Lugano e in Canton Ticino: Città di Lugano, EOC, OSC e amministrazione cantonale. Requisiti per frontalieri e scadenze.',
   h1: 'Concorsi pubblici aperti in Ticino: guida 2026',
   lede: 'L\'Amministrazione cantonale ticinese pubblica ogni anno centinaia di concorsi per profili amministrativi, sanitari, scolastici e tecnici. Questa guida raccoglie i concorsi attualmente aperti al 2026, con scadenze, enti coinvolti e link alla scheda ufficiale. Valida anche per frontalieri italiani — molte posizioni sono aperte a candidati con permesso G.',
   updatedLabel: 'Aggiornato',
