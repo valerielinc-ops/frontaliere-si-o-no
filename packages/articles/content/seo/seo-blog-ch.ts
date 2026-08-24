@@ -53060,6 +53060,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-skyguide-luglio-2026-voli-record': {
+    title: 'Traffico aereo nei cieli: 4761 voli il 24 luglio',
+    description: 'Il 24 luglio 2026 il record: Skyguide ha contato 4761 voli nei cieli svizzeri. Stagione estiva con 240.108 voli, 93% puntuale, 65% ritardi da maltempo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, aereo, cieli, 4761',
+    ogTitle: 'Traffico aereo nei cieli: 4761 voli il 24 luglio',
+    ogDescription: 'Il 24 luglio 2026 il record: Skyguide ha contato 4761 voli nei cieli svizzeri. Stagione estiva con 240.108 voli, 93% puntuale, 65% ritardi da maltempo.',
+    canonicalPath: '/articoli-svizzera/skyguide-luglio-2026-voli-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico aereo nei cieli: 4761 voli il 24 luglio",
+      "description": "Il 24 luglio 2026 il record: Skyguide ha contato 4761 voli nei cieli svizzeri. Stagione estiva con 240.108 voli, 93% puntuale, 65% ritardi da maltempo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/skyguide-luglio-2026-voli-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea dell'aeroporto di Zurigo con piste di decollo affollate durante l'estate"
+      },
+      "datePublished": "2026-08-24T11:38:03+00:00",
+      "dateModified": "2026-08-24T11:38:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/skyguide-luglio-2026-voli-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

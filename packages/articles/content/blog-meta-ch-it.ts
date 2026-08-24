@@ -4090,6 +4090,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.risanamento-abitazioni-co2-berna.title': 'Risanamento abitazioni: 2\'650 tonnellate CO2 risparmiate',
     'blog.article.risanamento-abitazioni-co2-berna.excerpt': 'Il programma federale 2021–2025 ha risanato 2\'413 abitazioni di utilità pubblica in Svizzera, riducendo i consumi energetici del 75%. Investimento: 119 milioni CHF con 71 mutui a tasso zero.',
     'blog.article.risanamento-abitazioni-co2-berna.imageAlt': 'Programma federale di risanamento energetico: edifici residenziali moderni con facciate efficienti e pannelli solari, Svizzera',
+    'blog.article.skyguide-luglio-2026-voli-record.title': 'Traffico aereo nei cieli: 4761 voli il 24 luglio',
+    'blog.article.skyguide-luglio-2026-voli-record.excerpt': 'Il 24 luglio 2026 il record: Skyguide ha contato 4761 voli nei cieli svizzeri. Stagione estiva con 240.108 voli, 93% puntuale, 65% ritardi da maltempo.',
+    'blog.article.skyguide-luglio-2026-voli-record.imageAlt': 'Veduta aerea dell\'aeroporto di Zurigo con piste di decollo affollate durante l\'estate',
 };
 
 export default blogMetaChIt;

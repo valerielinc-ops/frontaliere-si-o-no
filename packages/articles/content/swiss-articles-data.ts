@@ -12268,6 +12268,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'skyguide-luglio-2026-voli-record',
+    category: 'novita',
+    date: '2026-08-24T11:38:03.767Z',
+    image: '/images/blog/skyguide-luglio-2026-voli-record.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
