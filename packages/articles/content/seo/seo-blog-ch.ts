@@ -54113,6 +54113,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-sciaffusa-validita-proroga': {
+    title: 'Permesso L Sciaffusa: validita e proroga | Frontaliere Ticino',
+    description: 'Permesso L fino a 1 anno in Svizzera. Nel Canton Sciaffusa e rinnovabile e puo portare al permesso di dimora. Condizioni, procedure e vincoli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, sciaffusa, validita, proroga',
+    ogTitle: 'Permesso L Sciaffusa: validita e proroga',
+    ogDescription: 'Il permesso L svizzero consente il lavoro di breve durata fino a 1 anno, rinnovabile con approvazione. Nel Canton Sciaffusa, scopri come funziona la proroga, i vincoli del datore di lavoro e il passaggio al permesso di dimora.',
+    canonicalPath: '/articoli-svizzera/permesso-l-sciaffusa-validita-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Sciaffusa: validita e proroga",
+      "description": "Permesso L fino a 1 anno in Svizzera. Nel Canton Sciaffusa e rinnovabile e puo portare al permesso di dimora. Condizioni, procedure e vincoli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-sciaffusa-validita-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo cantonale con bandiera svizzera, edificio moderno in stile svizzero, setting professionale"
+      },
+      "datePublished": "2026-08-24T19:30:45+00:00",
+      "dateModified": "2026-08-24T19:30:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-sciaffusa-validita-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

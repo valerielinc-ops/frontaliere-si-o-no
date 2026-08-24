@@ -1416,6 +1416,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'piano-emergenza-pagamenti-digitali': { it: 'piano-emergenza-pagamenti-digitali', en: 'emergency-digital-payment-plan', de: 'notfallplan-digitale-zahlungen', fr: 'plan-urgence-paiements-numeriques' },
  'imposta-successione-donazione-basilea-campagna': { it: 'imposta-successione-donazione-basilea-campagna', en: 'inheritance-donation-tax-basel-landschaft', de: 'erbschafts-donationsteuer-baselland', fr: 'impot-succession-donation-bale-campagne' },
  'permesso-domicilio-c-sciaffusa-requisiti': { it: 'permesso-domicilio-c-sciaffusa-requisiti', en: 'residence-permit-c-schaffhausen-requirements', de: 'aufenthaltserlaubnis-c-schaffhausen-voraussetzungen', fr: 'permis-domicile-c-schaffhausen-conditions' },
+ 'permesso-l-sciaffusa-validita-proroga': { it: 'permesso-l-sciaffusa-validita-proroga', en: 'permit-l-schaffhausen-validity-renewal', de: 'aufenthalts-l-schaffhausen-gueltig-verlaengerung', fr: 'permis-l-schaffhouse-validite-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

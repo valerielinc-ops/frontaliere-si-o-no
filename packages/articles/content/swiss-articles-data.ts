@@ -12511,6 +12511,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-sciaffusa-validita-proroga',
+    category: 'pratico',
+    date: '2026-08-24T19:30:45.110Z',
+    image: '/images/blog/permesso-l-sciaffusa-validita-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

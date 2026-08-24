@@ -4171,6 +4171,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Permis domicile c Schaffhouse : exigences',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Guide des exigences pour le permis C dans le canton de Schaffhouse : années de résidence, critères d\'intégration, langues et procédure de demande. Détails sur les conditions réduites pour les citoyens de l\'UE/AELE.',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Bureau pour les demandes de permis de domicile C auprès de l\'administration cantonale suisse',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Permis L Schaffhouse : validité et prolongation',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'Permis L jusqu\'à 1 an en Suisse. Dans le canton de Schaffhouse et renouvelable et peut conduire à l\'autorisation de séjour. Conditions, procédures et contraintes.',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Bureau administratif cantonal avec drapeau suisse, batiment moderne de style suisse, environnement professionnel',
 };
 
 export default blogMetaChFr;

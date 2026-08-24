@@ -4171,6 +4171,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Residence permit and Schaffhausen: requirements',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Guide to the requirements for the C permit in the Canton of Schaffhausen: years of residence, integration criteria, languages and application procedure. Details on reduced terms for EU/EFTA nationals.',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Office for residence permit C applications at Swiss cantonal administration',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Permit L Schaffhausen: validity and extension',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'Permit L up to 1 year in Switzerland. In the canton of Schaffhausen, it is renewable and can lead to a residence permit. Conditions, procedures and constraints.',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Cantonal administration office with Swiss flag, modern building exterior, professional Swiss workplace setting',
 };
 
 export default blogMetaChEn;
