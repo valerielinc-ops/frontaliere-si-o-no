@@ -76940,6 +76940,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-novedrate-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Novedrate e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Guida completa al lavoro frontaliere: permesso G, nuovo accordo fiscale 2024, imposta alla fonte, AVS/LPP, LAMal, procedure step-by-step da Novedrate al Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, novedrate, lavorare, nuovo',
+    ogTitle: 'Vivere a Novedrate e lavorare in Ticino',
+    ogDescription: 'Scopri come vivere a Novedrate e lavorare nel Canton Ticino da frontaliere: fiscalità, imposta alla fonte, permesso G, AVS/LPP, LAMal, vantaggi e procedura step-by-step per il pendolarismo.',
+    canonicalPath: '/articoli-frontaliere/vivere-novedrate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Novedrate e lavorare in Ticino",
+      "description": "Guida completa al lavoro frontaliere: permesso G, nuovo accordo fiscale 2024, imposta alla fonte, AVS/LPP, LAMal, procedure step-by-step da Novedrate al Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-novedrate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Como al confine tra Novedrate e il Canton Ticino, simbolo del pendolarismo frontaliere italiano-svizzero"
+      },
+      "datePublished": "2026-08-24T05:00:18+00:00",
+      "dateModified": "2026-08-24T05:00:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-novedrate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

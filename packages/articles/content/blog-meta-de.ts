@@ -10659,6 +10659,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Leben in Monguzzo und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Vergünstigungen für Grenzgänger, die im Tessin arbeiten und in Monguzzo wohnen',
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Bild eines Grenzarbeiters, der in Tessin arbeitet und in Monguzzo wohnt',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.title': 'Leben in Novedrate und Arbeiten im Tessin',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.excerpt': 'Neue Frontalieri-Vereinbarung, Genehmigung G, Quellensteuer, AHV und BVG: der komplette Leitfaden für das Leben in der Lombardei und das Pendeln ins Tessin.',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.imageAlt': 'Comer See an der Grenze zwischen Novedrate und Kanton Tessin, Symbol des grenzüberschreitenden Pendelverkehrs',
 };
 
 export default blogMetaDe;
