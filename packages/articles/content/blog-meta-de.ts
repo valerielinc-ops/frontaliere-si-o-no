@@ -10703,6 +10703,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.title': 'Wohnen in Cesana Brianza und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.excerpt': 'Wichtige Fakten über das Leben der Grenzgänger in Cesana Brianza und im Tessin',
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier lebt in Cesana Brianza und arbeitet in Ticino',
+    'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Wohnen in Veduggio und Arbeiten im Tessin: Grenzgänger',
+    'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Vollständiger Leitfaden für diejenigen, die in Veduggio wohnen und im Tessin als Grenzgänger arbeiten: Schweizer Steuern, G-Bewilligung, Lohnabrechnung, AHV, KVG und Schritt-für-Schritt-Verfahren.',
+    'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio mit Colzano an der Grenze zwischen Italien und der Schweiz, Alpendorf mit Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

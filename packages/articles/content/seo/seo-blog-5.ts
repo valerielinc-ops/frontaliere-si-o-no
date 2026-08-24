@@ -77486,6 +77486,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-veduggio-frontaliere-ticino': {
+    title: 'Vivere a Veduggio e lavorare in Ticino: frontaliere',
+    description: 'Guida pratica: Permesso G, fiscalità frontaliere, busta paga, AVS, LPP, LAMal. Come vivere a Veduggio e lavorare in Ticino da frontaliere. Procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, veduggio, lavorare, completa',
+    ogTitle: 'Vivere a Veduggio e lavorare in Ticino: frontaliere',
+    ogDescription: 'Vivere a Veduggio e lavorare in Ticino da frontaliere: vantaggi, fiscalità svizzera, Permesso G, gestione busta paga e protezione sociale. Guida completa passo dopo passo.',
+    canonicalPath: '/articoli-frontaliere/vivere-veduggio-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Veduggio e lavorare in Ticino: frontaliere",
+      "description": "Guida pratica: Permesso G, fiscalità frontaliere, busta paga, AVS, LPP, LAMal. Come vivere a Veduggio e lavorare in Ticino da frontaliere. Procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-veduggio-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduggio con Colzano al confine Italia-Svizzera, villaggio alpino con montagne sullo sfondo."
+      },
+      "datePublished": "2026-08-24T19:56:03+00:00",
+      "dateModified": "2026-08-24T19:56:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-veduggio-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10705,6 +10705,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.title': 'Vivere a Cesana Brianza e lavorare in Ticino da frontaliere',
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.excerpt': 'Fatti chiave sulla vita dei frontalieri a Cesana Brianza e in Ticino',
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere vive a Cesana Brianza e lavora in Ticino',
+    'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Vivere a Veduggio e lavorare in Ticino: frontaliere',
+    'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Guida completa per chi risiede a Veduggio e lavora in Ticino da frontaliere: fiscalità svizzera, permesso G, busta paga, AVS, LAMal e procedura step-by-step.',
+    'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio con Colzano al confine Italia-Svizzera, villaggio alpino con montagne sullo sfondo.',
 };
 
 export default blogMetaIt;
