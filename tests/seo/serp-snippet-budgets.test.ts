@@ -82,67 +82,28 @@ describe('SERP snippet budgets — profession landings', () => {
   });
 });
 
-/**
- * Career-landing descriptions that are still over budget and therefore still
- * shipping a truncated SERP snippet. This PR rewrote `it/concorsi-pubblici-
- * lugano` only; the other fifteen are pre-existing and each needs its own
- * translated rewrite.
- *
- * This is a ratchet, asserted for equality rather than as a permissive
- * allowlist: adding a new over-budget description fails, and fixing one of
- * these fails too until it is removed from the list. That way the set can only
- * shrink.
- */
-const KNOWN_TRUNCATED_CAREER_DESCRIPTIONS: ReadonlySet<string> = new Set([
-  'it/agenzie-lavoro-lugano',
-  'it/stage-lugano',
-  'it/contratti-lavoro-frontalieri',
-  'en/agenzie-lavoro-lugano',
-  'en/concorsi-pubblici-lugano',
-  'en/stage-lugano',
-  'en/contratti-lavoro-frontalieri',
-  'de/agenzie-lavoro-lugano',
-  'de/concorsi-pubblici-lugano',
-  'de/stage-lugano',
-  'de/contratti-lavoro-frontalieri',
-  'fr/agenzie-lavoro-lugano',
-  'fr/concorsi-pubblici-lugano',
-  'fr/stage-lugano',
-  'fr/contratti-lavoro-frontalieri',
-]);
-
 describe('SERP snippet budgets — career landings', () => {
   for (const locale of CAREER_LOCALES) {
     for (const id of CAREER_LANDING_IDS) {
-      it(`${locale}/${id} fits the title budget`, () => {
+      it(`${locale}/${id} fits both budgets`, () => {
         const copy = CAREER_LANDING_COPY[locale][id];
+
         expect(copy.title.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
         expect(buildTitleWithBrand(copy.title).length).toBeLessThanOrEqual(
           TITLE_MAX_CHARS,
         );
+
+        // 15 of these 16 descriptions were over budget before this PR, so the
+        // whole family was shipping truncated snippets.
+        expect(copy.description.length).toBeLessThanOrEqual(
+          META_DESCRIPTION_MAX_CHARS,
+        );
+        expect(isTruncated(copy.description)).toBe(false);
+
         expect(copy.title).not.toBe(copy.h1);
       });
     }
   }
-
-  it('the set of truncated descriptions only ever shrinks', () => {
-    const offenders = new Set<string>();
-    for (const locale of CAREER_LOCALES) {
-      for (const id of CAREER_LANDING_IDS) {
-        const copy = CAREER_LANDING_COPY[locale][id];
-        if (isTruncated(copy.description)) offenders.add(`${locale}/${id}`);
-      }
-    }
-    expect([...offenders].sort()).toEqual(
-      [...KNOWN_TRUNCATED_CAREER_DESCRIPTIONS].sort(),
-    );
-  });
-
-  it('the page this PR rewrote is not truncated', () => {
-    const copy = CAREER_LANDING_COPY.it['concorsi-pubblici-lugano'];
-    expect(copy.description.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
-    expect(isTruncated(copy.description)).toBe(false);
-  });
 
   it('names Lugano on the Lugano-slugged landings', () => {
     // /concorsi-pubblici-lugano/ ranked at position 7,1 for "concorsi lugano"
