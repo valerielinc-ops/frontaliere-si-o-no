@@ -1366,6 +1366,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-friburgo': { it: 'abbonamenti-trasporti-friburgo', en: 'public-transport-subscriptions-friburgo', de: 'abonnementes-oeffentliche-verkehrsmittel-freiburg', fr: 'abonnements-transports-publics-fribourg' },
  'abbonamenti-friburgo-zone-tariffe': { it: 'abbonamenti-friburgo-zone-tariffe', en: 'fribourg-public-transport-subscriptions-zones', de: 'freiburg-fahrkarten-abo-zonen-tarife', fr: 'fribourg-abonnements-transports-zones-tarifs' },
  'avviare-attivita-friburgo-step': { it: 'avviare-attivita-friburgo-step', en: 'start-business-fribourg-registration', de: 'gewerbe-freiburg-anmeldung', fr: 'creer-entreprise-fribourg-registre' },
+ 'avvio-attivita-cantone-friburgo': { it: 'avvio-attivita-cantone-friburgo', en: 'starting-business-fribourg-canton', de: 'unternehmensgruendung-kanton-freiburg', fr: 'lancement-activite-canton-fribourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -12061,6 +12061,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avvio-attivita-cantone-friburgo',
+    category: 'pratico',
+    date: '2026-08-24T03:56:37.436Z',
+    image: '/images/blog/avvio-attivita-cantone-friburgo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

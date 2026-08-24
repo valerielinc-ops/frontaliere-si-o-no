@@ -4021,6 +4021,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-attivita-friburgo-step.title': 'Geschäft in Freiburg eröffnen: Anmeldung und Kosten',
     'blog.article.avviare-attivita-friburgo-step.excerpt': 'Rechtsform, Handelsregistereintrag, 3-stufige Besteuerung und gesetzliche Verpflichtungen. Wie gründet man ein Unternehmen im Kanton Freiburg?',
     'blog.article.avviare-attivita-friburgo-step.imageAlt': 'Geschätsregistrierungsbüro einer Kantonal-verwaltung',
+    'blog.article.avvio-attivita-cantone-friburgo.title': 'Tätigkeitsbeginn in Freiburg: Registerführung und Kosten',
+    'blog.article.avvio-attivita-cantone-friburgo.excerpt': 'Die Schritte zur Unternehmensgründung im Kanton Freiburg: Vom Handelsregistereintrag bis zur Verwaltung von Steuern, Vorsorge und Steuerpflichten.',
+    'blog.article.avvio-attivita-cantone-friburgo.imageAlt': 'Verwaltungsbüro im schweizerischen städtischen Kontext',
 };
 
 export default blogMetaChDe;
