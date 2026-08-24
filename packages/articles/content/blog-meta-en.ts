@@ -10648,6 +10648,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-caslino-erba-frontaliere.title': 'Living in Caslino d \'Erba, working in Ticino: border guide',
     'blog.article.vivere-caslino-erba-frontaliere.excerpt': 'Moving to Caslino d \'Erba to work in Ticino: how to manage permits, taxation and living costs after the new 2024 Border Agreement.',
     'blog.article.vivere-caslino-erba-frontaliere.imageAlt': 'Landscape between Como province and Canton Ticino with Italian architecture and Swiss mountains',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.title': 'From Grandola and Uniti to Ticino: border guide',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.excerpt': 'Moving to Grandola and the United States to work in Ticino entails tax advantages and contributory risks. Here\'s what to check before transferring.',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.imageAlt': 'Evening view of Mendrisio, Ticino\'s border town, with the church tower rising above red-roofed buildings',
 };
 
 export default blogMetaEn;

@@ -10647,6 +10647,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-caslino-erba-frontaliere.title': 'Wohnen in Caslino d \'Erba, Arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-caslino-erba-frontaliere.excerpt': 'Umzug nach Caslino d \'Erba, um im Tessin zu arbeiten: Wie man nach der neuen Frontalieri-Vereinbarung 2024 mit Genehmigungen, Steuern und Lebenshaltungskosten umgeht.',
     'blog.article.vivere-caslino-erba-frontaliere.imageAlt': 'Landschaft zwischen Como-Provinz und Kanton Tessin mit italienischer Architektur und Schweizer Bergen',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.title': 'Von Grandola ed Uniti ins Tessin: Grenzüberschreitung',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.excerpt': 'Der Umzug nach Grandola ed Uniti, um im Tessin zu arbeiten, bringt Steuervorteile und Beitragsrisiken mit sich. Hier ist, was Sie vor dem Transfer überprüfen müssen.',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.imageAlt': 'Abendsicht auf Mendrisio, die Grenzstadt im Tessin, mit dem Kirchturm ueber roten Ziegeldaechern',
 };
 
 export default blogMetaDe;

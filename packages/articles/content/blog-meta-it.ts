@@ -10649,6 +10649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-caslino-erba-frontaliere.title': 'Vivere a Caslino d\'Erba, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-caslino-erba-frontaliere.excerpt': 'Trasferirsi a Caslino d\'Erba per lavorare in Ticino: come gestire permessi, tassazione e costi della vita dopo il nuovo Accordo Frontalieri 2024.',
     'blog.article.vivere-caslino-erba-frontaliere.imageAlt': 'Veduta del paesaggio tra la provincia di Como e il Canton Ticino con architettura italiana e montagne svizzere',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.title': 'Da Grandola ed Uniti al Ticino: guida frontaliere',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.excerpt': 'Trasferirsi a Grandola ed Uniti per lavorare in Ticino comporta vantaggi fiscali e rischi contributivi. Ecco cosa verificare prima del trasferimento.',
+    'blog.article.vivere-grandola-uniti-lavorare-ticino.imageAlt': 'Veduta di Mendrisio al tramonto, con il campanile della chiesa che emerge sopra gli edifici rossi di confine',
 };
 
 export default blogMetaIt;
