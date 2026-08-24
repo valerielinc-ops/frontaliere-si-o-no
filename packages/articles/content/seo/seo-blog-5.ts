@@ -76667,6 +76667,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-riqualifica-frontaliere-figli': {
+    title: 'Frontaliere: riqualifica 2026, figli e tassazione',
+    description: 'Riqualificazione frontalieri 2026: impatto tassazione (franchigia €10.000), AVS-INPS, assegni CHF 250/mese, LAMal. Guida operativa con scenari e checklist.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riqualifica, figli, tassazione, riqualificazione',
+    ogTitle: 'Frontaliere: riqualifica 2026, figli e tassazione',
+    ogDescription: 'Riqualificazione nel 2026: impatto su tassazione (franchigia €10.000), assegni familiari CHF 250/mese, AVS-INPS coordinato, LAMal opzionale. Guida completa e scenari per frontalieri con figli.',
+    canonicalPath: '/articoli-frontaliere/formazione-riqualifica-frontaliere-figli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: riqualifica 2026, figli e tassazione",
+      "description": "Riqualificazione frontalieri 2026: impatto tassazione (franchigia €10.000), AVS-INPS, assegni CHF 250/mese, LAMal. Guida operativa con scenari e checklist.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-riqualifica-frontaliere-figli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania con libri di formazione professionale e documenti in ambiente universitario ticinese, luce naturale."
+      },
+      "datePublished": "2026-08-24T01:14:55+00:00",
+      "dateModified": "2026-08-24T01:14:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-riqualifica-frontaliere-figli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

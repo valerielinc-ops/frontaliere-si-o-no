@@ -10638,6 +10638,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Wohnen in Caprezzo und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger mit Wohnsitz in Caprezzo: Neues Steuerabkommen, Besteuerung, Selbstbehalte und Arbeitsmanagement im Kanton Tessin.',
     'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Panoramablick auf die Grenzregion zwischen Italien und der Schweiz in der Nähe des Lago Maggiore',
+    'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Grenzgänger: Umschulung 2026, Kinder und Besteuerung',
+    'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'Als berufliche Umschulung im Jahr 2026 ändert sich die Besteuerung, die Familienzulagen und die Vorsorge für Grenzgänger mit Kindern: operative Anleitung mit Checkliste.',
+    'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Bücher zur beruflichen Weiterbildung auf Schreibtisch mit Tessiner Universitätshintergrund und natürlichem Licht.',
 };
 
 export default blogMetaDe;
