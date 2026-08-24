@@ -4039,6 +4039,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sunrise-salt-rete-cooperazione.title': 'Sunrise e Salt valutano una cooperazione più stretta sulla rete mobile',
     'blog.article.sunrise-salt-rete-cooperazione.excerpt': 'La cooperazione tra Sunrise e Salt potrebbe migliorare la copertura, la ricezione e la qualità della connessione in Svizzera, soprattutto nelle aree rurali e meno popolate.',
     'blog.article.sunrise-salt-rete-cooperazione.imageAlt': 'Immagine di un utente con smartphone in una zona rurale svizzera, con connessione stabile e veloce.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Tirocinio e retribuzione nel canton Soletta: guida pratica',
+    'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Scopri come trovare un tirocinio nel canton Soletta, gli obblighi del contratto e la retribuzione dell\'apprendista con deduzioni fiscali e contributi sociali.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'Un apprendista lavora in laboratorio durante la formazione pratica del tirocinio professionale svizzero.',
 };
 
 export default blogMetaChIt;
