@@ -10673,6 +10673,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malesco-frontaliere-ticino.title': 'Leben in Malesco, Arbeiten im Tessin: Praktischer Leitfaden',
     'blog.article.malesco-frontaliere-ticino.excerpt': 'Umzug nach Malesco, um im Tessin zu arbeiten: Zugangspässe, Reisezeiten, vorteilhafte Besteuerung und reduzierte Kosten für Grenzgänger.',
     'blog.article.malesco-frontaliere-ticino.imageAlt': 'Sonnenuntergang über Lugano mit Tessiner Bergen im Hintergrund.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.title': 'Svizzera: riparte il lavoro temporaneo per i frontalieri',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.excerpt': 'Der Schweizer Arbeitsmarkt verzeichnet einen Aufschwung im Bereich der Leiharbeit mit einem Anstieg der geleisteten Leiharbeitsstunden um 1,5% im ersten Halbjahr 2026.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.imageAlt': 'Frontalier blickt auf die Stadt Lugano.',
 };
 
 export default blogMetaDe;

@@ -10675,6 +10675,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malesco-frontaliere-ticino.title': 'Vivere a Malesco, lavorare in Ticino: pratica guida',
     'blog.article.malesco-frontaliere-ticino.excerpt': 'Trasferirsi a Malesco per lavorare in Ticino: valichi di accesso, tempi di percorrenza, fiscalità vantaggiosa e costi ridotti per frontalieri.',
     'blog.article.malesco-frontaliere-ticino.imageAlt': 'Veduta di Lugano al tramonto con le montagne del Ticino sullo sfondo.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.title': 'Svizzera, riparte il lavoro temporaneo: quali effetti per i frontalieri',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.excerpt': 'Il mercato del lavoro svizzero registra un segnale di ripresa nel settore del lavoro temporaneo, con un aumento delle ore lavorate interinali del 1,5% nel primo semestre 2026.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.imageAlt': 'Lavoratore frontaliere che guarda verso la città di Lugano.',
 };
 
 export default blogMetaIt;
