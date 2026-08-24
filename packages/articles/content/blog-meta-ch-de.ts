@@ -4096,6 +4096,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-aziende-biologiche-2026.title': 'Dürre: Ausnahme für Biobetriebe beim Kauf von Futtermitteln',
     'blog.article.siccita-aziende-biologiche-2026.excerpt': 'Das BLW bewilligt aufgrund der Trockenheit 2026 bis zu 20% konventionelle Futtermittel für Biobetriebe. Ausnahmeregelung gültig bis Jahresende.',
     'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Trockene Alpweiden während der Dürre im Sommer 2026 in der Schweiz, mit braunem Gras und Alpental im Hintergrund',
+    'blog.article.dimora-b-basilea-rinnovo.title': 'Ausweis B Basel: Voraussetzungen und Erneuerung',
+    'blog.article.dimora-b-basilea-rinnovo.excerpt': 'Der Ausweis B in der Schweiz ist erneuerbar. Leitfaden zu Anforderungen, Dokumenten und Erneuerungsverfahren im Kanton Basel-Stadt.',
+    'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Verwaltung für Migrations- und Aufenthaltserlaubnisse im Kanton Basel-Stadt',
 };
 
 export default blogMetaChDe;

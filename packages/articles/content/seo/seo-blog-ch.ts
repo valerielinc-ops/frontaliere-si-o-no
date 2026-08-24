@@ -53138,6 +53138,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dimora-b-basilea-rinnovo': {
+    title: 'Permesso B Basilea: requisiti e rinnovo | Frontaliere Ticino',
+    description: 'Il permesso B in Svizzera è rinnovabile. Guida a requisiti, documenti e procedura di rinnovo nel Cantone di Basilea Città. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, basilea, requisiti, rinnovo',
+    ogTitle: 'Permesso B Basilea: requisiti e rinnovo',
+    ogDescription: 'Scopri come rinnovare il permesso B nel Cantone di Basilea Città. Leggi i requisiti federali, la documentazione necessaria e la procedura presso il SEM e le autorità cantonali.',
+    canonicalPath: '/articoli-svizzera/dimora-b-basilea-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B Basilea: requisiti e rinnovo",
+      "description": "Il permesso B in Svizzera è rinnovabile. Guida a requisiti, documenti e procedura di rinnovo nel Cantone di Basilea Città. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dimora-b-basilea-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo federale e cantonale per permessi di migrazione e dimora nel Cantone di Basilea Città"
+      },
+      "datePublished": "2026-08-24T12:04:14+00:00",
+      "dateModified": "2026-08-24T12:04:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dimora-b-basilea-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
