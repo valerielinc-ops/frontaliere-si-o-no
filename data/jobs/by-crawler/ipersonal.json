@@ -1,7 +1,1037 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-08-23T21:27:28.731Z",
+  "assembledAt": "2026-08-24T10:01:40.334Z",
   "jobs": [
+    {
+      "id": "ipersonal-a88e8710d81a",
+      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-e-verantwortung-im-op-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-und",
+        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-e-verantwortung-im-op-ipersonal-ag-lugano",
+        "de": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-und",
+        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-und"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision und Verantwortung im OP",
+      "titleByLocale": {
+        "en": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision und Verantwortung im OP",
+        "de": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision und Verantwortung im OP",
+        "it": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision e Verantwortung im OP",
+        "fr": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision und Verantwortung im OP"
+      },
+      "description": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision und Verantwortung im OP — iPersonal AG",
+      "descriptionByLocale": {
+        "en": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Rafz gesucht – Präzision und Verantwortung im OP — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-praezision-und-verantwortung-im-op/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-24T10:01:36.630Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-praezision-und-verantwortung-im-op/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-und"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-in-rafz-gesucht-prazision-und"
+      ],
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:36.630Z"
+    },
+    {
+      "id": "ipersonal-4651124210b2",
+      "slug": "dipl-pflegefachfrau-mann-fh-o-bachelor-of-science-in-pflege-80-100-amden-gesucht-karriere-con-verantwortung-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht",
+        "it": "dipl-pflegefachfrau-mann-fh-o-bachelor-of-science-in-pflege-80-100-amden-gesucht-karriere-con-verantwortung-ipersonal-ag-lugano",
+        "en": "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht",
+        "fr": "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung",
+        "it": "Dipl. Pflegefachfrau/mann FH o Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere con Verantwortung",
+        "en": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung",
+        "fr": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung"
+      },
+      "description": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung — iPersonal AG",
+        "it": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung — iPersonal AG",
+        "en": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung — iPersonal AG",
+        "fr": "Dipl. Pflegefachfrau/mann FH oder Bachelor of Science in Pflege 80-100% Amden gesucht – Karriere mit Verantwortung — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht-karriere-mit-verantwortung/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:36.328Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht-karriere-mit-verantwortung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-amden-gesucht"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:36.328Z"
+    },
+    {
+      "id": "ipersonal-fa5502f12f81",
+      "slug": "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-per-eine-ganzheitliche-patientenversorgung-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-fur-eine-ganzheitliche",
+        "it": "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-per-eine-ganzheitliche-patientenversorgung-ipersonal-ag-lugano",
+        "en": "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-fur-eine-ganzheitliche",
+        "fr": "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-fur-eine-ganzheitliche"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung",
+      "titleByLocale": {
+        "de": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung",
+        "it": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise per eine ganzheitliche Patientenversorgung",
+        "en": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung",
+        "fr": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung"
+      },
+      "description": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung — iPersonal AG",
+        "it": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung — iPersonal AG",
+        "en": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung — iPersonal AG",
+        "fr": "Allgemeinarzt/-ärztin 80-100% in Thürnen gesucht – Ihre Expertise für eine ganzheitliche Patientenversorgung — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/allgemeinarzt-aerztin-80-100-in-thuernen-gesucht-ihre-expertise-fuer-eine-ganzheitliche-patientenversorgung/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:36.024Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/allgemeinarzt-aerztin-80-100-in-thuernen-gesucht-ihre-expertise-fuer-eine-ganzheitliche-patientenversorgung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-fur-eine-ganzheitliche"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-arztin-80-100-in-thurnen-gesucht-ihre-expertise-fur-eine-ganzheitliche"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:36.024Z"
+    },
+    {
+      "id": "ipersonal-181ddd9e589a",
+      "slug": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-ranfluh-gesucht-deine-fachkompetenz",
+      "slugByLocale": {
+        "de": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-ranfluh-gesucht-deine-fachkompetenz",
+        "it": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-ranfluh-gesucht-deine-fachkompetenz",
+        "en": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-ranfluh-gesucht-deine-fachkompetenz",
+        "fr": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-ranfluh-gesucht-deine-fachkompetenz"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!",
+      "titleByLocale": {
+        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!",
+        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!",
+        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz per eine optimale Patientenversorgung!",
+        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!"
+      },
+      "description": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Ranflüh gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-ranflueh-gesucht-deine-fachkompetenz-fuer-eine-optimale-patientenversorgung/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-24T10:01:35.721Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-ranflueh-gesucht-deine-fachkompetenz-fuer-eine-optimale-patientenversorgung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:35.721Z"
+    },
+    {
+      "id": "ipersonal-f49c773e93ca",
+      "slug": "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-per-la-region-einsiedeln-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fur-die-region-einsiedeln-gesucht",
+        "it": "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-per-la-region-einsiedeln-gesucht-ipersonal-ag-lugano",
+        "en": "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fur-die-region-einsiedeln-gesucht",
+        "fr": "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fur-die-region-einsiedeln-gesucht"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% für die Region Einsiedeln gesucht",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% für die Region Einsiedeln gesucht",
+        "it": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% per la Region Einsiedeln gesucht",
+        "en": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% für die Region Einsiedeln gesucht",
+        "fr": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% für die Region Einsiedeln gesucht"
+      },
+      "description": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% für die Region Einsiedeln gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau/-mann HF/FH Berufsbildung 80-100% für die Region Einsiedeln gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fuer-die-region-einsiedeln-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:35.419Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fuer-die-region-einsiedeln-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fur-die-region-einsiedeln-gesucht"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-berufsbildung-80-100-fur-die-region-einsiedeln-gesucht"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:35.419Z"
+    },
+    {
+      "id": "ipersonal-4151aa953e26",
+      "slug": "dipl-pflegefachfrau-mann-hf-dn1-80-100-per-luzern-gesucht-starte-deine-karriere-in-der-pflege-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-luzern-gesucht-starte-deine-karriere-in-der",
+        "it": "dipl-pflegefachfrau-mann-hf-dn1-80-100-per-luzern-gesucht-starte-deine-karriere-in-der-pflege-ipersonal-ag-lugano",
+        "en": "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-luzern-gesucht-starte-deine-karriere-in-der",
+        "fr": "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-luzern-gesucht-starte-deine-karriere-in-der"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Pflegefachfrau/mann HF DN1 80-100% für Luzern gesucht – Starte deine Karriere in der Pflege",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann HF DN1 80-100% für Luzern gesucht – Starte deine Karriere in der Pflege",
+        "it": "Dipl. Pflegefachfrau/mann HF DN1 80-100% per Luzern gesucht – Starte deine Karriere in der Pflege",
+        "en": "Dipl. Pflegefachfrau/mann HF DN1 80-100% für Luzern gesucht – Starte deine Karriere in der Pflege",
+        "fr": "Dipl. Pflegefachfrau/mann HF DN1 80-100% für Luzern gesucht – Starte deine Karriere in der Pflege"
+      },
+      "description": "Dipl. Pflegefachfrau/mann HF DN1 80-100% für Luzern gesucht – Starte deine Karriere in der Pflege — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann HF DN1 80-100% für Luzern gesucht – Starte deine Karriere in der Pflege — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-dn1-80-100-fuer-luzern-gesucht-starte-deine-karriere-in-der-pflege/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:35.117Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-dn1-80-100-fuer-luzern-gesucht-starte-deine-karriere-in-der-pflege/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-luzern-gesucht-starte-deine-karriere-in-der"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-dn1-80-100-fur-luzern-gesucht-starte-deine-karriere-in-der"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:35.117Z"
+    },
+    {
+      "id": "ipersonal-fa189470a458",
+      "slug": "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal",
+        "it": "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal-ag-lugano",
+        "en": "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal",
+        "fr": "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt!",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt!",
+        "it": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt!",
+        "en": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt!",
+        "fr": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt!"
+      },
+      "description": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt! — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann HF (80-100%) Barmelweid – Deine Pflegekompetenz ist gefragt! — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:34.814Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-80-100-barmelweid-deine-pflegekompetenz-ist-gefragt-ipersonal"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:34.814Z"
+    },
+    {
+      "id": "ipersonal-6d4b0915add7",
+      "slug": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-murten-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf",
+        "it": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-murten-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
+        "en": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf",
+        "fr": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
+      "titleByLocale": {
+        "de": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
+        "it": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% per Murten gesucht – Spezialisiere dich auf Präzision e Sicherheit im OP",
+        "en": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
+        "fr": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP"
+      },
+      "description": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
+        "it": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
+        "en": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
+        "fr": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Murten gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-fachfrau-mann-operationstechnik-hf-80-100-fuer-murten-gesucht-spezialisiere-dich-auf-praezision-und-sicherheit-im-op/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:34.512Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-fachfrau-mann-operationstechnik-hf-80-100-fuer-murten-gesucht-spezialisiere-dich-auf-praezision-und-sicherheit-im-op/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf"
+      ],
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:34.512Z"
+    },
+    {
+      "id": "ipersonal-ac114db15b18",
+      "slug": "dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln",
+      "slugByLocale": {
+        "it": "dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln",
+        "en": "dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln",
+        "de": "dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln",
+        "fr": "dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung",
+      "titleByLocale": {
+        "it": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung",
+        "en": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung",
+        "de": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung",
+        "fr": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung"
+      },
+      "description": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+      "descriptionByLocale": {
+        "it": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+        "en": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+        "de": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+        "fr": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Bubikon gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln-professionelle-versorgung/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T10:01:34.209Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-notfallpflege-nds-80-100-in-bubikon-gesucht-schnelles-handeln-professionelle-versorgung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:34.209Z"
+    },
+    {
+      "id": "ipersonal-cf6dbf8b4dc3",
+      "slug": "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-o-festanstellung-con-aufstiegsmoglichkeit-in-munsingen-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder",
+        "it": "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-o-festanstellung-con-aufstiegsmoglichkeit-in-munsingen-ipersonal-ag-lugano",
+        "en": "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder",
+        "fr": "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen",
+      "titleByLocale": {
+        "de": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen",
+        "it": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire o Festanstellung con Aufstiegsmöglichkeit in Münsingen",
+        "en": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen",
+        "fr": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen"
+      },
+      "description": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen — iPersonal AG",
+        "it": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen — iPersonal AG",
+        "en": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen — iPersonal AG",
+        "fr": "Freie Jobs: Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH 80–100% – Try & Hire oder Festanstellung mit Aufstiegsmöglichkeit in Münsingen — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder-festanstellung-mit-aufstiegsmoeglichkeit-in-muensingen/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:33.905Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder-festanstellung-mit-aufstiegsmoeglichkeit-in-muensingen/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder"
+        ]
+      },
+      "previousSlugs": [
+        "freie-jobs-dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-try-hire-oder"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:33.905Z"
+    },
+    {
+      "id": "ipersonal-0b59e161451f",
+      "slug": "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal",
+        "it": "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal-ag-lugano",
+        "en": "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal",
+        "fr": "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt",
+        "it": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt",
+        "en": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt",
+        "fr": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt"
+      },
+      "description": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau/mann FH 80-100% Leukerbad gesucht – Starte deine Karriere jetzt — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:33.602Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-fh-80-100-leukerbad-gesucht-starte-deine-karriere-jetzt-ipersonal"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:33.602Z"
+    },
+    {
+      "id": "ipersonal-51b6e1ed9c1e",
+      "slug": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine",
+      "slugByLocale": {
+        "de": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine",
+        "it": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine",
+        "en": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine",
+        "fr": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!",
+      "titleByLocale": {
+        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!",
+        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz per eine optimale Patientenversorgung!",
+        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!",
+        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung!"
+      },
+      "description": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG",
+        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Turbenthal gesucht – Deine Fachkompetenz für eine optimale Patientenversorgung! — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-turbenthal-gesucht-deine-fachkompetenz-fuer-eine-optimale-patientenversorgung/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:33.299Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-turbenthal-gesucht-deine-fachkompetenz-fuer-eine-optimale-patientenversorgung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:33.299Z"
+    },
+    {
+      "id": "ipersonal-5252e1efc001",
+      "slug": "dipl-expertin-experte-intensivpflege-nds-80-100-per-tschugg-gesucht-hochste-qualitat-in-der-intensivpflege-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in",
+        "it": "dipl-expertin-experte-intensivpflege-nds-80-100-per-tschugg-gesucht-hochste-qualitat-in-der-intensivpflege-ipersonal-ag-lugano",
+        "en": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in",
+        "fr": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege",
+      "titleByLocale": {
+        "de": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege",
+        "it": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% per Tschugg gesucht – Höchste Qualität in der Intensivpflege",
+        "en": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege",
+        "fr": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege"
+      },
+      "description": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
+        "it": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
+        "en": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
+        "fr": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Tschugg gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-intensivpflege-nds-80-100-fuer-tschugg-gesucht-hoechste-qualitaet-in-der-intensivpflege/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T10:01:32.996Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-intensivpflege-nds-80-100-fuer-tschugg-gesucht-hoechste-qualitaet-in-der-intensivpflege/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:32.996Z"
+    },
+    {
+      "id": "ipersonal-e3f6a0e92ea3",
+      "slug": "dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln",
+      "slugByLocale": {
+        "it": "dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln",
+        "en": "dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln",
+        "de": "dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln",
+        "fr": "dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung",
+      "titleByLocale": {
+        "it": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung",
+        "en": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung",
+        "de": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung",
+        "fr": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung"
+      },
+      "description": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+      "descriptionByLocale": {
+        "it": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+        "en": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+        "de": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG",
+        "fr": "Dipl. Expertin/Experte Notfallpflege NDS 80-100% in Weesen gesucht – Schnelles Handeln, professionelle Versorgung — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln-professionelle-versorgung/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T10:01:32.692Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-notfallpflege-nds-80-100-in-weesen-gesucht-schnelles-handeln-professionelle-versorgung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:32.692Z"
+    },
+    {
+      "id": "ipersonal-55fe3d761faa",
+      "slug": "pflegefachmann-100-per-la-region-heiden-stellenangebot-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "pflegefachmann-100-fur-die-region-heiden-stellenangebot-ipersonal-ch",
+        "it": "pflegefachmann-100-per-la-region-heiden-stellenangebot-ipersonal-ag-lugano",
+        "en": "pflegefachmann-100-fur-die-region-heiden-stellenangebot-ipersonal-ch",
+        "fr": "pflegefachmann-100-fur-die-region-heiden-stellenangebot-ipersonal-ch"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Pflegefachmann 100% für die Region Heiden – Stellenangebot",
+      "titleByLocale": {
+        "de": "Pflegefachmann 100% für die Region Heiden – Stellenangebot",
+        "it": "Pflegefachmann 100% per la Region Heiden – Stellenangebot",
+        "en": "Pflegefachmann 100% für die Region Heiden – Stellenangebot",
+        "fr": "Pflegefachmann 100% für die Region Heiden – Stellenangebot"
+      },
+      "description": "Pflegefachmann 100% für die Region Heiden – Stellenangebot — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Pflegefachmann 100% für die Region Heiden – Stellenangebot — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/pflegefachmann-100-fuer-die-region-heiden-stellenangebot/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:01:32.367Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://med-ipersonal.ch/jobs/pflegefachmann-100-fuer-die-region-heiden-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachmann-100-fur-die-region-heiden-stellenangebot-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachmann-100-fur-die-region-heiden-stellenangebot-ipersonal-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:01:32.367Z"
+    },
     {
       "id": "ipersonal-5b3631d4b4a1",
       "slug": "fachfrau-fachmann-gesundheit-cfc-fage-80-100-in-laufen-e-umgebung-gesucht-ihr-engagement-per-eine-hochwertige-pflege-ipersonal-ag-lugano",
@@ -78,7 +1108,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:25.651Z"
+      "firstSeenAt": "2026-08-23T21:27:25.651Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-7556edf48327",
@@ -156,7 +1187,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:25.348Z"
+      "firstSeenAt": "2026-08-23T21:27:25.348Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-08b47d44ffb8",
@@ -234,7 +1266,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:25.044Z"
+      "firstSeenAt": "2026-08-23T21:27:25.044Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-8b9361262461",
@@ -312,7 +1345,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:24.742Z"
+      "firstSeenAt": "2026-08-23T21:27:24.742Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-d6c9967019d6",
@@ -390,7 +1424,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:24.438Z"
+      "firstSeenAt": "2026-08-23T21:27:24.438Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-28a94da52d58",
@@ -468,7 +1503,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:24.132Z"
+      "firstSeenAt": "2026-08-23T21:27:24.132Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-b3ecfe04e4e7",
@@ -546,7 +1582,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:23.830Z"
+      "firstSeenAt": "2026-08-23T21:27:23.830Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-e9e048877871",
@@ -624,7 +1661,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:23.528Z"
+      "firstSeenAt": "2026-08-23T21:27:23.528Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-a1a9b7953427",
@@ -702,7 +1740,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:23.225Z"
+      "firstSeenAt": "2026-08-23T21:27:23.225Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-29c10e95757e",
@@ -780,7 +1819,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:22.922Z"
+      "firstSeenAt": "2026-08-23T21:27:22.922Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-f94cbcaea4ff",
@@ -858,7 +1898,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:22.620Z"
+      "firstSeenAt": "2026-08-23T21:27:22.620Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-12e176d35040",
@@ -936,7 +1977,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:22.318Z"
+      "firstSeenAt": "2026-08-23T21:27:22.318Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-6cead5aea964",
@@ -1014,7 +2056,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:22.015Z"
+      "firstSeenAt": "2026-08-23T21:27:22.015Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-b63f15474844",
@@ -1092,7 +2135,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:21.711Z"
+      "firstSeenAt": "2026-08-23T21:27:21.711Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-e61378a76334",
@@ -1170,7 +2214,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:27:21.379Z"
+      "firstSeenAt": "2026-08-23T21:27:21.379Z",
+      "crawlerMissStreak": 1
     }
   ]
 }
