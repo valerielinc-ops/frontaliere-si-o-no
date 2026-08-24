@@ -53099,6 +53099,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-aziende-biologiche-2026': {
+    title: 'Siccità: deroga per aziende biologiche sull\'acquisto mangimi',
+    description: 'L\'UFAG autorizza fino al 20% di mangimi convenzionali per aziende biologiche a causa della siccità 2026. Deroga valida fino a fine anno. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, deroga, aziende, biologiche',
+    ogTitle: 'Siccità: deroga per aziende biologiche sull\'acquisto mangimi',
+    ogDescription: 'L\'Ufficio federale dell\'agricoltura autorizza eccezionalmente le aziende biologiche svizzere a coprire fino al 20% del fabbisogno foraggero con alimenti convenzionali per affrontare la carenza causata dalla siccità estiva 2026. Misura valida fino',
+    canonicalPath: '/articoli-svizzera/siccita-aziende-biologiche-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità: deroga per aziende biologiche sull'acquisto mangimi",
+      "description": "L'UFAG autorizza fino al 20% di mangimi convenzionali per aziende biologiche a causa della siccità 2026. Deroga valida fino a fine anno. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-aziende-biologiche-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pascolo alpino secco durante la siccità dell'estate 2026 in Svizzera, con erba marrone e valle alpina sullo sfondo"
+      },
+      "datePublished": "2026-08-24T11:45:03+00:00",
+      "dateModified": "2026-08-24T11:45:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-aziende-biologiche-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

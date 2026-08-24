@@ -4093,6 +4093,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.skyguide-luglio-2026-voli-record.title': 'Luftverkehr am Himmel: 4761 Flüge am 24. Juli',
     'blog.article.skyguide-luglio-2026-voli-record.excerpt': 'Am 24. Juli 2026 der Rekord: Skyguide zählte 4761 Flüge am Schweizer Himmel. Sommersaison mit 240.108 Flügen, 93% Pünktlichkeit, 65% Verspätungen durch schlechtes Wetter.',
     'blog.article.skyguide-luglio-2026-voli-record.imageAlt': 'Luftaufnahme des Flughafens Zürich mit stark genutzten Landebahnen im Sommer',
+    'blog.article.siccita-aziende-biologiche-2026.title': 'Dürre: Ausnahme für Biobetriebe beim Kauf von Futtermitteln',
+    'blog.article.siccita-aziende-biologiche-2026.excerpt': 'Das BLW bewilligt aufgrund der Trockenheit 2026 bis zu 20% konventionelle Futtermittel für Biobetriebe. Ausnahmeregelung gültig bis Jahresende.',
+    'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Trockene Alpweiden während der Dürre im Sommer 2026 in der Schweiz, mit braunem Gras und Alpental im Hintergrund',
 };
 
 export default blogMetaChDe;

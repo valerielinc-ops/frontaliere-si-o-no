@@ -12277,6 +12277,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'siccita-aziende-biologiche-2026',
+    category: 'novita',
+    date: '2026-08-24T11:45:03.428Z',
+    image: '/images/blog/siccita-aziende-biologiche-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

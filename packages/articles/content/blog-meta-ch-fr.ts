@@ -4093,6 +4093,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.skyguide-luglio-2026-voli-record.title': 'Trafic aérien dans le ciel : 4761 vols le 24 juillet',
     'blog.article.skyguide-luglio-2026-voli-record.excerpt': 'Le 24 juillet 2026, le record : Skyguide a compté 4761 vols dans le ciel suisse. Saison estivale avec 240 108 vols, 93 % à l\'heure, 65 % de retards dus au mauvais temps.',
     'blog.article.skyguide-luglio-2026-voli-record.imageAlt': 'Vue aérienne de l\'aéroport de Zurich avec des pistes de décollage chargées en été',
+    'blog.article.siccita-aziende-biologiche-2026.title': 'Siccità: deroga per le aziende biologiche',
+    'blog.article.siccita-aziende-biologiche-2026.excerpt': 'L\'OFAG autorise jusqu\'à 20 % d\'aliments conventionnels pour les exploitations biologiques en raison de la sécheresse 2026. Dérogation valable jusqu\'à la fin de l\'année.',
+    'blog.article.siccita-aziende-biologiche-2026.imageAlt': 'Pâturages alpins secs lors de la sécheresse d\'été 2026 en Suisse, avec herbe brune et vallée alpine en arrière-plan',
 };
 
 export default blogMetaChFr;
