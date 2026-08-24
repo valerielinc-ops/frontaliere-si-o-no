@@ -4042,6 +4042,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Praktikum und Entlohnung im Kanton Solothurn: Praxisleitfaden',
     'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Erfahren Sie, wie Sie ein Praktikum im Kanton Solothurn finden, die vertraglichen Pflichten und die Entlohnung des Lernenden mit Steuerabzügen und Sozialversicherungsbeiträgen.',
     'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'Ein Lehrling arbeitet praktisch in einer Werkstatt während der beruflichen Ausbildung in der Schweiz.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Kinderbetreuung in der Schweiz: Kosten und kantonale Zuschüsse',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Wie funktioniert die Kinderbetreuung in der Schweiz, welche Kosten gibt es für Kinderkrippen und welche kantonalen Familienbeiträge stehen zur Verfügung?',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Schweizer Kinderbetreuungszentrum mit Kindern, die an einem sonnigen Frühjahrstag draußen spielen',
 };
 
 export default blogMetaChDe;
