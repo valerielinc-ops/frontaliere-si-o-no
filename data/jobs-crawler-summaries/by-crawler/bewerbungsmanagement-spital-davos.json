@@ -1,20 +1,21 @@
 {
   "key": "bewerbungsmanagement-spital-davos",
   "label": "Bewerbungsmanagement Spital Davos",
-  "generatedAt": "2026-08-23T21:50:39.742Z",
+  "generatedAt": "2026-08-24T10:32:08.986Z",
   "total": 10,
   "discovered": null,
   "written": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7003,
-  "avgDurationMs": 7003,
+  "durationMs": 8011,
+  "avgDurationMs": 8011,
   "durationHistory": [
-    7003
+    8011
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bewerbungsmanagement-spital-davos-8ffd47c9db62",
       "slug": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-bewerbungsmanagement-spital-davos-ch",
@@ -27,7 +28,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:50:34.350Z",
+      "crawledAt": "2026-08-24T10:32:02.564Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:34.350Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:50:34.673Z",
+      "crawledAt": "2026-08-24T10:32:02.882Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:34.673Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:34.977Z",
+      "crawledAt": "2026-08-24T10:32:03.185Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,17 +111,19 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:34.977Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
     {
       "id": "bewerbungsmanagement-spital-davos-413f4ce6c15e",
-      "slug": "projektmanagement-und-unternehmensentwicklung-80-100-bewerbungsmanagement-spital-davos-ch",
+      "slug": "projektmanagement-e-unternehmensentwicklung-80-100-spital-davos",
       "company": "Bewerbungsmanagement Spital Davos",
       "companyKey": "bewerbungsmanagement-spital-davos",
       "companyDomain": "recruitingapp-2966.umantis.com",
@@ -126,7 +133,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/723/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:35.280Z",
+      "crawledAt": "2026-08-24T10:32:03.488Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,11 +146,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/723/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:35.280Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -159,7 +168,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/729/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:35.584Z",
+      "crawledAt": "2026-08-24T10:32:03.792Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,11 +181,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/729/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:35.584Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -192,7 +203,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/727/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:50:35.887Z",
+      "crawledAt": "2026-08-24T10:32:04.095Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,11 +216,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/727/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:35.887Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -225,7 +238,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/649/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:36.190Z",
+      "crawledAt": "2026-08-24T10:32:04.399Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,11 +251,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/649/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:36.190Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -258,7 +273,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/650/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:36.493Z",
+      "crawledAt": "2026-08-24T10:32:04.701Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,11 +286,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/650/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:36.493Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -291,7 +308,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/652/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:36.796Z",
+      "crawledAt": "2026-08-24T10:32:05.003Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,11 +321,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/652/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:36.796Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -324,7 +343,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/725/Description/1",
       "source": "Bewerbungsmanagement Spital Davos Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:50:37.099Z",
+      "crawledAt": "2026-08-24T10:32:05.309Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -337,16 +356,17 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/725/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:50:37.099Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
