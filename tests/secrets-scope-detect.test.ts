@@ -1,13 +1,16 @@
 /**
- * secrets-scope-detect — zero-Claude pre-promotion gate for followup-drainer.mjs
+ * secrets-scope-detect — pre-promotion detector for followup-drainer.mjs
  * (escalation #5057, bucket fix-outcome:blocked-secrets 6x/14d).
  *
- * `cloudflare-5xx` / `campaign-goal` / `evergreen-refresh` issues structurally
- * require a Firebase-RC-loaded credential never available to `issue-fix` (GH_TOKEN
- * only) — promoting them to `agent:fix` always burns a full Claude run that ends
- * `blocked-secrets`. This detector intercepts them PRE-promotion, mirroring
- * `detectWorkflowScoped` (#1724). CONSERVATIVE (bias to promote): only the 3 known
- * monitor-applied labels trigger a park.
+ * `cloudflare-5xx` / `campaign-goal` / `evergreen-refresh` issues used to
+ * structurally require a Firebase-RC-loaded credential never available to
+ * `issue-fix` (GH_TOKEN only) — promoting them to `agent:fix` always burned a
+ * full Claude run that ended `blocked-secrets`. This detector intercepted
+ * them PRE-promotion, mirroring `detectWorkflowScoped` (#1724). From
+ * 2026-08-24 `issue-fix.yml` loads Remote Config too (owner decision,
+ * VISION.md), so that credential is now present and the drainer promotes
+ * these anyway — the detector's match is logged, not parking. CONSERVATIVE
+ * (bias to promote): only the 3 known monitor-applied labels ever match.
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

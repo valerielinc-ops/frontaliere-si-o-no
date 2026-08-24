@@ -263,3 +263,31 @@ describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () 
     expect(drainer).toMatch(/if \(!issueFixCanPushWorkflows && body && detectWorkflowScoped/);
   });
 });
+
+describe('secrets: USO autorizzato ≠ ROTAZIONE (review round 2, #6333)', () => {
+  // Trovato dalla review su #6333: il capability-guard aggiornato dice "USALA" per
+  // qualunque fix che richiede una credenziale, ma non distingue "usare un secret che
+  // c'è" da "ruotarlo/rigenerarlo/revocarlo" — un'azione fuori-banda che nessuna
+  // variabile in process.env può soddisfare. VISION.md distingue le due cose (uso
+  // autorizzato il 24-08, rotazione dichiarata umana il 18-08); senza quella
+  // distinzione riportata anche in ISSUES.md, un'issue di rotazione rischiava di far
+  // tentare al fixer un'implementazione impossibile invece di abortire al turno 1 —
+  // lo stesso spreco (~1M token/run) che questa PR misura ed elimina, nella direzione
+  // opposta.
+  const issues = readFileSync(resolve(__dirname, '../ISSUES.md'), 'utf8');
+
+  it('ISSUES.md dice di USARE una credenziale disponibile, non più di abortire', () => {
+    expect(issues).toContain('I segreti CI SONO');
+    expect(issues).toMatch(/richiede una credenziale va \*\*IMPLEMENTATO\*\*/);
+    expect(issues).not.toContain('Fix richiede credenziali/segreti non in CI → documenta + termina.');
+  });
+
+  it('ISSUES.md porta l\'eccezione esplicita per la rotazione', () => {
+    expect(issues).toMatch(/rotazione di credenziali/i);
+    expect(issues).toContain('resta una decisione umana');
+  });
+
+  it('la stessa distinzione vive anche nel prompt di issue-fix.yml', () => {
+    expect(raw).toContain('I SEGRETI CI SONO');
+  });
+});

@@ -5,12 +5,16 @@
  * STRUCTURAL fix for escalation #5057 (bucket fix-outcome:blocked-secrets, 6x/14d:
  * #5052 #5040 #5035 #5034 #5036 #5021). Three monitor-filed issue categories are
  * auto-routed to `agent:fix-queued` (no category regex match in classify-issue.mjs
- * → catch-all `other`, see ISSUES.md "Categorie") and structurally CANNOT be fixed
- * by the issue-fix.yml Claude agent, which runs with `GH_TOKEN` (GitHub App) only —
- * no Firebase Remote Config SA, so none of CF_API_TOKEN / POSTHOG_PERSONAL_API_KEY+
- * POSTHOG_PROJECT_ID / GEMINI_API_KEY+GH_MODELS_PAT are ever available to it
- * (scripts/load-rc-env.mjs requires GOOGLE_APPLICATION_CREDENTIALS, absent in this
- * container):
+ * → catch-all `other`, see ISSUES.md "Categorie") and, until 2026-08-24, were
+ * structurally unfixable by the issue-fix.yml Claude agent: it ran with
+ * `GH_TOKEN` (GitHub App) only, no Firebase Remote Config SA, so none of
+ * CF_API_TOKEN / POSTHOG_PERSONAL_API_KEY+POSTHOG_PROJECT_ID / GEMINI_API_KEY+
+ * GH_MODELS_PAT were ever available to it (scripts/load-rc-env.mjs requires
+ * GOOGLE_APPLICATION_CREDENTIALS, absent in that container). From 2026-08-24
+ * `issue-fix.yml` loads Remote Config too (owner decision, VISION.md), so the
+ * credential these three categories used to lack is now present — this
+ * module's parking behaviour below is retained only as a log signal (see the
+ * PROCEED-SAFE note further down), not because the fix is still impossible:
  *
  *   - `cloudflare-5xx` (scripts/cf-status-report.mjs / cf-5xx-issue-sync.mjs): root
  *     cause verification/mitigation is a Cloudflare zone-setting check
@@ -32,8 +36,10 @@
  * Promoting any of these to `agent:fix` burns a full Claude diagnosis run that always
  * concludes `blocked-secrets` (or `no-root-cause` for the identical reason) — same
  * waste shape that #1724 fixed for `.github/workflows/**`-only issues via
- * `detectWorkflowScoped`. This module lets followup-drainer.mjs park these PRE-
- * promotion, zero Claude tokens, mirroring that gate.
+ * `detectWorkflowScoped`. This module used to let followup-drainer.mjs park
+ * these PRE-promotion, zero Claude tokens, mirroring that gate — until
+ * 2026-08-24 (see the note at the top of this file): the drainer now logs the
+ * match and promotes anyway, since the credential it used to lack is loaded.
  *
  * PROCEED-SAFE (bias to promote): only the 3 labels below trigger a park. Each is
  * applied exclusively by its own monitor script (not guessable/spoofable from issue
