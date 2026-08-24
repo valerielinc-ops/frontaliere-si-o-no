@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2563",
   "label": "Switch Bewerbermanagement Stellen",
-  "generatedAt": "2026-08-23T21:32:47.923Z",
+  "generatedAt": "2026-08-24T10:24:38.314Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4721,
-  "avgDurationMs": 4721,
+  "durationMs": 4100,
+  "avgDurationMs": 4100,
   "durationHistory": [
-    4721
+    4100
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/547/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:32:44.399Z",
+      "crawledAt": "2026-08-24T10:24:35.212Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:32:44.718Z",
+      "crawledAt": "2026-08-24T10:24:35.538Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,13 +76,12 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T09:47:24.585Z",
-      "_qualityScore": 63,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     }

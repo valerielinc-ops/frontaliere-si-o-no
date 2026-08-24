@@ -1,7 +1,7 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-23T21:25:32.791Z",
+  "generatedAt": "2026-08-24T10:18:40.281Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4541,
-  "avgDurationMs": 4541,
+  "durationMs": 4060,
+  "avgDurationMs": 4060,
   "durationHistory": [
-    4541
+    4060
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,13 +23,13 @@
       "companyKey": "hrc",
       "companyDomain": "hopitalrivierachablais.ch",
       "title": "Physiothérapeute H/F à 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Rennaz",
       "canton": "VD",
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/physiotherapeute-hf-a-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:25:29.939Z",
+      "crawledAt": "2026-08-24T10:18:38.132Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:25:29.969Z",
+      "crawledAt": "2026-08-24T10:18:38.152Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",

@@ -1,20 +1,21 @@
 {
   "key": "hotel-international",
   "label": "Hotel International au Lac",
-  "generatedAt": "2026-08-23T21:26:34.090Z",
+  "generatedAt": "2026-08-24T10:03:39.647Z",
   "total": 5,
   "discovered": null,
   "written": 5,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6050,
-  "avgDurationMs": 6050,
+  "durationMs": 5662,
+  "avgDurationMs": 5662,
   "durationHistory": [
-    6050
+    5662
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hotel-international-f32cdb371cac",
       "slug": "perche-prenotare-direttamente-hotel-international-ch",
@@ -27,7 +28,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/perche-prenotare-direttamente/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:29.847Z",
+      "crawledAt": "2026-08-24T10:03:35.892Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/perche-prenotare-direttamente/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:29.847Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/alla-scoperta-delle-camere-rinnovate-a-superprezzi/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:30.166Z",
+      "crawledAt": "2026-08-24T10:03:36.221Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/alla-scoperta-delle-camere-rinnovate-a-superprezzi/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:30.166Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/offerta-speciale-3-notti/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:30.469Z",
+      "crawledAt": "2026-08-24T10:03:36.528Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,11 +111,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/offerta-speciale-3-notti/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:30.469Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -126,7 +133,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/prenota-senza-carta-di-credito/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:30.779Z",
+      "crawledAt": "2026-08-24T10:03:36.831Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,11 +146,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/prenota-senza-carta-di-credito/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:30.779Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -159,7 +168,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/top-3-star-hotels-of-switzerland/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:31.088Z",
+      "crawledAt": "2026-08-24T10:03:37.134Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,16 +181,17 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/top-3-star-hotels-of-switzerland/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:31.088Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

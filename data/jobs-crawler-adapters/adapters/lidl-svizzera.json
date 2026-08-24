@@ -95,7 +95,6 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-chur-727550",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-dietikon-727554",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-frauenfeld-727499",
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-giubiasco-727553",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-gretzenbach-727525",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-herisau-727537",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-horgen-727542",
@@ -139,7 +138,6 @@
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-1-muri-ag-695104",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-aarau-ag-737962",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-affoltern-am-albis-712361",
-    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-amriswil-716870",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-baden-702620",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-bern-686600",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-bern-702221",
@@ -196,7 +194,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-dietikon-738613",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-duebendorf-701472",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-gretzenbach-708079",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-luzern-728425",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-schlieren-738602",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-schlieren-738631",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-wallisellen-711246",
@@ -286,7 +283,7 @@
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-yverdon-les-bains-725860",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-bulle-715218",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-fribourg-696132",
-    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-mont-sur-lausanne-676669",
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-moudon-732941",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-conthey-648471",
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-suppleant-e-h-f-d-80-100-sierre-656566",
@@ -311,7 +308,7 @@
     "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st.-moritz-728439"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-23T21:23:22.563Z",
+  "updatedAt": "2026-08-24T09:58:57.876Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -359,15 +356,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-amriswil-716858": {
-      "location": "Amriswil",
-      "addressLocality": "Amriswil",
-      "canton": "TG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-amriswil-716870": {
       "location": "Amriswil",
       "addressLocality": "Amriswil",
       "canton": "TG",
@@ -1627,7 +1615,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-oensingen-710900": {
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-oensingen-734320": {
       "location": "Oensingen",
       "addressLocality": "Oensingen",
       "canton": "SO",
@@ -1636,7 +1624,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-oensingen-734320": {
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-oensingen-710900": {
       "location": "Oensingen",
       "addressLocality": "Oensingen",
       "canton": "SO",
@@ -1807,15 +1795,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-sursee-716555": {
-      "location": "Sursee",
-      "addressLocality": "Sursee",
-      "canton": "LU",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-sursee-727275": {
       "location": "Sursee",
       "addressLocality": "Sursee",
@@ -1826,6 +1805,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-sursee-725854": {
+      "location": "Sursee",
+      "addressLocality": "Sursee",
+      "canton": "LU",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-sursee-716555": {
       "location": "Sursee",
       "addressLocality": "Sursee",
       "canton": "LU",
@@ -2013,15 +2001,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-luzern-728425": {
-      "location": "Luzern",
-      "addressLocality": "Luzern",
-      "canton": "LU",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-luzern-728414": {
       "location": "Luzern",
@@ -2680,6 +2659,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-moudon-732941": {
+      "location": "Moudon",
+      "addressLocality": "Moudon",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-bulle-695660": {
       "location": "Bulle",
       "addressLocality": "Bulle",
@@ -2743,27 +2731,9 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-mont-sur-lausanne-676669": {
-      "location": "Mont-sur-Lausanne",
-      "addressLocality": "Mont-sur-Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228": {
       "location": "Arbedo-Castione",
       "addressLocality": "Arbedo-Castione",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-giubiasco-727553": {
-      "location": "Giubiasco",
-      "addressLocality": "Giubiasco",
       "canton": "TI",
       "country": "CH",
       "company": "Lidl Svizzera",

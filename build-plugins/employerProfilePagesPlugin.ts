@@ -873,7 +873,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const html = buildSeoPageHtml({
             locale,
             title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
-            description: introProse(liveProfile, group, locale).slice(0, 160),
+            description: introProse(liveProfile, group, locale),
             canonicalUrl,
             robots: indexable ? 'index,follow' : 'noindex,follow',
             ogType: 'website',
