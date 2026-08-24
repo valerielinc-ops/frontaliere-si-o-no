@@ -141,7 +141,18 @@ async function main() {
     }
 
     const db = admin.default.firestore();
-    const snap = await db.collection('article_views').get();
+
+    // The loop below keeps a document only if it was viewed inside the 30-day
+    // half-weight window, so the window belongs in the query. Documents with
+    // no `lastViewed` are excluded by the filter and were already dropped by
+    // the loop (missing timestamp reads as epoch 0, i.e. older than any
+    // window). Measured 2026-08-24: 4.234 docs in article_views, 3.736 inside
+    // the window — a 12% cut today, on a collection that only grows. The same
+    // shape on job_views (scripts/fetch-job-popularity.mjs) cuts 97%.
+    const snap = await db.collection('article_views')
+      .where('lastViewed', '>=', new Date(Date.now() - THIRTY_DAYS_MS))
+      .select('views', 'lastViewed')
+      .get();
 
     const now = Date.now();
     const entries = [];
@@ -169,7 +180,10 @@ async function main() {
 
     const payload = {
       generatedAt: new Date().toISOString(),
+      // Documents read, which since the window moved into the query is no
+      // longer the size of the collection.
       totalScanned: snap.size,
+      scanWindowDays: THIRTY_DAYS_MS / 86400000,
       eligible: entries.length,
       entries: top,
     };
