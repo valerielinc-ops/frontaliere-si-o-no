@@ -10676,6 +10676,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malesco-frontaliere-ticino.title': 'Vivre à Malesco, travailler au Tessin : guide pratique',
     'blog.article.malesco-frontaliere-ticino.excerpt': 'Déménager à Malesco pour travailler au Tessin : points de passage, temps de trajet, fiscalité avantageuse et coûts réduits pour les frontaliers.',
     'blog.article.malesco-frontaliere-ticino.imageAlt': 'Vue du coucher de soleil sur Lugano avec les montagnes tessinoises en arrière-plan.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.title': 'Suisse, le travail temporaire reprend : quels effets pour les frontaliers',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.excerpt': 'Le marché du travail suisse enregistre un signal de reprise dans le secteur du travail intérimaire, avec une augmentation des heures travaillées intérimaires de 1,5% au premier semestre 2026.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.imageAlt': 'Frontalier regardant la ville de Lugano.',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Vivre à Locate Varesino et travailler au Tessin : avantages et inconvénients',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'Les frontaliers qui travaillent au Tessin depuis Locate Varesino peuvent bénéficier de liaisons efficaces et de temps de trajet raisonnables. Le coût de la vie est généralement plus élevé qu\'en Italie frontalière, mais les zones recommandées offrent un équilibre entre vie urbaine et nature.',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier travaillant en Suisse du nord-ouest de Locarno',
 };
 
 export default blogMetaFr;

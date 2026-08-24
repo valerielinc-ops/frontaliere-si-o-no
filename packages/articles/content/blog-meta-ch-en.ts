@@ -4036,6 +4036,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.classi-scolastiche-create-algoritmo.title': 'School classes created with an algorithm, the Uster experiment',
     'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'The city of Uster has implemented software to create more balanced school classes, ensuring equal opportunities for all students.',
     'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'The city of Uster implements a software to create more balanced school classes, ensuring equal opportunities for all students.',
+    'blog.article.sunrise-salt-rete-cooperazione.title': 'Sunrise and salt consider closer cooperation on the mobile network',
+    'blog.article.sunrise-salt-rete-cooperazione.excerpt': 'Cooperation between Sunrise and salt could improve coverage, reception and connection quality in Switzerland, especially in rural and less populated areas.',
+    'blog.article.sunrise-salt-rete-cooperazione.imageAlt': 'Image of a user with smartphone in a Swiss rural area, with stable and fast connection.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Internship and salary in the canton of Solothurn: practical guide',
+    'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Find out how to find an internship in the canton of Solothurn, the obligations of the contract and the remuneration of the apprentice with tax deductions and social contributions.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'An apprentice works hands-on in a workshop during practical vocational training in Switzerland.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Childcare in Switzerland: cantonal costs and subsidies',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'How childcare works in Switzerland, what are the costs of kindergartens and the subsidies available to families at cantonal level.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Swiss daycare center with children playing outside on a sunny spring day',
 };
 
 export default blogMetaChEn;
