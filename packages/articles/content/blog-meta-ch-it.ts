@@ -4117,6 +4117,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Asilo nido e custodia: costi e sussidi in Svizzera',
     'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Scopri come funziona la custodia bambini in Svizzera: asili nido, tariffe, sussidi cantonali e deduzioni fiscali. Guida pratica per le famiglie.',
     'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Bambini in un asilo nido svizzero durante l\'attività ricreativa in una struttura moderna e luminosa.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Comprare casa a Basilea Città: mutuo e costi',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Guida pratica all\'acquisto immobiliare nel canton Basilea Città: finanziamento ipotecario, imposte sui trapassi, spese notarili e procedura step-by-step. Dove informarsi per i dati locali specifici.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Casa moderna in stile svizzero nel canton Basilea Città con vista su contesto urbano',
 };
 
 export default blogMetaChIt;

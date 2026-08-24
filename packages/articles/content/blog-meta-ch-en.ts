@@ -4117,6 +4117,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Nursery and childcare: costs and subsidies in Switzerland',
     'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Find out how childcare works in Switzerland: kindergartens, fees, cantonal subsidies and tax deductions. Practical guide for families.',
     'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Children at a Swiss daycare center during play time in a modern bright facility.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Buying a house in Basel City: mortgage and costs',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Practical guide to buying real estate in the canton of Basel-City: mortgage financing, transfer taxes, notary fees and step-by-step procedure. Where to inquire for specific local data.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Modern Swiss residential property in Basel-Stadt canton with urban surroundings',
 };
 
 export default blogMetaChEn;

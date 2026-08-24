@@ -4117,6 +4117,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Kindertagesstätte und Obhut: Kosten und Leistungen in der Schweiz',
     'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Erfahren Sie, wie die Kinderbetreuung in der Schweiz funktioniert: Kindergärten, Tarife, Kantonsbeiträge und Steuerabzüge. Praktischer Leitfaden für Familien.',
     'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Kinder in einem Schweizer Kindergarten während der Spielzeit in einer modernen hellen Einrichtung.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Haus kaufen in Basel-Stadt: Hypothek und Kosten',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Praktischer Leitfaden zum Immobilienkauf im Kanton Basel-Stadt: Hypothekenfinanzierung, Ablösesummen, Notarkosten und Schritt-für-Schritt-Verfahren. Wo Sie sich über die spezifischen lokalen Daten informieren können.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Modernes Schweizer Wohnhaus im Kanton Basel-Stadt mit städtischem Hintergrund',
 };
 
 export default blogMetaChDe;
