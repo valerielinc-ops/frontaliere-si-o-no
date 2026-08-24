@@ -4018,6 +4018,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Public transport tickets canton Freiburg: zones and fares',
     'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Progressive fare zones, annual and monthly subscriptions, discounts for students: a complete guide to public transport in Freiburg and the country.',
     'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Swiss railway station with tariff zones information and public transport subscription displays.',
+    'blog.article.avviare-attivita-friburgo-step.title': 'Opening a business in Freiburg: registration and costs',
+    'blog.article.avviare-attivita-friburgo-step.excerpt': 'Legal form, registration in the trade register, 3-tier taxation and legal obligations. How to start a business in the Canton of Freiburg.',
+    'blog.article.avviare-attivita-friburgo-step.imageAlt': 'Swiss cantonal business registration office storefront with official signage',
 };
 
 export default blogMetaChEn;

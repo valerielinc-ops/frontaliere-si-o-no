@@ -1365,6 +1365,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-friburgo-cassa': { it: 'avs-prestazioni-complementari-friburgo-cassa', en: 'avs-pension-benefits-fribourg-compensation-fund', de: 'ahv-ergaenzungsleistungen-freiburg-ausgleichskasse', fr: 'avs-prestations-complementaires-fribourg-caisse-compensation' },
  'abbonamenti-trasporti-friburgo': { it: 'abbonamenti-trasporti-friburgo', en: 'public-transport-subscriptions-friburgo', de: 'abonnementes-oeffentliche-verkehrsmittel-freiburg', fr: 'abonnements-transports-publics-fribourg' },
  'abbonamenti-friburgo-zone-tariffe': { it: 'abbonamenti-friburgo-zone-tariffe', en: 'fribourg-public-transport-subscriptions-zones', de: 'freiburg-fahrkarten-abo-zonen-tarife', fr: 'fribourg-abonnements-transports-zones-tarifs' },
+ 'avviare-attivita-friburgo-step': { it: 'avviare-attivita-friburgo-step', en: 'start-business-fribourg-registration', de: 'gewerbe-freiburg-anmeldung', fr: 'creer-entreprise-fribourg-registre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

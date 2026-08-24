@@ -4018,6 +4018,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Abonnements transports publics canton de Fribourg : zones et tarifs',
     'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Zones tarifaires progressives, abonnements annuels et mensuels, réductions pour étudiants : guide complet des transports publics fribourgeois et nationaux.',
     'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Gare suisse avec informations tarifaires par zones et affichage des abonnements aux transports publics.',
+    'blog.article.avviare-attivita-friburgo-step.title': 'Ouvrir une entreprise à Fribourg : inscription et coûts',
+    'blog.article.avviare-attivita-friburgo-step.excerpt': 'Forme juridique, inscription au registre du commerce, taxation à 3 niveaux et obligations légales. Comment démarrer une entreprise dans le canton de Fribourg.',
+    'blog.article.avviare-attivita-friburgo-step.imageAlt': 'Bureau d\'enregistrement commercial d\'une administration cantonale suisse',
 };
 
 export default blogMetaChFr;
