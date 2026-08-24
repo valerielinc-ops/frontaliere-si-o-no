@@ -42,7 +42,11 @@ import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria
 // used (data/company-logos-manifest.json, 453 companies), and parseDateField
 // is the DD/MM/YY-safe date reader (#2630) — re-parsing postedDate locally
 // would risk the same day/month swap that fix closed.
-import { resolveLogoUrl, parseDateField } from '../services/newsletter-content.mjs';
+// formatSalary/emailTagChip/normalizeContract are shared with
+// send-job-alerts.mjs (#6104/#6xxx "align saved-jobs digest to the job-alert
+// layout") so the two job-card renderers can't drift apart.
+import { resolveLogoUrl, parseDateField, formatSalary, emailTagChip, normalizeContract } from '../services/newsletter-content.mjs';
+import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 // localePathPrefix aliased to the local name this script has always used —
@@ -59,6 +63,17 @@ const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX_SAVED_LISTED = 20; // hard UI cap, matches SAVED_JOBS_CAP order of magnitude
 const MAX_RECOMMENDATIONS = 3;
+
+// Brand palette — same tokens/values as buildAlertEmail in send-job-alerts.mjs
+// so the job-alert and saved-jobs-digest emails read as one product.
+const BRAND_ORANGE = '#f97316';
+const BRAND_DARK = '#0f172a';
+const DARK_CARD = '#1e293b';
+const LIGHT_BG = '#f1f5f9';
+const WHITE = '#ffffff';
+const MUTED = '#64748b';
+const CARD_BG = '#f8fafc';
+const MUTED_ON_DARK = '#94a3b8';
 
 const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
 if (TARGET_EMAIL_RAW) {
@@ -146,6 +161,11 @@ const EMAIL_STRINGS = {
     preheader: 'Un riepilogo settimanale di quello che hai messo da parte.',
     heroTitle: 'I tuoi lavori salvati',
     heroDesc: 'Promemoria settimanale — nessuno di questi è andato perso.',
+    sectionLabel: '📌 Salvati',
+    sectionTitle: 'I lavori che hai messo da parte',
+    sectionDesc: 'Dal più recente al più vecchio, con l\'annuncio ancora attivo dove disponibile.',
+    manageCta: 'Vai ai salvati →',
+    newBadge: '✨ NUOVA',
     expiredBadge: 'Annuncio scaduto',
     at: 'presso',
     postedOn: 'Pubblicato il',
@@ -154,6 +174,7 @@ const EMAIL_STRINGS = {
     recoTitle: '✨ Potrebbero interessarti anche',
     closer: 'Ricevi questa email perché hai salvato almeno un lavoro. Puoi disiscriverti in ogni momento.',
     closerSign: 'Alla prossima. ☕',
+    footerSentTo: (email) => `Questa email è stata inviata a ${email} perché hai almeno un lavoro salvato su Frontaliere Ticino.`,
     unsubLine: 'Disiscriviti da questo promemoria (i tuoi altri alert non vengono toccati):',
     unsubLink: 'Disiscriviti dal promemoria settimanale',
     textViewAllLine: 'Gestisci i salvati:',
@@ -164,6 +185,11 @@ const EMAIL_STRINGS = {
     preheader: 'A weekly recap of what you bookmarked.',
     heroTitle: 'Your saved jobs',
     heroDesc: "Weekly reminder — none of these are lost.",
+    sectionLabel: '📌 Saved',
+    sectionTitle: 'The jobs you set aside',
+    sectionDesc: 'Most recent first, with the live listing where still available.',
+    manageCta: 'Go to saved jobs →',
+    newBadge: '✨ NEW',
     expiredBadge: 'Listing expired',
     at: 'at',
     postedOn: 'Posted on',
@@ -172,6 +198,7 @@ const EMAIL_STRINGS = {
     recoTitle: '✨ You might also like',
     closer: "You're getting this because you saved at least one job. You can unsubscribe anytime.",
     closerSign: 'See you next week. ☕',
+    footerSentTo: (email) => `This email was sent to ${email} because you have at least one saved job on Frontaliere Ticino.`,
     unsubLine: 'Unsubscribe from this reminder (your other alerts stay untouched):',
     unsubLink: 'Unsubscribe from the weekly reminder',
     textViewAllLine: 'Manage saved jobs:',
@@ -182,6 +209,11 @@ const EMAIL_STRINGS = {
     preheader: 'Eine wöchentliche Übersicht Ihrer gemerkten Stellen.',
     heroTitle: 'Ihre gespeicherten Stellen',
     heroDesc: 'Wöchentliche Erinnerung — keine davon ist verloren.',
+    sectionLabel: '📌 Gespeichert',
+    sectionTitle: 'Die Stellen, die Sie sich gemerkt haben',
+    sectionDesc: 'Neueste zuerst, mit dem noch aktiven Angebot, wo verfügbar.',
+    manageCta: 'Zu den gespeicherten Stellen →',
+    newBadge: '✨ NEU',
     expiredBadge: 'Angebot abgelaufen',
     at: 'bei',
     postedOn: 'Veröffentlicht am',
@@ -190,6 +222,7 @@ const EMAIL_STRINGS = {
     recoTitle: '✨ Das könnte Sie auch interessieren',
     closer: 'Sie erhalten diese E-Mail, weil Sie mindestens eine Stelle gespeichert haben. Sie können sich jederzeit abmelden.',
     closerSign: 'Bis nächste Woche. ☕',
+    footerSentTo: (email) => `Diese E-Mail wurde an ${email} gesendet, weil Sie mindestens eine Stelle auf Frontaliere Ticino gespeichert haben.`,
     unsubLine: 'Von dieser Erinnerung abmelden (Ihre anderen Alerts bleiben unberührt):',
     unsubLink: 'Von der wöchentlichen Erinnerung abmelden',
     textViewAllLine: 'Gespeicherte Stellen verwalten:',
@@ -200,6 +233,11 @@ const EMAIL_STRINGS = {
     preheader: 'Un récapitulatif hebdomadaire de ce que vous avez mis de côté.',
     heroTitle: 'Vos offres enregistrées',
     heroDesc: "Rappel hebdomadaire — aucune n'est perdue.",
+    sectionLabel: '📌 Enregistrées',
+    sectionTitle: 'Les offres que vous avez mises de côté',
+    sectionDesc: "Les plus récentes d'abord, avec l'annonce encore active si disponible.",
+    manageCta: 'Voir mes offres enregistrées →',
+    newBadge: '✨ NOUVELLE',
     expiredBadge: 'Offre expirée',
     at: 'chez',
     postedOn: 'Publié le',
@@ -208,6 +246,7 @@ const EMAIL_STRINGS = {
     recoTitle: '✨ Pourrait aussi vous intéresser',
     closer: 'Vous recevez cet e-mail car vous avez enregistré au moins une offre. Vous pouvez vous désabonner à tout moment.',
     closerSign: 'À la semaine prochaine. ☕',
+    footerSentTo: (email) => `Cet e-mail a été envoyé à ${email} car vous avez au moins une offre enregistrée sur Frontaliere Ticino.`,
     unsubLine: 'Se désabonner de ce rappel (vos autres alertes restent actives) :',
     unsubLink: 'Se désabonner du rappel hebdomadaire',
     textViewAllLine: 'Gérer les offres enregistrées :',
@@ -253,10 +292,17 @@ function formatPostedDate(raw, locale) {
 //   - date:     `postedDate` (98.67%), see formatPostedDate above.
 //   - sector:   `sector` (88.30%) preferred, `category` (100%) as fallback so
 //               the tag is present whenever ANY classification exists.
+//
+// Card chrome (dark card, whole-card link, badge row) is deliberately aligned
+// with buildAlertEmail's jobCards in send-job-alerts.mjs — same avatar size,
+// same NEW/salary/contract/location badge set in the same order, same
+// palette — so the saved-jobs reminder and the job alert read as one
+// product. postedDate/sector stay saved-digest-only additions (job-alert
+// doesn't carry them) rendered as a small detail line under the badges.
 function renderJobCard(entry, locale, s, { expired }) {
   const url = expired ? `${BASE_URL}/cerca-lavoro-ticino/` : entry.url;
-  const badge = expired
-    ? `<span style="display:inline-block;background:#fee2e2;color:#b91c1c;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`
+  const titleBadge = expired
+    ? `<span style="display:inline-block;background:rgba(239,68,68,0.2);color:#fca5a5;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`
     : '';
 
   const locationLabel = entry.location || entry.canton || '';
@@ -266,68 +312,171 @@ function renderJobCard(entry, locale, s, { expired }) {
   const logoSrc = expired ? null : resolveLogoUrl(entry);
   const initial = (entry.company || '?').trim().charAt(0).toUpperCase() || '?';
   const avatarHtml = logoSrc
-    ? `<img src="${logoSrc}" alt="${escapeHtml(entry.company || '')}" width="40" height="40" style="display:block;width:40px;height:40px;border-radius:8px;background:#ffffff;border:1px solid #e2e8f0;object-fit:contain;padding:3px;box-sizing:border-box;">`
-    : `<div style="width:40px;height:40px;border-radius:8px;background:#f1f5f9;border:1px solid #e2e8f0;text-align:center;line-height:40px;font-size:16px;font-weight:700;color:#f97316;">${escapeHtml(initial)}</div>`;
+    ? `<img src="${logoSrc}" alt="${escapeHtml(entry.company || '')}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
+    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escapeHtml(initial)}</div>`;
 
   const metaLine = `${s.at} ${escapeHtml(entry.company)}${locationLabel ? ` · ${escapeHtml(locationLabel)}` : ''}`;
 
-  const tagParts = [];
-  if (dateLabel) tagParts.push(`${escapeHtml(s.postedOn)} ${escapeHtml(dateLabel)}`);
-  if (sectorLabel) tagParts.push(escapeHtml(sectorLabel));
-  const tagsHtml = tagParts.length
-    ? `<div style="font-size:12px;color:#94a3b8;margin-top:4px;">${tagParts.join(' &middot; ')}</div>`
+  // Badge row — same fields/order/palette as send-job-alerts.mjs's jobCards:
+  // NEW, salary, contract, location. formatSalary/normalizeContract return
+  // null/falsy for an expired entry (no live salaryMin/contract survives to
+  // it), so those chips drop out on their own without a separate branch.
+  const badges = [];
+  if (!expired) {
+    const firstSeen = entry.firstSeenAt ? new Date(entry.firstSeenAt).getTime() : 0;
+    if (firstSeen > 0 && (Date.now() - firstSeen) < 48 * 60 * 60 * 1000) {
+      badges.push(emailTagChip(s.newBadge, 'green'));
+    }
+  }
+  const salaryLabel = formatSalary(entry, locale);
+  if (salaryLabel) badges.push(emailTagChip(escapeHtml(salaryLabel), 'blue'));
+  if (entry.contract) badges.push(emailTagChip(escapeHtml(normalizeContract(entry.contract, locale))));
+  if (locationLabel) badges.push(emailTagChip(escapeHtml(locationLabel)));
+  const badgesHtml = badges.length ? `<div style="margin-top:6px;">${badges.join(' ')}</div>` : '';
+
+  const detailParts = [];
+  if (dateLabel) detailParts.push(`${escapeHtml(s.postedOn)} ${escapeHtml(dateLabel)}`);
+  if (sectorLabel) detailParts.push(escapeHtml(sectorLabel));
+  const detailHtml = detailParts.length
+    ? `<div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:6px;">${detailParts.join(' &middot; ')}</div>`
     : '';
 
   return `
-    <tr>
-      <td style="padding:14px 0;border-bottom:1px solid #e2e8f0;">
-        <table role="presentation" width="100%"><tr>
-          <td width="52" style="vertical-align:top;padding-right:12px;">${avatarHtml}</td>
-          <td style="vertical-align:top;">
-            <div style="font-size:16px;font-weight:600;color:#0f172a;">${escapeHtml(entry.title)}${badge}</div>
-            <div style="font-size:14px;color:#64748b;margin-top:2px;">${metaLine}</div>
-            ${tagsHtml}
-            <a href="${url}" style="display:inline-block;margin-top:8px;font-size:14px;color:#f97316;font-weight:600;text-decoration:none;">${s.viewJob}</a>
-          </td>
-        </tr></table>
-      </td>
-    </tr>`;
+    <tr><td style="padding:0 0 10px;">
+      <a target="_blank" rel="noopener noreferrer" href="${url}" style="text-decoration:none;display:block;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
+          <tr>
+            <td width="58" style="padding:16px 0 16px 18px;vertical-align:top;">${avatarHtml}</td>
+            <td style="padding:16px 18px 16px 14px;vertical-align:top;">
+              <div style="font-size:15px;font-weight:700;color:#f1f5f9;">${escapeHtml(entry.title)}${titleBadge}</div>
+              <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:2px;">${metaLine}</div>
+              ${badgesHtml}
+              ${detailHtml}
+              <div style="margin-top:8px;font-size:13px;color:${BRAND_ORANGE};font-weight:600;">${s.viewJob}</div>
+            </td>
+          </tr>
+        </table>
+      </a>
+    </td></tr>`;
 }
 
-function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl }) {
+// Structure aligned with buildAlertEmail in send-job-alerts.mjs: dark top
+// bar, dark hero, white section header, white panel holding the (dark) job
+// cards, closer card, dark footer with the same social row + copyright line.
+// Two deliberate differences from job-alert, both requested (#6104): the
+// revenue block sits right after the hero — above the job cards, i.e. above
+// the fold — instead of after them, and there is a single unsubscribe link
+// (this channel has no "alerts" to unsubscribe from individually).
+function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl, email }) {
   const cardsHtml = savedEntries.map((e) => renderJobCard(e, locale, s, { expired: e.expired })).join('');
   const recoHtml = recommendations.length
     ? `
-    <tr><td style="padding:24px 0 8px;font-size:16px;font-weight:700;color:#0f172a;">${s.recoTitle}</td></tr>
+    <tr><td style="padding:20px 0 8px;font-size:16px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(s.recoTitle)}</td></tr>
     ${recommendations.map((e) => renderJobCard(e, locale, s, { expired: false })).join('')}`
     : '';
 
+  // Recommended (revenue) block — config-driven affiliate/sponsor slot
+  // (#4450/#4449), same shared renderer as job-alert/newsletter/drip.
+  // Placed ABOVE the fold (right after the hero, before the saved-job
+  // cards) rather than below the cards like job-alert — deliberate for this
+  // channel, per #6104.
+  const recommendedBlockHtml = renderRecommendedBlock({
+    locale,
+    interest: 'jobs',
+    acquisitionSource: 'saved-jobs-digest',
+    campaign: 'saved-jobs-digest',
+  });
+
   return `<!DOCTYPE html>
 <html lang="${locale}">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f1f5f9;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-  <div style="display:none;max-height:0;overflow:hidden;">${escapeHtml(s.preheader)}</div>
-  <table role="presentation" width="100%" style="background:#f1f5f9;padding:24px 0;">
-    <tr><td align="center">
-      <table role="presentation" width="600" style="max-width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
-        <tr><td style="background:#f97316;padding:24px 32px;">
-          <div style="color:#ffffff;font-size:20px;font-weight:700;">${escapeHtml(s.heroTitle)}</div>
-          <div style="color:#ffedd5;font-size:14px;margin-top:4px;">${escapeHtml(s.heroDesc)}</div>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>${escapeHtml(s.heroTitle)} — Frontaliere Ticino</title>
+<style>
+body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
+table{border-collapse:collapse;}
+@media only screen and (max-width:620px){
+  .outer-table{width:100%!important;}
+  .section-pad{padding-left:16px!important;padding-right:16px!important;}
+}
+</style>
+</head>
+<body>
+  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${escapeHtml(s.preheader)}&nbsp;&#8203;&#8203;&#8203;&#8203;</div>
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
+    <tr><td align="center" style="padding:0;">
+      <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
+
+        <!-- Top bar -->
+        <tr><td style="background:${BRAND_DARK};padding:14px 28px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="font-size:15px;font-weight:800;color:${WHITE};letter-spacing:-0.3px;">
+                <span style="color:${BRAND_ORANGE};">●</span> Frontaliere Ticino
+              </td>
+              <td align="right" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">
+                <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;">${escapeHtml(s.manageCta)}</a>
+              </td>
+            </tr>
+          </table>
         </td></tr>
-        <tr><td style="padding:8px 32px 24px;">
-          <table role="presentation" width="100%">${cardsHtml}${recoHtml}</table>
-          <div style="margin-top:24px;">
-            <a href="${manageUrl}" style="color:#f97316;font-weight:600;text-decoration:none;font-size:14px;">${s.manageLink}</a>
+
+        <!-- Hero -->
+        <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${escapeHtml(s.heroTitle)}</div>
+          <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(s.heroDesc)}</div>
+        </td></tr>
+
+        ${recommendedBlockHtml}
+
+        <!-- Section header -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${escapeHtml(s.sectionLabel)}</div>
+          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${escapeHtml(s.sectionTitle)}</div>
+          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">${escapeHtml(s.sectionDesc)}</div>
+        </td></tr>
+
+        <!-- Job cards -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            ${cardsHtml}
+            ${recoHtml}
+            <tr><td style="text-align:center;padding-top:14px;">
+              <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${escapeHtml(s.manageCta)}</a>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- Closer -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
+          <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
+            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${escapeHtml(s.closer)}</div>
+            <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${escapeHtml(s.closerSign)}</div>
           </div>
         </td></tr>
-        <tr><td style="padding:20px 32px;background:#f8fafc;border-top:1px solid #e2e8f0;">
-          <div style="font-size:13px;color:#64748b;">${escapeHtml(s.closer)}</div>
-          <div style="font-size:13px;color:#64748b;margin-top:4px;">${escapeHtml(s.closerSign)}</div>
-          <div style="font-size:12px;color:#94a3b8;margin-top:16px;">
-            ${escapeHtml(s.unsubLine)} <a href="${unsubUrl}" style="color:#94a3b8;">${escapeHtml(s.unsubLink)}</a>
+
+        <!-- Footer -->
+        <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
+            ${escapeHtml(s.footerSentTo(email))}
           </div>
-          <div style="font-size:11px;color:#94a3b8;margin-top:10px;">${escapeHtml(dataControllerFooterLine(locale))}</div>
+          <div style="margin-bottom:12px;">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">📘</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">💼</a>
+            <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">🌐</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${escapeHtml(s.manageLink)}</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            ${escapeHtml(s.unsubLine)} <a target="_blank" rel="noopener noreferrer" href="${unsubUrl}" style="color:${MUTED_ON_DARK};text-decoration:underline;">${escapeHtml(s.unsubLink)}</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:12px;">© ${new Date().getFullYear()} Frontaliere Ticino · 0% spam, 100% frontaliere</div>
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(dataControllerFooterLine(locale))}</div>
         </td></tr>
+
       </table>
     </td></tr>
   </table>
@@ -344,7 +493,15 @@ function buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, u
     lines.push('', s.recoTitle);
     for (const e of recommendations) lines.push(`- ${e.title} (${s.at} ${e.company}): ${e.url}`);
   }
-  lines.push('', `${s.textViewAllLine} ${manageUrl}`, '', `${s.textUnsubLine} ${unsubUrl}`, '', dataControllerFooterLine(locale));
+  lines.push(
+    '',
+    `${s.textViewAllLine} ${manageUrl}`,
+    '',
+    `${s.textUnsubLine} ${unsubUrl}`,
+    '',
+    `© ${new Date().getFullYear()} Frontaliere Ticino`,
+    dataControllerFooterLine(locale),
+  );
   return lines.join('\n');
 }
 
@@ -379,7 +536,7 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations, c
   const s = getStrings(locale);
   const manageUrl = `${BASE_URL}${localePathPrefix(locale)}/area-personale/`;
   const unsubUrl = makeUnsubscribeUrl(uid, email);
-  const html = buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl });
+  const html = buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl, email });
   const text = buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl });
   const subject = s.subject(savedEntries.length);
 
@@ -521,6 +678,16 @@ async function main() {
           postedDate: job.postedDate || null,
           sector: job.sector || job.category || entry.category || null,
           companyKey: job.companyKey || null,
+          // Salary/contract/firstSeenAt (#6104): same badge fields as
+          // send-job-alerts.mjs's jobCards — live-only, so only carried on
+          // the non-expired path (a departed job has no current salary to
+          // present as still valid).
+          firstSeenAt: job.firstSeenAt || null,
+          salaryMin: job.salaryMin ?? null,
+          salaryMax: job.salaryMax ?? null,
+          currency: job.currency || null,
+          baseSalary: job.baseSalary || null,
+          contract: job.contract || null,
         };
       });
 
@@ -548,6 +715,12 @@ async function main() {
             sector: job.sector || job.category || null,
             companyKey: job.companyKey || null,
             url: jobPageUrl(job, locale),
+            firstSeenAt: job.firstSeenAt || null,
+            salaryMin: job.salaryMin ?? null,
+            salaryMax: job.salaryMax ?? null,
+            currency: job.currency || null,
+            baseSalary: job.baseSalary || null,
+            contract: job.contract || null,
           });
         }
       }
