@@ -4102,6 +4102,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'UTILISATIONS et SUPSI : les frais semestriels pour les étudiants augmenteront',
     'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Les universités tessinoises augmenteront les frais semestriels pour les étudiants à partir de l\'année académique 2027/2028, en raison de la réduction du soutien public de la Confédération.',
     'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Image d\'un étudiant dans une université suisse',
+    'blog.article.permesso-b-basilea-citta.title': 'Permis de séjour B Bâle-Ville : exigences et renouvellement',
+    'blog.article.permesso-b-basilea-citta.excerpt': 'Guide pratique du permis de séjour renouvelable dans le canton de Bâle-Ville : exigences, documents, durée, procédure de renouvellement et contacts de l\'Office des migrations.',
+    'blog.article.permesso-b-basilea-citta.imageAlt': 'Bureau administratif suisse avec formulaires de demande de permis de séjour et documents officiels',
 };
 
 export default blogMetaChFr;

@@ -4102,6 +4102,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'USES and SUPSI: semester fees for students will increase',
     'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Ticino universities will increase semester fees for students starting from the academic year 2027/2028, due to the reduction in public support by the Confederation.',
     'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Image of a student in a Swiss university',
+    'blog.article.permesso-b-basilea-citta.title': 'Residence permit B Basel City: requirements and renewal',
+    'blog.article.permesso-b-basilea-citta.excerpt': 'Practical guide to the renewable residence permit in the Canton of Basel-City: requirements, documents, duration, renewal procedure and contacts of the migration office.',
+    'blog.article.permesso-b-basilea-citta.imageAlt': 'Swiss administrative office with residence permit application forms and official documents',
 };
 
 export default blogMetaChEn;
