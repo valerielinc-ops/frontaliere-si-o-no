@@ -4033,6 +4033,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-tirocinio-soletta.title': 'Apprentissage et formation dans le canton de Soleure',
     'blog.article.apprendistato-tirocinio-soletta.excerpt': 'Comment trouver un poste d\'apprentissage, conclure le contrat, inclure la rémunération et les protections sociales, la certification AFC dans le canton de Soleure.',
     'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Jeune apprenti travaillant dans un atelier professionnel suisse moderne',
+    'blog.article.classi-scolastiche-create-algoritmo.title': 'Classes scolaires créées avec un algorithme, l\'expérience d\'Uster',
+    'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'La ville d\'Uster a mis en place un logiciel pour créer des classes scolaires plus équilibrées, garantissant l\'égalité des chances à tous les élèves.',
+    'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'La ville d\'Uster met en œuvre un logiciel pour créer des classes scolaires plus équilibrées, garantissant des opportunités égales pour tous les élèves.',
 };
 
 export default blogMetaChFr;

@@ -4033,6 +4033,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-tirocinio-soletta.title': 'Apprenticeship and training in the Canton of Solothurn',
     'blog.article.apprendistato-tirocinio-soletta.excerpt': 'How to find an internship position, enter into the contract, understand pay and social protections, AFC certification in the canton of Solothurn.',
     'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Young apprentice working in a modern Swiss workshop laboratory with tools',
+    'blog.article.classi-scolastiche-create-algoritmo.title': 'School classes created with an algorithm, the Uster experiment',
+    'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'The city of Uster has implemented software to create more balanced school classes, ensuring equal opportunities for all students.',
+    'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'The city of Uster implements a software to create more balanced school classes, ensuring equal opportunities for all students.',
 };
 
 export default blogMetaChEn;

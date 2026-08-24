@@ -4033,6 +4033,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-tirocinio-soletta.title': 'Lehre und Ausbildung im Kanton Solothurn',
     'blog.article.apprendistato-tirocinio-soletta.excerpt': 'So finden Sie eine Lehrstelle, schließen den Vertrag ab, verstehen Entlohnung und Sozialschutz, ESTV-Zertifizierung im Kanton Solothurn.',
     'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Junger Lehrling bei der Arbeit in einer modernen Schweizer Werkstatt',
+    'blog.article.classi-scolastiche-create-algoritmo.title': 'Mit einem Algorithmus erstellte Schulklassen, das Uster-Experiment',
+    'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'Die Stadt Uster hat eine Software implementiert, um ausgewogenere Schulklassen zu schaffen, die allen Schülern gleiche Chancen bieten.',
+    'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'Die Stadt Uster implementiert ein Software-Tool, um die Schulklassen besser auszugleichen, um allen Schülern gleiche Chancen zu bieten.',
 };
 
 export default blogMetaChDe;

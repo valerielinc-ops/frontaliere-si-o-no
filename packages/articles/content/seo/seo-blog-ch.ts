@@ -52319,6 +52319,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-classi-scolastiche-create-algoritmo': {
+    title: 'Classi scolastiche create con un algoritmo, l\'esperimento di Uster',
+    description: 'La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, classi, scolastiche, create, algoritmo',
+    ogTitle: 'Classi scolastiche create con un algoritmo, l\'esperimento di Uster',
+    ogDescription: 'La città di Uster mette in pratica un software per creare classi scolastiche più equilibrate, garantendo opportunità pari a tutti gli studenti.',
+    canonicalPath: '/articoli-svizzera/classi-scolastiche-create-algoritmo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Classi scolastiche create con un algoritmo, l'esperimento di Uster",
+      "description": "La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/classi-scolastiche-create-algoritmo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti."
+      },
+      "datePublished": "2026-08-24T05:51:30+00:00",
+      "dateModified": "2026-08-24T05:51:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/classi-scolastiche-create-algoritmo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
