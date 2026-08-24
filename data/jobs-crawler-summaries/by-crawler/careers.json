@@ -1,18 +1,18 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-08-24T10:28:51.474Z",
+  "generatedAt": "2026-08-24T21:44:36.918Z",
   "total": 1,
   "discovered": null,
   "written": 1,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3947,
-  "avgDurationMs": 3947,
+  "durationMs": 4580,
+  "avgDurationMs": 4580,
   "durationHistory": [
-    3947
+    4580
   ],
   "newJobs": [
     {
@@ -27,7 +27,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Spontanbewerbung-Le-Patron-BL/838726301/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:48.281Z",
+      "crawledAt": "2026-08-24T21:44:33.817Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,7 +47,9 @@
         "translation": 4,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "careers-74c7232eb1c8",
       "slug": "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
@@ -60,7 +62,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:48.595Z",
+      "crawledAt": "2026-08-24T21:44:34.136Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,16 +75,17 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:48.595Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

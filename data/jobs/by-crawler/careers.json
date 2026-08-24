@@ -1,14 +1,14 @@
 {
   "crawlerKey": "careers",
-  "assembledAt": "2026-08-24T10:28:51.473Z",
+  "assembledAt": "2026-08-24T21:44:36.918Z",
   "jobs": [
     {
       "id": "careers-74c7232eb1c8",
       "slug": "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
       "slugByLocale": {
-        "de": "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
         "it": "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
         "en": "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
+        "de": "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
         "fr": "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
       },
       "company": "lepatron",
@@ -16,9 +16,9 @@
       "companyDomain": "careers.orior.ch",
       "title": "Betriebsmechaniker: in Instandhaltung, 80-100%",
       "titleByLocale": {
-        "de": "Betriebsmechaniker: in Instandhaltung, 80-100%",
         "it": "Betriebsmechaniker: in Instandhaltung, 80-100%",
         "en": "Betriebsmechaniker: in Instandhaltung, 80-100%",
+        "de": "Betriebsmechaniker: in Instandhaltung, 80-100%",
         "fr": "Betriebsmechaniker: in Instandhaltung, 80-100%"
       },
       "description": "Betriebsmechaniker: in Instandhaltung, 80-100% — lepatron",
@@ -30,7 +30,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:48.595Z",
+      "crawledAt": "2026-08-24T21:44:34.136Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,18 +44,19 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-instandhaltung-80-100-careers-ch"
+          "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
+          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
         ]
       },
-      "previousSlugs": [
-        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:48.595Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -68,8 +69,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:28:48.595Z"
+      "addressRegion": "TI"
     }
   ]
 }
