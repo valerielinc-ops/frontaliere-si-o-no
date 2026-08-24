@@ -4057,6 +4057,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Marché des loyers à Soleure : loyers moyens et droit',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analyse des loyers, du dépôt de garantie et des procédures de contestation dans le canton de Soleure.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Marche immobilier et loyers dans le canton de Soleure',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS et prestations complémentaires dans le canton de Soleure',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS dans le canton de Soleure : caisse de compensation, calcul rente, comblement des lacunes contributives, prestations complémentaires pour minimum vital. Guide complet.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Documents de retraite et formulaires AVS sur un bureau de travail avec calculatrice',
 };
 
 export default blogMetaChFr;

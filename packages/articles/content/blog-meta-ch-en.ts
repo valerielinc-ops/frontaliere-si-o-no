@@ -4057,6 +4057,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Rentals market in Solothurn: average fees and legal fees',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analysis of rent, security deposit and dispute procedures in the Canton of Solothurn.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Real estate market and rents in the Canton of Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS and complementary services in the canton of Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS in the canton of Solothurn: compensation fund, calculation of annuity, filling in contribution gaps, supplementary benefits for minimum subsistence. Complete guide.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Retirement planning documents and AVS forms on an office desk with calculator',
 };
 
 export default blogMetaChEn;

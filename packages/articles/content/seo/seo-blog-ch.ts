@@ -52631,6 +52631,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-pilastro-soletta-prestazioni': {
+    title: 'AVS e prestazioni complementari nel Canton Soletta',
+    description: 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, soletta',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Soletta',
+    ogDescription: 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, lacune contributive e prestazioni complementari. Guida pratica su come funziona il primo pilastro, come verificare la tua posizione contributiva e accedere ai supplementi.',
+    canonicalPath: '/articoli-svizzera/primo-pilastro-soletta-prestazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Soletta",
+      "description": "AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/primo-pilastro-soletta-prestazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di previdenza e moduli AVS su scrivania con calcolatrice e caffè"
+      },
+      "datePublished": "2026-08-24T08:57:23+00:00",
+      "dateModified": "2026-08-24T08:57:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/primo-pilastro-soletta-prestazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

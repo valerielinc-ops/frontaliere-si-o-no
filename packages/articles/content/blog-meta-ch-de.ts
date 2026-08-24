@@ -4057,6 +4057,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Mietmarkt in Solothurn: Durchschnitts- und Rechtsmieten',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analyse der Mietzins-, Kautions- und Streitverfahren im Kanton Solothurn.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Immobilienmarkt und Mieten im Kanton Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AHV und Ergänzungsleistungen im Kanton Solothurn',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AHV im Kanton Solothurn: Ausgleichskasse, Rentenberechnung, Beitragslücken schliessen, Ergänzungsleistungen bei Lebensminimum. Komplette Anleitung.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Altersversorgungsdokumente und AHV-Formulare auf einem Schreibtisch mit Rechner',
 };
 
 export default blogMetaChDe;

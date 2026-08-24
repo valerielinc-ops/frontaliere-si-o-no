@@ -4057,6 +4057,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soletta-affitti-canoni-diritto.title': 'Mercato affitti a Soletta: canoni medi e diritto',
     'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analisi dei canoni di locazione, del deposito di garanzia e delle procedure di contestazione nel Cantone di Soletta.',
     'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Mercato immobiliare e affitti nel Cantone di Soletta',
+    'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS e prestazioni complementari nel Canton Soletta',
+    'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.',
+    'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Documenti di previdenza e moduli AVS su scrivania con calcolatrice e caffè',
 };
 
 export default blogMetaChIt;
