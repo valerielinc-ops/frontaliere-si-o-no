@@ -237,7 +237,10 @@ async function main() {
     // di deploy nell'header.
     await open(titles.regression(r.label), regressionBody(r, verdict), {
       priority: 2,
-      labels: ['Bug', 'seo'],
+      // Nomi esatti delle label esistenti, minuscoli: `ensureLabelsExist` fa
+      // `gh label create` best-effort, e `Bug` con la maiuscola creerebbe (o
+      // proverebbe a creare) un doppione della `bug` che il repo già usa.
+      labels: ['bug', 'seo'],
       consecutiveGate: 2,
     });
   }
