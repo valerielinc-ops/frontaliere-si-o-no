@@ -724,6 +724,22 @@ const EMPTY_OK_CRAWLERS = new Set([
   // listing format (structure unknown until one appears — no live sample
   // to build a selector against yet).
   'fart',
+  // Ardian (private equity, Zurich office, #6344): verified live 2026-08-24
+  // via direct Workday CXS API query — `POST
+  // https://ardian.wd103.myworkdayjobs.com/wday/cxs/ardian/ArdianCareers/jobs`
+  // with `appliedFacets.locationCountry` set to the Switzerland UUID
+  // (`187134fccb084a0ea9b4b95f23890dbe`, the same ID `SWISS_LOCATION_IDS`
+  // already filters on in `ardian-job-parser.mjs`) returns `{"total":0,
+  // "jobPostings":[]}`, and the unfiltered global query (`total:56`) lists
+  // the "Switzerland" facet with no `count` at all (every other open
+  // country — France/Germany/UK/USA/Luxembourg/Spain/Canada/Japan/Korea —
+  // does). This is not a selector break: the tenant, API base and location
+  // filter are unchanged and still correctly scoped; Ardian's Zurich office
+  // simply has zero open Swiss roles right now. `lastNonZeroJobs: 1` is
+  // physiological for this small local office of a global firm. Parser is
+  // healthy; re-arms automatically when Ardian republishes a Swiss vacancy.
+  // Same legitimately-empty small-employer case as fart/crr-suva-sion.
+  'ardian',
 ]);
 
 /** Read JSON file, return null on any error. */
