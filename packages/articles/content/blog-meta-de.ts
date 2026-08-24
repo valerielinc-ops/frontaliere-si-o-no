@@ -10709,6 +10709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Leben in Valbrona, Arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona in Como bietet niedrigere Lebenshaltungskosten als das Tessin. Entdecken Sie Grenzübergänge, Genehmigung G, Grenzbesteuerung und wie Sie sich in 4 praktischen Schritten bewegen können.',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Lugano und die Tessiner Grenzlandschaft mit alpinem Panorama',
+    'blog.article.vivere-druogno-lavorare-ticino.title': 'Leben in Druogno und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Praktische Informationen zu Steuern, Genehmigungen und Vergünstigungen für Grenzgänger, die in Druogno leben und im Tessin arbeiten',
+    'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Italienischer Grenzgänger, der in der Schweiz arbeitet, Blick auf den Lago Maggiore',
 };
 
 export default blogMetaDe;

@@ -10710,6 +10710,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Living in Valbrona, working in Ticino: border guide',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona in Como offers a lower cost of living than Ticino. Discover crossings, G Permit, border taxation and how to move in 4 practical steps.',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'View of Lugano and Ticino-Lombardy border landscape with alpine scenery',
+    'blog.article.vivere-druogno-lavorare-ticino.title': 'Living in Druogno and working in Ticino as a border worker',
+    'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Practical information on taxation, permits and benefits for border workers living in Druogno and working in Ticino',
+    'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Italian frontier worker working in Switzerland, view of Lake Maggiore',
 };
 
 export default blogMetaEn;

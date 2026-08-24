@@ -10711,6 +10711,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Vivere a Valbrona, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona in Como offre costo della vita inferiore al Ticino. Scopri valichi, Permesso G, fiscalità frontalieri e come trasferirsi in 4 fasi pratiche.',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'Vista di Lugano e del confine Ticino-Lombardia con paesaggio alpino al tramonto',
+    'blog.article.vivere-druogno-lavorare-ticino.title': 'Vivere a Druogno e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Informazioni pratiche sulla fiscalità, permessi e vantaggi per i frontalieri che vivono a Druogno e lavorano in Ticino',
+    'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Frontaliere italiano che lavora in Svizzera, vista del lago Maggiore',
 };
 
 export default blogMetaIt;
