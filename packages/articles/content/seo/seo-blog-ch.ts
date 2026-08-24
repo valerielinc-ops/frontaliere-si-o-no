@@ -52826,6 +52826,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-soletta-formazione': {
+    title: 'Salari e mercato: settori, formazione e contratti',
+    description: 'Sistema salariale svizzero per grado di formazione e settore. Contratti collettivi, salario minimo cantonale, calcolo netto da lordo, contributi AVS e LPP.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, settori, formazione',
+    ogTitle: 'Salari e mercato: settori, formazione e contratti',
+    ogDescription: 'Scopri come funziona il sistema salariale svizzero: contratti collettivi per settore, livelli retributivi per grado di formazione, dove esiste il salario minimo cantonale e come calcolare il netto da un\'offerta di lavoro.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-soletta-formazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato: settori, formazione e contratti",
+      "description": "Sistema salariale svizzero per grado di formazione e settore. Contratti collettivi, salario minimo cantonale, calcolo netto da lordo, contributi AVS e LPP.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-soletta-formazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Team di professionisti svizzeri in riunione per discutere salari e contratti di lavoro in ufficio moderno."
+      },
+      "datePublished": "2026-08-24T09:52:00+00:00",
+      "dateModified": "2026-08-24T09:52:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-soletta-formazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-soletta-occupazione-settori': {
+    title: 'Mercato lavoro Soletta: salari, settori e livelli',
+    description: 'Salari, fasce formative, contratti collettivi e contributi previdenziali nel Canton Soletta. Guida alla ricerca di lavoro e procedure di assunzione in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, soletta, salari',
+    ogTitle: 'Mercato lavoro Soletta: salari, settori e livelli',
+    ogDescription: 'Nel Canton Soletta il mercato del lavoro si articola su fasce di formazione e livelli salariali. Scopri contratti collettivi, contributi previdenziali (AVS, LPP, LAMal), diritti del lavoratore e procedure di assunzione. Guida pratica con scadenze',
+    canonicalPath: '/articoli-svizzera/mercato-soletta-occupazione-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato lavoro Soletta: salari, settori e livelli",
+      "description": "Salari, fasce formative, contratti collettivi e contributi previdenziali nel Canton Soletta. Guida alla ricerca di lavoro e procedure di assunzione in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-soletta-occupazione-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionista al lavoro in uno studio moderno svizzero con documenti e computer durante le ore di ufficio."
+      },
+      "datePublished": "2026-08-24T10:08:09+00:00",
+      "dateModified": "2026-08-24T10:08:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-soletta-occupazione-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-2026-risposte': {
+    title: 'Siccità 2026: domande frequenti e risposte | Frontaliere Ticino',
+    description: 'La siccità in Svizzera nel 2026: cause, conseguenze e come risolvere il problema. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, domande, frequenti, risposte',
+    ogTitle: 'Siccità 2026: domande frequenti e risposte',
+    ogDescription: 'La siccità in Svizzera nel 2026: cause, conseguenze e come risolvere il problema.',
+    canonicalPath: '/articoli-svizzera/siccita-2026-risposte/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità 2026: domande frequenti e risposte",
+      "description": "La siccità in Svizzera nel 2026: cause, conseguenze e come risolvere il problema. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-2026-risposte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un lago con livelli di acqua ai minimi storici."
+      },
+      "datePublished": "2026-08-24T10:17:33+00:00",
+      "dateModified": "2026-08-24T10:17:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-2026-risposte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-truffe-spoofing-in-calo': {
+    title: 'Truffe in calo grazie alle misure contro lo spoofing',
+    description: 'Il numero di chiamate fraudolente a nome delle autorità è nettamente diminuito grazie all\'obbligo di contrassegnare le chiamate provenienti dall\'estero',
+    keywords: 'frontalieri, ticino, svizzera, italia, truffe, calo, grazie, alle',
+    ogTitle: 'Truffe in calo grazie alle misure contro lo spoofing',
+    ogDescription: 'Il numero di chiamate fraudolente a nome delle autorità è nettamente diminuito grazie all\'obbligo di contrassegnare le chiamate provenienti dall\'estero con numeri svizzeri spoofati.',
+    canonicalPath: '/articoli-svizzera/truffe-spoofing-in-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Truffe in calo grazie alle misure contro lo spoofing",
+      "description": "Il numero di chiamate fraudolente a nome delle autorità è nettamente diminuito grazie all'obbligo di contrassegnare le chiamate provenienti dall'estero",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/truffe-spoofing-in-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in Svizzera che verifica la provenienza di una chiamata telefonica"
+      },
+      "datePublished": "2026-08-24T10:27:17+00:00",
+      "dateModified": "2026-08-24T10:27:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/truffe-spoofing-in-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-basilea-franchigie-sussidi': {
+    title: 'Premi LAMal Basilea Città: guida a franchigie e sussidi',
+    description: 'Scopri come funzionano i premi LAMal nel canton Basilea Città, le 6 franchigie disponibili, i modelli di copertura e come richiedere i sussidi cantonali',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, basilea, città',
+    ogTitle: 'Premi LAMal Basilea Città: franchigie e sussidi per residenti',
+    ogDescription: 'Guida completa ai premi dell\'assicurazione malattia obbligatoria nel canton Basilea Città: franchigie da CHF 300 a 2.500, modelli di copertura, sussidi cantonali per residenti a reddito limitato e procedura di iscrizione.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-basilea-franchigie-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Basilea Città: guida a franchigie e sussidi",
+      "description": "Scopri come funzionano i premi LAMal nel canton Basilea Città, le 6 franchigie disponibili, i modelli di copertura e come richiedere i sussidi cantonali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-basilea-franchigie-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio medico svizzero con documenti di assicurazione malattia e calendario appuntamenti"
+      },
+      "datePublished": "2026-08-24T10:42:57+00:00",
+      "dateModified": "2026-08-24T10:42:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-basilea-franchigie-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

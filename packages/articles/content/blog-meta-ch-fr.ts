@@ -4072,6 +4072,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pausa-estiva-apprendimento-scuola.title': 'Pause estivale et apprentissage : comment en profiter',
     'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Les écoles suisses rouvrent entre le 11 et le 31 août. La pause estivale provoque une stagnation temporaire, mais elle est fondamentale pour le repos cérébral. Comment organiser efficacement l\'été des enfants.',
     'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Vue du lac de Lugano en été, symbole du repos et de la croissance des jeunes pendant les vacances scolaires',
+    'blog.article.salari-mercato-soletta-formazione.title': 'Salaires et marché : secteurs, formation et contrats',
+    'blog.article.salari-mercato-soletta-formazione.excerpt': 'Système salarial suisse par niveau de formation et secteur. Conventions collectives, où existe le salaire minimum cantonal et comment calculer le net de la paie.',
+    'blog.article.salari-mercato-soletta-formazione.imageAlt': 'Professionnels suisses en réunion discutant des contrats de travail et des structures salariales.',
+    'blog.article.mercato-soletta-occupazione-settori.title': 'Marché du travail Soleure : salaires, secteurs et niveaux',
+    'blog.article.mercato-soletta-occupazione-settori.excerpt': 'Salaires, tranches de formation, conventions collectives et cotisations de sécurité sociale dans le canton de Soleure. Guide de recherche d\'emploi et procédures d\'embauche en Suisse.',
+    'blog.article.mercato-soletta-occupazione-settori.imageAlt': 'Espace de travail suisse avec documents et ordinateur pendant les heures de bureau, représentant l\'emploi professionnel.',
+    'blog.article.siccita-2026-risposte.title': 'Sécheresse 2026 : questions fréquentes et réponses',
+    'blog.article.siccita-2026-risposte.excerpt': 'La sécheresse en Suisse en 2026 : causes, conséquences et comment résoudre le problème.',
+    'blog.article.siccita-2026-risposte.imageAlt': 'Un lac avec des niveaux d\'eau historiquement bas.',
+    'blog.article.truffe-spoofing-in-calo.title': 'Les escroqueries en baisse grâce aux mesures contre l\'usurpation d\'identité',
+    'blog.article.truffe-spoofing-in-calo.excerpt': 'Le nombre d\'appels frauduleux au nom des autorités a nettement diminué grâce à l\'obligation de marquer les appels provenant de l\'étranger avec des numéros suisses usurpés.',
+    'blog.article.truffe-spoofing-in-calo.imageAlt': 'Frontalier en Suisse qui vérifie l\'origine d\'une appel téléphonique',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'Prix LAMal Bâle-Ville : guide des franchises et subventions',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'Franchises LAMal dans le canton de Bâle-Ville de 300 CHF à 2 500 CHF, primes par habitant privées et allocations cantonales pour résidents à revenu limité.',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Cabinet médical suisse avec documents d\'assurance maladie et calendrier de rendez-vous',
 };
 
 export default blogMetaChFr;

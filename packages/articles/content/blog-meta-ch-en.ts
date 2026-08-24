@@ -4072,6 +4072,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pausa-estiva-apprendimento-scuola.title': 'Summer break and learning: how to take advantage of it',
     'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Swiss schools reopen between 11 and 31 August. Summer break causes temporary stagnation, but it is critical for brain rest. How to organize children\'s summer effectively.',
     'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'View of Lake Lugano in summer, symbolizing youth rest and development during school break',
+    'blog.article.salari-mercato-soletta-formazione.title': 'Wages and market: sectors, training and contracts',
+    'blog.article.salari-mercato-soletta-formazione.excerpt': 'Swiss wage system by level of training and sector. Collective agreements, where the cantonal minimum wage exists and how to calculate the net from the paycheck.',
+    'blog.article.salari-mercato-soletta-formazione.imageAlt': 'Swiss professionals in office meeting discussing employment contracts and salary structures.',
+    'blog.article.mercato-soletta-occupazione-settori.title': 'Labour Market Slab: Wages, Sectors and Levels',
+    'blog.article.mercato-soletta-occupazione-settori.excerpt': 'Wages, training bands, collective agreements and social security contributions in the Canton of Solothurn. Guide to job search and recruitment procedures in Switzerland.',
+    'blog.article.mercato-soletta-occupazione-settori.imageAlt': 'Swiss professional workspace with documents and computer during working hours, representing career and employment.',
+    'blog.article.siccita-2026-risposte.title': 'Drought 2026: Frequently Asked Questions and Answers',
+    'blog.article.siccita-2026-risposte.excerpt': 'The drought in Switzerland in 2026: causes, consequences and how to solve the problem.',
+    'blog.article.siccita-2026-risposte.imageAlt': 'A lake with historically low water levels.',
+    'blog.article.truffe-spoofing-in-calo.title': 'Declining scams thanks to anti-spoofing measures',
+    'blog.article.truffe-spoofing-in-calo.excerpt': 'The number of fraudulent calls on behalf of the authorities has clearly decreased thanks to the obligation to mark calls from abroad with spoofed Swiss numbers.',
+    'blog.article.truffe-spoofing-in-calo.imageAlt': 'Swiss border crosser checking the origin of a phone call',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'LAMal Basel City Awards: Deductible and Subsidy Guide',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'LAMal deductibles in the canton Basel City from CHF 300 to CHF 2,500, private per capita premiums and cantonal subsidies for residents with limited income.',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Swiss medical office with health insurance documents and appointment calendar',
 };
 
 export default blogMetaChEn;

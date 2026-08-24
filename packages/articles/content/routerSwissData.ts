@@ -1383,6 +1383,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tassazione-forfettaria-ticino-incassi': { it: 'tassazione-forfettaria-ticino-incassi', en: 'flat-rate-taxation-ticino-record-revenue', de: 'pauschalbesteuerung-tessin-einnahmen', fr: 'imposition-forfaitaire-tessin-recettes' },
  'festival-scientifica-zurigo-ricerca': { it: 'festival-scientifica-zurigo-ricerca', en: 'scientifica-festival-zurich-research', de: 'scientifica-festival-zuerich-forschung', fr: 'scientifica-festival-zurich-recherche' },
  'pausa-estiva-apprendimento-scuola': { it: 'pausa-estiva-apprendimento-scuola', en: 'summer-break-learning-school', de: 'sommerferien-lernziele-schule', fr: 'pause-estivale-apprentissage-ecole' },
+ 'salari-mercato-soletta-formazione': { it: 'salari-mercato-soletta-formazione', en: 'salaries-labor-market-soletta-education', de: 'gehaelter-arbeitsmarkt-solothurn-bildung', fr: 'salaires-marche-travail-soleure-formation' },
+ 'mercato-soletta-occupazione-settori': { it: 'mercato-soletta-occupazione-settori', en: 'soletta-labour-market-sectors-salaries', de: 'soletta-arbeitsmarkt-sektoren-verdienstniveaus', fr: 'soletta-marche-travail-secteurs-salaires' },
+ 'siccita-2026-risposte': { it: 'siccita-2026-risposte', en: 'siccita-2026-answers', de: 'siccita-2026-antworten', fr: 'siccita-2026-reponses' },
+ 'truffe-spoofing-in-calo': { it: 'truffe-spoofing-in-calo', en: 'spoofing-calls-in-decline', de: 'spoofing-anrufe-in-abnahme', fr: 'appels-spoofing-en-declin' },
+ 'premi-lamal-basilea-franchigie-sussidi': { it: 'premi-lamal-basilea-franchigie-sussidi', en: 'basel-city-health-insurance-premiums-subsidies', de: 'basel-stadt-krankenkasse-pramien-subventionen', fr: 'bale-assurance-maladie-primes-reductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
