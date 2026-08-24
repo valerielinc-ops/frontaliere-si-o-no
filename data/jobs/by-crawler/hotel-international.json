@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hotel-international",
-  "assembledAt": "2026-08-23T21:26:34.089Z",
+  "assembledAt": "2026-08-24T10:03:39.647Z",
   "jobs": [
     {
       "id": "hotel-international-afceadcbedb9",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "top-3-star-hotels-hotel-international-ch",
         "en": "top-3-star-hotels-hotel-international-ch",
-        "de": "top-3-star-hotels-hotel-international-ch",
+        "de": "top-3-sterne-hotels-hotel-international-au-lac-lugano",
         "fr": "hotels-3-etoiles-hotel-international-au-lac-lugano"
       },
       "company": "Hotel International au Lac",
@@ -30,7 +30,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/top-3-star-hotels-of-switzerland/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:31.088Z",
+      "crawledAt": "2026-08-24T10:03:37.134Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,10 +44,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/top-3-star-hotels-of-switzerland/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:31.088Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -60,8 +59,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:26:31.088Z"
+      "addressRegion": "TI"
     },
     {
       "id": "hotel-international-b0349dfd48bc",
@@ -78,9 +76,9 @@
       "title": "Prenota SENZA carta di credito!",
       "titleByLocale": {
         "it": "Prenota SENZA carta di credito!",
-        "fr": "Prenota SENZA carta di credito!",
         "en": "Prenota SENZA carta di credito!",
-        "de": "Prenota SENZA carta di credito!"
+        "de": "Prenota SENZA carta di credito!",
+        "fr": "Prenota SENZA carta di credito!"
       },
       "description": "Prenota SENZA carta di credito! — Hotel International au Lac",
       "descriptionByLocale": {
@@ -91,7 +89,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/prenota-senza-carta-di-credito/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:26:30.779Z",
+      "crawledAt": "2026-08-24T10:03:36.831Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,10 +103,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/prenota-senza-carta-di-credito/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:30.779Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -121,8 +118,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:26:30.779Z"
+      "addressRegion": "TI"
     },
     {
       "id": "hotel-international-e49715595908",
@@ -152,7 +148,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/offerta-speciale-3-notti/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:30.469Z",
+      "crawledAt": "2026-08-24T10:03:36.528Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -166,10 +162,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/offerta-speciale-3-notti/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:30.469Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -182,8 +177,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:26:30.469Z"
+      "addressRegion": "TI"
     },
     {
       "id": "hotel-international-b6fb36365266",
@@ -213,7 +207,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/alla-scoperta-delle-camere-rinnovate-a-superprezzi/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:30.166Z",
+      "crawledAt": "2026-08-24T10:03:36.221Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -227,10 +221,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/alla-scoperta-delle-camere-rinnovate-a-superprezzi/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:30.166Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -243,8 +236,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:26:30.166Z"
+      "addressRegion": "TI"
     },
     {
       "id": "hotel-international-f32cdb371cac",
@@ -253,7 +245,7 @@
         "it": "perche-prenotare-direttamente-hotel-international-ch",
         "en": "why-book-directly-hotel-international-au-lac-lugano",
         "de": "warum-direkt-buchen-hotel-international-au-lac-lugano",
-        "fr": "pourquoi-reserver-directement-hotel-international-au-lac-lugano"
+        "fr": "perche-prenotare-direttamente-hotel-international-au-lac-lugano"
       },
       "company": "Hotel International au Lac",
       "companyKey": "hotel-international",
@@ -261,9 +253,9 @@
       "title": "Perché prenotare direttamente",
       "titleByLocale": {
         "it": "Perché prenotare direttamente",
-        "fr": "Pourquoi réserver directement",
         "en": "Why book directly",
-        "de": "Warum direkt buchen"
+        "de": "Warum direkt buchen",
+        "fr": "Perché prenotare direttamente"
       },
       "description": "Perché prenotare direttamente — Hotel International au Lac",
       "descriptionByLocale": {
@@ -274,7 +266,7 @@
       "url": "https://www.hotel-international.ch/it/offerte/perche-prenotare-direttamente/",
       "source": "Hotel International au Lac Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:26:29.847Z",
+      "crawledAt": "2026-08-24T10:03:35.892Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -288,10 +280,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://www.hotel-international.ch/it/offerte/perche-prenotare-direttamente/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:26:29.847Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "pourquoi-reserver-directement-hotel-international-au-lac-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "pourquoi-reserver-directement-hotel-international-au-lac-lugano"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -304,8 +303,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:26:29.847Z"
+      "addressRegion": "TI"
     }
   ]
 }
