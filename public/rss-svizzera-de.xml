@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Mon, 24 Aug 2026 15:15:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 15:21:52 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -16,6 +16,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Offline-Zahlungen per Kreditkarte ab 2027 in der Schweiz</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/kreditkarte-offline-zahlungen-2027/</link>
+      <description><![CDATA[Ab 2027 können Schweizer Geschäfte Kredit- und Debitkartenzahlungen auch ohne Internet abwickeln. WBF, SNB und Bundesrat kündigen die Lösung für die finanzielle Belastbarkeit an.]]></description>
+      <content:encoded><![CDATA[## In Kürze
+- Seit 2027 Offline-Kreditkartenzahlungen in Schweizer Geschäften
+- WBF kündigt Lösung für Internet-Blackouts und Netzwerkausfälle an
+- Terminal registriert Offline-Transaktion, sendet zur Wiederherstellung der Verbindung
+- Kein Kartenwechsel: Es reicht aus, die Leser in den Geschäften neu zu konfigurieren
+
+## Eckdaten
+- **Was**: Offline-Zahlungen mit physischen Karten und PINs in Geschäften
+- Wann: Schrittweise Umsetzung; weite Verbreitung bis Ende 2027
+- Wo: Schweiz (erstes mitteleuropäisches Land mit gemeinsamer Lösung)
+- Wer: WBF, Schweizerische Nationalbank (SNB), Bundesrat, Unternehmensvertreter
+- Modus: Lokale Aufzeichnung der Transaktion, Synchronisation mit Netzwerkwiederherstellung
+- Anforderungen: Physikalische Karten mit PINS; stromversorgte Klemmen oder externe Batterie bei Stromausfall
+- Auswirkung: Kein Papierwechsel erforderlich, nur Leser neu konfigurieren
+
+Das Eidgenössische Volkswirtschaftsdepartement (WBF) hat heute in Bern eine Absichtserklärung angekündigt, die darauf abzielt, Zahlungen in Geschäften auch bei Internetunterbrechungen oder Netzausfällen abzusichern. Die Lösung wurde von den Unternehmensvertretern an einer Veranstaltung vorgestellt, an der Bundespräsident Guy Parmelin, der Präsident der Schweizerischen Nationalbank (SNB) Martin Schlegel und der Beauftragte für die Landeswirtschaftsversorgung Roland Pfister teilnahmen.
+
+Die Umsetzung erfolgt schrittweise mit dem Ziel einer breiten Verbreitung innerhalb der
+Damit gehört die Schweiz zu den europäischen Ländern, die sich entschieden haben, in die Widerstandsfähigkeit des nationalen digitalen Zahlungssystems zu investieren. Schweden hat bereits seit einiger Zeit Offline-Zahlungen eingeführt, während andere nordeuropäische Staaten wie Finnland, Norwegen und Estland ähnliche Maßnahmen einführen. Das WBF weist jedoch darauf hin, dass die Schweiz das erste mitteleuropäische Land ist, das eine weit verbreitete Lösung zur Stärkung der Widerstandsfähigkeit des elektronischen Zahlungsverkehrs anwendet.
+
+### Die Auswirkungen auf das tägliche Leben der Verbraucher
+
+Für diejenigen, die in der Schweiz leben und arbeiten, wird der Wandel erhebliche praktische Vorteile mit sich bringen. Bisher konnte jede Unterbrechung des Internets — sei es durch technische Störungen, schlechtes Wetter oder Notfälle — die Möglichkeit, Waren mit Karte zu kaufen, vollständig blockieren und die Kunden dazu zwingen, auf Bargeld zurückzugreifen. Bei Offline-Zahlungen wird der Shop weiterhin normal arbeiten, die Transaktion lokal erfassen und anschließend bearbeiten.
+
+Dies hat auch erhebliche Auswirkungen auf die Lebensmittelsicherheit und die wesentlichen Dienstleistungen. Während eines Stromausfalls können die Grundbedürfnisse jedoch mit einer Kredit- oder Debitkarte erworben werden, wodurch der [costo della vita](nav:cost-of-living) stabil bleibt, ohne die Abhängigkeit von Bargeld zu erzwingen. Der Verbraucher muss in Zeiten der Infrastrukturkrise kein Geld mehr in bedeutenden Mengen mit sich führen.
+
+### Timeline und nächste Schritte
+
+Die Absichtserklärung
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
+# ## So bereiten Sie sich auf die Offline-Zahlung vor
+
+Der Übergang wird für die Schweizer Konsumenten nahezu unsichtbar sein. Sie müssen nichts tun, um dem System beizutreten: Ihre derzeit im Umlauf befindlichen Karten funktionieren weiterhin normal, ohne dass ein Ersatz angefordert werden muss. Was sich ändern wird, ist die Konfiguration der Kartenleser in den Geschäften.
+
+Ab Ende 2027, wenn die Verbreitung weit verbreitet sein soll, können Sie erwarten, dass die meisten Geschäfte in der Schweiz Offline-Zahlungen unterstützen. Einige noch nicht spezifizierte Faktoren — wie die regionale Priorität oder die Warenkategorie — werden im Zuge der Umsetzung weiterhin von den Bundesbehörden festgelegt.
+
+### Was der Händler zu tun hat
+
+Die Hauptverantwortung liegt bei den Betreibern der Verkaufsstellen und den Betreibern, die die Zahlterminals bereitstellen. Diese müssen die Kartenleser so konfigurieren, dass sie im Offline-Modus aktiviert werden, sicherstellen, dass das Gerät im Falle eines totalen Stromausfalls über eine Backup-Stromversorgung (externe Batterie oder Generator) verfügt, und die Prozesse für die Synchronisierung und verzögerte Übertragung von Transaktionen einrichten.
+
+Für Kunden bleibt die Erfahrung unverändert: Sie geben die Karte ein, geben die PIN ein und die Zahlung wird wie gewohnt verarbeitet. Der einzige spürbare Unterschied wird das Fehlen von Unterbrechungen aufgrund mangelnder Internetverbindung sein. In den kommenden Monaten wird sich das WBF weiterhin mit den
+
+Vergleichen Sie den [CHF/EUR-Wechselkurs](nav:exchange) in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.
+
+*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/defr%3a-pagare-in-negozi-con-carta-credito-anche-con-panne-internet/91947461)*]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 15:21:52 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/carte-credito-pagamenti-offline-2027</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/carte-credito-pagamenti-offline-2027.webp" medium="image"/>
+    </item>
     <item>
       <title>Offline-Zahlungen in Geschäften: Die Lösung kommt</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/offline-zahlungen-schweizer-geschaefte/</link>
@@ -2985,113 +3041,6 @@ Konsultieren Sie in der Zwischenzeit Ihren kantonalen Branchenverband, falls die
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/commissioni-twint-piccoli-commercianti</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/commissioni-twint-piccoli-commercianti.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Löhne und Arbeit im Kanton Zug: Ausbildung und Niveaustufen</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/loehne-zug-bildung-stufen/</link>
-      <description><![CDATA[Schweizer Arbeitsmarkt: Löhne nach Bildungsgrad, gesetzliche Arbeitszeiten, obligatorische Vorsorge (AHV, BVG, KVG) und Kollektivverträge.]]></description>
-      <content:encoded><![CDATA[## Kurzbeschreibung
-- Kein gesetzlicher Mindestlohn; einige Kantone setzen eigenen fest
-- Bildung (AFC, Matur, Universität) bestimmt Lohnstufe
-- Höchstwochenstunde 45-50 Stunden/Woche gesetzlich vorgeschrieben
-- Obligatorische Vorsorge: AVS 5,3%, LPP 7-18%, LAMal für alle
-
-## Hauptsächliche Fakten
-- **Was**: Bildungsbasierte Lohnstruktur und Kollektivverträge
-- Wo: Schweiz, einschließlich Kanton Zug
-- Wer: Angestellte mit beruflicher (AFC) oder höherer Bildung
-- Arbeitszeit: Höchst 45 Stunden/Woche (Industrie, Büro, Handel) oder 50 Stunden (andere Sektoren)
-- Vorsorge: AVS 5,3% + LPP 7-18% nach Alter + LAMal obligatorisch
-
-### Der Schweizer Arbeitsmarkt
-Die Schweiz hat keinen gesetzlichen Mindestlohn. Die Vergütung wird hauptsächlich von drei Faktoren bestimmt: Bildung, Wirtschaftssektor und Kollektivverträge. Im Kanton Zug, wie in den anderen Schweizer Kantonen, regeln diese Dynamiken die Lohnstruktur und die Karrierefähigkeit der Arbeitnehmer.
-
-Die berufliche Bildung (Attest der fachlichen Eignung - AFC) stellt den Einstieg in viele Branchen dar: Industrie, Bauwesen, Hotellerie, Einzelhandel, Handwerk. Diplome der höheren Bildung (Matur, Fachabitur, Hochschuldiplome) und Universitätsabschlüsse (Bachelor und Master) eröffnen Zugang zu Positionen mit deutlich höheren Vergütungen.
-
-Die Höchstarbeitszeit ist gesetzlich festgelegt: 45 Stunden pro Woche in der Industrie, im Büro und im Handel; 50 Stunden in anderen Sektoren. Die Mindestferien betragen vier Wochen pro Jahr (fünf Wochen für Arbeitnehmer unter 20 Jahren). Die Mutterschaft deckt 14 Wochen mit 80% der normalen Vergütung ab, die Väterzeit zwei Wochen. Ermitteln Sie Ihre [Elternzeit](nav:parental-leave) in der Schweiz.
-
-### Kollektivverträge und Lohnstruktur
-Die Kollektivverträge sind der wichtigste Mechanismus, durch den Gewerkschaften, Arbeitgeberverbände und Unternehmen Mindestlöhne, Zuschläge, Vorteile und Arbeitsbedingungen für ganze Berufsgruppen definieren. Jeder große Wirtschaftssektor (Banken, Chemie, Bauwesen, Metallverarbeitung, Tourismus, Gesundheit) hat seine eigenen Kollektivverträge (KCV), die sich in Höhe und territorialer Abdeckung unterscheiden.
-
-Ohne gesetzlichen Mindestlohn, müssen Arbeitnehmer in Branchen ohne KCV oder in kleinen Unternehmen individuell verhandeln. Der Schweizer Rechtssystem garantiert jedoch, dass jedes Arbeitsverhältnis die Standards der Schutzwürdigkeit einhält: Höchstarbeitszeit, Wochenruhe, Urlaubsansprüche, Fabrikssicherheit.
-### Beiträge zur Sozialversicherung werden vom Bruttogehalt abgezogen
-
-Eine wichtige Komponente der Schweizer Bezahlung besteht aus den obligatorischen Sozialversicherungsbeiträgen, die vom Bruttogehalt abgezogen werden. Verstehen Sie diese Struktur ist für die Bewertung des wahren Wertes einer Arbeitsangebote unerlässlich.
-
-**Alters- und Invaliditätsversicherung (AVS/AI)**: Darstellt den ersten Säule der Vorsorge. Der Arbeitnehmer zahlt 5,3% des Lohns; der Arbeitgeber zahlt genauso viel, insgesamt 10,6%. Dies finanzieren die Schweizerische Invaliden- und Altersversicherung, die Leistungen für Altersrente (AVS), Invaliditätsrente (AI) und Mutterschafts- bzw. Vaterschaftsentschädigung (IPG) erbringt.
-
-Arbeitslosenversicherung (ALV) und Insolvenzentschädigung (AI): Der Arbeitnehmer zahlt 1,1% des Lohns bis zu einem jährlich festgelegten und jährlich angepassten Maximalbetrag. Diese Gelder schützen den Arbeitnehmer bei einer ungewollten Arbeitslosigkeit.
-
-Unfallversicherung (UVG): Variiert zwischen 0,7% und 1,5% des Lohns je nach Branchen. Der Arbeitgeber zahlt fast den gesamten Beitrag.
-
-Vollpensionskasse (LPP/BVG): Für Gehälter über einer Koordinierungsschwelle (jährlich angepasst) wird 7–18% des koordinierten Lohns in Abhängigkeit von der Altersgruppe abgezogen. Ein 25–34-Jähriger zahlt 7%; ein 35–44-Jähriger 10%; ein 45–54-Jähriger 15%; ein 55-Jähriger und älter bis zur Pensionierung 18%. Diese Beiträge finanzieren die zweite Säule der Vorsorge durch Arbeitgeber- oder kollektive Pensionskassen.
-
-Krankenversicherung (KV): Sie ist für jeden Schweizer Bürger obligatorisch und wird privat mit Versicherungsunternehmen abgeschlossen. Sie ist keine Steuer noch ein Gehaltsanteil, sondern eine feste monatliche Gebühr. Die Prämien variieren je nach Kanton und Region; die Franchise für Erwachsene liegen zwischen CHF 300 und CHF 2.500 pro Jahr. Der Kanton Zug bietet Zuschüsse für die Prämien je nach Einkommen der Familie. Entdecken Sie die Optionen in Ihrer [Krankenkasse](nav:health).
-
-### Gehaltsdifferenzen je nach Bildungsabschluss
-
-Die Bildung hat einen erheblichen Einfluss auf die Bezahlung entlang der gesamten Karriere. Nach den Daten des Bundesamtes für Statistik (BFS) und der Staatssekretariat für Wirtschaft (SECO) sind die Gehaltsdifferenzen zwischen Bildungsabschlüssen stabil im Laufe der Zeit.
-
-Ein Fachmann mit beruflicher Ausbildung (AFC) verdient im Durchschnitt erheblich weniger als ein Techniker mit Hochschulabschluss, der wiederum weniger als ein Universitätsabsolvent verdient. Die durchschnittliche Differenz zwischen einem AFC und einem Bachelor liegt bei etwa 50–70%; ein Master führt in der Regel zu einer noch höheren Bezahlung.
-
-Der Kanton Zug, wie auch Genf und Basel-Stadt, bietet Gesamtgehälter, die höher sind als die nationale Durchschnitt, dank der Konzentration von Multinationalen, Finanzinstituten, Pharmaindustrien und Technologiekonzernen. Allerdings ist der Lebensstandard (Mieten, Verkehr, Lebensmittel, Dienstleistungen) im Verhältnis höher.
-
-### Gehaltsüberprüfung und Transparenz
-
-Ein Arbeitnehmer kann überprüfen, ob sein Lohn dem Markt entspricht, indem er offizielle Daten von Behörden veröffentlicht. Das Bundesamt für Statistik (BFS) veröffentlicht jährlich detaillierte Berichte über Durchschnittsgehälter nach Kanton, Branchen und Bildungsabschluss. Das Staatssekretariat für Wirtschaft (SECO) liefert Informationen über Arbeitsbedingungen und Marktindikatoren.
-
-Die Gehaltstransparenz ist nicht gesetzlich vorgeschrieben (außer für sehr große Unternehmen in einigen Kantonen), aber sie ist eine wachsende Praxis, die eine verantwortungsvollere Verhandlung ermöglicht.
-
-## Nützliche Tools für die Planung
-Für Ihre Vorsorgestrategie nutzen Sie den [Rentenplaner](nav:pension) und den [Säule-3-Simulator](nav:pillar3).
-### Wie Sie Ihren Lohn überprüfen und verhandeln können
-
-**Schritt 1: Benchmark-Salarienforschung
-
-Bevor Sie ein Vorstellungsgespräch haben, sammeln Sie Daten über, wie viel Profis mit Ihrem Profil (Ausbildung, Erfahrung, Branche, Kanton) in ähnlichen Unternehmen verdienen. Besuchen Sie die UST/BFS und SECO. Je mehr Informationen Sie sammeln, desto stärker wird Ihre Verhandlungsposition.
-
-Schritt 2: Überprüfen Sie das anwendbare Kollektivvertrags
-
-Wenn Sie in einem von Kollektivverträgen abgedeckten Sektor arbeiten (Banken, Metall, Chemie, Tourismus, Gesundheitswesen, Bau), ist Ihr Arbeitgeber an die von den Gewerkschaften festgelegten Mindestlöhne gebunden. Kontaktieren Sie die Gewerkschaftsorganisation Ihres Sektors, um das Dokument des Kollektivvertrags und die Lohnschwellen für Ihren Erfahrungsgrad zu erhalten.
-
-Schritt 3: Verhandeln Sie beim ersten Vorstellungsgespräch
-
-Das erste Vorstellungsgespräch ist der ideale Zeitpunkt, um Fragen zur Vergütung zu klären. Stellen Sie Ihre Benchmark-Forschung vor, betonen Sie Ihre Ausbildung, Erfahrung und Ihren Wertbeitrag. Vorschlagen Sie ein Lohnsollarium (keine feste Zahl), und bleiben Sie flexibel hinsichtlich alternativer Vorteile: Homeoffice, Weiterbildung, Leistungsboni, zusätzliche Versicherungen.
-
-Schritt 4: Überprüfen Sie die Beiträge auf der Gehaltsabrechnung
-
-Nachdem Sie eingestellt wurden, überprüfen Sie die erste Gehaltsabrechnung:
-- AVS/AI/IPG-Beiträge: 5,3 % des Bruttoverdienstes
-- Pensionsfonds (LPP): aktiv, wenn der Lohn über die Koordinierungsschwelle liegt
-- Krankenversicherung (LAMal): bei einem schweizerischen Versicherer registriert
-- Arbeitslosenversicherung (AD): 1,1 % bis zum Höchstbetrag
-- Arbeitsunfallversicherung (LAA): 0,7–1,5 % je nach Branche
-
-Wenn Sie Unregelmäßigkeiten entdecken, wenden Sie sich sofort an den Arbeitgeber oder an die Gewerkschaft.
-
-Schritt 5: Planen Sie den dritten Säule 3a
-
-Die Schweizer Pensionsversicherung basiert auf drei Säulen: (1) AVS (Bundesleistung), (2) LPP/BVG (Unternehmens- oder Branchenpensionsfonds), (3) Dritte Säule 3a (individuelles Sparen mit steuerlichen Abzügen).
-
-Die Beiträge zur Dritten Säule 3a sind freiwillig, aber empfehlenswert. Die Beiträge sind steuerlich abzüglich. Jedes Jahr können Sie bis zu einem Höchstbetrag (jährlich angepasst) beitragen, um privates Sparen bis zur Pensionierung zu bilden. Besuchen Sie den Rechner, um die Beiträge zu planen.
-
-### Schweizer offizielle Ressourcen
-
-SECO (Staatssekretariat für Wirtschaft): Ausführliche Daten über Durchschnittsgehälter, Beschäftigung, Arbeitsbedingungen für Branche und Kanton.
-
-UST/BFS (Bundesamt für Statistik): Jahresberichte über Durchschnittsgehälter in der Schweiz, untergliedert nach Kanton, Branche, Ausbildung, Geschlecht und Alter. Dies ist die zuverlässigste Quelle für Lohnsollariums.
-
-UFAS/BSV (Bundesamt für Sozialversicherungen): Offizielle Informationen über AVS, LPP, Mutterschaft, Vaterschaft und vorzeitige Pension.
-
-Gewerkschaften und Branchenverbände: Bieten Beratung zu Kollektivverträgen, Lohnverhandlungen, Arbeitnehmerrechten und rechtlicher Schutz in Ihrer Branche.
-
-### Ihr Gehalt netto berechnen
-
-Möchten Sie genau wissen, wie viel CHF Sie im Monat nach Abzug von Steuern, AVS, LPP und LAMal in Ihrem Konto haben? Verwenden Sie unseren [Gehaltsrechner](nav:calculator), um verschiedene Lohnsollariumszenarien zu simulieren, den exakten Einfluss der steuerlichen und vorsorglichen Abzüge in Ihrem Kanton zu visualisieren und Ihr persönliches Budget zu planen. Sie werden den wahren Wert Ihrer Vergütung entdecken.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 21:37:47 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/salari-zugo-formazione-livelli</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-zugo-formazione-livelli.webp" medium="image"/>
     </item>
   </channel>
 </rss>

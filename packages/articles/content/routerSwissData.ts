@@ -1406,6 +1406,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-basilea-citta': { it: 'imposta-successione-basilea-citta', en: 'inheritance-tax-basel-city', de: 'erbschaftssteuer-basel-stadt', fr: 'impot-succession-bale-ville' },
  'imposte-canton-basilea-campagna': { it: 'imposte-canton-basilea-campagna', en: 'basel-landschaft-taxes-rates-deductions', de: 'imposte-kanton-basel-landschaft-satze-abzuge', fr: 'impots-canton-bale-campagne-taux-deductions' },
  'pagamenti-offline-negozi-svizzera': { it: 'pagamenti-offline-negozi-svizzera', en: 'offline-payments-swiss-shops', de: 'offline-zahlungen-schweizer-geschaefte', fr: 'paiements-hors-ligne-magasins-suisses' },
+ 'carte-credito-pagamenti-offline-2027': { it: 'carte-credito-pagamenti-offline-2027', en: 'credit-card-offline-payments-2027', de: 'kreditkarte-offline-zahlungen-2027', fr: 'paiements-hors-ligne-cartes-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

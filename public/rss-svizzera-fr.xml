@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 24 Aug 2026 15:15:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 15:21:52 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -16,6 +16,62 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Paiements hors ligne par cartes de crédit depuis 2027 en Suisse</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/paiements-hors-ligne-cartes-2027/</link>
+      <description><![CDATA[À partir de 2027, les magasins suisses pourront également traiter les paiements par carte de crédit et de débit sans Internet. DEFR, BNS et Conseil fédéral annoncent la solution pour la résilience financière.]]></description>
+      <content:encoded><![CDATA[## En bref
+- À partir de 2027, paiements hors ligne par cartes de crédit dans les magasins suisses
+- DEFR annonce une solution pour les pannes d'Internet et les pannes de réseau
+- Terminal enregistre la transaction hors ligne, transmet à la réinitialisation de la connexion
+- Pas de changement de carte : il suffit de reconfigurer les lecteurs dans les magasins
+
+## Faits clés
+- **Quoi** : Paiements hors ligne par cartes physiques et pin dans les magasins
+- Quand : Mise en œuvre progressive ; large diffusion d'ici fin 2027
+- Où : Suisse (premier pays d'Europe centrale avec solution partagée)
+- Qui : DEFR, Banque nationale suisse (BNS), Conseil fédéral, représentants d'entreprises
+- Mode : Enregistrement local de la transaction, synchronisation à la réinitialisation du réseau
+- Exigences : Cartes physiques avec BROCHES ; bornes alimentées par courant ou batterie externe en panne de courant
+- Conséquence : pas de remplacement papier nécessaire, il suffit de reconfigurer les lecteurs
+
+Le Département fédéral de l'économie (DEFR) a annoncé aujourd'hui à Berne une déclaration d'intention visant à garantir les paiements dans les magasins même en cas de panne d'Internet ou de panne de courant du réseau. La solution a été présentée par les représentants des entreprises lors d'un événement auquel ont participé le président de la Confédération Guy Parmelin, le président de la Banque nationale suisse (BNS) Martin Schlegel et le délégué à l'Approvisionnement économique du pays Roland Pfister.
+
+La mise en œuvre se fera progressivement, dans le but d'atteindre une large diffusion dans la
+La Suisse fait ainsi partie des pays européens qui ont décidé d'investir dans la résilience du système de paiement numérique national. La Suède a déjà mis en place des paiements hors ligne depuis un certain temps, tandis que d'autres États d'Europe du Nord tels que la Finlande, la Norvège et l'Estonie introduisent des mesures similaires. Cependant, le DEFR souligne que la Suisse est le premier pays d'Europe centrale à adopter une solution largement partagée pour renforcer la résilience des paiements électroniques.
+
+### L'impact sur la vie quotidienne des consommateurs
+
+Pour ceux qui vivent et travaillent en Suisse, le changement apportera des avantages pratiques significatifs. Jusqu'à présent, toute interruption d'Internet — qu'elle soit due à des défaillances techniques, à des intempéries ou à des urgences — pouvait complètement bloquer la possibilité d'acheter des biens par carte, obligeant les clients à recourir à l'argent liquide. Avec les paiements hors ligne, le magasin continuera à fonctionner normalement, enregistrant la transaction localement et la traitant ultérieurement.
+
+Cela a également des répercussions importantes sur la sécurité alimentaire et les services essentiels. Lors d'une panne de courant, les produits de première nécessité pourront toujours être achetés par carte de crédit ou de débit, en maintenant le [costo della vita](nav:cost-of-living) stable sans forcer la dépendance à l'argent liquide. Le consommateur ne devra plus emporter d'argent en quantités significatives en période de crise des infrastructures.
+
+### Chronologie et prochaines étapes
+
+La déclaration d'intention
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+### Comment se préparer au paiement hors ligne
+
+La transition sera à peu près invisible pour les consommateurs suisses. Vous n'aurez rien à faire pour adhérer au système : vos cartes actuellement en circulation continueront à fonctionner normalement, sans besoin de demande de remplacement. Ce qui va changer, c'est la configuration des lecteurs de cartes dans les magasins.
+
+À partir de fin 2027, lorsque la diffusion devrait être large, vous pourrez vous attendre à ce que la plupart des magasins en Suisse prennent en charge les paiements hors ligne. Certains facteurs non encore spécifiés — tels que la priorité régionale ou par catégorie de produits — continueront d'être définis par les autorités fédérales au cours de la mise en œuvre.
+
+### Que doit faire le commerçant
+
+La responsabilité principale incombe aux gestionnaires des points de vente et aux opérateurs qui fournissent les terminaux de paiement. Ceux-ci devront reconfigurer les lecteurs de cartes pour s'activer en mode hors ligne, s'assurer que l'appareil dispose d'une alimentation de secours (batterie externe ou générateur) en cas de panne totale, et mettre au point les processus de synchronisation et de transmission différée des transactions.
+
+Pour les clients, l'expérience reste inchangée : vous saisirez la carte, vous saisirez le code PIN, et le paiement sera traité comme d'habitude. La seule différence perceptible sera l'absence d'interruptions dues à un manque de connectivité Internet. Au cours des prochains mois, le DEFR continuera à coordonner avec les
+
+Comparez le [taux CHF/EUR](nav:exchange) en temps réel : économisez jusqu'à 1,5% sur les frais de virement mensuel.
+
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/defr%3a-pagare-in-negozi-con-carta-credito-anche-con-panne-internet/91947461)*]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 15:21:52 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/carte-credito-pagamenti-offline-2027</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/carte-credito-pagamenti-offline-2027.webp" medium="image"/>
+    </item>
     <item>
       <title>Paiements hors ligne dans les magasins : la solution arrive</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/paiements-hors-ligne-magasins-suisses/</link>
@@ -3015,105 +3071,6 @@ Entre-temps, consultez votre association commerciale cantonale pour savoir si el
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/commissioni-twint-piccoli-commercianti</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/commissioni-twint-piccoli-commercianti.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Salaires et emploi dans le canton de Zoug : formation et niveaux</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/salaires-zoug-formation-niveaux/</link>
-      <description><![CDATA[Marché du travail suisse : salaires par niveau de formation, horaires légaux, prévoyance obligatoire (AVS, LPP, LAMal) et conventions collectives.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Pas de salaire minimum fédéral ; certains cantons le fixent eux-mêmes
-- La formation (AFC, maturité, université) détermine le niveau salarial
-- Heures maximales 45-50 par semaine par loi fédérale
-- Prévoyance obligatoire : AVS 5,3%, LPP 7-18%, LAMal pour tous
-
-## Faits clés
-- **Quoi** : Structure salariale basée sur la formation et les conventions collectives
-- Où : Suisse, y compris le canton de Zoug
-- Qui : Salariés avec une formation professionnelle (AFC) ou supérieure
-- Heures : Maximales 45 heures par semaine (industrie, bureaux, commerce) ou 50 heures (autres secteurs)
-- Prévoyance : AVS 5,3% + LPP 7-18% en fonction de l'âge + LAMal obligatoire
-
-### Le marché du travail suisse
-La Suisse n'a pas de salaire minimum à niveau fédéral. Le salaire est déterminé principalement par trois facteurs : le niveau de formation, le secteur d'activité et la négociation collective. Au canton de Zoug, comme dans les autres cantons suisses, cette dynamique règle la structure des salaires et les opportunités de carrière des salariés.
-
-La formation professionnelle (Attestat fédéral de capacité - AFC) représente le niveau d'entrée pour de nombreux secteurs : manufacturier, construction, hôtellerie, commerce, artisanat. Les diplômes de niveau supérieur (maturité lycéale ou professionnelle, cours de diplôme supérieur) et les licences universitaires (Bachelor et Master) ouvrent l'accès à des postes avec des rémunérations significativement plus élevées.
-
-L'heures de travail maximale est fixée par des lois fédérales : 45 heures par semaine dans les industries, les bureaux et le commerce ; 50 heures dans les autres secteurs. Les congés minimales sont de quatre semaines par an (cinq pour les salariés de moins de 20 ans). La maternité couvre 14 semaines au 80% de la rémunération ordinaire par les Indemnités pour perte de gain (IPG) ; la paternité est de deux semaines. Approfondissez vos options de [congé parental](nav:congé-parental) en Suisse.
-
-### Conventions collectives et structure salariale
-La négociation collective est le mécanisme principal par lequel les syndicats, les associations patronales et les entreprises définissent des salaires minimums, des augmentations, des avantages et des conditions de travail pour des catégories professionnelles entières. Chaque grand secteur (bancaire, chimique, construction, métallurgique, tourisme, santé) a ses conventions collectives de travail (CCL), qui varient par montant et couverture territoriale.
-
-Sans salaire minimum fédéral, les salariés dans des secteurs sans CCL ou dans de petites entreprises doivent négocier individuellement. Le droit suisse garantit cependant que chaque accord de travail respecte les normes de protection : heures maximales, repos hebdomadaire, droits aux congés, sécurité en usine.
-### Contributions sociales déduits du salaire
-
-Une partie importante du salaire suisse est constituée de contributions sociales obligatoires, déduites du salaire brut. Comprendre cette structure est essentiel pour évaluer la valeur réelle d'une offre d'emploi.
-
-**Assurance Vieillesse et Invalidité (AVS/AI)**: C'est le premier pilier de la prévoyance. Le salarié verse 5,3 % du salaire ; l'employeur verse autant, pour un total de 10,6 %. Cela finance la Caisse de Prévoyance Sociale Suisse, qui verse des prestations de vieillesse (AVS), d'invalidité (AI) et d'indemnités de maternité/paternité (IPG).
-
-Chômage (AD) et Indemnité d'insolvabilité (AC) : Le salarié contribue 1,1 % du salaire jusqu'à un maximum annuel fixé et indexé chaque année. Ces fonds protègent le travailleur en cas de perte involontaire d'emploi.
-
-Assurance accidents (LAA) : Varie de 0,7 % à 1,5 % du salaire en fonction du secteur d'activité. L'employeur verse presque entièrement ce cotisation.
-
-Fonds de pension intégral (LPP/BVG) : Pour les salaires supérieurs à un seuil de coordination (fixé chaque année), il est versé 7-18 % du salaire coordonné en fonction de l'âge. Une personne de 25-34 ans contribue 7 % ; de 35-44 ans 10 % ; de 45-54 ans 15 % ; de 55 ans et plus jusqu'à l'âge de la retraite 18 %. Ces cotisations financent la pension complémentaire (deuxième pilier) par l'intermédiaire de fonds de pension d'entreprise ou collectifs.
-
-Assurance maladie (LAMal) : C'est obligatoire pour chaque résident en Suisse et est souscrite de manière privée auprès d'assureurs. Cela ne constitue ni une taxe ni une cotisation salariale, mais une dépense mensuelle fixe. Les primes varient en fonction du canton et de la région ; les franchises pour adultes vont de CHF 300 à CHF 2 500 par an. Le canton de Zoug offre des aides pour les primes en fonction du revenu familial. Découvrez les options dans votre [caisse malade](nav:health).
-
-### Différentiels salariaux en fonction du niveau de formation
-
-La formation influence de manière significative la rémunération tout au long de la carrière. Selon les données de l'Office fédéral des statistiques (UST/BFS) et de la Secrétairerie d'État de l'économie (SECO), les différences salariales entre niveaux de formation sont stables dans le temps.
-
-Un salarié avec formation professionnelle (AFC) gagne en moyenne de manière significative moins qu'un technicien avec diplôme supérieur, qui à son tour gagne moins qu'un diplômé universitaire. La différence moyenne entre un AFC et un bachelier est d'environ 50-70 % ; un master entraîne en général une rémunération encore plus élevée.
-
-Le canton de Zoug, comme Genève et Bâle-Ville, offre des salaires globalement plus élevés par rapport à la moyenne nationale, grâce à la concentration de multinationales, d'institutions financières, d'industries pharmaceutiques et technologiques. Cependant, le coût de la vie (loyers, transports, alimentation, services) est proportionnellement plus élevé.
-
-### Vérification salariale et transparence
-
-Un salarié peut vérifier si son salaire est aligné sur le marché en consultant des données publiques d'organismes officiels. L'Office fédéral des statistiques (UST/BFS) publie chaque année des rapports détaillés sur les salaires médians par canton, secteur et niveau de formation. La Secrétairerie d'État de l'économie (SECO) fournit des informations sur les conditions de travail et les indicateurs du marché.
-
-La transparence salariale n'est pas obligatoire par la loi fédérale (sauf pour les entreprises très grandes dans certains cantons), mais c'est une pratique croissante qui permet une négociation plus consciente.
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-### Comment vérifier et négocier votre salaire
-
-Étape 1 : Recherche de benchmark salarial
-Préalablement aux entretiens de travail, rassembler des données sur ce que gagnent les professionnels avec votre profil (formation, expérience, secteur, canton) dans des entreprises similaires. Accédez à UST/BFS et SECO. Plus d'informations que vous rassemblez, plus forte sera votre position de négociation.
-
-Étape 2 : Vérification du contrat collectif applicable
-Si vous travaillez dans un secteur couvert par un contrat collectif (bancaire, métallurgique, chimique, tourisme, santé, construction), votre employeur est lié aux salaires minimums fixés. Contactez l'association syndicale de votre secteur pour obtenir le document du CCL et les seuils salariaux pour votre niveau d'expérience.
-
-Étape 3 : Négocier au premier entretien
-Le premier entretien de travail est le moment idéal pour clarifier les questions relatives à la rémunération. Présentez vos recherches de benchmark, en soulignant la formation, l'expérience et la valeur ajoutée. Proposez un plafond salarial (pas une somme fixe), et restez flexible sur les avantages alternatifs : télétravail, formation continue, bonus de performance, assurances supplémentaires.
-
-Étape 4 : Vérifiez les contributions sur la paye
-Une fois embauché, examinez la première paye :
-- Contributions AVS/AI/IPG : 5,3 % du brut
-- Fonds de pension (LPP) : actif si salaire au-dessus de la limite de coordination
-- Assurance maladie (LAMal) : enregistrée auprès d'un assureur suisse
-- Contributions chômage (AD) : 1,1 % jusqu'à la limite maximale
-- Assurance accidents du travail (LAA) : 0,7-1,5 % selon le secteur
-
-Si vous découvrez des irrégularités, contactez immédiatement votre employeur ou le syndicat.
-
-Étape 5 : Planifiez le troisième pilier 3a
-La prévoyance suisse repose sur trois piliers : (1) AVS (prestation fédérale de base), (2) LPP/BVG (fonds de pension d'entreprise ou collectif), (3) Troisième pilier 3a (épargne individuelle avec déductions fiscales).
-
-Contribuer au [troisième pilier 3a](nav:pillar3) est facultatif mais recommandé. Les versements sont déductibles de l'imposable fédéral, cantonal et communal. Chaque année, vous pouvez verser jusqu'à un maximum (indiqué annuellement) pour accumuler des économies privées jusqu'à l'âge de la retraite. Consultez le calculateur pour planifier les versements.
-
-### Ressources officielles suisses
-
-SECO (Secrétariat d'État à l'économie) : Données approfondies sur les salaires moyens, l'emploi, les conditions de travail pour secteur et canton.
-UST/BFS (Office fédéral des statistiques) : Rapports annuels sur les salaires moyens suisses détaillés par canton, secteur, formation, sexe et âge. C'est la source la plus fiable pour les benchmark salariaux.
-UFAS/BSV (Office fédéral des assurances sociales) : Informations officielles sur AVS, LPP, maternité, paternité et avantages prévoyance.
-Syndicats et associations de catégorie : Offrent des conseils sur les contrats collectifs, la négociation salariale, les droits des travailleurs et la protection juridique dans votre secteur.
-
-### Calculez votre salaire net
-
-Vous voulez savoir exactement combien de CHF restent dans votre compte chaque mois après impôts, AVS, LPP et LAMal ? Utilisez notre [calculateur de salaire](nav:calculator) pour simuler différents scénarios salariaux, visualiser l'impact précis des déductions fiscales et prévoyance dans votre canton, et planifier votre bilan personnel. Vous découvrirez la valeur réelle de votre rémunération.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 21:37:47 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/salari-zugo-formazione-livelli</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-zugo-formazione-livelli.webp" medium="image"/>
     </item>
   </channel>
 </rss>

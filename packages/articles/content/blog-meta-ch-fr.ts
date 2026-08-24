@@ -4141,6 +4141,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pagamenti-offline-negozi-svizzera.title': 'Paiements hors ligne dans les magasins : la solution arrive',
     'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'À partir de 2027, vous pourrez également payer par carte sans internet dans les magasins suisses. Le DEFR adopte un nouveau système hors ligne pour assurer la continuité pendant les pannes de courant.',
     'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Terminal de paiement en magasin lors d\'une transaction par carte sans contact, symbole de la technologie de paiement hors ligne',
+    'blog.article.carte-credito-pagamenti-offline-2027.title': 'Paiements hors ligne par cartes de crédit depuis 2027 en Suisse',
+    'blog.article.carte-credito-pagamenti-offline-2027.excerpt': 'À partir de 2027, les magasins suisses pourront également traiter les paiements par carte de crédit et de débit sans Internet. DEFR, BNS et Conseil fédéral annoncent la solution pour la résilience financière.',
+    'blog.article.carte-credito-pagamenti-offline-2027.imageAlt': 'Terminal de paiement par carte de crédit dans un magasin suisse permettant les transactions hors ligne en cas de panne internet.',
 };
 
 export default blogMetaChFr;

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Mon, 24 Aug 2026 15:15:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 15:21:52 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -16,6 +16,74 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Pagamenti offline con carte di credito dal 2027 in Svizzera</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/carte-credito-pagamenti-offline-2027/</link>
+      <description><![CDATA[Dal 2027 i negozi svizzeri potranno processare pagamenti con carta di credito e di debito anche senza internet. DEFR, BNS e Consiglio federale annunciano la soluzione per la resilienza finanziaria.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Dal 2027 pagamenti offline con carte di credito nei negozi svizzeri
+- DEFR annuncia soluzione per blackout internet e interruzioni di rete
+- Terminale registra transazione offline, trasmette al ripristino della connessione
+- No cambio carte: bastano riconfigurare i lettori nei negozi
+
+## Fatti chiave
+- **Cosa**: Pagamenti offline con carte fisiche e PIN presso i negozi
+- Quando: Implementazione graduale; diffusione ampia entro fine 2027
+- Dove: Svizzera (primo Paese centroeuropeo con soluzione condivisa)
+- Chi: DEFR, Banca nazionale svizzera (BNS), Consiglio federale, rappresentanti imprese
+- Modalità: Registrazione locale della transazione, sincronizzazione al ripristino della rete
+- Requisiti: Carte fisiche con PIN; terminali alimentati a corrente o batteria esterna in blackout
+- Impatto: Nessuna sostituzione cartaccia necessaria, solo riconfigurare i lettori
+
+Il Dipartimento federale dell'economia (DEFR) ha annunciato oggi a Berna una dichiarazione d'intenti volta a garantire i pagamenti nei negozi anche durante interruzioni di internet o blackout della rete. La soluzione è stata presentata dai rappresentanti delle imprese in un evento al quale hanno partecipato il presidente della Confederazione Guy Parmelin, il presidente della Banca nazionale svizzera (BNS) Martin Schlegel e il delegato all'Approvvigionamento economico del Paese Roland Pfister.
+
+L'implementazione avverrà in modo graduale, con l'obiettivo di raggiungere una diffusione ampia entro la fine del 2027. Le prime sperimentazioni e implementazioni iniziali dovrebbero concludersi ancora nel corso dell'anno prossimo.
+
+### Come funziona il pagamento offline
+
+Concretamente, in caso di interruzione di internet il terminale di pagamento registra la transazione localmente e, al ripristino della rete, la trasmette automaticamente per l'elaborazione e l'addebito tramite le istituzioni finanziarie svizzere. Anche se il sistema opera in modalità off-line, il lettore delle carte rimane un elemento critico: deve essere obbligatoriamente collegato alla corrente. Se il blackout coinvolge anche l'alimentazione, il dispositivo potrà continuare a funzionare solo con il supporto di una batteria esterna o di un generatore.
+
+I pagamenti off-line saranno possibili unicamente con carte di credito e di debito fisiche e con l'inserimento del codice PIN. Un aspetto importante per i consumatori svizzeri: le carte attualmente in circolazione non dovranno essere sostituite. Saranno invece i terminali di pagamento presso i negozi a dover essere riconfigurati dagli operatori per supportare la nuova modalità.
+La Svizzera entra così nel novero dei Paesi europei che hanno deciso di investire nella resilienza del sistema di pagamento digitale nazionale. La Svezia ha già implementato i pagamenti off-line da tempo, mentre altri Stati del Nord Europa come Finlandia, Norvegia ed Estonia stanno introducendo misure analoghe. Tuttavia, il DEFR sottolinea che la Svizzera è il primo Paese centroeuropeo che adotta una soluzione ampiamente condivisa per rafforzare la resilienza dei pagamenti elettronici.
+
+### L'impatto sulla vita quotidiana dei consumatori
+
+Per chi vive e lavora in Svizzera, il cambiamento comporterà vantaggi pratici significativi. Fino ad oggi, qualunque interruzione di internet — sia essa dovuta a guasti tecnici, maltempo o emergenze — poteva bloccare completamente la possibilità di acquistare beni con carta, costringendo i clienti a ricorrere al contante. Con i pagamenti off-line, il negozio continuerà a operare normalmente, registrando la transazione localmente e processandola successivamente.
+
+Questo ha importanti ripercussioni anche sul fronte della sicurezza alimentare e dei servizi essenziali. Durante un blackout, i generi di prima necessità potranno comunque essere acquistati con carta di credito o debito, mantenendo stabile il [costo della vita](nav:cost-of-living) senza forzare la dipendenza dal contante. Il consumatore non dovrà più portare con sé denaro in quantità significative nei momenti di crisi infrastrutturale.
+
+### Timeline e prossimi step
+
+La dichiarazione d'intenti adottata oggi segna l'inizio formale del processo. Nella fase iniziale (fino alla fine dell'anno prossimo), saranno avviate le prime implementazioni presso negozi selezionati e con operatori finanziari volontari. Successivamente, durante il 2027, il sistema dovrebbe stabilizzarsi e diffondersi su scala più ampia, raggiungendo una copertura significativa entro la fine di quell'anno.
+
+Non è ancora stato annunciato uno scadenzario preciso per i singoli cantoni, né sono stati rivelati i dettagli sulle categorie di negozi che avranno priorità nell'implementazione. Tuttavia, il coinvolgimento diretto del Consiglio federale e della BNS suggerisce che si tratta di un progetto coordinato a livello nazionale, non delegato ai cantoni individualmente.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).
+### Come prepararsi al pagamento offline
+
+La transizione sarà pressappoco invisibile per i consumatori svizzeri. Non dovrai fare nulla per aderire al sistema: le tue carte attualmente in circolazione continueranno a funzionare normalmente, senza necessità di richiesta di sostituzione. Quello che cambierà è la configurazione dei lettori di carte presso i negozi.
+
+A partire dalla fine del 2027, quando la diffusione dovrebbe essere ampia, potrai aspettarti che la maggior parte dei negozi in Svizzera supporti i pagamenti off-line. Alcuni fattori non ancora specificati — come la priorità regionale o per categoria merceologica — continueranno a essere definiti dalle autorità federali nel corso dell'implementazione.
+
+### Cosa deve fare il commerciante
+
+La responsabilità principale grava sui gestori dei punti vendita e sugli operatori che forniscono i terminali di pagamento. Questi dovranno riconfigurare i lettori di carte per attivarsi in modalità off-line, assicurare che il dispositivo disponga di alimentazione di backup (batteria esterna o generatore) in caso di blackout totale, e mettere a punto i processi di sincronizzazione e trasmissione differita delle transazioni.
+
+Per i clienti, l'esperienza rimane invariata: inserirai la carta, digiterai il PIN, e il pagamento sarà elaborato come di consueto. L'unica differenza percettibile sarà l'assenza di interruzioni dovute a mancanza di connettività internet. Nei prossimi mesi, il DEFR continuerà a coordinare con le banche, i gestori di rete e i rappresentanti del commercio per definire standard tecnici, procedure di test e cronologie dettagliate di implementazione per ciascuna regione del Paese.
+
+### Prossimi passi per il consumatore
+
+Non è richiesta alcuna azione immediata da parte tua. Rimani informato sugli sviluppi annunciati dalle banche e dalle associazioni commerciali della tua regione. Alla fine del 2027, quando il sistema sarà ampiamente disponibile, potrai verificare presso i tuoi negozi preferiti se il terminale supporta i pagamenti offline. Iscriviti alla newsletter di Frontaliere Ticino per restare aggiornato su quando questa funzionalità raggiungerà il tuo cantone. Approfondisci le strategie di gestione finanziaria personale per pianificare meglio le tue spese e il tuo budget mensile.
+
+Confronta il [tasso di cambio CHF/EUR](nav:exchange) in tempo reale tra i principali provider: risparmi fino a 1.5% sulle commissioni del bonifico mensile.
+
+*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/defr%3a-pagare-in-negozi-con-carta-credito-anche-con-panne-internet/91947461)*]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 15:21:52 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/carte-credito-pagamenti-offline-2027</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/carte-credito-pagamenti-offline-2027.webp" medium="image"/>
+    </item>
     <item>
       <title>Pagamenti offline nei negozi: arriva la soluzione</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/pagamenti-offline-negozi-svizzera/</link>
@@ -4036,110 +4104,6 @@ Nel frattempo, consulta la tua associazione commerciale cantonale se offre servi
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/commissioni-twint-piccoli-commercianti</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/commissioni-twint-piccoli-commercianti.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Salari e lavoro nel Canton Zugo: formazione e livelli</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/salari-zugo-formazione-livelli/</link>
-      <description><![CDATA[Mercato del lavoro svizzero: stipendi per grado di formazione, orari legali, previdenza obbligatoria (AVS, LPP, LAMal) e contratti collettivi.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Nessun salario minimo federale; alcuni cantoni lo fissano autonomamente
-- Formazione (AFC, maturità, università) determina il livello salariale
-- Orario massimo 45-50 ore/settimana per legge federale
-- Previdenza obbligatoria: AVS 5.3%, LPP 7-18%, LAMal per tutti
-
-## Fatti chiave
-- **Cosa**: Struttura salariale basata su formazione e contratti collettivi
-- Dove: Svizzera, incluso Cantone di Zugo
-- Chi: Dipendenti con formazione professionale (AFC) o superiore
-- Orario: Massimo 45 ore/settimana (industria, uffici, commercio) o 50 ore (altri settori)
-- Previdenza: AVS 5.3% + LPP 7-18% per età + LAMal obbligatoria
-
-### Il mercato del lavoro svizzero
-
-La Svizzera non ha un salario minimo a livello federale. La retribuzione è determinata principalmente da tre fattori: il grado di formazione, il settore lavorativo e la contrattazione collettiva. Nel Cantone di Zugo, come negli altri cantoni svizzeri, questa dinamica regola la struttura dei salari e le opportunità di carriera dei dipendenti.
-
-La formazione professionale (Attestato federale di capacità - AFC) rappresenta il livello entry per molti settori: manifatturiero, costruzione, ospitalità, retail, artigianato. I diplomi di grado superiore (maturità liceale o professionale, corsi di diploma superiore) e le lauree universitarie (Bachelor e Master) aprono l'accesso a posizioni con retribuzioni significativamente più elevate.
-
-L'orario di lavoro massimo è fissato da leggi federali: 45 ore per settimana nelle industrie, negli uffici e nel commercio; 50 ore negli altri settori. Le vacanze minime sono quattro settimane all'anno (cinque per lavoratori sotto i 20 anni). La maternità copre 14 settimane all'80% della retribuzione ordinaria tramite le Indennità per perdita di guadagno (IPG); la paternità è di due settimane. Approfondisci le tue opzioni di [congedo parentale](nav:parental-leave) in Svizzera.
-
-### Contratti collettivi e struttura salariale
-
-La contrattazione collettiva è il meccanismo principale attraverso il quale i sindacati, le associazioni datoriali e le aziende definiscono salari minimi, aumenti, benefit e condizioni di lavoro per intere categorie professionali. Ogni grande settore (bancario, chimico, costruzione, metalmeccanico, turismo, sanità) ha i suoi contratti collettivi di lavoro (CCL), che variano per importo e coverage territoriale.
-
-Senza salario minimo federale, i lavoratori in settori senza CCL o in piccole imprese devono negoziare individualmente. Il diritto svizzero garantisce però che ogni accordo di lavoro rispetti gli standard di protezione: orario massimo, riposo settimanale, diritti ai congedi, sicurezza in fabbrica.
-### Contributi sociali dedotti dallo stipendio
-
-Una parte importante della retribuzione svizzera è costituita dai contributi sociali obbligatori, dedotti dallo stipendio lordo. Comprendere questa struttura è essenziale per valutare il valore reale di un'offerta di lavoro.
-
-**Assicurazione Vecchiaia e Invalidità (AVS/AI)**: Rappresenta il primo pilastro della previdenza. Il dipendente versa il 5.3% del salario; il datore di lavoro versa altrettanto, per un totale del 10.6%. Questo finanzia la Cassa di Previdenza Sociale Svizzera, che eroga prestazioni di vecchiaia (AVS), invalidità (AI) e indennità di maternità/paternità (IPG).
-
-Disoccupazione (AD) e Indemnità di insolvibilità (AC): Il dipendente contribuisce l'1.1% del salario fino a un massimale annuo stabilito e indicizzato ogni anno. Questi fondi proteggono il lavoratore in caso di perdita involontaria del lavoro.
-
-Assicurazione infortuni (LAA): Varia dallo 0.7% al 1.5% del salario a seconda del settore lavorativo. Il datore di lavoro versa quasi interamente questo contributo.
-
-Fondo di pensione integrale (LPP/BVG): Per i salari superiori a una soglia di coordinamento (indicizzata annualmente), viene versato il 7–18% del salario coordinato in base all'età. Una persona di 25–34 anni contribuisce il 7%; di 35–44 anni il 10%; di 45–54 anni il 15%; di 55 anni e oltre fino all'età di pensionamento il 18%. Questi contributi finanziano la pensione complementare (secondo pilastro) tramite fondi pensione aziendali o collettivi.
-
-Assicurazione malattia (LAMal): È obbligatoria per ogni residente in Svizzera e viene stipulata privatamente con compagnie assicurative. Non è una tassa né un contributo salariale, ma una spesa mensile fissa. I premi variano per cantone e regione; le franchigie per adulti vanno da CHF 300 a CHF 2.500 all'anno. Il Cantone di Zugo offre sussidi per i premi in base al reddito familiare. Scopri le opzioni nella tua [cassa malati](nav:health).
-
-### Differenziali salariali per livello di formazione
-
-La formazione influisce significativamente sulla retribuzione lungo l'intera carriera. Secondo i dati dell'Ufficio Statistiche Federale (UST/BFS) e della Segreteria di Stato dell'economia (SECO), le differenze salariali tra livelli di formazione sono stabili nel tempo.
-
-Un lavoratore con formazione professionale (AFC) guadagna mediamente significativamente meno di un tecnico con diploma superiore, che a sua volta guadagna meno di un laureato universitario. La differenza media tra un AFC e un Bachelor è circa il 50–70%; un Master comporta in genere una retribuzione ancora più elevata.
-
-Il Cantone di Zugo, come Ginevra e Basilea-Città, offre stipendi complessivamente più elevati rispetto alla media nazionale, grazie alla concentrazione di multinazionali, istituzioni finanziarie, industrie farmaceutiche e tecnologiche. Tuttavia, il costo della vita (affitti, trasporti, alimentari, servizi) è proporzionalmente più alto.
-
-### Verifica salariale e trasparenza
-
-Un lavoratore può verificare se il suo compenso è allineato al mercato consultando dati pubblici di enti ufficiali. L'Ufficio Statistiche Federale (UST/BFS) pubblica annualmente rapporti dettagliati su salari medi per cantone, settore e formazione. La Segreteria di Stato dell'economia (SECO) fornisce informazioni su condizioni di lavoro e indicatori del mercato.
-
-La trasparenza salariale non è obbligatoria per legge federale (eccetto imprese molto grandi in alcuni cantoni), ma è una pratica crescente che permette negoziazione più consapevole.
-
-## Tool utili per la pianificazione
-Per stimare la strategia previdenziale, prova il [pianificatore pensionistico](nav:pension) e il [simulatore 3° pilastro](nav:pillar3).
-### Come verificare e negoziare il tuo salario
-
-**Step 1: Ricerca benchmark salariale**
-Prima di colloqui di lavoro, raccogliere dati su quanto guadagnano professionisti con il tuo profilo (formazione, esperienza, settore, cantone) presso aziende simili. Accedi a UST/BFS e SECO. Più informazioni raccogli, più forte sarà la tua posizione negoziale.
-
-Step 2: Verifica il contratto collettivo applicabile
-Se lavori in un settore coperto da contratto collettivo (bancario, metalmeccanico, chimico, turismo, sanità, costruzione), il tuo datore è vincolato ai salari minimi stabiliti. Contatta l'associazione sindacale del tuo settore per ottenere il documento del CCL e le soglie salariali per il tuo livello di esperienza.
-
-Step 3: Negozia al primo colloquio
-Il primo colloquio di lavoro è il momento ideale per chiarimenti sulla retribuzione. Presenta la tua ricerca di benchmark, sottolineando formazione, esperienza e valore aggiunto. Proponi un range salariale (non una cifra fissa), e rimani flessibile su benefit alternativi: home office, formazione continua, bonus di performance, assicurazioni supplementari.
-
-Step 4: Controlla i contributi sulla busta paga
-Una volta assunto, esamina la prima busta paga:
-- Contributi AVS/AI/IPG: 5.3% del lordo
-- Fondo pensione (LPP): attivo se salario sopra soglia coordinamento
-- Assicurazione malattia (LAMal): registrata presso un'assicuratore svizzero
-- Contributi disoccupazione (AD): 1.1% fino a massimale
-- Assicurazione infortuni (LAA): 0.7–1.5% secondo settore
-
-Se scopri irregolarità, contatta immediatamente il datore o il sindacato.
-
-Step 5: Pianifica il terzo pilastro 3a
-La previdenza svizzera si basa su tre pilastri: (1) AVS (prestazione federale di base), (2) LPP/BVG (fondo pensione aziendale o collettivo), (3) Terzo pilastro 3a (risparmio individuale con deduzioni fiscali).
-
-Contribuire al [terzo pilastro 3a](nav:pillar3) è facoltativo ma consigliato. I versamenti sono deducibili dall'imponibile federale, cantonale e comunale. Ogni anno puoi versare fino a un massimale (indicizzato annualmente) per accumulare risparmio privato fino all'età di pensionamento. Consulta il calcolatore per pianificare i versamenti.
-
-### Risorse ufficiali svizzere
-
-SECO (Segreteria di Stato dell'economia): Dati approfonditi su salari medi, occupazione, condizioni di lavoro per settore e cantone.
-
-UST/BFS (Ufficio Statistiche Federale): Rapporti annuali su salari medi svizzeri disaggregati per cantone, settore, formazione, genere ed età. È la fonte più affidabile per benchmark salariali.
-
-UFAS/BSV (Ufficio Federale delle Assicurazioni Sociali): Informazioni ufficiali su AVS, LPP, maternità, paternità e benefici previdenziali.
-
-Sindacati e associazioni di categoria: Offrono consulenza su contratti collettivi, negoziazione salariale, diritti dei lavoratori e protezione legale nel tuo settore.
-
-### Calcola il tuo stipendio netto
-
-Vuoi sapere esattamente quanti CHF rimangono nel tuo conto ogni mese dopo imposte, AVS, LPP e LAMal? Usa il nostro [calcolatore di stipendio](nav:calculator) per simulare diversi scenari salariali, visualizzare l'impatto preciso delle deduzioni fiscali e previdenziali nel tuo cantone, e pianificare il tuo bilancio personale. Scoprirai il valore reale della tua retribuzione.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 21:37:47 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/salari-zugo-formazione-livelli</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-zugo-formazione-livelli.webp" medium="image"/>
     </item>
   </channel>
 </rss>
