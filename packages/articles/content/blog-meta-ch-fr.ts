@@ -4195,6 +4195,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-zurigo-contratto-tirocinio.title': 'Apprentissage à Zurich : comment trouver sa place d\'apprentissage',
     'blog.article.apprendistato-zurigo-contratto-tirocinio.excerpt': 'Guide pratique de l\'apprentissage dans le canton de Zurich : recherche, contrat, rémunération et maturité professionnelle. Tout ce que vous devez savoir sur le système de formation double suisse.',
     'blog.article.apprendistato-zurigo-contratto-tirocinio.imageAlt': 'Des apprentis lors d\'une formation professionnelle pratique dans une école suisse',
+    'blog.article.formazione-professionale-zurigo.title': 'Stage Zurich : salaire, contrat, maturité',
+    'blog.article.formazione-professionale-zurigo.excerpt': 'Apprentissage dans le canton de Zurich : comment trouver un poste d\'apprentissage, droits fédéraux, salaire, cotisations AVS/LAMal et procédure de démarrage du contrat.',
+    'blog.article.formazione-professionale-zurigo.imageAlt': 'Apprenti apprenant un métier dans un atelier professionnel suisse avec instructeur',
 };
 
 export default blogMetaChFr;
