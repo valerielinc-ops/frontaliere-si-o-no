@@ -76784,6 +76784,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-grandola-uniti-lavorare-ticino': {
+    title: 'Da Grandola ed Uniti al Ticino: guida frontaliere',
+    description: 'Come vivere a Grandola ed Uniti e lavorare in Ticino da frontaliere: tassazione Svizzera, imposta alla fonte, AVS/LPP, Nuovo Accordo 2024, busta paga.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grandola, uniti, trasferirsi, lavorare',
+    ogTitle: 'Vivere a Grandola ed Uniti e lavorare in Ticino',
+    ogDescription: 'Guida completa per frontalieri: vivere a Grandola ed Uniti (Como) e lavorare in Ticino. Tassazione Svizzera, franchigia Nuovo Accordo 2024, AVS/LPP, busta paga, LAMal. Checklist e calcolatore.',
+    canonicalPath: '/articoli-frontaliere/vivere-grandola-uniti-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da Grandola ed Uniti al Ticino: guida frontaliere",
+      "description": "Come vivere a Grandola ed Uniti e lavorare in Ticino da frontaliere: tassazione Svizzera, imposta alla fonte, AVS/LPP, Nuovo Accordo 2024, busta paga.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-grandola-uniti-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Mendrisio al tramonto, con il campanile della chiesa che emerge sopra gli edifici rossi di confine"
+      },
+      "datePublished": "2026-08-24T03:26:34+00:00",
+      "dateModified": "2026-08-24T03:26:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-grandola-uniti-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
