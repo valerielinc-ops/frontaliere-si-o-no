@@ -25,8 +25,18 @@ const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 const readSource = (relPath: string) => readFileSync(resolve(REPO_ROOT, relPath), 'utf8');
 
-/** Il guard: prima di iniettare si cerca un JSON-LD dello stesso @type gia' in pagina. */
-const DUPLICATE_GUARD = `document.querySelectorAll('script[type="application/ld+json"]')`;
+/**
+ * Il guard: prima di iniettare si cerca un JSON-LD STATICO dello stesso @type
+ * gia' in pagina. `:not([data-dynamic-ld])` non e' un dettaglio ed e' pinnato
+ * come stringa esatta: gli script con quell'attributo sono di
+ * `updateStructuredData()` (services/seoService.ts), che li rimuove tutti a ogni
+ * aggiornamento SEO. Senza l'esclusione, in una navigazione SPA da una pagina
+ * con FAQPage/HowTo dinamico (job page, /calcola-stipendio/, rotte fiscali)
+ * l'effect di questi componenti — figli, quindi eseguiti PRIMA di quello del
+ * parent che ripulisce — vedrebbe ancora lo script della pagina precedente e
+ * salterebbe l'iniezione per sempre, in silenzio e senza retry.
+ */
+const DUPLICATE_GUARD = `document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')`;
 
 interface GuideExpectation {
   /** Percorso del componente guida. */
@@ -88,12 +98,20 @@ describe('pagine guida: tabelle, FAQ e structured data', () => {
         });
       }
 
-      it('inietta solo dopo aver escluso un JSON-LD dello stesso @type gia in pagina', () => {
+      it('inietta solo dopo aver escluso un JSON-LD statico dello stesso @type gia in pagina', () => {
         // Senza questo guard due FAQPage sulla stessa pagina fanno scattare
         // l'errore "duplicate FAQPage" dei rich results (stessa ragione per cui
         // FaqSection.tsx lo applica).
         expect(source).toContain(DUPLICATE_GUARD);
         expect(source).toContain(`?.['@type']`);
+      });
+
+      it('il guard non interroga anche i JSON-LD dinamici di seoService', () => {
+        // La forma nuda della query (senza `:not([data-dynamic-ld])`) non deve
+        // comparire: e' quella che fa saltare l'iniezione dopo una navigazione
+        // SPA, leggendo lo script stale della pagina precedente.
+        const bareQuery = `document.querySelectorAll('script[type="application/ld+json"]')`;
+        expect(source).not.toContain(bareQuery);
       });
 
       it('non marca i propri script con data-dynamic-ld', () => {

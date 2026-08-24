@@ -34,8 +34,11 @@ const CarTransferGuide: React.FC = () => {
  ];
 
  // HowTo JSON-LD sui 5 passi della timeline, FAQPage sulle 6 Q&A gia' tradotte.
- // Stesso guard e stesse ragioni di WorkPermitsGuide (niente doppione dello
- // stesso @type sulla pagina, niente data-dynamic-ld che seoService ripulisce).
+ // Stesso guard e stesse ragioni di WorkPermitsGuide: si interrogano solo i
+ // JSON-LD STATICI (`:not([data-dynamic-ld])`) perche' quelli dinamici sono di
+ // seoService e in navigazione SPA sarebbero ancora quelli della pagina
+ // precedente; e lo script iniettato qui non porta quell'attributo, o
+ // seoService lo cancellerebbe col componente ancora montato.
  const howToLdJson = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'HowTo',
@@ -67,7 +70,7 @@ const CarTransferGuide: React.FC = () => {
  const injected: string[] = [];
  for (const block of blocks) {
  const alreadyOnPage = Array.from(
- document.querySelectorAll('script[type="application/ld+json"]')
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
  ).some(el => {
  if (el.id === block.id) return false;
  try { return JSON.parse(el.textContent || '')?.['@type'] === block.type; } catch { return false; }

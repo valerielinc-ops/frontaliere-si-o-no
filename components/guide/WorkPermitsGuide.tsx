@@ -310,13 +310,17 @@ const WorkPermitsGuide: React.FC = () => {
  { feature: t('permits.sectionRenewal'), ...fieldByPermit(p => p.renewal) },
  ];
 
- // FAQPage JSON-LD. Stesso guard di FaqSection.tsx: se la pagina porta gia' un
- // FAQPage — shell statica di staticPagesPlugin, o quello dinamico di
- // seoService.updateStructuredData() — non se ne aggiunge un secondo, che e'
- // l'errore "duplicate FAQPage" dei rich results.
- // Nessun attributo data-dynamic-ld: quello e' di seoService, che rimuove ogni
- // script che lo porta a ogni aggiornamento SEO — questo sparirebbe col
- // componente ancora montato.
+ // FAQPage JSON-LD. Stesso guard di FaqSection.tsx, query compresa: si guardano
+ // solo i JSON-LD STATICI — `:not([data-dynamic-ld])` — cioe' la shell emessa da
+ // staticPagesPlugin. Se c'e' gia' un FAQPage li' dentro non se ne aggiunge un
+ // secondo, che e' l'errore "duplicate FAQPage" dei rich results.
+ // I blocchi con data-dynamic-ld sono di seoService.updateStructuredData(), che
+ // li rimuove tutti a ogni aggiornamento SEO. Vanno esclusi dal guard: in una
+ // navigazione SPA l'effect di questo componente (figlio) gira PRIMA di quello
+ // del parent, quindi vedrebbe ancora lo script della pagina precedente e
+ // salterebbe l'iniezione per sempre, in silenzio e senza retry.
+ // Per la stessa ragione lo script iniettato qui non porta quell'attributo: se
+ // lo portasse, seoService lo cancellerebbe col componente ancora montato.
  const faqLdJson = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
@@ -330,7 +334,7 @@ const WorkPermitsGuide: React.FC = () => {
  useEffect(() => {
  const LD_ID = 'permits-faq-jsonld';
  const alreadyOnPage = Array.from(
- document.querySelectorAll('script[type="application/ld+json"]')
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
  ).some(el => {
  if (el.id === LD_ID) return false;
  try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }

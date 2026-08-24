@@ -59,10 +59,11 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
  answer: t(`renovation.faq.${fk}.a`),
  }));
 
- // Guard identico a quello delle pagine guida: se la pagina porta gia' un
- // FAQPage (shell statica o seoService) non se ne aggiunge un secondo, che e'
- // l'errore "duplicate FAQPage" dei rich results. Nessun data-dynamic-ld:
- // quell'attributo e' di seoService, che ripulisce ogni script che lo porta.
+ // Guard identico a quello delle pagine guida: si guardano solo i JSON-LD
+ // STATICI (`:not([data-dynamic-ld])`), perche' quelli dinamici sono di
+ // seoService e in navigazione SPA sarebbero ancora quelli della pagina
+ // precedente; e lo script iniettato qui non porta quell'attributo, o
+ // seoService lo cancellerebbe col componente ancora montato.
  const faqLdJson = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
@@ -76,7 +77,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
  useEffect(() => {
  const LD_ID = 'renovation-faq-jsonld';
  const alreadyOnPage = Array.from(
- document.querySelectorAll('script[type="application/ld+json"]')
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
  ).some(el => {
  if (el.id === LD_ID) return false;
  try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }

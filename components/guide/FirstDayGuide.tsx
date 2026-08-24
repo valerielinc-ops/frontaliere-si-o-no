@@ -177,8 +177,11 @@ const FirstDayGuide: React.FC = () => {
 
  // HowTo JSON-LD: la checklist E' la procedura del primo giorno, quindi lo
  // schema descrive gli stessi 12 passi che la pagina gia' mostra.
- // Stesso guard e stesse ragioni di WorkPermitsGuide: niente secondo HowTo sulla
- // pagina, e nessun data-dynamic-ld (attributo di seoService, che lo ripulisce).
+ // Stesso guard e stesse ragioni di WorkPermitsGuide: si interrogano solo i
+ // JSON-LD STATICI (`:not([data-dynamic-ld])`) perche' quelli dinamici sono di
+ // seoService e in navigazione SPA sarebbero ancora quelli della pagina
+ // precedente; e lo script iniettato qui non porta quell'attributo, o
+ // seoService lo cancellerebbe col componente ancora montato.
  const howToLdJson = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'HowTo',
@@ -195,7 +198,7 @@ const FirstDayGuide: React.FC = () => {
  useEffect(() => {
  const LD_ID = 'firstday-howto-jsonld';
  const alreadyOnPage = Array.from(
- document.querySelectorAll('script[type="application/ld+json"]')
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
  ).some(el => {
  if (el.id === LD_ID) return false;
  try { return JSON.parse(el.textContent || '')?.['@type'] === 'HowTo'; } catch { return false; }
