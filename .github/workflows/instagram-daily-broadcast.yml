@@ -1,0 +1,126 @@
+name: Instagram Daily/Weekly Broadcast
+
+# Instagram Business account carousel posts (scripts/post-to-instagram.mjs):
+#   • daily  08:20 UTC → top-5 most-clicked JOBS + top-5 most-read ARTICLES
+#            (5 min after linkedin-member-daily.yml's 08:15, same GA4 window,
+#            staggered so the two don't contend for the same runner minute)
+#   • weekly Mon 07:05 UTC → top-5 fastest DOGANE (5 min after Telegram's own
+#            weekly border digest, same data source, same reasoning)
+#
+# Same dual-cron/mode-select shape as telegram-channel-broadcast.yml.
+#
+# Fail-soft by design: with no INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
+# in Remote Config the poster logs a clean skip and exits 0. The whole
+# pipeline ships and stays GREEN before the owner has completed Meta's App
+# Review for instagram_content_publish — a human, external process this
+# workflow cannot shortcut. See scripts/post-to-instagram.mjs header.
+#
+# workflow_dispatch defaults to dry_run=true (preview only). Scheduled runs
+# post for real, subject to the credentials being present.
+
+on:
+  schedule:
+    - cron: '20 8 * * *'  # daily job/article carousels
+    - cron: '5 7 * * 1'   # weekly dogane carousel (Monday)
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Limit to one slot (weekly border only makes sense on-demand)'
+        required: false
+        default: ''
+        type: choice
+        options: ['', 'article', 'job', 'border']
+      date:
+        description: 'UTC day to report on (YYYY-MM-DD). Empty = yesterday.'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Preview only (no Instagram API call)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: instagram-daily-broadcast
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # commit data/instagram-posted.json
+  issues: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    # Same budget as linkedin-member-daily.yml / telegram-channel-broadcast.yml
+    # — full checkout + assemble-jobs-dataset for the job slot.
+    timeout-minutes: 20
+    env:
+      # Weekly cron ⇒ border; daily cron / manual ⇒ input (empty = article+job).
+      ONLY: ${{ github.event.inputs.only || (github.event.schedule == '5 7 * * 1' && 'border' || '') }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      REPORT_DATE: ${{ github.event.inputs.date || '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      # Only needed for the job slot — same reasoning as linkedin-member-daily.yml:
+      # without it the poster skips the job slot rather than guessing.
+      - name: Assemble jobs dataset
+        if: env.ONLY != 'article' && env.ONLY != 'border'
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+        continue-on-error: true
+
+      # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`
+      # — see linkedin-member-daily.yml's identical comment for why.
+      - name: Post to Instagram
+        run: |
+          set -euo pipefail
+          ARGS=()
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then ARGS+=("--only=$ONLY"); fi
+          if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
+          npx tsx scripts/post-to-instagram.mjs ${ARGS[@]+"${ARGS[@]}"}
+
+      - name: Commit posted ledger
+        if: success() && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/instagram-posted.json 2>/dev/null; then
+            echo "no ledger changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/instagram-posted.json
+          git commit -m "chore(instagram): track posted carousel content [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

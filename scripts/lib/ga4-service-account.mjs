@@ -52,3 +52,53 @@ export async function getServiceAccountToken(scopes, { logInfo = console.log, lo
     return null;
   }
 }
+
+/**
+ * One day's `pagePath` × `pageTitle` × `screenPageViews` report, the exact
+ * shape scripts/lib/daily-top-content.mjs#rankCandidates expects.
+ *
+ * Shared by every GA4-ranked social poster (LinkedIn member, Instagram,
+ * TikTok) — project rule: a helper duplicated literally in ≥2 files MUST
+ * live in ONE shared module. Originally lived only in
+ * post-to-linkedin-member.mjs.
+ *
+ * @param {string} day 'YYYY-MM-DD'
+ * @param {{ propertyId?: string }} [opts]
+ * @returns {Promise<Array<{path:string, title:string, views:number}>|null>} null on any failure
+ */
+export async function fetchGa4PageReport(day, { propertyId } = {}) {
+  const token = await getServiceAccountToken(['https://www.googleapis.com/auth/analytics.readonly']);
+  if (!token) return null;
+
+  const raw = propertyId || process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
+  const property = raw.startsWith('properties/') ? raw : `properties/${raw}`;
+
+  const res = await fetchRetry(
+    `https://analyticsdata.googleapis.com/v1beta/${property}:runReport`,
+    {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        dateRanges: [{ startDate: day, endDate: day }],
+        dimensions: [{ name: 'pagePath' }, { name: 'pageTitle' }],
+        metrics: [{ name: 'screenPageViews' }],
+        orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
+        limit: 10000,
+      }),
+    },
+  );
+  if (!res?.ok) {
+    console.warn(`⚠️  GA4 runReport failed (${res?.status}) — nothing to post`);
+    return null;
+  }
+  const data = await res.json();
+  if (data.error) {
+    console.warn(`⚠️  GA4 error: ${JSON.stringify(data.error).slice(0, 200)}`);
+    return null;
+  }
+  return (data.rows || []).map((r) => ({
+    path: r.dimensionValues?.[0]?.value || '',
+    title: r.dimensionValues?.[1]?.value || '',
+    views: parseInt(r.metricValues?.[0]?.value || '0', 10),
+  }));
+}
