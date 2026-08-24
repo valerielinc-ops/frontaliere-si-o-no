@@ -161,6 +161,24 @@ export const RC_TO_ENV = {
   LINKEDIN_POST_ACCESS_TOKEN:     ['LINKEDIN_POST_ACCESS_TOKEN'],
   LINKEDIN_ORGANIZATION_ID:       ['LINKEDIN_ORGANIZATION_ID'],
 
+  // LinkedIn auto-posting (PERSONAL profile — scripts/post-to-linkedin-member.mjs).
+  // Distinct from LINKEDIN_POST_* above: that set authors as
+  // `urn:li:organization:<id>` with w_organization_social (Community Management
+  // API, access denied — appeal CAS-11756532-G7J8T5), this one authors as
+  // `urn:li:person:<id>` with w_member_social ("Share on LinkedIn", already
+  // provisioned). Sharing one credential set between the two would make the
+  // author identity a runtime branch on a token.
+  // ALL FOUR are ABSENT in RC until the owner completes the one-time OAuth
+  // consent (scripts/linkedin-member-auth.mjs) — the poster fail-soft-skips
+  // until then, so the workflow is green with none of them set.
+  // _URN is not discoverable at runtime: /v2/userinfo needs a scope this app
+  // does not have, so it is configuration. See the auth helper's header.
+  LINKEDIN_MEMBER_CLIENT_ID:      ['LINKEDIN_MEMBER_CLIENT_ID'],
+  LINKEDIN_MEMBER_CLIENT_SECRET:  ['LINKEDIN_MEMBER_CLIENT_SECRET'],
+  LINKEDIN_MEMBER_ACCESS_TOKEN:   ['LINKEDIN_MEMBER_ACCESS_TOKEN'],
+  LINKEDIN_MEMBER_REFRESH_TOKEN:  ['LINKEDIN_MEMBER_REFRESH_TOKEN'],
+  LINKEDIN_MEMBER_URN:            ['LINKEDIN_MEMBER_URN'],
+
   // LinkedIn Sign-In (OAuth2 for user authentication)
   LINKEDIN_SIGNIN_CLIENT_ID:      ['LINKEDIN_SIGNIN_CLIENT_ID'],
   LINKEDIN_SIGNIN_CLIENT_SECRET:  ['LINKEDIN_SIGNIN_CLIENT_SECRET'],
