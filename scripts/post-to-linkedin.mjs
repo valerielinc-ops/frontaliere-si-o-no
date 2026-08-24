@@ -20,6 +20,11 @@
  * Exit code is always 0 (soft failure) — this script should never block CI.
  */
 
+import {
+  linkedinUrl,
+  LINKEDIN_COMPANY_CAMPAIGN_ARTICLE,
+} from './lib/linkedin-links.mjs';
+
 const CATEGORY_HASHTAGS = {
   fiscale:  '#frontalieri #ticino #tasse #fisco #svizzera #italia',
   pratico:  '#frontalieri #ticino #lavoro #svizzera #guidapratica',
@@ -105,12 +110,20 @@ async function main() {
   const hashtags = CATEGORY_HASHTAGS[category] || DEFAULT_HASHTAGS;
   const description = ogDescription || '';
 
+  // An untagged social link lands in GA4 as Direct, so the channel reads as
+  // ZERO sessions while it is in fact sending clicks — invisible, not absent.
+  // Measured 2026-08-24 on the Telegram channel, and this script had the same
+  // defect: it posted a bare `articleUrl`. Same shared UTM identity as the
+  // member poster, so LinkedIn stays ONE source row in GA4 and the two surfaces
+  // are told apart by utm_campaign.
+  const taggedUrl = linkedinUrl(articleUrl, LINKEDIN_COMPANY_CAMPAIGN_ARTICLE, articleId);
+
   const commentary = [
     `${emoji} ${ogTitle}`,
     '',
     description,
     '',
-    `👉 Leggi l'articolo completo: ${articleUrl}`,
+    `👉 Leggi l'articolo completo: ${taggedUrl}`,
     '',
     hashtags,
   ].join('\n').trim();
@@ -144,7 +157,7 @@ async function main() {
       },
       content: {
         article: {
-          source: articleUrl,
+          source: taggedUrl,
           title: ogTitle,
           ...(description && { description }),
         },

@@ -1,0 +1,134 @@
+name: LinkedIn Member Daily
+
+# Daily personal-profile post (w_member_social, "Share on LinkedIn"):
+#   • yesterday's most-read ARTICLE
+#   • yesterday's most-clicked JOB
+# Both picked from GA4 for the previous UTC day, deduped against
+# data/linkedin-member-posted.json so a winner that stays on top for days is
+# posted once and then gives way to the next-best.
+#
+# This is the PERSONAL profile, not the Company Page. The Page path
+# (scripts/post-to-linkedin.mjs, w_organization_social) needs the Community
+# Management API, whose access is currently denied — appeal CAS-11756532-G7J8T5.
+# The two never share a token or an author URN; see the header of
+# scripts/post-to-linkedin-member.mjs.
+#
+# Fail-soft by design: with no LINKEDIN_MEMBER_ACCESS_TOKEN / LINKEDIN_MEMBER_URN
+# in Remote Config the poster logs a clean skip and exits 0. The whole pipeline
+# ships and stays GREEN before the owner has completed the one-time OAuth
+# consent, which is a human action that cannot be automated.
+#
+# 08:15 UTC is deliberate: data/job-popularity.json refreshes at 05:00 and the
+# Telegram digest goes out at 06:30, so this lands after both and well clear of
+# the GA4 window for the day it reports on.
+#
+# workflow_dispatch defaults to dry_run=true (preview only). Scheduled runs post
+# for real, subject to the credentials being present.
+
+on:
+  schedule:
+    - cron: '15 8 * * *'
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Limit to one slot'
+        required: false
+        default: 'both'
+        type: choice
+        options: ['both', 'article', 'job']
+      date:
+        description: 'UTC day to report on (YYYY-MM-DD). Empty = yesterday.'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Preview only (no LinkedIn API call)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: linkedin-member-daily
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # commit data/linkedin-member-posted.json
+  issues: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    # Full checkout + assemble-jobs-dataset, same shape and same budget as
+    # telegram-channel-broadcast.yml (20 min) — data/jobs/by-crawler alone is
+    # ~422 MB across 595 files.
+    timeout-minutes: 20
+    env:
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      ONLY: ${{ github.event.inputs.only || 'both' }}
+      REPORT_DATE: ${{ github.event.inputs.date || '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      # The jobs dataset is what separates a real offer from a generated SEO
+      # landing page under the same URL shape. Without it the poster skips the
+      # job slot rather than guessing — so this step failing costs one slot,
+      # never a wrong post.
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+        continue-on-error: true
+
+      # NB: each flag is appended with an `if`, never with `[ c ] && ARGS+=…`.
+      # Under `set -e` a trailing test that is FALSE makes the whole step exit
+      # non-zero — so the "no flags needed" case would have failed the run.
+      - name: Post to LinkedIn (member)
+        run: |
+          set -euo pipefail
+          ARGS=()
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ "$ONLY" != "both" ]; then ARGS+=("--only=$ONLY"); fi
+          if [ -n "$REPORT_DATE" ]; then ARGS+=("--date=$REPORT_DATE"); fi
+          node scripts/post-to-linkedin-member.mjs ${ARGS[@]+"${ARGS[@]}"}
+
+      - name: Commit posted ledger
+        if: success() && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/linkedin-member-posted.json 2>/dev/null; then
+            echo "no ledger changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/linkedin-member-posted.json
+          git commit -m "chore(linkedin): track posted member content [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
