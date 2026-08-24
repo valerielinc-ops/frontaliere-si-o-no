@@ -10635,6 +10635,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lozza-lavorare-ticino.title': 'Wohnen in Lozza und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Verbindungen, Reisezeiten und Lebenshaltungskosten für Grenzgänger',
     'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Bild eines Grenzarbeiters mit einer Karte von Lozza und Ticino',
+    'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Wohnen in Caprezzo und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger mit Wohnsitz in Caprezzo: Neues Steuerabkommen, Besteuerung, Selbstbehalte und Arbeitsmanagement im Kanton Tessin.',
+    'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Panoramablick auf die Grenzregion zwischen Italien und der Schweiz in der Nähe des Lago Maggiore',
 };
 
 export default blogMetaDe;

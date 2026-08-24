@@ -10636,6 +10636,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lozza-lavorare-ticino.title': 'Living in Lozza and working in Ticino as a border worker',
     'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Connections, journey times and cost of living for border crossers',
     'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Image of a border worker with a map of Lozza and Ticino',
+    'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Living in Caprezzo and working in Ticino as a border worker',
+    'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Practical guide for border workers residing in Caprezzo: new tax agreement, taxation, deductibles and labour management in Canton Ticino.',
+    'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Panoramic view of the border region between Italy and Switzerland near Lake Maggiore',
 };
 
 export default blogMetaEn;

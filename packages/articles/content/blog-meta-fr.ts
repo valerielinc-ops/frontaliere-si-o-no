@@ -10638,6 +10638,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lozza-lavorare-ticino.title': 'Vivre à Lozza et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Liaisons, temps de trajet et coût de la vie pour les frontaliers',
     'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Image d\'un travailleur frontalier avec une carte de Lozza et du Tessin',
+    'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Vivre à Caprezzo et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers résidant à Caprezzo : nouvel accord fiscal, fiscalité, franchises et gestion du travail dans le canton du Tessin.',
+    'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Vue panoramique de la région frontalière entre l\'Italie et la Suisse près du lac Majeur',
 };
 
 export default blogMetaFr;

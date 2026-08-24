@@ -10637,6 +10637,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lozza-lavorare-ticino.title': 'Vivere a Lozza e lavorare in Ticino da frontaliere',
     'blog.article.vivere-lozza-lavorare-ticino.excerpt': 'Collegamenti, tempi di percorrenza e costo della vita per i frontalieri',
     'blog.article.vivere-lozza-lavorare-ticino.imageAlt': 'Immagine di un frontaliere con la cartina di Lozza e Ticino',
+    'blog.article.vivere-caprezzo-lavorare-ticino.title': 'Vivere a Caprezzo e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-caprezzo-lavorare-ticino.excerpt': 'Guida pratica per i frontalieri che risiedono a Caprezzo: nuovo accordo fiscale, tassazione, franchigie e gestione del lavoro in Canton Ticino.',
+    'blog.article.vivere-caprezzo-lavorare-ticino.imageAlt': 'Vista panoramica della regione di confine tra Italia e Svizzera vicino al Lago Maggiore',
 };
 
 export default blogMetaIt;
