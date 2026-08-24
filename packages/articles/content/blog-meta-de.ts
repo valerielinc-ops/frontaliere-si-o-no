@@ -10653,6 +10653,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Grenzgänger Lezzeno-Ticino: G-Genehmigung, Gebühren und Verfahren',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Wer in Lezzeno lebt und im Tessin arbeitet, kann mit der Grenzgängerbewilligung G arbeiten. Quellensteuer in der Schweiz, Rückerstattungen, AHV, BVG und KVG: Alles, was Sie wissen müssen.',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Lezzeno am Comer See mit italienischer Architektur und Bergen im Hintergrund',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Longone al Segrino-Ticino: Leitfaden für Grenzgänger',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Wohnen in Longone al Segrino und Arbeiten im Tessin: Selbstbehalt€ 7.500- € 10.000, Quellensteuer, AHV, KVG, Pendelzeiten und Lebenshaltungskosten.',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf das östliche Ufer des Comer Sees mit Alpengipfeln',
 };
 
 export default blogMetaDe;

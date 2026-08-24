@@ -10656,6 +10656,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Frontière Lezzeno-Ticino : permis G, taxes et procédures',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Ceux qui vivent à Lezzeno et travaillent au Tessin peuvent travailler avec le permis G en tant que frontalier. Taxe à la source en Suisse, restaurations, AVS, LPP et LAMal : tout ce qu\'il faut savoir.',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Lezzeno sur le lac de Côme avec architecture italienne et montagnes en arrière-plan',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Longone al Segrino-Ticino : guide pour les frontaliers',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Vivre à Longone al Segrino et travailler au Tessin : franchise € 7 500- € 10 000, impôt à la source, AVS, LAMal, temps de trajet et coût de la vie.',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique de la rive orientale du lac de Côme avec pics alpins',
 };
 
 export default blogMetaFr;

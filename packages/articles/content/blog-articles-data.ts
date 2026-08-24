@@ -31890,6 +31890,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-longone-segrino-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-24T04:17:57.304Z',
+ image: '/images/blog/vivere-longone-segrino-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
