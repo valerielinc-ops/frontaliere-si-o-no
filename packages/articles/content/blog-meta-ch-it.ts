@@ -4174,6 +4174,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Permesso L Sciaffusa: validita e proroga',
     'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'Permesso L fino a 1 anno in Svizzera. Nel Canton Sciaffusa e rinnovabile e puo portare al permesso di dimora. Condizioni, procedure e vincoli.',
     'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Ufficio amministrativo cantonale con bandiera svizzera, edificio moderno in stile svizzero, setting professionale',
+    'blog.article.ticino-solare-fotovoltaico-1982.title': 'Il sole come materiale da costruzione',
+    'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Ticino pioniere del fotovoltaico europeo dal 1982. Oggi ViverTI e Sun Appeal reinventano il solare residenziale: 2.100 ore sole/anno, case intelligenti e sostenibili.',
+    'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Vista aerea di Lugano con case con pannelli solari integrati nella struttura, sole su Ticino',
 };
 
 export default blogMetaChIt;

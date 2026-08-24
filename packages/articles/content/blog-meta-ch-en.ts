@@ -4174,6 +4174,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Permit L Schaffhausen: validity and extension',
     'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'Permit L up to 1 year in Switzerland. In the canton of Schaffhausen, it is renewable and can lead to a residence permit. Conditions, procedures and constraints.',
     'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Cantonal administration office with Swiss flag, modern building exterior, professional Swiss workplace setting',
+    'blog.article.ticino-solare-fotovoltaico-1982.title': 'The sun as a building material',
+    'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Ticino has been a pioneer of European photovoltaics since 1982. Today, ViverTI and Sun Appeal are reinventing residential solar: 2,100 hours of sunshine per year, smart and sustainable homes.',
+    'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Aerial view of Lugano showing homes with solar panels integrated into design, sunny Ticino',
 };
 
 export default blogMetaChEn;
