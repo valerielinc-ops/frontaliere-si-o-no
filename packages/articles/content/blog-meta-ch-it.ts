@@ -4120,6 +4120,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Comprare casa a Basilea Città: mutuo e costi',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Guida pratica all\'acquisto immobiliare nel canton Basilea Città: finanziamento ipotecario, imposte sui trapassi, spese notarili e procedura step-by-step. Dove informarsi per i dati locali specifici.',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Casa moderna in stile svizzero nel canton Basilea Città con vista su contesto urbano',
+    'blog.article.aprire-attivita-canton-basilea-citta.title': 'Aprire un\'attivita a Basilea Citta: costi e procedure',
+    'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Guida completa: forme giuridiche, registrazione, tassazione federale/cantonale, contributi AVS/LPP (5,3-18%), LAINF (0,7-1,5%) e obblighi LAMal.',
+    'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Ufficio di registrazione commerciale svizzero con moduli aziendali e ambiente professionale',
 };
 
 export default blogMetaChIt;

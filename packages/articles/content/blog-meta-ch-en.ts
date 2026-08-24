@@ -4120,6 +4120,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Buying a house in Basel City: mortgage and costs',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Practical guide to buying real estate in the canton of Basel-City: mortgage financing, transfer taxes, notary fees and step-by-step procedure. Where to inquire for specific local data.',
     'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Modern Swiss residential property in Basel-Stadt canton with urban surroundings',
+    'blog.article.aprire-attivita-canton-basilea-citta.title': 'Opening an activity in Basel City: costs and procedures',
+    'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Complete guide: legal forms, registration, federal/cantonal taxation, AVS/LPP contributions (5.3-18%), LAINF (0.7-1.5%) and LAMal obligations.',
+    'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Swiss commercial registration office with business documents and professional workspace',
 };
 
 export default blogMetaChEn;
