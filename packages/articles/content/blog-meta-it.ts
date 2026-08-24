@@ -10655,6 +10655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Frontaliere Lezzeno-Ticino: permesso G, tasse e procedimenti',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Chi vive a Lezzeno e lavora in Ticino può lavorare con il permesso G da frontaliere. Imposta alla fonte in Svizzera, ristorni, AVS, LPP e LAMal: tutto quello che serve sapere.',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Veduta aerea di Lezzeno sul Lago di Como con architettura italiana e montagne sullo sfondo, paesaggio di confine Ticino-Italia',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Longone al Segrino-Ticino: guida per frontalieri',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Vivere a Longone al Segrino e lavorare in Ticino: franchigia €7.500–€10.000, imposta alla fonte, AVS, LAMal, tempi di pendolarismo e costo della vita.',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Veduta del Lago di Como con montagne alpine, paesi frontalieri tra Italia e Ticino',
 };
 
 export default blogMetaIt;

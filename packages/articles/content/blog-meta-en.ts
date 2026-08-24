@@ -10654,6 +10654,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Lezzeno-Ticino border guards: G permit, taxes and procedures',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Those who live in Lezzeno and work in Ticino can work with the G permit as border workers. Tax at source in Switzerland, refreshments, AVS, LPP and LAMal: everything you need to know.',
     'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Lezzeno on Como Lake with Italian architecture and mountains, Swiss-Italian border landscape',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Segrino-Ticino beam: guide for border guards',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Living in Longone al Segrino and working in Ticino: deductible €7,500-€10,000, tax at source, AVS, LAMal, commuting times and cost of living.',
+    'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Como\'s eastern shore with Alpine peaks and border villages',
 };
 
 export default blogMetaEn;
