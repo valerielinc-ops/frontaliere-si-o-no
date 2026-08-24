@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-1154",
-  "assembledAt": "2026-08-24T10:32:10.002Z",
+  "assembledAt": "2026-08-24T21:51:45.570Z",
   "jobs": [
     {
       "id": "recruitingapp-1154-f98d1ef85a40",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:06.686Z",
+      "crawledAt": "2026-08-24T21:51:42.487Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,7 +107,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:32:06.384Z",
+      "crawledAt": "2026-08-24T21:51:42.185Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -180,7 +180,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:06.080Z",
+      "crawledAt": "2026-08-24T21:51:41.882Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:05.775Z",
+      "crawledAt": "2026-08-24T21:51:41.580Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,10 +284,10 @@
       "id": "recruitingapp-1154-5a29f64d799b",
       "slug": "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano",
       "slugByLocale": {
-        "fr": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
         "it": "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano",
         "en": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-        "de": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        "de": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "fr": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
@@ -309,7 +309,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:05.468Z",
+      "crawledAt": "2026-08-24T21:51:41.278Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -324,21 +324,23 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
-        ],
-        "it": [
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
-        ]
-      },
       "previousSlugs": [
         "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
         "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
-        "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
+          "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        ],
+        "fr": [
+          "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:39:20.454Z",
       "salaryMin": 68000,
@@ -383,7 +385,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:05.164Z",
+      "crawledAt": "2026-08-24T21:51:40.976Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,20 +436,20 @@
       "id": "recruitingapp-1154-88941a71cd80",
       "slug": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
       "slugByLocale": {
-        "fr": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
         "it": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
         "en": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
-        "de": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch"
+        "de": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch",
+        "fr": "senior-compliance-officer-vsb-60-70-recruitingapp-1154-ch"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
       "companyDomain": "recruitingapp-1154.umantis.com",
       "title": "Senior Compliance Officer VSB 60 – 70%",
       "titleByLocale": {
-        "fr": "Senior Compliance Officer VSB 60 – 70%",
         "it": "Senior Compliance Officer VSB 60 – 70%",
         "en": "Senior Compliance Officer VSB 60 – 70%",
-        "de": "Senior Compliance Officer VSB 60 – 70%"
+        "de": "Senior Compliance Officer VSB 60 – 70%",
+        "fr": "Senior Compliance Officer VSB 60 – 70%"
       },
       "description": "Senior Compliance Officer VSB 60 – 70% — SGKB Bewerbermanagement Stellen",
       "descriptionByLocale": {
@@ -458,7 +460,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:32:04.862Z",
+      "crawledAt": "2026-08-24T21:51:40.673Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -472,10 +474,9 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:04.862Z",
       "salaryMin": 47600,
       "salaryMax": 72100,
       "baseSalary": {
@@ -488,16 +489,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:04.862Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-1154-6a3824e3d042",
       "slug": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano",
       "slugByLocale": {
-        "de": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154",
         "it": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano",
         "en": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano",
+        "de": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154",
         "fr": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano"
       },
       "company": "SGKB Bewerbermanagement Stellen",
@@ -505,9 +505,9 @@
       "companyDomain": "recruitingapp-1154.umantis.com",
       "title": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
       "titleByLocale": {
-        "de": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
         "it": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
         "en": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
+        "de": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%",
         "fr": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100%"
       },
       "description": "Kundenberater*in Beratungszentrum digitale Zahlungslösungen KMU 60 – 100% — SGKB Bewerbermanagement Stellen",
@@ -519,7 +519,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:04.542Z",
+      "crawledAt": "2026-08-24T21:51:40.354Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,18 +533,19 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154",
+        "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154"
+          "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154",
+          "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-sgkb-bewerbermanagement-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:04.542Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -557,8 +558,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:04.542Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-1154-853b0bc5a292",
@@ -630,7 +630,7 @@
       "previousSlugs": [
         "fachspezialist-in-operations-services-70-80-recruitingapp-1154-ch"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
