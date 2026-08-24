@@ -22,9 +22,21 @@
  *
  * A single entry whose repo/PR no longer resolves (renamed, deleted) is
  * dropped rather than blocking forever on something nobody can fix from here.
+ *
+ * COOLDOWN (2026-08-24, incidente in diretta): senza freno, un blocco fa
+ * rientrare l'agente nel turno, che risponde e finisce di nuovo subito nello
+ * Stop — zero tempo reale trascorso fra un controllo e l'altro. Con la coda
+ * CI congestionata (una review durata un'ora), questo ha prodotto decine di
+ * cicli identici in pochi minuti, ognuno con il contesto pieno del
+ * precedente re-iniettato dall'harness: il meccanismo pensato per non far
+ * abbandonare una PR stava allagando il contesto della sessione. Prima di
+ * emettere un blocco, il gate ora dorme fino a `COOLDOWN_MS` dall'ultimo
+ * blocco: il costo per round-trip resta lo stesso, ma il NUMERO di
+ * round-trip per minuto crolla. Il sonno vive nel processo dell'hook, non
+ * nel turno dell'agente: non consuma token di ragionamento.
  */
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { readEntries, writeEntries, removeEntry, entriesForSession, entriesOfOtherSessions } from './lib/pr-watch-store.mjs';
@@ -33,6 +45,59 @@ import { classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
 const GH_TIMEOUT_MS = 12_000;
+
+// Deve stare sotto il timeout dell'hook Stop in settings.json (75s) con
+// margine per i controlli `gh` che seguono (auth-status + checkOne per
+// entry). Abbastanza lungo da tagliare drasticamente il numero di round-trip
+// su un'attesa di minuti/ore; abbastanza corto da restare reattivo su una
+// review che arriva in fretta.
+const COOLDOWN_MS = 45_000;
+const LAST_BLOCK_PATH = join(REPO_ROOT, '.claude', 'pr-watch-last-block.json');
+
+/** Dorme in modo sincrono, bloccando il processo dell'hook — non il modello:
+ * il tempo passa nel subprocess `sleep`, niente token spesi qui.
+ * Fail-safe: un `sleep` mancante non deve mai far fallire il gate. */
+function sleepMs(ms) {
+  if (ms <= 0) return;
+  try {
+    execFileSync('sleep', [String(ms / 1000)], { stdio: 'ignore' });
+  } catch {
+    // ambiente senza `sleep`: nessun throttle, ma il gate continua a funzionare
+  }
+}
+
+/** Pura, testabile senza filesystem/subprocess: quanto resta del cooldown
+ * dato l'istante dell'ultimo blocco. 0 se `lastAt` è assente/futuro/già scaduto.
+ * @param {number} lastAt epoch ms dell'ultimo blocco, 0 se mai
+ * @param {number} now epoch ms corrente
+ * @param {number} cooldownMs
+ * @returns {number}
+ */
+export function remainingCooldownMs(lastAt, now, cooldownMs = COOLDOWN_MS) {
+  const elapsed = now - lastAt;
+  if (!Number.isFinite(elapsed) || elapsed < 0 || elapsed >= cooldownMs) return 0;
+  return cooldownMs - elapsed;
+}
+
+/** Se l'ultimo blocco è più recente di `COOLDOWN_MS`, dorme il resto
+ * dell'intervallo prima di procedere — throttle single-purpose, non
+ * single-flight: più sessioni possono dormire in parallelo, ognuna sul
+ * proprio conto alla riga di comando (fine, non condividono un lock). */
+function throttleBeforeBlocking() {
+  let lastAt = 0;
+  try {
+    lastAt = JSON.parse(readFileSync(LAST_BLOCK_PATH, 'utf-8'))?.at ?? 0;
+  } catch {
+    lastAt = 0;
+  }
+  sleepMs(remainingCooldownMs(lastAt, Date.now()));
+  try {
+    mkdirSync(dirname(LAST_BLOCK_PATH), { recursive: true });
+    writeFileSync(LAST_BLOCK_PATH, JSON.stringify({ at: Date.now() }));
+  } catch {
+    // bookkeeping best-effort: un fallimento qui non deve rompere il gate
+  }
+}
 
 function gh(args) {
   return execFileSync('gh', args, { encoding: 'utf-8', timeout: GH_TIMEOUT_MS, maxBuffer: 4 * 1024 * 1024 });
@@ -127,6 +192,10 @@ function main() {
   }
 
   if (blockers.length === 0) return;
+
+  // Dorme QUI, non prima: se nel frattempo tutto si è risolto (blockers vuoto,
+  // già ritornato sopra) non paghiamo il throttle per niente.
+  throttleBeforeBlocking();
 
   const reason = [
     'PR aperte da questa sessione non hanno ancora raggiunto uno stato terminale',
