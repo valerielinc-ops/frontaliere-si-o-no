@@ -8958,7 +8958,7 @@
         "it": "allrounder-m-w-d-coop-genossenschaft-frauenfeld-thurgau-esobko",
         "en": "allrounder-w-m-d-coop-genossenschaft-frauenfeld-thurgau",
         "de": "allrounder-m-w-d-livique-frauenfeld-thurgau-esobko",
-        "fr": "allrounder-m-w-d-livique-frauenfeld-thurgau-esobko"
+        "fr": "h-f-d-polyvalent-coop-genossenschaft-frauenfeld-thurgau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8980,7 +8980,8 @@
           "allrounder-m-w-d-livique-frauenfeld-thurgau-esobko"
         ],
         "fr": [
-          "tout-terrain-h-f-d-coop-genossenschaft-frauenfeld-thurgau"
+          "tout-terrain-h-f-d-coop-genossenschaft-frauenfeld-thurgau",
+          "allrounder-m-w-d-livique-frauenfeld-thurgau-esobko"
         ]
       },
       "previousSlugs": [
@@ -16551,9 +16552,7 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consulente-commerciale-in-interdiscount-wettingen-aargau",
           "consulente-commerciale-in-interdiscount-wettingen",
-          "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-          "venditore-a-interdiscount-wettingen",
-          "venditore-a-interdiscount-wettingen-aargau"
+          "venditore-a-interdiscount-wettingen"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
@@ -16576,10 +16575,7 @@
         "consulente-commerciale-in-interdiscount-wettingen",
         "sales-consultant-in-interdiscount-wettingen",
         "consultant-en-ventes-interdiscount-wettingen",
-        "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-        "consultant-en-ventes-interdiscount-wettingen-ffb287",
         "venditore-a-interdiscount-wettingen",
-        "venditore-a-interdiscount-wettingen-aargau",
         "conseiller-e-de-vente-interdiscount-wettingen-aargau"
       ],
       "salaryMin": 62000,
@@ -16749,8 +16745,7 @@
           "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-          "venditore-a-coop-genossenschaft-winterthur-zurich"
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -16771,9 +16766,6 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "consulente-commerciale-in-coop-genossenschaft-winterthur-zurich",
-        "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "venditore-a-coop-genossenschaft-winterthur-zurich",
         "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
@@ -27170,8 +27162,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -27179,8 +27170,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

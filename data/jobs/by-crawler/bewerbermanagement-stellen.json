@@ -81,7 +81,7 @@
         "de": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
         "fr": "assistant-pour-les-aliments-et-boissons-m-f-j-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
         "it": "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "en": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
+        "en": "food-and-beverage-assistant-m-f-d-purchasing-winter-season-2026-2027-bewerbermanagement-stellen-lugano"
       },
       "company": "Bewerbermanagement Stellen",
       "companyKey": "bewerbermanagement-stellen",
@@ -125,10 +125,14 @@
         ],
         "de": [
           "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-bewerbermanagement"
+        ],
+        "en": [
+          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-bewerbermanagement"
+        "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-bewerbermanagement",
+        "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -655,10 +659,10 @@
     },
     {
       "id": "bewerbermanagement-stellen-16f94852c6b7",
-      "slug": "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch",
+      "slug": "responsabile-vendite-100-ufficio-aziendale-zurigo-m-f-d-bewerbermanagement-stellen-lugano",
       "slugByLocale": {
         "de": "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch",
-        "it": "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch",
+        "it": "responsabile-vendite-100-ufficio-aziendale-zurigo-m-f-d-bewerbermanagement-stellen-lugano",
         "en": "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch",
         "fr": "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch"
       },
@@ -712,7 +716,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:39.165Z"
+      "firstSeenAt": "2026-08-23T21:46:39.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-100-corporate-office-zurich-m-w-d-bewerbermanagement-stellen-ch"
+      ]
     },
     {
       "id": "bewerbermanagement-stellen-5c4e38d84c29",

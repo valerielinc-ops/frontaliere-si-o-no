@@ -26002,12 +26002,12 @@
     },
     {
       "id": "sulzer-590779ba623e",
-      "slug": "accountant-sulzer-ch",
+      "slug": "contabile-sulzer-riyadh",
       "slugByLocale": {
         "en": "accountant-sulzer-ch",
-        "it": "accountant-sulzer-ch",
-        "de": "accountant-sulzer-ch",
-        "fr": "accountant-sulzer-riyadh"
+        "it": "contabile-sulzer-riyadh",
+        "de": "buchhalter-sulzer-riyadh",
+        "fr": "comptable-sulzer-riyadh"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -26061,7 +26061,22 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-23T21:46:27.006Z"
+      "firstSeenAt": "2026-08-23T21:46:27.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accountant-sulzer-ch"
+        ],
+        "de": [
+          "accountant-sulzer-ch"
+        ],
+        "fr": [
+          "accountant-sulzer-riyadh"
+        ]
+      },
+      "previousSlugs": [
+        "accountant-sulzer-ch",
+        "accountant-sulzer-riyadh"
+      ]
     },
     {
       "id": "sulzer-3b55ce0d63d8",
