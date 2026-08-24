@@ -4036,6 +4036,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.classi-scolastiche-create-algoritmo.title': 'Mit einem Algorithmus erstellte Schulklassen, das Uster-Experiment',
     'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'Die Stadt Uster hat eine Software implementiert, um ausgewogenere Schulklassen zu schaffen, die allen Schülern gleiche Chancen bieten.',
     'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'Die Stadt Uster implementiert ein Software-Tool, um die Schulklassen besser auszugleichen, um allen Schülern gleiche Chancen zu bieten.',
+    'blog.article.sunrise-salt-rete-cooperazione.title': 'Sunrise und Salt erwägen eine engere Zusammenarbeit im Mobilfunknetz',
+    'blog.article.sunrise-salt-rete-cooperazione.excerpt': 'Die Zusammenarbeit zwischen Sunrise und Salt könnte die Abdeckung, den Empfang und die Qualität der Verbindung in der Schweiz verbessern, insbesondere in ländlichen und dünn besiedelten Gebieten.',
+    'blog.article.sunrise-salt-rete-cooperazione.imageAlt': 'Bild eines Nutzers mit Smartphone in einer schweizerischen Landwirtschaftsgebiet, mit stabiler und schneller Verbindung.',
 };
 
 export default blogMetaChDe;

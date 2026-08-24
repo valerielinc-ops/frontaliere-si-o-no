@@ -12106,6 +12106,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sunrise-salt-rete-cooperazione',
+    category: 'novita',
+    date: '2026-08-24T06:19:30.572Z',
+    image: '/images/blog/sunrise-salt-rete-cooperazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
