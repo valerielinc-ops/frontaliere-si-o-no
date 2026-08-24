@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef, useDeferredValue, Suspense } from 'react';
+import { haversineKm as sharedHaversineKm } from '../../scripts/lib/haversine.mjs';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
@@ -157,15 +158,17 @@ function getAgreementType(distanceKm: number): 'new' | 'old' | 'both' {
  return distanceKm <= 20 ? 'both' : 'old';
 }
 
+/**
+ * Point-to-point wrapper over the shared great-circle helper.
+ *
+ * The trigonometry was inlined here, one of six byte-equivalent copies of
+ * `scripts/lib/haversine.mjs` in the repo (issue #5002 removed the class).
+ * Same formula in six places means five of them miss the next correction —
+ * exactly what AGENTS.md rule #6 forbids. Signature kept object-shaped so the
+ * call sites are untouched.
+ */
 function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
- const toRad = (deg: number) => (deg * Math.PI) / 180;
- const earthKm = 6371;
- const dLat = toRad(b.lat - a.lat);
- const dLng = toRad(b.lng - a.lng);
- const lat1 = toRad(a.lat);
- const lat2 = toRad(b.lat);
- const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
- return 2 * earthKm * Math.asin(Math.sqrt(h));
+  return sharedHaversineKm(a.lat, a.lng, b.lat, b.lng);
 }
 
 function nearestOpenCrossing(lat: number, lng: number): BorderCrossing {

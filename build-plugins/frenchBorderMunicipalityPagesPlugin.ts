@@ -35,6 +35,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
+import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -176,7 +177,13 @@ interface Copy {
   dualNote: (name: string) => string;
   crossTitle: string;
   calcLink: string;
-  relatedTitle: string;
+  /** Column headers and prose labels of the nearest-comune comparison block. */
+  colBorderDistance: string;
+  colPopulation: string;
+  colCrossing: string;
+  colRent: string;
+  spreadComparison: string;
+  comparisonSource: string;
   faqTitle: string;
   faqQ1: (name: string) => string;
   faqA1: (name: string, regime: string) => string;
@@ -227,7 +234,12 @@ const COPY: Record<FrenchLocale, Copy> = {
       `${n} si trova in un dipartimento che confina sia con Ginevra sia con un cantone dell'accordo del 1983: entrambi i regimi sono quindi realmente possibili per i suoi residenti. Qui sotto trovi tutti e due — quello che ti riguarda è deciso dal cantone del tuo datore di lavoro.`,
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
-    relatedTitle: 'Altri comuni del corridoio',
+    colBorderDistance: 'Distanza dal confine',
+    colPopulation: 'Abitanti',
+    colCrossing: 'Valico più vicino',
+    colRent: 'Affitto bilocale',
+    spreadComparison: 'la distanza dal confine',
+    comparisonSource: 'Distanza su strada dal valico più vicino, popolazione e affitto indicativo dal dataset comunale francese (INSEE).',
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
     faqA1: (n, r) =>
@@ -281,7 +293,12 @@ const COPY: Record<FrenchLocale, Copy> = {
       `${n} sits in a department bordering both canton Geneva and a canton under the 1983 agreement, so both regimes are genuinely possible for its residents. Both are described below — the one that applies to you is set by your employer's canton.`,
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
-    relatedTitle: 'Other towns in the corridor',
+    colBorderDistance: 'Distance to border',
+    colPopulation: 'Population',
+    colCrossing: 'Nearest crossing',
+    colRent: 'One-bedroom rent',
+    spreadComparison: 'the distance to the border',
+    comparisonSource: 'Road distance to the nearest crossing, population and indicative rent from the French municipal dataset (INSEE).',
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
     faqA1: (n, r) =>
@@ -335,7 +352,12 @@ const COPY: Record<FrenchLocale, Copy> = {
       `${n} liegt in einem Departement, das sowohl an den Kanton Genf als auch an einen Kanton des Abkommens von 1983 grenzt: Beide Regime sind für die Einwohner real möglich. Unten stehen beide — welches für Sie gilt, bestimmt der Kanton Ihres Arbeitgebers.`,
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
-    relatedTitle: 'Weitere Orte im Korridor',
+    colBorderDistance: 'Entfernung zur Grenze',
+    colPopulation: 'Einwohner',
+    colCrossing: 'Nächster Übergang',
+    colRent: 'Miete 2-Zimmer',
+    spreadComparison: 'die Entfernung zur Grenze',
+    comparisonSource: 'Straßenentfernung zum nächsten Übergang, Einwohnerzahl und Richtmiete aus dem französischen Gemeindedatensatz (INSEE).',
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
     faqA1: (n, r) =>
@@ -389,7 +411,12 @@ const COPY: Record<FrenchLocale, Copy> = {
       `${n} se situe dans un département frontalier à la fois du canton de Genève et d'un canton de l'accord de 1983 : les deux régimes sont donc réellement possibles pour ses habitants. Les deux sont décrits ci-dessous — celui qui vous concerne est déterminé par le canton de votre employeur.`,
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
-    relatedTitle: 'Autres communes du corridor',
+    colBorderDistance: 'Distance de la frontière',
+    colPopulation: 'Habitants',
+    colCrossing: 'Passage le plus proche',
+    colRent: 'Loyer deux-pièces',
+    spreadComparison: 'la distance de la frontière',
+    comparisonSource: 'Distance routière du passage le plus proche, population et loyer indicatif issus du jeu de données communal français (INSEE).',
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
     faqA1: (n, r) =>
@@ -442,19 +469,52 @@ function breadcrumbLd(locale: FrenchLocale, name: string, canonicalUrl: string):
 
 // ── Page renderers ──────────────────────────────────────────────
 
+/**
+ * The comparison block that used to be a fixed link grid.
+ *
+ * Before (issue #5002): `FRENCH_ABOVE_FLOOR.filter(self).slice(0, 6)` — the SAME
+ * six comuni on every page of the family, so the block carried no per-page
+ * information and every inbound link inside the family pointed at those six
+ * pages (the concentration PR #5107 fixed for articles). Measured 2026-08-24,
+ * the municipality families scored a median Information Gain of 0-15 percent.
+ *
+ * After: the six geographically nearest comuni with the figures that differ
+ * between them, plus prose stating where THIS comune sits in the group.
+ * Page-specific by construction — a comune's neighbour set is unique to it.
+ *
+ * Renderer, determinism argument and shared copy: `nearestMunicipalityComparison`.
+ */
 function renderRelated(locale: FrenchLocale, current: FrenchBorderMunicipality): string {
-  const others = FRENCH_ABOVE_FLOOR.filter((m) => m.slug !== current.slug).slice(0, 6);
-  if (others.length === 0) return '';
-  const links = others
-    .map(
-      (m) =>
-        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${frenchMunicipalityPathFor(locale, m.slug)}">${esc(m.name)} <span class="font-normal text-muted">· ${esc(getCantonDisplayName(m.canton, locale))}</span></a>`,
-    )
-    .join('');
-  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(COPY[locale].relatedTitle)}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${links}</div>
-    </section>`;
+  const c = COPY[locale];
+  return renderNearestComparison<FrenchBorderMunicipality>({
+    locale,
+    current,
+    pool: FRENCH_ABOVE_FLOOR,
+    hrefFor: (m) => frenchMunicipalityPathFor(locale, m.slug),
+    keyOf: (m) => m.slug,
+    columns: [
+      {
+        header: c.colBorderDistance,
+        value: (m) => `${intFmt(m.distanceKm, locale)} km`,
+        numeric: (m) => m.distanceKm,
+        formatNumeric: (value) => `${intFmt(value, locale)} km`,
+        spreadLabel: c.spreadComparison,
+      },
+      {
+        header: c.colPopulation,
+        value: (m) => intFmt(m.population, locale),
+      },
+      {
+        header: c.colCrossing,
+        value: (m) => m.nearestCrossing,
+      },
+      {
+        header: c.colRent,
+        value: (m) => eur(m.avgRentMonthly, locale),
+      },
+    ],
+    sourceNote: c.comparisonSource,
+  });
 }
 
 export function renderAboveFloorPage(params: {

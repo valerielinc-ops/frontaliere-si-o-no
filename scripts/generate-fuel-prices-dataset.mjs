@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from 'node:fs';
+import { haversineKm } from './lib/haversine.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -98,19 +99,9 @@ function toNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
-function deg2rad(v) {
-  return (v * Math.PI) / 180;
-}
-
-function haversineKm(lat1, lng1, lat2, lng2) {
-  const R = 6371;
-  const dLat = deg2rad(lat2 - lat1);
-  const dLng = deg2rad(lng2 - lng1);
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLng / 2) ** 2;
-  return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
+// haversineKm (e il suo deg2rad) ora arrivano dal modulo condiviso
+// scripts/lib/haversine.mjs: era una delle sei copie byte-equivalenti della
+// stessa formula nel repo (#5002).
 
 function average(values) {
   if (!values.length) return null;

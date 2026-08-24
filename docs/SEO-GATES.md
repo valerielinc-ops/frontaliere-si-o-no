@@ -183,3 +183,35 @@ Counter-example, so the rule is not over-applied: `audit:spa-bundle-injection` i
 1. `npm run audit:discover-eligibility` — the table is one row per page family with a pass rate per check.
 2. A family at 0% on `maxImagePreviewLarge` means its plugin hand-rolls a `<head>` and bypassed the normaliser. `tests/seo/discover-robots-directive.test.ts` will name the file and line.
 3. A family at 0% on `largeImage` is usually correct-by-nature (data landings with no hero photograph). Treat it as a content decision, not a defect — and remember `max-image-preview:large` raises the CAP on preview size, it does not supply an image (that was the #5101 defect on article pages).
+
+---
+
+## 8. Information Gain per template cohort (floor 5 % median, inventory shrink-only)
+
+**Why.** `audit-content-duplicates` catches only EXACT body collisions, and a
+mail-merge family never collides: swap the place name and one figure and the
+SHA-256 changes. Measured 2026-08-24 in production, `/tasse-frontalieri-comune/`
+was green on content-duplicates while 29 of 30 sampled pages carried not one
+sentence their siblings did not already have. This gate is the near-duplication
+half.
+
+**Where.**
+- Local: `node scripts/audit-information-gain.mjs <dist>` (or `npm run audit:information-gain`)
+- CI: registered in `scripts/audit-all.mjs`, so it rides the single sampled
+  `dist/` walk in `post-deploy-validate-dist.yml`
+- Baseline: no file — the inventory `KNOWN_LOW_GAIN_COHORTS` lives in the script
+  with the measured value and the date next to each line
+
+**What fails the run.** A cohort outside the inventory whose MEDIAN gain drops
+below 5 %, or an inventoried cohort that gets more than 1,5 points worse than
+its recorded value. Both are rates, never counts, so a sampled run and a full
+run are comparable. Recovery prints a "remove this line" notice and does not
+fail.
+
+**Not the issue's 40 % target.** #5002 asked for IGS > 40 % on key pages; no
+family reaches it today, and a threshold nothing meets is a threshold that gets
+lowered. The distance from 40 % is reported (`cohortsBelowIssueTarget40`), the
+gate bites at 5 %.
+
+Metric definition, the two masks, the measured per-family baseline and the
+procedure to re-measure on a live sample: `docs/INFORMATION-GAIN.md`.

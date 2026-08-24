@@ -31,7 +31,7 @@
  */
 
 import fs from 'node:fs';
-import { irpefDisplayText } from '../services/irpefAddizionaleRegime';
+import { irpefDisplayText, leviesIrpefAddizionale } from '../services/irpefAddizionaleRegime';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
@@ -41,6 +41,7 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { calculateSimulation } from '../services/calculationService';
 import { scenarioToInputs, type SalaryHubScenario } from './salaryHubScenarios';
+import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
 import { resolveFiscalMunicipalitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
@@ -201,7 +202,15 @@ interface Copy {
   vitaLink: (name: string) => string;
   calcLink: string;
   taxReturnLink: string;
-  relatedTitle: string;
+  /** Column headers and prose labels of the nearest-comune comparison block. */
+  colAddizionale: string;
+  colBorderDistance: string;
+  colRent: string;
+  spreadAddizionale: string;
+  comparisonSource: string;
+  /** Computed euro delta against the cheapest / dearest comune of the group. */
+  deltaVsCheapest: (other: string, amount: string) => string;
+  deltaIsCheapest: (other: string, amount: string) => string;
   faqTitle: string;
   faqQ1: string;
   faqA1: (name: string, diff: string) => string;
@@ -253,7 +262,15 @@ const COPY: Record<FiscalLocale, Copy> = {
     vitaLink: (n) => `Vivere a ${n}: dogana, affitti e pendolarismo`,
     calcLink: 'Calcola il tuo stipendio netto',
     taxReturnLink: 'Dichiarazione dei redditi frontalieri',
-    relatedTitle: 'Altri comuni della fascia',
+    colAddizionale: 'Addizionale comunale',
+    colBorderDistance: 'Distanza dal confine',
+    colRent: 'Affitto bilocale',
+    spreadAddizionale: 'l\u2019addizionale comunale',
+    comparisonSource: 'Addizionale IRPEF 2024, distanza dal confine e affitto indicativo dallo stesso dataset comunale usato nello scenario qui sopra.',
+    deltaVsCheapest: (other, amount) =>
+      `Nel nuovo regime, a parità di profilo, la differenza di addizionale rispetto a ${other} — il più basso del gruppo — vale circa ${amount} di netto all'anno.`,
+    deltaIsCheapest: (other, amount) =>
+      `È l'addizionale più bassa del gruppo: rispetto a ${other}, il più alto, lo stesso profilo tiene circa ${amount} in più di netto all'anno.`,
     faqTitle: 'Domande frequenti',
     faqQ1: 'Conviene di più il vecchio o il nuovo regime?',
     faqA1: (n, d) =>
@@ -309,7 +326,15 @@ const COPY: Record<FiscalLocale, Copy> = {
     vitaLink: (n) => `Living in ${n}: border, rent and commuting`,
     calcLink: 'Calculate your net salary',
     taxReturnLink: 'Cross-border tax return guide',
-    relatedTitle: 'Other municipalities in the band',
+    colAddizionale: 'Municipal surcharge',
+    colBorderDistance: 'Distance to border',
+    colRent: 'One-bedroom rent',
+    spreadAddizionale: 'the municipal surcharge',
+    comparisonSource: '2024 IRPEF surcharge, distance to the border and indicative rent from the same municipal dataset used in the scenario above.',
+    deltaVsCheapest: (other, amount) =>
+      `Under the new regime, same profile, the surcharge gap against ${other} — the lowest in the group — is worth about ${amount} of net pay a year.`,
+    deltaIsCheapest: (other, amount) =>
+      `This is the lowest surcharge in the group: against ${other}, the highest, the same profile keeps about ${amount} more net a year.`,
     faqTitle: 'FAQ',
     faqQ1: 'Is the old or the new regime better?',
     faqA1: (n, d) =>
@@ -365,7 +390,15 @@ const COPY: Record<FiscalLocale, Copy> = {
     vitaLink: (n) => `Leben in ${n}: Grenze, Miete und Pendeln`,
     calcLink: 'Nettolohn berechnen',
     taxReturnLink: 'Leitfaden zur Steuererklärung',
-    relatedTitle: 'Weitere Gemeinden der Zone',
+    colAddizionale: 'Gemeindezuschlag',
+    colBorderDistance: 'Entfernung zur Grenze',
+    colRent: 'Miete 2-Zimmer',
+    spreadAddizionale: 'der Gemeindezuschlag',
+    comparisonSource: 'IRPEF-Gemeindezuschlag 2024, Entfernung zur Grenze und Richtmiete aus demselben Gemeindedatensatz wie im Szenario oben.',
+    deltaVsCheapest: (other, amount) =>
+      `Im neuen Regime, gleiches Profil, entspricht der Zuschlagsunterschied zu ${other} — dem niedrigsten der Gruppe — rund ${amount} Netto pro Jahr.`,
+    deltaIsCheapest: (other, amount) =>
+      `Das ist der niedrigste Zuschlag der Gruppe: gegenüber ${other}, dem höchsten, bleiben beim gleichen Profil rund ${amount} mehr Netto pro Jahr.`,
     faqTitle: 'Häufige Fragen',
     faqQ1: 'Ist das alte oder das neue Regime besser?',
     faqA1: (n, d) =>
@@ -421,7 +454,15 @@ const COPY: Record<FiscalLocale, Copy> = {
     vitaLink: (n) => `Vivre à ${n} : douane, loyers et trajets`,
     calcLink: 'Calculez votre salaire net',
     taxReturnLink: 'Guide de la déclaration frontalière',
-    relatedTitle: 'Autres communes de la bande',
+    colAddizionale: 'Surtaxe communale',
+    colBorderDistance: 'Distance de la frontière',
+    colRent: 'Loyer deux-pièces',
+    spreadAddizionale: 'la surtaxe communale',
+    comparisonSource: 'Surtaxe IRPEF 2024, distance de la frontière et loyer indicatif issus du même jeu de données communal que le scénario ci-dessus.',
+    deltaVsCheapest: (other, amount) =>
+      `Sous le nouveau régime, à profil égal, l'écart de surtaxe avec ${other} — la plus basse du groupe — vaut environ ${amount} de net par an.`,
+    deltaIsCheapest: (other, amount) =>
+      `C'est la surtaxe la plus basse du groupe : face à ${other}, la plus haute, le même profil garde environ ${amount} de net en plus par an.`,
     faqTitle: 'Questions fréquentes',
     faqQ1: 'L\'ancien ou le nouveau régime est-il plus avantageux ?',
     faqA1: (n, d) =>
@@ -496,21 +537,113 @@ function breadcrumbLd(locale: FiscalLocale, name: string, canonicalUrl: string):
   });
 }
 
+/**
+ * `computeRegimes` memoised by rate.
+ *
+ * The comparison block calls it for a neighbour's rate on every page render,
+ * and each call runs the salary engine twice. There are only NINE distinct
+ * rates in the whole 518-row dataset (346 rows share 0,55 %), so the cache is
+ * bounded at nine entries and hits on essentially every lookup.
+ */
+const REGIMES_BY_RATE = new Map<number, ReturnType<typeof computeRegimes>>();
+function regimesFor(irpefPct: number): ReturnType<typeof computeRegimes> {
+  let cached = REGIMES_BY_RATE.get(irpefPct);
+  if (cached === undefined) {
+    cached = computeRegimes(irpefPct);
+    REGIMES_BY_RATE.set(irpefPct, cached);
+  }
+  return cached;
+}
+
 // ── Page renderers ──────────────────────────────────────────────
 
+/**
+ * The comparison block that used to be a fixed link grid.
+ *
+ * Before (issue #5002): `FISCAL_ABOVE_FLOOR.filter(self).slice(0, 6)` — the
+ * SAME six comuni on all 70 pages. Two defects in one block: no per-page
+ * content (the family measured a median Information Gain of 0,0 %, 29 of 30
+ * sampled pages contributing nothing their siblings did not carry), and the
+ * inbound-link concentration PR #5107 fixed for articles, since 64 of 70 pages
+ * received no link from a sibling at all.
+ *
+ * After: the six geographically nearest comuni, with the figures that actually
+ * differ between them, plus prose stating where THIS comune sits in that
+ * group. Page-specific by construction — the neighbour set of a comune is
+ * unique to it — and every above-floor page now receives links from its
+ * neighbours instead of six pages receiving all of them.
+ *
+ * Renderer, determinism argument and locale copy: `nearestMunicipalityComparison`.
+ */
 function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): string {
-  const others = FISCAL_ABOVE_FLOOR.filter((m) => m.slug !== current.slug).slice(0, 6);
-  if (others.length === 0) return '';
-  const links = others
-    .map(
-      (m) =>
-        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${fiscalPathFor(locale, m.slug)}">${esc(m.name)} <span class="font-normal text-muted">· ${esc(irpefDisplayText(m, locale, pct(m.irpefAddizionale, locale)))}</span></a>`,
-    )
-    .join('');
-  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(COPY[locale].relatedTitle)}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${links}</div>
-    </section>`;
+  const c = COPY[locale];
+  return renderNearestComparison<FiscalMunicipality>({
+    locale,
+    current,
+    pool: FISCAL_ABOVE_FLOOR,
+    hrefFor: (m) => fiscalPathFor(locale, m.slug),
+    keyOf: (m) => m.slug,
+    columns: [
+      {
+        header: c.colAddizionale,
+        value: (m) => irpefDisplayText(m, locale, pct(m.irpefAddizionale, locale)),
+        // `null`, not `0`, where the comune levies no surcharge at all: the 51
+        // Valle d'Aosta rows carry a real zero produced by a DIFFERENT regime
+        // (l. cost. 4/1948), and `services/irpefAddizionaleRegime.ts` exists
+        // precisely because treating it as the cheapest value on the same
+        // scale is the bug it documents. Excluded from the spread sentence,
+        // still shown in the table with its own label.
+        numeric: (m) => (leviesIrpefAddizionale(m) ? m.irpefAddizionale : null),
+        formatNumeric: (value) => pct(value, locale),
+        spreadLabel: c.spreadAddizionale,
+      },
+      {
+        header: c.colBorderDistance,
+        value: (m) => `${intFmt(m.distanceKm, locale)} km`,
+      },
+      {
+        header: c.colRent,
+        value: (m) => eur(m.avgRentMonthly, locale),
+      },
+    ],
+    sourceNote: c.comparisonSource,
+    extraProse: ({ current: self, neighbours }) => {
+      // Only comuni that actually levy the surcharge can be compared on it —
+      // see the `numeric` note above.
+      // A comune that levies no surcharge at all (Valle d'Aosta, l. cost.
+      // 4/1948) has no gap to state: "the difference against the lowest of the
+      // group" would present a zero produced by a different regime as if it
+      // were a rate on the same scale — the exact confusion
+      // services/irpefAddizionaleRegime.ts exists to prevent. Its own table
+      // cell already says the surcharge does not apply.
+      if (!leviesIrpefAddizionale(self)) return [];
+      const group = [self, ...neighbours.map((entry) => entry.place)].filter(leviesIrpefAddizionale);
+      if (group.length < 2) return [];
+      const sorted = [...group].sort(
+        (a, b) => a.irpefAddizionale - b.irpefAddizionale || (a.slug < b.slug ? -1 : 1),
+      );
+      const lowest = sorted[0];
+      const highest = sorted[sorted.length - 1];
+      if (lowest.irpefAddizionale === highest.irpefAddizionale) return [];
+
+      const selfIsLowest = self.irpefAddizionale === lowest.irpefAddizionale;
+      const other = selfIsLowest ? highest : lowest;
+      // Same engine as the scenario table above, so the two figures on the
+      // page cannot disagree: the euro delta IS the difference between two
+      // runs of `computeRegimes`, not a re-derivation from the percentage.
+      const delta = Math.abs(
+        regimesFor(self.irpefAddizionale).newNetAnnualEUR -
+          regimesFor(other.irpefAddizionale).newNetAnnualEUR,
+      );
+      if (delta < 1) return [];
+      const amount = eur(delta, locale);
+      return [
+        selfIsLowest
+          ? c.deltaIsCheapest(other.name, amount)
+          : c.deltaVsCheapest(other.name, amount),
+      ];
+    },
+  });
 }
 
 export function renderAboveFloorPage(params: {
